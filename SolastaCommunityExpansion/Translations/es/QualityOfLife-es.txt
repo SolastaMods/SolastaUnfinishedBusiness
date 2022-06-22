@@ -1,0 +1,57 @@
+BlueprintCategory/&FlatRoomsTitle	Habitaciones planas
+Caption/&GadgetParametersCustomRemoveDescription	Remover:\n{0}.
+ContentPack/&CommunityExpansionPackDescription	El paquete Community Expansion agrega nuevas clases, subclases, dotes y hechizos. Hay un límite de nivel más alto, varias clases, funciones de QOL, correcciones de errores y más. Es un verdadero Cuerno de la Abundancia (TM)...
+ContentPack/&CommunityExpansionPackTitle	Paquete de expansión de la comunidad
+Failure/&FailureFlagTargetMeleeWeaponError	No se puede realizar un ataque cuerpo a cuerpo en este objetivo con el arma actual
+Feature/&AlwaysBeardDescription	¡{0}% de posibilidades de dejarse crecer una barba gloriosa!
+Feature/&BardSkillsTitle	Habilidades de bardo
+Feature/&EmptyString	VACÍO
+Format/&LevelAndExperienceFormat	Nivel: {0}\nExperiencia: {1}\n{2} puntos necesarios para alcanzar el nivel {3}
+Format/&LevelAndExperienceMaxedFormat	Nivel: {0}\nExperiencia: {1}\nnivel máximo alcanzado
+MainMenu/&ExportPdfDescription	Baja de nivel a este héroe.
+MainMenu/&ExportPdfTitle	Nivel abajo
+Message/&CharacterExportDuplicateNameErrorDescription	Exportación cancelada:\n\nYa existe un héroe con este nombre en la piscina.\nIntente con otro nombre.
+Message/&CharacterExportEmptyNameErrorDescription	Exportación cancelada:\n\nIntente con un nombre que no esté vacío.
+Message/&CharacterExportModalContentDescription	Ingrese el nombre del héroe para exportar:
+Message/&CharacterExportModalTitleDescription	Exportación de personajes.
+Message/&LevelDownConfirmationDescription	¿Bajar de nivel a este héroe?
+Message/&LevelDownMultiplayerAbortDescription	No se puede bajar de nivel durante una sesión multijugador.
+Message/&MessageModWelcomeDescription	Community Expansion Mod está repleto de funciones interesantes, pero de forma predeterminada, ninguna está habilitada. Presiona <color=amarillo>Ctrl-F10</color> para abrir la interfaz de usuario de Unity Mod Manager [UMM], luego haz clic en el ícono de configuración junto a "Expansión de la comunidad" para abrir las páginas de configuración.\n\n Explora las opciones y selecciona las que más te gusten. Ahora se abrirá la interfaz de usuario de UMM.
+Message/&MessageModWelcomeTitle	Mod de expansión comunitaria
+Message/&RespecMultiplayerAbortDescription	No se puede respetar durante una sesión multijugador o en un mapa de exploración.
+Message/&SpawnCustomEncounterDescription	¿Encuentro de aparición en las coordenadas ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription	No se pueden generar encuentros en un juego multijugador. Aún...
+Message/&SpawnCustomEncounterTitle	Encontrar
+Message/&TeleportPartyDescription	¿Teletransportar el grupo a las coordenadas ({0}, {1})?\nPuede romper misiones o mapas si se teletransporta a un lugar desconocido.
+Message/&TeleportPartyTitle	teletransportarse
+Reaction/&ReadiedAction{0}Description	Listo {0}
+Reaction/&ReadiedAction{0}Title	Listo {0}
+Reaction/&SpendPower{0}Description	gastar {0}
+Reaction/&SpendPower{0}Title	gastar {0}
+Reaction/&SpendPowerBundleDescription	Gastar energía.
+Reaction/&SpendPowerBundleTitle	Gastar poder
+Reaction/&SubitemSelectPowerBundleTitle	Opciones
+Reaction/&SubitemSelectSlotLevelTitle	Nivel de tragamonedas
+Reaction/&Use{0}Description	Usa {0}
+Reaction/&Use{0}Title	Usa {0}
+Requirement/&FeatureSelectionRequireCharacterLevel	Nivel {0}
+Requirement/&FeatureSelectionRequireClassLevel	Nivel {0} de {1}
+RestActivity/&ZSRespecDescription	Respeta a este héroe.
+RestActivity/&ZSRespecTitle	respeto
+Screen/&EditorLocationSize3Title	Enorme [MODIFICADO]
+Screen/&EditorLocationSize4Title	Gigantesco [MODIFICADO]
+Stage/&IdentityMorphotypeEyeHeader	Estilo de ojos
+ToolTip/&CheckBoxDefaultPartyTitle	Marque esta casilla para configurar su fiesta predeterminada cuando comience nuevas aventuras o pruebe ubicaciones personalizadas. Puede seleccionar hasta {0} héroes por orden de llegada.
+Tooltip/&Tag9000Title	Efecto personalizado
+Tooltip/&TagCommunityExpansionTitle	Expansión de la comunidad
+Tooltip/&TagOtherModContentTitle	Desde modelo
+UI/&CustomFeatureSelectionStageDescription	Seleccione características adicionales de su clase/subclase.
+UI/&CustomFeatureSelectionStageFeatures	Características
+UI/&CustomFeatureSelectionStageNotDone	Debe seleccionar todas las funciones disponibles antes de continuar
+UI/&CustomFeatureSelectionStageTitle	Selección de características
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Broma
+UI/&CustomFeatureSelectionTooltipTypeFeature	Rasgo
+UI/&CustomFeatureSelectionTooltipTypePower	Energía
+UI/&CustomFeatureSelectionTooltipTypeProficiency	Competencia
+UI/&ForcePreferredCantripDescription	Si esta opción está activada, solo se puede activar el cantrip preferido. Si no se selecciona el cantrip preferido, se activará el primer cantrip válido, independientemente de esta opción.
+UI/&ForcePreferredCantripTitle	Forzar Cantrip Preferido

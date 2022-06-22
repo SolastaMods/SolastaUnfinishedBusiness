@@ -1,0 +1,16 @@
+Subclass/&MagicAffinityMasterManipulatorDC0Description	Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description	Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description	Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description	Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description	Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description	Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription	Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle	Force arcanique
+Subclass/&MagicAffinityMasterManipulatorListDescription	Lorsque vous lancez des sorts d'enchantement, d'abjuration et d'illusion, ils sont lancés à un niveau d'emplacement de sort supérieur de 1 à celui utilisé. Les sorts améliorés incluent : Charme de personne, Sommeil, Spray de couleur, Maintien de personne, Invisibilité, Contresort, Dissipation de la magie, Bannissement, Confusion, Tueur fantomatique, Domination de personne et Maintien de monstre.
+Subclass/&MagicAffinityMasterManipulatorListTitle	Manipulation des Arcanes
+Subclass/&ManipulatorMentalSavingThrowsDescription	Maîtrisez les jets de sauvegarde avec Constitution et Charisme.
+Subclass/&ManipulatorMentalSavingThrowsTitle	Résistance mentale
+Subclass/&PowerManipulatorDominatePersonDescription	Vous pouvez utiliser Dominer une personne un nombre de fois par repos long égal à votre modificateur d'Intelligence.
+Subclass/&PowerManipulatorDominatePersonTitle	Dominer la personne
+Subclass/&TraditionMasterManipulatorDescription	Les maîtres manipulateurs excellent dans le contrôle du champ de bataille et empêchent leurs ennemis de les attaquer.
+Subclass/&TraditionMasterManipulatorTitle	Maître manipulateur

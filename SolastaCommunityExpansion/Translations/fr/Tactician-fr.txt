@@ -1,0 +1,22 @@
+Feature/&CounterStrikePowerDescription	Dépensez un dé de gambit et Counter Strike l'ennemi, si vous touchez, infligez 1d6 + 2 dégâts contondants supplémentaires.
+Feature/&CounterStrikePowerTitle	Counter Strike
+Feature/&GambitResourcePoolAddDescription	Ajoute un dé de Gambit supplémentaire.
+Feature/&GambitResourcePoolAddTitle	Dé Gambit supplémentaire
+Feature/&GambitResourcePoolDescription	Pool de dés de gambit pouvant être dépensés en gambits. Commence avec 4, ils se rechargent sur un court repos.
+Feature/&GambitResourcePoolTitle	Pool de dés Gambit
+Feature/&InspirePowerDescription	Passez un dé de gambit et inspirez-vous ou votre allié à donner 1d6 + 2 PV temporaires.
+Feature/&InspirePowerTitle	Inspirer
+Feature/&KnockDownPowerDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires. La cible effectue un jet de Force (DD 8 + votre bonus de maîtrise + votre modificateur de Force) ou est renversée jusqu'au début de son prochain tour.
+Feature/&KnockDownPowerTitle	Abattre
+Reaction/&SpendPowerCounterStrikePowerDescription	Dépensez un dé de gambit et Counter Strike l'ennemi, si vous touchez, infligez 1d6 + 2 dégâts contondants supplémentaires.
+Reaction/&SpendPowerCounterStrikePowerReactDescription	Dépensez un dé de gambit et Counter Strike l'ennemi, si vous touchez, infligez 1d6 + 2 dégâts contondants supplémentaires.
+Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
+Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
+Reaction/&SpendPowerInspirePowerDescription	Passez un dé de gambit et inspirez votre allié, donnant 1d6 + 2 PV temporaires.
+Reaction/&SpendPowerInspirePowerTitle	Inspirer
+Reaction/&SpendPowerKnockDownPowerDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires. La cible effectue un jet de Force (DD 8 + votre bonus de maîtrise + votre modificateur de Force) ou est renversée jusqu'au début de son prochain tour.
+Reaction/&SpendPowerKnockDownPowerReactDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires. La cible effectue un jet de Force (DD 8 + votre bonus de maîtrise + votre modificateur de Force) ou est renversée jusqu'au début de son prochain tour.
+Reaction/&SpendPowerKnockDownPowerReactTitle	Abattre
+Reaction/&SpendPowerKnockDownPowerTitle	Abattre
+Subclass/&TactitionFighterSubclassDescription	Le Tacticien utilise ses connaissances et sa puissance sur le champ de bataille pour effectuer différents gambits selon les besoins. Ils peuvent renverser leurs ennemis, inspirer leurs alliés et lancer des contre-attaques mortelles contre leurs ennemis.
+Subclass/&TactitionFighterSubclassTitle	Le Tacticien

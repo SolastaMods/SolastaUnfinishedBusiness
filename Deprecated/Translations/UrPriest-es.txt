@@ -1,0 +1,34 @@
+Condition/&HalfLifeConditionDescription	Tomas energía necrótica dentro de ti mismo y pendes entre la vida y la muerte y eres poseído temporalmente por tu propio fantasma, ganando vuelo, y las mismas inmunidades de condición y resistencias al daño que otros fantasmas.
+Condition/&HalfLifeConditionTitle	Media vida
+Feature/&DomainBattleDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainBattleDomainlevel1FeaturesTitle	Dominio de batalla
+Feature/&DomainElementalColdDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainElementalColdDomainlevel1FeaturesTitle	Dominio elemental (frío)
+Feature/&DomainElementalFireDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainElementalFireDomainlevel1FeaturesTitle	Dominio Elemental (Fuego)
+Feature/&DomainElementalLightingDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Dominio elemental (iluminación)
+Feature/&DomainInsightDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainInsightDomainlevel1FeaturesTitle	Dominio de información
+Feature/&DomainLawDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainLawDomainlevel1FeaturesTitle	Dominio de la ley
+Feature/&DomainLifeDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainLifeDomainlevel1FeaturesTitle	Dominio de la vida
+Feature/&DomainMischiefDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainMischiefDomainlevel1FeaturesTitle	Dominio Travieso
+Feature/&DomainOblivionDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainOblivionDomainlevel1FeaturesTitle	Dominio del olvido
+Feature/&DomainSunDomainlevel1FeaturesDescription	Aprendes las características de nivel 1 de este dominio.
+Feature/&DomainSunDomainlevel1FeaturesTitle	Dominio del Sol
+Feature/&UrPriestDomainTheftDescription	Arrebatas los secretos que un dios otorga a todos sus clérigos devotos. Elija un dominio Cleric: obtiene las funciones que otorga el dominio en el primer nivel.
+Feature/&UrPriestDomainTheftTitle	Robo de dominio
+Feature/&UrPriestExpandedSpelllistAfinityDescription	Eliges de una lista ampliada de hechizos cuando aprendes un hechizo de brujo. Los hechizos de clérigo se agregan a la lista de hechizos de Warlock para ti.
+Feature/&UrPriestExpandedSpelllistAfinityTitle	Hechizos de UrPriest
+Power/&UrPriestControlUndeadDescription	Como acción, haces objetivo a una criatura muerta viviente que puedas ver a 30 pies de ti. El objetivo debe hacer una tirada de salvación de Sabiduría. En una salvación fallida, el objetivo debe obedecer tus órdenes.
+Power/&UrPriestControlUndeadTitle	Controlar muertos vivientes
+Power/&UrPriestHalfLifeDescription	Tomas energía necrótica dentro de ti mismo, colgando entre la vida y la muerte y estás poseído temporalmente por tu propio fantasma. Obtienes velocidad de vuelo y las mismas inmunidades de condición y resistencias al daño que otros fantasmas.
+Power/&UrPriestHalfLifeTitle	Media vida
+Power/&UrPriestRadiantWardDescription	Como acción, obtienes una cantidad de puntos de golpe temporales igual al doble de tu nivel de brujo.
+Power/&UrPriestRadiantWardTitle	Guardián radiante
+Power/&UrPriestSpellSiphonDescription	aprendes a aprovechar una mayor fuente de magia en combinación con tu reserva normal de poder. Como acción, puedes gastar Canalizar Divinidad para recuperar un uso gastado de tu Mystic Arcanum de 6º nivel.
+Power/&UrPriestSpellSiphonTitle	Sifón de hechizos

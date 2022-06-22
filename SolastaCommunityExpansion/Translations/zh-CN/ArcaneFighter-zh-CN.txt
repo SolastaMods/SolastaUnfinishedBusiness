@@ -1,0 +1,10 @@
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	魔法能力造成额外伤害
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	魔法能力造成额外伤害
+Subclass/&ArcaneFighterAdditionalActionDescription	在你用武器击败敌人后，你能施放一个法术
+Subclass/&ArcaneFighterAdditionalActionTitle	施法作战
+Subclass/&ArcaneFighterBonusWeaponDamageDescription	每回合一次，你的武器攻击会额外造成1d8点伤害
+Subclass/&ArcaneFighterBonusWeaponDamageTitle	灌法攻击
+Subclass/&TraditionArcaneFighterDescription	将你的魔法转化为武器攻击
+Subclass/&TraditionArcaneFighterTitle	奥法战士
+Subclass/&WeaponProfArcaneFighterDescription	战斗的经验使奥法战士接受了简易和军用武器的训练
+Subclass/&WeaponProfArcaneFighterTitle	武器训练

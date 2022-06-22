@@ -1,0 +1,14 @@
+Subclass/&ConditionTransmuteConstitutionSaveDescription	Temporärer Konstitutionsschutz, der durch die Kraft der Machtumwandlung gewährt wird.
+Subclass/&ConditionTransmuteConstitutionSaveTitle	Verfassung speichert
+Subclass/&ConditionTransmutePoisonDescription	Vorübergehender Säure-, Kälte-, Feuer-, Blitz-, Nekrotik-, Gift- und Donnerwiderstand, der durch die Kraft Transmute Force gewährt wird.
+Subclass/&ConditionTransmutePoisonTitle	Elementarer Widerstand
+Subclass/&HealingPoolLifeTransmuterBonusDescription	Sie können Ihren Willen in der Realität 2 weitere Male pro Tag durchsetzen.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	Sie können Ihren Willen in der Realität 4 weitere Male pro Tag durchsetzen.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Zusätzliche Transmutationskraft
+Subclass/&HealingPoolLifeTransmuterBonusTitle	Zusätzliche Transmutationskraft
+Subclass/&HealingPoolLifeTransmuterListDescription	Du kannst deinen Willen mit Spezialkräften 2 Mal pro Tag in die Realität umsetzen.
+Subclass/&HealingPoolLifeTransmuterListTitle	Kraft umwandeln
+Subclass/&MagicAffinityLifeTransmuterListDescription	Wenn einige Transmutations- und Nekromantiezauber gewirkt werden, werden sie auf einem Zauberplatz gewirkt, der 2 Stufen höher ist als der verwendete. Zu den verbesserten Zaubern gehören: Falsches Leben, Blindheit, Fliegen, Fluch verleihen, Vampirberührung, Seuche und Wolkentötung.\n--Hinweis: Es ist beabsichtigt, auch den Vorteil von Magischer Waffe zu haben, aber derzeit hat das Erhöhen des Zauberlevels auf Magische Waffe auf diese Weise keine Wirkung.
+Subclass/&MagicAffinityLifeTransmuterListTitle	Realitätsbeugung
+Subclass/&TraditionLifeTransmuterDescription	Meister der Manipulation von Materie und Lebensenergie.
+Subclass/&TraditionLifeTransmuterTitle	Lebenswandler

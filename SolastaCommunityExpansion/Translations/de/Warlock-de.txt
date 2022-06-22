@@ -1,0 +1,305 @@
+AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC ist auf 16 eingestellt.
+AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Rindenleder
+Class/&ClassWarlockDescription	Hexenmeister sind Sucher des Wissens, das im Gefüge des Multiversums verborgen liegt. Durch Pakte, die mit mysteriösen Wesen mit übernatürlichen Kräften geschlossen werden, entfesseln Warlocks sowohl subtile als auch spektakuläre magische Effekte.
+Class/&ClassWarlockTitle	Hexenmeister
+Condition/&AncientForestPhotosynthesisDescription	Sie können Energie aus Sonnenlicht absorbieren. Während Sie sich in direktem hellem Licht befinden, erhalten Sie zu Beginn Ihres Zuges 2 HP zurück.
+Condition/&AncientForestPhotosynthesisTitle	Photosynthese
+Condition/&AncientForestRootedConditionDescription	Baumranken wachsen aus deinen Füßen und graben sich in den Boden. Du kannst nach Belieben verstricken. Deine Geschwindigkeit wird 0 und du erhältst einen Vorteil bei Rettungswürfen, die dich stoßen, ziehen oder zu Boden werfen.
+Condition/&AncientForestRootedConditionTitle	Verwurzelt
+Condition/&MoonTouchedConditionDescription	Ihre Schwerkraft wird negiert.
+Condition/&MoonTouchedConditionTitle	Mond berührt
+Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Erhaltet 1 Stunde lang Widerstand gegen Säureschaden.
+Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Säureschutzgebräu
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Erhaltet 1 Stunde lang Resistenz gegen Blitzschaden.
+Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle	Gebräu des Blitzschutzes
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription	Erhaltet 1 Stunde lang Resistenz gegen nekrotischen Schaden.
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle	Gebräu des nekrotischen Schutzes
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription	Erhalte 1 Stunde lang Resistenz gegen Giftschaden.
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle	Gebräu des Giftschutzes
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription	Erhaltet 1 Stunde lang Resistenz gegen Strahlungsschaden.
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle	Gebräu des strahlenden Schutzes
+Equipment/&HerbalBrewHealingTitle	Gebräu der Beschleunigung
+Equipment/&HerbalBrewToxifyingTitle	Gebräu der Vergiftung
+Feat/&MoonlitBonusCantripsDescription	Deine Kontrolle über das Mondlicht hat sich auf ein neues Niveau gesteigert. Du kannst die Zauber Mondstrahl und Feenfeuer nach Belieben wirken.
+Feat/&MoonlitBonusCantripsTitle	Lichtsteuerung
+Feature/&AdditionalDamageAgonizingBlastDescription	Du addierst deinen Charisma-Modifikator zum ersten Schadenswurf eines Eldritch-Explosionsangriffs.
+Feature/&AdditionalDamageAgonizingBlastTitle	Qualvolle Explosion
+Feature/&AdditionalDamageHinderingBlastDescription	Wenn du eine Kreatur mit deiner unheimlichen Explosion triffst, kannst du die Geschwindigkeit dieser Kreatur bis zum Ende deines nächsten Zuges um 3 m reduzieren.
+Feature/&AdditionalDamageHinderingBlastTitle	Hinderliche Explosion
+Feature/&AgonizingBlastDescription	Fügen Sie Ihren Charisma-Modifikator zum Schaden von Eldritch Basts hinzu.
+Feature/&AgonizingBlastTitle	Qualvolle Explosion
+Feature/&AHSoulBladeEmpowerDamageBonusDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
+Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
+Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Seele ermächtigt
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Seele ermächtigt
+Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Einmal pro kurzer Rast kannst du als Freie Aktion eine spirituelle Form einer Waffe aus deinem Pakt beschwören. Als Bonusaktion kannst du die Waffe wie gewünscht lenken, um deine Feinde anzugreifen. Die Waffe bewegt sich jedes Mal bis zu 20 Fuß, bevor sie zuschlägt.
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Waffe des spirituellen Pakts
+Feature/&AHWarlockClassPactBoonSetDescription	Auf der 3. Stufe verleiht Ihnen Ihr jenseitiger Gönner ein Geschenk für Ihre treuen Dienste. Sie können wählen zwischen:
+Feature/&AHWarlockClassPactBoonSetTitle	Pakt Segen
+Feature/&AHWarlockClassPactOfTheBladeSetDescription	Sie beherrschen alle Waffen und Ihre Waffenangriffe gelten als magisch.
+Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pakt der Klinge
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Einmal pro langer Rast kannst du eine Waffe mit Seelenkraft stärken. Diese Waffe verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe und zählt bis zu einer langen Pause als magisch.
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenkraft
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Mit der Seelenklinge können Sie aus einer erweiterten Liste von Zaubersprüchen wählen, wenn Sie einen Warlock-Zauber lernen. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Seelenklingenzauber
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Einmal pro kurzer Rast nutzt du die Kraft der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre HP in Höhe deines Levels + Charisma-Modifikator.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Seelenschild
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&AncientForestExpandedSpelllistAfinityTitle	Alte Waldzauber
+Feature/&AncientForestLightAffinityDescription	Sie können Energie aus Sonnenlicht absorbieren. Während Sie sich in direktem hellem Licht befinden, erhalten Sie 2 HP pro Runde.
+Feature/&AncientForestLightAffinityTitle	Photosynthese
+Feature/&AncientForestRegrowthDescription	Sie haben einen Pool an Heilkraft, der sich füllt, wenn Sie sich lange ausruhen. Mit diesem Pool können Sie eine Gesamtzahl an Trefferpunkten wiederherstellen, die Ihrem Warlock-Level × 5 entspricht.
+Feature/&AncientForestRegrowthTitle	Nachwachsen
+Feature/&ArmorofShadowsTitle	Rüstung der Schatten
+Feature/&AscendantStepTitle	Aszendentenschritt
+Feature/&AspectoftheMoonDescription	Sie müssen nicht mehr schlafen und können Wache halten, was die Wahrscheinlichkeit eines Angriffs verringert und sicherstellt, dass Sie wach sind, wenn das Lager angegriffen wird.
+Feature/&AspectoftheMoonTitle	Aspekt des Mondes
+Feature/&BeguilingInfluenceDescription	Sie erwerben Kenntnisse in den Fertigkeiten Täuschung und Überzeugung.
+Feature/&BeguilingInfluenceTitle	Betörender Einfluss
+Feature/&BondoftheTalismanDescription	Teleportiere dich bis zu 30 Fuß entfernt.
+Feature/&BondoftheTalismanTitle	Teleport-Talisman
+Feature/&ChainsofCarceriDescription	Paralysiert einen Himmlischen, Unterweltler oder Elementar, es sei denn, ihm gelingt ein Weisheitswurf.
+Feature/&ChainsofCarceriTitle	Ketten von Carceri
+Feature/&ClassMonkTongueOfSunAndMoonDescription	Du lernst, das Ki anderer Geister zu berühren, damit du alle gesprochenen Sprachen verstehst. Darüber hinaus kann jedes Wesen, das eine Sprache verstehen kann, verstehen, was Sie sagen.
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Zunge der Sonne und des Mondes
+Feature/&ClassWarlockArmorProficiencyDescription	Leichte Rüstung.
+Feature/&ClassWarlockArmorProficiencyTitle	Hexenmeister-Rüstungsfähigkeiten
+Feature/&ClassWarlockEldritchInvocationReplaceDescription	Wählen Sie Eldritch Invocation zum Ersetzen aus.
+Feature/&ClassWarlockEldritchInvocationReplaceTitle	Aufruf ersetzen
+Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Fügen Sie eine unheimliche Anrufung hinzu.
+Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Eldritch-Anrufung
+Feature/&ClassWarlockEldritchMasterDescription	Sie können auf Ihre innere Reserve an mystischer Kraft zurückgreifen, während Sie Ihren Gönner bitten, verbrauchte Zauberslots wiederzuerlangen. Sie können 1 Minute damit verbringen, Ihren Patron um Hilfe zu bitten, um alle Ihre verbrauchten Zauberslots aus Ihrer Paktmagie-Funktion zurückzugewinnen. Sobald Sie mit dieser Funktion Zauberslots wiedererlangen, müssen Sie eine lange Pause einlegen, bevor Sie dies erneut tun können.
+Feature/&ClassWarlockEldritchMasterTitle	Eldritch-Meister
+Feature/&ClassWarlockMysticArcanumSetDescription	Ihr Gönner verleiht Ihnen ein magisches Geheimnis namens Arkanum. Du kannst deinen Arcanum-Zauber einmal wirken, ohne einen Zauberslot zu verbrauchen. Sie müssen eine lange Pause beenden, bevor Sie dies erneut tun können. Auf höheren Stufen erhältst du mehr Hexenmeister-Zauber deiner Wahl, die auf diese Weise gewirkt werden können: einen Zauber der 6. Stufe auf der 11. Stufe, einen Zauber der 7. Stufe auf der 13. Stufe, einen Zauber der 8. Stufe auf der 15. Stufe und einen der 9. Stufe -Stufenzauber auf Stufe 17.
+Feature/&ClassWarlockMysticArcanumSetTitle	Mystisches Arkanum
+Feature/&ClassWarlockSavingThrowProficiencyDescription	Weisheit, Charisma.
+Feature/&ClassWarlockSavingThrowProficiencyTitle	Fähigkeiten zum Speichern von Würfen
+Feature/&ClassWarlockSkillProficiencyDescription	Wähle 2 dieser Fertigkeiten: Arkana, Täuschung, Geschichte, Einschüchterung, Ermittlung, Natur und Religion.
+Feature/&ClassWarlockSkillProficiencyTitle	Hexenmeister-Fähigkeiten
+Feature/&ClassWarlockSpellcastingDescription	Ihre arkanen Forschungen und die Magie, die Ihnen Ihr jenseitiger Gönner verliehen hat, haben Ihnen Zauber verliehen.
+Feature/&ClassWarlockSpellcastingTitle	Hexenmeister-Pakt-Magie
+Feature/&ClassWarlockToolsProficiencyDescription	Du wurdest darin ausgebildet, Kräuterheilmittel zu brauen und Zaubergeräte zu benutzen.
+Feature/&ClassWarlockToolsProficiencyTitle	Hexenmeister magisches Handwerk
+Feature/&ClassWarlockWeaponProficiencyDescription	Einfache Waffen.
+Feature/&ClassWarlockWeaponProficiencyTitle	Hexenmeister-Waffenfertigkeiten
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Wenn Sie auf 0 HP reduziert, aber nicht getötet werden, können Sie stattdessen auf 1 HP fallen.
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Unerbittliche Ausdauer
+Feature/&DevilsSightDescription	Sie können in der Dunkelheit normal sehen, sowohl magisch als auch nicht magisch, bis zu einer Entfernung von 120 Fuß.
+Feature/&DevilsSightTitle	Teufelsblick
+Feature/&DH_BlinkDescription	Als Bonusaktion verschwindest du von deiner aktuellen Existenzebene und verhinderst jeglichen Schaden. Zu Beginn deines nächsten Zuges kehrst du auf das Feld zurück, von dem du verschwunden bist.
+Feature/&DH_BlinkTitle	Blinken
+Feature/&DH_FadeIntoTheVoidDescription	Wenn Sie auf 0 Trefferpunkte reduziert, aber nicht direkt getötet werden, fallen Sie stattdessen auf 1 Trefferpunkt, wenn Sie kurz in die Leere verschwinden, um den Schaden zu verringern. Sie können diese Funktion erst wieder verwenden, wenn Sie eine lange Pause beendet haben.
+Feature/&DH_FadeIntoTheVoidTitle	In die Leere verblassen
+Feature/&DH_RiftCloakDescription	Deine Kontrolle über Rissportale hat sich so weit erhöht, dass du jetzt anderen den Schutz des Risses gewähren kannst. Du kannst nach Belieben abwehrenden Bund wirken (ohne Schaden zu teilen).
+Feature/&DH_RiftCloakTitle	Rift-Umhang
+Feature/&DH_RiftControlDescription	Kurz von der Energie des Risses umgeben, teleportierst du dich in einen unbesetzten Raum. Ihr könnt jetzt beim Teleportieren einen Verbündeten mitnehmen und die Reichweite hat sich deutlich erhöht.
+Feature/&DH_RiftControlTitle	Rift-Portal
+Feature/&DH_RiftStrikeDescription	Wenn du im Nahkampf Schaden erleidest, kannst du einmal am Tag mit deiner Reaktion ein Portal erschaffen, das den Angreifer für 1 Runde aus deiner Existenzebene verbannt.
+Feature/&DH_RiftStrikeTitle	Rissschlag
+Feature/&DH_RiftWalkDescription	Kurzzeitig von der Energie der Leere zwischen den Welten umgeben, teleportierst du dich bis zu 30 Fuß weit in einen unbesetzten Raum, den du sehen kannst.
+Feature/&DH_RiftWalkTitle	Rift-Schritt
+Feature/&DHAncientForestBonusCantripDescription	Ihr Gönner teilt Geheimnisse darüber, wie natürliche Magie und Lebensenergie miteinander verbunden sind. Du lernst Shillelagh und Chill Touch.
+Feature/&DHAncientForestBonusCantripTitle	Bonus-Cantrips aus dem alten Wald
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Ihre Kontrolle über elementare Energien hat sich bis zu dem Punkt erhöht, an dem Sie jetzt die Herrschaft über schwächere Elementare haben. Du kannst Kleines Elementar beschwören nach Belieben wirken.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Elementare Günstlinge
+Feature/&DHPactOfTheTomeFeatureSetDescription	Ihr Gönner gibt Ihnen ein Zauberbuch namens Buch der Schatten. Wenn Sie diese Funktion erhalten, wählen Sie drei Cantrips aus der Zauberliste einer beliebigen Klasse aus. Die Cantrips müssen nicht aus derselben Zauberliste stammen. Während das Buch bei dir ist, kannst du diese Cantrips nach Belieben wirken. Sie zählen nicht zu deiner Anzahl bekannter Cantrips. Jeder Cantrip, den du mit dieser Funktion wirkst, wird für dich als Warlock-Cantrip betrachtet.
+Feature/&DHPactOfTheTomeFeatureSetTitle	Pakt des Wälzers
+Feature/&DHWardingBondBonusCantripDescription	Deine Kontrolle über Rissportale hat sich so weit erhöht, dass du jetzt anderen den Schutz des Risses gewähren kannst. Du kannst nach Belieben abwehrenden Bund wirken (ohne Schaden zu teilen).
+Feature/&DHWardingBondBonusCantripTitle	Rift-Umhang
+Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	Wenn Sie einen Vertrauten beschwören, können Sie eine der folgenden Sonderformen wählen: Kobold, Pseudodrache, Quasit oder Kobold.
+Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	Pakt der Kette
+Feature/&DreadfulWordTitle	Schreckliches Wort
+Feature/&EldritchBlastGraspingHandBonusCantripDescription	Wenn Sie eine Kreatur mit Ihrer Eldritch-Explosion treffen, können Sie diese Kreatur in einer geraden Linie 3 m näher an sich heranbewegen.
+Feature/&EldritchBlastGraspingHandBonusCantripTitle	Greifende Explosion
+Feature/&EldritchBlastRepellingBlastBonusCantripDescription	Wenn Sie eine Kreatur mit einer unheimlichen Explosion treffen, können Sie die Kreatur in einer geraden Linie bis zu 3 m von sich wegschieben.
+Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Abstoßende Explosion
+Feature/&EldritchMindDescription	Du hast einen Vorteil bei Konstitutionswürfen, die du machst, um deine Konzentration auf einen Zauber aufrechtzuerhalten.
+Feature/&EldritchMindTitle	Eldritch-Geist
+Feature/&EldritchSightTitle	Unheimlicher Anblick
+Feature/&EldritchSmiteDescription	Einmal pro Zug, wenn du eine Kreatur mit deiner Paktwaffe triffst, kannst du einen Hexenmeister-Zauberplatz aufwenden, um dem Ziel 1W8 zusätzlichen Machtschaden zuzufügen, plus weitere 1W8 pro Stufe des Zauberplatzes.
+Feature/&EldritchSmiteTitle	Eldritch Smite
+Feature/&ElementalPactAirPlane	Flugzeug
+Feature/&ElementalPactAstralPlane	Astralebene
+Feature/&ElementalPactEarthPlane	Erdebene
+Feature/&ElementalPactEtherealPlane	Ätherische Ebene
+Feature/&ElementalPactFirePlane	Feuerwehrflugzeug
+Feature/&ElementalPactIcePlane	Eisflugzeug
+Feature/&ElementalPactShadowPlane	Schattenebene
+Feature/&ElementalPatronDummyFeatureSetTitle	Elementarmagier
+Feature/&ElementalPatronElementalConditionFormatDescription	Füge bei einem ersten Treffer in jeder Runde zusätzlich {1} Schaden in Höhe deines Fertigkeitsbonus zu.
+Feature/&ElementalPatronElementalConditionFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalDamageFormatDescription	Wenn du {0} kanalisierst, füge bei einem ersten Treffer in jeder Runde zusätzlichen {1} Schaden in Höhe deines Fertigkeitsbonus zu.
+Feature/&ElementalPatronElementalDamageFormatTitle	Elementarschaden: {0}
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Wenn du die {0} kanalisierst, erhältst du Immunität gegen {1} und wendest einen Fertigkeitsbonus als Schaden des gleichen Typs an, um jede Runde zuerst zu treffen.
+Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalFormFormatDescription	Wenn du die {0} kanalisierst, erhältst du Resistenz gegen {1} Schaden und wendest den Fertigkeitsbonus als Schaden desselben Typs an, um jede Runde zuerst zu treffen.
+Feature/&ElementalPatronElementalFormFormatTitle	{0}
+Feature/&ElementalPatronFeatureSet_Level06Description	Dein Wissen über Elementare hat sich so weit verbessert, dass du jetzt einen Vorteil bei Fähigkeitsprüfungen gegenüber Elementaren hast und Elementaren zusätzlichen Schaden in Höhe deines Wissensstands zufügst. Du kannst nicht länger von Elementaren bezaubert oder verängstigt werden.
+Feature/&ElementalPatronFeatureSet_Level06Title	Wissen über Elementare
+Feature/&EyesoftheRuneKeeperDescription	Sie können alle Schriften lesen.
+Feature/&EyesoftheRuneKeeperTitle	Augen des Runenhüters
+Feature/&FiendishVigorTitle	Teuflische Kraft
+Feature/&GiftoftheEverLivingOnesDescription	Stellt die maximal mögliche Anzahl an Trefferpunkten durch Heilung wieder her.
+Feature/&GiftoftheEverLivingOnesTitle	Gabe der Immerlebenden
+Feature/&GiftoftheProtectorsDescription	Wenn Sie auf 0 Trefferpunkte reduziert, aber nicht direkt getötet werden, fällt die Kreatur stattdessen magisch auf 1 Trefferpunkt. Sobald diese Magie ausgelöst wird, können Sie nicht davon profitieren, bis Sie eine lange Pause beendet haben.
+Feature/&GiftoftheProtectorsTitle	Geschenk der Beschützer
+Feature/&HerbalBrewDescription	Wenn Sie eine lange Pause beendet haben, können Sie Kräutersud herstellen, die jeweils bis zur nächsten langen Pause reichen. Du braust insgesamt Gebräue in Höhe deines Kompetenzbonus. Wählen Sie für jedes Gebräu einen der folgenden Effekte:\n<color=#add8e6ff>Stärkendes Gebräu</color>: Gewährt 1 Stunde lang Widerstand gegen verschiedene Schadensarten.\n<color=#add8e6ff>Quickening Brew</color>: gewährt 2W4 Trefferpunkte.\n<color=#add8e6ff>Vergiftendes Gebräu</color>: wirkt als Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Wenn der Treffer landet, erleidet das Ziel bei jedem Treffer 1W4 Giftschaden.
+Feature/&HerbalBrewFeatureSetDescription	Sie werden entweder mit dem Vergifter-Kit oder mit Kräuterkunde-Kits vertraut, wenn Sie es noch nicht haben.\nWenn Sie eine lange Pause beendet haben, können Sie Kräutersud herstellen, die jeweils bis zur nächsten langen Pause reichen. Du braust insgesamt Gebräue in Höhe deines Kompetenzbonus. Wählen Sie für jedes Gebräu einen der folgenden Effekte:\n<color=#add8e6ff>Stärkendes Gebräu</color>: Gewährt 1 Stunde lang Widerstand gegen verschiedene Schadensarten.\n<color=#add8e6ff>Quickening Brew</color>: gewährt 2W4 Trefferpunkte.\n<color=#add8e6ff>Vergiftendes Gebräu</color>: wirkt als Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Wenn der Treffer landet, erleidet das Ziel bei jedem Treffer 1W4 Giftschaden.
+Feature/&HerbalBrewFeatureSetTitle	Kräuterbrauen
+Feature/&HinderingBlastDescription	Wenn du eine Kreatur mit deiner unheimlichen Explosion triffst, kannst du die Geschwindigkeit dieser Kreatur bis zum Ende deines nächsten Zuges um 3 m reduzieren.
+Feature/&HinderingBlastMagicAffinityDescription	Wenn du eine Kreatur mit deiner unheimlichen Explosion triffst, kannst du die Geschwindigkeit dieser Kreatur bis zum Ende deines nächsten Zuges um 3 m reduzieren.
+Feature/&HinderingBlastMagicAffinityTitle	Hinderliche Explosion
+Feature/&HinderingBlastTitle	Hinderliche Explosion
+Feature/&ImprovedPactWeaponDescription	Du kannst jede Waffe als Zauberfokus für deine Warlock-Zauber verwenden. Außerdem erhält die Waffe einen Bonus von +1 auf ihre Angriffs- und Schadenswürfe.
+Feature/&ImprovedPactWeaponTitle	Verbesserte Paktwaffe
+Feature/&MiretheMindTitle	Beschmutze den Verstand
+Feature/&MoonLitDarknessImmunityDescription	Du bist immun gegen den Dunkelheitszustand.
+Feature/&MoonLitDarknessImmunityTitle	Mondhelle Dunkelheit
+Feature/&MoonLitExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&MoonLitExpandedSpelllistAfinityTitle	Mondhelle Zauber
+Feature/&MoonLitLightAffinityDescription	Wenn Sie Ihren Zug in natürlicher Dunkelheit beginnen, werden Sie unsichtbar. Das Bewegen, Angreifen oder Verwenden von Kräften oder Zaubersprüchen, die nicht nur auf dich selbst abzielen, bricht die Unsichtbarkeit.
+Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak funktioniert jetzt bei schwachem Licht und magischer Dunkelheit.
+Feature/&MoonLitLightAffinityStrongTitle	Verbesserter Umbral-Umhang
+Feature/&MoonLitLightAffinityTitle	Umbraler Umhang
+Feature/&OneWithShadowsDescription	Wenn Sie Ihren Zug in natürlicher Dunkelheit beginnen, werden Sie unsichtbar. Das Bewegen, Angreifen oder Verwenden von Kräften oder Zaubersprüchen, die nicht nur auf dich selbst abzielen, bricht die Unsichtbarkeit.
+Feature/&OneWithShadowsLightAffinityDescription	Wenn Sie Ihren Zug in natürlicher Dunkelheit beginnen, werden Sie unsichtbar. Das Bewegen, Angreifen oder Verwenden von Kräften oder Zaubersprüchen, die nicht nur auf dich selbst abzielen, bricht die Unsichtbarkeit.
+Feature/&OneWithShadowsLightAffinityStrongDescription	One With Shadows funktioniert jetzt bei schwachem Licht und magischer Dunkelheit.
+Feature/&OneWithShadowsLightAffinityStrongTitle	Dunklere Schatten
+Feature/&OneWithShadowsLightAffinityTitle	Eins mit Schatten
+Feature/&OneWithShadowsStrongerDescription	One With Shadows funktioniert jetzt bei schwachem Licht und magischer Dunkelheit.
+Feature/&OneWithShadowsStrongerTitle	Dunklere Schatten
+Feature/&OneWithShadowsTitle	Eins mit Schatten
+Feature/&OtherworldlyLeapTitle	Jenseitiger Sprung
+Feature/&ProficiencySoulBladeArmorDescription	Leichte Rüstung, mittlere Rüstung und Schild.
+Feature/&ProficiencySoulBladeArmorTitle	Seelenklingen-Rüstungsfähigkeiten
+Feature/&ProficiencySoulBladeWeaponDescription	Einfache Waffen, Kampfwaffen.
+Feature/&ProficiencySoulBladeWeaponTitle	Soulblade-Waffenkenntnisse
+Feature/&RiftWalkerRestrainedImmunityTitle	Flüchtiger Schritt
+Feature/&RiftWalkerSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&RiftWalkerSpellsMagicAffinityTitle	Rift Walker-Zauber
+Feature/&ShroudofShadowTitle	Schleier des Schattens
+Feature/&ThiefofFiveFates	Wirke {0} einmal pro Tag
+Feature/&ThiefofFiveFatesTitle	Dieb der fünf Schicksale
+Feature/&ThirstingBladeDescription	Du kannst zweimal statt einmal mit deiner Waffe angreifen, wenn du in deinem Zug die Angriffsaktion ausführst.
+Feature/&ThirstingBladeTitle	Durstige Klinge
+Feature/&TrickstersEscapeTitle	Die Flucht des Tricksters
+Feature/&WallofThornsFeatureSetDescription	Wirke einmal täglich Dornenwand.
+Feature/&WallofThornsFeatureSetTitle	Waldbarriere
+Feedback/&AdditionalDamageAgonizing_BlastFormat	Qualvolle Explosion
+Feedback/&AdditionalDamageAgonizing_BlastLine	Wenn du Unheimliche Explosion wirkst, addierst du deinen Charisma-Modifikator zu dem Schaden, den es bei einem Treffer verursacht.
+Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
+Feedback/&AdditionalDamageEldritchSmiteLine	{0} schlägt {1} (+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	Elementarschaden
+Feedback/&AdditionalDamageElementalDamageLine	Elementarform gewährt zusätzlichen Schaden
+Feedback/&AdditionalDamagePactMarkedFormat	Paktzeichen!
+Feedback/&AdditionalDamagePactMarkedLine	Paktmarke fügt zusätzlichen Schaden zu!
+Feedback/&AdditionalDamagePactSoulTakerFormat	Seelenfänger!
+Feedback/&AdditionalDamagePactSoulTakerLine	Soul Taker fügt zusätzlichen Schaden zu!
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Seele gestärkt!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Seelenermächtigt fügt zusätzlichen Schaden zu!
+Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} erstellt {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} erstellt {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} erstellt {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTravellingFormat	{0} erstellt {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat	{0} erstellt {1}
+Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} erstellt {1}
+Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} erstellt {1}
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	Die Waffe verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe und zählt bis zur langen Pause als magisch.
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Seele ermächtigt
+Monster/&PactOfChainCustomImpDescription	Kobolde sind überall in den unteren Ebenen zu finden, entweder um Besorgungen für ihre höllischen Herren zu erledigen, Rivalen auszuspionieren oder Sterbliche in die Irre zu führen und aufzulauern. Ein Kobold wird jedem bösen Meister jeder Art stolz dienen, aber er kann sich nicht darauf verlassen, dass er Aufgaben schnell oder effizient erledigt.
+Monster/&PactOfChainCustomImpTitle	Kobold (Kettenpakt)
+Monster/&PactOfChainCustomPseudodragonDescription	Der schwer fassbare Pseudodrache lebt an den stillen Orten der Welt und lebt in Baumhöhlen und kleinen Höhlen. Mit seinen grünen Schuppen, Hörnern und einem Maul voller scharfer Zähne ähnelt ein Pseudodrache einem winzigen grünen Drachen, aber seine Veranlagung ist verspielt.
+Monster/&PactOfChainCustomPseudodragonTitle	Pseudodrache
+Monster/&PactOfChainCustomQuasitDescription	Quasits befallen die unteren Ebenen. Körperlich schwach halten sie sich im Schatten auf, um Unheil und Bosheit zu schmieden. Mächtigere Dämonen benutzen Quasiten als Spione und Boten, wenn sie sie nicht verschlingen oder auseinandernehmen, um sich die Zeit zu vertreiben.
+Monster/&PactOfChainCustomQuasitTitle	Quasit (Kettenpakt)
+Monster/&PactOfChainCustomSpriteDescription	Im Gegensatz zu Kobolden geben sich Sprites selten frivoler Fröhlichkeit und Spaß hin. Sie sind standhafte Krieger, Beschützer und Richter, und ihre strenge Haltung veranlasst andere Feen, sie für übermäßig mürrisch und ernst zu halten. Feen, die das Territorium der Sprites respektieren, finden sie jedoch in schwierigen Zeiten zu treuen Verbündeten.
+Monster/&PactOfChainCustomSpriteTitle	Sprite (Kettenpakt)
+MonsterAttack/&AttackWarlockDragonStingDescription	1W4 Stichschaden und dem Ziel muss ein Konstitutionswurf gegen SG 11 gelingen oder es wird vergiftet.
+MonsterAttack/&AttackWarlockDragonStingTitle	Giftiger Stich
+MonsterAttack/&AttackWarlockImpStingDescription	Giftiger Stachel eines Kobolds.
+MonsterAttack/&AttackWarlockImpStingTitle	Giftiger Stich
+MonsterAttack/&AttackWarlockQuasitStingTitle	Giftiger Stich
+Power/&AncientForestLifeSapDescription	Wenn du einem Feind mit einem Zauber Schaden zufügst, heilst du einmal pro Zug HP in Höhe deiner halben Stufe. Wenn du weniger als die Hälfte deiner HP hast, heilst du stattdessen HP in Höhe deines Levels, aber nur bis zur Hälfte deiner maximalen HP.
+Power/&AncientForestLifeSapTitle	Lebenssaft
+Power/&AncientForestRootedPowerDescription	Baumranken wachsen aus deinen Füßen und graben sich in den Boden. Deine Geschwindigkeit wird 0 und du erhältst einen Vorteil bei Rettungswürfen, um dich zu stoßen, zu ziehen oder dich zu Boden zu werfen. Du kannst Verschränken nach Belieben wirken.
+Power/&AncientForestRootedPowerTitle	Verwurzelt
+Power/&DH_ElementalFormPoolDescription	Du kannst pro langer Pause so oft zwischen den Elementarformen wechseln, wie es deinem Fertigkeitsbonus entspricht, indem du Elementarenergie kanalisierst. Du erhältst Resistenz gegen den entsprechenden Schaden und wendest einmal pro Runde deinen Fertigkeitsbonus als Schaden derselben Art auf den ersten Zauberschaden an, der in dieser Runde verursacht wird. Die Formulare dauern 1 Minute.
+Power/&DH_ElementalFormPoolEnhancedDescription	Du kannst zwischen verbesserten Elementarformen so oft wechseln, wie es deinem Kompetenzbonus pro Tag entspricht, indem du Elementarenergie kanalisierst. Du erhältst Immunität gegen den entsprechenden Schaden und wendest in jeder Runde einen Fähigkeitsbonus als Schaden derselben Art auf den ersten Zauberschaden an. Die Formulare dauern 1 Minute.
+Power/&DH_ElementalFormPoolEnhancedTitle	Verbesserte elementare Formen
+Power/&DH_ElementalFormPoolEnhancedTitleShort	Elementare Formen
+Power/&DH_ElementalFormPoolTitle	Elementare Formen
+Power/&FindFamiliarBundlePowerDescription	Beschwöre Vertraute in Form von Pseudorgagon, Sprite, Imp oder Quasit.
+Power/&FindFamiliarBundlePowerTitle	Vertraut finden
+Power/&MoonlitDanceoftheNightSkyDescription	Du kannst Fliegen einmal pro Tag auf 4 Ziele wirken.
+Power/&MoonlitDanceoftheNightSkyTitle	Tanz des Nachthimmels
+Power/&MoonlitDarkMoonDescription	Du kannst „Dunkelheit“ pro langer Pause so oft wirken, wie es deinem Fertigkeitsbonus entspricht.
+Power/&MoonlitDarkMoonTitle	Dunkler Mond
+Power/&MoonlitFullMoonDescription	Du kannst Tageslicht so oft pro langer Pause wirken, wie es deinem Fertigkeitsbonus entspricht.
+Power/&MoonlitFullMoonTitle	Vollmond
+Power/&MoonlitMoonTouchedDescription	Du beschwörst die Anziehungskraft des Mondes in einem kleinen Bereich herauf und lässt Kreaturen, denen ein Rettungswurf misslingt, nach oben schweben.
+Power/&MoonlitMoonTouchedTitle	Mond berührt
+Power/&PactofChainFamiliarInvisibilityPowerDescription	Die Kreatur wird auf magische Weise unsichtbar, bis sie angreift oder einen Zauber wirkt oder bis ihre Konzentration endet (als würde sie sich auf einen Zauber konzentrieren). Jegliche Ausrüstung, die die Kreatur trägt oder trägt, ist damit unsichtbar.
+Power/&PactofChainFamiliarInvisibilityPowerTitle	Unsichtbarkeit
+Power/&PactofChainFamiliarScarePowerDescription	Einer Kreatur deiner Wahl innerhalb von 20 Fuß muss ein Weisheitswurf gegen SG 10 gelingen, sonst ist sie 1 Minute lang verängstigt. Das Ziel kann den Rettungswurf am Ende jedes seiner Züge wiederholen und den Effekt bei einem Erfolg auf sich selbst beenden.
+Power/&PactofChainFamiliarScarePowerTitle	Schrecken
+Reaction/&SpendPowerDH_RiftStrikeDescription	Wenn Sie durch einen Nahkampfangriff beschädigt werden, können Sie einmal pro langer Pause Ihre Reaktion nutzen, um ein Portal zu erstellen, das den Angreifer für 1 Runde aus Ihrer Existenzebene verbannt.
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rissschlag
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rissschlag
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} kann einen Zauberslot ausgeben, um dem Ziel 1W8 Machtschaden und zusätzlich 1W8 Schaden pro Slot-Stufe zuzufügen.
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Klicken Sie, um einen Zauberslot auszugeben und den Schaden am Ziel zu erhöhen.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Schlagen
+Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
+Reaction/&SubitemSelectEldritchSmiteDescription	Wählen Sie eine Slot-Stufe aus, die Sie für Ihr Eldritch Smite verbrauchen möchten.
+Reaction/&SubitemSelectEldritchSmiteTitle	Slot-Level
+Requirement/&WarlockMissingEldritchBlast	Eldritch Blast Cantrip
+Requirement/&WarlockRequiresNoMoonLit	Nicht Moonlit Patron
+Requirement/&WarlockRequiresOneWithShadows	Eldritch-Anrufung "Eins mit den Schatten".
+Requirement/&WarlockRequiresPactOfBlade	Pakt der Klinge
+Requirement/&WarlockRequiresPactOfChain	Pakt der Ketten
+Requirement/&WarlockRequiresPactOfTome	Pakt des Wälzers
+Rules/&CounterFormDismissCreatureFormat	Tüftlerkonstrukt verwerfen
+Spell/&AHPactMarkAdditionalDamageDescription	Eine mit einem Pakt markierte Kreatur erleidet zusätzlich 1W6 Schaden derselben Art, wenn sie von einer Waffe oder einem Zauberangriff des Markers getroffen wird.
+Spell/&AHPactMarkAdditionalDamageTitle	Paktmarke Schaden
+Spell/&AHPactMarkMarkedByPactConditionDescription	Diese Kreatur wurde durch einen Pakt markiert und erleidet zusätzlich 1W6 Schaden derselben Art, wenn sie von einer Waffe oder einem Zauberangriff des Markers getroffen wird.
+Spell/&AHPactMarkMarkedByPactConditionTitle	Pakt markiert
+Spell/&AHPactMarkPactMarkConditionDescription	Du kannst andere Kreaturen mit einem Paktzeichen markieren und fügst ihnen mit Waffen- oder Zauberangriffen zusätzlich 1W6 Schaden zu.
+Spell/&AHPactMarkPactMarkConditionTitle	Paktmarke
+Spell/&AHPactMarkSpellDescription	Sie platzieren ein Zeichen Ihres Pakts auf einer Kreatur, die Sie innerhalb von 90 Fuß sehen können. Es wird für dich verwundbar und erleidet zusätzlich 1W6 Schaden, wenn du es mit einer Waffe oder einem Zauberangriff triffst. Dieser Schaden ist vom gleichen Typ wie der Angriff, der trifft.
+Spell/&AHPactMarkSpellTitle	Paktmarke
+Spell/&AirBlastDescription	Feuern Sie einen Strahl fokussierter Luft auf Ihr Ziel ab.
+Spell/&AirBlastTitle	Luftstoß
+Spell/&EldritchBlastDescription	Ein Strahl knisternder Energie schießt auf eine Kreatur in Reichweite zu. Führen Sie einen Fernzauberangriff gegen das Ziel durch. Bei einem Treffer erleidet das Ziel 1W10 Kraftschaden.\nDer Zauber erzeugt mehr als einen Strahl, wenn Sie höhere Stufen erreichen: zwei Strahlen auf der 5. Stufe, drei Strahlen auf der 11. Stufe und vier Strahlen auf der 17. Stufe. Sie können die Strahlen auf dasselbe oder auf unterschiedliche Ziele richten. Führen Sie für jeden Strahl einen separaten Angriffswurf durch.
+Spell/&EldritchBlastGraspingHandDescription	Ein Strahl knisternder Energie schießt auf eine Kreatur in Reichweite zu. Führen Sie einen Fernzauberangriff gegen das Ziel durch. Bei einem Treffer erleidet das Ziel 1W10 Kraftschaden.\n(Wenn du eine Kreatur mit deiner unheimlichen Explosion triffst, kannst du diese Kreatur in einer geraden Linie 3 m näher an dich heranbewegen.)
+Spell/&EldritchBlastGraspingHandTitle	Eldritch Blast (Greifen)
+Spell/&EldritchBlastRepellingBlastDescription	Ein Strahl knisternder Energie schießt auf eine Kreatur in Reichweite zu. Führen Sie einen Fernzauberangriff gegen das Ziel durch. Bei einem Treffer erleidet das Ziel 1W10 Kraftschaden.\n(Wenn du eine Kreatur mit einer unheimlichen Explosion triffst, kannst du die Kreatur in einer geraden Linie bis zu 3 m von dir wegstoßen.)
+Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Abstoßend)
+Spell/&EldritchBlastTitle	Eldritch-Explosion
+Spell/&EldritchOrbDescription	Du schleuderst eine Kugel unheimlicher Energie auf eine Kreatur oder ein Objekt in Reichweite und fügst in einem kleinen Radius Gewaltschaden zu.
+Spell/&EldritchOrbTitle	Unheimliche Kugel
+Spell/&HinderingBlastDescription	Ein Strahl knisternder Energie schießt auf eine Kreatur in Reichweite zu. Führen Sie einen Fernzauberangriff gegen das Ziel durch. Bei einem Treffer erleidet das Ziel 1W10 Kraftschaden.\n(Wenn du eine Kreatur mit deiner unheimlichen Explosion triffst, kannst du die Geschwindigkeit dieser Kreatur bis zum Ende deines nächsten Zuges um 3 m reduzieren.)
+Spell/&HinderingBlastTitle	Eldritch Blast (Behinderung)
+SpellList/&ClassWarlockSpellListDescription	Hexenmeister-Zauberliste.
+SpellList/&ClassWarlockSpellListTitle	Hexenmeister-Zauberliste
+SpellList/&RiftWalkerSpellsListDescription	RiftWalker-Zauberliste.
+SpellList/&RiftWalkerSpellsListTitle	Rift Walker-Zauberliste
+Stage/&SubclassSelectionStagePatronDescription	Ein Hexenmeister wird durch einen Pakt mit einem jenseitigen Wesen definiert. Manchmal ist die Beziehung zwischen Hexenmeister und Gönner wie die eines Klerikers und einer Gottheit, obwohl die Wesen, die als Gönner dienen, keine Götter sind.
+Stage/&SubclassSelectionStagePatronFeatures	Funktionen von Patrons aus einer anderen Welt
+Stage/&SubclassSelectionStagePatronHeader	Warlock Gönner aus einer anderen Welt
+Stage/&SubclassSelectionStagePatronTitle	Außerweltliche Gönner
+Subclass/&AHWarlockSubclassSoulBladePactDescription	Du hast einen Handel mit einer empfindungsfähigen Waffe abgeschlossen, die du im Gegenzug für Macht mit Seelen fütterst.
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Seelenklingen-Pakt
+Subclass/&ClassWarlockPatronDescription	Ein Hexenmeister wird durch einen Pakt mit einem jenseitigen Wesen definiert. Manchmal ist die Beziehung zwischen Hexenmeister und Gönner wie die eines Klerikers und einer Gottheit, obwohl die Wesen, die als Gönner dienen, keine Götter sind.
+Subclass/&ClassWarlockPatronTitle	Jenseitiger Patron
+Subclass/&DHWarlockSubclassElementalPatronDescription	Du wurdest mit Urmenschen, die in den Ödlanden der Elemente präsent sind, paktiert und verändert. Das Elementarchaos des Patrons hat deine Seele durchdrungen und lässt dich die Kraft verschiedener Elementartypen nutzen.
+Subclass/&DHWarlockSubclassElementalPatronTitle	Pakt der Elementarmagier
+Subclass/&DHWarlockSubclassRiftWalkerDescription	Ihr Gönner ist eines der seltenen Wesen, das die Leere zwischen den Welten sein Zuhause nennt. Sie gleiten mit Leichtigkeit zwischen den Ebenen hin und her, und das Wissen, das Sie durch die Interaktion mit ihnen gewonnen haben, ermöglicht es Ihnen, verbleibende Rift-Energien zu Ihrem Vorteil in Solasta zu nutzen. Vielleicht verspürst du manchmal Sehnsucht nach dem fernen Reich deines Gönners, den Wunsch, für den Rest deiner Tage zwischen den Dimensionen zu wandern oder nach Anzeichen für ein weiteres Rift-Ereignis Ausschau zu halten, entweder um es zu verhindern oder zu fördern.
+Subclass/&DHWarlockSubclassRiftWalkerTitle	Rift Walker-Pakt
+Subclass/&WarlockAncientForestDescription	Du hast eine Beziehung zu einer mächtigen Naturentität geschmiedet: Uralte Dryaden, Erzdruiden, Manifestationen der Feywild, die in die materielle Ebene eindringen, Vergessene Götter aus einem Urzeitalter. Ihr Gönner möchte vielleicht, dass Sie die Natur schützen, in ferne Länder reisen, die er nicht kann, oder er hat vielleicht ein anderes Motiv, das kurzlebigen Sterblichen unergründlich erscheint.
+Subclass/&WarlockAncientForestTitle	Urwaldpakt
+Subclass/&WarlockMoonLitDescription	Ihr Patron ist ein Geist des Mondes, ein Wesen, das die zyklische Natur von Licht und Dunkelheit verkörpert. Diese Geister versuchen, die Macht des Mondes über dem Nachthimmel aufrechtzuerhalten, während sie profane Mächte, die die Dunkelheit heimsuchen, in Schach halten und ihre Hexenmeister damit beauftragen, indem sie ihnen das Kommando über die Mächte des Mondes und seine Auswirkungen verleihen.
+Subclass/&WarlockMoonLitTitle	Mondheller Pakt
+Subclass/&WarlockToadKingDescription	Fey, Dämon oder Verirrung, verursacht durch die Katastrophe, die wahre Natur des Krötenkönigs ist nicht bekannt, aber es ist bekannt, dass der Krötenkönig ein großes Gebiet von Sümpfen und Sümpfen in den Badlands beherrscht und denen, die bereit sind zu dienen, Macht verleiht.
+Subclass/&WarlockToadKingTitle	Pakt des Krötenkönigs
+Subclass/&WarlockUrPriestDescription	Während die überwiegende Mehrheit der göttlichen Zauberkundigen ihre Kräfte von einer Gottheit bezieht, gibt es diejenigen, die die Götter verachten. Diejenigen, die sich selbst Urpriester nennen, haben gelernt, die göttlichen Energien abzuschöpfen, die die Götter ihren göttlichen Zauberkundigen gewährt haben, und sie für ihre eigenen Bedürfnisse zu nutzen, ohne auch nur ein Lippenbekenntnis zu irgendeinem Gott abzugeben. Als Urpriester unterscheiden Sie sich von den meisten Hexenmeistern, denn es fehlt Ihnen ein Gönner, der Ihnen Ihre Macht verleiht. Eldritch Invocations, die Sie entdecken, sind verzerrte Formen der Magie, die die Götter ihren Gönnern gewähren könnten, während Pact Boons wahrscheinlich göttliche Artefakte sind, die Sie stehlen konnten.
+Subclass/&WarlockUrPriestTitle	Urpriester Pakt

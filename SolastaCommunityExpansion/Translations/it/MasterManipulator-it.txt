@@ -1,0 +1,16 @@
+Subclass/&MagicAffinityMasterManipulatorDC0Description	È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del Tiro Salvezza aumenta di 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description	È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del Tiro Salvezza aumenta di 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description	È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del Tiro Salvezza aumenta di 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description	È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del Tiro Salvezza aumenta di 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description	È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del Tiro Salvezza aumenta di 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description	È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del Tiro Salvezza aumenta di 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription	È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del Tiro Salvezza aumenta di 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle	Forza Arcana
+Subclass/&MagicAffinityMasterManipulatorListDescription	Quando si lanciano alcuni incantesimi Incantesimo, Abiura e Illusione, vengono lanciati a uno slot incantesimo di livello 1 superiore a quello utilizzato. Gli incantesimi migliorati includono: Charme persona, Sonno, Spray colorato, Trattieni persona, Invisibilità, Controincantesimo, Dissolvi Magia, Esilio, Confusione, Killer Fantasma, Domina persona e Trattieni Mostro.
+Subclass/&MagicAffinityMasterManipulatorListTitle	Manipolazione Arcana
+Subclass/&ManipulatorMentalSavingThrowsDescription	Ottieni competenza nei tiri salvezza con Costituzione e Carisma.
+Subclass/&ManipulatorMentalSavingThrowsTitle	Resistenza mentale
+Subclass/&PowerManipulatorDominatePersonDescription	Puoi usare Dominare Persona un numero di volte per riposo lungo pari al tuo modificatore di Intelligenza.
+Subclass/&PowerManipulatorDominatePersonTitle	Persona dominante
+Subclass/&TraditionMasterManipulatorDescription	I Maestri Manipolatori eccellono nel controllare il campo di battaglia e impedire ai loro nemici di attaccarli.
+Subclass/&TraditionMasterManipulatorTitle	Maestro manipolatore

@@ -1,0 +1,18 @@
+Subclass/&MagicAffinitySpellMasterBonusScribingDescription	Scrivi un incantesimo aggiuntivo a ogni livello.
+Subclass/&MagicAffinitySpellMasterBonusScribingTitle	Ampiezza della conoscenza
+Subclass/&MagicAffinitySpellMasterRecoveryDescription	Una volta per riposo lungo, puoi recuperare slot incantesimi (oltre a Recupero Arcano).
+Subclass/&MagicAffinitySpellMasterRecoveryTitle	Profondità Arcana
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Tempi illimitati per recuperare slot incantesimi (oltre a Recupero Arcano).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Profondità Arcana
+Subclass/&MagicAffinitySpellMasterScribingDescription	Scrivere incantesimi richiede 1/4 del tempo e del costo e tu hai vantaggio.
+Subclass/&MagicAffinitySpellMasterScribingTitle	Maestro Scrittore
+Subclass/&TraditionSpellMasterBonusCantripsDescription	Ottieni 2 trucchetti extra conosciuti.
+Subclass/&TraditionSpellMasterBonusCantripsTitle	Trucchetti bonus
+Subclass/&TraditionSpellMasterDescription	I maestri di incantesimi si immergono nella magia e cercano di imparare ogni incantesimo su cui riescono a mettere le mani. Sono impareggiabili nella loro conoscenza degli incantesimi.
+Subclass/&TraditionSpellMasterExtraPreparedDescription	Prepara incantesimi aggiuntivi con modificatore di intelligenza in modo da avere sempre ciò di cui hai bisogno.
+Subclass/&TraditionSpellMasterExtraPreparedTitle	Extra preparato
+Subclass/&TraditionSpellMasterPreparedDescription	Prepara incantesimi aggiuntivi bonus di competenza in modo da avere sempre ciò di cui hai bisogno.
+Subclass/&TraditionSpellMasterPreparedTitle	Essere preparato
+Subclass/&TraditionSpellMasterSpellResistanceDescription	Il tuo allenamento con la magia ti dà vantaggio sui tiri salvezza contro gli incantesimi.
+Subclass/&TraditionSpellMasterSpellResistanceTitle	Resistenza agli incantesimi
+Subclass/&TraditionSpellMasterTitle	Maestro di incantesimi

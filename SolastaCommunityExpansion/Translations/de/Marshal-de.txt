@@ -1,0 +1,23 @@
+Reaction/&CoordinatedAttackDescription	{0} wurde durch einen koordinierenden Angriff angegriffen, einige Charaktere können ihre Reaktion nutzen, um sich diesem Angriff anzuschließen.
+Reaction/&CoordinatedAttackReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&CoordinatedAttackReactTitle	Attacke
+Reaction/&CoordinatedAttackTitle	Koordinierter Angriff
+Reaction/&SubitemSelectCoordinatedAttackTitle	Aktion auswählen
+Subclass/&FighterMarshalCoordinatedAttackDescription	Wenn Sie einen Feind mit einem Nahkampfangriff treffen, können Ihre Verbündeten ihre Reaktion nutzen, um einen Gelegenheitsangriff gegen Ihr Ziel durchzuführen.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Koordinierter Angriff
+Subclass/&FighterMarshalDescription	Kämpfer, die in diesem kriegerischen Teil trainiert wurden, sind begabt darin, die Schwächen der Feinde zu studieren und Angriffe anderer Gruppenmitglieder zu koordinieren, um sie auszunutzen, und sind berühmte Ochestratoren des Schlachtfelds.
+Subclass/&FighterMarshalEncouragementPowerDescription	Der Mut des Marschalls beflügelt sein Parteimitglied. Verbündete innerhalb von 3 m um ihn addieren 1W4 zum Angriffs- und Rettungswurf.
+Subclass/&FighterMarshalEncouragementPowerTitle	Ermutigung
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Das Band zwischen dem Marschall und seinem Kameraden überschreitet die Grenze zwischen Leben und Tod. Als Bonusaktion kann der Marschall einen Geist seiner gefallenen Kameraden beschwören, um ihm im Kampf zu helfen.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Ewiger Kamerad
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Du bist immun gegen Furchteffekte.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Furchtloser Kommandant
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Sie addieren Ihren Wissensstand über Ihr aktuelles Ziel zu Ihren Angriffs- und Schadenswürfen.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Kenne deinen Feind
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Als Bonusaktion kannst du versuchen, dein Wissen über dein Ziel zu erweitern, indem du einen Wurf auf Überleben würfelst. Sie können dies zweimal pro kurzer Pause tun.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Studiere deinen Feind
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Beschwöre 1 Geist des gefallenen Kameraden des Marschalls. Jeder Geist hat 45 + das Doppelte deines Kämpferlevels an HP und seine RK ist 16 + dein Fertigkeitsbonus. Die Geister sind immun gegen Gift, Kälte, nekrotische, anfällige, gelähmte und zurückgehaltene Zustände. Die Geister haben Resistenz gegen Feuer-, Säure-, Blitz- und Donnerschaden sowie Resistenz gegen nichtmagischen Hieb-, Knüppel- und Stichschaden. Wenn sie an der Reihe sind, können sie bis zu 50 Fuß hoch fliegen und einen einzelnen Nahkampfwaffenangriff ausführen, der 2W6 + 5 magischen Hiebschaden mit einem Bonus von 5 + Geschicklichkeitsbonus auf Treffer verursacht.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Beschwöre den ewigen Kameraden
+Subclass/&FighterMarshalTitle	Marschall
+Subclass/&MarshalEternalComradeDescription	Gefallener Kamerad
+Subclass/&MarshalEternalComradeTitle	Gefallener Kamerad

@@ -1,0 +1,293 @@
+Equipment/&CEHalberdTypeTitle	Hellebarden
+Equipment/&CEHandXbowTypeTitle	Handarmbrüste
+Equipment/&CELongMaceTypeTitle	Lange Keulen
+Equipment/&CEPikeTypeTitle	Hechte
+Equipment/&DruidicAmuletDescription	Dieses totemistische Amulett kann als Fokus für druidische Zaubersprüche verwendet werden.
+Equipment/&DruidicAmuletTitle	Druidisches Amulett
+Equipment/&Enchanted_Club_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Club_Acuteness_Title	Club der Schärfe
+Equipment/&Enchanted_Club_Bearclaw_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Die scharfen Stacheln der Bärenklaue zerfetzen die Rüstung, um zusätzlichen Schaden zu verursachen. Die erste Waffe dieser Art wurde von Ildurial Stronghand entworfen.
+Equipment/&Enchanted_Club_Bearclaw_Title	Club der Bärenklauen
+Equipment/&Enchanted_Club_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Club_Lightbringer_Title	Club der Lichtbringer
+Equipment/&Enchanted_Club_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Manacalon-Arkaner haben diese Keule geschaffen, um Champions der Iron Legions die Kraft zu geben, die ihre Elfenkörper nicht bieten.
+Equipment/&Enchanted_Club_Power_Title	Club der Macht
+Equipment/&Enchanted_Club_Punisher_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
+Equipment/&Enchanted_Club_Punisher_Title	Punisher-Club
+Equipment/&Enchanted_Dart_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Dart_Acuteness_Title	Pfeil der Schärfe
+Equipment/&Enchanted_Dart_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Dart_Frostburn_Title	Frostbrandpfeil
+Equipment/&Enchanted_Dart_Sharpness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Dart_Sharpness_Title	Pfeil der Schärfe
+Equipment/&Enchanted_Dart_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Dart_Souldrinker_Title	Seelentrinker Dart
+Equipment/&Enchanted_Handaxe_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Handaxe_Acuteness_Title	Faustkeil der Schärfe
+Equipment/&Enchanted_Handaxe_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Handaxe_Frostburn_Title	Frostbrand-Handaxt
+Equipment/&Enchanted_Handaxe_Sharpness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Handaxe_Sharpness_Title	Faustkeil der Schärfe
+Equipment/&Enchanted_Handaxe_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Handaxe_Souldrinker_Title	Seelentrinker-Handaxt
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Sein ursprüngliches Design trug das Siegel von Defineth Sharpsight, einem bekannten Zauberer der Waldelfen.
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	Schwere Armbrust der Genauigkeit
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	Schwere Armbrust des Lichtbringers
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Magie verschmolz Medusenkoralle und Hartholz zu einem tödlichen Bogen, der von den Enterkommandos der Inselhalblinge bevorzugt wurde.
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Medusa Schwere Armbrust
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Der Coedymwarth zog es vor, mit Manacalons Arkanisten eher physisch als magisch umzugehen. Seine besten Bogenschützen erhielten Armbrüste, die Schöpfung von Defineth Sharpsight.
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Schwere Armbrust des Scharfschießens
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe mit verheerender Wirkung nutzbar machte!
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Schwere Sturmarmbrust
+Equipment/&Enchanted_HideArmor_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_Deflection_Title	Rüstung der Ablenkung verstecken
+Equipment/&Enchanted_HideArmor_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_FlameDancing_Title	Rüstung des Flammentanzes verstecken
+Equipment/&Enchanted_HideArmor_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_FrostWalking_Title	Hide Armor of Frost Walking
+Equipment/&Enchanted_HideArmor_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_Robustness_Title	Rüstung der Robustheit verstecken
+Equipment/&Enchanted_HideArmor_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_Sturdiness_Title	Hide Rüstung der Robustheit
+Equipment/&Enchanted_HideArmor_Survival_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_Survival_Title	Rüstung des Überlebens verstecken
+Equipment/&Enchanted_Javelin_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Javelin_Acuteness_Title	Speer der Schärfe
+Equipment/&Enchanted_Javelin_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Javelin_Frostburn_Title	Frostbrand-Speer
+Equipment/&Enchanted_Javelin_Sharpness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Javelin_Sharpness_Title	Speer der Schärfe
+Equipment/&Enchanted_Javelin_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Javelin_Souldrinker_Title	Seelentrinker-Speer
+Equipment/&Enchanted_LeatherDruid_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_LeatherDruid_Deflection_Title	Druidenleder der Ablenkung
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Druidenleder des Flammentanzes
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Druidenleder des Frostwandelns
+Equipment/&Enchanted_LeatherDruid_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_LeatherDruid_Robustness_Title	Druidenleder der Robustheit
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Druidenleder der Robustheit
+Equipment/&Enchanted_LeatherDruid_Survival_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_LeatherDruid_Survival_Title	Druidenleder des Überlebens
+Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Sein ursprüngliches Design trug das Siegel von Defineth Sharpsight, einem bekannten Zauberer der Waldelfen.
+Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Leichte Armbrust der Genauigkeit
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Lightbringer Leichte Armbrust
+Equipment/&Enchanted_LightCrossbow_Medusa_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Magie verschmolz Medusenkoralle und Hartholz zu einem tödlichen Bogen, der von den Enterkommandos der Inselhalblinge bevorzugt wurde.
+Equipment/&Enchanted_LightCrossbow_Medusa_Title	Medusa Leichte Armbrust
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Der Coedymwarth zog es vor, mit Manacalons Arkanisten eher physisch als magisch umzugehen. Seine besten Bogenschützen erhielten Armbrüste, die Schöpfung von Defineth Sharpsight.
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Leichte Armbrust des Scharfschießens
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe mit verheerender Wirkung nutzbar machte!
+Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Leichte Sturmarmbrust
+Equipment/&Enchanted_Maul_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Maul_Acuteness_Title	Maul der Schärfe
+Equipment/&Enchanted_Maul_Bearclaw_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Die scharfen Stacheln der Bärenklaue zerfetzen die Rüstung, um zusätzlichen Schaden zu verursachen. Die erste Waffe dieser Art wurde von Ildurial Stronghand entworfen.
+Equipment/&Enchanted_Maul_Bearclaw_Title	Bärenklauenmaul
+Equipment/&Enchanted_Maul_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Maul_Lightbringer_Title	Lichtbringer Maul
+Equipment/&Enchanted_Maul_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Arkanisten aus Manacalon haben diesen Maul erschaffen, um Champions der Iron Legions die Kraft zu geben, die ihre Elfenkörper nicht bieten.
+Equipment/&Enchanted_Maul_Power_Title	Maul der Macht
+Equipment/&Enchanted_Maul_Punisher_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
+Equipment/&Enchanted_Maul_Punisher_Title	Bestrafer Maul
+Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Quarterstaff_Acuteness_Title	Quartierstab der Schärfe
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Lestoreth Steelarm entworfen, um im gefrorenen Norden des Imperiums zu kämpfen.
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Title	Kampfstab der Drachenklinge
+Equipment/&Enchanted_Quarterstaff_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Frostbrand-Quarterstab
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Stab des Lichtbringers
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Seelentrinker-Viertelstab
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe mit verheerender Wirkung nutzbar machte!
+Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Sturmklingen-Quarterstab
+Equipment/&Enchanted_Quarterstaff_Warden_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Ildurial Strongarm entworfen, einem berühmten Klingenschmied aus Manacalon. Die erste derartige Klinge, die Manacalon Warden, wurde dem Kommandanten der Euraidd angeboten.
+Equipment/&Enchanted_Quarterstaff_Warden_Title	Warden Quarterstaff
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Whiteburn wurde vom ersten Danantar geschaffen, um eine Trollinvasion zu bekämpfen, die aus den Sümpfen südlich seiner Domäne zwischen den Sioltafin und den Scarafin kam.
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Whiteburn-Quarterstab
+Equipment/&Enchanted_Rapier_Dragonblade_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Lestoreth Steelarm entworfen, um im gefrorenen Norden des Imperiums zu kämpfen.
+Equipment/&Enchanted_Rapier_Dragonblade_Title	Drachenklingen-Rapier
+Equipment/&Enchanted_Rapier_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Rapier_Frostburn_Title	Frostbrand-Rapier
+Equipment/&Enchanted_Rapier_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Rapier_Lightbringer_Title	Lichtbringer Rapier
+Equipment/&Enchanted_Rapier_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Arkanisten aus Manacalon erschufen dieses Rapier, um Champions der Iron Legions die Kraft zu geben, die ihre Elfenkörper nicht bieten.
+Equipment/&Enchanted_Rapier_Power_Title	Rapier der Macht
+Equipment/&Enchanted_Rapier_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Rapier_Souldrinker_Title	Seelentrinker Rapier
+Equipment/&Enchanted_Rapier_Stormblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe mit verheerender Wirkung nutzbar machte!
+Equipment/&Enchanted_Rapier_Stormblade_Title	Stormblade-Rapier
+Equipment/&Enchanted_Rapier_Warden_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Ildurial Strongarm entworfen, einem berühmten Klingenschmied aus Manacalon. Die erste derartige Klinge, die Manacalon Warden, wurde dem Kommandanten der Euraidd angeboten.
+Equipment/&Enchanted_Rapier_Warden_Title	Wärter Rapier
+Equipment/&Enchanted_Rapier_Whiteburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Whiteburn wurde vom ersten Danantar geschaffen, um eine Trollinvasion zu bekämpfen, die aus den Sümpfen südlich seiner Domäne zwischen den Sioltafin und den Scarafin kam.
+Equipment/&Enchanted_Rapier_Whiteburn_Title	Weißbrand-Rapier
+Equipment/&Enchanted_Scimitar_Dragonblade_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Lestoreth Steelarm entworfen, um im gefrorenen Norden des Imperiums zu kämpfen.
+Equipment/&Enchanted_Scimitar_Dragonblade_Title	Scimitar der Drachenklinge
+Equipment/&Enchanted_Scimitar_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Scimitar_Frostburn_Title	Frostbrandsäbel
+Equipment/&Enchanted_Scimitar_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Scimitar_Lightbringer_Title	Scimitar des Lichtbringers
+Equipment/&Enchanted_Scimitar_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Scimitar_Souldrinker_Title	Seelentrinker Scimitar
+Equipment/&Enchanted_Scimitar_Stormblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe mit verheerender Wirkung nutzbar machte!
+Equipment/&Enchanted_Scimitar_Stormblade_Title	Scimitar der Sturmklinge
+Equipment/&Enchanted_Scimitar_Warden_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Ildurial Strongarm entworfen, einem berühmten Klingenschmied aus Manacalon. Die erste derartige Klinge, die Manacalon Warden, wurde dem Kommandanten der Euraidd angeboten.
+Equipment/&Enchanted_Scimitar_Warden_Title	Wächter Scimitar
+Equipment/&Enchanted_Scimitar_Whiteburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Whiteburn wurde vom ersten Danantar geschaffen, um eine Trollinvasion zu bekämpfen, die aus den Sümpfen südlich seiner Domäne zwischen den Sioltafin und den Scarafin kam.
+Equipment/&Enchanted_Scimitar_Whiteburn_Title	Weißbrandsäbel
+Equipment/&Enchanted_Shield_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Deflection_Title	Schild der Ablenkung
+Equipment/&Enchanted_Shield_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_FlameDancing_Title	Schild des Flammentanzens
+Equipment/&Enchanted_Shield_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_FrostWalking_Title	Schild des Frostwandelns
+Equipment/&Enchanted_Shield_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Robustness_Title	Schild der Robustheit
+Equipment/&Enchanted_Shield_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Sturdiness_Title	Schild der Robustheit
+Equipment/&Enchanted_Shield_Survival_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Survival_Title	Schild des Überlebens
+Equipment/&Enchanted_Shield_Wooden_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_Deflection_Title	Hölzerner Schild der Ablenkung
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title	Holzschild des Flammentanzes
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title	Hölzerner Schild des Frostwandelns
+Equipment/&Enchanted_Shield_Wooden_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_Robustness_Title	Hölzerner Schild der Robustheit
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title	Hölzerner Schild der Robustheit
+Equipment/&Enchanted_Shield_Wooden_Survival_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_Survival_Title	Überlebensschild aus Holz
+Equipment/&Enchanted_Spear_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Spear_Acuteness_Title	Speer der Schärfe
+Equipment/&Enchanted_Spear_BlackViper_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschmiedet, wobei ein Speer und das Gift einer legendären Spinne aus Solastas Tiefen verwendet wurden. Der Konstrukteur der Klinge war Grigg Blackheart, ein berüchtigter Halblingsschmied aus den Marsh, der in den Schmieden der Aer Elai arbeitete.
+Equipment/&Enchanted_Spear_BlackViper_Title	Schwarzer Viper-Speer
+Equipment/&Enchanted_Spear_Doomblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Kenaloth Darkmind erfand die Schicksalsklingen als Werkzeug zur Bestrafung derjenigen, die sich der Magie des Imperiums widersetzten.
+Equipment/&Enchanted_Spear_Doomblade_Title	Speer mit Doom-Spitze
+Equipment/&Enchanted_Spear_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Spear_Lightbringer_Title	Speer des Lichtbringers
+Equipment/&Enchanted_Spear_Sharpness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Spear_Sharpness_Title	Speer der Schärfe
+Equipment/&Enchanted_Spear_Whiteburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Whiteburn wurde vom ersten Danantar geschaffen, um eine Trollinvasion zu bekämpfen, die aus den Sümpfen südlich seiner Domäne zwischen den Sioltafin und den Scarafin kam.
+Equipment/&Enchanted_Spear_Whiteburn_Title	Whiteburn-Speer
+Equipment/&Enchanted_StuddedLeather_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_Deflection_Title	Beschlagenes Leder der Ablenkung
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Title	Beschlagenes Leder des Flammentanzes
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Beschlagenes Leder des Frostwandelns
+Equipment/&Enchanted_StuddedLeather_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_Robustness_Title	Nietenleder der Robustheit
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Nietenleder der Robustheit
+Equipment/&Enchanted_StuddedLeather_Survival_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_Survival_Title	Beschlagenes Leder des Überlebens
+Equipment/&Enchanted_Warhammer_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Warhammer_Acuteness_Title	Kriegshammer der Schärfe
+Equipment/&Enchanted_Warhammer_Bearclaw_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Die scharfen Stacheln der Bärenklaue zerfetzen die Rüstung, um zusätzlichen Schaden zu verursachen. Die erste Waffe dieser Art wurde von Ildurial Stronghand entworfen.
+Equipment/&Enchanted_Warhammer_Bearclaw_Title	Bärenklauen-Kriegshammer
+Equipment/&Enchanted_Warhammer_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Warhammer_Lightbringer_Title	Lichtbringer Kriegshammer
+Equipment/&Enchanted_Warhammer_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Arkanisten aus Manacalon erschufen diesen Kriegshammer, um Champions der Iron Legions die Kraft zu geben, die ihre Elfenkörper nicht bieten.
+Equipment/&Enchanted_Warhammer_Power_Title	Kriegshammer der Macht
+Equipment/&Enchanted_Warhammer_Punisher_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
+Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher Warhammer
+Equipment/&ImprovedThunderPunchDescription	Verursacht bei einem Treffer 1W8 Donnerschaden und benachteiligt Angriffswürfe gegen Verbündete.\nZiehe Feinde mit einer Bonusaktion bis zu 9 m hoch und füge dann 1W8 Donnerschaden zu.
+Equipment/&ImprovedThunderPunchTitle	Verbesserter Donnerschlag
+Equipment/&LivewoodClubDescription	Diese Keule besteht aus lebendigem Holz mit sprießenden Blättern und vielleicht saisonalen Blüten. Es kann als Fokus für druidische Zaubersprüche verwendet werden.
+Equipment/&LivewoodClubTitle	Livewood Club
+Equipment/&LivewoodStaffDescription	Dieser Stab besteht aus lebendigem Holz mit sprießenden Blättern und vielleicht saisonalen Blüten. Es kann als Fokus für druidische Zaubersprüche verwendet werden.
+Equipment/&LivewoodStaffTitle	Livewood-Stab
+Equipment/&ThunderPunchDescription	Verursacht bei einem Treffer 1W8 Donnerschaden und benachteiligt Angriffswürfe gegen Verbündete.
+Equipment/&ThunderPunchTitle	Donner Schlag
+Equipment/&WandIdentifyDescription	Wirkt den Zauber Identifizieren, indem er eine Ladung verbraucht. Der Zauberstab hat 3 Ladungen und gewinnt bei jedem Morgengrauen 1W3 Ladungen zurück.
+Equipment/&WandIdentifyTitle	Zauberstab des Identifizierens
+Feat/&FeatPolearmExpertDescription	Diese Vorteile bietet Ihnen Ihre Expertenausbildung mit Stangenwaffen:\n• Wenn du die Aktion „Angriff“ ausführst und nur mit einer Stangenwaffe angreifst, kannst du eine Bonusaktion verwenden, um einen Nahkampfangriff mit dem anderen Ende der Waffe durchzuführen. Dieser Angriff verwendet denselben Fähigkeitsmodifikator wie der Primärangriff. Der Schadenswürfel der Waffe für diesen Angriff ist ein W4 und verursacht Knüppelschaden.\n• Während Sie eine Stangenwaffe führen, provozieren andere Kreaturen einen Gelegenheitsangriff von Ihnen, wenn sie in die Reichweite dieser Waffe gelangen.
+Feat/&FeatPolearmExpertTitle	Stangenwaffen-Experte
+Item/&CEHalberd+1Title	Hellebarde +1
+Item/&CEHalberd+1UnidentifiedTitle	Qualität Hellebarde
+Item/&CEHalberd+2Title	Hellebarde +2
+Item/&CEHalberd+2UnidentifiedTitle	Prächtige Hellebarde
+Item/&CEHalberdLightningTitle	Blitzhellebarde
+Item/&CEHalberdLightningUnidentifiedTitle	Prächtige Hellebarde
+Item/&CEHalberdPrimedTitle	Grundierte Hellebarde
+Item/&CEHalberdTitle	Hellebarde
+Item/&CEHandXbow+1Title	Handarmbrust +1
+Item/&CEHandXbow+1UnidentifiedTitle	Hochwertige Handarmbrust
+Item/&CEHandXbow+2Title	Handarmbrust +2
+Item/&CEHandXbow+2UnidentifiedTitle	Prächtige Handarmbrust
+Item/&CEHandXbowAcidTitle	Säurehaltige Handarmbrust
+Item/&CEHandXbowAcidUnidentifiedTitle	Prächtige Handarmbrust
+Item/&CEHandXbowPrimedTitle	Grundierte Handarmbrust
+Item/&CEHandXbowTitle	Hand-Armbrust
+Item/&CELongMace+1Title	Langer Streitkolben +1
+Item/&CELongMace+1UnidentifiedTitle	Hochwertiger langer Streitkolben
+Item/&CELongMace+2Title	Langer Streitkolben +2
+Item/&CELongMace+2UnidentifiedTitle	Herrlicher langer Streitkolben
+Item/&CELongMacePrimedTitle	Grundierter langer Streitkolben
+Item/&CELongMaceThunderTitle	Donnernder langer Streitkolben
+Item/&CELongMaceThunderUnidentifiedTitle	Herrlicher langer Streitkolben
+Item/&CELongMaceTitle	Langer Streitkolben
+Item/&CEPike+1Title	Hecht +1
+Item/&CEPike+1UnidentifiedTitle	Qualitätshecht
+Item/&CEPike+2Title	Hecht +2
+Item/&CEPike+2UnidentifiedTitle	Prächtiger Hecht
+Item/&CEPikePrimedTitle	Grundierter Hecht
+Item/&CEPikePsychicTitle	Hellseher Pike
+Item/&CEPikePsychicUnidentifiedTitle	Prächtiger Hecht
+Item/&CEPikeTitle	Pike
+Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Hellebarde +1 verzaubern.
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Hellebarde +1 verzaubern
+Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Hellebarde +2 verzaubern.
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Hellebarde +2 verzaubern
+Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Verzaubere Blitzhellebarde.
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Verzaubere Blitzhellebarde
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Verzaubert Handarmbrust +1.
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Verzaubert Handarmbrust +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Verzaubert Handarmbrust +2.
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Verzaubert Handarmbrust +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Verzaubert saure Handarmbrust.
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Verzaubert saure Handarmbrust
+Item/&CraftingManualRecipeEnchantCELongMace+1Description	Verzaubert langen Streitkolben +1.
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Verzaubert langen Streitkolben +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Description	Verzaubert langen Streitkolben +2.
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Verzaubert langen Streitkolben +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Verzaubert Donnernden langen Streitkolben.
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Verzaubert Donnernden langen Streitkolben
+Item/&CraftingManualRecipeEnchantCEPike+1Description	Hecht +1 verzaubern.
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Hecht +1 verzaubern
+Item/&CraftingManualRecipeEnchantCEPike+2Description	Hecht +2 verzaubern.
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Hecht +2 verzaubern
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Verzaubere Hellseher.
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Verzaubere Hellseher
+Item/&CraftingManualRecipeEnchantHandwraps+1Description	Handwickel +1 verzaubern.
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Handwickel +1 verzaubern
+Item/&CraftingManualRecipeEnchantHandwraps+2Description	Handwickel +2 verzaubern.
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Handwickel +2 verzaubern
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Verzaubere kraftvolle Handwickel.
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Verzaubere kraftvolle Handwickel
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Verzaubern Sie Handbandagen des Ziehens.
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Verzaubern Sie Handbandagen des Ziehens
+Item/&CraftingManualRecipePrimingCEHalberdDescription	Prime Hellebarde.
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Hellebarde
+Item/&CraftingManualRecipePrimingCEHandXbowDescription	Erstklassige Armbrust.
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Erstklassige Armbrust
+Item/&CraftingManualRecipePrimingCELongMaceDescription	Erstklassiger langer Streitkolben.
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Erstklassiger langer Streitkolben
+Item/&CraftingManualRecipePrimingCEPikeDescription	Erster Hecht.
+Item/&CraftingManualRecipePrimingCEPikeTitle	Erster Hecht
+Item/&Handwraps+1Title	Handwickel +1
+Item/&Handwraps+1UnidentifiedTitle	Handbandagen von guter Qualität
+Item/&Handwraps+2Title	Handwickel +2
+Item/&Handwraps+2UnidentifiedTitle	Prächtige Handwickel
+Item/&HandwrapsOfForceTitle	Kraftvolle Handwickel
+Item/&HandwrapsOfForceUnidentifiedTitle	Prächtige Handwickel
+Item/&HandwrapsOfPullingTitle	Handbandagen des Ziehens
+Item/&HandwrapsOfPullingUnidentifiedTitle	Prächtige Handwickel
+Power/&PowerFunctionHandwrapsOfPullingDescription	Als Bonusaktion kannst du eine Kreatur innerhalb von 15 Fuß näher zu dir ziehen.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Rollen Sie ein
+Tooltip/&TagPolearmWeaponTitle	Stangenwaffe

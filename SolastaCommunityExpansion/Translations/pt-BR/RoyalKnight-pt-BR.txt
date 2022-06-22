@@ -1,0 +1,10 @@
+Feature/&InspiringSurgePowerDescription	Concede a um aliado uma ação principal adicional por 1 rodada. Não acumula com Surto de Ação.
+Feature/&InspiringSurgePowerTitle	Surto inspirador
+Feature/&InspiringSurgePowerTitleShort	Surto inspirador
+Feature/&RallyingCryPowerDescription	Substitui o Segundo Vento por um poder de restaurar 4x os pontos de vida dos Níveis de Lutador para um ou mais aliados dentro de 6 células, até o máximo de pontos de vida.
+Feature/&RallyingCryPowerTitle	Grito de guerra
+Feature/&RallyingCryPowerTitleShort	Grito de guerra
+Feature/&RoyalEnvoyFeatureDescription	Adicione metade do seu bônus de proficiência (arredondado para cima) a qualquer teste de Carisma que você fizer que ainda não use seu bônus de proficiência. Além disso, você se torna proficiente em testes de resistência de Carisma.
+Feature/&RoyalEnvoyFeatureTitle	enviado real
+Subclass/&FighterRoyalKnightDescription	Um cavaleiro que inspira grandeza nos outros ao cometer atos de bravura em batalha. Um cavaleiro solitário é um guerreiro habilidoso, mas um líder de um bando de aliados pode transformar até mesmo a milícia mais mal equipada em um bando de guerra feroz.
+Subclass/&FighterRoyalKnightTitle	Cavaleiro real

@@ -1,0 +1,307 @@
+Condition/&ConditionDualFlurryApplyDescription Вы набираете	обороты...
+Condition/&ConditionDualFlurryApplyTitle Двойной	шквал!
+Condition/&ConditionDualFlurryGrantDescription Твои враги	шатаются!
+Condition/&ConditionDualFlurryGrantTitle Двойной	шквал!
+Condition/&HelpActionDescription Это существо было	отвлечено.
+Condition/&HelpActionTitle	Оказать помощь
+CraftyFeats/&ApothecaryIntFeatDescription Увеличьте свой Интеллект на 1, максимум до 20.\nВы приобретаете мастерство в использовании набора для травничества и Арканы или опыта, если уже владеете	им.
+CraftyFeats/&ApothecaryIntFeatTitle Аптекарь	(Интеллект)
+CraftyFeats/&ApothecaryWisFeatDescription Увеличьте свою Мудрость на 1, максимум до 20.\nВы приобретаете мастерство в использовании набора для травничества и Арканы или опыта, если уже владеете	им.
+CraftyFeats/&ApothecaryWisFeatTitle Аптекарь	(Мудрость)
+CraftyFeats/&AttributeDexDescription +1 ЛОВ до максимум	20
+CraftyFeats/&AttributeDexTitle	Ловкость
+CraftyFeats/&AttributeIntDescription +1 ИНТ до максимум	20
+CraftyFeats/&AttributeIntTitle	Интеллект
+CraftyFeats/&AttributeWisDescription +1 МУД до максимум	20
+CraftyFeats/&AttributeWisTitle	Мудрость
+CraftyFeats/&CraftyArcanaDescription Вы получаете мастерство/опыт в	Аркана.
+CraftyFeats/&CraftyBowsDescription Вы получаете владение всеми луками и	арбалетами.
+CraftyFeats/&CraftyBowsTitle Владение	луком
+CraftyFeats/&CraftyFletcherFeatDescription Увеличьте свою Ловкость на 1, максимум до 20.\nВы получаете владение кузнечными инструментами или опыт, если вы уже владеете им.\n Вы получаете владение всеми луками и	арбалетами.
+CraftyFeats/&CraftyFletcherFeatTitle	Флетчер
+CraftyFeats/&CraftyMedicineDescription Вы получаете мастерство/опыт в	медицине.
+CraftyFeats/&CraftyNatureDescription Вы получаете мастерство/опыт в	Природе.
+CraftyFeats/&CraftyScribeFeatDescription Увеличьте свой Интеллект на 1, максимум до 20.\nВы получаете владение набором свитков и Арканой или опыт, если уже владеете им.\nТребует умения произносить	заклинания.
+CraftyFeats/&CraftyScribeFeatTitle	Писарь
+CraftyFeats/&CraftySkillsTitle Навыки и	умения
+CraftyFeats/&CraftyToolsTitle	Инструменты
+CraftyFeats/&ManacalonCrafterFeatDescription Увеличьте свой Интеллект на 1, максимум до 20.\nВы получаете владение четками манаколона и Арканами или опыт, если уже владеете ими.\nТребует умения произносить	заклинания.
+CraftyFeats/&ManacalonCrafterFeatTitle Создатель	манакалона
+CraftyFeats/&ToxicologistIntFeatDescription Увеличьте свой Интеллект на 1, максимум до 20.\nВы получаете мастерство с набором отравителя и Природой, или мастерство, если уже	владеете.
+CraftyFeats/&ToxicologistIntFeatTitle Токсиколог	(Интеллект)
+CraftyFeats/&ToxicologistWisFeatDescription Увеличьте свою Мудрость на 1, максимум до 20.\nВы получаете владение набором отравителя и лекарством или опыт, если уже владеете	им.
+CraftyFeats/&ToxicologistWisFeatTitle Токсиколог	(Мудрость)
+Feat/&AddConstructCantripsDescription Добавляет колдовство для исцеления и освобождения ваших	конструкций.
+Feat/&AddConstructCantripsTitle Создание	колдовства
+Feat/&AddProtectorConstructCantripDescription Добавляет заклинания Mending Construct и Dismiss Construct, чтобы повысить гибкость ваших	конструкций.
+Feat/&AddProtectorConstructCantripTitle Бонусные колдовские	конструкции
+Feat/&ArmorModePoolDescription Позволяет активировать режимы брони один раз за короткий	отдых.
+Feat/&ArmorModePoolTitle Режим	брони
+Feat/&ArtificialServantAttackDescription Атака дальнего боя 1d6 силового урона от вашего верного	помощника.
+Feat/&ArtificialServantAttackTitle Силовая	праща
+Feat/&ArtificialServantDescription Слуга дружелюбен к вам и вашим спутникам и подчиняется вашим	командам.
+Feat/&ArtificialServantTitle Искусственный	слуга
+Feat/&CancelFlyingConditionDescription Завершите состояние полета, чтобы разрешить прыжки и	ползание.
+Feat/&CancelFlyingConditionTitle Отменить	полет
+Feat/&ChefConDescription Увеличьте ваше Телосложение на 1, максимум до 20.\nВы можете потратить 1 час на приготовление еды, которая исцелит вас и ваших спутников на 1d8 HP.\nРаз в день вы можете потратить час на приготовление угощений, которые при употреблении дают временный	ОЗ.
+Feat/&ChefConTitle Шеф	(Телосложение)
+Feat/&ChefShortRestFeastDescription Вы можете потратить 1 час на приготовление еды, которая исцелит вас и ваших спутников на 1d8	ОЗ.
+Feat/&ChefShortRestFeastTitle Короткий прием	пищи
+Feat/&ChefWisDescription Увеличьте свою Мудрость на 1, максимум до 20.\nВы можете потратить 1 час на приготовление еды, которая исцелит вас и ваших спутников на 1d8 ОЗ.\nРаз в день вы можете потратить час на приготовление угощений, которые при употреблении дают временные	ОЗ.
+Feat/&ChefWisTitle Шеф-повар	(Мудрость)
+Feat/&ConstructSelectingPoolDescription Выберите режим для вашей	конструкции.
+Feat/&ConstructSelectingPoolTitle Артиллерийский	режим
+Feat/&DeadeyeFeatDescription Вы освоили оружие дальнего боя и можете делать выстрелы, которые другие считают невозможными.\n• Атака на большом расстоянии не накладывает помехи на ваши броски атаки оружием дальнего боя.\n• Ваши атаки оружием дальнего боя игнорируют половину укрытия и укрытие на три четверти.\n• Вы можете получить штраф -5 к броску атаки оружием дальнего боя. Если атака попадает, вы наносите дополнительные 10 единиц урона типа	оружия.
+Feat/&DeadeyeFeatTitle Меткий	глаз
+Feat/&DismissConstructDescription Отзовите свою	конструкцию.
+Feat/&DismissConstructTitle Отклонить	конструкцию
+Feat/&DualFlurryDescription Вы мастер боя спаренным оружием. В любой ход, когда вы дважды наносите удары рукопашными атаками, держа по оружию в каждой руке, вы можете совершить дополнительную атаку левой рукой при атаке бонусным	действием.
+Feat/&DualFlurryTitle Двойной	шквал
+Feat/&FeatArcaneDefenseDescription Увеличьте свой Интеллект на 1, максимум до 20.\nПока вы не носите никаких доспехов, ваш КД равен 10 + ваш модификатор Ловкости + ваш модификатор	Интеллекта.
+Feat/&FeatArcaneDefenseTitle Защита	Арканы
+Feat/&FeatArcanePrecisionDescription Вы можете использовать бонусное действие для выбора оружия. Его атаки считаются магическими, и вы используете свой Интеллект для бросков атаки и урона в течение 1 минуты. Эту функцию можно использовать дважды за продолжительный	отдых.
+Feat/&FeatArcanePrecisionTitle Точность	Арканы
+Feat/&FeatBlindFightingStlyeDescription У вас есть слепое зрение с диапазоном 10	футов.
+Feat/&FeatBlindFightingStlyeTitle Боевой стиль: Бой	вслепую
+Feat/&FeatBrutalThugDescription Вы наносите мощные удары в нужных местах.\nВы получаете навыки простого и боевого оружия.\nВы можете атаковать скрытно, используя боевое	оружие.
+Feat/&FeatBrutalThugTitle Жестокий	бандит
+Feat/&FeatChaIncrementDescription Увеличьте свою харизму на 1, максимум до	20.
+Feat/&FeatChaIncrementTitle Увеличение атрибута	харизмы
+Feat/&FeatCharismaticDefenseDescription Увеличьте свою харизму на 1, максимум до 20.\nПока вы не носите никаких доспехов, ваш КД равен 10 + ваш модификатор Ловкости + ваш модификатор	Харизмы.
+Feat/&FeatCharismaticDefenseTitle Харизматическая	защита
+Feat/&FeatCharismaticPrecisionDescription Вы можете использовать бонусное действие для выбора оружия. Его атаки считаются магическими, и вы используете Харизму для бросков атаки и урона в течение 1 минуты. Эту функцию можно использовать дважды за продолжительный	отдых.
+Feat/&FeatCharismaticPrecisionTitle Харизматическая	точность
+Feat/&FeatChefConIncrementDescription Увеличьте ваше Телосложение на 1, максимум до	20.
+Feat/&FeatChefConIncrementTitle Увеличение	атрибута
+Feat/&FeatChefWisIncrementDescription Увеличьте свою Мудрость на 1, максимум до	20.
+Feat/&FeatChefWisIncrementTitle Увеличение	атрибута
+Feat/&FeatCripplingDescription Когда вы наносите удар рукопашной атакой, вы можете уменьшить скорость своего противника на 10 футов до начала своего следующего	хода.
+Feat/&FeatCripplingTitle Боевой стиль:	Калечащий
+Feat/&FeatDexIncrementDescription Увеличьте свою Ловкость на 1, максимум до	20.
+Feat/&FeatDexIncrementTitle Увеличение	атрибута
+Feat/&FeatDualWeaponDefenseDescription Вы получаете бонус +1 к КД, пока держите в каждой руке отдельное оружие ближнего	боя.
+Feat/&FeatDualWeaponDefenseTitle Двойная защита от	оружия
+Feat/&FeatFastHandsDescription Вы получаете Хитрое Действие. Вы можете использовать действия Скрыться или Отход в качестве бонусного действия.\nВы можете использовать свое Хитрое Действие, чтобы совершить проверку Ловкости (Ловкость рук), использовать воровские инструменты, чтобы обезвредить ловушку или открыть замок, или выполнить действие «Использовать	предмет».
+Feat/&FeatFastHandsTitle Быстрые	руки
+Feat/&FeatFeyTeleportationChaDescription Увеличьте свою харизму на 1, максимум до 20.\nВы можете использовать туманный шаг один раз за короткий отдых, и вы можете разыграть это заклинание с помощью своих ячеек заклинаний.\nВы получаете владение тирмарианским	языком.
+Feat/&FeatFeyTeleportationChaTitle Телепортация фей	(харизма)
+Feat/&FeatFeyTeleportationIntDescription Увеличьте свой Интеллект на 1, максимум до 20.\nВы можете использовать туманный шаг один раз за короткий отдых, и вы можете разыграть это заклинание с помощью своих ячеек заклинаний.\nВы получаете владение тирмарианским	языком.
+Feat/&FeatFeyTeleportationIntTitle Телепортация фей	(Интеллект)
+Feat/&FeatFeyTeleportationWisDescription Увеличьте свою Мудрость на 1, максимум до 20.\nВы можете использовать туманный шаг один раз за короткий отдых, и вы можете разыграть это заклинание с помощью своих ячеек заклинаний.\nВы получаете владение тирмарианским	языком.
+Feat/&FeatFeyTeleportationWisTitle Телепортация фей	(Мудрость)
+Feat/&FeatFightingSurgeDexterityDescription Увеличьте свою Ловкость на 1, максимум до 20.\nВ свой ход вы можете совершить одно дополнительное действие в дополнение к вашему обычному действию. После того, как вы воспользуетесь этой функцией, вы должны завершить продолжительный отдых, прежде чем сможете использовать ее	снова.
+Feat/&FeatFightingSurgeDexterityTitle Боевой всплеск	(Ловкость)
+Feat/&FeatFightingSurgeStrengthDescription Увеличьте свою Силу на 1, максимум до 20.\nВ свой ход вы можете совершить одно дополнительное действие в дополнение к вашему обычному действию. После того, как вы воспользуетесь этой функцией, вы должны завершить продолжительный отдых, прежде чем сможете использовать ее	снова.
+Feat/&FeatFightingSurgeStrengthTitle Боевой всплеск	(Сила)
+Feat/&FeatHeavyArmorMasterClassDescription Вы получаете сопротивление к дробящему, рубящему и колющему	урону.
+Feat/&FeatHeavyArmorMasterClassTitle Мастерство тяжелой	защиты
+Feat/&FeatImprovedCriticalDescription Ваши атаки являются критическими при броске 19 или	20.
+Feat/&FeatImprovedCriticalTitle Улучшенный	критический
+Feat/&FeatIntIncrementDescription Увеличьте свой Интеллект на 1, максимум до	20.
+Feat/&FeatIntIncrementTitle Увеличение атрибута	Интеллект
+Feat/&FeatLightArmorDescription Увеличьте свою Силу на 1, максимум до 20.\nВы получаете владение легкими	доспехами.
+Feat/&FeatLightArmorProficiencyDescription Научитесь носить легкие	доспехи.
+Feat/&FeatLightArmorProficiencyTitle Легкая	броня
+Feat/&FeatLightArmorTitle Легкая	броня
+Feat/&FeatMarksmanDescription Когда противник, которого вы видите, атакует вас оружием дальнего боя или заклинанием и находится от вас не менее чем в 10 футах, вы можете реакцией совершить атаку оружием дальнего боя после того, как атака, вызывающая срабатывание,	закончится.
+Feat/&FeatMarksmanTitle	Стрелок
+Feat/&FeatMediumArmorDexDescription Увеличьте свою Ловкость на 1, максимум до 20.\nВы получаете владение средней броней и	щитами.
+Feat/&FeatMediumArmorDexTitle Средняя броня	(Ловкость)
+Feat/&FeatMediumArmorProficiencyDescription Вы получаете владение средними доспехами и	щитами.
+Feat/&FeatMediumArmorProficiencyTitle Средняя	броня
+Feat/&FeatMediumArmorStrengthDescription Увеличьте свою Силу на 1, максимум до 20.\nВы получаете владение средними доспехами и	щитами.
+Feat/&FeatMediumArmorStrengthTitle Средняя броня	(Сила)
+Feat/&FeatMetamagicAdeptCarefulDescription Увеличьте свою харизму на 1, максимум до 20.\nВы изучаете метамагию Осторожность и получаете 2 очка	волшебства.
+Feat/&FeatMetamagicAdeptCarefulTitle Метамагия:	осторожность
+Feat/&FeatMetamagicAdeptDistantDescription Увеличьте свою харизму на 1, максимум до 20.\nВы изучаете метамагию Дальность и получаете 2 очка	волшебства.
+Feat/&FeatMetamagicAdeptDistantTitle Метамагия:	Дальность
+Feat/&FeatMetamagicAdeptEmpoweredDescription Увеличьте свою харизму на 1, максимум до 20.\nВы изучаете метамагию Усиление и получаете 2 очка	волшебства.
+Feat/&FeatMetamagicAdeptEmpoweredTitle Метамагия:	Усиление
+Feat/&FeatMetamagicAdeptExtendedDescription Увеличьте свою харизму на 1, максимум до 20.\nВы изучаете метамагию Расширение и получаете 2 очка	волшебства.
+Feat/&FeatMetamagicAdeptExtendedTitle Метамагия:	Расширенние
+Feat/&FeatMetamagicAdeptHeightenedDescription Вы изучаете Повышенную метамагию и получаете 4 очка	волшебства.
+Feat/&FeatMetamagicAdeptHeightenedTitle Метамагия:	Повышение
+Feat/&FeatMetamagicAdeptQuickenedDescription Увеличьте свою харизму на 1, максимум до 20.\nВы изучаете метамагию Ускорение и получаете 2 очка	волшебства.
+Feat/&FeatMetamagicAdeptQuickenedTitle Метамагия:	Ускорение
+Feat/&FeatMetamagicAdeptTwinnedDescription Увеличьте свою харизму на 1, максимум до 20.\nВы изучаете метамагию Близнец и получаете 2 очка	волшебства.
+Feat/&FeatMetamagicAdeptTwinnedTitle Метамагия:	Близнец
+Feat/&FeatPrimalConstitutionDescription Увеличьте ваше Телосложение на 1, максимум до 20.\nВы можете ввести ярость в качестве бонусного действия, как определено в классовой особенности ярости варвара, с уроном от ярости +1, который может суммироваться с яростью варвара. После того, как вы разозлились таким образом, вы должны закончить продолжительный отдых, прежде чем снова использовать эту способность.\nПока вы не носите никаких доспехов, ваш КД равен 10 + ваш модификатор Ловкости + ваш модификатор	Телосложения.
+Feat/&FeatPrimalConstitutionTitle Первобытная ярость	(Телосложение)
+Feat/&FeatPrimalStrengthDescription Увеличьте свою Силу на 1, максимум до 20.\nВы можете ввести ярость в качестве бонусного действия, как определено в классовой особенности ярости варвара, с уроном от ярости +1, который может суммироваться с яростью варвара. После того, как вы разозлились таким образом, вы должны закончить продолжительный отдых, прежде чем снова использовать эту способность.\nПока вы не носите никаких доспехов, ваш КД равен 10 + ваш модификатор Ловкости + ваш модификатор	Телосложения.
+Feat/&FeatPrimalStrengthTitle Первобытная ярость	(Сила)
+Feat/&FeatPugilistFightingStlyeDescription Ваши удары без оружия наносят дополнительный дробящий урон 1d4, и вы можете бить левой рукой в ​​качестве бонусного действия.\nЕсли у вас есть свободная рука, вы можете запушить в качестве бонусного	действия.
+Feat/&FeatPugilistFightingStlyeTitle Боевой стиль: Кулачный	бой
+Feat/&FeatRangedExpertDescription Ваше экспертное обучение обращению с оружием дальнего боя дает вам следующие преимущества:\n• Вы больше не испытываете помехи при атаках дальнего боя, если в пределах 5 футов от вас находится враг.\n• Если в свой ход вы совершаете действие Атака, вы можете использовать бонусное действие, чтобы совершить атаку одноручным дальнобойным или метательным	оружием.
+Feat/&FeatRangedExpertTitle Эксперт дальнего	боя
+Feat/&FeatSavageAttackerDescription Перебрасывайте кубики урона от оружия и заклинаний, когда выпадает 1 (это не перебрасывает кубики от всех источников урона. Например, атака исподтишка и урон от поражения не	перебрасываются).
+Feat/&FeatSavageAttackerReroll Из-за того, что он является Диким Атакующим, {0} перебрасывает {1} кубик с {2} на	{3}.
+Feat/&FeatSavageAttackerTitle Дикий	атакующий
+Feat/&FeatShadowTouchedChaDescription Увеличьте свой атрибут Харизмы на 1, максимум до 20.\nВы получаете способность накладывать заклинания невидимости, нанесения ран и ложных жизней один раз за продолжительный отдых, и вы можете накладывать эти заклинания с помощью своих ячеек	заклинаний.
+Feat/&FeatShadowTouchedChaTitle Прикосновение тени	(Харизма)
+Feat/&FeatShadowTouchedIntDescription Увеличьте свой атрибут Интеллект на 1, максимум до 20.\nВы получаете способность накладывать заклинания невидимости, нанесения ран и ложных жизней один раз за продолжительный отдых, и вы можете накладывать эти заклинания с помощью своих ячеек	заклинаний.
+Feat/&FeatShadowTouchedIntTitle Прикосновение тени	(Интеллект)
+Feat/&FeatShadowTouchedWisDescription Увеличьте свой атрибут Мудрости на 1, максимум до 20.\nВы получаете способность накладывать заклинания невидимости, нанесения ран и ложных жизней один раз за продолжительный отдых, и вы можете накладывать эти заклинания с помощью своих ячеек	заклинаний.
+Feat/&FeatShadowTouchedWisTitle Прикосновение тени	(Мудрость)
+Feat/&FeatShadyDescription Увеличьте свою Ловкость на 1, максимум до 20.\nОдин раз за ход вы можете нанести дополнительный урон 1d6 одному существу, по которому вы попали атакой, соответствующей требованиям Скрытой атаки Разбойника. На 12 уровне этот урон увеличивается до 2d6, а на 20 уровне до	4d6.
+Feat/&FeatShadyTitle	Теневой
+Feat/&FeatShieldExpertDescription Вы научились использовать щит в качестве оружия. Для вас это становится оружием ближнего боя, которым вы владеете и которое наносит дробящий урон 1d4.\nВы получаете преимущество при попытках толчка со	щитом.
+Feat/&FeatShieldExpertTitle Эксперт по	щитам
+Feat/&FeatStrengthIncrementDescription Увеличьте свою Силу на 1, максимум до	20.
+Feat/&FeatStrengthIncrementTitle Увеличение	атрибута Сила
+Feat/&FeatTelekineticChaDescription Увеличьте свою харизму на 1, максимум до 20.\nВ качестве бонусного действия вы можете телекинетически толкнуть или притянуть одно существо, которое вы видите в пределах 30 футов от себя. Цель должна преуспеть в спасброске Силы (Сл 8 + ваш бонус мастерства + ваш модификатор Харизмы) или переместиться на 5	футов.
+Feat/&FeatTelekineticChaPullDescription Телекинетически притяните существо к	себе.
+Feat/&FeatTelekineticChaPullTitle Телекинетическая	тяга
+Feat/&FeatTelekineticChaPushDescription Телекинетически отталкивает существо от	себя.
+Feat/&FeatTelekineticChaPushTitle Телекинетический	толчок
+Feat/&FeatTelekineticChaTitle Телекинетик	(Харизма)
+Feat/&FeatTelekineticIntDescription Увеличьте свой Интеллект на 1, максимум до 20.\nВ качестве бонусного действия вы можете телекинетически толкнуть или притянуть одно существо, которое вы видите в пределах 30 футов от себя. Цель должна преуспеть в спасброске Силы (Сл 8 + ваш бонус мастерства + ваш модификатор Интеллекта) или переместится на 5	футов.
+Feat/&FeatTelekineticIntPullDescription Телекинетически притяните существо к	себе.
+Feat/&FeatTelekineticIntPullTitle Телекинетическая	тяга
+Feat/&FeatTelekineticIntPushDescription Телекинетически отталкивает существо от	себя.
+Feat/&FeatTelekineticIntPushTitle Телекинетический	толчок
+Feat/&FeatTelekineticIntTitle Телекинетик	(Интеллект)
+Feat/&FeatTelekineticWisDescription Увеличьте свою Мудрость на 1, максимум до 20.\nВ качестве бонусного действия вы можете телекинетически толкнуть или притянуть одно существо, которое вы видите в пределах 30 футов от себя. Цель должна преуспеть в спасброске Силы (Сл 8 + ваш бонус мастерства + ваш модификатор Мудрости) или переместиться на 5	футов.
+Feat/&FeatTelekineticWisPullDescription Телекинетически притяните существо к	себе.
+Feat/&FeatTelekineticWisPullTitle Телекинетическая	тяга
+Feat/&FeatTelekineticWisPushDescription Телекинетически отталкивает существо от	себя.
+Feat/&FeatTelekineticWisPushTitle Телекинетический	толчок
+Feat/&FeatTelekineticWisTitle Телекинетик	(Мудрость)
+Feat/&FeatTitanFightingDescription Вы получаете +2 к попаданию по существам Большого размера или	больше.
+Feat/&FeatTitanFightingTitle Боевой стиль: Битва	титанов
+Feat/&FeatToughDescription Максимум ваших HP увеличивается на величину, равную удвоенному вашему уровню, когда вы получаете этот навык. Всякий раз, когда вы получаете уровень после этого, ваш максимум HP увеличивается еще на 2	ОЗ.
+Feat/&FeatToughTitle	Крепкий
+Feat/&FeatWarCasterDescription Вы получаете преимущество на проверки для сохранения концентрации.\nВы получаете возможность выполнять соматический компонент заклинаний даже с занятыми обеими руками.\nКогда движение враждебного существа вызывает у вас провоцированную атаку, вы можете реакцией наложить колдовство на это существо, вместо того чтобы проводить провоцированную атаку. Время сотворения колдовства должно быть равно 1 действию или бонусному действию, и оно должно быть нацелено только на это	существо.
+Feat/&FeatWarCasterTitle Боевой заклинатель
+Feat/&FeatWiseDefenseDescription Увеличьте свою Мудрость на 1, максимум до 20.\nПока вы не носите никаких доспехов, ваш КД равен 10 + ваш модификатор Ловкости + ваш модификатор	Мудрости.
+Feat/&FeatWiseDefenseTitle Мудрость в	защите
+Feat/&FeatWisePrecisionDescription Вы можете использовать бонусное действие для выбора оружия. Его атаки считаются магическими, и вы используете свою Мудрость для бросков атаки и урона в течение 1 минуты. Эту функцию можно использовать дважды за продолжительный	отдых.
+Feat/&FeatWisePrecisionTitle Мудрость в	точности
+Feat/&FeatWisIncrementDescription Увеличьте свою Мудрость на 1, максимум до	20.
+Feat/&FeatWisIncrementTitle Увеличение атрибута	Мудрость
+Feat/&FeyTeleportationLanguageTirmarianDescription Вы получаете владение тирмарианским	языком.
+Feat/&FeyTeleportationLanguageTirmarianTitle	Тирмариан
+Feat/&FightingStyleArcheryDescription Вы получаете бонус +2 к броскам атаки оружием дальнего	боя.
+Feat/&FightingStyleArcheryTitle Боевой стиль: Стрельба из	лука
+Feat/&FightingStyleDefenseDescription Пока вы носите доспехи, вы получаете бонус +1 к	КД.
+Feat/&FightingStyleDefenseTitle Боевой стиль:	Защита
+Feat/&FightingStyleDuelingDescription Когда вы держите в одной руке оружие ближнего боя и никакого другого оружия, вы получаете бонус +2 к броскам урона этим	оружием.
+Feat/&FightingStyleDuelingTitle Боевой стиль:	Дуэлянт
+Feat/&FightingStyleGeneralFeatDescription Вы можете выбрать стиль	боя.
+Feat/&FightingStyleGeneralFeatitle Боевой	стиль
+Feat/&FightingStyleGreatWeaponDescription Когда вы выбрасываете 1 или 2 на кубике урона за атаку, которую вы совершаете оружием ближнего боя, которое вы держите двумя руками, вы можете перебросить кубик. Вы должны использовать новый бросок, даже если это 1 или 2. Оружие должно быть двуручным или универсальным, чтобы вы могли получить это	преимущество.
+Feat/&FightingStyleGreatWeaponTitle Боевой стиль: Великое	оружие
+Feat/&FightingStyleProtectionDescription Когда существо, которое вы видите, атакует цель, отличную от вас, которая находится в пределах 5 футов от вас, вы можете реакцией наложить помеху на бросок атаки. У тебя должен быть	щит.
+Feat/&FightingStyleProtectionTitle Боевой стиль:	Защита
+Feat/&FightingStyleTwoWeaponDescription Когда вы участвуете в бою с двумя оружиями, вы можете добавить свой модификатор способности к урону от второй	атаки.
+Feat/&FightingStyleTwoWeaponTitle Боевой стиль: два	оружия
+Feat/&ForceStrikePowerDescription Атака дальнего боя 1d6 силового урона от вашего верного	помощника.
+Feat/&ForceStrikePowerTitle Force Sling (Искусственный	слуга)
+Feat/&GauntletsGrappleDescription Теперь может притягивать врагов в рукопашную с помощью бонусного действия и наносить урон громом	1d8.
+Feat/&GauntletsGrappleTitle Перчаточный	захват
+Feat/&HealerDescription Вы получаете умение или опыт в проверках Медицины. Вы получаете возможность стабилизировать умирающее существо, а также воскрешать существо, умершее в течение последних 12 секунд, один раз за продолжительный отдых. Вы можете действием восстановить 1d6 + 4 + уровень жизни персонажа, количество раз за короткий отдых равное вашему модификатору	Мудрости.
+Feat/&HealerResuscitateDescription Используйте действие, чтобы оживить существо, которое умерло в течение последних 15	секунд.
+Feat/&HealerResuscitateTitle	Реанимировать
+Feat/&HealerStabilizeDescription Используйте действие, чтобы стабилизировать умирающее	существо.
+Feat/&HealerStabilizeTitle	стабилизировать
+Feat/&HealerTitle	Целитель
+Feat/&HealerUseMedicineDescription Вы можете действием восстановить 1d6 + 4 + уровень жизни персонажа, количество раз за короткий отдых равное вашему модификатору	Мудрости.
+Feat/&HealerUseMedicineTitle Используйте	лекарство
+Feat/&IncreaseConstructSelectingDescription Теперь вы можете призвать две артиллерийские конструкции. Конструкции могут быть одинаковыми или разными	модусами.
+Feat/&IncreaseConstructSelectingTitle	Подкрепления
+Feat/&InspiringLeaderDescription Один раз за короткий отдых вы можете потратить 10 минут на то, чтобы вдохновить до 6 дружественных существ (включая себя) в пределах 30 футов от вас. Каждое существо получает временные хиты, равные вашему уровню + ваш модификатор	Харизмы.
+Feat/&InspiringLeaderTitle Вдохновляющий	лидер
+Feat/&IntToAttackAndDamageDescription Вы можете использовать свой модификатор Интеллекта вместо модификатора Силы или Ловкости для бросков атаки и урона с Бронированным	Оружием.
+Feat/&IntToAttackAndDamageTitle Броня	Оружие
+Feat/&MendingConstructDescription Восстановите вашу конструкцию на 2d6 ОЗ за 1	минуту.
+Feat/&MendingConstructTitle Исправление	конструкции
+Feat/&ModeSwitchingPoolDescription Вы можете переключаться между режимами один раз за короткий отдых, создавая и используя временное	оружие.
+Feat/&ModeSwitchingPoolTitle Режим	брони
+Feat/&PickPocketFeatDescription Вы получаете владение Ловкостью рук или опыт, если уже владеете им. Вы также совершаете с преимуществом проверки Ловкости	рук.
+Feat/&PickPocketFeatTitle	Карманник
+Feat/&PowerAlchemistEmboldeningShotsDescription Вы получаете возможность применять эликсир, который ободряет ваших союзников, давая им 4d6 + модификатор Интеллекта временных очков	жизни.
+Feat/&PowerAlchemistEmboldeningShotsTitle Воодушевляющие	выстрелы
+Feat/&PowerAttackFeatDescription Вы научились обменивать точность на более смертоносные удары. При атаке оружием ближнего боя вы можете получить штраф -3 к попаданию, чтобы нанести дополнительный урон, равный 3 + ваш бонус	мастерства.
+Feat/&PowerAttackFeatTitle Силовая	атака
+Feat/&PowerFalseLifeFromFeatDescription Подкрепляя себя некромантической копией жизни, вы получаете 1d4 + 4 Временных хита на время	действия.
+Feat/&PowerFalseLifeFromFeatTitle Ложная	жизнь
+Feat/&PowerInflictWoundsFromFeatDescription Совершите рукопашную атаку заклинанием против существа в пределах вашей досягаемости. При попадании цель получает урон некротической энергией	3d10.
+Feat/&PowerInflictWoundsFromFeatTitle Наносить	раны
+Feat/&PowerInvisibilityFromFeatDescription Существо, к которому вы прикасаетесь, становится невидимым до окончания действия заклинания. Все, что носит или носит цель, невидимо, пока оно находится на ее теле. Заклинание оканчивается для цели, которая атакует или накладывает	заклинание.
+Feat/&PowerInvisibilityFromFeatTitle	Невидимость
+Feat/&PowerMistyStepFromFeatDescription Ненадолго окруженный серебристым туманом, вы телепортируетесь на расстояние до 30 футов в незанятое пространство, которое можете	видеть.
+Feat/&PowerMistyStepFromFeatTitle Туманный	шаг
+Feat/&PowerShadowTouchedFromFeatDescription Научитесь колдовать невидимость, ложную жизнь и наносить	раны.
+Feat/&PowerShadowTouchedFromFeatTitle Касание	тени
+Feat/&ProfChefTreatActionDescription Бонусным действием съешьте лакомство и получите 5 временных очков	жизни.
+Feat/&ProfChefTreatActionTitle Съесть угощение	шеф-повара
+Feat/&ProfChefTreatCookDescription Потратьте один час на приготовление угощений, которые при употреблении дают 5 временных очков	жизни.
+Feat/&ProfChefTreatCookTitle Угощение	шеф-повара
+Feat/&ProfChefTreatDescription Съешьте в качестве бонусного действия и получите 5 временных очков	жизни.
+Feat/&ProfChefTreatTitle Угощение	шеф-повара
+Feat/&ProfHealerMedicineDescription Вы получаете мастерство в медицине или опыт, если вы уже владеете	ею.
+Feat/&ProfHealerMedicineTitle Медицинские	знания
+Feat/&ProtectorConstructAttackDescription Конструкция защитника совершает атаку, наносящую силовой урон	1d10.
+Feat/&ProtectorConstructAttackTitle Разрыв	Силы
+Feat/&ProtectorConstructDescription Он дружелюбен к вам и вашим спутникам и подчиняется вашим	командам.
+Feat/&ProtectorConstructDescription_5 Улучшение конструкции	Защитника.
+Feat/&ProtectorConstructTitle Защитная	конструкция
+Feat/&ProtectorConstructTitle_5 Улучшение конструкции	Защитника
+Feat/&RecklessFuryFeatDescription Вы получаете возможность впадать в ярость на одну минуту один раз в день без каких-либо ограничений по броне.\nВы можете безрассудно атаковать, получая преимущество в рукопашных атаках и давая преимущество нападающим до начала вашего следующего	хода.
+Feat/&RecklessFuryFeatTitle Безрассудная	ярость
+Feat/&RetributionDescription Конструкт наносит 1d4 + ваш модификатор Интеллекта силового урона атакующему, когда по нему попадает	атака.
+Feat/&RetributionTitle	Возмездие
+Feat/&SelfDestructDescription Самоуничтожение и принудительный спасбросок Ловкости для существ в пределах 10 футов. При провале нанесите 3к8 силового	урона.
+Feat/&SelfDestructTitle	Саморазрушение
+Feat/&SelfRepairDescription Восстанавливает 2d8 ОЗ 3 раза в	день.
+Feat/&SelfRepairTitle Самостоятельный	ремонт
+Feat/&SubclassMovementDescription Тяжелая броня не требует	силы.
+Feat/&SubclassMovementTitle Иммунитет к тяжелой	броне
+Feat/&SubclassProficienciesDescription Вы получаете владение кузнечными инструментами и тяжелыми	доспехами.
+Feat/&SubclassProficienciesTitle Знания	подкласса
+Feat/&SummonArtificialServantDescription Слуга дружелюбен к вам и вашим спутникам и подчиняется вашим	командам.
+Feat/&SummonArtificialServantTitle Призвать искусственного	слугу
+Feat/&ThunderShieldDescription Защитный щит обеспечивает временные ОЗ, равные вашему уровню. Можно использовать 6 раз за продолжительный	отдых.
+Feat/&ThunderShieldTitle Громовой	щит
+Feat/&TorchbearerDescription Вы умеете пользоваться факелом в бою. Один раз за ход в качестве бонусного действия вы можете использовать источник света, которым вы экипированы, чтобы попытаться поджечь врага, которого вы можете коснуться. Ваша цель должна преуспеть в спасброске Ловкости (Сл 8 + ваш бонус мастерства + ваш модификатор Ловкости) или получить 1d4 урона огнём за ход в течение 1 минуты или до тех пор, пока не будет	погашена.
+Feat/&TorchbearerTitle	Факелоносец
+Feat/&UseArmorWeaponsAsFocusDescription Вы можете использовать оружие брони в качестве фокуса заклинаний для своих	заклинаний.
+Feat/&UseArmorWeaponsAsFocusTitle Фокус	заклинаний
+Feat/&UsingitemPowerDescription Позволяет использовать силу оружия в бонусном	действии.
+Feat/&UsingitemPowerTitle Используйте силу	оружия
+Feature/&AdditionalActionDualFlurryDescription Вы можете совершить дополнительную атаку левой	рукой.
+Feature/&AdditionalActionDualFlurryTitle Двойной	шквал!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription Один раз за ход вы можете нанести дополнительный урон 1к6 одному существу, по которому вы попали атакой, соответствующей скрытой атаке Разбойника. На 7 уровне этот урон увеличивается до 2d6, а на 14 уровне до 3d6. Это может сочетаться с скрытой атакой	разбойника.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle Теневая подлая	атака
+Feature/&DeadeyeDescription Атака на дальней дистанции не накладывает помехи на ваши броски атаки оружием дальнего боя. Ваше оружие дальнего боя игнорирует половину укрытия и укрытие на три четверти. Вы можете выбрать бонусный штраф -5 к вашему удару, чтобы нанести дополнительный урон	+10.
+Feature/&DeadeyeTitle Меткий	глаз
+Feature/&DualFlurryDescription Вы мастер боя спаренным оружием. В любой ход, когда вы дважды попадаете рукопашной атакой, держа по оружию в каждой руке, вы можете совершить дополнительную атаку левой	рукой.
+Feature/&DualFlurryTitle Двойной	шквал
+Feature/&PowerAttackDescription Получите штраф -3 к попаданию к своей атаке, чтобы нанести 3 + Бонус мастерства дополнительного урона, когда вы наносите удары оружием ближнего	боя.
+Feature/&PowerAttackTitle Силовая	атака
+Feature/&PowerTorchbearerDescription Попытаться поджечь цель в ближнем	бою!
+Feature/&PowerTorchbearerTitle	Факелоносец
+Feature/&RageDamageBonusAttackModifierDescription Добавьте +2 урона к вашим атакам во время	ярости.
+Feature/&RageDamageBonusAttackModifierTitle Урон от	ярости
+Feature/&RageFeatConditionDescription Находясь в ярости, вы получаете следующее: Преимущество в проверках Силы и спасбросках Силы, бонус к броскам урона +2 и сопротивление дробящему, колющему и рубящему	урону.
+Feature/&RageFeatConditionTitle	бушующий
+Feature/&RagePowerDescription В качестве бонусного действия вы входите в ярость на одну минуту и ​​получаете следующее: Преимущество в проверках Силы и спасбросках Силы, бонус к броскам урона +2 и сопротивление дробящему, колющему и рубящему	урону.
+Feature/&RagePowerTitle	Ярость
+Feature/&RageStrengthSavingThrowAffinityDescription Вы получаете преимущество в спасбросках Силы в	ярости.
+Feature/&RageStrengthSavingThrowAffinityTitle Преимущество в спасброске Силы	Ярости
+Power/&HelpActionDescription Вы можете помочь дружественному существу атаковать существо в пределах 5 футов от вас. Вы делаете финт, отвлекаете цель или каким-то другим образом объединяетесь, чтобы сделать атаку вашего союзника более эффективной. Если ваш союзник атакует цель до вашего следующего хода, первый бросок атаки делается с	преимуществом.
+Power/&HelpActionTitle	Помощь
+Reaction/&SubitemSelectWarcasterReactionTitle Выберите	действие
+Reaction/&WarcasterAttackDescription Цель	атаки.
+Reaction/&WarcasterAttackTitle	Атака
+Reaction/&WarcasterReactionDescription {0} покидает зону, которой угрожают один или несколько	персонажей.
+Reaction/&WarcasterReactionReactDescription Используйте реакцию, чтобы атаковать	цель.
+Reaction/&WarcasterReactionReactTitle	Атака
+Reaction/&WarcasterReactionTitle Атака	возможности
+Tooltip/&DeadeyeConcentration Отключить меткий	глаз.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle Не знает	{0}
+Tooltip/&FeatPrerequisiteHasStealthAttack Имеет скрытую	атаку
+Tooltip/&FeatPrerequisiteIsNotBarbarian не	варвар
+Tooltip/&FeatPrerequisiteIsNotFighter не	боец
+Tooltip/&FeatPrerequisiteIsNotRogue не	разбойник
+Tooltip/&FeatPrerequisiteLevelFormat Минимальный уровень персонажа	{0}
+Tooltip/&PowerAttackConcentration Отключить силовую	атаку.

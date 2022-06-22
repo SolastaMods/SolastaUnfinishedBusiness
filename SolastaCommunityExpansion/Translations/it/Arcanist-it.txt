@@ -1,0 +1,20 @@
+Condition/&ConditionMarkedByArcanistDescription	Afflitto dal Marchio dell'Arcanista. Quando viene colpito dall'incantatore con un attacco con un'arma, il marchio esplode, infliggendo 1d6 danni da forza agli afflitti e distruggendo il marchio.
+Condition/&ConditionMarkedByArcanistTitle	Marchio dell'arcanista
+Equipment/&ArcaneStaffDescription	Questo bastone è inciso con una scrittura magica e può essere usato come punto focale per lanciare incantesimi Arcani.
+Equipment/&ArcaneStaffTitle	Bastone Arcano
+Feature/&ArcaneDetonationDescription	Quando colpisci una creatura che ha il tuo Marchio dell'Arcanista con un attacco con un'arma, il marchio esplode, infliggendo 1d6 danni da forza e distruggendo il marchio.
+Feature/&ArcaneDetonationTitle	Detonazione Arcana
+Feature/&ArcaneDetonationUpgradeDescription	A partire dall'11° livello, il danno della tua Detonazione Arcana aumenta a 2d6.
+Feature/&ArcaneDetonationUpgradeTitle	Detonazione Arcana Maggiore
+Feature/&ArcanePulseDescription	A partire dal 7° livello, puoi causare un'eruzione di energia arcana a una distanza di 9 metri. Le creature ostili entro 15 piedi dal punto di impatto subiscono 4d8 danni e ottengono un Marchio dell'Arcanista. Puoi usare questa capacità un numero di volte pari al tuo modificatore di Saggezza per riposo lungo. Al 15° livello, i danni del tuo Impulso Arcano aumentano a 8d8.
+Feature/&ArcanePulseTitle	Impulso Arcano
+Feature/&ArcanistAutoPreparedSpellsDescription	Ottieni incantesimi bonus che sono considerati incantesimi da Ranger per te, sono sempre preparati e non contano per il numero di incantesimi da Ranger che conosci:\n{0}
+Feature/&ArcanistAutoPreparedSpellsTitle	Incantesimi bonus Arcanista Ranger
+Feature/&ArcanistMarkDescription	A partire dal 3° livello, immergi le tue armi con potere arcano. Le creature colpite dai tuoi attacchi sono afflitte dal Marchio dell'Arcanista.
+Feature/&ArcanistMarkTitle	Marchio dell'arcanista
+Feature/&MagicAffinityRangerArcanistDescription	Sei abile nel lanciare incantesimi in battaglia e puoi lanciare incantesimi che richiedono una componente somatica anche se entrambe le tue mani impugnano un'arma o uno scudo.
+Feature/&MagicAffinityRangerArcanistTitle	Addestramento al combattimento arcano
+Feedback/&AdditionalDamageArcanistMarkFormat	Marchio dell'arcanista!
+Feedback/&AdditionalDamageArcanistMarkLine	Il Marchio dell'Arcanista esplode e infligge danni extra al bersaglio!
+Subclass/&RangerArcanistRangerSubclassDescription	L'Arcanista Ranger combina le sue abilità da Ranger con abilità arcane. Le loro armi possono affliggere i loro avversari con il Marchio dell'Arcanista e hanno imparato a lanciare alcuni incantesimi da Mago come parte del loro repertorio di incantesimi da Ranger.
+Subclass/&RangerArcanistRangerSubclassTitle	Arcanista Ranger

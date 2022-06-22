@@ -17,6 +17,16 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
       "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDarkelfFaerieFire:68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDarkelfDarkness:0c413f86-2fa8-4f3d-999a-89e6c7b5b14d",
+      "level": 5
     }
   ],
   "subRaces": [],

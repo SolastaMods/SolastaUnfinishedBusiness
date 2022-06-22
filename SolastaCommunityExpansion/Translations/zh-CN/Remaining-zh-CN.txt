@@ -1,0 +1,4 @@
+Feature/&AttributeModifier{0}Description	{0}
+Feature/&SignofIllOmenTitle	不详征兆
+Feedback/&ExtraDamageDescription	电光之矛的额外伤害
+Feedback/&ExtraDamageTitle	电光之矛额外伤害

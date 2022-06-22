@@ -1,0 +1,293 @@
+Equipment/&CEHalberdTypeTitle	Алебарда
+Equipment/&CEHandXbowTypeTitle Ручной	арбалет
+Equipment/&CELongMaceTypeTitle Длинная	булава
+Equipment/&CEPikeTypeTitle	Пика
+Equipment/&DruidicAmuletDescription Этот тотемный амулет можно использовать в качестве фокуса для произнесения заклинаний	друидов.
+Equipment/&DruidicAmuletTitle Амулет Друидов
+Equipment/&Enchanted_Club_Acuteness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Club_Acuteness_Title Острая	Дубина
+Equipment/&Enchanted_Club_Bearclaw_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Острые шипы когтей медведя разрывают броню, нанося дополнительный урон. Первое оружие такого рода было разработано Ильдуриалом	Стронгхендом.
+Equipment/&Enchanted_Club_Bearclaw_Title Дубина Медвежьего	Когтя
+Equipment/&Enchanted_Club_Lightbringer_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с	нежитью.
+Equipment/&Enchanted_Club_Lightbringer_Title Дубина	Светоносного
+Equipment/&Enchanted_Club_Power_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Некоторые существа уважают только физическую силу. Маги манакалона создали этот клуб, чтобы дать чемпионам Железных легионов силу, которой не могли дать их эльфийские	тела.
+Equipment/&Enchanted_Club_Power_Title Дубина	Мощи
+Equipment/&Enchanted_Club_Punisher_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Сочетание лучшего металла и рабского камня придало этому топору невероятную пробивную	силу.
+Equipment/&Enchanted_Club_Punisher_Title Дубина	Карателя
+Equipment/&Enchanted_Dart_Acuteness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Dart_Acuteness_Title Острый	Дротик
+Equipment/&Enchanted_Dart_Frostburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло	наперекосяк.
+Equipment/&Enchanted_Dart_Frostburn_Title Дротик обжигающего холода
+Equipment/&Enchanted_Dart_Sharpness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Dart_Sharpness_Title Заострённый	Дротик
+Equipment/&Enchanted_Dart_Souldrinker_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir	Redblade.
+Equipment/&Enchanted_Dart_Souldrinker_Title Дротик Пожирателя	душ
+Equipment/&Enchanted_Handaxe_Acuteness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Handaxe_Acuteness_Title Острый	топорик
+Equipment/&Enchanted_Handaxe_Frostburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло	наперекосяк.
+Equipment/&Enchanted_Handaxe_Frostburn_Title Топорик обжигающего холода
+Equipment/&Enchanted_Handaxe_Sharpness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Handaxe_Sharpness_Title Заострённый	Топорик
+Equipment/&Enchanted_Handaxe_Souldrinker_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir	Redblade.
+Equipment/&Enchanted_Handaxe_Souldrinker_Title Топорик Пожирателя	душ
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Его первоначальный дизайн носил печать Дефинет Острый Взгляд, известного заклинателя лесных	эльфов.
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title Тяжелый арбалет	меткости
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с	нежитью.
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title Тяжелый арбалет	Светоносного
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Магия соединила коралл медузы и твердую древесину, чтобы создать смертоносный лук, любимый абордажными отрядами островных	халфлингов.
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Title Тяжелый арбалет	«Медуза»
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Коэдимварт предпочитал иметь дело с чародеями Манакалона физически, а не магически. Его лучшие лучники получили арбалеты, созданные Дефинетом Острым	Взглядом.
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title Тяжелый арбалет меткой	стрельбы
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного	эффекта!
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title Тяжелый арбалет	«Гроза»
+Equipment/&Enchanted_HideArmor_Deflection_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_HideArmor_Deflection_Title Клёпаный доспех	отражения
+Equipment/&Enchanted_HideArmor_FlameDancing_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_HideArmor_FlameDancing_Title Hide Клёпаный доспех Танца	Пламени
+Equipment/&Enchanted_HideArmor_FrostWalking_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_HideArmor_FrostWalking_Title Клёпаный доспех Ледяной	поступи
+Equipment/&Enchanted_HideArmor_Robustness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_HideArmor_Robustness_Title Крепкий Клёпаный	доспех
+Equipment/&Enchanted_HideArmor_Sturdiness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_HideArmor_Sturdiness_Title Клёпаный доспех	Прочности
+Equipment/&Enchanted_HideArmor_Survival_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_HideArmor_Survival_Title Клёпаный доспех	Выживания
+Equipment/&Enchanted_Javelin_Acuteness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Javelin_Acuteness_Title Острое	Копье
+Equipment/&Enchanted_Javelin_Frostburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло	наперекосяк.
+Equipment/&Enchanted_Javelin_Frostburn_Title Копье обжигающего холода
+Equipment/&Enchanted_Javelin_Sharpness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Javelin_Sharpness_Title Зостренное	Копье
+Equipment/&Enchanted_Javelin_Souldrinker_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir	Redblade.
+Equipment/&Enchanted_Javelin_Souldrinker_Title Копье Пожирателя	душ
+Equipment/&Enchanted_LeatherDruid_Deflection_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_LeatherDruid_Deflection_Title Доспех Друид	Отклонения
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Title Доспех Друида Танец	Пламени
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Title Доспех Друида Ледяной	поступи
+Equipment/&Enchanted_LeatherDruid_Robustness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_LeatherDruid_Robustness_Title Крепкий доспех	друидов
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Title Прочный доспех	друидов
+Equipment/&Enchanted_LeatherDruid_Survival_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_LeatherDruid_Survival_Title Доспех друида	Выживания
+Equipment/&Enchanted_LightCrossbow_Accuracy_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Его первоначальный дизайн носил печать Дефинет Острый Взгляд, известного заклинателя лесных	эльфов.
+Equipment/&Enchanted_LightCrossbow_Accuracy_Title Легкий арбалет	меткости
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с	нежитью.
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Title Легкий арбалет	Светоносного
+Equipment/&Enchanted_LightCrossbow_Medusa_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Магия соединила коралл медузы и твердую древесину, чтобы создать смертоносный лук, любимый абордажными отрядами островных	халфлингов.
+Equipment/&Enchanted_LightCrossbow_Medusa_Title Легкий арбалет	«Медуза»
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Коэдимварт предпочитал иметь дело с чародеями Манакалона физически, а не магически. Его лучшие лучники получили арбалеты, созданные Дефинетом Острым	Взглядом.
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title Легкий стрелковый	арбалет
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного	эффекта!
+Equipment/&Enchanted_LightCrossbow_Stormbow_Title Легкий арбалет	«Гроза»
+Equipment/&Enchanted_Maul_Acuteness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Maul_Acuteness_Title Острая	Кувалда
+Equipment/&Enchanted_Maul_Bearclaw_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Острые шипы когтей медведя разрывают броню, нанося дополнительный урон. Первое оружие такого рода было разработано Ильдуриалом	Стронгхендом.
+Equipment/&Enchanted_Maul_Bearclaw_Title Кувалда медвежьего	когтя
+Equipment/&Enchanted_Maul_Lightbringer_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с	нежитью.
+Equipment/&Enchanted_Maul_Lightbringer_Title Кувалда	Светоносного
+Equipment/&Enchanted_Maul_Power_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Некоторые существа уважают только физическую силу. Чародеи-манакалоны создали этот Молот, чтобы дать чемпионам Железных Легионов силу, которой не могли дать их эльфийские	тела.
+Equipment/&Enchanted_Maul_Power_Title Кувалда	Мощи
+Equipment/&Enchanted_Maul_Punisher_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Сочетание лучшего металла и рабского камня придало этому топору невероятную пробивную	силу.
+Equipment/&Enchanted_Maul_Punisher_Title Кувалда	Карателя
+Equipment/&Enchanted_Quarterstaff_Acuteness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Quarterstaff_Acuteness_Title Острый Боевой	посох
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Лесторетом Стилармом для сражения на замерзшем севере	Империи.
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Title Боевой посох драконьего	клинка
+Equipment/&Enchanted_Quarterstaff_Frostburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло	наперекосяк.
+Equipment/&Enchanted_Quarterstaff_Frostburn_Title Боевой посох	обжигающего холода
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с	нежитью.
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Title Боевой посох	Светоносного
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir	Redblade.
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Title Боевой посох Пожирателя	Душ
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного	эффекта!
+Equipment/&Enchanted_Quarterstaff_Stormblade_Title Боевой посох «Гроза»
+Equipment/&Enchanted_Quarterstaff_Warden_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Илдуриалом Стронгармом, известным мастером клинков из Манакалона. Первый такой клинок, Manacalon Warden, был предложен командиру	«Еврайдда».
+Equipment/&Enchanted_Quarterstaff_Warden_Title Боевой посох	Надзирателя
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Вайтберн был создан первым данантаром для борьбы с вторжением троллей, пришедшим из болот к югу от его владений между сиолтафинами и	скарафинами.
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Title Посох	обжигающего света
+Equipment/&Enchanted_Rapier_Dragonblade_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Лесторетом Стальной Армой для сражения на замерзшем севере	Империи.
+Equipment/&Enchanted_Rapier_Dragonblade_Title Рапира драконьего	клинка
+Equipment/&Enchanted_Rapier_Frostburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло	наперекосяк.
+Equipment/&Enchanted_Rapier_Frostburn_Title Рапира обжигающего холода
+Equipment/&Enchanted_Rapier_Lightbringer_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с	нежитью.
+Equipment/&Enchanted_Rapier_Lightbringer_Title Рапира	Светоносного
+Equipment/&Enchanted_Rapier_Power_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Некоторые существа уважают только физическую силу. Чародеи-манакалоны создали эту Рапиру, чтобы дать чемпионам Железных Легионов силу, которой не могли дать их эльфийские	тела.
+Equipment/&Enchanted_Rapier_Power_Title Рапира	Мощи
+Equipment/&Enchanted_Rapier_Souldrinker_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir	Redblade.
+Equipment/&Enchanted_Rapier_Souldrinker_Title Рапира Пожирателя	душ
+Equipment/&Enchanted_Rapier_Stormblade_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного	эффекта!
+Equipment/&Enchanted_Rapier_Stormblade_Title Грозовая	Рапира
+Equipment/&Enchanted_Rapier_Warden_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Илдуриалом Стронгармом, известным мастером клинков из Манакалона. Первый такой клинок, Manacalon Warden, был предложен командиру	«Еврайда».
+Equipment/&Enchanted_Rapier_Warden_Title Рапира	Надзирателя
+Equipment/&Enchanted_Rapier_Whiteburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Вайтберн был создан первым данантаром для борьбы с вторжением троллей, пришедшим из болот к югу от его владений между сиолтафинами и	скарафинами.
+Equipment/&Enchanted_Rapier_Whiteburn_Title Рапира	обжигающего света
+Equipment/&Enchanted_Scimitar_Dragonblade_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Лесторетом Стилармом для сражения на замерзшем севере	Империи.
+Equipment/&Enchanted_Scimitar_Dragonblade_Title Скимитар драконьего	клинка
+Equipment/&Enchanted_Scimitar_Frostburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло	наперекосяк.
+Equipment/&Enchanted_Scimitar_Frostburn_Title Скимитар обжигающего холода
+Equipment/&Enchanted_Scimitar_Lightbringer_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с	нежитью.
+Equipment/&Enchanted_Scimitar_Lightbringer_Title Скимитар	Светоносного
+Equipment/&Enchanted_Scimitar_Souldrinker_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir	Redblade.
+Equipment/&Enchanted_Scimitar_Souldrinker_Title Скимитар Пожирателя	душ
+Equipment/&Enchanted_Scimitar_Stormblade_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного	эффекта!
+Equipment/&Enchanted_Scimitar_Stormblade_Title Грозовой	Скимитар
+Equipment/&Enchanted_Scimitar_Warden_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Илдуриалом Стронгармом, известным мастером клинков из Манакалона. Первый такой клинок, Manacalon Warden, был предложен командиру	«Еврайда».
+Equipment/&Enchanted_Scimitar_Warden_Title Скимитар	Надзирателя
+Equipment/&Enchanted_Scimitar_Whiteburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Вайтберн был создан первым данантаром для борьбы с вторжением троллей, пришедшим из болот к югу от его владений между сиолтафинами и	скарафинами.
+Equipment/&Enchanted_Scimitar_Whiteburn_Title Скимитар	обжигающего света
+Equipment/&Enchanted_Shield_Deflection_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Deflection_Title Щит	Отражения
+Equipment/&Enchanted_Shield_FlameDancing_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_FlameDancing_Title Щит Танца	пламени
+Equipment/&Enchanted_Shield_FrostWalking_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_FrostWalking_Title Щит	морозной поступи
+Equipment/&Enchanted_Shield_Robustness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Robustness_Title Крепкий	Щит
+Equipment/&Enchanted_Shield_Sturdiness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Sturdiness_Title Щит	прочности
+Equipment/&Enchanted_Shield_Survival_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Survival_Title Щит	выживаемости
+Equipment/&Enchanted_Shield_Wooden_Deflection_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Wooden_Deflection_Title Деревянный щит	отражения
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title Деревянный щит Танцующего	пламени
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title Деревянный щит морозной	поступи
+Equipment/&Enchanted_Shield_Wooden_Robustness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Wooden_Robustness_Title Деревянный щит	стойкости
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title Деревянный щит	прочности
+Equipment/&Enchanted_Shield_Wooden_Survival_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_Shield_Wooden_Survival_Title Деревянный щит	выживаемости
+Equipment/&Enchanted_Spear_Acuteness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Spear_Acuteness_Title Острое	Копье
+Equipment/&Enchanted_Spear_BlackViper_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона, с использованием копья и яда легендарного паука из глубин Соласты. Создателем клинка был Григг Блэкхарт, печально известный болотный халфлинг-кузнец, работавший в кузницах Аэр	Элаи.
+Equipment/&Enchanted_Spear_BlackViper_Title Копье Черная	Гадюка
+Equipment/&Enchanted_Spear_Doomblade_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Кеналот Даркмайнд изобрел Роковые клинки как инструмент наказания тех, кто сопротивлялся магии	Империи.
+Equipment/&Enchanted_Spear_Doomblade_Title Копье	Рока
+Equipment/&Enchanted_Spear_Lightbringer_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с	нежитью.
+Equipment/&Enchanted_Spear_Lightbringer_Title Копье	Светоносного
+Equipment/&Enchanted_Spear_Sharpness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Spear_Sharpness_Title Заостренное	Копье
+Equipment/&Enchanted_Spear_Whiteburn_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Вайтберн был создан первым данантаром для борьбы с вторжением троллей, пришедшим из болот к югу от его владений между сиолтафинами и	скарафинами.
+Equipment/&Enchanted_Spear_Whiteburn_Title Копье	обжигающего света
+Equipment/&Enchanted_StuddedLeather_Deflection_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_StuddedLeather_Deflection_Title Шипованная кожа	отклонения
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Title Шипованная кожа Пламенного	танца
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Title Шипованная кожа ледяной	поступи
+Equipment/&Enchanted_StuddedLeather_Robustness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_StuddedLeather_Robustness_Title Крепкая Шипованная	кожа
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Title Шипованная кожа	прочности
+Equipment/&Enchanted_StuddedLeather_Survival_Description Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны	Императора.
+Equipment/&Enchanted_StuddedLeather_Survival_Title Шипованная кожа	выживания
+Equipment/&Enchanted_Warhammer_Acuteness_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца	Арканеума.
+Equipment/&Enchanted_Warhammer_Acuteness_Title Острый Боевой	молот
+Equipment/&Enchanted_Warhammer_Bearclaw_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Острые шипы когтей медведя разрывают броню, нанося дополнительный урон. Первое оружие такого рода было разработано Ильдуриалом	Стронгхендом.
+Equipment/&Enchanted_Warhammer_Bearclaw_Title Боевой молот медвежьего	когтя
+Equipment/&Enchanted_Warhammer_Lightbringer_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с	нежитью.
+Equipment/&Enchanted_Warhammer_Lightbringer_Title Боевой молот	Светоносного
+Equipment/&Enchanted_Warhammer_Power_Description Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Некоторые существа уважают только физическую силу. Арканисты манакалона создали этот боевой молот, чтобы дать чемпионам Железных легионов силу, которую их эльфийские тела не	давали.
+Equipment/&Enchanted_Warhammer_Power_Title Боевой молот	Мощи
+Equipment/&Enchanted_Warhammer_Punisher_Description Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Сочетание лучшего металла и рабского камня придало этому топору невероятную пробивную	силу.
+Equipment/&Enchanted_Warhammer_Punisher_Title Боевой молот	Карателя
+Equipment/&ImprovedThunderPunchDescription Наносит 1d8 урона громом при попадании и накладывает помеху на броски атаки против союзников.\nБонусным действием притяните врагов на 30 футов, затем нанесите урон громом	1d8.
+Equipment/&ImprovedThunderPunchTitle Улучшенный громовой	удар
+Equipment/&LivewoodClubDescription Эта Дубина состоит из живого дерева с прорастающими листьями и, возможно, сезонными цветами. Его можно использовать в качестве фокуса для произнесения заклинаний	друидов.
+Equipment/&LivewoodClubTitle Дубина	Древа
+Equipment/&LivewoodStaffDescription Этот посох состоит из живой древесины с прорастающими листьями и, возможно, сезонными цветами. Его можно использовать в качестве фокуса для произнесения заклинаний	друидов.
+Equipment/&LivewoodStaffTitle Посох	Древа
+Equipment/&ThunderPunchDescription Наносит 1d8 урона громом при попадании и накладывает помеху на броски атаки против	союзников.
+Equipment/&ThunderPunchTitle Громовой	удар
+Equipment/&WandIdentifyDescription Применяет заклинание Идентификация, расходуя один заряд. Жезл имеет 3 заряда и восстанавливает 1d3 заряда каждый	рассвет.
+Equipment/&WandIdentifyTitle Жезл	идентификации
+Feat/&FeatPolearmExpertDescription Ваше экспертное обучение обращению с древковым оружием дает вам следующие преимущества:\n• Когда вы выполняете действие Атака и атакуете только древковым оружием, вы можете использовать бонусное действие, чтобы совершить рукопашную атаку противоположным концом оружия. Эта атака использует тот же модификатор характеристики, что и основная атака. Кубик урона оружия для этой атаки равен d4, и оно наносит дробящий урон.\n• Пока вы держите в руках древковое оружие, другие существа вызывают у вас провоцированную атаку, когда они входят в досягаемость, которую вы имеете с этим	оружием.
+Feat/&FeatPolearmExpertTitle Эксперт по древковому	оружию
+Item/&CEHalberd+1Title Алебарда	+1
+Item/&CEHalberd+1UnidentifiedTitle Качественная	алебарда
+Item/&CEHalberd+2Title Алебарда	+2
+Item/&CEHalberd+2UnidentifiedTitle Великолепная	алебарда
+Item/&CEHalberdLightningTitle Молниеносная	алебарда
+Item/&CEHalberdLightningUnidentifiedTitle Великолепная	алебарда
+Item/&CEHalberdPrimedTitle Подготовленная	алебарда
+Item/&CEHalberdTitle	алебарда
+Item/&CEHandXbow+1Title Ручной арбалет	+1
+Item/&CEHandXbow+1UnidentifiedTitle Качественный ручной	арбалет
+Item/&CEHandXbow+2Title Ручной арбалет	+2
+Item/&CEHandXbow+2UnidentifiedTitle Великолепный ручной	арбалет
+Item/&CEHandXbowAcidTitle Кислотный ручной	арбалет
+Item/&CEHandXbowAcidUnidentifiedTitle Великолепный ручной	арбалет
+Item/&CEHandXbowPrimedTitle Заготовка ручной	арбалет
+Item/&CEHandXbowTitle Ручной	арбалет
+Item/&CELongMace+1Title Длинная булава	+1
+Item/&CELongMace+1UnidentifiedTitle Качественная длинная	булава
+Item/&CELongMace+2Title Длинная булава	+2
+Item/&CELongMace+2UnidentifiedTitle Великолепная длинная	булава
+Item/&CELongMacePrimedTitle Заготовка Длинная	булава
+Item/&CELongMaceThunderTitle Длинная булава	Грома
+Item/&CELongMaceThunderUnidentifiedTitle Великолепная длинная	булава
+Item/&CELongMaceTitle Длинная	булава
+Item/&CEPike+1Title Пика	+1
+Item/&CEPike+1UnidentifiedTitle Качественная	пика
+Item/&CEPike+2Title Пика	+2
+Item/&CEPike+2UnidentifiedTitle Великолепная	пика
+Item/&CEPikePrimedTitle Заготовка	Пика
+Item/&CEPikePsychicTitle Психическая	пика
+Item/&CEPikePsychicUnidentifiedTitle Великолепная	пика
+Item/&CEPikeTitle	Пика
+Item/&CraftingManualRecipeEnchantCEHalberd+1Description Чары для алебарды	+1.
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title Чары для алебарды	+1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Description Чары для алебарды	+2.
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title Чары для алебарды	+2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription Зачаровать алебарду	молнии.
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle Чары для алебарды	молнии
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Description Чары для ручного арбалета	+1.
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title Чары для ручного арбалета	+1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Description Чары для ручного арбалета	+2.
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title Чары для ручного арбалета	+2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription Зачаровать кислотный ручной	арбалет.
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle Чары для кислотного	арбалета
+Item/&CraftingManualRecipeEnchantCELongMace+1Description Чары для длинной булавы	+1.
+Item/&CraftingManualRecipeEnchantCELongMace+1Title Чары для длинной булавы	+1
+Item/&CraftingManualRecipeEnchantCELongMace+2Description Чары для длинной булавы	+2.
+Item/&CraftingManualRecipeEnchantCELongMace+2Title Чары для длинной булавы	+2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription Зачаровать длинную булаву	Грома.
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle Чары длинной булавы	грома
+Item/&CraftingManualRecipeEnchantCEPike+1Description Зачаровать Пику	+1.
+Item/&CraftingManualRecipeEnchantCEPike+1Title Чары для пики	+1
+Item/&CraftingManualRecipeEnchantCEPike+2Description Зачаровать Пику	+2.
+Item/&CraftingManualRecipeEnchantCEPike+2Title Чары для пики	+2
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription Зачаровать психическую	пику.
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle Чары для психической	пики
+Item/&CraftingManualRecipeEnchantHandwraps+1Description Чары для повязок	+1.
+Item/&CraftingManualRecipeEnchantHandwraps+1Title Чары для повязок	+1
+Item/&CraftingManualRecipeEnchantHandwraps+2Description Чары для повязок	+2.
+Item/&CraftingManualRecipeEnchantHandwraps+2Title Чары для повязок	+2
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription Зачаровать мощные	повязки.
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle Зачаровать силовые	повязки
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription Зачаровать повязки	притяжения.
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle Чары для повязок	притяжения
+Item/&CraftingManualRecipePrimingCEHalberdDescription Подготовленная	Алебарда.
+Item/&CraftingManualRecipePrimingCEHalberdTitle Подготовленная	Алебарда
+Item/&CraftingManualRecipePrimingCEHandXbowDescription Подготовленный ручной	арбалет.
+Item/&CraftingManualRecipePrimingCEHandXbowTitle Подготовленный ручной	арбалет
+Item/&CraftingManualRecipePrimingCELongMaceDescription Подготовленная Длинная	булава.
+Item/&CraftingManualRecipePrimingCELongMaceTitle Подготовленная длинная	булава
+Item/&CraftingManualRecipePrimingCEPikeDescription Подготовленная	пика.
+Item/&CraftingManualRecipePrimingCEPikeTitle Подготовленная	пика
+Item/&Handwraps+1Title Повязки	+1
+Item/&Handwraps+1UnidentifiedTitle Повязки хорошего	качества
+Item/&Handwraps+2Title Повязки	+2
+Item/&Handwraps+2UnidentifiedTitle Великолепные	повязки
+Item/&HandwrapsOfForceTitle Мощные	повязки
+Item/&HandwrapsOfForceUnidentifiedTitle Великолепные	повязки
+Item/&HandwrapsOfPullingTitle Повязки	вытягивания
+Item/&HandwrapsOfPullingUnidentifiedTitle Великолепные	повязки
+Power/&PowerFunctionHandwrapsOfPullingDescription Бонусным действием вы можете притянуть к себе существо в пределах 15	футов.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Катушка
+Tooltip/&TagPolearmWeaponTitle Древковое	оружие

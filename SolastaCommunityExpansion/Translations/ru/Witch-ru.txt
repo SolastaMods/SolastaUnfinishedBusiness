@@ -1,0 +1,123 @@
+Class/&WitchArmorProficiencyDescription Легкая	броня.
+Class/&WitchArmorProficiencyTitle Навыки доспехов	Ведьмы
+Class/&WitchBurnedFireResistanceDescription У вас есть сопротивление урону от	огня.
+Class/&WitchBurnedFireResistanceTitle Сожжено: сопротивление	огню
+Class/&WitchBurnedProduceFlameDescription Вы знаете колдовство «Создать пламя», которое не учитывается при подсчете общего количества известных вам	колдовств.
+Class/&WitchBurnedProduceFlameTitle Сожжено: создать	пламя
+Class/&WitchCacklePowerDescription Вы можете использовать бонусное действие, чтобы кудахтать. Продолжительность вашего Проклятия увеличивается на 1 раунд за каждое затронутое существо в пределах 60 футов от вас.\nНе все ведьмы маниакально смеются, когда кудахчут, но все кудахтанья требуют словесного компонента, как заклинание. Они варьируются от приземленных проклятий и оскорблений до бормотания мертвых языков и речи задом	наперед.
+Class/&WitchCacklePowerTitle	кудахтанье
+Class/&WitchDescription Пораженные зловещим проклятием, ведьмы могут превращать темную магию в проклятия, которые они используют для ослабления противников. Их также сопровождают их фамильяры, верные магические компаньоны, которых они используют для нанесения смертельного	удара.
+Class/&WitchFamiliarPowerDescription Вы изучаете заклинание Ведьма-фамильяр, т. е. улучшенное заклинание «Найти фамильяра», и можете использовать его как ритуал без материальных компонентов. Заклинание не засчитывается в число известных вам заклинаний. Заклинание улучшает функцию «Найти фамильяра» следующими способами:\n• Ваш фамильяр совершает свой ход непосредственно перед или после вашего хода в каждом раунде (по вашему выбору).\n• Один раз за ход в качестве действия или бонусного действия вы можете мысленно приказать своему фамильяру использовать его реакцию для совершения одной атаки.\n• Когда вы накладываете заклинание, вы можете передать его через своего фамильяра, как если бы он наложил заклинание, даже если у заклинания нет диапазона касания.\n• Ваш фамильяр может использовать ваш бонус атаки заклинаний для своих бросков атаки.\n• Ваш фамильяр добавляет ваш бонус мастерства к своему Классу Доспеха, спасброскам и броскам урона.\n• Вы добавляете удвоенный уровень Ведьмы к максимальному количеству хитов вашего	фамильяра.
+Class/&WitchFamiliarPowerTitle	Фамильяр Ведьмы
+Class/&WitchFeatureSetBurnedCurseDescription Почти все ваше тело было выжжено тайным пламенем, оставив на вас поразительные черные шрамы и угольки магии, горящие под кожей. В результате у вас есть сопротивление урону от огня, и вы знаете колдовство «Создать пламя», которое не учитывается при подсчете общего количества известных вам	заклинаний.
+Class/&WitchFeatureSetBurnedCurseTitle	Сожжённая
+Class/&WitchFeatureSetLovelessCurseDescription Обречена никогда не найти настоящую любовь. Измучена и недовольна, даже магия не может успокоить её сердце. В результате вы невосприимчивы к	очарованию.
+Class/&WitchFeatureSetLovelessCurseTitle	Нелюбимая
+Class/&WitchFeatureSetRitualCastingDescription Вы можете разыграть любое известное вам заклинание Ведьмы как ритуал, если у этого заклинания есть пометка	«Ритуал».
+Class/&WitchFeatureSetRitualCastingTitle Ведьма: проведение	ритуала
+Class/&WitchFeatureSetVisionsCurseDescription Вы обречены на ужасные видения будущего, предвещающие смерть ваших друзей, семьи и вас самих. Хотя многие из этих видений являются жестоким обманом, иногда они мрачно точны. Вы можете добавить модификатор Харизмы в дополнение к модификатору Ловкости к броскам	инициативы.
+Class/&WitchFeatureSetVisionsCurseTitle	Наваждения
+Class/&WitchLovelessCharmImmunityDescription Вы невосприимчивы к	очарованию.
+Class/&WitchLovelessCharmImmunityTitle Нелюбимая: Иммунитет к	очарованию
+Class/&WitchMaledictionAbateDescription В качестве действия выберите одно существо, которое вы можете видеть в пределах 60 футов от себя, чтобы совершить спасбросок Харизмы. При провале существо не может совершать реакции до конца вашего следующего	хода.
+Class/&WitchMaledictionAbateTitle поймать	проклятие
+Class/&WitchMaledictionApathyDescription В качестве действия выберите одно существо, которое вы можете видеть в пределах 60 футов от себя, чтобы совершить спасбросок Харизмы. При провале до конца вашего следующего хода существо становится безразличным к одному существу по вашему выбору, к которому оно враждебно. Это безразличие заканчивается, если цель подвергается нападению или повреждению заклинанием существа, к которому она	безразлична.
+Class/&WitchMaledictionApathyTitle	Проклятие Апатия
+Class/&WitchMaledictionCharmDescription В качестве действия выберите одно существо, которое вы можете видеть в пределах 60 футов, чтобы совершить спасбросок Мудрости. При провале существо очаровано вами до конца вашего следующего	хода.
+Class/&WitchMaledictionCharmTitle Проклятие Очарование
+Class/&WitchMaledictionDisorientDescription В качестве действия выберите одно существо, которое вы можете видеть в пределах 60 футов, чтобы совершить спасбросок Телосложения. При провале всякий раз, когда эта цель совершает бросок атаки до конца вашего следующего хода, она должна бросить d6 и вычесть выпавшее число из броска	атаки.
+Class/&WitchMaledictionDisorientTitle Проклятие Дезориентация
+Class/&WitchMaledictionEvilEyeDescription В качестве действия выберите одно видимое вам существо, которое может видеть вас в пределах 60 футов, чтобы совершить спасбросок Мудрости. При провале существо боится вас до конца вашего следующего	хода.
+Class/&WitchMaledictionEvilEyeTitle Проклятие	Сглаз
+Class/&WitchMaledictionObfuscateDescription Вы действием создаете туманную сферу радиусом 20 футов с центром на себе. Сфера распространяется по углам, и ее площадь сильно затемнена. Этот эффект длится до конца вашего следующего хода или до тех пор, пока ветер средней или большей скорости (по крайней мере, 10 миль в час) не рассеет	его.
+Class/&WitchMaledictionObfuscateTitle Проклятие Затемнение
+Class/&WitchMaledictionPoxDescription В качестве действия выберите одно существо, которое вы можете видеть в пределах 5 футов, чтобы совершить спасбросок Телосложения. При провале существо становится отравленным до конца вашего следующего	хода.
+Class/&WitchMaledictionPoxTitle Проклятие Чума
+Class/&WitchMaledictionRuinDescription В качестве действия выберите одно существо, которое вы можете видеть в пределах 60 футов, чтобы совершить спасбросок Телосложения. При провале Класс Защиты существа уменьшается на 3, минимум до 10, до конца вашего следующего	хода.
+Class/&WitchMaledictionRuinTitle Проклятие	Порча
+Class/&WitchRitualCastingMagicAffinityDescription Вы можете сотворить заклинание ведьмы как ритуал, если у этого заклинания есть тег ритуала, и у вас есть подготовленное	заклинание.
+Class/&WitchRitualCastingMagicAffinityTitle Подготовка	ритуала
+Class/&WitchSavingthrowProficiencyDescription Мудрость,	Харизма.
+Class/&WitchSavingthrowProficiencyTitle Навыки спасброска	ведьмы
+Class/&WitchSkillProficiencyDescription Выберите два из списка: Аркана, Обман, Проницательность, Запугивание, Убеждение, Природа и	Религия.
+Class/&WitchSkillProficiencyTitle Навыки	Ведьмы
+Class/&WitchSpellcastingDescription Ведьма способна произносить заклинания из списка ведьмовских	заклинаний.
+Class/&WitchSpellcastingTitle Колдовство	Ведьмы
+Class/&WitchTitle	Ведьма
+Class/&WitchToolProficiencyDescription Выберите один из списка: набор травника или набора	отравителя.
+Class/&WitchToolProficiencyTitle Владение ведьмовскими	инструментами
+Class/&WitchVisionsInitiativeDescription Вы добавляете свой модификатор Харизмы к своим броскам	инициативы.
+Class/&WitchVisionsInitiativeTitle Инициатива	Видения
+Class/&WitchWeaponProficiencyDescription Простое	оружие.
+Class/&WitchWeaponProficiencyTitle Мастерство оружия	Ведьмы
+Condition/&AbateDescription Нельзя использовать	реакции.
+Condition/&AbateTitle	Ослабление
+Condition/&ApathyDescription Безразличен к целевому существу, к которому оно враждебно. Это безразличие заканчивается, если цель подвергается нападению или повреждению заклинанием целевого	существа.
+Condition/&ApathyTitle	Апатия
+Condition/&CharmDescription Считает заклинателя	союзником.
+Condition/&CharmTitle	Очарован
+Condition/&DebilitatedConditionDescription Страдать от одного из следующих состояний: ослепление, проклятие, кровотечение или	оглушение.
+Condition/&DebilitatedConditionTitle	Ослабленный
+Condition/&DisorientDescription -1d6 к броскам	атаки.
+Condition/&DisorientTitle	Дезориентированный
+Condition/&EvilEyeDescription Испуганный. Невозможно приблизиться к источнику страха, помеха броскам атаки и проверкам характеристик, пока источник страха находится в поле	зрения.
+Condition/&EvilEyeTitle	Сглаз
+Condition/&FrenziedDescription Это существо обезумело и будет атаковать ближайшее	существо.
+Condition/&FrenziedTitle	Бешеный
+Condition/&PoxDescription Состояние	чумы.
+Condition/&PoxTitle	Чума
+Condition/&RuinDescription Штраф -3 КД, максимум до -10	КД.
+Condition/&RuinedDescription Штраф -3 КД, максимум до -10	КД.
+Condition/&RuinedTitle	Испорченный
+Condition/&RuinTitle	Порча
+Feature/&ClassWitchMaledictionReplaceDescription Выберите Проклятие для	замены.
+Feature/&ClassWitchMaledictionReplaceTitle Заменить	проклятие
+Feature/&WitchCurseChoiceDescription Вас терзает ужасное проклятие, поражающее ваше тело и	душу.
+Feature/&WitchCurseChoiceTitle Проклятие	ведьмы
+Feature/&WitchMaledictionChoiceDescription Вы можете выучить ряд могущественных заклинаний, известных как Проклятия, основанных на той же коварной магии, которая прокляла	вас.
+Feature/&WitchMaledictionChoiceTitle	Проклятия
+Feature/&WitchSightDescription Вы можете ощущать или видеть невидимых существ в пределах 60 футов от	себя.
+Feature/&WitchSightTitle Ведьмин	взгляд
+Modifier/&AttributeModifierRuinDescription -3 к классу	доспеха.
+Modifier/&AttributeModifierRuinTitle	Разрушенный
+Modifier/&DisorientDescription -1d6 к броскам	атаки.
+Modifier/&DisorientTitle	Дезориентированный
+Monster/&WitchOwlFamiliarDescription Знакомая	сова.
+Monster/&WitchOwlFamiliarTitle	Сова
+Screen/&CovenSpellDescription Заклинание, известное как часть	Ковена.
+Screen/&CovenSpellHeader	Ковен
+Screen/&CovenSpellTitle	Ковен
+Screen/&WitchSpellDescription Заклинания, известные как	Ведьма.
+Screen/&WitchSpellHeader	Ведьма
+Screen/&WitchSpellTitle	Ведьма
+Spell/&WitchFamiliarDescription Вы получаете услугу	фамильяра.
+Spell/&WitchFamiliarTitle	Ведьма-фамильяр
+Stage/&SubclassSelectionStageCovenDescription	Ковен.
+Stage/&SubclassSelectionStageCovenFeaturesDescription	Ковен.
+Stage/&SubclassSelectionStageCovenFeaturesHeader Особенности	шабаша
+Stage/&SubclassSelectionStageCovenFeaturesTitle	Ковен
+Stage/&SubclassSelectionStageCovenHeader Выберите	ковен
+Stage/&SubclassSelectionStageCovenTitle	Ковен
+Subclass/&BloodWitchDescription Запрещенная большинством шабашей ведьм, магия крови основывается на использовании темных заклинаний и проклятий смертных, исходящих из самой сущности заклинателя. Это принципиально более опасно, чем другие колдовские ремесла, но его многочисленные риски приносят обильные	награды.
+Subclass/&BloodWitchMagicDescription Вы получаете следующие заклинания. Эти заклинания считаются для вас заклинаниями Ведьмы и не учитываются при подсчете общего количества известных вам заклинаний:\n	{0}
+Subclass/&BloodWitchMagicTitle Магия	крови
+Subclass/&BloodWitchTitle Кровавая	Ведьма
+Subclass/&GreenWitchDescription Растения, природа и все, что растет, — это область зеленой магии. Обычно это тип арканы, поддерживаемый друидами, некоторые ведьмы тесно связаны с силами зеленой магии и могут уговаривать растения и животных выполнять свои	волю.
+Subclass/&GreenWitchMagicDescription Вы получаете следующие заклинания. Эти заклинания считаются для вас заклинаниями Ведьмы и не учитываются при подсчете общего количества известных вам	заклинаний:\n{0}
+Subclass/&GreenWitchMagicTitle Зеленая	магия
+Subclass/&GreenWitchTitle Зеленая	ведьма
+Subclass/&PurpleWitchDescription Фиолетовая магия властвует над областями иллюзий и чар, которые овладевают человеческим разумом, и над всем, что не совсем так, как кажется. Практики этой формы магии — кукловоды, формирующие видимую реальность окружающих в свою	пользу.
+Subclass/&PurpleWitchMagicDescription Вы получаете следующие заклинания. Эти заклинания считаются для вас заклинаниями Ведьмы и не учитываются при подсчете общего количества известных вам заклинаний:\n	{0}
+Subclass/&PurpleWitchMagicTitle Фиолетовая	магия
+Subclass/&PurpleWitchTitle Фиолетовая	ведьма
+Subclass/&RedWitchDescription Тайная магия, связанная с направлением элементов, считается красной магией и чрезвычайно опасна при использовании. Ведьмы, специализирующиеся на красной магии, являются одними из самых смертоносных заклинателей из существующих, превращая свое проклятие в беспрепятственный тайный	гнев.
+Subclass/&RedWitchMagicDescription Вы получаете следующие заклинания. Эти заклинания считаются для вас заклинаниями Ведьмы и не учитываются при подсчете общего количества известных вам заклинаний:\n	{0}
+Subclass/&RedWitchMagicTitle Красная	магия
+Subclass/&RedWitchTitle Красная	ведьма
+Subclass/&WhiteWitchDescription Белая магия принципиально хороша и благожелательна для всего живого. Ведьмы, принявшие это ремесло, несмотря на заражающее их ненавистное проклятие, часто посвящают себя лечению и заботе с намерением улучшить	мир.
+Subclass/&WhiteWitchMagicDescription Вы получаете следующие заклинания. Эти заклинания считаются для вас заклинаниями Ведьмы и не учитываются при подсчете общего количества известных вам заклинаний:\n	{0}
+Subclass/&WhiteWitchMagicTitle Белая	магия
+Subclass/&WhiteWitchTitle Белая	Ведьма
+Subclass/&WitchSubclassPathDescription Кульминацией ваших познаний в магии стало присоединение к Ковену, врожденному кругу ведьм, которые идут по определенному пути колдовства и	проклятий.
+Subclass/&WitchSubclassPathTitle Ковены	ведьм
+Tooltip/&TagMaledictionTitle	Проклятие

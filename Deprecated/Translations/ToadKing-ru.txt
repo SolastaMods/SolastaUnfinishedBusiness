@@ -1,0 +1,21 @@
+Condition/&SwallowedByToadConditionDescription Получает 3d6 урона кислотой каждый ход. Заканчивается, если заклинатель получает 15 единиц урона или более за одну	атаку.
+Condition/&SwallowedByToadConditionTitle Проглочен	жабой
+Condition/&SwallowingToadConditionDescription Заканчивается, если за одну атаку получено 15 или более единиц	урона.
+Condition/&SwallowingToadConditionTitle Переваривается	жабой
+Feature/&ToadKingBasicToxinTitle Основной	токсин
+Feature/&ToadKingExpandedSpelllistAfinityDescription Вы выбираете из расширенного списка заклинаний, когда изучаете заклинание Чернокнижника. Следующие заклинания добавлены для вас в список заклинаний Чернокнижника:	{0}
+Feature/&ToadKingExpandedSpelllistAfinityTitle Заклинания короля	жаб
+Feature/&ToadKingHallucinogenicToxinAffintyDescription Ваше тело изменилось, чтобы стать устойчивым к токсинам и производить защитный токсин при атаках в ближнем бою, количество раз за длительный отдых равно вашему бонусу мастерства. Если нападающий проваливает спасбросок Телосложения, он страдает от галлюциногенного токсина до тех пор, пока его не атакуют или не прервут каким-либо иным	образом.
+Feature/&ToadKingHallucinogenicToxinAffintyTitle Галлюциногенный	токсин
+Feature/&ToadKingJumpTitle	Прыжок
+Feature/&ToadKingPoisonConditionAffinityTitle Иммунитет к	отравлению
+Feature/&ToadKingPoisonDamageAffinityTitle Иммунитет к урону	ядом
+Feature/&ToadKingStickyFeetTitle Перепончатые	ноги
+Power/&ToadKingCroakDescription Издавать звуковую волну, которая наносит урон и отталкивает существ и	предметы.
+Power/&ToadKingCroakTitle	Квакать
+Power/&ToadKingGraspingTongueDescription Притяните врагов к	себе.
+Power/&ToadKingGraspingTongueTitle Хватающий	язык
+Power/&ToadKingHallucinogenicToxinPowerDescription Ваше тело изменилось, чтобы стать устойчивым к токсинам и производить защитный токсин при атаках в ближнем бою, количество раз за длительный отдых равно вашему бонусу мастерства. Если нападающий проваливает спасбросок Телосложения, он страдает от люциногенного токсина до тех пор, пока его не атакуют или не прервут каким-либо иным	образом.
+Power/&ToadKingHallucinogenicToxinPowerTitle Галлюциногенный	токсин
+Power/&ToadKingSwallowDescription Попытайтесь проглотить среднего или меньшего врага. При провале спасброска Силы монстр проглатывается и получает урон кислотой 3d6 за раунд. Заканчивается, если чернокнижник-жаба получает 15 или более единиц урона за одну	атаку.
+Power/&ToadKingSwallowTitle	Глотать

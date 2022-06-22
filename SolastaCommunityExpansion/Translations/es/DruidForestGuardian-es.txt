@@ -1,0 +1,22 @@
+Condition/&ConditionBarkWardDescription	Protegido por los espíritus del bosque. Gana 4 HP temporales por cada nivel de Druida, con una duración de 10 minutos.
+Condition/&ConditionBarkWardTitle	Guardián de la corteza
+Condition/&ConditionImprovedBarkWardDescription	Los espíritus del bosque infligen 2d8 de daño perforante a las criaturas que golpean con un ataque cuerpo a cuerpo.
+Condition/&ConditionImprovedBarkWardTitle	Guardián de ladridos mejorado
+Condition/&ConditionSuperiorBarkWardDescription	Los espíritus del bosque otorgan inmunidad al veneno e infligen 3d8 de daño perforante a las criaturas que golpean con un ataque cuerpo a cuerpo.
+Condition/&ConditionSuperiorBarkWardTitle	Guardián de corteza superior
+Feature/&DruidForestGuardianBarkWardDescription	Obtienes la habilidad de convocar a un Bark Ward para protegerte. Como acción adicional, puedes gastar un uso de tu forma salvaje para obtener 4 puntos de golpe temporales por cada nivel que tengas en esta clase. Estos puntos de golpe temporales duran 10 minutos, o hasta que vuelvas a usar tu forma salvaje.
+Feature/&DruidForestGuardianBarkWardTitle	Guardián de la corteza
+Feature/&DruidForestGuardianExtraAttackDescription	A partir del nivel 6, puedes atacar dos veces, en lugar de una, cada vez que realices la acción de Atacar en tu turno.
+Feature/&DruidForestGuardianExtraAttackTitle	Ataque adicional
+Feature/&DruidForestGuardianImprovedBarkWardDescription	Tu Bark Ward ahora crece espinas, lo que daña a los atacantes cuerpo a cuerpo. Los enemigos que te golpean con éxito con un ataque cuerpo a cuerpo sufren 2d8 de daño perforante.
+Feature/&DruidForestGuardianImprovedBarkWardTitle	Guardián de ladridos mejorado
+Feature/&DruidForestGuardianMagicDescription	A partir del segundo nivel, cuando eliges este círculo, obtienes acceso a una lista de conjuros ampliada que siempre está preparada:\n{0}
+Feature/&DruidForestGuardianMagicTitle	Hechizos circulares
+Feature/&DruidForestGuardianSuperiorBarkWardDescription	Tu habilidad Bark Ward ahora refleja 3d8 de daño perforante en los atacantes cuerpo a cuerpo. Además, Bark Ward ahora te otorga inmunidad al veneno mientras está activo.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle	Guardián de corteza superior
+Feature/&DruidForestGuardianSylvanDurabilityDescription	Los Guardianes del Bosque obtienen naturalmente la resistencia de un poderoso roble. En el 2º nivel, tu máximo de puntos de vida aumenta en 2 y aumenta en 1 cada vez que subes de nivel en esta clase.
+Feature/&DruidForestGuardianSylvanDurabilityTitle	Durabilidad silvana
+Feature/&DruidForestGuardianSylvanWarMagicDescription	Estás acostumbrado a manejar la magia druídica en armonía con la destreza marcial. En el 2º nivel, puedes lanzar conjuros que requieran un componente somático incluso si ambas manos sostienen un arma o un escudo.
+Feature/&DruidForestGuardianSylvanWarMagicTitle	Magia de guerra silvana
+Subclass/&DruidForestGuardianDruidSubclassDescription	Los druidas del círculo de los guardianes del bosque han jurado proteger los bosques y todo lo que habita en ellos. Expertos en el uso de la magia de abjuración y el combate marcial, los miembros de este círculo druídico son oponentes temibles en el campo de batalla.
+Subclass/&DruidForestGuardianDruidSubclassTitle	Círculo del guardián del bosque

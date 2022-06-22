@@ -1,0 +1,10 @@
+Feature/&InspiringSurgePowerDescription	Confère à un allié une action principale supplémentaire pendant 1 tour. Ne se cumule pas avec Action Surge.
+Feature/&InspiringSurgePowerTitle	Surtension inspirante
+Feature/&InspiringSurgePowerTitleShort	Surtension inspirante
+Feature/&RallyingCryPowerDescription	Remplace Second Wind par un pouvoir permettant de restaurer 4 fois les points de vie des niveaux de combattant à un ou plusieurs alliés dans un rayon de 6 cellules, jusqu'à leur maximum de points de vie.
+Feature/&RallyingCryPowerTitle	Cri de ralliement
+Feature/&RallyingCryPowerTitleShort	Cri de ralliement
+Feature/&RoyalEnvoyFeatureDescription	Ajoutez la moitié de votre bonus de maîtrise (arrondi au supérieur) à tout test de Charisme que vous effectuez et qui n'utilise pas déjà votre bonus de maîtrise. De plus, vous maîtrisez les jets de sauvegarde de Charisme.
+Feature/&RoyalEnvoyFeatureTitle	Envoyé royal
+Subclass/&FighterRoyalKnightDescription	Un chevalier qui inspire la grandeur chez les autres en commettant des actes courageux au combat. Un chevalier solitaire est un guerrier habile, mais celui qui dirige une bande d'alliés peut transformer même la milice la moins bien équipée en une bande de guerre féroce.
+Subclass/&FighterRoyalKnightTitle	chevalier royal

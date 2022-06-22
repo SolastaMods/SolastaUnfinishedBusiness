@@ -1,0 +1,293 @@
+Equipment/&CEHalberdTypeTitle	Alabarde
+Equipment/&CEHandXbowTypeTitle	Balestre a mano
+Equipment/&CELongMaceTypeTitle	Mazze lunghe
+Equipment/&CEPikeTypeTitle	Picchi
+Equipment/&DruidicAmuletDescription	Questo amuleto totemico può essere usato come punto focale per lanciare incantesimi druidici.
+Equipment/&DruidicAmuletTitle	Amuleto druidico
+Equipment/&Enchanted_Club_Acuteness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Club_Acuteness_Title	Club dell'Acutezza
+Equipment/&Enchanted_Club_Bearclaw_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Le punte aguzze dell'artiglio dell'orso distruggono l'armatura per infliggere danni aggiuntivi. La prima arma di questo tipo è stata progettata da Ildurial Stronghand.
+Equipment/&Enchanted_Club_Bearclaw_Title	Club degli artigli d'orso
+Equipment/&Enchanted_Club_Lightbringer_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Colthannin. È stato progettato da Elgador Keenspirit, Magesmith dell'Arcaneum per supportare il combattimento contro le creature non morte.
+Equipment/&Enchanted_Club_Lightbringer_Title	Club dei Portatori di Luce
+Equipment/&Enchanted_Club_Power_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Alcune creature rispettano solo le forze fisiche. Gli arcanisti di Manacalon hanno creato questo club per dare ai campioni delle Legioni di Ferro la forza che i loro corpi elfici non fornivano.
+Equipment/&Enchanted_Club_Power_Title	Club del potere
+Equipment/&Enchanted_Club_Punisher_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. La combinazione del miglior metallo e Slavestone ha conferito a questa ascia un incredibile potere perforante.
+Equipment/&Enchanted_Club_Punisher_Title	Club dei Punitori
+Equipment/&Enchanted_Dart_Acuteness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Dart_Acuteness_Title	Dardo di acutezza
+Equipment/&Enchanted_Dart_Frostburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Keliandir Moltenheart, che ha forgiato quest'arma per combattere le salamandre dopo che un'esplorazione dei piani elementali è andata storta.
+Equipment/&Enchanted_Dart_Frostburn_Title	Freccetta Gelata
+Equipment/&Enchanted_Dart_Sharpness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Dart_Sharpness_Title	Dardo di nitidezza
+Equipment/&Enchanted_Dart_Souldrinker_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Una delle preferite dagli agenti Silent Whisper, quest'arma è stata progettata da Cylordir Redblade.
+Equipment/&Enchanted_Dart_Souldrinker_Title	Dardo bevitore di anime
+Equipment/&Enchanted_Handaxe_Acuteness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Handaxe_Acuteness_Title	Ascia dell'acutezza
+Equipment/&Enchanted_Handaxe_Frostburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Keliandir Moltenheart, che ha forgiato quest'arma per combattere le salamandre dopo che un'esplorazione dei piani elementali è andata storta.
+Equipment/&Enchanted_Handaxe_Frostburn_Title	Ascia da ustione da gelo
+Equipment/&Enchanted_Handaxe_Sharpness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Handaxe_Sharpness_Title	Ascia della nitidezza
+Equipment/&Enchanted_Handaxe_Souldrinker_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Una delle preferite dagli agenti Silent Whisper, quest'arma è stata progettata da Cylordir Redblade.
+Equipment/&Enchanted_Handaxe_Souldrinker_Title	Ascia del bevitore di anime
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. Il suo design originale portava il sigillo di Defineth Sharpsight, un famoso incantatore elfo silvano.
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	Balestra pesante di precisione
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. È stato progettato da Elgador Keenspirit, Magesmith dell'Arcaneum per supportare il combattimento contro le creature non morte.
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	Balestra pesante Portatrice di luce
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. La magia ha unito corallo medusa e legno duro per creare un arco micidiale, preferito dalle squadre di imbarco degli halfling dell'isola.
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Medusa balestra pesante
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. Il Coedymwarth preferiva trattare gli arcanisti di Manacalon fisicamente piuttosto che magicamente. I suoi migliori arcieri hanno ricevuto balestre, la creazione di Defineth Sharpsight.
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Balestra pesante del tiro a segno
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. È stato progettato da Galar Stromforge, il primo fabbro nano a sfruttare il potere della tempesta in un'arma con effetti devastanti!
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Balestra della tempesta pesante
+Equipment/&Enchanted_HideArmor_Deflection_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_HideArmor_Deflection_Title	Nascondi l'armatura della deviazione
+Equipment/&Enchanted_HideArmor_FlameDancing_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_HideArmor_FlameDancing_Title	Nascondi l'Armatura della Danza delle Fiamme
+Equipment/&Enchanted_HideArmor_FrostWalking_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_HideArmor_FrostWalking_Title	Nascondi l'Armatura del Cammino del Gelo
+Equipment/&Enchanted_HideArmor_Robustness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_HideArmor_Robustness_Title	Nascondi Armatura della Robustezza
+Equipment/&Enchanted_HideArmor_Sturdiness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_HideArmor_Sturdiness_Title	Nascondi Armatura della Robustezza
+Equipment/&Enchanted_HideArmor_Survival_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_HideArmor_Survival_Title	Nascondi Armatura della Sopravvivenza
+Equipment/&Enchanted_Javelin_Acuteness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Javelin_Acuteness_Title	Giavellotto dell'Acutezza
+Equipment/&Enchanted_Javelin_Frostburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Keliandir Moltenheart, che ha forgiato quest'arma per combattere le salamandre dopo che un'esplorazione dei piani elementali è andata storta.
+Equipment/&Enchanted_Javelin_Frostburn_Title	Javelin Frostburn
+Equipment/&Enchanted_Javelin_Sharpness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Javelin_Sharpness_Title	Giavellotto dell'Acutezza
+Equipment/&Enchanted_Javelin_Souldrinker_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Una delle preferite dagli agenti Silent Whisper, quest'arma è stata progettata da Cylordir Redblade.
+Equipment/&Enchanted_Javelin_Souldrinker_Title	Giavellotto bevitore di anime
+Equipment/&Enchanted_LeatherDruid_Deflection_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_LeatherDruid_Deflection_Title	Cuoio Druido della Deflessione
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Cuoio del Druido della Danza delle Fiamme
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Druid Leather of Frost Walking
+Equipment/&Enchanted_LeatherDruid_Robustness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_LeatherDruid_Robustness_Title	Druido Pelle di Robustezza
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Cuoio Druido della Robustezza
+Equipment/&Enchanted_LeatherDruid_Survival_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_LeatherDruid_Survival_Title	Cuoio del Druido della Sopravvivenza
+Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. Il suo design originale portava il sigillo di Defineth Sharpsight, un famoso incantatore elfo silvano.
+Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Balestra leggera di precisione
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. È stato progettato da Elgador Keenspirit, Magesmith dell'Arcaneum per supportare il combattimento contro le creature non morte.
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Balestra leggera Portatrice di luce
+Equipment/&Enchanted_LightCrossbow_Medusa_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. La magia ha unito corallo medusa e legno duro per creare un arco micidiale, preferito dalle squadre di imbarco degli halfling dell'isola.
+Equipment/&Enchanted_LightCrossbow_Medusa_Title	Medusa balestra leggera
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. Il Coedymwarth preferiva trattare gli arcanisti di Manacalon fisicamente piuttosto che magicamente. I suoi migliori arcieri hanno ricevuto balestre, la creazione di Defineth Sharpsight.
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Balestra leggera del tiro a segno
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri arcieri di Colthannin. È stato progettato da Galar Stromforge, il primo fabbro nano a sfruttare il potere della tempesta in un'arma con effetti devastanti!
+Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Balestra della tempesta leggera
+Equipment/&Enchanted_Maul_Acuteness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Maul_Acuteness_Title	Maglio dell'acutezza
+Equipment/&Enchanted_Maul_Bearclaw_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Le punte aguzze dell'artiglio dell'orso distruggono l'armatura per infliggere danni aggiuntivi. La prima arma di questo tipo è stata progettata da Ildurial Stronghand.
+Equipment/&Enchanted_Maul_Bearclaw_Title	Maglio artiglio d'orso
+Equipment/&Enchanted_Maul_Lightbringer_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Colthannin. È stato progettato da Elgador Keenspirit, Magesmith dell'Arcaneum per supportare il combattimento contro le creature non morte.
+Equipment/&Enchanted_Maul_Lightbringer_Title	Maglio Portatore di Luce
+Equipment/&Enchanted_Maul_Power_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Alcune creature rispettano solo le forze fisiche. Gli arcanisti di Manacalon hanno creato questo Maglio per dare ai campioni delle Legioni di Ferro la forza che i loro corpi elfici non fornivano.
+Equipment/&Enchanted_Maul_Power_Title	Mazza del Potere
+Equipment/&Enchanted_Maul_Punisher_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. La combinazione del miglior metallo e Slavestone ha conferito a questa ascia un incredibile potere perforante.
+Equipment/&Enchanted_Maul_Punisher_Title	Punitore Maul
+Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Quarterstaff_Acuteness_Title	Bastone ferrato dell'acutezza
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Lestoreth Steelarm per combattere nel gelido nord dell'Impero.
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Title	Bastone ferrato di Dragonblade
+Equipment/&Enchanted_Quarterstaff_Frostburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Keliandir Moltenheart, che ha forgiato quest'arma per combattere le salamandre dopo che un'esplorazione dei piani elementali è andata storta.
+Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Bastone ferrato di Frostburn
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Colthannin. È stato progettato da Elgador Keenspirit, Magesmith dell'Arcaneum per supportare il combattimento contro le creature non morte.
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Bastone ferrato Portatore di Luce
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Una delle preferite dagli agenti Silent Whisper, quest'arma è stata progettata da Cylordir Redblade.
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Bastone ferrato bevitore di anime
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Galar Stromforge, il primo fabbro nano a sfruttare il potere della tempesta in un'arma con effetti devastanti!
+Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Bastone ferrato di Stormblade
+Equipment/&Enchanted_Quarterstaff_Warden_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Ildurial Strongarm, un famoso fabbro di Manacalon. La prima di queste lame, il Manacalon Warden, fu offerta al comandante dell'Euraidd.
+Equipment/&Enchanted_Quarterstaff_Warden_Title	Il bastone quartetto del guardiano
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Whiteburn è stato creato dal primo Danantar per combattere un'invasione di troll proveniente dalle paludi a sud del suo dominio tra i Sioltafin e gli Scarafin.
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Bastone ferrato di Whiteburn
+Equipment/&Enchanted_Rapier_Dragonblade_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Lestoreth Steelarm per combattere nel gelido nord dell'Impero.
+Equipment/&Enchanted_Rapier_Dragonblade_Title	Lama di drago
+Equipment/&Enchanted_Rapier_Frostburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Keliandir Moltenheart, che ha forgiato quest'arma per combattere le salamandre dopo che un'esplorazione dei piani elementali è andata storta.
+Equipment/&Enchanted_Rapier_Frostburn_Title	Rapier per ustione da gelo
+Equipment/&Enchanted_Rapier_Lightbringer_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Colthannin. È stato progettato da Elgador Keenspirit, Magesmith dell'Arcaneum per supportare il combattimento contro creature non morte.
+Equipment/&Enchanted_Rapier_Lightbringer_Title	Rapier Portatore di Luce
+Equipment/&Enchanted_Rapier_Power_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Alcune creature rispettano solo le forze fisiche. Gli arcanisti di Manacalon hanno creato questo Rapier per dare ai campioni delle Legioni di Ferro la forza che i loro corpi elfici non fornivano.
+Equipment/&Enchanted_Rapier_Power_Title	Rapier del potere
+Equipment/&Enchanted_Rapier_Souldrinker_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Una delle preferite dagli agenti Silent Whisper, quest'arma è stata progettata da Cylordir Redblade.
+Equipment/&Enchanted_Rapier_Souldrinker_Title	Rapier bevitore di anime
+Equipment/&Enchanted_Rapier_Stormblade_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Galar Stromforge, il primo fabbro nano a sfruttare il potere della tempesta in un'arma con effetti devastanti!
+Equipment/&Enchanted_Rapier_Stormblade_Title	Lama della Tempesta
+Equipment/&Enchanted_Rapier_Warden_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Ildurial Strongarm, un famoso fabbro di Manacalon. La prima di queste lame, il Manacalon Warden, fu offerta al comandante dell'Euraidd.
+Equipment/&Enchanted_Rapier_Warden_Title	Direttore Rapier
+Equipment/&Enchanted_Rapier_Whiteburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Whiteburn è stato creato dal primo Danantar per combattere un'invasione di troll proveniente dalle paludi a sud del suo dominio tra i Sioltafin e gli Scarafin.
+Equipment/&Enchanted_Rapier_Whiteburn_Title	Whiteburn Rapier
+Equipment/&Enchanted_Scimitar_Dragonblade_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Lestoreth Steelarm per combattere nel gelido nord dell'Impero.
+Equipment/&Enchanted_Scimitar_Dragonblade_Title	Scimitarra di Dragonblade
+Equipment/&Enchanted_Scimitar_Frostburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Keliandir Moltenheart, che ha forgiato quest'arma per combattere le salamandre dopo che un'esplorazione dei piani elementali è andata storta.
+Equipment/&Enchanted_Scimitar_Frostburn_Title	Scimitarra Frostburn
+Equipment/&Enchanted_Scimitar_Lightbringer_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Colthannin. È stato progettato da Elgador Keenspirit, Magesmith dell'Arcaneum per supportare il combattimento contro le creature non morte.
+Equipment/&Enchanted_Scimitar_Lightbringer_Title	Scimitarra Portatrice di Luce
+Equipment/&Enchanted_Scimitar_Souldrinker_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Una delle preferite dagli agenti Silent Whisper, quest'arma è stata progettata da Cylordir Redblade.
+Equipment/&Enchanted_Scimitar_Souldrinker_Title	Scimitarra bevitrice di anime
+Equipment/&Enchanted_Scimitar_Stormblade_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Galar Stromforge, il primo fabbro nano a sfruttare il potere della tempesta in un'arma con effetti devastanti!
+Equipment/&Enchanted_Scimitar_Stormblade_Title	Scimitarra della Lama Tempesta
+Equipment/&Enchanted_Scimitar_Warden_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Ildurial Strongarm, un famoso fabbro di Manacalon. La prima di queste lame, il Manacalon Warden, fu offerta al comandante dell'Euraidd.
+Equipment/&Enchanted_Scimitar_Warden_Title	Guardiano Scimitarra
+Equipment/&Enchanted_Scimitar_Whiteburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Whiteburn è stato creato dal primo Danantar per combattere un'invasione di troll proveniente dalle paludi a sud del suo dominio tra i Sioltafin e gli Scarafin.
+Equipment/&Enchanted_Scimitar_Whiteburn_Title	Scimitarra Whiteburn
+Equipment/&Enchanted_Shield_Deflection_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Deflection_Title	Scudo di deviazione
+Equipment/&Enchanted_Shield_FlameDancing_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_FlameDancing_Title	Scudo della danza delle fiamme
+Equipment/&Enchanted_Shield_FrostWalking_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_FrostWalking_Title	Scudo del gelo che cammina
+Equipment/&Enchanted_Shield_Robustness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Robustness_Title	Scudo di robustezza
+Equipment/&Enchanted_Shield_Sturdiness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Sturdiness_Title	Scudo di Robustezza
+Equipment/&Enchanted_Shield_Survival_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Survival_Title	Scudo di sopravvivenza
+Equipment/&Enchanted_Shield_Wooden_Deflection_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Wooden_Deflection_Title	Scudo di deviazione in legno
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title	Scudo di legno della danza della fiamma
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title	Scudo di legno del gelo che cammina
+Equipment/&Enchanted_Shield_Wooden_Robustness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Wooden_Robustness_Title	Scudo in legno di robustezza
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title	Scudo in legno della robustezza
+Equipment/&Enchanted_Shield_Wooden_Survival_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_Shield_Wooden_Survival_Title	Scudo di sopravvivenza in legno
+Equipment/&Enchanted_Spear_Acuteness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Spear_Acuteness_Title	Lancia dell'acutezza
+Equipment/&Enchanted_Spear_BlackViper_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon, usando una lancia e il veleno di un ragno leggendario dalle profondità di Solasta. Il progettista della lama era Grigg Blackheart, un famigerato fabbro halfling Marsh che lavorava nelle fucine dell'Aer Elai.
+Equipment/&Enchanted_Spear_BlackViper_Title	Lancia di vipera nera
+Equipment/&Enchanted_Spear_Doomblade_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Kenaloth Darkmind ha ideato le Doomblade come strumento di punizione per coloro che hanno resistito alla magia dell'Impero.
+Equipment/&Enchanted_Spear_Doomblade_Title	Lancia con punta del destino
+Equipment/&Enchanted_Spear_Lightbringer_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Colthannin. È stato progettato da Elgador Keenspirit, Magesmith dell'Arcaneum per supportare il combattimento contro le creature non morte.
+Equipment/&Enchanted_Spear_Lightbringer_Title	Lancia del Portatore di Luce
+Equipment/&Enchanted_Spear_Sharpness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Spear_Sharpness_Title	Lancia di nitidezza
+Equipment/&Enchanted_Spear_Whiteburn_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Whiteburn è stato creato dal primo Danantar per combattere un'invasione di troll proveniente dalle paludi a sud del suo dominio tra i Sioltafin e gli Scarafin.
+Equipment/&Enchanted_Spear_Whiteburn_Title	Lancia di Whiteburn
+Equipment/&Enchanted_StuddedLeather_Deflection_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_StuddedLeather_Deflection_Title	Pelle di deflessione borchiata
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Title	Pelle borchiata di Flame Dancing
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Pelle Borchiata di Frost Walking
+Equipment/&Enchanted_StuddedLeather_Robustness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_StuddedLeather_Robustness_Title	Pelle Borchiata di Robustezza
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Pelle borchiata di robustezza
+Equipment/&Enchanted_StuddedLeather_Survival_Description	Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armieri di Manacalon. Ildurial Stronghand forgiò la prima di quelle armature per la guardia personale dell'Imperatore.
+Equipment/&Enchanted_StuddedLeather_Survival_Title	Pelle di sopravvivenza con borchie
+Equipment/&Enchanted_Warhammer_Acuteness_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Warhammer_Acuteness_Title	Warhammer dell'Acutezza
+Equipment/&Enchanted_Warhammer_Bearclaw_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Le punte aguzze dell'artiglio dell'orso distruggono l'armatura per infliggere danni aggiuntivi. La prima arma di questo tipo è stata progettata da Ildurial Stronghand.
+Equipment/&Enchanted_Warhammer_Bearclaw_Title	Martello da guerra artiglio d'orso
+Equipment/&Enchanted_Warhammer_Lightbringer_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Colthannin. È stato progettato da Elgador Keenspirit, Magesmith dell'Arcaneum per supportare il combattimento contro le creature non morte.
+Equipment/&Enchanted_Warhammer_Lightbringer_Title	Warhammer Portatore di Luce
+Equipment/&Enchanted_Warhammer_Power_Description	Quest'arma incantata è stata forgiata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Alcune creature rispettano solo le forze fisiche. Gli arcanisti di Manacalon hanno creato questo Warhammer per dare ai campioni delle Legioni di Ferro la forza che i loro corpi elfici non fornivano.
+Equipment/&Enchanted_Warhammer_Power_Title	Warhammer del potere
+Equipment/&Enchanted_Warhammer_Punisher_Description	Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. La combinazione del miglior metallo e Slavestone ha conferito a questa ascia un incredibile potere perforante.
+Equipment/&Enchanted_Warhammer_Punisher_Title	Punitore Warhammer
+Equipment/&ImprovedThunderPunchDescription	Infligge 1d8 danni da tuono al colpo e infligge svantaggio ai tiri per colpire contro gli alleati.\nTira i nemici fino a 9 metri con un'azione bonus, quindi infliggi 1d8 danni da tuono.
+Equipment/&ImprovedThunderPunchTitle	Pugno tuono migliorato
+Equipment/&LivewoodClubDescription	Questo club è composto da legno vivo completo di foglie che germogliano e forse fioriture stagionali. Può essere usato come punto focale per lanciare incantesimi druidici.
+Equipment/&LivewoodClubTitle	Livewood Club
+Equipment/&LivewoodStaffDescription	Questo bastone è composto da legno vivo completo di foglie che germogliano e forse fioriture stagionali. Può essere usato come punto focale per lanciare incantesimi druidici.
+Equipment/&LivewoodStaffTitle	Personale di Livewood
+Equipment/&ThunderPunchDescription	Infligge 1d8 danni da tuono al colpo e infligge svantaggio ai tiri per colpire contro gli alleati.
+Equipment/&ThunderPunchTitle	Pugno di tuono
+Equipment/&WandIdentifyDescription	Lancia l'incantesimo Identifica spendendo una carica. La bacchetta ha 3 cariche e recupera 1d3 cariche ogni alba.
+Equipment/&WandIdentifyTitle	Bacchetta di identificazione
+Feat/&FeatPolearmExpertDescription	Il tuo addestramento esperto con le armi in asta ti garantisce questi vantaggi:\n• Quando si esegue l'azione Attacco e si attacca solo con un'arma ad asta, è possibile utilizzare un'azione bonus per effettuare un attacco in mischia con l'estremità opposta dell'arma. Questo attacco usa lo stesso modificatore di abilità dell'attacco primario. Il dado di danno dell'arma per questo attacco è un d4 e infligge danni contundenti.\n• Mentre impugnate un'arma con un'arma ad asta, altre creature provocano un attacco di opportunità da parte vostra quando entrano nel raggio d'azione che avete con quell'arma.
+Feat/&FeatPolearmExpertTitle	Esperto di armi da fuoco
+Item/&CEHalberd+1Title	Alabarda +1
+Item/&CEHalberd+1UnidentifiedTitle	Alabarda di qualità
+Item/&CEHalberd+2Title	Alabarda +2
+Item/&CEHalberd+2UnidentifiedTitle	Magnifica alabarda
+Item/&CEHalberdLightningTitle	Alabarda Fulmine
+Item/&CEHalberdLightningUnidentifiedTitle	Magnifica alabarda
+Item/&CEHalberdPrimedTitle	Alabarda innescata
+Item/&CEHalberdTitle	Alabarda
+Item/&CEHandXbow+1Title	Balestra a mano +1
+Item/&CEHandXbow+1UnidentifiedTitle	Balestra a mano di qualità
+Item/&CEHandXbow+2Title	Balestra a mano +2
+Item/&CEHandXbow+2UnidentifiedTitle	Magnifica balestra a mano
+Item/&CEHandXbowAcidTitle	Balestra a mano acida
+Item/&CEHandXbowAcidUnidentifiedTitle	Magnifica balestra a mano
+Item/&CEHandXbowPrimedTitle	Balestra a mano innescata
+Item/&CEHandXbowTitle	Balestra a mano
+Item/&CELongMace+1Title	Mazza lunga +1
+Item/&CELongMace+1UnidentifiedTitle	Mazza lunga di qualità
+Item/&CELongMace+2Title	Mazza lunga +2
+Item/&CELongMace+2UnidentifiedTitle	Magnifica mazza lunga
+Item/&CELongMacePrimedTitle	Mazza lunga innescata
+Item/&CELongMaceThunderTitle	Mazza Lunga Tonante
+Item/&CELongMaceThunderUnidentifiedTitle	Magnifica mazza lunga
+Item/&CELongMaceTitle	Mazza lunga
+Item/&CEPike+1Title	Luccio +1
+Item/&CEPike+1UnidentifiedTitle	Luccio di qualità
+Item/&CEPike+2Title	Luccio +2
+Item/&CEPike+2UnidentifiedTitle	Magnifico luccio
+Item/&CEPikePrimedTitle	Luccio innescato
+Item/&CEPikePsychicTitle	Luccio psichico
+Item/&CEPikePsychicUnidentifiedTitle	Magnifico luccio
+Item/&CEPikeTitle	Luccio
+Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Incanta Alabarda +1.
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Incanta Alabarda +1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Incanta Alabarda +2.
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Incanta Alabarda +2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Incanta l'alabarda del fulmine.
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Incanta l'alabarda del fulmine
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Incanta balestra a mano +1.
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Incanta balestra a mano +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Incanta balestra a mano +2.
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Incanta balestra a mano +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Incanta la balestra a mano acida.
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Incanta la balestra a mano acida
+Item/&CraftingManualRecipeEnchantCELongMace+1Description	Incanta Mazza Lunga +1.
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Incanta Mazza Lunga +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Description	Incanta Mazza Lunga +2.
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Incanta Mazza Lunga +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Incanta la Mazza Lunga Tonante.
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Incanta la Mazza Lunga Tonante
+Item/&CraftingManualRecipeEnchantCEPike+1Description	Incanta Picca +1.
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Incanta Picca +1
+Item/&CraftingManualRecipeEnchantCEPike+2Description	Incanta Picca +2.
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Incanta Picca +2
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Incanta luccio psichico.
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Incanta luccio psichico
+Item/&CraftingManualRecipeEnchantHandwraps+1Description	Incanta Fasce +1.
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Incanta Fasce +1
+Item/&CraftingManualRecipeEnchantHandwraps+2Description	Incanta Fasce +2.
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Incanta Fasce +2
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Incanta manopole potenti.
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Incanta manopole potenti
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Incanta le mani di tirare.
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Incanta le mani di tirare
+Item/&CraftingManualRecipePrimingCEHalberdDescription	Primo Alabarda.
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Primo Alabarda
+Item/&CraftingManualRecipePrimingCEHandXbowDescription	Prime balestra a mano.
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime balestra a mano
+Item/&CraftingManualRecipePrimingCELongMaceDescription	Mazza Lunga Prime.
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Mazza Lunga Prime
+Item/&CraftingManualRecipePrimingCEPikeDescription	Primo Luccio.
+Item/&CraftingManualRecipePrimingCEPikeTitle	Primo Luccio
+Item/&Handwraps+1Title	Fasce +1
+Item/&Handwraps+1UnidentifiedTitle	Fasce di buona qualità
+Item/&Handwraps+2Title	Fasce +2
+Item/&Handwraps+2UnidentifiedTitle	Fasce magnifiche
+Item/&HandwrapsOfForceTitle	Impacchi energici
+Item/&HandwrapsOfForceUnidentifiedTitle	Fasce magnifiche
+Item/&HandwrapsOfPullingTitle	Impacchi di trazione
+Item/&HandwrapsOfPullingUnidentifiedTitle	Fasce magnifiche
+Power/&PowerFunctionHandwrapsOfPullingDescription	Come azione bonus, puoi avvicinare a te una creatura entro 15 piedi.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Avvolgere
+Tooltip/&TagPolearmWeaponTitle	Polearm

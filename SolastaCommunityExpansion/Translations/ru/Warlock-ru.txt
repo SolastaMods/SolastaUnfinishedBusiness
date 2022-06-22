@@ -1,0 +1,305 @@
+AttributeModifier/&AncientForestAttributeModifierBarkskinDescription Класс Доспеха устанавливается на	16.
+AttributeModifier/&AncientForestAttributeModifierBarkskinTitle Дубовая	кожа
+Class/&ClassWarlockDescription Чернокнижники — искатели знаний, скрытых в ткани мультивселенной. Благодаря договорам, заключенным с таинственными существами, обладающими сверхъестественной силой, колдуны открывают магические эффекты, как тонкие, так и	впечатляющие.
+Class/&ClassWarlockTitle	Чернокнижник
+Condition/&AncientForestPhotosynthesisDescription Вы можете поглощать энергию солнечного света. Пока вы находитесь под прямым ярким светом, вы восстанавливаете 2 ОЗ в начале своего	хода.
+Condition/&AncientForestPhotosynthesisTitle	Фотосинтез
+Condition/&AncientForestRootedConditionDescription Древесные усики растут из ваших ног и впиваются в землю. Вы можете использовать запутывание по желанию. Ваша скорость становится равной 0, и вы получаете преимущество в любых спасбросках, которые толкают вас, притягивают или сбивают с	ног.
+Condition/&AncientForestRootedConditionTitle	Укорененный
+Condition/&MoonTouchedConditionDescription Отсутствие	гравитации.
+Condition/&MoonTouchedConditionTitle Касание	Луны
+Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription Получите сопротивление кислотному урону на 1	час.
+Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle Отвар кислотной	защиты
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription Получите сопротивление урону от молнии на 1	час.
+Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle Отвар защиты от	молнии
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription Получите сопротивление некротическому урону на 1	час.
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle Отвар некротической	защиты
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription Получите сопротивление яду на 1	час.
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle Отвар защиты от	яда
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription Получите сопротивление к урону излучением на 1	час.
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle Отвар сияющей	защиты
+Equipment/&HerbalBrewHealingTitle Отвар	ускорения
+Equipment/&HerbalBrewToxifyingTitle Отравляющий	отвар
+Feat/&MoonlitBonusCantripsDescription Ваш контроль над лунным светом поднялся на новый уровень. Вы можете накладывать заклинания лунного луча и волшебного огня по	желанию.
+Feat/&MoonlitBonusCantripsTitle Управление лунным	светом
+Feature/&AdditionalDamageAgonizingBlastDescription Вы добавляете свой модификатор Харизмы к первому броску урона при атаке сверхъестественным	взрывом.
+Feature/&AdditionalDamageAgonizingBlastTitle Мучительный	взрыв
+Feature/&AdditionalDamageHinderingBlastDescription Когда вы поражаете существо своим сверхъестественным взрывом, вы можете уменьшить скорость этого существа на 10 футов до конца своего следующего	хода.
+Feature/&AdditionalDamageHinderingBlastTitle Сдерживающий	взрыв
+Feature/&AgonizingBlastDescription Добавьте свой модификатор Харизмы к урону Мучительный	взрыв.
+Feature/&AgonizingBlastTitle Мучительный	взрыв
+Feature/&AHSoulBladeEmpowerDamageBonusDescription Вы наделены силой и наносите бонус к урону, равный вашему мастерству, во всех ваших	атаках.
+Feature/&AHSoulBladeEmpowerWeaponConditionDescription Вы наделены силой и наносите бонус к урону, равный вашему мастерству, во всех ваших	атаках.
+Feature/&AHSoulBladeEmpowerWeaponConditionTitle Сила	души
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription Вы наделены силой и наносите бонус к урону, равный вашему мастерству, во всех ваших	атаках.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle Сила	души
+Feature/&AHSoulBladeSummonPactWeaponPowerDescription Один раз за короткий отдых вы можете призвать духовную форму оружия из вашего договора в качестве свободного действия. В качестве бонусного действия вы можете направить оружие по своему желанию, чтобы атаковать своих противников. Оружие перемещается на 20 футов каждый раз перед	ударом.
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle Оружие духовного	договора
+Feature/&AHWarlockClassPactBoonSetDescription На 3 уровне ваш потусторонний покровитель преподносит вам подарок за вашу верную службу. Вы можете выбрать	между:
+Feature/&AHWarlockClassPactBoonSetTitle Благословение	договора
+Feature/&AHWarlockClassPactOfTheBladeSetDescription Вы становитесь опытным со всем оружием, и ваши атаки оружием считаются	магическими.
+Feature/&AHWarlockClassPactOfTheBladeSetTitle Пакт	клинка
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription Один раз за продолжительный отдых вы можете усилить оружие силой душ. Это оружие использует модификатор Харизмы для бросков атаки и урона и считается магическим до длительного	отдыха.
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle Сила	души
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription Лезвие души позволяет вам выбирать из расширенного списка заклинаний, когда вы изучаете заклинание чернокнижника. Следующие заклинания добавлены для вас в список заклинаний Чернокнижника:	{0}
+Feature/&AHWarlockSoulBladePactExtendedSpellListTitle Заклинания клинка	души
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription Один раз за короткий отдых вы используете силу душ, чтобы защитить себя. Используя бонусное действие, вы получаете временные очки здоровья, равные вашему уровню + модификатор	Харизмы.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle Щит	души
+Feature/&AncientForestExpandedSpelllistAfinityDescription Вы выбираете из расширенного списка заклинаний, когда изучаете заклинание Чернокнижника. Следующие заклинания добавлены для вас в список заклинаний Чернокнижника:	{0}
+Feature/&AncientForestExpandedSpelllistAfinityTitle Древние лесные	заклинания
+Feature/&AncientForestLightAffinityDescription Вы можете поглощать энергию солнечного света. Пока вы находитесь под прямым ярким светом, вы получаете 2 HP за	раунд.
+Feature/&AncientForestLightAffinityTitle	Фотосинтез
+Feature/&AncientForestRegrowthDescription У вас есть запас исцеляющей силы, который пополняется при длительном отдыхе. С помощью этого запаса вы можете восстановить общее количество очков жизни, равное вашему уровню Чернокнижника ×	5.
+Feature/&AncientForestRegrowthTitle	Отрастание
+Feature/&ArmorofShadowsTitle Броня	теней
+Feature/&AscendantStepTitle Восходящий	шаг
+Feature/&AspectoftheMoonDescription Вам больше не нужно спать, и вы можете нести вахту, снижая вероятность нападения и гарантируя, что вы бодрствуете, если лагерь подвергнется	нападению.
+Feature/&AspectoftheMoonTitle Аспект	Луны
+Feature/&BeguilingInfluenceDescription Вы получаете владение навыками Обмана и	Убеждения.
+Feature/&BeguilingInfluenceTitle Обманчивое	влияние
+Feature/&BondoftheTalismanDescription Телепорт на расстояние до 30	футов.
+Feature/&BondoftheTalismanTitle Телепорт	Талисман
+Feature/&ChainsofCarceriDescription Парализует небожителя, демона или элементаля, если тот не преуспевает в спасброске	Мудрости.
+Feature/&ChainsofCarceriTitle Цепи	Карцери
+Feature/&ClassMonkTongueOfSunAndMoonDescription Вы учитесь прикасаться к ки других умов, чтобы понимать все разговорные языки. Более того, любое существо, понимающее язык, может понять и то, что вы	говорите.
+Feature/&ClassMonkTongueOfSunAndMoonTitle Язык Солнца и	Луны
+Feature/&ClassWarlockArmorProficiencyDescription Легкая	броня.
+Feature/&ClassWarlockArmorProficiencyTitle Навыки доспехов	чернокнижника
+Feature/&ClassWarlockEldritchInvocationReplaceDescription Выберите Eldritch Invocation для	замены.
+Feature/&ClassWarlockEldritchInvocationReplaceTitle Заменить	вызов
+Feature/&ClassWarlockEldritchInvocationSetLevelDescription Добавьте сверхъестественное	заклинание.
+Feature/&ClassWarlockEldritchInvocationSetLevelTitle Жуткий	призыв
+Feature/&ClassWarlockEldritchMasterDescription вы можете использовать свой внутренний резерв мистической силы, умоляя своего покровителя вернуть израсходованные слоты заклинаний. Вы можете потратить 1 минуту на то, чтобы умолять своего покровителя о помощи, чтобы восстановить все ваши израсходованные ячейки заклинаний из вашей функции Pact Magic. Как только вы восстановите ячейки заклинаний с помощью этой функции, вы должны закончить продолжительный отдых, прежде чем сможете сделать это	снова.
+Feature/&ClassWarlockEldritchMasterTitle Жуткий	Мастер
+Feature/&ClassWarlockMysticArcanumSetDescription Ваш покровитель наделяет вас магическим секретом, называемым тайной. Вы можете разыграть заклинание аркана один раз, не тратя ячейку заклинания. Вы должны закончить продолжительный отдых, прежде чем сможете сделать это снова. На более высоких уровнях вы получаете больше заклинаний Чернокнижника по вашему выбору, которые можно использовать таким образом: одно заклинание 6-го уровня на 11-м уровне, одно заклинание 7-го уровня на 13-м уровне, одно заклинание 8-го уровня на 15-м уровне и одно заклинание 9-го уровня. заклинание 17-го	уровня.
+Feature/&ClassWarlockMysticArcanumSetTitle Таинственный	Арканум
+Feature/&ClassWarlockSavingThrowProficiencyDescription Мудрость,	Харизма.
+Feature/&ClassWarlockSavingThrowProficiencyTitle	Спасброски
+Feature/&ClassWarlockSkillProficiencyDescription Выберите 2 из этих навыков: Тайна, Обман, История, Запугивание, Расследование, Природа и	Религия.
+Feature/&ClassWarlockSkillProficiencyTitle Навыки	чернокнижника
+Feature/&ClassWarlockSpellcastingDescription Ваши тайные исследования и магия, дарованная вам вашим потусторонним покровителем, дали вам возможность обращаться с	заклинаниями.
+Feature/&ClassWarlockSpellcastingTitle Магия Пакта	Чернокнижника
+Feature/&ClassWarlockToolsProficiencyDescription Вас научили варить лечебные травы и пользоваться зачаровывающим	снаряжением.
+Feature/&ClassWarlockToolsProficiencyTitle Магическое ремесло	чернокнижника
+Feature/&ClassWarlockWeaponProficiencyDescription Простое	оружие.
+Feature/&ClassWarlockWeaponProficiencyTitle Мастерство оружия	чернокнижника
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription Когда ваше здоровье снижается до 0, но вы не убиты, вместо этого вы можете упасть до 1	HP.
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle Неумолимая	выносливость
+Feature/&DevilsSightDescription Вы можете нормально видеть в темноте, как магической, так и немагической, на расстоянии 120	футов.
+Feature/&DevilsSightTitle Дьявольский	взгляд
+Feature/&DH_BlinkDescription В качестве бонусного действия вы исчезаете со своего текущего плана существования, предотвращая все повреждения. В начале вашего следующего хода вы возвращаетесь в клетку, из которой	исчезли.
+Feature/&DH_BlinkTitle	мерцать
+Feature/&DH_FadeIntoTheVoidDescription Когда ваши очки здоровья не опускаются ниже 0, вместо этого ваши ОЗ падают до 1, вы ненадолго исчезаете в пустоте, чтобы уменьшить урон. Вы не можете использовать эту способность снова, пока не закончите продолжительный	отдых.
+Feature/&DH_FadeIntoTheVoidTitle Исчезать в	пустоте
+Feature/&DH_RiftCloakDescription Ваш контроль над порталами разлома увеличился до такой степени, что теперь вы можете предоставить защиту разлома другим. Вы можете использовать оберегающие узы по желанию (без разделения	урона).
+Feature/&DH_RiftCloakTitle Плащ	Разлома
+Feature/&DH_RiftControlDescription Ненадолго окруженный энергией разлома, вы телепортируетесь в незанятое пространство. Теперь вы можете взять с собой союзника при телепортации, и радиус действия значительно	увеличился.
+Feature/&DH_RiftControlTitle Портал	Разлома
+Feature/&DH_RiftStrikeDescription Раз в день при получении урона в ближнем бою вы можете реакцией создать портал, изгоняющий атакующего на 1 раунд из вашего плана	существования.
+Feature/&DH_RiftStrikeTitle Удар	Разлома
+Feature/&DH_RiftWalkDescription Ненадолго окруженный энергией пустоты между мирами, вы телепортируетесь на расстояние до 30 футов в незанятое пространство, которое можете	видеть.
+Feature/&DH_RiftWalkTitle Шаг	Разлома
+Feature/&DHAncientForestBonusCantripDescription Ваш покровитель делится секретами природы того, как связаны природная магия и жизненная энергия. Вы изучаете Shillelagh и Леденящее касание.
+Feature/&DHAncientForestBonusCantripTitle Бонусные заклинания древнего	леса
+Feature/&DHConjureMinorElementalsBonusCantripDescription Ваш контроль над энергиями элементалей увеличился до такой степени, что теперь у вас есть власть над более слабыми элементалями. Вы можете сотворить второстепенного элементаля по	желанию.
+Feature/&DHConjureMinorElementalsBonusCantripTitle Стихийные	миньоны
+Feature/&DHPactOfTheTomeFeatureSetDescription Ваш покровитель дает вам гримуар под названием «Книга теней». Когда вы получаете эту способность, выберите три колдовства из списка заклинаний любого класса. Заговоры не обязательно должны быть из одного списка заклинаний. Пока книга находится у вас, вы можете колдовать по своему желанию. Они не учитываются при подсчете количества известных колдовств. Любое колдовство, которое вы разыгрываете с помощью этой способности, считается для вас колдовством	чернокнижника.
+Feature/&DHPactOfTheTomeFeatureSetTitle Пакт	Тома
+Feature/&DHWardingBondBonusCantripDescription Ваш контроль над порталами разлома увеличился до такой степени, что теперь вы можете предоставить защиту разлома другим. Вы можете использовать оберегающие узы по желанию (без разделения	урона).
+Feature/&DHWardingBondBonusCantripTitle Плащ	Разлома
+Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription Когда вы призываете фамильяра, вы можете выбрать одну из следующих особых форм: имп, псевдодракон, квазит или	спрайт.
+Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle Пакт	цепи
+Feature/&DreadfulWordTitle Ужасное	слово
+Feature/&EldritchBlastGraspingHandBonusCantripDescription Когда вы поражаете существо своим сверхъестественным взрывом, вы можете переместить это существо по прямой линии на 10 футов ближе к	себе.
+Feature/&EldritchBlastGraspingHandBonusCantripTitle Хватающий	взрыв
+Feature/&EldritchBlastRepellingBlastBonusCantripDescription Когда вы попадаете в существо сверхъестественным взрывом, вы можете оттолкнуть его на расстояние до 10 футов от себя по прямой	линии.
+Feature/&EldritchBlastRepellingBlastBonusCantripTitle Отражение	взрыва
+Feature/&EldritchMindDescription Вы совершаете с преимуществом спасброски Телосложения, совершаемые для сохранения концентрации на	заклинании.
+Feature/&EldritchMindTitle Жуткий	разум
+Feature/&EldritchSightTitle Жуткий	взгляд
+Feature/&EldritchSmiteDescription Один раз за ход, когда вы попадаете по существу своим оружием договора, вы можете потратить ячейку заклинания Чернокнижника, чтобы нанести цели дополнительный силовой урон 1d8 плюс еще 1d8 за каждый уровень ячейки	заклинания.
+Feature/&EldritchSmiteTitle Жуткий	удар
+Feature/&ElementalPactAirPlane	Самолет
+Feature/&ElementalPactAstralPlane Астральный	план
+Feature/&ElementalPactEarthPlane Земной	план
+Feature/&ElementalPactEtherealPlane Эфирный	план
+Feature/&ElementalPactFirePlane Пожарный	самолет
+Feature/&ElementalPactIcePlane Ледяной	самолет
+Feature/&ElementalPactShadowPlane теневой	самолет
+Feature/&ElementalPatronDummyFeatureSetTitle	Элементалист
+Feature/&ElementalPatronElementalConditionFormatDescription Наносите дополнительные {1} урона, равные вашему бонусу мастерства, при первом попадании в каждом	раунде.
+Feature/&ElementalPatronElementalConditionFormatTitle Направление	{0}
+Feature/&ElementalPatronElementalDamageFormatDescription Поддерживая {0}, наносите дополнительно {1} урона, равного вашему бонусу мастерства, при первом попадании в каждом	раунде.
+Feature/&ElementalPatronElementalDamageFormatTitle Стихийный урон:	{0}
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription Поддерживая {0}, вы получаете иммунитет к {1} и применяете бонус мастерства в виде урона того же типа при первом попадании в каждом	раунде.
+Feature/&ElementalPatronElementalFormEnhancedFormatTitle Направление	{0}
+Feature/&ElementalPatronElementalFormFormatDescription Поддерживая {0}, вы получаете Сопротивление урону {1} ​​и применяете бонус мастерства в виде урона того же типа к первому попаданию в каждом	раунде.
+Feature/&ElementalPatronElementalFormFormatTitle	{0}
+Feature/&ElementalPatronFeatureSet_Level06Description Ваши знания об элементалях увеличились до такой степени, что теперь вы получаете преимущество в проверках характеристик по отношению к элементалям и наносите дополнительный урон против элементалей, равный вашему уровню знаний. Вы больше не можете быть очарованы или напуганы	элементалями.
+Feature/&ElementalPatronFeatureSet_Level06Title Знание	элементалей
+Feature/&EyesoftheRuneKeeperDescription Вы можете прочитать все	написанное.
+Feature/&EyesoftheRuneKeeperTitle Глаза хранителя	рун
+Feature/&FiendishVigorTitle Дьявольская	энергия
+Feature/&GiftoftheEverLivingOnesDescription Восстанавливает максимально возможное количество ОЗ от любого	исцеления.
+Feature/&GiftoftheEverLivingOnesTitle Дар	вечноживущих
+Feature/&GiftoftheProtectorsDescription Когда Ваши очки здоровья опускаются до 0, существо вместо этого магическим образом сохраняет 1 ОЗ. Как только эта магия сработает, вы не сможете извлечь из нее пользу, пока не закончите продолжительный	отдых.
+Feature/&GiftoftheProtectorsTitle Дар	защитников
+Feature/&HerbalBrewDescription Когда вы заканчиваете продолжительный отдых, вы можете приготовить травяной отвар, каждый из которых действует до следующего продолжительного отдыха. Вы делаете общее количество отваров, равное вашему бонусу мастерства. Для каждого напитка выберите один из следующих эффектов:\n<color=#add8e6ff>Укрепляющий отвар</color>: дает сопротивление различным типам урона на 1 час.\n<color=#add8e6ff>Ускоряющий отвар</color>: дает 2d4 хита.\n<color=#add8e6ff>Отравляющий отвар</color>: действует как яд, который можно применить к оружию в течение 1 минуты. Если попадание достигает цели, цель получает урон ядом 1d4 при каждом	попадании.
+Feature/&HerbalBrewFeatureSetDescription Вы получаете владение либо набором отравителя, либо набором травничества, если у вас его еще нет.\nКогда вы заканчиваете продолжительный отдых, вы можете приготовить травяной отвар, каждый из которых действует до следующего продолжительного отдыха. Вы делаете общее количество отваров, равное вашему бонусу мастерства. Для каждого напитка выберите один из следующих эффектов:\n<color=#add8e6ff>Укрепляющий отвар</color>: дает сопротивление различным типам урона на 1 час.\n<color=#add8e6ff>Ускоряющий отвар</color>: дает 2d4 хита.\n<color=#add8e6ff>Отравляющий отвар</color>: действует как яд, который можно применить к оружию в течение 1 минуты. Если попадание достигает цели, цель получает урон ядом 1d4 при каждом	попадании.
+Feature/&HerbalBrewFeatureSetTitle Травяное	пивоварение
+Feature/&HinderingBlastDescription Когда вы поражаете существо своим сверхъестественным взрывом, вы можете уменьшить скорость этого существа на 10 футов до конца своего следующего	хода.
+Feature/&HinderingBlastMagicAffinityDescription когда вы попадаете в существо своим сверхъестественным взрывом, вы можете уменьшить скорость этого существа на 10 футов до конца вашего следующего	хода.
+Feature/&HinderingBlastMagicAffinityTitle Сдерживающий	взрыв
+Feature/&HinderingBlastTitle Сдерживающий	взрыв
+Feature/&ImprovedPactWeaponDescription Вы можете использовать любое оружие в качестве фокуса для ваших заклинаний Чернокнижника. Кроме того, оружие получает бонус +1 к броскам атаки и	урона.
+Feature/&ImprovedPactWeaponTitle Улучшенное оружие	договора
+Feature/&MiretheMindTitle болото	разума
+Feature/&MoonLitDarknessImmunityDescription Вы невосприимчивы к состоянию	Тьмы.
+Feature/&MoonLitDarknessImmunityTitle Лунная	тьма
+Feature/&MoonLitExpandedSpelllistAfinityDescription Вы выбираете из расширенного списка заклинаний, когда изучаете заклинание Чернокнижника. Следующие заклинания добавлены для вас в список заклинаний Чернокнижника:	{0}
+Feature/&MoonLitExpandedSpelllistAfinityTitle Лунные	заклинания
+Feature/&MoonLitLightAffinityDescription Если вы начинаете свой ход в естественной темноте, вы становитесь невидимым. Движение, атака или использование любой силы или заклинания, нацеленного не только на вас, снимает	невидимость.
+Feature/&MoonLitLightAffinityStrongDescription Umbral Cloak теперь работает при тусклом свете и магической	тьме.
+Feature/&MoonLitLightAffinityStrongTitle Улучшенный темный	плащ
+Feature/&MoonLitLightAffinityTitle Теневой	плащ
+Feature/&OneWithShadowsDescription Если вы начинаете свой ход в естественной темноте, вы становитесь невидимым. Движение, атака или использование любой силы или заклинания, нацеленного не только на вас, снимает	невидимость.
+Feature/&OneWithShadowsLightAffinityDescription Если вы начинаете свой ход в естественной темноте, вы становитесь невидимым. Движение, атака или использование любой силы или заклинания, нацеленного не только на вас, снимает	невидимость.
+Feature/&OneWithShadowsLightAffinityStrongDescription One With Shadows теперь работает при тусклом свете и магической	темноте.
+Feature/&OneWithShadowsLightAffinityStrongTitle Темные	тени
+Feature/&OneWithShadowsLightAffinityTitle Один с	тенями
+Feature/&OneWithShadowsStrongerDescription One With Shadows теперь работает при тусклом свете и магической	темноте.
+Feature/&OneWithShadowsStrongerTitle Темные	тени
+Feature/&OneWithShadowsTitle Один с	тенями
+Feature/&OtherworldlyLeapTitle Потусторонний	прыжок
+Feature/&ProficiencySoulBladeArmorDescription Легкая броня, средняя броня и	щит.
+Feature/&ProficiencySoulBladeArmorTitle Навыки Доспеха Клинка	Души
+Feature/&ProficiencySoulBladeWeaponDescription Простое оружие, Боевое	оружие.
+Feature/&ProficiencySoulBladeWeaponTitle Навыки оружия клинка	души
+Feature/&RiftWalkerRestrainedImmunityTitle Мимолетный	шаг
+Feature/&RiftWalkerSpellsMagicAffinityDescription Вы выбираете из расширенного списка заклинаний, когда изучаете заклинание Чернокнижника. Следующие заклинания добавлены для вас в список заклинаний Чернокнижника:	{0}
+Feature/&RiftWalkerSpellsMagicAffinityTitle Заклинания	бродяги
+Feature/&ShroudofShadowTitle Покров	тени
+Feature/&ThiefofFiveFates Разыгрывать {0} один раз в	день
+Feature/&ThiefofFiveFatesTitle Вор пяти	судеб
+Feature/&ThirstingBladeDescription Вы можете атаковать своим оружием дважды, а не один раз, каждый раз, когда в свой ход совершаете действие	Атака.
+Feature/&ThirstingBladeTitle Жаждущий	клинок
+Feature/&TrickstersEscapeTitle Побег	Трикстера
+Feature/&WallofThornsFeatureSetDescription Используйте Стена Корней один раз в	день.
+Feature/&WallofThornsFeatureSetTitle Стена Корней
+Feedback/&AdditionalDamageAgonizing_BlastFormat Мучительный	взрыв
+Feedback/&AdditionalDamageAgonizing_BlastLine Когда вы разыгрываете Жуткий взрыв, вы добавляете свой модификатор Харизмы к урону, который он наносит при	попадании.
+Feedback/&AdditionalDamageEldritchSmiteFormat Жуткий	удар!
+Feedback/&AdditionalDamageEldritchSmiteLine {0} поражает {1}	(+{2})
+Feedback/&AdditionalDamageElementalDamageFormat Стихийный	урон
+Feedback/&AdditionalDamageElementalDamageLine Элементарная форма дает дополнительный	урон
+Feedback/&AdditionalDamagePactMarkedFormat Знак	договора!
+Feedback/&AdditionalDamagePactMarkedLine Знак договора наносит дополнительный	урон!
+Feedback/&AdditionalDamagePactSoulTakerFormat Похититель	душ!
+Feedback/&AdditionalDamagePactSoulTakerLine Soul taker наносит дополнительный	урон!
+Feedback/&AdditionalDamageSoulEmpoweredFormat Сила	души!
+Feedback/&AdditionalDamageSoulEmpoweredLine Soul Empowered наносит дополнительный	урон!
+Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat {0} создает	{1}
+Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat {0} создает	{1}
+Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat {0} создает	{1}
+Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTravellingFormat {0} создает	{1}
+Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat {0} создает	{1}
+Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat {0} создает	{1}
+Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat {0} создает	{1}
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription Оружие использует модификатор Харизмы для бросков атаки и урона и считается магическим до длительного	отдыха.
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle Сила	души
+Monster/&PactOfChainCustomImpDescription Бесов можно найти повсюду на Нижних Планах, они либо выполняют поручения своих адских хозяев, либо шпионят за соперниками, либо вводят в заблуждение и подстерегают смертных. Имп будет с гордостью служить злому хозяину любого рода, но нельзя полагаться на то, что он будет выполнять задачи с какой-либо скоростью или	эффективностью.
+Monster/&PactOfChainCustomImpTitle Бес (Пакт	цепи)
+Monster/&PactOfChainCustomPseudodragonDescription Неуловимый псевдодракон обитает в тихих уголках мира, устраивая себе дом в дуплах деревьев и небольших пещерах. Псевдодракон с его зеленой чешуей, рогами и пастью, полной острых зубов, напоминает крошечного зеленого дракона, но имеет игривый	нрав.
+Monster/&PactOfChainCustomPseudodragonTitle	Псевдодракон
+Monster/&PactOfChainCustomQuasitDescription Квазиты наводняют Нижние Планы. Физически слабые, они держатся в тени, чтобы замышлять зло и зло. Более могущественные демоны используют квазитов в качестве шпионов и посланников, когда они не пожирают их и не разрывают на части, чтобы скоротать	время.
+Monster/&PactOfChainCustomQuasitTitle Квазит (Пакт	цепи)
+Monster/&PactOfChainCustomSpriteDescription В отличие от пикси, спрайты редко предаются легкомысленному веселью и веселью. Они стойкие воины, защитники и судьи, и их суровый характер заставляет других фейри считать их чересчур суровыми и серьезными. Однако фейри, уважающие территорию духов, находят в них верных союзников в трудные	времена.
+Monster/&PactOfChainCustomSpriteTitle Спрайт (Пакт	Цепи)
+MonsterAttack/&AttackWarlockDragonStingDescription 1d4 колющего урона и цель должна преуспеть в спасброске Телосложения со Сл 11, иначе станет	отравленной.
+MonsterAttack/&AttackWarlockDragonStingTitle Ядовитое	жало
+MonsterAttack/&AttackWarlockImpStingDescription Ядовитый укус	чертенка.
+MonsterAttack/&AttackWarlockImpStingTitle Ядовитое	жало
+MonsterAttack/&AttackWarlockQuasitStingTitle Ядовитое	жало
+Power/&AncientForestLifeSapDescription Когда вы наносите урон врагу заклинанием, вы восстанавливаете здоровье, равное половине вашего уровня, один раз за ход. Если у вас меньше половины HP, вместо этого вы восстанавливаете ОЗ, равный вашему уровню, но только до половины ваших максимальных	ОЗ.
+Power/&AncientForestLifeSapTitle Сок	жизни
+Power/&AncientForestRootedPowerDescription Древесные усики растут из ваших ног и впиваются в землю. Ваша скорость становится равной 0, и вы получаете преимущество в любых спасбросках, которые отталкивают вас, притягивают или сбивают с ног. Вы можете наложить опутывание по своему	желанию.
+Power/&AncientForestRootedPowerTitle	Укорененный
+Power/&DH_ElementalFormPoolDescription Вы можете переключаться между формами элементалей количество раз, равное вашему бонусу мастерства за продолжительный отдых, направляя энергию элементаля. Вы получаете сопротивление соответствующему урону и один раз за ход применяете свой бонус мастерства в виде урона того же типа к первому урону от заклинаний, нанесенному в этом ходу. Формы длятся 1	минуту.
+Power/&DH_ElementalFormPoolEnhancedDescription Вы можете переключаться между улучшенными формами элементалей количество раз, равное вашему бонусу мастерства в день, направляя энергию элементаля. Вы получаете иммунитет к соответствующему урону и применяете бонус мастерства в виде урона того же типа к первому урону от заклинаний в каждом раунде. Формы длятся 1	минуту.
+Power/&DH_ElementalFormPoolEnhancedTitle Улучшенные формы	элементалей
+Power/&DH_ElementalFormPoolEnhancedTitleShort Элементальные	формы
+Power/&DH_ElementalFormPoolTitle Элементальные	формы
+Power/&FindFamiliarBundlePowerDescription Призовите фамильяра в форме Псевдоррагона, Спрайта, Импа или	Квазита.
+Power/&FindFamiliarBundlePowerTitle Найти	знакомых
+Power/&MoonlitDanceoftheNightSkyDescription Вы можете использовать Полет на 4 цели один раз в	день.
+Power/&MoonlitDanceoftheNightSkyTitle Танец ночного	неба
+Power/&MoonlitDarkMoonDescription Вы можете сотворить Тьму столько раз за продолжительный отдых, сколько ваш бонус	мастерства.
+Power/&MoonlitDarkMoonTitle Темная	Луна
+Power/&MoonlitFullMoonDescription Вы можете сотворить Дневной свет столько раз за продолжительный отдых, сколько соответствует вашему бонусу	мастерства.
+Power/&MoonlitFullMoonTitle	Полнолуние
+Power/&MoonlitMoonTouchedDescription Вы вызываете гравитационное притяжение луны в небольшой области, заставляя существ, проваливших спасбросок, парить	вверх.
+Power/&MoonlitMoonTouchedTitle Луна	коснулась
+Power/&PactofChainFamiliarInvisibilityPowerDescription Существо магическим образом становится невидимым до тех пор, пока оно не атакует или не наложит заклинание, или пока не закончится его концентрация (как при концентрации на заклинании). Любое снаряжение, которое существо носит или носит, становится невидимым вместе с	ним.
+Power/&PactofChainFamiliarInvisibilityPowerTitle	Невидимость
+Power/&PactofChainFamiliarScarePowerDescription Одно существо по вашему выбору в пределах 20 футов от него должно преуспеть в спасброске Мудрости со Сл 10, иначе оно будет испугано на 1 минуту. Цель может повторять спасбросок в конце каждого своего хода, оканчивая эффект на себе в случае	успеха.
+Power/&PactofChainFamiliarScarePowerTitle	Напугать
+Reaction/&SpendPowerDH_RiftStrikeDescription Один раз за продолжительный отдых, получив урон от атаки в ближнем бою, вы можете реакцией создать портал, изгоняющий атакующего на 1 раунд из вашего плана	существования.
+Reaction/&SpendPowerDH_RiftStrikeReactTitle Разломный	удар
+Reaction/&SpendPowerDH_RiftStrikeTitle Разломный	удар
+Reaction/&SpendSpellSlotEldritchSmiteDescription {0} может потратить ячейку заклинания, чтобы нанести цели 1к8 силового урона и дополнительно 1к8 урона за уровень	ячейки.
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription Нажмите, чтобы потратить ячейку заклинания и увеличить урон	цели.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Порази
+Reaction/&SpendSpellSlotEldritchSmiteTitle Жуткий	удар
+Reaction/&SubitemSelectEldritchSmiteDescription Выберите уровень слота для вашего Eldritch	Smite.
+Reaction/&SubitemSelectEldritchSmiteTitle Уровень	слота
+Requirement/&WarlockMissingEldritchBlast Колдовство "Жуткий	взрыв"
+Requirement/&WarlockRequiresNoMoonLit Не лунный	покровитель
+Requirement/&WarlockRequiresOneWithShadows «Единство с тенями» Жуткое	заклинание
+Requirement/&WarlockRequiresPactOfBlade Пакт	клинка
+Requirement/&WarlockRequiresPactOfChain Пакт	цепей
+Requirement/&WarlockRequiresPactOfTome Пакт	Тома
+Rules/&CounterFormDismissCreatureFormat Отклонить конструкцию	Tinkerer
+Spell/&AHPactMarkAdditionalDamageDescription Существо, помеченное пактом, получает дополнительный урон 1d6 того же типа, когда оно поражено оружием или атакой заклинанием	маркера.
+Spell/&AHPactMarkAdditionalDamageTitle Урон от знака	договора
+Spell/&AHPactMarkMarkedByPactConditionDescription Это существо было помечено пактом и получает дополнительный урон 1d6 того же типа при ударе маркером оружием или	заклинанием.
+Spell/&AHPactMarkMarkedByPactConditionTitle Договор	отмечен
+Spell/&AHPactMarkPactMarkConditionDescription Вы можете пометить других существ меткой договора и нанести им дополнительный урон 1d6 атаками оружием или	заклинаниями.
+Spell/&AHPactMarkPactMarkConditionTitle Знак	договора
+Spell/&AHPactMarkSpellDescription Вы помещаете метку из своего договора на существо, которое видите в пределах 90 футов. Он становится уязвимым для вас и получает дополнительный урон 1d6 каждый раз, когда вы наносите ему удар оружием или атакой заклинанием. Этот урон того же типа, что и атака, которая	попадает.
+Spell/&AHPactMarkSpellTitle Знак	договора
+Spell/&AirBlastDescription Выстрелите в цель потоком сфокусированного	воздуха.
+Spell/&AirBlastTitle Поток	воздуха
+Spell/&EldritchBlastDescription Луч потрескивающей энергии устремляется к существу в пределах досягаемости. Совершите дальнобойную атаку заклинанием по цели. При попадании цель получает силовой урон 1d10.\nЗаклинание создает более одного луча, когда вы достигаете более высоких уровней: два луча на 5-м уровне, три луча на 11-м уровне и четыре луча на 17-м уровне. Вы можете направлять лучи на одну и ту же цель или на разные. Сделайте отдельный бросок атаки для каждого	луча.
+Spell/&EldritchBlastGraspingHandDescription Луч потрескивающей энергии устремляется к существу в пределах досягаемости. Совершите дальнобойную атаку заклинанием по цели. При попадании цель получает силовой урон 1d10.\n(Когда вы попадаете в существо своим сверхъестественным взрывом, вы можете переместить это существо по прямой линии на 10 футов ближе к	себе.)
+Spell/&EldritchBlastGraspingHandTitle Жуткий взрыв	(захват)
+Spell/&EldritchBlastRepellingBlastDescription Луч потрескивающей энергии устремляется к существу в пределах досягаемости. Совершите дальнобойную атаку заклинанием по цели. При попадании цель получает силовой урон 1d10.\n(Когда вы попадаете в существо сверхъестественным взрывом, вы можете оттолкнуть его на расстояние до 10 футов от себя по прямой	линии.)
+Spell/&EldritchBlastRepellingBlastTitle Жуткий взрыв	(отталкивающий)
+Spell/&EldritchBlastTitle Жуткий	взрыв
+Spell/&EldritchOrbDescription Вы бросаете шар сверхъестественной энергии в существо или объект в пределах досягаемости и наносите силовой урон в небольшом	радиусе.
+Spell/&EldritchOrbTitle Жуткая	сфера
+Spell/&HinderingBlastDescription Луч потрескивающей энергии устремляется к существу в пределах досягаемости. Совершите дальнобойную атаку заклинанием по цели. При попадании цель получает силовой урон 1d10.\n(когда вы попадаете в существо своим сверхъестественным взрывом, вы можете уменьшить скорость этого существа на 10 футов до конца вашего следующего	хода).
+Spell/&HinderingBlastTitle Жуткий взрыв	(препятствие)
+SpellList/&ClassWarlockSpellListDescription Список заклинаний	чернокнижника.
+SpellList/&ClassWarlockSpellListTitle Список заклинаний	чернокнижника
+SpellList/&RiftWalkerSpellsListDescription Список заклинаний	RiftWalker.
+SpellList/&RiftWalkerSpellsListTitle Список заклинаний Rift	Walker
+Stage/&SubclassSelectionStagePatronDescription Чернокнижник определяется договором с потусторонним существом. Иногда отношения между Чернокнижником и покровителем подобны отношениям Клерика и божества, хотя существа, служащие покровителями, не являются	богами.
+Stage/&SubclassSelectionStagePatronFeatures Потусторонние покровители	Особенности
+Stage/&SubclassSelectionStagePatronHeader Чернокнижник Потусторонние	покровители
+Stage/&SubclassSelectionStagePatronTitle Потусторонние	покровители
+Subclass/&AHWarlockSubclassSoulBladePactDescription Вы заключили сделку с разумным оружием, которому вы кормите души в обмен на	силу.
+Subclass/&AHWarlockSubclassSoulBladePactTitle Пакт клинка	души
+Subclass/&ClassWarlockPatronDescription Чернокнижник определяется договором с потусторонним существом. Иногда отношения между Чернокнижником и покровителем подобны отношениям Клерика и божества, хотя существа, служащие покровителями, не являются	богами.
+Subclass/&ClassWarlockPatronTitle Потусторонний	покровитель
+Subclass/&DHWarlockSubclassElementalPatronDescription Вы заключили договор и были изменены первородными, обитающими в стихийных бесплодных землях. Стихийный хаос покровителя наполнил вашу душу, позволив вам использовать силу разных стихийных	типов.
+Subclass/&DHWarlockSubclassElementalPatronTitle Пакт	элементалиста
+Subclass/&DHWarlockSubclassRiftWalkerDescription Ваш покровитель — одно из редких существ, называющих пустоту между мирами своим домом. Они легко скользят между планами, и знания, которые вы получили от взаимодействия с ними, позволяют вам использовать затянувшиеся энергии разлома в свою пользу в соласте. Иногда вас может наполнять тоска по далекому царству вашего покровителя, желание бродить между измерениями до конца своих дней или высматривать признаки другого события Разлома, чтобы предотвратить или поощрить	его.
+Subclass/&DHWarlockSubclassRiftWalkerTitle Пакт Путника	Разлома
+Subclass/&WarlockAncientForestDescription Вы установили отношения с могущественной природной сущностью: древними дриадами, архидруидами, проявлениями Страны Фей, истекающими кровью в материальный план, забытыми богами из первобытной эпохи. Ваш покровитель может желать, чтобы вы защищали мир природы, путешествовали в дальние страны, куда он не может, или у него может быть другой мотив, который кажется непостижимым для недолговечных	смертных.
+Subclass/&WarlockAncientForestTitle Пакт Древнего	Леса
+Subclass/&WarlockMoonLitDescription Ваш покровитель — дух луны, сущность, воплощающая циклическую природу света и тьмы. Эти духи стремятся сохранить власть луны над ночным небом, одновременно сдерживая нечестивые силы, преследующие тьму, и поручают им своих колдунов, предоставляя им власть над силами луны и ее	эффектами.
+Subclass/&WarlockMoonLitTitle Лунный	пакт
+Subclass/&WarlockToadKingDescription Фей, демон или аберрация, вызванная Катаклизмом, истинная природа Короля-жабы неизвестна, но известно, что Король-жаба правит большой территорией болот и болот в Бесплодных землях и предлагает силу тем, кто готов	служить.
+Subclass/&WarlockToadKingTitle Пакт короля	жаб
+Subclass/&WarlockUrPriestDescription В то время как подавляющее большинство божественных заклинателей получают свои силы от божества, есть и те, кто презирает богов. Те, кто называет себя Ур-жрецами, научились выкачивать божественную энергию, дарованную богами своим божественным заклинателям, используя ее для своих собственных нужд, не оказывая даже на словах никакого внимания какому-либо богу. Как Ур-жрец, вы отличаетесь от большинства чернокнижников тем, что у вас нет покровителя, который наделяет вас силой. Жуткие заклинания, которые вы обнаружите, представляют собой искаженные формы магии, которые боги могут даровать своим покровителям, в то время как Дары Договора, скорее всего, являются божественными артефактами, которые вам удалось	украсть.
+Subclass/&WarlockUrPriestTitle Ур-Жрец	Пакт

@@ -1,0 +1,14 @@
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Destreza +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Aumento del atributo del gnomo del bosque
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Inteligencia +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Aumento de atributo de gnomo
+Feature/&GnomeCunningFeatureDescription	Tienes ventaja en todas las salvaciones de Inteligencia, Sabiduría y Carisma contra la magia.
+Feature/&GnomeCunningFeatureTitle	Astucia
+Feature/&GnomeNaturalIllusionistDescription	Ya conoces el cantrip de la Abeja Molesta. La inteligencia es tu modificador de lanzamiento de hechizos.
+Feature/&GnomeNaturalIllusionistTitle	Magia Natural
+Feature/&ProficiencyGnomishLanguagesDescription	Común, Gnómico.
+Feature/&ProficiencyGnomishLanguagesTitle	Idiomas
+Language/&GnomishLanguageDescription	Una antigua lengua de Solasta, conservada por los gnomos que vivían en los profundos bosques de Solasta, ha sobrevivido al Cataclismo.
+Language/&GnomishLanguageTitle	gnómico
+Race/&GnomeRaceDescription	Un zumbido constante de ajetreada actividad impregna las madrigueras y los barrios donde los gnomos forman sus comunidades unidas. Los sonidos más fuertes acentúan el zumbido: un crujido de engranajes chirriando aquí, una pequeña explosión allá, un aullido de sorpresa o triunfo, y especialmente estallidos de risa. Los gnomos se deleitan en la vida, disfrutando cada momento de invención, exploración, investigación, creación y juego.
+Race/&GnomeRaceTitle	Gnomo

@@ -1,0 +1,24 @@
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction.
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Spell Shield
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	When active on a weapon, its attacks count as magical and you use your Intelligence for your attack and damage rolls.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arcane Weapon
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	You gain an extra attack.
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Extra Attack
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Arcane Deflection
+Subclass/&FighterSpellShieldDescription	Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
+Subclass/&FighterSpellShieldSpellcastingDescription	Cast Wizard spells and cantrips from the Abjuration, Illusion, Transmutation, and Necromancy schools.
+Subclass/&FighterSpellShieldSpellcastingTitle	Spellcasting
+Subclass/&FighterSpellShieldSpellResistanceDescription	Your experience with spells and Abjuration magic in particular has made you resistant to spells cast against you.
+Subclass/&FighterSpellShieldSpellResistanceTitle	Spell Resistance
+Subclass/&FighterSpellShieldTitle	Spell Shield
+Subclass/&MagicAffinityFighterSpellShieldDescription	Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
+Subclass/&MagicAffinityFighterSpellShieldTitle	Combat Casting
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Due to experience in the chaos of combat, gain advantage on concentration checks.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Improved Concentration
+Subclass/&PowerSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction. This gives you +{0} to your AC until your next turn.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle	Arcane Deflection
+Subclass/&PowerSpellShieldRangedDeflectionDescription	When an attacker that you can see hits you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you.
+Subclass/&PowerSpellShieldRangedDeflectionTitle	Ranged Deflection
+Subclass/&SpellShieldAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
+Subclass/&SpellShieldAdditionalActionTitle	Spell Fighting

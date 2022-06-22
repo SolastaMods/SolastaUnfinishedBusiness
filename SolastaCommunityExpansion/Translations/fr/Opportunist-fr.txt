@@ -1,0 +1,6 @@
+Feature/&OpportunistDebilitatingStrikeDescription	Votre attaque sournoise oblige la cible à effectuer un jet de sauvegarde de Constitution (DD 8 + votre bonus de maîtrise + votre modificateur de Dextérité) ou à subir l'une des conditions suivantes : aveuglé, fléau, saignant ou étourdi.
+Feature/&OpportunistDebilitatingStrikeTitle	Frappe débilitante
+Feature/&OpportunistQuickStrikeDescription	Vous avez l'avantage lorsque vous attaquez un ennemi dont l'initiative est inférieure à la vôtre. De plus, vous avez également un avantage lorsque vous effectuez une attaque d'opportunité.
+Feature/&OpportunistQuickStrikeTitle	Frappe rapide
+Subclass/&OpportunistDescription	Les opportunistes sont ceux qui ne laissent jamais passer une chance d'en finir avec leurs ennemis. Ils poignardent vite et poignardent là où ça compte. Peu d'entre eux peuvent s'en sortir indemnes.
+Subclass/&OpportunistTitle	Opportuniste

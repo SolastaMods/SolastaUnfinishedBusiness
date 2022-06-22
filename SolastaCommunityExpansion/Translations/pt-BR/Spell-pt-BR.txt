@@ -1,0 +1,165 @@
+ActionAffinity/&DHFeeblemindSpellDescription	Incapaz de lançar feitiços.
+ActionAffinity/&DHFeeblemindSpellTitle	Mente fraca
+AttributeModifier/&DHFeeblemindChaSpellDescription	A pontuação de carisma é definida como 1.
+AttributeModifier/&DHFeeblemindChaSpellTitle	Carisma fraco
+AttributeModifier/&DHFeeblemindIntSpellDescription	A pontuação de carisma é definida como 1.
+AttributeModifier/&DHFeeblemindIntSpellTitle	Inteligência fraca
+Condition/&ConditionMuleDescription	Sua velocidade não é reduzida por sobrecarga ou armadura pesada. Você pode carregar 20 quilos adicionais.
+Condition/&ConditionMuleTitle	Mula
+Condition/&DHFeeblemindSpellDescription	Os valores de Inteligência e Carisma da criatura se tornam 1. A criatura não pode lançar feitiços, ativar itens mágicos, entender linguagem ou se comunicar de qualquer maneira inteligível.
+Condition/&DHFeeblemindSpellTitle	Mente fraca
+Condition/&DHForesightSpellDescription	Vantagem em todas as jogadas de ataque, testes de habilidade e testes de resistência. Outras criaturas têm desvantagem nas jogadas de ataque.
+Condition/&DHForesightSpellTitle	Previsão
+Condition/&DHHolyAuraSpellDescription	Vantagem em todos os testes de resistência. Outras criaturas têm desvantagem nas jogadas de ataque. Quando um demônio ou um morto-vivo atinge uma criatura afetada com um ataque corpo a corpo, o atacante deve ser bem sucedido em um teste de resistência de Constituição ou ficará cego até que a magia termine.
+Condition/&DHHolyAuraSpellTitle	Protegido pela Aura Sagrada
+Condition/&DHMindBlankSpellDescription	Imune a dano psíquico e à condição encantada.
+Condition/&DHMindBlankSpellTitle	Mente em branco
+Condition/&DHReverseGravitySpellDescription	Não pode se mover.
+Condition/&DHReverseGravitySpellTitle	Apanhado pela gravidade reversa
+Condition/&DHTimeStopSpellDescription	O tempo está congelado para a criatura afetada.
+Condition/&DHTimeStopSpellTitle	Tempo parado
+Condition/&DHWeirdSpellDescription	Assustado. No final de cada turno, faça um teste de resistência de Sabedoria. Em uma falha, recebe 4d10 de dano psíquico. Em um sucesso, esta condição termina.
+Condition/&DHWeirdSpellTitle	Estranho
+Condition/&EWResonatingStrikeDamageDescription	No 5º nível, os ataques desencadeados por este truque causam 1d8 de dano trovejante adicional. O dano aumenta ainda mais em 1d8 no 11º e 17º níveis.
+Condition/&EWResonatingStrikeDamageTitle	Ressonância
+Condition/&EWSunlightBladeDamageDescription	No 5º nível, os ataques desencadeados por este truque causam 1d8 de dano radiante adicional. O dano aumenta ainda mais em 1d8 no 11º e 17º níveis.
+Condition/&EWSunlightBladeDamageTitle	Queimadura de Sunlit Blade
+DamageAffinity/&DHHolyAuraSpellDescription	Quando um demônio ou um morto-vivo atinge com um ataque corpo a corpo, a aura pisca com uma luz brilhante e o atacante deve ter sucesso em um teste de resistência de Constituição ou ficará cego até que a magia termine.
+DamageAffinity/&DHHolyAuraSpellTitle	Retaliação da Aura Sagrada
+Feat/&AlchemistSubclassSpellsDescription	{0}.
+Feat/&AlchemistSubclassSpellsTitle	Aprenda feitiços para fazer poções
+Feat/&AutoPreparedSpellsDescription	{0}.
+Feat/&AutoPreparedSpellsTitle	Aprenda feitiços de Sentinela Escoteiro
+Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Você ganha feitiços bônus que são considerados feitiços de Tinkerer para você, eles estão sempre preparados e não contam para o número de feitiços de Tinkerer que você conhece.
+Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Feitiços de construção protetora
+Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Você ganha feitiços bônus que são considerados feitiços de Tinkerer para você, eles estão sempre preparados e não contam para o número de feitiços de Tinkerer que você conhece.
+Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Feitiços de construção protetora
+Feature/&DHHolyAuraBlindingPowerDescription	Quando um demônio ou um morto-vivo atinge uma criatura afetada com um ataque corpo a corpo, a aura pisca com uma luz brilhante. O atacante deve ter sucesso em um teste de resistência de Constituição ou ficará cego até que a magia termine.
+Feature/&DHHolyAuraBlindingPowerTitle	Retaliação da Aura Sagrada
+Feature/&ElementalistSpellsMagicAffinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de Bruxo. Os seguintes feitiços são adicionados à lista de feitiços do Bruxo para você: {0}
+Feature/&ElementalistSpellsMagicAffinityTitle	Feitiços Elementalistas
+Feature/&SpellAsInvocationAtWillDescription	Lance {0} à vontade.
+Feature/&SpellAsInvocationOncePerDayDescription	Lance {0} uma vez até um descanso longo.
+Feedback/&AdditionalDamageResonatingStrikeFormat	Golpe Ressonante!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} ressoa {1}! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Lâmina iluminada pelo sol!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} queima {1} com Sunlit Blade! (+{2})
+Feedback/&NotifyEffectResonatingStrikeLine	{0} ressoa {1}!
+Monster/&DHCustomCouatlDescription	Couatls são seres serpentinos benevolentes de grande intelecto e discernimento. Suas asas brilhantemente coloridas e maneiras gentis falam de suas origens celestiais.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Coruja Familiar.
+Monster/&OwlFamiliarTitle	Coruja
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Dano perfurante e o alvo deve ser bem sucedido em um teste de resistência de Constituição CD 13 ou ficará envenenado por 24 horas. Até que este veneno termine, o alvo está inconsciente.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Morder
+Reaction/&CastSpellInRetributionDescription	{0} está atacando {1}! Você pode lançar {2} em resposta!
+Reaction/&CastSpellInRetributionReactDescription	Clique para transmitir {0}.
+Reaction/&CastSpellInRetributionReactTitle	Feitiço lançado
+Reaction/&CastSpellInRetributionTitle	Feitiço de Reação de Conjuração
+Reaction/&SpendSpellSlot{0}Description	Gastar feitiço {0}
+Reaction/&SpendSpellSlot{0}Title	Gastar feitiço {0}
+Screen/&FeyTeleportSpellDescription	Este feitiço Fey está sempre preparado.
+Screen/&FeyTeleportSpellTitle	feérico
+Screen/&MulticlassSpellDescription	Você conhece esse feitiço de outro repertório.
+Screen/&MulticlassSpellTitle	Multiclasse
+Screen/&ShadowTouchedSpellDescription	Este feitiço de Sombra está sempre preparado.
+Screen/&ShadowTouchedSpellTitle	Sombra
+Screen/&SpellSlotsUsedLongDescription	Você gastou {0} espaço(s) de magia neste nível.
+Screen/&SpellSlotsUsedShortDescription	Você gastou {0} slot(s) de magia de pacto.
+Screen/&SpellSlotsUsedShortLongDescription	Você gastou {0} espaço(s) de magia de pacto e {1} espaço(s) de magia neste nível.
+Spell/&AcidClawsDescription	Faça um ataque mortal com suas garras afiadas.
+Spell/&AcidClawsTitle	Garras Sangrentas
+Spell/&AHHellishRebukeDescription	Você aponta o dedo, e a criatura que o feriu é momentaneamente cercada por chamas infernais. A criatura deve fazer um teste de resistência de Destreza. Ele sofre 2d10 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso.
+Spell/&AHHellishRebukeTitle	Repreensão Infernal
+Spell/&BurstOfRadianceDescription	Crie um flash brilhante de luz cintilante, danificando todos os inimigos ao seu redor.
+Spell/&BurstOfRadianceTitle	Explosão de Radiância
+Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n• 50 pontos de vida ou menos: surdo por 1 minuto\n• 40 pontos de vida ou menos: surdo e cego por 10 minutos\n• 30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n• 20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.
+Spell/&CJDivineWordTitle	Palavra Divina
+Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas voluntárias que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com nível de desafio 4 ou menor.
+Spell/&DHAnimalShapesSpellTitle	Formas de animais
+Spell/&DHCastSpellArchMageDescription	Habilidade de Conjuração do Arquimago.
+Spell/&DHCastSpellArchMageTitle	Habilidade de Conjuração do Arquimago
+Spell/&DHCastSpellGuardianNagaDescription	Habilidade de Conjuração do Arquimago.
+Spell/&DHCastSpellGuardianNagaTitle	Habilidade de Conjuração do Arquimago
+Spell/&DHCastSpellLichDescription	Habilidade de Conjuração de Lich.
+Spell/&DHCastSpellLichTitle	Habilidade de Conjuração de Lich
+Spell/&DHConjureCelestialSpellDescription	Você invoca um celestial de nível de desafio 4 ou inferior, que aparece em um espaço desocupado que você pode ver dentro do alcance. O celestial desaparece quando chega a 0 pontos de vida ou quando a magia termina. O celestial é amigável com você e seus companheiros pela duração.
+Spell/&DHConjureCelestialSpellTitle	Conjurar Celestial (Couatl)
+Spell/&DHDominateMonsterSpellDescription	Você tenta seduzir uma criatura que você pode ver dentro do alcance. Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou ficará enfeitiçado por você pela duração.
+Spell/&DHDominateMonsterSpellTitle	Dominar Monstro
+Spell/&DHFeeblemindSpellDescription	Você explode a mente de uma criatura que você pode ver dentro do alcance, tentando destruir seu intelecto e personalidade. O alvo sofre 4d6 de dano psíquico e deve fazer um teste de resistência de Inteligência. Se falhar, os valores de Inteligência e Carisma da criatura se tornam 1. A criatura não pode lançar feitiços, ativar itens mágicos, entender linguagem ou se comunicar de qualquer maneira inteligível.
+Spell/&DHFeeblemindSpellTitle	Mente fraca
+Spell/&DHFingerOfDeathSpellDescription	O alvo deve fazer um teste de resistência de Constituição. Ele sofre 7d8 + 30 de dano necrótico se falhar na resistência, ou metade desse dano se obtiver sucesso.
+Spell/&DHFingerOfDeathSpellTitle	Dedo da Morte (Sem Zumbi)
+Spell/&DHForesightSpellDescription	Você toca uma criatura voluntária e concede uma habilidade limitada de ver o futuro imediato. Pela duração, o alvo não pode ser surpreendido e tem vantagem em jogadas de ataque, testes de habilidade e testes de resistência. Além disso, outras criaturas têm desvantagem nas jogadas de ataque contra o alvo pela duração.
+Spell/&DHForesightSpellTitle	Previsão
+Spell/&DHHolyAuraSpellDescription	A luz divina desaparece de você e se aglutina em um brilho suave em um raio de 9 metros ao seu redor. Criaturas de sua escolha nesse raio quando você conjurar esta magia emitem penumbra em um raio de 1,5 metro e têm vantagem em todos os testes de resistência, e outras criaturas têm desvantagem nas jogadas de ataque contra elas até que a magia termine.
+Spell/&DHHolyAuraSpellTitle	Aura Sagrada
+Spell/&DHIncendiaryCloudSpellDescription	Uma nuvem rodopiante de fumaça atravessada por brasas incandescentes aparece em uma esfera de 6 metros de raio centrada em um ponto dentro do alcance. A nuvem se espalha pelos cantos e é fortemente obscurecida. Ele dura a duração ou até que um vento de velocidade moderada ou maior (pelo menos 10 milhas por hora) o disperse.\nQuando a nuvem aparece, cada criatura nela deve fazer um teste de resistência de Destreza. Uma criatura sofre 10d8 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso. Uma criatura também deve fazer este teste de resistência quando entrar na área da magia pela primeira vez em um turno ou terminar seu turno lá.\nA nuvem se move 3 metros diretamente para longe de você em uma direção que você escolher no início de cada um de seus turnos.
+Spell/&DHIncendiaryCloudSpellTitle	Nuvem Incendiária
+Spell/&DHMassHealSpellDescription	Uma enxurrada de energia curativa flui de você para as criaturas feridas ao seu redor. Você restaura 120 pontos de vida cada para 6 criaturas que você pode ver dentro do alcance. Criaturas curadas por este feitiço também são curadas de todas as doenças e qualquer efeito que as deixe cegas ou surdas. Esta magia não tem efeito em mortos-vivos ou constructos.
+Spell/&DHMassHealSpellTitle	Cura em massa
+Spell/&DHMazeSpellDescription	Você bane uma criatura que você pode ver dentro do alcance em um semiplano labiríntico. O alvo permanece lá pela duração ou até escapar do labirinto. /nO alvo pode usar sua ação para tentar um teste de Inteligência CD 20 para escapar.
+Spell/&DHMazeSpellTitle	Labirinto
+Spell/&DHMeteorSwarmSingleTargetSpellDescription	Orbes flamejantes de fogo caem no chão em um único ponto que você pode ver dentro do alcance. Cada criatura em uma esfera de 12 metros de raio centrada no ponto que você escolher deve fazer um teste de resistência de Destreza. A esfera se espalha em torno dos cantos. Uma criatura sofre 20d6 de dano de fogo e 20d6 de dano de concussão se falhar na resistência, ou metade desse dano se obtiver sucesso. Uma criatura na área de mais de uma explosão de fogo é afetada apenas uma vez.
+Spell/&DHMeteorSwarmSingleTargetSpellTitle	Enxame de Meteoros (Alvo Único)
+Spell/&DHMindBlankSpellDescription	Até que a magia termine, uma criatura voluntária que você tocar é imune a dano psíquico, qualquer efeito que sinta suas emoções ou leia seus pensamentos, magias de adivinhação e a condição enfeitiçada.
+Spell/&DHMindBlankSpellTitle	Mente em branco
+Spell/&DHPowerWordHealSpellDescription	Uma onda de energia curativa inunda a criatura que você toca. O alvo recupera todos os seus pontos de vida. Se a criatura estiver enfeitiçada, assustada, paralisada ou atordoada, a condição termina. Se a criatura estiver caída, ela pode usar sua reação para se levantar. Esta magia não tem efeito em mortos-vivos ou constructos.
+Spell/&DHPowerWordHealSpellTitle	Palavra de Poder Cura
+Spell/&DHPowerWordKillSpellDescription	Você pronuncia uma palavra de poder que pode obrigar uma criatura que você possa ver dentro do alcance a morrer instantaneamente. Se a criatura que você escolher tiver 100 pontos de vida ou menos, ela morre. Caso contrário, a magia não tem efeito.
+Spell/&DHPowerWordKillSpellTitle	Matar palavras de poder
+Spell/&DHPowerWordStunSpellDescription	Você fala uma palavra de poder que pode sobrecarregar a mente de uma criatura que você possa ver dentro do alcance, deixando-a estupefata. Se o alvo tiver 150 pontos de vida ou menos, ele fica atordoado. Caso contrário, a magia não tem efeito.
+Spell/&DHPowerWordStunSpellTitle	Atordoamento da Palavra de Poder
+Spell/&DHReverseGravitySpellDescription	Este feitiço reverte a gravidade em um cilindro de 15 metros de raio e 30 metros de altura centrado em um ponto dentro do alcance.
+Spell/&DHReverseGravitySpellTitle	Gravidade reversa
+Spell/&DHShapechangeSpellDescription	Você assume a forma de uma criatura diferente pela duração. A nova forma pode ser de qualquer criatura com nível de desafio igual ou inferior ao seu nível.
+Spell/&DHShapechangeSpellTitle	Mudança de forma
+Spell/&DHSunBurstSpellDescription	A luz do sol brilha em um raio de 18 metros centrado em um ponto que você escolher dentro do alcance. Cada criatura naquela luz deve fazer um teste de resistência de Constituição. Se falhar na resistência, uma criatura sofre 12d6 de dano radiante e fica cega por 1 minuto. Em um teste bem sucedido, ele recebe metade do dano e não fica cego por este feitiço. Mortos-vivos e limos têm desvantagem neste teste de resistência. Uma criatura cega por esta magia faz outro teste de resistência de Constituição no final de cada um de seus turnos. Em um teste bem sucedido, ele não fica mais cego. Este feitiço dissipa qualquer escuridão em sua área que foi criada por um feitiço.
+Spell/&DHSunBurstSpellTitle	reluzente
+Spell/&DHTimeStopSpellDescription	Você interrompe brevemente o fluxo do tempo para todos, menos para você. Nenhum tempo passa para outras criaturas, enquanto você realiza 1d4 + 1 turnos seguidos, durante os quais você pode usar ações e se mover normalmente.
+Spell/&DHTimeStopSpellTitle	Parar o tempo
+Spell/&DHWeirdSpellDescription	Com base nos medos mais profundos de um grupo de criaturas, você cria criaturas ilusórias em suas mentes, visíveis apenas para elas. Cada criatura em uma esfera de 9 metros de raio centrada em um ponto de sua escolha dentro do alcance deve fazer um teste de resistência de Sabedoria. Em uma falha na resistência, uma criatura fica amedrontada pela duração. A ilusão invoca os medos mais profundos da criatura, manifestando seus piores pesadelos como uma ameaça implacável. No final de cada turno da criatura amedrontada, ela deve ser bem sucedida em um teste de resistência de Sabedoria ou sofrerá 4d10 de dano psíquico. Em um teste bem sucedido, a magia termina para aquela criatura.
+Spell/&DHWeirdSpellTitle	Esquisito
+Spell/&EarthTremorDescription	Você atinge o chão e desencadeia um tremor de força sísmica, arremessando terra, rocha e areia.
+Spell/&EarthTremorTitle	Tremor de terra
+Spell/&EWResonatingStrikeDescription	Selecione uma criatura dentro do alcance corpo a corpo de você e uma criatura diferente que você possa ver a até 1,5 metro do alvo principal. Você faz um ataque corpo a corpo com a arma atual contra a primeira criatura. Em um acerto, o alvo sofre os efeitos normais do ataque da arma, e o som ressonante salta para o segundo alvo, causando dano trovejante igual ao seu modificador de habilidade de conjuração.\nNo 5º nível, o ataque corpo a corpo causa 1d8 de dano trovejante extra ao alvo em um acerto, e o dano trovejante à segunda criatura aumenta para 1d8 + seu modificador de habilidade de conjuração. Ambas as jogadas de dano aumentam em 1d8 no 11º e 17º níveis.
+Spell/&EWResonatingStrikeTitle	Golpe Ressonante
+Spell/&EWSunlightBladeDescription	Faça um ataque corpo a corpo com uma arma. Em um acerto, o alvo sofre os efeitos normais do ataque e é envolto em energia radiante brilhante, emitindo luz fraca durante o turno. O próximo ataque contra esta criatura enquanto ela estiver destacada é feito com vantagem.\nNo 5º nível, o ataque corpo a corpo causa 1d8 de dano radiante extra ao alvo. O dano aumenta em mais 1d8 no 11º nível e no 17º nível.
+Spell/&EWSunlightBladeTitle	Lâmina iluminada pelo sol
+Spell/&FindFamiliarDescription	Você ganha o serviço de um familiar.
+Spell/&FindFamiliarImpDescription	Evoca seu familiar na forma de um diabrete.
+Spell/&FindFamiliarImpTitle	Encontrar Familiar (Imp)
+Spell/&FindFamiliarPsuedodragonDescription	Evoca seu familiar na forma de um Pseudodragão.
+Spell/&FindFamiliarPsuedodragonTitle	Encontrar Familiar (Pseudodragão)
+Spell/&FindFamiliarQuasitDescription	Evoca seu familiar na forma de um quasit.
+Spell/&FindFamiliarQuasitTitle	Encontrar Familiar (Quasit)
+Spell/&FindFamiliarSpriteDescription	Evoca seu familiar na forma de um Sprite.
+Spell/&FindFamiliarSpriteTitle	Encontrar Familiar (Sprite)
+Spell/&FindFamiliarTitle	Encontrar familiar
+Spell/&FrenzyDescription	Com um gesto, você reduz uma multidão ao instinto básico e à violência. Escolha um ponto que você possa ver dentro do alcance. Cada criatura a até 6 metros desse ponto deve fazer um teste de resistência de Sabedoria. Em uma falha na resistência, uma criatura fica frenética pela duração. Quando uma criatura está em frenesi, ela saca uma arma corpo a corpo, se tiver uma. Uma criatura frenética deve usar sua ação no início de seu turno para atacar uma criatura ao seu alcance. Ele usa uma arma corpo a corpo, se tiver, ou uma arma improvisada ou ataque desarmado, se não tiver. Se vários alvos estiverem ao alcance da criatura, ela escolhe seu alvo aleatoriamente. Se não houver nenhum alvo ao alcance da criatura, ela ataca a si mesma, contra sua própria CA, causando dano normalmente em um acerto. No final de seu turno, uma criatura frenética pode repetir seu teste de resistência, terminando o efeito sobre ela antes de um sucesso.
+Spell/&FrenzyTitle	Frenesi
+Spell/&IlluminatingSphereDescription	Faz com que fontes de luz como tochas e lâmpadas de mana na área de efeito acendam.
+Spell/&IlluminatingSphereTitle	Esfera Iluminadora
+Spell/&IPConjureInvisibleStalkerTitle	Conjurar Elemental (Perseguidor Invisível)
+Spell/&MinorLifestealDescription	Você drena energia vital de uma criatura hostil que você pode ver dentro do alcance. Você então cura pontos de vida iguais à quantidade de dano causado. Esta magia não tem efeito em mortos-vivos ou constructos.
+Spell/&MinorLifestealTitle	Roubo de Vida Menor
+Spell/&MirrorImageDescription	Imagem espelhada
+Spell/&MirrorImageTitle	Imagem espelhada
+Spell/&MuleDescription	O destinatário deste feitiço é capaz de ignorar os efeitos de cargas pesadas ou armaduras na velocidade de movimento. Eles também podem carregar um pouco mais de peso.
+Spell/&MuleTitle	Mula
+Spell/&PetalStormDescription	Escolha um cubo de ar desocupado de 4,5 metros que você possa ver dentro do alcance. Uma força elemental de ventos rodopiantes aparece no cubo e dura pela duração do feitiço. A nuvem obscurece fortemente sua área. Qualquer criatura que entre na tempestade pela primeira vez em um turno ou comece seu turno lá deve fazer um teste de resistência de Força. Se falhar na resistência, a criatura sofre 3d4 de dano cortante. Como uma ação bônus, você pode mover a tempestade até 9 metros em qualquer direção.
+Spell/&PetalStormTitle	Tempestade de Pétalas
+Spell/&ProtectThresholdDescription	Traçando sigilos arcanos ao longo de seu limite, você pode proteger uma porta, janela ou outro portal da entrada. Pela duração, uma criatura mística invisível espreita o portal protegido. Qualquer criatura que tente passar pelo portal deve fazer um teste de resistência de Sabedoria ou sofrerá 4d6 de dano psíquico, ou metade disso em um teste bem sucedido.
+Spell/&ProtectThresholdTitle	Limite de proteção
+Spell/&RadiantMotesDescription	Libera um enxame de 5 projéteis radiantes que causam 2 de dano radiante cada, mas nunca erram. Os alvos podem irradiar luz por até 1 minuto.\nQuando você conjura esta magia usando um espaço de magia de 2º nível ou superior, a magia cria mais 2 projéteis para cada espaço acima do 1º.
+Spell/&RadiantMotesTitle	Partículas Radiantes
+Spell/&ThunderStrikeDescription	Crie uma explosão de som trovejante, forçando criaturas adjacentes a você a fazer um teste de resistência de Constituição ou sofrer 1d6 de dano trovejante.\nO dano desta magia aumenta em 1d6 quando você alcança o 5º nível (2d6), 11º nível (3d6) e 17º nível (4d6).
+Spell/&ThunderStrikeTitle	Explosão de som
+Spell/&WinterBreathDescription	Crie uma rajada de vento frio para esfriar seus inimigos e derrubá-los.
+Spell/&WinterBreathTitle	Respiração de inverno
+SpellList/&ElementalistSpellsListDescription	Elementalist SpellList.
+SpellList/&ElementalistSpellsListTitle	Lista de Feitiços Elementalistas
+Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	Você pode recuperar espaços de magia durante um descanso curto duas vezes por dia.
+Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Preparação Alquímica
+Subclass/&PowerSpellRefuelingRingDescription	Quando você ativa isso, você recupera metade do seu nível nos espaços de magia.
+Subclass/&PowerSpellRefuelingRingTitle	Anel de reabastecimento de feitiços

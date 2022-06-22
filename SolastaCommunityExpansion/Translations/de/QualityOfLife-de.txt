@@ -1,0 +1,57 @@
+BlueprintCategory/&FlatRoomsTitle	Flache Zimmer
+Caption/&GadgetParametersCustomRemoveDescription	Entfernen:\n{0}.
+ContentPack/&CommunityExpansionPackDescription	Das Community-Erweiterungspaket fügt neue Klassen, Unterklassen, Talente und Zauber hinzu. Es gibt eine höhere Levelobergrenze, mehrere Klassen, QOL-Funktionen, Fehlerbehebungen und mehr. Es ist ein wahres Horn of Plenty (TM) ...
+ContentPack/&CommunityExpansionPackTitle	Community-Erweiterungspaket
+Failure/&FailureFlagTargetMeleeWeaponError	Nahkampfangriff auf dieses Ziel mit aktueller Waffe nicht möglich
+Feature/&AlwaysBeardDescription	{0} % Chancen, einen herrlichen Bart wachsen zu lassen!
+Feature/&BardSkillsTitle	Bardenfähigkeiten
+Feature/&EmptyString	LEER
+Format/&LevelAndExperienceFormat	Stufe: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Stufe {3} zu erreichen
+Format/&LevelAndExperienceMaxedFormat	Stufe: {0}\nErfahrung: {1}\nMaximales Level erreicht
+MainMenu/&ExportPdfDescription	Stufen Sie diesen Helden herunter.
+MainMenu/&ExportPdfTitle	Einebnen
+Message/&CharacterExportDuplicateNameErrorDescription	Export abgebrochen:\n\nEin Held mit diesem Namen existiert bereits im Pool.\nBitte versuchen Sie es mit einem anderen Namen.
+Message/&CharacterExportEmptyNameErrorDescription	Export abgebrochen:\n\nBitte versuchen Sie es mit einem nicht leeren Namen.
+Message/&CharacterExportModalContentDescription	Geben Sie den zu exportierenden Heldennamen ein:
+Message/&CharacterExportModalTitleDescription	Zeichenexport.
+Message/&LevelDownConfirmationDescription	Diesen Helden runterleveln?
+Message/&LevelDownMultiplayerAbortDescription	Kann während einer Multiplayer-Sitzung nicht absteigen.
+Message/&MessageModWelcomeDescription	Der Community Expansion Mod ist vollgepackt mit aufregenden Funktionen, aber standardmäßig sind keine aktiviert. Drücken Sie <color=yellow>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Community-Erweiterung“, um die Einstellungsseiten zu öffnen.\n\n Erkunden Sie die Optionen und wählen Sie diejenigen aus, die Ihnen gefallen. Die UMM-Benutzeroberfläche wird nun geöffnet.
+Message/&MessageModWelcomeTitle	Community-Erweiterungs-Mod
+Message/&RespecMultiplayerAbortDescription	Respec während einer Multiplayer-Sitzung oder auf der Erkundungskarte nicht möglich.
+Message/&SpawnCustomEncounterDescription	Spawn-Begegnung an den Koordinaten ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription	Begegnungen können in einem Multiplayer-Spiel nicht gespawnt werden. Noch...
+Message/&SpawnCustomEncounterTitle	Begegnen
+Message/&TeleportPartyDescription	Gruppe zu Koordinaten ({0}, {1}) teleportieren?\nSie können Quests oder Karten zerstören, wenn Sie sich an einen unentdeckten Ort teleportieren.
+Message/&TeleportPartyTitle	Teleportieren
+Reaction/&ReadiedAction{0}Description	Bereit {0}
+Reaction/&ReadiedAction{0}Title	Bereit {0}
+Reaction/&SpendPower{0}Description	{0} ausgeben
+Reaction/&SpendPower{0}Title	{0} ausgeben
+Reaction/&SpendPowerBundleDescription	Macht ausgeben.
+Reaction/&SpendPowerBundleTitle	Macht ausgeben
+Reaction/&SubitemSelectPowerBundleTitle	Optionen
+Reaction/&SubitemSelectSlotLevelTitle	Slot-Level
+Reaction/&Use{0}Description	Verwenden Sie {0}
+Reaction/&Use{0}Title	Verwenden Sie {0}
+Requirement/&FeatureSelectionRequireCharacterLevel	Stufe {0}
+Requirement/&FeatureSelectionRequireClassLevel	Stufe {0} von {1}
+RestActivity/&ZSRespecDescription	Respektiere diesen Helden.
+RestActivity/&ZSRespecTitle	Respekt
+Screen/&EditorLocationSize3Title	Riesig [MODDED]
+Screen/&EditorLocationSize4Title	Gigantisch [MODDED]
+Stage/&IdentityMorphotypeEyeHeader	Augenstil
+ToolTip/&CheckBoxDefaultPartyTitle	Aktivieren Sie dieses Kontrollkästchen, um Ihre Standardgruppe festzulegen, wenn Sie neue Abenteuer starten oder benutzerdefinierte Orte testen. Du kannst bis zu {0} Helden nach dem First-in/First-out-Prinzip auswählen
+Tooltip/&Tag9000Title	Benutzerdefinierter Effekt
+Tooltip/&TagCommunityExpansionTitle	Community-Erweiterung
+Tooltip/&TagOtherModContentTitle	Ab Mod
+UI/&CustomFeatureSelectionStageDescription	Wählen Sie zusätzliche Funktionen aus Ihrer Klasse/Unterklasse aus.
+UI/&CustomFeatureSelectionStageFeatures	Merkmale
+UI/&CustomFeatureSelectionStageNotDone	Sie müssen alle verfügbaren Funktionen auswählen, bevor Sie fortfahren
+UI/&CustomFeatureSelectionStageTitle	Merkmalsauswahl
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
+UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
+UI/&CustomFeatureSelectionTooltipTypePower	Leistung
+UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
+UI/&ForcePreferredCantripDescription	Wenn dieser Schalter auf ON steht, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
+UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen

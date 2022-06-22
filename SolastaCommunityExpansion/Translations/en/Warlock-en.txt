@@ -1,0 +1,305 @@
+AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
+AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Barkskin
+Class/&ClassWarlockDescription	Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
+Class/&ClassWarlockTitle	Warlock
+Condition/&AncientForestPhotosynthesisDescription	You can absorb energy from sunlight. While you are in direct bright light, you regain 2 HP at the start of your turn.
+Condition/&AncientForestPhotosynthesisTitle	Photosynthesis
+Condition/&AncientForestRootedConditionDescription	Arboreal tendrils grow from your feet and dig into the ground. You can cast entangle at will. Your speed becomes 0 and you gain advantage on any saving throws to push you, pull you, or knock you prone.
+Condition/&AncientForestRootedConditionTitle	Rooted
+Condition/&MoonTouchedConditionDescription	Your gravity is negated.
+Condition/&MoonTouchedConditionTitle	Moon Touched
+Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Gain resistance to acid damage for 1 hour.
+Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Brew of Acid Protection
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Gain resistance to lightning damage for 1 hour.
+Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle	Brew of Lightning Protection
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription	Gain resistance to necrotic damage for 1 hour.
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle	Brew of Necrotic Protection
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription	Gain resistance to poison damage for 1 hour.
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle	Brew of Poison Protection
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription	Gain resistance to radiant damage for 1 hour.
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle	Brew of Radiant Protection
+Equipment/&HerbalBrewHealingTitle	Brew of Quickening
+Equipment/&HerbalBrewToxifyingTitle	Brew of Toxifying
+Feat/&MoonlitBonusCantripsDescription	Your control of moon light has increased to a new level. You can cast the spells moonbeam and faerie fire at will.
+Feat/&MoonlitBonusCantripsTitle	Light Control
+Feature/&AdditionalDamageAgonizingBlastDescription	You add your Charisma modifier to the first damage roll of an eldritch blast attack.
+Feature/&AdditionalDamageAgonizingBlastTitle	Agonizing Blast
+Feature/&AdditionalDamageHinderingBlastDescription	When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.
+Feature/&AdditionalDamageHinderingBlastTitle	Hindering Blast
+Feature/&AgonizingBlastDescription	Add your Charisma modifier to the damage of Eldritch Basts.
+Feature/&AgonizingBlastTitle	Agonizing Blast
+Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AHSoulBladeEmpowerWeaponConditionDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Soul Empowered
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
+Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action, you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual Pact Weapon
+Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:
+Feature/&AHWarlockClassPactBoonSetTitle	Pact boon
+Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with all weapons and your weapon attacks are considered magical.
+Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per long rest you can empower a weapon with the power of souls. That weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest.
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
+Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest, you use the power of souls to defend yourself. Using a bonus action, you gain temp hp equal to your level + Charisma modifier.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul Shield
+Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
+Feature/&AncientForestExpandedSpelllistAfinityTitle	Ancient Forest Spells
+Feature/&AncientForestLightAffinityDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round.
+Feature/&AncientForestLightAffinityTitle	Photosynthesis
+Feature/&AncientForestRegrowthDescription	You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your Warlock level × 5.
+Feature/&AncientForestRegrowthTitle	Regrowth
+Feature/&ArmorofShadowsTitle	Armor of Shadows
+Feature/&AscendantStepTitle	Ascendant Step
+Feature/&AspectoftheMoonDescription	You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
+Feature/&AspectoftheMoonTitle	Aspect of the Moon
+Feature/&BeguilingInfluenceDescription	You gain proficiency in the Deception and Persuasion skills.
+Feature/&BeguilingInfluenceTitle	Beguiling Influence
+Feature/&BondoftheTalismanDescription	Teleport up to 30 ft away.
+Feature/&BondoftheTalismanTitle	Teleport Talisman
+Feature/&ChainsofCarceriDescription	Paralyzes a celestial, fiend or elemental unless it succeeds a Wisdom saving throw.
+Feature/&ChainsofCarceriTitle	Chains of Carceri
+Feature/&ClassMonkTongueOfSunAndMoonDescription	You learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Tongue of the Sun and Moon
+Feature/&ClassWarlockArmorProficiencyDescription	Light Armor.
+Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
+Feature/&ClassWarlockEldritchInvocationReplaceDescription	Select Eldritch Invocation to replace.
+Feature/&ClassWarlockEldritchInvocationReplaceTitle	Replace Invocation
+Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Add an eldritch invocation.
+Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Eldritch Invocation
+Feature/&ClassWarlockEldritchMasterDescription	you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.
+Feature/&ClassWarlockEldritchMasterTitle	Eldritch Master
+Feature/&ClassWarlockMysticArcanumSetDescription	Your patron bestows upon you a magical secret called an arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again. At higher levels, you gain more Warlock spells of your choice that can be cast in this way: one 6th-level spell at 11th level, one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level.
+Feature/&ClassWarlockMysticArcanumSetTitle	Mystic Arcanum
+Feature/&ClassWarlockSavingThrowProficiencyDescription	Wisdom, Charisma.
+Feature/&ClassWarlockSavingThrowProficiencyTitle	Saving Throws Proficiencies
+Feature/&ClassWarlockSkillProficiencyDescription	Choose 2 of these skills: Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion.
+Feature/&ClassWarlockSkillProficiencyTitle	Warlock Skills
+Feature/&ClassWarlockSpellcastingDescription	Your arcane research and the magic bestowed on you by your otherworldly patron have given you facility with spells.
+Feature/&ClassWarlockSpellcastingTitle	Warlock Pact Magic
+Feature/&ClassWarlockToolsProficiencyDescription	You have been trained to brew herbal remedies and use enchanting equipment.
+Feature/&ClassWarlockToolsProficiencyTitle	Warlock Magical Crafting
+Feature/&ClassWarlockWeaponProficiencyDescription	Simple Weapons.
+Feature/&ClassWarlockWeaponProficiencyTitle	Warlock Weapon Proficiencies
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Relentless Endurance
+Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and non-magical, to a distance of 120 feet.
+Feature/&DevilsSightTitle	Devil's Sight
+Feature/&DH_BlinkDescription	As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from.
+Feature/&DH_BlinkTitle	Blink
+Feature/&DH_FadeIntoTheVoidDescription	When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can't use this feature again until you finish a long rest.
+Feature/&DH_FadeIntoTheVoidTitle	Fade Into The Void
+Feature/&DH_RiftCloakDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage).
+Feature/&DH_RiftCloakTitle	Rift Cloak
+Feature/&DH_RiftControlDescription	Briefly surrounded by the energy of the rift, you teleport to an unoccupied space. You can now bring an ally with you when teleporting and the range has increased significantly.
+Feature/&DH_RiftControlTitle	Rift Portal
+Feature/&DH_RiftStrikeDescription	Once per day when damaged in melee, you can use you reaction to create a portal that banishes the attacker for 1 round from your plane of existence.
+Feature/&DH_RiftStrikeTitle	Rift Strike
+Feature/&DH_RiftWalkDescription	Briefly surrounded by the energy of the void between worlds, you teleport up to 30 feet to an unoccupied space that you can see.
+Feature/&DH_RiftWalkTitle	Rift Step
+Feature/&DHAncientForestBonusCantripDescription	Your patron shares secrets on the nature of how natural magic and life energy are connected. Your learn Shillelagh and Chill Touch.
+Feature/&DHAncientForestBonusCantripTitle	Ancient Forest Bonus Cantrips
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Your control of elemental energies has increased to the point than you now have dominion over weaker elementals. You can cast conjure minor elemental at will.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Elemental Minions
+Feature/&DHPactOfTheTomeFeatureSetDescription	Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list. The cantrips do not need to be from the same spell list. While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. Any cantrip you cast with this feature is considered a Warlock cantrip for you.
+Feature/&DHPactOfTheTomeFeatureSetTitle	Pact of the Tome
+Feature/&DHWardingBondBonusCantripDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage).
+Feature/&DHWardingBondBonusCantripTitle	Rift Cloak
+Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	When you cast the summon a familiar, you can choose one of the following special forms: imp, pseudodragon, quasit, or sprite.
+Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	Pact of the Chain
+Feature/&DreadfulWordTitle	Dreadful Word
+Feature/&EldritchBlastGraspingHandBonusCantripDescription	When you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.
+Feature/&EldritchBlastGraspingHandBonusCantripTitle	Grasping Blast
+Feature/&EldritchBlastRepellingBlastBonusCantripDescription	When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.
+Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Repelling Blast
+Feature/&EldritchMindDescription	You have advantage on Constitution saving throws that you make to maintain your concentration on a spell.
+Feature/&EldritchMindTitle	Eldritch Mind
+Feature/&EldritchSightTitle	Eldritch Sight
+Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a Warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
+Feature/&EldritchSmiteTitle	Eldritch Smite
+Feature/&ElementalPactAirPlane	Air Plane
+Feature/&ElementalPactAstralPlane	Astral Plane
+Feature/&ElementalPactEarthPlane	Earth Plane
+Feature/&ElementalPactEtherealPlane	Ethereal Plane
+Feature/&ElementalPactFirePlane	Fire Plane
+Feature/&ElementalPactIcePlane	Ice Plane
+Feature/&ElementalPactShadowPlane	Shadow Plane
+Feature/&ElementalPatronDummyFeatureSetTitle	Elementalist
+Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your proficiency bonus on a first hit each round.
+Feature/&ElementalPatronElementalConditionFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your proficiency bonus on a first hit each round.
+Feature/&ElementalPatronElementalDamageFormatTitle	Elemental Damage: {0}
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} and apply proficiency bonus as damage of the same type to first hit each round.
+Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round.
+Feature/&ElementalPatronElementalFormFormatTitle	{0}
+Feature/&ElementalPatronFeatureSet_Level06Description	You knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals.
+Feature/&ElementalPatronFeatureSet_Level06Title	Knowledge of Elementals
+Feature/&EyesoftheRuneKeeperDescription	You can read all writing.
+Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
+Feature/&FiendishVigorTitle	Fiendish Vigor
+Feature/&GiftoftheEverLivingOnesDescription	Regains the maximum number of hit points possible from any healing.
+Feature/&GiftoftheEverLivingOnesTitle	Gift of the Ever-Living Ones
+Feature/&GiftoftheProtectorsDescription	When you are reduced to 0 hit points but not killed outright, the creature magically drops to 1 hit point instead. Once this magic is triggered, you can't benefit from it until you finish a long rest.
+Feature/&GiftoftheProtectorsTitle	Gift of the Protectors
+Feature/&HerbalBrewDescription	When you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color>: grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color>: provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color>: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit.
+Feature/&HerbalBrewFeatureSetDescription	You gain proficiency with either the poisoner kit or herbalism kits if you don't already have it. \nWhen you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color>: grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color>: provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color>: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit.
+Feature/&HerbalBrewFeatureSetTitle	Herbal Brewing
+Feature/&HinderingBlastDescription	When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.
+Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.
+Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
+Feature/&HinderingBlastTitle	Hindering Blast
+Feature/&ImprovedPactWeaponDescription	You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls.
+Feature/&ImprovedPactWeaponTitle	Improved Pact Weapon
+Feature/&MiretheMindTitle	Mire the Mind
+Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condition.
+Feature/&MoonLitDarknessImmunityTitle	Moonlit Darkness
+Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
+Feature/&MoonLitExpandedSpelllistAfinityTitle	Moonlit Spells
+Feature/&MoonLitLightAffinityDescription	If you start your turn in natural darkness, you become invisibility. Moving, attacking or using any power or spell that does not only target yourself breaks the invisibility.
+Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak now works in dim light and magical darkness.
+Feature/&MoonLitLightAffinityStrongTitle	Improved Umbral Cloak
+Feature/&MoonLitLightAffinityTitle	Umbral Cloak
+Feature/&OneWithShadowsDescription	If you start your turn in natural darkness, you become invisibility. Moving, attacking or using any power or spell that does not only target yourself breaks the invisibility.
+Feature/&OneWithShadowsLightAffinityDescription	If you start your turn in natural darkness, you become invisibility. Moving, attacking or using any power or spell that does not only target yourself breaks the invisibility.
+Feature/&OneWithShadowsLightAffinityStrongDescription	One With Shadows now works in dim light and magical darkness.
+Feature/&OneWithShadowsLightAffinityStrongTitle	Darker Shadows
+Feature/&OneWithShadowsLightAffinityTitle	One With Shadows
+Feature/&OneWithShadowsStrongerDescription	One With Shadows now works in dim light and magical darkness.
+Feature/&OneWithShadowsStrongerTitle	Darker Shadows
+Feature/&OneWithShadowsTitle	One With Shadows
+Feature/&OtherworldlyLeapTitle	Otherworldly Leap
+Feature/&ProficiencySoulBladeArmorDescription	Light Armor, Medium Armor and Shield.
+Feature/&ProficiencySoulBladeArmorTitle	Soulblade Armor Proficiencies
+Feature/&ProficiencySoulBladeWeaponDescription	Simple Weapons, Martial Weapons.
+Feature/&ProficiencySoulBladeWeaponTitle	Soulblade Weapon Proficiencies
+Feature/&RiftWalkerRestrainedImmunityTitle	Fleeting Step
+Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
+Feature/&RiftWalkerSpellsMagicAffinityTitle	Rift Walker Spells
+Feature/&ShroudofShadowTitle	Shroud of Shadow
+Feature/&ThiefofFiveFates	Cast {0} once per day
+Feature/&ThiefofFiveFatesTitle	Thief of Five Fates
+Feature/&ThirstingBladeDescription	You can attack with your weapon twice, instead of once, whenever you take the Attack action on your turn.
+Feature/&ThirstingBladeTitle	Thirsting Blade
+Feature/&TrickstersEscapeTitle	Trickster's Escape
+Feature/&WallofThornsFeatureSetDescription	Cast Wall of Thorns once a day.
+Feature/&WallofThornsFeatureSetTitle	Forest Barrier
+Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
+Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast eldritch blast, you add your Charisma modifier to the damage it deals on a hit.
+Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
+Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
+Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
+Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
+Feedback/&AdditionalDamagePactMarkedLine	Pact mark does additional damage!
+Feedback/&AdditionalDamagePactSoulTakerFormat	Soul taker!
+Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker does additional damage!
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered does additional damage!
+Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} creates {1}
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	Weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest.
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Soul Empowered
+Monster/&PactOfChainCustomImpDescription	Imps are found throughout the Lower Planes, either running errands for their infernal masters, spying on rivals, or misleading and waylaying mortals. An imp will proudly serve an evil master of any kind, but it can't be relied on to carry out tasks with any speed or efficiency.
+Monster/&PactOfChainCustomImpTitle	Imp (Pact of Chain)
+Monster/&PactOfChainCustomPseudodragonDescription	The elusive pseudodragon dwells in the quiet places of the world, making its home in the hollows of trees and small caves. With its green scales, horns, and a maw filled with sharp teeth, a pseudodragon resembles a tiny green dragon but its disposition is playful.
+Monster/&PactOfChainCustomPseudodragonTitle	Pseudodragon
+Monster/&PactOfChainCustomQuasitDescription	Quasits infest the Lower Planes. Physically weak, they keep to the shadows to plot mischief and wickedness. More powerful demons use quasits as spies and messengers when they aren't devouring them or pulling them apart to pass the time.
+Monster/&PactOfChainCustomQuasitTitle	Quasit (Pact of Chain)
+Monster/&PactOfChainCustomSpriteDescription	Unlike pixies, sprites rarely indulge in frivolous merriment and fun. They are firm warriors, protectors, and judges, and their stern bent causes other fey to consider them overly dour and serious. However, fey that respect the sprites' territory find them staunch allies in times of trouble.
+Monster/&PactOfChainCustomSpriteTitle	Sprite (Pact of Chain)
+MonsterAttack/&AttackWarlockDragonStingDescription	1d4 piercing damage and target must succeed on a DC 11 Constitution saving throw or become poisoned.
+MonsterAttack/&AttackWarlockDragonStingTitle	Poisonous Sting
+MonsterAttack/&AttackWarlockImpStingDescription	Poisonous sting of an imp.
+MonsterAttack/&AttackWarlockImpStingTitle	Poisonous Sting
+MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
+Power/&AncientForestLifeSapDescription	When you damage an enemy with a spell, you heal HP equal to half your level once per turn. If you are below half HP, you instead heal HP equal to your level instead, but only up to half of your maximum HP.
+Power/&AncientForestLifeSapTitle	Life Sap
+Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will.
+Power/&AncientForestRootedPowerTitle	Rooted
+Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times equal to your proficiency bonus per long rest by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply your proficiency bonus as damage of the same type to first spell damage done that turn. The forms last for 1 minute.
+Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between enhanced elemental forms a number of times equal to your proficiency bonus per day by channeling elemental energy. You gain immunity to the relevant damage and apply proficiency bonus as damage of the same type to first spell damage each round. The forms last for 1 minute.
+Power/&DH_ElementalFormPoolEnhancedTitle	Enhanced Elemental Forms
+Power/&DH_ElementalFormPoolEnhancedTitleShort	Elemental Forms
+Power/&DH_ElementalFormPoolTitle	Elemental Forms
+Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
+Power/&FindFamiliarBundlePowerTitle	Find Familiar
+Power/&MoonlitDanceoftheNightSkyDescription	You can cast Fly on 4 targets once per day.
+Power/&MoonlitDanceoftheNightSkyTitle	Dance of the Night Sky
+Power/&MoonlitDarkMoonDescription	You can cast Darkness a number of times per long rest equal to your proficiency bonus.
+Power/&MoonlitDarkMoonTitle	Dark Moon
+Power/&MoonlitFullMoonDescription	You can cast Daylight a number of times per long rest equal to your proficiency bonus.
+Power/&MoonlitFullMoonTitle	Full Moon
+Power/&MoonlitMoonTouchedDescription	You conjure the gravitational pull of the moon in a small area, causing creatures who fail a saving throw to float upwards.
+Power/&MoonlitMoonTouchedTitle	Moon Touched
+Power/&PactofChainFamiliarInvisibilityPowerDescription	The creature magically turns invisible until it attacks or casts a spell, or until its concentration ends (as if concentrating on a spell). Any equipment the creaure wears or carries is invisible with it.
+Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibility
+Power/&PactofChainFamiliarScarePowerDescription	One creature of your choice within 20 ft of it must succeed on a DC 10 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+Power/&PactofChainFamiliarScarePowerTitle	Scare
+Reaction/&SpendPowerDH_RiftStrikeDescription	Once per long rest, when damaged by a melee attack, you can use your reaction to create a portal that banishes the attacker for 1 round from your plane of existence.
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rift Strike
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 force damage and an additional 1d8 damage per slot level to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
+Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
+Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
+Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
+Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip
+Requirement/&WarlockRequiresNoMoonLit	Not Moonlit Patron
+Requirement/&WarlockRequiresOneWithShadows	"One With Shadows" Eldritch Invocation
+Requirement/&WarlockRequiresPactOfBlade	Pact of the Blade
+Requirement/&WarlockRequiresPactOfChain	Pact of the Chains
+Requirement/&WarlockRequiresPactOfTome	Pact of the Tome
+Rules/&CounterFormDismissCreatureFormat	Dismiss Tinkerer construct
+Spell/&AHPactMarkAdditionalDamageDescription	A pact marked creature takes an additional 1d6 damage of the same type when hit by a weapon or spell attack by the marker.
+Spell/&AHPactMarkAdditionalDamageTitle	Pact Mark damage
+Spell/&AHPactMarkMarkedByPactConditionDescription	This creature has been marked by a pact and takes an additional 1d6 damage of the same type when hit by a weapon or spell attack by the marker.
+Spell/&AHPactMarkMarkedByPactConditionTitle	Pact Marked
+Spell/&AHPactMarkPactMarkConditionDescription	You can mark other creatures with a pact mark and you do an additional 1d6 damage to them with weapon or spell attacks.
+Spell/&AHPactMarkPactMarkConditionTitle	Pact Mark
+Spell/&AHPactMarkSpellDescription	You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with a weapon or spell attack. This damage is the same type as the attack that hits.
+Spell/&AHPactMarkSpellTitle	Pact Mark
+Spell/&AirBlastDescription	Fire a blast of focused air at your target.
+Spell/&AirBlastTitle	Air Blast
+Spell/&EldritchBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\nThe spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam.
+Spell/&EldritchBlastGraspingHandDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage. \n(When you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.)
+Spell/&EldritchBlastGraspingHandTitle	Eldritch Blast (Grasping)
+Spell/&EldritchBlastRepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
+Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Repelling)
+Spell/&EldritchBlastTitle	Eldritch Blast
+Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
+Spell/&EldritchOrbTitle	Eldritch Orb
+Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.).
+Spell/&HinderingBlastTitle	Eldritch Blast (Hindering)
+SpellList/&ClassWarlockSpellListDescription	Warlock SpellList.
+SpellList/&ClassWarlockSpellListTitle	Warlock SpellList
+SpellList/&RiftWalkerSpellsListDescription	RiftWalker SpellList.
+SpellList/&RiftWalkerSpellsListTitle	Rift Walker SpellList
+Stage/&SubclassSelectionStagePatronDescription	A Warlock is defined by a pact with an otherworldly being. Sometimes the relationship between Warlock and patron is like that of a Cleric and a deity, though the beings that serve as patrons are not gods.
+Stage/&SubclassSelectionStagePatronFeatures	Otherworldly Patrons Features
+Stage/&SubclassSelectionStagePatronHeader	Warlock Otherworldly Patrons
+Stage/&SubclassSelectionStagePatronTitle	Otherworldly Patrons
+Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain with a sentient weapon that you feed souls to in return for power.
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Soulblade Pact
+Subclass/&ClassWarlockPatronDescription	A Warlock is defined by a pact with an otherworldly being. Sometimes the relationship between Warlock and patron is like that of a Cleric and a deity, though the beings that serve as patrons are not gods.
+Subclass/&ClassWarlockPatronTitle	Otherworldly Patron
+Subclass/&DHWarlockSubclassElementalPatronDescription	You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
+Subclass/&DHWarlockSubclassElementalPatronTitle	Elementalist Pact
+Subclass/&DHWarlockSubclassRiftWalkerDescription	Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
+Subclass/&DHWarlockSubclassRiftWalkerTitle	Rift Walker Pact
+Subclass/&WarlockAncientForestDescription	You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
+Subclass/&WarlockAncientForestTitle	Ancient Forest Pact
+Subclass/&WarlockMoonLitDescription	Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
+Subclass/&WarlockMoonLitTitle	Moonlit Pact
+Subclass/&WarlockToadKingDescription	Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
+Subclass/&WarlockToadKingTitle	Toad King Pact
+Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
+Subclass/&WarlockUrPriestTitle	UrPriest Pact

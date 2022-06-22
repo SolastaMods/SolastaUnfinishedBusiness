@@ -1,0 +1,24 @@
+FlexibleRaces/&PointPoolAbilityScore3Description	Usa tre potenziamenti sui punteggi di abilità in qualsiasi combinazione a tua scelta.
+FlexibleRaces/&PointPoolAbilityScore3Title	Aumento del punteggio di abilità
+FlexibleRaces/&PointPoolAbilityScore4Description	Usa quattro potenziamenti sui punteggi delle abilità in qualsiasi combinazione a tua scelta.
+FlexibleRaces/&PointPoolAbilityScore4Title	Aumento del punteggio di abilità
+Race/&PointPoolSelect10FeatsDescription	Seleziona 10 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect10FeatsTitle	10 talenti bonus
+Race/&PointPoolSelect11FeatsDescription	Seleziona 11 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect11FeatsTitle	11 talenti bonus
+Race/&PointPoolSelect2FeatsDescription	Seleziona 2 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect2FeatsTitle	2 talenti bonus
+Race/&PointPoolSelect3FeatsDescription	Seleziona 3 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect3FeatsTitle	3 talenti bonus
+Race/&PointPoolSelect4FeatsDescription	Seleziona 4 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect4FeatsTitle	4 talenti bonus
+Race/&PointPoolSelect5FeatsDescription	Seleziona 5 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect5FeatsTitle	5 talenti bonus
+Race/&PointPoolSelect6FeatsDescription	Seleziona 6 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect6FeatsTitle	6 talenti bonus
+Race/&PointPoolSelect7FeatsDescription	Seleziona 7 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect7FeatsTitle	7 talenti bonus
+Race/&PointPoolSelect8FeatsDescription	Seleziona 8 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect8FeatsTitle	8 talenti bonus
+Race/&PointPoolSelect9FeatsDescription	Seleziona 9 talenti aggiuntivi per il tuo personaggio.
+Race/&PointPoolSelect9FeatsTitle	9 talenti bonus

@@ -1,0 +1,24 @@
+FlexibleRaces/&PointPoolAbilityScore3Description	Utilisez trois boosts sur les scores de capacité dans n'importe quelle combinaison de votre choix.
+FlexibleRaces/&PointPoolAbilityScore3Title	Augmentation du score de capacité
+FlexibleRaces/&PointPoolAbilityScore4Description	Utilisez quatre boosts sur les scores de capacité dans n'importe quelle combinaison de votre choix.
+FlexibleRaces/&PointPoolAbilityScore4Title	Augmentation du score de capacité
+Race/&PointPoolSelect10FeatsDescription	Sélectionnez 10 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect10FeatsTitle	10 exploits bonus
+Race/&PointPoolSelect11FeatsDescription	Sélectionnez 11 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect11FeatsTitle	11 exploits bonus
+Race/&PointPoolSelect2FeatsDescription	Sélectionnez 2 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect2FeatsTitle	2 exploits bonus
+Race/&PointPoolSelect3FeatsDescription	Sélectionnez 3 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect3FeatsTitle	3 exploits bonus
+Race/&PointPoolSelect4FeatsDescription	Sélectionnez 4 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect4FeatsTitle	4 exploits bonus
+Race/&PointPoolSelect5FeatsDescription	Sélectionnez 5 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect5FeatsTitle	5 exploits bonus
+Race/&PointPoolSelect6FeatsDescription	Sélectionnez 6 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect6FeatsTitle	6 exploits bonus
+Race/&PointPoolSelect7FeatsDescription	Sélectionnez 7 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect7FeatsTitle	7 exploits bonus
+Race/&PointPoolSelect8FeatsDescription	Sélectionnez 8 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect8FeatsTitle	8 exploits bonus
+Race/&PointPoolSelect9FeatsDescription	Sélectionnez 9 exploits supplémentaires pour votre personnage.
+Race/&PointPoolSelect9FeatsTitle	9 exploits bonus

@@ -1,0 +1,34 @@
+Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistances as other ghosts.
+Condition/&HalfLifeConditionTitle	Half Life
+Feature/&DomainBattleDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainBattleDomainlevel1FeaturesTitle	Battle Domain
+Feature/&DomainElementalColdDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainElementalColdDomainlevel1FeaturesTitle	Elemental (Cold) Domain
+Feature/&DomainElementalFireDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainElementalFireDomainlevel1FeaturesTitle	Elemental (Fire) Domain
+Feature/&DomainElementalLightingDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Elemental(Lighting) Domain
+Feature/&DomainInsightDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainInsightDomainlevel1FeaturesTitle	Insight Domain
+Feature/&DomainLawDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainLawDomainlevel1FeaturesTitle	Law Domain
+Feature/&DomainLifeDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainLifeDomainlevel1FeaturesTitle	Life Domain
+Feature/&DomainMischiefDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainMischiefDomainlevel1FeaturesTitle	Mischief Domain
+Feature/&DomainOblivionDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainOblivionDomainlevel1FeaturesTitle	Oblivion Domain
+Feature/&DomainSunDomainlevel1FeaturesDescription	You learn the level 1 features of this domain.
+Feature/&DomainSunDomainlevel1FeaturesTitle	Sun Domain
+Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of its devout clerics. Choose a Cleric domain: you gain the features that domain grants at 1st level.
+Feature/&UrPriestDomainTheftTitle	Domain Theft
+Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. Cleric spells are added to the Warlock spell list for you.
+Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
+Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands.
+Power/&UrPriestControlUndeadTitle	Control Undead
+Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself, hanging between life and death and are temporarily possessed by your own ghost. You gain flying speed, and the same condition immunities and damage resistances as other ghosts.
+Power/&UrPriestHalfLifeTitle	Half Life
+Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your Warlock level.
+Power/&UrPriestRadiantWardTitle	Radiant Ward
+Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
+Power/&UrPriestSpellSiphonTitle	Spell Siphon

@@ -20,12 +20,20 @@ internal static class HalfElfVariantRaceBuilder
         var darkelfDarkMagic = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
             .GetElement("DarkelfMagic");
 
+        var darkelfFaerieFire = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+            .GetElement("PowerDarkelfFaerieFire");
+
+        var darkelfDarkness = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+            .GetElement("PowerDarkelfDarkness");
+
         var halfElfDarkElf = CharacterRaceDefinitionBuilder
             .Create(DarkelfSubraceBuilder.DarkelfSubrace, "HalfElfDarkElfRace", RaceNamespace)
             .SetGuiPresentation(Category.Race, DarkelfSubraceBuilder.DarkelfSubrace.GuiPresentation.SpriteReference)
             .SetFeaturesAtLevel(1,
                 darkelfDarkMagic,
                 MoveModeMove6)
+            .AddFeaturesAtLevel(3, darkelfFaerieFire)
+            .AddFeaturesAtLevel(5, darkelfDarkness)
             .AddToDB();
 
         var halfElfHighElf = CharacterRaceDefinitionBuilder

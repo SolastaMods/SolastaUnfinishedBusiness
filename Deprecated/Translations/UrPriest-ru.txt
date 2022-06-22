@@ -1,0 +1,34 @@
+Condition/&HalfLifeConditionDescription Вы вбираете в себя некротическую энергию и висите между жизнью и смертью и временно одержимы своим собственным призраком, обретая полет и такие же иммунитеты к состояниям и сопротивление повреждениям, как и другие	призраки.
+Condition/&HalfLifeConditionTitle Полуживой
+Feature/&DomainBattleDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainBattleDomainlevel1FeaturesTitle Боевой	домен
+Feature/&DomainElementalColdDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainElementalColdDomainlevel1FeaturesTitle Стихийный (холодный)	домен
+Feature/&DomainElementalFireDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainElementalFireDomainlevel1FeaturesTitle Стихийный (Огненный)	домен
+Feature/&DomainElementalLightingDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainElementalLightingDomainlevel1FeaturesTitle Стихийный (световой)	домен
+Feature/&DomainInsightDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainInsightDomainlevel1FeaturesTitle Домен	понимания
+Feature/&DomainLawDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainLawDomainlevel1FeaturesTitle Юридический	домен
+Feature/&DomainLifeDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainLifeDomainlevel1FeaturesTitle Домен	жизни
+Feature/&DomainMischiefDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainMischiefDomainlevel1FeaturesTitle Озорной	домен
+Feature/&DomainOblivionDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainOblivionDomainlevel1FeaturesTitle Домен	Забвения
+Feature/&DomainSunDomainlevel1FeaturesDescription Вы изучаете функции уровня 1 этого	домена.
+Feature/&DomainSunDomainlevel1FeaturesTitle Домен	Солнца
+Feature/&UrPriestDomainTheftDescription Вы выхватываете секреты, которые бог дарует всем своим набожным клерикам. Выберите домен клирика: вы получаете функции, которые домен предоставляет на 1-м	уровне.
+Feature/&UrPriestDomainTheftTitle Кража	домена
+Feature/&UrPriestExpandedSpelllistAfinityDescription Вы выбираете из расширенного списка заклинаний, когда изучаете заклинание Чернокнижника. Заклинания жреца добавлены в список заклинаний	чернокнижника.
+Feature/&UrPriestExpandedSpelllistAfinityTitle Заклинания	книги Жреца
+Power/&UrPriestControlUndeadDescription Вы действием выбираете целью одно существо-нежить, которое видите в пределах 30 футов от себя. Цель должна совершить спасбросок Мудрости. При провале цель должна подчиняться вашим	командам.
+Power/&UrPriestControlUndeadTitle Контроль	нежити
+Power/&UrPriestHalfLifeDescription Вы принимаете в себя некротическую энергию, висите между жизнью и смертью и временно одержимы собственным призраком. Вы получаете скорость полета и такие же иммунитеты к состояниям и сопротивление урону, как и другие	призраки.
+Power/&UrPriestHalfLifeTitle Период	полураспада
+Power/&UrPriestRadiantWardDescription В качестве действия вы получаете количество временных хитов, равное удвоенному вашему уровню	Чернокнижника.
+Power/&UrPriestRadiantWardTitle Сияющий	оберег
+Power/&UrPriestSpellSiphonDescription вы узнаете, как подключиться к большему источнику магии в сочетании с вашим обычным запасом силы. В качестве действия вы можете потратить Божественный канал, чтобы восстановить израсходованное использование вашего Мистического Аркана 6-го	уровня.
+Power/&UrPriestSpellSiphonTitle Сифон	заклинаний
