@@ -1,4 +1,0 @@
-Feature/&AttributeModifier{0}Description	{0}
-Feature/&SignofIllOmenTitle Знак дурного	предзнаменования
-Feedback/&ExtraDamageDescription Дополнительный урон от Копья	молний.
-Feedback/&ExtraDamageTitle Дополнительный урон Копья	молний

@@ -206,8 +206,6 @@ Equipment/&ThunderPunchDescription	Infligge 1d8 danni da tuono al colpo e inflig
 Equipment/&ThunderPunchTitle	Pugno di tuono
 Equipment/&WandIdentifyDescription	Lancia l'incantesimo Identifica spendendo una carica. La bacchetta ha 3 cariche e recupera 1d3 cariche ogni alba.
 Equipment/&WandIdentifyTitle	Bacchetta di identificazione
-Feat/&FeatPolearmExpertDescription	Il tuo addestramento esperto con le armi in asta ti garantisce questi vantaggi:\n• Quando si esegue l'azione Attacco e si attacca solo con un'arma ad asta, è possibile utilizzare un'azione bonus per effettuare un attacco in mischia con l'estremità opposta dell'arma. Questo attacco usa lo stesso modificatore di abilità dell'attacco primario. Il dado di danno dell'arma per questo attacco è un d4 e infligge danni contundenti.\n• Mentre impugnate un'arma con un'arma ad asta, altre creature provocano un attacco di opportunità da parte vostra quando entrano nel raggio d'azione che avete con quell'arma.
-Feat/&FeatPolearmExpertTitle	Esperto di armi da fuoco
 Item/&CEHalberd+1Title	Alabarda +1
 Item/&CEHalberd+1UnidentifiedTitle	Alabarda di qualità
 Item/&CEHalberd+2Title	Alabarda +2
@@ -291,3 +289,5 @@ Item/&HandwrapsOfPullingUnidentifiedTitle	Fasce magnifiche
 Power/&PowerFunctionHandwrapsOfPullingDescription	Come azione bonus, puoi avvicinare a te una creatura entro 15 piedi.
 Power/&PowerFunctionHandwrapsOfPullingTitle	Avvolgere
 Tooltip/&TagPolearmWeaponTitle	Polearm
+Feedback/&ExtraDamageDescription	Danni extra da Lancia di illuminazione.
+Feedback/&ExtraDamageTitle	Danno extra di Lightning Spear

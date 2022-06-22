@@ -206,8 +206,6 @@ Equipment/&ThunderPunchDescription	Inflige 1d8 dégâts de tonnerre en cas de co
 Equipment/&ThunderPunchTitle	Coup de tonnerre
 Equipment/&WandIdentifyDescription	Lance le sort Identification en dépensant une charge. La baguette a 3 charges et récupère 1d3 charges à chaque aube.
 Equipment/&WandIdentifyTitle	Baguette d'identification
-Feat/&FeatPolearmExpertDescription	Votre formation d'expert avec les armes d'hast vous offre ces avantages :\n• Lorsque vous effectuez l'action Attaquer et que vous attaquez uniquement avec une arme d'hast, vous pouvez utiliser une action bonus pour effectuer une attaque au corps à corps avec l'extrémité opposée de l'arme. Cette attaque utilise le même modificateur de capacité que l'attaque principale. Le dé de dégâts de l'arme pour cette attaque est un d4, et il inflige des dégâts contondants.\n• Pendant que vous maniez une arme d'hast, d'autres créatures provoquent une attaque d'opportunité de votre part lorsqu'elles entrent dans la portée que vous avez avec cette arme.
-Feat/&FeatPolearmExpertTitle	Expert en armes d'hast
 Item/&CEHalberd+1Title	Hallebarde +1
 Item/&CEHalberd+1UnidentifiedTitle	Hallebarde de qualité
 Item/&CEHalberd+2Title	Hallebarde +2
@@ -291,3 +289,5 @@ Item/&HandwrapsOfPullingUnidentifiedTitle	Protège-mains magnifiques
 Power/&PowerFunctionHandwrapsOfPullingDescription	Par une action bonus, vous pouvez attirer une créature dans un rayon de 4,50 mètres vers vous.
 Power/&PowerFunctionHandwrapsOfPullingTitle	Ramener
 Tooltip/&TagPolearmWeaponTitle	Arme d'hast
+Feedback/&ExtraDamageDescription	Dégâts supplémentaires de Lightning Spear.
+Feedback/&ExtraDamageTitle	Dégâts supplémentaires de Lightning Spear

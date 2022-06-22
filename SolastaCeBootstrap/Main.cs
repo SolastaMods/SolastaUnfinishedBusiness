@@ -124,11 +124,80 @@ namespace SolastaCeBootstrap
 
         internal static Dictionary<string, List<Asset>> GetAssets()
         {
+            var ignore = new HashSet<string>()
+            {
+                "Action",
+                "ActionType",
+                "AdventureLog",
+                "BanterEvent",
+                "BestiaryStats",
+                "BestiaryTable",
+                "Biome",
+                "BlueprintCategory",
+                "Calendar",
+                "CampaignNodeType",
+                "CharacterInteraction",
+                "CharacterTemplate",
+                "ConsoleTable",
+                "ContentPack",
+                "CreditsGroup",
+                "CreditsTable",
+                "Currency",
+                "DailyLog",
+                "DatabaseIndex",
+                "DateTime",
+                "Deity",
+                "DieStyle",
+                "DieType",
+                "DifficultyPreset",
+                "DocumentTable",
+                "Encounter",
+                "EncounterTable",
+                "Environment",
+                "EnvironmentEffect",
+                "GadgetDefinition",
+                "HumanoidMonsterPresentation",
+                "Inventory",
+                "Location",
+                "LocationType",
+                "NarrativeTree",
+                "MapWaypoint",
+                "MoviePlayback",
+                "MusicalState",
+                "NamedPlace",
+                "NarrativeEventTable",
+                "Notification",
+                "PropBlueprint",
+                "QuestStatus",
+                "QuestTree",
+                "RoomBlueprint",
+                "SoundBanks",
+                "SubtitleTable",
+                "TravelActivity",
+                "TravelEvent",
+                "TravelJournal",
+                "TravelPace",
+                "TutorialSection",
+                "TutorialStep",
+                "TutorialSubsection",
+                "TutorialTable",
+                "TutorialToc",
+                
+                "VisualMood",
+                "Voice"
+            };
             var definitions = new Dictionary<string, List<Asset>>();
 
             foreach (var db in (Dictionary<Type, object>) AccessTools.Field(typeof(DatabaseRepository), "databases")
                          .GetValue(null))
             {
+                var dbName = db.Key.Name;
+
+                if (ignore.Any(x => dbName.StartsWith(x)))
+                {
+                    continue;
+                }
+
                 foreach (var baseDefinition in ((IEnumerable) db.Value).Cast<BaseDefinition>())
                 {
                     var assetType = baseDefinition.GetType().FullName;

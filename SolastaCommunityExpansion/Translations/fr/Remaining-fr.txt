@@ -1,4 +1,0 @@
-Feature/&AttributeModifier{0}Description	{0}
-Feature/&SignofIllOmenTitle	Signe de mauvais augure
-Feedback/&ExtraDamageDescription	Dégâts supplémentaires de Lightning Spear.
-Feedback/&ExtraDamageTitle	Dégâts supplémentaires de Lightning Spear

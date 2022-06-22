@@ -1,4 +1,0 @@
-Feature/&AttributeModifier{0}Description	{0}
-Feature/&SignofIllOmenTitle	Segno di cattivo presagio
-Feedback/&ExtraDamageDescription	Danni extra da Lancia di illuminazione.
-Feedback/&ExtraDamageTitle	Danno extra di Lightning Spear

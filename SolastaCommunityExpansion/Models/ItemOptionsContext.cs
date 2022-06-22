@@ -297,27 +297,27 @@ internal static class ItemOptionsContext
         }
     }
 
-    private static void FixGameRecipesTitles()
-    {
-        var craftingRecipes = DatabaseRepository.GetDatabase<ItemDefinition>()
-            .GetAllElements()
-            .Where(x => x.IsDocument)
-            .Where(x =>
-                x.GuiPresentation.Title == "Equipment/&CraftingManualTitle"
-                || x.GuiPresentation.Title == "Equipment/&CraftingManual_x5_Title");
-
-        foreach (var craftingRecipe in craftingRecipes)
-        {
-            var itemTitle = craftingRecipe.DocumentDescription.RecipeDefinition.FormatTitle();
-
-            craftingRecipe.GuiPresentation.title =
-                Gui.Format(craftingRecipe.GuiPresentation.Title, itemTitle);
-        }
-    }
+    // private static void FixGameRecipesTitles()
+    // {
+    //     var craftingRecipes = DatabaseRepository.GetDatabase<ItemDefinition>()
+    //         .GetAllElements()
+    //         .Where(x => x.IsDocument)
+    //         .Where(x =>
+    //             x.GuiPresentation.Title == "Equipment/&CraftingManualTitle"
+    //             || x.GuiPresentation.Title == "Equipment/&CraftingManual_x5_Title");
+    //
+    //     foreach (var craftingRecipe in craftingRecipes)
+    //     {
+    //         var itemTitle = craftingRecipe.DocumentDescription.RecipeDefinition.FormatTitle();
+    //
+    //         craftingRecipe.GuiPresentation.title =
+    //             Gui.Format(craftingRecipe.GuiPresentation.Title, itemTitle);
+    //     }
+    // }
 
     internal static void Load()
     {
-        FixGameRecipesTitles();
+        //FixGameRecipesTitles();
         LoadRemoveIdentification();
         LoadClothingGorimStock();
         SwitchSetBeltOfDwarvenKindBeardChances();

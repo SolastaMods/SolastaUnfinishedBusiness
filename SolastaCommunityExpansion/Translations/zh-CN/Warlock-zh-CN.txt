@@ -299,7 +299,3 @@ Subclass/&WarlockAncientForestDescription	你已与一个强大的自然实体�
 Subclass/&WarlockAncientForestTitle	远古森林契约
 Subclass/&WarlockMoonLitDescription	你的宗主是月亮的精魂，一个体现了光明与黑暗的周期性的实体。这些精魂试图维持月亮在夜空中的力量，同时遏制那些在黑暗中徘徊的世俗力量，并给他们的邪术师布置了同样的任务，授予他们对月亮的力量以及其影响的控制力
 Subclass/&WarlockMoonLitTitle	月曜使者契约
-Subclass/&WarlockToadKingDescription	精类、恶魔抑或是异怪，蛙王的真实性质不为人知，但众所周知，蛙王统治着荒原内的大片沼泽地，并为那些愿意服务的人提供权能
-Subclass/&WarlockToadKingTitle	蛙王契约
-Subclass/&WarlockUrPriestDescription	虽然绝大多数神术师都从神灵那里获得了他们的力量，但也有一些人鄙视神灵。那些自称为亵渎祭司的人已经学会了抽走神明授予神术师的神力并将其满足自己的需要，甚至不对任何神明进行祷告。作为一名亵渎祭司，你与大多数邪术师不同，你没有一个赋予你力量的宗主。你所发现的魔能祈唤可能是诸神授予他们的信奉者的扭曲魔法，而你的契约恩泽可能是你设法偷来的神器
-Subclass/&WarlockUrPriestTitle	亵渎祭司契约

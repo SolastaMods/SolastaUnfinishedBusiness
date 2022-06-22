@@ -31,6 +31,8 @@ CraftyFeats/&ToxicologistIntFeatDescription	Augmentez votre Intelligence de 1, j
 CraftyFeats/&ToxicologistIntFeatTitle	Toxicologue (Renseignement)
 CraftyFeats/&ToxicologistWisFeatDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise du kit d'empoisonneur et de la médecine, ou l'expertise si vous êtes déjà compétent.
 CraftyFeats/&ToxicologistWisFeatTitle	Toxicologue (Sagesse)
+Feat/&FeatPolearmExpertDescription	Votre formation d'expert avec les armes d'hast vous offre ces avantages :\n• Lorsque vous effectuez l'action Attaquer et que vous attaquez uniquement avec une arme d'hast, vous pouvez utiliser une action bonus pour effectuer une attaque au corps à corps avec l'extrémité opposée de l'arme. Cette attaque utilise le même modificateur de capacité que l'attaque principale. Le dé de dégâts de l'arme pour cette attaque est un d4, et il inflige des dégâts contondants.\n• Pendant que vous maniez une arme d'hast, d'autres créatures provoquent une attaque d'opportunité de votre part lorsqu'elles entrent dans la portée que vous avez avec cette arme.
+Feat/&FeatPolearmExpertTitle	Expert en armes d'hast
 Feat/&AddConstructCantripsDescription	Ajoute des sorts mineurs pour soigner et rejeter vos constructions.
 Feat/&AddConstructCantripsTitle	Construire des sorties mineures
 Feat/&AddProtectorConstructCantripDescription	Ajoute les sorts mineurs de Mending Construct et Dismiss Construct pour augmenter la flexibilité de vos constructions.
