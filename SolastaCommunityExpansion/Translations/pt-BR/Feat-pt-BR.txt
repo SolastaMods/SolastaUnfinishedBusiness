@@ -1,3 +1,36 @@
+Condition/&ConditionDualFlurryApplyDescription	Você está ganhando impulso...
+Condition/&ConditionDualFlurryApplyTitle	Turbilhão duplo!
+Condition/&ConditionDualFlurryGrantDescription	Seus inimigos estão cambaleando!
+Condition/&ConditionDualFlurryGrantTitle	Turbilhão duplo!
+Condition/&HelpActionDescription	Esta criatura foi distraída.
+Condition/&HelpActionTitle	Distraído
+CraftyFeats/&ApothecaryIntFeatDescription	Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de herbalismo e Arcana, ou perícia se já for proficiente.
+CraftyFeats/&ApothecaryIntFeatTitle	Boticário (Inteligência)
+CraftyFeats/&ApothecaryWisFeatDescription	Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de herbalismo e Arcana, ou perícia se já for proficiente.
+CraftyFeats/&ApothecaryWisFeatTitle	Boticário (Sabedoria)
+CraftyFeats/&AttributeDexDescription	+1 DES até um máximo de 20
+CraftyFeats/&AttributeDexTitle	Destreza
+CraftyFeats/&AttributeIntDescription	+1 INT até um máximo de 20
+CraftyFeats/&AttributeIntTitle	Inteligência
+CraftyFeats/&AttributeWisDescription	+1 WIS até um máximo de 20
+CraftyFeats/&AttributeWisTitle	Sabedoria
+CraftyFeats/&CraftyArcanaDescription	Você ganha proficiência/experiência em Arcana.
+CraftyFeats/&CraftyBowsDescription	Você ganha proficiência com todos os arcos e bestas.
+CraftyFeats/&CraftyBowsTitle	Proficiência em Arco
+CraftyFeats/&CraftyFletcherFeatDescription	Aumente sua Destreza em 1, até um máximo de 20.\nVocê ganha proficiência com ferramentas de ferreiro, ou perícia se já for proficiente.\n Você ganha proficiência com todos os arcos e bestas.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	Você ganha proficiência/experiência em Medicina.
+CraftyFeats/&CraftyNatureDescription	Você ganha proficiência/experiência em Natureza.
+CraftyFeats/&CraftyScribeFeatDescription	Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de pergaminho e Arcana, ou perícia se já for proficiente.\nRequer a habilidade de lançar feitiços.
+CraftyFeats/&CraftyScribeFeatTitle	Escriba
+CraftyFeats/&CraftySkillsTitle	Habilidades
+CraftyFeats/&CraftyToolsTitle	Ferramentas
+CraftyFeats/&ManacalonCrafterFeatDescription	Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com rosário manacolon e Arcana, ou perícia se já for proficiente.\nRequer a habilidade de lançar feitiços.
+CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
+CraftyFeats/&ToxicologistIntFeatDescription	Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de envenenador e Natureza, ou perícia se já for proficiente.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicologista (Inteligência)
+CraftyFeats/&ToxicologistWisFeatDescription	Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de envenenador e Medicina, ou perícia se já for proficiente.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicologista (Sabedoria)
 Feat/&AddConstructCantripsDescription	Adiciona truques para curar e dispensar suas construções.
 Feat/&AddConstructCantripsTitle	Construir Truques
 Feat/&AddProtectorConstructCantripDescription	Adiciona os truques Mending Construct e Dismiss Construct para aumentar a flexibilidade de suas construções.
@@ -92,8 +125,6 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Aumente seu Carisma em 1, até um m
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamágica: Acelerada
 Feat/&FeatMetamagicAdeptTwinnedDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamágica Geminada e ganha 2 pontos de feitiçaria.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamágica: Geminada
-Feat/&FeatPolearmExpertDescription	Seu treinamento especializado com armas de haste garante estes benefícios:\n• Quando você realiza a ação Atacar e ataca apenas com uma arma de haste, você pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma. Este ataque usa o mesmo modificador de habilidade do ataque primário. O dado de dano da arma para este ataque é um d4 e causa dano de concussão.\n• Enquanto você estiver empunhando uma arma de haste, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com aquela arma.
-Feat/&FeatPolearmExpertTitle	Especialista em Polearm
 Feat/&FeatPrimalConstitutionDescription	Aumente sua Constituição em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Depois de entrar em fúria dessa forma, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Constituição.
 Feat/&FeatPrimalConstitutionTitle	Fúria Primal (Constituição)
 Feat/&FeatPrimalStrengthDescription	Aumente sua Força em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Depois de entrar em fúria dessa forma, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Constituição.
@@ -237,3 +268,40 @@ Feat/&UseArmorWeaponsAsFocusDescription	Você pode usar as armas da armadura com
 Feat/&UseArmorWeaponsAsFocusTitle	Foco de conjuração
 Feat/&UsingitemPowerDescription	Permite que o poder da arma seja usado na ação bônus.
 Feat/&UsingitemPowerTitle	Usar o poder da arma
+Feature/&AdditionalActionDualFlurryDescription	Você pode fazer um ataque adicional com a mão inábil.
+Feature/&AdditionalActionDualFlurryTitle	Turbilhão duplo!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Uma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 7º nível este dano aumenta para 2d6 e no 14º nível para 3d6. Isso pode acumular com o ataque furtivo de Rogue.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Ataque sorrateiro
+Feature/&DeadeyeDescription	Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -5 de bônus para acertar para causar um bônus de +10 de dano.
+Feature/&DeadeyeTitle	Deadeye
+Feature/&DualFlurryDescription	Você é um mestre da luta com armas emparelhadas. Em qualquer turno em que você acertar duas vezes com ataques corpo a corpo enquanto empunha uma arma em cada mão, você pode fazer um ataque adicional com a mão inábil.
+Feature/&DualFlurryTitle	Dupla rajada
+Feature/&PowerAttackDescription	Receba uma penalidade de -3 para acertar seu ataque para causar 3 + Bônus de Proficiência de dano extra ao acertar seus ataques com armas brancas.
+Feature/&PowerAttackTitle	Ataque de poder
+Feature/&PowerTorchbearerDescription	Tente incendiar um alvo corpo a corpo!
+Feature/&PowerTorchbearerTitle	Portador da tocha
+Feature/&RageDamageBonusAttackModifierDescription	Adicione +2 de dano aos seus ataques enquanto estiver em fúria.
+Feature/&RageDamageBonusAttackModifierTitle	Dano de raiva
+Feature/&RageFeatConditionDescription	Enquanto estiver em fúria, você ganha o seguinte: Vantagem em testes de Força e testes de resistência de Força, um bônus nas jogadas de dano de +2 e resistência a dano de concussão, perfurante e cortante.
+Feature/&RageFeatConditionTitle	Furioso
+Feature/&RagePowerDescription	Como uma ação bônus, você entra em fúria por um minuto e ganha o seguinte: Vantagem em testes de Força e testes de resistência de Força, um bônus nas jogadas de dano de +2 e resistência a dano de concussão, perfurante e cortante.
+Feature/&RagePowerTitle	Fúria
+Feature/&RageStrengthSavingThrowAffinityDescription	Você obtém vantagem em salvamentos de Força enquanto estiver em fúria.
+Feature/&RageStrengthSavingThrowAffinityTitle	Vantagem de salvamento de Força de Fúria
+Power/&HelpActionDescription	Você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 metro de você. Você finta, distrai o alvo ou de alguma outra forma se une para tornar o ataque do seu aliado mais eficaz. Se seu aliado atacar o alvo antes do seu próximo turno, a primeira jogada de ataque é feita com vantagem.
+Power/&HelpActionTitle	Ajuda
+Reaction/&SubitemSelectWarcasterReactionTitle	Selecionar ação
+Reaction/&WarcasterAttackDescription	Alvo de ataque.
+Reaction/&WarcasterAttackTitle	Ataque
+Reaction/&WarcasterReactionDescription	{0} está saindo de uma área ameaçada por um ou mais personagens.
+Reaction/&WarcasterReactionReactDescription	Use a reação para atacar o alvo.
+Reaction/&WarcasterReactionReactTitle	Ataque
+Reaction/&WarcasterReactionTitle	Ataque de oportunidade
+Tooltip/&DeadeyeConcentration	Desabilitar Olho Morto.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Não sabe {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Tem ataque furtivo
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Não é um bárbaro
+Tooltip/&FeatPrerequisiteIsNotFighter	Não é um lutador
+Tooltip/&FeatPrerequisiteIsNotRogue	Não é um vagabundo
+Tooltip/&FeatPrerequisiteLevelFormat	Nível mínimo de caractere {0}
+Tooltip/&PowerAttackConcentration	Desative o Ataque Poderoso.

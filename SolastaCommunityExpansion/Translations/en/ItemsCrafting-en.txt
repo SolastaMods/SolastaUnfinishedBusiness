@@ -206,6 +206,40 @@ Equipment/&ThunderPunchDescription	Deals 1d8 thunder damage on hit and imposes d
 Equipment/&ThunderPunchTitle	Thunder Punch
 Equipment/&WandIdentifyDescription	Casts the spell Identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.
 Equipment/&WandIdentifyTitle	Wand of Identify
+Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
+Feat/&FeatPolearmExpertTitle	Polearm Expert
+Item/&CEHalberd+1Title	Halberd +1
+Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
+Item/&CEHalberd+2Title	Halberd +2
+Item/&CEHalberd+2UnidentifiedTitle	Magnificent Halberd
+Item/&CEHalberdLightningTitle	Lightning Halberd 
+Item/&CEHalberdLightningUnidentifiedTitle	Magnificent Halberd 
+Item/&CEHalberdPrimedTitle	Primed Halberd
+Item/&CEHalberdTitle	Halberd
+Item/&CEHandXbow+1Title	Hand Crossbow +1
+Item/&CEHandXbow+1UnidentifiedTitle	Quality Hand Crossbow
+Item/&CEHandXbow+2Title	Hand Crossbow +2
+Item/&CEHandXbow+2UnidentifiedTitle	Magnificent Hand Crossbow
+Item/&CEHandXbowAcidTitle	Acidic Hand Crossbow
+Item/&CEHandXbowAcidUnidentifiedTitle	Magnificent Hand Crossbow
+Item/&CEHandXbowPrimedTitle	Primed Hand Crossbow
+Item/&CEHandXbowTitle	Hand Crossbow
+Item/&CELongMace+1Title	Long Mace +1
+Item/&CELongMace+1UnidentifiedTitle	Quality Long Mace
+Item/&CELongMace+2Title	Long Mace +2
+Item/&CELongMace+2UnidentifiedTitle	Magnificent Long Mace
+Item/&CELongMacePrimedTitle	Primed Long Mace
+Item/&CELongMaceThunderTitle	Thundering Long Mace
+Item/&CELongMaceThunderUnidentifiedTitle	Magnificent Long Mace
+Item/&CELongMaceTitle	Long Mace
+Item/&CEPike+1Title	Pike +1
+Item/&CEPike+1UnidentifiedTitle	Quality Pike
+Item/&CEPike+2Title	Pike +2
+Item/&CEPike+2UnidentifiedTitle	Magnificent Pike
+Item/&CEPikePrimedTitle	Primed Pike
+Item/&CEPikePsychicTitle	Psychic Pike
+Item/&CEPikePsychicUnidentifiedTitle	Magnificent Pike
+Item/&CEPikeTitle	Pike
 Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Enchant Halberd +1.
 Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchant Halberd +1
 Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Enchant Halberd +2.
@@ -246,3 +280,14 @@ Item/&CraftingManualRecipePrimingCELongMaceDescription	Prime Long Mace.
 Item/&CraftingManualRecipePrimingCELongMaceTitle	Prime Long Mace
 Item/&CraftingManualRecipePrimingCEPikeDescription	Prime Pike.
 Item/&CraftingManualRecipePrimingCEPikeTitle	Prime Pike
+Item/&Handwraps+1Title	Handwraps +1
+Item/&Handwraps+1UnidentifiedTitle	Good Quality Handwraps
+Item/&Handwraps+2Title	Handwraps +2
+Item/&Handwraps+2UnidentifiedTitle	Magnificent Handwraps
+Item/&HandwrapsOfForceTitle	Forceful Handwraps
+Item/&HandwrapsOfForceUnidentifiedTitle	Magnificent Handwraps
+Item/&HandwrapsOfPullingTitle	Handwraps Of Pulling
+Item/&HandwrapsOfPullingUnidentifiedTitle	Magnificent Handwraps
+Power/&PowerFunctionHandwrapsOfPullingDescription	As a bonus action, you can pull a creature within 15 feet closer to you.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Reel In
+Tooltip/&TagPolearmWeaponTitle	Polearm

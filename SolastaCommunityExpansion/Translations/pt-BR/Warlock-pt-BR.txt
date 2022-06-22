@@ -51,6 +51,8 @@ Feature/&AncientForestLightAffinityDescription	Você pode absorver energia da lu
 Feature/&AncientForestLightAffinityTitle	Fotossíntese
 Feature/&AncientForestRegrowthDescription	Você tem um poder de cura que reabastece quando você faz um descanso longo. Com essa reserva, você pode restaurar um número total de pontos de vida igual ao seu nível de Bruxo × 5.
 Feature/&AncientForestRegrowthTitle	Rebrota
+Feature/&ArmorofShadowsTitle	Armadura das Sombras
+Feature/&AscendantStepTitle	Passo Ascendente
 Feature/&AspectoftheMoonDescription	Você não precisa mais dormir e pode ficar de vigia, diminuindo as chances de ataque e garantindo que você esteja acordado se o acampamento for atacado.
 Feature/&AspectoftheMoonTitle	Aspecto da Lua
 Feature/&BeguilingInfluenceDescription	Você ganha proficiência nas perícias Enganação e Persuasão.
@@ -59,6 +61,8 @@ Feature/&BondoftheTalismanDescription	Teletransporte até 30 pés de distância.
 Feature/&BondoftheTalismanTitle	Talismã de Teletransporte
 Feature/&ChainsofCarceriDescription	Paralisa um celestial, demônio ou elemental a menos que seja bem sucedido em um teste de resistência de Sabedoria.
 Feature/&ChainsofCarceriTitle	Correntes de Carceri
+Feature/&ClassMonkTongueOfSunAndMoonDescription	Você aprende a tocar o ki de outras mentes para entender todas as línguas faladas. Além disso, qualquer criatura que possa entender um idioma pode entender o que você diz.
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Língua do Sol e da Lua
 Feature/&ClassWarlockArmorProficiencyDescription	Armadura leve.
 Feature/&ClassWarlockArmorProficiencyTitle	Proficiência em Armadura de Bruxo
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Selecione Invocação Eldritch para substituir.
@@ -97,10 +101,15 @@ Feature/&DH_RiftWalkDescription	Brevemente cercado pela energia do vazio entre o
 Feature/&DH_RiftWalkTitle	Etapa de Fenda
 Feature/&DHAncientForestBonusCantripDescription	Seu patrono compartilha segredos sobre a natureza de como a magia natural e a energia vital estão conectadas. Você aprende Shillelagh e Chill Touch.
 Feature/&DHAncientForestBonusCantripTitle	Truques Bônus da Floresta Antiga
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Seu controle das energias elementais aumentou a tal ponto que agora você tem domínio sobre os elementais mais fracos. Você pode conjurar elemental menor à vontade.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Lacaios Elementais
 Feature/&DHPactOfTheTomeFeatureSetDescription	Seu patrono lhe dá um grimório chamado Livro das Sombras. Quando você ganha esta característica, escolha três truques da lista de magias de qualquer classe. Os truques não precisam ser da mesma lista de feitiços. Enquanto o livro estiver com você, você pode lançar esses truques à vontade. Eles não contam para o seu número de truques conhecidos. Qualquer truque que você lançar com esse recurso é considerado um truque de Bruxo para você.
 Feature/&DHPactOfTheTomeFeatureSetTitle	Pacto do Tomo
+Feature/&DHWardingBondBonusCantripDescription	Seu controle dos portais da fenda aumentou a ponto de agora você poder conceder a proteção da fenda a outros. Você pode lançar vínculo de proteção à vontade (sem compartilhar o dano).
+Feature/&DHWardingBondBonusCantripTitle	Manto da Fenda
 Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	Ao conjurar um familiar, você pode escolher uma das seguintes formas especiais: diabrete, pseudodragão, quasit ou sprite.
 Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	Pacto da Cadeia
+Feature/&DreadfulWordTitle	Palavra terrível
 Feature/&EldritchBlastGraspingHandBonusCantripDescription	Quando você atinge uma criatura com sua rajada mística, você pode mover aquela criatura em linha reta 3 metros para mais perto de você.
 Feature/&EldritchBlastGraspingHandBonusCantripTitle	Explosão de Agarrar
 Feature/&EldritchBlastRepellingBlastBonusCantripDescription	Quando você atinge uma criatura com rajada mística, você pode empurrar a criatura até 3 metros de distância de você em linha reta.
@@ -130,6 +139,7 @@ Feature/&ElementalPatronFeatureSet_Level06Description	Seu conhecimento sobre ele
 Feature/&ElementalPatronFeatureSet_Level06Title	Conhecimento dos elementais
 Feature/&EyesoftheRuneKeeperDescription	Você pode ler toda a escrita.
 Feature/&EyesoftheRuneKeeperTitle	Olhos do Guardião das Runas
+Feature/&FiendishVigorTitle	Vigor Diabólico
 Feature/&GiftoftheEverLivingOnesDescription	Recupera o número máximo de pontos de vida possíveis de qualquer cura.
 Feature/&GiftoftheEverLivingOnesTitle	Presente dos Sempre Vivos
 Feature/&GiftoftheProtectorsDescription	Quando você é reduzido a 0 pontos de vida, mas não morto, a criatura magicamente cai para 1 ponto de vida. Uma vez que esta magia é acionada, você não pode se beneficiar dela até terminar um descanso longo.
@@ -143,6 +153,7 @@ Feature/&HinderingBlastMagicAffinityTitle	Impedindo Explosão
 Feature/&HinderingBlastTitle	Impedindo Explosão
 Feature/&ImprovedPactWeaponDescription	Você pode usar qualquer arma como foco de conjuração para seus feitiços de Bruxo. Além disso, a arma ganha um bônus de +1 em suas jogadas de ataque e dano.
 Feature/&ImprovedPactWeaponTitle	Arma de Pacto Aprimorada
+Feature/&MiretheMindTitle	Mire a mente
 Feature/&MoonLitDarknessImmunityDescription	Você é imune à condição de escuridão.
 Feature/&MoonLitDarknessImmunityTitle	Escuridão enluarada
 Feature/&MoonLitExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de Bruxo. Os seguintes feitiços são adicionados à lista de feitiços do Bruxo para você: {0}
@@ -172,16 +183,21 @@ Feature/&ThiefofFiveFates	Transmitir {0} uma vez por dia
 Feature/&ThiefofFiveFatesTitle	Ladrão de cinco destinos
 Feature/&ThirstingBladeDescription	Você pode atacar com sua arma duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.
 Feature/&ThirstingBladeTitle	Lâmina Sedenta
+Feature/&TrickstersEscapeTitle	Fuga do Malandro
 Feature/&WallofThornsFeatureSetDescription	Lançar Wall of Thorns uma vez por dia.
 Feature/&WallofThornsFeatureSetTitle	Barreira Florestal
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Explosão Agonizante
 Feedback/&AdditionalDamageAgonizing_BlastLine	Quando você conjura rajada mística, você adiciona seu modificador de Carisma ao dano que causa em um acerto.
 Feedback/&AdditionalDamageEldritchSmiteFormat	Golpe Eldritch!
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} fere {1} (+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	Dano Elementar
+Feedback/&AdditionalDamageElementalDamageLine	A forma elemental concede dano adicional
 Feedback/&AdditionalDamagePactMarkedFormat	Marca do pacto!
 Feedback/&AdditionalDamagePactMarkedLine	A marca do pacto causa dano adicional!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Tomador de almas!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker causa dano adicional!
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Alma empoderada!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered causa dano adicional!
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} cria {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} cria {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} cria {1}
@@ -213,6 +229,8 @@ Power/&DH_ElementalFormPoolEnhancedDescription	Você pode alternar entre formas 
 Power/&DH_ElementalFormPoolEnhancedTitle	Formas Elementais Aprimoradas
 Power/&DH_ElementalFormPoolEnhancedTitleShort	Formas Elementais
 Power/&DH_ElementalFormPoolTitle	Formas Elementais
+Power/&FindFamiliarBundlePowerDescription	Invoque um familiar na forma de Pseudorgagon, Sprite, Imp ou Quasit.
+Power/&FindFamiliarBundlePowerTitle	Encontrar familiar
 Power/&MoonlitDanceoftheNightSkyDescription	Você pode lançar Fly em 4 alvos uma vez por dia.
 Power/&MoonlitDanceoftheNightSkyTitle	Dança do céu noturno
 Power/&MoonlitDarkMoonDescription	Você pode lançar Escuridão um número de vezes por descanso longo igual ao seu bônus de proficiência.
@@ -240,6 +258,7 @@ Requirement/&WarlockRequiresOneWithShadows	Invocação Eldritch "Um com Sombras"
 Requirement/&WarlockRequiresPactOfBlade	Pacto da Lâmina
 Requirement/&WarlockRequiresPactOfChain	Pacto das Correntes
 Requirement/&WarlockRequiresPactOfTome	Pacto do Tomo
+Rules/&CounterFormDismissCreatureFormat	Dispensar construção Tinkerer
 Spell/&AHPactMarkAdditionalDamageDescription	Uma criatura marcada pelo pacto sofre 1d6 de dano adicional do mesmo tipo quando atingida por uma arma ou ataque mágico pelo marcador.
 Spell/&AHPactMarkAdditionalDamageTitle	Dano da Marca do Pacto
 Spell/&AHPactMarkMarkedByPactConditionDescription	Esta criatura foi marcada por um pacto e sofre 1d6 de dano adicional do mesmo tipo quando atingida por uma arma ou ataque mágico pelo marcador.
@@ -282,3 +301,5 @@ Subclass/&WarlockMoonLitDescription	Seu patrono é um espírito da lua, uma enti
 Subclass/&WarlockMoonLitTitle	Pacto Enluarado
 Subclass/&WarlockToadKingDescription	Fey, demônio ou aberração causada pelo Cataclismo, a verdadeira natureza do Toad King não é conhecida, mas sabe-se que o Toad King governa uma grande área de pântanos e pântanos dentro das Badlands e oferece poder para aqueles dispostos a servir.
 Subclass/&WarlockToadKingTitle	Pacto Rei Sapo
+Subclass/&WarlockUrPriestDescription	Enquanto a grande maioria dos conjuradores divinos obtêm seus poderes de uma divindade, há aqueles que desprezam os deuses. Aqueles que se chamam Ur-sacerdotes aprenderam a sugar as energias divinas concedidas pelos deuses aos seus conjuradores divinos, usando-as para suas próprias necessidades sem dar nem mesmo palavrões a nenhum deus. Como um Ur-sacerdote, você difere da maioria dos feiticeiros, sem um patrono que lhe conceda seu poder. Invocações sobrenaturais que você descobre são formas distorcidas de magia que os deuses podem conceder a seus patronos, enquanto as Dádivas do Pacto são provavelmente artefatos divinos que você conseguiu roubar.
+Subclass/&WarlockUrPriestTitle	Pacto UrPriest

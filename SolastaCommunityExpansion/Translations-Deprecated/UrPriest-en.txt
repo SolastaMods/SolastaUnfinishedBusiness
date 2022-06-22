@@ -32,5 +32,3 @@ Power/&UrPriestRadiantWardDescription	As an action, you gain a number of tempora
 Power/&UrPriestRadiantWardTitle	Radiant Ward
 Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
-Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
-Subclass/&WarlockUrPriestTitle	UrPriest Pact

@@ -167,8 +167,12 @@ Feature/&TinkererWeaponProficiencyDescription	Umgang mit einfachen Waffen.
 Feature/&TinkererWeaponProficiencyTitle	Tüftler-Waffenkenntnisse
 Feedback/&AdditionalDamageArcaneFirearmFormat	Explosionsverbesserung!
 Feedback/&AdditionalDamageArcaneFirearmLine	Verursacht zusätzlichen Schaden durch Sprengverstärkung
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blendende Waffe
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Zusätzlicher Schaden und Versuch, Blindness von Blending Weapon anzuwenden
 Feedback/&AdditionalDamageLightningSpearFormat	Blitzspeer!
 Feedback/&AdditionalDamageLightningSpearLine	{0} schlägt {1} mit Blitzspeer! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Verbesserter Schaden
+Feedback/&AdditionalDamageUpgradedConstructLine	Das aufgewertete Konstrukt verursacht 1W8 mehr Schaden pro Treffer.
 Feedback/&LightningSpearAdditionalDamageDescription	Verursacht einmal pro Runde zusätzlich 1W6 Blitzschaden.
 Feedback/&LightningSpearAdditionalDamageTitle	Blitzspeer zusätzlichen Schaden
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
@@ -177,6 +181,12 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} hat einen deiner Verbündete
 Reaction/&ReactionAttackFeatSentinelReactDescription	Verwenden Sie die Reaktion auf den Angriff.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Attacke
 Reaction/&ReactionAttackFeatSentinelTitle	Sentinel-Reaktion
+Rules/&AdvantageAttackOnEnemyDescription	Vorteil, um den Feind anzugreifen.
+Rules/&AdvantageAttackOnEnemyTitle	Beleuchtet
+Rules/&DisadvantageOnAttackByEnemyDescription	Abgelenkt durch Blitzschlag.
+Rules/&DisadvantageOnAttackByEnemyTitle	Erschüttert
+Rules/&ExtraDamageOnAttackConditionDescription	Zusätzlicher Schaden durch Blitzspeer.
+Rules/&ExtraDamageOnAttackConditionTitle	Statisch geschockt
 Rules/&HalfCoverShieldAttributeDescription	Verbündete innerhalb von 3 m erhalten +2 RK.
 Rules/&HalfCoverShieldAttributeTitle	Kuppel mit halber Abdeckung
 Rules/&HalfCoverShieldConditionDescription	+2 AC.
@@ -191,6 +201,11 @@ Rules/&ThunderStruckDescription	Nachteil beim Angriff auf Verbündete von Scout 
 Rules/&ThunderStruckTitle	Vom Blitz getroffen (abgelenkt)
 SpellList/&SpellListTinkererDescription	Tüftler-Zauberliste.
 SpellList/&SpellListTinkererTitle	Tüftler-Zauberliste
+Stage/&SubclassSelectionStageSpecialistDescription	Beschreibung Es gibt eine große Auswahl an Spezialitäten in Tinkerers, darunter die Herstellung von Elixieren als Tränkemacher, das Erzeugen von Explosionen als Blaster und das Führen magischer Waffen als Waffenschmied.
+Stage/&SubclassSelectionStageSpecialistFeatures	Spezialfunktionen
+Stage/&SubclassSelectionStageSpecialistHeader	Spezialisierungen
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Spezialist Keine Beschreibung.
+Stage/&SubclassSelectionStageSpecialistTitle	Spezialisierung auswählen
 Subclass/&ArtificerAlchemistDescription	Du bist auf Tränke, Buffs, Heilung und Zaubersprüche spezialisiert.
 Subclass/&ArtificerAlchemistTitle	Zaubertrankhersteller
 Subclass/&ArtificerArtileristCannonsDescription	Sie erstellen eine Reihe von Kanonen, die Sie im Kampf als Bonusaktion aktivieren können.
@@ -228,6 +243,7 @@ Subclass/&CancelCancelElixirResilienceTitle	Resilienz abbrechen
 Subclass/&CancelCancelElixirSwiftnessDescription	Beende den Schnelligkeits-Zustand des Trankmacher-Elixiers.
 Subclass/&CancelCancelElixirSwiftnessTitle	Schnelligkeit abbrechen
 Subclass/&ConditionResistantArmorTitle	Widerstandsfähige Rüstung
+Subclass/&ConditionResistnatArmorDescription	Ihre Rüstung ist resistent gegen Säure-, Kälte-, Feuer-, Kraft-, Blitz-, Nekrotik-, Gift-, psychische, Strahlungs- und Donnerschäden.
 Subclass/&CraftingTinkererMagicItemAdeptDescription	Du bist geschickt darin, magische Gegenstände herzustellen. Sie benötigen 1/4 der Zeit, um Gegenstände herzustellen, und Sie wenden beim Herstellen den doppelten Kompetenzbonus an.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Adept der magischen Gegenstände
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Berühren Sie eine Tasche und füllen Sie sie mit einem extradimensionalen Raum, damit sie mehr Gewicht tragen kann, ohne Sie zu belasten. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.

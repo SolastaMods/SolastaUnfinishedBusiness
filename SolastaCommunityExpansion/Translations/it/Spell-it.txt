@@ -4,6 +4,8 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	Il punteggio di Carisma è im
 AttributeModifier/&DHFeeblemindChaSpellTitle	Carisma debole
 AttributeModifier/&DHFeeblemindIntSpellDescription	Il punteggio di Carisma è impostato su 1.
 AttributeModifier/&DHFeeblemindIntSpellTitle	Intelligenza debole
+Condition/&ConditionMuleDescription	La tua velocità non è ridotta da ingombro o armature pesanti. Puoi trasportare 20 sterline in più.
+Condition/&ConditionMuleTitle	Mulo
 Condition/&DHFeeblemindSpellDescription	I punteggi di Intelligenza e Carisma della creatura diventano 1. La creatura non può lanciare incantesimi, attivare oggetti magici, comprendere il linguaggio o comunicare in alcun modo intelligibile.
 Condition/&DHFeeblemindSpellTitle	Mente debole
 Condition/&DHForesightSpellDescription	Vantaggio su tutti i tiri per colpire, le prove di abilità e i tiri salvezza. Le altre creature hanno svantaggio ai tiri per colpire.
@@ -18,6 +20,10 @@ Condition/&DHTimeStopSpellDescription	Il tempo è congelato per la creatura colp
 Condition/&DHTimeStopSpellTitle	Il tempo si è fermato
 Condition/&DHWeirdSpellDescription	Spaventati. Alla fine di ogni turno, effettua un tiro salvezza su Saggezza. In caso di fallimento, subisci 4d10 danni psichici. In caso di successo, questa condizione termina.
 Condition/&DHWeirdSpellTitle	Strano
+Condition/&EWResonatingStrikeDamageDescription	Al 5° livello, gli attacchi innescati da questo trucchetto infliggono 1d8 danni da tuono addizionali. Il danno aumenta ulteriormente di 1d8 all'11° e al 17° livello.
+Condition/&EWResonatingStrikeDamageTitle	Risonanza
+Condition/&EWSunlightBladeDamageDescription	Al 5° livello, gli attacchi innescati da questo trucchetto infliggono 1d8 danni radianti aggiuntivi. Il danno aumenta ulteriormente di 1d8 all'11° e al 17° livello.
+Condition/&EWSunlightBladeDamageTitle	L'ustione di Sunlit Blade
 DamageAffinity/&DHHolyAuraSpellDescription	Quando un demone o un non morto colpisce con un attacco in mischia, l'aura lampeggia di luce brillante e l'attaccante deve superare un tiro salvezza di Costituzione o essere accecato fino al termine dell'incantesimo.
 DamageAffinity/&DHHolyAuraSpellTitle	Ritorsione dell'Aura Sacra
 Feat/&AlchemistSubclassSpellsDescription	{0}.
@@ -28,10 +34,23 @@ Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Ottieni incantesimi
 Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Incantesimi di Costrutto Protettore
 Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Ottieni incantesimi bonus che sono considerati incantesimi da Riparatore per te, sono sempre preparati e non contano per il numero di incantesimi da Riparatore che conosci.
 Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Incantesimi di Costrutto Protettore
+Feature/&DHHolyAuraBlindingPowerDescription	Quando un demone o un non morto colpisce una creatura colpita con un attacco in mischia, l'aura lampeggia con una luce brillante. L'attaccante deve superare un tiro salvezza di Costituzione o essere accecato fino al termine dell'incantesimo.
+Feature/&DHHolyAuraBlindingPowerTitle	Ritorsione dell'Aura Sacra
 Feature/&ElementalistSpellsMagicAffinityDescription	Scegli da un elenco esteso di incantesimi quando impari un incantesimo da Stregone. I seguenti incantesimi vengono aggiunti all'elenco degli incantesimi da Stregone per te: {0}
 Feature/&ElementalistSpellsMagicAffinityTitle	Incantesimi Elementalisti
 Feature/&SpellAsInvocationAtWillDescription	Lancia {0} a piacimento.
 Feature/&SpellAsInvocationOncePerDayDescription	Lancia {0} una volta fino al riposo lungo.
+Feedback/&AdditionalDamageResonatingStrikeFormat	Colpo risonante!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} risuona {1}! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Lama illuminata dal sole!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} brucia {1} con Sunlit Blade! (+{2})
+Feedback/&NotifyEffectResonatingStrikeLine	{0} risuona {1}!
+Monster/&DHCustomCouatlDescription	I Couatl sono esseri serpentini benevoli di grande intelletto e intuizione. Le loro ali dai colori brillanti e i modi gentili parlano delle loro origini celesti.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Gufo familiare.
+Monster/&OwlFamiliarTitle	Gufo
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Danno perforante e il bersaglio deve superare un tiro salvezza su Costituzione con CD 13 o essere avvelenato per 24 ore. Fino alla fine di questo veleno, il bersaglio è privo di sensi.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Mordere
 Reaction/&CastSpellInRetributionDescription	{0} sta attaccando {1}! Puoi lanciare {2} in risposta!
 Reaction/&CastSpellInRetributionReactDescription	Fai clic per trasmettere {0}.
 Reaction/&CastSpellInRetributionReactTitle	Lanciare un incantesimo

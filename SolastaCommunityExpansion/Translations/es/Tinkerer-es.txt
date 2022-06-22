@@ -167,8 +167,12 @@ Feature/&TinkererWeaponProficiencyDescription	Habilidad con armas simples.
 Feature/&TinkererWeaponProficiencyTitle	Competencias con armas de manitas
 Feedback/&AdditionalDamageArcaneFirearmFormat	¡Mejora de explosión!
 Feedback/&AdditionalDamageArcaneFirearmLine	Infligir daño adicional de Blasting Enhancement
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Arma cegadora
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Daño adicional y tratando de aplicar Ceguera de Arma cegadora
 Feedback/&AdditionalDamageLightningSpearFormat	¡Lanza relámpago!
 Feedback/&AdditionalDamageLightningSpearLine	¡{0} golpea a {1} con Lightning Spear! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Daño mejorado
+Feedback/&AdditionalDamageUpgradedConstructLine	La construcción mejorada inflige 1d8 más de daño por golpe.
 Feedback/&LightningSpearAdditionalDamageDescription	Inflige 1d6 de daño de rayo adicional una vez por turno.
 Feedback/&LightningSpearAdditionalDamageTitle	Daño adicional de Lightning Spear
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
@@ -177,6 +181,12 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} atacó a uno de tus aliados,
 Reaction/&ReactionAttackFeatSentinelReactDescription	Usa la reacción para atacar.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Ataque
 Reaction/&ReactionAttackFeatSentinelTitle	Reacción centinela
+Rules/&AdvantageAttackOnEnemyDescription	Ventaja para atacar al enemigo.
+Rules/&AdvantageAttackOnEnemyTitle	iluminado
+Rules/&DisadvantageOnAttackByEnemyDescription	Distraído por la sacudida de un rayo.
+Rules/&DisadvantageOnAttackByEnemyTitle	sacudido
+Rules/&ExtraDamageOnAttackConditionDescription	Daño adicional de Lightning Spear.
+Rules/&ExtraDamageOnAttackConditionTitle	estática conmocionada
 Rules/&HalfCoverShieldAttributeDescription	Los aliados en un radio de 10 pies ganan +2 CA.
 Rules/&HalfCoverShieldAttributeTitle	Cúpula de media cubierta
 Rules/&HalfCoverShieldConditionDescription	+2 CA.
@@ -191,6 +201,11 @@ Rules/&ThunderStruckDescription	Desventaja al atacar a los aliados de Scout Sent
 Rules/&ThunderStruckTitle	Thunderstruck (Distraído)
 SpellList/&SpellListTinkererDescription	Lista de hechizos de Tinkerer.
 SpellList/&SpellListTinkererTitle	Lista de hechizos del manitas
+Stage/&SubclassSelectionStageSpecialistDescription	Descripción Hay una amplia gama de especialidades en Tinkerers, incluida la elaboración de elixires como Potion Maker, la creación de explosiones como Blaster y el uso de armas mágicas como Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Funciones especializadas
+Stage/&SubclassSelectionStageSpecialistHeader	Especializaciones
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Especialista Ninguno Descripción.
+Stage/&SubclassSelectionStageSpecialistTitle	Seleccionar especialización
 Subclass/&ArtificerAlchemistDescription	Te especializas en pociones, beneficios, curación y lanzamiento de hechizos.
 Subclass/&ArtificerAlchemistTitle	fabricante de pociones
 Subclass/&ArtificerArtileristCannonsDescription	Creas un conjunto de cañones que puedes activar en la batalla como una acción adicional.
@@ -228,6 +243,7 @@ Subclass/&CancelCancelElixirResilienceTitle	Cancelar Resiliencia
 Subclass/&CancelCancelElixirSwiftnessDescription	Acaba con la condición de Rapidez del Elixir Potion Maker.
 Subclass/&CancelCancelElixirSwiftnessTitle	Cancelar Rapidez
 Subclass/&ConditionResistantArmorTitle	Armadura Resistente
+Subclass/&ConditionResistnatArmorDescription	Tu armadura es resistente al daño por ácido, frío, fuego, fuerza, rayos, necrótico, veneno, psíquico, radiante y trueno.
 Subclass/&CraftingTinkererMagicItemAdeptDescription	Eres experto en la elaboración de objetos mágicos. Te lleva 1/4 del tiempo crear artículos y aplicas el doble de tu bonificación de competencia al fabricarlos.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Experto en objetos mágicos
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Toca una bolsa e infunde un espacio dimensional extra para ayudarla a soportar más peso sin estorbarte. Solo puede tener activa una de cada infusión a la vez. Activarlo por segunda vez cancelará la primera.

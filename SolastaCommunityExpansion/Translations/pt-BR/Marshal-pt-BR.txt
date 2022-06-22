@@ -1,3 +1,8 @@
+Reaction/&CoordinatedAttackDescription	{0} foi atacado por um ataque coordenado, alguns personagens podem usar sua reação para participar deste ataque.
+Reaction/&CoordinatedAttackReactDescription	Use a reação para atacar o alvo.
+Reaction/&CoordinatedAttackReactTitle	Ataque
+Reaction/&CoordinatedAttackTitle	Ataque coordenado
+Reaction/&SubitemSelectCoordinatedAttackTitle	Selecionar ação
 Subclass/&FighterMarshalCoordinatedAttackDescription	Quando você atinge um inimigo com um ataque corpo a corpo, seus aliados podem usar sua reação para fazer um ataque de oportunidade contra seu alvo.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Ataque coordenado
 Subclass/&FighterMarshalDescription	Hábeis em estudar as fraquezas dos inimigos e coordenar os ataques de outros membros do grupo para explorá-los, os lutadores que treinaram nesta parte marcial são famosos ochestrator do campo de batalha.

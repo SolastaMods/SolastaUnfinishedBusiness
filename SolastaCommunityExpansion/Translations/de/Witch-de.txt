@@ -120,3 +120,4 @@ Subclass/&WhiteWitchMagicTitle	Weiße Magie
 Subclass/&WhiteWitchTitle	weiße Hexe
 Subclass/&WitchSubclassPathDescription	Dein Wissen über Magie hat seinen Höhepunkt erreicht, indem du einem Coven beigetreten bist, einem angeborenen Kreis von Hexen, die einen bestimmten Pfad der Hexerei und der Flüche beschreiten.
 Subclass/&WitchSubclassPathTitle	Hexenzirkel
+Tooltip/&TagMaledictionTitle	Verdammt

@@ -1,3 +1,9 @@
+Condition/&ConditionBarkWardDescription	Protégé par les esprits de la forêt. Gagne 4 PV temporaires pour chaque niveau de Druide, durant 10 minutes.
+Condition/&ConditionBarkWardTitle	Bark Ward
+Condition/&ConditionImprovedBarkWardDescription	Les esprits de la forêt infligent 2d8 dégâts perforants aux créatures qui les touchent lors d'une attaque au corps à corps.
+Condition/&ConditionImprovedBarkWardTitle	Bark Ward amélioré
+Condition/&ConditionSuperiorBarkWardDescription	Les esprits de la forêt confèrent une immunité au poison et infligent 3d8 dégâts perforants aux créatures qui les touchent lors d'une attaque au corps à corps.
+Condition/&ConditionSuperiorBarkWardTitle	Quartier supérieur de l'écorce
 Feature/&DruidForestGuardianBarkWardDescription	Vous gagnez la capacité d'invoquer un Bark Ward pour vous protéger. Par une action bonus, vous pouvez dépenser une utilisation de votre forme sauvage pour gagner 4 points de vie temporaires pour chaque niveau que vous avez dans cette classe. Ces points de vie temporaires durent 10 minutes ou jusqu'à ce que vous utilisiez à nouveau votre forme sauvage.
 Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
 Feature/&DruidForestGuardianExtraAttackDescription	À partir du niveau 6, vous pouvez attaquer deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour.

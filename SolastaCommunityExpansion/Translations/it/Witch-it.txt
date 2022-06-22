@@ -120,3 +120,4 @@ Subclass/&WhiteWitchMagicTitle	Magia Bianca
 Subclass/&WhiteWitchTitle	Strega Bianca
 Subclass/&WitchSubclassPathDescription	La tua conoscenza della magia è culminata nell'entrare in una Congrega, un'innata cerchia di streghe che percorrono un percorso specifico di stregoneria e maledizioni.
 Subclass/&WitchSubclassPathTitle	Congreghe delle streghe
+Tooltip/&TagMaledictionTitle	Accidenti

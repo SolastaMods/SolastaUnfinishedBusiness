@@ -4,6 +4,8 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	La puntuación de carisma se 
 AttributeModifier/&DHFeeblemindChaSpellTitle	carisma débil
 AttributeModifier/&DHFeeblemindIntSpellDescription	La puntuación de carisma se establece en 1.
 AttributeModifier/&DHFeeblemindIntSpellTitle	Inteligencia débil
+Condition/&ConditionMuleDescription	Tu velocidad no se ve reducida por estorbos o armaduras pesadas. Puedes llevar 20 libras adicionales.
+Condition/&ConditionMuleTitle	Mula
 Condition/&DHFeeblemindSpellDescription	Las puntuaciones de Inteligencia y Carisma de la criatura se convierten en 1. La criatura no puede lanzar hechizos, activar objetos mágicos, entender el lenguaje o comunicarse de forma inteligible.
 Condition/&DHFeeblemindSpellTitle	Débil mental
 Condition/&DHForesightSpellDescription	Ventaja en todas las tiradas de ataque, pruebas de habilidad y tiradas de salvación. Otras criaturas tienen desventaja en las tiradas de ataque.
@@ -18,6 +20,10 @@ Condition/&DHTimeStopSpellDescription	El tiempo se congela para la criatura afec
 Condition/&DHTimeStopSpellTitle	tiempo detenido
 Condition/&DHWeirdSpellDescription	Atemorizado. Al final de cada turno, haz una tirada de salvación de Sabiduría. Si falla, recibe 4d10 de daño psíquico. Con un éxito, esta condición finaliza.
 Condition/&DHWeirdSpellTitle	raro
+Condition/&EWResonatingStrikeDamageDescription	A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño de trueno adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
+Condition/&EWResonatingStrikeDamageTitle	Resonancia
+Condition/&EWSunlightBladeDamageDescription	A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño radiante adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
+Condition/&EWSunlightBladeDamageTitle	Quemadura de Sunlit Blade
 DamageAffinity/&DHHolyAuraSpellDescription	Cuando un demonio o un no-muerto golpea con un ataque cuerpo a cuerpo, el aura destella con una luz brillante y el atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que termine el hechizo.
 DamageAffinity/&DHHolyAuraSpellTitle	Represalia del aura sagrada
 Feat/&AlchemistSubclassSpellsDescription	{0}.
@@ -28,10 +34,23 @@ Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Obtienes hechizos d
 Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Hechizos de construcción protectora
 Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Obtienes hechizos de bonificación que se consideran hechizos de Tinkerer para ti, siempre están preparados y no cuentan contra la cantidad de hechizos de Tinkerer que conoces.
 Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Hechizos de construcción protectora
+Feature/&DHHolyAuraBlindingPowerDescription	Cuando un demonio o un no-muerto golpea a una criatura afectada con un ataque cuerpo a cuerpo, el aura destella con una luz brillante. El atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que termine el conjuro.
+Feature/&DHHolyAuraBlindingPowerTitle	Represalia del aura sagrada
 Feature/&ElementalistSpellsMagicAffinityDescription	Eliges de una lista ampliada de hechizos cuando aprendes un hechizo de brujo. Los siguientes hechizos se agregan a la lista de hechizos de Warlock para ti: {0}
 Feature/&ElementalistSpellsMagicAffinityTitle	Hechizos de elementalista
 Feature/&SpellAsInvocationAtWillDescription	Lanza {0} a voluntad.
 Feature/&SpellAsInvocationOncePerDayDescription	Lanza {0} una vez hasta un descanso prolongado.
+Feedback/&AdditionalDamageResonatingStrikeFormat	¡Golpe resonante!
+Feedback/&AdditionalDamageResonatingStrikeLine	¡{0} resuena {1}! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	¡Hoja iluminada por el sol!
+Feedback/&AdditionalDamageSunlightBladeLine	¡{0} quema {1} con Sunlit Blade! (+{2})
+Feedback/&NotifyEffectResonatingStrikeLine	¡{0} resuena {1}!
+Monster/&DHCustomCouatlDescription	Los couatls son seres serpentinos benévolos de gran intelecto y perspicacia. Sus alas de colores brillantes y su manera amable hablan de sus orígenes celestiales.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Búho Familiar.
+Monster/&OwlFamiliarTitle	Búho
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Daño perforante, y el objetivo debe tener éxito en una tirada de salvación de Constitución CD 13 o quedará envenenado durante 24 horas. Hasta que este veneno termine, el objetivo está inconsciente.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Morder
 Reaction/&CastSpellInRetributionDescription	¡{0} está atacando a {1}! ¡Puedes lanzar {2} en respuesta!
 Reaction/&CastSpellInRetributionReactDescription	Haz clic para enviar {0}.
 Reaction/&CastSpellInRetributionReactTitle	Lanzar hechizo

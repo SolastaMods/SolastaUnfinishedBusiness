@@ -206,6 +206,40 @@ Equipment/&ThunderPunchDescription	Verursacht bei einem Treffer 1W8 Donnerschade
 Equipment/&ThunderPunchTitle	Donner Schlag
 Equipment/&WandIdentifyDescription	Wirkt den Zauber Identifizieren, indem er eine Ladung verbraucht. Der Zauberstab hat 3 Ladungen und gewinnt bei jedem Morgengrauen 1W3 Ladungen zurück.
 Equipment/&WandIdentifyTitle	Zauberstab des Identifizierens
+Feat/&FeatPolearmExpertDescription	Diese Vorteile bietet Ihnen Ihre Expertenausbildung mit Stangenwaffen:\n• Wenn du die Aktion „Angriff“ ausführst und nur mit einer Stangenwaffe angreifst, kannst du eine Bonusaktion verwenden, um einen Nahkampfangriff mit dem anderen Ende der Waffe durchzuführen. Dieser Angriff verwendet denselben Fähigkeitsmodifikator wie der Primärangriff. Der Schadenswürfel der Waffe für diesen Angriff ist ein W4 und verursacht Knüppelschaden.\n• Während Sie eine Stangenwaffe führen, provozieren andere Kreaturen einen Gelegenheitsangriff von Ihnen, wenn sie in die Reichweite dieser Waffe gelangen.
+Feat/&FeatPolearmExpertTitle	Stangenwaffen-Experte
+Item/&CEHalberd+1Title	Hellebarde +1
+Item/&CEHalberd+1UnidentifiedTitle	Qualität Hellebarde
+Item/&CEHalberd+2Title	Hellebarde +2
+Item/&CEHalberd+2UnidentifiedTitle	Prächtige Hellebarde
+Item/&CEHalberdLightningTitle	Blitzhellebarde
+Item/&CEHalberdLightningUnidentifiedTitle	Prächtige Hellebarde
+Item/&CEHalberdPrimedTitle	Grundierte Hellebarde
+Item/&CEHalberdTitle	Hellebarde
+Item/&CEHandXbow+1Title	Handarmbrust +1
+Item/&CEHandXbow+1UnidentifiedTitle	Hochwertige Handarmbrust
+Item/&CEHandXbow+2Title	Handarmbrust +2
+Item/&CEHandXbow+2UnidentifiedTitle	Prächtige Handarmbrust
+Item/&CEHandXbowAcidTitle	Säurehaltige Handarmbrust
+Item/&CEHandXbowAcidUnidentifiedTitle	Prächtige Handarmbrust
+Item/&CEHandXbowPrimedTitle	Grundierte Handarmbrust
+Item/&CEHandXbowTitle	Hand-Armbrust
+Item/&CELongMace+1Title	Langer Streitkolben +1
+Item/&CELongMace+1UnidentifiedTitle	Hochwertiger langer Streitkolben
+Item/&CELongMace+2Title	Langer Streitkolben +2
+Item/&CELongMace+2UnidentifiedTitle	Herrlicher langer Streitkolben
+Item/&CELongMacePrimedTitle	Grundierter langer Streitkolben
+Item/&CELongMaceThunderTitle	Donnernder langer Streitkolben
+Item/&CELongMaceThunderUnidentifiedTitle	Herrlicher langer Streitkolben
+Item/&CELongMaceTitle	Langer Streitkolben
+Item/&CEPike+1Title	Hecht +1
+Item/&CEPike+1UnidentifiedTitle	Qualitätshecht
+Item/&CEPike+2Title	Hecht +2
+Item/&CEPike+2UnidentifiedTitle	Prächtiger Hecht
+Item/&CEPikePrimedTitle	Grundierter Hecht
+Item/&CEPikePsychicTitle	Hellseher Pike
+Item/&CEPikePsychicUnidentifiedTitle	Prächtiger Hecht
+Item/&CEPikeTitle	Pike
 Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Hellebarde +1 verzaubern.
 Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Hellebarde +1 verzaubern
 Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Hellebarde +2 verzaubern.
@@ -246,3 +280,14 @@ Item/&CraftingManualRecipePrimingCELongMaceDescription	Erstklassiger langer Stre
 Item/&CraftingManualRecipePrimingCELongMaceTitle	Erstklassiger langer Streitkolben
 Item/&CraftingManualRecipePrimingCEPikeDescription	Erster Hecht.
 Item/&CraftingManualRecipePrimingCEPikeTitle	Erster Hecht
+Item/&Handwraps+1Title	Handwickel +1
+Item/&Handwraps+1UnidentifiedTitle	Handbandagen von guter Qualität
+Item/&Handwraps+2Title	Handwickel +2
+Item/&Handwraps+2UnidentifiedTitle	Prächtige Handwickel
+Item/&HandwrapsOfForceTitle	Kraftvolle Handwickel
+Item/&HandwrapsOfForceUnidentifiedTitle	Prächtige Handwickel
+Item/&HandwrapsOfPullingTitle	Handbandagen des Ziehens
+Item/&HandwrapsOfPullingUnidentifiedTitle	Prächtige Handwickel
+Power/&PowerFunctionHandwrapsOfPullingDescription	Als Bonusaktion kannst du eine Kreatur innerhalb von 15 Fuß näher zu dir ziehen.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Rollen Sie ein
+Tooltip/&TagPolearmWeaponTitle	Stangenwaffe

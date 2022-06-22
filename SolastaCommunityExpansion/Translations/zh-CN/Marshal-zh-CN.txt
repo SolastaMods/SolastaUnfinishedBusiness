@@ -1,3 +1,8 @@
+Reaction/&CoordinatedAttackDescription	{0}受到协同攻击，一些角色能使用其反应来加入此攻击
+Reaction/&CoordinatedAttackReactDescription	使用反应攻击目标
+Reaction/&CoordinatedAttackReactTitle	攻击
+Reaction/&CoordinatedAttackTitle	协同攻击
+Reaction/&SubitemSelectCoordinatedAttackTitle	选择动作
 Subclass/&FighterMarshalCoordinatedAttackDescription	当你以近身攻击命中敌人时，你的队伍成员能以其反应对此目标进行一次借机攻击
 Subclass/&FighterMarshalCoordinatedAttackTitle	协作攻击
 Subclass/&FighterMarshalDescription	擅长研究敌人的弱点并协调其他队伍成员的攻击以利用这些弱点，接受过这一统帅训练的战士是著名的战场策划者

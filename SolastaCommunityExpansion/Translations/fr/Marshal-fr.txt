@@ -1,3 +1,8 @@
+Reaction/&CoordinatedAttackDescription	{0} a été attaqué en coordonnant l'attaque, certains personnages peuvent utiliser leur réaction pour rejoindre cette attaque.
+Reaction/&CoordinatedAttackReactDescription	Utilisez la réaction pour attaquer la cible.
+Reaction/&CoordinatedAttackReactTitle	Attaque
+Reaction/&CoordinatedAttackTitle	Attaque coordonnée
+Reaction/&SubitemSelectCoordinatedAttackTitle	Sélectionnez l'action
 Subclass/&FighterMarshalCoordinatedAttackDescription	Lorsque vous frappez un ennemi avec une attaque au corps à corps, vos alliés peuvent utiliser leur réaction pour effectuer une attaque d'opportunité contre votre cible.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Attaque coordonnée
 Subclass/&FighterMarshalDescription	Habiles à étudier les faiblesses des ennemis et à coordonner les attaques des autres membres du groupe pour les exploiter, les combattants qui se sont entraînés dans cette partie martiale sont des orchestres célèbres du champ de bataille.

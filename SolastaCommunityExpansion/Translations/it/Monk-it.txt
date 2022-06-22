@@ -37,8 +37,6 @@ Feature/&ClassMonkPerfectSelfTitle	Sé perfetto
 Feature/&ClassMonkPurityOfBodyDescription	La tua padronanza del ki che scorre attraverso di te ti rende immune alle malattie e ai veleni.
 Feature/&ClassMonkPurityOfBodyTitle	Purezza del corpo
 Feature/&ClassMonkSkillProficiencyTitle	Abilità del monaco
-Feature/&ClassMonkTongueOfSunAndMoonDescription	Impari a toccare il ki di altre menti in modo da comprendere tutte le lingue parlate. Inoltre, qualsiasi creatura in grado di capire una lingua può capire quello che dici.
-Feature/&ClassMonkTongueOfSunAndMoonTitle	Lingua del Sole e della Luna
 Feature/&ClassMonkUnarmoredDefenseDescription	Mentre non indossi un'armatura e non brandisci uno scudo, la tua CA è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Saggezza.
 Feature/&ClassMonkUnarmoredDefenseTitle	Difesa senza armatura
 Feature/&ClassMonkUnarmoredMovementBonusDescription	Il bonus di movimento aumenta di 1,5 metri.
@@ -54,6 +52,8 @@ Feature/&ClassMonkZenArcherKiPoweredArowsDescription	I tuoi attacchi con l'arco 
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Frecce potenziate dal Ki
 Feature/&ClassMonkZenArcherStunningArrowsDescription	Puoi interferire con il flusso di ki nel corpo di un avversario. Quando colpisci un'altra creatura che non è stordita con un attacco di freccia, puoi spendere 1 punto ki per tentare un colpo stordente. Il bersaglio deve superare un tiro salvezza di Costituzione o rimanere stordito fino alla fine del tuo prossimo turno.
 Feature/&ClassMonkZenArcherStunningArrowsTitle	Frecce mozzafiato
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Colpo Illuminante!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Colpo Illuminante infligge danni extra al bersaglio!
 Power/&ClassMonkDiamondSoulPowerDescription	Ogni volta che effettui un tiro salvezza e fallisci, puoi spendere 1 punto ki per ritirarlo e prendere il secondo risultato.
 Power/&ClassMonkDiamondSoulPowerTitle	Anima di diamante
 Power/&ClassMonkEmptyBodyDescription	Puoi usare la tua azione per spendere 4 punti ki per diventare invisibile per 1 minuto. Durante quel periodo, hai anche resistenza a tutti i danni tranne quelli forzati.
@@ -140,6 +140,28 @@ Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Caratteristiche della tr
 Stage/&SubclassSelectionStageClassMonkTraditionHeader	Seleziona una tradizione monastica
 Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Devi selezionare una tradizione monastica.
 Stage/&SubclassSelectionStageClassMonkTraditionTitle	monastico\nTradizione
+Subclass/&BarbarianPathOfTheLightDescription	I barbari che seguono il Sentiero della Luce illuminano l'oscurità e proteggono i loro alleati dai pericoli che si annidano al suo interno.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	Sei sempre sotto gli effetti di un incantesimo Vedere Invisibilità.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Occhi di verità
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distratto da Colpo Illuminante.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Illuminato
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Svantaggio su qualsiasi tiro per colpire che non sia contro il barbaro Sentiero della Luce.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Non può diventare invisibile.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	Nel turno in cui entri nella tua rabbia, puoi scegliere di illuminare fino a tre nemici entro 9 metri da te. Devono superare un tiro salvezza di Costituzione (CD pari a 8 + il tuo bonus di competenza + il tuo modificatore di Costituzione) o subire 4d6 danni radianti ed essere illuminati dal tuo Colpo Illuminante per 1 minuto. Una creatura illuminata in questo modo effettua un altro tiro salvezza di Costituzione alla fine di ogni suo turno. Se riesce, l'effetto termina.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Fino a tre nemici effettuano un tiro salvezza su Costituzione o subiscono 4d6 danni radianti e vengono illuminati dal tuo Colpo Illuminante.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Esplosione illuminante
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Esplosione illuminante
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	Mentre sei in collera, la prima creatura che colpisci con un attacco nel tuo turno subisce 1d6 danni radianti aggiuntivi e diventa magicamente illuminata fino all'inizio del tuo prossimo turno. Inoltre, la creatura ha svantaggio su qualsiasi tiro per colpire che non è contro di te e non può diventare invisibile.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	Il danno aggiuntivo inflitto da Colpo Illuminante aumenta a 2d6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Miglioramento Colpo Illuminante
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Colpo Illuminante
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Recuperi punti ferita pari alla metà del tuo livello da barbaro quando una creatura ostile influenzata dal tuo Colpo Illuminante muore. Inoltre, non provochi più attacchi di opportunità dalle creature influenzate dal tuo Colpo Illuminante.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	La protezione della luce
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Ottieni una scurovisione superiore.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Perfora l'oscurità
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Può percepire creature invisibili.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Vista dell'invisibilità
+Subclass/&BarbarianPathOfTheLightTitle	Via della Luce
 Subclass/&ClassMonkTraditionDescription	Al 3° livello, scegli la via spirituale che segui verso l'illuminazione. Darà forma al modo in cui manipoli il ki.
 Subclass/&ClassMonkTraditionTitle	Tradizioni monastiche
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	I monaci della Via della Mano Aperta sono i massimi maestri del combattimento di arti marziali, armati o disarmati. Imparano le tecniche per spingere e inciampare i loro avversari, manipolare il ki per curare i danni ai loro corpi e praticano la meditazione avanzata che può proteggerli dai danni.

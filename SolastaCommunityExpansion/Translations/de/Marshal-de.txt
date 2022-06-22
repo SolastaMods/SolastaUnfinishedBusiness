@@ -1,3 +1,8 @@
+Reaction/&CoordinatedAttackDescription	{0} wurde durch einen koordinierenden Angriff angegriffen, einige Charaktere können ihre Reaktion nutzen, um sich diesem Angriff anzuschließen.
+Reaction/&CoordinatedAttackReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&CoordinatedAttackReactTitle	Attacke
+Reaction/&CoordinatedAttackTitle	Koordinierter Angriff
+Reaction/&SubitemSelectCoordinatedAttackTitle	Aktion auswählen
 Subclass/&FighterMarshalCoordinatedAttackDescription	Wenn Sie einen Feind mit einem Nahkampfangriff treffen, können Ihre Verbündeten ihre Reaktion nutzen, um einen Gelegenheitsangriff gegen Ihr Ziel durchzuführen.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Koordinierter Angriff
 Subclass/&FighterMarshalDescription	Kämpfer, die in diesem kriegerischen Teil trainiert wurden, sind begabt darin, die Schwächen der Feinde zu studieren und Angriffe anderer Gruppenmitglieder zu koordinieren, um sie auszunutzen, und sind berühmte Ochestratoren des Schlachtfelds.

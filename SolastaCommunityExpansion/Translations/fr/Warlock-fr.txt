@@ -51,6 +51,8 @@ Feature/&AncientForestLightAffinityDescription	Vous pouvez absorber l'énergie d
 Feature/&AncientForestLightAffinityTitle	Photosynthèse
 Feature/&AncientForestRegrowthDescription	Vous avez un réservoir de pouvoir de guérison qui se reconstitue lorsque vous prenez un long repos. Avec ce pool, vous pouvez restaurer un nombre total de points de vie égal à votre niveau d'Arcaniste × 5.
 Feature/&AncientForestRegrowthTitle	Repousse
+Feature/&ArmorofShadowsTitle	Armure des ombres
+Feature/&AscendantStepTitle	Étape ascendante
 Feature/&AspectoftheMoonDescription	Vous n'avez plus besoin de dormir et pouvez surveiller, ce qui réduit les risques d'attaque et vous assure d'être éveillé si le camp est attaqué.
 Feature/&AspectoftheMoonTitle	Aspect de la Lune
 Feature/&BeguilingInfluenceDescription	Vous maîtrisez les compétences Tromperie et Persuasion.
@@ -59,6 +61,8 @@ Feature/&BondoftheTalismanDescription	Téléportation jusqu'à 30 pieds.
 Feature/&BondoftheTalismanTitle	Talisman de téléportation
 Feature/&ChainsofCarceriDescription	Paralyse un céleste, un démon ou un élémental à moins qu'il ne réussisse un jet de sauvegarde de Sagesse.
 Feature/&ChainsofCarceriTitle	Chaînes de Carceri
+Feature/&ClassMonkTongueOfSunAndMoonDescription	Vous apprenez à toucher le ki des autres esprits afin de comprendre toutes les langues parlées. De plus, toute créature qui peut comprendre une langue peut comprendre ce que vous dites.
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Langue du Soleil et de la Lune
 Feature/&ClassWarlockArmorProficiencyDescription	Armure légère.
 Feature/&ClassWarlockArmorProficiencyTitle	Compétences d'armure de démoniste
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Sélectionnez Eldritch Invocation à remplacer.
@@ -97,10 +101,15 @@ Feature/&DH_RiftWalkDescription	Brièvement entouré par l'énergie du vide entr
 Feature/&DH_RiftWalkTitle	Étape de la faille
 Feature/&DHAncientForestBonusCantripDescription	Votre patron partage des secrets sur la nature de la façon dont la magie naturelle et l'énergie vitale sont liées. Vous apprenez Shillelagh et Chill Touch.
 Feature/&DHAncientForestBonusCantripTitle	Tours mineurs bonus de la forêt ancienne
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Votre contrôle des énergies élémentaires a augmenté au point que vous avez maintenant la domination sur les élémentaux plus faibles. Vous pouvez lancer conjuration d'élémentaire mineur à volonté.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Sbires élémentaires
 Feature/&DHPactOfTheTomeFeatureSetDescription	Votre mécène vous donne un grimoire appelé Livre des Ombres. Lorsque vous gagnez cette capacité, choisissez trois sorts mineurs dans la liste de sorts de n'importe quelle classe. Les sorts mineurs n'ont pas besoin d'être de la même liste de sorts. Pendant que le livre est sur vous, vous pouvez lancer ces sorts mineurs à volonté. Ils ne comptent pas dans votre nombre de cantrips connus. Tout sort mineur que vous lancez avec cette capacité est considéré comme un sort mineur d'Arcaniste pour vous.
 Feature/&DHPactOfTheTomeFeatureSetTitle	Pacte du Tome
+Feature/&DHWardingBondBonusCantripDescription	Votre contrôle des portails de faille a augmenté au point que vous pouvez désormais accorder la protection de la faille à d'autres. Vous pouvez lancer Lien protecteur à volonté (sans partager les dégâts).
+Feature/&DHWardingBondBonusCantripTitle	Cape de faille
 Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	Lorsque vous lancez l'invocation d'un familier, vous pouvez choisir l'une des formes spéciales suivantes : diablotin, pseudodragon, quasit ou sprite.
 Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	Pacte de la Chaîne
+Feature/&DreadfulWordTitle	Mot terrible
 Feature/&EldritchBlastGraspingHandBonusCantripDescription	Lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez déplacer cette créature en ligne droite à 3 mètres de vous.
 Feature/&EldritchBlastGraspingHandBonusCantripTitle	Explosion saisissante
 Feature/&EldritchBlastRepellingBlastBonusCantripDescription	Lorsque vous touchez une créature avec un souffle eldritch, vous pouvez repousser la créature jusqu'à 3 mètres de vous en ligne droite.
@@ -130,6 +139,7 @@ Feature/&ElementalPatronFeatureSet_Level06Description	Votre connaissance des él
 Feature/&ElementalPatronFeatureSet_Level06Title	Connaissance des Elémentaires
 Feature/&EyesoftheRuneKeeperDescription	Vous pouvez lire tous les écrits.
 Feature/&EyesoftheRuneKeeperTitle	Les yeux du gardien des runes
+Feature/&FiendishVigorTitle	Vigueur diabolique
 Feature/&GiftoftheEverLivingOnesDescription	Récupère le nombre maximum de points de vie possible grâce à n'importe quel soin.
 Feature/&GiftoftheEverLivingOnesTitle	Don des éternels
 Feature/&GiftoftheProtectorsDescription	Lorsque vous êtes réduit à 0 points de vie mais que vous n'êtes pas tué sur le coup, la créature tombe comme par magie à 1 point de vie à la place. Une fois cette magie déclenchée, vous ne pouvez plus en bénéficier tant que vous n'avez pas terminé un repos long.
@@ -143,6 +153,7 @@ Feature/&HinderingBlastMagicAffinityTitle	Explosion gênante
 Feature/&HinderingBlastTitle	Explosion gênante
 Feature/&ImprovedPactWeaponDescription	Vous pouvez utiliser n'importe quelle arme comme focalisateur de sorts pour vos sorts de démoniste. De plus, l'arme bénéficie d'un bonus de +1 à ses jets d'attaque et de dégâts.
 Feature/&ImprovedPactWeaponTitle	Arme du Pacte améliorée
+Feature/&MiretheMindTitle	Mire l'esprit
 Feature/&MoonLitDarknessImmunityDescription	Vous êtes immunisé contre la condition Obscurité.
 Feature/&MoonLitDarknessImmunityTitle	Ténèbres au clair de lune
 Feature/&MoonLitExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
@@ -172,16 +183,21 @@ Feature/&ThiefofFiveFates	Diffusez {0} une fois par jour
 Feature/&ThiefofFiveFatesTitle	Voleur des cinq destins
 Feature/&ThirstingBladeDescription	Vous pouvez attaquer avec votre arme deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour.
 Feature/&ThirstingBladeTitle	Lame assoiffée
+Feature/&TrickstersEscapeTitle	L'évasion d'un escroc
 Feature/&WallofThornsFeatureSetDescription	Lancez Mur d'épines une fois par jour.
 Feature/&WallofThornsFeatureSetTitle	Barrière forestière
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Explosion agonisante
 Feedback/&AdditionalDamageAgonizing_BlastLine	Lorsque vous lancez Explosion occulte, vous ajoutez votre modificateur de Charisme aux dégâts qu'il inflige en cas de coup.
 Feedback/&AdditionalDamageEldritchSmiteFormat	Châtiment Eldritch !
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} châtie {1} (+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	Dégâts élémentaires
+Feedback/&AdditionalDamageElementalDamageLine	La forme élémentaire inflige des dégâts supplémentaires
 Feedback/&AdditionalDamagePactMarkedFormat	Marque de pacte !
 Feedback/&AdditionalDamagePactMarkedLine	La marque du pacte inflige des dégâts supplémentaires !
 Feedback/&AdditionalDamagePactSoulTakerFormat	Preneur d'âme !
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker inflige des dégâts supplémentaires !
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered inflige des dégâts supplémentaires !
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} crée {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} crée {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} crée {1}
@@ -213,6 +229,8 @@ Power/&DH_ElementalFormPoolEnhancedDescription	Vous pouvez basculer entre les fo
 Power/&DH_ElementalFormPoolEnhancedTitle	Formes élémentaires améliorées
 Power/&DH_ElementalFormPoolEnhancedTitleShort	Formes élémentaires
 Power/&DH_ElementalFormPoolTitle	Formes élémentaires
+Power/&FindFamiliarBundlePowerDescription	Invocation de familier sous la forme de Pseudorgagon, Sprite, Imp ou Quasit.
+Power/&FindFamiliarBundlePowerTitle	Trouver un familier
 Power/&MoonlitDanceoftheNightSkyDescription	Vous pouvez lancer Voler sur 4 cibles une fois par jour.
 Power/&MoonlitDanceoftheNightSkyTitle	Danse du ciel nocturne
 Power/&MoonlitDarkMoonDescription	Vous pouvez lancer Ténèbres un nombre de fois par repos long égal à votre bonus de maîtrise.
@@ -240,6 +258,7 @@ Requirement/&WarlockRequiresOneWithShadows	"Un avec les ombres" Invocation Eldri
 Requirement/&WarlockRequiresPactOfBlade	Pacte de la Lame
 Requirement/&WarlockRequiresPactOfChain	Pacte des chaînes
 Requirement/&WarlockRequiresPactOfTome	Pacte du Tome
+Rules/&CounterFormDismissCreatureFormat	Ignorer la construction du bricoleur
 Spell/&AHPactMarkAdditionalDamageDescription	Une créature marquée par un pacte subit 1d6 dégâts supplémentaires du même type lorsqu'elle est touchée par une arme ou une attaque avec un sort du marqueur.
 Spell/&AHPactMarkAdditionalDamageTitle	Dégâts de la marque du pacte
 Spell/&AHPactMarkMarkedByPactConditionDescription	Cette créature a été marquée par un pacte et subit 1d6 dégâts supplémentaires du même type lorsqu'elle est touchée par une arme ou une attaque avec un sort du marqueur.
@@ -282,3 +301,5 @@ Subclass/&WarlockMoonLitDescription	Votre patron est un esprit de la lune, une e
 Subclass/&WarlockMoonLitTitle	Pacte au clair de lune
 Subclass/&WarlockToadKingDescription	Fey, démon ou aberration causée par le cataclysme, la vraie nature du roi crapaud n'est pas connue, mais on sait que le roi crapaud règne sur une vaste zone de marécages et de marais dans les Badlands et offre du pouvoir à ceux qui veulent servir.
 Subclass/&WarlockToadKingTitle	Pacte du roi crapaud
+Subclass/&WarlockUrPriestDescription	Alors que la grande majorité des lanceurs de sorts divins tirent leurs pouvoirs d'une divinité, il y a ceux qui méprisent les dieux. Ceux qui se font appeler Ur-prêtres ont appris à siphonner les énergies divines accordées par les dieux à leurs lanceurs de sorts divins, en les utilisant pour leurs propres besoins sans même faire semblant d'être du bout des lèvres. En tant que prêtre d'Ur, vous êtes différent de la plupart des sorciers, car il vous manque un patron qui vous accorde votre pouvoir. Les invocations occultes que vous découvrez sont des formes déformées de magie que les dieux pourraient accorder à leurs patrons, tandis que les avantages du pacte sont probablement des artefacts divins que vous avez réussi à voler.
+Subclass/&WarlockUrPriestTitle	Pacte d'UrPrêtre

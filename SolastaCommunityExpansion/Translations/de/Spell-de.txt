@@ -4,6 +4,8 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	Charismawert wird auf 1 geset
 AttributeModifier/&DHFeeblemindChaSpellTitle	Schwaches Charisma
 AttributeModifier/&DHFeeblemindIntSpellDescription	Charismawert wird auf 1 gesetzt.
 AttributeModifier/&DHFeeblemindIntSpellTitle	Schwache Intelligenz
+Condition/&ConditionMuleDescription	Ihre Geschwindigkeit wird nicht durch Belastung oder schwere Panzerung verringert. Sie können 20 zusätzliche Pfund tragen.
+Condition/&ConditionMuleTitle	Maultier
 Condition/&DHFeeblemindSpellDescription	Die Intelligenz- und Charismawerte der Kreatur werden zu 1. Die Kreatur kann keine Zauber wirken, magische Gegenstände aktivieren, Sprache verstehen oder auf irgendeine verständliche Weise kommunizieren.
 Condition/&DHFeeblemindSpellTitle	Schwachsinn
 Condition/&DHForesightSpellDescription	Vorteil bei allen Angriffswürfen, Attributswürfen und Rettungswürfen. Andere Kreaturen haben einen Nachteil bei Angriffswürfen.
@@ -18,6 +20,10 @@ Condition/&DHTimeStopSpellDescription	Die Zeit wird für die betroffene Kreatur 
 Condition/&DHTimeStopSpellTitle	Zeit angehalten
 Condition/&DHWeirdSpellDescription	Erschrocken. Führe am Ende jeder Runde einen Weisheitswurf aus. Bei einem Misserfolg erleidest du 4W10 psychischen Schaden. Bei einem Erfolg endet diese Bedingung.
 Condition/&DHWeirdSpellTitle	Seltsam
+Condition/&EWResonatingStrikeDamageDescription	Auf der 5. Stufe verursachen Angriffe, die von diesem Cantrip ausgelöst werden, zusätzlich 1W8 Donnerschaden. Der Schaden erhöht sich weiter um 1W8 auf der 11. und 17. Stufe.
+Condition/&EWResonatingStrikeDamageTitle	Resonanz
+Condition/&EWSunlightBladeDamageDescription	Auf der 5. Stufe verursachen Angriffe, die von diesem Cantrip ausgelöst werden, zusätzlich 1W8 Strahlungsschaden. Der Schaden erhöht sich weiter um 1W8 auf der 11. und 17. Stufe.
+Condition/&EWSunlightBladeDamageTitle	Brennen der sonnenbeschienenen Klinge
 DamageAffinity/&DHHolyAuraSpellDescription	Wenn ein Unterweltler oder ein Untoter mit einem Nahkampfangriff zuschlägt, blitzt die Aura in strahlendem Licht auf und dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet.
 DamageAffinity/&DHHolyAuraSpellTitle	Vergeltung der Heiligen Aura
 Feat/&AlchemistSubclassSpellsDescription	{0}.
@@ -28,10 +34,23 @@ Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Du erhältst Bonusz
 Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Beschützerkonstrukt-Zauber
 Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Tüftlerzauber gelten, sie sind immer vorbereitet und zählen nicht zu der Anzahl an Tüftlerzaubern, die du kennst.
 Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Beschützerkonstrukt-Zauber
+Feature/&DHHolyAuraBlindingPowerDescription	Wenn ein Teufel oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura in strahlendem Licht auf. Dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet.
+Feature/&DHHolyAuraBlindingPowerTitle	Vergeltung der Heiligen Aura
 Feature/&ElementalistSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementarmagier-Zauber
 Feature/&SpellAsInvocationAtWillDescription	Zaubere {0} nach Belieben.
 Feature/&SpellAsInvocationOncePerDayDescription	Bis zur langen Pause einmal {0} wirken.
+Feedback/&AdditionalDamageResonatingStrikeFormat	Resonanzschlag!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} schwingt mit {1}! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Sonnenbeschienene Klinge!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} verbrennt {1} mit Sunlit Blade! (+{2})
+Feedback/&NotifyEffectResonatingStrikeLine	{0} schwingt mit {1}!
+Monster/&DHCustomCouatlDescription	Couatls sind wohlwollende Schlangenwesen von großem Intellekt und Einsicht. Ihre leuchtend gefärbten Flügel und ihre sanfte Art sprechen für ihre himmlische Herkunft.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Eule vertraut.
+Monster/&OwlFamiliarTitle	Eule
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Durchdringender Schaden, und dem Ziel muss ein Konstitutionswurf gegen SG 13 gelingen oder es wird 24 Stunden lang vergiftet. Bis dieses Gift endet, ist das Ziel bewusstlos.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Beissen
 Reaction/&CastSpellInRetributionDescription	{0} greift {1} an! Du kannst {2} als Antwort wirken!
 Reaction/&CastSpellInRetributionReactDescription	Klicken Sie, um {0} zu wirken.
 Reaction/&CastSpellInRetributionReactTitle	Zauber wirken

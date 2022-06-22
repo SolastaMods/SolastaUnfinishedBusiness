@@ -51,6 +51,8 @@ Feature/&AncientForestLightAffinityDescription	你能从阳光中汲取能量。
 Feature/&AncientForestLightAffinityTitle	光合作用
 Feature/&AncientForestRegrowthDescription	你有治愈能量池，长休补充。你能利用此治愈池恢复等同于5倍于邪术师等级的生命值。
 Feature/&AncientForestRegrowthTitle	再生长
+Feature/&ArmorofShadowsTitle	阴影之甲
+Feature/&AscendantStepTitle	星移步法
 Feature/&AspectoftheMoonDescription	你不再需要睡觉所以能保持警戒，降低被攻击的几率，同时确保营地被攻击时你是清醒的
 Feature/&AspectoftheMoonTitle	月之相位
 Feature/&BeguilingInfluenceDescription	你获得欺瞒和游说技能的熟练项
@@ -59,6 +61,8 @@ Feature/&BondoftheTalismanDescription	传送至多30英尺
 Feature/&BondoftheTalismanTitle	传送护符
 Feature/&ChainsofCarceriDescription	若一个天界生物、邪魔、或元素生物无法通过感知豁免则被麻痹
 Feature/&ChainsofCarceriTitle	卡瑟利之链
+Feature/&ClassMonkTongueOfSunAndMoonDescription	你能与其它生物进行心灵交流，因此你能够听懂所有语言。同时掌握至少一门语言的任何生物都能理解你讲的话语
+Feature/&ClassMonkTongueOfSunAndMoonTitle	天语通
 Feature/&ClassWarlockArmorProficiencyDescription	轻甲
 Feature/&ClassWarlockArmorProficiencyTitle	邪术师防具擅长
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	选择一个魔能祈唤进行替换
@@ -97,10 +101,15 @@ Feature/&DH_RiftWalkDescription	短暂地被裂缝的能量所包围，你传送
 Feature/&DH_RiftWalkTitle	裂隙步
 Feature/&DHAncientForestBonusCantripDescription	你的宗主分享关于自然魔法和生命能量是如何联系在一起的自然奥秘。你学会了橡棍术和寒冷之触
 Feature/&DHAncientForestBonusCantripTitle	远古森林额外戏法
+Feature/&DHConjureMinorElementalsBonusCantripDescription	你对元素能量的控制力已经提高到你现在能支配较弱的元素的地步。你能随意施展召唤次级元素
+Feature/&DHConjureMinorElementalsBonusCantripTitle	元素仆从
 Feature/&DHPactOfTheTomeFeatureSetDescription	你的宗主给予你唤为"阴影之书"的魔法书。当你获得这个特性时，能从任何职业的法术列表中选择3个戏法。这些戏法不需要来自同一个法术列表。当此书在你身上时，你能随意施放这些戏法。它们不计入你已知的戏法数量。你用这个特性施放的任何戏法都被认为是你的邪术师法术
 Feature/&DHPactOfTheTomeFeatureSetTitle	书之契约
+Feature/&DHWardingBondBonusCantripDescription	你对裂隙传送的控制已提升到能给予他人裂隙保护的程度。你能随意施放法术守护结界(无需分担伤害)
+Feature/&DHWardingBondBonusCantripTitle	裂隙斗篷
 Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	当你施展召唤魔宠时，你能选择以下特殊形态之一：小魔鬼、伪龙、夸赛魔或小妖精
 Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	链之契约
+Feature/&DreadfulWordTitle	恐惧箴言
 Feature/&EldritchBlastGraspingHandBonusCantripDescription	当你用魔能爆击中一个生物时，你能将其沿直线往靠近你的方向拉近10英尺
 Feature/&EldritchBlastGraspingHandBonusCantripTitle	引力魔爆
 Feature/&EldritchBlastRepellingBlastBonusCantripDescription	当你用魔能爆击中一个生物时，你能将其沿直线往远离你的方向推离10英尺
@@ -130,6 +139,7 @@ Feature/&ElementalPatronFeatureSet_Level06Description	你对元素的了解提�
 Feature/&ElementalPatronFeatureSet_Level06Title	元素学识
 Feature/&EyesoftheRuneKeeperDescription	你能阅读所有文字
 Feature/&EyesoftheRuneKeeperTitle	符文卫士之眼
+Feature/&FiendishVigorTitle	邪魔活力
 Feature/&GiftoftheEverLivingOnesDescription	从任何治疗中均恢复最高的生命值
 Feature/&GiftoftheEverLivingOnesTitle	永生者的礼物
 Feature/&GiftoftheProtectorsDescription	当你的生命值减少到0但未被直接杀死时，你的生命值会下降至1。每长休1次
@@ -143,6 +153,7 @@ Feature/&HinderingBlastMagicAffinityTitle	阻碍魔爆
 Feature/&HinderingBlastTitle	阻碍魔爆
 Feature/&ImprovedPactWeaponDescription	你能使用任何武器作为邪术师的施法媒触。额外的，此武器的攻击和伤害掷骰获得+1加值
 Feature/&ImprovedPactWeaponTitle	精通契约武器
+Feature/&MiretheMindTitle	心灵泥沼
 Feature/&MoonLitDarknessImmunityDescription	你对黑暗状态免疫
 Feature/&MoonLitDarknessImmunityTitle	月曜之暗
 Feature/&MoonLitExpandedSpelllistAfinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
@@ -172,16 +183,21 @@ Feature/&ThiefofFiveFates	每天可施放1次{0}
 Feature/&ThiefofFiveFatesTitle	命运窃贼
 Feature/&ThirstingBladeDescription	当你自身回合内使用你的武器执行攻击时，你能发动两次攻击而非一次
 Feature/&ThirstingBladeTitle	饥渴魔刃
+Feature/&TrickstersEscapeTitle	诡术逃脱
 Feature/&WallofThornsFeatureSetDescription	每天能施放一次棘墙术
 Feature/&WallofThornsFeatureSetTitle	森林壁垒
 Feedback/&AdditionalDamageAgonizing_BlastFormat	苦痛魔爆
 Feedback/&AdditionalDamageAgonizing_BlastLine	当你施放魔能爆时，你能将魅力调整值加到其命中所造成的伤害中
 Feedback/&AdditionalDamageEldritchSmiteFormat	魔能斩！
 Feedback/&AdditionalDamageEldritchSmiteLine	{0}魔能斩{1}！	(+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	元素伤害
+Feedback/&AdditionalDamageElementalDamageLine	元素形态给予额外伤害
 Feedback/&AdditionalDamagePactMarkedFormat	契约印记
 Feedback/&AdditionalDamagePactMarkedLine	契约印记造成额外伤害
 Feedback/&AdditionalDamagePactSoulTakerFormat	灵魂夺取
 Feedback/&AdditionalDamagePactSoulTakerLine	灵魂夺取造成额外伤害
+Feedback/&AdditionalDamageSoulEmpoweredFormat	魂力赋能
+Feedback/&AdditionalDamageSoulEmpoweredLine	魂力赋能造成额外伤害
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0}创造了{1}
 Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0}创造了{1}
 Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0}创造了{1}
@@ -213,6 +229,8 @@ Power/&DH_ElementalFormPoolEnhancedDescription	通过引导元素能量，你每
 Power/&DH_ElementalFormPoolEnhancedTitle	强化元素形态
 Power/&DH_ElementalFormPoolEnhancedTitleShort	元素形态
 Power/&DH_ElementalFormPoolTitle	元素形态
+Power/&FindFamiliarBundlePowerDescription	以伪龙、小妖精、小魔鬼或夸塞魔的形式召唤魔宠
+Power/&FindFamiliarBundlePowerTitle	获得魔宠
 Power/&MoonlitDanceoftheNightSkyDescription	每天能对4个目标施放一次飞行术
 Power/&MoonlitDanceoftheNightSkyTitle	夜空之舞
 Power/&MoonlitDarkMoonDescription	你能施放黑暗术，每次长休能施放次数为熟练度加值
@@ -240,6 +258,7 @@ Requirement/&WarlockRequiresOneWithShadows	“融身入影”魔能祈唤
 Requirement/&WarlockRequiresPactOfBlade	刃之魔契
 Requirement/&WarlockRequiresPactOfChain	链之魔契
 Requirement/&WarlockRequiresPactOfTome	书之魔契
+Rules/&CounterFormDismissCreatureFormat	遣散奇械师构装体
 Spell/&AHPactMarkAdditionalDamageDescription	具有契约印记的生物受到契约主人的武器和法术攻击时，额外受到1d6点同类伤害
 Spell/&AHPactMarkAdditionalDamageTitle	契约印记伤害
 Spell/&AHPactMarkMarkedByPactConditionDescription	此生物处于契约印记，受到契约主人的武器和法术攻击时，额外受到1d6点同类伤害
@@ -282,3 +301,5 @@ Subclass/&WarlockMoonLitDescription	你的宗主是月亮的精魂，一个体�
 Subclass/&WarlockMoonLitTitle	月曜使者契约
 Subclass/&WarlockToadKingDescription	精类、恶魔抑或是异怪，蛙王的真实性质不为人知，但众所周知，蛙王统治着荒原内的大片沼泽地，并为那些愿意服务的人提供权能
 Subclass/&WarlockToadKingTitle	蛙王契约
+Subclass/&WarlockUrPriestDescription	虽然绝大多数神术师都从神灵那里获得了他们的力量，但也有一些人鄙视神灵。那些自称为亵渎祭司的人已经学会了抽走神明授予神术师的神力并将其满足自己的需要，甚至不对任何神明进行祷告。作为一名亵渎祭司，你与大多数邪术师不同，你没有一个赋予你力量的宗主。你所发现的魔能祈唤可能是诸神授予他们的信奉者的扭曲魔法，而你的契约恩泽可能是你设法偷来的神器
+Subclass/&WarlockUrPriestTitle	亵渎祭司契约

@@ -1,3 +1,36 @@
+Condition/&ConditionDualFlurryApplyDescription	Du baust Schwung auf...
+Condition/&ConditionDualFlurryApplyTitle	Doppelte Flut!
+Condition/&ConditionDualFlurryGrantDescription	Deine Feinde taumeln!
+Condition/&ConditionDualFlurryGrantTitle	Doppelte Flut!
+Condition/&HelpActionDescription	Diese Kreatur wurde abgelenkt.
+Condition/&HelpActionTitle	Abgelenkt
+CraftyFeats/&ApothecaryIntFeatDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit dem Kräuterkunde-Kit und Arcana oder Fachwissen, wenn Sie bereits geübt sind.
+CraftyFeats/&ApothecaryIntFeatTitle	Apotheker (Geheimdienst)
+CraftyFeats/&ApothecaryWisFeatDescription	Erhöhe deine Weisheit um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit dem Kräuterkunde-Kit und Arcana oder Fachwissen, wenn Sie bereits geübt sind.
+CraftyFeats/&ApothecaryWisFeatTitle	Apotheker (Weisheit)
+CraftyFeats/&AttributeDexDescription	+1 DEX bis maximal 20
+CraftyFeats/&AttributeDexTitle	Geschicklichkeit
+CraftyFeats/&AttributeIntDescription	+1 INT bis maximal 20
+CraftyFeats/&AttributeIntTitle	Intelligenz
+CraftyFeats/&AttributeWisDescription	+1 WIS bis maximal 20
+CraftyFeats/&AttributeWisTitle	Weisheit
+CraftyFeats/&CraftyArcanaDescription	Sie erwerben Kenntnisse/Expertise in Arcana.
+CraftyFeats/&CraftyBowsDescription	Sie erwerben Kenntnisse im Umgang mit allen Bögen und Armbrüsten.
+CraftyFeats/&CraftyBowsTitle	Beherrschung des Bogens
+CraftyFeats/&CraftyFletcherFeatDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit Schmiedewerkzeugen oder Fachwissen, wenn Sie bereits geübt sind.\n Sie erwerben Kenntnisse im Umgang mit allen Bögen und Armbrüsten.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	Sie erwerben Kenntnisse/Kenntnisse in der Medizin.
+CraftyFeats/&CraftyNatureDescription	Sie erwerben Kenntnisse/Expertise in der Natur.
+CraftyFeats/&CraftyScribeFeatDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit Schriftrollen und Arcana oder Fachwissen, wenn Sie bereits geübt sind.\nErfordert die Fähigkeit, Zauber zu wirken.
+CraftyFeats/&CraftyScribeFeatTitle	Schreiber
+CraftyFeats/&CraftySkillsTitle	Fähigkeiten
+CraftyFeats/&CraftyToolsTitle	Werkzeug
+CraftyFeats/&ManacalonCrafterFeatDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit Manacolon-Rosenkranz und Arcana oder Fachwissen, wenn Sie bereits geübt sind.\nErfordert die Fähigkeit, Zauber zu wirken.
+CraftyFeats/&ManacalonCrafterFeatTitle	Handwerker von Manacalon
+CraftyFeats/&ToxicologistIntFeatDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nDu erlangst Kenntnisse im Umgang mit Giftausrüstung und Natur oder Fachwissen, wenn du bereits geübt bist.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxikologe (Geheimdienst)
+CraftyFeats/&ToxicologistWisFeatDescription	Erhöhe deine Weisheit um 1 bis maximal 20.\nDu erlangst Kenntnisse im Umgang mit Giftausrüstung und Medizin oder Fachwissen, wenn du bereits geübt bist.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxikologe (Weisheit)
 Feat/&AddConstructCantripsDescription	Fügt Cantrips hinzu, um deine Konstrukte zu heilen und zu entlassen.
 Feat/&AddConstructCantripsTitle	Cantrips konstruieren
 Feat/&AddProtectorConstructCantripDescription	Fügt Cantrips zum Ausbessern von Konstrukten und zum Entlassen von Konstrukten hinzu, um die Flexibilität Ihrer Konstrukte zu erhöhen.
@@ -92,8 +125,6 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Erhöhe dein Charisma um 1 bis maxi
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagie: Beschleunigt
 Feat/&FeatMetamagicAdeptTwinnedDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu lernst die Zwillings-Metamagie und erhältst 2 Hexereipunkte.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagisch: Zwillinge
-Feat/&FeatPolearmExpertDescription	Diese Vorteile bietet Ihnen Ihre Expertenausbildung mit Stangenwaffen:\n• Wenn du die Aktion „Angriff“ ausführst und nur mit einer Stangenwaffe angreifst, kannst du eine Bonusaktion verwenden, um einen Nahkampfangriff mit dem anderen Ende der Waffe durchzuführen. Dieser Angriff verwendet denselben Fähigkeitsmodifikator wie der Primärangriff. Der Schadenswürfel der Waffe für diesen Angriff ist ein W4 und verursacht Knüppelschaden.\n• Während Sie eine Stangenwaffe führen, provozieren andere Kreaturen einen Gelegenheitsangriff von Ihnen, wenn sie in die Reichweite dieser Waffe gelangen.
-Feat/&FeatPolearmExpertTitle	Stangenwaffen-Experte
 Feat/&FeatPrimalConstitutionDescription	Erhöhe deine Konstitution um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren definiert, mit einem Wutschaden von +1, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
 Feat/&FeatPrimalConstitutionTitle	Urwut (Konstitution)
 Feat/&FeatPrimalStrengthDescription	Erhöhe deine Stärke um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren definiert, mit einem Wutschaden von +1, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
@@ -237,3 +268,40 @@ Feat/&UseArmorWeaponsAsFocusDescription	Du kannst die Waffen der Rüstung als Za
 Feat/&UseArmorWeaponsAsFocusTitle	Fokus auf Zauberei
 Feat/&UsingitemPowerDescription	Ermöglicht die Verwendung von Waffenkraft für Bonusaktionen.
 Feat/&UsingitemPowerTitle	Benutze Waffenkraft
+Feature/&AdditionalActionDualFlurryDescription	Du darfst einen zusätzlichen Nebenhandangriff ausführen.
+Feature/&AdditionalActionDualFlurryTitle	Doppelte Flut!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Einmal pro Zug kannst du einer Kreatur, die du mit einem Angriff triffst, der einem Hinterhältigen Angriff des Schurken entspricht, 1W6 zusätzlichen Schaden zufügen. Auf der 7. Stufe erhöht sich dieser Schaden auf 2W6 und auf der 14. Stufe auf 3W6. Dies kann mit Rogue's Sneak Attack gestapelt werden.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Zwielichtiger Sneak-Angriff
+Feature/&DeadeyeDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen Bonusmalus von -5 auf Ihren Treffer hinnehmen möchten, um einen Bonusschaden von +10 zu verursachen.
+Feature/&DeadeyeTitle	Deadeye
+Feature/&DualFlurryDescription	Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, darfst du einen zusätzlichen Nebenhandangriff ausführen.
+Feature/&DualFlurryTitle	Zweifacher Flurry
+Feature/&PowerAttackDescription	Nehmen Sie einen Malus von -3 auf Ihren Angriff, um 3 + Fertigkeitsbonus zusätzlichen Schaden zu verursachen, wenn Sie Ihre Schläge mit Nahkampfwaffen landen.
+Feature/&PowerAttackTitle	Machtangriff
+Feature/&PowerTorchbearerDescription	Versuchen Sie, ein Nahkampfziel in Brand zu setzen!
+Feature/&PowerTorchbearerTitle	Fackelträger
+Feature/&RageDamageBonusAttackModifierDescription	Füge deinen Angriffen +2 Schaden hinzu, während du tobst.
+Feature/&RageDamageBonusAttackModifierTitle	Wutschaden
+Feature/&RageFeatConditionDescription	Während du in Rage bist, erhältst du Folgendes: Vorteil bei Stärkewürfen und Stärkerettungswürfen, einen Bonus auf Schadenswürfe von +2 und Resistenz gegen Knüppel-, Stich- und Hiebschaden.
+Feature/&RageFeatConditionTitle	Toben
+Feature/&RagePowerDescription	Als Bonusaktion gerätst du für eine Minute in Wut und erhältst Folgendes: Vorteil bei Stärkewürfen und Stärkerettungswürfen, einen Bonus auf Schadenswürfe von +2 und Resistenz gegen Knüppel-, Stich- und Hiebschaden.
+Feature/&RagePowerTitle	Wut
+Feature/&RageStrengthSavingThrowAffinityDescription	Während du tobst, erhältst du einen Vorteil bei Stärkewürfen.
+Feature/&RageStrengthSavingThrowAffinityTitle	Wutstärke-Speichervorteil
+Power/&HelpActionDescription	Du kannst einer verbündeten Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen. Sie täuschen vor, lenken das Ziel ab oder schließen sich auf andere Weise zusammen, um den Angriff Ihres Verbündeten effektiver zu machen. Wenn Ihr Verbündeter das Ziel vor Ihrem nächsten Zug angreift, wird der erste Angriffswurf mit Vorteil durchgeführt.
+Power/&HelpActionTitle	Hilfe
+Reaction/&SubitemSelectWarcasterReactionTitle	Aktion auswählen
+Reaction/&WarcasterAttackDescription	Angriffsziel.
+Reaction/&WarcasterAttackTitle	Attacke
+Reaction/&WarcasterReactionDescription	{0} verlässt ein Gebiet, das von einem oder mehreren Charakteren bedroht wird.
+Reaction/&WarcasterReactionReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&WarcasterReactionReactTitle	Attacke
+Reaction/&WarcasterReactionTitle	Angriff der Gelegenheit
+Tooltip/&DeadeyeConcentration	Deadeye deaktivieren.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Weiß nicht {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Hat Stealth-Angriff
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Ist kein Barbar
+Tooltip/&FeatPrerequisiteIsNotFighter	Ist kein Kämpfer
+Tooltip/&FeatPrerequisiteIsNotRogue	Ist kein Schurke
+Tooltip/&FeatPrerequisiteLevelFormat	Mindestcharakterstufe {0}
+Tooltip/&PowerAttackConcentration	Machtangriff deaktivieren.

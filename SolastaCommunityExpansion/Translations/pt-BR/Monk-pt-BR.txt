@@ -37,8 +37,6 @@ Feature/&ClassMonkPerfectSelfTitle	Eu Perfeito
 Feature/&ClassMonkPurityOfBodyDescription	Seu domínio do ki que flui através de você o torna imune a doenças e venenos.
 Feature/&ClassMonkPurityOfBodyTitle	Pureza do Corpo
 Feature/&ClassMonkSkillProficiencyTitle	Habilidades de monge
-Feature/&ClassMonkTongueOfSunAndMoonDescription	Você aprende a tocar o ki de outras mentes para entender todas as línguas faladas. Além disso, qualquer criatura que possa entender um idioma pode entender o que você diz.
-Feature/&ClassMonkTongueOfSunAndMoonTitle	Língua do Sol e da Lua
 Feature/&ClassMonkUnarmoredDefenseDescription	Enquanto você não estiver usando armadura e não empunhando um escudo, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Sabedoria.
 Feature/&ClassMonkUnarmoredDefenseTitle	Defesa não blindada
 Feature/&ClassMonkUnarmoredMovementBonusDescription	O bônus de movimento aumenta em 1,5 metro.
@@ -54,6 +52,8 @@ Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Seus ataques de arco contam
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flechas Energizadas com Ki
 Feature/&ClassMonkZenArcherStunningArrowsDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
 Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas Impressionantes
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Golpe Iluminador!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike causa dano extra ao alvo!
 Power/&ClassMonkDiamondSoulPowerDescription	Sempre que você fizer um teste de resistência e falhar, você pode gastar 1 ponto de ki para rerrolá-lo e obter o segundo resultado.
 Power/&ClassMonkDiamondSoulPowerTitle	Alma de diamante
 Power/&ClassMonkEmptyBodyDescription	Você pode usar sua ação para gastar 4 pontos de ki para ficar invisível por 1 minuto. Durante esse tempo, você também tem resistência a todos os danos, exceto dano de força.
@@ -140,6 +140,28 @@ Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Características da Trad
 Stage/&SubclassSelectionStageClassMonkTraditionHeader	Selecione uma Tradição Monástica
 Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Você deve selecionar uma tradição monástica.
 Stage/&SubclassSelectionStageClassMonkTraditionTitle	Monástico\nTradição
+Subclass/&BarbarianPathOfTheLightDescription	Bárbaros que seguem o Caminho da Luz iluminam a escuridão e protegem seus aliados dos perigos que espreitam dentro dela.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	Você está sempre sob os efeitos da magia Ver Invisibilidade.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Olhos da verdade
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distraído por Illuminating Strike.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Iluminado
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Desvantagem em qualquer jogada de ataque que não seja contra o bárbaro da Trilha da Luz.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Não pode ficar invisível.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	No turno em que você entrar em sua fúria, você pode escolher iluminar até três inimigos a até 9 metros de você. Eles devem ter sucesso em um teste de resistência de Constituição (CD igual a 8 + seu bônus de proficiência + seu modificador de Constituição) ou sofrerão 4d6 de dano radiante e serão iluminados por seu Golpe Iluminador por 1 minuto. Uma criatura iluminada desta forma faz outro teste de resistência de Constituição no final de cada um de seus turnos. Em um teste bem sucedido, o efeito termina para ele.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Até três inimigos fazem um teste de resistência de Constituição ou recebem 4d6 de dano radiante e ficam iluminados pelo seu Golpe Iluminador.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Explosão Iluminadora
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Explosão Iluminadora
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	Enquanto você estiver em fúria, a primeira criatura que você acertar com um ataque no seu turno sofre 1d6 de dano radiante adicional e fica magicamente iluminada até o início do seu próximo turno. Além disso, a criatura tem desvantagem em qualquer jogada de ataque que não seja contra você e não pode se tornar invisível.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	O dano adicional causado pelo Golpe Iluminador aumenta para 2d6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Melhoria do Golpe Iluminador
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Golpe Iluminador
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Você recupera pontos de vida iguais a metade do seu nível de bárbaro quando uma criatura hostil afetada pelo seu Golpe Iluminador morre. Além disso, você não provoca mais ataques de oportunidade de criaturas afetadas pelo seu Golpe Iluminador.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Proteção da Luz
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Você ganha visão no escuro superior.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Perfure a escuridão
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Pode perceber criaturas invisíveis.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Visão de Invisibilidade
+Subclass/&BarbarianPathOfTheLightTitle	Caminho da Luz
 Subclass/&ClassMonkTraditionDescription	No 3º nível, você escolhe o caminho espiritual para seguir em direção à iluminação. Ele irá moldar como você manipula o ki.
 Subclass/&ClassMonkTraditionTitle	Tradições Monásticas
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Monges do Caminho da Mão Aberta são os maiores mestres do combate de artes marciais, armados ou desarmados. Eles aprendem técnicas para empurrar e derrubar seus oponentes, manipular o ki para curar danos em seus corpos e praticar meditação avançada que pode protegê-los de danos.

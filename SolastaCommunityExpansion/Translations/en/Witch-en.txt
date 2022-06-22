@@ -120,3 +120,4 @@ Subclass/&WhiteWitchMagicTitle	White Magic
 Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
 Subclass/&WitchSubclassPathTitle	Witch Covens
+Tooltip/&TagMaledictionTitle	Malediction

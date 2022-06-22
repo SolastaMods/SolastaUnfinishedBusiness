@@ -1,3 +1,9 @@
+Condition/&ConditionBarkWardDescription	受到森灵的保护。获得等同于4倍德鲁伊等级的临时生命，持续10分钟
+Condition/&ConditionBarkWardTitle	树灵守卫
+Condition/&ConditionImprovedBarkWardDescription	森灵对造成近战伤害的生物造成2d8点穿刺伤害
+Condition/&ConditionImprovedBarkWardTitle	强化树灵守卫
+Condition/&ConditionSuperiorBarkWardDescription	森灵赋予毒素免疫，并对造成近战伤害的生物造成3d8点穿刺伤害
+Condition/&ConditionSuperiorBarkWardTitle	高等树灵守卫
 Feature/&DruidForestGuardianBarkWardDescription	你获得了召唤树皮护卫保护自己的能力。以一个附赠动作，你能消耗1次荒野形态获得每等级4点临时生命值。这些临时生命值会持续10分钟，或直到你再次使用你的荒野形态
 Feature/&DruidForestGuardianBarkWardTitle	树皮守卫
 Feature/&DruidForestGuardianExtraAttackDescription	第6级起，你在自己回合内执行攻击动作时能发动两次攻击而非一次

@@ -1,3 +1,36 @@
+Condition/&ConditionDualFlurryApplyDescription	Vous créez une dynamique...
+Condition/&ConditionDualFlurryApplyTitle	Double rafale !
+Condition/&ConditionDualFlurryGrantDescription	Vos ennemis sont sous le choc !
+Condition/&ConditionDualFlurryGrantTitle	Double rafale !
+Condition/&HelpActionDescription	Cette créature a été distraite.
+Condition/&HelpActionTitle	Distraits
+CraftyFeats/&ApothecaryIntFeatDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous gagnez en compétence avec le kit d'herboristerie et Arcana, ou en expertise si vous êtes déjà compétent.
+CraftyFeats/&ApothecaryIntFeatTitle	Apothicaire (Renseignement)
+CraftyFeats/&ApothecaryWisFeatDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous gagnez en compétence avec le kit d'herboristerie et Arcana, ou en expertise si vous êtes déjà compétent.
+CraftyFeats/&ApothecaryWisFeatTitle	Apothicaire (Sagesse)
+CraftyFeats/&AttributeDexDescription	+1 DEX jusqu'à un maximum de 20
+CraftyFeats/&AttributeDexTitle	Dextérité
+CraftyFeats/&AttributeIntDescription	+1 INT jusqu'à un maximum de 20
+CraftyFeats/&AttributeIntTitle	Intelligence
+CraftyFeats/&AttributeWisDescription	+1 WIS jusqu'à un maximum de 20
+CraftyFeats/&AttributeWisTitle	Sagesse
+CraftyFeats/&CraftyArcanaDescription	Vous acquérez des compétences/expertises en Arcana.
+CraftyFeats/&CraftyBowsDescription	Vous gagnez la maîtrise de tous les arcs et arbalètes.
+CraftyFeats/&CraftyBowsTitle	Maîtrise de l'arc
+CraftyFeats/&CraftyFletcherFeatDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nVous gagnez en maîtrise des outils de forgeron ou en expertise si vous êtes déjà compétent.\n Vous gagnez la maîtrise de tous les arcs et arbalètes.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	Vous acquérez une compétence / expertise en médecine.
+CraftyFeats/&CraftyNatureDescription	Vous gagnez en compétence/expertise dans la nature.
+CraftyFeats/&CraftyScribeFeatDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous gagnez en compétence avec le kit de parchemin et Arcana, ou en expertise si vous êtes déjà compétent.\nNécessite la capacité de lancer des sorts.
+CraftyFeats/&CraftyScribeFeatTitle	Scribe
+CraftyFeats/&CraftySkillsTitle	Compétences
+CraftyFeats/&CraftyToolsTitle	Outils
+CraftyFeats/&ManacalonCrafterFeatDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous acquérez la maîtrise du chapelet manacolon et des arcanes, ou de l'expertise si vous êtes déjà compétent.\nNécessite la capacité de lancer des sorts.
+CraftyFeats/&ManacalonCrafterFeatTitle	Artisan de Manacalon
+CraftyFeats/&ToxicologistIntFeatDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise du kit d'empoisonneur et de la Nature, ou l'expertise si vous êtes déjà compétent.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicologue (Renseignement)
+CraftyFeats/&ToxicologistWisFeatDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise du kit d'empoisonneur et de la médecine, ou l'expertise si vous êtes déjà compétent.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicologue (Sagesse)
 Feat/&AddConstructCantripsDescription	Ajoute des sorts mineurs pour soigner et rejeter vos constructions.
 Feat/&AddConstructCantripsTitle	Construire des sorties mineures
 Feat/&AddProtectorConstructCantripDescription	Ajoute les sorts mineurs de Mending Construct et Dismiss Construct pour augmenter la flexibilité de vos constructions.
@@ -92,8 +125,6 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Augmentez votre Charisme de 1, jusq
 Feat/&FeatMetamagicAdeptQuickenedTitle	Métamagique : Accéléré
 Feat/&FeatMetamagicAdeptTwinnedDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nVous apprenez la métamagie jumelée et gagnez 2 points de sorcellerie.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Métamagique : Jumelé
-Feat/&FeatPolearmExpertDescription	Votre formation d'expert avec les armes d'hast vous offre ces avantages :\n• Lorsque vous effectuez l'action Attaquer et que vous attaquez uniquement avec une arme d'hast, vous pouvez utiliser une action bonus pour effectuer une attaque au corps à corps avec l'extrémité opposée de l'arme. Cette attaque utilise le même modificateur de capacité que l'attaque principale. Le dé de dégâts de l'arme pour cette attaque est un d4, et il inflige des dégâts contondants.\n• Pendant que vous maniez une arme d'hast, d'autres créatures provoquent une attaque d'opportunité de votre part lorsqu'elles entrent dans la portée que vous avez avec cette arme.
-Feat/&FeatPolearmExpertTitle	Expert en armes d'hast
 Feat/&FeatPrimalConstitutionDescription	Augmentez votre Constitution de 1, jusqu'à un maximum de 20.\nVous pouvez entrer dans une rage en tant qu'action bonus telle que définie dans la capacité de classe de rage du barbare avec +1 dégâts de rage qui peuvent se cumuler avec la rage du barbare. Une fois que vous avez fait rage de cette façon, vous devez terminer un repos long avant d'utiliser à nouveau cette capacité.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Constitution.
 Feat/&FeatPrimalConstitutionTitle	Rage primordiale (Constitution)
 Feat/&FeatPrimalStrengthDescription	Augmentez votre Force de 1, jusqu'à un maximum de 20.\nVous pouvez entrer dans une rage en tant qu'action bonus telle que définie dans la capacité de classe de rage du barbare avec +1 dégâts de rage qui peuvent se cumuler avec la rage du barbare. Une fois que vous avez fait rage de cette façon, vous devez terminer un repos long avant d'utiliser à nouveau cette capacité.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Constitution.
@@ -237,3 +268,40 @@ Feat/&UseArmorWeaponsAsFocusDescription	Vous pouvez utiliser les armes de l'armu
 Feat/&UseArmorWeaponsAsFocusTitle	Focus sur les sorts
 Feat/&UsingitemPowerDescription	Permet d'utiliser la puissance de l'arme lors d'une action bonus.
 Feat/&UsingitemPowerTitle	Utiliser la puissance des armes
+Feature/&AdditionalActionDualFlurryDescription	Vous pouvez effectuer une attaque secondaire supplémentaire.
+Feature/&AdditionalActionDualFlurryTitle	Double rafale !
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Une fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature que vous touchez avec une attaque qui répond à l'attaque sournoise de Rogue. Au niveau 7, ces dégâts passent à 2d6 et au niveau 14 à 3d6. Cela peut se cumuler avec l'attaque sournoise de Rogue.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Attaque sournoise ombragée
+Feature/&DeadeyeDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de prendre un bonus de malus de -5 à votre coup afin d'infliger un bonus de dégâts de +10.
+Feature/&DeadeyeTitle	Deadeye
+Feature/&DualFlurryDescription	Vous êtes un maître du combat avec des armes jumelées. À chaque tour où vous frappez deux fois avec des attaques de mêlée tout en brandissant une arme dans chaque main, vous pouvez effectuer une attaque secondaire supplémentaire.
+Feature/&DualFlurryTitle	Double rafale
+Feature/&PowerAttackDescription	Prenez une pénalité de -3 pour toucher votre attaque pour infliger 3 + bonus de dégâts supplémentaires lorsque vous frappez avec des armes de mêlée.
+Feature/&PowerAttackTitle	Attaque puissante
+Feature/&PowerTorchbearerDescription	Essayez de mettre le feu à une cible de mêlée !
+Feature/&PowerTorchbearerTitle	Porte-flambeau
+Feature/&RageDamageBonusAttackModifierDescription	Ajoute +2 dégâts à vos attaques pendant que vous êtes en rage.
+Feature/&RageDamageBonusAttackModifierTitle	Dégâts de rage
+Feature/&RageFeatConditionDescription	Lorsque vous êtes en rage, vous gagnez les avantages suivants : un avantage aux tests de Force et aux jets de sauvegarde de Force, un bonus de +2 aux jets de dégâts et une résistance aux dégâts contondants, perforants et tranchants.
+Feature/&RageFeatConditionTitle	Rage
+Feature/&RagePowerDescription	En tant qu'action bonus, vous entrez en rage pendant une minute et gagnez : un avantage aux tests de Force et aux jets de sauvegarde de Force, un bonus aux jets de dégâts de +2 et une résistance aux dégâts contondants, perforants et tranchants.
+Feature/&RagePowerTitle	Rage
+Feature/&RageStrengthSavingThrowAffinityDescription	Vous bénéficiez d'un avantage sur les sauvegardes de Force lorsque vous êtes en rage.
+Feature/&RageStrengthSavingThrowAffinityTitle	Avantage de sauvegarde de Force de rage
+Power/&HelpActionDescription	Vous pouvez aider une créature alliée à attaquer une créature à 1,50 mètre ou moins de vous. Vous feignez, distrayez la cible ou faites équipe d'une autre manière pour rendre l'attaque de votre allié plus efficace. Si votre allié attaque la cible avant votre prochain tour, le premier jet d'attaque est effectué avec avantage.
+Power/&HelpActionTitle	Aider
+Reaction/&SubitemSelectWarcasterReactionTitle	Sélectionnez l'action
+Reaction/&WarcasterAttackDescription	Cible d'attaque.
+Reaction/&WarcasterAttackTitle	Attaque
+Reaction/&WarcasterReactionDescription	{0} quitte une zone menacée par un ou plusieurs personnages.
+Reaction/&WarcasterReactionReactDescription	Utilisez la réaction pour attaquer la cible.
+Reaction/&WarcasterReactionReactTitle	Attaque
+Reaction/&WarcasterReactionTitle	Attaque d'opportunité
+Tooltip/&DeadeyeConcentration	Désactivez Deadeye.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Ne sait pas {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive
+Tooltip/&FeatPrerequisiteIsNotBarbarian	n'est pas un barbare
+Tooltip/&FeatPrerequisiteIsNotFighter	N'est pas un combattant
+Tooltip/&FeatPrerequisiteIsNotRogue	N'est-ce pas un voleur
+Tooltip/&FeatPrerequisiteLevelFormat	Niveau de personnage minimum {0}
+Tooltip/&PowerAttackConcentration	Désactivez l'attaque puissante.

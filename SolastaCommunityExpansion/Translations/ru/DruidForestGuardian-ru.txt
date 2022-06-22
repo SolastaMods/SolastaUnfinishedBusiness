@@ -1,3 +1,9 @@
+Condition/&ConditionBarkWardDescription Под эффектом Дубовая кора. Получите 4 временных HP за каждый уровень друида на 10	минут.
+Condition/&ConditionBarkWardTitle Дубовая	кора
+Condition/&ConditionImprovedBarkWardDescription Дубовые Стражи наносят 2d8 колющего урона существам, попавшим в рукопашную	атаку.
+Condition/&ConditionImprovedBarkWardTitle Усиленный Дубовый	Страж
+Condition/&ConditionSuperiorBarkWardDescription Улучшенный Дубовый Страж дает невосприимчивость к яду и наносит 3d8 колющего урона существам, попавшим в рукопашную	атаку.
+Condition/&ConditionSuperiorBarkWardTitle Улучшенный Дубовый	Страж
 Feature/&DruidForestGuardianBarkWardDescription Вы получаете возможность призывать Дубового Стража для своей защиты. В качестве бонусного действия вы можете потратить использование своей дикой формы, чтобы получить 4 временных очка здоровья за каждый уровень, который у вас есть в этом классе. Эти временные хиты сохраняются в течение 10 минут или до тех пор, пока вы снова не воспользуетесь дикой	формой.
 Feature/&DruidForestGuardianBarkWardTitle Лесной	Страж
 Feature/&DruidForestGuardianExtraAttackDescription Начиная с 6-го уровня, вы можете атаковать дважды, а не один раз, когда в свой ход совершаете действие	Атака.

@@ -167,8 +167,12 @@ Feature/&TinkererWeaponProficiencyDescription	Competenza con le armi semplici.
 Feature/&TinkererWeaponProficiencyTitle	Competenze nelle armi da riparatore
 Feedback/&AdditionalDamageArcaneFirearmFormat	Potenziamento esplosivo!
 Feedback/&AdditionalDamageArcaneFirearmLine	Infligge danni aggiuntivi dal potenziamento esplosivo
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Arma accecante
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Danno aggiuntivo e tentativo di applicare Cecità da Arma accecante
 Feedback/&AdditionalDamageLightningSpearFormat	Lancia fulminea!
 Feedback/&AdditionalDamageLightningSpearLine	{0} colpisce {1} con Lightning Spear! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Danno potenziato
+Feedback/&AdditionalDamageUpgradedConstructLine	Il costrutto potenziato infligge 1d8 danni in più per colpo.
 Feedback/&LightningSpearAdditionalDamageDescription	Infligge 1d6 danni da fulmine aggiuntivi una volta per turno.
 Feedback/&LightningSpearAdditionalDamageTitle	Danno extra di Lightning Spear
 Item/&ForceArtilleryProjectileDescription	ForceArtiglieriaProiettile.
@@ -177,6 +181,12 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} ha attaccato uno dei tuoi al
 Reaction/&ReactionAttackFeatSentinelReactDescription	Usa la reazione per attaccare.
 Reaction/&ReactionAttackFeatSentinelReactTitle	attacco
 Reaction/&ReactionAttackFeatSentinelTitle	La reazione della sentinella
+Rules/&AdvantageAttackOnEnemyDescription	Vantaggio per attaccare il nemico.
+Rules/&AdvantageAttackOnEnemyTitle	Illuminato
+Rules/&DisadvantageOnAttackByEnemyDescription	Distratto da una scossa di fulmine.
+Rules/&DisadvantageOnAttackByEnemyTitle	Sussultato
+Rules/&ExtraDamageOnAttackConditionDescription	Danni extra da Lancia di illuminazione.
+Rules/&ExtraDamageOnAttackConditionTitle	Statico scioccato
 Rules/&HalfCoverShieldAttributeDescription	Gli alleati entro 3 metri ottengono +2 CA.
 Rules/&HalfCoverShieldAttributeTitle	Cupola a mezza copertura
 Rules/&HalfCoverShieldConditionDescription	+2 CA.
@@ -191,6 +201,11 @@ Rules/&ThunderStruckDescription	Svantaggio quando si attaccano gli alleati di Sc
 Rules/&ThunderStruckTitle	Colpito da tuono (distratto)
 SpellList/&SpellListTinkererDescription	Lista degli incantesimi dell'armeggiatore.
 SpellList/&SpellListTinkererTitle	Lista degli incantesimi dell'armeggiatore
+Stage/&SubclassSelectionStageSpecialistDescription	Descrizione Ci sono una vasta gamma di specialità in Tinkerers, tra cui fare elisir come Potion Maker, fare esplosioni come Blaster e maneggiare armi magiche come Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Caratteristiche specialistiche
+Stage/&SubclassSelectionStageSpecialistHeader	Specializzazioni
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialista Nessuno Descrizione.
+Stage/&SubclassSelectionStageSpecialistTitle	Seleziona Specializzazione
 Subclass/&ArtificerAlchemistDescription	Sei specializzato in pozioni, potenziamenti, cure e lancio di incantesimi.
 Subclass/&ArtificerAlchemistTitle	Creatore di pozioni
 Subclass/&ArtificerArtileristCannonsDescription	Crei un set di cannoni che puoi attivare in battaglia come azione bonus.
@@ -228,6 +243,7 @@ Subclass/&CancelCancelElixirResilienceTitle	Annulla resilienza
 Subclass/&CancelCancelElixirSwiftnessDescription	Termina la condizione Rapidità dall'elisir Potion Maker.
 Subclass/&CancelCancelElixirSwiftnessTitle	Annulla rapidità
 Subclass/&ConditionResistantArmorTitle	Armatura resistente
+Subclass/&ConditionResistnatArmorDescription	La tua armatura è resistente ai danni da acido, freddo, fuoco, forza, fulmine, necrotico, veleno, psichico, radioso e tuono.
 Subclass/&CraftingTinkererMagicItemAdeptDescription	Sei abile nel creare oggetti magici. Ti ci vuole 1/4 del tempo per creare oggetti e applichi il doppio del tuo bonus di competenza durante la creazione.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Esperto di oggetti magici
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Tocca una borsa e infondi uno spazio extra dimensionale per aiutarla a sostenere più peso senza ingombrarti. Puoi avere solo una di ciascuna infusione attiva alla volta. Attivandolo una seconda volta si annullerà la prima.

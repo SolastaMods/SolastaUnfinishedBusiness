@@ -1,3 +1,9 @@
+Condition/&ConditionBarkWardDescription	Beschützt von den Geistern des Waldes. Erhalte 4 temporäre HP für jede Druidenstufe, die 10 Minuten lang anhält.
+Condition/&ConditionBarkWardTitle	Rinde Ward
+Condition/&ConditionImprovedBarkWardDescription	Die Geister des Waldes fügen Kreaturen, die sie mit einem Nahkampfangriff treffen, 2W8 Stichschaden zu.
+Condition/&ConditionImprovedBarkWardTitle	Verbesserter Bark Ward
+Condition/&ConditionSuperiorBarkWardDescription	Die Geister des Waldes gewähren Immunität gegen Gift und fügen Kreaturen, die mit einem Nahkampfangriff treffen, 3W8 Stichschaden zu.
+Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
 Feature/&DruidForestGuardianBarkWardDescription	Du erhältst die Fähigkeit, einen Bark Ward zu beschwören, um dich zu beschützen. Als Bonus-Aktion kannst du eine Verwendung deiner Wilden Form aufwenden, um 4 temporäre Trefferpunkte für jedes Level zu erhalten, das du in dieser Klasse hast. Diese temporären Trefferpunkte halten 10 Minuten lang an oder bis Sie Ihre Wildform erneut verwenden.
 Feature/&DruidForestGuardianBarkWardTitle	Rinde Ward
 Feature/&DruidForestGuardianExtraAttackDescription	Ab der 6. Stufe kannst du zweimal statt einmal angreifen, wenn du in deinem Zug die Angriffsaktion ausführst.

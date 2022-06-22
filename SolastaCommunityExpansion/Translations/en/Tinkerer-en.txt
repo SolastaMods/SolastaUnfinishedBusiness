@@ -167,8 +167,12 @@ Feature/&TinkererWeaponProficiencyDescription	Proficiency with simple weapons.
 Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
 Feedback/&AdditionalDamageArcaneFirearmLine	Dealing additional damage from Blasting Enhancement
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon
 Feedback/&AdditionalDamageLightningSpearFormat	Lightning Spear!
 Feedback/&AdditionalDamageLightningSpearLine	{0} strikes {1} with Lightning Spear! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Upgraded Damage
+Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1d8 more damage per hit.
 Feedback/&LightningSpearAdditionalDamageDescription	Deals an additional 1d6 lightning damage once per turn.
 Feedback/&LightningSpearAdditionalDamageTitle	Lightning Spear extra damage
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
@@ -177,6 +181,12 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} attacked one of your allies,
 Reaction/&ReactionAttackFeatSentinelReactDescription	Use reaction to attack.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Attack
 Reaction/&ReactionAttackFeatSentinelTitle	Sentinel Reaction
+Rules/&AdvantageAttackOnEnemyDescription	Advantage to attack enemy.
+Rules/&AdvantageAttackOnEnemyTitle	Lit Up
+Rules/&DisadvantageOnAttackByEnemyDescription	Distracted by lightning jolt.
+Rules/&DisadvantageOnAttackByEnemyTitle	Jolted
+Rules/&ExtraDamageOnAttackConditionDescription	Extra damage from Lighting Spear.
+Rules/&ExtraDamageOnAttackConditionTitle	Static shocked
 Rules/&HalfCoverShieldAttributeDescription	Allies within 10 ft gain +2 AC.
 Rules/&HalfCoverShieldAttributeTitle	Half Cover Dome
 Rules/&HalfCoverShieldConditionDescription	+2 AC.
@@ -191,6 +201,11 @@ Rules/&ThunderStruckDescription	Disadvantage when attacking Scout Sentinel's all
 Rules/&ThunderStruckTitle	Thunderstruck (Distracted)
 SpellList/&SpellListTinkererDescription	Tinkerer Spelllist.
 SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
+Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
+Stage/&SubclassSelectionStageSpecialistHeader	Specializations
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialist None Description.
+Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
 Subclass/&ArtificerAlchemistDescription	You specialize in potions, buffs, healing, and spell casting.
 Subclass/&ArtificerAlchemistTitle	Potion Maker
 Subclass/&ArtificerArtileristCannonsDescription	You create a set of cannons that you can activate in battle as a bonus action.
@@ -228,6 +243,7 @@ Subclass/&CancelCancelElixirResilienceTitle	Cancel Resilience
 Subclass/&CancelCancelElixirSwiftnessDescription	End the Swiftness condition from the Potion Maker Elixir.
 Subclass/&CancelCancelElixirSwiftnessTitle	Cancel Swiftness
 Subclass/&ConditionResistantArmorTitle	Resistant Armor
+Subclass/&ConditionResistnatArmorDescription	Your armor is resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage.
 Subclass/&CraftingTinkererMagicItemAdeptDescription	You are adept at crafting magic items. It takes you 1/4 the time to craft items and you apply double your proficiency bonus when crafting.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Magic Item Adept
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimensional space to help it hold more weight without encumbering you. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.

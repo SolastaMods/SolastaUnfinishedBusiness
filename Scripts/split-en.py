@@ -24,6 +24,8 @@ def get_records(filename):
 
 rules = [
 
+    # CLASSES
+
     {
         "group": "Tinkerer-en.txt",
         "matches": [
@@ -31,13 +33,17 @@ rules = [
             "ResistantArmor",
             "Artificer", 
             "Artillerist",
+            "DisadvantageOnAttackByEnemy",
+            "AdvantageAttackOnEnemy",
             "Artillery",
             "Artificer", 
             "Infusion",
             "BattleSmith",
             "Scout",
             "Sentinel",
+            "AdditionalDamageUpgradedConstruct",
             "PowerInfuse",
+            "BlindingWeapon",
             "PowerTransmute", 
             "PowerInfuseArmor",
             "SummonArtillery",
@@ -52,87 +58,11 @@ rules = [
             "LightningSpear",
             "SelfDestruction",
             "HalfCoverShield",
-            "ArcaneFirearm"
+            "ArcaneFirearm",
+            "ConditionResistnat",
+            "Specialist",
+            "ExtraDamageOnAttack"
         ],
-        "lines": []
-    },
-    {
-        "group": "PathOfTheLight-en.txt",
-        "matches": ["PathOfTheLight"],
-        "lines": []
-    },
-    {
-        "group": "UrPriest-en.txt",
-        "matches": ["UrPriest", "&Domain", "HalfLifeCondition"],
-        "lines": []
-    },
-    {
-        "group": "Bolgrif-en.txt",
-        "matches": ["Bolgrif", "Abyssal"],
-        "lines": []
-    },
-    {
-        "group": "Gnome-en.txt",
-        "matches": ["Gnome", "Gnomish"],
-        "lines": []
-    },
-    {
-        "group": "Monk-en.txt",
-        "matches": [
-            "Monk",
-            "DiamondSoul",
-            "PathOf"],
-        "lines": []
-    },
-    {
-        "group": "ConArtist-en.txt",
-        "matches": ["ConArtist"],
-        "lines": []
-    },
-    {
-        "group": "SpellMaster-en.txt",
-        "matches": ["SpellMaster"],
-        "lines": []
-    },
-    {
-        "group": "ArcaneFighter-en.txt",
-        "matches": ["ArcaneFighter"],
-        "lines": []
-    },
-    {
-        "group": "SpellShield-en.txt",
-        "matches": ["SpellShield", "MeleeWizard"],
-        "lines": []
-    },
-    {
-        "group": "LifeTransmuter-en.txt",
-        "matches": ["LifeTransmuter", "Transmute"],
-        "lines": []
-    },
-    {
-        "group": "MasterManipulator-en.txt",
-        "matches": ["Manipulator"],
-        "lines": []
-    },
-    {
-        "group": "Opportunist-en.txt",
-        "matches": ["Opportunist"],
-        "lines": []
-    },
-    {
-        "group": "Arcanist-en.txt",
-        "matches": ["Arcanist", "&Arcane"],
-        "lines": []
-    },
-    {
-        "group": "Tactician-en.txt",
-        "matches": [
-            "Tactician",
-            "Tactition",
-            "InspirePower",
-            "CounterStrike",
-            "KnockDown",
-            "Gambit"],
         "lines": []
     },
     {
@@ -157,6 +87,7 @@ rules = [
             "ThiefofFive",
             "DH_ElementalFormPool",
             "Giftofthe",
+            "Trickster",
             "BeguilingInfluence",
             "BondoftheTalisman",
             "DevilsSight",
@@ -164,36 +95,30 @@ rules = [
             "FadeIntoTheVoid",
             "EyesoftheRuneKeeper",
             "HerbalBrew",
+            "SoulEmpowered",
+            "DreadfulWord",
+            "CounterFormDismissCreature",
             "Otherworldly",
             "SoulBlade",
             "ShroudofShadow",
             "ThirstingBlade",
-            "WallofThorns"
+            "AdditionalDamageElementalDamage",
+            "WallofThorns",
+            "FindFamiliarBundlePower",
+            "ArmorofShadows",
+            "AscendantStep",
+            "DHConjureMinorElementals",
+            "FiendishVigor",
+            "MiretheMind",
+            "DHWardingBond"
         ],
-        "lines": []
-    },
-    {
-        "group": "Marshal-en.txt",
-        "matches": ["Marshal"],
-        "lines": []
-    },
-    {
-        "group": "RoyalKnight-en.txt",
-        "matches": [
-            "Royal", 
-            "Rallying",
-            "InspiringSurge"],
-        "lines": []
-    },
-    {
-        "group": "DruidForestGuardian-en.txt",
-        "matches": ["DruidForestGuardian"],
         "lines": []
     },
     {
         "group": "Witch-en.txt",
         "matches": [
             "Witch",
+            "Malediction",
             "Coven", 
             "Abate", 
             "Disorient", 
@@ -203,49 +128,213 @@ rules = [
             "Pox",
             "Debilitated",
             "Apathy",
+            "WitchOwlFamiliar",
             "Ruin"],
+        "lines": []
+    },
+    {
+        "group": "Monk-en.txt",
+        "matches": [
+            "Monk",
+            "DiamondSoul",
+            "PathOf"],
+        "lines": []
+    },
+
+    # RACES
+
+    {
+        "group": "Bolgrif-en.txt",
+        "matches": ["Bolgrif", "Abyssal"],
+        "lines": []
+    },
+    {
+        "group": "Gnome-en.txt",
+        "matches": ["Gnome", "Gnomish"],
+        "lines": []
+    },
+
+    # SUBCLASSES
+
+    {
+        "group": "PathOfTheLight-en.txt",
+        "matches": [
+            "PathOfTheLight"
+        ],
+        "lines": []
+    },
+    {
+        "group": "UrPriest-en.txt",
+        "matches": [
+            "UrPriest",
+            "&Domain",
+            "HalfLifeCondition"
+        ],
+        "lines": []
+    },
+    {
+        "group": "ConArtist-en.txt",
+        "matches": [
+            "ConArtist"
+        ],
+        "lines": []
+    },
+    {
+        "group": "SpellMaster-en.txt",
+        "matches": [
+            "SpellMaster"
+        ],
+        "lines": []
+    },
+    {
+        "group": "ArcaneFighter-en.txt",
+        "matches": [
+            "ArcaneFighter"
+        ],
+        "lines": []
+    },
+    {
+        "group": "SpellShield-en.txt",
+        "matches": [
+            "SpellShield",
+            "MeleeWizard"
+        ],
+        "lines": []
+    },
+    {
+        "group": "LifeTransmuter-en.txt",
+        "matches": [
+            "LifeTransmuter", 
+            "Transmute"
+        ],
+        "lines": []
+    },
+    {
+        "group": "MasterManipulator-en.txt",
+        "matches": [
+            "Manipulator"
+        ],
+        "lines": []
+    },
+    {
+        "group": "Opportunist-en.txt",
+        "matches": [
+            "Opportunist"
+        ],
+        "lines": []
+    },
+    {
+        "group": "Arcanist-en.txt",
+        "matches": [
+            "Arcanist",
+            "&Arcane"
+        ],
+        "lines": []
+    },
+    {
+        "group": "Tactician-en.txt",
+        "matches": [
+            "Tactician",
+            "Tactition",
+            "InspirePower",
+            "CounterStrike",
+            "KnockDown",
+            "Gambit"
+        ],
+        "lines": []
+    },
+    {
+        "group": "Marshal-en.txt",
+        "matches": [
+            "Marshal",
+            "CoordinatedAttack"
+        ],
+        "lines": []
+    },
+    {
+        "group": "RoyalKnight-en.txt",
+        "matches": [
+            "Royal", 
+            "Rallying",
+            "InspiringSurge"
+        ],
+        "lines": []
+    },
+    {
+        "group": "DruidForestGuardian-en.txt",
+        "matches": [
+            "DruidForestGuardian",
+            "BarkWard"
+        ],
         "lines": []
     },
     {
         "group": "ToadKing-en.txt",
         "matches": [
             "ToadKing", 
-            "Toad"],
+            "Toad"
+        ],
         "lines": []
     },
-    {
-        "group": "Equipment-en.txt",
-        "matches": [
-            "Equipment/&",
-            "Item/&Crafting"],
-        "lines": []
-    },
+
+    # SPELLS
     {
         "group": "Spell-en.txt",
-        "matches": ["Spell"],
+        "matches": [
+            "Spell",
+            "CouatlBite",
+            "SunlightBlade",
+            "ResonatingStrike",
+            "Mule",
+            "DHHolyAuraBlinding",
+            "CustomCouat",
+            "OwlFamiliar"
+        ],
+        "lines": []
+    },
+
+    # OTHERS
+
+    {
+        "group": "ItemsCrafting-en.txt",
+        "matches": [
+            "Equipment/&",
+            "Polearm",
+            "HandwrapsOfPulling",
+
+            "Item/&"
+        ],
         "lines": []
     },
     {
         "group": "Feat-en.txt",
-        "matches": ["Feat/&"],
+        "matches": [
+            "Feat/&", 
+            "PowerAttack",
+            "Shady",
+            "Deadeye",
+            "DualFlurry",
+            "Torchbearer",
+            "Rage",
+            "Warcaster",
+            "FeatPrerequisite",
+            "CraftyFeats",
+            "HelpAction"
+        ],
         "lines": []
     },
     {
         "group": "FlexibleBackgrounds-en.txt",
-        "matches": ["FlexibleBackgrounds/&"],
+        "matches": [
+            "FlexibleBackgrounds/&"
+        ],
         "lines": []
     },
     {
         "group": "FlexibleRaces-en.txt",
         "matches": [
             "FlexibleRaces/&",
-            "Race/&"],
-        "lines": []
-    },
-    {
-        "group": "CraftyFeats-en.txt",
-        "matches": [
-            "CraftyFeats"
+            "Race/&"
         ],
         "lines": []
     },
@@ -260,13 +349,49 @@ rules = [
         "lines": []
     },
     {
-        "group": "Items-en.txt",
-        "matches": ["Item/&"],
+        "group": "QualityOfLife-en.txt",
+        "matches": [
+            "/&ZSRespec",
+            "ContentPack/&",
+            "Message/&",
+            "UI/&",
+            "Tooltip/&",
+            "ToolTip/&",
+            "Requirement/&",
+            "Stage/&",
+            "Screen/&",
+            "Reaction/&",
+            "ExportPdf",
+            "LevelAndExperience",
+            "BardSkills",
+            "AlwaysBeard",
+            "EmptyString",
+            "FailureFlagTarget",
+            "GadgetParametersCustomRemove",
+            "FlatRoomsTitle"
+        ],
+        "lines": []
+    },
+    {
+        "group": "Level20-en.txt",
+        "matches": [
+            "RangerVanish",
+            "RogueSlippery",
+            "PrimalChampion",
+            "BlindSense",
+            "/&ZS",
+            "IndomitableMight",
+            "IndomitableResistance",
+            "PaladinAuraOf",
+            "FeralSenses"
+        ],
         "lines": []
     },
     {
         "group": "Remaining-en.txt",
-        "matches": ["&"],
+        "matches": [
+            "&"
+        ],
         "lines": []
     },
 ]

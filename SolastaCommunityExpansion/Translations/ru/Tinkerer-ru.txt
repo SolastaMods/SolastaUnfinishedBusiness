@@ -167,8 +167,12 @@ Feature/&TinkererWeaponProficiencyDescription Владение простым	о
 Feature/&TinkererWeaponProficiencyTitle Навыки механика в	оружии
 Feedback/&AdditionalDamageArcaneFirearmFormat Взрывное	улучшение!
 Feedback/&AdditionalDamageArcaneFirearmLine Нанесение дополнительного урона от Blasting	Enhancement
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat Ослепляющее	оружие
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine Дополнительный урон и попытка применить ослепление от ослепляющего	оружия
 Feedback/&AdditionalDamageLightningSpearFormat Молниеносное	копье!
 Feedback/&AdditionalDamageLightningSpearLine {0} поражает {1} копьем молнии!	(+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat Модернизированный	урон
+Feedback/&AdditionalDamageUpgradedConstructLine Модернизированная конструкция наносит на 1к8 больше урона за	удар.
 Feedback/&LightningSpearAdditionalDamageDescription Наносит дополнительный урон электричеством 1d6 один раз за	ход.
 Feedback/&LightningSpearAdditionalDamageTitle Дополнительный урон копья	молний
 Item/&ForceArtilleryProjectileDescription	Силовой Артиллерийский Снаряд.
@@ -177,6 +181,12 @@ Reaction/&ReactionAttackFeatSentinelDescription {0} атаковал одног�
 Reaction/&ReactionAttackFeatSentinelReactDescription Используйте реакцию для	атаки.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Атака
 Reaction/&ReactionAttackFeatSentinelTitle Страж	Реакция
+Rules/&AdvantageAttackOnEnemyDescription Преимущество в атаке	врага.
+Rules/&AdvantageAttackOnEnemyTitle	Зажигать
+Rules/&DisadvantageOnAttackByEnemyDescription Отвлекся от удара	молнии.
+Rules/&DisadvantageOnAttackByEnemyTitle	Встряхнуло
+Rules/&ExtraDamageOnAttackConditionDescription Дополнительный урон от Копья молнии.
+Rules/&ExtraDamageOnAttackConditionTitle Статический	шок
 Rules/&HalfCoverShieldAttributeDescription Союзники в пределах 10 футов получают +2	КД.
 Rules/&HalfCoverShieldAttributeTitle Половинный	купол
 Rules/&HalfCoverShieldConditionDescription +2	КД.
@@ -191,6 +201,11 @@ Rules/&ThunderStruckDescription Неудобство при атаке союз�
 Rules/&ThunderStruckTitle Пораженный громом	(отвлеченно)
 SpellList/&SpellListTinkererDescription Список заклинаний	Тинкерера.
 SpellList/&SpellListTinkererTitle Список заклинаний	Тинкерера
+Stage/&SubclassSelectionStageSpecialistDescription Описание У Тинкереров есть широкий спектр специальностей, включая изготовление эликсиров в качестве зельевара, создание взрывов в качестве бластера и владение магическим оружием в качестве оружейного	кузнеца.
+Stage/&SubclassSelectionStageSpecialistFeatures Специализированные	функции
+Stage/&SubclassSelectionStageSpecialistHeader	Специализации
+Stage/&SubclassSelectionStageSpecialistNoneDescription Специалист Нет	Описание.
+Stage/&SubclassSelectionStageSpecialistTitle Выберите	специализацию
 Subclass/&ArtificerAlchemistDescription Вы специализируетесь на зельях, баффах, исцелении и произнесении	заклинаний.
 Subclass/&ArtificerAlchemistTitle	Зельевар
 Subclass/&ArtificerArtileristCannonsDescription Вы создаете набор пушек, которые можете активировать в бою в качестве бонусного	действия.
@@ -228,6 +243,7 @@ Subclass/&CancelCancelElixirResilienceTitle Отменить	устойчиво�
 Subclass/&CancelCancelElixirSwiftnessDescription Завершите состояние Быстроты от эликсира	зельеварения.
 Subclass/&CancelCancelElixirSwiftnessTitle Отменить	Быстрота
 Subclass/&ConditionResistantArmorTitle Прочная	броня
+Subclass/&ConditionResistnatArmorDescription Ваша броня устойчива к кислоте, холоду, огню, силе, молнии, некрозу, яду, психическому урону, излучению и	грому.
 Subclass/&CraftingTinkererMagicItemAdeptDescription Вы умеете создавать магические предметы. На изготовление предметов у вас уходит в четыре раза меньше времени, и вы применяете удвоенный бонус мастерства при	изготовлении.
 Subclass/&CraftingTinkererMagicItemAdeptTitle Адепт магических	предметов
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription Прикоснитесь к сумке и создайте дополнительное пространственное пространство, чтобы она могла удерживать больший вес, не обременяя вас. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.

@@ -1,3 +1,8 @@
+Reaction/&CoordinatedAttackDescription	{0} fue atacado por un ataque coordinado, algunos personajes pueden usar su reacción para unirse a este ataque.
+Reaction/&CoordinatedAttackReactDescription	Usa la reacción para atacar al objetivo.
+Reaction/&CoordinatedAttackReactTitle	Ataque
+Reaction/&CoordinatedAttackTitle	Ataque coordinado
+Reaction/&SubitemSelectCoordinatedAttackTitle	Seleccione la acción
 Subclass/&FighterMarshalCoordinatedAttackDescription	Cuando golpeas a un enemigo con un ataque cuerpo a cuerpo, tus aliados pueden usar su reacción para realizar un ataque de oportunidad contra tu objetivo.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Ataque coordinado
 Subclass/&FighterMarshalDescription	Expertos en estudiar las debilidades de los enemigos y coordinar los ataques de otros miembros del grupo para explotarlos, los luchadores que se entrenaron en esta parte marcial son famosos oquestradores del campo de batalla.

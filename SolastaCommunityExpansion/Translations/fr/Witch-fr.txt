@@ -118,5 +118,6 @@ Subclass/&WhiteWitchMagicTitle	Magie blanche
 Subclass/&WhiteWitchTitle	Sorcière blanche
 Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions.
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
+Tooltip/&TagMaledictionTitle	Bon sang
 Feature/&ClassWitchMaledictionReplaceTitle	Replace Malediction
 Feature/&ClassWitchMaledictionReplaceDescription	Sélectionnez Malédiction à remplacer.

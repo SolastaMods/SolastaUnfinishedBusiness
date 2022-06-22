@@ -4,6 +4,8 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	魅力设为1
 AttributeModifier/&DHFeeblemindChaSpellTitle	魅力衰减
 AttributeModifier/&DHFeeblemindIntSpellDescription	智力设为1
 AttributeModifier/&DHFeeblemindIntSpellTitle	智力衰减
+Condition/&ConditionMuleDescription	你的速度不会因为负重或重甲而降低。你能额外携带20磅
+Condition/&ConditionMuleTitle	承重术
 Condition/&DHFeeblemindSpellDescription	此生物的智力和感知变为1。其不能施展法术、激活魔法物品、理解语言或以任何可理解的方式交流
 Condition/&DHFeeblemindSpellTitle	弱智术
 Condition/&DHForesightSpellDescription	在攻击骰、能力检定和豁免骰上具有优势。此外，其他生物在攻击骰上具有劣势
@@ -18,6 +20,10 @@ Condition/&DHTimeStopSpellDescription	受影响的生物的时间冻结
 Condition/&DHTimeStopSpellTitle	时间停止
 Condition/&DHWeirdSpellDescription	恐惧。每回合结束时必须进行一次感知豁免，失败则受到4d10点心灵伤害，成功则此效应终止
 Condition/&DHWeirdSpellTitle	怪影杀手
+Condition/&EWResonatingStrikeDamageDescription	在5级时，由此法术触发的攻击会造成额外1d8点雷鸣伤害。在11级和17级时伤害额外增加1d8点
+Condition/&EWResonatingStrikeDamageTitle	共鸣
+Condition/&EWSunlightBladeDamageDescription	在5级时，由此法术触发的攻击会造成额外1d8点光耀伤害。在11级和17级时伤害额外增加1d8点
+Condition/&EWSunlightBladeDamageTitle	炙阳之锋灼烧
 DamageAffinity/&DHHolyAuraSpellDescription	当一个邪魔或不死生物以近战攻击命中受影响的生物时，灵光将产生耀眼的爆发，攻击者必须成功通过一次体质豁免，否则陷入目盲直至法术终止
 DamageAffinity/&DHHolyAuraSpellTitle	圣洁灵光反击
 Feat/&AlchemistSubclassSpellsDescription	{0}
@@ -28,10 +34,23 @@ Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	你获得额外奇�
 Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	防御者法术
 Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	你获得额外奇械师法术，它们将被自动准备并不计入已知奇械师法术数目
 Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	防御者法术
+Feature/&DHHolyAuraBlindingPowerDescription	当一个邪魔或不死生物以近战攻击命中受术生物时，其灵光将产生耀眼的爆发，而攻击者必须进行一次体质豁免，豁免失败者将陷入目盲直至法术终止
+Feature/&DHHolyAuraBlindingPowerTitle	圣洁灵光报偿
 Feature/&ElementalistSpellsMagicAffinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
 Feature/&ElementalistSpellsMagicAffinityTitle	元素使者法术
 Feature/&SpellAsInvocationAtWillDescription	任意施放{0}
 Feature/&SpellAsInvocationOncePerDayDescription	每长休可施放1次{0}
+Feedback/&AdditionalDamageResonatingStrikeFormat	共鸣斩！
+Feedback/&AdditionalDamageResonatingStrikeLine	{0}共鸣斩{1}！	(+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	炙阳之锋！
+Feedback/&AdditionalDamageSunlightBladeLine	{0}以炙阳之锋灼烧{1}！	(+{2})
+Feedback/&NotifyEffectResonatingStrikeLine	{0}共鸣斩{1}！
+Monster/&DHCustomCouatlDescription	羽蛇深邃而睿智，是一种的善良蛇形生物。它们五彩缤纷的羽翼与温文尔雅的举止尽显出其与天界的渊源
+Monster/&DHCustomCouatlTitle	羽蛇
+Monster/&OwlFamiliarDescription	猫头鹰魔宠
+Monster/&OwlFamiliarTitle	猫头鹰
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	穿刺伤害，目标必须通过一次DC13的体质豁免，否则将中毒24小时。在这种中毒结束前，目标会失去意识
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	啃咬
 Reaction/&CastSpellInRetributionDescription	{0}在攻击{1}！你能以反应施放{2}！
 Reaction/&CastSpellInRetributionReactDescription	点击施放{0}
 Reaction/&CastSpellInRetributionReactTitle	施放法术

@@ -1,3 +1,9 @@
+Condition/&ConditionBarkWardDescription	Protetto dagli spiriti della foresta. Guadagna 4 HP temporanei per ogni livello di Druid, della durata di 10 minuti.
+Condition/&ConditionBarkWardTitle	Bark Ward
+Condition/&ConditionImprovedBarkWardDescription	Gli spiriti della foresta infliggono 2d8 danni perforanti alle creature che colpiscono con un attacco in mischia.
+Condition/&ConditionImprovedBarkWardTitle	Bark Ward migliorato
+Condition/&ConditionSuperiorBarkWardDescription	Gli spiriti della foresta concedono immunità al veleno e infliggono 3d8 danni perforanti alle creature che colpiscono con un attacco in mischia.
+Condition/&ConditionSuperiorBarkWardTitle	Superiore Bark Ward
 Feature/&DruidForestGuardianBarkWardDescription	Ottieni la capacità di evocare un Bark Ward per proteggerti. Come azione bonus, puoi spendere un uso della tua Forma Selvatica per guadagnare 4 punti ferita temporanei per ogni livello che hai in questa classe. Questi punti ferita temporanei durano 10 minuti o fino a quando non usi di nuovo la tua Forma Selvatica.
 Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
 Feature/&DruidForestGuardianExtraAttackDescription	A partire dal 6° livello, puoi attaccare due volte, invece di una volta, ogni volta che esegui l'azione Attacco nel tuo turno.

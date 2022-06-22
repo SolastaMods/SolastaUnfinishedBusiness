@@ -32,5 +32,3 @@ Power/&UrPriestRadiantWardDescription	Com uma ação, você ganha um número de 
 Power/&UrPriestRadiantWardTitle	Ala Radiante
 Power/&UrPriestSpellSiphonDescription	você aprende a explorar uma fonte maior de magia em combinação com sua reserva normal de poder. Com uma ação, você pode gastar um Canalizar Divindade para recuperar um uso gasto de seu Arcano Místico de 6º nível.
 Power/&UrPriestSpellSiphonTitle	Sifão de Feitiços
-Subclass/&WarlockUrPriestDescription	Enquanto a grande maioria dos conjuradores divinos obtêm seus poderes de uma divindade, há aqueles que desprezam os deuses. Aqueles que se chamam Ur-sacerdotes aprenderam a sugar as energias divinas concedidas pelos deuses aos seus conjuradores divinos, usando-as para suas próprias necessidades sem dar nem mesmo palavrões a nenhum deus. Como um Ur-sacerdote, você difere da maioria dos feiticeiros, sem um patrono que lhe conceda seu poder. Invocações sobrenaturais que você descobre são formas distorcidas de magia que os deuses podem conceder a seus patronos, enquanto as Dádivas do Pacto são provavelmente artefatos divinos que você conseguiu roubar.
-Subclass/&WarlockUrPriestTitle	Pacto UrPriest

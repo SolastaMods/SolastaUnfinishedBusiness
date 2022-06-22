@@ -167,8 +167,12 @@ Feature/&TinkererWeaponProficiencyDescription	获得简易武器的熟练项
 Feature/&TinkererWeaponProficiencyTitle	奇械师武器熟练
 Feedback/&AdditionalDamageArcaneFirearmFormat	魔爆附魔
 Feedback/&AdditionalDamageArcaneFirearmLine	魔爆附魔造成额外伤害
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	致盲武器
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	致盲武器造成额外伤害并尝试致盲
 Feedback/&AdditionalDamageLightningSpearFormat	电光之矛！
 Feedback/&AdditionalDamageLightningSpearLine	{0}以电光之矛(+{2})打击{1}
+Feedback/&AdditionalDamageUpgradedConstructFormat	升级伤害
+Feedback/&AdditionalDamageUpgradedConstructLine	升级后的构装体每次攻击造成额外1d8点伤害
 Feedback/&LightningSpearAdditionalDamageDescription	每回合造成1次1d6点额外电击伤害
 Feedback/&LightningSpearAdditionalDamageTitle	电光之矛额外伤害
 Item/&ForceArtilleryProjectileDescription	力场魔炮弹药
@@ -177,6 +181,12 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0}攻击了你的盟友，你�
 Reaction/&ReactionAttackFeatSentinelReactDescription	以反应攻击
 Reaction/&ReactionAttackFeatSentinelReactTitle	攻击
 Reaction/&ReactionAttackFeatSentinelTitle	哨兵反应
+Rules/&AdvantageAttackOnEnemyDescription	攻击敌人有优势
+Rules/&AdvantageAttackOnEnemyTitle	点亮
+Rules/&DisadvantageOnAttackByEnemyDescription	被闪电击中而分心
+Rules/&DisadvantageOnAttackByEnemyTitle	被闪电击中
+Rules/&ExtraDamageOnAttackConditionDescription	电光之矛的额外伤害
+Rules/&ExtraDamageOnAttackConditionTitle	静电冲击
 Rules/&HalfCoverShieldAttributeDescription	10英尺内盟友获得+2AC
 Rules/&HalfCoverShieldAttributeTitle	半遮蔽罩
 Rules/&HalfCoverShieldConditionDescription	+2AC
@@ -191,6 +201,11 @@ Rules/&ThunderStruckDescription	攻击侦察哨兵的盟友具有劣势
 Rules/&ThunderStruckTitle	雷鸣一击(被分心)
 SpellList/&SpellListTinkererDescription	奇械师法术列表
 SpellList/&SpellListTinkererTitle	奇械师法术列表
+Stage/&SubclassSelectionStageSpecialistDescription	奇械师的专业范围很广，包括作为炼金师制作灵药，作为魔炮师制造爆炸，作为战地匠师挥舞魔法武器
+Stage/&SubclassSelectionStageSpecialistFeatures	专业特性
+Stage/&SubclassSelectionStageSpecialistHeader	专业
+Stage/&SubclassSelectionStageSpecialistNoneDescription	专业无说明
+Stage/&SubclassSelectionStageSpecialistTitle	选择专业
 Subclass/&ArtificerAlchemistDescription	你专长于药水、强化、治疗和施法
 Subclass/&ArtificerAlchemistTitle	炼金师
 Subclass/&ArtificerArtileristCannonsDescription	你创造了一套魔炮，你能在战斗中以附赠动作激活
@@ -228,6 +243,7 @@ Subclass/&CancelCancelElixirResilienceTitle	停止韧性灵药
 Subclass/&CancelCancelElixirSwiftnessDescription	停止炼金师灵药的迅捷状态
 Subclass/&CancelCancelElixirSwiftnessTitle	停止迅捷灵药
 Subclass/&ConditionResistantArmorTitle	抗性护甲
+Subclass/&ConditionResistnatArmorDescription	你的护甲能抵抗强酸、冷冻、火焰、力场、闪电、黯噬、毒素、心灵、光耀和雷鸣伤害
 Subclass/&CraftingTinkererMagicItemAdeptDescription	你擅于制作魔法物品。你制作物品所需的时间是原本的1/4，而且你在制作时附加双倍的熟练加值
 Subclass/&CraftingTinkererMagicItemAdeptTitle	魔法物品专家
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	你触摸的背包被注入一个多维空间，帮助它容纳更多的重量而不影响你。注意你只能激活相同注法一次。第二次激活将取消第一次注法的效果

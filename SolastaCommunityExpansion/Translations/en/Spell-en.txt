@@ -4,6 +4,8 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score is set to 1.
 AttributeModifier/&DHFeeblemindChaSpellTitle	Feeble Charisma
 AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligence score is set to 1.
 AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble Intelligence
+Condition/&ConditionMuleDescription	Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds.
+Condition/&ConditionMuleTitle	Mule
 Condition/&DHFeeblemindSpellDescription	The creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way.
 Condition/&DHFeeblemindSpellTitle	Feeblemind
 Condition/&DHForesightSpellDescription	Advantage on all attack rolls, ability checks, and saving throws. Other creatures have disadvantage on attack rolls.
@@ -18,6 +20,10 @@ Condition/&DHTimeStopSpellDescription	Time is frozen for the affected creature.
 Condition/&DHTimeStopSpellTitle	Time Stopped
 Condition/&DHWeirdSpellDescription	Frightened. At the end of each turn, make a Wisdom saving throw. On a failure, take 4d10 psychic damage. On a success, this condition ends.
 Condition/&DHWeirdSpellTitle	Weirded
+Condition/&EWResonatingStrikeDamageDescription	At 5th level, attacks triggered by this cantrip deals an additional 1d8 thunder damage. The damage further increases by 1d8 at 11th and 17th levels.
+Condition/&EWResonatingStrikeDamageTitle	Resonance
+Condition/&EWSunlightBladeDamageDescription	At 5th level, attacks triggered by this cantrip deals an additional 1d8 radiant damage. The damage further increases by 1d8 at 11th and 17th levels.
+Condition/&EWSunlightBladeDamageTitle	Sunlit Blade's burn
 DamageAffinity/&DHHolyAuraSpellDescription	When a fiend or an undead hits with a melee attack, the aura flashes with brilliant light and the attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
 DamageAffinity/&DHHolyAuraSpellTitle	Holy Aura Retaliation
 Feat/&AlchemistSubclassSpellsDescription	{0}.
@@ -28,10 +34,23 @@ Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	You gain bonus spel
 Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Protector Construct Spells
 Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	You gain bonus spells that are considered Tinkerer spells for you, they are always prepared and don't count against the number of Tinkerer spells you know.
 Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Protector Construct Spells
+Feature/&DHHolyAuraBlindingPowerDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
+Feature/&DHHolyAuraBlindingPowerTitle	Holy Aura Retaliation
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will.
 Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once until long rest.
+Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Sunlit Blade!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlit Blade! (+{2})
+Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
+Monster/&DHCustomCouatlDescription	Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Owl Familiar.
+Monster/&OwlFamiliarTitle	Owl
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
 Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!
 Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell

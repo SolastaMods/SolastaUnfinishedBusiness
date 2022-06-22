@@ -1,3 +1,36 @@
+Condition/&ConditionDualFlurryApplyDescription	你气势如虹
+Condition/&ConditionDualFlurryApplyTitle	飘逸双持！
+Condition/&ConditionDualFlurryGrantDescription	你的敌人吓坏了!
+Condition/&ConditionDualFlurryGrantTitle	飘逸双持！
+Condition/&HelpActionDescription	此生物分心了
+Condition/&HelpActionTitle	分心
+CraftyFeats/&ApothecaryIntFeatDescription	智力+1，最高20点\n你获得草药工具和奥秘的熟练项/专精
+CraftyFeats/&ApothecaryIntFeatTitle	炼金师(智力)
+CraftyFeats/&ApothecaryWisFeatDescription	感知+1，最高20点\n你获得草药工具和奥秘的熟练项/专精
+CraftyFeats/&ApothecaryWisFeatTitle	炼金师(感知)
+CraftyFeats/&AttributeDexDescription	敏捷+1，最高20点
+CraftyFeats/&AttributeDexTitle	敏捷
+CraftyFeats/&AttributeIntDescription	智力+1，最高20点
+CraftyFeats/&AttributeIntTitle	智力
+CraftyFeats/&AttributeWisDescription	感知+1，最高20点
+CraftyFeats/&AttributeWisTitle	感知
+CraftyFeats/&CraftyArcanaDescription	你获得奥秘的熟练项/专精
+CraftyFeats/&CraftyBowsDescription	你获得所有弓和弩的熟练项
+CraftyFeats/&CraftyBowsTitle	弓箭武器熟练
+CraftyFeats/&CraftyFletcherFeatDescription	敏捷+1，最高20点\n你获得盗贼工具的熟练项/专精\n你获得所有弓和弩的熟练项
+CraftyFeats/&CraftyFletcherFeatTitle	制箭师
+CraftyFeats/&CraftyMedicineDescription	你获得医学的熟练项/专精
+CraftyFeats/&CraftyNatureDescription	你获得自然的熟练项/专精
+CraftyFeats/&CraftyScribeFeatDescription	智力+1，最高20点\n你获得卷轴工具包和奥秘的熟练项/专精\n需要施法能力
+CraftyFeats/&CraftyScribeFeatTitle	抄书员
+CraftyFeats/&CraftySkillsTitle	技能
+CraftyFeats/&CraftyToolsTitle	工具
+CraftyFeats/&ManacalonCrafterFeatDescription	智力+1，最高20点\n你获得玛纳卡隆念珠和奥秘的熟练项/专精\n需要施法能力
+CraftyFeats/&ManacalonCrafterFeatTitle	玛纳卡隆工匠
+CraftyFeats/&ToxicologistIntFeatDescription	智力+1，最高20点\n你获得制毒工具和自然的熟练项/专精
+CraftyFeats/&ToxicologistIntFeatTitle	毒药学家（智力）
+CraftyFeats/&ToxicologistWisFeatDescription	感知+1，最高20点\n你获得制毒工具和医学的熟练项/专精
+CraftyFeats/&ToxicologistWisFeatTitle	毒药学家（感知）
 Feat/&AddConstructCantripsDescription	增加治疗和解散你的构装体的戏法
 Feat/&AddConstructCantripsTitle	构装体戏法
 Feat/&AddProtectorConstructCantripDescription	添加修复构装体和解散构装体戏法，以提高你构装体的灵活性
@@ -92,8 +125,6 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	魅力+1，最高20点\n你习得�
 Feat/&FeatMetamagicAdeptQuickenedTitle	超魔：瞬发
 Feat/&FeatMetamagicAdeptTwinnedDescription	魅力+1，最高20点\n你习得孪生超魔，并获得2点术法点
 Feat/&FeatMetamagicAdeptTwinnedTitle	超魔：孪生
-Feat/&FeatPolearmExpertDescription	你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n• 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
-Feat/&FeatPolearmExpertTitle	长柄武器大师
 Feat/&FeatPrimalConstitutionDescription	体质+1，最高20点\n你能以附赠动作进入类似于野蛮人的狂暴状态，能与野蛮人的狂暴叠加并使其伤害+1。每长休1次\n当你未穿戴盔甲时，你的AC等于10+敏捷修正值+体质修正值
 Feat/&FeatPrimalConstitutionTitle	原初狂怒（体质）
 Feat/&FeatPrimalStrengthDescription	力量+1，最高20点\n你能以附赠动作进入类似于野蛮人的狂暴状态，能与野蛮人的狂暴叠加并使其伤害+1。每长休1次\n当你未穿戴盔甲时，你的AC等于10+敏捷修正值+体质修正值
@@ -237,3 +268,40 @@ Feat/&UseArmorWeaponsAsFocusDescription	你能使用装甲的武器作为你的�
 Feat/&UseArmorWeaponsAsFocusTitle	施法法器
 Feat/&UsingitemPowerDescription	允许以附赠动作使用武器能力
 Feat/&UsingitemPowerTitle	使用武器能力
+Feature/&AdditionalActionDualFlurryDescription	你能进行一次额外的副手攻击
+Feature/&AdditionalActionDualFlurryTitle	飘逸双持
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	每回合一次，你能对一名符合游荡者偷袭目标的生物造成额外1d6点伤害。在12级时，这个伤害骰增至2d6，20级时增至4d6。其能与游荡者的偷袭叠加
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	背刺攻击
+Feature/&DeadeyeDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10加值
+Feature/&DeadeyeTitle	神射手
+Feature/&DualFlurryDescription	你是一个使用双武器作战的高手。在任何一轮中，若你在双手都持有武器的情况下用近战攻击击中两次，你能额外进行一次副手攻击
+Feature/&DualFlurryTitle	飘逸双持
+Feature/&PowerAttackDescription	当你使用近战武器攻击时，你能选择使此攻击检定承受-3减值，以额外造成3+熟练加值点伤害
+Feature/&PowerAttackTitle	猛力攻击
+Feature/&PowerTorchbearerDescription	试图令一个近战目标着火
+Feature/&PowerTorchbearerTitle	火炬手
+Feature/&RageDamageBonusAttackModifierDescription	在狂暴时伤害获得+2加值
+Feature/&RageDamageBonusAttackModifierTitle	狂暴伤害
+Feature/&RageFeatConditionDescription	狂暴时你获得以下加成：你进行力量检定和力量豁免时具有优势；伤害骰获得+2加值；拥获得钝击、穿刺和挥砍伤害的抗性
+Feature/&RageFeatConditionTitle	狂暴
+Feature/&RagePowerDescription	以一个附赠动作，你进入狂暴并获得以下加成：你进行力量检定和力量豁免时具有优势；伤害骰获得+2加值；拥获得钝击、穿刺和挥砍伤害的抗性
+Feature/&RagePowerTitle	狂暴
+Feature/&RageStrengthSavingThrowAffinityDescription	你在狂暴时获得力量豁免的优势
+Feature/&RageStrengthSavingThrowAffinityTitle	狂暴力量豁免优势
+Power/&HelpActionDescription	你能帮助一个友好的生物攻击你周围5英尺内的生物。你进行佯攻、使目标分心或以其他团队协作方式使你的盟友的攻击更有效率。你的盟友在你的下回合前攻击目标，则第一次攻击骰带有优势
+Power/&HelpActionTitle	协助
+Reaction/&SubitemSelectWarcasterReactionTitle	选择动作
+Reaction/&WarcasterAttackDescription	攻击目标
+Reaction/&WarcasterAttackTitle	攻击
+Reaction/&WarcasterReactionDescription	{0}正在离开一个或多个角色的威胁范围
+Reaction/&WarcasterReactionReactDescription	使用反应攻击目标
+Reaction/&WarcasterReactionReactTitle	攻击
+Reaction/&WarcasterReactionTitle	借机攻击
+Tooltip/&DeadeyeConcentration	禁用神射手
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	未学习{0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	具有偷袭
+Tooltip/&FeatPrerequisiteIsNotBarbarian	非野蛮人
+Tooltip/&FeatPrerequisiteIsNotFighter	非战士
+Tooltip/&FeatPrerequisiteIsNotRogue	非游荡者
+Tooltip/&FeatPrerequisiteLevelFormat	最低角色等级{0}
+Tooltip/&PowerAttackConcentration	禁用猛力攻击

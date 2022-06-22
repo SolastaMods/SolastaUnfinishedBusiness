@@ -37,8 +37,6 @@ Feature/&ClassMonkPerfectSelfTitle	Soi parfait
 Feature/&ClassMonkPurityOfBodyDescription	Votre maîtrise du ki qui vous traverse vous rend immunisé contre les maladies et les poisons.
 Feature/&ClassMonkPurityOfBodyTitle	Pureté du corps
 Feature/&ClassMonkSkillProficiencyTitle	Compétences de moine
-Feature/&ClassMonkTongueOfSunAndMoonDescription	Vous apprenez à toucher le ki des autres esprits afin de comprendre toutes les langues parlées. De plus, toute créature qui peut comprendre une langue peut comprendre ce que vous dites.
-Feature/&ClassMonkTongueOfSunAndMoonTitle	Langue du Soleil et de la Lune
 Feature/&ClassMonkUnarmoredDefenseDescription	Tant que vous ne portez pas d'armure et que vous ne brandissez pas de bouclier, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse.
 Feature/&ClassMonkUnarmoredDefenseTitle	Défense non blindée
 Feature/&ClassMonkUnarmoredMovementBonusDescription	Le bonus de déplacement augmente de 1,50 mètre.
@@ -54,6 +52,8 @@ Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Vos attaques à l'arc compt
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flèches renforcées par le Ki
 Feature/&ClassMonkZenArcherStunningArrowsDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque de flèche, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.
 Feature/&ClassMonkZenArcherStunningArrowsTitle	Flèches époustouflantes
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Frappe éclairante !
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike inflige des dégâts supplémentaires à la cible !
 Power/&ClassMonkDiamondSoulPowerDescription	Chaque fois que vous faites un jet de sauvegarde et que vous échouez, vous pouvez dépenser 1 point de ki pour le relancer et prendre le deuxième résultat.
 Power/&ClassMonkDiamondSoulPowerTitle	Âme de diamant
 Power/&ClassMonkEmptyBodyDescription	Vous pouvez utiliser votre action pour dépenser 4 points de ki pour devenir invisible pendant 1 minute. Pendant ce temps, vous avez également une résistance à tous les dégâts, sauf les dégâts de force.
@@ -140,6 +140,28 @@ Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Caractéristiques de la 
 Stage/&SubclassSelectionStageClassMonkTraditionHeader	Sélectionnez une tradition monastique
 Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Vous devez sélectionner une tradition monastique.
 Stage/&SubclassSelectionStageClassMonkTraditionTitle	Monastique\nTradition
+Subclass/&BarbarianPathOfTheLightDescription	Les barbares qui suivent le Chemin de la Lumière illuminent les ténèbres et protègent leurs alliés des dangers qui s'y cachent.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	Vous êtes toujours sous l'effet d'un sort Voir l'invisibilité.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Yeux de vérité
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distrait par Illuminating Strike.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Illuminé
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Inconvénient sur tout jet d'attaque qui n'est pas dirigé contre le barbare de la Voie de la Lumière.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Ne peut pas devenir invisible.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	Au tour où vous entrez dans votre rage, vous pouvez choisir d'illuminer jusqu'à trois ennemis à moins de 9 mètres de vous. Ils doivent réussir un jet de sauvegarde de Constitution (DD égal à 8 + votre bonus de maîtrise + votre modificateur de Constitution) ou subir 4d6 dégâts radiants et être illuminés par votre Frappe lumineuse pendant 1 minute. Une créature ainsi éclairée effectue un autre jet de sauvegarde de Constitution à la fin de chacun de ses tours. En cas de sauvegarde réussie, l'effet se termine pour lui.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Jusqu'à trois ennemis effectuent un jet de sauvegarde de Constitution ou subissent 4d6 dégâts radiants et sont illuminés par votre Frappe lumineuse.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Rafale éclairante
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Rafale éclairante
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	Pendant que vous êtes en rage, la première créature que vous touchez avec une attaque à votre tour subit 1d6 dégâts radiants supplémentaires et devient magiquement illuminée jusqu'au début de votre prochain tour. De plus, la créature a un désavantage sur tout jet d'attaque qui n'est pas contre vous et ne peut pas devenir invisible.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	Les dégâts supplémentaires infligés par Frappe éclairante passent à 2d6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Amélioration de la frappe éclairante
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Frappe éclairante
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Vous regagnez des points de vie égaux à la moitié de votre niveau de barbare lorsqu'une créature hostile affectée par votre Frappe illuminatrice meurt. De plus, vous ne provoquez plus d'attaques d'opportunité de la part des créatures affectées par votre Frappe éclairante.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Protection de la lumière
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Vous bénéficiez d'une vision dans le noir supérieure.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Percer les ténèbres
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Peut percevoir des créatures invisibles.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Vue d'invisibilité
+Subclass/&BarbarianPathOfTheLightTitle	Chemin de la Lumière
 Subclass/&ClassMonkTraditionDescription	Au niveau 3, vous choisissez la voie spirituelle que vous suivez vers l'illumination. Cela façonnera la façon dont vous manipulez le ki.
 Subclass/&ClassMonkTraditionTitle	Traditions monastiques
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Les Moines de la Voie de la Main Ouverte sont les maîtres ultimes du combat des arts martiaux, qu'ils soient armés ou non. Ils apprennent des techniques pour pousser et faire trébucher leurs adversaires, manipuler le ki pour soigner les dommages causés à leur corps et pratiquer une méditation avancée qui peut les protéger du mal.

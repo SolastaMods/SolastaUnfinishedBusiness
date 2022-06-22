@@ -51,6 +51,8 @@ Feature/&AncientForestLightAffinityDescription	You can absorb energy from sunlig
 Feature/&AncientForestLightAffinityTitle	Photosynthesis
 Feature/&AncientForestRegrowthDescription	You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your Warlock level × 5.
 Feature/&AncientForestRegrowthTitle	Regrowth
+Feature/&ArmorofShadowsTitle	Armor of Shadows
+Feature/&AscendantStepTitle	Ascendant Step
 Feature/&AspectoftheMoonDescription	You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 Feature/&AspectoftheMoonTitle	Aspect of the Moon
 Feature/&BeguilingInfluenceDescription	You gain proficiency in the Deception and Persuasion skills.
@@ -59,6 +61,8 @@ Feature/&BondoftheTalismanDescription	Teleport up to 30 ft away.
 Feature/&BondoftheTalismanTitle	Teleport Talisman
 Feature/&ChainsofCarceriDescription	Paralyzes a celestial, fiend or elemental unless it succeeds a Wisdom saving throw.
 Feature/&ChainsofCarceriTitle	Chains of Carceri
+Feature/&ClassMonkTongueOfSunAndMoonDescription	You learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Tongue of the Sun and Moon
 Feature/&ClassWarlockArmorProficiencyDescription	Light Armor.
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Select Eldritch Invocation to replace.
@@ -97,10 +101,15 @@ Feature/&DH_RiftWalkDescription	Briefly surrounded by the energy of the void bet
 Feature/&DH_RiftWalkTitle	Rift Step
 Feature/&DHAncientForestBonusCantripDescription	Your patron shares secrets on the nature of how natural magic and life energy are connected. Your learn Shillelagh and Chill Touch.
 Feature/&DHAncientForestBonusCantripTitle	Ancient Forest Bonus Cantrips
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Your control of elemental energies has increased to the point than you now have dominion over weaker elementals. You can cast conjure minor elemental at will.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Elemental Minions
 Feature/&DHPactOfTheTomeFeatureSetDescription	Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list. The cantrips do not need to be from the same spell list. While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. Any cantrip you cast with this feature is considered a Warlock cantrip for you.
 Feature/&DHPactOfTheTomeFeatureSetTitle	Pact of the Tome
+Feature/&DHWardingBondBonusCantripDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage).
+Feature/&DHWardingBondBonusCantripTitle	Rift Cloak
 Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	When you cast the summon a familiar, you can choose one of the following special forms: imp, pseudodragon, quasit, or sprite.
 Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	Pact of the Chain
+Feature/&DreadfulWordTitle	Dreadful Word
 Feature/&EldritchBlastGraspingHandBonusCantripDescription	When you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.
 Feature/&EldritchBlastGraspingHandBonusCantripTitle	Grasping Blast
 Feature/&EldritchBlastRepellingBlastBonusCantripDescription	When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.
@@ -130,6 +139,7 @@ Feature/&ElementalPatronFeatureSet_Level06Description	You knowledge of elemental
 Feature/&ElementalPatronFeatureSet_Level06Title	Knowledge of Elementals
 Feature/&EyesoftheRuneKeeperDescription	You can read all writing.
 Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
+Feature/&FiendishVigorTitle	Fiendish Vigor
 Feature/&GiftoftheEverLivingOnesDescription	Regains the maximum number of hit points possible from any healing.
 Feature/&GiftoftheEverLivingOnesTitle	Gift of the Ever-Living Ones
 Feature/&GiftoftheProtectorsDescription	When you are reduced to 0 hit points but not killed outright, the creature magically drops to 1 hit point instead. Once this magic is triggered, you can't benefit from it until you finish a long rest.
@@ -143,6 +153,7 @@ Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
 Feature/&HinderingBlastTitle	Hindering Blast
 Feature/&ImprovedPactWeaponDescription	You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls.
 Feature/&ImprovedPactWeaponTitle	Improved Pact Weapon
+Feature/&MiretheMindTitle	Mire the Mind
 Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condition.
 Feature/&MoonLitDarknessImmunityTitle	Moonlit Darkness
 Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
@@ -172,16 +183,21 @@ Feature/&ThiefofFiveFates	Cast {0} once per day
 Feature/&ThiefofFiveFatesTitle	Thief of Five Fates
 Feature/&ThirstingBladeDescription	You can attack with your weapon twice, instead of once, whenever you take the Attack action on your turn.
 Feature/&ThirstingBladeTitle	Thirsting Blade
+Feature/&TrickstersEscapeTitle	Trickster's Escape
 Feature/&WallofThornsFeatureSetDescription	Cast Wall of Thorns once a day.
 Feature/&WallofThornsFeatureSetTitle	Forest Barrier
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
 Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast eldritch blast, you add your Charisma modifier to the damage it deals on a hit.
 Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
+Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
 Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
 Feedback/&AdditionalDamagePactMarkedLine	Pact mark does additional damage!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Soul taker!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker does additional damage!
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered does additional damage!
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} creates {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} creates {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} creates {1}
@@ -213,6 +229,8 @@ Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between enhanced e
 Power/&DH_ElementalFormPoolEnhancedTitle	Enhanced Elemental Forms
 Power/&DH_ElementalFormPoolEnhancedTitleShort	Elemental Forms
 Power/&DH_ElementalFormPoolTitle	Elemental Forms
+Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
+Power/&FindFamiliarBundlePowerTitle	Find Familiar
 Power/&MoonlitDanceoftheNightSkyDescription	You can cast Fly on 4 targets once per day.
 Power/&MoonlitDanceoftheNightSkyTitle	Dance of the Night Sky
 Power/&MoonlitDarkMoonDescription	You can cast Darkness a number of times per long rest equal to your proficiency bonus.
@@ -240,6 +258,7 @@ Requirement/&WarlockRequiresOneWithShadows	"One With Shadows" Eldritch Invocatio
 Requirement/&WarlockRequiresPactOfBlade	Pact of the Blade
 Requirement/&WarlockRequiresPactOfChain	Pact of the Chains
 Requirement/&WarlockRequiresPactOfTome	Pact of the Tome
+Rules/&CounterFormDismissCreatureFormat	Dismiss Tinkerer construct
 Spell/&AHPactMarkAdditionalDamageDescription	A pact marked creature takes an additional 1d6 damage of the same type when hit by a weapon or spell attack by the marker.
 Spell/&AHPactMarkAdditionalDamageTitle	Pact Mark damage
 Spell/&AHPactMarkMarkedByPactConditionDescription	This creature has been marked by a pact and takes an additional 1d6 damage of the same type when hit by a weapon or spell attack by the marker.
@@ -282,3 +301,5 @@ Subclass/&WarlockMoonLitDescription	Your patron is a spirit of the moon, an enti
 Subclass/&WarlockMoonLitTitle	Moonlit Pact
 Subclass/&WarlockToadKingDescription	Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
 Subclass/&WarlockToadKingTitle	Toad King Pact
+Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
+Subclass/&WarlockUrPriestTitle	UrPriest Pact

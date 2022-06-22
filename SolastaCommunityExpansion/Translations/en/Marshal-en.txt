@@ -1,3 +1,8 @@
+Reaction/&CoordinatedAttackDescription	{0} was attacked by coordinating attack, some characters can use their reaction to join this attack.
+Reaction/&CoordinatedAttackReactDescription	Use reaction to attack target.
+Reaction/&CoordinatedAttackReactTitle	Attack
+Reaction/&CoordinatedAttackTitle	Coordinated Attack
+Reaction/&SubitemSelectCoordinatedAttackTitle	Select action
 Subclass/&FighterMarshalCoordinatedAttackDescription	When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Coordinated Attack
 Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.

@@ -1,3 +1,36 @@
+Condition/&ConditionDualFlurryApplyDescription	Stai prendendo slancio...
+Condition/&ConditionDualFlurryApplyTitle	Doppio colpo!
+Condition/&ConditionDualFlurryGrantDescription	I tuoi nemici stanno vacillando!
+Condition/&ConditionDualFlurryGrantTitle	Doppio colpo!
+Condition/&HelpActionDescription	Questa creatura è stata distratta.
+Condition/&HelpActionTitle	Distratto
+CraftyFeats/&ApothecaryIntFeatDescription	Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit di erboristeria e Arcana, o competenza se già esperto.
+CraftyFeats/&ApothecaryIntFeatTitle	Speziale (Intelligence)
+CraftyFeats/&ApothecaryWisFeatDescription	Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit di erboristeria e Arcana, o competenza se già esperto.
+CraftyFeats/&ApothecaryWisFeatTitle	Speziale (Saggezza)
+CraftyFeats/&AttributeDexDescription	+1 DEX fino a un massimo di 20
+CraftyFeats/&AttributeDexTitle	Destrezza
+CraftyFeats/&AttributeIntDescription	+1 INT fino a un massimo di 20
+CraftyFeats/&AttributeIntTitle	Intelligenza
+CraftyFeats/&AttributeWisDescription	+1 WIS fino a un massimo di 20
+CraftyFeats/&AttributeWisTitle	Saggezza
+CraftyFeats/&CraftyArcanaDescription	Ottieni competenza/competenza in Arcana.
+CraftyFeats/&CraftyBowsDescription	Acquisisci competenza con tutti gli archi e le balestre.
+CraftyFeats/&CraftyBowsTitle	Competenza con l'arco
+CraftyFeats/&CraftyFletcherFeatDescription	Aumenta la tua Destrezza di 1, fino a un massimo di 20.\nAcquisisci competenza con gli strumenti del fabbro o esperienza se sei già esperto.\n Acquisisci competenza con tutti gli archi e le balestre.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	Acquisisci competenza/esperienza in Medicina.
+CraftyFeats/&CraftyNatureDescription	Ottieni competenza/esperienza in Natura.
+CraftyFeats/&CraftyScribeFeatDescription	Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nOttieni competenza con il kit di pergamene e gli Arcani, o competenza se già abile.\nRichiede la capacità di lanciare incantesimi.
+CraftyFeats/&CraftyScribeFeatTitle	Scriba
+CraftyFeats/&CraftySkillsTitle	Abilità
+CraftyFeats/&CraftyToolsTitle	Strumenti
+CraftyFeats/&ManacalonCrafterFeatDescription	Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nOttieni competenza con il rosario manacolon e gli Arcani, o competenza se già abile.\nRichiede la capacità di lanciare incantesimi.
+CraftyFeats/&ManacalonCrafterFeatTitle	Artigiano di Manacalon
+CraftyFeats/&ToxicologistIntFeatDescription	Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nOttieni competenza con il kit dell'avvelenatore e la Natura, o competenza se già abile.
+CraftyFeats/&ToxicologistIntFeatTitle	Tossicologo (Intelligence)
+CraftyFeats/&ToxicologistWisFeatDescription	Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nOttieni competenza con il kit dell'avvelenatore e Medicina, o competenza se già abile.
+CraftyFeats/&ToxicologistWisFeatTitle	Tossicologo (Saggezza)
 Feat/&AddConstructCantripsDescription	Aggiunge trucchetti per curare e respingere i tuoi costrutti.
 Feat/&AddConstructCantripsTitle	Costruisci trucchetti
 Feat/&AddProtectorConstructCantripDescription	Aggiunge trucchetti Riparare Costrutto e Elimina Costrutto per aumentare la flessibilità dei costrutti.
@@ -92,8 +125,6 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Aumenta il tuo Carisma di 1, fino a
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagia: accelerata
 Feat/&FeatMetamagicAdeptTwinnedDescription	Aumenta il tuo Carisma di 1, fino a un massimo di 20.\nImpari la metamagia Gemellata e guadagni 2 punti stregoneria.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagia: gemellata
-Feat/&FeatPolearmExpertDescription	Il tuo addestramento esperto con le armi in asta ti garantisce questi vantaggi:\n• Quando si esegue l'azione Attacco e si attacca solo con un'arma ad asta, è possibile utilizzare un'azione bonus per effettuare un attacco in mischia con l'estremità opposta dell'arma. Questo attacco usa lo stesso modificatore di abilità dell'attacco primario. Il dado di danno dell'arma per questo attacco è un d4 e infligge danni contundenti.\n• Mentre impugnate un'arma con un'arma ad asta, altre creature provocano un attacco di opportunità da parte vostra quando entrano nel raggio d'azione che avete con quell'arma.
-Feat/&FeatPolearmExpertTitle	Esperto di armi da fuoco
 Feat/&FeatPrimalConstitutionDescription	Aumenta la tua Costituzione di 1, fino a un massimo di 20.\nPuoi inserire una rabbia come azione bonus come definita nel privilegio di classe Ira del Barbaro con un danno da rabbia +1 che può accumularsi con la rabbia del Barbaro. Una volta che ti sei infuriato in questo modo, devi terminare un lungo riposo prima di utilizzare nuovamente questa funzione.\nMentre non indossi alcuna armatura, la tua CA è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Costituzione.
 Feat/&FeatPrimalConstitutionTitle	Rabbia Primordiale (Costituzione)
 Feat/&FeatPrimalStrengthDescription	Aumenta la tua Forza di 1, fino a un massimo di 20.\nPuoi inserire una rabbia come azione bonus come definita nel privilegio di classe Ira del Barbaro con un danno da rabbia +1 che può accumularsi con la rabbia del Barbaro. Una volta che ti sei infuriato in questo modo, devi terminare un lungo riposo prima di utilizzare nuovamente questa funzione.\nMentre non indossi alcuna armatura, la tua CA è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Costituzione.
@@ -237,3 +268,40 @@ Feat/&UseArmorWeaponsAsFocusDescription	Puoi usare le armi dell'armatura come fo
 Feat/&UseArmorWeaponsAsFocusTitle	Focus sull'incantesimo
 Feat/&UsingitemPowerDescription	Consente di utilizzare la potenza dell'arma per un'azione bonus.
 Feat/&UsingitemPowerTitle	Usa il potere delle armi
+Feature/&AdditionalActionDualFlurryDescription	Puoi effettuare un ulteriore attacco con la mano secondaria.
+Feature/&AdditionalActionDualFlurryTitle	Doppio colpo!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Una volta per turno, puoi infliggere 1d6 danni extra a una creatura che colpisci con un attacco che soddisfa l'Attacco Furtivo di Rogue. Al 7° livello questo danno aumenta a 2d6 e al 14° livello a 3d6. Questo può accumularsi con l'Attacco furtivo di Rogue.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Attacco furtivo ombroso
+Feature/&DeadeyeDescription	Attaccare a lunga distanza non impone svantaggio ai tiri per colpire con armi a distanza. Le tue armi a distanza ignorano la copertura per metà e per tre quarti. Puoi scegliere di prendere una penalità bonus di -5 per colpire per infliggere un danno bonus di +10.
+Feature/&DeadeyeTitle	Deadeye
+Feature/&DualFlurryDescription	Sei un maestro nel combattere con armi accoppiate. In qualsiasi turno in cui colpisci due volte con attacchi in mischia mentre maneggi un'arma in ciascuna mano, puoi effettuare un ulteriore attacco con la mano secondaria.
+Feature/&DualFlurryTitle	Doppia raffica
+Feature/&PowerAttackDescription	Prendi una penalità di -3 per colpire al tuo attacco per infliggere 3 + bonus di competenza danni extra quando sferri i tuoi colpi con armi da mischia.
+Feature/&PowerAttackTitle	Attacco di POTENZA
+Feature/&PowerTorchbearerDescription	Tenta di dare fuoco a un bersaglio in mischia!
+Feature/&PowerTorchbearerTitle	tedoforo
+Feature/&RageDamageBonusAttackModifierDescription	Aggiungi +2 danni ai tuoi attacchi mentre sei in preda all'ira.
+Feature/&RageDamageBonusAttackModifierTitle	Danno da rabbia
+Feature/&RageFeatConditionDescription	Mentre sei arrabbiato ottieni quanto segue: vantaggio alle prove di Forza e ai tiri salvezza di Forza, un bonus ai tiri per i danni di +2 e resistenza ai danni contundenti, perforanti e taglienti.
+Feature/&RageFeatConditionTitle	Infuriare
+Feature/&RagePowerDescription	Come azione bonus, si entra in rabbia per un minuto e si ottengono i seguenti vantaggi: vantaggio alle prove di Forza e ai tiri salvezza di Forza, bonus ai tiri per i danni di +2 e resistenza ai danni contundenti, perforanti e taglienti.
+Feature/&RagePowerTitle	Rabbia
+Feature/&RageStrengthSavingThrowAffinityDescription	Ottieni vantaggio sui tiri salvezza sulla Forza mentre sei in preda all'ira.
+Feature/&RageStrengthSavingThrowAffinityTitle	Vantaggio del salvataggio di Forza di rabbia
+Power/&HelpActionDescription	Puoi aiutare una creatura amica ad attaccare una creatura entro 1,5 metri da te. Finisci, distrai il bersaglio o in qualche altro modo fai squadra per rendere più efficace l'attacco del tuo alleato. Se il tuo alleato attacca il bersaglio prima del tuo prossimo turno, il primo tiro per colpire viene effettuato con vantaggio.
+Power/&HelpActionTitle	Aiuto
+Reaction/&SubitemSelectWarcasterReactionTitle	Seleziona azione
+Reaction/&WarcasterAttackDescription	Attacca il bersaglio.
+Reaction/&WarcasterAttackTitle	attacco
+Reaction/&WarcasterReactionDescription	{0} sta lasciando un'area minacciata da uno o più personaggi.
+Reaction/&WarcasterReactionReactDescription	Usa la reazione per attaccare il bersaglio.
+Reaction/&WarcasterReactionReactTitle	attacco
+Reaction/&WarcasterReactionTitle	Attacco di opportunità
+Tooltip/&DeadeyeConcentration	Disabilita Deadeye.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Non sa {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Ha un attacco invisibile
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Non è un barbaro
+Tooltip/&FeatPrerequisiteIsNotFighter	Non è un combattente
+Tooltip/&FeatPrerequisiteIsNotRogue	Non è un ladro
+Tooltip/&FeatPrerequisiteLevelFormat	Livello personaggio minimo {0}
+Tooltip/&PowerAttackConcentration	Disattiva attacco potente.

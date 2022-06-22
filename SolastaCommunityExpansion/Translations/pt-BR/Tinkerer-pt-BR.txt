@@ -167,8 +167,12 @@ Feature/&TinkererWeaponProficiencyDescription	Proficiência com armas simples.
 Feature/&TinkererWeaponProficiencyTitle	Proficiências com Armas do Tinkerer
 Feedback/&AdditionalDamageArcaneFirearmFormat	Aprimoramento de explosão!
 Feedback/&AdditionalDamageArcaneFirearmLine	Causando dano adicional do Aprimoramento Explosivo
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Arma de Cegueira
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Dano adicional e tentativa de aplicar Cegueira da Arma Cegante
 Feedback/&AdditionalDamageLightningSpearFormat	Lança Relâmpago!
 Feedback/&AdditionalDamageLightningSpearLine	{0} atinge {1} com a Lança Relâmpago! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Dano atualizado
+Feedback/&AdditionalDamageUpgradedConstructLine	O constructo atualizado causa 1d8 a mais de dano por acerto.
 Feedback/&LightningSpearAdditionalDamageDescription	Causa 1d6 de dano de raio adicional uma vez por turno.
 Feedback/&LightningSpearAdditionalDamageTitle	Dano extra da Lança Relâmpago
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
@@ -177,6 +181,12 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} atacou um de seus aliados, e
 Reaction/&ReactionAttackFeatSentinelReactDescription	Use a reação para atacar.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Ataque
 Reaction/&ReactionAttackFeatSentinelTitle	Reação Sentinela
+Rules/&AdvantageAttackOnEnemyDescription	Vantagem para atacar o inimigo.
+Rules/&AdvantageAttackOnEnemyTitle	Iluminou
+Rules/&DisadvantageOnAttackByEnemyDescription	Distraído por um relâmpago.
+Rules/&DisadvantageOnAttackByEnemyTitle	Sacudido
+Rules/&ExtraDamageOnAttackConditionDescription	Dano extra de Lighting Spear.
+Rules/&ExtraDamageOnAttackConditionTitle	Chocado estático
 Rules/&HalfCoverShieldAttributeDescription	Aliados dentro de 10 pés ganham +2 AC.
 Rules/&HalfCoverShieldAttributeTitle	Cúpula Meia Cobertura
 Rules/&HalfCoverShieldConditionDescription	+2 CA.
@@ -191,6 +201,11 @@ Rules/&ThunderStruckDescription	Desvantagem ao atacar os aliados do Scout Sentin
 Rules/&ThunderStruckTitle	Trovejante (Distraído)
 SpellList/&SpellListTinkererDescription	Lista de Feitiços do Tinkerer.
 SpellList/&SpellListTinkererTitle	Lista de Feitiços do Tinkerer
+Stage/&SubclassSelectionStageSpecialistDescription	Descrição Há uma grande variedade de especialidades em Tinkerers, incluindo fazer elixires como um Potion Maker, fazer explosões como um Blaster e empunhar armas mágicas como um Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Recursos especializados
+Stage/&SubclassSelectionStageSpecialistHeader	Especializações
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Especialista Nenhum Descrição.
+Stage/&SubclassSelectionStageSpecialistTitle	Selecionar especialização
 Subclass/&ArtificerAlchemistDescription	Você se especializa em poções, buffs, cura e feitiços.
 Subclass/&ArtificerAlchemistTitle	Fabricante de Poções
 Subclass/&ArtificerArtileristCannonsDescription	Você cria um conjunto de canhões que você pode ativar em batalha como uma ação bônus.
@@ -228,6 +243,7 @@ Subclass/&CancelCancelElixirResilienceTitle	Cancelar resiliência
 Subclass/&CancelCancelElixirSwiftnessDescription	Encerre a condição de Rapidez do Elixir do Criador de Poções.
 Subclass/&CancelCancelElixirSwiftnessTitle	Cancelar Rapidez
 Subclass/&ConditionResistantArmorTitle	Armadura Resistente
+Subclass/&ConditionResistnatArmorDescription	Sua armadura é resistente a dano de ácido, frio, fogo, força, raio, necrótico, veneno, psíquico, radiante e trovejante.
 Subclass/&CraftingTinkererMagicItemAdeptDescription	Você é perito em criar itens mágicos. Você leva 1/4 do tempo para criar itens e você aplica o dobro do seu bônus de proficiência ao criar.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Adepto de itens mágicos
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Toque em uma bolsa e infunda um espaço dimensional extra para ajudá-la a suportar mais peso sem sobrecarregar você. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.

@@ -1,3 +1,8 @@
+Reaction/&CoordinatedAttackDescription	{0} è stato attaccato da un attacco coordinato, alcuni personaggi possono usare la loro reazione per unirsi a questo attacco.
+Reaction/&CoordinatedAttackReactDescription	Usa la reazione per attaccare il bersaglio.
+Reaction/&CoordinatedAttackReactTitle	attacco
+Reaction/&CoordinatedAttackTitle	Attacco coordinato
+Reaction/&SubitemSelectCoordinatedAttackTitle	Seleziona azione
 Subclass/&FighterMarshalCoordinatedAttackDescription	Quando colpisci un nemico con un attacco in mischia, i tuoi alleati possono usare la loro reazione per effettuare un attacco di opportunità contro il tuo bersaglio.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Attacco coordinato
 Subclass/&FighterMarshalDescription	Abili nello studio delle debolezze dei nemici e nel coordinare gli attacchi degli altri membri del gruppo per sfruttarli, i combattenti che si sono allenati in questa parte marziale sono famosi ochestratori del campo di battaglia.

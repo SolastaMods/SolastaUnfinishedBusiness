@@ -1,3 +1,36 @@
+Condition/&ConditionDualFlurryApplyDescription	Estás ganando impulso...
+Condition/&ConditionDualFlurryApplyTitle	¡Ráfaga dual!
+Condition/&ConditionDualFlurryGrantDescription	¡Tus enemigos están tambaleándose!
+Condition/&ConditionDualFlurryGrantTitle	¡Ráfaga dual!
+Condition/&HelpActionDescription	Esta criatura se ha distraído.
+Condition/&HelpActionTitle	Distraído
+CraftyFeats/&ApothecaryIntFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
+CraftyFeats/&ApothecaryIntFeatTitle	Boticario (Inteligencia)
+CraftyFeats/&ApothecaryWisFeatDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
+CraftyFeats/&ApothecaryWisFeatTitle	Boticario (Sabiduría)
+CraftyFeats/&AttributeDexDescription	+1 DEX hasta un máximo de 20
+CraftyFeats/&AttributeDexTitle	Destreza
+CraftyFeats/&AttributeIntDescription	+1 INT hasta un máximo de 20
+CraftyFeats/&AttributeIntTitle	Inteligencia
+CraftyFeats/&AttributeWisDescription	+1 SAB hasta un máximo de 20
+CraftyFeats/&AttributeWisTitle	Sabiduría
+CraftyFeats/&CraftyArcanaDescription	Obtienes competencia/pericia en Arcana.
+CraftyFeats/&CraftyBowsDescription	Obtienes competencia con todos los arcos y ballestas.
+CraftyFeats/&CraftyBowsTitle	Dominio del arco
+CraftyFeats/&CraftyFletcherFeatDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\nAdquieres competencia con las herramientas de herrero, o experiencia si ya eres competente.\n Obtienes competencia con todos los arcos y ballestas.
+CraftyFeats/&CraftyFletcherFeatTitle	Flechero
+CraftyFeats/&CraftyMedicineDescription	Ganas competencia/pericia en Medicina.
+CraftyFeats/&CraftyNatureDescription	Ganas competencia/pericia en la Naturaleza.
+CraftyFeats/&CraftyScribeFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de pergaminos y arcanos, o experiencia si ya eres competente.\nRequiere la habilidad de lanzar hechizos.
+CraftyFeats/&CraftyScribeFeatTitle	Escriba
+CraftyFeats/&CraftySkillsTitle	Habilidades
+CraftyFeats/&CraftyToolsTitle	Instrumentos
+CraftyFeats/&ManacalonCrafterFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con manacolon rosary y arcana, o experiencia si ya eres competente.\nRequiere la habilidad de lanzar hechizos.
+CraftyFeats/&ManacalonCrafterFeatTitle	Artesano de Manacalón
+CraftyFeats/&ToxicologistIntFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el equipo de envenenador y la Naturaleza, o experiencia si ya eres competente.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicólogo (Inteligencia)
+CraftyFeats/&ToxicologistWisFeatDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el equipo de envenenador y Medicina, o experiencia si ya eres competente.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicólogo (Sabiduría)
 Feat/&AddConstructCantripsDescription	Agrega cantrips para sanar y descartar tus construcciones.
 Feat/&AddConstructCantripsTitle	Construir trucos
 Feat/&AddProtectorConstructCantripDescription	Agrega cantrips Mending Construct y Dismiss Construct para aumentar la flexibilidad de sus construcciones.
@@ -92,8 +125,6 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Aumenta tu Carisma en 1, hasta un m
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagia: Acelerado
 Feat/&FeatMetamagicAdeptTwinnedDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Twinned y ganas 2 puntos de hechicería.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagia: Hermanados
-Feat/&FeatPolearmExpertDescription	Tu formación experta con armas de asta te otorga estos beneficios:\n• Cuando realizas la acción Atacar y atacas solo con un arma de asta, puedes usar una acción adicional para realizar un ataque cuerpo a cuerpo con el extremo opuesto del arma. Este ataque usa el mismo modificador de habilidad que el ataque principal. El dado de daño del arma para este ataque es un d4, e inflige daño contundente.\n• Mientras empuñas un arma de asta, otras criaturas provocan un ataque de oportunidad tuyo cuando entran en el alcance que tienes con esa arma.
-Feat/&FeatPolearmExpertTitle	Experto en armas de asta
 Feat/&FeatPrimalConstitutionDescription	Aumenta tu Constitución en 1, hasta un máximo de 20.\nPuedes ingresar una ira como una acción adicional como se define en la característica de clase de ira del bárbaro con un daño de ira de +1 que se puede acumular con la ira del bárbaro. Una vez que te hayas enfurecido de esta manera, debes terminar un descanso prolongado antes de volver a usar esta característica.\nMientras no llevas ninguna armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución.
 Feat/&FeatPrimalConstitutionTitle	Rabia primigenia (Constitución)
 Feat/&FeatPrimalStrengthDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\nPuedes ingresar una ira como una acción adicional como se define en la característica de clase de ira del bárbaro con un daño de ira de +1 que se puede acumular con la ira del bárbaro. Una vez que te hayas enfurecido de esta manera, debes terminar un descanso prolongado antes de volver a usar esta función.\nMientras no llevas ninguna armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución.
@@ -237,3 +268,40 @@ Feat/&UseArmorWeaponsAsFocusDescription	Puedes usar las armas de la armadura com
 Feat/&UseArmorWeaponsAsFocusTitle	Enfoque de lanzamiento de hechizos
 Feat/&UsingitemPowerDescription	Permite usar el poder del arma en una acción de bonificación.
 Feat/&UsingitemPowerTitle	Usa el poder del arma
+Feature/&AdditionalActionDualFlurryDescription	Puedes realizar un ataque adicional con la mano torpe.
+Feature/&AdditionalActionDualFlurryTitle	¡Ráfaga dual!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Una vez por turno, puedes infligir 1d6 de daño adicional a una criatura que golpees con un ataque que se encuentre con el Ataque furtivo de Rogue. En el nivel 7 este daño aumenta a 2d6 y en el nivel 14 a 3d6. Esto puede acumularse con el ataque furtivo de Rogue.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Ataque furtivo sombrío
+Feature/&DeadeyeDescription	Atacar a larga distancia no supone una desventaja en las tiradas de ataque con armas a distancia. Tus armas a distancia ignoran la media cobertura y la cobertura de tres cuartos. Puedes elegir recibir una penalización de bonificación de -5 a tu golpe para hacer un daño de bonificación de +10.
+Feature/&DeadeyeTitle	Vigota
+Feature/&DualFlurryDescription	Eres un maestro de la lucha con armas combinadas. En cualquier turno en el que golpees dos veces con ataques cuerpo a cuerpo mientras empuñas un arma en cada mano, puedes realizar un ataque adicional con la mano izquierda.
+Feature/&DualFlurryTitle	ráfaga dual
+Feature/&PowerAttackDescription	Recibe una penalización de -3 para golpear a tu ataque para hacer 3 + bonificación de competencia de daño adicional cuando lanzas tus golpes con armas cuerpo a cuerpo.
+Feature/&PowerAttackTitle	Ataque de poder
+Feature/&PowerTorchbearerDescription	¡Intenta prender fuego a un objetivo cuerpo a cuerpo!
+Feature/&PowerTorchbearerTitle	portador de la antorcha
+Feature/&RageDamageBonusAttackModifierDescription	Añade +2 de daño a tus ataques mientras estás en furia.
+Feature/&RageDamageBonusAttackModifierTitle	Daño de rabia
+Feature/&RageFeatConditionDescription	Mientras estás furioso, obtienes lo siguiente: Ventaja en las pruebas de Fuerza y ​​en las tiradas de salvación de Fuerza, una bonificación a las tiradas de daño de +2 y resistencia al daño contundente, perforante y cortante.
+Feature/&RageFeatConditionTitle	Furioso
+Feature/&RagePowerDescription	Como acción adicional, entras en furia durante un minuto y obtienes lo siguiente: Ventaja en las pruebas de Fuerza y ​​tiradas de salvación de Fuerza, una bonificación a las tiradas de daño de +2 y resistencia al daño contundente, perforante y cortante.
+Feature/&RagePowerTitle	Rabia
+Feature/&RageStrengthSavingThrowAffinityDescription	Obtienes ventaja en las salvaciones de Fuerza mientras estás en furia.
+Feature/&RageStrengthSavingThrowAffinityTitle	Ventaja de salvación de fuerza de ira
+Power/&HelpActionDescription	Puedes ayudar a una criatura aliada a atacar a una criatura a 5 pies de ti. Fintas, distraes al objetivo o te unes de alguna otra forma para que el ataque de tu aliado sea más eficaz. Si tu aliado ataca al objetivo antes de tu próximo turno, la primera tirada de ataque se realiza con ventaja.
+Power/&HelpActionTitle	Ayuda
+Reaction/&SubitemSelectWarcasterReactionTitle	Seleccione la acción
+Reaction/&WarcasterAttackDescription	Objetivo de ataque.
+Reaction/&WarcasterAttackTitle	Ataque
+Reaction/&WarcasterReactionDescription	{0} está saliendo de un área amenazada por uno o más personajes.
+Reaction/&WarcasterReactionReactDescription	Usa la reacción para atacar al objetivo.
+Reaction/&WarcasterReactionReactTitle	Ataque
+Reaction/&WarcasterReactionTitle	Ataque de oportunidad
+Tooltip/&DeadeyeConcentration	Deshabilitar Deadeye.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	no sabe {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Tiene ataque sigiloso
+Tooltip/&FeatPrerequisiteIsNotBarbarian	no es un bárbaro
+Tooltip/&FeatPrerequisiteIsNotFighter	no es un luchador
+Tooltip/&FeatPrerequisiteIsNotRogue	no es un pícaro
+Tooltip/&FeatPrerequisiteLevelFormat	Nivel mínimo de personaje {0}
+Tooltip/&PowerAttackConcentration	Desactiva el ataque de poder.

@@ -120,3 +120,4 @@ Subclass/&WhiteWitchMagicTitle	Magia blanca
 Subclass/&WhiteWitchTitle	Bruja blanca
 Subclass/&WitchSubclassPathDescription	Tu conocimiento de la magia ha culminado al unirte a un Coven, un círculo innato de brujas que profundizan en un camino específico de brujería y maldiciones.
 Subclass/&WitchSubclassPathTitle	aquelarres de brujas
+Tooltip/&TagMaledictionTitle	Maldición

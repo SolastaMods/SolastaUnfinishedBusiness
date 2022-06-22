@@ -167,8 +167,12 @@ Feature/&TinkererWeaponProficiencyDescription	Maîtrise des armes simples.
 Feature/&TinkererWeaponProficiencyTitle	Maîtrise des armes du bricoleur
 Feedback/&AdditionalDamageArcaneFirearmFormat	Amélioration du dynamitage !
 Feedback/&AdditionalDamageArcaneFirearmLine	Inflige des dégâts supplémentaires grâce à l'amélioration de l'explosion
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Arme aveuglante
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Dégâts supplémentaires et tentative d'application de la cécité de l'arme aveuglante
 Feedback/&AdditionalDamageLightningSpearFormat	Lance éclair !
 Feedback/&AdditionalDamageLightningSpearLine	{0} frappe {1} avec Lightning Spear ! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Dégâts améliorés
+Feedback/&AdditionalDamageUpgradedConstructLine	La construction améliorée inflige 1d8 dégâts supplémentaires par coup.
 Feedback/&LightningSpearAdditionalDamageDescription	Inflige 1d6 dégâts de foudre supplémentaires une fois par tour.
 Feedback/&LightningSpearAdditionalDamageTitle	Dégâts supplémentaires de Lightning Spear
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
@@ -177,6 +181,12 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} a attaqué un de vos alliés
 Reaction/&ReactionAttackFeatSentinelReactDescription	Utilisez la réaction pour attaquer.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Attaque
 Reaction/&ReactionAttackFeatSentinelTitle	Réaction sentinelle
+Rules/&AdvantageAttackOnEnemyDescription	Avantage d'attaquer l'ennemi.
+Rules/&AdvantageAttackOnEnemyTitle	Illuminé
+Rules/&DisadvantageOnAttackByEnemyDescription	Distrait par un coup de foudre.
+Rules/&DisadvantageOnAttackByEnemyTitle	Secoué
+Rules/&ExtraDamageOnAttackConditionDescription	Dégâts supplémentaires de Lightning Spear.
+Rules/&ExtraDamageOnAttackConditionTitle	Statique choqué
 Rules/&HalfCoverShieldAttributeDescription	Les alliés à moins de 3 mètres gagnent +2 CA.
 Rules/&HalfCoverShieldAttributeTitle	Dôme demi-couverture
 Rules/&HalfCoverShieldConditionDescription	+2 CA.
@@ -191,6 +201,11 @@ Rules/&ThunderStruckDescription	Inconvénient lors de l'attaque des alliés de S
 Rules/&ThunderStruckTitle	Abasourdi (distrait)
 SpellList/&SpellListTinkererDescription	Liste de sorts de bricoleur.
 SpellList/&SpellListTinkererTitle	Liste de sorts du bricoleur
+Stage/&SubclassSelectionStageSpecialistDescription	Il existe un large éventail de spécialités chez les bricoleurs, notamment la fabrication d'élixirs en tant que fabricant de potions, la fabrication d'explosions en tant que blaster et le maniement d'armes magiques en tant que forgeron d'armes.
+Stage/&SubclassSelectionStageSpecialistFeatures	Caractéristiques spécialisées
+Stage/&SubclassSelectionStageSpecialistHeader	Spécialisations
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Spécialiste Aucun Description.
+Stage/&SubclassSelectionStageSpecialistTitle	Sélectionnez la spécialisation
 Subclass/&ArtificerAlchemistDescription	Vous êtes spécialisé dans les potions, les buffs, la guérison et le lancement de sorts.
 Subclass/&ArtificerAlchemistTitle	Créateur de potions
 Subclass/&ArtificerArtileristCannonsDescription	Vous créez un ensemble de canons que vous pouvez activer au combat en tant qu'action bonus.
@@ -228,6 +243,7 @@ Subclass/&CancelCancelElixirResilienceTitle	Annuler la résilience
 Subclass/&CancelCancelElixirSwiftnessDescription	Mettez fin à la condition Rapidité de l'élixir Potion Maker.
 Subclass/&CancelCancelElixirSwiftnessTitle	Annuler la rapidité
 Subclass/&ConditionResistantArmorTitle	Armure résistante
+Subclass/&ConditionResistnatArmorDescription	Votre armure est résistante aux dommages causés par l'acide, le froid, le feu, la force, la foudre, la nécrose, le poison, le psychique, le rayonnement et le tonnerre.
 Subclass/&CraftingTinkererMagicItemAdeptDescription	Vous êtes habile à fabriquer des objets magiques. Cela vous prend 1/4 du temps pour fabriquer des objets et vous appliquez le double de votre bonus de compétence lors de la fabrication.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Adepte des objets magiques
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touchez un sac et infusez un espace dimensionnel supplémentaire pour l'aider à supporter plus de poids sans vous encombrer. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.

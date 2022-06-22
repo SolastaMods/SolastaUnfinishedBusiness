@@ -37,8 +37,6 @@ Feature/&ClassMonkPerfectSelfTitle	Perfektes Selbst
 Feature/&ClassMonkPurityOfBodyDescription	Ihre Beherrschung des Ki, das durch Sie fließt, macht Sie immun gegen Krankheit und Gift.
 Feature/&ClassMonkPurityOfBodyTitle	Reinheit des Körpers
 Feature/&ClassMonkSkillProficiencyTitle	Mönchsfähigkeiten
-Feature/&ClassMonkTongueOfSunAndMoonDescription	Du lernst, das Ki anderer Geister zu berühren, damit du alle gesprochenen Sprachen verstehst. Darüber hinaus kann jedes Wesen, das eine Sprache verstehen kann, verstehen, was Sie sagen.
-Feature/&ClassMonkTongueOfSunAndMoonTitle	Zunge der Sonne und des Mondes
 Feature/&ClassMonkUnarmoredDefenseDescription	Solange du keine Rüstung trägst und keinen Schild schwingst, beträgt deine RK 10 + dein Geschicklichkeitsmodifikator + dein Weisheitsmodifikator.
 Feature/&ClassMonkUnarmoredDefenseTitle	Ungepanzerte Verteidigung
 Feature/&ClassMonkUnarmoredMovementBonusDescription	Der Bewegungsbonus erhöht sich um 1,50 m.
@@ -54,6 +52,8 @@ Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ihre Bogenangriffe zählen 
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-ermächtigte Pfeile
 Feature/&ClassMonkZenArcherStunningArrowsDescription	Sie können den Ki-Fluss im Körper eines Gegners stören. Wenn du eine andere Kreatur triffst, die nicht mit einem Pfeilangriff betäubt ist, kannst du 1 Ki-Punkt ausgeben, um einen Betäubungsschlag zu versuchen. Dem Ziel muss ein Konstitutionsrettungswurf gelingen oder bis zum Ende deines nächsten Zuges betäubt sein.
 Feature/&ClassMonkZenArcherStunningArrowsTitle	Atemberaubende Pfeile
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Erleuchtender Schlag!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike fügt dem Ziel zusätzlichen Schaden zu!
 Power/&ClassMonkDiamondSoulPowerDescription	Immer wenn du einen Rettungswurf machst und misslingt, kannst du 1 Ki-Punkt ausgeben, um ihn zu wiederholen und das zweite Ergebnis zu nehmen.
 Power/&ClassMonkDiamondSoulPowerTitle	Diamantseele
 Power/&ClassMonkEmptyBodyDescription	Du kannst deine Aktion nutzen, um 4 Ki-Punkte auszugeben, um 1 Minute lang unsichtbar zu werden. Während dieser Zeit haben Sie auch Widerstand gegen jeglichen Schaden außer Gewaltschaden.
@@ -140,6 +140,28 @@ Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Klösterliche Traditions
 Stage/&SubclassSelectionStageClassMonkTraditionHeader	Wählen Sie eine klösterliche Tradition aus
 Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Sie müssen eine klösterliche Tradition auswählen.
 Stage/&SubclassSelectionStageClassMonkTraditionTitle	klösterlich\nTradition
+Subclass/&BarbarianPathOfTheLightDescription	Barbaren, die dem Pfad des Lichts folgen, erhellen die Dunkelheit und schützen ihre Verbündeten vor Gefahren, die darin lauern.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	Du stehst immer unter der Wirkung eines Zaubers „Unsichtbarkeit sehen“.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Augen der Wahrheit
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Abgelenkt durch Erleuchtenden Schlag.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Beleuchtet
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Nachteil bei jedem Angriffswurf, der nicht gegen den Pfad des Lichtbarbaren gerichtet ist.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Kann nicht unsichtbar werden.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	In der Runde, in der Sie in Ihre Wut geraten, können Sie bis zu drei Feinde innerhalb von 30 Fuß von Ihnen beleuchten. Sie müssen einen Konstitutionsrettungswurf (SG gleich 8 + dein Kompetenzbonus + dein Konstitutionsmodifikator) bestehen oder 4W6 Strahlungsschaden erleiden und 1 Minute lang von deinem Erleuchtenden Schlag erleuchtet werden. Eine auf diese Weise beleuchtete Kreatur macht am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf. Bei einem erfolgreichen Speichern endet der Effekt dafür.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Bis zu drei Feinde legen einen Konstitutionsrettungswurf ab oder erleiden 4W6 Strahlungsschaden und werden von deinem Erleuchtenden Schlag erleuchtet.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Erleuchtender Ausbruch
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Erleuchtender Ausbruch
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	Während du tobst, erleidet die erste Kreatur, die du in deinem Zug mit einem Angriff triffst, zusätzlich 1W6 Strahlenschaden und wird bis zum Beginn deines nächsten Zuges magisch erleuchtet. Außerdem hat die Kreatur einen Nachteil bei jedem Angriffswurf, der nicht gegen dich ist, und kann nicht unsichtbar werden.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	Der zusätzliche Schaden von Illuminating Strike erhöht sich auf 2W6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Beleuchtungsschlag-Verbesserung
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Erleuchtender Schlag
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Sie erhalten Trefferpunkte in Höhe der Hälfte Ihrer Barbarenstufe zurück, wenn eine feindliche Kreatur stirbt, die von Ihrem Erleuchtenden Schlag betroffen ist. Außerdem provozierst du keine Gelegenheitsangriffe mehr von Kreaturen, die von deinem Erleuchtenden Schlag betroffen sind.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Schutz des Lichts
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Du erhältst überlegene Dunkelsicht.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Durchdringe die Dunkelheit
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Kann unsichtbare Kreaturen wahrnehmen.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Unsichtbarkeit
+Subclass/&BarbarianPathOfTheLightTitle	Pfad des Lichts
 Subclass/&ClassMonkTraditionDescription	Auf der 3. Ebene wählst du den spirituellen Weg, dem du zur Erleuchtung folgst. Es wird prägen, wie Sie Ki manipulieren.
 Subclass/&ClassMonkTraditionTitle	Klostertraditionen
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Mönche des Weges der Offenen Hand sind die ultimativen Meister der Kampfkünste, ob bewaffnet oder unbewaffnet. Sie lernen Techniken, um ihre Gegner zu stoßen und zu Fall zu bringen, Ki zu manipulieren, um Schäden an ihrem Körper zu heilen, und praktizieren fortgeschrittene Meditation, die sie vor Schaden schützen kann.

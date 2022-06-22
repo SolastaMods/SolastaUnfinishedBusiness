@@ -51,6 +51,8 @@ Feature/&AncientForestLightAffinityDescription	Sie können Energie aus Sonnenlic
 Feature/&AncientForestLightAffinityTitle	Photosynthese
 Feature/&AncientForestRegrowthDescription	Sie haben einen Pool an Heilkraft, der sich füllt, wenn Sie sich lange ausruhen. Mit diesem Pool können Sie eine Gesamtzahl an Trefferpunkten wiederherstellen, die Ihrem Warlock-Level × 5 entspricht.
 Feature/&AncientForestRegrowthTitle	Nachwachsen
+Feature/&ArmorofShadowsTitle	Rüstung der Schatten
+Feature/&AscendantStepTitle	Aszendentenschritt
 Feature/&AspectoftheMoonDescription	Sie müssen nicht mehr schlafen und können Wache halten, was die Wahrscheinlichkeit eines Angriffs verringert und sicherstellt, dass Sie wach sind, wenn das Lager angegriffen wird.
 Feature/&AspectoftheMoonTitle	Aspekt des Mondes
 Feature/&BeguilingInfluenceDescription	Sie erwerben Kenntnisse in den Fertigkeiten Täuschung und Überzeugung.
@@ -59,6 +61,8 @@ Feature/&BondoftheTalismanDescription	Teleportiere dich bis zu 30 Fuß entfernt.
 Feature/&BondoftheTalismanTitle	Teleport-Talisman
 Feature/&ChainsofCarceriDescription	Paralysiert einen Himmlischen, Unterweltler oder Elementar, es sei denn, ihm gelingt ein Weisheitswurf.
 Feature/&ChainsofCarceriTitle	Ketten von Carceri
+Feature/&ClassMonkTongueOfSunAndMoonDescription	Du lernst, das Ki anderer Geister zu berühren, damit du alle gesprochenen Sprachen verstehst. Darüber hinaus kann jedes Wesen, das eine Sprache verstehen kann, verstehen, was Sie sagen.
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Zunge der Sonne und des Mondes
 Feature/&ClassWarlockArmorProficiencyDescription	Leichte Rüstung.
 Feature/&ClassWarlockArmorProficiencyTitle	Hexenmeister-Rüstungsfähigkeiten
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Wählen Sie Eldritch Invocation zum Ersetzen aus.
@@ -97,10 +101,15 @@ Feature/&DH_RiftWalkDescription	Kurzzeitig von der Energie der Leere zwischen de
 Feature/&DH_RiftWalkTitle	Rift-Schritt
 Feature/&DHAncientForestBonusCantripDescription	Ihr Gönner teilt Geheimnisse darüber, wie natürliche Magie und Lebensenergie miteinander verbunden sind. Du lernst Shillelagh und Chill Touch.
 Feature/&DHAncientForestBonusCantripTitle	Bonus-Cantrips aus dem alten Wald
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Ihre Kontrolle über elementare Energien hat sich bis zu dem Punkt erhöht, an dem Sie jetzt die Herrschaft über schwächere Elementare haben. Du kannst Kleines Elementar beschwören nach Belieben wirken.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Elementare Günstlinge
 Feature/&DHPactOfTheTomeFeatureSetDescription	Ihr Gönner gibt Ihnen ein Zauberbuch namens Buch der Schatten. Wenn Sie diese Funktion erhalten, wählen Sie drei Cantrips aus der Zauberliste einer beliebigen Klasse aus. Die Cantrips müssen nicht aus derselben Zauberliste stammen. Während das Buch bei dir ist, kannst du diese Cantrips nach Belieben wirken. Sie zählen nicht zu deiner Anzahl bekannter Cantrips. Jeder Cantrip, den du mit dieser Funktion wirkst, wird für dich als Warlock-Cantrip betrachtet.
 Feature/&DHPactOfTheTomeFeatureSetTitle	Pakt des Wälzers
+Feature/&DHWardingBondBonusCantripDescription	Deine Kontrolle über Rissportale hat sich so weit erhöht, dass du jetzt anderen den Schutz des Risses gewähren kannst. Du kannst nach Belieben abwehrenden Bund wirken (ohne Schaden zu teilen).
+Feature/&DHWardingBondBonusCantripTitle	Rift-Umhang
 Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	Wenn Sie einen Vertrauten beschwören, können Sie eine der folgenden Sonderformen wählen: Kobold, Pseudodrache, Quasit oder Kobold.
 Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	Pakt der Kette
+Feature/&DreadfulWordTitle	Schreckliches Wort
 Feature/&EldritchBlastGraspingHandBonusCantripDescription	Wenn Sie eine Kreatur mit Ihrer Eldritch-Explosion treffen, können Sie diese Kreatur in einer geraden Linie 3 m näher an sich heranbewegen.
 Feature/&EldritchBlastGraspingHandBonusCantripTitle	Greifende Explosion
 Feature/&EldritchBlastRepellingBlastBonusCantripDescription	Wenn Sie eine Kreatur mit einer unheimlichen Explosion treffen, können Sie die Kreatur in einer geraden Linie bis zu 3 m von sich wegschieben.
@@ -130,6 +139,7 @@ Feature/&ElementalPatronFeatureSet_Level06Description	Dein Wissen über Elementa
 Feature/&ElementalPatronFeatureSet_Level06Title	Wissen über Elementare
 Feature/&EyesoftheRuneKeeperDescription	Sie können alle Schriften lesen.
 Feature/&EyesoftheRuneKeeperTitle	Augen des Runenhüters
+Feature/&FiendishVigorTitle	Teuflische Kraft
 Feature/&GiftoftheEverLivingOnesDescription	Stellt die maximal mögliche Anzahl an Trefferpunkten durch Heilung wieder her.
 Feature/&GiftoftheEverLivingOnesTitle	Gabe der Immerlebenden
 Feature/&GiftoftheProtectorsDescription	Wenn Sie auf 0 Trefferpunkte reduziert, aber nicht direkt getötet werden, fällt die Kreatur stattdessen magisch auf 1 Trefferpunkt. Sobald diese Magie ausgelöst wird, können Sie nicht davon profitieren, bis Sie eine lange Pause beendet haben.
@@ -143,6 +153,7 @@ Feature/&HinderingBlastMagicAffinityTitle	Hinderliche Explosion
 Feature/&HinderingBlastTitle	Hinderliche Explosion
 Feature/&ImprovedPactWeaponDescription	Du kannst jede Waffe als Zauberfokus für deine Warlock-Zauber verwenden. Außerdem erhält die Waffe einen Bonus von +1 auf ihre Angriffs- und Schadenswürfe.
 Feature/&ImprovedPactWeaponTitle	Verbesserte Paktwaffe
+Feature/&MiretheMindTitle	Beschmutze den Verstand
 Feature/&MoonLitDarknessImmunityDescription	Du bist immun gegen den Dunkelheitszustand.
 Feature/&MoonLitDarknessImmunityTitle	Mondhelle Dunkelheit
 Feature/&MoonLitExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
@@ -172,16 +183,21 @@ Feature/&ThiefofFiveFates	Wirke {0} einmal pro Tag
 Feature/&ThiefofFiveFatesTitle	Dieb der fünf Schicksale
 Feature/&ThirstingBladeDescription	Du kannst zweimal statt einmal mit deiner Waffe angreifen, wenn du in deinem Zug die Angriffsaktion ausführst.
 Feature/&ThirstingBladeTitle	Durstige Klinge
+Feature/&TrickstersEscapeTitle	Die Flucht des Tricksters
 Feature/&WallofThornsFeatureSetDescription	Wirke einmal täglich Dornenwand.
 Feature/&WallofThornsFeatureSetTitle	Waldbarriere
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Qualvolle Explosion
 Feedback/&AdditionalDamageAgonizing_BlastLine	Wenn du Unheimliche Explosion wirkst, addierst du deinen Charisma-Modifikator zu dem Schaden, den es bei einem Treffer verursacht.
 Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} schlägt {1} (+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	Elementarschaden
+Feedback/&AdditionalDamageElementalDamageLine	Elementarform gewährt zusätzlichen Schaden
 Feedback/&AdditionalDamagePactMarkedFormat	Paktzeichen!
 Feedback/&AdditionalDamagePactMarkedLine	Paktmarke fügt zusätzlichen Schaden zu!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Seelenfänger!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul Taker fügt zusätzlichen Schaden zu!
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Seele gestärkt!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Seelenermächtigt fügt zusätzlichen Schaden zu!
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} erstellt {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} erstellt {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} erstellt {1}
@@ -213,6 +229,8 @@ Power/&DH_ElementalFormPoolEnhancedDescription	Du kannst zwischen verbesserten E
 Power/&DH_ElementalFormPoolEnhancedTitle	Verbesserte elementare Formen
 Power/&DH_ElementalFormPoolEnhancedTitleShort	Elementare Formen
 Power/&DH_ElementalFormPoolTitle	Elementare Formen
+Power/&FindFamiliarBundlePowerDescription	Beschwöre Vertraute in Form von Pseudorgagon, Sprite, Imp oder Quasit.
+Power/&FindFamiliarBundlePowerTitle	Vertraut finden
 Power/&MoonlitDanceoftheNightSkyDescription	Du kannst Fliegen einmal pro Tag auf 4 Ziele wirken.
 Power/&MoonlitDanceoftheNightSkyTitle	Tanz des Nachthimmels
 Power/&MoonlitDarkMoonDescription	Du kannst „Dunkelheit“ pro langer Pause so oft wirken, wie es deinem Fertigkeitsbonus entspricht.
@@ -240,6 +258,7 @@ Requirement/&WarlockRequiresOneWithShadows	Eldritch-Anrufung "Eins mit den Schat
 Requirement/&WarlockRequiresPactOfBlade	Pakt der Klinge
 Requirement/&WarlockRequiresPactOfChain	Pakt der Ketten
 Requirement/&WarlockRequiresPactOfTome	Pakt des Wälzers
+Rules/&CounterFormDismissCreatureFormat	Tüftlerkonstrukt verwerfen
 Spell/&AHPactMarkAdditionalDamageDescription	Eine mit einem Pakt markierte Kreatur erleidet zusätzlich 1W6 Schaden derselben Art, wenn sie von einer Waffe oder einem Zauberangriff des Markers getroffen wird.
 Spell/&AHPactMarkAdditionalDamageTitle	Paktmarke Schaden
 Spell/&AHPactMarkMarkedByPactConditionDescription	Diese Kreatur wurde durch einen Pakt markiert und erleidet zusätzlich 1W6 Schaden derselben Art, wenn sie von einer Waffe oder einem Zauberangriff des Markers getroffen wird.
@@ -282,3 +301,5 @@ Subclass/&WarlockMoonLitDescription	Ihr Patron ist ein Geist des Mondes, ein Wes
 Subclass/&WarlockMoonLitTitle	Mondheller Pakt
 Subclass/&WarlockToadKingDescription	Fey, Dämon oder Verirrung, verursacht durch die Katastrophe, die wahre Natur des Krötenkönigs ist nicht bekannt, aber es ist bekannt, dass der Krötenkönig ein großes Gebiet von Sümpfen und Sümpfen in den Badlands beherrscht und denen, die bereit sind zu dienen, Macht verleiht.
 Subclass/&WarlockToadKingTitle	Pakt des Krötenkönigs
+Subclass/&WarlockUrPriestDescription	Während die überwiegende Mehrheit der göttlichen Zauberkundigen ihre Kräfte von einer Gottheit bezieht, gibt es diejenigen, die die Götter verachten. Diejenigen, die sich selbst Urpriester nennen, haben gelernt, die göttlichen Energien abzuschöpfen, die die Götter ihren göttlichen Zauberkundigen gewährt haben, und sie für ihre eigenen Bedürfnisse zu nutzen, ohne auch nur ein Lippenbekenntnis zu irgendeinem Gott abzugeben. Als Urpriester unterscheiden Sie sich von den meisten Hexenmeistern, denn es fehlt Ihnen ein Gönner, der Ihnen Ihre Macht verleiht. Eldritch Invocations, die Sie entdecken, sind verzerrte Formen der Magie, die die Götter ihren Gönnern gewähren könnten, während Pact Boons wahrscheinlich göttliche Artefakte sind, die Sie stehlen konnten.
+Subclass/&WarlockUrPriestTitle	Urpriester Pakt

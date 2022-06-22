@@ -3,6 +3,8 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	Le score de Charisme est fix�
 AttributeModifier/&DHFeeblemindChaSpellTitle	Charisme faible
 AttributeModifier/&DHFeeblemindIntSpellDescription	Le score de Charisme est fixé à 1.
 AttributeModifier/&DHFeeblemindIntSpellTitle	Intelligence faible
+Condition/&ConditionMuleDescription	Votre vitesse n'est pas réduite par l'encombrement ou l'armure lourde. Vous pouvez transporter 20 livres supplémentaires.
+Condition/&ConditionMuleTitle	Mule
 Condition/&DHFeeblemindSpellDescription	Les valeurs d'Intelligence et de Charisme de la créature deviennent 1. La créature ne peut pas lancer de sorts, activer d'objets magiques, comprendre le langage ou communiquer de manière intelligible.
 Condition/&DHFeeblemindSpellTitle	Faiblesse d'esprit
 Condition/&DHForesightSpellDescription	Avantage sur tous les jets d'attaque, les tests de capacité et les jets de sauvegarde. Les autres créatures ont un désavantage aux jets d'attaque.
@@ -17,6 +19,10 @@ Condition/&DHTimeStopSpellDescription	Le temps est gelé pour la créature affec
 Condition/&DHTimeStopSpellTitle	Temps arrêté
 Condition/&DHWeirdSpellDescription	Effrayé. À la fin de chaque tour, effectuez un jet de sauvegarde de Sagesse. En cas d'échec, subissez 4d10 dégâts psychiques. En cas de succès, cette condition prend fin.
 Condition/&DHWeirdSpellTitle	Bizarre
+Condition/&EWResonatingStrikeDamageDescription	Au niveau 5, les attaques déclenchées par ce sort mineur infligent 1d8 dégâts de tonnerre supplémentaires. Les dégâts augmentent encore de 1d8 aux niveaux 11 et 17.
+Condition/&EWResonatingStrikeDamageTitle	Résonance
+Condition/&EWSunlightBladeDamageDescription	Au niveau 5, les attaques déclenchées par ce sort mineur infligent 1d8 dégâts radiants supplémentaires. Les dégâts augmentent encore de 1d8 aux niveaux 11 et 17.
+Condition/&EWSunlightBladeDamageTitle	Brûlure de la Lame ensoleillée
 DamageAffinity/&DHHolyAuraSpellDescription	Lorsqu'un démon ou un mort-vivant touche avec une attaque de mêlée, l'aura clignote avec une lumière brillante et l'attaquant doit réussir un jet de sauvegarde de Constitution ou être aveuglé jusqu'à la fin du sort.
 DamageAffinity/&DHHolyAuraSpellTitle	Aura sacrée Représailles
 Feat/&AlchemistSubclassSpellsDescription	{0}.
@@ -27,10 +33,23 @@ Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Vous gagnez des sor
 Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Sorts de construction de protecteur
 Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés comme des sorts de bricoleur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de bricoleur que vous connaissez.
 Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Sorts de construction de protecteur
+Feature/&DHHolyAuraBlindingPowerDescription	Lorsqu'un démon ou un mort-vivant frappe une créature affectée avec une attaque au corps à corps, l'aura clignote d'une lumière brillante. L'attaquant doit réussir un jet de sauvegarde de Constitution ou être aveuglé jusqu'à la fin du sort.
+Feature/&DHHolyAuraBlindingPowerTitle	Aura sacrée Représailles
 Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
 Feature/&ElementalistSpellsMagicAffinityTitle	Sorts d'élémentaliste
 Feature/&SpellAsInvocationAtWillDescription	Lancez {0} à volonté.
 Feature/&SpellAsInvocationOncePerDayDescription	Lancez {0} une fois jusqu'au repos long.
+Feedback/&AdditionalDamageResonatingStrikeFormat	Frappe retentissante !
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} résonne {1} ! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Lame ensoleillée !
+Feedback/&AdditionalDamageSunlightBladeLine	{0} brûle {1} avec Sunlit Blade ! (+{2})
+Feedback/&NotifyEffectResonatingStrikeLine	{0} résonne {1} !
+Monster/&DHCustomCouatlDescription	Les Couatls sont des êtres serpentins bienveillants d'une grande intelligence et perspicacité. Leurs ailes brillamment colorées et leurs manières douces témoignent de leurs origines célestes.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Chouette Familier.
+Monster/&OwlFamiliarTitle	Chouette
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Dégâts perforants et la cible doit réussir un jet de sauvegarde de Constitution DD 13 ou être empoisonnée pendant 24 heures. Jusqu'à la fin de ce poison, la cible est inconsciente.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Morsure
 Reaction/&CastSpellInRetributionDescription	{0} attaque {1} ! Vous pouvez lancer {2} en réponse !
 Reaction/&CastSpellInRetributionReactDescription	Cliquez pour diffuser {0}.
 Reaction/&CastSpellInRetributionReactTitle	Lancer un sort

@@ -32,5 +32,3 @@ Power/&UrPriestRadiantWardDescription	以一个动作，你获得等同2倍于�
 Power/&UrPriestRadiantWardTitle	光耀守卫
 Power/&UrPriestSpellSiphonDescription	你学会了如何结合你正常的力量撬动更大的魔法根源。以一个动作，你能消耗一次"引导神力"重新获得你的6级秘术的一次已消耗次数
 Power/&UrPriestSpellSiphonTitle	法术虹吸
-Subclass/&WarlockUrPriestDescription	虽然绝大多数神术师都从神灵那里获得了他们的力量，但也有一些人鄙视神灵。那些自称为亵渎祭司的人已经学会了抽走神明授予神术师的神力并将其满足自己的需要，甚至不对任何神明进行祷告。作为一名亵渎祭司，你与大多数邪术师不同，你没有一个赋予你力量的宗主。你所发现的魔能祈唤可能是诸神授予他们的信奉者的扭曲魔法，而你的契约恩泽可能是你设法偷来的神器
-Subclass/&WarlockUrPriestTitle	亵渎祭司契约

@@ -206,6 +206,40 @@ Equipment/&ThunderPunchDescription	Inflige 1d8 de daño de trueno al impactar e 
 Equipment/&ThunderPunchTitle	Golpe de trueno
 Equipment/&WandIdentifyDescription	Lanza el hechizo Identificar gastando una carga. La varita tiene 3 cargas y recupera 1d3 cargas cada amanecer.
 Equipment/&WandIdentifyTitle	Varita de identificación
+Feat/&FeatPolearmExpertDescription	Tu formación experta con armas de asta te otorga estos beneficios:\n• Cuando realizas la acción Atacar y atacas solo con un arma de asta, puedes usar una acción adicional para realizar un ataque cuerpo a cuerpo con el extremo opuesto del arma. Este ataque usa el mismo modificador de habilidad que el ataque principal. El dado de daño del arma para este ataque es un d4, e inflige daño contundente.\n• Mientras empuñas un arma de asta, otras criaturas provocan un ataque de oportunidad tuyo cuando entran en el alcance que tienes con esa arma.
+Feat/&FeatPolearmExpertTitle	Experto en armas de asta
+Item/&CEHalberd+1Title	Alabarda +1
+Item/&CEHalberd+1UnidentifiedTitle	Alabarda de calidad
+Item/&CEHalberd+2Title	Alabarda +2
+Item/&CEHalberd+2UnidentifiedTitle	Alabarda magnífica
+Item/&CEHalberdLightningTitle	Alabarda relámpago
+Item/&CEHalberdLightningUnidentifiedTitle	Alabarda magnífica
+Item/&CEHalberdPrimedTitle	Alabarda imprimada
+Item/&CEHalberdTitle	Alabarda
+Item/&CEHandXbow+1Title	Ballesta de mano +1
+Item/&CEHandXbow+1UnidentifiedTitle	Ballesta de mano de calidad
+Item/&CEHandXbow+2Title	Ballesta de mano +2
+Item/&CEHandXbow+2UnidentifiedTitle	Ballesta de mano magnífica
+Item/&CEHandXbowAcidTitle	Ballesta de mano ácida
+Item/&CEHandXbowAcidUnidentifiedTitle	Ballesta de mano magnífica
+Item/&CEHandXbowPrimedTitle	Ballesta de mano imprimada
+Item/&CEHandXbowTitle	ballesta de mano
+Item/&CELongMace+1Title	Maza larga +1
+Item/&CELongMace+1UnidentifiedTitle	Maza larga de calidad
+Item/&CELongMace+2Title	Maza larga +2
+Item/&CELongMace+2UnidentifiedTitle	Maza larga magnífica
+Item/&CELongMacePrimedTitle	Maza larga imprimada
+Item/&CELongMaceThunderTitle	Maza larga atronadora
+Item/&CELongMaceThunderUnidentifiedTitle	Maza larga magnífica
+Item/&CELongMaceTitle	Maza larga
+Item/&CEPike+1Title	lucio +1
+Item/&CEPike+1UnidentifiedTitle	Lucio de calidad
+Item/&CEPike+2Title	Lucio +2
+Item/&CEPike+2UnidentifiedTitle	Lucio magnífico
+Item/&CEPikePrimedTitle	Lucio imprimado
+Item/&CEPikePsychicTitle	Lucio psíquico
+Item/&CEPikePsychicUnidentifiedTitle	Lucio magnífico
+Item/&CEPikeTitle	Lucio
 Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Encantar alabarda +1.
 Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Encantar alabarda +1
 Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Encantar alabarda +2.
@@ -246,3 +280,14 @@ Item/&CraftingManualRecipePrimingCELongMaceDescription	Maza larga principal.
 Item/&CraftingManualRecipePrimingCELongMaceTitle	Maza larga principal
 Item/&CraftingManualRecipePrimingCEPikeDescription	Pique de primera.
 Item/&CraftingManualRecipePrimingCEPikeTitle	Lucio principal
+Item/&Handwraps+1Title	Vendas de manos +1
+Item/&Handwraps+1UnidentifiedTitle	Vendas de buena calidad.
+Item/&Handwraps+2Title	Vendajes +2
+Item/&Handwraps+2UnidentifiedTitle	Manijas magníficas
+Item/&HandwrapsOfForceTitle	Vendajes contundentes
+Item/&HandwrapsOfForceUnidentifiedTitle	Manijas magníficas
+Item/&HandwrapsOfPullingTitle	Vendas de tirar
+Item/&HandwrapsOfPullingUnidentifiedTitle	Manijas magníficas
+Power/&PowerFunctionHandwrapsOfPullingDescription	Como acción adicional, puedes acercar a una criatura a 15 pies hacia ti.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Atraer clientes o negocios
+Tooltip/&TagPolearmWeaponTitle	arma de asta

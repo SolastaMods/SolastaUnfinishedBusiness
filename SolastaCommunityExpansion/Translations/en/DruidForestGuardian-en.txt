@@ -1,3 +1,9 @@
+Condition/&ConditionBarkWardDescription	Protected by the spirits of the forest. Gain 4 temp HP for each level of Druid, lasting 10 minutes.
+Condition/&ConditionBarkWardTitle	Bark Ward
+Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest deal 2d8 piercing damage to creatures that hit with a melee attack.
+Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
+Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant poison immunity, and deal 3d8 piercing damage to creatures that hit with a melee attack.
+Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
 Feature/&DruidForestGuardianBarkWardDescription	You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 4 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
 Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
 Feature/&DruidForestGuardianExtraAttackDescription	Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
