@@ -97,7 +97,8 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowUnmarkedSorcerers { get; set; }
     public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
     public bool UnlockEyeStyles { get; set; }
-    public bool UnlockGlowingEyeColors { get; set; }
+    public bool AddCE_BrightEyeColors { get; set; }
+    public bool AddCE_GlowingEyeColors { get; set; }
     public bool UnlockGlowingColorsForAllMarksAndTatoos { get; set; }
 
     //
