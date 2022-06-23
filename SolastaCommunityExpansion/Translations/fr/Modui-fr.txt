@@ -11,12 +11,12 @@ ModUi/&AllItemInDm	Tous les articles en DM
 ModUi/&AllowAnyClassToWearSylvanArmor	Autoriser n'importe quelle classe à porter une armure sylvestre ou des vêtements de porteur de lumière
 ModUi/&AllowDruidToWearMetalArmor	Autoriser le <color=orange>druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20	Autoriser les donjons de niveau 20 maximum <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Autoriser les gadgets et les accessoires à être placés n'importe où sur la carte <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> pendant le placement pour ignorer toute vérification]</color></i>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Autoriser les gadgets et les accessoires à être placés n'importe où sur la carte <i><color=yellow>[appuyez sur <color=#1E81B0>CTRL</color> pendant le placement pour ignorer toute vérification]</color></i>
 ModUi/&AllowStackedMaterialComponent	Autoriser le composant de matériau empilé <i><color=yellow>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Autoriser la sélection de cible lors du lancement du sort <color=orange>Chaîne d'éclairs</color>
 ModUi/&AllowUnmarkedSorcerers	Autoriser les <color=orange>sorciers</color> non marqués
 ModUi/&AllRecipesInDm	Toutes les recettes en DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	La touche <color=cyan>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe [uniquement dans les donjons personnalisés]
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe [uniquement dans les donjons personnalisés]
 ModUi/&AutoPauseOnVictory	Pause de l'interface utilisateur en cas de victoire au combat
 ModUi/&Basic	<color=yellow>Basique :</color>
 ModUi/&Battle	<color=yellow>Bataille :</color>
@@ -49,21 +49,21 @@ ModUi/&EnableAlternateHuman	Activer l'humain alternatif <i><color=yellow>[+1 fea
 ModUI/&EnableBetaContent	Activer le contenu bêta <i><color=yellow>[gardez à l'esprit que vos sauvegardes ou vos héros pourraient tomber en panne à l'avenir]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Activer l'action d'annulation avec un clic droit de la souris
 ModUi/&EnableCharacterChecker	Activer l'écran de vérification des personnages
-ModUi/&EnableCharacterExport	Activer <color=cyan>CTRL-SHIFT-(E</color>)xporter le caractère <i><color=yellow>[sur l'écran d'inspection des caractères uniquement]</color></i>
+ModUi/&EnableCharacterExport	Activer <color=#1E81B0>CTRL-SHIFT-(E</color>)xporter le caractère <i><color=yellow>[sur l'écran d'inspection des caractères uniquement]</color></i>
 ModUi/&EnableCheatMenu	Activer le menu de triche
-ModUi/&EnableCtrlClickBypassAttackReactionPanel	Activez <color=cyan>CTRL</color> cliquez sur les attaques pour ignorer tout panneau de réaction
-ModUi/&EnableCtrlClickBypassMetamagicPanel	Activez le <color=cyan>CTRL</color> clic sur les sorts pour ignorer le panneau métamagique <color=orange>Sorcier</color>
-ModUi/&EnableCtrlClickOnlySwapsMainHand	Activez le clic <color=cyan>CTRL</color> pour ne pas toucher aux objets lorsque vous changez de configuration.
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Activez <color=#1E81B0>CTRL</color> cliquez sur les attaques pour ignorer tout panneau de réaction
+ModUi/&EnableCtrlClickBypassMetamagicPanel	Activez le <color=#1E81B0>CTRL</color> clic sur les sorts pour ignorer le panneau métamagique <color=orange>Sorcier</color>
+ModUi/&EnableCtrlClickOnlySwapsMainHand	Activez le clic <color=#1E81B0>CTRL</color> pour ne pas toucher aux objets lorsque vous changez de configuration.
 ModUi/&EnableDungeonMakerModdedContent	Activer Dungeon Maker Pro <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n\ncomprennent des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et un mélange sans fioritures d'actifs de tous les environnements\nvous devez avoir au moins une pièce extérieure si vous choisissez un environnement extérieur
 ModUi/&EnableEpicPointsAndArray	Activez un système d'achat épique de 35 points et un tableau <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableExtraHighLevelMonsters	Activer des monstres supplémentaires de haut niveau (+20 CR) pour les campagnes de niveau 3 et 4 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels	Activer la sélection des exploits aux niveaux de classe 2, 6, 10 et 14
 ModUi/&EnableFlexibleBackgrounds	Activer les arrière-plans flexibles <i><color=yellow>[sélectionner les compétences et les outils parmi les arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces	Activer les races flexibles <i><color=yellow>[attribuer des points de capacité au lieu des valeurs raciales par défaut]</color></i>
-ModUi/&EnableHotkeyDebugOverlay	Activer la superposition d'ebug <color=cyan>CTRL-SHIFT-(D</color>)
-ModUi/&EnableHotkeyToggleHud	Activez <color=cyan>CTRL-SHIFT-(H</color>)ud pour basculer la visibilité de tous les panneaux de l'interface utilisateur
-ModUi/&EnableHotkeyToggleIndividualHud	Activer <color=cyan>CTRL-SHIFT-(C</color>)panneau de contrôle, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap et <color=cyan>CTRL-SHIFT-(P</color>)arty pour basculer la visibilité de chaque panneau de l'interface utilisateur
-ModUi/&EnableHotkeyZoomCamera	Activer la caméra <color=cyan>CTRL-SHIFT-(Z</color>)oom <i><color=yellow>[utile lors de la prise de captures d'écran de donjon pour la publication]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	Activer la superposition d'ebug <color=#1E81B0>CTRL-SHIFT-(D</color>)
+ModUi/&EnableHotkeyToggleHud	Activez <color=#1E81B0>CTRL-SHIFT-(H</color>)ud pour basculer la visibilité de tous les panneaux de l'interface utilisateur
+ModUi/&EnableHotkeyToggleIndividualHud	Activer <color=#1E81B0>CTRL-SHIFT-(C</color>)panneau de contrôle, <color=#1E81B0>CTRL-SHIFT-(L</color>)og, <color=#1E81B0>CTRL-SHIFT-(M</color>)ap et <color=#1E81B0>CTRL-SHIFT-(P</color>)arty pour basculer la visibilité de chaque panneau de l'interface utilisateur
+ModUi/&EnableHotkeyZoomCamera	Activer la caméra <color=#1E81B0>CTRL-SHIFT-(Z</color>)oom <i><color=yellow>[utile lors de la prise de captures d'écran de donjon pour la publication]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ contournement uniquement si pas un coup critique</i>
 ModUi/&EnableInventoryFilteringAndSorting	Activer le filtrage et le tri de l'inventaire
 ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Tache en rouge tout objet que le héros ne maîtrise pas</i>
@@ -77,7 +77,7 @@ ModUi/&EnableRespec	Activer les actions RESPEC et Level Down après repos
 ModUi/&EnablesAsiAndFeat	Activer à la fois l'augmentation des scores d'attribut et la sélection des exploits <i><color=yellow>[au lieu d'un choix exclusif]</color></i>
 ModUi/&EnableSaveByLocation	Activer l'enregistrement par campagnes/emplacements
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Activer la recharge de repos court de <color=orange>Arcane Weapon</color> sur <color=orange>Wizard</color> Arcane Fighter
-ModUi/&EnableTeleportParty	Activer <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[vous pourriez casser des quêtes ou des cartes si vous vous téléportez vers un lieu inconnu]</color></i>
+ModUi/&EnableTeleportParty	Activer <color=#1E81B0>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[vous pourriez casser des quêtes ou des cartes si vous vous téléportez vers un lieu inconnu]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	Activez les bascules sur le groupe de personnages pour définir votre partie de jeu et de test par défaut
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Activez la <color=orange>récupération arcanique</color> illimitée sur <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Doit être activé lorsque la capacité a des utilisations disponibles ou avant la création du personnage</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Activer l'upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
@@ -106,7 +106,7 @@ ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Nécessite un redé
 ModUi/&InitialChoices	<color=yellow>Choix initiaux :</color>
 ModUi/&Interface	Interface
 ModUi/&InventoryAndItems	<color=yellow>Inventaire et articles :</color>
-ModUi/&InvertAltBehaviorOnTooltips	Inverser le comportement de la touche <color=cyan>ALT</color> dans les infobulles
+ModUi/&InvertAltBehaviorOnTooltips	Inverser le comportement de la touche <color=#1E81B0>ALT</color> dans les infobulles
 ModUi/&ItemInDm	Articles en DM
 ModUi/&Items	<color=yellow>Articles:</color>
 ModUi/&ItemsCraftingMerchants	Objets, artisanat et marchands
@@ -122,7 +122,7 @@ ModUi/&MaxSpellLevelsPerLine	<color=white>Niveaux max par ligne sur Spell Panel<
 ModUi/&Merchants	<color=yellow>Commerçants :</color>
 ModUi/&Monsters	<color=yellow>Monstres :</color>
 ModUi/&Multiclass	<color=yellow>Multiclasse :</color>
-ModUi/&MulticlassKeyHelp	Un clic <color=cyan>SHIFT</color> sur un sort consomme un emplacement de sort au lieu de celui par défaut de la magie du pacte
+ModUi/&MulticlassKeyHelp	Un clic <color=#1E81B0>SHIFT</color> sur un sort consomme un emplacement de sort au lieu de celui par défaut de la magie du pacte
 ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp	Aucune expérience n'est requise pour monter de niveau
 ModUi/&NotAvailable	Aucun {0} disponible sur ce mod pour le moment...
@@ -176,8 +176,8 @@ ModUi/&Translate	Traduire
 ModUi/&TranslateCancel	Annuler {0} à {1}
 ModUi/&TranslationEngine	Moteur de traduction
 ModUi/&Translations	Traductions
-ModUi/&UnleashEnemyAsNpc	Autoriser la sélection de monstres sur les gadgets PNJ <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
-ModUi/&UnleashNpcAsEnemy	Autoriser la sélection des PNJ sur les gadgets monstres <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
+ModUi/&UnleashEnemyAsNpc	Autoriser la sélection de monstres sur les gadgets PNJ <i><color=yellow>[appuyez sur <color=#1E81B0>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
+ModUi/&UnleashNpcAsEnemy	Autoriser la sélection des PNJ sur les gadgets monstres <i><color=yellow>[appuyez sur <color=#1E81B0>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
 ModUi/&UnlockAllNpcFaces	Déverrouiller tous les visages de PNJ
 ModUi/&UnlockEyeStyles	Déverrouiller les styles d'yeux
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages

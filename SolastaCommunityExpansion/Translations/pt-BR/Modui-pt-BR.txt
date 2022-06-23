@@ -11,12 +11,12 @@ ModUi/&AllItemInDm	Todos os itens em DM
 ModUi/&AllowAnyClassToWearSylvanArmor	Permitir que qualquer classe use armaduras silvestres ou roupas de luz
 ModUi/&AllowDruidToWearMetalArmor	Permitir que <color=orange>Druida</color> use armadura de metal
 ModUi/&AllowDungeonsMaxLevel20	Permitir masmorras com nível máximo 20 <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Permitir que gadgets e adereços sejam colocados em qualquer lugar no mapa <i><color=yellow>[pressione <color=cyan>CTRL</color> durante o posicionamento para ignorar qualquer verificação]</color></i>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Permitir que gadgets e adereços sejam colocados em qualquer lugar no mapa <i><color=yellow>[pressione <color=#1E81B0>CTRL</color> durante o posicionamento para ignorar qualquer verificação]</color></i>
 ModUi/&AllowStackedMaterialComponent	Permitir componente de material empilhado <i><color=yellow>[ex. 2x500gp diamante é equivalente a 1000gp diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Permitir a seleção de alvos ao lançar o feitiço <color=orange>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers	Permitir <color=orange>Feiticeiros</color> desmarcados
 ModUi/&AllRecipesInDm	Todas as receitas em DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	A tecla <color=cyan>ALT</color> apenas destaca os gadgets no campo de visão do grupo [somente em masmorras personalizadas]
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	A tecla <color=#1E81B0>ALT</color> apenas destaca os gadgets no campo de visão do grupo [somente em masmorras personalizadas]
 ModUi/&AutoPauseOnVictory	Pause a interface do usuário quando for vitorioso na batalha
 ModUi/&Basic	<color=yellow>Básico:</color>
 ModUi/&Battle	<color=yellow>Batalha:</color>
@@ -49,21 +49,21 @@ ModUi/&EnableAlternateHuman	Ative o humano alternativo <i><color=yellow>[+1 tale
 ModUI/&EnableBetaContent	Ative o conteúdo beta <i><color=yellow>[lembre-se de que seus salvamentos ou heróis podem quebrar no futuro]</color></i> <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Ative a ação de cancelamento com o botão direito do mouse
 ModUi/&EnableCharacterChecker	Ative a tela do verificador de caracteres
-ModUi/&EnableCharacterExport	Ative <color=cyan>CTRL-SHIFT-(E</color>)xport caractere <i><color=yellow>[somente na tela de inspeção de caractere]</color></i>
+ModUi/&EnableCharacterExport	Ative <color=#1E81B0>CTRL-SHIFT-(E</color>)xport caractere <i><color=yellow>[somente na tela de inspeção de caractere]</color></i>
 ModUi/&EnableCheatMenu	Habilite o menu de cheats
-ModUi/&EnableCtrlClickBypassAttackReactionPanel	Ative <color=cyan>CTRL</color> clique nos ataques para ignorar qualquer painel de reação
-ModUi/&EnableCtrlClickBypassMetamagicPanel	Ative <color=cyan>CTRL</color> clique nos feitiços para ignorar o painel metamágico <color=orange>Feiticeiro</color>
-ModUi/&EnableCtrlClickOnlySwapsMainHand	Ative <color=cyan>CTRL</color> clique para evitar itens de mão ao trocar as configurações empunhadas
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Ative <color=#1E81B0>CTRL</color> clique nos ataques para ignorar qualquer painel de reação
+ModUi/&EnableCtrlClickBypassMetamagicPanel	Ative <color=#1E81B0>CTRL</color> clique nos feitiços para ignorar o painel metamágico <color=orange>Feiticeiro</color>
+ModUi/&EnableCtrlClickOnlySwapsMainHand	Ative <color=#1E81B0>CTRL</color> clique para evitar itens de mão ao trocar as configurações empunhadas
 ModUi/&EnableDungeonMakerModdedContent	Ative o Dungeon Maker Pro <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>\n\nincluem salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e sem frescuras misturando ativos de todos os ambientes\nvocê deve ter pelo menos uma sala ao ar livre se escolher um ambiente ao ar livre
 ModUi/&EnableEpicPointsAndArray	Ative um sistema épico de compra de 35 pontos e uma matriz <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0> [Requer Reiniciar]</color></i></b>
 ModUi/&EnableExtraHighLevelMonsters	Ative monstros adicionais de alto nível (+20 CR) para campanhas de nível 3 e 4 <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels	Habilite a seleção de talentos nos níveis de classe 2, 6, 10 e 14
 ModUi/&EnableFlexibleBackgrounds	Ative planos de fundo flexíveis <i><color=yellow>[selecione habilidades e habilidades de ferramentas de planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces	Habilite raças flexíveis <i><color=yellow>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
-ModUi/&EnableHotkeyDebugOverlay	Ativar sobreposição de ebug <color=cyan>CTRL-SHIFT-(D</color>)
-ModUi/&EnableHotkeyToggleHud	Ative <color=cyan>CTRL-SHIFT-(H</color>)ud para alternar a visibilidade de todos os painéis da interface do usuário
-ModUi/&EnableHotkeyToggleIndividualHud	Ative <color=cyan>CTRL-SHIFT-(C</color>)painel de controle, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap e <color=cyan>CTRL-SHIFT-(P</color>)arty para alternar a visibilidade de cada painel da interface do usuário
-ModUi/&EnableHotkeyZoomCamera	Ative a câmera <color=cyan>CTRL-SHIFT-(Z</color>)oom <i><color=yellow>[útil ao tirar capturas de tela de masmorras para publicação]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	Ativar sobreposição de ebug <color=#1E81B0>CTRL-SHIFT-(D</color>)
+ModUi/&EnableHotkeyToggleHud	Ative <color=#1E81B0>CTRL-SHIFT-(H</color>)ud para alternar a visibilidade de todos os painéis da interface do usuário
+ModUi/&EnableHotkeyToggleIndividualHud	Ative <color=#1E81B0>CTRL-SHIFT-(C</color>)painel de controle, <color=#1E81B0>CTRL-SHIFT-(L</color>)og, <color=#1E81B0>CTRL-SHIFT-(M</color>)ap e <color=#1E81B0>CTRL-SHIFT-(P</color>)arty para alternar a visibilidade de cada painel da interface do usuário
+ModUi/&EnableHotkeyZoomCamera	Ative a câmera <color=#1E81B0>CTRL-SHIFT-(Z</color>)oom <i><color=yellow>[útil ao tirar capturas de tela de masmorras para publicação]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ apenas ignorar se não for um acerto crítico</i>
 ModUi/&EnableInventoryFilteringAndSorting	Ativar filtragem e classificação de inventário
 ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Contaminar em vermelho qualquer item com o qual o herói não seja proficiente</i>
@@ -77,7 +77,7 @@ ModUi/&EnableRespec	Ative as ações RESPEC e Level Down após descanso
 ModUi/&EnablesAsiAndFeat	Ative o aumento de pontuação de atributo e a seleção de talentos <i><color=yellow>[em vez de uma escolha exclusiva]</color></i>
 ModUi/&EnableSaveByLocation	Ativar salvar por campanhas/locais
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Ativar recarga de descanso curto de <color=orange>Arma Arcane</color> no <color=orange>Wizard</color> Arcane Fighter
-ModUi/&EnableTeleportParty	Ative <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[você pode quebrar missões ou mapas se se teletransportar para um lugar desconhecido]</color></i>
+ModUi/&EnableTeleportParty	Ative <color=#1E81B0>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[você pode quebrar missões ou mapas se se teletransportar para um lugar desconhecido]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Ative a <color=orange>Recuperação Arcana</color> ilimitada no <color=orange>Assistente</color> Mestre de Feitiços\n<i><color=yellow>Deve ser ativado quando a habilidade tiver usos disponíveis ou antes da criação do personagem</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Ativar upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
@@ -106,7 +106,7 @@ ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Requer Reiniciar]</
 ModUi/&InitialChoices	<color=yellow>Escolhas iniciais:</color>
 ModUi/&Interface	Interface
 ModUi/&InventoryAndItems	<color=yellow>Inventário e itens:</color>
-ModUi/&InvertAltBehaviorOnTooltips	Inverter o comportamento da tecla <color=cyan>ALT</color> nas dicas de ferramentas
+ModUi/&InvertAltBehaviorOnTooltips	Inverter o comportamento da tecla <color=#1E81B0>ALT</color> nas dicas de ferramentas
 ModUi/&ItemInDm	Itens no DM
 ModUi/&Items	<color=yellow>Itens:</color>
 ModUi/&ItemsCraftingMerchants	Itens, artesanato e comerciantes
@@ -122,7 +122,7 @@ ModUi/&MaxSpellLevelsPerLine	<color=white>Níveis máximos por linha no painel d
 ModUi/&Merchants	<color=yellow>Comerciantes:</color>
 ModUi/&Monsters	<color=yellow>Monstros:</color>
 ModUi/&Multiclass	<color=yellow>Multiclasse:</color>
-ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color> clicar em um feitiço consome um espaço de feitiço em vez do mágico do pacto padrão
+ModUi/&MulticlassKeyHelp	<color=#1E81B0>SHIFT</color> clicar em um feitiço consome um espaço de feitiço em vez do mágico do pacto padrão
 ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multiplicar a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp	Nenhuma experiência é necessária para subir de nível
 ModUi/&NotAvailable	Nenhum {0} disponível neste mod ainda...
@@ -176,8 +176,8 @@ ModUi/&Translate	Traduzir
 ModUi/&TranslateCancel	Cancelar {0} em {1}
 ModUi/&TranslationEngine	Motor de tradução
 ModUi/&Translations	Traduções
-ModUi/&UnleashEnemyAsNpc	Permitir que Monstros sejam selecionados em gadgets NPC <i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
-ModUi/&UnleashNpcAsEnemy	Permitir que NPCs sejam selecionados em gadgets de monstros <i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
+ModUi/&UnleashEnemyAsNpc	Permitir que Monstros sejam selecionados em gadgets NPC <i><color=yellow>[pressione <color=#1E81B0>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
+ModUi/&UnleashNpcAsEnemy	Permitir que NPCs sejam selecionados em gadgets de monstros <i><color=yellow>[pressione <color=#1E81B0>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
 ModUi/&UnlockAllNpcFaces	Desbloqueie todos os rostos de NPCs
 ModUi/&UnlockEyeStyles	Desbloqueie estilos de olhos
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Desbloqueie cores brilhantes para todas as marcações e tatuagens

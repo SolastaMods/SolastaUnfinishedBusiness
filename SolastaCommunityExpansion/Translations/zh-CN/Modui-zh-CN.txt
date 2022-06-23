@@ -11,12 +11,12 @@ ModUi/&AllItemInDm	全部物品加入地城制作
 ModUi/&AllowAnyClassToWearSylvanArmor	允许任何职业装备木族护甲或光明使者服饰
 ModUi/&AllowDruidToWearMetalArmor	允许<color=orange>德鲁伊</color>装备金属护甲
 ModUi/&AllowDungeonsMaxLevel20	允许自定义地城最大等级达到20级<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	允许在地图上任何地方放置互动物件和装饰物<i><color=yellow>[在放置时按<color=cyan>CTRL</color>跳过任何检定]</color></i>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	允许在地图上任何地方放置互动物件和装饰物<i><color=yellow>[在放置时按<color=#1E81B0>CTRL</color>跳过任何检定]</color></i>
 ModUi/&AllowStackedMaterialComponent	允许材料成分叠加计算<i><color=yellow>[e.g. 2个500gp的钻石等同于1000gp的钻石]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	允许在施放<color=orange>连锁闪电</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers	允许<color=orange>术士</color>没有脸部印记
 ModUi/&AllRecipesInDm	所有配方加入地城制作
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color>键只高亮队伍可见视野范围内的互动物件[仅限自定义地牢]
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件[仅限自定义地牢]
 ModUi/&AutoPauseOnVictory	战斗胜利后暂停游戏
 ModUi/&Basic	<color=yellow>基础：</color>
 ModUi/&Battle	<color=yellow>战斗：</color>
@@ -49,21 +49,21 @@ ModUi/&EnableAlternateHuman	启用变种人类<i><color=yellow>[+1专长/+2属�
 ModUI/&EnableBetaContent	启用Beta内容<i><color=yellow>[牢记你的存档或英雄在未来有崩溃风险]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&EnableCancelEditOnRightMouseClick	启用右键取消动作
 ModUi/&EnableCharacterChecker	启用角色验证界面
-ModUi/&EnableCharacterExport	启用<color=cyan>CTRL-SHIFT-E</color>导出角色<i><color=yellow>[仅限角色检查界面]</color></i>
+ModUi/&EnableCharacterExport	启用<color=#1E81B0>CTRL-SHIFT-E</color>导出角色<i><color=yellow>[仅限角色检查界面]</color></i>
 ModUi/&EnableCheatMenu	启用作弊菜单
-ModUi/&EnableCtrlClickBypassAttackReactionPanel	启用点击<color=cyan>CTRL</color>在攻击时忽略任何反应面板
-ModUi/&EnableCtrlClickBypassMetamagicPanel	启用点击<color=cyan>CTRL</color>在施法时忽略<color=orange>术士</color>超魔面板
-ModUi/&EnableCtrlClickOnlySwapsMainHand	启用点击<color=cyan>CTRL</color>在替换所持武器配置时保留副手武器
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	启用点击<color=#1E81B0>CTRL</color>在攻击时忽略任何反应面板
+ModUi/&EnableCtrlClickBypassMetamagicPanel	启用点击<color=#1E81B0>CTRL</color>在施法时忽略<color=orange>术士</color>超魔面板
+ModUi/&EnableCtrlClickOnlySwapsMainHand	启用点击<color=#1E81B0>CTRL</color>在替换所持武器配置时保留副手武器
 ModUi/&EnableDungeonMakerModdedContent	启用地城制作Pro<i><color=#C04040E0>[需要重启游戏]</color></i>\n\n包括平房，150x150和200x200的地牢尺寸和没有任何装饰的各种环境\n若你选择一个户外环境，你必须有至少一个户外房间
 ModUi/&EnableEpicPointsAndArray	启用35点的传奇构点和默认排列<i><color=yellow>[17,15,13,12,10,8]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&EnableExtraHighLevelMonsters	为11-20级的战役启用额外的高等级怪物（+20CR）<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&EnableFeatsAtEvenLevels	启用在第2、6、10、14级时获得专长
 ModUi/&EnableFlexibleBackgrounds	启用灵活背景<i><color=yellow>[从背景中自由选择技能和工具熟练项]</color></i>
 ModUi/&EnableFlexibleRaces	启用灵活种族<i><color=yellow>[自由配置属性值而非使用种族的默认加值]</color></i>
-ModUi/&EnableHotkeyDebugOverlay	启用<color=cyan>CTRL-SHIFT-D</color>开启Debug界面
-ModUi/&EnableHotkeyToggleHud	启用<color=cyan>CTRL-SHIFT-H</color>控制所有UI界面的显示
-ModUi/&EnableHotkeyToggleIndividualHud	启用<color=cyan>CTRL-SHIFT-C</color>控制面板，<color=cyan>CTRL-SHIFT-L</color>日志，<color=cyan>CTRL-SHIFT-M</color>地图，<color=cyan>CTRL-SHIFT-P</color>队伍控制面板的开关显示
-ModUi/&EnableHotkeyZoomCamera	启用<color=cyan>CTRL-SHIFT-Z</color>拉伸镜头<i><color=yellow>[在拍摄地城截图用以发布时很有用]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	启用<color=#1E81B0>CTRL-SHIFT-D</color>开启Debug界面
+ModUi/&EnableHotkeyToggleHud	启用<color=#1E81B0>CTRL-SHIFT-H</color>控制所有UI界面的显示
+ModUi/&EnableHotkeyToggleIndividualHud	启用<color=#1E81B0>CTRL-SHIFT-C</color>控制面板，<color=#1E81B0>CTRL-SHIFT-L</color>日志，<color=#1E81B0>CTRL-SHIFT-M</color>地图，<color=#1E81B0>CTRL-SHIFT-P</color>队伍控制面板的开关显示
+ModUi/&EnableHotkeyZoomCamera	启用<color=#1E81B0>CTRL-SHIFT-Z</color>拉伸镜头<i><color=yellow>[在拍摄地城截图用以发布时很有用]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ 仅在非重击时才略过</i>
 ModUi/&EnableInventoryFilteringAndSorting	启用物品栏筛选和排序功能
 ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ 将角色不熟练的物品染为红色</i>
@@ -77,7 +77,7 @@ ModUi/&EnableRespec	启用在休息后重置角色和降级的功能
 ModUi/&EnablesAsiAndFeat	启用属性和专长的同时选择<i><color=yellow>[而非二选一]</color></i>
 ModUi/&EnableSaveByLocation	启用分战役/地点存档
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	启用<color=orange>法师</color>奥法战士子职的<color=orange>奥法武器</color>能力在短休时恢复
-ModUi/&EnableTeleportParty	启用<color=cyan>CTRL-SHIFT-T</color>传送队伍<i><color=yellow>[如果你传送到一个未发现的地点，你可能会破坏任务或地图]</color></i>
+ModUi/&EnableTeleportParty	启用<color=#1E81B0>CTRL-SHIFT-T</color>传送队伍<i><color=yellow>[如果你传送到一个未发现的地点，你可能会破坏任务或地图]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	启用角色池切换键设置你的默认的游戏/测试队伍
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	启用<color=orange>法师</color>法术大师子职的<color=orange>深层奥术</color>能力可无限恢复\n<i><color=yellow>必须在该能力有可用次数时或在创建角色前启用</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	启用<color=orange>召唤元素</color>，<color=orange>召唤精类生物</color>的升环施法
@@ -106,7 +106,7 @@ ModUi/&IncreaseSenseNormalVisionHelp	<i><color=#C04040E0>[需要重启游戏]</c
 ModUi/&InitialChoices	<color=yellow>初始选择：</color>
 ModUi/&Interface	界面
 ModUi/&InventoryAndItems	<color=yellow>物品栏和物品：</color>
-ModUi/&InvertAltBehaviorOnTooltips	颠倒<color=cyan>ALT</color>键在工具提示时的效果
+ModUi/&InvertAltBehaviorOnTooltips	颠倒<color=#1E81B0>ALT</color>键在工具提示时的效果
 ModUi/&ItemInDm	物品加入地城制作
 ModUi/&Items	<color=yellow>物品：</color>
 ModUi/&ItemsCraftingMerchants	物品，制作和商人
@@ -122,7 +122,7 @@ ModUi/&MaxSpellLevelsPerLine	<color=white>法术面版上每行最高环阶数</
 ModUi/&Merchants	<color=yellow>商人：</color>
 ModUi/&Monsters	<color=yellow>怪物：</color>
 ModUi/&Multiclass	<color=yellow>兼职：</color>
-ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color>点击一个法术会消耗一个法术位，而非默认的契约法术位
+ModUi/&MulticlassKeyHelp	<color=#1E81B0>SHIFT</color>点击一个法术会消耗一个法术位，而非默认的契约法术位
 ModUi/&MultiplyTheExperienceGainedBy	<color=white>获得的经验倍率</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp	无需经验即可升级
 ModUi/&NotAvailable	在Mod上还没有可用的{0}……
@@ -176,8 +176,8 @@ ModUi/&Translate	翻译
 ModUi/&TranslateCancel	从{1}取消{0}
 ModUi/&TranslationEngine	翻译引擎
 ModUi/&Translations	翻译
-ModUi/&UnleashEnemyAsNpc	允许在NPC互动物件上选择怪物<i><color=yellow>[在互动物件面板上点击时按<color=cyan>CTRL</color>选择]</color></i>
-ModUi/&UnleashNpcAsEnemy	允许在怪物互动物件上选择NPC<i><color=yellow>[在互动物件面板上点击时按<color=cyan>CTRL</color>选择]</color></i>
+ModUi/&UnleashEnemyAsNpc	允许在NPC互动物件上选择怪物<i><color=yellow>[在互动物件面板上点击时按<color=#1E81B0>CTRL</color>选择]</color></i>
+ModUi/&UnleashNpcAsEnemy	允许在怪物互动物件上选择NPC<i><color=yellow>[在互动物件面板上点击时按<color=#1E81B0>CTRL</color>选择]</color></i>
 ModUi/&UnlockAllNpcFaces	解锁全部NPC脸型
 ModUi/&UnlockEyeStyles	解锁眼部样式
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	解锁所有标记和纹身的发光颜色

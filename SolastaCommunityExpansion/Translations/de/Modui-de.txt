@@ -11,12 +11,12 @@ ModUi/&AllItemInDm	Alle Artikel in DM
 ModUi/&AllowAnyClassToWearSylvanArmor	Erlaube jeder Klasse, Waldrüstungen oder Lichtbringerkleidung zu tragen
 ModUi/&AllowDruidToWearMetalArmor	Erlaube dem <color=orange>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20	Verliese mit maximaler Stufe 20 zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Ermöglicht das Platzieren von Gadgets und Requisiten überall auf der Karte <i><color=yellow>[drücken Sie während der Platzierung <color=cyan>STRG</color>, um jede Überprüfung zu umgehen]</color></i>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Ermöglicht das Platzieren von Gadgets und Requisiten überall auf der Karte <i><color=yellow>[drücken Sie während der Platzierung <color=#1E81B0>STRG</color>, um jede Überprüfung zu umgehen]</color></i>
 ModUi/&AllowStackedMaterialComponent	Gestapelte Materialkomponente zulassen <i><color=yellow>[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Zielauswahl beim Wirken des Zaubers <color=orange>Kettenblitz</color> zulassen
 ModUi/&AllowUnmarkedSorcerers	Erlaube unmarkierte <color=orange>Zauberer</color>
 ModUi/&AllRecipesInDm	Alle Rezepte in DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color>-Taste markiert nur Gadgets im Sichtfeld der Gruppe [nur in benutzerdefinierten Dungeons]
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=#1E81B0>ALT</color>-Taste markiert nur Gadgets im Sichtfeld der Gruppe [nur in benutzerdefinierten Dungeons]
 ModUi/&AutoPauseOnVictory	Pausiere die Benutzeroberfläche, wenn du im Kampf siegst
 ModUi/&Basic	<color=yellow>Einfach:</color>
 ModUi/&Battle	<color=yellow>Kampf:</color>
@@ -49,21 +49,21 @@ ModUi/&EnableAlternateHuman	Aktiviere den alternativen Menschen <i><color=yellow
 ModUI/&EnableBetaContent	Aktiviere Beta-Inhalte <i><color=yellow>[denke daran, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Aktivieren Sie die Abbruchaktion mit einem Rechtsklick
 ModUi/&EnableCharacterChecker	Aktivieren Sie den Zeichenprüfbildschirm
-ModUi/&EnableCharacterExport	Aktivieren Sie <color=cyan>CTRL-SHIFT-(E</color>)xport-Zeichen <i><color=yellow>[nur auf dem Zeichenprüfbildschirm]</color></i>
+ModUi/&EnableCharacterExport	Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(E</color>)xport-Zeichen <i><color=yellow>[nur auf dem Zeichenprüfbildschirm]</color></i>
 ModUi/&EnableCheatMenu	Aktivieren Sie das Cheat-Menü
-ModUi/&EnableCtrlClickBypassAttackReactionPanel	Aktivieren Sie <color=cyan>STRG</color>, klicken Sie auf Angriffe, um alle Reaktionsfenster zu ignorieren
-ModUi/&EnableCtrlClickBypassMetamagicPanel	Aktivieren Sie <color=cyan>STRG</color>, klicken Sie auf Zaubersprüche, um das metamagische Bedienfeld <color=orange>Zauberer</color> zu ignorieren
-ModUi/&EnableCtrlClickOnlySwapsMainHand	Aktivieren Sie den <color=cyan>CTRL</color>-Klick, um Gegenstände beim Wechseln von getragenen Konfigurationen fernzuhalten
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Aktivieren Sie <color=#1E81B0>STRG</color>, klicken Sie auf Angriffe, um alle Reaktionsfenster zu ignorieren
+ModUi/&EnableCtrlClickBypassMetamagicPanel	Aktivieren Sie <color=#1E81B0>STRG</color>, klicken Sie auf Zaubersprüche, um das metamagische Bedienfeld <color=orange>Zauberer</color> zu ignorieren
+ModUi/&EnableCtrlClickOnlySwapsMainHand	Aktivieren Sie den <color=#1E81B0>CTRL</color>-Klick, um Gegenstände beim Wechseln von getragenen Konfigurationen fernzuhalten
 ModUi/&EnableDungeonMakerModdedContent	Aktivieren Sie Dungeon Maker Pro <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n\nDazu gehören flache Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellose Mischung von Assets aus allen Umgebungen\nSie müssen mindestens einen Raum im Freien haben, wenn Sie sich für eine Umgebung im Freien entscheiden
 ModUi/&EnableEpicPointsAndArray	Aktivieren Sie ein episches 35-Punkte-Kaufsystem und ordnen Sie <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0> an [Neustart erforderlich]</color></i></b>
 ModUi/&EnableExtraHighLevelMonsters	Aktiviere zusätzliche hochstufige Monster (+20 CR) für Kampagnen der Stufen 3 und 4 <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels	Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 6, 10 und 14
 ModUi/&EnableFlexibleBackgrounds	Aktivieren Sie flexible Hintergründe <i><color=yellow>[wählen Sie Fertigkeits- und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
 ModUi/&EnableFlexibleRaces	Flexible Rassen aktivieren <i><color=yellow>[Fähigkeitspunktzahl statt der Rassenvorgaben zuweisen]</color></i>
-ModUi/&EnableHotkeyDebugOverlay	Aktivieren Sie <color=cyan>CTRL-SHIFT-(D</color>)ebug-Overlay
-ModUi/&EnableHotkeyToggleHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(H</color>)ud, um die Sichtbarkeit aller UI-Panels umzuschalten
-ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(C</color>)Systemsteuerung, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap und <color=cyan>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
-ModUi/&EnableHotkeyZoomCamera	Aktivieren Sie <color=cyan>STRG-UMSCHALT-(Z</color>)Raumkamera <i><color=yellow>[nützlich beim Aufnehmen von Dungeon-Screenshots zum Veröffentlichen]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D</color>)ebug-Overlay
+ModUi/&EnableHotkeyToggleHud	Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(H</color>)ud, um die Sichtbarkeit aller UI-Panels umzuschalten
+ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(C</color>)Systemsteuerung, <color=#1E81B0>CTRL-SHIFT-(L</color>)og, <color=#1E81B0>CTRL-SHIFT-(M</color>)ap und <color=#1E81B0>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
+ModUi/&EnableHotkeyZoomCamera	Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(Z</color>)Raumkamera <i><color=yellow>[nützlich beim Aufnehmen von Dungeon-Screenshots zum Veröffentlichen]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ nur umgehen, wenn kein kritischer Treffer vorliegt</i>
 ModUi/&EnableInventoryFilteringAndSorting	Inventarfilterung und -sortierung aktivieren
 ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Beflecke alle Gegenstände, mit denen der Held nicht vertraut ist, rot</i>
@@ -77,7 +77,7 @@ ModUi/&EnableRespec	Aktivieren Sie die Aktionen RESPEC und Level Down nach Ruhe
 ModUi/&EnablesAsiAndFeat	Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Talentauswahl <i><color=yellow>[statt einer exklusiven Auswahl]</color></i>
 ModUi/&EnableSaveByLocation	Speichern nach Kampagnen/Standorten aktivieren
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Aktiviere die kurze Erholungsaufladung der <color=orange>Arkanen Waffe</color> auf dem <color=orange>Magier</color>-Arkankämpfer
-ModUi/&EnableTeleportParty	Aktivieren Sie <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[Sie könnten Quests oder Karten brechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
+ModUi/&EnableTeleportParty	Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[Sie könnten Quests oder Karten brechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	Aktivieren Sie Umschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Aktiviere unbegrenzte <color=orange>Arkane Wiederherstellung</color> auf <color=orange>Magier</color>-Zaubermeister\n<i><color=yellow>Muss aktiviert werden, wenn die Fähigkeit nutzbar ist oder vor der Charaktererstellung</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Upcast von <color=orange>Elementar beschwören</color>, <color=orange>Feen beschwören</color> aktivieren
@@ -106,7 +106,7 @@ ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Neustart erforderli
 ModUi/&InitialChoices	<color=yellow>Anfangsauswahl:</color>
 ModUi/&Interface	Schnittstelle
 ModUi/&InventoryAndItems	<color=yellow>Inventar und Gegenstände:</color>
-ModUi/&InvertAltBehaviorOnTooltips	Kehrt das Verhalten der <color=cyan>ALT</color>-Taste in Tooltips um
+ModUi/&InvertAltBehaviorOnTooltips	Kehrt das Verhalten der <color=#1E81B0>ALT</color>-Taste in Tooltips um
 ModUi/&ItemInDm	Artikel in DM
 ModUi/&Items	<color=yellow>Items:</color>
 ModUi/&ItemsCraftingMerchants	Gegenstände, Handwerk & Händler
@@ -122,7 +122,7 @@ ModUi/&MaxSpellLevelsPerLine	<color=white>Maximale Stufen pro Zeile im Zauberfel
 ModUi/&Merchants	<color=yellow>Händler:</color>
 ModUi/&Monsters	<color=yellow>Monster:</color>
 ModUi/&Multiclass	<color=yellow>Mehrfachklasse:</color>
-ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color>-Klick auf einen Zauberspruch verbraucht einen Zauberplatz anstelle des standardmäßigen Paktmagieplatzes
+ModUi/&MulticlassKeyHelp	<color=#1E81B0>SHIFT</color>-Klick auf einen Zauberspruch verbraucht einen Zauberplatz anstelle des standardmäßigen Paktmagieplatzes
 ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multipliziere die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp	Für den Levelaufstieg ist keine Erfahrung erforderlich
 ModUi/&NotAvailable	Für diesen Mod ist noch kein {0} verfügbar ...
@@ -176,8 +176,8 @@ ModUi/&Translate	Übersetzen
 ModUi/&TranslateCancel	Stornieren Sie {0} um {1}
 ModUi/&TranslationEngine	Übersetzungsmaschine
 ModUi/&Translations	Übersetzungen
-ModUi/&UnleashEnemyAsNpc	Erlaube die Auswahl von Monstern auf NPC-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
-ModUi/&UnleashNpcAsEnemy	Erlaube die Auswahl von NPCs auf Monster-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
+ModUi/&UnleashEnemyAsNpc	Erlaube die Auswahl von Monstern auf NPC-Gadgets <i><color=yellow>[drücke <color=#1E81B0>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
+ModUi/&UnleashNpcAsEnemy	Erlaube die Auswahl von NPCs auf Monster-Gadgets <i><color=yellow>[drücke <color=#1E81B0>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
 ModUi/&UnlockAllNpcFaces	Schalte alle NPC-Gesichter frei
 ModUi/&UnlockEyeStyles	Schalte Augenstile frei
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Schalten Sie leuchtende Farben für alle Markierungen und Tätowierungen frei
