@@ -172,10 +172,10 @@ internal static class CharacterDisplay
             Main.Settings.AddCE_BrightEyeColors = toggle;
         }
 
-        toggle = Main.Settings.AddCE_GlowingEyeColors;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddCE_GlowingEyeColors"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.UnlockGlowingEyeColors;
+        if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingEyeColors"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddCE_GlowingEyeColors = toggle;
+            Main.Settings.UnlockGlowingEyeColors = toggle;
         }
 
         toggle = Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos;

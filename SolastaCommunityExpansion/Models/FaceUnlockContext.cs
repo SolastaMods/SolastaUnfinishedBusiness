@@ -40,7 +40,7 @@ internal static class FaceUnlockContext
 
         Morphotypes.CreateGlowingEyes(glowingEyes);
 
-        if (!Main.Settings.AddCE_GlowingEyeColors)
+        if (!Main.Settings.UnlockGlowingEyeColors)
         {
             foreach (var morphotype in glowingEyes)
             {
