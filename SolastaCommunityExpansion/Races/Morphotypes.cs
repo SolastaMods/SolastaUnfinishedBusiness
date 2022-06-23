@@ -250,7 +250,7 @@ internal static class Morphotypes
         var glowingEyes00 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CE_GlowingEyeColor_00", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ecb")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_00.MainColor.r * 20,
                 g = BodyDecorationColor_SorcererManaPainter_00.MainColor.g * 20,
@@ -264,7 +264,7 @@ internal static class Morphotypes
         var glowingEyes01 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_01, "CE_GlowingEyeColor_01", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ecc")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_01.MainColor.r * 20,
                 g = BodyDecorationColor_SorcererManaPainter_01.MainColor.g * 20,
@@ -278,7 +278,7 @@ internal static class Morphotypes
         var glowingEyes02 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_03, "CE_GlowingEyeColor_02", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ecd")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_03.MainColor.r * 20,
                 g = BodyDecorationColor_SorcererManaPainter_03.MainColor.g * 20,
@@ -292,7 +292,7 @@ internal static class Morphotypes
         var glowingEyes03 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_06, "CE_GlowingEyeColor_03", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ece")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_06.MainColor.r * 20,
                 g = BodyDecorationColor_SorcererManaPainter_06.MainColor.g * 20,
@@ -306,7 +306,7 @@ internal static class Morphotypes
         var glowingEyes04 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_10, "CE_GlowingEyeColor_04", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ecf")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_10.MainColor.r * 20,
                 g = BodyDecorationColor_SorcererManaPainter_10.MainColor.g * 20,
@@ -320,7 +320,7 @@ internal static class Morphotypes
         var glowingEyes05 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_12, "CE_GlowingEyeColor_05", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec0")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_12.MainColor.r * 20,
                 g = BodyDecorationColor_SorcererManaPainter_12.MainColor.g * 20,
@@ -334,7 +334,7 @@ internal static class Morphotypes
         var glowingEyes06 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CE_GlowingEyeColor_06", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec1")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_00.MainColor.r * 80,
                 g = BodyDecorationColor_SorcererManaPainter_00.MainColor.g * 80,
@@ -348,7 +348,7 @@ internal static class Morphotypes
         var glowingEyes07 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_01, "CE_GlowingEyeColor_07", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec2")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_01.MainColor.r * 80,
                 g = BodyDecorationColor_SorcererManaPainter_01.MainColor.g * 80,
@@ -362,7 +362,7 @@ internal static class Morphotypes
         var glowingEyes08 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_03, "CE_GlowingEyeColor_08", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec3")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_03.MainColor.r * 80,
                 g = BodyDecorationColor_SorcererManaPainter_03.MainColor.g * 80,
@@ -376,7 +376,7 @@ internal static class Morphotypes
         var glowingEyes09 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_06, "CE_GlowingEyeColor_09", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec4")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_06.MainColor.r * 80,
                 g = BodyDecorationColor_SorcererManaPainter_06.MainColor.g * 80,
@@ -390,7 +390,7 @@ internal static class Morphotypes
         var glowingEyes10 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_10, "CE_GlowingEyeColor_10", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec5")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_10.MainColor.r * 80,
                 g = BodyDecorationColor_SorcererManaPainter_10.MainColor.g * 80,
@@ -404,7 +404,7 @@ internal static class Morphotypes
         var glowingEyes11 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_12, "CE_GlowingEyeColor_11", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec6")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_12.MainColor.r * 80,
                 g = BodyDecorationColor_SorcererManaPainter_12.MainColor.g * 80,
@@ -418,7 +418,7 @@ internal static class Morphotypes
         var glowingEyes12 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CE_GlowingEyeColor_12", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec7")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_00.MainColor.r * 160,
                 g = BodyDecorationColor_SorcererManaPainter_00.MainColor.g * 160,
@@ -432,7 +432,7 @@ internal static class Morphotypes
         var glowingEyes13 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_01, "CE_GlowingEyeColor_13", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec8")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_01.MainColor.r * 160,
                 g = BodyDecorationColor_SorcererManaPainter_01.MainColor.g * 160,
@@ -446,7 +446,7 @@ internal static class Morphotypes
         var glowingEyes14 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_03, "CE_GlowingEyeColor_14", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec9")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_03.MainColor.r * 160,
                 g = BodyDecorationColor_SorcererManaPainter_03.MainColor.g * 160,
@@ -460,7 +460,7 @@ internal static class Morphotypes
         var glowingEyes15 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_06, "CE_GlowingEyeColor_15", "5e7fe208-0c36-4a2f-9ea7-51e2de103360")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_06.MainColor.r * 160,
                 g = BodyDecorationColor_SorcererManaPainter_06.MainColor.g * 160,
@@ -474,7 +474,7 @@ internal static class Morphotypes
         var glowingEyes16 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_10, "CE_GlowingEyeColor_16", "5e7fe208-0c36-4a2f-9ea7-51e2de103361")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_10.MainColor.r * 160,
                 g = BodyDecorationColor_SorcererManaPainter_10.MainColor.g * 160,
@@ -488,7 +488,7 @@ internal static class Morphotypes
         var glowingEyes17 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_12, "CE_GlowingEyeColor_17", "5e7fe208-0c36-4a2f-9ea7-51e2de103362")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetMainColor(new UnityEngine.Color()
+            .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_SorcererManaPainter_12.MainColor.r * 160,
                 g = BodyDecorationColor_SorcererManaPainter_12.MainColor.g * 160,
