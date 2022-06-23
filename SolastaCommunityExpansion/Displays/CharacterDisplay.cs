@@ -166,6 +166,12 @@ internal static class CharacterDisplay
             Main.Settings.UnlockEyeStyles = toggle;
         }
 
+        toggle = Main.Settings.AddCE_BrightEyeColors;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddCE_BrightEyeColors"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddCE_BrightEyeColors = toggle;
+        }
+
         toggle = Main.Settings.UnlockGlowingEyeColors;
         if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingEyeColors"), ref toggle, UI.AutoWidth()))
         {

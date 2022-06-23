@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.MorphotypeElementDefinitions;
+using SolastaCommunityExpansion.Races;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -22,12 +24,27 @@ internal static class FaceUnlockContext
             }
         }
 
-        if (Main.Settings.UnlockGlowingEyeColors)
+        var brightEyes = new List<MorphotypeElementDefinition>();
+
+        Morphotypes.CreateBrightEyes(brightEyes);
+
+        if (!Main.Settings.AddCE_BrightEyeColors)
         {
-            foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
-                         x.Category == MorphotypeElementDefinition.ElementCategory.EyeColor))
+            foreach (var morphotype in brightEyes)
             {
-                morphotype.playerSelectable = true;
+                morphotype.playerSelectable = false;
+            }    
+        }
+
+        var glowingEyes = new List<MorphotypeElementDefinition>();
+
+        Morphotypes.CreateGlowingEyes(glowingEyes);
+
+        if (!Main.Settings.UnlockGlowingEyeColors)
+        {
+            foreach (var morphotype in glowingEyes)
+            {
+                morphotype.playerSelectable = false;
             }
         }
 

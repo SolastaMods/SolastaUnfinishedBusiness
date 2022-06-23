@@ -1,5 +1,6 @@
 ﻿ModUi/&AddAllToStore	Add all to store
 ModUi/&AddBleedingToLesserRestoration	Add the <color=orange>Bleeding</color> condition to the conditions removed by <color=orange>Greater and Lesser Restoration</color>
+ModUi/&AddCE_BrightEyeColors	Add new bright eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all races
 ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickpocketableLoot	Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
@@ -14,7 +15,7 @@ ModUi/&AllowDungeonsMaxLevel20	Allow dungeons with max level 20 <b><i><color=#C0
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Allow gadgets and props to be placed anywhere on the map <i><color=yellow>[press <color=#1E81B0>CTRL</color> during placement to bypass any check]</color></i>
 ModUi/&AllowStackedMaterialComponent	Allow stacked material component <i><color=yellow>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Allow target selection when casting the <color=orange>Chain Lightning</color> spell
-ModUi/&AllowUnmarkedSorcerers	Allow unmarked <color=orange>Sorcerers</color>
+ModUi/&AllowUnmarkedSorcerers	Allow <color=orange>Sorcerers</color> without origin markings and tattoos
 ModUi/&AllRecipesInDm	All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view [only in custom dungeons]
 ModUi/&AutoPauseOnVictory	Pause the UI when victorious in battle
@@ -181,8 +182,8 @@ ModUi/&UnleashNpcAsEnemy	Allow NPCs to be selected on monster gadgets <i><color=
 ModUi/&UnlockAllNpcFaces	Unlock all NPC faces
 ModUi/&UnlockEyeStyles	Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos
-ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
-ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
+ModUi/&UnlockGlowingEyeColors	Add glowing eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock Sorcerer origin markings and tattoos for all characters
 ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square) and <color=orange>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
