@@ -8,5 +8,5 @@
 
 CHANGES:
 
-- Fix exceptions on Recipes
-- Reduce final payload size by 15%
+- Add new bright eyes selections
+- Fix custom features panel replacement logic

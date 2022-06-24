@@ -1,5 +1,6 @@
 ﻿ModUi/&AddAllToStore	Add all to store
 ModUi/&AddBleedingToLesserRestoration	Add the <color=orange>Bleeding</color> condition to the conditions removed by <color=orange>Greater and Lesser Restoration</color>
+ModUi/&AddNewBrightEyeColors	Add new bright eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all races
 ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickpocketableLoot	Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
@@ -11,12 +12,12 @@ ModUi/&AllItemInDm	All items in DM
 ModUi/&AllowAnyClassToWearSylvanArmor	Allow any class to wear sylvan armor or lightbringer clothes
 ModUi/&AllowDruidToWearMetalArmor	Allow <color=orange>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20	Allow dungeons with max level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Allow gadgets and props to be placed anywhere on the map <i><color=yellow>[press <color=cyan>CTRL</color> during placement to bypass any check]</color></i>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Allow gadgets and props to be placed anywhere on the map <i><color=yellow>[press <color=#1E81B0>CTRL</color> during placement to bypass any check]</color></i>
 ModUi/&AllowStackedMaterialComponent	Allow stacked material component <i><color=yellow>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Allow target selection when casting the <color=orange>Chain Lightning</color> spell
-ModUi/&AllowUnmarkedSorcerers	Allow unmarked <color=orange>Sorcerers</color>
+ModUi/&AllowUnmarkedSorcerers	Allow <color=orange>Sorcerers</color> without origin markings and tattoos
 ModUi/&AllRecipesInDm	All recipes in DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color> key only highlight gadgets in party field of view [only in custom dungeons]
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view [only in custom dungeons]
 ModUi/&AutoPauseOnVictory	Pause the UI when victorious in battle
 ModUi/&Basic	<color=yellow>Basic:</color>
 ModUi/&Battle	<color=yellow>Battle:</color>
@@ -34,8 +35,8 @@ ModUi/&CraftingHelp	. Press the button to learn recipes instantly on the active 
 ModUi/&Credits	Credits
 ModUi/&CreditsAndDiagnostics	Credits & Diagnostics
 ModUi/&DisableAutoEquip	Disable auto-equip of items in inventory
-ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Vision</color> from all races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Display all known spells from other classes during level up
 ModUi/&DontFollowCharacterInBattle	Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin	<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
@@ -49,21 +50,21 @@ ModUi/&EnableAlternateHuman	Enable the alternate human <i><color=yellow>[+1 feat
 ModUI/&EnableBetaContent	Enable beta content <i><color=yellow>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Enable cancel action with right-mouse click
 ModUi/&EnableCharacterChecker	Enable the character checker screen
-ModUi/&EnableCharacterExport	Enable <color=cyan>CTRL-SHIFT-(E</color>)xport character <i><color=yellow>[on character inspection screen only]</color></i>
+ModUi/&EnableCharacterExport	Enable <color=#1E81B0>CTRL-SHIFT-(E)</color>xport character <i><color=yellow>[on character inspection screen only]</color></i>
 ModUi/&EnableCheatMenu	Enable the cheats menu
-ModUi/&EnableCtrlClickBypassAttackReactionPanel	Enable <color=cyan>CTRL</color> click on attacks to ignore any reaction panel
-ModUi/&EnableCtrlClickBypassMetamagicPanel	Enable <color=cyan>CTRL</color> click on spells to ignore the <color=orange>Sorcerer</color> metamagic panel
-ModUi/&EnableCtrlClickOnlySwapsMainHand	Enable <color=cyan>CTRL</color> click to keep off hand items when swapping wielded configurations
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Enable <color=#1E81B0>CTRL</color> click on attacks to ignore any reaction panel
+ModUi/&EnableCtrlClickBypassMetamagicPanel	Enable <color=#1E81B0>CTRL</color> click on spells to ignore the <color=orange>Sorcerer</color> metamagic panel
+ModUi/&EnableCtrlClickOnlySwapsMainHand	Enable <color=#1E81B0>CTRL</color> click to keep off hand items when swapping wielded configurations
 ModUi/&EnableDungeonMakerModdedContent	Enable Dungeon Maker Pro <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments\nyou must have at least one outdoor room if you pick an outdoor environment
 ModUi/&EnableEpicPointsAndArray	Enable an epic 35 points buy system and array <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableExtraHighLevelMonsters	Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels	Enable feats selection at class levels 2, 6, 10 and 14
 ModUi/&EnableFlexibleBackgrounds	Enable flexible backgrounds <i><color=yellow>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces	Enable flexible races <i><color=yellow>[assign ability score points instead of the racial defaults]</color></i>
-ModUi/&EnableHotkeyDebugOverlay	Enable <color=cyan>CTRL-SHIFT-(D</color>)ebug overlay
-ModUi/&EnableHotkeyToggleHud	Enable <color=cyan>CTRL-SHIFT-(H</color>)ud to toggle all UI panels visibility
-ModUi/&EnableHotkeyToggleIndividualHud	Enable <color=cyan>CTRL-SHIFT-(C</color>)ontrol Panel, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap and <color=cyan>CTRL-SHIFT-(P</color>)arty to toggle each UI panels visibility
-ModUi/&EnableHotkeyZoomCamera	Enable <color=cyan>CTRL-SHIFT-(Z</color>)oom camera <i><color=yellow>[useful when taking dungeon screenshots for publishing]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	Enable <color=#1E81B0>CTRL-SHIFT-(D)</color>ebug overlay
+ModUi/&EnableHotkeyToggleHud	Enable <color=#1E81B0>CTRL-SHIFT-(H)</color>ud to toggle all UI panels visibility
+ModUi/&EnableHotkeyToggleIndividualHud	Enable <color=#1E81B0>CTRL-SHIFT-(C)</color>ontrol Panel, <color=#1E81B0>CTRL-SHIFT-(L)</color>og, <color=#1E81B0>CTRL-SHIFT-(M)</color>ap and <color=#1E81B0>CTRL-SHIFT-(P)</color>arty to toggle each UI panels visibility
+ModUi/&EnableHotkeyZoomCamera	Enable <color=#1E81B0>CTRL-SHIFT-(Z)</color>oom camera <i><color=yellow>[useful when taking dungeon screenshots for publishing]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ only bypass if not a critical hit</i>
 ModUi/&EnableInventoryFilteringAndSorting	Enable inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Taint in red any item the hero isn't proficient with</i>
@@ -77,7 +78,7 @@ ModUi/&EnableRespec	Enable the RESPEC and Level Down after rest actions
 ModUi/&EnablesAsiAndFeat	Enable both attribute scores increase and feat selection <i><color=yellow>[instead of an exclusive choice]</color></i>
 ModUi/&EnableSaveByLocation	Enable save by campaigns / locations
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Enable short rest recharge of <color=orange>Arcane Weapon</color> on <color=orange>Wizard</color> Arcane Fighter
-ModUi/&EnableTeleportParty	Enable <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[you might break quests or maps if you teleport to an undiscovered place]</color></i>
+ModUi/&EnableTeleportParty	Enable <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=yellow>[you might break quests or maps if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	Enable toggles on character pool to set your default play and test party
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Enable unlimited <color=orange>Arcane Recovery</color> on <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Must be enabled when the ability has available uses or before character creation</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Enable upcast of <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
@@ -106,7 +107,7 @@ ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Requires Restart]</
 ModUi/&InitialChoices	<color=yellow>Initial choices:</color>
 ModUi/&Interface	Interface
 ModUi/&InventoryAndItems	<color=yellow>Inventory and items:</color>
-ModUi/&InvertAltBehaviorOnTooltips	Invert <color=cyan>ALT</color> key behavior on tooltips
+ModUi/&InvertAltBehaviorOnTooltips	Invert <color=#1E81B0>ALT</color> key behavior on tooltips
 ModUi/&ItemInDm	Items in DM
 ModUi/&Items	<color=yellow>Items:</color>
 ModUi/&ItemsCraftingMerchants	Items, Crafting & Merchants
@@ -122,7 +123,7 @@ ModUi/&MaxSpellLevelsPerLine	<color=white>Max levels per line on Spell Panel</co
 ModUi/&Merchants	<color=yellow>Merchants:</color>
 ModUi/&Monsters	<color=yellow>Monsters:</color>
 ModUi/&Multiclass	<color=yellow>Multiclass:</color>
-ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color> click on a spell consumes a spell slot instead of the default pact magic one
+ModUi/&MulticlassKeyHelp	<color=#1E81B0>SHIFT</color> click on a spell consumes a spell slot instead of the default pact magic one
 ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp	No experience is required to Level Up
 ModUi/&NotAvailable	No {0} available on this mod yet...
@@ -176,13 +177,13 @@ ModUi/&Translate	Translate
 ModUi/&TranslateCancel	Cancel {0} at {1}
 ModUi/&TranslationEngine	Translation engine
 ModUi/&Translations	Translations
-ModUi/&UnleashEnemyAsNpc	Allow Monsters to be selected on NPC gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
-ModUi/&UnleashNpcAsEnemy	Allow NPCs to be selected on monster gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
+ModUi/&UnleashEnemyAsNpc	Allow Monsters to be selected on NPC gadgets <i><color=yellow>[press <color=#1E81B0>CTRL</color> while clicking Select on gadget panel]</color></i>
+ModUi/&UnleashNpcAsEnemy	Allow NPCs to be selected on monster gadgets <i><color=yellow>[press <color=#1E81B0>CTRL</color> while clicking Select on gadget panel]</color></i>
 ModUi/&UnlockAllNpcFaces	Unlock all NPC faces
 ModUi/&UnlockEyeStyles	Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos
-ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
-ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
+ModUi/&UnlockGlowingEyeColors	Add glowing eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock <color=Orange>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square) and <color=orange>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
