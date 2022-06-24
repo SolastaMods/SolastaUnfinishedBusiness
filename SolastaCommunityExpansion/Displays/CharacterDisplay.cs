@@ -134,24 +134,24 @@ internal static class CharacterDisplay
         UI.Label(Gui.Localize("ModUi/&Visuals"));
         UI.Label("");
 
-        toggle = Main.Settings.AllowUnmarkedSorcerers;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowUnmarkedSorcerers"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowUnmarkedSorcerers = toggle;
-        }
-
         toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
         if (UI.Toggle(Gui.Localize("ModUi/&OfferAdditionalLoreFriendlyNames"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.OfferAdditionalLoreFriendlyNames = toggle;
         }
 
-        UI.Label("");
-
         toggle = Main.Settings.UnlockAllNpcFaces;
         if (UI.Toggle(Gui.Localize("ModUi/&UnlockAllNpcFaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UnlockAllNpcFaces = toggle;
+        }
+
+        UI.Label("");
+
+        toggle = Main.Settings.AllowUnmarkedSorcerers;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowUnmarkedSorcerers"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowUnmarkedSorcerers = toggle;
         }
 
         toggle = Main.Settings.UnlockMarkAndTatoosForAllCharacters;
@@ -160,28 +160,30 @@ internal static class CharacterDisplay
             Main.Settings.UnlockMarkAndTatoosForAllCharacters = toggle;
         }
 
+        toggle = Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos;
+        if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingColorsForAllMarksAndTatoos"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos = toggle;
+        }
+
+        UI.Label("");
+
         toggle = Main.Settings.UnlockEyeStyles;
         if (UI.Toggle(Gui.Localize("ModUi/&UnlockEyeStyles"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UnlockEyeStyles = toggle;
         }
 
-        toggle = Main.Settings.AddCE_BrightEyeColors;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddCE_BrightEyeColors"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.AddNewBrightEyeColors;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddNewBrightEyeColors"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddCE_BrightEyeColors = toggle;
+            Main.Settings.AddNewBrightEyeColors = toggle;
         }
 
         toggle = Main.Settings.UnlockGlowingEyeColors;
         if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingEyeColors"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UnlockGlowingEyeColors = toggle;
-        }
-
-        toggle = Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingColorsForAllMarksAndTatoos"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos = toggle;
         }
 
         UI.Label("");

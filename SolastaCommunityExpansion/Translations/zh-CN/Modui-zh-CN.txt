@@ -1,5 +1,6 @@
 ﻿ModUi/&AddAllToStore	全部加入商店
 ModUi/&AddBleedingToLesserRestoration	添加<color=orange>流血</color>状态至<color=orange>次级/高等复原术</color>的移除效果范围
+ModUi/&AddNewBrightEyeColors	添加新的明亮眼睛颜色<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
 ModUi/&AddHelpActionToAllRaces	添加<color=orange>协助</color>至全部种族
 ModUi/&AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店<i><color=yellow>[裹手，戟，长矛，长钉头锤，手弩]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&AddPickpocketableLoot	添加可扒窃的战利品 <i><color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color></i>

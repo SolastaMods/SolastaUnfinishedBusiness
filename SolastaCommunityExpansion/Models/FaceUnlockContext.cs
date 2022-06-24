@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Races;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.MorphotypeElementDefinitions;
-using SolastaCommunityExpansion.Races;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -28,12 +28,12 @@ internal static class FaceUnlockContext
 
         Morphotypes.CreateBrightEyes(brightEyes);
 
-        if (!Main.Settings.AddCE_BrightEyeColors)
+        if (!Main.Settings.AddNewBrightEyeColors)
         {
             foreach (var morphotype in brightEyes)
             {
                 morphotype.playerSelectable = false;
-            }    
+            }
         }
 
         var glowingEyes = new List<MorphotypeElementDefinition>();

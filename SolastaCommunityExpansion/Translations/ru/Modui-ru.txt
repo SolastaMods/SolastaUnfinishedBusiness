@@ -1,5 +1,6 @@
 ﻿ModUi/&AddAllToStore	Добавить все в магазин
 ModUi/&AddBleedingToLesserRestoration	Добавить состояние <color=orange>Кровотечение</color> к состояниям, снимаемым <color=orange>Большим и Малым восстановлением</color>
+ModUi/&AddNewBrightEyeColors	Добавьте новые яркие цвета для глаз <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&AddHelpActionToAllRaces	Добавить действие <color=orange>Помощь</color> всем расам.
 ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Также добаить их в Создатель Подземелий</i>
 ModUi/&AddPickpocketableLoot	Добавить добычу для карманных краж <i><color=yellow>[рекомендуется, если умение <color=orange>Карманная Кража</color> включено]</color></i>

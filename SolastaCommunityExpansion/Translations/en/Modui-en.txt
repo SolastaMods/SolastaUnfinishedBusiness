@@ -1,6 +1,6 @@
 ﻿ModUi/&AddAllToStore	Add all to store
 ModUi/&AddBleedingToLesserRestoration	Add the <color=orange>Bleeding</color> condition to the conditions removed by <color=orange>Greater and Lesser Restoration</color>
-ModUi/&AddCE_BrightEyeColors	Add new bright eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddNewBrightEyeColors	Add new bright eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all races
 ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickpocketableLoot	Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
@@ -35,8 +35,8 @@ ModUi/&CraftingHelp	. Press the button to learn recipes instantly on the active 
 ModUi/&Credits	Credits
 ModUi/&CreditsAndDiagnostics	Credits & Diagnostics
 ModUi/&DisableAutoEquip	Disable auto-equip of items in inventory
-ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Vision</color> from all races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Display all known spells from other classes during level up
 ModUi/&DontFollowCharacterInBattle	Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin	<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
@@ -183,7 +183,7 @@ ModUi/&UnlockAllNpcFaces	Unlock all NPC faces
 ModUi/&UnlockEyeStyles	Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos
 ModUi/&UnlockGlowingEyeColors	Add glowing eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock Sorcerer origin markings and tattoos for all characters
+ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock <color=Orange>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square) and <color=orange>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
