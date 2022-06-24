@@ -168,10 +168,10 @@ internal static class CharacterDisplay
 
         UI.Label("");
 
-        toggle = Main.Settings.UnlockEyeStyles;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockEyeStyles"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.UnlockGlowingEyeColors;
+        if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingEyeColors"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.UnlockEyeStyles = toggle;
+            Main.Settings.UnlockGlowingEyeColors = toggle;
         }
 
         toggle = Main.Settings.AddNewBrightEyeColors;
@@ -180,10 +180,10 @@ internal static class CharacterDisplay
             Main.Settings.AddNewBrightEyeColors = toggle;
         }
 
-        toggle = Main.Settings.UnlockGlowingEyeColors;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingEyeColors"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.UnlockEyeStyles;
+        if (UI.Toggle(Gui.Localize("ModUi/&UnlockEyeStyles"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.UnlockGlowingEyeColors = toggle;
+            Main.Settings.UnlockEyeStyles = toggle;
         }
 
         UI.Label("");
