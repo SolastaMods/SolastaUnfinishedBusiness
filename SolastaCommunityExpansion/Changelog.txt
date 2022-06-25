@@ -8,4 +8,4 @@
 
 CHANGES:
 
-- Improve Russian translations
+- Improve translations
