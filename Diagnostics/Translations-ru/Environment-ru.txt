@@ -1,0 +1,26 @@
+Environment/&CatacombsTitle	Катакомбы
+Environment/&CatacombsDescription	Подземная сеть гробниц и крипт
+Environment/&NecropolisTitle	Некрополь
+Environment/&NecropolisDescription	Подземное царство мёртвых
+Environment/&SewersTitle	Канализация
+Environment/&SewersDescription	Канализационные тоннели и стоки
+Environment/&StrongholdTitle	Крепость
+Environment/&StrongholdDescription	Помещения каменного замка
+Environment/&ElvenPalaceTitle	Эльфийский дворец
+Environment/&ElvenPalaceDescription	Роскошные остатки империи Манакалон
+Environment/&LavaCavesTitle	Лавовые пещеры
+Environment/&LavaCavesDescription	Подземная сеть пещер, населённых разными племенами
+Environment/&WoodlandTitle	Лес
+Environment/&WoodlandDescription	Поход через просеки в умеренном лесу
+Environment/&TownTitle	Город
+Environment/&TownDescription	Исследуйте улицы средневекового города
+Environment/&TownInteriorTitle	Интерьер города
+Environment/&TownInteriorDescription	Набор интерьеров домов и зданий, используемых для отображения того, что находится внутри городских зданий
+Environment/&JungleTitle	Джунгли
+Environment/&JungleDescription	Густой и влажный тропический лес
+Environment/&SwampTitle	Болото
+Environment/&SwampDescription	Из-за грязи и влажности путешествовать по болоту не слишком приятно.
+Environment/&CityValleyTitle	Городская долина
+Environment/&CityValleyDescription	Исследуйте улицы затерянного города, спрятанного в самом сердце джунглей.
+Environment/&ValleyPalaceTitle	Дворец в долине
+Environment/&ValleyPalaceDescription	Роскошный дворец в глубине долины.

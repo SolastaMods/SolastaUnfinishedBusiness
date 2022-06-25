@@ -1,0 +1,121 @@
+Travel/&FactionRelicInterestedFactionsTitle	Заинтересованные фракции
+Travel/&FatigueExhaustedDescription	Отряд полностью истощён и должен отдохнуть.
+Travel/&FatigueExhaustedTitle	Истощение
+Travel/&FatigueFreshDescription	Отряд отдохнул и может продолжать путешествие.
+Travel/&FatigueFreshTitle	Отдохнувший
+Travel/&FatigueImpededDescription	Отряд немного устал, но может продолжать путешествие.
+Travel/&FatigueImpededTitle	Замедленный
+Travel/&PaceFastDescription	Отряд путешествует быстро (36 миль в день) за счёт снижения скрытности и ухудшения восприятия.
+Travel/&PaceFastTitle	Быстрый
+Travel/&PaceNormalDescription	Отряд путешествует в обычном темпе (24 мили в день) — хороший баланс скорости и осведомлённости обо всём, что происходит вокруг.
+Travel/&PaceNormalTitle	Нормальный
+Travel/&PaceSlowDescription	Отряд путешествует медленно (16 миль в день), обращая больше внимания на всё, что его окружает, и меньше привлекая внимание.
+Travel/&PaceSlowTitle	Замедление
+Travel/&StandardCampActivity01Title	{0} ухаживает за оружием.
+Travel/&StandardCampActivity02Title	{0} ухаживает за доспехами.
+Travel/&StandardCampActivity03Title	{0} готовит для отряда еду.
+Travel/&StandardCampActivity04Title	{0} упражняет свой разум.
+Travel/&StandardCampActivity05Title	{0} молится.
+Travel/&StandardCampActivity06Title	{0} рассказывает старые военные истории.
+Travel/&StandardCampActivity07Title	{0} начинает оживлённую политическую дискуссию насчёт княжества Масгарт.
+Travel/&StandardCampActivity08Title	{0} начинает дискуссию о божествах и религиях.
+Travel/&StandardCampActivity09Title	{0} начинает играть в кости.
+Travel/&StandardCampActivity10Title	{0} запевает старую песню.
+Travel/&StandardCampActivity11Title	{0} начинает играть в кости.
+Travel/&StandardCampActivity12Title	{0} начинает играть в карты.
+Travel/&StandardRandomEvents10Title	{0} останавливается у святилища, чтобы помолиться.
+Travel/&StandardRandomEvents11Title	{0} упражняется в боевых искусствах.
+Travel/&StandardRandomEvents1Title	Отряд натыкается на банду наёмников.
+Travel/&StandardRandomEvents2Title	Отряд проходит старый имперский рынок, где теперь встречаются утильщики.
+Travel/&StandardRandomEvents3Title	Отряд проходит мимо древнего дерева — настолько старого, что оно явно видело Катаклизм.
+Travel/&StandardRandomEvents4Title	Отряд встречает странствующего учёного из Галливана.
+Travel/&StandardRandomEvents5Title	Отряд встречает группу паломников, идущих в Эйнариум.
+Travel/&StandardRandomEvents6Title	Отряд обнаруживает раненых наёмников-дварфов и лечит их раны.
+Travel/&StandardRandomEvents7Title	Отряд встречает курьера, от которого сбежала лошадь. {0} успокаивает животное и получает искреннюю благодарность курьера.
+Travel/&StandardRandomEvents8Title	{0} играет в кости со странствующим учёным.
+Travel/&StandardRandomEvents9Title	{0} наигрывает мелодию на флейте.
+Travel/&TravelActivityCampTitle	Лагерь
+Travel/&TravelActivityExplorationTitle	Исследование
+Travel/&TravelActivityLongRestTitle	Отдых
+Travel/&TravelActivityNavigateTitle	Навигация
+Travel/&TravelActivityStandByTitle	Ожидание
+Travel/&TravelEventCraftingProgressFailure1Title	{0} сталкивается с проблемами, пытаясь изготовить предмет ({1}), — ничего не выходит.
+Travel/&TravelEventCraftingProgressFinishedTitle	{0} заканчивает изготовление предмета ({1}).
+Travel/&TravelEventCraftingProgressHalfwayTitle	{0} на полпути к завершению предмета ({1}).
+Travel/&TravelEventCrownAttunedDescription	Наши герои располагаются на заслуженный отдых, но на душе у них печаль.
+Travel/&TravelEventCrownAttunedTitle	Беспокойная ночь
+Travel/&TravelEventEncounterFailure1Title	Отряд не замечает приближающуюся группу врагов.
+Travel/&TravelEventEncounterSuccess1Title	Неожиданное происшествие! {0} слышит, как приближаются враги.
+Travel/&TravelEventEncounterSuccess2Title	Неожиданное происшествие! {0} обнаруживает врагов раньше, чем они замечают отряд.
+Travel/&TravelEventFoodSearchFailure1Title	Отряд не нашёл никакой еды.
+Travel/&TravelEventFoodSearchSuccess1Title	{0} находит вкусные грибы. Отряд пополняет запасы еды ({1} ед.).
+Travel/&TravelEventFoodSearchSuccess2Title	{0} ловит диких зайцев. Отряд пополняет запасы еды ({1} ед.).
+Travel/&TravelEventFoodSearchSuccess3Title	{0} убивает кабана. Отряд пополняет запасы еды ({1} ед.).
+Travel/&TravelEventFoodSearchSuccess4Title	{0} находит яблоню. Отряд пополняет запасы еды ({1} ед.).
+Travel/&TravelEventFoodSearchSuccess5Title	{0} находит птичье гнездо и собирает яйца. Отряд пополняет запасы еды ({1} ед.).
+Travel/&TravelEventFoodSearchSuccess6Title	{0} убивает лань. Отряд пополняет запасы еды ({1} ед.).
+Travel/&TravelEventFoodSearchSuccess7Title	{0} убивает пару куропаток. Отряд пополняет запасы еды ({1} ед.).
+Travel/&TravelEventFoodSearchSuccess8Title	{0} находит дикие овощи и пополняет запасы еды ({1} ед.).
+Travel/&TravelEventIngredientGatheringFailure1Title	Отряд не нашёл никаких полезных ингредиентов.
+Travel/&TravelEventIngredientGatheringSuccess1Title	{0} собирает ингредиенты для изготовления: {1}
+Travel/&TravelEventLongRestCompleteFailure1Title	Отряд не смог завершить долгий отдых
+Travel/&TravelEventLongRestCompleteSuccess1Title	Отряд завершил долгий отдых и израсходовал {0} ед. еды.
+Travel/&TravelEventLongRestStart1Title	Отряд начинает отдыхать
+Travel/&TravelEventNavigationStarts1Title	Отряд движется
+Travel/&TravelEventNewDayTitle	День {0}
+Travel/&TravelEventSetCamp1Title	Отряд разбивает лагерь
+Travel/&TravelJourneyBeginsTitle	Путешествие начинается!
+Travel/&TravelJourneyEndsTitle	Отряд прибыл на место
+Travel/&TravelEventExplorationEndsTitle	Отряд обнаружил вход.
+Travel/&TravelEventExplorationStartsTitle	Отряд начинает искать вход в область.
+Travel/&TravelEventCastFoodSpellTitle	{0} произносит заклинание «{1}» и создаёт еду для всего отряда.
+Travel/&StandardRandomEvents12Title	Отряд натыкается на тачку утильщика, полную добычи, и здоровается.
+Travel/&StandardRandomEvents13Title	Отряд останавливается у братской могилы и идёт дальше с мрачным видом.
+Travel/&StandardRandomEvents14Title	Отряд проходит мимо манакалонской статуи очередного императора.
+Travel/&StandardRandomEvents15Title	Отряд проходит мимо разрушенной статуи эльфийки с рабом.
+Travel/&StandardRandomEvents16Title	Отряд проходит мимо святилища Аруна и слышит раскаты грома, раздающиеся издалека.
+Travel/&StandardRandomEvents17Title	Отряд проходит мимо святилища Эйнара и видит убегающего оленя.
+Travel/&StandardRandomEvents18Title	Отряд проходит мимо святилища Пакри и чувствует прохладный ветерок.
+Travel/&StandardRandomEvents19Title	Отряд проходит мимо святилища Марайке и слышит пение птицы.
+Travel/&StandardRandomEvents20Title	Отряд проходит мимо святилища Мисайе и слышит чей-то смех.
+Travel/&StandardRandomEvents21Title	Отряд проходит мимо разрушенной имперской пограничной заставы, поросшей цветами.
+Travel/&StandardRandomEvents22Title	Отряд проходит мимо упавшего моста и переходит ручей вброд.
+Travel/&StandardRandomEvents23Title	Отряд некоторое время идёт под моросящим дождём.
+Travel/&StandardRandomEvents24Title	Отряд продолжительное время идёт под проливным дождём.
+Travel/&StandardRandomEvents25Title	Отряд недолго идёт под мощным ливнем.
+Travel/&StandardCampActivity13Title	{0} вырезает фигурку из дерева.
+Travel/&StandardCampActivity14Title	{0} пишет письмо бог знает кому.
+Travel/&StandardCampActivity15Title	{0} делает записи в личном дневнике.
+Travel/&StandardCampActivity16Title	{0} читает следующую главу книги.
+Travel/&StandardCampActivity17Title	{0} отжимается и приседает.
+Travel/&StandardCampActivity18Title	{0} чистит обувь.
+Travel/&StandardCampActivity19Title	{0} думает в одиночестве.
+Travel/&StandardCampActivity20Title	{0} играет в игру на ловкость с камнями.
+Travel/&StandardCampActivity21Title	{0} обустраивает место для сна.
+Travel/&TravelEventEncounterOther1Title	Слабые монстры убегают, завидев приближение отряда.
+Travel/&TravelEventEncounterOther2Title	Вы встретили врага! Монстры напуганы отрядом и сразу убегают.
+Travel/&DLC1_StandardRandomEvents1	Отряд проходит мимо треснувшего яйца искупителя.
+Travel/&DLC1_StandardRandomEvents2	Отряд проходит мимо манакалонского рунного камня.
+Travel/&DLC1_StandardRandomEvents3	Отряд проходит мимо разрушенного тирмарского дома.
+Travel/&DLC1_StandardRandomEvents4	Отряд проходит мимо древнего дерева — настолько старого, что оно явно видело Катаклизм.
+Travel/&DLC1_StandardRandomEvents5	Отряд проходит мимо старого имперского рынка, где теперь встречаются странствующие торговцы.
+Travel/&DLC1_StandardRandomEvents6	Отряд проходит мимо упавшей статуи императора Манакалона.
+Travel/&DLC1_StandardRandomEvents7	Отряд проходит мимо заброшенной деревни, по всей видимости, сожжённой.
+Travel/&DLC1_StandardRandomEvents8	Отряд проходит мимо группы коллекционеров Кузни, пытающихся вытянуть тележку, полную добра.
+Travel/&DLC1_StandardRandomEvents9	Отряд проходит мимо группы путников в капюшонах, пытающихся не попадаться на глаза.
+Travel/&DLC1_StandardRandomEvents10	Отряд проходит мимо пустого торгового каравана.
+Travel/&DLC1_StandardRandomEvents11	Отряд проходит мимо разрушенного блокпоста Доминиона.
+Travel/&DLC1_StandardRandomEvents12	Отряд проходит мимо виселиц с телами, на которых написано «Мятежники».
+Travel/&DLC1_StandardRandomEvents13	Отряд проходит мимо столбов с разорванными флагами Доминиона.
+Travel/&DLC1_StandardRandomEvents14	Отряд проходит мимо указательного камня со знаком в виде маски.
+Travel/&DLC1_StandardRandomEvents15	Отряд проходит мимо указателя со знаком в виде маски.
+Travel/&DLC1_StandardRandomEvents16	Отряд проходит мимо трупа изуродованного существа.
+Travel/&DLC1_StandardRandomEvents17	Отряд проходит мимо деформированного скелета животного.
+Travel/&DLC1_StandardRandomEvents18	Отряд проходит мимо горы черепов.
+Travel/&DLC1_StandardRandomEvents19	Отряд проходит мимо древнего манакалонского здания, наполовину погружённого в болото.
+Travel/&DLC1_StandardRandomEvents20	Отряд проходит мимо зыбучих песков.
+Travel/&DLC1_StandardRandomEvents21	{0} прыгает по подводным камням.
+Travel/&DLC1_StandardRandomEvents22	{0} отмахивается от роя комаров, окружившего отряд.
+Travel/&DLC1_StandardRandomEvents23	{0} высыпает песок и камешки из сапог.
+Travel/&DLC1_StandardRandomEvents24	{0} прыгает по подводным камням.
+Travel/&DLC1_StandardRandomEvents25	{0} насвистывает масгартскую мелодию.

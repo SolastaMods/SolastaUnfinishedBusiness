@@ -1,0 +1,30 @@
+Alignment/&ChaoticEvilDescription	Хаотично-злые (ХЗ) существа безрассудно жестоки. Ими движет жадность, злоба и тяга к разрушению. К хаотично-злым можно отнести демонов, красных драконов и орков.
+Alignment/&ChaoticEvilTitle	Хаотично-злое
+Alignment/&ChaoticEvilTitleShort	ХЗ
+Alignment/&ChaoticGoodDescription	Хаотично-добрые (ХД) существа поступают по совести и не обращают внимания на чужое мнение. К хаотично-добрым можно отнести медных драконов, единорогов и многих эльфов.
+Alignment/&ChaoticGoodTitle	Хаотично-доброе
+Alignment/&ChaoticGoodTitleShort	ХД
+Alignment/&ChaoticNeutralDescription	Хаотично-нейтральные (ХН) существа ставят свои прихоти и личную свободу выше всего. К хаотично-нейтральным можно отнести многих плутов и варваров, а также некоторых бардов.
+Alignment/&ChaoticNeutralTitle	Хаотично-нейтральное
+Alignment/&ChaoticNeutralTitleShort	ХН
+Alignment/&LawfulEvilDescription	Законно-злые (ЗЗ) существа всегда добиваются своего, но не нарушают клятв, традиций и законов. К законно-злым можно отнести дьяволов, синих драконов и хобгоблинов.
+Alignment/&LawfulEvilTitle	Законно-злое
+Alignment/&LawfulEvilTitleShort	ЗЗ
+Alignment/&LawfulGoodDescription	Законно-добрые (ЗД) существа поступают благородно в любой ситуации. К законно-добрым можно отнести золотых драконов, паладинов и многих дварфов.
+Alignment/&LawfulGoodTitle	Законно-доброе
+Alignment/&LawfulGoodTitleShort	ЗД
+Alignment/&LawfulNeutralDescription	Законно-нейтральные (ЗН) существа живут в соответствии со сложившимся укладом, сводом правил или личным кодексом. К законно-нейтральным можно отнести многих монахов и некоторых волшебников.
+Alignment/&LawfulNeutralTitle	Законно-нейтральное
+Alignment/&LawfulNeutralTitleShort	ЗН
+Alignment/&NeutralDescription	Нейтральные (Н) существа предпочитают поступать по ситуации, не задумываясь о морали и не принимая ничью сторону. К нейтральным можно отнести людоящеров, многих друидов и большинство людей.
+Alignment/&NeutralEvilDescription	Нейтрально-злые (НЗ) существа без зазрения совести делают то, что может сойти им с рук. К нейтрально-злым существам можно отнести юголотов, многих дроу и некоторых облачных великанов.
+Alignment/&NeutralEvilTitle	Нейтрально-злое
+Alignment/&NeutralEvilTitleShort	НЗ
+Alignment/&NeutralGoodDescription	Нейтрально-добрые (НД) персонажи сделают всё возможное, чтобы помочь другим, но исходят из своих потребностей. К нейтрально-добрым можно отнести многих небожителей, некоторых облачных великанов и большинство гномов.
+Alignment/&NeutralGoodTitle	Нейтрально-доброе
+Alignment/&NeutralGoodTitleShort	НД
+Alignment/&NeutralTitle	Нейтральное
+Alignment/&NeutralTitleShort	Н
+Alignment/&UnalignedDescription	Большинство существ, лишённых самосознания, не обладают мировоззрением. Они не в состоянии сделать морально-этический выбор, а потому действуют по своей животной природе. Например, акулы известны как жестокие хищники, но при этом их нельзя считать злыми.
+Alignment/&UnalignedTitle	Без мировоззрения
+Alignment/&UnalignedTitleShort	БМ

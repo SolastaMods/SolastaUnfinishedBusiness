@@ -1,0 +1,10 @@
+KnowledgeLevel/&KnownDescription	Вы хорошо знаете это существо.
+KnowledgeLevel/&KnownTitle	Известно (3)
+KnowledgeLevel/&MasteredDescription	Вы знаете об этом существе всё.
+KnowledgeLevel/&MasteredTitle	Отлично известно (4)
+KnowledgeLevel/&ObservedDescription	Вы кратковременно наблюдали это существо.
+KnowledgeLevel/&ObservedTitle	Наблюдалось (1)
+KnowledgeLevel/&StudiedDescription	Вы изучали это существо.
+KnowledgeLevel/&StudiedTitle	Изучалось (2)
+KnowledgeLevel/&UnknownDescription	Вы никогда не встречали это существо.
+KnowledgeLevel/&UnknownTitle	Неизвестно (0)

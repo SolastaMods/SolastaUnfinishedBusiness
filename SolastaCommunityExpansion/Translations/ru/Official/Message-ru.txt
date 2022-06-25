@@ -1,0 +1,265 @@
+Message/&AbortCreationDescription	Отменить создание персонажа?
+Message/&AbortCreationTitle	Отмена создания персонажа
+Message/&AbortLevelUpDescription	Отменить получение персонажем нового уровня?
+Message/&AbortLevelUpTitle	Отмена получения персонажем нового уровня
+Message/&AmountGainedFormat	
+Message/&AttunementLostDescription	Предмет «{0}» больше не связан с персонажем.
+Message/&AttunementLostTitle	Связь утеряна
+Message/&AttunementRemovalDescription	Отменить связь с этим предметом?
+Message/&AttunementRemovalTitle	Удаление связи
+Message/&AttunementReplacementDescription	У этого предмета есть связь ({0}). Создать новую связь ({1})?
+Message/&AttunementReplacementTitle	Замена связи
+Message/&CannotLoad	Сейчас загрузка невозможна
+Message/&CannotSave	Сейчас сохранение невозможно
+Message/&CharacterDeletionDescription	Удалить этого персонажа? Действие нельзя отменить.
+Message/&CharacterDeletionTitle	Удаление персонажа
+Message/&ConcentrationLossDescription	Наложив заклинание «{0}», вы перестанете концентрироваться на заклинании «{1}». Продолжить?
+Message/&ConcentrationLossTitle	Потеря концентрации
+Message/&CraftingAbortDescription	Отменить создание предмета? Весь прогресс и потраченные ингредиенты будут утеряны.
+Message/&CraftingAbortTitle	Отмена создания
+Message/&FastTravelConfirmationDescription	Быстро переместиться в это место? Время будет соответствующим образом перемотано вперёд. 
+Message/&FastTravelConfirmationTitle	Быстрое перемещение
+Message/&FastTravelErrorPathNotFoundDescription	Невозможно быстро переместиться в это место — путь заблокирован.
+Message/&FastTravelErrorTitle	Быстрое перемещение
+Message/&FastTravelExitLocationDescription	Быстро переместиться к выходу и покинуть область? Время будет соответствующим образом перемотано вперёд. 
+Message/&FastTravelExitLocationTitle	Быстрое перемещение и выход из области
+Message/&IdentificationCancelledTitle	Опознание предмета отменено.
+Message/&IncompletePreparationDescription	Вы можете подготовить больше заклинаний. Продолжить?
+Message/&IncompletePreparationTitle	Неполная подготовка заклинаний
+Message/&ItemsOnGroundDescription	Если выйти из этого места, предметы, лежащие на земле, будут утеряны. Продолжить?
+Message/&ItemsOnGroundTitle	Потеря предметов
+Message/&LegalDisagreeAndQuitDescription	Поскольку вы не приняли условия соглашения, приложение закроется.
+Message/&LegalDisagreeAndQuitTitle	Выход из игры
+Message/&MessageCancelTitle	Отмена
+Message/&MessageNoTitle	Нет
+Message/&MessageOkTitle	OK
+Message/&MessageYesTitle	Да
+Message/&PartyLosesGoldPieces	Отряд теряет {0} зол. мон.
+Message/&QuitLocationDescription	Вы собираетесь покинуть текущую область. Продолжить?
+Message/&QuitLocationTitle	Покинуть область
+Message/&ResumeCampDescription	Хотите продолжить отдых?
+Message/&ResumeCampTitle	Продолжить отдых
+Message/&ResumeRestDescription	Хотите продолжить долгий отдых?
+Message/&ResumeRestTitle	Продолжить долгий отдых
+Message/&SavedGameDeleteDescription	Удалить сохранённую игру «{0}» навсегда?
+Message/&SavedGameDeleteTitle	Удалить сохранённую игру
+Message/&SavedGameOverwriteDescription	Перезаписать сохранённую игру «{0}» с текущим прогрессом?
+Message/&SavedGameOverwriteTitle	Перезаписать сохранённую игру
+Message/&ScrollScribeDestructionDescription	Запись заклинания в выбранную книгу уничтожит свиток. Продолжить?
+Message/&ScrollScribeDestructionTitle	Перепись свитка
+Message/&SessionCancelDescription	Выйти из нового приключения?
+Message/&SessionCancelTitle	Отменить приключение
+Message/&SettingConfirmSettingsDescription	Сохранить выбранные настройки?
+Message/&SettingConfirmSettingsTitle	Подтвердить настройки
+Message/&SettingExitWithoutApplyDescription	Закрыть это окно и отменить все внесённые изменения?
+Message/&SettingExitWithoutApplyTitle	Отмена изменений
+Message/&SkipLevelUpFormat	Вы не завершили повышение уровня персонажа {0}. Выйти?
+Message/&SkipLevelUpTitle	Пропуск повышения уровня персонажа
+Message/&WaitForLongRestDescription	Сегодня вы уже располагались на долгий отдых. Подождать начала следующего дня?
+Message/&WaitForLongRestTitle	Ожидание долгого отдыха
+Message/&EndEarlyAccessDescription	Вы прошли весь игровой материал версии раннего доступа. Сейчас вы вернётесь в главное меню.
+Message/&EndEarlyAccessTitle	Конец раннего доступа
+Message/&EndEarlyAccessMainMenuTitle	Главное меню
+Message/&EndEarlyAccessContinuePlayingTitle	Продолжить игру
+Message/&MessageKeyAlreadyBoundTitle	Клавиша уже используется
+Message/&MessageKeyAlreadyBoundDescription	Клавиша {0} уже используется для команды «{1}»
+Message/&MessageOverrideTitle	Изменить
+Message/&SettingDefaultSettingsDescription	Вы точно хотите вернуть значения по умолчанию для данной категории настроек?
+Message/&SettingDefaultSettingsTitle	Возвращение настроек по умолчанию
+Message/&RestartRequiredDescription	Для вступления изменений в силу необходимо перезапустить программу
+Message/&RestartRequiredTitle	Требуется перезагрузка
+Message/&ScrollScribeAlreadyInSpellbookDescription	Заклинание «{0}» уже есть в книге заклинаний
+Message/&ScrollScribeAlreadyInSpellbookTitle	Уже в книге заклинаний
+Message/&MandatoryDestinationFormat	Вам необходимо отправиться в «{0}»
+Message/&CharacterCannotMove	{0} не может двигаться.
+Message/&OverrideCustomDifficultyTitle	Изменить пользовательские настройки
+Message/&OverrideCustomDifficultyDescription	Вы сбросите все пользовательские настройки, выбранные в меню настроек игры. Продолжить?
+Message/&SteamInitFailedDescription	Не удаётся подключиться к клиенту Steam. Убедитесь, что вы запускаете игру с помощью Steam. Попробуйте перезапустить клиент. Игра будет закрыта.
+Message/&SteamInitFailedTitle	Ошибка инициализации Steam
+Message/&NativeCrashDetectedTitle	Некорректный выход из игры
+Message/&NativeCrashDetectedDescription	Выход из игры совершён некорректно. Если вы видите это сообщение впервые, мы рекомендуем снизить настройки качества графики и сообщить об ошибке нашей команде на форуме.
+Message/&EndEarlyAccessDescription2	Вы прошли версию для раннего доступа. Основной сюжет для вас закончен, но вы можете путешествовать, искать предметы и выполнять необязательные задания.
+Message/&TravelAbortedDescription	Перемещение отменено. Отряд остановится в следующем месте.
+Message/&CharactersNotUpdatedTitle	Обновить файлы персонажей
+Message/&CharactersNotUpdatedDescription	Некоторые файлы персонажей не были обновлены. Продолжить?
+Message/&GdkSignedOutTitle	Выйти
+Message/&GdkSignedOutDescription	Вы вышли из Xbox Live. Игра будет закрыта. [Повторно подключитесь к Xbox Live и запустите игру].
+Message/&GdkCloudDataSavedFailedTitle	Ошибка сохранения в облаке
+Message/&GdkCloudDataSavedFailedDescription	Произошла ошибка при попытке сохранения ваших материалов на облачных серверах. [Повторите попытку позже].
+Message/&GdkCloudDataDeletedTitle	Ошибка удаления из облака
+Message/&GdkCloudDataDeletedDescription	Произошла ошибка при попытке удаления ваших материалов из облачных серверов. [Повторите попытку позже].
+Message/&UserLocationDeleteConfirmationTitle	Удаление места
+Message/&UserLocationDeleteConfirmationDescription	Удалить это пользовательское место?
+Message/&UserLocationOverwriteConfirmationTitle	Перезапись места
+Message/&UserLocationOverwriteConfirmationDescription	Если сохранить это место под выбранным названием, будет перезаписано уже существующее место с таким названием. Продолжить?
+Message/&EditorLeaveConfirmationTitle	Выход из редактора
+Message/&EditorLeaveConfirmationDescription	Выйти из редактора, не сохранив место?
+Message/&HiddenDoorTitle	Потайная дверь!
+Message/&UnknownUserLocationDescription	Неизвестное пользовательское место: {0}
+Message/&InvalidUserLocationEntranceIndexDescription	Неверный индекс входа цели: {0}
+Message/&UserLocationSizeReductionTitle	Уменьшение размера
+Message/&UserLocationSizeReductionDescription	Уменьшение размера этого места может уничтожить некоторые комнаты и элементы реквизита, начиная с правого верхнего угла. Продолжить?
+Message/&UserLocationOutdatedTitle	Устаревшее место
+Message/&UserLocationOutdatedDescription	В одном или нескольких местах было устаревшее содержимое (комнаты, устройства, реквизит). Мы его удалили
+Message/&UserLocationEnvironmentChangeTitle	Смена окружения
+Message/&UserLocationEnvironmentChangeDescription	При смене места этого окружения будут удалены некоторые несовместимые комнаты, элементы реквизита и/или устройства. Продолжить?
+Message/&UserLocationEmptyTitleTitle	Неправильное название
+Message/&UserLocationEmptyTitleDescription	Нужно ввести правильное название пользовательского места
+Message/&EditorLocationSwitchConfirmationTitle	Смена пользовательского места
+Message/&EditorLocationSwitchConfirmationDescription	У места «{0}» есть несохранённые изменения. Открыть место «{1}» с потерей этих изменений?
+Message/&UserLocationDuplicateTitleTitle	Повторяющееся название
+Message/&UserLocationDuplicateTitleDescription	Местность с таким названием уже существует
+Message/&UserCampaignDeleteConfirmationTitle	Удалить кампанию
+Message/&UserCampaignDeleteConfirmationDescription	Удалить эту пользовательскую кампанию?
+Message/&UserCampaignOverwriteConfirmationTitle	Перезаписать кампанию
+Message/&UserCampaignOverwriteConfirmationDescription	Кампания с таким названием уже существует. Если вы хотите сохранить эту кампанию под выбранным названием, предыдущая будет перезаписана. Продолжить?
+Message/&UserCampaignLosingChangesTitle	Изменения не сохранятся
+Message/&UserCampaignLosingChangesDescription	Вы потеряете все изменения, внесённые в эту кампанию. Продолжить?
+Message/&UnknownUserCampaignDescription	Неизвестная пользовательская кампания: {0}
+Message/&UserItemDeleteConfirmationTitle	Удаление пользовательского предмета
+Message/&UserItemDeleteConfirmationDescription	Удалить этот пользовательский предмет?
+Message/&UserMonsterDeleteConfirmationTitle	Удаление пользовательского чудовища
+Message/&UserMonsterDeleteConfirmationDescription	Удалить это пользовательское чудовище?
+Message/&UserNpcDeleteConfirmationTitle	Удаление пользовательского НИП
+Message/&UserNpcDeleteConfirmationDescription	Удалить этого пользовательского НИП?
+Message/&UserMerchantInventoryDeleteConfirmationTitle	Удаление пользовательских возможностей
+Message/&UserMerchantInventoryDeleteConfirmationDescription	Удалить эти пользовательские возможности торговца?
+Message/&UserContentStockUnitDeleteConfirmationTitle	Удаление товара
+Message/&UserContentStockUnitDeleteConfirmationDescription	Удалить этот товар из снаряжения торговца?
+Message/&OutdatedLocationLoadingTitle	Несоответствие версии контента
+Message/&OutdatedLocationLoadingDescriptionFormat	Сохранение выполнено с использованием версии контента {0}, на диске сохранена версия {1}. Какой вариант загрузить?\nПримечание: загрузка с диска может помешать загрузке сохранения.
+Message/&OutdatedLocationLoadSaveDescription	Из сохранения
+Message/&OutdatedLocationLoadDiskDescription	С диска
+Message/&LocationExportedDescription	Локация перенесена
+Message/&UserQuestDeleteConfirmationTitle	Удаление задания
+Message/&UserQuestDeleteConfirmationDescription	Удалить это задание?
+Message/&QuestEditorLeaveConfirmationDescription	Выйти, не сохранив задание?
+Message/&UserQuestEmptyInternalNameTitle	Недоступное внутреннее название задания
+Message/&UserQuestEmptyInternalNameDescription	Введите допустимое внутреннее название задания
+Message/&UserQuestDuplicateInternalNameTitle	Повторяющееся внутреннее название задания
+Message/&UserQuestDuplicateInternalNameDescription	Задание с таким внутренним названием уже существует в кампании. Название должно быть уникальным.
+Message/&UserQuestEmptyTitleTitle	Недопустимое наименование задания
+Message/&UserQuestEmptyTitleDescription	Введите допустимое наименование задания
+Message/&UserGraphStateDuplicateLinkDescription	Такое звено уже существует между этими двумя соединителями
+Message/&UserQuestSingleLinkDescription	Начало задания можно соединить только с одним последующим шагом
+Message/&UserVariableDeleteConfirmationTitle	Удаление переменной
+Message/&UserVariableDeleteConfirmationDescription	Удалить эту переменную?
+Message/&VariableEditorLeaveConfirmationDescription	Выйти, не сохранив задание?
+Message/&UserVariableEmptyInternalNameTitle	Недопустимое название переменной
+Message/&UserVariableEmptyInternalNameDescription	Введите допустимое название переменной
+Message/&UserVariableDuplicateInternalNameTitle	Повторяющееся название переменной
+Message/&UserVariableDuplicateInternalNameDescription	Переменная с таким названием уже существует в кампании. Название должно быть уникальным.
+Message/&UserVariableEmptyTitleTitle	Недопустимое наименование переменной
+Message/&UserVariableEmptyTitleDescription	Введите допустимое наименование переменной
+Message/&DungeonMakerInvalidnventoryOperationDescription	На данном этапе невозможно совершать операции снаряжения, игра не готова
+Message/&UserDialogDeleteConfirmationTitle	Удаление диалога
+Message/&UserDialogDeleteConfirmationDescription	Удалить этот диалог?
+Message/&DialogEditorLeaveConfirmationDescription	Выйти из редактора, не сохранив диалог?
+Message/&UserDialogSingleLinkDescription	Начало диалога может быть соединено только с одним последующим состоянием
+Message/&UserDialogEmptyInternalNameTitle	Недоступное внутреннее название диалога
+Message/&UserDialogEmptyInternalNameDescription	Введите допустимое внутреннее название диалога
+Message/&UserDialogDuplicateInternalNameTitle	Повторяющееся внутреннее название диалога
+Message/&UserDialogDuplicateInternalNameDescription	Диалог с таким внутренним названием уже существует в кампании. Название должно быть уникальным.
+Message/&UserDialogEmptyTitleTitle	Недопустимое наименование диалога
+Message/&UserDialogEmptyTitleDescription	Введите допустимое наименование диалога
+Message/&CannotExecuteCommandDescription	Сейчас нельзя выполнить команду.
+Message/&UserCampaignContentExportedFormat	Выбранный контент экспортирован в кампанию «{0}».
+Message/&UserCampaignContentImportedFormat	Выбранный контент импортирован из кампании «{0}».
+Message/&UserCampaignDuplicatedContentIgnoredFormat	Пропущено дублей: {0}.
+Message/&UserCampaignDuplicatedContentOverwrittenFormat	Перезаписано дублей: {0}.
+Message/&DialogNotConnectedToAnyStateDescription	Пользовательский диалог не связан ни с одним состоянием и не воспроизводится.
+Message/&NoValidDestinationDescription	Нет подходящего пункта назначения...
+Message/&EmptyUserCampaignTitleDescription	Для пользовательской кампании нужно название.
+Message/&NetworkErrorDuringLoadTitle	Ошибка загрузки
+Message/&NetworkErrorDuringLoadDescription	Не удалось получить необходимые данные многопользовательской игры от других игроков. Повторите попытку позже.
+Message/&MultiplayerVoteClientRejectedDescription	{0} отклоняет запрос.
+Message/&MultiplayerVoteHostCancelledDescription	{0} отменяет голосование.
+Message/&MultiplayerVoteClientAllClientsAcceptedDescription	Все игроки дали своё согласие.
+Message/&MultiplayerWaitNofityDescription	{0} ждёт, пока вы выполните свои действия.
+Message/&MultiplayerWaitQuitGameConfirmTitle	Выйти из игры
+Message/&MultiplayerWaitQuitGameConfirmDescription	Выйти из многопользовательской игры?
+Message/&NetworkPlayerKickedSelfTitle	Вы исключены
+Message/&NetworkPlayerKickedSelfDescription	Вас исключили из игры. Вы можете продолжить игру в одиночку или вернуться в главное меню.
+Message/&NetworkPlayerKickedOtherTitle	Игрок исключён
+Message/&NetworkPlayerKickedOtherDescriptionFormat	{1} исключает из игры игрока {0}.
+Message/&GamingPlatformCloudStorageFullTitle	Недостаточно места
+Message/&GamingPlatformCloudStorageFullDescrytpion	Недостаточно места для облачных сохранений. Удалите несколько старых сохранений в меню игры.
+Message/&NetworkPlayerRequestCharacterFormat	{0} хочет сыграть за персонажа: {1}.
+Message/&NetworkEveryPlayerMustBeAssignedTitle	Для продолжения распределите всех игроков.
+Message/&NetworkRegion_asia_Title	Азия
+Message/&NetworkRegion_au_Title	Австралия
+Message/&NetworkRegion_cae_Title	Канада (восток)
+Message/&NetworkRegion_eu_Title	Европа
+Message/&NetworkRegion_in_Title	Индия
+Message/&NetworkRegion_jp_Title	Япония
+Message/&NetworkRegion_ru_Title	Россия
+Message/&NetworkRegion_rue_Title	Россия (восток)
+Message/&NetworkRegion_za_Title	Южная Африка
+Message/&NetworkRegion_sa_Title	Южная Америка
+Message/&NetworkRegion_kr_Title	Южная Корея
+Message/&NetworkRegion_tr_Title	Турция
+Message/&NetworkRegion_us_Title	США (восток)
+Message/&NetworkRegion_usw_Title	США (запад)
+Message/&NetworkRegionTitle	Регион сервера
+Message/&NetworkErrorDuringLoadUnauthorizedDescription	Многопользовательский режим Solasta сейчас недоступен. Следите за новостями на официальных каналах.
+Message/&FastTravelErrorInvalidCharacterDescription	Быстрое перемещение недоступно с этим персонажем.
+Message/&PasswordCopiedTitle	Пароль скопирован в буфер обмена
+Message/&AllCharactersMustHaveDistinctNamesTitle	У персонажей должны быть разные имена.
+Message/&NetworkPlayerKickedSelfSessionDescription	Хост исключил вас из сессии.
+Message/&FailedQuestDueToFactionStatusTitle	Неактуальные задания
+Message/&FailedQuestDueToFactionStatusDescription	Поскольку ваши отношения с фракцией {0} изменились, часть заданий автоматически прекращена.
+Message/&FailedQuestCriricalCharacterDeathTitle	Смерть критически важного персонажа
+Message/&FailedQuestCriricalCharacterDeathDescription	Персонаж {0} умер, и задание {1} больше недоступно.
+Message/&FastTravelErrorInvalidContextDescription	Сейчас вы не можете быстро перемещаться, потому что персонаж занят.
+Message/&InvalidCharactersFromDisconnectionTitle	Повреждённый сеанс
+Message/&InvalidCharactersFromDisconnectionDescription	Невозможно восстановить сеанс при отключении игрока в критический момент игры. Перезапустите сеанс, выбрав подходящий игровой отрезок. Просим прощения за доставленные неудобства.
+Message/&ModioWebRequestErrorTitle	Ошибка подключения
+Message/&ModioLoginWebRequestErrorDescription	Произошла ошибка: {0}
+Message/&ModioLoginEmailRefusedDescription	Адрес электронной почты был отклонён сервером mod.io. Пожалуйста, исправьте ошибки в адресе или попробуйте другой.
+Message/&CorruptedCharacterErrorTitle	Файл персонажа повреждён
+Message/&CorruptedCharacterErrorDescription	Похоже, что файл персонажа повреждён. Такое иногда случается с персонажами, которые были созданы с включёнными модификациями. Перезапустите игру и не используйте этого персонажа.
+Message/&NetworkModdedSessionTitle	Обнаружены модификации
+Message/&NetworkModdedSessionDescription	Внимание! Присоединился игрок с установленными модификациями. Это может привести к сбоям и сильной рассинхронизации во время игры по сети. Всем участникам настоятельно рекомендуется отключить любые модификации перед тем, как начинать многопользовательскую игру.
+Message/&NetworkModdedSessionSelfDescription	Внимание! Обнаружены установленные модификации. Это может привести к сбоям и сильной рассинхронизации во время игры по сети. Настоятельно рекомендуется отключить все модификации перед тем, как начинать многопользовательскую игру.
+Message/&AutoJoinGameFailureRoomNotFoundDescription	Комната, к которой вы пытаетесь присоединиться, больше не доступна.
+Message/&QuitWithoutSavingIronManTitle	Сохранение невозможно
+Message/&QuitWithoutSavingIronManDescription	Сейчас сохранение невозможно, часть прогресса может быть потеряна. Всё равно выйти?
+Message/&NotFreeSlotToConjureItemFormat	Нет места в следующих ячейках: {0}
+Message/&SpellSlotRecoveryUnspentCapitalTitle	Неизрасходованный капитал восстановления
+Message/&SpellSlotRecoveryUnspentCapitalDescription	Вы потратили не весь капитал восстановления. Всё равно продолжить?
+Message/&MerchantLockedTitle	Кто-то уже взаимодействует с этим торговцем
+Message/&UserCampaignLoadErrorTitle	Ошибка загрузки
+Message/&UserCampaignLoadErrorDescription	Не удалось загрузить кампанию, использованную для сохранения данной игры. Возвращение в главное меню.
+Message/&ModErrorWarningTitle	Предупреждение о модификации
+Message/&ModErrorWarningDescription	В Solasta обнаружена нестабильность, которая может быть вызвана модификацией. Если вы столкнётесь с ошибками, попробуйте удалить модификации. Файлы сохранения из кампаний с модификациями могут загружаться некорректно, если используемые модификации устарели или были удалены.
+Message/&NetworkWaitingForPlayerTitle	Ожидание игроков
+Message/&NetworkPlayerLeftRoomFormat	{0} покидает комнату.
+Message/&NetworkPlayerJoinedRoomFormat	{0} присоединяется к комнате.
+Message/&NetworkWaitingForHostTitle	Ожидание хоста
+Message/&NetworkFeatureUnavailableShortTitle	Недоступно в многопользовательской игре
+Message/&NetworkFeatureTemporarilyUnavailableTitle	Функция временно недоступна в многопользовательской игре
+Message/&NetworkWaitingForPlayerTitleFormat	Ожидание: {0}
+Message/&NetworkRoomLeftTitle	Комната покинута
+Message/&NetworkRoomLeftDescription	Потеряно соединение с комнатой. Проверьте подключение к интернету и повторите попытку.
+Message/&CannotQuickLoadInMultiplayer	Быстрая загрузка недоступна в многопользовательской игре
+Message/&NetworkKickPlayerTitle	Исключить игрока из комнаты
+Message/&NetworkKickPlayerDescription	Исключить игрока?
+Message/&MissingCrossplayPrivilegeTitle	Кроссплатформенная игра запрещена
+Message/&MissingCrossplayPrivilegeDescription	Простите! Вы не можете участвовать в многопользовательских играх, использующих функцию кроссплатформенной игры.
+Message/&MissingMultiplayerPrivilegeTitle	Доступ к многопользовательской игре запрещён
+Message/&MissingMultiplayerPrivilegeDescription	Простите! Вы не можете участвовать в многопользовательских играх.
+Message/&MissingUserContentPrivilegeTitle	Доступ к создателю подземелий запрещён
+Message/&MissingUserContentPrivilegeDescription	Простите! Вы не можете видеть материалы, созданные другими игроками.
+Message/&NetworkSkippedByHostTitle	{0} пропускает
+Message/&AutoJoinGameTitle	Присоединиться к игре
+Message/&AutoJoinGameDescription	Несохранённый прогресс будет утерян. Продолжить?
+Message/&AutoJoinGameFailureTitle	Не удалось присоединиться
+Message/&AutoJoinGameFailureRoomFullDescription	Комната, к которой вы пытаетесь присоединиться, заполнена.
+Message/&NetworkNoSkipIntroTitle	Пропустить вступление
+Message/&NetworkNoSkipIntroDescription	Введение создано для одиночной игры. Мы не рекомендуем использовать эту функцию в многопользовательской игре. Пропустить?
+Message/&GamepadTooltipActivated	Режим подсказок включён
+Message/&GamepadTooltipDeactivated	Режим подсказок отключён
+Message/&PlanarModeActivatedDescription	Плоскостной режим включён
+Message/&PlanarModeDeactivatedDescription	Плоскостной режим отключён
+Message/&GamepadInvitationsSent	
+Message/&SettingsAppliedDescription	

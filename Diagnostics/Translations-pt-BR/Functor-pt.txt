@@ -1,0 +1,86 @@
+Functor/&GrantExperienceTitle	Conferir Experiência
+Functor/&GrantExperienceDescription	Confere pontos de experiência aos membros do grupo.
+Functor/&ParameterGrantExperienceModeTitle	Modo de Ganho
+Functor/&ParameterGrantExperienceModeDescription	Modo usado para conferir experiência.
+Functor/&ParameterGrantExperienceModeFlatTitle	Fixo
+Functor/&ParameterGrantExperienceModeFlatDescription	Cada membro do grupo recebe uma quantidade fixa de experiência.
+Functor/&ParameterGrantExperienceModeReachLevelTitle	Por Nível
+Functor/&ParameterGrantExperienceModeReachLevelDescription	Cada membro do grupo recebe experiência suficiente para atingir o nível determinado. Membros que já tiverem alcançado esse nível não ganham nada.
+Functor/&ParameterExperienceAmountTitle	Quantidade de Experiência
+Functor/&ParameterExperienceAmountDescription	Quantidade de experiência conferida.
+Functor/&ParameterWantedLevelTitle	Nível Necessário
+Functor/&ParameterWantedLevelDescription	Nível que o grupo deve alcançar.
+Functor/&InventoryOperationTitle	Operação de Inventário
+Functor/&InventoryOperationDescription	Permite a realização de uma série de operações referente a itens e tesouro.
+Functor/&ParameterInventoryOperationTitle	Tipo de Operação
+Functor/&ParameterInventoryOperationDescription	Tipo de operação de inventário que será realizada.
+Functor/&ParameterInventoryOperationGrantItemTitle	Conceder Item
+Functor/&ParameterInventoryOperationGrantItemDescription	Confere o item especificado aos personagens correspondentes.
+Functor/&ParameterInventoryOperationLoseItemTitle	Perda de Item
+Functor/&ParameterInventoryOperationLoseItemDescription	Remove o item especificado dos personagens correspondentes.
+Functor/&ParameterInventoryOperationStashAllTitle	Guarda Tudo
+Functor/&ParameterInventoryOperationStashAllDescription	Oculta todos os pertences do personagem em um inventário especial.
+Functor/&ParameterInventoryOperationRecoverStashTitle	Recuperação de Inventário
+Functor/&ParameterInventoryOperationRecoverStashDescription	Recupera o item ocultado, além dos demais pertences, desde a última ocultação de inventário.
+Functor/&ParameterInventoryOperationTargetTitle	Alvo
+Functor/&ParameterInventoryOperationTargetDescription	O alvo da operação.
+Functor/&ParameterInventoryOperationTargetFirstConsciousCharacterTitle	Primeiro Personagem Consciente
+Functor/&ParameterInventoryOperationTargetFirstConsciousCharacterDescription	Primeiro personagem a recuperar a consciência no grupo.
+Functor/&ParameterInventoryOperationTargetAllPartyMembersTitle	Todos os Membros do Grupo
+Functor/&ParameterInventoryOperationTargetAllPartyMembersDescription	Todos os membros do grupo serão alvo desta operação.
+Functor/&ParameterInventoryOperationOverrideQuantityTitle	Substituir quantidade?
+Functor/&ParameterInventoryOperationOverrideQuantityDescription	Permite especificar uma quantidade do item.
+Functor/&ParameterInventoryOperationQuantityValueTitle	Quantidade
+Functor/&ParameterInventoryOperationQuantityValueDescription	Quantos itens deste tipo.
+Functor/&ParameterInventoryOperationItemTitle	Item
+Functor/&ParameterInventoryOperationItemDescription	O item que será usado para esta operação.
+Functor/&QuestOperationTitle	Operador de Missão
+Functor/&QuestOperationDescription	Executa uma operação da missão determinada.
+Functor/&VariableOperationTitle	Operação de Variável
+Functor/&VariableOperationDescription	Permite modificar o valor de uma variável de campanha.
+Functor/&ParameterVariableOperationVariableTitle	Variável
+Functor/&ParameterVariableOperationVariableDescription	Variável afetada pela operação.
+Functor/&ParameterVariableOperationTypeTitle	Tipo
+Functor/&ParameterVariableOperationTypeDescription	Tipo de operação a ser realizada. Alguns tipos de variáveis só permitem que você determine o valor.
+Functor/&ParameterVariableOperationTypeSetTitle	Determinar
+Functor/&ParameterVariableOperationTypeSetDescription	Determina um valor específico para a variável.
+Functor/&ParameterVariableOperationTypeAddTitle	Adição
+Functor/&ParameterVariableOperationTypeAddDescription	Adiciona o valor especificado à variável.
+Functor/&ParameterVariableOperationTypeSubstractTitle	Subtração
+Functor/&ParameterVariableOperationTypeSubstractDescription	Subtrai o valor especificado da variável.
+Functor/&ParameterVariableOperationTypeIncrementTitle	Incrementação
+Functor/&ParameterVariableOperationTypeIncrementDescription	Aumenta em 1 o valor da variável.
+Functor/&ParameterVariableOperationTypeDecrementTitle	Redução
+Functor/&ParameterVariableOperationTypeDecrementDescription	Reduz em 1 o valor da variável.
+Functor/&ParameterVariableOperationTypeMultiplyTitle	Multiplicação
+Functor/&ParameterVariableOperationTypeMultiplyDescription	Multiplica o valor da variável pelo valor especificado.
+Functor/&ParameterVariableOperationTypeDivideTitle	Divisão
+Functor/&ParameterVariableOperationTypeDivideDescription	Divide o valor da variável pelo valor especificado.
+Functor/&ParameterVariableOperationValueIntTitle	Valor
+Functor/&ParameterVariableOperationValueIntDescription	Valor a ser usado na operação. Deve ser um número inteiro.
+Functor/&ParameterVariableOperationValueBoolTitle	Valor
+Functor/&ParameterVariableOperationValueBoolDescription	Valor a ser usado na operação. Deve ser "verdadeiro" ou "falso".
+Functor/&ParameterVariableOperationValueStringTitle	Valor
+Functor/&ParameterVariableOperationValueStringDescription	Valor a ser usado na operação. Deve ser uma sequência de caracteres.
+Functor/&ParameterVariableOperationTypeRollTitle	Rolar
+Functor/&ParameterVariableOperationTypeRollDescription	A variável é definida com o resultado da rolagem de dados.
+Functor/&ParameterVariableOperationValueDieTitle	Tipo de Dado
+Functor/&ParameterVariableOperationValueDieDescription	O tipo de dado que será rolado.
+Functor/&SetLocationStatusTitle	Definir o Estado de um Local
+Functor/&SetLocationStatusDescription	Muda o estado de um local para torná-lo, por exemplo, oculto/bloqueado ou disponível, o que se reflete nos múltiplos dispositivos de saída.
+Functor/&ParameterLocationTitle	Local
+Functor/&ParameterLocationDescription	O nome do local selecionado.
+Functor/&ParameterLocationStatusTitle	Estado de um Local
+Functor/&ParameterLocationStatusDescription	O estado de um local especificado.
+Functor/&ParameterLocationStatusHiddenTitle	Oculta
+Functor/&ParameterLocationStatusHiddenDescription	O local fica oculto nas múltiplas janelas de saída.
+Functor/&ParameterLocationStatusLockedTitle	Bloqueado
+Functor/&ParameterLocationStatusLockedDescription	O local fica visível, mas não pode ser usado nas múltiplas janelas de saída.
+Functor/&ParameterLocationStatusAvailableTitle	Disponíveis
+Functor/&ParameterLocationStatusAvailableDescription	O local está disponível e pode ser usado em múltiplas janelas de saída.
+Functor/&ParameterInventoryOperationGrantTreasuryTitle	Ganho de Tesouro
+Functor/&ParameterInventoryOperationGrantTreasuryDescription	Tipo de operação de inventário que será realizada.
+Functor/&ParameterInventoryOperationLoseTreasuryTitle	Perda de Tesouro
+Functor/&ParameterInventoryOperationLoseTreasuryDescription	Tipo de operação de inventário que será realizada. Se nenhum valor for especificado, todos os itens deste mesmo tipo serão removidos dos personagens correspondentes.
+Functor/&ParameterInventoryOperationTreasuryTitle	Tesouro
+Functor/&ParameterInventoryOperationTreasuryDescription	Quantidade do tesouro para esta operação.

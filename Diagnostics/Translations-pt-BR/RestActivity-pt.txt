@@ -1,0 +1,11 @@
+RestActivity/&ArcaneRecoveryDescription	Uma vez por dia ao concluir um descanso rápido, você pode recuperar uma quantidade de espaços de magia (máximo: nível 5) até a metade arredondada do seu nível de mago.
+RestActivity/&ArcaneRecoveryTitle	Recuperação Arcana
+RestActivity/&AttuneItemDescription	Ao vincular-se a um item, você acessa funções e propriedades avançadas do objeto.
+RestActivity/&AttuneItemTitle	Vincular Item
+RestActivity/&LevelUpDescription	Inicie a sequência de aumento de nível deste personagem.
+RestActivity/&LevelUpTitle	Subir de Nível
+RestActivity/&PrepareSpellsDescription	Ao concluir um descanso longo, você pode alterar a lista de magias preparadas.
+RestActivity/&PrepareSpellsTitle	Preparar Magias
+RestActivity/&ArcaneRecoveryExecutedDescription	Após ativar <b>Recuperação Arcana</b>, {0} conseguiu recuperar os seguintes espaços de magia:
+RestActivity/&NaturalRecoveryTitle	Recuperação Natural
+RestActivity/&NaturalRecoveryDescription	Uma vez por dia, ao concluir um descanso rápido, você pode recuperar até a metade do seu nível de druida, arredondada para cima, de espaços de magia (máximo: nível 5).

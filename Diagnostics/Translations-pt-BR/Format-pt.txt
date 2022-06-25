@@ -1,0 +1,29 @@
+Format/&CurrentAndTemporaryHitPointsDescription	Pontos de vida atuais + pontos de vida temporários desta criatura. Ela perde os pontos de vida temporários primeiro.  
+Format/&CurrentHitPointsDescription	Pontos de vida atuais desta criatura.
+Format/&DifficultyEasyFormat	Fácil
+Format/&DifficultyHardFormat	Difícil
+Format/&DifficultyMediumFormat	Médio
+Format/&DifficultyVeryHardFormat	Muito Difícil
+Format/&HealthPlusTemporaryFormat	{0} + {1}
+Format/&ItemIdentifiedTitle	O item foi identificado: {0}
+Format/&LevelAndClassAndSubclassFormat	nvl {0} {1} ({2})
+Format/&LevelAndClassNoSubclassFormat	nvl {0} {1}
+Format/&LevelAndExperienceFormat	Nível {0}, Experiência: {1}\n{2} pontos de experiência para chegar ao nível {3}
+Format/&LevelAndExperienceMaxedFormat	Nível {0}, Experiência: {1}\nNível máximo atingido.
+Format/&LevelFormat	Nível {0}
+Format/&MaxHealthFormat	de {0} PV
+Format/&Rank1Title	1º
+Format/&Rank2Title	2º
+Format/&Rank3Title	3º
+Format/&Rank4Title	4º
+Format/&Rank5Title	5º
+Format/&Rank6Title	6º
+Format/&Rank7Title	7º
+Format/&Rank8Title	8º
+Format/&Rank9Title	9º
+Format/&RevealedEvilTitle	Maligno
+Format/&RevealedGoodTitle	Benevolente
+Format/&RevealedMagicalTitle	Magia Detectada
+Format/&RevealedPoisonTitle	Venenoso
+Format/&WorldDistanceFormat	{0} milhas
+Format/&ItemIdentifiedNothingNewTitle	Nada mais encontrado no item {0}

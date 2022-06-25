@@ -1,0 +1,17 @@
+LootPack/&CR0_Loot_PackTitle	Itens ND0
+LootPack/&CR1_Loot_PackTitle	Itens ND1
+LootPack/&CR2_Loot_PackTitle	Itens ND2
+LootPack/&CR3_Loot_PackTitle	Itens ND3
+LootPack/&CR4_Loot_PackTitle	Itens ND4
+LootPack/&CR5_Loot_PackTitle	Itens ND5
+LootPack/&1D2Scrolls	1d2 Pergaminhos
+LootPack/&1Potion1Poison	1 Poção + 1 Veneno
+LootPack/&1WondrousItem	1 Item Maravilhoso
+LootPack/&1Recipe1Ingredient	1 Receita + 1 Ingrediente
+LootPack/&1D3Food1D3MundaneItems	1d3 de Comida + 1d3 Itens Mundanos
+LootPack/&1LegendaryItem	1 Item Lendário
+LootPack/&1MagicArmorPlus1	1 Armadura Mágica +1
+LootPack/&1MagicArmorPlus2	1 Armadura Mágica +2
+LootPack/&1MagicWeaponPlus1	1 Arma Mágica +1
+LootPack/&1MagicWeaponPlus2	1 Arma Mágica +2
+LootPack/&RandomAmmo	Munição Aleatória

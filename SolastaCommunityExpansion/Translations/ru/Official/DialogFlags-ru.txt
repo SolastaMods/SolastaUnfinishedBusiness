@@ -1,0 +1,26 @@
+DialogFlags/&Authority_Description	Стремление закреплять правила и верования силой власти и лидерства.
+DialogFlags/&Authority_Title	Авторитарность
+DialogFlags/&Cynicism_Description	Стремление отрицать устоявшиеся принципы и ценности.
+DialogFlags/&Cynicism_Title	Цинизм
+DialogFlags/&Formal_Description	Этот персонаж изъясняется полными предложениями, используя технические и научные термины.
+DialogFlags/&Formal_Title	Формальность
+DialogFlags/&Friendliness_Description	Стремление заботиться о других и не наживать врагов, а находить друзей.
+DialogFlags/&Friendliness_Title	Доброта
+DialogFlags/&Greed_Description	Стремление ценить богатство и комфорт превыше всего.
+DialogFlags/&Greed_Title	Жадность
+DialogFlags/&Helpfulness_Description	Стремление всегда помогать нуждающимся.
+DialogFlags/&Helpfulness_Title	Альтруизм
+DialogFlags/&Lawfulness_Description	Стремление избегать хаоса, наводить порядок и следовать правилам и законам.
+DialogFlags/&Lawfulness_Title	Законопослушность
+DialogFlags/&Normal_Description	Этот персонаж разговаривает так же, как и многие другие, избегая и чрезмерной формальности, и чрезмерного просторечия.
+DialogFlags/&Normal_Title	Обычная речь
+DialogFlags/&Pragmatism_Description	Стремление ценить практичность выше принципов.
+DialogFlags/&Pragmatism_Title	Прагматизм
+DialogFlags/&Selfishness_Description	Стремление ставить себя, семью и друзей превыше остальных.
+DialogFlags/&Selfishness_Title	Эгоизм
+DialogFlags/&SelfPreservation_Description	Стремление к личной безопасности.
+DialogFlags/&SelfPreservation_Title	Осторожность
+DialogFlags/&Slang_Description	Этот персонаж часто использует сленг, в том числе грубые и вульгарные выражения.
+DialogFlags/&Slang_Title	Сленг
+DialogFlags/&Violence_Description	Стремление решать проблемы насилием, даже когда есть другие варианты.
+DialogFlags/&Violence_Title	Насилие

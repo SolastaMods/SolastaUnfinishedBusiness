@@ -1,0 +1,8 @@
+SchoolOfMagic/&AbjurationTitle	Ограждение
+SchoolOfMagic/&ConjurationTitle	Вызов
+SchoolOfMagic/&DivinationTitle	Ясновидение
+SchoolOfMagic/&EnchantmentTitle	Заклятие
+SchoolOfMagic/&EvocationTitle	Воплощение
+SchoolOfMagic/&IllusionTitle	Иллюзия
+SchoolOfMagic/&NecromancyTitle	Некромантия
+SchoolOfMagic/&TransmutationTitle	Преобразование

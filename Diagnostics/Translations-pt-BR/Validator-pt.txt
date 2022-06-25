@@ -1,0 +1,40 @@
+Validator/&ParameterMonsterTitle	Monstro
+Validator/&ParameterMonsterDescription	Selecione um monstro para este validador.
+Validator/&ParameterItemTitle	Item
+Validator/&ParameterItemDescription	Selecione um item para este validador.
+Validator/&ParameterMonsterQuantityTitle	Quantos?
+Validator/&ParameterMonsterQuantityDescription	Determina a quantidade do elemento especificado.
+Validator/&ParameterItemQuantityTitle	Quantos?
+Validator/&ParameterItemQuantityDescription	Determina a quantidade do elemento especificado.
+Validator/&ParameterLocationTitle	Local
+Validator/&ParameterLocationDescription	Título do local a ser encontrado.
+Validator/&ParameterRestTypeTitle	Rápido=0 Longo=1
+Validator/&ParameterRestTypeDescription	Tipo de descanso esperado.
+Validator/&ParameterSpellNameTitle	Nome da Magia
+Validator/&ParameterSpellNameDescription	Nome interno exato da magia desejada. Deve estar em inglês e usar as mesmas maiúsculas e minúsculas.
+Validator/&ParameterCompletionDelayTitle	Pausa (s)
+Validator/&ParameterCompletionDelayDescription	Pausa antes da conclusão. Valores em segundos e que podem conter casas decimais.
+Validator/&ParameterVariableTitle	Variável
+Validator/&ParameterVariableDescription	Variável que será testada.
+Validator/&ParameterVariableTestVariableTitle	Variável
+Validator/&ParameterVariableTestVariableDescription	Variável que será avaliada.
+Validator/&ParameterVariableTestTypeTitle	Tipo de Teste
+Validator/&ParameterVariableTestTypeDescription	Tipo do teste a ser realizado com a variável.
+Validator/&ParameterVariableTestTypeIsEqualToTitle	Igual
+Validator/&ParameterVariableTestTypeIsEqualToDescription	É considerado válido se o valor da variável for igual ao valor especificado.
+Validator/&ParameterVariableTestTypeIsDifferentFromTitle	Diferente
+Validator/&ParameterVariableTestTypeIsDifferentFromDescription	É considerado válido se o valor da variável for diferente do valor especificado.
+Validator/&ParameterVariableTestTypeIsGreaterThanTitle	Maior ou Igual
+Validator/&ParameterVariableTestTypeIsGreaterThanDescription	É considerado válido se o valor da variável for maior ou igual ao valor especificado.
+Validator/&ParameterVariableTestTypeIsGreaterStrictlyThanTitle	Maior
+Validator/&ParameterVariableTestTypeIsGreaterStrictlyThanDescription	É considerado válido se o valor da variável for maior que o valor especificado, não podendo ser igual.
+Validator/&ParameterVariableTestTypeInferiorToTitle	Menor ou Igual
+Validator/&ParameterVariableTestTypeInferiorToDescription	É considerado válido se o valor da variável for menor ou igual ao valor especificado.
+Validator/&ParameterVariableTestTypeIsInferiorStrictlyToTitle	Menor
+Validator/&ParameterVariableTestTypeIsInferiorStrictlyToDescription	É considerado válido se o valor da variável for menor que o valor especificado, não podendo ser igual.
+Validator/&ParameterVariableTestValueIntTitle	Valor de Teste
+Validator/&ParameterVariableTestValueIntDescription	Valor de comparação do teste. Deve ser um número inteiro.
+Validator/&ParameterVariableTestValueBoolTitle	Valor de Teste
+Validator/&ParameterVariableTestValueBoolDescription	Valor de comparação do teste. Deve ser "verdadeiro" ou "falso".
+Validator/&ParameterVariableTestValueStringTitle	Valor de Teste
+Validator/&ParameterVariableTestValueStringDescription	Valor de comparação do teste. Deve ser uma sequência de caracteres.

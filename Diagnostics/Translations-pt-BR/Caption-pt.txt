@@ -1,0 +1,79 @@
+Caption/&JumpFromCaption	Escolha um ponto de origem do salto.
+Caption/&JumpToCaption	Escolha um ponto de destino do salto.
+Caption/&LandingPositionCaption	Escolha um local para escalar.
+Caption/&LevitateDestinationCaption	Escolha um destino de levitação para o seu alvo.
+Caption/&OutOfRangeCaption	Você está fora de alcance!
+Caption/&ProxyActionTitle	Controle do Efeito Mágico
+Caption/&ProxyAttackCaption	Escolha um alvo para atacar com o efeito mágico.
+Caption/&ProxyMoveAndAttackCaption	Escolha um destino para o movimento do efeito mágico ou um alvo para atacar.
+Caption/&ProxyMoveCaption	Escolha um destino para o movimento do efeito mágico.
+Caption/&SelectPositionMultipleCaption	Escolha {0} posições.
+Caption/&SelectPositionSingleCaption	Escolha uma posição.
+Caption/&ShapeConeDirectionCaption	Escolha uma direção para o cone do efeito.
+Caption/&ShapeCubePositionCaption	Escolha uma posição para o cubo do efeito.
+Caption/&ShapeCylinderPositionCaption	Escolha uma posição para o cilindro do efeito.
+Caption/&ShapeLineDirectionCaption	Escolha uma direção para a linha do efeito.
+Caption/&ShapeSpherePositionCaption	Escolha uma posição para a esfera do efeito.
+Caption/&ShapeWallLineExtremityCaption	Escolha um final para o efeito de muro.
+Caption/&ShapeWallLineInvalid	A linha do efeito não pode ser posicionada aqui.
+Caption/&ShapeWallLineOriginCaption	Escolha um início para o efeito de muro.
+Caption/&ShapeWallLineOutOfLengthCaption	A linha de efeito está muito comprida!
+Caption/&ShapeWallRingPositionCaption	Escolha uma posição para o círculo do efeito.
+Caption/&ShoveSelectDestinationCaption	Quer empurrar a criatura para trás ou derrubá-la?
+Caption/&ShoveSelectTargetCaption	Escolha um alvo a empurrar.
+Caption/&ShoveTargetCannotPushAwayCaption	Não há espaço para empurrar o alvo.
+Caption/&ShoveTargetImmuneCaption	O alvo é imune a empurrões.
+Caption/&ShoveTargetOutOfReachCaption	O alvo está fora de alcance.
+Caption/&ShoveTargetProneCaption	Você não pode empurrar um alvo prostrado!
+Caption/&ShoveTargetTooBigCaption	O alvo é muito grande para esta criatura empurrar.
+Caption/&TargetAwakenDescription	Clique para acordar o personagem que está dormindo.
+Caption/&TargetFilteringAllyCreature	Criatura Aliada
+Caption/&TargetFilteringCreature	Criatura
+Caption/&TargetFilteringEffectProxy	Efeito Mágico
+Caption/&TargetFilteringEnemyCreature	Criatura Inimiga
+Caption/&TargetFilteringGadget	Objeto
+Caption/&TargetMultipleCaption	Escolha {1} alvos ({0}).\n\n<#B0B0B0>Você pode escolher um mesmo alvo mais de uma vez.</color>
+Caption/&TargetMultipleUniqueCaption	Escolha {1} alvos ({0}).\n<#B0B0B0>Você só pode escolher um mesmo alvo uma vez.</color>
+Caption/&TargetProximityMultipleCaption	<#B0B0B0>Os alvos precisam estar a {0} espaços um do outro.</color>
+Caption/&TargetProximitySingleCaption	<#B0B0B0>Os alvos precisam estar um ao lado do outro.</color>
+Caption/&TargetRequiredConditionCaption	<#B0B0B0>O alvo precisa ser "{0}".</color>
+Caption/&TargetRequiredCreatureTypeCaption	<#B0B0B0>Os alvos precisam ser {0}.
+Caption/&TargetRequiredUnarmoredCaption	<#B0B0B0>Os alvos não podem estar usando armadura.
+Caption/&TargetShareUniqueCaption	Escolha um número qualquer de alvos ({0}) a compartilhar o efeito ({1}).\n\n<#B0B0B0>Você só pode escolher um mesmo alvo uma vez.</color>
+Caption/&TargetSingleCaption	Escolha um alvo ({0}).\n
+Caption/&TargetStabilizeDescription	Clique para tentar estabilizar este personagem moribundo com um teste de habilidade de SAB (Medicina).
+Caption/&CannotBePlacedOnCharacterCaption	Você não pode conjurar esta magia diretamente em um personagem.
+Caption/&TargetsMustPerceiveCasterCaption	Os alvos devem perceber de onde vem o efeito.
+Caption/&PositionMustBePerceivedCaption	A posição não foi revelada.
+Caption/&TargetRequiredSizeCaption	Requer alvo: {0}
+Caption/&InviteOptionalAllyCaption	Toque um aliado opcional para convidar.
+Caption/&TelekinesisSelectDirection	Escolha a direção na qual deseja mover a criatura.
+Caption/&EditorNewPropPlacementCaption	Escolha uma posição válida para colocar este novo adereço.\nSegure "Shift" para colocar mais de um adereço igual a este.
+Caption/&EditorExistingPropPlacementCaption	Escolha uma nova posição para este adereço.
+Caption/&EditorNewGadgetPlacementCaption	Escolha uma posição válida para colocar este novo dispositivo.\nSegure "Shift" para colocar mais de um dispositivo igual a este.
+Caption/&EditorExistingGadgetPlacementCaption	Escolha uma nova posição para este dispositivo.
+Caption/&EditorSelectedRoomCaption	Sala Selecionada: {0}
+Caption/&EditorSelectedPropCaption	Adereço Selecionado: {0}
+Caption/&EditorSelectedGadgetCaption	Dispositivo Selecionado: {0}
+Caption/&GadgetParametersHeaderTitle	Parâmetros do Dispositivo:
+Caption/&GadgetParametersSelectorTitle	Selecionar
+Caption/&GadgetParametersSelectorDescription	Clique para selecionar um elemento correspondente (monstro, item, pacote de itens) no banco de dados.
+Caption/&GadgetParametersAddTitle	Adicionar Elemento
+Caption/&GadgetParametersAddDescription	Adiciona um elemento correspondente (monstro, item, pacote de itens) à lista.
+Caption/&GadgetParametersRemoveDescription	Remove o elemento selecionado.
+Caption/&GadgetParametersNoneTitle	<Vazio>
+Caption/&EditorNewRoomPlacementCaption	Escolha uma posição válida para colocar esta nova sala.\n Segure "Shift" para colocar mais de uma sala igual a esta.
+Caption/&EditorExistingRoomPlacementCaption	Escolha uma nova posição para esta sala.
+Caption/&GadgetParametersLocationSelectorDescription	Clique para escolher um local de destino a partir de uma lista.
+Caption/&GadgetListAddTitle	Adicionar Dispositivo
+Caption/&GadgetListAddDescription	Permite clicar e selecionar um dispositivo-alvo.
+Caption/&EditorSelectTargetGadgetDescription	Selecione um dispositivo-alvo.
+Caption/&GadgetParametersOccurenceClickDescription	Clique esquerdo: aumenta a quantidade. Clique direito: reduz a quantidade. Clique do meio: remove o item.
+Caption/&EditableGraphNewStatePlacementQuestCaption	Selecione uma posição para esse novo Passo de Missão.
+Caption/&QuestEditorLinkingCaption	Selecione um nó "ENT" (parte de cima da caixa) para um passo de missão de saída.
+Caption/&EditableGraphNewStatePlacementDialogCaption	Escolha uma posição para este novo estado do diálogo.
+Caption/&TargetArcSubtargetSingleCaption	<#B0B0B0>O efeito pulará em arco para {0} alvo secundário adicional em {1} espaços.</color>
+Caption/&TargetArcSubtargetMultipleCaption	<#B0B0B0>O efeito pulará em arco para {0} alvos secundários adicionais em {1} espaços.</color>
+Caption/&ShapeWallLineInvalidCaption	As extremidades da parede precisam estar no mesmo nível.
+Caption/&PositionMustBeOnSolidSurfaceCaption	Para conjurar esta magia, você precisa estar sobre uma superfície sólida.
+Caption/&TargetRequiredMetalArmorCaption	O alvo precisa estar vestindo uma armadura metálica

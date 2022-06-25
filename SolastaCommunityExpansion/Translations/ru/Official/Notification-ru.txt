@@ -1,0 +1,18 @@
+Notification/&FactionRelationDecreaseDescription	Ваши отношения с этой фракцией ухудшились.
+Notification/&FactionRelationDecreaseTitle	Отношения ухудшились ({0})
+Notification/&FactionRelationIncreaseDescription	Ваши отношения с этой фракцией улучшились.
+Notification/&FactionRelationIncreaseTitle	Отношения улучшились ({0})
+Notification/&LocationRevealedDescription	Доступен новый пункт назначения.
+Notification/&LocationRevealedTitle	Открыто новое место
+Notification/&MapWaypointRevealedDescription	Щёлкните, чтобы открыть карту.
+Notification/&MapWaypointRevealedTitle	Добавлена новая точка маршрута
+Notification/&MonsterInformationDescription	Ваших познаний прибавилось.
+Notification/&MonsterInformationTitle	Бестиарий обновлён
+Notification/&QuestStepAchievedDescription	Вы успешно выполнили задачу.
+Notification/&QuestStepAchievedTitle	Задача выполнена.
+Notification/&QuestStepFailedDescription	Вы провалили задачу.
+Notification/&QuestStepFailedTitle	Задача провалена
+Notification/&QuestStepStartedDescription	Вы начали новую задачу этого задания
+Notification/&QuestStepStartedTitle	Новая задача
+Notification/&RecipeLearnedDescription	Проверьте доступные рецепты.
+Notification/&RecipeLearnedTitle	Новый рецепт

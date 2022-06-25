@@ -1,0 +1,21 @@
+BlueprintCategory/&BarrierTitle	Барьеры
+BlueprintCategory/&EmptyRoomsTitle	Пустые комнаты
+BlueprintCategory/&EncounterTitle	Схватка
+BlueprintCategory/&FurnishedRoomsTitle	Комнаты с мебелью
+BlueprintCategory/&FurnitureTitle	Мебель
+BlueprintCategory/&LightingTitle	Освещение
+BlueprintCategory/&LootTitle	Трофеи
+BlueprintCategory/&LoreTitle	История
+BlueprintCategory/&NavigationTitle	Навигация
+BlueprintCategory/&ObstacleTitle	Препятствия
+BlueprintCategory/&OpeningsTitle	Проходы
+BlueprintCategory/&OrnamentsTitle	Орнаменты
+BlueprintCategory/&RestingTitle	Отдых
+BlueprintCategory/&StructureTitle	Сооружения
+BlueprintCategory/&TrapsTitle	Ловушки
+BlueprintCategory/&ActivatorsTitle	Активаторы
+BlueprintCategory/&PartitionsTitle	Разделы
+BlueprintCategory/&AdventuringTitle	Приключение
+BlueprintCategory/&BlockersTitle	Заслоны
+BlueprintCategory/&HarvestableTitle	Доступное для сбора
+BlueprintCategory/&RoadsTitle	Дороги
