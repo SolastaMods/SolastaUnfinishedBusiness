@@ -1,22 +1,22 @@
-Feature/&CounterStrikePowerDescription	Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
-Feature/&CounterStrikePowerTitle	Gegenschlag
-Feature/&GambitResourcePoolAddDescription	Fügt einen zusätzlichen Gambit-Würfel hinzu.
-Feature/&GambitResourcePoolAddTitle	Zusätzlicher Gambit-Würfel
-Feature/&GambitResourcePoolDescription	Pool von Gambit-Würfeln, die für Gambits ausgegeben werden können. Ab 4 laden sie sich bei kurzer Rast wieder auf.
-Feature/&GambitResourcePoolTitle	Gambit-Würfelpool
-Feature/&InspirePowerDescription	Gib einen Gambit-Würfel aus und inspiriere dich selbst oder deinen Verbündeten, 1W6 + 2 temporäre TP zu geben.
-Feature/&InspirePowerTitle	Inspirieren
-Feature/&KnockDownPowerDescription	Gib einen Gambit-Würfel aus und verstärke deinen Angriff, um zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
-Feature/&KnockDownPowerTitle	Niederschlagen
-Reaction/&SpendPowerCounterStrikePowerDescription	Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
-Reaction/&SpendPowerCounterStrikePowerReactDescription	Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
-Reaction/&SpendPowerCounterStrikePowerReactTitle	Gegenschlag
-Reaction/&SpendPowerCounterStrikePowerTitle	Gegenschlag
-Reaction/&SpendPowerInspirePowerDescription	Gib einen Gambit-Würfel aus und inspiriere deinen Verbündeten mit 1W6 + 2 temporären HP.
-Reaction/&SpendPowerInspirePowerTitle	Inspirieren
-Reaction/&SpendPowerKnockDownPowerDescription	Gib einen Gambit-Würfel aus und verstärke deinen Angriff, um zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
-Reaction/&SpendPowerKnockDownPowerReactDescription	Gib einen Gambit-Würfel aus und verstärke deinen Angriff, um zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
-Reaction/&SpendPowerKnockDownPowerReactTitle	Niederschlagen
-Reaction/&SpendPowerKnockDownPowerTitle	Niederschlagen
-Subclass/&TactitionFighterSubclassDescription	Der Taktiker nutzt sein Wissen und seine Macht auf dem Schlachtfeld, um verschiedene Schachzüge nach Bedarf auszuführen. Sie können Feinde niederschlagen, ihre Verbündeten inspirieren und tödliche Gegenschläge gegen ihre Feinde ausführen.
-Subclass/&TactitionFighterSubclassTitle	Der Taktiker
+Feature/&CounterStrikePowerDescription=Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
+Feature/&CounterStrikePowerTitle=Gegenschlag
+Feature/&GambitResourcePoolAddDescription=Fügt einen zusätzlichen Gambit-Würfel hinzu.
+Feature/&GambitResourcePoolAddTitle=Zusätzlicher Gambit-Würfel
+Feature/&GambitResourcePoolDescription=Pool von Gambit-Würfeln, die für Gambits ausgegeben werden können. Ab 4 laden sie sich bei kurzer Rast wieder auf.
+Feature/&GambitResourcePoolTitle=Gambit-Würfelpool
+Feature/&InspirePowerDescription=Gib einen Gambit-Würfel aus und inspiriere dich selbst oder deinen Verbündeten, 1W6 + 2 temporäre TP zu geben.
+Feature/&InspirePowerTitle=Inspirieren
+Feature/&KnockDownPowerDescription=Gib einen Gambit-Würfel aus und verstärke deinen Angriff, um zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
+Feature/&KnockDownPowerTitle=Niederschlagen
+Reaction/&SpendPowerCounterStrikePowerDescription=Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
+Reaction/&SpendPowerCounterStrikePowerReactDescription=Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
+Reaction/&SpendPowerCounterStrikePowerReactTitle=Gegenschlag
+Reaction/&SpendPowerCounterStrikePowerTitle=Gegenschlag
+Reaction/&SpendPowerInspirePowerDescription=Gib einen Gambit-Würfel aus und inspiriere deinen Verbündeten mit 1W6 + 2 temporären HP.
+Reaction/&SpendPowerInspirePowerTitle=Inspirieren
+Reaction/&SpendPowerKnockDownPowerDescription=Gib einen Gambit-Würfel aus und verstärke deinen Angriff, um zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
+Reaction/&SpendPowerKnockDownPowerReactDescription=Gib einen Gambit-Würfel aus und verstärke deinen Angriff, um zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
+Reaction/&SpendPowerKnockDownPowerReactTitle=Niederschlagen
+Reaction/&SpendPowerKnockDownPowerTitle=Niederschlagen
+Subclass/&TactitionFighterSubclassDescription=Der Taktiker nutzt sein Wissen und seine Macht auf dem Schlachtfeld, um verschiedene Schachzüge nach Bedarf auszuführen. Sie können Feinde niederschlagen, ihre Verbündeten inspirieren und tödliche Gegenschläge gegen ihre Feinde ausführen.
+Subclass/&TactitionFighterSubclassTitle=Der Taktiker

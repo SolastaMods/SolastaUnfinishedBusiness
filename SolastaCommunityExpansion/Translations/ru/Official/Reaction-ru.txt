@@ -1,0 +1,125 @@
+Reaction/&AlterAttackSpellDescription	{0} атакует, цель — {1}! Вы можете наложить заклинание «{2}», чтобы заблокировать атаку.
+Reaction/&AlterAttackSpellReactDescription	Щёлкните, чтобы наложить заклинание «{0}» и заблокировать атаку.
+Reaction/&AlterAttackSpellReactTitle	Заклинания
+Reaction/&AlterAttackSpellTitle	Предотвращает атаку.
+Reaction/&BlockAttackDescription	{0} атакует, цель — {1}! Вы можете отреагировать и помешать врагу.
+Reaction/&BlockAttackReactDescription	Щёлкните, чтобы заблокировать атакующего персонажа, создав ему помеху. Ваша реакция будет израсходована до следующего хода.
+Reaction/&BlockAttackReactTitle	Заблокировать
+Reaction/&BlockAttackTitle	Атака по союзнику
+Reaction/&CastFallPreventionSpellDescriptionPlural	{0} вот-вот упадут! Вы можете наложить заклинание «{1}», чтобы предотвратить урон.
+Reaction/&CastFallPreventionSpellDescriptionSingle	{0} вот-вот упадёт! Вы можете наложить заклинание «{1}», чтобы предотвратить урон.
+Reaction/&CastFallPreventionSpellReactDescription	Щёлкните, чтобы наложить заклинание «{0}» и предотвратить урон от падения.
+Reaction/&CastFallPreventionSpellReactTitle	Заклинания
+Reaction/&CastFallPreventionSpellTitle	Болезненное падение
+Reaction/&CastImmunityToSpellDescription	{0} накладывает заклинание «{3}», цель — {1}! Вы можете противодействовать чарам, наложив заклинание «{2}».
+Reaction/&CastImmunityToSpellReactDescription	Щёлкните, чтобы наложить заклинание «{0}» и противодействовать чарам.
+Reaction/&CastImmunityToSpellReactTitle	Заклинания
+Reaction/&CastImmunityToSpellTitle	Вам угрожает заклинание
+Reaction/&ChooseAReactionTitle	Выберите реакцию
+Reaction/&ChooseAnOptionTitle	Выберите вариант
+Reaction/&CounterAttackWithPowerDescription	{0} попадает, цель — {1}! Вы можете контратаковать ({2}.)
+Reaction/&CounterAttackWithPowerReactDescription	Щёлкните, чтобы контратаковать ({0}).
+Reaction/&CounterAttackWithPowerReactTitle	Удар
+Reaction/&CounterAttackWithPowerTitle	Вражеская атака
+Reaction/&CounterSpellDescription	{0} накладывает заклинание! Вы можете отреагировать, чтобы противодействовать чарам.
+Reaction/&CounterSpellReactDescription	Щёлкните, чтобы наложить контрзаклинание и противодействовать вражеским чарам.
+Reaction/&CounterSpellReactTitle	Контратака
+Reaction/&CounterSpellTitle	Враг накладывает заклинание
+Reaction/&GiantKillerDescription	{0}, существо ({2}), атакует, цель — {1}. Цель может отреагировать и нанести ответный удар.
+Reaction/&GiantKillerReactDescription	Щёлкните, чтобы контратаковать. Ваша реакция будет израсходована до следующего хода.
+Reaction/&GiantKillerReactTitle	Атака
+Reaction/&GiantKillerTitle	Убийца великанов
+Reaction/&MainTitle	Реагирует на:
+Reaction/&OpportunityAttackDescription	{0} покидает место, которому угрожают один или несколько персонажей.
+Reaction/&OpportunityAttackReactDescription	Щёлкните, чтобы атаковать отступающего персонажа/существо. Ваша реакция будет израсходована до следующего хода.
+Reaction/&OpportunityAttackReactTitle	Атака
+Reaction/&OpportunityAttackTitle	Атака по возможности
+Reaction/&PassDescription	Вы не отреагировали на это событие, сохранив свою реакцию на потом.
+Reaction/&PassTitle	Пас
+Reaction/&ReactionShotDescription	{0} атакует, цель — {1}. Цель может отреагировать и провести ответную атаку дальнего боя.
+Reaction/&ReactionShotReactDescription	Щёлкните, чтобы контратаковать. Ваша реакция будет израсходована до следующего хода.
+Reaction/&ReactionShotReactTitle	Атака
+Reaction/&ReactionShotTitle	Ответный выстрел
+Reaction/&SecondsTitle	сек.
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeDescription	{0} может нанести дополнительный урон, используя «Божественный канал».
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeReactDescription	Щёлкните, чтобы увеличить урон, используя «Божественный канал: решающий удар».
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeReactTitle	Удар
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeTitle	Успешная атака
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowDescription	{0} может попробовать опутать цель, израсходовав «Магическую стрелу».
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowReactDescription	Щёлкните, чтобы попробовать опутать цель.
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowReactTitle	Опутать
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowTitle	Успешная атака
+Reaction/&SpendSpellSlotDivineSmiteDescription	{0} может нанести цели разящий удар с дополнительным уроном, потратив ячейку заклинания.
+Reaction/&SpendSpellSlotDivineSmiteReactDescription	Щёлкните, чтобы потратить ячейку заклинания и нанести цели дополнительный урон.
+Reaction/&SpendSpellSlotDivineSmiteReactTitle	Разящий удар
+Reaction/&SpendSpellSlotDivineSmiteTitle	Божественный удар
+Reaction/&SubitemSelectCounterspellDescription	Выберите уровень ячейки, которая будет потрачена на контрзаклинание.
+Reaction/&SubitemSelectCounterspellTitle	Уровень ячейки
+Reaction/&SubitemSelectDivineSmiteDescription	Выберите уровень ячейки, которая будет потрачена на «Божественный удар».
+Reaction/&SubitemSelectDivineSmiteTitle	Уровень ячейки
+Reaction/&SubitemSelectFeatherFallDescription	Выберите уровень ячейки, которая будет потрачена на «Парящее пёрышко».
+Reaction/&SubitemSelectFeatherFallTitle	Уровень ячейки
+Reaction/&SubitemSelectShieldDescription	Выберите уровень ячейки, которая будет потрачена на создание щита.
+Reaction/&SubitemSelectShieldTitle	Уровень ячейки
+Reaction/&UncannyDodgeDescription	{0} атакует, цель — {1}. Цель может среагировать и снизить получаемый урон вдвое.
+Reaction/&UncannyDodgeReactDescription	Щёлкните, чтобы использовать реакцию и снизить получаемый от атаки урон вдвое.
+Reaction/&UncannyDodgeReactTitle	Половинный урон
+Reaction/&UncannyDodgeTitle	Необычное уклонение
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdDescription	{0} может получить временную невосприимчивость к холоду и частично восстановить очки здоровья.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdReactDescription	Щёлкните, чтобы получить невосприимчивость к холоду и восстановить очки здоровья.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdReactTitle	Принятие
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdTitle	Знаток стихий (холод)
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireDescription	{0} может получить временную невосприимчивость к огню и частично восстановить очки здоровья.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireReactDescription	Щёлкните, чтобы получить невосприимчивость к огню и восстановить очки здоровья.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireReactTitle	Принятие
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireTitle	Знаток стихий (огонь)
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningDescription	{0} может получить временную невосприимчивость к молнии и частично восстановить очки здоровья.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningReactDescription	Щёлкните, чтобы получить невосприимчивость к молнии и восстановить очки здоровья.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningReactTitle	Принятие
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningTitle	Знаток стихий (молния)
+Reaction/&DeflectMissileDescription	{0} атакует цель: {1}. Цель может среагировать и снизить получаемый урон на 1D10 + модификатор ЛОВ.
+Reaction/&DeflectMissileReactDescription	Щёлкните, чтобы использовать реакцию и снизить получаемый от атаки урон.
+Reaction/&DeflectMissileReactTitle	Отражение
+Reaction/&DeflectMissileTitle	Атака снарядом
+Reaction/&AlterAttackPowerDescription	{0} атакует цель: {1}! Вы можете использовать «{2}», чтобы повысить класс доспеха защищающегося персонажа до конца хода атакующего врага.
+Reaction/&AlterAttackPowerReactDescription	Щёлкните, чтобы использовать «{0}» и заблокировать атаку.
+Reaction/&AlterAttackPowerReactTitle	Блок
+Reaction/&AlterAttackPowerTitle	Предотвращает атаку.
+Reaction/&IndomitableResistanceReactTitle	Переброс
+Reaction/&IndomitableResistanceReactDescription	Переброс спасброска в попытке получить положительный результат.
+Reaction/&IndomitableResistanceTitle	Непокорность
+Reaction/&IndomitableResistanceDescription	{0} выполняет неудачный спасбросок против: {1}. Можно выполнить переброс.
+Reaction/&ShadowRetributionReactTitle	Наложить заговор
+Reaction/&ShadowRetributionReactDescription	Наложить заговор на вражеского заклинателя.
+Reaction/&ShadowRetributionDescription	{0} становится целью вражеского заклинания ({1}) и может совершить контратаку с помощью заклинания «{2}».
+Reaction/&SwiftRetaliationReactTitle	Атака
+Reaction/&SwiftRetaliationReactDescription	Щёлкните, чтобы совершить контратаку в ближнем бою против атакующего противника.
+Reaction/&SwiftRetaliationTitle	Быстрая расплата
+Reaction/&SwiftRetaliationDescription	{0} атакует, цель — {1}. Цель может отреагировать и провести ответную атаку ближнего боя.
+Reaction/&RageVersusSurpriseDescription	{0} застаётся врасплох и теряет возможность действовать в этом раунде, если вы не решите использовать ярость.
+Reaction/&RageVersusSurpriseReactDescription	Щёлкните, чтобы потратить ярость (осталось ярости: {0}).
+Reaction/&RageVersusSurpriseReactTitle	Ярость ({0})
+Reaction/&SpendPowerPowerBerserkerFrenzyDescription	Пока вы в ярости, вы можете впасть в безумие и получить бонусную атаку оружием ближнего боя, однако вы получите один уровень истощения, когда эффект ярости закончится.
+Reaction/&SpendPowerPowerBerserkerFrenzyTitle	Безумие
+Reaction/&SpendPowerPowerBerserkerFrenzyReactDescription	Щёлкните, чтобы использовать ярость и впасть в безумие.
+Reaction/&SpendPowerPowerBerserkerFrenzyReactTitle	Безумие
+Reaction/&WarCryDescription	{0} получает урон от магического заклинания или эффекта во время действия ярости и может нанести урон всем врагам в радиусе 6 клеток.
+Reaction/&WarCryReactDescription	Щёлкните, чтобы нанести урон окружающим врагам.
+Reaction/&WarCryReactTitle	Боевой клич
+Reaction/&WarCryTitle	Реагирует на магический урон
+Reaction/&SharedPainDescription	{0} получает урон, который можно разделить, цель для разделения — {1}
+Reaction/&SharedPainReactDescription	Щёлкните, чтобы разделить урон поровну между друидом и родственным духом.
+Reaction/&SharedPainReactTitle	Разделить
+Reaction/&SharedPainTitle	Разделённая боль
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosTitle	Удар хаоса
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosDescription	{0} может использовать «Божественный канал», чтобы нанести «Удар хаоса».
+Reaction/&BorrowLuckReactTitle	Переброс
+Reaction/&BorrowLuckReactDescription	Переброс спасброска в попытке получить положительный результат.
+Reaction/&BorrowLuckTitle	Заимствована удача
+Reaction/&BorrowLuckDescription	{0} выполняет неудачный спасбросок против: {1}. Можно выполнить переброс, если он окажется удачным, следующий спасбросок будет выполнен с помехой.
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosReactTitle	Удар
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosReactDescription	Используйте «Божественный канал», чтобы добавить духовный урон и применить случайное состояние на цель.
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetTitle	Неуловимая цель
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetDescription	Цель успешной атаки ближнего боя: {0}. Цель может использовать реакцию, чтобы получить преимущества при уклонении и выполнении отхода до конца своего следующего хода.​​​​​​
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetReactTitle	Ускользание
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetReactDescription	Возможность уклонения и выполнения отхода

@@ -1,0 +1,5 @@
+BodyHairStyle/&Hairstyle_A	Pixie
+BodyHairStyle/&Hairstyle_B	Médio
+BodyHairStyle/&Hairstyle_C	Curto
+BodyHairStyle/&Hairstyle_D	Coque
+BodyHairStyle/&Hairstyle_E	Coroa de Trança

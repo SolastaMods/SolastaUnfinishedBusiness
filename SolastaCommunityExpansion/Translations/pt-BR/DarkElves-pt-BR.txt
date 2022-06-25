@@ -1,23 +1,23 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Você tem uma penalidade de -2 em Sabedoria (Percepção).
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento de pontuação de habilidade
-Feature/&DarkelfMagicDescription	Você conhece o truque das Luzes Dançantes. No 3º nível você aprende Faerie Fire e no 5º nível, Darkness. Ambos podem ser usados ​​uma vez por descanso longo.
-Feature/&DarkelfMagicTitle	Magia dos Elfos Negros
-Feature/&DarkelfWeaponTrainingDescription	Você tem proficiência com rapieiras, espadas curtas e bestas de mão.
-Feature/&DarkelfWeaponTrainingTitle	Treinamento de Arma dos Elfos Negros
-Feature/&LightAffinityDarkelfLightSensitivityDescription	Você tem uma penalidade de -2 em testes de Sabedoria (Percepção) sob luz forte. Além disso, sua velocidade é reduzida em 1 em luz forte.
-Feature/&LightAffinityDarkelfLightSensitivityTitle	Sensibilidade à luz brilhante
-Feature/&MovementAffinityDarkelfLightSensitivityDescription	Sua velocidade é reduzida em 1.
-Feature/&PowerDarkelfDarknessDescription	Crie uma área de escuridão mágica. Utilizável uma vez por descanso longo.
-Feature/&PowerDarkelfDarknessTitle	Trevas
-Feature/&PowerDarkelfFaerieFireDescription	Destaque as criaturas para dar vantagem a qualquer um que as ataque. Utilizável uma vez por descanso longo.
-Feature/&PowerDarkelfFaerieFireTitle	Fogo das Fadas
-Race/&DarkelfRaceDescription	Elfos negros são descendentes de elfos que foram alterados ao longo do tempo por viver nas inóspitas Badlands. Elfos negros são em grande parte noturnos e se adaptaram a viver em antigas ruínas de Badlands, especialmente ruínas subterrâneas enterradas. Eles tendem a ter pele escura e cabelos claros.
-Race/&DarkelfRaceTitle	Elfo negro
-Race/&DarkelfSurName1Title	Za'Moryra
-Race/&DarkelfSurName2Title	Dhal Neridthas
-Race/&DarkelfSurName3Title	Dhal Nerwenys
-Race/&DarkelfSurName4Title	Zo'Sonta
-Race/&DarkelfSurName5Title	Zo'Remon
-Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 penalidade na velocidade
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 de penalidade em Sabedoria
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Você tem uma penalidade de -2 em Sabedoria (Percepção).
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento de pontuação de habilidade
+Feature/&DarkelfMagicDescription=Você conhece o truque das Luzes Dançantes. No 3º nível você aprende Faerie Fire e no 5º nível, Darkness. Ambos podem ser usados ​​uma vez por descanso longo.
+Feature/&DarkelfMagicTitle=Magia dos Elfos Negros
+Feature/&DarkelfWeaponTrainingDescription=Você tem proficiência com rapieiras, espadas curtas e bestas de mão.
+Feature/&DarkelfWeaponTrainingTitle=Treinamento de Arma dos Elfos Negros
+Feature/&LightAffinityDarkelfLightSensitivityDescription=Você tem uma penalidade de -2 em testes de Sabedoria (Percepção) sob luz forte. Além disso, sua velocidade é reduzida em 1 em luz forte.
+Feature/&LightAffinityDarkelfLightSensitivityTitle=Sensibilidade à luz brilhante
+Feature/&MovementAffinityDarkelfLightSensitivityDescription=Sua velocidade é reduzida em 1.
+Feature/&PowerDarkelfDarknessDescription=Crie uma área de escuridão mágica. Utilizável uma vez por descanso longo.
+Feature/&PowerDarkelfDarknessTitle=Trevas
+Feature/&PowerDarkelfFaerieFireDescription=Destaque as criaturas para dar vantagem a qualquer um que as ataque. Utilizável uma vez por descanso longo.
+Feature/&PowerDarkelfFaerieFireTitle=Fogo das Fadas
+Race/&DarkelfRaceDescription=Elfos negros são descendentes de elfos que foram alterados ao longo do tempo por viver nas inóspitas Badlands. Elfos negros são em grande parte noturnos e se adaptaram a viver em antigas ruínas de Badlands, especialmente ruínas subterrâneas enterradas. Eles tendem a ter pele escura e cabelos claros.
+Race/&DarkelfRaceTitle=Elfo negro
+Race/&DarkelfSurName1Title=Za'Moryra
+Race/&DarkelfSurName2Title=Dhal Neridthas
+Race/&DarkelfSurName3Title=Dhal Nerwenys
+Race/&DarkelfSurName4Title=Zo'Sonta
+Race/&DarkelfSurName5Title=Zo'Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle=-1 penalidade na velocidade
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=-2 de penalidade em Sabedoria

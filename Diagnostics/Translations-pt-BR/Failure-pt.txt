@@ -1,0 +1,150 @@
+Failure/&FailureFlagAlreadyWieldingLightSource	Você já está segurando uma fonte de luz.
+Failure/&FailureFlagAttributesAssigned	Você já distribuiu os pontos.
+Failure/&FailureFlagBlockedMove	Caminho bloqueado.
+Failure/&FailureFlagCannotAfford	Dinheiro insuficiente.
+Failure/&FailureFlagCannotAffordCosts	Você não tem {0}.
+Failure/&FailureFlagCannotCastAnySpell	Você não pode conjurar magias no momento.
+Failure/&FailureFlagCannotCastLightCantrip	Você não pode conjurar o truque Luz.
+Failure/&FailureFlagCannotRestTooOften	Você não pode fazer dois descansos longos no mesmo dia.
+Failure/&FailureFlagCannotScribeScrolls	Este personagem não pode redigir magias em um grimório.
+Failure/&FailureFlagCannotUseAnyPower	Você não pode usar poderes no momento.
+Failure/&FailureFlagCannotUseScroll	
+Failure/&FailureFlagConditionNotMatching	O alvo não tem a condição adequada.
+Failure/&FailureFlagDeadTarget	Você não pode selecionar um personagem morto.
+Failure/&FailureFlagDocumentUnknownLanguage	Ninguém no grupo é proficiente nesta língua.
+Failure/&FailureFlagFreeOnceActionSpent	Você já gastou sua ação de inventário/gratuita nesta rodada.
+Failure/&FailureFlagFreeOnceActionSpentNotOnBody	Você já gastou sua ação de inventário/gratuita nesta rodada, e este item não está com você.
+Failure/&FailureFlagFreeOnceActionUnavailable	Sua ação de inventário/gratuita está indisponível.
+Failure/&FailureFlagFunctionDurationCooldown	Aguarde {0} para usar esta função novamente.
+Failure/&FailureFlagFunctionNotEnoughCharges	O item não tem cargas suficientes para usar esta função.
+Failure/&FailureFlagFunctionOutOfIterations	O item não pode mais usar esta função.
+Failure/&FailureFlagFunctionRequiresAttunement	Vincule-se ao item (descanso rápido) para usar isto.
+Failure/&FailureFlagHardLockedDoor	Não é possível abrir a porta.
+Failure/&FailureFlagHardLockedDoorNoLock	Esta porta não tem uma fechadura visível. 
+Failure/&FailureFlagHardLockedDoorTutorialOrcHideout	Conclua o objetivo da missão para abrir a porta.
+Failure/&FailureFlagItemTargetTooFarAway	Longe demais para selecionar um item.
+Failure/&FailureFlagLockedCharacter	Este personagem não pode ser alterado.
+Failure/&FailureFlagLockedDoor	Use ferramentas de ladrão para arrombar uma fechadura.
+Failure/&FailureFlagMainActionUnavailable	Você gastou sua ação principal ou não pode usá-la.
+Failure/&FailureFlagMaximumPersonalityFlags	Você já selecionou o número máximo de marcadores de personalidade.
+Failure/&FailureFlagMissingConfigurationItem	Há um ou mais itens faltando nesta configuração.
+Failure/&FailureFlagNoCharacterCreated	Você não criou um personagem.
+Failure/&FailureFlagNoMainActionToExecute	Você gastou sua ação principal.
+Failure/&FailureFlagNoPathToLocation	Não há um caminho para chegar a este local.
+Failure/&FailureFlagNoPerceptionOfTargetDescription	Você não está vendo este alvo.
+Failure/&FailureFlagNoReachForTargetDescription	Você não alcança o alvo.
+Failure/&FailureFlagNoSavedGame	Não há jogos salvos válidos neste computador.
+Failure/&FailureFlagNoSuitableLightTarget	Falta um item necessário para o truque Luz.
+Failure/&FailureFlagNotEnoughFood	Você precisa de {0} unidade(s) de alimento.
+Failure/&FailureFlagNotEnoughMove	Movimentos insuficientes.
+Failure/&FailureFlagNotInBattle	Você não está em combate.
+Failure/&FailureFlagNoTorchInInventory	Não há tochas no seu inventário.
+Failure/&FailureFlagOncePerTurnOnly	Apenas uma vez por turno.
+Failure/&FailureFlagOnlyAfterALongRest	Você só pode fazer isso após um descanso longo.
+Failure/&FailureFlagPartyTooSpreadOut	Reúna seu grupo.
+Failure/&FailureFlagProjectileBlocked	Projétil bloqueado.
+Failure/&FailureFlagProtectedCharacter	Este personagem não pode ser excluído.
+Failure/&FailureFlagScrollNotInSpellList	A magia neste pergaminho não está na sua lista de magias.
+Failure/&FailureFlagScrollNotOnSpellList	O pergaminho não é compatível com a lista de magias deste personagem.
+Failure/&FailureFlagSpellLevelTooHigh	O nível da magia é alto demais.
+Failure/&FailureFlagTargetAlreadySelected	O alvo já foi selecionado.
+Failure/&FailureFlagTargetIncorrectCreatureFamily	O alvo não é do tipo adequado.
+Failure/&FailureFlagTargetIsAnEffectProxy	O alvo é um efeito mágico.
+Failure/&FailureFlagTargetIsNotACreature	O alvo não é uma criatura.
+Failure/&FailureFlagTargetIsNotAGadget	O alvo não é um objeto.
+Failure/&FailureFlagTargetMustBeUnarmored	O alvo não pode estar usando armadura.
+Failure/&FailureFlagTargetOutOfRange	Alvo fora de alcance.
+Failure/&FailureFlagTargetTooFarFromOtherTargets	O alvo está longe demais de outros alvos.
+Failure/&FailureFlagTransferCannotCarry	Não há espaço/capacidade de carga para este item.
+Failure/&FailureFlagTransferTooFarAway	Longe demais para transferir o item.
+Failure/&FailureFlagTwoHandedWeaponEquiped	Você está empunhando uma arma de duas mãos.
+Failure/&FailureFlagUnassignedCharacter	Designe todos os personagens para prosseguir.
+Failure/&FailureFlagUnsafeRestLocation	Não é seguro descansar aqui.
+Failure/&FailureFlagUseItemActionUnavailable	A ação "Usar um Item" não pode ser usada.
+Failure/&FailureFlagWrongLoadContextDescription	Não é possível carregar um jogo no momento.
+Failure/&FailureFlagWrongSaveContextDescription	Não é possível salvar o jogo no momento.
+Failure/&FeedbackText_OpenDoorLever	Uma manivela abre esta porta.
+Failure/&FailureFlagHardLockedDoorTOM	Esta porta foi projetada para ser aberta remotamente.
+Failure/&FailureFlagRestNotPermitted	Este tipo de descanso não é permitido no momento
+Failure/&FailureFlagOutOfPerceptionRange	O alvo está longe demais para ser percebido.
+Failure/&FailureFlagPartyCannotCastSpell	Nenhum membro do grupo pode conjurar essa magia ou não a preparou.
+Failure/&FailureFlagProxyNeedsCasterVision	Quem conjura precisa poder ver o alvo.
+Failure/&FailureFlagVerbalComponentCannotSpeak	Não é possível enunciar os componentes mágicos verbais.
+Failure/&FailureFlagSomaticComponentRestrained	Não é possível mover-se para realizar os componentes mágicos somáticos.
+Failure/&FailureFlagSomaticComponentHandsFull	Nenhuma mão está livre para a realização dos componentes mágicos somáticos.
+Failure/&FailureFlagMaterialComponentMissingFocus	Requer um Foco Arcano ou Porta-Componentes.
+Failure/&FailureFlagMaterialComponentMissingSpecific	Falta o componente material {0} valendo pelo menos {1}.
+Failure/&FailureFlagFunctionRequiresIdentification	Você precisa identificar o item para poder usá-lo.
+Failure/&FailureFlagFunctionNotInCombat	Essa função não pode ser usada em combate.
+Failure/&FailureFlagNoValidRemainingPages	Nenhum dos grimórios deste personagem tem espaço para as {0} páginas necessárias para a magia {1}.
+Failure/&FailureFlagAllSpellbooksAlreadyScribed	Este personagem já tem magia {0} em algum de seus grimórios.
+Failure/&FailureFlagRecipeAlreadyKnown	Você já conhece esta opção de criação.
+Failure/&FailureFlagNoRecipeWithTool	Você não sabe de nada que possa ser criado com essa ferramenta.
+Failure/&FailureTeleportNoPortalAtOrigin	A localização atual do grupo não contém um Portal Maior.
+Failure/&FailureTeleportNoPortalAtDestination	O destino não tem um Portal Maior.
+Failure/&FailureFlagDeityMarkAreadyPresent	A marca da divindade escolhida por este personagem só está presente neste item.
+Failure/&FailureFlagHardLockedDoor_Key	Você precisa da chave certa para abrir esta porta.
+Failure/&FailureFlagCraftingItemTooHeavy	O item criado é pesado demais para caber no inventário do personagem que o criou.
+Failure/&FailureFlagMissingUserLocation	Você precisa selecionar um local para o usuário.
+Failure/&FailureLocationMustHaveEntrance	O local precisa ter uma entrada.
+Failure/&FailureLocationMustContainOneRoom	O local precisa ter pelo menos uma sala.
+Failure/&FailureLocationInconsistentCharacterLevels	Os níveis máximo e mínimo de personagem são inconsistentes.
+Failure/&FailureGadgetNotInRoom	Você precisa colocar o dispositivo dentro de uma sala existente.
+Failure/&FailureGadgetOutOfRoomBounds	O dispositivo está fora dos limites desta sala.
+Failure/&FailureGadgetOverlapExisting	O dispositivo está sobreposto a outro dispositivo ou adereço.
+Failure/&FailurePropNotInRoom	Você precisa colocar o adereço dentro de uma sala existente.
+Failure/&FailurePropOutOfRoomBounds	O adereço está fora dos limites desta sala.
+Failure/&FailurePropOverlapExisting	O adereço está sobreposto a outro adereço ou dispositivo.
+Failure/&FailureInvalidPosition	Posição Inválida
+Failure/&FailureGadgetInvalidParameters	Alguns dos parâmetros deste dispositivo são inválidos.
+Failure/&FailureRoomOverlapExisting	A sala está sobreposta a outra sala.
+Failure/&FailureRoomOutOfBounds	A sala está fora dos limites do local.
+Failure/&FailureFlagCopyrightInfringementTitle	O título deste local contém o termo "{0}", que é protegido por direitos autorais.
+Failure/&FailureFlagCopyrightInfringementDescription	A descrição deste local contém o termo "{0}", que é protegido por direitos autorais.
+Failure/&FailureFlagCopyrightInfringementLoreGadget	O dispositivo "{0}" contém o termo "{1}", que é protegido por direitos autorais.
+Failure/&FailureFlagMustMoveToRotate	Este objeto não é quadrado. Você precisa movê-lo para girá-lo.
+Failure/&FailureFlagMustSaveToPlaytest	Você precisa salvar o local antes de testá-lo.
+Failure/&EditorCannotSelectSourceGadget	Não é possível selecionar o dispositivo-alvo.
+Failure/&FailureFlagOnlyInBattle	Somente em combate
+Failure/&FailureLocationMustHaveEntranceIndex0	O local precisa ter uma entrada com índice de entrada 0
+Failure/&FailureGadgetInvalidPlacement	O posicionamento do dispositivo não é válido
+Failure/&FailurePropInvalidPlacement	O posicionamento do adereço não é válido
+Failure/&FailureEditorCannotSelectIncompatibleGadget	Não é possível ativar
+Failure/&FailureEditorCannotSelectDuplicateGadget	O dispositivo já ativou
+Failure/&FailureCampaignMustContainOneLocation	A campanha precisa ter pelo menos um local.
+Failure/&FailureCampaignMustHaveStartLocation	A campanha precisa começar em algum local.
+Failure/&FailureCampaignInconsistentCharacterLevels	Níveis mínimos e máximos de personagem inconsistentes.
+Failure/&FailureCampaignEmptyTitle	Título Vazio
+Failure/&FailureCampaignDuplicateTitle	Título Repetido
+Failure/&FailureCampaignNothingModified	Nada foi modificado
+Failure/&FailureFlagCopyrightInfringementAuthor	O autor do conteúdo incluiu o termo "{0}", que é protegido por direitos autorais.
+Failure/&FailureFlagCopyrightInfringementAuthorVersion	A versão do autor contém o termo "{0}", que é protegido por direitos autorais.
+Failure/&FailureFlagCopyrightInfringementDocumentContent	Os fragmentos do documento contêm o termo "{0}", que é protegido por direitos autorais.
+Failure/&FailureEditorInvalidTargetGadgetTag	O dispositivo não corresponde ao tipo adequado: {0}
+Failure/&FailureFlagSessionClientCannotRest	Só o organizador pode iniciar um descanso longo.
+Failure/&FailureFlagIdentifyNoSpellSlot	Sem espaço de magia disponível.
+Failure/&FailureFlagTargetMustBeUnderHalfHitPoints	O alvo precisa estar com metade ou menos dos PV.
+Failure/&FailureFlagTargetMustBeNotFlying	O alvo não pode já estar voando.
+Failure/&MissingDLCForCharacter	DLC(s) em falta para usar tal personagem: {0}
+Failure/&MissingDLCForUserContent	DLC(s) em falta para jogar ou editar o conteúdo: {0}
+Failure/&FailureFlagNoSavingThrowAvailable	A magia não provê um teste de resistência
+Failure/&FailureFlagInvalidSpellActionType	A magia não tem o tipo correto de ação
+Failure/&FailureFlagInvalidSingleTarget	A magia precisa ter apenas um alvo.
+Failure/&FailureFlagDurationInferiorTo1Min	A duração da magia deve ser inferior a 1 minuto.
+Failure/&FailureFlagSpellWithoutDamage	A magia não pode causar dano.
+Failure/&FailureFlagSpellRangeCannotBeSelf	O alcance da magia não pode ser o próprio usuário.
+Failure/&FailureFlagInsufficientSorceryPoints	Faltam pontos de feitiçaria
+Failure/&FailureFlagUnavailableSpellSlot	Sem espaço de magia deste nível
+Failure/&FailureFlagUnavailableBonusAction	Ação bônus indisponível
+Failure/&FailureFlagTargetMustBeMetalArmored	O alvo precisa usar uma armadura de metal.
+Failure/&FailureFlagHardLockedDoorNoKey	Você precisa de uma chave específica para abrir esta porta!
+Failure/&FailureInsufficientCapital	Você não tem capital suficiente para recuperar um espaço deste nível.
+Failure/&FailureSpentCapital	Você já gastou todo seu capital de recuperação.
+Failure/&FailureSlotsOfLevelFull	Todos os espaços de magia deste nível estão disponíveis.
+Failure/&FailureFlagHardLockedDoorNeedKey	Esta fechadura requer uma chave especial.
+Failure/&FailureFlagHardLockedDoorNotFromHere	A porta não pode ser aberta deste lado.
+Failure/&FailureFlagInvalidSessionName	O nome da sessão está vazio ou é inválido.
+Failure/&FailureFlagFunctionNotWhileRaging	Não funciona em fúria
+Failure/&MissingDLCForSavedGame	DLC(s) em falta para carregar o jogo salvo: {0}
+Failure/&FailureFlagCannotGiveItem	Personagem-alvo inválido (está muito longe, inconsciente ou o inventário está cheio)
+Failure/&MissingDLCForCampaign	DLC(s) em falta para usar tal personagem: {0}

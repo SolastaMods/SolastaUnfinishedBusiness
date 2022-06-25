@@ -180,7 +180,7 @@ public static class Translations
 
         foreach (var line in GetTranslations(languageCode))
         {
-            var split = line.Split(new[] {'\t'}, 2);
+            var split = line.Split(new[] {'='}, 2);
 
             if (split.Length != 2)
             {

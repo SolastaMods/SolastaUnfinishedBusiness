@@ -1,172 +1,172 @@
-Class/&ClassMonkDescription	Os monges estão unidos em sua capacidade de aproveitar magicamente a energia que flui em seus corpos. Seja canalizada como uma demonstração impressionante de proeza de combate ou um foco mais sutil de habilidade defensiva e velocidade, essa energia infunde tudo o que um monge faz.
-Class/&ClassMonkTitle	Monge
-Condition/&ClassMonkEmptyBodyConditionDescription	Você tem resistência a todos os danos, exceto a força.
-Condition/&ClassMonkEmptyBodyConditionTitle	Corpo Vazio
-Condition/&ClassMonkOpenHandDistractConditionDescription	Não pode usar reações.
-Condition/&ClassMonkOpenHandDistractConditionTitle	Distraído
-Condition/&ClassMonkStepOfTheWindConditionDescription	Você pode realizar a ação Desengajar ou Correr como uma ação bônus e sua distância de salto é dobrada no turno.
-Condition/&ClassMonkStepOfTheWindConditionTitle	Passo do vento
-Condition/&ClassMonkTanquilityConditionDescription	Você tem vantagem em testes de resistência contra feitiços e inimigos têm desvantagem em atacar você. Removido quando você faz um ataque ou lança um feitiço.
-Condition/&ClassMonkTanquilityConditionTitle	Tranqüilidade
-Condition/&ClassMonkZenArrowDistractConditionDescription	Tem desvantagem no próximo ataque.
-Condition/&ClassMonkZenArrowDistractConditionTitle	Distraído
-Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Tem desvantagem em todos os ataques.
-Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distraído
-Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	O movimento é definido como 0.
-Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Fixado
-Feature/&ClassMonkDeflectMissileDescription	Você pode usar sua reação para desviar o míssil quando for atingido por um ataque de arma à distância. Quando você faz isso, o dano que você recebe do ataque é reduzido em 1d10 + seu modificador de Destreza + seu nível de Monge.
-Feature/&ClassMonkDeflectMissileTitle	Desviar mísseis
-Feature/&ClassMonkDiamondSoulDescription	Seu domínio do ki lhe concede proficiência em todos os testes de resistência.\nAlém disso, sempre que você fizer um teste de resistência e falhar, você pode gastar 1 ponto de ki para rerrolá-lo e obter o segundo resultado.
-Feature/&ClassMonkDiamondSoulTitle	Alma de diamante
-Feature/&ClassMonkExtraAttackDescription	Você pode atacar duas vezes, em vez de uma vez, sempre que realizar a ação de Ataque em seu turno.
-Feature/&ClassMonkExtraAttackTitle	Ataque Extra
-Feature/&ClassMonkKiDescription	Seu treinamento permite que você aproveite a energia mística do ki. Você ganha pontos de ki igual ao seu nível de Monge. Quando você gasta um ponto de ki, ele fica indisponível até que você termine um descanso curto ou longo, no final do qual você atrai todo o seu ki gasto de volta para si mesmo. Você pode gastar esses pontos para alimentar vários recursos de ki. Você começa a conhecer três desses recursos:
-Feature/&ClassMonkKiEmpoweredStrikesDescription	Seus ataques desarmados contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
-Feature/&ClassMonkKiEmpoweredStrikesTitle	Ataques Potenciais do Ki
-Feature/&ClassMonkKiTitle	Ki
-Feature/&ClassMonkMartialArtsDescription	Você ganha os seguintes benefícios enquanto estiver desarmado ou empunhando apenas armas de Monge e não estiver usando armadura ou escudo:\n• Você pode usar Destreza em vez de Força para as jogadas de ataque e dano de seus ataques desarmados e armas de Monge.\n• Você pode rolar um d4 no lugar do dano normal de seu ataque desarmado ou arma de Monge. Este dado muda conforme você ganha níveis de Monge.\n• Quando você usa a ação Atacar com um golpe desarmado ou uma arma de Monge em seu turno, você pode fazer um golpe desarmado como uma ação bônus.
-Feature/&ClassMonkMartialArtsTitle	Artes marciais
-Feature/&ClassMonkMartialDiceProgression00Description	Você pode rolar <color=#57BCF4>d6</color> no lugar do dano normal de seu ataque desarmado ou arma de Monge.
-Feature/&ClassMonkMartialDiceProgression00Title	Aumento de Dados de Artes Marciais (d6)
-Feature/&ClassMonkMartialDiceProgression01Description	Você pode rolar <color=#57BCF4>d8</color> no lugar do dano normal de seu ataque desarmado ou arma de Monge.
-Feature/&ClassMonkMartialDiceProgression01Title	Aumento de Dados de Artes Marciais (d8)
-Feature/&ClassMonkMartialDiceProgression02Description	Você pode rolar <color=#57BCF4>d10</color> no lugar do dano normal de seu ataque desarmado ou arma de Monge.
-Feature/&ClassMonkMartialDiceProgression02Title	Aumento de Dados de Artes Marciais (d10)
-Feature/&ClassMonkPerfectSelfDescription	Quando você começa a batalha e não tem pontos de ki restantes, você recupera 4 pontos de ki.
-Feature/&ClassMonkPerfectSelfTitle	Eu Perfeito
-Feature/&ClassMonkPurityOfBodyDescription	Seu domínio do ki que flui através de você o torna imune a doenças e venenos.
-Feature/&ClassMonkPurityOfBodyTitle	Pureza do Corpo
-Feature/&ClassMonkSkillProficiencyTitle	Habilidades de monge
-Feature/&ClassMonkUnarmoredDefenseDescription	Enquanto você não estiver usando armadura e não empunhando um escudo, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Sabedoria.
-Feature/&ClassMonkUnarmoredDefenseTitle	Defesa não blindada
-Feature/&ClassMonkUnarmoredMovementBonusDescription	O bônus de movimento aumenta em 1,5 metro.
-Feature/&ClassMonkUnarmoredMovementBonusTitle	Melhoria de movimento não blindado
-Feature/&ClassMonkUnarmoredMovementDescription	Seu deslocamento aumenta em 3 metros enquanto você não estiver usando armadura ou empunhando um escudo. Este bônus aumenta quando você atinge certos níveis de Monge.
-Feature/&ClassMonkUnarmoredMovementTitle	Movimento não blindado
-Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Enquanto você está sem armadura e não empunhando um escudo, você pode se mover nas paredes como uma aranha. A habilidade é temporariamente perdida se você realizar qualquer ação que não seja movimento, ou quando não for seu turno em combate.
-Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Movimento sem armadura: Escalada
-Feature/&ClassMonkWeaponProficiencyTitle	Proficiência com Armas de Monge
-Feature/&ClassMonkZenArcherCombatDescription	Ganhe proficiência com arcos e eles são considerados armas de monge para você.\nVocê não tem desvantagem ao fazer um ataque à distância com uma arma Monge enquanto estiver a 1,5 metro de um inimigo, desde que não use armadura ou escudo.
-Feature/&ClassMonkZenArcherCombatTitle	Combate à distância
-Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Seus ataques de arco contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
-Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flechas Energizadas com Ki
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas Impressionantes
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Golpe Iluminador!
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike causa dano extra ao alvo!
-Power/&ClassMonkDiamondSoulPowerDescription	Sempre que você fizer um teste de resistência e falhar, você pode gastar 1 ponto de ki para rerrolá-lo e obter o segundo resultado.
-Power/&ClassMonkDiamondSoulPowerTitle	Alma de diamante
-Power/&ClassMonkEmptyBodyDescription	Você pode usar sua ação para gastar 4 pontos de ki para ficar invisível por 1 minuto. Durante esse tempo, você também tem resistência a todos os danos, exceto dano de força.
-Power/&ClassMonkEmptyBodyTitle	Corpo Vazio
-Power/&ClassMonkFlurryOfBlowsDescription	Depois de gastar sua ação para atacar com a arma Monge, você pode gastar 1 ponto de ki como uma ação bônus para fazer 2 ataques desarmados. Disponível apenas se você não estiver usando armadura ou empunhando um escudo.
-Power/&ClassMonkFlurryOfBlowsTitle	Rajada de Golpes
-Power/&ClassMonkKiPoolDescription	Você pode aproveitar a energia mística do ki. Seu acesso a essa energia é representado por vários pontos de ki. A quantidade máxima é igual ao seu nível de Monge. Todos os pontos gastos são recuperados em descanso curto ou longo. Você pode gastar esses pontos para alimentar vários recursos de ki.
-Power/&ClassMonkKiPoolTitle	Pontos Ki
-Power/&ClassMonkKiStillnessOfMindDescription	Você pode usar sua ação para acabar com um efeito em si mesmo que está deixando você enfeitiçado ou assustado.
-Power/&ClassMonkKiStillnessOfMindTitle	Tranquilidade da mente
-Power/&ClassMonkOpenHandDistractDescription	O alvo não pode realizar reações até o final do seu próximo turno.
-Power/&ClassMonkOpenHandDistractTitle	Distrair
-Power/&ClassMonkOpenHandProneDescription	O alvo deve ser bem sucedido no teste de resistência de Destreza ou será derrubado.
-Power/&ClassMonkOpenHandProneTitle	Derrubar
-Power/&ClassMonkOpenHandPushDescription	O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado a 4,5 metros de distância de você.
-Power/&ClassMonkOpenHandPushTitle	Afastar
-Power/&ClassMonkOpenHandTechniqueDescription	Você pode manipular o ki do seu inimigo quando usa o seu. Sempre que você acertar uma criatura com um dos ataques concedidos pela sua Rajada de Golpes, você pode impor um dos seguintes efeitos nesse alvo:\n• Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n• Deve fazer um teste de resistência de Força. Se falhar, você pode empurrá-lo até 15 pés de distância de você.\n• Ele não pode receber reações até o final do seu próximo turno.
-Power/&ClassMonkOpenHandTechniqueTitle	Técnica de Mão Aberta
-Power/&ClassMonkPatientDefenseDescription	Você pode gastar 1 ponto de ki como uma ação bônus para realizar a ação de Esquiva. Disponível apenas se você não estiver usando armadura ou escudo.
-Power/&ClassMonkPatientDefenseTitle	Defesa do paciente
-Power/&ClassMonkQuiveringPalmDescription	Quando você atinge uma criatura com um ataque desarmado, você pode gastar 3 pontos de ki para iniciar vibrações imperceptíveis que forçam a criatura a fazer um teste de resistência de Constituição. Se falhar, é reduzido a 0 pontos de vida. Se for bem sucedido, sofre 10d10 de dano necrótico.
-Power/&ClassMonkQuiveringPalmTitle	Palmeira Tremendo
-Power/&ClassMonkSlowFallDescription	Você pode usar sua reação ao cair para evitar qualquer dano de queda.
-Power/&ClassMonkSlowFallTitle	Queda Lenta
-Power/&ClassMonkStepOfTheWindDescription	Você pode gastar 1 ponto de ki para realizar a ação Desengajar ou Correr como uma ação bônus em seu turno, e sua distância de salto é dobrada no turno. Disponível apenas se você não estiver usando armadura ou escudo.
-Power/&ClassMonkStepOfTheWindTitle	Passo do vento
-Power/&ClassMonkStunningStrikeDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de arma corpo a corpo, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
-Power/&ClassMonkStunningStrikeTitle	Golpe Impressionante
-Power/&ClassMonkTanquilityDescription	Uma vez por descanso curto como uma ação livre, você pode entrar em estado de tranquilidade, acalmando suas emoções e concentrando-se no que está ao seu redor. Enquanto neste estado você ganha vantagem nos testes de resistência contra feitiços e os inimigos ficam em desvantagem ao atacá-lo. A tranquilidade dura até o próximo descanso ou até você atacar ou lançar uma magia.
-Power/&ClassMonkTanquilityTitle	Tranqüilidade
-Power/&ClassMonkWholenessOfBodyDescription	Com uma ação, você pode recuperar pontos de vida iguais a três vezes seu nível de Monge. Você deve terminar um descanso longo antes de poder usar esta característica novamente.
-Power/&ClassMonkWholenessOfBodyTitle	Totalidade do Corpo
-Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Depois de gastar a ação para atacar com a arma Monge, você pode gastar 2 pontos de ki como uma ação bônus para fazer 2 ataques com arma à distância com um arco. Disponível apenas se você não estiver usando armadura ou escudo.
-Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Rajada de Flechas
-Power/&ClassMonkZenArrowDistractDescription	O alvo deve ser bem sucedido no teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
-Power/&ClassMonkZenArrowDistractTitle	Distrair
-Power/&ClassMonkZenArrowProneDescription	O alvo deve ser bem sucedido no teste de resistência de Destreza ou será derrubado.
-Power/&ClassMonkZenArrowProneTitle	Derrubar
-Power/&ClassMonkZenArrowPushDescription	O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado 3 metros para longe de você.
-Power/&ClassMonkZenArrowPushTitle	Afastar
-Power/&ClassMonkZenArrowTechniqueDescription	Você pode manipular o ki do seu inimigo quando você o atinge com suas flechas. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n• Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n• Ele deve ser bem sucedido em um teste de resistência de Força ou será empurrado a 3 metros de distância de você.\n• Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
-Power/&ClassMonkZenArrowTechniqueShortTitle	Mão Distante
-Power/&ClassMonkZenArrowTechniqueTitle	Técnica da mão distante
-Power/&ClassMonkZenArrowUpgradedDistractDescription	O alvo deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
-Power/&ClassMonkZenArrowUpgradedDistractTitle	Distrair
-Power/&ClassMonkZenArrowUpgradedProneDescription	O alvo deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.
-Power/&ClassMonkZenArrowUpgradedProneTitle	Derrubar
-Power/&ClassMonkZenArrowUpgradedPushDescription	O alvo deve ser bem sucedido em um teste de resistência de Força ou será empurrado 6 metros para longe de você.
-Power/&ClassMonkZenArrowUpgradedPushTitle	Afastar
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Você melhora sua habilidade de manipular o ki. Todos os efeitos da Técnica da Mão Distante foram melhorados. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n• Ele deve ter sucesso em um teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.\n• Ele deve ser bem sucedido em um teste de resistência de Força ou será empurrado 6 metros para longe de você.\n• Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
-Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Mão Distante
-Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Técnica de Mão Distante Aprimorada
-Reaction/&CustomDeflectMissileMonkTitle	{0} está atacando {1}, que pode reagir para reduzir o dano recebido em 1d10 + modificador de Destreza + nível de Monge
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} atinge uma criatura com um dos ataques concedidos por Rajada de Golpes e pode impor um dos seguintes efeitos nesse alvo:
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Aplicar a técnica selecionada.
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Aplicar
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Técnica de Mão Aberta
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} atinge uma criatura com uma flecha e pode impor um dos seguintes efeitos nesse alvo:
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Aplicar a técnica selecionada.
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Aplicar
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Técnica da mão distante
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} atinge uma criatura com uma flecha e pode impor um dos seguintes efeitos nesse alvo:
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Aplicar a técnica selecionada.
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Aplicar
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Técnica da mão distante
-Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} atingiu o oponente com um ataque desarmado e pode gastar 3 pontos de ki para tentar matá-lo.
-Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Gaste ki para tentar matar o oponente.
-Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Gastar ki
-Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Palmeira Tremendo
-Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} atingiu o oponente e pode gastar 1 ponto de ki para tentar atordoar.
-Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Gaste ki para tentar atordoar o oponente.
-Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Gastar ki
-Reaction/&SpendPowerClassMonkStunningStrikeTitle	Golpe Impressionante
-Reaction/&SpendPowerDiamondSoulDescription	{0} falhou no salvamento e pode gastar 1 ki para rerrolá-lo.
-Reaction/&SpendPowerDiamondSoulReactDescription	Gaste ki para refazer o salvamento com falha.
-Reaction/&SpendPowerDiamondSoulReactTitle	Role novamente
-Reaction/&SpendPowerDiamondSoulTitle	Alma de diamante
-Reaction/&UseClassMonkSlowFallDescription	{0} está caindo e pode usar uma reação para não sofrer dano de queda.
-Reaction/&UseClassMonkSlowFallReactDescription	Use a reação para não receber dano de queda.
-Reaction/&UseClassMonkSlowFallReactTitle	Reagir
-Reaction/&UseClassMonkSlowFallTitle	Queda Lenta
-Stage/&SubclassSelectionStageClassMonkTraditionDescription	Este estágio seleciona a tradição monástica do personagem.
-Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Características da Tradição Monástica
-Stage/&SubclassSelectionStageClassMonkTraditionHeader	Selecione uma Tradição Monástica
-Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Você deve selecionar uma tradição monástica.
-Stage/&SubclassSelectionStageClassMonkTraditionTitle	Monástico\nTradição
-Subclass/&BarbarianPathOfTheLightDescription	Bárbaros que seguem o Caminho da Luz iluminam a escuridão e protegem seus aliados dos perigos que espreitam dentro dela.
-Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	Você está sempre sob os efeitos da magia Ver Invisibilidade.
-Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Olhos da verdade
-Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distraído por Illuminating Strike.
-Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Iluminado
-Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Desvantagem em qualquer jogada de ataque que não seja contra o bárbaro da Trilha da Luz.
-Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Não pode ficar invisível.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	No turno em que você entrar em sua fúria, você pode escolher iluminar até três inimigos a até 9 metros de você. Eles devem ter sucesso em um teste de resistência de Constituição (CD igual a 8 + seu bônus de proficiência + seu modificador de Constituição) ou sofrerão 4d6 de dano radiante e serão iluminados por seu Golpe Iluminador por 1 minuto. Uma criatura iluminada desta forma faz outro teste de resistência de Constituição no final de cada um de seus turnos. Em um teste bem sucedido, o efeito termina para ele.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Até três inimigos fazem um teste de resistência de Constituição ou recebem 4d6 de dano radiante e ficam iluminados pelo seu Golpe Iluminador.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Explosão Iluminadora
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Explosão Iluminadora
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	Enquanto você estiver em fúria, a primeira criatura que você acertar com um ataque no seu turno sofre 1d6 de dano radiante adicional e fica magicamente iluminada até o início do seu próximo turno. Além disso, a criatura tem desvantagem em qualquer jogada de ataque que não seja contra você e não pode se tornar invisível.
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	O dano adicional causado pelo Golpe Iluminador aumenta para 2d6.
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Melhoria do Golpe Iluminador
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Golpe Iluminador
-Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Você recupera pontos de vida iguais a metade do seu nível de bárbaro quando uma criatura hostil afetada pelo seu Golpe Iluminador morre. Além disso, você não provoca mais ataques de oportunidade de criaturas afetadas pelo seu Golpe Iluminador.
-Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Proteção da Luz
-Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Você ganha visão no escuro superior.
-Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Perfure a escuridão
-Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Pode perceber criaturas invisíveis.
-Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Visão de Invisibilidade
-Subclass/&BarbarianPathOfTheLightTitle	Caminho da Luz
-Subclass/&ClassMonkTraditionDescription	No 3º nível, você escolhe o caminho espiritual para seguir em direção à iluminação. Ele irá moldar como você manipula o ki.
-Subclass/&ClassMonkTraditionTitle	Tradições Monásticas
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Monges do Caminho da Mão Aberta são os maiores mestres do combate de artes marciais, armados ou desarmados. Eles aprendem técnicas para empurrar e derrubar seus oponentes, manipular o ki para curar danos em seus corpos e praticar meditação avançada que pode protegê-los de danos.
-Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Caminho da mão aberta
-Subclass/&ClassMonkTraditionZenArcherDescription	Os praticantes do Caminho da Mão Distante treinam para fazer das flechas uma extensão de suas mãos. Eles são proficientes em usar arcos e entregar efeitos de ki através de flechas.
-Subclass/&ClassMonkTraditionZenArcherTitle	Caminho da mão distante
-Tooltip/&CustomPortraitPoolClassMonkKiPool	Você pode aproveitar a energia mística do ki. Seu acesso a essa energia é representado por vários pontos de ki. A quantidade máxima é igual ao seu nível de Monge. Todos os pontos gastos são recuperados em descanso curto ou longo. Você pode gastar esses pontos para alimentar vários recursos de ki
-Tooltip/&TagMonkWeaponTitle	Monge
+Class/&ClassMonkDescription=Os monges estão unidos em sua capacidade de aproveitar magicamente a energia que flui em seus corpos. Seja canalizada como uma demonstração impressionante de proeza de combate ou um foco mais sutil de habilidade defensiva e velocidade, essa energia infunde tudo o que um monge faz.
+Class/&ClassMonkTitle=Monge
+Condition/&ClassMonkEmptyBodyConditionDescription=Você tem resistência a todos os danos, exceto a força.
+Condition/&ClassMonkEmptyBodyConditionTitle=Corpo Vazio
+Condition/&ClassMonkOpenHandDistractConditionDescription=Não pode usar reações.
+Condition/&ClassMonkOpenHandDistractConditionTitle=Distraído
+Condition/&ClassMonkStepOfTheWindConditionDescription=Você pode realizar a ação Desengajar ou Correr como uma ação bônus e sua distância de salto é dobrada no turno.
+Condition/&ClassMonkStepOfTheWindConditionTitle=Passo do vento
+Condition/&ClassMonkTanquilityConditionDescription=Você tem vantagem em testes de resistência contra feitiços e inimigos têm desvantagem em atacar você. Removido quando você faz um ataque ou lança um feitiço.
+Condition/&ClassMonkTanquilityConditionTitle=Tranqüilidade
+Condition/&ClassMonkZenArrowDistractConditionDescription=Tem desvantagem no próximo ataque.
+Condition/&ClassMonkZenArrowDistractConditionTitle=Distraído
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription=Tem desvantagem em todos os ataques.
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle=Distraído
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription=O movimento é definido como 0.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle=Fixado
+Feature/&ClassMonkDeflectMissileDescription=Você pode usar sua reação para desviar o míssil quando for atingido por um ataque de arma à distância. Quando você faz isso, o dano que você recebe do ataque é reduzido em 1d10 + seu modificador de Destreza + seu nível de Monge.
+Feature/&ClassMonkDeflectMissileTitle=Desviar mísseis
+Feature/&ClassMonkDiamondSoulDescription=Seu domínio do ki lhe concede proficiência em todos os testes de resistência.\nAlém disso, sempre que você fizer um teste de resistência e falhar, você pode gastar 1 ponto de ki para rerrolá-lo e obter o segundo resultado.
+Feature/&ClassMonkDiamondSoulTitle=Alma de diamante
+Feature/&ClassMonkExtraAttackDescription=Você pode atacar duas vezes, em vez de uma vez, sempre que realizar a ação de Ataque em seu turno.
+Feature/&ClassMonkExtraAttackTitle=Ataque Extra
+Feature/&ClassMonkKiDescription=Seu treinamento permite que você aproveite a energia mística do ki. Você ganha pontos de ki igual ao seu nível de Monge. Quando você gasta um ponto de ki, ele fica indisponível até que você termine um descanso curto ou longo, no final do qual você atrai todo o seu ki gasto de volta para si mesmo. Você pode gastar esses pontos para alimentar vários recursos de ki. Você começa a conhecer três desses recursos:
+Feature/&ClassMonkKiEmpoweredStrikesDescription=Seus ataques desarmados contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
+Feature/&ClassMonkKiEmpoweredStrikesTitle=Ataques Potenciais do Ki
+Feature/&ClassMonkKiTitle=Ki
+Feature/&ClassMonkMartialArtsDescription=Você ganha os seguintes benefícios enquanto estiver desarmado ou empunhando apenas armas de Monge e não estiver usando armadura ou escudo:\n• Você pode usar Destreza em vez de Força para as jogadas de ataque e dano de seus ataques desarmados e armas de Monge.\n• Você pode rolar um d4 no lugar do dano normal de seu ataque desarmado ou arma de Monge. Este dado muda conforme você ganha níveis de Monge.\n• Quando você usa a ação Atacar com um golpe desarmado ou uma arma de Monge em seu turno, você pode fazer um golpe desarmado como uma ação bônus.
+Feature/&ClassMonkMartialArtsTitle=Artes marciais
+Feature/&ClassMonkMartialDiceProgression00Description=Você pode rolar <color=#57BCF4>d6</color> no lugar do dano normal de seu ataque desarmado ou arma de Monge.
+Feature/&ClassMonkMartialDiceProgression00Title=Aumento de Dados de Artes Marciais (d6)
+Feature/&ClassMonkMartialDiceProgression01Description=Você pode rolar <color=#57BCF4>d8</color> no lugar do dano normal de seu ataque desarmado ou arma de Monge.
+Feature/&ClassMonkMartialDiceProgression01Title=Aumento de Dados de Artes Marciais (d8)
+Feature/&ClassMonkMartialDiceProgression02Description=Você pode rolar <color=#57BCF4>d10</color> no lugar do dano normal de seu ataque desarmado ou arma de Monge.
+Feature/&ClassMonkMartialDiceProgression02Title=Aumento de Dados de Artes Marciais (d10)
+Feature/&ClassMonkPerfectSelfDescription=Quando você começa a batalha e não tem pontos de ki restantes, você recupera 4 pontos de ki.
+Feature/&ClassMonkPerfectSelfTitle=Eu Perfeito
+Feature/&ClassMonkPurityOfBodyDescription=Seu domínio do ki que flui através de você o torna imune a doenças e venenos.
+Feature/&ClassMonkPurityOfBodyTitle=Pureza do Corpo
+Feature/&ClassMonkSkillProficiencyTitle=Habilidades de monge
+Feature/&ClassMonkUnarmoredDefenseDescription=Enquanto você não estiver usando armadura e não empunhando um escudo, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Sabedoria.
+Feature/&ClassMonkUnarmoredDefenseTitle=Defesa não blindada
+Feature/&ClassMonkUnarmoredMovementBonusDescription=O bônus de movimento aumenta em 1,5 metro.
+Feature/&ClassMonkUnarmoredMovementBonusTitle=Melhoria de movimento não blindado
+Feature/&ClassMonkUnarmoredMovementDescription=Seu deslocamento aumenta em 3 metros enquanto você não estiver usando armadura ou empunhando um escudo. Este bônus aumenta quando você atinge certos níveis de Monge.
+Feature/&ClassMonkUnarmoredMovementTitle=Movimento não blindado
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription=Enquanto você está sem armadura e não empunhando um escudo, você pode se mover nas paredes como uma aranha. A habilidade é temporariamente perdida se você realizar qualquer ação que não seja movimento, ou quando não for seu turno em combate.
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle=Movimento sem armadura: Escalada
+Feature/&ClassMonkWeaponProficiencyTitle=Proficiência com Armas de Monge
+Feature/&ClassMonkZenArcherCombatDescription=Ganhe proficiência com arcos e eles são considerados armas de monge para você.\nVocê não tem desvantagem ao fazer um ataque à distância com uma arma Monge enquanto estiver a 1,5 metro de um inimigo, desde que não use armadura ou escudo.
+Feature/&ClassMonkZenArcherCombatTitle=Combate à distância
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription=Seus ataques de arco contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle=Flechas Energizadas com Ki
+Feature/&ClassMonkZenArcherStunningArrowsDescription=Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
+Feature/&ClassMonkZenArcherStunningArrowsTitle=Flechas Impressionantes
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat=Golpe Iluminador!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine=Illuminating Strike causa dano extra ao alvo!
+Power/&ClassMonkDiamondSoulPowerDescription=Sempre que você fizer um teste de resistência e falhar, você pode gastar 1 ponto de ki para rerrolá-lo e obter o segundo resultado.
+Power/&ClassMonkDiamondSoulPowerTitle=Alma de diamante
+Power/&ClassMonkEmptyBodyDescription=Você pode usar sua ação para gastar 4 pontos de ki para ficar invisível por 1 minuto. Durante esse tempo, você também tem resistência a todos os danos, exceto dano de força.
+Power/&ClassMonkEmptyBodyTitle=Corpo Vazio
+Power/&ClassMonkFlurryOfBlowsDescription=Depois de gastar sua ação para atacar com a arma Monge, você pode gastar 1 ponto de ki como uma ação bônus para fazer 2 ataques desarmados. Disponível apenas se você não estiver usando armadura ou empunhando um escudo.
+Power/&ClassMonkFlurryOfBlowsTitle=Rajada de Golpes
+Power/&ClassMonkKiPoolDescription=Você pode aproveitar a energia mística do ki. Seu acesso a essa energia é representado por vários pontos de ki. A quantidade máxima é igual ao seu nível de Monge. Todos os pontos gastos são recuperados em descanso curto ou longo. Você pode gastar esses pontos para alimentar vários recursos de ki.
+Power/&ClassMonkKiPoolTitle=Pontos Ki
+Power/&ClassMonkKiStillnessOfMindDescription=Você pode usar sua ação para acabar com um efeito em si mesmo que está deixando você enfeitiçado ou assustado.
+Power/&ClassMonkKiStillnessOfMindTitle=Tranquilidade da mente
+Power/&ClassMonkOpenHandDistractDescription=O alvo não pode realizar reações até o final do seu próximo turno.
+Power/&ClassMonkOpenHandDistractTitle=Distrair
+Power/&ClassMonkOpenHandProneDescription=O alvo deve ser bem sucedido no teste de resistência de Destreza ou será derrubado.
+Power/&ClassMonkOpenHandProneTitle=Derrubar
+Power/&ClassMonkOpenHandPushDescription=O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado a 4,5 metros de distância de você.
+Power/&ClassMonkOpenHandPushTitle=Afastar
+Power/&ClassMonkOpenHandTechniqueDescription=Você pode manipular o ki do seu inimigo quando usa o seu. Sempre que você acertar uma criatura com um dos ataques concedidos pela sua Rajada de Golpes, você pode impor um dos seguintes efeitos nesse alvo:\n• Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n• Deve fazer um teste de resistência de Força. Se falhar, você pode empurrá-lo até 15 pés de distância de você.\n• Ele não pode receber reações até o final do seu próximo turno.
+Power/&ClassMonkOpenHandTechniqueTitle=Técnica de Mão Aberta
+Power/&ClassMonkPatientDefenseDescription=Você pode gastar 1 ponto de ki como uma ação bônus para realizar a ação de Esquiva. Disponível apenas se você não estiver usando armadura ou escudo.
+Power/&ClassMonkPatientDefenseTitle=Defesa do paciente
+Power/&ClassMonkQuiveringPalmDescription=Quando você atinge uma criatura com um ataque desarmado, você pode gastar 3 pontos de ki para iniciar vibrações imperceptíveis que forçam a criatura a fazer um teste de resistência de Constituição. Se falhar, é reduzido a 0 pontos de vida. Se for bem sucedido, sofre 10d10 de dano necrótico.
+Power/&ClassMonkQuiveringPalmTitle=Palmeira Tremendo
+Power/&ClassMonkSlowFallDescription=Você pode usar sua reação ao cair para evitar qualquer dano de queda.
+Power/&ClassMonkSlowFallTitle=Queda Lenta
+Power/&ClassMonkStepOfTheWindDescription=Você pode gastar 1 ponto de ki para realizar a ação Desengajar ou Correr como uma ação bônus em seu turno, e sua distância de salto é dobrada no turno. Disponível apenas se você não estiver usando armadura ou escudo.
+Power/&ClassMonkStepOfTheWindTitle=Passo do vento
+Power/&ClassMonkStunningStrikeDescription=Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de arma corpo a corpo, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
+Power/&ClassMonkStunningStrikeTitle=Golpe Impressionante
+Power/&ClassMonkTanquilityDescription=Uma vez por descanso curto como uma ação livre, você pode entrar em estado de tranquilidade, acalmando suas emoções e concentrando-se no que está ao seu redor. Enquanto neste estado você ganha vantagem nos testes de resistência contra feitiços e os inimigos ficam em desvantagem ao atacá-lo. A tranquilidade dura até o próximo descanso ou até você atacar ou lançar uma magia.
+Power/&ClassMonkTanquilityTitle=Tranqüilidade
+Power/&ClassMonkWholenessOfBodyDescription=Com uma ação, você pode recuperar pontos de vida iguais a três vezes seu nível de Monge. Você deve terminar um descanso longo antes de poder usar esta característica novamente.
+Power/&ClassMonkWholenessOfBodyTitle=Totalidade do Corpo
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription=Depois de gastar a ação para atacar com a arma Monge, você pode gastar 2 pontos de ki como uma ação bônus para fazer 2 ataques com arma à distância com um arco. Disponível apenas se você não estiver usando armadura ou escudo.
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle=Rajada de Flechas
+Power/&ClassMonkZenArrowDistractDescription=O alvo deve ser bem sucedido no teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
+Power/&ClassMonkZenArrowDistractTitle=Distrair
+Power/&ClassMonkZenArrowProneDescription=O alvo deve ser bem sucedido no teste de resistência de Destreza ou será derrubado.
+Power/&ClassMonkZenArrowProneTitle=Derrubar
+Power/&ClassMonkZenArrowPushDescription=O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado 3 metros para longe de você.
+Power/&ClassMonkZenArrowPushTitle=Afastar
+Power/&ClassMonkZenArrowTechniqueDescription=Você pode manipular o ki do seu inimigo quando você o atinge com suas flechas. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n• Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n• Ele deve ser bem sucedido em um teste de resistência de Força ou será empurrado a 3 metros de distância de você.\n• Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
+Power/&ClassMonkZenArrowTechniqueShortTitle=Mão Distante
+Power/&ClassMonkZenArrowTechniqueTitle=Técnica da mão distante
+Power/&ClassMonkZenArrowUpgradedDistractDescription=O alvo deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
+Power/&ClassMonkZenArrowUpgradedDistractTitle=Distrair
+Power/&ClassMonkZenArrowUpgradedProneDescription=O alvo deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.
+Power/&ClassMonkZenArrowUpgradedProneTitle=Derrubar
+Power/&ClassMonkZenArrowUpgradedPushDescription=O alvo deve ser bem sucedido em um teste de resistência de Força ou será empurrado 6 metros para longe de você.
+Power/&ClassMonkZenArrowUpgradedPushTitle=Afastar
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription=Você melhora sua habilidade de manipular o ki. Todos os efeitos da Técnica da Mão Distante foram melhorados. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n• Ele deve ter sucesso em um teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.\n• Ele deve ser bem sucedido em um teste de resistência de Força ou será empurrado 6 metros para longe de você.\n• Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle=Mão Distante
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle=Técnica de Mão Distante Aprimorada
+Reaction/&CustomDeflectMissileMonkTitle={0} está atacando {1}, que pode reagir para reduzir o dano recebido em 1d10 + modificador de Destreza + nível de Monge
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription={0} atinge uma criatura com um dos ataques concedidos por Rajada de Golpes e pode impor um dos seguintes efeitos nesse alvo:
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription=Aplicar a técnica selecionada.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle=Aplicar
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle=Técnica de Mão Aberta
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription={0} atinge uma criatura com uma flecha e pode impor um dos seguintes efeitos nesse alvo:
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription=Aplicar a técnica selecionada.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle=Aplicar
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle=Técnica da mão distante
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription={0} atinge uma criatura com uma flecha e pode impor um dos seguintes efeitos nesse alvo:
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription=Aplicar a técnica selecionada.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle=Aplicar
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle=Técnica da mão distante
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription={0} atingiu o oponente com um ataque desarmado e pode gastar 3 pontos de ki para tentar matá-lo.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription=Gaste ki para tentar matar o oponente.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle=Gastar ki
+Reaction/&SpendPowerClassMonkQuiveringPalmTitle=Palmeira Tremendo
+Reaction/&SpendPowerClassMonkStunningStrikeDescription={0} atingiu o oponente e pode gastar 1 ponto de ki para tentar atordoar.
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription=Gaste ki para tentar atordoar o oponente.
+Reaction/&SpendPowerClassMonkStunningStrikeReactTitle=Gastar ki
+Reaction/&SpendPowerClassMonkStunningStrikeTitle=Golpe Impressionante
+Reaction/&SpendPowerDiamondSoulDescription={0} falhou no salvamento e pode gastar 1 ki para rerrolá-lo.
+Reaction/&SpendPowerDiamondSoulReactDescription=Gaste ki para refazer o salvamento com falha.
+Reaction/&SpendPowerDiamondSoulReactTitle=Role novamente
+Reaction/&SpendPowerDiamondSoulTitle=Alma de diamante
+Reaction/&UseClassMonkSlowFallDescription={0} está caindo e pode usar uma reação para não sofrer dano de queda.
+Reaction/&UseClassMonkSlowFallReactDescription=Use a reação para não receber dano de queda.
+Reaction/&UseClassMonkSlowFallReactTitle=Reagir
+Reaction/&UseClassMonkSlowFallTitle=Queda Lenta
+Stage/&SubclassSelectionStageClassMonkTraditionDescription=Este estágio seleciona a tradição monástica do personagem.
+Stage/&SubclassSelectionStageClassMonkTraditionFeatures=Características da Tradição Monástica
+Stage/&SubclassSelectionStageClassMonkTraditionHeader=Selecione uma Tradição Monástica
+Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription=Você deve selecionar uma tradição monástica.
+Stage/&SubclassSelectionStageClassMonkTraditionTitle=Monástico\nTradição
+Subclass/&BarbarianPathOfTheLightDescription=Bárbaros que seguem o Caminho da Luz iluminam a escuridão e protegem seus aliados dos perigos que espreitam dentro dela.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription=Você está sempre sob os efeitos da magia Ver Invisibilidade.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle=Olhos da verdade
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription=Distraído por Illuminating Strike.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle=Iluminado
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription=Desvantagem em qualquer jogada de ataque que não seja contra o bárbaro da Trilha da Luz.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription=Não pode ficar invisível.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription=No turno em que você entrar em sua fúria, você pode escolher iluminar até três inimigos a até 9 metros de você. Eles devem ter sucesso em um teste de resistência de Constituição (CD igual a 8 + seu bônus de proficiência + seu modificador de Constituição) ou sofrerão 4d6 de dano radiante e serão iluminados por seu Golpe Iluminador por 1 minuto. Uma criatura iluminada desta forma faz outro teste de resistência de Constituição no final de cada um de seus turnos. Em um teste bem sucedido, o efeito termina para ele.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription=Até três inimigos fazem um teste de resistência de Constituição ou recebem 4d6 de dano radiante e ficam iluminados pelo seu Golpe Iluminador.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle=Explosão Iluminadora
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle=Explosão Iluminadora
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription=Enquanto você estiver em fúria, a primeira criatura que você acertar com um ataque no seu turno sofre 1d6 de dano radiante adicional e fica magicamente iluminada até o início do seu próximo turno. Além disso, a criatura tem desvantagem em qualquer jogada de ataque que não seja contra você e não pode se tornar invisível.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription=O dano adicional causado pelo Golpe Iluminador aumenta para 2d6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle=Melhoria do Golpe Iluminador
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle=Golpe Iluminador
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription=Você recupera pontos de vida iguais a metade do seu nível de bárbaro quando uma criatura hostil afetada pelo seu Golpe Iluminador morre. Além disso, você não provoca mais ataques de oportunidade de criaturas afetadas pelo seu Golpe Iluminador.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle=Proteção da Luz
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription=Você ganha visão no escuro superior.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle=Perfure a escuridão
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription=Pode perceber criaturas invisíveis.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle=Visão de Invisibilidade
+Subclass/&BarbarianPathOfTheLightTitle=Caminho da Luz
+Subclass/&ClassMonkTraditionDescription=No 3º nível, você escolhe o caminho espiritual para seguir em direção à iluminação. Ele irá moldar como você manipula o ki.
+Subclass/&ClassMonkTraditionTitle=Tradições Monásticas
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription=Monges do Caminho da Mão Aberta são os maiores mestres do combate de artes marciais, armados ou desarmados. Eles aprendem técnicas para empurrar e derrubar seus oponentes, manipular o ki para curar danos em seus corpos e praticar meditação avançada que pode protegê-los de danos.
+Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle=Caminho da mão aberta
+Subclass/&ClassMonkTraditionZenArcherDescription=Os praticantes do Caminho da Mão Distante treinam para fazer das flechas uma extensão de suas mãos. Eles são proficientes em usar arcos e entregar efeitos de ki através de flechas.
+Subclass/&ClassMonkTraditionZenArcherTitle=Caminho da mão distante
+Tooltip/&CustomPortraitPoolClassMonkKiPool=Você pode aproveitar a energia mística do ki. Seu acesso a essa energia é representado por vários pontos de ki. A quantidade máxima é igual ao seu nível de Monge. Todos os pontos gastos são recuperados em descanso curto ou longo. Você pode gastar esses pontos para alimentar vários recursos de ki
+Tooltip/&TagMonkWeaponTitle=Monge

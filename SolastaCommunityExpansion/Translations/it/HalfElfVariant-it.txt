@@ -1,6 +1,6 @@
-﻿Race/&HalfElfDarkElfRaceDescription	I >Mezzi-Elfi Oscuri sono i discendenti di elfi che sono cambiati nel tempo vivendo nelle inospitali Badlands. La loro eredità umana li ha resi adattabili alla luce intensa.
-Race/&HalfElfDarkElfRaceTitle	Mezzo Elfo Oscuro
-Race/&HalfElfHighElfRaceDescription	Gli Elfi Mezzo-Alti sono addestrati a usare la magia molto presto.
-Race/&HalfElfHighElfRaceTitle	Mezzo elfo alto
-Race/&HalfElfSylvanElfRaceDescription	Mezzi-Elfi Silvani sono addestrati per sopravvivere nelle terre selvagge e sono particolarmente adatti alla sopravvivenza. Come loro eredità di elfi silvani, sono addestrati a combattere con spade e archi fin dall'infanzia.
-Race/&HalfElfSylvanElfRaceTitle	Mezzo Elfo Silvano
+﻿Race/&HalfElfDarkElfRaceDescription=I >Mezzi-Elfi Oscuri sono i discendenti di elfi che sono cambiati nel tempo vivendo nelle inospitali Badlands. La loro eredità umana li ha resi adattabili alla luce intensa.
+Race/&HalfElfDarkElfRaceTitle=Mezzo Elfo Oscuro
+Race/&HalfElfHighElfRaceDescription=Gli Elfi Mezzo-Alti sono addestrati a usare la magia molto presto.
+Race/&HalfElfHighElfRaceTitle=Mezzo elfo alto
+Race/&HalfElfSylvanElfRaceDescription=Mezzi-Elfi Silvani sono addestrati per sopravvivere nelle terre selvagge e sono particolarmente adatti alla sopravvivenza. Come loro eredità di elfi silvani, sono addestrati a combattere con spade e archi fin dall'infanzia.
+Race/&HalfElfSylvanElfRaceTitle=Mezzo Elfo Silvano

@@ -1,14 +1,14 @@
-Subclass/&ConditionTransmuteConstitutionSaveDescription	Constitution temporaire sauf compétence accordée par le pouvoir Force de transmutation.
-Subclass/&ConditionTransmuteConstitutionSaveTitle	La Constitution sauve
-Subclass/&ConditionTransmutePoisonDescription	Résistance temporaire à l'acide, au froid, au feu, à la foudre, à la nécrose, au poison et au tonnerre accordée par le pouvoir Transmute Force.
-Subclass/&ConditionTransmutePoisonTitle	Résistance élémentaire
-Subclass/&HealingPoolLifeTransmuterBonusDescription	Vous pouvez imposer votre volonté à la réalité 2 fois supplémentaires par jour.
-Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	Vous pouvez imposer votre volonté à la réalité 4 fois de plus par jour.
-Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Force de transmutation supplémentaire
-Subclass/&HealingPoolLifeTransmuterBonusTitle	Force de transmutation supplémentaire
-Subclass/&HealingPoolLifeTransmuterListDescription	Vous pouvez appliquer votre volonté sur la réalité avec des pouvoirs spéciaux 2 fois par jour.
-Subclass/&HealingPoolLifeTransmuterListTitle	Force de transmutation
-Subclass/&MagicAffinityLifeTransmuterListDescription	Lors du lancement de certains sorts de transmutation et de nécromancie, ils sont lancés à un emplacement de sort supérieur de 2 niveaux à celui utilisé. Les sorts améliorés incluent : False Life, Blindness, Fly, Bestow Curse, Vampiric Touch, Blight et Cloud Kill.\n--Remarque : l'intention est d'avoir également l'avantage de l'arme magique, mais actuellement, augmenter le niveau du sort de cette façon sur l'arme magique n'a aucun effet.
-Subclass/&MagicAffinityLifeTransmuterListTitle	Flexion de la réalité
-Subclass/&TraditionLifeTransmuterDescription	Maîtres de la manipulation de la matière et de l'énergie vitale.
-Subclass/&TraditionLifeTransmuterTitle	Transmutateur de vie
+Subclass/&ConditionTransmuteConstitutionSaveDescription=Constitution temporaire sauf compétence accordée par le pouvoir Force de transmutation.
+Subclass/&ConditionTransmuteConstitutionSaveTitle=La Constitution sauve
+Subclass/&ConditionTransmutePoisonDescription=Résistance temporaire à l'acide, au froid, au feu, à la foudre, à la nécrose, au poison et au tonnerre accordée par le pouvoir Transmute Force.
+Subclass/&ConditionTransmutePoisonTitle=Résistance élémentaire
+Subclass/&HealingPoolLifeTransmuterBonusDescription=Vous pouvez imposer votre volonté à la réalité 2 fois supplémentaires par jour.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription=Vous pouvez imposer votre volonté à la réalité 4 fois de plus par jour.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle=Force de transmutation supplémentaire
+Subclass/&HealingPoolLifeTransmuterBonusTitle=Force de transmutation supplémentaire
+Subclass/&HealingPoolLifeTransmuterListDescription=Vous pouvez appliquer votre volonté sur la réalité avec des pouvoirs spéciaux 2 fois par jour.
+Subclass/&HealingPoolLifeTransmuterListTitle=Force de transmutation
+Subclass/&MagicAffinityLifeTransmuterListDescription=Lors du lancement de certains sorts de transmutation et de nécromancie, ils sont lancés à un emplacement de sort supérieur de 2 niveaux à celui utilisé. Les sorts améliorés incluent : False Life, Blindness, Fly, Bestow Curse, Vampiric Touch, Blight et Cloud Kill.\n--Remarque : l'intention est d'avoir également l'avantage de l'arme magique, mais actuellement, augmenter le niveau du sort de cette façon sur l'arme magique n'a aucun effet.
+Subclass/&MagicAffinityLifeTransmuterListTitle=Flexion de la réalité
+Subclass/&TraditionLifeTransmuterDescription=Maîtres de la manipulation de la matière et de l'énergie vitale.
+Subclass/&TraditionLifeTransmuterTitle=Transmutateur de vie

@@ -1,0 +1,45 @@
+Location/&Bone_Keep_Scene_Description	A Coroa enviou você para esta região desolada, onde um sombrio castelo se ergue no meio da floresta. Explore a área e encontre uma das joias da Coroa.
+Location/&Bone_Keep_Scene_Title	Castelo dos Ossos
+Location/&Caer_Cyflen_Description	Castro Kyflen, a magnífica capital do Principado de Masgarth, era a principal cidade do Império de Manacalon antes do Cataclismo. Atualmente, é o coração pulsante de um dos jovens Reinos Orientais.
+Location/&Caer_Cyflen_Title	Castro Kyflen
+Location/&Caer_Lem_Description	Sua primeira missão para o Conselho dos Legados é ir até o entreposto de Castro Lem, nas Fronteiras, e descobrir por que o capitão Henrik, comandante da guarnição, parou de mandar notícias.
+Location/&Caer_Lem_Title	Castro Lem
+Location/&DangerRoomDescription	Área de testes para designers de fase
+Location/&DangerRoomTitle	Câmara do Perigo
+Location/&OrcStrongholdDescription	Catacumba escura e úmida, possivelmente repleta de tesouros e certamente letal.
+Location/&OrcStrongholdTitle	Fortaleza dos Orcs
+Location/&Ruins_Telema_Title	Ruínas de Telema
+Location/&SouthCryptDescription	Catacumba escura e úmida, possivelmente repleta de tesouros e certamente letal.
+Location/&SouthCryptTitle	Cripta do Sul
+Location/&TirmarianTower_Description	Acima do entreposto de Castro Lem, encontra-se a Torre Tirmariana, na encosta da montanha. Foi trazida durante o Cataclismo, juntamente com tudo que havia em seu interior.
+Location/&TirmarianTower_Title	Torre Tirmariana
+Location/&Tower_Of_Magic_Description	Os sobreviventes de Castro Lem contaram a você que os Sorr-Akkath atacaram depois que uma ruína nas Terras Áridas foi descoberta. Seguindo as informações fornecidas por eles, você viajou até o local, esperando encontrar vestígios dos monstros lendários.
+Location/&Tower_Of_Magic_Title	Ruína de Manacalon
+Location/&Tutorial_Tavern_Scene_Description	Aventureiros se reúnem no Barril do Coveiro, atendendo ao chamado do Conselho dos Legados, que está recrutando novos representantes para suas operações dentro e fora do Principado.
+Location/&Tutorial_Tavern_Scene_Title	A Reunião
+Location/&Encounter_Hamlet_Title	Povoado
+Location/&Encounter_Hamlet_Description	Pequeno povoado de beira de estrada, como muitos outros no Principado de Masgarth.
+Location/&Encounter_Crossroads_Title	Encruzilhada
+Location/&Encounter_Crossroads_Description	Um lugar aparentemente pacífico nas estradas do Principado.
+Location/&CradleOfFire_Scene_Description	A Coroa enviou você para esta região desolada, onde um sombrio castelo se ergue no meio da floresta. Explore a área e encontre uma das joias da Coroa.
+Location/&CradleOfFire_Scene_Title	Berço do Fogo
+Location/&CradleOfFire_Necropolis_Title	Necrópole de Sentharyllian
+Location/&CradleOfFire_Necropolis_Description	Nas profundezas do vulcão jaz a cidade afundada de Sentharyllian e sua necrópole, lar dos falecidos imperadores que a habitavam.
+Location/&NPEmbassy_Title	Embaixada do Novo Império
+Location/&NPEmbassy_Description	Esta embaixada ficar próxima ao Conselho dos Legados em Castro Kyflen.
+Location/&Hickory_Description	Este é um local bem conhecido do Principado, onde ruínas do Império de Manacalon servem como pontos de referência para os viajantes.
+Location/&OrcHideout_Title	Entreposto do Sussurro Silencioso
+Location/&OrcHideout_Description	Ágrea mencionou que este lugar era um entreposto do Sussurro Silencioso anterior ao Cataclismo. Deve ter mudado muito, mas você pode encontrar alguns artefatos arqueológicos de grande valor para algumas facções.
+Location/&UnknownCamp_Title	Acampamento
+Location/&Coparann_Mines_Title	Minas de Coparann
+Location/&Coparann_Mines_Description	Graças ao seu relacionamento com o Barão, você recebeu permissão para entrar nesta mina velha e abandonada e poderá ajudar Auroc.
+Location/&Map_DLC1_AnfarelDomain_Title	Domínio de Anfarel
+Location/&Map_DLC1_AnfarelDomain_Description	Esta vila está em um território que pertence à antiga família nobre dos Anfarel. Quem governa aqui é Eladien Anfarel.
+Location/&Map_DLC1_HuntingGrounds_Title	Campos de Caça
+Location/&Map_DLC1_HuntingGrounds_Description	Esta área deve ser boa para caçar animais selvagens.
+Location/&Map_DLC1_HarvestArea_Title	Área de Colheita
+Location/&Map_DLC1_HarvestArea_Description	De acordo com Orenetis, esta área é perigosa, mas tem alguns ingredientes raros.
+Location/&Map_DLC1_SpiderNest_Title	Ninho de Aranhas
+Location/&Map_DLC1_SpiderNest_Description	Alertaram você que aqui existe um ninho de aranhas.
+Location/&Map_DLC1_JungleNest_Title	Ninho da Selva
+Location/&Map_DLC1_JungleNest_Description	De acordo com Ellaria Anfarel, um monstro enorme habita esta região.

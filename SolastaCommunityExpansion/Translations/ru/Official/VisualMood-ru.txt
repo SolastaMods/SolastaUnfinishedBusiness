@@ -1,0 +1,26 @@
+VisualMood/&CryptTitle	Крипта
+VisualMood/&InfernoTitle	Инферно
+VisualMood/&StrangeTitle	Странный
+VisualMood/&ClearOutdoorTitle	Ясная погода
+VisualMood/&AcidTitle	Кислотный
+VisualMood/&BluishTitle	Синеватый
+VisualMood/&CalmTitle	Спокойный
+VisualMood/&ColdTitle	Холодный
+VisualMood/&DevilishTitle	Дьявольский
+VisualMood/&DullTitle	Понурый
+VisualMood/&GloomyTitle	Хмурый
+VisualMood/&GoldenTitle	Золотистый
+VisualMood/&GreenishTitle	Зеленоватый
+VisualMood/&LovelyTitle	Чудный
+VisualMood/&MossyTitle	Мшистый
+VisualMood/&MuddyTitle	Грязный
+VisualMood/&MysticTitle	Таинственный
+VisualMood/&OcherTitle	Красновато-жёлтый
+VisualMood/&PastTitle	Прошлый
+VisualMood/&PichBlackTitle	Непроглядный
+VisualMood/&PurplishTitle	Пурпурный
+VisualMood/&RadiantTitle	Сияющий
+VisualMood/&SpookyTitle	Страшный
+VisualMood/&StenchTitle	Зловонный
+VisualMood/&ToxicTitle	Ядовитый
+VisualMood/&WarmTitle	Тёплый

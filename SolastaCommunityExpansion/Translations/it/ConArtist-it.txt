@@ -1,19 +1,19 @@
-Subclass/&AbilityAffinityRogueConArtistDescription	Vantaggio alle prove di abilità tramite Persuasione, Inganno, Esibizione e Gioco di prestigio.
-Subclass/&AbilityAffinityRogueConArtistTitle	Manipolativo
-Subclass/&MagicAffinityRoguishConArtistDC0Description	La CD dei tuoi incantesimi aumenta di 0.
-Subclass/&MagicAffinityRoguishConArtistDC1Description	La CD dei tuoi incantesimi aumenta di 1.
-Subclass/&MagicAffinityRoguishConArtistDC2Description	La CD dei tuoi incantesimi aumenta di 2.
-Subclass/&MagicAffinityRoguishConArtistDC3Description	La CD dei tuoi incantesimi aumenta di 3.
-Subclass/&MagicAffinityRoguishConArtistDC4Description	La CD dei tuoi incantesimi aumenta di 4.
-Subclass/&MagicAffinityRoguishConArtistDC5Description	La CD dei tuoi incantesimi aumenta di 5.
-Subclass/&MagicAffinityRoguishConArtistDCTitle	Manipolazione migliorata
-Subclass/&RoguishConArtistDescription	I truffatori sono ladri specializzati nell'inganno e nell'inganno. Usano la magia per aiutare le loro naturali capacità manipolative.
-Subclass/&RoguishConArtistFeintConditionDescription	Essere ingannati garantisce vantaggio al prossimo attacco.
-Subclass/&RoguishConArtistFeintConditionTitle	Ingannato
-Subclass/&RoguishConArtistFeintDescription	Ottieni la capacità di finta in combattimento come azione bonus. Se il bersaglio fallisce il tiro salvezza, questo garantisce vantaggio al prossimo attacco contro il bersaglio.
-Subclass/&RoguishConArtistFeintTitle	Finta
-Subclass/&RoguishConArtistMentalSavingThrowsDescription	Acquisisci competenza nei tiri salvezza di Saggezza e Carisma.
-Subclass/&RoguishConArtistMentalSavingThrowsTitle	Forza mentale
-Subclass/&RoguishConArtistSpellcastingDescription	Lancia incantesimi e trucchetti da Mago dalle scuole di Evocazione, Incantesimo, Illusione e Trasmutazione. L'artista della truffa usa il carisma per lanciare i suoi incantesimi.
-Subclass/&RoguishConArtistSpellcastingTitle	Incantesimi
-Subclass/&RoguishConArtistTitle	Artista della truffa
+Subclass/&AbilityAffinityRogueConArtistDescription=Vantaggio alle prove di abilità tramite Persuasione, Inganno, Esibizione e Gioco di prestigio.
+Subclass/&AbilityAffinityRogueConArtistTitle=Manipolativo
+Subclass/&MagicAffinityRoguishConArtistDC0Description=La CD dei tuoi incantesimi aumenta di 0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description=La CD dei tuoi incantesimi aumenta di 1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description=La CD dei tuoi incantesimi aumenta di 2.
+Subclass/&MagicAffinityRoguishConArtistDC3Description=La CD dei tuoi incantesimi aumenta di 3.
+Subclass/&MagicAffinityRoguishConArtistDC4Description=La CD dei tuoi incantesimi aumenta di 4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description=La CD dei tuoi incantesimi aumenta di 5.
+Subclass/&MagicAffinityRoguishConArtistDCTitle=Manipolazione migliorata
+Subclass/&RoguishConArtistDescription=I truffatori sono ladri specializzati nell'inganno e nell'inganno. Usano la magia per aiutare le loro naturali capacità manipolative.
+Subclass/&RoguishConArtistFeintConditionDescription=Essere ingannati garantisce vantaggio al prossimo attacco.
+Subclass/&RoguishConArtistFeintConditionTitle=Ingannato
+Subclass/&RoguishConArtistFeintDescription=Ottieni la capacità di finta in combattimento come azione bonus. Se il bersaglio fallisce il tiro salvezza, questo garantisce vantaggio al prossimo attacco contro il bersaglio.
+Subclass/&RoguishConArtistFeintTitle=Finta
+Subclass/&RoguishConArtistMentalSavingThrowsDescription=Acquisisci competenza nei tiri salvezza di Saggezza e Carisma.
+Subclass/&RoguishConArtistMentalSavingThrowsTitle=Forza mentale
+Subclass/&RoguishConArtistSpellcastingDescription=Lancia incantesimi e trucchetti da Mago dalle scuole di Evocazione, Incantesimo, Illusione e Trasmutazione. L'artista della truffa usa il carisma per lanciare i suoi incantesimi.
+Subclass/&RoguishConArtistSpellcastingTitle=Incantesimi
+Subclass/&RoguishConArtistTitle=Artista della truffa

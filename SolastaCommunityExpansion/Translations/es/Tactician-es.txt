@@ -1,22 +1,22 @@
-Feature/&CounterStrikePowerDescription	Gasta un dado de gambito y contraataca al enemigo, si aciertas, inflige 1d6+2 de daño contundente adicional.
-Feature/&CounterStrikePowerTitle	contraataque
-Feature/&GambitResourcePoolAddDescription	Añade un dado de gambito adicional.
-Feature/&GambitResourcePoolAddTitle	Dado Gambito adicional
-Feature/&GambitResourcePoolDescription	Reserva de dados de gambito que se puede gastar en gambitos. Comienza con 4 que se recargan en un breve descanso.
-Feature/&GambitResourcePoolTitle	Piscina de dados de gambito
-Feature/&InspirePowerDescription	Gasta un dado de gambito e inspírate a ti mismo o a tu aliado para dar 1d6 + 2 hp temporales.
-Feature/&InspirePowerTitle	Inspirar
-Feature/&KnockDownPowerDescription	Gasta un dado de gambito y potencia tu ataque para hacer 1d6 + 2 de daño contundente adicional. El objetivo realiza una salvación de Fuerza (CD 8 + tu bonificador de competencia + tu modificador de Fuerza) o es derribado hasta el comienzo de su siguiente turno.
-Feature/&KnockDownPowerTitle	Noquear
-Reaction/&SpendPowerCounterStrikePowerDescription	Gasta un dado de gambito y contraataca al enemigo, si aciertas, inflige 1d6+2 de daño contundente adicional.
-Reaction/&SpendPowerCounterStrikePowerReactDescription	Gasta un dado de gambito y contraataca al enemigo, si aciertas, inflige 1d6+2 de daño contundente adicional.
-Reaction/&SpendPowerCounterStrikePowerReactTitle	contraataque
-Reaction/&SpendPowerCounterStrikePowerTitle	contraataque
-Reaction/&SpendPowerInspirePowerDescription	Gasta un dado de gambito e inspira a tu aliado, dándole 1d6 + 2 PS temporales.
-Reaction/&SpendPowerInspirePowerTitle	Inspirar
-Reaction/&SpendPowerKnockDownPowerDescription	Gasta un dado de gambito y potencia tu ataque para hacer 1d6 + 2 de daño contundente adicional. El objetivo realiza una salvación de Fuerza (CD 8 + tu bonificador de competencia + tu modificador de Fuerza) o es derribado hasta el comienzo de su siguiente turno.
-Reaction/&SpendPowerKnockDownPowerReactDescription	Gasta un dado de gambito y potencia tu ataque para hacer 1d6 + 2 de daño contundente adicional. El objetivo realiza una salvación de Fuerza (CD 8 + tu bonificador de competencia + tu modificador de Fuerza) o es derribado hasta el comienzo de su siguiente turno.
-Reaction/&SpendPowerKnockDownPowerReactTitle	Noquear
-Reaction/&SpendPowerKnockDownPowerTitle	Noquear
-Subclass/&TactitionFighterSubclassDescription	El táctico usa su conocimiento y poder en el campo de batalla para realizar diferentes tácticas según sea necesario. Pueden derribar enemigos, inspirar a sus aliados y realizar contraataques mortales contra sus enemigos.
-Subclass/&TactitionFighterSubclassTitle	el táctico
+Feature/&CounterStrikePowerDescription=Gasta un dado de gambito y contraataca al enemigo, si aciertas, inflige 1d6+2 de daño contundente adicional.
+Feature/&CounterStrikePowerTitle=contraataque
+Feature/&GambitResourcePoolAddDescription=Añade un dado de gambito adicional.
+Feature/&GambitResourcePoolAddTitle=Dado Gambito adicional
+Feature/&GambitResourcePoolDescription=Reserva de dados de gambito que se puede gastar en gambitos. Comienza con 4 que se recargan en un breve descanso.
+Feature/&GambitResourcePoolTitle=Piscina de dados de gambito
+Feature/&InspirePowerDescription=Gasta un dado de gambito e inspírate a ti mismo o a tu aliado para dar 1d6 + 2 hp temporales.
+Feature/&InspirePowerTitle=Inspirar
+Feature/&KnockDownPowerDescription=Gasta un dado de gambito y potencia tu ataque para hacer 1d6 + 2 de daño contundente adicional. El objetivo realiza una salvación de Fuerza (CD 8 + tu bonificador de competencia + tu modificador de Fuerza) o es derribado hasta el comienzo de su siguiente turno.
+Feature/&KnockDownPowerTitle=Noquear
+Reaction/&SpendPowerCounterStrikePowerDescription=Gasta un dado de gambito y contraataca al enemigo, si aciertas, inflige 1d6+2 de daño contundente adicional.
+Reaction/&SpendPowerCounterStrikePowerReactDescription=Gasta un dado de gambito y contraataca al enemigo, si aciertas, inflige 1d6+2 de daño contundente adicional.
+Reaction/&SpendPowerCounterStrikePowerReactTitle=contraataque
+Reaction/&SpendPowerCounterStrikePowerTitle=contraataque
+Reaction/&SpendPowerInspirePowerDescription=Gasta un dado de gambito e inspira a tu aliado, dándole 1d6 + 2 PS temporales.
+Reaction/&SpendPowerInspirePowerTitle=Inspirar
+Reaction/&SpendPowerKnockDownPowerDescription=Gasta un dado de gambito y potencia tu ataque para hacer 1d6 + 2 de daño contundente adicional. El objetivo realiza una salvación de Fuerza (CD 8 + tu bonificador de competencia + tu modificador de Fuerza) o es derribado hasta el comienzo de su siguiente turno.
+Reaction/&SpendPowerKnockDownPowerReactDescription=Gasta un dado de gambito y potencia tu ataque para hacer 1d6 + 2 de daño contundente adicional. El objetivo realiza una salvación de Fuerza (CD 8 + tu bonificador de competencia + tu modificador de Fuerza) o es derribado hasta el comienzo de su siguiente turno.
+Reaction/&SpendPowerKnockDownPowerReactTitle=Noquear
+Reaction/&SpendPowerKnockDownPowerTitle=Noquear
+Subclass/&TactitionFighterSubclassDescription=El táctico usa su conocimiento y poder en el campo de batalla para realizar diferentes tácticas según sea necesario. Pueden derribar enemigos, inspirar a sus aliados y realizar contraataques mortales contra sus enemigos.
+Subclass/&TactitionFighterSubclassTitle=el táctico

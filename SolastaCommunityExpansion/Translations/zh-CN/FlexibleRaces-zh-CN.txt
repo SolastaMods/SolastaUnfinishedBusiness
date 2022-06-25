@@ -1,24 +1,24 @@
-FlexibleRaces/&PointPoolAbilityScore3Description	在你选择的任何3个属性值上获得提升
-FlexibleRaces/&PointPoolAbilityScore3Title	属性值提升
-FlexibleRaces/&PointPoolAbilityScore4Description	在你选择的任何4个属性值上获得提升
-FlexibleRaces/&PointPoolAbilityScore4Title	属性值提升
-Race/&PointPoolSelect10FeatsDescription	为你的角色选择10个额外专长
-Race/&PointPoolSelect10FeatsTitle	10额外专长
-Race/&PointPoolSelect11FeatsDescription	为你的角色选择11个额外专长
-Race/&PointPoolSelect11FeatsTitle	11额外专长
-Race/&PointPoolSelect2FeatsDescription	为你的角色选择2个额外专长
-Race/&PointPoolSelect2FeatsTitle	2额外专长
-Race/&PointPoolSelect3FeatsDescription	为你的角色选择3个额外专长
-Race/&PointPoolSelect3FeatsTitle	3额外专长
-Race/&PointPoolSelect4FeatsDescription	为你的角色选择4个额外专长
-Race/&PointPoolSelect4FeatsTitle	4额外专长
-Race/&PointPoolSelect5FeatsDescription	为你的角色选择5个额外专长
-Race/&PointPoolSelect5FeatsTitle	5额外专长
-Race/&PointPoolSelect6FeatsDescription	为你的角色选择6个额外专长
-Race/&PointPoolSelect6FeatsTitle	6额外专长
-Race/&PointPoolSelect7FeatsDescription	为你的角色选择7个额外专长
-Race/&PointPoolSelect7FeatsTitle	7额外专长
-Race/&PointPoolSelect8FeatsDescription	为你的角色选择8个额外专长
-Race/&PointPoolSelect8FeatsTitle	8额外专长
-Race/&PointPoolSelect9FeatsDescription	为你的角色选择9个额外专长
-Race/&PointPoolSelect9FeatsTitle	9额外专长
+FlexibleRaces/&PointPoolAbilityScore3Description=在你选择的任何3个属性值上获得提升
+FlexibleRaces/&PointPoolAbilityScore3Title=属性值提升
+FlexibleRaces/&PointPoolAbilityScore4Description=在你选择的任何4个属性值上获得提升
+FlexibleRaces/&PointPoolAbilityScore4Title=属性值提升
+Race/&PointPoolSelect10FeatsDescription=为你的角色选择10个额外专长
+Race/&PointPoolSelect10FeatsTitle=10额外专长
+Race/&PointPoolSelect11FeatsDescription=为你的角色选择11个额外专长
+Race/&PointPoolSelect11FeatsTitle=11额外专长
+Race/&PointPoolSelect2FeatsDescription=为你的角色选择2个额外专长
+Race/&PointPoolSelect2FeatsTitle=2额外专长
+Race/&PointPoolSelect3FeatsDescription=为你的角色选择3个额外专长
+Race/&PointPoolSelect3FeatsTitle=3额外专长
+Race/&PointPoolSelect4FeatsDescription=为你的角色选择4个额外专长
+Race/&PointPoolSelect4FeatsTitle=4额外专长
+Race/&PointPoolSelect5FeatsDescription=为你的角色选择5个额外专长
+Race/&PointPoolSelect5FeatsTitle=5额外专长
+Race/&PointPoolSelect6FeatsDescription=为你的角色选择6个额外专长
+Race/&PointPoolSelect6FeatsTitle=6额外专长
+Race/&PointPoolSelect7FeatsDescription=为你的角色选择7个额外专长
+Race/&PointPoolSelect7FeatsTitle=7额外专长
+Race/&PointPoolSelect8FeatsDescription=为你的角色选择8个额外专长
+Race/&PointPoolSelect8FeatsTitle=8额外专长
+Race/&PointPoolSelect9FeatsDescription=为你的角色选择9个额外专长
+Race/&PointPoolSelect9FeatsTitle=9额外专长

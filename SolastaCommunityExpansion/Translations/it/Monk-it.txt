@@ -1,172 +1,172 @@
-Class/&ClassMonkDescription	I monaci sono uniti nella loro capacità di sfruttare magicamente l'energia che scorre nei loro corpi. Che sia incanalata come una sorprendente dimostrazione di abilità in combattimento o un focus più sottile di abilità e velocità difensive, questa energia infonde tutto ciò che fa un Mistico.
-Class/&ClassMonkTitle	Monaco
-Condition/&ClassMonkEmptyBodyConditionDescription	Hai resistenza a tutti i danni tranne la forza.
-Condition/&ClassMonkEmptyBodyConditionTitle	Corpo vuoto
-Condition/&ClassMonkOpenHandDistractConditionDescription	Non è possibile utilizzare le reazioni.
-Condition/&ClassMonkOpenHandDistractConditionTitle	Distratto
-Condition/&ClassMonkStepOfTheWindConditionDescription	Puoi eseguire l'azione Disimpegno o Scattare come azione bonus e la tua distanza di salto viene raddoppiata per il turno.
-Condition/&ClassMonkStepOfTheWindConditionTitle	Passo Del Vento
-Condition/&ClassMonkTanquilityConditionDescription	Hai vantaggio sui tiri salvezza contro incantesimi e nemici hanno svantaggio che ti attaccano. Rimosso quando effettui un attacco o lanci un incantesimo.
-Condition/&ClassMonkTanquilityConditionTitle	La tranquillità
-Condition/&ClassMonkZenArrowDistractConditionDescription	Ha svantaggio al prossimo attacco.
-Condition/&ClassMonkZenArrowDistractConditionTitle	Distratto
-Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Ha svantaggio su tutti gli attacchi.
-Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distratto
-Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Il movimento è impostato su 0.
-Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Appuntato
-Feature/&ClassMonkDeflectMissileDescription	Puoi usare la tua reazione per deviare il missile quando vieni colpito da un attacco con un'arma a distanza. Quando lo fai, il danno che subisci dall'attacco viene ridotto di 1d10 + il tuo modificatore di Destrezza + il tuo livello da Monaco.
-Feature/&ClassMonkDeflectMissileTitle	Deviare i missili
-Feature/&ClassMonkDiamondSoulDescription	La tua padronanza del ki ti garantisce la competenza in tutti i tiri salvezza.\nInoltre, ogni volta che effettui un tiro salvezza e fallisci, puoi spendere 1 punto ki per ritirarlo e prendere il secondo risultato.
-Feature/&ClassMonkDiamondSoulTitle	Anima di diamante
-Feature/&ClassMonkExtraAttackDescription	Puoi attaccare due volte, invece di una volta, ogni volta che effettui l'azione Attacco nel tuo turno.
-Feature/&ClassMonkExtraAttackTitle	Attacco extra
-Feature/&ClassMonkKiDescription	Il tuo allenamento ti permette di sfruttare l'energia mistica del ki. Guadagni punti ki pari al tuo livello da Monaco. Quando spendi un punto ki, non è disponibile finché non finisci un riposo breve o lungo, al termine del quale attiri tutto il tuo ki speso in te stesso. Puoi spendere questi punti per alimentare varie funzioni ki. Inizi a conoscere tre di queste caratteristiche:
-Feature/&ClassMonkKiEmpoweredStrikesDescription	I tuoi colpi senz'armi contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici.
-Feature/&ClassMonkKiEmpoweredStrikesTitle	Colpi potenziati dal Ki
-Feature/&ClassMonkKiTitle	Ki
-Feature/&ClassMonkMartialArtsDescription	Ottieni i seguenti vantaggi mentre sei disarmato o brandisci solo armi da monaco e non indossi armature o maneggia uno scudo:\n• Puoi usare Destrezza invece di Forza per i tiri per colpire e per i danni dei tuoi colpi senz'armi e delle armi da Monaco.\n• Puoi tirare un d4 al posto del normale danno del tuo colpo senz'armi o dell'arma del Monaco. Questo dado cambia man mano che guadagni livelli da Monaco.\n• Quando utilizzi l'azione Attacco con un colpo senz'armi o un'arma da Monaco nel tuo turno, puoi effettuare un colpo senz'armi come azione bonus.
-Feature/&ClassMonkMartialArtsTitle	Arti marziali
-Feature/&ClassMonkMartialDiceProgression00Description	Puoi tirare <color=#57BCF4>d6</color> al posto del normale danno del tuo colpo senz'armi o dell'arma del Monaco.
-Feature/&ClassMonkMartialDiceProgression00Title	Aumento del dado per arti marziali (d6)
-Feature/&ClassMonkMartialDiceProgression01Description	Puoi tirare <color=#57BCF4>d8</color> al posto del normale danno del tuo colpo senz'armi o dell'arma del Monaco.
-Feature/&ClassMonkMartialDiceProgression01Title	Aumento del dado per arti marziali (d8)
-Feature/&ClassMonkMartialDiceProgression02Description	Puoi tirare <color=#57BCF4>d10</color> al posto del normale danno del tuo colpo senz'armi o dell'arma del Monaco.
-Feature/&ClassMonkMartialDiceProgression02Title	Aumento del dado per arti marziali (d10)
-Feature/&ClassMonkPerfectSelfDescription	Quando inizi la battaglia e non hai punti ki rimanenti, recuperi 4 punti ki.
-Feature/&ClassMonkPerfectSelfTitle	Sé perfetto
-Feature/&ClassMonkPurityOfBodyDescription	La tua padronanza del ki che scorre attraverso di te ti rende immune alle malattie e ai veleni.
-Feature/&ClassMonkPurityOfBodyTitle	Purezza del corpo
-Feature/&ClassMonkSkillProficiencyTitle	Abilità del monaco
-Feature/&ClassMonkUnarmoredDefenseDescription	Mentre non indossi un'armatura e non brandisci uno scudo, la tua CA è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Saggezza.
-Feature/&ClassMonkUnarmoredDefenseTitle	Difesa senza armatura
-Feature/&ClassMonkUnarmoredMovementBonusDescription	Il bonus di movimento aumenta di 1,5 metri.
-Feature/&ClassMonkUnarmoredMovementBonusTitle	Miglioramento del movimento senza armatura
-Feature/&ClassMonkUnarmoredMovementDescription	La tua velocità aumenta di 3 metri quando non indossi un'armatura o maneggia uno scudo. Questo bonus aumenta quando raggiungi determinati livelli di Monaco.
-Feature/&ClassMonkUnarmoredMovementTitle	Movimento senza armatura
-Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Mentre sei disarmato e non brandisci uno scudo puoi muoverti sui muri come un ragno. L'abilità viene temporaneamente persa se esegui qualsiasi azione che non sia movimento, o quando non è il tuo turno in combattimento.
-Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Movimento senza armatura: Arrampicata
-Feature/&ClassMonkWeaponProficiencyTitle	Competenze nelle armi del monaco
-Feature/&ClassMonkZenArcherCombatDescription	Ottieni competenza con gli archi e sono considerati armi da monaco per te.\nNon ottieni svantaggio quando effettui un attacco a distanza con un'arma da Monaco mentre ti trovi a 5 piedi da un nemico, a condizione che tu non indossi armatura o scudo.
-Feature/&ClassMonkZenArcherCombatTitle	Combattimento a distanza di mani
-Feature/&ClassMonkZenArcherKiPoweredArowsDescription	I tuoi attacchi con l'arco contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici.
-Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Frecce potenziate dal Ki
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Puoi interferire con il flusso di ki nel corpo di un avversario. Quando colpisci un'altra creatura che non è stordita con un attacco di freccia, puoi spendere 1 punto ki per tentare un colpo stordente. Il bersaglio deve superare un tiro salvezza di Costituzione o rimanere stordito fino alla fine del tuo prossimo turno.
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Frecce mozzafiato
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Colpo Illuminante!
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Colpo Illuminante infligge danni extra al bersaglio!
-Power/&ClassMonkDiamondSoulPowerDescription	Ogni volta che effettui un tiro salvezza e fallisci, puoi spendere 1 punto ki per ritirarlo e prendere il secondo risultato.
-Power/&ClassMonkDiamondSoulPowerTitle	Anima di diamante
-Power/&ClassMonkEmptyBodyDescription	Puoi usare la tua azione per spendere 4 punti ki per diventare invisibile per 1 minuto. Durante quel periodo, hai anche resistenza a tutti i danni tranne quelli forzati.
-Power/&ClassMonkEmptyBodyTitle	Corpo vuoto
-Power/&ClassMonkFlurryOfBlowsDescription	Dopo aver speso la tua azione per attaccare con l'arma del Monaco, puoi spendere 1 punto ki come azione bonus per effettuare 2 colpi senz'armi. Disponibile solo se non indossi un'armatura o maneggia uno scudo.
-Power/&ClassMonkFlurryOfBlowsTitle	Raffica di colpi
-Power/&ClassMonkKiPoolDescription	Puoi sfruttare l'energia mistica del ki. Il tuo accesso a questa energia è rappresentato da un numero di punti ki. L'importo massimo è uguale al tuo livello di Monaco. Tutti i punti spesi vengono recuperati durante il riposo breve o lungo. Puoi spendere questi punti per alimentare varie funzioni ki.
-Power/&ClassMonkKiPoolTitle	Punti Ki
-Power/&ClassMonkKiStillnessOfMindDescription	Puoi usare la tua azione per porre fine a un effetto su te stesso che ti sta facendo ammaliare o spaventare.
-Power/&ClassMonkKiStillnessOfMindTitle	La quiete della mente
-Power/&ClassMonkOpenHandDistractDescription	Il bersaglio non può ricevere reazioni fino alla fine del tuo prossimo turno.
-Power/&ClassMonkOpenHandDistractTitle	Distrarre
-Power/&ClassMonkOpenHandProneDescription	Il bersaglio deve superare il tiro salvezza di Destrezza o cadere prono.
-Power/&ClassMonkOpenHandProneTitle	Stendere
-Power/&ClassMonkOpenHandPushDescription	Il bersaglio deve superare il tiro salvezza di Forza o essere spinto a 4,5 metri da te.
-Power/&ClassMonkOpenHandPushTitle	Spingere via
-Power/&ClassMonkOpenHandTechniqueDescription	Puoi manipolare il ki del tuo nemico quando imbriglia il tuo. Ogni volta che colpisci una creatura con uno degli attacchi concessi dalla tua Raffica di Colpi, puoi imporre uno dei seguenti effetti su quel bersaglio:\n• Deve superare un tiro salvezza di Destrezza o cadere prono.\n• Deve effettuare un tiro salvezza di Forza. Se fallisce, puoi spingerlo fino a 15 piedi di distanza da te.\n• Non può richiedere reazioni fino alla fine del tuo prossimo turno.
-Power/&ClassMonkOpenHandTechniqueTitle	Tecnica a mano aperta
-Power/&ClassMonkPatientDefenseDescription	Puoi spendere 1 punto ki come azione bonus per eseguire l'azione Schivare. Disponibile solo se non indossi armatura o scudo.
-Power/&ClassMonkPatientDefenseTitle	Difesa del paziente
-Power/&ClassMonkQuiveringPalmDescription	Quando colpisci una creatura con un colpo senz'armi, puoi spendere 3 punti ki per attivare vibrazioni impercettibili che costringono la creatura a effettuare un tiro salvezza di Costituzione. Se fallisce, si riduce a 0 punti ferita. Se riesce, subisce 10d10 danni necrotici.
-Power/&ClassMonkQuiveringPalmTitle	Palma tremante
-Power/&ClassMonkSlowFallDescription	Puoi usare la tua reazione quando cadi per evitare danni da caduta.
-Power/&ClassMonkSlowFallTitle	Lenta caduta
-Power/&ClassMonkStepOfTheWindDescription	Puoi spendere 1 punto ki per effettuare l'azione Disimpegno o Scattare come azione bonus nel tuo turno e la tua distanza di salto viene raddoppiata per il turno. Disponibile solo se non indossi armatura o scudo.
-Power/&ClassMonkStepOfTheWindTitle	Passo Del Vento
-Power/&ClassMonkStunningStrikeDescription	Puoi interferire con il flusso di ki nel corpo di un avversario. Quando colpisci un'altra creatura che non è stordita con un attacco con un'arma da mischia, puoi spendere 1 punto ki per tentare un colpo stordente. Il bersaglio deve superare un tiro salvezza di Costituzione o rimanere stordito fino alla fine del tuo prossimo turno.
-Power/&ClassMonkStunningStrikeTitle	Colpo sbalorditivo
-Power/&ClassMonkTanquilityDescription	Una volta per breve riposo come azione gratuita puoi entrare in uno stato di tranquillità, calmando le tue emozioni e concentrandoti su ciò che ti circonda. Mentre sei in questo stato ottieni vantaggio ai tiri salvezza contro incantesimi e i nemici subiscono uno svantaggio quando ti attaccano. La tranquillità dura fino al prossimo riposo o finché non attacchi o lanci un incantesimo.
-Power/&ClassMonkTanquilityTitle	La tranquillità
-Power/&ClassMonkWholenessOfBodyDescription	Come azione, puoi recuperare punti ferita pari a tre volte il tuo livello da Mistico. È necessario terminare un lungo riposo prima di poter utilizzare nuovamente questa funzione.
-Power/&ClassMonkWholenessOfBodyTitle	Interezza del corpo
-Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Dopo aver speso l'azione per attaccare con l'arma del Monaco, puoi spendere 2 punti ki come azione bonus per eseguire 2 attacchi con l'arma a distanza con un arco. Disponibile solo se non indossi armatura o scudo.
-Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Raffica di frecce
-Power/&ClassMonkZenArrowDistractDescription	Il bersaglio deve superare il tiro salvezza di Saggezza o avere svantaggio all'attacco successivo fino alla fine del suo turno successivo.
-Power/&ClassMonkZenArrowDistractTitle	Distrarre
-Power/&ClassMonkZenArrowProneDescription	Il bersaglio deve superare il tiro salvezza di Destrezza o cadere prono.
-Power/&ClassMonkZenArrowProneTitle	Stendere
-Power/&ClassMonkZenArrowPushDescription	Il bersaglio deve superare il tiro salvezza di Forza o essere spinto a 3 metri da te.
-Power/&ClassMonkZenArrowPushTitle	Spingere via
-Power/&ClassMonkZenArrowTechniqueDescription	Puoi manipolare il ki del tuo nemico quando lo colpisci con le tue frecce. Ogni volta che colpisci una creatura con una delle tue frecce puoi spendere 1 ki per imporre uno dei seguenti effetti su quel bersaglio:\n• Deve superare un tiro salvezza di Destrezza o cadere prono.\n• Deve superare il tiro salvezza di Forza o essere spinto a 3 metri da te.\n• Deve superare un tiro salvezza su Saggezza o avere svantaggio all'attacco successivo fino alla fine del suo turno successivo.
-Power/&ClassMonkZenArrowTechniqueShortTitle	Mano lontana
-Power/&ClassMonkZenArrowTechniqueTitle	Tecnica della mano a distanza
-Power/&ClassMonkZenArrowUpgradedDistractDescription	Il bersaglio deve superare un tiro salvezza su Saggezza o avere svantaggio su tutti gli attacchi fino alla fine del suo turno successivo.
-Power/&ClassMonkZenArrowUpgradedDistractTitle	Distrarre
-Power/&ClassMonkZenArrowUpgradedProneDescription	Il bersaglio deve superare un tiro salvezza di Destrezza o essere buttato a terra prono e avere il suo movimento impostato a zero per un turno.
-Power/&ClassMonkZenArrowUpgradedProneTitle	Stendere
-Power/&ClassMonkZenArrowUpgradedPushDescription	Il bersaglio deve superare un tiro salvezza di Forza o essere spinto a 20 piedi da te.
-Power/&ClassMonkZenArrowUpgradedPushTitle	Spingere via
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Migliora la tua capacità di manipolare il ki. Tutti gli effetti della Tecnica della mano a distanza sono migliorati. Ogni volta che colpisci una creatura con una delle tue frecce puoi spendere 1 ki per imporre uno dei seguenti effetti su quel bersaglio:\n• Deve riuscire un tiro salvezza di Destrezza o essere buttato a terra prono e avere il suo movimento azzerato per un turno.\n• Deve riuscire il tiro salvezza di Forza o essere spinto a 20 piedi da te.\n• Deve superare un tiro salvezza su Saggezza o avere svantaggio su tutti gli attacchi fino alla fine del suo turno successivo.
-Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Mano lontana
-Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Tecnica della mano a distanza migliorata
-Reaction/&CustomDeflectMissileMonkTitle	{0} sta attaccando {1}, che può reagire per ridurre il danno in arrivo di 1d10 + modificatore di destrezza + livello del monaco
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} colpisce una creatura con uno degli attacchi concessi da Raffica di Colpi e può imporre uno dei seguenti effetti su quel bersaglio:
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Applicare la tecnica selezionata.
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Applicare
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Tecnica a mano aperta
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} colpisce una creatura con una freccia e può imporre uno dei seguenti effetti su quel bersaglio:
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Applicare la tecnica selezionata.
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Applicare
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Tecnica della mano a distanza
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} colpisce una creatura con una freccia e può imporre uno dei seguenti effetti su quel bersaglio:
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Applicare la tecnica selezionata.
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Applicare
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Tecnica della mano a distanza
-Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} ha colpito l'avversario con un attacco senz'armi e può spendere 3 punti ki per tentare di ucciderlo.
-Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spendi ki per tentare di uccidere l'avversario.
-Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Spendi ki
-Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Palma tremante
-Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} ha colpito l'avversario e può spendere 1 punto ki per tentare di stordire.
-Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Spendi ki per tentare di stordire l'avversario.
-Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Spendi ki
-Reaction/&SpendPowerClassMonkStunningStrikeTitle	Colpo sbalorditivo
-Reaction/&SpendPowerDiamondSoulDescription	{0} ha fallito un salvataggio e può spendere 1 ki per ritirarlo.
-Reaction/&SpendPowerDiamondSoulReactDescription	Spendi ki per ripetere il salvataggio fallito.
-Reaction/&SpendPowerDiamondSoulReactTitle	Rilancia
-Reaction/&SpendPowerDiamondSoulTitle	Anima di diamante
-Reaction/&UseClassMonkSlowFallDescription	{0} sta cadendo e può usare una reazione per non subire danni da caduta.
-Reaction/&UseClassMonkSlowFallReactDescription	Usa la reazione per non subire danni da caduta.
-Reaction/&UseClassMonkSlowFallReactTitle	Reagire
-Reaction/&UseClassMonkSlowFallTitle	Lenta caduta
-Stage/&SubclassSelectionStageClassMonkTraditionDescription	Questa fase seleziona la tradizione monastica del personaggio.
-Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Caratteristiche della tradizione monastica
-Stage/&SubclassSelectionStageClassMonkTraditionHeader	Seleziona una tradizione monastica
-Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Devi selezionare una tradizione monastica.
-Stage/&SubclassSelectionStageClassMonkTraditionTitle	monastico\nTradizione
-Subclass/&BarbarianPathOfTheLightDescription	I barbari che seguono il Sentiero della Luce illuminano l'oscurità e proteggono i loro alleati dai pericoli che si annidano al suo interno.
-Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	Sei sempre sotto gli effetti di un incantesimo Vedere Invisibilità.
-Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Occhi di verità
-Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distratto da Colpo Illuminante.
-Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Illuminato
-Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Svantaggio su qualsiasi tiro per colpire che non sia contro il barbaro Sentiero della Luce.
-Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Non può diventare invisibile.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	Nel turno in cui entri nella tua rabbia, puoi scegliere di illuminare fino a tre nemici entro 9 metri da te. Devono superare un tiro salvezza di Costituzione (CD pari a 8 + il tuo bonus di competenza + il tuo modificatore di Costituzione) o subire 4d6 danni radianti ed essere illuminati dal tuo Colpo Illuminante per 1 minuto. Una creatura illuminata in questo modo effettua un altro tiro salvezza di Costituzione alla fine di ogni suo turno. Se riesce, l'effetto termina.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Fino a tre nemici effettuano un tiro salvezza su Costituzione o subiscono 4d6 danni radianti e vengono illuminati dal tuo Colpo Illuminante.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Esplosione illuminante
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Esplosione illuminante
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	Mentre sei in collera, la prima creatura che colpisci con un attacco nel tuo turno subisce 1d6 danni radianti aggiuntivi e diventa magicamente illuminata fino all'inizio del tuo prossimo turno. Inoltre, la creatura ha svantaggio su qualsiasi tiro per colpire che non è contro di te e non può diventare invisibile.
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	Il danno aggiuntivo inflitto da Colpo Illuminante aumenta a 2d6.
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Miglioramento Colpo Illuminante
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Colpo Illuminante
-Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Recuperi punti ferita pari alla metà del tuo livello da barbaro quando una creatura ostile influenzata dal tuo Colpo Illuminante muore. Inoltre, non provochi più attacchi di opportunità dalle creature influenzate dal tuo Colpo Illuminante.
-Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	La protezione della luce
-Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Ottieni una scurovisione superiore.
-Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Perfora l'oscurità
-Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Può percepire creature invisibili.
-Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Vista dell'invisibilità
-Subclass/&BarbarianPathOfTheLightTitle	Via della Luce
-Subclass/&ClassMonkTraditionDescription	Al 3° livello, scegli la via spirituale che segui verso l'illuminazione. Darà forma al modo in cui manipoli il ki.
-Subclass/&ClassMonkTraditionTitle	Tradizioni monastiche
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	I monaci della Via della Mano Aperta sono i massimi maestri del combattimento di arti marziali, armati o disarmati. Imparano le tecniche per spingere e inciampare i loro avversari, manipolare il ki per curare i danni ai loro corpi e praticano la meditazione avanzata che può proteggerli dai danni.
-Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Via della Mano Aperta
-Subclass/&ClassMonkTraditionZenArcherDescription	I praticanti della Via della Mano Lontana si allenano a fare delle frecce un'estensione delle loro mani. Sono abili nell'uso degli archi e nel fornire effetti potenziati dal ki attraverso le frecce.
-Subclass/&ClassMonkTraditionZenArcherTitle	Via della mano lontana
-Tooltip/&CustomPortraitPoolClassMonkKiPool	Puoi sfruttare l'energia mistica del ki. Il tuo accesso a questa energia è rappresentato da un numero di punti ki. L'importo massimo è uguale al tuo livello di Monaco. Tutti i punti spesi vengono recuperati durante il riposo breve o lungo. Puoi spendere questi punti per alimentare varie funzioni ki
-Tooltip/&TagMonkWeaponTitle	Monaco
+Class/&ClassMonkDescription=I monaci sono uniti nella loro capacità di sfruttare magicamente l'energia che scorre nei loro corpi. Che sia incanalata come una sorprendente dimostrazione di abilità in combattimento o un focus più sottile di abilità e velocità difensive, questa energia infonde tutto ciò che fa un Mistico.
+Class/&ClassMonkTitle=Monaco
+Condition/&ClassMonkEmptyBodyConditionDescription=Hai resistenza a tutti i danni tranne la forza.
+Condition/&ClassMonkEmptyBodyConditionTitle=Corpo vuoto
+Condition/&ClassMonkOpenHandDistractConditionDescription=Non è possibile utilizzare le reazioni.
+Condition/&ClassMonkOpenHandDistractConditionTitle=Distratto
+Condition/&ClassMonkStepOfTheWindConditionDescription=Puoi eseguire l'azione Disimpegno o Scattare come azione bonus e la tua distanza di salto viene raddoppiata per il turno.
+Condition/&ClassMonkStepOfTheWindConditionTitle=Passo Del Vento
+Condition/&ClassMonkTanquilityConditionDescription=Hai vantaggio sui tiri salvezza contro incantesimi e nemici hanno svantaggio che ti attaccano. Rimosso quando effettui un attacco o lanci un incantesimo.
+Condition/&ClassMonkTanquilityConditionTitle=La tranquillità
+Condition/&ClassMonkZenArrowDistractConditionDescription=Ha svantaggio al prossimo attacco.
+Condition/&ClassMonkZenArrowDistractConditionTitle=Distratto
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription=Ha svantaggio su tutti gli attacchi.
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle=Distratto
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription=Il movimento è impostato su 0.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle=Appuntato
+Feature/&ClassMonkDeflectMissileDescription=Puoi usare la tua reazione per deviare il missile quando vieni colpito da un attacco con un'arma a distanza. Quando lo fai, il danno che subisci dall'attacco viene ridotto di 1d10 + il tuo modificatore di Destrezza + il tuo livello da Monaco.
+Feature/&ClassMonkDeflectMissileTitle=Deviare i missili
+Feature/&ClassMonkDiamondSoulDescription=La tua padronanza del ki ti garantisce la competenza in tutti i tiri salvezza.\nInoltre, ogni volta che effettui un tiro salvezza e fallisci, puoi spendere 1 punto ki per ritirarlo e prendere il secondo risultato.
+Feature/&ClassMonkDiamondSoulTitle=Anima di diamante
+Feature/&ClassMonkExtraAttackDescription=Puoi attaccare due volte, invece di una volta, ogni volta che effettui l'azione Attacco nel tuo turno.
+Feature/&ClassMonkExtraAttackTitle=Attacco extra
+Feature/&ClassMonkKiDescription=Il tuo allenamento ti permette di sfruttare l'energia mistica del ki. Guadagni punti ki pari al tuo livello da Monaco. Quando spendi un punto ki, non è disponibile finché non finisci un riposo breve o lungo, al termine del quale attiri tutto il tuo ki speso in te stesso. Puoi spendere questi punti per alimentare varie funzioni ki. Inizi a conoscere tre di queste caratteristiche:
+Feature/&ClassMonkKiEmpoweredStrikesDescription=I tuoi colpi senz'armi contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici.
+Feature/&ClassMonkKiEmpoweredStrikesTitle=Colpi potenziati dal Ki
+Feature/&ClassMonkKiTitle=Ki
+Feature/&ClassMonkMartialArtsDescription=Ottieni i seguenti vantaggi mentre sei disarmato o brandisci solo armi da monaco e non indossi armature o maneggia uno scudo:\n• Puoi usare Destrezza invece di Forza per i tiri per colpire e per i danni dei tuoi colpi senz'armi e delle armi da Monaco.\n• Puoi tirare un d4 al posto del normale danno del tuo colpo senz'armi o dell'arma del Monaco. Questo dado cambia man mano che guadagni livelli da Monaco.\n• Quando utilizzi l'azione Attacco con un colpo senz'armi o un'arma da Monaco nel tuo turno, puoi effettuare un colpo senz'armi come azione bonus.
+Feature/&ClassMonkMartialArtsTitle=Arti marziali
+Feature/&ClassMonkMartialDiceProgression00Description=Puoi tirare <color=#57BCF4>d6</color> al posto del normale danno del tuo colpo senz'armi o dell'arma del Monaco.
+Feature/&ClassMonkMartialDiceProgression00Title=Aumento del dado per arti marziali (d6)
+Feature/&ClassMonkMartialDiceProgression01Description=Puoi tirare <color=#57BCF4>d8</color> al posto del normale danno del tuo colpo senz'armi o dell'arma del Monaco.
+Feature/&ClassMonkMartialDiceProgression01Title=Aumento del dado per arti marziali (d8)
+Feature/&ClassMonkMartialDiceProgression02Description=Puoi tirare <color=#57BCF4>d10</color> al posto del normale danno del tuo colpo senz'armi o dell'arma del Monaco.
+Feature/&ClassMonkMartialDiceProgression02Title=Aumento del dado per arti marziali (d10)
+Feature/&ClassMonkPerfectSelfDescription=Quando inizi la battaglia e non hai punti ki rimanenti, recuperi 4 punti ki.
+Feature/&ClassMonkPerfectSelfTitle=Sé perfetto
+Feature/&ClassMonkPurityOfBodyDescription=La tua padronanza del ki che scorre attraverso di te ti rende immune alle malattie e ai veleni.
+Feature/&ClassMonkPurityOfBodyTitle=Purezza del corpo
+Feature/&ClassMonkSkillProficiencyTitle=Abilità del monaco
+Feature/&ClassMonkUnarmoredDefenseDescription=Mentre non indossi un'armatura e non brandisci uno scudo, la tua CA è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Saggezza.
+Feature/&ClassMonkUnarmoredDefenseTitle=Difesa senza armatura
+Feature/&ClassMonkUnarmoredMovementBonusDescription=Il bonus di movimento aumenta di 1,5 metri.
+Feature/&ClassMonkUnarmoredMovementBonusTitle=Miglioramento del movimento senza armatura
+Feature/&ClassMonkUnarmoredMovementDescription=La tua velocità aumenta di 3 metri quando non indossi un'armatura o maneggia uno scudo. Questo bonus aumenta quando raggiungi determinati livelli di Monaco.
+Feature/&ClassMonkUnarmoredMovementTitle=Movimento senza armatura
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription=Mentre sei disarmato e non brandisci uno scudo puoi muoverti sui muri come un ragno. L'abilità viene temporaneamente persa se esegui qualsiasi azione che non sia movimento, o quando non è il tuo turno in combattimento.
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle=Movimento senza armatura: Arrampicata
+Feature/&ClassMonkWeaponProficiencyTitle=Competenze nelle armi del monaco
+Feature/&ClassMonkZenArcherCombatDescription=Ottieni competenza con gli archi e sono considerati armi da monaco per te.\nNon ottieni svantaggio quando effettui un attacco a distanza con un'arma da Monaco mentre ti trovi a 5 piedi da un nemico, a condizione che tu non indossi armatura o scudo.
+Feature/&ClassMonkZenArcherCombatTitle=Combattimento a distanza di mani
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription=I tuoi attacchi con l'arco contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle=Frecce potenziate dal Ki
+Feature/&ClassMonkZenArcherStunningArrowsDescription=Puoi interferire con il flusso di ki nel corpo di un avversario. Quando colpisci un'altra creatura che non è stordita con un attacco di freccia, puoi spendere 1 punto ki per tentare un colpo stordente. Il bersaglio deve superare un tiro salvezza di Costituzione o rimanere stordito fino alla fine del tuo prossimo turno.
+Feature/&ClassMonkZenArcherStunningArrowsTitle=Frecce mozzafiato
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat=Colpo Illuminante!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine=Colpo Illuminante infligge danni extra al bersaglio!
+Power/&ClassMonkDiamondSoulPowerDescription=Ogni volta che effettui un tiro salvezza e fallisci, puoi spendere 1 punto ki per ritirarlo e prendere il secondo risultato.
+Power/&ClassMonkDiamondSoulPowerTitle=Anima di diamante
+Power/&ClassMonkEmptyBodyDescription=Puoi usare la tua azione per spendere 4 punti ki per diventare invisibile per 1 minuto. Durante quel periodo, hai anche resistenza a tutti i danni tranne quelli forzati.
+Power/&ClassMonkEmptyBodyTitle=Corpo vuoto
+Power/&ClassMonkFlurryOfBlowsDescription=Dopo aver speso la tua azione per attaccare con l'arma del Monaco, puoi spendere 1 punto ki come azione bonus per effettuare 2 colpi senz'armi. Disponibile solo se non indossi un'armatura o maneggia uno scudo.
+Power/&ClassMonkFlurryOfBlowsTitle=Raffica di colpi
+Power/&ClassMonkKiPoolDescription=Puoi sfruttare l'energia mistica del ki. Il tuo accesso a questa energia è rappresentato da un numero di punti ki. L'importo massimo è uguale al tuo livello di Monaco. Tutti i punti spesi vengono recuperati durante il riposo breve o lungo. Puoi spendere questi punti per alimentare varie funzioni ki.
+Power/&ClassMonkKiPoolTitle=Punti Ki
+Power/&ClassMonkKiStillnessOfMindDescription=Puoi usare la tua azione per porre fine a un effetto su te stesso che ti sta facendo ammaliare o spaventare.
+Power/&ClassMonkKiStillnessOfMindTitle=La quiete della mente
+Power/&ClassMonkOpenHandDistractDescription=Il bersaglio non può ricevere reazioni fino alla fine del tuo prossimo turno.
+Power/&ClassMonkOpenHandDistractTitle=Distrarre
+Power/&ClassMonkOpenHandProneDescription=Il bersaglio deve superare il tiro salvezza di Destrezza o cadere prono.
+Power/&ClassMonkOpenHandProneTitle=Stendere
+Power/&ClassMonkOpenHandPushDescription=Il bersaglio deve superare il tiro salvezza di Forza o essere spinto a 4,5 metri da te.
+Power/&ClassMonkOpenHandPushTitle=Spingere via
+Power/&ClassMonkOpenHandTechniqueDescription=Puoi manipolare il ki del tuo nemico quando imbriglia il tuo. Ogni volta che colpisci una creatura con uno degli attacchi concessi dalla tua Raffica di Colpi, puoi imporre uno dei seguenti effetti su quel bersaglio:\n• Deve superare un tiro salvezza di Destrezza o cadere prono.\n• Deve effettuare un tiro salvezza di Forza. Se fallisce, puoi spingerlo fino a 15 piedi di distanza da te.\n• Non può richiedere reazioni fino alla fine del tuo prossimo turno.
+Power/&ClassMonkOpenHandTechniqueTitle=Tecnica a mano aperta
+Power/&ClassMonkPatientDefenseDescription=Puoi spendere 1 punto ki come azione bonus per eseguire l'azione Schivare. Disponibile solo se non indossi armatura o scudo.
+Power/&ClassMonkPatientDefenseTitle=Difesa del paziente
+Power/&ClassMonkQuiveringPalmDescription=Quando colpisci una creatura con un colpo senz'armi, puoi spendere 3 punti ki per attivare vibrazioni impercettibili che costringono la creatura a effettuare un tiro salvezza di Costituzione. Se fallisce, si riduce a 0 punti ferita. Se riesce, subisce 10d10 danni necrotici.
+Power/&ClassMonkQuiveringPalmTitle=Palma tremante
+Power/&ClassMonkSlowFallDescription=Puoi usare la tua reazione quando cadi per evitare danni da caduta.
+Power/&ClassMonkSlowFallTitle=Lenta caduta
+Power/&ClassMonkStepOfTheWindDescription=Puoi spendere 1 punto ki per effettuare l'azione Disimpegno o Scattare come azione bonus nel tuo turno e la tua distanza di salto viene raddoppiata per il turno. Disponibile solo se non indossi armatura o scudo.
+Power/&ClassMonkStepOfTheWindTitle=Passo Del Vento
+Power/&ClassMonkStunningStrikeDescription=Puoi interferire con il flusso di ki nel corpo di un avversario. Quando colpisci un'altra creatura che non è stordita con un attacco con un'arma da mischia, puoi spendere 1 punto ki per tentare un colpo stordente. Il bersaglio deve superare un tiro salvezza di Costituzione o rimanere stordito fino alla fine del tuo prossimo turno.
+Power/&ClassMonkStunningStrikeTitle=Colpo sbalorditivo
+Power/&ClassMonkTanquilityDescription=Una volta per breve riposo come azione gratuita puoi entrare in uno stato di tranquillità, calmando le tue emozioni e concentrandoti su ciò che ti circonda. Mentre sei in questo stato ottieni vantaggio ai tiri salvezza contro incantesimi e i nemici subiscono uno svantaggio quando ti attaccano. La tranquillità dura fino al prossimo riposo o finché non attacchi o lanci un incantesimo.
+Power/&ClassMonkTanquilityTitle=La tranquillità
+Power/&ClassMonkWholenessOfBodyDescription=Come azione, puoi recuperare punti ferita pari a tre volte il tuo livello da Mistico. È necessario terminare un lungo riposo prima di poter utilizzare nuovamente questa funzione.
+Power/&ClassMonkWholenessOfBodyTitle=Interezza del corpo
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription=Dopo aver speso l'azione per attaccare con l'arma del Monaco, puoi spendere 2 punti ki come azione bonus per eseguire 2 attacchi con l'arma a distanza con un arco. Disponibile solo se non indossi armatura o scudo.
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle=Raffica di frecce
+Power/&ClassMonkZenArrowDistractDescription=Il bersaglio deve superare il tiro salvezza di Saggezza o avere svantaggio all'attacco successivo fino alla fine del suo turno successivo.
+Power/&ClassMonkZenArrowDistractTitle=Distrarre
+Power/&ClassMonkZenArrowProneDescription=Il bersaglio deve superare il tiro salvezza di Destrezza o cadere prono.
+Power/&ClassMonkZenArrowProneTitle=Stendere
+Power/&ClassMonkZenArrowPushDescription=Il bersaglio deve superare il tiro salvezza di Forza o essere spinto a 3 metri da te.
+Power/&ClassMonkZenArrowPushTitle=Spingere via
+Power/&ClassMonkZenArrowTechniqueDescription=Puoi manipolare il ki del tuo nemico quando lo colpisci con le tue frecce. Ogni volta che colpisci una creatura con una delle tue frecce puoi spendere 1 ki per imporre uno dei seguenti effetti su quel bersaglio:\n• Deve superare un tiro salvezza di Destrezza o cadere prono.\n• Deve superare il tiro salvezza di Forza o essere spinto a 3 metri da te.\n• Deve superare un tiro salvezza su Saggezza o avere svantaggio all'attacco successivo fino alla fine del suo turno successivo.
+Power/&ClassMonkZenArrowTechniqueShortTitle=Mano lontana
+Power/&ClassMonkZenArrowTechniqueTitle=Tecnica della mano a distanza
+Power/&ClassMonkZenArrowUpgradedDistractDescription=Il bersaglio deve superare un tiro salvezza su Saggezza o avere svantaggio su tutti gli attacchi fino alla fine del suo turno successivo.
+Power/&ClassMonkZenArrowUpgradedDistractTitle=Distrarre
+Power/&ClassMonkZenArrowUpgradedProneDescription=Il bersaglio deve superare un tiro salvezza di Destrezza o essere buttato a terra prono e avere il suo movimento impostato a zero per un turno.
+Power/&ClassMonkZenArrowUpgradedProneTitle=Stendere
+Power/&ClassMonkZenArrowUpgradedPushDescription=Il bersaglio deve superare un tiro salvezza di Forza o essere spinto a 20 piedi da te.
+Power/&ClassMonkZenArrowUpgradedPushTitle=Spingere via
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription=Migliora la tua capacità di manipolare il ki. Tutti gli effetti della Tecnica della mano a distanza sono migliorati. Ogni volta che colpisci una creatura con una delle tue frecce puoi spendere 1 ki per imporre uno dei seguenti effetti su quel bersaglio:\n• Deve riuscire un tiro salvezza di Destrezza o essere buttato a terra prono e avere il suo movimento azzerato per un turno.\n• Deve riuscire il tiro salvezza di Forza o essere spinto a 20 piedi da te.\n• Deve superare un tiro salvezza su Saggezza o avere svantaggio su tutti gli attacchi fino alla fine del suo turno successivo.
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle=Mano lontana
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle=Tecnica della mano a distanza migliorata
+Reaction/&CustomDeflectMissileMonkTitle={0} sta attaccando {1}, che può reagire per ridurre il danno in arrivo di 1d10 + modificatore di destrezza + livello del monaco
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription={0} colpisce una creatura con uno degli attacchi concessi da Raffica di Colpi e può imporre uno dei seguenti effetti su quel bersaglio:
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription=Applicare la tecnica selezionata.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle=Applicare
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle=Tecnica a mano aperta
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription={0} colpisce una creatura con una freccia e può imporre uno dei seguenti effetti su quel bersaglio:
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription=Applicare la tecnica selezionata.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle=Applicare
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle=Tecnica della mano a distanza
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription={0} colpisce una creatura con una freccia e può imporre uno dei seguenti effetti su quel bersaglio:
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription=Applicare la tecnica selezionata.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle=Applicare
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle=Tecnica della mano a distanza
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription={0} ha colpito l'avversario con un attacco senz'armi e può spendere 3 punti ki per tentare di ucciderlo.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription=Spendi ki per tentare di uccidere l'avversario.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle=Spendi ki
+Reaction/&SpendPowerClassMonkQuiveringPalmTitle=Palma tremante
+Reaction/&SpendPowerClassMonkStunningStrikeDescription={0} ha colpito l'avversario e può spendere 1 punto ki per tentare di stordire.
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription=Spendi ki per tentare di stordire l'avversario.
+Reaction/&SpendPowerClassMonkStunningStrikeReactTitle=Spendi ki
+Reaction/&SpendPowerClassMonkStunningStrikeTitle=Colpo sbalorditivo
+Reaction/&SpendPowerDiamondSoulDescription={0} ha fallito un salvataggio e può spendere 1 ki per ritirarlo.
+Reaction/&SpendPowerDiamondSoulReactDescription=Spendi ki per ripetere il salvataggio fallito.
+Reaction/&SpendPowerDiamondSoulReactTitle=Rilancia
+Reaction/&SpendPowerDiamondSoulTitle=Anima di diamante
+Reaction/&UseClassMonkSlowFallDescription={0} sta cadendo e può usare una reazione per non subire danni da caduta.
+Reaction/&UseClassMonkSlowFallReactDescription=Usa la reazione per non subire danni da caduta.
+Reaction/&UseClassMonkSlowFallReactTitle=Reagire
+Reaction/&UseClassMonkSlowFallTitle=Lenta caduta
+Stage/&SubclassSelectionStageClassMonkTraditionDescription=Questa fase seleziona la tradizione monastica del personaggio.
+Stage/&SubclassSelectionStageClassMonkTraditionFeatures=Caratteristiche della tradizione monastica
+Stage/&SubclassSelectionStageClassMonkTraditionHeader=Seleziona una tradizione monastica
+Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription=Devi selezionare una tradizione monastica.
+Stage/&SubclassSelectionStageClassMonkTraditionTitle=monastico\nTradizione
+Subclass/&BarbarianPathOfTheLightDescription=I barbari che seguono il Sentiero della Luce illuminano l'oscurità e proteggono i loro alleati dai pericoli che si annidano al suo interno.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription=Sei sempre sotto gli effetti di un incantesimo Vedere Invisibilità.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle=Occhi di verità
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription=Distratto da Colpo Illuminante.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle=Illuminato
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription=Svantaggio su qualsiasi tiro per colpire che non sia contro il barbaro Sentiero della Luce.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription=Non può diventare invisibile.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription=Nel turno in cui entri nella tua rabbia, puoi scegliere di illuminare fino a tre nemici entro 9 metri da te. Devono superare un tiro salvezza di Costituzione (CD pari a 8 + il tuo bonus di competenza + il tuo modificatore di Costituzione) o subire 4d6 danni radianti ed essere illuminati dal tuo Colpo Illuminante per 1 minuto. Una creatura illuminata in questo modo effettua un altro tiro salvezza di Costituzione alla fine di ogni suo turno. Se riesce, l'effetto termina.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription=Fino a tre nemici effettuano un tiro salvezza su Costituzione o subiscono 4d6 danni radianti e vengono illuminati dal tuo Colpo Illuminante.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle=Esplosione illuminante
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle=Esplosione illuminante
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription=Mentre sei in collera, la prima creatura che colpisci con un attacco nel tuo turno subisce 1d6 danni radianti aggiuntivi e diventa magicamente illuminata fino all'inizio del tuo prossimo turno. Inoltre, la creatura ha svantaggio su qualsiasi tiro per colpire che non è contro di te e non può diventare invisibile.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription=Il danno aggiuntivo inflitto da Colpo Illuminante aumenta a 2d6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle=Miglioramento Colpo Illuminante
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle=Colpo Illuminante
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription=Recuperi punti ferita pari alla metà del tuo livello da barbaro quando una creatura ostile influenzata dal tuo Colpo Illuminante muore. Inoltre, non provochi più attacchi di opportunità dalle creature influenzate dal tuo Colpo Illuminante.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle=La protezione della luce
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription=Ottieni una scurovisione superiore.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle=Perfora l'oscurità
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription=Può percepire creature invisibili.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle=Vista dell'invisibilità
+Subclass/&BarbarianPathOfTheLightTitle=Via della Luce
+Subclass/&ClassMonkTraditionDescription=Al 3° livello, scegli la via spirituale che segui verso l'illuminazione. Darà forma al modo in cui manipoli il ki.
+Subclass/&ClassMonkTraditionTitle=Tradizioni monastiche
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription=I monaci della Via della Mano Aperta sono i massimi maestri del combattimento di arti marziali, armati o disarmati. Imparano le tecniche per spingere e inciampare i loro avversari, manipolare il ki per curare i danni ai loro corpi e praticano la meditazione avanzata che può proteggerli dai danni.
+Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle=Via della Mano Aperta
+Subclass/&ClassMonkTraditionZenArcherDescription=I praticanti della Via della Mano Lontana si allenano a fare delle frecce un'estensione delle loro mani. Sono abili nell'uso degli archi e nel fornire effetti potenziati dal ki attraverso le frecce.
+Subclass/&ClassMonkTraditionZenArcherTitle=Via della mano lontana
+Tooltip/&CustomPortraitPoolClassMonkKiPool=Puoi sfruttare l'energia mistica del ki. Il tuo accesso a questa energia è rappresentato da un numero di punti ki. L'importo massimo è uguale al tuo livello di Monaco. Tutti i punti spesi vengono recuperati durante il riposo breve o lungo. Puoi spendere questi punti per alimentare varie funzioni ki
+Tooltip/&TagMonkWeaponTitle=Monaco

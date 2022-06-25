@@ -1,0 +1,8 @@
+TreasureTable/&GemsTitle	Gemas
+TreasureTable/&ConsumablesTitle	Consumíveis
+TreasureTable/&MagicWeapons_ArmorsTitle	Armaduras e Armas Mágicas
+TreasureTable/&Wondrous_ItemsTitle	Itens Maravilhosos
+TreasureTable/&IngredientsTitle	Ingredientes
+TreasureTable/&Mundane_GearTitle	Equipamentos Mundanos
+TreasureTable/&25_GP_Art_ItemsTitle	Artigos de Arte de 25 po
+TreasureTable/&50_GP_Art_ItemsTitle	Artigos de Arte de 50 po

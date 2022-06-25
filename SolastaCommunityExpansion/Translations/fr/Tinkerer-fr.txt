@@ -1,299 +1,299 @@
-Class/&TinkererDescription	Les bricoleurs sont des inventeurs, des alchimistes, etc. Ils comblent l'espace entre la magie et la technologie.
-Class/&TinkererTitle	En pensant
-Condition/&SentinelStopMovementConditionDescription	Incapable de bouger. Vitesse réglée sur 0.
-Condition/&SentinelStopMovementConditionTitle	Arrêté
-Equipment/&ImprovedLightningSpearDescription	Inflige 1d6 dégâts de foudre avec 1d6 dégâts de foudre supplémentaires une fois par tour.\nPeut créer un avantage pour les alliés et un désavantage pour les ennemis avec une seule attaque.
-Equipment/&ImprovedLightningSpearTitle	Lance éclair améliorée
-Equipment/&LightningSpearDescription	Inflige 1d6 dégâts de foudre avec 1d6 dégâts de foudre supplémentaires une fois par tour.
-Equipment/&LightningSpearTitle	Lance de foudre
-Feat/&AlchemistSubclassElixirsDescription	Apprenez à fabriquer des élixirs expérimentaux : Guérison, Rapidité, Résilience, Audace, Vol.
-Feat/&AlchemistSubclassElixirsTitle	Élixirs expérimentaux
-Feat/&ArtificerAlchemistAlchemicalSavantDescription	Lorsque vous vous soignez, vous récupérez des PV supplémentaires égaux à 1d4 + votre niveau.
-Feat/&ArtificerAlchemistAlchemicalSavantTitle	Elixir Savant
-Feat/&ArtificerAlchemistBoldnessElixirDescription	Peut lancer un d4 et ajouter le nombre obtenu à chaque jet d'attaque et jet de sauvegarde que vous effectuez pendant 1 minute.
-Feat/&ArtificerAlchemistBoldnessElixirTitle	Élixir d'audace
-Feat/&ArtificerAlchemistFlyElixirDescription	Gagnez une vitesse de vol de 10 pieds pendant 10 minutes.
-Feat/&ArtificerAlchemistFlyElixirTitle	Élixir de mouche
-Feat/&ArtificerAlchemistHealElixirDescription	Soignez la cible de 2d4 + modificateur d'Intelligence.
-Feat/&ArtificerAlchemistHealElixirTitle	Élixir de guérison
-Feat/&ArtificerAlchemistResilienceElixirDescription	Augmente la CA cible de +1 pendant 10 minutes.
-Feat/&ArtificerAlchemistResilienceElixirTitle	Élixir de résilience
-Feat/&ArtificerAlchemistSwiftnessElixirDescription	Augmente la vitesse de déplacement de la cible de 3 mètres pendant 1 heure.
-Feat/&ArtificerAlchemistSwiftnessElixirTitle	Élixir de rapidité
-Feat/&ArtificerArtilleristArcaneFirearmDescription	Lorsque vous lancez des sorts d'évocation, infligez 1d8 dégâts supplémentaires une fois par tour.
-Feat/&ArtificerArtilleristArcaneFirearmTitle	Amélioration du dynamitage
-Feat/&ArtificerArtillerstDetonationSpellPreparedDescription	Vous gagnez la capacité de faire exploser l'un de vos appareils causant des dommages à ceux qui se trouvent à proximité de la cible.
-Feat/&ArtificerArtillerstDetonationSpellPreparedTitle	Détonation de l'appareil
-Feat/&ArtificerArtillerstImprovedCannonsDescription	L'effet de vos canons augmente. Dégâts supplémentaires du feu, cible supplémentaire de la force et PV temporaires supplémentaires du bouclier.
-Feat/&ArtificerArtillerstImprovedCannonsTitle	Canons améliorés
-Feat/&ArtilleristCannonDetonationDescription	Faites exploser l'un de vos appareils, ce qui oblige les créatures à moins de 20 pieds de l'emplacement ciblé à effectuer une sauvegarde de Dextérité. Les créatures subissent 3d8 dégâts de force en cas d'échec et la moitié de ces dégâts en cas de réussite.
-Feat/&ArtilleristCannonDetonationTitle	Détonation de l'appareil
-Feat/&ArtilleristFlameCannon15Description	Crache du feu dans un cône en tant qu'action bonus, infligeant 6d8 dégâts de feu si les cibles échouent à un jet de sauvegarde DEX.
-Feat/&ArtilleristFlameCannon15Title	Lance-flammes
-Feat/&ArtilleristFlameCannon9Description	Crache du feu dans un cône en tant qu'action bonus, infligeant 3d8 dégâts de feu si les cibles échouent à un jet de sauvegarde de DEX.
-Feat/&ArtilleristFlameCannon9Title	Lance-flammes
-Feat/&ArtilleristFlameCannonDescription	Crache du feu dans un cône en tant qu'action bonus, infligeant 2d8 dégâts de feu si les cibles échouent à un jet de sauvegarde DEX.
-Feat/&ArtilleristFlameCannonTitle	Lance-flammes
-Feat/&ArtilleristForceCannon15Description	Effectuez une attaque à distance contre jusqu'à 2 cibles en tant qu'action bonus, infligeant 3d8 dégâts de force en cas de coup.
-Feat/&ArtilleristForceCannon15Title	Canon de force
-Feat/&ArtilleristForceCannon9Description	Effectue une attaque à distance en tant qu'action bonus, infligeant 3d8 dégâts de force en cas de coup.
-Feat/&ArtilleristForceCannon9Title	Canon de force
-Feat/&ArtilleristForceCannonDescription	Effectue une attaque à distance en tant qu'action bonus, infligeant 2d8 dégâts de force en cas de coup.
-Feat/&ArtilleristForceCannonTitle	Canon de force
-Feat/&ArtilleristProtectorCannon15Description	Émet de l'énergie positive en tant qu'action bonus. Les alliés à moins de 6 mètres gagnent des PV temporaires égaux à 1d8 + votre modificateur d'Intelligence.
-Feat/&ArtilleristProtectorCannon15Title	Bouclier arcanique
-Feat/&ArtilleristProtectorCannonDescription	Émet de l'énergie positive en tant qu'action bonus. Les alliés à moins de 3 mètres gagnent des PV temporaires égaux à 1d8 + votre modificateur d'Intelligence.
-Feat/&ArtilleristProtectorCannonTitle	Bouclier arcanique
-Feat/&ArtilleristSubclassSpellsDescription	{0}.
-Feat/&ArtilleristSubclassSpellsTitle	Apprenez des sorts de blaster
-Feat/&ArtilleryConstructDescription	Peut endommager ou protéger les alliés.
-Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Sorts mineurs : construction de réparation, construction de congédiement\nNiveau 1 : Réinvoquer la construction d'artillerie.
-Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construire des sorts
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés comme des sorts de bricoleur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de bricoleur que vous connaissez.
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construire des sorts
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés comme des sorts de bricoleur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de bricoleur que vous connaissez.
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construire des sorts
-Feat/&ArtilleryModePoolDescription	Choisissez votre mode d'artillerie.
-Feat/&ArtilleryModePoolTitle	Mode Artillerie
-Feat/&AttackModifierArtificerBattleSmithJolt2Description	Vos attaques avec une arme infligent 3 dégâts supplémentaires.
-Feat/&AttackModifierArtificerBattleSmithJolt2Title	Coup d'attaque d'arme amélioré
-Feat/&AttackModifierArtificerBattleSmithJoltDescription	Vos attaques avec une arme infligent 3 dégâts supplémentaires.
-Feat/&AttackModifierArtificerBattleSmithJoltTitle	Secousse d'attaque d'arme
-Feat/&BattleSmithSubclassSpellsDescription	{0}.
-Feat/&BattleSmithSubclassSpellsTitle	Apprendre les sorts de forgeron d'armes
-Feat/&ExtraInfusionSlotsDescription	Vous gagnez des emplacements d'infusion supplémentaires qui doivent être utilisés sur les armures/armes.
-Feat/&ExtraInfusionSlotsTitle	Infusions supplémentaires
-Feat/&FeatSentinelDescription	Vous avez maîtrisé des techniques pour profiter de chaque baisse de la garde de n'importe quel ennemi, obtenant les avantages suivants :\n• Lorsque vous touchez une créature avec une attaque d'opportunité, la vitesse de la créature passe à 0 pour le reste du tour.\n• Les créatures provoquent des attaques d'opportunité de votre part même si elles effectuent l'action Désengagement avant de quitter votre portée.\n• Lorsqu'une créature effectue une attaque contre une cible autre que vous (et que cette cible n'a pas ce don), vous pouvez utiliser votre réaction pour effectuer une attaque au corps à corps avec une arme contre la créature attaquante.
-Feat/&FeatSentinelTitle	Sentinelle
-Feat/&FlameArtillery_2Description	3d8 dégâts de feu (cône).
-Feat/&FlameArtillery_2Title	Artillerie incendiaire (améliorée)
-Feat/&FlameArtilleryConstructDescription	Crée un cône de feu qui inflige 2d8 dégâts en cas d'échec.
-Feat/&FlameArtilleryConstructDescription_3	Crée un cône de feu qui inflige 3d8 dégâts en cas d'échec.
-Feat/&FlameArtilleryConstructTitle	Construction d'artillerie de flammes
-Feat/&FlameArtilleryDescription	2d8 dégâts de feu (cône).
-Feat/&FlameArtilleryTitle	Flamme Artillerie
-Feat/&ForceArtillery_2Description	3d8 dégâts de force et repoussez la cible de 1,50 mètre.
-Feat/&ForceArtillery_2Title	Artillerie de force (améliorée)
-Feat/&ForceArtilleryAdditionalDamageDescription	La construction améliorée inflige 1d8 dégâts supplémentaires par coup.
-Feat/&ForceArtilleryConstructDescription	Inflige 2d8 dégâts de force et éloigne la cible de 1,50 mètre de la construction.
-Feat/&ForceArtilleryConstructDescription_3	Inflige 3d8 dégâts de force et éloigne la cible de 1,50 mètre de la construction.
-Feat/&ForceArtilleryConstructTitle	Construction d'artillerie de force
-Feat/&ForceArtilleryDescription	2d8 dégâts de Force et poussée de 1,50 mètre.
-Feat/&HalfCoverShieldDescription	Les alliés à moins de 3 mètres gagnent +2 CA.
-Feat/&HalfCoverShieldTitle	Dôme demi-couverture
-Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Une fois par jour, vous pouvez lancer une restauration supérieure.
-Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Grande restauration
-Feat/&PowerAlchemistHealElixirsDescription	Une fois par jour, vous pouvez lancer soin.
-Feat/&PowerAlchemistHealElixirsTitle	Guérir
-Feat/&PowerAlchemistRestorativeElixirsDescription	Vous pouvez lancer une restauration moindre sans dépenser d'emplacement de sort. Vous pouvez le faire un nombre de fois par repos long égal à votre modificateur d'Intelligence.
-Feat/&PowerAlchemistRestorativeElixirsTitle	Élixirs réparateurs
-Feat/&ResummonArtilleryConstruct_03Title	Resummon Artillery Construct 1
-Feat/&ResummonArtilleryConstruct_09Title	Resummon Artillery Construct 2
-Feat/&ResummonArtilleryConstruct_15Title	Resummon Artillery Construct 3
-Feat/&ResummonArtilleryConstructDescription	Ce sort permet au bricoleur de réinvoquer une construction d'artillerie dans l'un des multiples modes après l'expiration de l'invocation initiale. La construction réinvoquée dure également 1 heure.
-Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Fonctions d'armure multiples</color></size>\nVous pouvez basculer entre les modes de fonction une fois par jour en créant et en utilisant des armes temporaires\n\n<size=17><color=#add8e6ff>Mode sentinelle</color></size>\nGagnez un nombre limité de HP temporaires en fonction du niveau. Imposer un désavantage aux ennemis attaquant les alliés\n\n<size=17><color=#add8e6ff>Mode éclaireur</color></size>\nBénéficiez d'un mouvement accru, d'un avantage furtif et d'une attaque à distance qui inflige un dé de dégâts supplémentaire une fois par tour.\n\n<size=17><color=#add8e6ff>Caractéristiques</color></size>\nVous pouvez utiliser les armes de l'armure comme focus de lancement de sorts pour vos sorts\nL'armure lourde n'a pas d'exigence de force\nVous maîtrisez les outils de forgeron et les armures lourdes.
-Feat/&ScoutSentinelFeatureSet_level03Title	Sentinelle éclaireuse
-Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Attaque supplémentaire</color></size>\nVous pouvez attaquer une fois de plus, par tour de combat, lorsque vous utilisez les actions d'attaque ou de bousculade.
-Feat/&ScoutSentinelFeatureSet_level05Title	Sentinelle éclaireuse
-Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Emplacements de perfusion supplémentaires</color></size>\nVous gagnez des emplacements d'infusion supplémentaires, à utiliser sur l'armure.
-Feat/&ScoutSentinelFeatureSet_level09Title	Sentinelle éclaireuse
-Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Mode sentinelle amélioré</color></size>\nPeut désormais attirer les ennemis au corps à corps avec une action bonus et infliger 1d8 dégâts de tonnerre via le pouvoir Gauntlet Grapple\n\n<size=17><color=#add8e6ff>Mode Scout amélioré</color></size>\nPeut désormais créer un avantage pour les alliés et un désavantage pour les ennemis avec une seule attaque.
-Feat/&ScoutSentinelFeatureSet_level15Title	Sentinelle éclaireuse
-Feat/&SummonArtilleryConstructDescription	Le Blaster crée et commande une construction d'artillerie dans l'un des multiples modes. Les PV de la construction augmentent avec les niveaux de son invocateur et peuvent être invoqués gratuitement pendant 1 heure une fois par jour. La construction peut être réinvoquée via un sort de niveau 1. Les trois modes sont :\n<color=#add8e6ff>Protection du dôme :</color>\nConfère 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres\n<color=#add8e6ff>Construction d'artillerie incendiaire :</color>\nCrée un cône de feu. Les créatures doivent effectuer un jet de sauvegarde de Dextérité ou subir 2d8 dégâts\n<color=#add8e6ff>Construction d'artillerie de force :</color>\nInflige 2d8 dégâts de force et repousse l'ennemi à 1,50 mètre.
-Feat/&SummonArtilleryConstructlevel09Description	Une nouvelle fonction a été ajoutée. La construction d'artillerie peut se détruire, forçant une sauvegarde de Dextérité ou infligeant 3d8 dégâts de force en cas d'échec.\nDe plus, les jets de dégâts de la Flamme et de l'Artillerie de Force augmentent de 1d8 pour un total de 3d8.
-Feat/&SummonArtilleryConstructlevel09Title	Amélioration de la construction d'artillerie : autodestruction
-Feat/&SummonArtilleryConstructlevel15Description	Une nouvelle fonction a été ajoutée. La construction d'artillerie fournit désormais une demi-couverture aux alliés à moins de 10 pieds\n<size=17><color=#add8e6ff>Amélioration de la structure d'artillerie : renforts</color></size>\nVous pouvez maintenant invoquer deux constructions d'artillerie. Les constructions peuvent être de modes identiques ou différents.
-Feat/&SummonArtilleryConstructlevel15Title	Amélioration de la construction d'artillerie : dôme à demi-couverture
-Feat/&SummonArtilleryConstructTitle	Invoquer une construction d'artillerie
-Feat/&SummonProtectorConstructDescription	Votre propre Battle Buddy est prêt à vous défendre et à attaquer les ennemis. Le Protector Construct peut s'auto-réparer 3 fois par jour et peut imposer un désavantage aux attaques des alliés.
-Feat/&SummonProtectorConstructDescription_2	Invoquer la mise à niveau de la construction du protecteur.
-Feat/&SummonProtectorConstructDescription_Upgrade	Invoquer la mise à niveau de la construction du protecteur.
-Feat/&SummonProtectorConstructTitle	Invocation d'un assemblage de protecteur
-Feat/&SummonProtectorConstructTitle_2	Invocation de la mise à niveau de la construction du protecteur
-Feat/&SummonProtectorConstructTitle_Upgrade	Invocation de la mise à niveau de la construction du protecteur
-Feat/&TempHPShieldConstructDescription	Confère 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres.
-Feat/&TempHPShieldConstructTitle	Construction de dôme de protection
-Feat/&TempHPShieldDescription	Fournit 1d8 + 4 TempHP aux alliés à moins de 3 mètres.
-Feat/&TinkererConstructFamilyDescription	Créé par Tinkerer.
-Feat/&TinkererConstructFamilyTitle	Construction de bricoleur
-Feature/&ArtificerInfusionCastingDescription	Vous pouvez effectuer les composants somatiques des sorts tout en tenant des armes et des boucliers.
-Feature/&ArtificerInfusionCastingTitle	Moulage par infusion
-Feature/&ArtificerSpecialistArchetypesDescription	Dans quel domaine d'études vous spécialisez-vous? Les bricoleurs peuvent être des revendeurs de dégâts, des guérisseurs et des spécialistes martiaux.
-Feature/&ArtificerSpecialistArchetypesTitle	Spécialisations de bricoleur
-Feature/&FlameArtillery_09ModePowerDescription	Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 3d8 dégâts en cas d'échec.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.
-Feature/&FlameArtillery_09ModePowerTitle	Invoquer une construction d'artillerie de flammes
-Feature/&FlameArtillery_15ModePowerDescription	Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 3d8 dégâts en cas d'échec.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.\n Half Cover Dome : fournit une demi-couverture aux alliés à moins de 10 pieds.
-Feature/&FlameArtillery_15ModePowerTitle	Invoquer une construction d'artillerie de flammes
-Feature/&FlameArtilleryModePowerDescription	Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 2d8 dégâts en cas d'échec.
-Feature/&FlameArtilleryModePowerTitle	Invoquer une construction d'artillerie de flammes
-Feature/&ForceArtillery_09ModePowerDescription	Invoque une construction qui dure 1 heure.\nArtillerie de force : Inflige 3d8 dégâts de force et repousse l'ennemi à 1,50 mètre.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.
-Feature/&ForceArtillery_09ModePowerTitle	Convoquer une construction d'artillerie de force
-Feature/&ForceArtillery_15ModePowerDescription	Invoque une construction qui dure 1 heure.\nArtillerie de force : Inflige 3d8 dégâts de force et repousse l'ennemi à 1,50 mètre.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.\n Half Cover Dome : fournit une demi-couverture aux alliés à moins de 10 pieds.
-Feature/&ForceArtillery_15ModePowerTitle	Convoquer une construction d'artillerie de force
-Feature/&ForceArtilleryAdditionalDamageTitle	Dégâts améliorés
-Feature/&ForceArtilleryModePowerDescription	Invoque une construction qui dure 1 heure.\nArtillerie de force : Inflige 2d8 dégâts de force et repousse la cible à 1,50 mètre.
-Feature/&ForceArtilleryModePowerTitle	Convoquer une construction d'artillerie de force
-Feature/&ForceArtilleryTitle	Force d'artillerie
-Feature/&ImprovedScoutModePowerDescription	Bénéficiez des fonctionnalités améliorées du mode Scout. Peut désormais créer un avantage pour les alliés et un désavantage pour les ennemis avec une seule attaque.
-Feature/&ImprovedScoutModePowerTitle	Mode Scout amélioré
-Feature/&ImprovedSentinelModePowerDescription	Bénéficiez des fonctionnalités améliorées du mode Sentinelle via le pouvoir Gauntlet Grapple.
-Feature/&ImprovedSentinelModePowerTitle	Mode sentinelle amélioré
-Feature/&SavingThrowTinkererProficiencyDescription	Maîtrise des jets de sauvegarde de Constitution et d'Intelligence.
-Feature/&SavingThrowTinkererProficiencyTitle	Maîtrise du jet de sauvegarde
-Feature/&ScoutModePowerDescription	Bénéficiez d'un mouvement accru, d'un avantage sur les tests de furtivité et une fois par tour, vos attaques à distance avec une arme infligent un dé de dégâts supplémentaire.
-Feature/&ScoutModePowerTitle	Mode éclaireur
-Feature/&SentinelModePowerDescription	Gain Temp HP égal au niveau. Imposer un désavantage aux ennemis attaquant des alliés.
-Feature/&SentinelModePowerTitle	Mode Sentinelle
-Feature/&TempHPShield_09ModePowerDescription	Invoque une construction qui dure 1 heure.\nDôme protecteur : accorde 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.
-Feature/&TempHPShield_09ModePowerTitle	Invocation d'un dôme protecteur
-Feature/&TempHPShield_15ModePowerDescription	Invoque une construction qui dure 1 heure.\nDôme protecteur : accorde 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.\n Half Cover Dome : Fournit une demi-couverture aux alliés à moins de 10 pieds.
-Feature/&TempHPShield_15ModePowerTitle	Invocation d'un dôme protecteur
-Feature/&TempHPShieldModePowerDescription	Invoque une construction qui dure 1 heure.\nDôme protecteur : accorde 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres.
-Feature/&TempHPShieldModePowerTitle	Invocation d'un dôme protecteur
-Feature/&TempHPShieldTitle	Dôme de protection
-Feature/&TinkererArmorProficiencyDescription	Maîtrise des armures légères et moyennes ainsi que des boucliers.
-Feature/&TinkererArmorProficiencyTitle	Compétence d'armure de bricoleur
-Feature/&TinkererInfusionChoiceDescription	Sélectionnez les infusions dont vous disposerez. Notez que chaque perfusion ne peut être active qu'une seule fois. L'activer une seconde fois annulera la première.
-Feature/&TinkererInfusionChoiceTitle	Choix d'infusion
-Feature/&TinkererInfusionReplaceDescription	Sélectionnez les infusions à remplacer.
-Feature/&TinkererInfusionReplaceTitle	Remplacer la perfusion
-Feature/&TinkererSkillGainChoicesPluralDescription	Les compétences du bricoleur sont les arcanes, l'histoire, l'investigation, la médecine, la nature, la perception et le tour de passe-passe.
-Feature/&TinkererSkillPointsTitle	Compétences de bricoleur
-Feature/&TinkererToolsExpertiseDescription	Gagnez en expertise avec de nombreux outils, notamment des outils de voleur, des kits de parchemin, un kit d'empoisonnement, un kit d'herboristerie et des outils d'enchantement.
-Feature/&TinkererToolsExpertiseTitle	Expertise en outils de bricolage
-Feature/&TinkererToolsProficiencyDescription	Maîtrisez de nombreux outils, notamment les outils de voleur, les kits de parchemins, le kit d'empoisonneur, le kit d'herboristerie et les outils d'enchantement.
-Feature/&TinkererToolsProficiencyTitle	Maîtrise des outils
-Feature/&TinkererWeaponProficiencyDescription	Maîtrise des armes simples.
-Feature/&TinkererWeaponProficiencyTitle	Maîtrise des armes du bricoleur
-Feedback/&AdditionalDamageArcaneFirearmFormat	Amélioration du dynamitage !
-Feedback/&AdditionalDamageArcaneFirearmLine	Inflige des dégâts supplémentaires grâce à l'amélioration de l'explosion
-Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Arme aveuglante
-Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Dégâts supplémentaires et tentative d'application de la cécité de l'arme aveuglante
-Feedback/&AdditionalDamageLightningSpearFormat	Lance éclair !
-Feedback/&AdditionalDamageLightningSpearLine	{0} frappe {1} avec Lightning Spear ! (+{2})
-Feedback/&AdditionalDamageUpgradedConstructFormat	Dégâts améliorés
-Feedback/&AdditionalDamageUpgradedConstructLine	La construction améliorée inflige 1d8 dégâts supplémentaires par coup.
-Feedback/&LightningSpearAdditionalDamageDescription	Inflige 1d6 dégâts de foudre supplémentaires une fois par tour.
-Feedback/&LightningSpearAdditionalDamageTitle	Dégâts supplémentaires de Lightning Spear
-Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
-Item/&ForceArtilleryProjectileTitle	ForceArtillerieProjectile
-Reaction/&ReactionAttackFeatSentinelDescription	{0} a attaqué un de vos alliés, en réponse vous pouvez utiliser votre réaction pour attaquer.
-Reaction/&ReactionAttackFeatSentinelReactDescription	Utilisez la réaction pour attaquer.
-Reaction/&ReactionAttackFeatSentinelReactTitle	Attaque
-Reaction/&ReactionAttackFeatSentinelTitle	Réaction sentinelle
-Rules/&AdvantageAttackOnEnemyDescription	Avantage d'attaquer l'ennemi.
-Rules/&AdvantageAttackOnEnemyTitle	Illuminé
-Rules/&DisadvantageOnAttackByEnemyDescription	Distrait par un coup de foudre.
-Rules/&DisadvantageOnAttackByEnemyTitle	Secoué
-Rules/&ExtraDamageOnAttackConditionDescription	Dégâts supplémentaires de Lightning Spear.
-Rules/&ExtraDamageOnAttackConditionTitle	Statique choqué
-Rules/&HalfCoverShieldAttributeDescription	Les alliés à moins de 3 mètres gagnent +2 CA.
-Rules/&HalfCoverShieldAttributeTitle	Dôme demi-couverture
-Rules/&HalfCoverShieldConditionDescription	+2 CA.
-Rules/&HalfCoverShieldConditionTitle	Protégé par Dôme
-Rules/&LightningSpearPowerDescription	Inflige 2d6 dégâts de foudre.
-Rules/&LightningSpearPowerTitle	Lance de foudre
-Rules/&SelfDestructionConditionDescription	Auto destruction.
-Rules/&SelfDestructionConditionTitle	Auto destruction
-Rules/&ThunderStruckBalancingAdvantageDescription	Équilibre foudroyé pour ne fonctionner que pour les alliés.
-Rules/&ThunderStruckBalancingAdvantageTitle	raillé
-Rules/&ThunderStruckDescription	Inconvénient lors de l'attaque des alliés de Scout Sentinel.
-Rules/&ThunderStruckTitle	Abasourdi (distrait)
-SpellList/&SpellListTinkererDescription	Liste de sorts de bricoleur.
-SpellList/&SpellListTinkererTitle	Liste de sorts du bricoleur
-Stage/&SubclassSelectionStageSpecialistDescription	Il existe un large éventail de spécialités chez les bricoleurs, notamment la fabrication d'élixirs en tant que fabricant de potions, la fabrication d'explosions en tant que blaster et le maniement d'armes magiques en tant que forgeron d'armes.
-Stage/&SubclassSelectionStageSpecialistFeatures	Caractéristiques spécialisées
-Stage/&SubclassSelectionStageSpecialistHeader	Spécialisations
-Stage/&SubclassSelectionStageSpecialistNoneDescription	Spécialiste Aucun Description.
-Stage/&SubclassSelectionStageSpecialistTitle	Sélectionnez la spécialisation
-Subclass/&ArtificerAlchemistDescription	Vous êtes spécialisé dans les potions, les buffs, la guérison et le lancement de sorts.
-Subclass/&ArtificerAlchemistTitle	Créateur de potions
-Subclass/&ArtificerArtileristCannonsDescription	Vous créez un ensemble de canons que vous pouvez activer au combat en tant qu'action bonus.
-Subclass/&ArtificerArtileristCannonsTitle	Canons
-Subclass/&ArtificerArtilleristDescription	Vous êtes spécialisé dans le lancement de projectiles et dans les explosions.
-Subclass/&ArtificerArtilleristTitle	Blaster
-Subclass/&ArtificerBattleSmithDescription	Vous êtes spécialisé dans l'utilisation d'armes magiques au combat.
-Subclass/&ArtificerBattleSmithTitle	Forgeron d'armes
-Subclass/&ArtificerSpellcastingDescription	Lancez des sorts de bricoleur.
-Subclass/&ArtificerSpellcastingTitle	Bricoleur Lancer de sorts
-Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Vos attaques comptent comme magiques et vous utilisez votre Intelligence pour les jets d'attaque et de dégâts.
-Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Arme infusée
-Subclass/&AttackModifierArtificerBlindingWeaponDescription	Une arme que vous choisissez qui acquiert la capacité d'aveugler les cibles lorsqu'elles sont touchées (contre une sauvegarde de Constitution). Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&AttackModifierArtificerBlindingWeaponTitle	Arme aveuglante
-Subclass/&AttackModifierArtificerEnhancedArmorDescription	Une armure que vous choisissez devient magique et fournit +1 CA supplémentaire. Vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
-Subclass/&AttackModifierArtificerEnhancedArmorTitle	Armure améliorée
-Subclass/&AttackModifierArtificerEnhancedFocusDescription	Un focus d'incantation que vous choisissez devient magique et gagne +1 aux jets d'attaque des sorts et au DD du jet de sauvegarde des sorts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&AttackModifierArtificerEnhancedFocusTitle	Mise au point améliorée
-Subclass/&AttackModifierArtificerEnhancedWeaponDescription	Une arme que vous choisissez devient magique et gagne +1 aux jets d'attaque et de dégâts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&AttackModifierArtificerEnhancedWeaponTitle	Arme améliorée
-Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	Une armure que vous choisissez devient magique et fournit +2 AC. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle	Armure améliorée améliorée
-Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	Un focus d'incantation que vous choisissez devient magique et gagne +2 aux jets d'attaque des sorts et au DD du jet de sauvegarde des sorts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle	Amélioration de la mise au point améliorée
-Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription	Touchez une arme et elle devient magique et gagne +2 aux jets d'attaque et de dégâts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle	Arme améliorée améliorée
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	Vous insufflez de la puissance à votre arme. Vos attaques comptent comme magiques et vous ajoutez +7 à vos jets d'attaque et de dégâts.
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Arme d'infusion améliorée
-Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription	Vous gagnez une attaque supplémentaire.
-Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle	Attaque supplémentaire
-Subclass/&CancelCancelElixirFlyDescription	Mettez fin à la condition Fly de l'élixir Potion Maker.
-Subclass/&CancelCancelElixirFlyTitle	Annuler Voler
-Subclass/&CancelCancelElixirResilienceDescription	Mettez fin à la condition de résilience de l'élixir Potion Maker.
-Subclass/&CancelCancelElixirResilienceTitle	Annuler la résilience
-Subclass/&CancelCancelElixirSwiftnessDescription	Mettez fin à la condition Rapidité de l'élixir Potion Maker.
-Subclass/&CancelCancelElixirSwiftnessTitle	Annuler la rapidité
-Subclass/&ConditionResistantArmorTitle	Armure résistante
-Subclass/&ConditionResistnatArmorDescription	Votre armure est résistante aux dommages causés par l'acide, le froid, le feu, la force, la foudre, la nécrose, le poison, le psychique, le rayonnement et le tonnerre.
-Subclass/&CraftingTinkererMagicItemAdeptDescription	Vous êtes habile à fabriquer des objets magiques. Cela vous prend 1/4 du temps pour fabriquer des objets et vous appliquez le double de votre bonus de compétence lors de la fabrication.
-Subclass/&CraftingTinkererMagicItemAdeptTitle	Adepte des objets magiques
-Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touchez un sac et infusez un espace dimensionnel supplémentaire pour l'aider à supporter plus de poids sans vous encombrer. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Sac de tenue
-Subclass/&HArtilleryIncreaseDescription	Augmentation du pool d'artillerie.
-Subclass/&HArtilleryIncreaseTitle	Augmentation du pool d'artillerie
-Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription	Vous pouvez désormais infuser deux objets supplémentaires chaque jour. Ceux-ci sont destinés à être utilisés pour votre arme spéciale Weapon Smith.
-Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle	Forgeron d'armes Infusion d'armes
-Subclass/&HealingPoolArtificerInfusionsDescription	2 fois par jour, infusez des objets avec des effets magiques.
-Subclass/&HealingPoolArtificerInfusionsIncreaseDescription	Vous pouvez désormais infuser un élément supplémentaire chaque jour.
-Subclass/&HealingPoolArtificerInfusionsIncreaseTitle	Plus de perfusions
-Subclass/&HealingPoolArtificerInfusionsTitle	Infusions
-Subclass/&MagicAffinityAlchemicalSavantListDescription	Lorsqu'ils lancent Acid Arrow et Flaming Sphere, ils se comportent comme s'ils étaient lancés 2 niveaux plus haut. Vos sorts mineurs sont également améliorés, de sorte que même lorsque l'ennemi sauvegarde, il subit toujours la moitié des dégâts.
-Subclass/&MagicAffinityAlchemicalSavantListTitle	Sorts d'élixir de savant
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Vous insufflez de la puissance à votre arme. Vos attaques comptent comme magiques et vous ajoutez votre +7 à vos jets d'attaque et de dégâts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Arme d'infusion améliorée
-Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	Vous insufflez de la puissance à votre arme. Vos attaques comptent comme magiques et vous utilisez votre Intelligence pour les jets d'attaque et de dégâts jusqu'au prochain repos long.
-Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle	Infuser l'arme
-Subclass/&PowerInfuseArmorMagicalStrengthDescription	Imprègne l'armure d'une force magique. Vous gagnez un avantage sur les tests de capacité de Force et les jets de sauvegarde. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&PowerInfuseArmorMagicalStrengthTitle	Armure de force magique
-Subclass/&PowerInfuseDarkvisionDescription	Infusez la capacité de voir dans l'obscurité dans une paire de lunettes. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&PowerInfuseDarkvisionTitle	Lunettes de nuit
-Subclass/&PowerInfuseMindSharpenerDescription	Imprégner une armure ou une robe avec la capacité d'aider votre concentration de lancement de sorts. Vous gagnez un avantage sur les tests de concentration et tout dommage inférieur à 20 ne déclenche pas de test. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&PowerInfuseMindSharpenerTitle	Aiguiseur d'esprit
-Subclass/&PowerInfuseResistantArmorDescription	Infusez la résistance aux dégâts dans votre armure. Il devient résistant aux dommages causés par l'acide, le froid, le feu, la force, la foudre, la nécrose, le poison, le psychique, le rayonnement et le tonnerre. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
-Subclass/&PowerInfuseResistantArmorTitle	Armure résistante
-Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Votre armure contient des améliorations magiques de votre capacité à éviter les effets néfastes. Vous gagnez 3d4 à chaque jet de sauvegarde effectué.
-Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Âme de bricoleur
-Subclass/&PowerTinkererSpellStoringItemDescription	Par une action bonus, vous pouvez regagner des emplacements de sorts. Vous pouvez le faire un nombre de fois par jour égal à votre modificateur d'Intelligence.
-Subclass/&PowerTinkererSpellStoringItemTitle	Objet de stockage de sorts
-Subclass/&PowerTransmuteConstitutionDescription	Utilisez votre force de transmutation pour conférer la maîtrise des sauvegardes de constitution jusqu'au prochain repos long.
-Subclass/&PowerTransmuteConstitutionTitle	La Constitution sauve
-Subclass/&PowerTransmuteDarkvisionDescription	Utilisez votre Force de transmutation pour conférer une vision dans le noir supérieure jusqu'au prochain repos long.
-Subclass/&PowerTransmuteDarkvisionTitle	Vision dans le noir supérieure
-Subclass/&PowerTransmuteElementalResistanceDescription	Utilisez votre Force de transmutation pour conférer une résistance aux dégâts d'acide, de froid, de feu, de foudre, de nécrose, de poison et de tonnerre jusqu'à la fin de votre prochain repos long.
-Subclass/&PowerTransmuteElementalResistanceTitle	Résistance élémentaire
-Subclass/&PowerTransmuteFlyDescription	Utilisez votre force de transmutation pour accorder la capacité de vol.
-Subclass/&PowerTransmuteFlyTitle	Mouche
-Subclass/&PowerTransmuteHealDescription	Utilisez votre Force de transmutation pour soigner jusqu'à 6 cibles.
-Subclass/&PowerTransmuteHealTitle	Guérir
-Subclass/&PowerTransmuteReviveDescription	Utilisez votre Force de transmutation pour faire revivre un personnage (dans la minute qui suit sa mort).
-Subclass/&PowerTransmuteReviveTitle	Relancer
-Subclass/&ScoutSentinelTinkererSubclassDescription	Un Scout Sentinel Tinkerer modifie l'armure pour améliorer sa fonction, offrant une protection et une mobilité améliorées.
-Subclass/&ScoutSentinelTinkererSubclassTitle	Sentinelle éclaireuse
-Subclass/&TinkererFlashOfGeniusConditionDescription	Inspiré par un éclair de génie pour avoir un bonus sur les tests de capacité et les jets de sauvegarde.
-Subclass/&TinkererFlashOfGeniusConditionTitle	Éclair de génie
-Subclass/&TinkererFlashOfGeniusPowerDescription	Vous pouvez utiliser votre génie pour vous inspirer et inspirer les autres lors des tests de capacité et des jets de sauvegarde.
-Subclass/&TinkererFlashOfGeniusPowerTitle	Éclair de génie
-Subclass/&TinkererMagicalTinkeringDescription	Gagnez la capacité de faire plusieurs effets mineurs (Dazzle, Sparkle, Shine).
-Subclass/&TinkererMagicalTinkeringTitle	Bricolage magique
-Subclass/&WeaponProfArtificerBattleSmithDescription	L'expérience au combat a donné au Forgeron d'Armes une formation en Armes Martiales.
-Subclass/&WeaponProfArtificerBattleSmithTitle	Entraînement aux armes
-Tooltip/&TagScoutSentinelWeaponTitle	Sentinelle éclaireuse
+Class/&TinkererDescription=Les bricoleurs sont des inventeurs, des alchimistes, etc. Ils comblent l'espace entre la magie et la technologie.
+Class/&TinkererTitle=En pensant
+Condition/&SentinelStopMovementConditionDescription=Incapable de bouger. Vitesse réglée sur 0.
+Condition/&SentinelStopMovementConditionTitle=Arrêté
+Equipment/&ImprovedLightningSpearDescription=Inflige 1d6 dégâts de foudre avec 1d6 dégâts de foudre supplémentaires une fois par tour.\nPeut créer un avantage pour les alliés et un désavantage pour les ennemis avec une seule attaque.
+Equipment/&ImprovedLightningSpearTitle=Lance éclair améliorée
+Equipment/&LightningSpearDescription=Inflige 1d6 dégâts de foudre avec 1d6 dégâts de foudre supplémentaires une fois par tour.
+Equipment/&LightningSpearTitle=Lance de foudre
+Feat/&AlchemistSubclassElixirsDescription=Apprenez à fabriquer des élixirs expérimentaux : Guérison, Rapidité, Résilience, Audace, Vol.
+Feat/&AlchemistSubclassElixirsTitle=Élixirs expérimentaux
+Feat/&ArtificerAlchemistAlchemicalSavantDescription=Lorsque vous vous soignez, vous récupérez des PV supplémentaires égaux à 1d4 + votre niveau.
+Feat/&ArtificerAlchemistAlchemicalSavantTitle=Elixir Savant
+Feat/&ArtificerAlchemistBoldnessElixirDescription=Peut lancer un d4 et ajouter le nombre obtenu à chaque jet d'attaque et jet de sauvegarde que vous effectuez pendant 1 minute.
+Feat/&ArtificerAlchemistBoldnessElixirTitle=Élixir d'audace
+Feat/&ArtificerAlchemistFlyElixirDescription=Gagnez une vitesse de vol de 10 pieds pendant 10 minutes.
+Feat/&ArtificerAlchemistFlyElixirTitle=Élixir de mouche
+Feat/&ArtificerAlchemistHealElixirDescription=Soignez la cible de 2d4 + modificateur d'Intelligence.
+Feat/&ArtificerAlchemistHealElixirTitle=Élixir de guérison
+Feat/&ArtificerAlchemistResilienceElixirDescription=Augmente la CA cible de +1 pendant 10 minutes.
+Feat/&ArtificerAlchemistResilienceElixirTitle=Élixir de résilience
+Feat/&ArtificerAlchemistSwiftnessElixirDescription=Augmente la vitesse de déplacement de la cible de 3 mètres pendant 1 heure.
+Feat/&ArtificerAlchemistSwiftnessElixirTitle=Élixir de rapidité
+Feat/&ArtificerArtilleristArcaneFirearmDescription=Lorsque vous lancez des sorts d'évocation, infligez 1d8 dégâts supplémentaires une fois par tour.
+Feat/&ArtificerArtilleristArcaneFirearmTitle=Amélioration du dynamitage
+Feat/&ArtificerArtillerstDetonationSpellPreparedDescription=Vous gagnez la capacité de faire exploser l'un de vos appareils causant des dommages à ceux qui se trouvent à proximité de la cible.
+Feat/&ArtificerArtillerstDetonationSpellPreparedTitle=Détonation de l'appareil
+Feat/&ArtificerArtillerstImprovedCannonsDescription=L'effet de vos canons augmente. Dégâts supplémentaires du feu, cible supplémentaire de la force et PV temporaires supplémentaires du bouclier.
+Feat/&ArtificerArtillerstImprovedCannonsTitle=Canons améliorés
+Feat/&ArtilleristCannonDetonationDescription=Faites exploser l'un de vos appareils, ce qui oblige les créatures à moins de 20 pieds de l'emplacement ciblé à effectuer une sauvegarde de Dextérité. Les créatures subissent 3d8 dégâts de force en cas d'échec et la moitié de ces dégâts en cas de réussite.
+Feat/&ArtilleristCannonDetonationTitle=Détonation de l'appareil
+Feat/&ArtilleristFlameCannon15Description=Crache du feu dans un cône en tant qu'action bonus, infligeant 6d8 dégâts de feu si les cibles échouent à un jet de sauvegarde DEX.
+Feat/&ArtilleristFlameCannon15Title=Lance-flammes
+Feat/&ArtilleristFlameCannon9Description=Crache du feu dans un cône en tant qu'action bonus, infligeant 3d8 dégâts de feu si les cibles échouent à un jet de sauvegarde de DEX.
+Feat/&ArtilleristFlameCannon9Title=Lance-flammes
+Feat/&ArtilleristFlameCannonDescription=Crache du feu dans un cône en tant qu'action bonus, infligeant 2d8 dégâts de feu si les cibles échouent à un jet de sauvegarde DEX.
+Feat/&ArtilleristFlameCannonTitle=Lance-flammes
+Feat/&ArtilleristForceCannon15Description=Effectuez une attaque à distance contre jusqu'à 2 cibles en tant qu'action bonus, infligeant 3d8 dégâts de force en cas de coup.
+Feat/&ArtilleristForceCannon15Title=Canon de force
+Feat/&ArtilleristForceCannon9Description=Effectue une attaque à distance en tant qu'action bonus, infligeant 3d8 dégâts de force en cas de coup.
+Feat/&ArtilleristForceCannon9Title=Canon de force
+Feat/&ArtilleristForceCannonDescription=Effectue une attaque à distance en tant qu'action bonus, infligeant 2d8 dégâts de force en cas de coup.
+Feat/&ArtilleristForceCannonTitle=Canon de force
+Feat/&ArtilleristProtectorCannon15Description=Émet de l'énergie positive en tant qu'action bonus. Les alliés à moins de 6 mètres gagnent des PV temporaires égaux à 1d8 + votre modificateur d'Intelligence.
+Feat/&ArtilleristProtectorCannon15Title=Bouclier arcanique
+Feat/&ArtilleristProtectorCannonDescription=Émet de l'énergie positive en tant qu'action bonus. Les alliés à moins de 3 mètres gagnent des PV temporaires égaux à 1d8 + votre modificateur d'Intelligence.
+Feat/&ArtilleristProtectorCannonTitle=Bouclier arcanique
+Feat/&ArtilleristSubclassSpellsDescription={0}.
+Feat/&ArtilleristSubclassSpellsTitle=Apprenez des sorts de blaster
+Feat/&ArtilleryConstructDescription=Peut endommager ou protéger les alliés.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription=Sorts mineurs : construction de réparation, construction de congédiement\nNiveau 1 : Réinvoquer la construction d'artillerie.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle=Construire des sorts
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription=Vous gagnez des sorts bonus qui sont considérés comme des sorts de bricoleur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de bricoleur que vous connaissez.
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle=Construire des sorts
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription=Vous gagnez des sorts bonus qui sont considérés comme des sorts de bricoleur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de bricoleur que vous connaissez.
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle=Construire des sorts
+Feat/&ArtilleryModePoolDescription=Choisissez votre mode d'artillerie.
+Feat/&ArtilleryModePoolTitle=Mode Artillerie
+Feat/&AttackModifierArtificerBattleSmithJolt2Description=Vos attaques avec une arme infligent 3 dégâts supplémentaires.
+Feat/&AttackModifierArtificerBattleSmithJolt2Title=Coup d'attaque d'arme amélioré
+Feat/&AttackModifierArtificerBattleSmithJoltDescription=Vos attaques avec une arme infligent 3 dégâts supplémentaires.
+Feat/&AttackModifierArtificerBattleSmithJoltTitle=Secousse d'attaque d'arme
+Feat/&BattleSmithSubclassSpellsDescription={0}.
+Feat/&BattleSmithSubclassSpellsTitle=Apprendre les sorts de forgeron d'armes
+Feat/&ExtraInfusionSlotsDescription=Vous gagnez des emplacements d'infusion supplémentaires qui doivent être utilisés sur les armures/armes.
+Feat/&ExtraInfusionSlotsTitle=Infusions supplémentaires
+Feat/&FeatSentinelDescription=Vous avez maîtrisé des techniques pour profiter de chaque baisse de la garde de n'importe quel ennemi, obtenant les avantages suivants :\n• Lorsque vous touchez une créature avec une attaque d'opportunité, la vitesse de la créature passe à 0 pour le reste du tour.\n• Les créatures provoquent des attaques d'opportunité de votre part même si elles effectuent l'action Désengagement avant de quitter votre portée.\n• Lorsqu'une créature effectue une attaque contre une cible autre que vous (et que cette cible n'a pas ce don), vous pouvez utiliser votre réaction pour effectuer une attaque au corps à corps avec une arme contre la créature attaquante.
+Feat/&FeatSentinelTitle=Sentinelle
+Feat/&FlameArtillery_2Description=3d8 dégâts de feu (cône).
+Feat/&FlameArtillery_2Title=Artillerie incendiaire (améliorée)
+Feat/&FlameArtilleryConstructDescription=Crée un cône de feu qui inflige 2d8 dégâts en cas d'échec.
+Feat/&FlameArtilleryConstructDescription_3=Crée un cône de feu qui inflige 3d8 dégâts en cas d'échec.
+Feat/&FlameArtilleryConstructTitle=Construction d'artillerie de flammes
+Feat/&FlameArtilleryDescription=2d8 dégâts de feu (cône).
+Feat/&FlameArtilleryTitle=Flamme Artillerie
+Feat/&ForceArtillery_2Description=3d8 dégâts de force et repoussez la cible de 1,50 mètre.
+Feat/&ForceArtillery_2Title=Artillerie de force (améliorée)
+Feat/&ForceArtilleryAdditionalDamageDescription=La construction améliorée inflige 1d8 dégâts supplémentaires par coup.
+Feat/&ForceArtilleryConstructDescription=Inflige 2d8 dégâts de force et éloigne la cible de 1,50 mètre de la construction.
+Feat/&ForceArtilleryConstructDescription_3=Inflige 3d8 dégâts de force et éloigne la cible de 1,50 mètre de la construction.
+Feat/&ForceArtilleryConstructTitle=Construction d'artillerie de force
+Feat/&ForceArtilleryDescription=2d8 dégâts de Force et poussée de 1,50 mètre.
+Feat/&HalfCoverShieldDescription=Les alliés à moins de 3 mètres gagnent +2 CA.
+Feat/&HalfCoverShieldTitle=Dôme demi-couverture
+Feat/&PowerAlchemistGreaterRestorativeElixirsDescription=Une fois par jour, vous pouvez lancer une restauration supérieure.
+Feat/&PowerAlchemistGreaterRestorativeElixirsTitle=Grande restauration
+Feat/&PowerAlchemistHealElixirsDescription=Une fois par jour, vous pouvez lancer soin.
+Feat/&PowerAlchemistHealElixirsTitle=Guérir
+Feat/&PowerAlchemistRestorativeElixirsDescription=Vous pouvez lancer une restauration moindre sans dépenser d'emplacement de sort. Vous pouvez le faire un nombre de fois par repos long égal à votre modificateur d'Intelligence.
+Feat/&PowerAlchemistRestorativeElixirsTitle=Élixirs réparateurs
+Feat/&ResummonArtilleryConstruct_03Title=Resummon Artillery Construct 1
+Feat/&ResummonArtilleryConstruct_09Title=Resummon Artillery Construct 2
+Feat/&ResummonArtilleryConstruct_15Title=Resummon Artillery Construct 3
+Feat/&ResummonArtilleryConstructDescription=Ce sort permet au bricoleur de réinvoquer une construction d'artillerie dans l'un des multiples modes après l'expiration de l'invocation initiale. La construction réinvoquée dure également 1 heure.
+Feat/&ScoutSentinelFeatureSet_level03Description=<size=17><color=#add8e6ff>Fonctions d'armure multiples</color></size>\nVous pouvez basculer entre les modes de fonction une fois par jour en créant et en utilisant des armes temporaires\n\n<size=17><color=#add8e6ff>Mode sentinelle</color></size>\nGagnez un nombre limité de HP temporaires en fonction du niveau. Imposer un désavantage aux ennemis attaquant les alliés\n\n<size=17><color=#add8e6ff>Mode éclaireur</color></size>\nBénéficiez d'un mouvement accru, d'un avantage furtif et d'une attaque à distance qui inflige un dé de dégâts supplémentaire une fois par tour.\n\n<size=17><color=#add8e6ff>Caractéristiques</color></size>\nVous pouvez utiliser les armes de l'armure comme focus de lancement de sorts pour vos sorts\nL'armure lourde n'a pas d'exigence de force\nVous maîtrisez les outils de forgeron et les armures lourdes.
+Feat/&ScoutSentinelFeatureSet_level03Title=Sentinelle éclaireuse
+Feat/&ScoutSentinelFeatureSet_level05Description=<size=17><color=#add8e6ff>Attaque supplémentaire</color></size>\nVous pouvez attaquer une fois de plus, par tour de combat, lorsque vous utilisez les actions d'attaque ou de bousculade.
+Feat/&ScoutSentinelFeatureSet_level05Title=Sentinelle éclaireuse
+Feat/&ScoutSentinelFeatureSet_level09Description=<size=17><color=#add8e6ff>Emplacements de perfusion supplémentaires</color></size>\nVous gagnez des emplacements d'infusion supplémentaires, à utiliser sur l'armure.
+Feat/&ScoutSentinelFeatureSet_level09Title=Sentinelle éclaireuse
+Feat/&ScoutSentinelFeatureSet_level15Description=<size=17><color=#add8e6ff>Mode sentinelle amélioré</color></size>\nPeut désormais attirer les ennemis au corps à corps avec une action bonus et infliger 1d8 dégâts de tonnerre via le pouvoir Gauntlet Grapple\n\n<size=17><color=#add8e6ff>Mode Scout amélioré</color></size>\nPeut désormais créer un avantage pour les alliés et un désavantage pour les ennemis avec une seule attaque.
+Feat/&ScoutSentinelFeatureSet_level15Title=Sentinelle éclaireuse
+Feat/&SummonArtilleryConstructDescription=Le Blaster crée et commande une construction d'artillerie dans l'un des multiples modes. Les PV de la construction augmentent avec les niveaux de son invocateur et peuvent être invoqués gratuitement pendant 1 heure une fois par jour. La construction peut être réinvoquée via un sort de niveau 1. Les trois modes sont :\n<color=#add8e6ff>Protection du dôme :</color>\nConfère 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres\n<color=#add8e6ff>Construction d'artillerie incendiaire :</color>\nCrée un cône de feu. Les créatures doivent effectuer un jet de sauvegarde de Dextérité ou subir 2d8 dégâts\n<color=#add8e6ff>Construction d'artillerie de force :</color>\nInflige 2d8 dégâts de force et repousse l'ennemi à 1,50 mètre.
+Feat/&SummonArtilleryConstructlevel09Description=Une nouvelle fonction a été ajoutée. La construction d'artillerie peut se détruire, forçant une sauvegarde de Dextérité ou infligeant 3d8 dégâts de force en cas d'échec.\nDe plus, les jets de dégâts de la Flamme et de l'Artillerie de Force augmentent de 1d8 pour un total de 3d8.
+Feat/&SummonArtilleryConstructlevel09Title=Amélioration de la construction d'artillerie : autodestruction
+Feat/&SummonArtilleryConstructlevel15Description=Une nouvelle fonction a été ajoutée. La construction d'artillerie fournit désormais une demi-couverture aux alliés à moins de 10 pieds\n<size=17><color=#add8e6ff>Amélioration de la structure d'artillerie : renforts</color></size>\nVous pouvez maintenant invoquer deux constructions d'artillerie. Les constructions peuvent être de modes identiques ou différents.
+Feat/&SummonArtilleryConstructlevel15Title=Amélioration de la construction d'artillerie : dôme à demi-couverture
+Feat/&SummonArtilleryConstructTitle=Invoquer une construction d'artillerie
+Feat/&SummonProtectorConstructDescription=Votre propre Battle Buddy est prêt à vous défendre et à attaquer les ennemis. Le Protector Construct peut s'auto-réparer 3 fois par jour et peut imposer un désavantage aux attaques des alliés.
+Feat/&SummonProtectorConstructDescription_2=Invoquer la mise à niveau de la construction du protecteur.
+Feat/&SummonProtectorConstructDescription_Upgrade=Invoquer la mise à niveau de la construction du protecteur.
+Feat/&SummonProtectorConstructTitle=Invocation d'un assemblage de protecteur
+Feat/&SummonProtectorConstructTitle_2=Invocation de la mise à niveau de la construction du protecteur
+Feat/&SummonProtectorConstructTitle_Upgrade=Invocation de la mise à niveau de la construction du protecteur
+Feat/&TempHPShieldConstructDescription=Confère 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres.
+Feat/&TempHPShieldConstructTitle=Construction de dôme de protection
+Feat/&TempHPShieldDescription=Fournit 1d8 + 4 TempHP aux alliés à moins de 3 mètres.
+Feat/&TinkererConstructFamilyDescription=Créé par Tinkerer.
+Feat/&TinkererConstructFamilyTitle=Construction de bricoleur
+Feature/&ArtificerInfusionCastingDescription=Vous pouvez effectuer les composants somatiques des sorts tout en tenant des armes et des boucliers.
+Feature/&ArtificerInfusionCastingTitle=Moulage par infusion
+Feature/&ArtificerSpecialistArchetypesDescription=Dans quel domaine d'études vous spécialisez-vous? Les bricoleurs peuvent être des revendeurs de dégâts, des guérisseurs et des spécialistes martiaux.
+Feature/&ArtificerSpecialistArchetypesTitle=Spécialisations de bricoleur
+Feature/&FlameArtillery_09ModePowerDescription=Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 3d8 dégâts en cas d'échec.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.
+Feature/&FlameArtillery_09ModePowerTitle=Invoquer une construction d'artillerie de flammes
+Feature/&FlameArtillery_15ModePowerDescription=Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 3d8 dégâts en cas d'échec.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.\n Half Cover Dome : fournit une demi-couverture aux alliés à moins de 10 pieds.
+Feature/&FlameArtillery_15ModePowerTitle=Invoquer une construction d'artillerie de flammes
+Feature/&FlameArtilleryModePowerDescription=Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 2d8 dégâts en cas d'échec.
+Feature/&FlameArtilleryModePowerTitle=Invoquer une construction d'artillerie de flammes
+Feature/&ForceArtillery_09ModePowerDescription=Invoque une construction qui dure 1 heure.\nArtillerie de force : Inflige 3d8 dégâts de force et repousse l'ennemi à 1,50 mètre.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.
+Feature/&ForceArtillery_09ModePowerTitle=Convoquer une construction d'artillerie de force
+Feature/&ForceArtillery_15ModePowerDescription=Invoque une construction qui dure 1 heure.\nArtillerie de force : Inflige 3d8 dégâts de force et repousse l'ennemi à 1,50 mètre.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.\n Half Cover Dome : fournit une demi-couverture aux alliés à moins de 10 pieds.
+Feature/&ForceArtillery_15ModePowerTitle=Convoquer une construction d'artillerie de force
+Feature/&ForceArtilleryAdditionalDamageTitle=Dégâts améliorés
+Feature/&ForceArtilleryModePowerDescription=Invoque une construction qui dure 1 heure.\nArtillerie de force : Inflige 2d8 dégâts de force et repousse la cible à 1,50 mètre.
+Feature/&ForceArtilleryModePowerTitle=Convoquer une construction d'artillerie de force
+Feature/&ForceArtilleryTitle=Force d'artillerie
+Feature/&ImprovedScoutModePowerDescription=Bénéficiez des fonctionnalités améliorées du mode Scout. Peut désormais créer un avantage pour les alliés et un désavantage pour les ennemis avec une seule attaque.
+Feature/&ImprovedScoutModePowerTitle=Mode Scout amélioré
+Feature/&ImprovedSentinelModePowerDescription=Bénéficiez des fonctionnalités améliorées du mode Sentinelle via le pouvoir Gauntlet Grapple.
+Feature/&ImprovedSentinelModePowerTitle=Mode sentinelle amélioré
+Feature/&SavingThrowTinkererProficiencyDescription=Maîtrise des jets de sauvegarde de Constitution et d'Intelligence.
+Feature/&SavingThrowTinkererProficiencyTitle=Maîtrise du jet de sauvegarde
+Feature/&ScoutModePowerDescription=Bénéficiez d'un mouvement accru, d'un avantage sur les tests de furtivité et une fois par tour, vos attaques à distance avec une arme infligent un dé de dégâts supplémentaire.
+Feature/&ScoutModePowerTitle=Mode éclaireur
+Feature/&SentinelModePowerDescription=Gain Temp HP égal au niveau. Imposer un désavantage aux ennemis attaquant des alliés.
+Feature/&SentinelModePowerTitle=Mode Sentinelle
+Feature/&TempHPShield_09ModePowerDescription=Invoque une construction qui dure 1 heure.\nDôme protecteur : accorde 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.
+Feature/&TempHPShield_09ModePowerTitle=Invocation d'un dôme protecteur
+Feature/&TempHPShield_15ModePowerDescription=Invoque une construction qui dure 1 heure.\nDôme protecteur : accorde 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres.\nAutodestruction : inflige 3d8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.\n Half Cover Dome : Fournit une demi-couverture aux alliés à moins de 10 pieds.
+Feature/&TempHPShield_15ModePowerTitle=Invocation d'un dôme protecteur
+Feature/&TempHPShieldModePowerDescription=Invoque une construction qui dure 1 heure.\nDôme protecteur : accorde 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres.
+Feature/&TempHPShieldModePowerTitle=Invocation d'un dôme protecteur
+Feature/&TempHPShieldTitle=Dôme de protection
+Feature/&TinkererArmorProficiencyDescription=Maîtrise des armures légères et moyennes ainsi que des boucliers.
+Feature/&TinkererArmorProficiencyTitle=Compétence d'armure de bricoleur
+Feature/&TinkererInfusionChoiceDescription=Sélectionnez les infusions dont vous disposerez. Notez que chaque perfusion ne peut être active qu'une seule fois. L'activer une seconde fois annulera la première.
+Feature/&TinkererInfusionChoiceTitle=Choix d'infusion
+Feature/&TinkererInfusionReplaceDescription=Sélectionnez les infusions à remplacer.
+Feature/&TinkererInfusionReplaceTitle=Remplacer la perfusion
+Feature/&TinkererSkillGainChoicesPluralDescription=Les compétences du bricoleur sont les arcanes, l'histoire, l'investigation, la médecine, la nature, la perception et le tour de passe-passe.
+Feature/&TinkererSkillPointsTitle=Compétences de bricoleur
+Feature/&TinkererToolsExpertiseDescription=Gagnez en expertise avec de nombreux outils, notamment des outils de voleur, des kits de parchemin, un kit d'empoisonnement, un kit d'herboristerie et des outils d'enchantement.
+Feature/&TinkererToolsExpertiseTitle=Expertise en outils de bricolage
+Feature/&TinkererToolsProficiencyDescription=Maîtrisez de nombreux outils, notamment les outils de voleur, les kits de parchemins, le kit d'empoisonneur, le kit d'herboristerie et les outils d'enchantement.
+Feature/&TinkererToolsProficiencyTitle=Maîtrise des outils
+Feature/&TinkererWeaponProficiencyDescription=Maîtrise des armes simples.
+Feature/&TinkererWeaponProficiencyTitle=Maîtrise des armes du bricoleur
+Feedback/&AdditionalDamageArcaneFirearmFormat=Amélioration du dynamitage !
+Feedback/&AdditionalDamageArcaneFirearmLine=Inflige des dégâts supplémentaires grâce à l'amélioration de l'explosion
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat=Arme aveuglante
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine=Dégâts supplémentaires et tentative d'application de la cécité de l'arme aveuglante
+Feedback/&AdditionalDamageLightningSpearFormat=Lance éclair !
+Feedback/&AdditionalDamageLightningSpearLine={0} frappe {1} avec Lightning Spear ! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat=Dégâts améliorés
+Feedback/&AdditionalDamageUpgradedConstructLine=La construction améliorée inflige 1d8 dégâts supplémentaires par coup.
+Feedback/&LightningSpearAdditionalDamageDescription=Inflige 1d6 dégâts de foudre supplémentaires une fois par tour.
+Feedback/&LightningSpearAdditionalDamageTitle=Dégâts supplémentaires de Lightning Spear
+Item/&ForceArtilleryProjectileDescription=ForceArtilleryProjectile.
+Item/&ForceArtilleryProjectileTitle=ForceArtillerieProjectile
+Reaction/&ReactionAttackFeatSentinelDescription={0} a attaqué un de vos alliés, en réponse vous pouvez utiliser votre réaction pour attaquer.
+Reaction/&ReactionAttackFeatSentinelReactDescription=Utilisez la réaction pour attaquer.
+Reaction/&ReactionAttackFeatSentinelReactTitle=Attaque
+Reaction/&ReactionAttackFeatSentinelTitle=Réaction sentinelle
+Rules/&AdvantageAttackOnEnemyDescription=Avantage d'attaquer l'ennemi.
+Rules/&AdvantageAttackOnEnemyTitle=Illuminé
+Rules/&DisadvantageOnAttackByEnemyDescription=Distrait par un coup de foudre.
+Rules/&DisadvantageOnAttackByEnemyTitle=Secoué
+Rules/&ExtraDamageOnAttackConditionDescription=Dégâts supplémentaires de Lightning Spear.
+Rules/&ExtraDamageOnAttackConditionTitle=Statique choqué
+Rules/&HalfCoverShieldAttributeDescription=Les alliés à moins de 3 mètres gagnent +2 CA.
+Rules/&HalfCoverShieldAttributeTitle=Dôme demi-couverture
+Rules/&HalfCoverShieldConditionDescription=+2 CA.
+Rules/&HalfCoverShieldConditionTitle=Protégé par Dôme
+Rules/&LightningSpearPowerDescription=Inflige 2d6 dégâts de foudre.
+Rules/&LightningSpearPowerTitle=Lance de foudre
+Rules/&SelfDestructionConditionDescription=Auto destruction.
+Rules/&SelfDestructionConditionTitle=Auto destruction
+Rules/&ThunderStruckBalancingAdvantageDescription=Équilibre foudroyé pour ne fonctionner que pour les alliés.
+Rules/&ThunderStruckBalancingAdvantageTitle=raillé
+Rules/&ThunderStruckDescription=Inconvénient lors de l'attaque des alliés de Scout Sentinel.
+Rules/&ThunderStruckTitle=Abasourdi (distrait)
+SpellList/&SpellListTinkererDescription=Liste de sorts de bricoleur.
+SpellList/&SpellListTinkererTitle=Liste de sorts du bricoleur
+Stage/&SubclassSelectionStageSpecialistDescription=Il existe un large éventail de spécialités chez les bricoleurs, notamment la fabrication d'élixirs en tant que fabricant de potions, la fabrication d'explosions en tant que blaster et le maniement d'armes magiques en tant que forgeron d'armes.
+Stage/&SubclassSelectionStageSpecialistFeatures=Caractéristiques spécialisées
+Stage/&SubclassSelectionStageSpecialistHeader=Spécialisations
+Stage/&SubclassSelectionStageSpecialistNoneDescription=Spécialiste Aucun Description.
+Stage/&SubclassSelectionStageSpecialistTitle=Sélectionnez la spécialisation
+Subclass/&ArtificerAlchemistDescription=Vous êtes spécialisé dans les potions, les buffs, la guérison et le lancement de sorts.
+Subclass/&ArtificerAlchemistTitle=Créateur de potions
+Subclass/&ArtificerArtileristCannonsDescription=Vous créez un ensemble de canons que vous pouvez activer au combat en tant qu'action bonus.
+Subclass/&ArtificerArtileristCannonsTitle=Canons
+Subclass/&ArtificerArtilleristDescription=Vous êtes spécialisé dans le lancement de projectiles et dans les explosions.
+Subclass/&ArtificerArtilleristTitle=Blaster
+Subclass/&ArtificerBattleSmithDescription=Vous êtes spécialisé dans l'utilisation d'armes magiques au combat.
+Subclass/&ArtificerBattleSmithTitle=Forgeron d'armes
+Subclass/&ArtificerSpellcastingDescription=Lancez des sorts de bricoleur.
+Subclass/&ArtificerSpellcastingTitle=Bricoleur Lancer de sorts
+Subclass/&AttackModifierArtificerBattleSmithWeaponDescription=Vos attaques comptent comme magiques et vous utilisez votre Intelligence pour les jets d'attaque et de dégâts.
+Subclass/&AttackModifierArtificerBattleSmithWeaponTitle=Arme infusée
+Subclass/&AttackModifierArtificerBlindingWeaponDescription=Une arme que vous choisissez qui acquiert la capacité d'aveugler les cibles lorsqu'elles sont touchées (contre une sauvegarde de Constitution). Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerBlindingWeaponTitle=Arme aveuglante
+Subclass/&AttackModifierArtificerEnhancedArmorDescription=Une armure que vous choisissez devient magique et fournit +1 CA supplémentaire. Vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerEnhancedArmorTitle=Armure améliorée
+Subclass/&AttackModifierArtificerEnhancedFocusDescription=Un focus d'incantation que vous choisissez devient magique et gagne +1 aux jets d'attaque des sorts et au DD du jet de sauvegarde des sorts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerEnhancedFocusTitle=Mise au point améliorée
+Subclass/&AttackModifierArtificerEnhancedWeaponDescription=Une arme que vous choisissez devient magique et gagne +1 aux jets d'attaque et de dégâts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerEnhancedWeaponTitle=Arme améliorée
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription=Une armure que vous choisissez devient magique et fournit +2 AC. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle=Armure améliorée améliorée
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription=Un focus d'incantation que vous choisissez devient magique et gagne +2 aux jets d'attaque des sorts et au DD du jet de sauvegarde des sorts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle=Amélioration de la mise au point améliorée
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription=Touchez une arme et elle devient magique et gagne +2 aux jets d'attaque et de dégâts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle=Arme améliorée améliorée
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription=Vous insufflez de la puissance à votre arme. Vos attaques comptent comme magiques et vous ajoutez +7 à vos jets d'attaque et de dégâts.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle=Arme d'infusion améliorée
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription=Vous gagnez une attaque supplémentaire.
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle=Attaque supplémentaire
+Subclass/&CancelCancelElixirFlyDescription=Mettez fin à la condition Fly de l'élixir Potion Maker.
+Subclass/&CancelCancelElixirFlyTitle=Annuler Voler
+Subclass/&CancelCancelElixirResilienceDescription=Mettez fin à la condition de résilience de l'élixir Potion Maker.
+Subclass/&CancelCancelElixirResilienceTitle=Annuler la résilience
+Subclass/&CancelCancelElixirSwiftnessDescription=Mettez fin à la condition Rapidité de l'élixir Potion Maker.
+Subclass/&CancelCancelElixirSwiftnessTitle=Annuler la rapidité
+Subclass/&ConditionResistantArmorTitle=Armure résistante
+Subclass/&ConditionResistnatArmorDescription=Votre armure est résistante aux dommages causés par l'acide, le froid, le feu, la force, la foudre, la nécrose, le poison, le psychique, le rayonnement et le tonnerre.
+Subclass/&CraftingTinkererMagicItemAdeptDescription=Vous êtes habile à fabriquer des objets magiques. Cela vous prend 1/4 du temps pour fabriquer des objets et vous appliquez le double de votre bonus de compétence lors de la fabrication.
+Subclass/&CraftingTinkererMagicItemAdeptTitle=Adepte des objets magiques
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription=Touchez un sac et infusez un espace dimensionnel supplémentaire pour l'aider à supporter plus de poids sans vous encombrer. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&EquipmentModifierArtificerBagOfHolderTitle=Sac de tenue
+Subclass/&HArtilleryIncreaseDescription=Augmentation du pool d'artillerie.
+Subclass/&HArtilleryIncreaseTitle=Augmentation du pool d'artillerie
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription=Vous pouvez désormais infuser deux objets supplémentaires chaque jour. Ceux-ci sont destinés à être utilisés pour votre arme spéciale Weapon Smith.
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle=Forgeron d'armes Infusion d'armes
+Subclass/&HealingPoolArtificerInfusionsDescription=2 fois par jour, infusez des objets avec des effets magiques.
+Subclass/&HealingPoolArtificerInfusionsIncreaseDescription=Vous pouvez désormais infuser un élément supplémentaire chaque jour.
+Subclass/&HealingPoolArtificerInfusionsIncreaseTitle=Plus de perfusions
+Subclass/&HealingPoolArtificerInfusionsTitle=Infusions
+Subclass/&MagicAffinityAlchemicalSavantListDescription=Lorsqu'ils lancent Acid Arrow et Flaming Sphere, ils se comportent comme s'ils étaient lancés 2 niveaux plus haut. Vos sorts mineurs sont également améliorés, de sorte que même lorsque l'ennemi sauvegarde, il subit toujours la moitié des dégâts.
+Subclass/&MagicAffinityAlchemicalSavantListTitle=Sorts d'élixir de savant
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription=Vous insufflez de la puissance à votre arme. Vos attaques comptent comme magiques et vous ajoutez votre +7 à vos jets d'attaque et de dégâts. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle=Arme d'infusion améliorée
+Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription=Vous insufflez de la puissance à votre arme. Vos attaques comptent comme magiques et vous utilisez votre Intelligence pour les jets d'attaque et de dégâts jusqu'au prochain repos long.
+Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle=Infuser l'arme
+Subclass/&PowerInfuseArmorMagicalStrengthDescription=Imprègne l'armure d'une force magique. Vous gagnez un avantage sur les tests de capacité de Force et les jets de sauvegarde. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&PowerInfuseArmorMagicalStrengthTitle=Armure de force magique
+Subclass/&PowerInfuseDarkvisionDescription=Infusez la capacité de voir dans l'obscurité dans une paire de lunettes. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&PowerInfuseDarkvisionTitle=Lunettes de nuit
+Subclass/&PowerInfuseMindSharpenerDescription=Imprégner une armure ou une robe avec la capacité d'aider votre concentration de lancement de sorts. Vous gagnez un avantage sur les tests de concentration et tout dommage inférieur à 20 ne déclenche pas de test. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&PowerInfuseMindSharpenerTitle=Aiguiseur d'esprit
+Subclass/&PowerInfuseResistantArmorDescription=Infusez la résistance aux dégâts dans votre armure. Il devient résistant aux dommages causés par l'acide, le froid, le feu, la force, la foudre, la nécrose, le poison, le psychique, le rayonnement et le tonnerre. Vous ne pouvez avoir qu'une seule perfusion de chaque active à la fois. L'activer une seconde fois annulera la première.
+Subclass/&PowerInfuseResistantArmorTitle=Armure résistante
+Subclass/&PowerTinkererSoulOfArtificeSavesDescription=Votre armure contient des améliorations magiques de votre capacité à éviter les effets néfastes. Vous gagnez 3d4 à chaque jet de sauvegarde effectué.
+Subclass/&PowerTinkererSoulOfArtificeSavesTitle=Âme de bricoleur
+Subclass/&PowerTinkererSpellStoringItemDescription=Par une action bonus, vous pouvez regagner des emplacements de sorts. Vous pouvez le faire un nombre de fois par jour égal à votre modificateur d'Intelligence.
+Subclass/&PowerTinkererSpellStoringItemTitle=Objet de stockage de sorts
+Subclass/&PowerTransmuteConstitutionDescription=Utilisez votre force de transmutation pour conférer la maîtrise des sauvegardes de constitution jusqu'au prochain repos long.
+Subclass/&PowerTransmuteConstitutionTitle=La Constitution sauve
+Subclass/&PowerTransmuteDarkvisionDescription=Utilisez votre Force de transmutation pour conférer une vision dans le noir supérieure jusqu'au prochain repos long.
+Subclass/&PowerTransmuteDarkvisionTitle=Vision dans le noir supérieure
+Subclass/&PowerTransmuteElementalResistanceDescription=Utilisez votre Force de transmutation pour conférer une résistance aux dégâts d'acide, de froid, de feu, de foudre, de nécrose, de poison et de tonnerre jusqu'à la fin de votre prochain repos long.
+Subclass/&PowerTransmuteElementalResistanceTitle=Résistance élémentaire
+Subclass/&PowerTransmuteFlyDescription=Utilisez votre force de transmutation pour accorder la capacité de vol.
+Subclass/&PowerTransmuteFlyTitle=Mouche
+Subclass/&PowerTransmuteHealDescription=Utilisez votre Force de transmutation pour soigner jusqu'à 6 cibles.
+Subclass/&PowerTransmuteHealTitle=Guérir
+Subclass/&PowerTransmuteReviveDescription=Utilisez votre Force de transmutation pour faire revivre un personnage (dans la minute qui suit sa mort).
+Subclass/&PowerTransmuteReviveTitle=Relancer
+Subclass/&ScoutSentinelTinkererSubclassDescription=Un Scout Sentinel Tinkerer modifie l'armure pour améliorer sa fonction, offrant une protection et une mobilité améliorées.
+Subclass/&ScoutSentinelTinkererSubclassTitle=Sentinelle éclaireuse
+Subclass/&TinkererFlashOfGeniusConditionDescription=Inspiré par un éclair de génie pour avoir un bonus sur les tests de capacité et les jets de sauvegarde.
+Subclass/&TinkererFlashOfGeniusConditionTitle=Éclair de génie
+Subclass/&TinkererFlashOfGeniusPowerDescription=Vous pouvez utiliser votre génie pour vous inspirer et inspirer les autres lors des tests de capacité et des jets de sauvegarde.
+Subclass/&TinkererFlashOfGeniusPowerTitle=Éclair de génie
+Subclass/&TinkererMagicalTinkeringDescription=Gagnez la capacité de faire plusieurs effets mineurs (Dazzle, Sparkle, Shine).
+Subclass/&TinkererMagicalTinkeringTitle=Bricolage magique
+Subclass/&WeaponProfArtificerBattleSmithDescription=L'expérience au combat a donné au Forgeron d'Armes une formation en Armes Martiales.
+Subclass/&WeaponProfArtificerBattleSmithTitle=Entraînement aux armes
+Tooltip/&TagScoutSentinelWeaponTitle=Sentinelle éclaireuse

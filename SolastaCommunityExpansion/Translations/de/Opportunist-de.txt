@@ -1,6 +1,6 @@
-Feature/&OpportunistDebilitatingStrikeDescription	Dein hinterhältiger Angriff führt dazu, dass das Ziel einen Konstitutionsrettungswurf (SG 8 + dein Kompetenzbonus + dein Geschicklichkeitsmodifikator) macht oder einen der folgenden Zustände erleidet: geblendet, verflucht, blutend oder betäubt.
-Feature/&OpportunistDebilitatingStrikeTitle	Lähmender Schlag
-Feature/&OpportunistQuickStrikeDescription	Sie haben einen Vorteil, wenn Sie einen Feind angreifen, dessen Initiative geringer ist als Ihre. Darüber hinaus haben Sie auch einen Vorteil, wenn Sie einen Gelegenheitsangriff ausführen.
-Feature/&OpportunistQuickStrikeTitle	Schneller Schlag
-Subclass/&OpportunistDescription	Opportunisten sind diejenigen, die niemals eine Chance auslassen, ihre Feinde zu erledigen. Sie stechen schnell und stechen dort, wo es darauf ankommt. Nicht viele, denen sie gegenüberstanden, können unbeschadet davonkommen.
-Subclass/&OpportunistTitle	Opportunist
+Feature/&OpportunistDebilitatingStrikeDescription=Dein hinterhältiger Angriff führt dazu, dass das Ziel einen Konstitutionsrettungswurf (SG 8 + dein Kompetenzbonus + dein Geschicklichkeitsmodifikator) macht oder einen der folgenden Zustände erleidet: geblendet, verflucht, blutend oder betäubt.
+Feature/&OpportunistDebilitatingStrikeTitle=Lähmender Schlag
+Feature/&OpportunistQuickStrikeDescription=Sie haben einen Vorteil, wenn Sie einen Feind angreifen, dessen Initiative geringer ist als Ihre. Darüber hinaus haben Sie auch einen Vorteil, wenn Sie einen Gelegenheitsangriff ausführen.
+Feature/&OpportunistQuickStrikeTitle=Schneller Schlag
+Subclass/&OpportunistDescription=Opportunisten sind diejenigen, die niemals eine Chance auslassen, ihre Feinde zu erledigen. Sie stechen schnell und stechen dort, wo es darauf ankommt. Nicht viele, denen sie gegenüberstanden, können unbeschadet davonkommen.
+Subclass/&OpportunistTitle=Opportunist

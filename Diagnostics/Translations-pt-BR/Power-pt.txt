@@ -1,0 +1,4 @@
+Power/&PowerStoneGolemSlow_Title	Lentidão
+Power/&PowerStoneGolemSlow_Description	Golems de pedra podem deixar inimigos próximos mais lentos.
+Power/&WightLifeDrain_Description	
+Power/&WightLordCircleofDeath_Description	

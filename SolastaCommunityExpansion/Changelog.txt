@@ -8,5 +8,4 @@
 
 CHANGES:
 
-- Add new bright eyes selections
-- Fix custom features panel replacement logic
+- Improve translations

@@ -1,0 +1,45 @@
+Location/&Bone_Keep_Scene_Description	Корона привела вас в эти безлюдные земли, где в глубине чащи высится тёмная крепость. Исследуйте окрестности и найдите один из драгоценных камней Короны.
+Location/&Bone_Keep_Scene_Title	Костяная Крепость
+Location/&Caer_Cyflen_Description	Каэр Кифлен, сиятельная столица княжества Масгарт, был значимым городом империи Манакалон ещё до Катаклизма. Теперь это сердце одного из молодых Восточных королевств.
+Location/&Caer_Cyflen_Title	Каэр Кифлен
+Location/&Caer_Lem_Description	Ваше первое задание от Совета Наследия — добраться до аванпоста Каэр Лем, находящегося в Пограничье, и выяснить, почему командир гарнизона капитан Хенрик перестал отправлять отчёты.
+Location/&Caer_Lem_Title	Каэр Лем
+Location/&DangerRoomDescription	Тестовая комната для дизайнеров уровней.
+Location/&DangerRoomTitle	Опасная комната
+Location/&OrcStrongholdDescription	Сырая и заплесневелая гробница. Может скрывать в себе богатства и уж наверняка — смертельную опасность.
+Location/&OrcStrongholdTitle	Орочья крепость
+Location/&Ruins_Telema_Title	Руины Телемы
+Location/&SouthCryptDescription	Сырая и заплесневелая гробница. Может скрывать в себе богатства и уж наверняка — смертельную опасность.
+Location/&SouthCryptTitle	Южная крипта
+Location/&TirmarianTower_Description	Над Каэр Лемом высится древняя тирмарская башня, вдавленная в склон горы. Её перенесли туда во время Катаклизма — вместе со всем, что в ней было.
+Location/&TirmarianTower_Title	Тирмарская башня
+Location/&Tower_Of_Magic_Description	Выжившие из Каэр Лема рассказали вам, что когда они обнаружили руины в Пустошах, на них напали Сорр-Аккат. Идя по указаниям, вы прибыли сюда, надеясь найти следы легендарных чудовищ.
+Location/&Tower_Of_Magic_Title	Манакалонские руины
+Location/&Tutorial_Tavern_Scene_Description	Искатели приключений собираются в «Бочке могильщика», чтобы ответить на зов Совета Наследия, собирающего новых помощников для своих операций в Княжестве и за его пределами.
+Location/&Tutorial_Tavern_Scene_Title	Сбор
+Location/&Encounter_Hamlet_Title	Село
+Location/&Encounter_Hamlet_Description	Небольшое село у дороги, ничем не отличающиеся от множества других сёл княжества Масгарт.
+Location/&Encounter_Crossroads_Title	Перекрёсток
+Location/&Encounter_Crossroads_Description	Спокойное на вид место среди дорог княжества.
+Location/&CradleOfFire_Scene_Description	Корона привела вас в эти безлюдные земли, где в глубине чащи высится тёмная крепость. Исследуйте окрестности и найдите один из драгоценных камней Короны.
+Location/&CradleOfFire_Scene_Title	Колыбель Огня
+Location/&CradleOfFire_Necropolis_Title	Сентариллианский некрополь
+Location/&CradleOfFire_Necropolis_Description	В глубинах вулкана находится затонувший город Сентариллиан и его некрополь, дом умерших имперцев, населявших его.
+Location/&NPEmbassy_Title	Посольство Новой империи
+Location/&NPEmbassy_Description	Это посольство находится рядом с Советом Наследия в Каэр Кифлене.
+Location/&Hickory_Description	Известное в Княжестве место, где руины империи Манакалон служат метками для путешественников.
+Location/&OrcHideout_Title	Аванпост Перешёптывающихся
+Location/&OrcHideout_Description	Биттеррут упомянула, что там располагается древний докатаклизмовый аванпост Перешёптывающихся. Он мог сильно измениться, но вам, возможно, удастся найти там старинные предметы, очень ценимые некоторыми группировками.
+Location/&UnknownCamp_Title	Лагерь
+Location/&Coparann_Mines_Title	Копараннские шахты
+Location/&Coparann_Mines_Description	Старая, заброшенная шахта. Благодаря поддержке барона вам был предоставлен к ней доступ, чтобы вы могли помочь Ауроку.
+Location/&Map_DLC1_AnfarelDomain_Title	Владения Анфарелов
+Location/&Map_DLC1_AnfarelDomain_Description	Эта деревня расположена на земле, принадлежащей древнему благородному роду Анфарел. Здесь правит Эладиен Анфарел.
+Location/&Map_DLC1_HuntingGrounds_Title	Охотничьи угодья
+Location/&Map_DLC1_HuntingGrounds_Description	Это место прекрасно подходит для охоты на дичь.
+Location/&Map_DLC1_HarvestArea_Title	Урожайная область
+Location/&Map_DLC1_HarvestArea_Description	Оренетис говорит, что в этой опасной области можно найти редкие ингредиенты.
+Location/&Map_DLC1_SpiderNest_Title	Паучье гнездо
+Location/&Map_DLC1_SpiderNest_Description	Вас предупреждали, что здесь находится паучье гнездо.
+Location/&Map_DLC1_JungleNest_Title	Гнездо в джунглях
+Location/&Map_DLC1_JungleNest_Description	Эллариа Анфарел сказала, что в этой области обитает огромный монстр.

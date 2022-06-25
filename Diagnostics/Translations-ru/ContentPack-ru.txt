@@ -1,0 +1,14 @@
+ContentPack/&BackerItemsTitle	Набор предметов для спонсоров
+ContentPack/&BackerItemsDescription	Открывает следующие предметы: Одно кольцо, Дварфский хлеб, Сапоги-скороходы, Ложку раздора и Раннюю пташку. Можно найти в сундуке возле памятника, находящегося рядом с Советом.
+ContentPack/&DigitalBackerContentTitle	Набор цифрового издания
+ContentPack/&DigitalBackerContentDescription	Открывает Вечный факел и особые виды визуальных эффектов для Горящих рук и Священного пламени. Можно найти в сундуке возле памятника, находящегося рядом с Советом.
+ContentPack/&LoadedDiceTitle	Набор меченых костей
+ContentPack/&LoadedDiceDescription	Открывает Меченые кости. Можно найти в сундуке возле памятника, находящегося рядом с Советом.
+ContentPack/&SorcererUpdateTitle	Обновление «Заклинатель»
+ContentPack/&SorcererUpdateDescription	Открывает класс «заклинатель» и 3 подкласса, режим «Железный человек» и новые материалы для создателя подземелий.
+ContentPack/&SupporterPackTitle	Набор за поддержку
+ContentPack/&SupporterPackDescription	Открывает эксклюзивные кости, большое количество иллюстраций в высоком разрешении и вечную любовь команды Tactical Adventures.
+ContentPack/&PrimalCallingTitle	Primal Calling
+ContentPack/&PrimalCallingDescription	Открывает классы персонажей варвара и друида, наследие полуорка и предысторию скитальца для любого путешествия в Соласте.
+ContentPack/&LostValleyTitle	Затерянная долина
+ContentPack/&LostValleyDescription	Новое приключение в мире Соласты.

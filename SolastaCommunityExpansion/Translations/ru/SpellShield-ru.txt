@@ -1,24 +1,24 @@
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription В качестве реакции вы можете использовать свои тайные силы, чтобы защитить	себя.
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle Щит от	заклинаний
-Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription Когда активна на оружии, его атаки считаются магическими, и вы используете свой Интеллект для бросков атаки и	урона.
-Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle Магическое	Оружие
-Subclass/&AttributeModifierMeleeWizardExtraAttackDescription Вы получаете дополнительную	атаку.
-Subclass/&AttributeModifierMeleeWizardExtraAttackTitle Дополнительная	атака
-Subclass/&ConditionSpellShieldArcaneDeflectionDescription В качестве реакции вы можете использовать свои тайные силы, чтобы защитить себя. Это дает вам +3 к КД до вашего следующего	хода.
-Subclass/&ConditionSpellShieldArcaneDeflectionTitle Чародейское	отклонение
-Subclass/&FighterSpellShieldDescription Щиты от заклинаний — это бойцы, которые специализируются на защите и защите. Они используют магию, чтобы помочь своим природным	способностям.
-Subclass/&FighterSpellShieldSpellcastingDescription Используйте заклинания и колдовство Волшебника из школ Отречения, Иллюзии, Трансмутации и	Некромантии.
-Subclass/&FighterSpellShieldSpellcastingTitle	Колдовство
-Subclass/&FighterSpellShieldSpellResistanceDescription Ваш опыт работы с заклинаниями и, в частности, с магией Отречения сделал вас устойчивым к заклинаниям, направленным против	вас.
-Subclass/&FighterSpellShieldSpellResistanceTitle Сопротивление	заклинаниям
-Subclass/&FighterSpellShieldTitle Щит от	заклинаний
-Subclass/&MagicAffinityFighterSpellShieldDescription Преимущество в проверках концентрации, а также возможность выполнять соматические компоненты заклинаний, удерживая	предметы.
-Subclass/&MagicAffinityFighterSpellShieldTitle Боевой	кастинг
-Subclass/&MagicAffinityMeleeWizardConcentrationDescription Благодаря опыту в хаосе боя получите преимущество в проверках	концентрации.
-Subclass/&MagicAffinityMeleeWizardConcentrationTitle Улучшенная	концентрация
-Subclass/&PowerSpellShieldArcaneDeflectionDescription В качестве реакции вы можете использовать свои тайные силы, чтобы защитить себя. Это дает вам +{0} к КД до вашего следующего	хода.
-Subclass/&PowerSpellShieldArcaneDeflectionTitle Чародейское	отклонение
-Subclass/&PowerSpellShieldRangedDeflectionDescription Когда нападающий, которого вы видите, поражает вас дальнобойной атакой или заклинанием, вы можете реакцией уменьшить вдвое урон от атаки против	вас.
-Subclass/&PowerSpellShieldRangedDeflectionTitle Отклонение дальнего	боя
-Subclass/&SpellShieldAdditionalActionDescription Вы можете произнести заклинание после победы над врагом с помощью атак	оружием.
-Subclass/&SpellShieldAdditionalActionTitle Борьба с	заклинаниями
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription=В качестве реакции вы можете использовать свои тайные силы, чтобы защитить себя.
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle=Щит от заклинаний
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription=Когда активна на оружии, его атаки считаются магическими, и вы используете свой Интеллект для бросков атаки и урона.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle=Магическое Оружие
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription=Вы получаете дополнительную атаку.
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle=Дополнительная атака
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription=В качестве реакции вы можете использовать свои тайные силы, чтобы защитить себя. Это дает вам +3 к КД до вашего следующего хода.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle=Чародейское отклонение
+Subclass/&FighterSpellShieldDescription=Щиты от заклинаний — это бойцы, которые специализируются на защите и защите. Они используют магию, чтобы помочь своим природным способностям.
+Subclass/&FighterSpellShieldSpellcastingDescription=Используйте заклинания и колдовство Волшебника из школ Отречения, Иллюзии, Трансмутации и Некромантии.
+Subclass/&FighterSpellShieldSpellcastingTitle=Колдовство
+Subclass/&FighterSpellShieldSpellResistanceDescription=Ваш опыт работы с заклинаниями и, в частности, с магией Отречения сделал вас устойчивым к заклинаниям, направленным против вас.
+Subclass/&FighterSpellShieldSpellResistanceTitle=Сопротивление заклинаниям
+Subclass/&FighterSpellShieldTitle=Щит от заклинаний
+Subclass/&MagicAffinityFighterSpellShieldDescription=Преимущество в проверках концентрации, а также возможность выполнять соматические компоненты заклинаний, удерживая предметы.
+Subclass/&MagicAffinityFighterSpellShieldTitle=Боевой кастинг
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription=Благодаря опыту в хаосе боя получите преимущество в проверках концентрации.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle=Улучшенная концентрация
+Subclass/&PowerSpellShieldArcaneDeflectionDescription=В качестве реакции вы можете использовать свои тайные силы, чтобы защитить себя. Это дает вам +{0} к КД до вашего следующего хода.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle=Чародейское отклонение
+Subclass/&PowerSpellShieldRangedDeflectionDescription=Когда нападающий, которого вы видите, поражает вас дальнобойной атакой или заклинанием, вы можете реакцией уменьшить вдвое урон от атаки против вас.
+Subclass/&PowerSpellShieldRangedDeflectionTitle=Отклонение дальнего боя
+Subclass/&SpellShieldAdditionalActionDescription=Вы можете произнести заклинание после победы над врагом с помощью атак оружием.
+Subclass/&SpellShieldAdditionalActionTitle=Борьба с заклинаниями

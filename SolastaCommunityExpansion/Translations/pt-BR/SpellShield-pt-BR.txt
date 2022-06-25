@@ -1,24 +1,24 @@
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	Você pode usar seus poderes arcanos para se proteger como uma reação.
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Escudo de Feitiço
-Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	Quando ativo em uma arma, seus ataques contam como mágicos e você usa sua Inteligência para suas jogadas de ataque e dano.
-Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arma Arcana
-Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	Você ganha um ataque extra.
-Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Ataque Extra
-Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +3 na sua CA até o seu próximo turno.
-Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Deflexão Arcana
-Subclass/&FighterSpellShieldDescription	Spell Shields são lutadores especializados em defesa e proteção. Eles usam magia para ajudar suas habilidades naturais.
-Subclass/&FighterSpellShieldSpellcastingDescription	Lance feitiços e truques de Mago das escolas Abjuração, Ilusão, Transmutação e Necromancia.
-Subclass/&FighterSpellShieldSpellcastingTitle	Feitiço
-Subclass/&FighterSpellShieldSpellResistanceDescription	Sua experiência com feitiços e magia de Abjuração em particular o tornou resistente a feitiços lançados contra você.
-Subclass/&FighterSpellShieldSpellResistanceTitle	Resistência à Magia
-Subclass/&FighterSpellShieldTitle	Escudo de Feitiço
-Subclass/&MagicAffinityFighterSpellShieldDescription	Vantagem em testes de concentração, bem como a capacidade de realizar componentes somáticos de feitiços enquanto segura itens.
-Subclass/&MagicAffinityFighterSpellShieldTitle	Conjuração de Combate
-Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Devido à experiência no caos do combate, ganhe vantagem em testes de concentração.
-Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Concentração Aprimorada
-Subclass/&PowerSpellShieldArcaneDeflectionDescription	Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +{0} na sua CA até seu próximo turno.
-Subclass/&PowerSpellShieldArcaneDeflectionTitle	Deflexão Arcana
-Subclass/&PowerSpellShieldRangedDeflectionDescription	Quando um atacante que você pode ver o atinge com um ataque à distância ou feitiço, você pode usar sua reação para reduzir pela metade o dano do ataque contra você.
-Subclass/&PowerSpellShieldRangedDeflectionTitle	Deflexão à distância
-Subclass/&SpellShieldAdditionalActionDescription	Você pode lançar um feitiço depois de derrotar um inimigo com seus ataques de arma.
-Subclass/&SpellShieldAdditionalActionTitle	Combate a Feitiços
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription=Você pode usar seus poderes arcanos para se proteger como uma reação.
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle=Escudo de Feitiço
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription=Quando ativo em uma arma, seus ataques contam como mágicos e você usa sua Inteligência para suas jogadas de ataque e dano.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle=Arma Arcana
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription=Você ganha um ataque extra.
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle=Ataque Extra
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription=Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +3 na sua CA até o seu próximo turno.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle=Deflexão Arcana
+Subclass/&FighterSpellShieldDescription=Spell Shields são lutadores especializados em defesa e proteção. Eles usam magia para ajudar suas habilidades naturais.
+Subclass/&FighterSpellShieldSpellcastingDescription=Lance feitiços e truques de Mago das escolas Abjuração, Ilusão, Transmutação e Necromancia.
+Subclass/&FighterSpellShieldSpellcastingTitle=Feitiço
+Subclass/&FighterSpellShieldSpellResistanceDescription=Sua experiência com feitiços e magia de Abjuração em particular o tornou resistente a feitiços lançados contra você.
+Subclass/&FighterSpellShieldSpellResistanceTitle=Resistência à Magia
+Subclass/&FighterSpellShieldTitle=Escudo de Feitiço
+Subclass/&MagicAffinityFighterSpellShieldDescription=Vantagem em testes de concentração, bem como a capacidade de realizar componentes somáticos de feitiços enquanto segura itens.
+Subclass/&MagicAffinityFighterSpellShieldTitle=Conjuração de Combate
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription=Devido à experiência no caos do combate, ganhe vantagem em testes de concentração.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle=Concentração Aprimorada
+Subclass/&PowerSpellShieldArcaneDeflectionDescription=Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +{0} na sua CA até seu próximo turno.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle=Deflexão Arcana
+Subclass/&PowerSpellShieldRangedDeflectionDescription=Quando um atacante que você pode ver o atinge com um ataque à distância ou feitiço, você pode usar sua reação para reduzir pela metade o dano do ataque contra você.
+Subclass/&PowerSpellShieldRangedDeflectionTitle=Deflexão à distância
+Subclass/&SpellShieldAdditionalActionDescription=Você pode lançar um feitiço depois de derrotar um inimigo com seus ataques de arma.
+Subclass/&SpellShieldAdditionalActionTitle=Combate a Feitiços

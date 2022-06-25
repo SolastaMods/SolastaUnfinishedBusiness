@@ -1,22 +1,22 @@
-Feature/&CounterStrikePowerDescription	Gaste um dado de jogada e faça um Counter Strike no inimigo, se você acertar, cause 1d6+2 de dano de concussão adicional.
-Feature/&CounterStrikePowerTitle	Contra-ataque
-Feature/&GambitResourcePoolAddDescription	Adiciona um dado de gambito adicional.
-Feature/&GambitResourcePoolAddTitle	Dado de Gambit Adicional
-Feature/&GambitResourcePoolDescription	Conjunto de dados de gambito que podem ser gastos em gambitos. Começa com 4 eles recarregam em descanso curto.
-Feature/&GambitResourcePoolTitle	Jogo de dados Gambit
-Feature/&InspirePowerDescription	Gaste um dado de aposta e inspire você ou seu aliado a dar 1d6 + 2 PV temporários.
-Feature/&InspirePowerTitle	Inspirar
-Feature/&KnockDownPowerDescription	Gaste um dado de jogada e fortaleça seu ataque para causar mais 1d6 + 2 de dano de concussão. O alvo faz um teste de resistência de Força (CD 8 + seu bônus de proficiência + seu modificador de Força) ou é derrubado até o início de seu próximo turno.
-Feature/&KnockDownPowerTitle	Derrubar
-Reaction/&SpendPowerCounterStrikePowerDescription	Gaste um dado de jogada e faça um Counter Strike no inimigo, se você acertar, cause 1d6+2 de dano de concussão adicional.
-Reaction/&SpendPowerCounterStrikePowerReactDescription	Gaste um dado de jogada e faça um Counter Strike no inimigo, se você acertar, cause 1d6+2 de dano de concussão adicional.
-Reaction/&SpendPowerCounterStrikePowerReactTitle	Contra-ataque
-Reaction/&SpendPowerCounterStrikePowerTitle	Contra-ataque
-Reaction/&SpendPowerInspirePowerDescription	Gaste um dado de gambito e inspire seu aliado, dando 1d6 + 2 PV temporários.
-Reaction/&SpendPowerInspirePowerTitle	Inspirar
-Reaction/&SpendPowerKnockDownPowerDescription	Gaste um dado de jogada e fortaleça seu ataque para causar mais 1d6 + 2 de dano de concussão. O alvo faz um teste de resistência de Força (CD 8 + seu bônus de proficiência + seu modificador de Força) ou é derrubado até o início de seu próximo turno.
-Reaction/&SpendPowerKnockDownPowerReactDescription	Gaste um dado de jogada e fortaleça seu ataque para causar mais 1d6 + 2 de dano de concussão. O alvo faz um teste de resistência de Força (CD 8 + seu bônus de proficiência + seu modificador de Força) ou é derrubado até o início de seu próximo turno.
-Reaction/&SpendPowerKnockDownPowerReactTitle	Derrubar
-Reaction/&SpendPowerKnockDownPowerTitle	Derrubar
-Subclass/&TactitionFighterSubclassDescription	O Estrategista usa seu conhecimento e poder no campo de batalha para realizar diferentes jogadas conforme necessário. Eles podem derrubar inimigos, inspirar seus aliados e entrar em contra-ataques mortais contra seus inimigos.
-Subclass/&TactitionFighterSubclassTitle	O Estrategista
+Feature/&CounterStrikePowerDescription=Gaste um dado de jogada e faça um Counter Strike no inimigo, se você acertar, cause 1d6+2 de dano de concussão adicional.
+Feature/&CounterStrikePowerTitle=Contra-ataque
+Feature/&GambitResourcePoolAddDescription=Adiciona um dado de gambito adicional.
+Feature/&GambitResourcePoolAddTitle=Dado de Gambit Adicional
+Feature/&GambitResourcePoolDescription=Conjunto de dados de gambito que podem ser gastos em gambitos. Começa com 4 eles recarregam em descanso curto.
+Feature/&GambitResourcePoolTitle=Jogo de dados Gambit
+Feature/&InspirePowerDescription=Gaste um dado de aposta e inspire você ou seu aliado a dar 1d6 + 2 PV temporários.
+Feature/&InspirePowerTitle=Inspirar
+Feature/&KnockDownPowerDescription=Gaste um dado de jogada e fortaleça seu ataque para causar mais 1d6 + 2 de dano de concussão. O alvo faz um teste de resistência de Força (CD 8 + seu bônus de proficiência + seu modificador de Força) ou é derrubado até o início de seu próximo turno.
+Feature/&KnockDownPowerTitle=Derrubar
+Reaction/&SpendPowerCounterStrikePowerDescription=Gaste um dado de jogada e faça um Counter Strike no inimigo, se você acertar, cause 1d6+2 de dano de concussão adicional.
+Reaction/&SpendPowerCounterStrikePowerReactDescription=Gaste um dado de jogada e faça um Counter Strike no inimigo, se você acertar, cause 1d6+2 de dano de concussão adicional.
+Reaction/&SpendPowerCounterStrikePowerReactTitle=Contra-ataque
+Reaction/&SpendPowerCounterStrikePowerTitle=Contra-ataque
+Reaction/&SpendPowerInspirePowerDescription=Gaste um dado de gambito e inspire seu aliado, dando 1d6 + 2 PV temporários.
+Reaction/&SpendPowerInspirePowerTitle=Inspirar
+Reaction/&SpendPowerKnockDownPowerDescription=Gaste um dado de jogada e fortaleça seu ataque para causar mais 1d6 + 2 de dano de concussão. O alvo faz um teste de resistência de Força (CD 8 + seu bônus de proficiência + seu modificador de Força) ou é derrubado até o início de seu próximo turno.
+Reaction/&SpendPowerKnockDownPowerReactDescription=Gaste um dado de jogada e fortaleça seu ataque para causar mais 1d6 + 2 de dano de concussão. O alvo faz um teste de resistência de Força (CD 8 + seu bônus de proficiência + seu modificador de Força) ou é derrubado até o início de seu próximo turno.
+Reaction/&SpendPowerKnockDownPowerReactTitle=Derrubar
+Reaction/&SpendPowerKnockDownPowerTitle=Derrubar
+Subclass/&TactitionFighterSubclassDescription=O Estrategista usa seu conhecimento e poder no campo de batalha para realizar diferentes jogadas conforme necessário. Eles podem derrubar inimigos, inspirar seus aliados e entrar em contra-ataques mortais contra seus inimigos.
+Subclass/&TactitionFighterSubclassTitle=O Estrategista

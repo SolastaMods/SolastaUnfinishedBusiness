@@ -1,22 +1,22 @@
-Condition/&ConditionBarkWardDescription Под эффектом Дубовая кора. Получите 4 временных HP за каждый уровень друида на 10	минут.
-Condition/&ConditionBarkWardTitle Дубовая	кора
-Condition/&ConditionImprovedBarkWardDescription Дубовые Стражи наносят 2d8 колющего урона существам, попавшим в рукопашную	атаку.
-Condition/&ConditionImprovedBarkWardTitle Усиленный Дубовый	Страж
-Condition/&ConditionSuperiorBarkWardDescription Улучшенный Дубовый Страж дает невосприимчивость к яду и наносит 3d8 колющего урона существам, попавшим в рукопашную	атаку.
-Condition/&ConditionSuperiorBarkWardTitle Улучшенный Дубовый	Страж
-Feature/&DruidForestGuardianBarkWardDescription Вы получаете возможность призывать Дубового Стража для своей защиты. В качестве бонусного действия вы можете потратить использование своей дикой формы, чтобы получить 4 временных очка здоровья за каждый уровень, который у вас есть в этом классе. Эти временные хиты сохраняются в течение 10 минут или до тех пор, пока вы снова не воспользуетесь дикой	формой.
-Feature/&DruidForestGuardianBarkWardTitle Лесной	Страж
-Feature/&DruidForestGuardianExtraAttackDescription Начиная с 6-го уровня, вы можете атаковать дважды, а не один раз, когда в свой ход совершаете действие	Атака.
-Feature/&DruidForestGuardianExtraAttackTitle Дополнительная	атака
-Feature/&DruidForestGuardianImprovedBarkWardDescription Теперь у вашего Лесного Стража растут шипы, которые наносят урон атакующим в ближнем бою. Враги, успешно поразившие вас рукопашной атакой, получают колющий урон	2d8.
-Feature/&DruidForestGuardianImprovedBarkWardTitle Улучшенный Лесной	Страж
-Feature/&DruidForestGuardianMagicDescription Начиная со 2-го уровня при выборе этого круга вы получаете доступ к расширенному списку заклинаний, который всегда	готов:\n{0}
-Feature/&DruidForestGuardianMagicTitle Круговые	заклинания
-Feature/&DruidForestGuardianSuperiorBarkWardDescription Ваша способность Дубовый Страж теперь отражает колющий урон 3d8 атакующим в ближнем бою. Кроме того, Дубовый Страж теперь дает вам иммунитет к яду, пока он	активен.
-Feature/&DruidForestGuardianSuperiorBarkWardTitle Сверх усиленный Дубовый	Страж
-Feature/&DruidForestGuardianSylvanDurabilityDescription Стражи леса естественным образом приобретают устойчивость могучего дуба. На 2-м уровне максимум ваших очков жизни увеличивается на 2 и увеличивается на 1 всякий раз, когда вы получаете уровень в этом	классе.
-Feature/&DruidForestGuardianSylvanDurabilityTitle Сильван	Прочность
-Feature/&DruidForestGuardianSylvanWarMagicDescription Вы привыкли владеть магией друидов в гармонии с боевой доблестью. На 2-м уровне вы можете читать заклинания, требующие соматического компонента, даже если обе ваши руки держат оружие или	щит.
-Feature/&DruidForestGuardianSylvanWarMagicTitle Сильванская военная	магия
-Subclass/&DruidForestGuardianDruidSubclassDescription Круг друидов-хранителей леса поклялся защищать леса и все, что в них обитает. Члены этого круга друидов, обладающие навыками использования магии Отречения и боевых искусств, представляют собой грозных противников на поле	боя.
-Subclass/&DruidForestGuardianDruidSubclassTitle Круг хранителя	леса
+Condition/&ConditionBarkWardDescription=Под защитой Духов леса. Получите 4 временных ОЗ за каждый уровень Друида на 10 минут.
+Condition/&ConditionBarkWardTitle=Дубовый Страж
+Condition/&ConditionImprovedBarkWardDescription=Дубовые Стражи наносят 2d8 колющего урона существам, попавшим в рукопашную атаку.
+Condition/&ConditionImprovedBarkWardTitle=Усиленный Дубовый Страж
+Condition/&ConditionSuperiorBarkWardDescription=Усиленный Дубовый Страж дает невосприимчивость к яду и наносит 3d8 колющего урона существам, попавшим в рукопашную атаку.
+Condition/&ConditionSuperiorBarkWardTitle=Сверх Усиленный Дубовый Страж
+Feature/&DruidForestGuardianBarkWardDescription=Вы получаете возможность призывать Дубового Стража для своей защиты. В качестве бонусного действия вы можете потратить использование своей дикой формы, чтобы получить 4 временных очка здоровья за каждый уровень, который у вас есть в этом классе. Эти временные хиты сохраняются в течение 10 минут или до тех пор, пока вы снова не воспользуетесь дикой формой.
+Feature/&DruidForestGuardianBarkWardTitle=Дубовый Страж
+Feature/&DruidForestGuardianExtraAttackDescription=Начиная с 6-го уровня, вы можете атаковать дважды, а не один раз, когда в свой ход совершаете действие Атака.
+Feature/&DruidForestGuardianExtraAttackTitle=Дополнительная атака
+Feature/&DruidForestGuardianImprovedBarkWardDescription=Теперь у вашего Дубового Стража растут шипы, которые наносят урон атакующим в ближнем бою. Враги, успешно поразившие вас рукопашной атакой, получают колющий урон 2d8.
+Feature/&DruidForestGuardianImprovedBarkWardTitle=Усиленный Дубовый Страж
+Feature/&DruidForestGuardianMagicDescription=Начиная со 2-го уровня при выборе этого круга вы получаете доступ к расширенному списку заклинаний, который всегда готов:\n{0}
+Feature/&DruidForestGuardianMagicTitle=Заклинания Круга
+Feature/&DruidForestGuardianSuperiorBarkWardDescription=Ваша способность Дубовый Страж теперь отражает колющий урон 3d8 атакующим в ближнем бою. Кроме того, Дубовый Страж теперь дает вам иммунитет к яду, пока он активен.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle=Сверх Усиленный Дубовый Страж
+Feature/&DruidForestGuardianSylvanDurabilityDescription=Стражи леса естественным образом приобретают устойчивость могучего дуба. На 2-м уровне максимум ваших очков жизни увеличивается на 2 и увеличивается на 1 всякий раз, когда вы получаете уровень в этом классе.
+Feature/&DruidForestGuardianSylvanDurabilityTitle=Прочность Сильван 
+Feature/&DruidForestGuardianSylvanWarMagicDescription=Вы привыкли владеть магией друидов в гармонии с боевой доблестью. На 2-м уровне вы можете читать заклинания, требующие соматического компонента, даже если обе ваши руки держат оружие или щит.
+Feature/&DruidForestGuardianSylvanWarMagicTitle=Сильванская боевая магия
+Subclass/&DruidForestGuardianDruidSubclassDescription=Круг друидов-хранителей леса поклялся защищать леса и все, что в них обитает. Члены этого круга друидов, обладающие навыками использования магии Отречения и боевых искусств, представляют собой грозных противников на поле боя.
+Subclass/&DruidForestGuardianDruidSubclassTitle=Круг хранителя леса

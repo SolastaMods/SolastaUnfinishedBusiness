@@ -1,0 +1,21 @@
+FactionStatus/&AllianceDescription	Фракция будет активно помогать вам.
+FactionStatus/&AllianceTitle	Союз
+FactionStatus/&AnimosityDescription	Фракция будет стараться мешать вам.
+FactionStatus/&AnimosityTitle	Враждебность
+FactionStatus/&AttacksOnSightDescription	Немедленно атакует вас. 
+FactionStatus/&BrotherhoodDescription	Вы занимаете важное и значительное положение во фракции.
+FactionStatus/&BrotherhoodTitle	Братство
+FactionStatus/&HatredDescription	Фракция будет стараться убить вас.
+FactionStatus/&HatredTitle	Ненависть
+FactionStatus/&IndifferenceDescription	Вы безразличны фракции.
+FactionStatus/&IndifferenceTitle	Безразличие
+FactionStatus/&JoinsAllyInBattleDescription	Присоединяется к вам в бою. 
+FactionStatus/&JoinsEnemiesDescription	Присоединяется к вашим врагам в бою. 
+FactionStatus/&LivingLegendDescription	Вы ключевой участник этой фракции, часть её истории.
+FactionStatus/&LivingLegendTitle	Живая легенда
+FactionStatus/&MerchantOverchargeFormat	Торговец: цены повышены на {0}%
+FactionStatus/&MerchantOverchargeFormatTrade	{0}: цены повышены на {1}%
+FactionStatus/&MerchantRebateFormat	Торговец делает скидку: {0}%
+FactionStatus/&MerchantRebateFormatTrade	{0} делает скидку: {1}%
+FactionStatus/&SympathyDescription	Фракция будет выказывать вам расположение.
+FactionStatus/&SympathyTitle	Сопереживание

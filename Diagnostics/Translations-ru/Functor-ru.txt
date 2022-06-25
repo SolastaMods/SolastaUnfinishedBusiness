@@ -1,0 +1,86 @@
+Functor/&GrantExperienceTitle	Выдать опыт
+Functor/&GrantExperienceDescription	Выдаёт участнику отряда очки опыта
+Functor/&ParameterGrantExperienceModeTitle	Режим получения
+Functor/&ParameterGrantExperienceModeDescription	Режим, используемый для выдачи опыта
+Functor/&ParameterGrantExperienceModeFlatTitle	Неизменное
+Functor/&ParameterGrantExperienceModeFlatDescription	Неизменное количество очков опыта выдаётся каждому участнику отряда
+Functor/&ParameterGrantExperienceModeReachLevelTitle	Достижение уровня
+Functor/&ParameterGrantExperienceModeReachLevelDescription	Достаточное количество опыта выдаётся каждому участнику отряда. Персонаж не получает опыта, если он достиг определённого уровня
+Functor/&ParameterExperienceAmountTitle	Количество опыта
+Functor/&ParameterExperienceAmountDescription	Количество опыта, которое необходимо получить
+Functor/&ParameterWantedLevelTitle	Требуемый уровень
+Functor/&ParameterWantedLevelDescription	Требуемый уровень отряда
+Functor/&InventoryOperationTitle	Операция снаряжения
+Functor/&InventoryOperationDescription	Позволяет вам выполнять определённые операции, связанные с предметами и сокровищем
+Functor/&ParameterInventoryOperationTitle	Тип операции
+Functor/&ParameterInventoryOperationDescription	Тип выполняемой операции снаряжения
+Functor/&ParameterInventoryOperationGrantItemTitle	Выдача предмета
+Functor/&ParameterInventoryOperationGrantItemDescription	Выдаёт выбранный предмет целевым персонажам
+Functor/&ParameterInventoryOperationLoseItemTitle	Потеря предмета
+Functor/&ParameterInventoryOperationLoseItemDescription	Забирает выбранный предмет у целевых персонажей
+Functor/&ParameterInventoryOperationStashAllTitle	В тайник
+Functor/&ParameterInventoryOperationStashAllDescription	Спрятать все предметы персонажа в специальный тайник
+Functor/&ParameterInventoryOperationRecoverStashTitle	Из тайника
+Functor/&ParameterInventoryOperationRecoverStashDescription	Восстановить спрятанный предмет, а также предметы, полученные с момента перемещения предыдущего снаряжения в тайник
+Functor/&ParameterInventoryOperationTargetTitle	Цель
+Functor/&ParameterInventoryOperationTargetDescription	Цель, выбранная для этой операции
+Functor/&ParameterInventoryOperationTargetFirstConsciousCharacterTitle	Первый действующий персонаж
+Functor/&ParameterInventoryOperationTargetFirstConsciousCharacterDescription	Будет выбран первый действующий персонаж отряда
+Functor/&ParameterInventoryOperationTargetAllPartyMembersTitle	Все участники отряда
+Functor/&ParameterInventoryOperationTargetAllPartyMembersDescription	Эта операция подействует на всех участников отряда
+Functor/&ParameterInventoryOperationOverrideQuantityTitle	Изменить количество?
+Functor/&ParameterInventoryOperationOverrideQuantityDescription	Позволяет обозначить количество предмета
+Functor/&ParameterInventoryOperationQuantityValueTitle	Указание количества
+Functor/&ParameterInventoryOperationQuantityValueDescription	Количество предметов этого типа
+Functor/&ParameterInventoryOperationItemTitle	Предмет
+Functor/&ParameterInventoryOperationItemDescription	Предмет, выбранный для этой операции
+Functor/&QuestOperationTitle	Операция задания
+Functor/&QuestOperationDescription	Выполняет операцию определённого задания
+Functor/&VariableOperationTitle	Операция переменной
+Functor/&VariableOperationDescription	Позволяет вам изменять значение переменной кампании
+Functor/&ParameterVariableOperationVariableTitle	Переменная
+Functor/&ParameterVariableOperationVariableDescription	Переменная, в зависимости от которой выполняется операция
+Functor/&ParameterVariableOperationTypeTitle	Тип
+Functor/&ParameterVariableOperationTypeDescription	Тип выполняемой операции. Некоторые типы переменной позволяют вам только выставить значение
+Functor/&ParameterVariableOperationTypeSetTitle	Выставление
+Functor/&ParameterVariableOperationTypeSetDescription	Переменная выставляется в определённом значении
+Functor/&ParameterVariableOperationTypeAddTitle	Добавление
+Functor/&ParameterVariableOperationTypeAddDescription	Определённое значение добавляется к переменной
+Functor/&ParameterVariableOperationTypeSubstractTitle	Вычитание
+Functor/&ParameterVariableOperationTypeSubstractDescription	Определённое значение вычитается из переменной
+Functor/&ParameterVariableOperationTypeIncrementTitle	Повышение
+Functor/&ParameterVariableOperationTypeIncrementDescription	Значение увеличивается на 1
+Functor/&ParameterVariableOperationTypeDecrementTitle	Понижение
+Functor/&ParameterVariableOperationTypeDecrementDescription	Значение уменьшается на 1
+Functor/&ParameterVariableOperationTypeMultiplyTitle	Умножение
+Functor/&ParameterVariableOperationTypeMultiplyDescription	Переменная умножается на определённое значение
+Functor/&ParameterVariableOperationTypeDivideTitle	Деление
+Functor/&ParameterVariableOperationTypeDivideDescription	Переменная делится на определённое значение
+Functor/&ParameterVariableOperationValueIntTitle	Ценность
+Functor/&ParameterVariableOperationValueIntDescription	Целочисленное значение, используемое для операции
+Functor/&ParameterVariableOperationValueBoolTitle	Ценность
+Functor/&ParameterVariableOperationValueBoolDescription	Логическое значение, используемое для операции
+Functor/&ParameterVariableOperationValueStringTitle	Ценность
+Functor/&ParameterVariableOperationValueStringDescription	Строчное значение, используемое для операции
+Functor/&ParameterVariableOperationTypeRollTitle	Бросок
+Functor/&ParameterVariableOperationTypeRollDescription	Переменная определяется результатом броска кости.
+Functor/&ParameterVariableOperationValueDieTitle	Тип кости
+Functor/&ParameterVariableOperationValueDieDescription	Тип бросаемой кости.
+Functor/&SetLocationStatusTitle	Выбрать статус места
+Functor/&SetLocationStatusDescription	Измените статус места, чтобы скрыть/заблокировать или открыть его, а также добавить его в устройства с несколькими выходами.
+Functor/&ParameterLocationTitle	Место
+Functor/&ParameterLocationDescription	Название целевого места.
+Functor/&ParameterLocationStatusTitle	Статус места
+Functor/&ParameterLocationStatusDescription	Статус выбранного места.
+Functor/&ParameterLocationStatusHiddenTitle	Скрытый
+Functor/&ParameterLocationStatusHiddenDescription	Место скрыто во всплывающих окнах с несколькими выходами.
+Functor/&ParameterLocationStatusLockedTitle	Заперто
+Functor/&ParameterLocationStatusLockedDescription	Место отображается во всплывающих окнах с несколькими выходами, но его нельзя выбрать.
+Functor/&ParameterLocationStatusAvailableTitle	Доступно
+Functor/&ParameterLocationStatusAvailableDescription	Место отображается во всплывающих окнах с несколькими выходами, и его можно выбрать.
+Functor/&ParameterInventoryOperationGrantTreasuryTitle	Выдача сокровища
+Functor/&ParameterInventoryOperationGrantTreasuryDescription	Тип выполняемой операции снаряжения
+Functor/&ParameterInventoryOperationLoseTreasuryTitle	Потеря сокровища
+Functor/&ParameterInventoryOperationLoseTreasuryDescription	Тип выполняемой операции снаряжения. Если количество не указано, все предметы этого типа будут забраны у цели
+Functor/&ParameterInventoryOperationTreasuryTitle	Сокровище
+Functor/&ParameterInventoryOperationTreasuryDescription	Количество сокровищ для этой операции

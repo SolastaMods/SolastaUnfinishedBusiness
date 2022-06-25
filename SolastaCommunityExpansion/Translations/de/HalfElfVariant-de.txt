@@ -1,6 +1,6 @@
-﻿Race/&HalfElfDarkElfRaceDescription	Halbdunkelelfensind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Ihr menschliches Erbe machte sie anpassungsfähig an helles Licht.
-Race/&HalfElfDarkElfRaceTitle	Halber Dunkelelf
-Race/&HalfElfHighElfRaceDescription	Halbhochelfen werden sehr früh darin geschult, Magie einzusetzen.
-Race/&HalfElfHighElfRaceTitle	Halbhochelfe
-Race/&HalfElfSylvanElfRaceDescription	Halb-Sylvan-Elfen sind darauf trainiert, in der Wildnis zu überleben und sind besonders überlebensfähig. Als ihr Erbe der Waldelfen sind sie seit ihrer Kindheit darauf trainiert, mit Schwertern und Bögen zu kämpfen.
-Race/&HalfElfSylvanElfRaceTitle	Halb Sylvan Elf
+﻿Race/&HalfElfDarkElfRaceDescription=Halbdunkelelfensind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Ihr menschliches Erbe machte sie anpassungsfähig an helles Licht.
+Race/&HalfElfDarkElfRaceTitle=Halber Dunkelelf
+Race/&HalfElfHighElfRaceDescription=Halbhochelfen werden sehr früh darin geschult, Magie einzusetzen.
+Race/&HalfElfHighElfRaceTitle=Halbhochelfe
+Race/&HalfElfSylvanElfRaceDescription=Halb-Sylvan-Elfen sind darauf trainiert, in der Wildnis zu überleben und sind besonders überlebensfähig. Als ihr Erbe der Waldelfen sind sie seit ihrer Kindheit darauf trainiert, mit Schwertern und Bögen zu kämpfen.
+Race/&HalfElfSylvanElfRaceTitle=Halb Sylvan Elf

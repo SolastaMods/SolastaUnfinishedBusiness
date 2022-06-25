@@ -1,57 +1,57 @@
-BlueprintCategory/&FlatRoomsTitle	Apartamentos
-Caption/&GadgetParametersCustomRemoveDescription	Remover:\n{0}.
-ContentPack/&CommunityExpansionPackDescription	O pacote de expansão da comunidade adiciona novas classes, subclasses, talentos e feitiços. Há um limite de nível mais alto, multiclasse, recursos de QOL, correções de bugs e muito mais. É um verdadeiro Horn of Plenty (TM)...
-ContentPack/&CommunityExpansionPackTitle	Pacote de Expansão da Comunidade
-Failure/&FailureFlagTargetMeleeWeaponError	Não é possível realizar ataques corpo a corpo neste alvo com a arma atual
-Feature/&AlwaysBeardDescription	{0}% de chances de crescer uma barba gloriosa!
-Feature/&BardSkillsTitle	Habilidades de Bardo
-Feature/&EmptyString	VAZIO
-Format/&LevelAndExperienceFormat	Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
-Format/&LevelAndExperienceMaxedFormat	Nível: {0}\nExperiência: {1}\nnível máximo atingido
-MainMenu/&ExportPdfDescription	Desça o nível deste Herói.
-MainMenu/&ExportPdfTitle	Nível baixo
-Message/&CharacterExportDuplicateNameErrorDescription	Exportação cancelada:\n\nUm herói com esse nome já existe no pool.\nPor favor, tente um nome diferente.
-Message/&CharacterExportEmptyNameErrorDescription	Exportação cancelada:\n\nTente um nome não vazio.
-Message/&CharacterExportModalContentDescription	Digite o nome do herói para exportar:
-Message/&CharacterExportModalTitleDescription	Exportação de caracteres.
-Message/&LevelDownConfirmationDescription	Reduzir o nível deste Herói?
-Message/&LevelDownMultiplayerAbortDescription	Não é possível descer de nível durante uma sessão multijogador.
-Message/&MessageModWelcomeDescription	O Community Expansion Mod está repleto de recursos interessantes, mas, por padrão, nenhum está ativado. Pressione <color=yellow>Ctrl-F10</color> para abrir a interface do usuário do Unity Mod Manager [UMM] e clique no ícone de configurações ao lado de 'Expansão da comunidade' para abrir as páginas de configurações.\n\n Explore as opções e selecione as que você gosta. A interface do usuário do UMM será aberta agora.
-Message/&MessageModWelcomeTitle	Módulo de expansão da comunidade
-Message/&RespecMultiplayerAbortDescription	Não é possível Respec durante uma sessão multiplayer ou no mapa de exploração.
-Message/&SpawnCustomEncounterDescription	Gerar encontro nas coordenadas ({0}, {1})?
-Message/&SpawnCustomEncounterErrorDescription	Não é possível gerar encontros em um jogo multiplayer. Ainda...
-Message/&SpawnCustomEncounterTitle	Encontro
-Message/&TeleportPartyDescription	Teletransportar o grupo para as coordenadas ({0}, {1})?\nVocê pode quebrar missões ou mapas se se teletransportar para um lugar desconhecido.
-Message/&TeleportPartyTitle	teleporte
-Reaction/&ReadiedAction{0}Description	Pronto {0}
-Reaction/&ReadiedAction{0}Title	Pronto {0}
-Reaction/&SpendPower{0}Description	Gaste {0}
-Reaction/&SpendPower{0}Title	Gaste {0}
-Reaction/&SpendPowerBundleDescription	Gastar Poder.
-Reaction/&SpendPowerBundleTitle	Gastar energia
-Reaction/&SubitemSelectPowerBundleTitle	Opções
-Reaction/&SubitemSelectSlotLevelTitle	Nível do slot
-Reaction/&Use{0}Description	Usar {0}
-Reaction/&Use{0}Title	Usar {0}
-Requirement/&FeatureSelectionRequireCharacterLevel	Nível {0}
-Requirement/&FeatureSelectionRequireClassLevel	Nível {0} de {1}
-RestActivity/&ZSRespecDescription	Respeite este Herói.
-RestActivity/&ZSRespecTitle	Respeito
-Screen/&EditorLocationSize3Title	Enorme [MODED]
-Screen/&EditorLocationSize4Title	Imenso [MODED]
-Stage/&IdentityMorphotypeEyeHeader	Estilo dos olhos
-ToolTip/&CheckBoxDefaultPartyTitle	Marque esta caixa para definir sua parte padrão ao iniciar novas aventuras ou testar locais personalizados. Você pode selecionar até {0} heróis por ordem de chegada
-Tooltip/&Tag9000Title	Efeito personalizado
-Tooltip/&TagCommunityExpansionTitle	Expansão da comunidade
-Tooltip/&TagOtherModContentTitle	Do modo
-UI/&CustomFeatureSelectionStageDescription	Selecione recursos extras de sua classe/subclasse.
-UI/&CustomFeatureSelectionStageFeatures	Características
-UI/&CustomFeatureSelectionStageNotDone	Você deve selecionar todos os recursos disponíveis antes de continuar
-UI/&CustomFeatureSelectionStageTitle	Seleção de recursos
-UI/&CustomFeatureSelectionTooltipTypeCantrip	Truque
-UI/&CustomFeatureSelectionTooltipTypeFeature	Característica
-UI/&CustomFeatureSelectionTooltipTypePower	Poder
-UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
-UI/&ForcePreferredCantripDescription	Se estiver ativado, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
-UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
+BlueprintCategory/&FlatRoomsTitle=Apartamentos
+Caption/&GadgetParametersCustomRemoveDescription=Remover:\n{0}.
+ContentPack/&CommunityExpansionPackDescription=O pacote de expansão da comunidade adiciona novas classes, subclasses, talentos e feitiços. Há um limite de nível mais alto, multiclasse, recursos de QOL, correções de bugs e muito mais. É um verdadeiro Horn of Plenty (TM)...
+ContentPack/&CommunityExpansionPackTitle=Pacote de Expansão da Comunidade
+Failure/&FailureFlagTargetMeleeWeaponError=Não é possível realizar ataques corpo a corpo neste alvo com a arma atual
+Feature/&AlwaysBeardDescription={0}% de chances de crescer uma barba gloriosa!
+Feature/&BardSkillsTitle=Habilidades de Bardo
+Feature/&EmptyString=VAZIO
+Format/&LevelAndExperienceFormat=Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
+Format/&LevelAndExperienceMaxedFormat=Nível: {0}\nExperiência: {1}\nnível máximo atingido
+MainMenu/&ExportPdfDescription=Desça o nível deste Herói.
+MainMenu/&ExportPdfTitle=Nível baixo
+Message/&CharacterExportDuplicateNameErrorDescription=Exportação cancelada:\n\nUm herói com esse nome já existe no pool.\nPor favor, tente um nome diferente.
+Message/&CharacterExportEmptyNameErrorDescription=Exportação cancelada:\n\nTente um nome não vazio.
+Message/&CharacterExportModalContentDescription=Digite o nome do herói para exportar:
+Message/&CharacterExportModalTitleDescription=Exportação de caracteres.
+Message/&LevelDownConfirmationDescription=Reduzir o nível deste Herói?
+Message/&LevelDownMultiplayerAbortDescription=Não é possível descer de nível durante uma sessão multijogador.
+Message/&MessageModWelcomeDescription=O Community Expansion Mod está repleto de recursos interessantes, mas, por padrão, nenhum está ativado. Pressione <color=yellow>Ctrl-F10</color> para abrir a interface do usuário do Unity Mod Manager [UMM] e clique no ícone de configurações ao lado de 'Expansão da comunidade' para abrir as páginas de configurações.\n\n Explore as opções e selecione as que você gosta. A interface do usuário do UMM será aberta agora.
+Message/&MessageModWelcomeTitle=Módulo de expansão da comunidade
+Message/&RespecMultiplayerAbortDescription=Não é possível Respec durante uma sessão multiplayer ou no mapa de exploração.
+Message/&SpawnCustomEncounterDescription=Gerar encontro nas coordenadas ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription=Não é possível gerar encontros em um jogo multiplayer. Ainda...
+Message/&SpawnCustomEncounterTitle=Encontro
+Message/&TeleportPartyDescription=Teletransportar o grupo para as coordenadas ({0}, {1})?\nVocê pode quebrar missões ou mapas se se teletransportar para um lugar desconhecido.
+Message/&TeleportPartyTitle=teleporte
+Reaction/&ReadiedAction{0}Description=Pronto {0}
+Reaction/&ReadiedAction{0}Title=Pronto {0}
+Reaction/&SpendPower{0}Description=Gaste {0}
+Reaction/&SpendPower{0}Title=Gaste {0}
+Reaction/&SpendPowerBundleDescription=Gastar Poder.
+Reaction/&SpendPowerBundleTitle=Gastar energia
+Reaction/&SubitemSelectPowerBundleTitle=Opções
+Reaction/&SubitemSelectSlotLevelTitle=Nível do slot
+Reaction/&Use{0}Description=Usar {0}
+Reaction/&Use{0}Title=Usar {0}
+Requirement/&FeatureSelectionRequireCharacterLevel=Nível {0}
+Requirement/&FeatureSelectionRequireClassLevel=Nível {0} de {1}
+RestActivity/&ZSRespecDescription=Respeite este Herói.
+RestActivity/&ZSRespecTitle=Respeito
+Screen/&EditorLocationSize3Title=Enorme [MODED]
+Screen/&EditorLocationSize4Title=Imenso [MODED]
+Stage/&IdentityMorphotypeEyeHeader=Estilo dos olhos
+ToolTip/&CheckBoxDefaultPartyTitle=Marque esta caixa para definir sua parte padrão ao iniciar novas aventuras ou testar locais personalizados. Você pode selecionar até {0} heróis por ordem de chegada
+Tooltip/&Tag9000Title=Efeito personalizado
+Tooltip/&TagCommunityExpansionTitle=Expansão da comunidade
+Tooltip/&TagOtherModContentTitle=Do modo
+UI/&CustomFeatureSelectionStageDescription=Selecione recursos extras de sua classe/subclasse.
+UI/&CustomFeatureSelectionStageFeatures=Características
+UI/&CustomFeatureSelectionStageNotDone=Você deve selecionar todos os recursos disponíveis antes de continuar
+UI/&CustomFeatureSelectionStageTitle=Seleção de recursos
+UI/&CustomFeatureSelectionTooltipTypeCantrip=Truque
+UI/&CustomFeatureSelectionTooltipTypeFeature=Característica
+UI/&CustomFeatureSelectionTooltipTypePower=Poder
+UI/&CustomFeatureSelectionTooltipTypeProficiency=Competência
+UI/&ForcePreferredCantripDescription=Se estiver ativado, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
+UI/&ForcePreferredCantripTitle=Forçar Truque Preferido

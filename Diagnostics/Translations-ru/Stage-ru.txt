@@ -1,0 +1,231 @@
+Stage/&AbilityScoreIncreaseRemainingFormat	Оставшиеся очки: {0}/{1}
+Stage/&AbilityScoreIncreaseTitle	Повышение значения характеристики
+Stage/&AbilityScoresAssignmentDragTitle	Перетаскивайте результаты бросков на ячейки со значениями характеристик\nили оптимизируйте их под класс своего персонажа.
+Stage/&AbilityScoresAssignmentEditTitle	Задавайте значения характеристик, используя запас очков.
+Stage/&AbilityScoresAssignmentEditUnlimitedTitle	Задавайте значения характеристик по своему усмотрению.
+Stage/&AbilityScoresAvailableValuesTitle	Доступные вам очки.
+Stage/&AbilityScoresBonusFromRaceTitle	От наследия
+Stage/&AbilityScoresCurrentTitle	Текущие значения характеристик
+Stage/&AbilityScoresDecreaseCannotDescription	Это значение больше нельзя уменьшить.
+Stage/&AbilityScoresDecreaseDescription	Уменьшить это значение характеристики.
+Stage/&AbilityScoresFreeEditionDescription	Точно воссоздать существующего персонажа.
+Stage/&AbilityScoresFreeEditionTitle	Свободное редактирование
+Stage/&AbilityScoresIncreaseCannotDescription	Дальнейшее увеличение невозможно.
+Stage/&AbilityScoresIncreaseCapitalDescription	Увеличить это значение характеристики за счёт {0} очк.
+Stage/&AbilityScoresIncreaseFreeDescription	Увеличить это значение характеристики (бесплатно).
+Stage/&AbilityScoresMethodPointsTitle	Покупка очков
+Stage/&AbilityScoresMethodRollTitle	Броски костей
+Stage/&AbilityScoresMethodTitle	Выберите систему генерации характеристик
+Stage/&AbilityScoresOptimizeDescription	Оптимизировать распределение значений характеристик для выбранного класса персонажа.
+Stage/&AbilityScoresOptimizeTitle	Оптимизировать
+Stage/&AbilityScoresPointsCapitalInfiniteTitle	Неограниченные очки
+Stage/&AbilityScoresPointsCapitalTitle	Запас очков
+Stage/&AbilityScoresPredeterminedDescription	Перебросить шесть значений характеристик, используя 4к6, и оставить три лучших значения.
+Stage/&AbilityScoresPredeterminedTitle	Стандартный массив
+Stage/&AbilityScoresRemainingPointsDescription	Оставшиеся очки, доступные для расходования.
+Stage/&AbilityScoresRemainingPointsTitle	Осталось
+Stage/&AbilityScoresRerollDescription	Перебросить шесть значений характеристик, используя 4к6, и оставить три лучших значения.
+Stage/&AbilityScoresRerollTitle	Перебросить кость
+Stage/&AbilityScoresResetDescription	Сбросить все значения характеристик.
+Stage/&AbilityScoresResetTitle	Сбросить
+Stage/&AbilityScoresStageDescription	Сгенерировать шесть основных значений характеристик персонажа.
+Stage/&AbilityScoresStageFailNotAllAssignedDescription	Вы должны назначить все шесть значений характеристик в левой части экрана.
+Stage/&AbilityScoresStageFailRemainingPointsDescription	Прежде чем продолжить, нужно распределить все очки.
+Stage/&AbilityScoresStageFailSpendAllLevelUpPointsDescription	Нужно потратить все очки характеристик, полученные на новом уровне.
+Stage/&AbilityScoresStageFailSpendAllRacePointsDescription	Нужно потратить все очки характеристик из выбранного наследия.
+Stage/&AbilityScoresStageTitle	Значения \nхарактеристик
+Stage/&AbilityTipDescription	Вы {0}, следовательно, ваши самые важные значения характеристик — {1}, {2} и {3}.
+Stage/&AbilityTipTitle	Совет
+Stage/&AllSpellsFormat	Вы —{0}, поэтому у вас есть доступ ко всем заклинаниям (кроме заговоров) из вашего списка заклинаний.\n\nДругой интерфейс позволит вам выбрать заклинания для подготовки.
+Stage/&AtHigherLevelsDescription	Показывать возможности, даваемые на более высоких уровнях.
+Stage/&AtHigherLevelsTitle	На более высоких уровнях
+Stage/&BackgroundAlignmentTitle	Выберите мировоззрение:
+Stage/&BackgroundChose2FlagsTitle	Черты личности (выберите две)
+Stage/&BackgroundEquipmentTitle	Снаряжение из предыстории
+Stage/&BackgroundFeaturesTitle	Возможности, связанные с предысторией
+Stage/&BackgroundPredefinedFlagsTitle	Отметки фиксированных свойств
+Stage/&BackgroundSelectionStageDescription	На этом этапе создаётся предыстория персонажа.
+Stage/&BackgroundSelectionStageMissingAlignmentDescription	Нужно выбрать мировоззрение.
+Stage/&BackgroundSelectionStageMissingAlignmentFlagsDescription	Вам нужно выбрать две дополнительные черты личности в системе этических координат (закон-хаос, добро-зло).
+Stage/&BackgroundSelectionStageMissingBackgroundFlagsDescription	Нужно выбрать черты личности для выбранной предыстории.
+Stage/&BackgroundSelectionStageNoneSelectedDescription	Нужно выбрать предысторию.
+Stage/&BackgroundSelectionStageTitle	Предыстория
+Stage/&CantripLearnPluralTitle	Выберите заговоры для изучения ({0}).
+Stage/&CantripLearnSingleTitle	Выберите заговор для изучения.
+Stage/&ChangeEquipementDescription	Щёлкните, чтобы выбрать разные конфигурации снаряжения.
+Stage/&ChangeEquipementTitle	Изменить снаряжение
+Stage/&ClassAdvancementStageDescription	На этом этапе можно повысить уровень класса или добавить новый класс.
+Stage/&ClassAdvancementStageTitle	Развитие \nкласса
+Stage/&ClassEquipmentTitle	Классовое снаряжение
+Stage/&ClassFeaturesTitle	Возможности класса
+Stage/&ClassSelectionStageDescription	На этом этапе можно выбрать возможности класса, которыми владеет ваш персонаж.
+Stage/&ClassSelectionStageNoneSelectedDescription	Нужно выбрать класс.
+Stage/&ClassSelectionStageTitle	Класс 
+Stage/&DeitySelectionDeityChoiceTitle	Выберите божество
+Stage/&DeitySelectionDomainChoiceTitle	Выберите божественный домен
+Stage/&DeitySelectionSelectedDeityDomainsHeader	Божественные домены
+Stage/&DeitySelectionSelectedDeityHeader	Божество
+Stage/&DeitySelectionSelectedDomainFeaturesTitle	Возможности домена
+Stage/&DeitySelectionSelectedDomainHeader	Домен
+Stage/&DeitySelectionStageDescription	На этом этапе можно выбрать, какому божеству поклоняется персонаж, и определить преимущества вашей веры.
+Stage/&DeitySelectionStageNoDeitySelectedDescription	Нужно выбрать божество.
+Stage/&DeitySelectionStageNoDomainSelectedDescription	Нужно выбрать божественный домен.
+Stage/&DeitySelectionStageTitle	Божество
+Stage/&FightingStyleEffectsHeaderTitle	Эффекты стиля
+Stage/&FightingStyleSelectedFightingStyleHeader	Боевой стиль
+Stage/&FightingStyleSelectionStageDescription	На этом этапе можно выбрать боевой стиль персонажа.
+Stage/&FightingStyleSelectionStageNoFightingStyleSelectedDescription	Нужно выбрать боевой стиль.
+Stage/&FightingStyleSelectionStageTitle	Боевой\nстиль
+Stage/&FightingStyleSelectionTitle	Выберите боевой стиль
+Stage/&HigherLevelFeaturesTitle	Возможности более высокого уровня
+Stage/&HitPointsGainFormatPlural	Вы получили {0} очк. здоровья\n\nВы получили одну дополнительную кость здоровья
+Stage/&HitPointsGainFormatSingle	Вы получили {0} очко здоровья\n\nВы получили одну дополнительную кость здоровья
+Stage/&HitPointsGainTitle	Очки здоровья
+Stage/&IdentityAdditionalBackstoryHeader	Дополнительная биография
+Stage/&IdentityAdditionalBackstoryTemporaryInput	< Input your backstory here >
+Stage/&IdentityDefinitionDescription	На этом этапе определяется предыстория персонажа.
+Stage/&IdentityDefinitionStageFailDuplicateName	Это имя уже используется другим персонажем.
+Stage/&IdentityDefinitionStageFailEmptyName	Нужно ввести имя.
+Stage/&IdentityDefinitionTitle	Идентичность
+Stage/&IdentityFirstNameTitle	Имя
+Stage/&IdentityLastNameTitle	Фамилия
+Stage/&IdentityModifiersHeader	Модификаторы
+Stage/&IdentityMorphotypeBeardShapeHeader	Форма бороды
+Stage/&IdentityMorphotypeBodyDecorationHeader	Украшения на теле
+Stage/&IdentityMorphotypeEyeColorHeader	Цвет глаз
+Stage/&IdentityMorphotypeFaceAndSkinHeader	Лицо и кожа
+Stage/&IdentityMorphotypeFaceShapeHeader	Лицо
+Stage/&IdentityMorphotypeHairColorHeader	Цвет волос
+Stage/&IdentityMorphotypeHairShapeHeader	Причёска
+Stage/&IdentityMorphotypeMusculatureHeader	Телосложение
+Stage/&IdentityMorphotypeOriginHeader	Происхождение
+Stage/&IdentityMorphotypeSkinHeader	Оттенок кожи
+Stage/&IdentityRandomRollDescription	Создаёт случайное имя, исходя из наследия персонажа.
+Stage/&IdentityRandomRollTitle	Случайное
+Stage/&IdentityVoiceTitle	Голос
+Stage/&LevelGainsCantripSelectionMultiple	{0} загов. для выбора
+Stage/&LevelGainsCantripSelectionSingle	Один заговор для выбора
+Stage/&LevelGainsSaveDcFormat	КС спасброска увеличен до {0}
+Stage/&LevelGainsSpellAttackFormat	Атака заклинанием увеличена до {0}
+Stage/&LevelGainsSpellSelectionMultiple	{0} закл. для выбора
+Stage/&LevelGainsSpellSelectionSingle	Одно заклинание для выбора
+Stage/&LevelGainsSpellSlotsTile	Ячейки заклинаний:
+Stage/&LevelGainsStageDescription	На этом этапе перечислено всё, что вы получили на новом уровне.
+Stage/&LevelGainsStageTitle	Получено за уровень
+Stage/&LevelUpCaptionTitle	{0} теперь {2} {1}-го уровня
+Stage/&LevelUpHeader	Новый уровень!
+Stage/&NeedADeityDescription	Нужно выбрать божество.
+Stage/&ProficiencyAutoSelectButtonDescription	Пусть пока решает компьютер.
+Stage/&ProficiencyAutoSelectButtonTitle	Авто
+Stage/&ProficiencyBonusGainFormat	Увеличено до {0}\nВлияет на все атаки, спасброски, проверки умений и инструментов и КС заклинаний.
+Stage/&ProficiencyBonusGainTitle	Бонус мастерства
+Stage/&ProficiencyEditButtonDescription	Вернуться на этап мастерства и внести изменения.
+Stage/&ProficiencyEditButtonTitle	Сменить
+Stage/&ProficiencyEffectsDescription	Мастерство в проведении спасбросков, навыках, владении инструментами или оружием позволяет добавлять бонус мастерства при соответствующих проверках характеристик. Мастерство во владении особенностями и языками, а также в ношении доспехов позволяет вам использовать их. Звание эксперта в навыках и владении инструментом удваивает бонус мастерства. 
+Stage/&ProficiencyExpertiseChoicesPluralFormat	Выберите выученные навыки ({0}) или {1}, чтобы стать экспертом (двойное мастерство)
+Stage/&ProficiencyExpertiseChoicesSingleFormat	Выберите выученные навыки ({0}) или {1}, чтобы стать экспертом (двойное мастерство)
+Stage/&ProficiencyFeatChoicesPluralFormat	Выберите {0} особ.
+Stage/&ProficiencyFeatChoicesSingleFormat	Выберите {0} особенность
+Stage/&ProficiencyIntroductionCreationDescription	Ваши наследие, класс и предыстория позволяют выбирать мастерство в навыках и владении инструментами, особенностями и языками.
+Stage/&ProficiencyIntroductionLevelUpDescription	При повышении уровня вы можете выбрать новые виды мастерства.
+Stage/&ProficiencyLanguageChoicesPluralFormat	Выбрать {0} яз.
+Stage/&ProficiencyLanguageChoicesSingleFormat	Выбрать {0} язык
+Stage/&ProficiencyResetAllButtonDescription	Сбросить все назначенные очки мастерства.
+Stage/&ProficiencyResetAllButtonTitle	Сбросить всё
+Stage/&ProficiencyResetButtonDescription	Сбросить назначенные очки мастерства на этом этапе.
+Stage/&ProficiencyResetButtonTitle	Сбросить
+Stage/&ProficiencySelectionStageDescription	На этом этапе выбираются виды мастерства персонажа: навыки, компетенция, языки и прочее.
+Stage/&ProficiencySelectionStageFailSpendAllPointsDescription	Прежде чем продолжить, нужно распределить все очки мастерства.
+Stage/&ProficiencySelectionStageTitle	Мастерство
+Stage/&ProficiencySkillChoicesPluralFormat	Выбрать {0} нав.
+Stage/&ProficiencySkillChoicesPluralListFormat	Выбрать {0} нав. ({1})
+Stage/&ProficiencySkillChoicesSingleFormat	Выбрать {0} навык
+Stage/&ProficiencySkillChoicesSingleListFormat	Выбрать {0} нав. ({1})
+Stage/&ProficiencyToolTypeChoicesPluralFormat	Выбрать {0} инстр.
+Stage/&ProficiencyToolTypeChoicesPluralListFormat	Выбрать {0} инстр. ({1})
+Stage/&ProficiencyToolTypeChoicesSingleFormat	Выбрать {0} инструмент
+Stage/&ProficiencyToolTypeChoicesSingleListFormat	Выбрать {0} инстр. ({1})
+Stage/&RaceSelectionStageDescription	На этом этапе определяется наследие персонажа и его особенности.
+Stage/&RaceSelectionStageNoneSelectedDescription	Нужно выбрать наследие.
+Stage/&RaceSelectionStageTitle	Наследие
+Stage/&RaceSubraceCountDescription	{0} из {1} наследий
+Stage/&SexFemaleTitle	Женщина
+Stage/&SexMaleTitle	Мужчина
+Stage/&SpellLearnPluralTitle	Выберите {0} закл. для изучения.
+Stage/&SpellLearnSingleTitle	Выберите заклинание для изучения.
+Stage/&SpellScribePluralTitle	Выберите {0} закл. для переписывания в книгу заклинаний.
+Stage/&SpellScribeSingleTitle	Выберите заклинание для переписывания в книгу заклинаний.
+Stage/&SpellSelectionStageDescription	На этом этапе можно выбрать заклинания персонажа.
+Stage/&SpellSelectionStageFailLearnSpellsDescription	Прежде чем продолжить, нужно изучить все свои заклинания.
+Stage/&SpellSelectionStageTitle	Заклинания
+Stage/&SubclassSelectionStageDomainTitle	Божественный\nДомен
+Stage/&SubclassSelectionStageMartialDescription	На этом этапе выбирается боевой архетип персонажа.
+Stage/&SubclassSelectionStageMartialFeatures	Особенности боевого архетипа
+Stage/&SubclassSelectionStageMartialHeader	Выберите боевой архетип
+Stage/&SubclassSelectionStageMartialNoneDescription	Нужно выбрать боевой архетип.
+Stage/&SubclassSelectionStageMartialTitle	Боевой\nархетип
+Stage/&SubclassSelectionStageOathDescription	На этом этапе выбирается священная клятва персонажа.
+Stage/&SubclassSelectionStageOathFeatures	Особенности священной клятвы
+Stage/&SubclassSelectionStageOathHeader	Выберите священную клятву
+Stage/&SubclassSelectionStageOathNoneDescription	Нужно выбрать священную клятву.
+Stage/&SubclassSelectionStageOathTitle	Священная\nклятва
+Stage/&SubclassSelectionStageRangerDescription	На этом этапе для персонажа выбирается архетип следопыта.
+Stage/&SubclassSelectionStageRangerFeatures	Особенности архетипа следопыта
+Stage/&SubclassSelectionStageRangerHeader	Выберите архетип следопыта
+Stage/&SubclassSelectionStageRangerNoneDescription	Нужно выбрать архетип следопыта.
+Stage/&SubclassSelectionStageRangerTitle	Архетип\nследопыта
+Stage/&SubclassSelectionStageRoguishDescription	На этом этапе для персонажа выбирается архетип плута.
+Stage/&SubclassSelectionStageRoguishFeatures	Особенности архетипа плута
+Stage/&SubclassSelectionStageRoguishHeader	Выберите архетип плута
+Stage/&SubclassSelectionStageRoguishNoneDescription	Нужно выбрать архетип плута.
+Stage/&SubclassSelectionStageRoguishTitle	Архетип\nплута
+Stage/&SubclassSelectionStageSubclassDescription	На этом этапе выбирается подкласс персонажа.
+Stage/&SubclassSelectionStageSubclassFeatures	Особенности подкласса
+Stage/&SubclassSelectionStageSubclassHeader	Выберите подкласс
+Stage/&SubclassSelectionStageSubclassTitle	Подкласс
+Stage/&SubclassSelectionStageTraditionDescription	На этом этапе выбирается мистическая традиция персонажа.
+Stage/&SubclassSelectionStageTraditionFeatures	Особенности мистической традиции
+Stage/&SubclassSelectionStageTraditionHeader	Выберите мистическую традицию
+Stage/&SubclassSelectionStageTraditionNoneDescription	Нужно выбрать мистическую традицию.
+Stage/&SubclassSelectionStageTraditionTitle	Магическая\nтрадиция
+Stage/&UnlockedClassFeaturesTitle	Разблокированные особенности класса
+Stage/&UnlockedRaceFeaturesTitle	Открытые особенности наследия
+Stage/&SpellIntroductionCreationDescription	Выберите новые заклинания или заговоры для изучения
+Stage/&SpellSelectionHeaderTitle	Выберите заклинания
+Stage/&AbilityScoresStageFailMinimalStrengthDescription	Чтобы начать приключение, персонаж должен обладать показателем силы не ниже {0}.
+Stage/&IdentityMorphotypeAgeHeader	Возраст
+Stage/&IdentityPronounTitle	Местоимение
+Stage/&PronounMaleTitle	Он
+Stage/&PronounFemaleTitle	Она
+Stage/&PronounNonBinaryTitle	Они
+Stage/&BackgroundPersonalityFlagsTitle	Черты личности из предыстории (выберите две)
+Stage/&AlignementPersonalityFlagsTitle	Дополнительные черты личности (выберите две)
+Stage/&AlignementLawAxisTitle	Закон
+Stage/&AlignementChaosAxisTitle	Хаос
+Stage/&AlignementGoodAxisTitle	Добро
+Stage/&AlignementEvilAxisTitle	Зло
+Stage/&SpellSelectionStageFailNotEnoughPagesDescription	Ни в одной из ваших книг заклинаний нет места, чтобы записать эти заклинания. Чтобы получить новый уровень, нужно приобрести новую книгу заклинаний.
+Stage/&SubclassSelectionStageSorcerousDescription	На этом этапе выбирается магическое происхождение персонажа.
+Stage/&SubclassSelectionStageSorcerousFeatures	Возможности, связанные с магическим происхождением
+Stage/&SubclassSelectionStageSorcerousHeader	Выбрать магическое происхождение
+Stage/&SubclassSelectionStageSorcerousTitle	Магическое происхождение
+Stage/&ProficiencyIgnoreButtonTitle	Игнорировать
+Stage/&ProficiencyIgnoreButtonDescription	Игнорировать этот шаг.
+Stage/&SpellUnlearnPluralTitle	Выберите {0} закл. для забвения
+Stage/&SpellUnlearnSingleTitle	Выберите заклинание для забвения
+Stage/&ProficiencyMetamagicChoicesSingleFormat	Выбрать {0} вариант метамагии
+Stage/&ProficiencyMetamagicChoicesPluralFormat	Выбрать варианты метамагии: {0}
+Stage/&SubclassSelectionStageSorcerousNoneDescription	Необходимо выбрать магическое происхождение
+Stage/&SubclassSelectionStagePathDescription	На этой стадии вы можете выбрать для персонажа первобытный путь.
+Stage/&SubclassSelectionStagePathFeatures	Особенности первобытного пути
+Stage/&SubclassSelectionStagePathHeader	Выбрать первобытный путь
+Stage/&SubclassSelectionStagePathTitle	Первобытный путь
+Stage/&SubclassSelectionStagePathNoneDescription	Выберите первобытный путь.
+Stage/&SubclassSelectionStageCircleDescription	На этом этапе выбирается круг друидов для персонажа.
+Stage/&SubclassSelectionStageCircleFeatures	Особенности круга друидов
+Stage/&SubclassSelectionStageCircleHeader	Выберите круг друидов
+Stage/&SubclassSelectionStageCircleTitle	Круг друидов
+Stage/&SubclassSelectionStageCircleNoneDescription	Необходимо выбрать круг друидов.
+Stage/&IdentityScarsHeader	Шрамы
+Stage/&AbilityScoresAssignmentGamepadNormalTitle	Выбрать значение броска или характеристики
+Stage/&AbilityScoresAssignmentGamepadMovingTitle	Выбрать значение характеристики цели

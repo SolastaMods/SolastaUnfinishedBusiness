@@ -1,10 +1,10 @@
-FightingStyle/&BlindFightingDescription	Tienes visión ciega con un alcance de 10 pies.
-FightingStyle/&BlindFightingTitle	Lucha a ciegas
-FightingStyle/&CripplingDescription	Al golpear con un ataque cuerpo a cuerpo, puedes reducir la velocidad de tu oponente en 10 pies hasta el comienzo de tu próximo turno.
-FightingStyle/&CripplingTitle	Herida
-FightingStyle/&PugilistFightingDescription	Tus golpes sin armas infligen 1d4 de daño contundente adicional y puedes golpear con tu mano izquierda como acción adicional.\nSi tienes la mano libre, puedes empujar como acción adicional.
-FightingStyle/&PugilistFightingTitle	Pugilista
-FightingStyle/&TitanFightingDescription	Obtienes un impacto de +2 contra criaturas de tamaño Grande o mayor.
-FightingStyle/&TitanFightingTitle	Lucha de titanes
-Modifier/&CripplingAdditionalDamageDescription	Daño paralizante.
-Modifier/&CripplingAdditionalDamageTitle	Herida
+FightingStyle/&BlindFightingDescription=Tienes visión ciega con un alcance de 10 pies.
+FightingStyle/&BlindFightingTitle=Lucha a ciegas
+FightingStyle/&CripplingDescription=Al golpear con un ataque cuerpo a cuerpo, puedes reducir la velocidad de tu oponente en 10 pies hasta el comienzo de tu próximo turno.
+FightingStyle/&CripplingTitle=Herida
+FightingStyle/&PugilistFightingDescription=Tus golpes sin armas infligen 1d4 de daño contundente adicional y puedes golpear con tu mano izquierda como acción adicional.\nSi tienes la mano libre, puedes empujar como acción adicional.
+FightingStyle/&PugilistFightingTitle=Pugilista
+FightingStyle/&TitanFightingDescription=Obtienes un impacto de +2 contra criaturas de tamaño Grande o mayor.
+FightingStyle/&TitanFightingTitle=Lucha de titanes
+Modifier/&CripplingAdditionalDamageDescription=Daño paralizante.
+Modifier/&CripplingAdditionalDamageTitle=Herida

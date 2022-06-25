@@ -1,0 +1,13 @@
+TutorialSubsection/&Basics_CameraTitle	Câmera
+TutorialSubsection/&Basics_MovingTitle	Em Movimento
+TutorialSubsection/&Basics_PartyMngtTitle	Gestão do Grupo
+TutorialSubsection/&Basics_QuestTitle	Registro da Missão
+TutorialSubsection/&CombatMovementTitle	Movimentação
+TutorialSubsection/&CombatShoveTitle	Empurrar
+TutorialSubsection/&Exploration_LocationMapTitle	Mapa do Local
+TutorialSubsection/&Exploration_MiscTitle	Variados
+TutorialSubsection/&Exploration_PointsOfInterestTitle	Pontos de Interesse
+TutorialSubsection/&ExplorationJumpingClimbingTitle	Saltar e Escalar
+TutorialSubsection/&Inventory_LootingTitle	Saquear
+TutorialSubsection/&Inventory_SpecialTitle	Espaços Especiais
+TutorialSubsection/&Exploration_MagicTitle	Magia

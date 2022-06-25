@@ -1,57 +1,57 @@
-BlueprintCategory/&FlatRoomsTitle	Flat Rooms
-Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
-ContentPack/&CommunityExpansionPackDescription	The Community Expansion pack adds new classes, sub-classes, feats and spells. There's a higher level cap, multi-class, QOL features, bug fixes and more. It's a veritable Horn of Plenty (TM)...
-ContentPack/&CommunityExpansionPackTitle	Community Expansion Pack
-Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attack on this target with current weapon
-Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
-Feature/&BardSkillsTitle	Bard Skills
-Feature/&EmptyString	
-Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
-Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached
-MainMenu/&ExportPdfDescription	Level down this Hero.
-MainMenu/&ExportPdfTitle	Level Down
-Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
-Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
-Message/&CharacterExportModalContentDescription	Enter the hero name to export:
-Message/&CharacterExportModalTitleDescription	Character Export.
-Message/&LevelDownConfirmationDescription	Level down this Hero?
-Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session.
-Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
-Message/&MessageModWelcomeTitle	Community Expansion Mod
-Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session or on exploration map.
-Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
-Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multiplayer game. Yet...
-Message/&SpawnCustomEncounterTitle	Encounter
-Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place.
-Message/&TeleportPartyTitle	Teleport
-Reaction/&ReadiedAction{0}Description	Readied {0}
-Reaction/&ReadiedAction{0}Title	Readied {0}
-Reaction/&SpendPower{0}Description	Spend {0}
-Reaction/&SpendPower{0}Title	Spend {0}
-Reaction/&SpendPowerBundleDescription	Spend Power.
-Reaction/&SpendPowerBundleTitle	Spend Power
-Reaction/&SubitemSelectPowerBundleTitle	Options
-Reaction/&SubitemSelectSlotLevelTitle	Slot Level
-Reaction/&Use{0}Description	Use {0}
-Reaction/&Use{0}Title	Use {0}
-Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
-Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
-RestActivity/&ZSRespecDescription	Respec this Hero.
-RestActivity/&ZSRespecTitle	Respec
-Screen/&EditorLocationSize3Title	Huge [MODDED]
-Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
-Stage/&IdentityMorphotypeEyeHeader	Eye Style
-ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
-Tooltip/&Tag9000Title	Custom Effect
-Tooltip/&TagCommunityExpansionTitle	Community Expansion
-Tooltip/&TagOtherModContentTitle	From mod
-UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
-UI/&CustomFeatureSelectionStageFeatures	Features
-UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding
-UI/&CustomFeatureSelectionStageTitle	Feature Selection
-UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
-UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
-UI/&CustomFeatureSelectionTooltipTypePower	Power
-UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
-UI/&ForcePreferredCantripDescription	If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
-UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+BlueprintCategory/&FlatRoomsTitle=Flat Rooms
+Caption/&GadgetParametersCustomRemoveDescription=Remove:\n{0}.
+ContentPack/&CommunityExpansionPackDescription=The Community Expansion pack adds new classes, sub-classes, feats and spells. There's a higher level cap, multi-class, QOL features, bug fixes and more. It's a veritable Horn of Plenty (TM)...
+ContentPack/&CommunityExpansionPackTitle=Community Expansion Pack
+Failure/&FailureFlagTargetMeleeWeaponError=Can't perform melee attack on this target with current weapon
+Feature/&AlwaysBeardDescription={0}% chances to grow a glorious beard!
+Feature/&BardSkillsTitle=Bard Skills
+Feature/&EmptyString=
+Format/&LevelAndExperienceFormat=Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
+Format/&LevelAndExperienceMaxedFormat=Level: {0}\nExperience: {1}\nmax level reached
+MainMenu/&ExportPdfDescription=Level down this Hero.
+MainMenu/&ExportPdfTitle=Level Down
+Message/&CharacterExportDuplicateNameErrorDescription=Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
+Message/&CharacterExportEmptyNameErrorDescription=Export Cancelled:\n\nPlease try a non empty name.
+Message/&CharacterExportModalContentDescription=Enter the hero name to export:
+Message/&CharacterExportModalTitleDescription=Character Export.
+Message/&LevelDownConfirmationDescription=Level down this Hero?
+Message/&LevelDownMultiplayerAbortDescription=Cannot Level Down during a multiplayer session.
+Message/&MessageModWelcomeDescription=The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
+Message/&MessageModWelcomeTitle=Community Expansion Mod
+Message/&RespecMultiplayerAbortDescription=Cannot Respec during a multiplayer session or on exploration map.
+Message/&SpawnCustomEncounterDescription=Spawn encounter at coordinates ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription=Cannot spawn encounters on a multiplayer game. Yet...
+Message/&SpawnCustomEncounterTitle=Encounter
+Message/&TeleportPartyDescription=Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place.
+Message/&TeleportPartyTitle=Teleport
+Reaction/&ReadiedAction{0}Description=Readied {0}
+Reaction/&ReadiedAction{0}Title=Readied {0}
+Reaction/&SpendPower{0}Description=Spend {0}
+Reaction/&SpendPower{0}Title=Spend {0}
+Reaction/&SpendPowerBundleDescription=Spend Power.
+Reaction/&SpendPowerBundleTitle=Spend Power
+Reaction/&SubitemSelectPowerBundleTitle=Options
+Reaction/&SubitemSelectSlotLevelTitle=Slot Level
+Reaction/&Use{0}Description=Use {0}
+Reaction/&Use{0}Title=Use {0}
+Requirement/&FeatureSelectionRequireCharacterLevel=Level {0}
+Requirement/&FeatureSelectionRequireClassLevel=Level {0} of {1}
+RestActivity/&ZSRespecDescription=Respec this Hero.
+RestActivity/&ZSRespecTitle=Respec
+Screen/&EditorLocationSize3Title=Huge [MODDED]
+Screen/&EditorLocationSize4Title=Gargantuan [MODDED]
+Stage/&IdentityMorphotypeEyeHeader=Eye Style
+ToolTip/&CheckBoxDefaultPartyTitle=Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
+Tooltip/&Tag9000Title=Custom Effect
+Tooltip/&TagCommunityExpansionTitle=Community Expansion
+Tooltip/&TagOtherModContentTitle=From mod
+UI/&CustomFeatureSelectionStageDescription=Select extra features from your class/subclass.
+UI/&CustomFeatureSelectionStageFeatures=Features
+UI/&CustomFeatureSelectionStageNotDone=You must select all available features before proceeding
+UI/&CustomFeatureSelectionStageTitle=Feature Selection
+UI/&CustomFeatureSelectionTooltipTypeCantrip=Cantrip
+UI/&CustomFeatureSelectionTooltipTypeFeature=Feature
+UI/&CustomFeatureSelectionTooltipTypePower=Power
+UI/&CustomFeatureSelectionTooltipTypeProficiency=Proficiency
+UI/&ForcePreferredCantripDescription=If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
+UI/&ForcePreferredCantripTitle=Force Preferred Cantrip

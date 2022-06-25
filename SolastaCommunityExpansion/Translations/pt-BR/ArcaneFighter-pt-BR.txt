@@ -1,10 +1,10 @@
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Dano Adicional de Ataques com Poder Mágico
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Dano Adicional de Ataques com Poder Mágico
-Subclass/&ArcaneFighterAdditionalActionDescription	Você pode lançar um feitiço depois de derrotar um inimigo com seus ataques de arma.
-Subclass/&ArcaneFighterAdditionalActionTitle	Combate a Feitiços
-Subclass/&ArcaneFighterBonusWeaponDamageDescription	Uma vez por turno, seus ataques com arma causam 1d8 de dano extra.
-Subclass/&ArcaneFighterBonusWeaponDamageTitle	Ataques com poderes mágicos
-Subclass/&TraditionArcaneFighterDescription	Canalize sua magia em ataques com armas.
-Subclass/&TraditionArcaneFighterTitle	Lutador Arcano
-Subclass/&WeaponProfArcaneFighterDescription	A experiência em combate deu ao Guerreiro Arcano treinamento em Armas Simples e Marciais.
-Subclass/&WeaponProfArcaneFighterTitle	Treinamento de Armas
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Dano Adicional de Ataques com Poder Mágico
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Dano Adicional de Ataques com Poder Mágico
+Subclass/&ArcaneFighterAdditionalActionDescription=Você pode lançar um feitiço depois de derrotar um inimigo com seus ataques de arma.
+Subclass/&ArcaneFighterAdditionalActionTitle=Combate a Feitiços
+Subclass/&ArcaneFighterBonusWeaponDamageDescription=Uma vez por turno, seus ataques com arma causam 1d8 de dano extra.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle=Ataques com poderes mágicos
+Subclass/&TraditionArcaneFighterDescription=Canalize sua magia em ataques com armas.
+Subclass/&TraditionArcaneFighterTitle=Lutador Arcano
+Subclass/&WeaponProfArcaneFighterDescription=A experiência em combate deu ao Guerreiro Arcano treinamento em Armas Simples e Marciais.
+Subclass/&WeaponProfArcaneFighterTitle=Treinamento de Armas

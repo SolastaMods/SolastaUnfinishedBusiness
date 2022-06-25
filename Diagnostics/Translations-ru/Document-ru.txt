@@ -1,0 +1,4 @@
+Document/&Lightfiller_01_Title	Код от хранилища в Диких источниках
+Document/&Lightfiller_01_Content	Только для членов семьи
+Document/&Lightfiller_02_Title	Ключ от гостевой темницы
+Document/&Lightfiller_02_Content	Сообщать только с позволения надзирателя

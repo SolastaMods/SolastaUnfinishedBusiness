@@ -1,0 +1,26 @@
+VisualMood/&CryptTitle	Cripta
+VisualMood/&InfernoTitle	Inferno
+VisualMood/&StrangeTitle	Estranha
+VisualMood/&ClearOutdoorTitle	Tempo Limpo
+VisualMood/&AcidTitle	Ácido
+VisualMood/&BluishTitle	Azulado
+VisualMood/&CalmTitle	Calmo
+VisualMood/&ColdTitle	Frio
+VisualMood/&DevilishTitle	Diabólico
+VisualMood/&DullTitle	Simples
+VisualMood/&GloomyTitle	Triste
+VisualMood/&GoldenTitle	Dourado
+VisualMood/&GreenishTitle	Esverdeado
+VisualMood/&LovelyTitle	Ótimo
+VisualMood/&MossyTitle	Musguento
+VisualMood/&MuddyTitle	Enlameado
+VisualMood/&MysticTitle	Místico
+VisualMood/&OcherTitle	Ocre
+VisualMood/&PastTitle	Passado
+VisualMood/&PichBlackTitle	Breu
+VisualMood/&PurplishTitle	Púrpura
+VisualMood/&RadiantTitle	Radiante
+VisualMood/&SpookyTitle	Assombrado
+VisualMood/&StenchTitle	Fedido
+VisualMood/&ToxicTitle	Tóxico
+VisualMood/&WarmTitle	Cálido

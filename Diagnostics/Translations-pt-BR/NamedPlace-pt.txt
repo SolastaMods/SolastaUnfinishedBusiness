@@ -1,0 +1,20 @@
+NamedPlace/&AerElai_Title	O AER ELAI
+NamedPlace/&BADLANDS_Title	AS TERRAS ÁRIDAS
+NamedPlace/&CopperheadRoad_Title	ESTRADA\nCABEÇA-DE-COBRE
+NamedPlace/&DUCHY_caercyflen_Title	Ducado de\nCastro Kyflen
+NamedPlace/&DUCHY_easternforests_Title	Ducado das\nFlorestas Orientais
+NamedPlace/&DUCHY_northernhills_Title	Ducado das\nColinas Boreais
+NamedPlace/&DUCHY_northernplains_Title	Ducado das\nPlanícies Boreais
+NamedPlace/&DUCHY_southmarsh_Title	Ducado do\nBrejo Austral
+NamedPlace/&DUCHY_westernfields_Title	Ducado dos\nCampos Ocidentais
+NamedPlace/&Einarium_Title	O Einareum
+NamedPlace/&GALLIVAN_Title	REINO DE\nGALLIVAN
+NamedPlace/&Kaupaapunki_Title	KAUPAAPUNKI
+NamedPlace/&MASGARTH_Title	PRINCIPADO\nDE MASGARTH
+NamedPlace/&NEWEMPIRE_Title	O NOVO IMPÉRIO
+NamedPlace/&Sandreed_Title	AREAL DO JUNCO
+NamedPlace/&SNOWALLIANCE_Title	A ALIANÇA DA NEVE
+NamedPlace/&MARCHES_Title	As Fronteiras
+NamedPlace/&Jungle_Title	Selva
+NamedPlace/&City_Title	Montes de Hyfryd
+NamedPlace/&Swamp_Title	Pântanos de Gessa

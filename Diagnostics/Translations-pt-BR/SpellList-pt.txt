@@ -1,0 +1,7 @@
+SpellList/&SpellListClericTitle	Magias de Clérigo
+SpellList/&SpellListPaladinTitle	Magias de Paladino
+SpellList/&SpellListRangerTitle	Magias de Patrulheiro
+SpellList/&SpellListSpellbladeTitle	Magias de Laminarcana
+SpellList/&SpellListWizardTitle	Magias de Mago
+SpellList/&SpellListSorcererTitle	Magias de Feiticeiro
+SpellList/&SpellListDruidTitle	Magias de Druida

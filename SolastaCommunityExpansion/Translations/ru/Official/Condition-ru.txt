@@ -1,0 +1,10 @@
+Condition/&ChildOfDarkness_Title	Дитя тьмы
+Condition/&ChildOfDarkness_Description	Этот сорак становится ещё сильнее и восстанавливает здоровье, находясь во тьме.
+Condition/&ChildOfDarkness_ACGain_Title	В тусклом свете или в темноте сораки получают дополнительный КД.
+Condition/&ChildOfDarkness_AdditionalDamage2_Title	Это существо получает +2 к урону, находясь в тусклом свете
+Condition/&ChildOfDarkness_AdditionalDamage3_Title	Это существо получает +3 к урону, находясь в тусклом свете
+Condition/&ChildOfDarkness2_Title	Апостол тьмы
+Condition/&ChildOfDarkness2_Description	Этот сорак становятся сильнее и восстанавливает здоровье при тусклом свете, он становится ещё сильнее, находясь во тьме.
+Condition/&ChildOfDarkness3_Title	Пророк тьмы
+Condition/&ChildOfDarkness3_Description	Этот сорак становятся сильнее и восстанавливает здоровье при тусклом свете, он становится ещё сильнее, находясь во тьме.
+Condition/&ChildOfDarkness0_Description	Этот сорак становится ещё сильнее и восстанавливает здоровье, находясь во тьме.

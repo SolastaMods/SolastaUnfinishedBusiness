@@ -1,0 +1,173 @@
+MainMenu/&ChangeCampaignDescription	Clique para abrir as opções de aventuras.
+MainMenu/&ChangeCampaignTitle	Mudar Campanha
+MainMenu/&ChangeCharacterSlotDescription	Clique para selecionar outro personagem.
+MainMenu/&ChangeCharacterSlotTitle	Alterar
+MainMenu/&ContinueTitle	Continuar
+MainMenu/&DeleteCharacterDescription	Clique para excluir este personagem.
+MainMenu/&EmptySlotTitle	Vazio
+MainMenu/&ExportPdfDescription	Exporta o personagem selecionado para um arquivo pdf que pode ser impresso.
+MainMenu/&ExportPdfTitle	Exportar PDF
+MainMenu/&InspectCharacterDescription	Abre o inventário e a ficha do personagem.
+MainMenu/&InspectCharacterTitle	Inspecionar
+MainMenu/&LevelUpCharacterDescription	Inicia a progressão de níveis do personagem. Algumas campanhas requerem ou proíbem personagens de níveis acima de 1.
+MainMenu/&LevelUpCharacterTitle	Subir de Nível
+MainMenu/&LicenseDescription	Exiba informações de licença deste jogo.
+MainMenu/&LicenseTitle	Licença
+MainMenu/&LoadGameDescription	Carregue um jogo salvo.
+MainMenu/&LoadGameTitle	Carregar Jogo
+MainMenu/&ManageCharactersDescription	Crie, visualize e edite seus personagens.
+MainMenu/&ManageCharactersTitle	Personagens
+MainMenu/&NewAdventureDescription	Inicie um novo jogo com um grupo de aventureiros.
+MainMenu/&NewAdventureTitle	Nova Aventura
+MainMenu/&NewCharacterDescription	Crie um novo personagem e escolha sua ancestralidade, classe, histórico etc.
+MainMenu/&NewCharacterTitle	Novo Personagem
+MainMenu/&PredefinedPartyTitle	Grupo Predefinido
+MainMenu/&PrivacyDescription	Gerencie suas configurações de privacidade.
+MainMenu/&PrivacyTitle	Privacidade
+MainMenu/&QuitDescription	Saia do jogo e volte à área de trabalho.
+MainMenu/&QuitTitle	Sair
+MainMenu/&SaveDateHeader	Data
+MainMenu/&SelectCharacterSlotDescription	Selecione um personagem entre as opções disponíveis.
+MainMenu/&SelectCharacterSlotTitle	Selecionar
+MainMenu/&SettingsDescription	Ajuste configurações do aplicativo.
+MainMenu/&SettingsTitle	Configurações
+MainMenu/&StartGameDescription	Inicie a campanha com os personagens selecionados.
+MainMenu/&StartGameTitle	Iniciar Jogo
+MainMenu/&StartingLevelRange	{0}-{1}
+MainMenu/&StartingLevelTitle	Nível Inicial:
+MainMenu/&CharacterSourceTogglePregenDescription	Exibir apenas personagens pré-gerados pelo jogo.
+MainMenu/&CharacterSourceTogglePregenTitle	Pré-Geração
+MainMenu/&CharacterSourceTogglePersonalDescription	Exibir apenas personagens criados pessoalmente.
+MainMenu/&CharacterSourceTogglePersonalTitle	Pessoais
+MainMenu/&CharacterSourceToggleAllDescription	Exibir todos os personagens.
+MainMenu/&CharacterSourceToggleAllTitle	Tudo
+MainMenu/&CharacterSortAlphaneticalTitle	Nome
+MainMenu/&CharacterSortCharacterLevelTitle	Nível
+MainMenu/&CharacterSortCharacterClassTitle	Classe
+MainMenu/&CharacterSortCharacterAncestryTitle	Ancestralidade
+MainMenu/&DifficultySettingCustomizationLabel	Opções mais detalhadas podem ser personalizadas no menu Configurações do Jogo.
+MainMenu/&CreditsTitle	Créditos do Jogo
+MainMenu/&CreditsDescription	Exibe os créditos do jogo Solasta: Crown of the Magister.
+MainMenu/&UserLocationsBrowseModIOTitle	Navegar por Mod.IO
+MainMenu/&UserLocationsRefreshDescription	Atualize locais marcados (antes de atualizar, espere alguns segundos após marcar/desmarcar)
+MainMenu/&UserLocationsLogoutTitle	Sair
+MainMenu/&UserLocationsLogoutDescription	Sair de Mod.IO
+MainMenu/&UserLocationsLoggedInAsTitle	Entrou como:
+MainMenu/&UserLocationsTitle	Criador de Mapas
+MainMenu/&UserLocationsDescription	Escolha mapas e locais criados pela comunidade para editar ou jogar, ou então crie o seu.
+MainMenu/&UserLocationsBrowserTitle	Locais do Usuário
+MainMenu/&UserLocationsSortTitleTitle	Título
+MainMenu/&UserLocationsSortLevelTitle	Nível
+MainMenu/&UserLocationsSortSizeTitle	Tamanho
+MainMenu/&UserLocationsSortEnvironmentTitle	Ambiente
+MainMenu/&UserLocationsSortOperationalTitle	Pronto
+MainMenu/&UserLocationsSortOperationalYesTitle	Sim
+MainMenu/&UserLocationsSortOperationalNoTitle	Não
+MainMenu/&UserLocationsNewTitle	Novo Local
+MainMenu/&UserLocationsNewDescription	Cria um novo local de usuário.
+MainMenu/&UserLocationsEditTitle	Editar
+MainMenu/&UserLocationsEditDescription	Edita o local de usuário escolhido.
+MainMenu/&UserLocationsDeleteTitle	Excluir
+MainMenu/&UserLocationsDeleteDescription	Exclui o local de usuário escolhido.
+MainMenu/&UserLocationHeaderTitle	Local de Usuário
+MainMenu/&UserLocationChangeButtonTitle	Alterar
+MainMenu/&DungeonMakerBetaTitle	Beta
+MainMenu/&UserLocationsSortAuthorTitle	Autoria
+MainMenu/&UserLocationSizeFormat	{0}x{1}
+MainMenu/&UserLocationsBrowseFilesTitle	Mostrar Arquivos
+MainMenu/&UserLocationsBrowseFilesDescription	Abre a pasta do sistema que contém os arquivos JSON de local de usuário.
+MainMenu/&UserLocationsPublishTitle	Publicar
+MainMenu/&UserLocationsPlaytestTitle	Testar
+MainMenu/&UserLocationsPlaytestDescription	Inicia rapidamente o local selecionado com um grupo predefinido.
+MainMenu/&UserLocationsPlayLocationTitle	Jogar
+MainMenu/&UserLocationsPlayLocationDescription	Prepare uma partida com este local e monte um grupo de personagens.
+MainMenu/&UserLocationsBrowseWorkshopTitle	Ver Oficina
+MainMenu/&UserLocationsBrowseWorkshopDescription	Abre a oficina com locais criados por outros jogadores.
+MainMenu/&UserContentSortLocationsCountTitle	Locais
+MainMenu/&UserCampaignsNewTitle	Nova Campanha
+MainMenu/&UserCampaignsNewDescription	Cria uma nova campanha de usuário.
+MainMenu/&UserCampaignsEditTitle	Editar
+MainMenu/&UserCampaignsEditDescription	Edita a campanha de usuário selecionada.
+MainMenu/&UserCampaignsDeleteDescription	Exclui a campanha de usuário selecionada.
+MainMenu/&UserCampaignsPlayTitle	Jogar
+MainMenu/&UserCampaignsPlayDescription	Começa uma sessão de jogo na campanha selecionada.
+MainMenu/&UserContentBrowseFilesTitle	Ver Arquivos
+MainMenu/&UserContentBrowseFilesDescription	Abre uma pasta do sistema que contém os arquivos JSON de conteúdo do usuário.
+MainMenu/&UserItemsNewTitle	Novo Item
+MainMenu/&UserItemsNewDescription	Cria um novo item personalizado
+MainMenu/&UserItemsEditDescription	Edita o item personalizado selecionado
+MainMenu/&UserItemsDeleteDescription	Exclui o item personalizado selecionado
+MainMenu/&UserMonstersNewTitle	Novo Monstro
+MainMenu/&UserMonstersNewDescription	Cria um novo monstro personalizado
+MainMenu/&UserMonstersEditDescription	Edita o monstro personalizado selecionado
+MainMenu/&UserMonstersDeleteDescription	Exclui o monstro personalizado selecionado
+MainMenu/&UserNpcsNewTitle	Novo NPC
+MainMenu/&UserNpcsNewDescription	Cria um novo NPC personalizado
+MainMenu/&UserNpcsEditDescription	Edita o NPC personalizado selecionado
+MainMenu/&UserNpcsDeleteDescription	Exclui o NPC personalizado selecionado
+MainMenu/&UserMerchantInventoryNewTitle	Novo Inventário
+MainMenu/&UserMerchantInventoryNewDescription	Cria um novo inventário personalizado de mercador
+MainMenu/&UserMerchantInventoryEditDescription	Edita o inventário personalizado de mercador selecionado
+MainMenu/&UserMerchantInventoryDeleteDescription	Exclui o inventário personalizado de mercador selecionado
+MainMenu/&UserContentRefreshTitle	Atualizar
+MainMenu/&UserContentRefreshDescription	Atualiza a lista de conteúdos de usuário agregados nesta oficina
+MainMenu/&UserContentSubscribedSteamDescription	Este conteúdo foi inscrito e baixado da Oficina do Steam
+MainMenu/&UserContentSubscribedModIODescription	Este conteúdo foi inscrito e baixado do Mod.IO
+MainMenu/&UserLocationsPublishDescription	Abre a interface para publicação de conteúdo online
+MainMenu/&SessionTypeHeaderDescription	As sessões de jogo podem ser jogos novos ou jogos salvos.
+MainMenu/&RequestCharacterSlotTitle	SOLICITAÇÃO
+MainMenu/&RequestCharacterSlotDescription	Solicitar jogar com este personagem
+MainMenu/&SessionPlayersTitle	Jogadores na sala:
+MainMenu/&CreateGameToggleTitle	Criar Jogo
+MainMenu/&JoinGameToggleTitle	Entrar no Jogo
+MainMenu/&AutoNetworkRegionTitle	Automático
+MainMenu/&RequestedByDescription	Requisição de:
+MainMenu/&LoadAdventureTitle	Continuar aventura
+MainMenu/&RefreshDLCTitle	Atualizar DLCs
+MainMenu/&RefreshDLCDescription	Confere as suas licenças de DLC na loja online.
+MainMenu/&MultiplayerTitle	Multijogador
+MainMenu/&MultiplayerDescription	Permite que você organize ou entre em uma sessão multijogador.
+MainMenu/&MultiplayerAlphaTitle	Alpha
+MainMenu/&SessionParameterNameTitle	Nome da Sessão
+MainMenu/&SessionParameterNameDescription	O nome usado para se referir a esta sessão de jogo ou entrar nela.
+MainMenu/&SessionParameterPasswordTitle	Senha
+MainMenu/&SessionParameterPasswordDescription	A senha para entrar na sessão. Caso o campo esteja vazio, a senha não será pedida.
+MainMenu/&SessionParameterVisibilityTitle	Visibilidade
+MainMenu/&SessionParameterVisibilityDescription	Define se esta sessão de jogo estará visível ou oculta para outros jogadores.
+MainMenu/&SessionParameterVisibilityPublicTitle	Pública
+MainMenu/&SessionParameterVisibilityPrivateTitle	Privada
+MainMenu/&SessionParameterMaxPlayersTitle	Máx. de Jogadores
+MainMenu/&SessionParameterMaxPlayersDescription	O máximo de jogadores que podem entrar nessa sessão (incluindo o organizador).
+MainMenu/&CreateGameButtonDescription	Confirme a criação de uma sessão de jogo e prossiga ao painel de Nova Aventura.
+MainMenu/&JoinGameButtonDescription	Entrar na sessão de jogo selecionada.
+MainMenu/&JoinGameSessionNameDescription	O nome da sessão de jogo em que você quer entrar. Caso prefira, insira o nome de um jogo privado, pois a lista acima exibe apenas os jogos públicos.
+MainMenu/&RefreshListButtonTitle	Atualizar Lista
+MainMenu/&RefreshListButtonDescription	Clique para atualizar a lista de sessões de jogo.
+MainMenu/&RefreshingRoomsTitle	Atualizando...
+MainMenu/&LockedHeaderTitle	Com tranca
+MainMenu/&LockedHeaderDescription	Algumas sessões de jogo estão bloqueadas e precisam de uma senha para acessá-las.
+MainMenu/&PlayersHeaderTitle	Jogadores
+MainMenu/&PlayersHeaderDescription	A quantidade de jogadores (atual/máx.) desta sessão de jogo.
+MainMenu/&CampaignHeaderTitle	Campanha
+MainMenu/&CampaignHeaderDescription	O nome da campanha ou local usado por esta sessão de jogo.
+MainMenu/&InvitePlayerButtonTitle	Convidar
+MainMenu/&InvitePlayerButtonDescription	Convide um jogador para entrar no jogo.
+MainMenu/&RemotePlayerStatusMissingPlayerTitle	Jogador Ausente
+MainMenu/&RemotePlayerStatusSelectingCharacterTitle	Seleção de Personagem
+MainMenu/&RemotePlayerStatusReadyTitle	Pronto
+MainMenu/&ReadyGameTitle	Pronto
+MainMenu/&ReadyGameDescription	Avisa aos outros que você já pode começar a jogar.
+MainMenu/&StopReadyGameTitle	Parar
+MainMenu/&StopReadyGameDescription	Cancela sua preparação.
+MainMenu/&LoadMultiplayerGameButtonTitle	Carregar Jogo
+MainMenu/&LoadMultiplayerGameButtonDescription	Abra o painel de carregamento para selecionar uma partida multijogador.
+MainMenu/&SessionTypeHeaderTitle	Tipo
+MainMenu/&SessionTypeNewDescription	Esta é uma nova sessão e está no início.
+MainMenu/&SessionTypeSavedDescription	Esta sessão foi baseada em um jogo salvo com uma lista definida de personagens.
+MainMenu/&SessionParameterAllowCrossplayTitle	Permite Crossplay
+MainMenu/&SessionParameterAllowCrossplayDescription	Determina se o jogo provê acesso a jogadores de outras plataformas.
+MainMenu/&CrossplayHeaderTitle	Crossplay
+MainMenu/&CrossplayHeaderDescription	Certos jogos proveem acesso a jogadores de outras plataformas.
+MainMenu/&EmptyTitle	
+MainMenu/&UserLocationsPlayTitle	
+MainMenu/&UserLocationsPlayDescription	

@@ -1,0 +1,460 @@
+Modal/&AssertionFailedTtitle	Подтверждение провалено
+Modal/&CampaignSelectionButtonTitle	Выбрать
+Modal/&CampaignSelectionTitle	Кампания
+Modal/&CampCaptionMultipleHoursFormat	Отряд разбивает лагерь для отдыха на {0} ч.
+Modal/&CampCaptionSingleHourFormat	Отряд разбивает лагерь для отдыха на один час.
+Modal/&CancelButtonTitle	Отмена
+Modal/&CancelPrepareDescription	Отмена всех изменений, сделанных в этом окне.
+Modal/&CancelPrepareTitle	Отмена
+Modal/&CharacterReviveMessageCancel	Отмена
+Modal/&CharacterReviveMessageContent	Эта возможность активируется в течение продолжительного времени, что может повлияет на другие временные параметры. Продолжить?
+Modal/&CharacterReviveMessageTitle	Внимание
+Modal/&CharacterReviveMessageValidate	Принять
+Modal/&CharacterReviveModalHeaderPluralTitle	Оживить всех мёртвых персонажей
+Modal/&CharacterReviveModalHeaderSingularTitle	Оживить мёртвого персонажа
+Modal/&CharacterReviveModalSubTitle	Нельзя продолжать приключение, если один или несколько персонажей мертвы. Выберите вариант.
+Modal/&CharacterReviveModalTooLateFormat	Слишком поздно оживлять персонажа {0}.
+Modal/&DefeatDescription	У отряда нет возможности оживить мертвых участников. Игра окончена! Попробуйте дать свитки заклинания «Оживление» персонажам, которые умеют ими пользоваться.
+Modal/&DefeatTitle	Игра окончена
+Modal/&DeleteButtonTitle	Удалить
+Modal/&EquipementSelectionDescription	Выберите желаемые параметры снаряжения.
+Modal/&EquipementSelectionTitle	Выбор снаряжения
+Modal/&ErrorModalContinuePlayingTitle	Продолжить игру
+Modal/&ErrorModalCopyToClipboardTitle	Скопировать в буфер обмена
+Modal/&ErrorModalIgnoreErrorTitle	Игнорировать эту ошибку
+Modal/&ErrorModalQuitTitle	Выйти из игры
+Modal/&ErrorModalTitle	Произошла серьёзная ошибка.
+Modal/&ExceptionModalTitle	Произошла критическая ошибка.
+Modal/&FactionRedeemCostDescription	Сдавать предметы часто бывает выгоднее, чем продавать торговцам
+Modal/&FactionRedeemInstructionsDescription	Сдавая предметы фракции «{0}», вы заработаете деньги и улучшите свои отношения с ней.
+Modal/&FactionRedeemRelationDescription	Ваши отношения с этой фракцией улучшаются
+Modal/&FactionRedeemRelationGainFormat	{0} — отношение
+Modal/&FactionRedeemSelectTitle	Выберите предмет для сдачи
+Modal/&HigherLevelFeaturesTitle	Возможности более высокого уровня
+Modal/&InterruptCraftingCompleteTitle	Прерывать, когда создан предмет.
+Modal/&InterruptLevelUpAvailableTitle	Прерывать, когда персонаж может получить новый уровень.
+Modal/&InterruptLongRestCompleteTitle	Прерывать, когда завершён долгий отдых.
+Modal/&LoadButtonTitle	Загрузка
+Modal/&LoadGameHeader	Загрузка
+Modal/&LoadGamePlaceholder	Выберите сохранённую игру.
+Modal/&LoadingProceedButtonTitle	Щёлкните или нажмите любую клавишу, чтобы начать.
+Modal/&LoadingTitle	Идет загрузка. Пожалуйста, подождите.
+Modal/&LoadLastSaveDescription	Продолжить игру с последнего сохранения
+Modal/&LoadLastSaveTitle	Начать заново с последнего сохранения
+Modal/&MonsterListingCaption	{0} концентрируется, чтобы почувствовать чудовищ поблизости... 
+Modal/&MonsterListingFavoredEnemyTitle	Главный враг
+Modal/&MonsterListingNotPerceivedTitle	Нет
+Modal/&MonsterListingPerceivedTitle	Присутствует
+Modal/&NumberSelectionInstructionTitle	Сколько очков?
+Modal/&NumberSelectionValidateTitle	Утвердить
+Modal/&PartyWaitMinutesPluralFormat	Отряд ждёт {0} мин.
+Modal/&PartyWaitMinutesSingleFormat	Отряд ждёт {0} минуту.
+Modal/&RequiredRestsMultipleFormat	Долгих отдыхов: {0}
+Modal/&RequiredRestsNoneFormat	Нет
+Modal/&RequiredRestsSingleFormat	1 долгий отдых
+Modal/&RequiredRestsTitle	Нужно отдыхов
+Modal/&ResetDefaultsDescription	Щёлкните, чтобы сменить настройки путешествия на стандартные.
+Modal/&ResetDefaultsTitle	Сбросить на стандартные
+Modal/&SaveButtonTitle	Сохранить
+Modal/&SaveGameHeader	Сохранить
+Modal/&SaveGamePlaceholder	Введите имя файла или выберите сохранённую игру.
+Modal/&SelectCharacterMultipleTitle	Выберите одного или нескольких персонажей.
+Modal/&SelectCharacterSingleTitle	Выберите персонажа
+Modal/&SelectTitle	Выбрать
+Modal/&StartTravelDescription	Начинает путешествие к выбранному месту.
+Modal/&StartTravelTitle	Начать путешествие
+Modal/&TravelDurationLessThanADayFormat	Меньше дня
+Modal/&TravelDurationMultipleFormat	{0} д.
+Modal/&TravelDurationSingleFormat	1 день
+Modal/&TravelDurationTitle	Длительность
+Modal/&TravelFromTitle	Откуда
+Modal/&TravelPaceNormalTitle	Нормальный
+Modal/&TravelPaceTitle	Темп путешествия
+Modal/&TravelSettingsButtonDescriptionTitle	Щёлкните, чтобы сменить настройки путешествия и отдыха.
+Modal/&TravelSettingsCustomTitle	Пользовательские
+Modal/&TravelSettingsDefaultTitle	Стандартные
+Modal/&TravelSettingsTitle	Настройки путешествия
+Modal/&TravelToTitle	Куда
+Modal/&ValidateButtonTitle	Утвердить
+Modal/&LoadingShortTitle	Загружается
+Modal/&LoadingTipTitle	Совет
+Modal/&UnitsSelectionInstructionTitle	Сколько единиц?
+Modal/&CastSpellBeforeLongRestTitle	Произнести заклинание «{0}», когда начинается долгий отдых.
+Modal/&ScavengerMissionsModalTitle	Экспедиции Утильщиков
+Modal/&ScavengerMissionsModalDescription	Утильщики ходят в эти места, чтобы вернуть оставленную добычу.
+Modal/&ScavengerMissionLineEncounterTitle	Где-то по пути
+Modal/&ScavengerMissionLineNewMissionFormat	Новые: ещё {0}
+Modal/&ScavengerMissionLineOngoingMissionFormat	Текущие: ещё {0}
+Modal/&ScavengerMissionLineFinishedMissionDescription	Выполнено
+Modal/&ScavengerMissionModalToggleTitle	Показать относящиеся к поискам экспедиции
+Modal/&ScavengerLootModalTitle	Найденные во время экспедиций предметы
+Modal/&ScavengerLootModalInstructionsDescription	Щёлкните на предмет, чтобы вернуть его, не продавая.
+Modal/&ScavengerLootModalSellAllButton	Продать всё
+Modal/&ScavengerLootModalSellInstructionsDescription	Вы получаете:
+Modal/&DefeatStealthDescription	Вас заметили во время критической стадии скрытности! Используйте режим осторожности, обдумывайте каждый шаг.
+Modal/&QuestBoardTitle	Доступные задания
+Modal/&QuestBoardDescription	Выберите задание, которое вы хотите принять, и нажмите «Начать».
+Modal/&QuestBoardStartTitle	Начать
+Modal/&QuestBoardStartDescription	Примите задание и начните его выполнение.
+Modal/&QuestInProgressTitle	В процессе
+Modal/&SolastaBackers	Поддержавшие разработку Solasta
+Modal/&EternalHeroesTitle	Нашим вечным героям
+Modal/&TeleportButtonTitle	Телепортироваться
+Modal/&TeleportButtonDescription	Мгновенно телепортировать отряд в пункт назначения, рядом с большими вратами.
+Modal/&VictoryTitle	Отряд победил!
+Modal/&StatHitAccuracyTitle	Точность атаки:
+Modal/&StatHitAccuracyDescription	Доля удачных попаданий при атаках оружием и магических атаках.
+Modal/&StatCriticalHitsTitle	Критические удары:
+Modal/&StatCriticalHitsDescription	Количество критических ударов, наносимых этим персонажем при бросках атаки (оружием и магией).
+Modal/&StatCriticalFailuresTitle	Критические неудачи:
+Modal/&StatCriticalFailuresDescription	Количество критических неудач у этого персонажа при бросках атаки (оружием и магией).
+Modal/&StatInflictedDamageTitle	Наносимый урон:
+Modal/&StatInflictedDamageDescription	Общее количество единиц урона, нанесённого персонажами.
+Modal/&StatSlainEnemiesTitle	Убитые враги:
+Modal/&StatSlainEnemiesDescription	Количество врагов, которым этот персонаж нанёс решающий удар.
+Modal/&StatSustainedInjuriesTitle	Перенесённые ранения:
+Modal/&StatSustainedInjuriesDescription	Общее количество очков здоровья, потерянных этим персонажем.
+Modal/&StatRestoredHealthTitle	Восстановленное здоровье:
+Modal/&StatRestoredHealthDescription	Общее количество очков здоровья, восстановленных этим персонажем.
+Modal/&StatUsedMagicAndPowersTitle	Использованная магия и способности:
+Modal/&StatUsedMagicAndPowersDescription	Общее количество ячеек заклинаний и зарядов способностей, использованных этим персонажем.
+Modal/&StatTravelledCellsTitle	Пройдено клеток:
+Modal/&StatTravelledCellsDescription	Количество клеток, которые персонаж преодолел во всех 3 измерениях. Своего рода «пробег» персонажа.
+Modal/&StatKnockOutsTitle	Потери сознания:
+Modal/&StatKnockOutsDescription	Сколько раз персонаж терял сознание или умирал.
+Modal/&StatEarnedXPTitle	Заработанные ОО:
+Modal/&StatEarnedXPDescription	Количество очков опыта, заработанных персонажем.
+Modal/&StatGameTimeTitle	Игровое время:
+Modal/&StatGameTimeDescription	Общее время (включая отдых), проведённое отрядом в игре.
+Modal/&StatShortRestsTitle	Короткий отдых:
+Modal/&StatShortRestsDescription	Количество привалов с коротким отдыхом, выполненных отрядом.
+Modal/&StatLongRestsTitle	Долгий отдых:
+Modal/&StatLongRestsDescription	Количество привалов с долгим отдыхом, выполненных отрядом.
+Modal/&StatGameTimeFormat	{0} д. {1} ч. {2} мин. {3} с.
+Modal/&UpdateFileTitle	Обновить файл
+Modal/&UpdateFileDescription	Обновить файл этого персонажа, чтобы его прохождение и вещи были сохранены для других приключений. Таких персонажей нельзя будет использовать для основной кампании Solasta.
+Modal/&PregenCharacterCannotUpdateTitle	Готовый персонаж
+Modal/&PregenCharacterCannotUpdateDescription	Этот персонаж сгенерирован игрой, его нельзя обновить.
+Modal/&ContinueTitle	Продолжить
+Modal/&ContinueDescription	Вернуться в главное меню
+Modal/&SelectUserLocationTitle	Выберите место
+Modal/&UserLocationSettingsTitle	Настройки места
+Modal/&UserLocationSettingsApplyTitle	Применить
+Modal/&CheatsTitle	Читы для игрового теста
+Modal/&IdleMonstersToggleTitle	Бездействующие монстры
+Modal/&IdleMonstersToggleDescription	Монстры не начинают бой, обнаружив вас. {0}
+Modal/&InviciblePartyToggleTitle	Невидимый отряд
+Modal/&InviciblePartyToggleDescription	Персонажи отряда невидимы в бою. {0}
+Modal/&RevealFogOfWarButtonTitle	Убрать туман войны
+Modal/&RevealFogOfWarButtonDescription	Убирает туман войны во всём месте, чтобы можно было видеть каждую комнату. {0}
+Modal/&KIllBattleEnemiesButtonTitle	Убить врагов в бою
+Modal/&KIllBattleEnemiesButtonDescription	Убивает всех врагов в бою. {0}
+Modal/&IdleMonstersOnDescription	Монстры теперь бездействуют
+Modal/&IdleMonstersOffDescription	Монстры снова активны
+Modal/&InviciblePartyOnDescription	Отряд теперь невидим
+Modal/&InviciblePartyOffDescription	Отряд перестал быть невидимым
+Modal/&RevealFogOfWarOnDescription	Туман войны полностью убран
+Modal/&RevealFogOfWarOffDescription	Туман войны снова действует
+Modal/&MonsterFilterAllTitle	Все монстры
+Modal/&FilterKeywordTitle	Фильтр
+Modal/&FilterKeywordDescription	Фильтровать список по заданному ключевому слову
+Modal/&ClearKeywordDescription	Удаляет выбранное ключевое слово и отменяет фильтр
+Modal/&InputKeywordTitle	Введите ключевое слово:
+Modal/&UserItemEditionTitle	Версия пользовательского предмета
+Modal/&UserContentReferenceTitle	Исходник
+Modal/&UserContentReferenceDescription	Исходные материалы (из Solasta), на основе которых создаются эти пользовательские материалы.
+Modal/&UserContentInternalNameTitle	Внутреннее название
+Modal/&UserContentInternalNameDescription	Внутреннее название используется в качестве ссылки на этот пользовательский материал. Оно не видно игроку, который увидит только название и описание. Внутреннее название используется устройствами в качестве ссылки на пользовательский материал. Вы можете оставить автоматически сгенерированное внутреннее название или ввести новое (должно быть уникальным).
+Modal/&UserContentOverridesTitle	Изменение материалов
+Modal/&UserContentOverridesDescription	Позволяет изменять значения исходных материалов на пользовательские значения.
+Modal/&UserContentOverrideToggleDescription	Щёлкните, чтобы изменить исходное значение или повторно его активировать.
+Modal/&ProcessingContentTitle	Обработка материалов…
+Modal/&ContentPropertyTitleTitle	Название
+Modal/&ContentPropertyTitleDescription	Название этого материала, отображаемое для игрока
+Modal/&ContentPropertyDescriptionTitle	Описание
+Modal/&ContentPropertyDescriptionDescription	Описание материала, отображаемое для игрока во внутриигровых подсказках
+Modal/&ContentPropertyCostsTitle	Стоимость
+Modal/&ContentPropertyCostsDescription	Таблица исходной стоимости (для каждой валюты) этого материала. Параметры торговца могут изменять стоимость, отображаемую в магазине.
+Modal/&ContentPropertyDocumentFragmentsTitle	Фрагменты документов
+Modal/&ContentPropertyDocumentFragmentsDescription	Эта функция доступна только при изучении документа (свитка, книги, таблички), она позволяет вам вводить собственный текст, который будет отображаться в интерфейсе изучения документа.
+Modal/&CustomContentTitle	Пользовательские
+Modal/&ContentPropertyAbilityScoresTitle	Значения характеристик
+Modal/&ContentPropertyAbilityScoresDescription	Введите здесь пользовательские значения характеристик. \n Учтите, что изменение этих значений не влияет на броски атаки чудовищ, а также на проверки характеристик и спасброски, использующие особое мастерство чудовища. Класс доспеха и очки здоровья также не зависят от пользовательских значений характеристик.
+Modal/&ContentPropertyHitPointsTitle	Очки здоровья
+Modal/&ContentPropertyHitPointsDescription	Вы можете изменить максимальное значение очков здоровья данного существа после его появления.
+Modal/&ContentPropertyArmorClassTitle	Класс доспеха
+Modal/&ContentPropertyArmorClassDescription	Вы можете изменить класс доспеха данного существа после его появления.
+Modal/&UserMonsterEditionTitle	Версия пользовательского чудовища
+Modal/&UserNpcEditionTitle	Версия пользовательского НИП
+Modal/&ContentPropertyBooleanTrueTitle	Правда
+Modal/&ContentPropertyBooleanFalseTitle	Ложь
+Modal/&UserMerchantInventoryEditionTitle	Пользовательские возможности торговца
+Modal/&UserContentValuesTitle	Значения материалов
+Modal/&UserContentValuesDescription	Позволяет изменять значения пользовательских материалов.
+Modal/&ContentPropertyOverchargePercentTitle	Процент дополнительной стоимости
+Modal/&ContentPropertyOverchargePercentDescription	Дополнительная стоимость (процент) при покупке предмета у этого торговца.
+Modal/&ContentPropertyBuyBackPercentTitle	Процент выкупа
+Modal/&ContentPropertyBuyBackPercentDescription	Процент исходной стоимости, который предлагает торговец, когда вы продаёте предмет.
+Modal/&ContentPropertyCanDetectMagicTitle	Может обнаруживать магию
+Modal/&ContentPropertyCanDetectMagicDescription	Может ли этот торговец обнаруживать магические предметы в снаряжении отряда?
+Modal/&ContentPropertyDetectMagicCostGpTitle	Стоимость обнаружения магии (зм)
+Modal/&ContentPropertyDetectMagicCostGpDescription	Стоимость обнаружения магических предметов
+Modal/&ContentPropertyCanIdentifyTitle	Может опознавать предметы
+Modal/&ContentPropertyCanIdentifyDescription	Может ли этот торговец опознавать функции магического предмета?
+Modal/&ContentPropertyIdentifyCostGpTitle	Стоимость опознания (зм)
+Modal/&ContentPropertyIdentifyCostGpDescription	Стоимость опознавания магического предмета
+Modal/&ContentPropertyStockUnitsTitle	Товары
+Modal/&ContentPropertyStockUnitsDescription	Это список предметов, имеющихся в снаряжении торговца, а также параметры их восстановления.
+Modal/&UserContentStockUnitsDescription	Этот пункт позволяет вам заполнять ассортимент товаров, доступных у торговца.
+Modal/&UserContentStockUnitItemTitle	Предмет
+Modal/&UserContentStockUnitItemSelectTitle	Выбрать
+Modal/&UserContentStockUnitItemSelectDescription	Щёлкните, чтобы выбрать предмет из ячейки снаряжения этого торговца.
+Modal/&UserContentStockUnitStackCountTitle	Размер стопки
+Modal/&UserContentStockUnitStackCountDescription	Когда предмет можно сложить в стопки (например, еду), этот параметр определяет размер стопки этого товара.
+Modal/&UserContentStockStockLineTitle	Запас
+Modal/&UserContentStockInitialTitle	Начальный
+Modal/&UserContentStockInitialDescription	Начальный запас этого товара при появлении торговца.
+Modal/&UserContentStockMinTitle	Мин.
+Modal/&UserContentStockMinDescription	Минимальный запас доступных предметов этого типа, если вы хотите, чтобы они всегда были доступны.
+Modal/&UserContentStockMaxTitle	Макс.
+Modal/&UserContentStockMaxDescription	Максимальный запас доступных предметов этого типа.
+Modal/&UserContentStockReassortLineTitle	Пополнение запаса
+Modal/&UserContentStockReassortAmountTitle	Количество
+Modal/&UserContentStockReassortAmountDescription	Единицы товара, добавляющиеся после пополнение запаса торговца.
+Modal/&UserContentStockReassortHoursTitle	Часы
+Modal/&UserContentStockReassortHoursDescription	Количество часов, необходимое для начала пополнения запаса торговца.
+Modal/&UserContentStockUnitUpButtonDescription	Перемещает товар вверх по списку
+Modal/&UserContentStockUnitDownButtonDescription	Перемещает товар вниз по списку
+Modal/&UserContentStockUnitDeleteButtonDescription	Удаляет товар из списка
+Modal/&UserContentAddStockUnitButtonTitle	Добавить товар
+Modal/&UserContentAddStockUnitButtonDescription	Добавляет новый товар в ассортимент торговца, чтобы указать, что этот предмет можно купить у торговца.
+Modal/&UserContentProficiencyUpButtonDescription	Перемещает мастерство вверх по списку
+Modal/&UserContentProficiencyDownButtonDescription	Перемещает мастерство вниз по списку
+Modal/&UserContentProficiencyDeleteButtonDescription	Удаляет мастерство из списка
+Modal/&UserContentAddProficiencyButtonTitle	Добавить мастерство
+Modal/&UserContentAddProficiencyButtonDescription	Добавляет новую информацию о мастерстве для этого персонажа
+Modal/&ContentPropertySavingThrowsTitle	Спасброски
+Modal/&ContentPropertySavingThrowsDescription	Это список типов мастерства спасбросков (и их бонусов к спасброску костью d20), которыми владеет этот персонаж.
+Modal/&ContentPropertySkillsTitle	Навыки
+Modal/&ContentPropertySkillsDescription	Это список типов мастерства навыков (и их бонусов к броску проверки характеристик костью d20), которыми владеет этот персонаж.
+Modal/&ContentPropertyInformationIndividualAttacksTitle	Единичные атаки
+Modal/&ContentPropertyInformationIndividualAttacksDescription	Существо выберет одну из атак для использования в свой боевой ход.
+Modal/&ContentPropertyInformationGroupedAttacksTitle	Множественные атаки
+Modal/&ContentPropertyInformationGroupedAttacksDescription	Существо может использовать все приведённые в списке атаки в ходе одного боевого раунда.
+Modal/&UserContentAddEffectFormButtonTitle	Добавить форму эффекта
+Modal/&UserContentAddEffectFormButtonDescription	Добавляет новую форму эффекта, определяющую эффекты данного материала (урон, состояние и так далее)
+Modal/&ContentPropertyAttackToHitTitle	Для попадания
+Modal/&ContentPropertyAttackToHitDescription	Бонус к броску атаки костью d20, определяющий успех этой атаки.
+Modal/&ContentPropertyAttackIterationsTitle	Повторение
+Modal/&ContentPropertyAttackIterationsDescription	Сколько раз эту атаку можно использовать за ход.
+Modal/&ContentPropertyAttack1Title	Атака 1:
+Modal/&ContentPropertyAttack1Description	Параметры первой атаки этого существа.
+Modal/&ContentPropertyAttack2Title	Атака 2:
+Modal/&ContentPropertyAttack2Description	Параметры второй атаки этого существа.
+Modal/&ContentPropertyAttack3Title	Атака 3:
+Modal/&ContentPropertyAttack3Description	Параметры третьей атаки этого существа.
+Modal/&ContentPropertyHasSavingThrowTitle	Наличие спасброска
+Modal/&ContentPropertyHasSavingThrowDescription	Определяет, нужно ли выполнять спасбросок для этого эффекта.
+Modal/&ContentPropertyDifficultyClassTitle	КС
+Modal/&ContentPropertyDifficultyClassDescription	Класс сложности выполнения успешного спасброска для этого эффекта.
+Modal/&ContentPropertyDurationTitle	Длительность
+Modal/&ContentPropertyDurationDescription	Длительность добавленных состояний.
+Modal/&ContentPropertyEffectFormsTitle	Формы эффектов
+Modal/&ContentPropertyEffectFormsDescription	Список эффектов, применяемых к цели, например урон или состояния.
+Modal/&ContentPropertyFormTypeTitle	Тип формы
+Modal/&ContentPropertyFormTypeDescription	Тип этой формы эффекта, например урон или состояния.
+Modal/&ContentPropertyFormTypeDamageTitle	Урон
+Modal/&ContentPropertyFormTypeDamageDescription	Этот тип формы эффекта наносит урон по цели.
+Modal/&ContentPropertyFormTypeConditionTitle	Состояние
+Modal/&ContentPropertyFormTypeConditionDescription	Этот тип формы применяет состояние к цели.
+Modal/&ContentPropertySaveAffinityTitle	Реакция на спасбросок
+Modal/&ContentPropertySaveAffinityDescription	Определяет реакцию этой формы эффекта на успешный спасбросок.
+Modal/&ContentPropertySaveAffinityNoneTitle	Нет
+Modal/&ContentPropertySaveAffinityNoneDescription	На этот эффект не влияют успешные спасброски.
+Modal/&ContentPropertySaveAffinityHalfDamageTitle	Половина
+Modal/&ContentPropertySaveAffinityHalfDamageDescription	Успешный спасбросок вдвое уменьшит урон от этого эффекта.
+Modal/&ContentPropertySaveAffinityNegatesTitle	Отмена
+Modal/&ContentPropertySaveAffinityNegatesDescription	Успешный спасбросок полностью отменит этот эффект.
+Modal/&ContentPropertyDamageDiceNumberDescription	Число костей, бросаемых для нанесения урона
+Modal/&ContentPropertyDamageDieTypeDescription	Тип кости, бросаемой для нанесения урона
+Modal/&ContentPropertyDamageBonusDescription	Бонусный урон, добавляемый к брошенной кости
+Modal/&ContentPropertyDamageTypeDescription	Тип наносимого урона
+Modal/&UserContentEffectFormUpButtonDescription	Перемещает форму эффекта вверх по списку
+Modal/&UserContentEffectFormDownButtonDescription	Перемещает форму эффекта вниз по списку
+Modal/&UserContentEffectFormDeleteButtonDescription	Удаляет форму эффекта из списка
+Modal/&UserContentEffectFormConditionSelectDescription	Щёлкните, чтобы выбрать состояние, добавляемое этим эффектом.
+Modal/&ContentPropertyDurationRoundTitle	Раунд
+Modal/&ContentPropertyDurationMinuteTitle	Минута
+Modal/&ContentPropertyDurationHourTitle	Час
+Modal/&ContentPropertyDurationDayTitle	День
+Modal/&ContentPropertyEndOfEffectTitle	Завершение эффекта
+Modal/&ContentPropertyEndOfEffectDescription	Момент хода, при наступлении которого завершится эффект и появится возможность повторно выполнить спасбросок, если он доступен.
+Modal/&ContentPropertyEndOfEffectStartOfTurnTitle	Начало хода
+Modal/&ContentPropertyEndOfEffectEndOfTurnTitle	Конец хода
+Modal/&ContentPropertyCanSaveToCancelTitle	Можно ли использовать спасбросок для отмены?
+Modal/&ContentPropertyCanSaveToCancelDescription	Определяет, может ли цель, на которую действует этот эффект, использовать спасбросок каждый ход для отмены эффекта. Доступность спасброска определяется полем окончания эффекта.
+Modal/&ContentPropertyChallengeRatingTitle	Рейтинг испытания
+Modal/&ContentPropertyChallengeRatingDescription	Вы можете изменить класс доспеха этого существа после его появления. Подходящие значения: 0; 0,125; 0,25; 0,5. Остальные значения должны превышать 1 и быть целыми (без десятичных дробей)
+Modal/&ContentPropertyWeaponEffectsTitle	Эффекты оружия
+Modal/&ContentPropertyWeaponEffectsDescription	Используйте, чтобы отменить особые эффекты или эффекты урона этого оружия
+Modal/&UserQuestSettingsTitle	Настройки задания
+Modal/&UserVariableEditionTitle	Редактирование переменной кампании
+Modal/&ContentPropertyVariableTypeTitle	Тип переменной
+Modal/&ContentPropertyVariableTypeDescription	Тип данных, переносимых этой переменной
+Modal/&ContentPropertyVariableTypeIntTitle	Целочисленное
+Modal/&ContentPropertyVariableTypeIntDescription	Целое значение, которое можно изменить посредством математических операций
+Modal/&ContentPropertyVariableTypeBoolTitle	Логическое
+Modal/&ContentPropertyVariableTypeBoolDescription	Значение, которое может быть правдивым и ложным
+Modal/&ContentPropertyVariableTypeStringTitle	Строка
+Modal/&ContentPropertyVariableTypeStringDescription	Простая строка с символами
+Modal/&ContentPropertyVariableDefaultValueIntTitle	Стандартное значение
+Modal/&ContentPropertyVariableDefaultValueIntDescription	Стандартное целое значение этой переменной после начала кампании
+Modal/&ContentPropertyVariableDefaultValueBoolTitle	Стандартное значение
+Modal/&ContentPropertyVariableDefaultValueBoolDescription	Стандартное логическое значение этой переменной после начла кампании
+Modal/&ContentPropertyVariableDefaultValueStringTitle	Стандартное значение
+Modal/&ContentPropertyVariableDefaultValueStringDescription	Стандартное строчное значение этой переменной после начала кампании
+Modal/&ContentPropertyVariableBoolFalseTitle	Ложь
+Modal/&ContentPropertyVariableBoolTrueTitle	Правда
+Modal/&SelectUserVariableTitle	Выбрать переменную
+Modal/&UserDialogSettingsTitle	Настройки диалога
+Modal/&ContentPropertyDamageAffinitiesTitle	Реакция на урон
+Modal/&ContentPropertyDamageAffinitiesDescription	Добавьте особые реакции (сопротивление, невосприимчивость, уязвимость) к типу урона.
+Modal/&DamageAffinityDamageTypeTitle	Урон
+Modal/&DamageAffinityDamageTypeDescription	Тип урону, на который распространяется реакция.
+Modal/&DamageAffinityTypeTitle	Реакция
+Modal/&DamageAffinityTypeDescription	Тип реакции на урон. Определяет количество получаемого урона.
+Modal/&DamageAffinityTypeNoneTitle	Нет
+Modal/&DamageAffinityTypeNoneDescription	Нет реакции на урон.
+Modal/&DamageAffinityTypeResistanceTitle	Сопротивление
+Modal/&DamageAffinityTypeResistanceDescription	Урон снижается наполовину.
+Modal/&DamageAffinityTypeVulnerabilityTitle	Уязвимость
+Modal/&DamageAffinityTypeVulnerabilityDescription	Урон удваивается.
+Modal/&DamageAffinityTypeImmunityTitle	Невосприимчивость
+Modal/&DamageAffinityTypeImmunityDescription	Весь урон игнорируется.
+Modal/&SavingThrowAdvantageTitle	Преимущество спасброска
+Modal/&SavingThrowAdvantageDescription	Тип преимущества/помехи у спасброска против этого типа урона.
+Modal/&SavingThrowAdvantageNoneTitle	Нет
+Modal/&SavingThrowAdvantageNoneDescription	Нет преимущества/помехи.
+Modal/&SavingThrowAdvantageAdvantageTitle	Преимущество
+Modal/&SavingThrowAdvantageAdvantageDescription	Преимущество у спасбросков.
+Modal/&SavingThrowAdvantageDisadvantageTitle	Помеха
+Modal/&SavingThrowAdvantageDisadvantageDescription	Помеха у спасбросков.
+Modal/&UserContentSelectionTitle	Выбор пользовательских материалов
+Modal/&UserContentSelectAllButtonTitle	Выбрать все
+Modal/&UserContentSelectAllButtonDescription	Выберите все пользовательские материалы из этой кампании.
+Modal/&UserContentDeselectAllButtonTitle	Отменить выбор всего
+Modal/&UserContentDeselectAllButtonDescription	Отмените выбор всех пользовательских материалов из этой кампании.
+Modal/&UserContentImportButtonTitle	Импортировать
+Modal/&UserContentImportButtonDescription	Импортируйте выбранные материалы в текущую кампанию.
+Modal/&UserContentExportButtonTitle	Экспортировать
+Modal/&UserContentExportButtonDescription	Экспортируйте выбранные материалы из текущей кампании в другую кампанию, которую можно выбрать на следующей панели.
+Modal/&UserContentOverwriteToggleTitle	Перезаписать дубли
+Modal/&UserContentOverwriteToggleDescription	Выберите, чтобы перезаписать в выбранной кампании все материалы с таким же названием.
+Modal/&ContentPropertyDroppedLootTitle	Трофеи
+Modal/&ContentPropertyDroppedLootDescription	Выберите набор трофеев, который можно получить за убийство пользовательского монстра. Некоторые стандартные наборы трофеев для монстров прописаны в данных игры и не могут быть изменены, однако вы можете создать собственные наборы трофеев.
+Modal/&UserLootPackEditionTitle	Изменить набор трофеев
+Modal/&ContentPropertyItemOccurencesTitle	Параметры предметов
+Modal/&ContentPropertyItemOccurencesDescription	Измените содержимое этого набора трофеев, в том числе количество и шанс получения предметов из него.
+Modal/&UserContentAddItemOccurenceButtonTitle	Добавить предмет
+Modal/&UserContentAddItemOccurenceButtonDescription	Добавьте в набор трофеев предмет и укажите его количество и шанс получения.
+Modal/&UserContentItemOccurenceDiceNumberDescription	Число костей, бросаемых для определения количества предметов.
+Modal/&UserContentItemOccurenceDiceTypeDescription	Тип кости, бросаемой для определения количества предметов.
+Modal/&UserContentItemOccurenceAdditiveModifierDescription	Модификатор, который применяется к костям для определения количества предметов. Возможны отрицательные значения: например, 1d4-3 обозначает, что шанс появления предмета равен 25%.
+Modal/&DialogSettingsAdditionalNpcsTitle	Дополнительный НИП
+Modal/&DialogSettingsAdditionalNpcsDescription	Вы можете выбрать других НИП, которые добавляют новые возможности ролей в текстовые поля НИП, в дополнение к основному НИП, с которым беседует отряд. Убедитесь, что новые НИП присутствуют в игре до начала диалога.
+Modal/&ContentPropertyMagicOvercomesTitle	Магия побеждает?
+Modal/&ContentPropertyMagicOvercomesDescription	Выбор данного параметра означает отмену связи с уроном при магическом эффекте или атаке.
+Modal/&MapWaypointNavigateVoteTitle	Голосование за отправку к точке маршрута
+Modal/&MapWaypointNavigateVoteHostDescription	Вы предлагаете отправиться к точке:
+Modal/&MapWaypointNavigateVoteClientDescription	{0} предлагаете отправиться к точке маршрута «{1}». Требуется ваше согласие.
+Modal/&MultiplayerVotePlayerAnswersTitle	Ожидание ответа других игроков.
+Modal/&MultiplayerVoteCancelTitle	Отменить голосование
+Modal/&MultiplayerVoteCancelDescription	Отмените текущее голосование.
+Modal/&MultiplayerVoteAcceptTitle	Принять
+Modal/&MultiplayerVoteRejectTitle	Отклонить
+Modal/&MultiplayerVoteClientStatusPendingTitle	Ожидание...
+Modal/&MultiplayerVoteClientStatusPendingDescription	Ожидание подтверждения запроса игроком.
+Modal/&MultiplayerVoteClientStatusAcceptedTitle	Принято
+Modal/&MultiplayerVoteClientStatusAcceptedDescription	Игрок подтверждает запрос.
+Modal/&MultiplayerWaitNotifyTitle	Уведомить
+Modal/&MultiplayerWaitNotifyDescription	Уведомите игрока, что вы его ждёте.
+Modal/&MultiplayerWaitKickTitle	Исключить
+Modal/&MultiplayerWaitKickDescription	Исключите игрока из игры.
+Modal/&MultiplayerWaitYouTitle	Вы готовы
+Modal/&PostRestWaitTitle	Синхронизация после отдыха
+Modal/&PostRestWaitDescription	Ожидание завершения отдыха других игроков.
+Modal/&MultiplayerWaitClientStatusPendingTitle	Ожидание...
+Modal/&MultiplayerWaitClientStatusPendingDescription	Ожидание подтверждения запроса игроком.
+Modal/&MultiplayerWaitClientStatusReadyTitle	Подготовка
+Modal/&MultiplayerWaitClientStatusReadyDescription	Игрок готов продолжать.
+Modal/&MultiplayerWaitQuitGameTitle	Выйти из игры
+Modal/&MultiplayerWaitQuitGameDescription	Если что-то мешает продолжению многопользовательской игры, вы можете покинуть её отсюда.
+Modal/&DefaultTextInputTitle	Введите текст
+Modal/&DefaultPasswordInputTitle	Введите пароль
+Modal/&ClearTitle	Убрать
+Modal/&PostRestReadyPlayersDescription	Готовые игроки:
+Modal/&KickTitle	Исключить игрока
+Modal/&KickDescription	Исключите игрока из сессии:
+Modal/&ModioLoginTitle	Войдите, чтобы управлять модификациями
+Modal/&ModioLoginEmail	Введите адрес электронной почты
+Modal/&ModioLoginSecurityCode	Введите код безопасности
+Modal/&ModioLoginRequest	Запросить код безопасности
+Modal/&ModioLoginAuthenticate	Аутентификация
+Modal/&ModioLoginPoweredModio	На платформе mod.io
+Modal/&ModioLoginAbout	Сведения
+Modal/&ModioLoginPrivacy	Приватность
+Modal/&CreateSpellSlotTitle	Создание ячейки заклинания
+Modal/&CreateSpellSlotDescription	Выберите ячейку заклинания, которая будет создана с помощью очков колдовства:
+Modal/&CreateSpellSlotCostTitle	Стоимость очков колдовства
+Modal/&CreateSorceryPointsTitle	Создание очков колдовства
+Modal/&CreateSorceryPointsDescription	Выберите ячейку заклинания, которая будет конвертирована в очки колдовства:
+Modal/&CreateSorceryPointsGainTitle	Получены очки колдовства
+Modal/&DefeatIronManAdditionalDescription	Ваше приключение подошло к концу. Наберитесь сил и соберитесь духом, и попробуйте пройти режим «Железный человек» ещё раз!
+Modal/&CharacterReviveModalDisintegratedFormat	Цель {0} расщеплена, данная опция не может быть использована.
+Modal/&SpellSlotRecoveryTitle	Восстановление ячейки заклинания
+Modal/&SpellSlotRecoveryDescription	Выберите потраченную ячейку заклинания для восстановления:
+Modal/&SpellSlotCapitalFormat	Общий капитал: {0}
+Modal/&SpellSlotCapitalDescription	Ваш капитал восстановления определяется половиной вашего уровня заклинателя, округлённой вверх. Каждая восстановленная ячейка заклинания требует капитала восстановления, равного уровню заклинания: например, ячейка заклинания 3-го уровня требует 3 очка восстановления.
+Modal/&SpellSlotRecoverLevelButtonTitle	Восстановить ({0})
+Modal/&SpellSlotRecoverLevelButtonDescription	Щёлкните, чтобы восстановить ячейку заклинания этого уровня, потратив {0} ед. из вашего общего капитала.
+Modal/&SpellSlotCancelButtonTitle	Отмена
+Modal/&SpellSlotCancelButtonDescription	Отменяет восстановление ячейки заклинания. Капитал восстановления не будет потрачен.
+Modal/&SpellSlotClearButtonTitle	Убрать
+Modal/&SpellSlotClearButtonDescription	Убирает все восстановленные ячейки заклинания, чтобы начать процесс выбора сначала.
+Modal/&SpellSlotAutoButtonTitle	Авто
+Modal/&SpellSlotAutoButtonDescription	Автоматически выбирает ячейки заклинания для восстановления. Вы можете проверить автоматический выбор перед подтверждением.
+Modal/&SpellSlotRecoverButtonTitle	Восстановить
+Modal/&SpellSlotRecoverButtonDescription	Подтвердите, чтобы восстановить выбранные ячейки заклинания.
+Modal/&MultiplayerRoomCreationErrorTitle	Ошибка создания комнаты
+Modal/&MultiplayerRoomCreationErrorDuplicateDescription	Комната с таким названием уже существует. Измените название.
+Modal/&MultiplayerRoomCreationErrorUnknownDescriptionFormat	Невозможно создать комнату: код {0}
+Modal/&MultiplayerConnexionErrorTitle	Ошибка подключения
+Modal/&MultiplayerConnexionErrorDescription	Не удалось подключиться к многопользовательским сервисам Photon. Убедитесь в стабильности соединения и повторите попытку.
+Modal/&MultiplayerRoomJoinErrorTitle	Не удалось присоединиться к комнате
+Modal/&MultiplayerRoomJoinErrorFullDescription	Комната заполнена.
+Modal/&MultiplayerRoomJoinErrorClosedDescription	Комната закрыта.
+Modal/&MultiplayerRoomJoinErrorInexistantDescription	Комната не существует.
+Modal/&MultiplayerRoomJoinErrorUnknownDescriptionFormat	Невозможно присоединиться к комнате: код {0}
+Modal/&MultiplayerRoomJoinErrorNotFoundDescription	Не удалось найти комнату. Проверьте название и повторите попытку.
+Modal/&MultiplayerRoomJoinErrorWrongPasswordDescription	Неверный пароль.
+Modal/&MultiplayerDisconnectedTitle	Не удалось подключиться к Photon
+Modal/&MultiplayerDisconnectedDescription	Не удаётся получить доступ к Photon Cloud. Проверьте соединение с интернетом и повторите попытку.
+Modal/&MultiplayerDisconnectedReturnToMenuDescription	Не удаётся получить доступ к Photon Cloud. Вы можете продолжать игру вне сети или вернуться в меню и повторить попытку.
+Modal/&SessionPasswordInputTitle	Пароль игровой сессии
+Modal/&SessionPasswordInputDescription	Необходимо ввести верный пароль, чтобы войти в игровую сессию «{0}».
+Modal/&MultiplayerRoomJoinErrorGameAlreadyStartedDescription	Невозможно присоединиться: сессия уже началась.
+Modal/&NewSavedGameTitle	Новая сохранённая игра
+Modal/&ShortcutConfigATitle	Переключиться на конфигурацию A
+Modal/&ShortcutConfigBTitle	Переключиться на конфигурацию B
+Modal/&ShortcutConfigCTitle	Переключиться на конфигурацию C
+Modal/&ShortcutCastLightingSpellTitle	Наложить заклинание света
+Modal/&ShortcutStopConcentratingTitle	Отменить концентрацию
+Modal/&LoadingProceedButtonConsoleTitle	Нажмите любую кнопку, чтобы продолжить
+Modal/&GamepadControlsTitle	Раскладка геймпада
+Modal/&GamepadControlsShortTitle	Геймпад
+Modal/&GamepadControlsDescription	Открыть экран с привязками игровых действий к элементам геймпада.
+Modal/&GamepadControlsToggleExplorationTitle	Исследование
+Modal/&GamepadControlsToggleBattleTitle	Битва
+Modal/&GamepadControlsToggleMenusTitle	Меню
+Modal/&AccessStoreTitle	
+Modal/&AccessStoreMicrosoftTitle	
