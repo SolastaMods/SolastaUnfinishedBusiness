@@ -1,16 +1,16 @@
-Subclass/&MagicAffinityMasterManipulatorDC0Description Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на	0.
-Subclass/&MagicAffinityMasterManipulatorDC1Description Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на	1.
-Subclass/&MagicAffinityMasterManipulatorDC2Description Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на	2.
-Subclass/&MagicAffinityMasterManipulatorDC3Description Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на	3.
-Subclass/&MagicAffinityMasterManipulatorDC4Description Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на	4.
-Subclass/&MagicAffinityMasterManipulatorDC5Description Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на	5.
-Subclass/&MagicAffinityMasterManipulatorDCDescription Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на	3.
-Subclass/&MagicAffinityMasterManipulatorDCTitle Тайная	сила
-Subclass/&MagicAffinityMasterManipulatorListDescription При использовании некоторых заклинаний Очарования, Отречения и Иллюзии они применяются в ячейке заклинания на 1 уровень выше используемого. Улучшенные заклинания включают в себя: «Очарование», «Сон», «Цветной спрей», «Удержание», «Невидимость», «Контрзаклинание», «Рассеивание магии», «Изгнание», «Замешательство», «Призрачный убийца», «Доминирование» и «Удержание	монстра».
-Subclass/&MagicAffinityMasterManipulatorListTitle Тайная	манипуляция
-Subclass/&ManipulatorMentalSavingThrowsDescription Получите мастерство в спасбросках Телосложения и	Харизмы.
-Subclass/&ManipulatorMentalSavingThrowsTitle Психическое	сопротивление
-Subclass/&PowerManipulatorDominatePersonDescription Вы можете использовать Доминирование над личностью количество раз за продолжительный отдых, равное вашему модификатору	Интеллекта.
-Subclass/&PowerManipulatorDominatePersonTitle Доминировать над	человеком
-Subclass/&TraditionMasterManipulatorDescription Мастера-манипуляторы превосходно контролируют поле боя и не позволяют врагам атаковать	их.
-Subclass/&TraditionMasterManipulatorTitle	Мастер-манипулятор
+Subclass/&MagicAffinityMasterManipulatorDC0Description=Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description=Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description=Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description=Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description=Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description=Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription=Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle=Тайная сила
+Subclass/&MagicAffinityMasterManipulatorListDescription=При использовании некоторых заклинаний Очарования, Отречения и Иллюзии они применяются в ячейке заклинания на 1 уровень выше используемого. Улучшенные заклинания включают в себя: «Очарование», «Сон», «Цветной спрей», «Удержание», «Невидимость», «Контрзаклинание», «Рассеивание магии», «Изгнание», «Замешательство», «Призрачный убийца», «Доминирование» и «Удержание монстра».
+Subclass/&MagicAffinityMasterManipulatorListTitle=Тайная манипуляция
+Subclass/&ManipulatorMentalSavingThrowsDescription=Получите мастерство в спасбросках Телосложения и Харизмы.
+Subclass/&ManipulatorMentalSavingThrowsTitle=Психическое сопротивление
+Subclass/&PowerManipulatorDominatePersonDescription=Вы можете использовать Доминирование над личностью количество раз за продолжительный отдых, равное вашему модификатору Интеллекта.
+Subclass/&PowerManipulatorDominatePersonTitle=Доминировать над человеком
+Subclass/&TraditionMasterManipulatorDescription=Мастера-манипуляторы превосходно контролируют поле боя и не позволяют врагам атаковать их.
+Subclass/&TraditionMasterManipulatorTitle=Мастер-манипулятор

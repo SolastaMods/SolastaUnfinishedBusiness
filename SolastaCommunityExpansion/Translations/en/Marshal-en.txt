@@ -1,23 +1,23 @@
-Reaction/&CoordinatedAttackDescription	{0} was attacked by coordinating attack, some characters can use their reaction to join this attack.
-Reaction/&CoordinatedAttackReactDescription	Use reaction to attack target.
-Reaction/&CoordinatedAttackReactTitle	Attack
-Reaction/&CoordinatedAttackTitle	Coordinated Attack
-Reaction/&SubitemSelectCoordinatedAttackTitle	Select action
-Subclass/&FighterMarshalCoordinatedAttackDescription	When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
-Subclass/&FighterMarshalCoordinatedAttackTitle	Coordinated Attack
-Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
-Subclass/&FighterMarshalEncouragementPowerDescription	The courage of the marshal inspires his party member. Allies within 10 feet of him add 1d4 to attack roll and saving throw. 
-Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon one spirit of his fallen comrades to aid him in combat.
-Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eternal Comrade
-Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	You are immune to fear effect.
-Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Fearless Commander
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	You add your knowledge level of your current target to your attack and damage rolls.
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Know Your Enemy
-Subclass/&FighterMarshalStudyYourEnemyPowerDescription	As a bonus action, you can attempt to increase your knowledge about your target by rolling a Survival check. You can do this twice per short rest.
-Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Study Your Enemy
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Summon 1 spirit of the marshal's fallen comrade. Each spirit has 45 + twice your Fighter level worth of HP and its AC is 16 + your proficiency bonus. The spirits are immune to the poison, cold, necrotic, prone, paralyzed and restrained conditions. The spirits have resistance to fire, acid, lighting and thunder damage and have resistance against non-magical slashing, bludgeoning and piercing damage. On their turn, they can fly up to 50 ft and make a single melee weapon attack that deals 2d6 + 5 magical slashing damage with a bonus 5 + proficency bonus to hit. 
-Subclass/&FighterMarshalSummonEternalComradePowerTitle	Summon Eternal Comrade
-Subclass/&FighterMarshalTitle	Marshal
-Subclass/&MarshalEternalComradeDescription	Fallen Comrade
-Subclass/&MarshalEternalComradeTitle	Fallen Comrade
+Reaction/&CoordinatedAttackDescription={0} was attacked by coordinating attack, some characters can use their reaction to join this attack.
+Reaction/&CoordinatedAttackReactDescription=Use reaction to attack target.
+Reaction/&CoordinatedAttackReactTitle=Attack
+Reaction/&CoordinatedAttackTitle=Coordinated Attack
+Reaction/&SubitemSelectCoordinatedAttackTitle=Select action
+Subclass/&FighterMarshalCoordinatedAttackDescription=When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
+Subclass/&FighterMarshalCoordinatedAttackTitle=Coordinated Attack
+Subclass/&FighterMarshalDescription=Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
+Subclass/&FighterMarshalEncouragementPowerDescription=The courage of the marshal inspires his party member. Allies within 10 feet of him add 1d4 to attack roll and saving throw. 
+Subclass/&FighterMarshalEncouragementPowerTitle=Encouragement
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription=The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon one spirit of his fallen comrades to aid him in combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle=Eternal Comrade
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription=You are immune to fear effect.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle=Fearless Commander
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription=You add your knowledge level of your current target to your attack and damage rolls.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle=Know Your Enemy
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription=As a bonus action, you can attempt to increase your knowledge about your target by rolling a Survival check. You can do this twice per short rest.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle=Study Your Enemy
+Subclass/&FighterMarshalSummonEternalComradePowerDescription=Summon 1 spirit of the marshal's fallen comrade. Each spirit has 45 + twice your Fighter level worth of HP and its AC is 16 + your proficiency bonus. The spirits are immune to the poison, cold, necrotic, prone, paralyzed and restrained conditions. The spirits have resistance to fire, acid, lighting and thunder damage and have resistance against non-magical slashing, bludgeoning and piercing damage. On their turn, they can fly up to 50 ft and make a single melee weapon attack that deals 2d6 + 5 magical slashing damage with a bonus 5 + proficency bonus to hit. 
+Subclass/&FighterMarshalSummonEternalComradePowerTitle=Summon Eternal Comrade
+Subclass/&FighterMarshalTitle=Marshal
+Subclass/&MarshalEternalComradeDescription=Fallen Comrade
+Subclass/&MarshalEternalComradeTitle=Fallen Comrade

@@ -1,6 +1,6 @@
-Feature/&OpportunistDebilitatingStrikeDescription	Il tuo attacco furtivo fa sì che il bersaglio effettui un tiro salvezza di Costituzione (CD 8 + il tuo bonus di competenza + il tuo modificatore di Destrezza) o subisca una delle seguenti condizioni: accecato, flagrante, sanguinante o stordito.
-Feature/&OpportunistDebilitatingStrikeTitle	Colpo Debilitante
-Feature/&OpportunistQuickStrikeDescription	Hai vantaggio quando attacchi un nemico la cui iniziativa è inferiore alla tua. Inoltre, hai anche vantaggio quando esegui un attacco di opportunità.
-Feature/&OpportunistQuickStrikeTitle	Attacco rapido
-Subclass/&OpportunistDescription	Gli opportunisti sono quelli che non lasciano mai cadere la possibilità di finire i loro nemici. Pugnalano velocemente e accoltellano dove conta. Non molti li hanno affrontati possono sfuggire senza graffi.
-Subclass/&OpportunistTitle	Opportunista
+Feature/&OpportunistDebilitatingStrikeDescription=Il tuo attacco furtivo fa sì che il bersaglio effettui un tiro salvezza di Costituzione (CD 8 + il tuo bonus di competenza + il tuo modificatore di Destrezza) o subisca una delle seguenti condizioni: accecato, flagrante, sanguinante o stordito.
+Feature/&OpportunistDebilitatingStrikeTitle=Colpo Debilitante
+Feature/&OpportunistQuickStrikeDescription=Hai vantaggio quando attacchi un nemico la cui iniziativa è inferiore alla tua. Inoltre, hai anche vantaggio quando esegui un attacco di opportunità.
+Feature/&OpportunistQuickStrikeTitle=Attacco rapido
+Subclass/&OpportunistDescription=Gli opportunisti sono quelli che non lasciano mai cadere la possibilità di finire i loro nemici. Pugnalano velocemente e accoltellano dove conta. Non molti li hanno affrontati possono sfuggire senza graffi.
+Subclass/&OpportunistTitle=Opportunista

@@ -1,16 +1,16 @@
-Subclass/&MagicAffinityMasterManipulatorDC0Description	Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 0.
-Subclass/&MagicAffinityMasterManipulatorDC1Description	Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 1.
-Subclass/&MagicAffinityMasterManipulatorDC2Description	Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 2.
-Subclass/&MagicAffinityMasterManipulatorDC3Description	Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 3.
-Subclass/&MagicAffinityMasterManipulatorDC4Description	Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 4.
-Subclass/&MagicAffinityMasterManipulatorDC5Description	Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 5.
-Subclass/&MagicAffinityMasterManipulatorDCDescription	Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 3.
-Subclass/&MagicAffinityMasterManipulatorDCTitle	Fuerza Arcana
-Subclass/&MagicAffinityMasterManipulatorListDescription	Al lanzar algunos hechizos de Encantamiento, Abjuración e Ilusión, se lanzan en un espacio de hechizo 1 nivel más alto que el utilizado. Los hechizos mejorados incluyen: Encantar persona, Dormir, Rociar color, Retener persona, Invisibilidad, Contrahechizo, Disipar magia, Destierro, Confusión, Asesino fantasmal, Dominar persona y Retener monstruo.
-Subclass/&MagicAffinityMasterManipulatorListTitle	Manipulación Arcana
-Subclass/&ManipulatorMentalSavingThrowsDescription	Gana competencia en tiradas de salvación con Constitución y Carisma.
-Subclass/&ManipulatorMentalSavingThrowsTitle	Resistencia mental
-Subclass/&PowerManipulatorDominatePersonDescription	Puedes usar Dominar persona un número de veces por descanso prolongado igual a tu modificador de Inteligencia.
-Subclass/&PowerManipulatorDominatePersonTitle	dominar persona
-Subclass/&TraditionMasterManipulatorDescription	Los maestros manipuladores sobresalen en el control del campo de batalla y evitan que sus enemigos puedan atacarlos.
-Subclass/&TraditionMasterManipulatorTitle	Manipulador maestro
+Subclass/&MagicAffinityMasterManipulatorDC0Description=Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description=Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description=Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description=Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description=Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description=Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription=Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle=Fuerza Arcana
+Subclass/&MagicAffinityMasterManipulatorListDescription=Al lanzar algunos hechizos de Encantamiento, Abjuración e Ilusión, se lanzan en un espacio de hechizo 1 nivel más alto que el utilizado. Los hechizos mejorados incluyen: Encantar persona, Dormir, Rociar color, Retener persona, Invisibilidad, Contrahechizo, Disipar magia, Destierro, Confusión, Asesino fantasmal, Dominar persona y Retener monstruo.
+Subclass/&MagicAffinityMasterManipulatorListTitle=Manipulación Arcana
+Subclass/&ManipulatorMentalSavingThrowsDescription=Gana competencia en tiradas de salvación con Constitución y Carisma.
+Subclass/&ManipulatorMentalSavingThrowsTitle=Resistencia mental
+Subclass/&PowerManipulatorDominatePersonDescription=Puedes usar Dominar persona un número de veces por descanso prolongado igual a tu modificador de Inteligencia.
+Subclass/&PowerManipulatorDominatePersonTitle=dominar persona
+Subclass/&TraditionMasterManipulatorDescription=Los maestros manipuladores sobresalen en el control del campo de batalla y evitan que sus enemigos puedan atacarlos.
+Subclass/&TraditionMasterManipulatorTitle=Manipulador maestro

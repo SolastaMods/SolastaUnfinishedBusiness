@@ -1,123 +1,123 @@
-Class/&WitchArmorProficiencyDescription	Armadura ligera.
-Class/&WitchArmorProficiencyTitle	Competencias de armadura de bruja
-Class/&WitchBurnedFireResistanceDescription	Tienes resistencia al daño por fuego.
-Class/&WitchBurnedFireResistanceTitle	Quemado: Resistencia al fuego
-Class/&WitchBurnedProduceFlameDescription	Conoces el cantrip Produce Flame, que no cuenta en tu número total de cantrips conocidos.
-Class/&WitchBurnedProduceFlameTitle	Quemado: Producir Llama
-Class/&WitchCacklePowerDescription	Puedes usar tu acción adicional para reírte. La duración de tu Maldición se extiende 1 asalto por cada criatura afectada dentro de los 60 pies de ti.\nNo todas las brujas se ríen como maníacas cuando cacarean, pero todas las carcajadas requieren un componente verbal, como un hechizo. Estos van desde maldiciones e insultos mundanos, hasta el murmullo de lenguas muertas y hablar al revés.
-Class/&WitchCacklePowerTitle	Cacareo
-Class/&WitchDescription	Afligidas por una maldición siniestra, las brujas pueden convertir la magia oscura en maldiciones, que usan para debilitar a los enemigos. También están acompañados por sus familiares, leales compañeros mágicos que utilizan para asestar el golpe mortal.
-Class/&WitchFamiliarPowerDescription	Aprendes el hechizo Witch Familiar, es decir, un hechizo Find Familiar mejorado, y puedes lanzarlo como un ritual sin componentes materiales. El hechizo no cuenta contra tu número de hechizos conocidos. El hechizo mejora Find Familiar de las siguientes maneras:\n• Tu familiar toma su turno inmediatamente antes o después de tu turno en cada ronda (tu eliges).\n• Una vez por turno como acción o acción adicional, puedes ordenar mentalmente a tu familiar que use su reacción para realizar un ataque.\n• Cuando lanzas un hechizo, puedes lanzarlo a través de tu familiar como si hubiera lanzado el hechizo, incluso si el hechizo no tiene un rango de toque.\n• Tu familiar puede usar tu bonificador de ataque con hechizos para sus tiradas de ataque.\n• Tu familiar añade tu bonificador de competencia a su Clase de Armadura, tiradas de salvación y tiradas de daño.\n• Añades el doble de tu nivel de Brujo a los puntos de vida máximos de tu familiar.
-Class/&WitchFamiliarPowerTitle	Familiar
-Class/&WitchFeatureSetBurnedCurseDescription	Casi todo tu cuerpo ha sido abrasado por llamas arcanas, dejándote con llamativas cicatrices negras y ascuas de magia que arden bajo la piel. Como resultado, tienes resistencia al daño por fuego y conoces el cantrip Produce Flame, que no cuenta en tu número total de cantrips conocidos.
-Class/&WitchFeatureSetBurnedCurseTitle	quemado
-Class/&WitchFeatureSetLovelessCurseDescription	Estás condenado a nunca encontrar el amor verdadero. Hastiado y descontento, ni siquiera la magia puede cambiar tu corazón; como resultado, eres inmune a ser hechizado.
-Class/&WitchFeatureSetLovelessCurseTitle	Desamor
-Class/&WitchFeatureSetRitualCastingDescription	Puedes lanzar cualquier hechizo de Bruja que conozcas como ritual si ese hechizo tiene la etiqueta de ritual.
-Class/&WitchFeatureSetRitualCastingTitle	Bruja: casting ritual
-Class/&WitchFeatureSetVisionsCurseDescription	Estás condenado a tener terribles visiones del futuro, que presagian la muerte de tus amigos, familiares y la tuya. Sin embargo, muchas de estas visiones son engaños crueles, a veces son terriblemente precisos. Puedes añadir tu modificador de Carisma, además de tu modificador de Destreza, a tus tiradas de iniciativa.
-Class/&WitchFeatureSetVisionsCurseTitle	visiones
-Class/&WitchLovelessCharmImmunityDescription	Eres inmune a ser hechizado.
-Class/&WitchLovelessCharmImmunityTitle	Sin amor: Inmunidad al encantamiento
-Class/&WitchMaledictionAbateDescription	Como acción, elige una criatura que puedas ver a 60 pies de ti para hacer una tirada de salvación de Carisma. En una salvación fallida, la criatura no puede reaccionar hasta el final de tu próximo turno.
-Class/&WitchMaledictionAbateTitle	Atrapa la maldición
-Class/&WitchMaledictionApathyDescription	Como acción, elige una criatura que puedas ver a 60 pies de ti para hacer una tirada de salvación de Carisma. En una salvación fallida, hasta el final de tu próximo turno, la criatura se vuelve indiferente hacia una criatura de tu elección hacia la que es hostil. Esta indiferencia finaliza si el objetivo es atacado o dañado por un hechizo de la criatura a la que es indiferente.
-Class/&WitchMaledictionApathyTitle	Maldición de apatía
-Class/&WitchMaledictionCharmDescription	Como acción, elige una criatura que puedas ver en un radio de 60 pies para realizar una tirada de salvación de Sabiduría. Si fallas, la criatura queda hechizada por ti hasta el final de tu siguiente turno.
-Class/&WitchMaledictionCharmTitle	Encanto maldición
-Class/&WitchMaledictionDisorientDescription	Como acción, elige una criatura que puedas ver en un radio de 60 pies para realizar una tirada de salvación de Constitución. En una salvación fallida, cada vez que este objetivo haga una tirada de ataque antes del final de tu próximo turno, debe tirar un d6 y restar el número obtenido de la tirada de ataque.
-Class/&WitchMaledictionDisorientTitle	Maldición Desorientar
-Class/&WitchMaledictionEvilEyeDescription	Como acción, elige una criatura que puedas ver que pueda verte en un radio de 60 pies para hacer una tirada de salvación de Sabiduría. Si falla, la criatura te tiene miedo hasta el final de tu siguiente turno.
-Class/&WitchMaledictionEvilEyeTitle	Maldición del mal de ojo
-Class/&WitchMaledictionObfuscateDescription	Como acción, creas una esfera de niebla de 20 pies de radio centrada en ti. La esfera se extiende por las esquinas y su área está muy oscurecida. Este efecto dura hasta el final de tu siguiente turno o hasta que un viento de velocidad moderada o mayor (al menos 10 millas por hora) lo disperse.
-Class/&WitchMaledictionObfuscateTitle	Ofuscar maldición
-Class/&WitchMaledictionPoxDescription	Como acción, elige una criatura que puedas ver en un radio de 5 pies para realizar una tirada de salvación de Constitución. Si falla, la criatura queda envenenada hasta el final de tu siguiente turno.
-Class/&WitchMaledictionPoxTitle	Maldición de viruela
-Class/&WitchMaledictionRuinDescription	Como acción, elige una criatura que puedas ver en un radio de 60 pies para realizar una tirada de salvación de Constitución. Si falla, la Clase de armadura de la criatura se reduce en 3, hasta un mínimo de 10, hasta el final de tu siguiente turno.
-Class/&WitchMaledictionRuinTitle	Maldición de ruina
-Class/&WitchRitualCastingMagicAffinityDescription	Puedes lanzar un hechizo de bruja como un ritual si ese hechizo tiene la etiqueta de ritual y tienes el hechizo preparado.
-Class/&WitchRitualCastingMagicAffinityTitle	casting ritual
-Class/&WitchSavingthrowProficiencyDescription	Sabiduría, Carisma.
-Class/&WitchSavingthrowProficiencyTitle	Habilidades de lanzamiento de salvación de brujas
-Class/&WitchSkillProficiencyDescription	Elige dos de Arcanos, Engaño, Perspicacia, Intimidación, Persuasión, Naturaleza y Religión.
-Class/&WitchSkillProficiencyTitle	Habilidades de bruja
-Class/&WitchSpellcastingDescription	Eres una bruja que es capaz de lanzar hechizos de la lista de hechizos de brujas.
-Class/&WitchSpellcastingTitle	Lanzamiento de hechizos de bruja
-Class/&WitchTitle	Bruja
-Class/&WitchToolProficiencyDescription	Elige uno del kit de herbolario y el kit de envenenador.
-Class/&WitchToolProficiencyTitle	Habilidades de herramientas de brujas
-Class/&WitchVisionsInitiativeDescription	Añades tu modificador de Carisma a tus tiradas de iniciativa.
-Class/&WitchVisionsInitiativeTitle	Iniciativa Visiones
-Class/&WitchWeaponProficiencyDescription	Armas simples.
-Class/&WitchWeaponProficiencyTitle	Competencias con armas de brujas
-Condition/&AbateDescription	No se pueden usar reacciones.
-Condition/&AbateTitle	Disminuir
-Condition/&ApathyDescription	Indiferente a la criatura objetivo hacia la que es hostil. Esta indiferencia termina si el objetivo es atacado o dañado por un hechizo de la criatura objetivo.
-Condition/&ApathyTitle	Apatía
-Condition/&CharmDescription	Considera al lanzador un aliado.
-Condition/&CharmTitle	Encantado
-Condition/&DebilitatedConditionDescription	Sufre de una de las siguientes condiciones: cegado, perdición, sangrado o aturdido.
-Condition/&DebilitatedConditionTitle	Debilitado
-Condition/&DisorientDescription	-1d6 a las tiradas de ataque.
-Condition/&DisorientTitle	desorientado
-Condition/&EvilEyeDescription	Atemorizado. Incapaz de acercarse a la fuente del miedo, desventaja en las tiradas de ataque y pruebas de habilidad mientras la fuente del miedo está a la vista.
-Condition/&EvilEyeTitle	Aojo
-Condition/&FrenziedDescription	Esta criatura está frenética y atacará a la criatura más cercana.
-Condition/&FrenziedTitle	Frenético
-Condition/&PoxDescription	Condición de viruela.
-Condition/&PoxTitle	Viruela
-Condition/&RuinDescription	Penalización de -3 AC, hasta un máximo de -10 AC.
-Condition/&RuinedDescription	Penalización de -3 AC, hasta un máximo de -10 AC.
-Condition/&RuinedTitle	Arruinado
-Condition/&RuinTitle	Ruina
-Feature/&ClassWitchMaledictionReplaceDescription	Seleccione Maldición para reemplazar.
-Feature/&ClassWitchMaledictionReplaceTitle	Reemplazar maldición
-Feature/&WitchCurseChoiceDescription	Estás atormentado por una terrible maldición que infecta tu cuerpo y tu alma.
-Feature/&WitchCurseChoiceTitle	Maldición de bruja
-Feature/&WitchMaledictionChoiceDescription	Puedes aprender varios encantamientos poderosos, conocidos como maldiciones, derivados de la misma magia insidiosa que te maldijo.
-Feature/&WitchMaledictionChoiceTitle	maldiciones
-Feature/&WitchSightDescription	Puedes sentir o ver criaturas invisibles a 60 pies de ti.
-Feature/&WitchSightTitle	Vista de bruja
-Modifier/&AttributeModifierRuinDescription	-3 a la Clase de Armadura.
-Modifier/&AttributeModifierRuinTitle	Arruinado
-Modifier/&DisorientDescription	-1d6 a las tiradas de ataque.
-Modifier/&DisorientTitle	desorientado
-Monster/&WitchOwlFamiliarDescription	Búho Familiar.
-Monster/&WitchOwlFamiliarTitle	Búho
-Screen/&CovenSpellDescription	Hechizo conocido como parte de un Coven.
-Screen/&CovenSpellHeader	Asamblea de brujas
-Screen/&CovenSpellTitle	Asamblea de brujas
-Screen/&WitchSpellDescription	Hechizos conocidos como Bruja.
-Screen/&WitchSpellHeader	Bruja
-Screen/&WitchSpellTitle	Bruja
-Spell/&WitchFamiliarDescription	Obtienes el servicio de un familiar.
-Spell/&WitchFamiliarTitle	Bruja familiar
-Stage/&SubclassSelectionStageCovenDescription	Asamblea de brujas.
-Stage/&SubclassSelectionStageCovenFeaturesDescription	Asamblea de brujas.
-Stage/&SubclassSelectionStageCovenFeaturesHeader	Características del aquelarre
-Stage/&SubclassSelectionStageCovenFeaturesTitle	Asamblea de brujas
-Stage/&SubclassSelectionStageCovenHeader	Seleccione un Aquelarre
-Stage/&SubclassSelectionStageCovenTitle	Asamblea de brujas
-Subclass/&BloodWitchDescription	Prohibida por la mayoría de los aquelarres de brujas, la magia de sangre se centra en el uso de hechizos oscuros y maleficios mortales que se basan en la esencia misma del lanzador de hechizos. Es fundamentalmente más peligroso que otras artesanías de brujería, pero sus muchos riesgos vienen con copiosas recompensas.
-Subclass/&BloodWitchMagicDescription	Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}
-Subclass/&BloodWitchMagicTitle	magia de sangre
-Subclass/&BloodWitchTitle	Bruja de sangre
-Subclass/&GreenWitchDescription	Las plantas, la naturaleza y las cosas que crecen son el dominio de la magia verde. Normalmente un tipo de arcana defendida por los druidas, algunas brujas tienen un estrecho vínculo con los poderes de la magia verde y pueden engatusar a las plantas y los animales a sus órdenes.
-Subclass/&GreenWitchMagicDescription	Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n{0}
-Subclass/&GreenWitchMagicTitle	magia verde
-Subclass/&GreenWitchTitle	bruja verde
-Subclass/&PurpleWitchDescription	La magia púrpura domina los dominios de las ilusiones y los encantamientos que se apoderan de las mentes de las personas, y todo lo que no es lo que parece. Los practicantes de esta forma de magia son titiriteros, moldeando la realidad aparente de quienes los rodean para su beneficio.
-Subclass/&PurpleWitchMagicDescription	Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}
-Subclass/&PurpleWitchMagicTitle	Magia Púrpura
-Subclass/&PurpleWitchTitle	Bruja Púrpura
-Subclass/&RedWitchDescription	La magia arcana ligada a la canalización de los elementos se considera magia roja y es extremadamente peligrosa cuando se usa. Las brujas que se especializan en magia roja se encuentran entre los lanzadores de hechizos más mortíferos que existen, canalizando su maldición en una ira arcana sin obstáculos.
-Subclass/&RedWitchMagicDescription	Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}
-Subclass/&RedWitchMagicTitle	magia roja
-Subclass/&RedWitchTitle	bruja roja
-Subclass/&WhiteWitchDescription	La magia blanca es fundamentalmente buena y benevolente para todos los seres vivos. Las brujas que adoptan este oficio, a pesar de la odiosa maldición que las infecta, a menudo se dedican a curar y cuidar, con la intención de mejorar el mundo.
-Subclass/&WhiteWitchMagicDescription	Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}
-Subclass/&WhiteWitchMagicTitle	Magia blanca
-Subclass/&WhiteWitchTitle	Bruja blanca
-Subclass/&WitchSubclassPathDescription	Tu conocimiento de la magia ha culminado al unirte a un Coven, un círculo innato de brujas que profundizan en un camino específico de brujería y maldiciones.
-Subclass/&WitchSubclassPathTitle	aquelarres de brujas
-Tooltip/&TagMaledictionTitle	Maldición
+Class/&WitchArmorProficiencyDescription=Armadura ligera.
+Class/&WitchArmorProficiencyTitle=Competencias de armadura de bruja
+Class/&WitchBurnedFireResistanceDescription=Tienes resistencia al daño por fuego.
+Class/&WitchBurnedFireResistanceTitle=Quemado: Resistencia al fuego
+Class/&WitchBurnedProduceFlameDescription=Conoces el cantrip Produce Flame, que no cuenta en tu número total de cantrips conocidos.
+Class/&WitchBurnedProduceFlameTitle=Quemado: Producir Llama
+Class/&WitchCacklePowerDescription=Puedes usar tu acción adicional para reírte. La duración de tu Maldición se extiende 1 asalto por cada criatura afectada dentro de los 60 pies de ti.\nNo todas las brujas se ríen como maníacas cuando cacarean, pero todas las carcajadas requieren un componente verbal, como un hechizo. Estos van desde maldiciones e insultos mundanos, hasta el murmullo de lenguas muertas y hablar al revés.
+Class/&WitchCacklePowerTitle=Cacareo
+Class/&WitchDescription=Afligidas por una maldición siniestra, las brujas pueden convertir la magia oscura en maldiciones, que usan para debilitar a los enemigos. También están acompañados por sus familiares, leales compañeros mágicos que utilizan para asestar el golpe mortal.
+Class/&WitchFamiliarPowerDescription=Aprendes el hechizo Witch Familiar, es decir, un hechizo Find Familiar mejorado, y puedes lanzarlo como un ritual sin componentes materiales. El hechizo no cuenta contra tu número de hechizos conocidos. El hechizo mejora Find Familiar de las siguientes maneras:\n• Tu familiar toma su turno inmediatamente antes o después de tu turno en cada ronda (tu eliges).\n• Una vez por turno como acción o acción adicional, puedes ordenar mentalmente a tu familiar que use su reacción para realizar un ataque.\n• Cuando lanzas un hechizo, puedes lanzarlo a través de tu familiar como si hubiera lanzado el hechizo, incluso si el hechizo no tiene un rango de toque.\n• Tu familiar puede usar tu bonificador de ataque con hechizos para sus tiradas de ataque.\n• Tu familiar añade tu bonificador de competencia a su Clase de Armadura, tiradas de salvación y tiradas de daño.\n• Añades el doble de tu nivel de Brujo a los puntos de vida máximos de tu familiar.
+Class/&WitchFamiliarPowerTitle=Familiar
+Class/&WitchFeatureSetBurnedCurseDescription=Casi todo tu cuerpo ha sido abrasado por llamas arcanas, dejándote con llamativas cicatrices negras y ascuas de magia que arden bajo la piel. Como resultado, tienes resistencia al daño por fuego y conoces el cantrip Produce Flame, que no cuenta en tu número total de cantrips conocidos.
+Class/&WitchFeatureSetBurnedCurseTitle=quemado
+Class/&WitchFeatureSetLovelessCurseDescription=Estás condenado a nunca encontrar el amor verdadero. Hastiado y descontento, ni siquiera la magia puede cambiar tu corazón; como resultado, eres inmune a ser hechizado.
+Class/&WitchFeatureSetLovelessCurseTitle=Desamor
+Class/&WitchFeatureSetRitualCastingDescription=Puedes lanzar cualquier hechizo de Bruja que conozcas como ritual si ese hechizo tiene la etiqueta de ritual.
+Class/&WitchFeatureSetRitualCastingTitle=Bruja: casting ritual
+Class/&WitchFeatureSetVisionsCurseDescription=Estás condenado a tener terribles visiones del futuro, que presagian la muerte de tus amigos, familiares y la tuya. Sin embargo, muchas de estas visiones son engaños crueles, a veces son terriblemente precisos. Puedes añadir tu modificador de Carisma, además de tu modificador de Destreza, a tus tiradas de iniciativa.
+Class/&WitchFeatureSetVisionsCurseTitle=visiones
+Class/&WitchLovelessCharmImmunityDescription=Eres inmune a ser hechizado.
+Class/&WitchLovelessCharmImmunityTitle=Sin amor: Inmunidad al encantamiento
+Class/&WitchMaledictionAbateDescription=Como acción, elige una criatura que puedas ver a 60 pies de ti para hacer una tirada de salvación de Carisma. En una salvación fallida, la criatura no puede reaccionar hasta el final de tu próximo turno.
+Class/&WitchMaledictionAbateTitle=Atrapa la maldición
+Class/&WitchMaledictionApathyDescription=Como acción, elige una criatura que puedas ver a 60 pies de ti para hacer una tirada de salvación de Carisma. En una salvación fallida, hasta el final de tu próximo turno, la criatura se vuelve indiferente hacia una criatura de tu elección hacia la que es hostil. Esta indiferencia finaliza si el objetivo es atacado o dañado por un hechizo de la criatura a la que es indiferente.
+Class/&WitchMaledictionApathyTitle=Maldición de apatía
+Class/&WitchMaledictionCharmDescription=Como acción, elige una criatura que puedas ver en un radio de 60 pies para realizar una tirada de salvación de Sabiduría. Si fallas, la criatura queda hechizada por ti hasta el final de tu siguiente turno.
+Class/&WitchMaledictionCharmTitle=Encanto maldición
+Class/&WitchMaledictionDisorientDescription=Como acción, elige una criatura que puedas ver en un radio de 60 pies para realizar una tirada de salvación de Constitución. En una salvación fallida, cada vez que este objetivo haga una tirada de ataque antes del final de tu próximo turno, debe tirar un d6 y restar el número obtenido de la tirada de ataque.
+Class/&WitchMaledictionDisorientTitle=Maldición Desorientar
+Class/&WitchMaledictionEvilEyeDescription=Como acción, elige una criatura que puedas ver que pueda verte en un radio de 60 pies para hacer una tirada de salvación de Sabiduría. Si falla, la criatura te tiene miedo hasta el final de tu siguiente turno.
+Class/&WitchMaledictionEvilEyeTitle=Maldición del mal de ojo
+Class/&WitchMaledictionObfuscateDescription=Como acción, creas una esfera de niebla de 20 pies de radio centrada en ti. La esfera se extiende por las esquinas y su área está muy oscurecida. Este efecto dura hasta el final de tu siguiente turno o hasta que un viento de velocidad moderada o mayor (al menos 10 millas por hora) lo disperse.
+Class/&WitchMaledictionObfuscateTitle=Ofuscar maldición
+Class/&WitchMaledictionPoxDescription=Como acción, elige una criatura que puedas ver en un radio de 5 pies para realizar una tirada de salvación de Constitución. Si falla, la criatura queda envenenada hasta el final de tu siguiente turno.
+Class/&WitchMaledictionPoxTitle=Maldición de viruela
+Class/&WitchMaledictionRuinDescription=Como acción, elige una criatura que puedas ver en un radio de 60 pies para realizar una tirada de salvación de Constitución. Si falla, la Clase de armadura de la criatura se reduce en 3, hasta un mínimo de 10, hasta el final de tu siguiente turno.
+Class/&WitchMaledictionRuinTitle=Maldición de ruina
+Class/&WitchRitualCastingMagicAffinityDescription=Puedes lanzar un hechizo de bruja como un ritual si ese hechizo tiene la etiqueta de ritual y tienes el hechizo preparado.
+Class/&WitchRitualCastingMagicAffinityTitle=casting ritual
+Class/&WitchSavingthrowProficiencyDescription=Sabiduría, Carisma.
+Class/&WitchSavingthrowProficiencyTitle=Habilidades de lanzamiento de salvación de brujas
+Class/&WitchSkillProficiencyDescription=Elige dos de Arcanos, Engaño, Perspicacia, Intimidación, Persuasión, Naturaleza y Religión.
+Class/&WitchSkillProficiencyTitle=Habilidades de bruja
+Class/&WitchSpellcastingDescription=Eres una bruja que es capaz de lanzar hechizos de la lista de hechizos de brujas.
+Class/&WitchSpellcastingTitle=Lanzamiento de hechizos de bruja
+Class/&WitchTitle=Bruja
+Class/&WitchToolProficiencyDescription=Elige uno del kit de herbolario y el kit de envenenador.
+Class/&WitchToolProficiencyTitle=Habilidades de herramientas de brujas
+Class/&WitchVisionsInitiativeDescription=Añades tu modificador de Carisma a tus tiradas de iniciativa.
+Class/&WitchVisionsInitiativeTitle=Iniciativa Visiones
+Class/&WitchWeaponProficiencyDescription=Armas simples.
+Class/&WitchWeaponProficiencyTitle=Competencias con armas de brujas
+Condition/&AbateDescription=No se pueden usar reacciones.
+Condition/&AbateTitle=Disminuir
+Condition/&ApathyDescription=Indiferente a la criatura objetivo hacia la que es hostil. Esta indiferencia termina si el objetivo es atacado o dañado por un hechizo de la criatura objetivo.
+Condition/&ApathyTitle=Apatía
+Condition/&CharmDescription=Considera al lanzador un aliado.
+Condition/&CharmTitle=Encantado
+Condition/&DebilitatedConditionDescription=Sufre de una de las siguientes condiciones: cegado, perdición, sangrado o aturdido.
+Condition/&DebilitatedConditionTitle=Debilitado
+Condition/&DisorientDescription=-1d6 a las tiradas de ataque.
+Condition/&DisorientTitle=desorientado
+Condition/&EvilEyeDescription=Atemorizado. Incapaz de acercarse a la fuente del miedo, desventaja en las tiradas de ataque y pruebas de habilidad mientras la fuente del miedo está a la vista.
+Condition/&EvilEyeTitle=Aojo
+Condition/&FrenziedDescription=Esta criatura está frenética y atacará a la criatura más cercana.
+Condition/&FrenziedTitle=Frenético
+Condition/&PoxDescription=Condición de viruela.
+Condition/&PoxTitle=Viruela
+Condition/&RuinDescription=Penalización de -3 AC, hasta un máximo de -10 AC.
+Condition/&RuinedDescription=Penalización de -3 AC, hasta un máximo de -10 AC.
+Condition/&RuinedTitle=Arruinado
+Condition/&RuinTitle=Ruina
+Feature/&ClassWitchMaledictionReplaceDescription=Seleccione Maldición para reemplazar.
+Feature/&ClassWitchMaledictionReplaceTitle=Reemplazar maldición
+Feature/&WitchCurseChoiceDescription=Estás atormentado por una terrible maldición que infecta tu cuerpo y tu alma.
+Feature/&WitchCurseChoiceTitle=Maldición de bruja
+Feature/&WitchMaledictionChoiceDescription=Puedes aprender varios encantamientos poderosos, conocidos como maldiciones, derivados de la misma magia insidiosa que te maldijo.
+Feature/&WitchMaledictionChoiceTitle=maldiciones
+Feature/&WitchSightDescription=Puedes sentir o ver criaturas invisibles a 60 pies de ti.
+Feature/&WitchSightTitle=Vista de bruja
+Modifier/&AttributeModifierRuinDescription=-3 a la Clase de Armadura.
+Modifier/&AttributeModifierRuinTitle=Arruinado
+Modifier/&DisorientDescription=-1d6 a las tiradas de ataque.
+Modifier/&DisorientTitle=desorientado
+Monster/&WitchOwlFamiliarDescription=Búho Familiar.
+Monster/&WitchOwlFamiliarTitle=Búho
+Screen/&CovenSpellDescription=Hechizo conocido como parte de un Coven.
+Screen/&CovenSpellHeader=Asamblea de brujas
+Screen/&CovenSpellTitle=Asamblea de brujas
+Screen/&WitchSpellDescription=Hechizos conocidos como Bruja.
+Screen/&WitchSpellHeader=Bruja
+Screen/&WitchSpellTitle=Bruja
+Spell/&WitchFamiliarDescription=Obtienes el servicio de un familiar.
+Spell/&WitchFamiliarTitle=Bruja familiar
+Stage/&SubclassSelectionStageCovenDescription=Asamblea de brujas.
+Stage/&SubclassSelectionStageCovenFeaturesDescription=Asamblea de brujas.
+Stage/&SubclassSelectionStageCovenFeaturesHeader=Características del aquelarre
+Stage/&SubclassSelectionStageCovenFeaturesTitle=Asamblea de brujas
+Stage/&SubclassSelectionStageCovenHeader=Seleccione un Aquelarre
+Stage/&SubclassSelectionStageCovenTitle=Asamblea de brujas
+Subclass/&BloodWitchDescription=Prohibida por la mayoría de los aquelarres de brujas, la magia de sangre se centra en el uso de hechizos oscuros y maleficios mortales que se basan en la esencia misma del lanzador de hechizos. Es fundamentalmente más peligroso que otras artesanías de brujería, pero sus muchos riesgos vienen con copiosas recompensas.
+Subclass/&BloodWitchMagicDescription=Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}
+Subclass/&BloodWitchMagicTitle=magia de sangre
+Subclass/&BloodWitchTitle=Bruja de sangre
+Subclass/&GreenWitchDescription=Las plantas, la naturaleza y las cosas que crecen son el dominio de la magia verde. Normalmente un tipo de arcana defendida por los druidas, algunas brujas tienen un estrecho vínculo con los poderes de la magia verde y pueden engatusar a las plantas y los animales a sus órdenes.
+Subclass/&GreenWitchMagicDescription=Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n{0}
+Subclass/&GreenWitchMagicTitle=magia verde
+Subclass/&GreenWitchTitle=bruja verde
+Subclass/&PurpleWitchDescription=La magia púrpura domina los dominios de las ilusiones y los encantamientos que se apoderan de las mentes de las personas, y todo lo que no es lo que parece. Los practicantes de esta forma de magia son titiriteros, moldeando la realidad aparente de quienes los rodean para su beneficio.
+Subclass/&PurpleWitchMagicDescription=Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}
+Subclass/&PurpleWitchMagicTitle=Magia Púrpura
+Subclass/&PurpleWitchTitle=Bruja Púrpura
+Subclass/&RedWitchDescription=La magia arcana ligada a la canalización de los elementos se considera magia roja y es extremadamente peligrosa cuando se usa. Las brujas que se especializan en magia roja se encuentran entre los lanzadores de hechizos más mortíferos que existen, canalizando su maldición en una ira arcana sin obstáculos.
+Subclass/&RedWitchMagicDescription=Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}
+Subclass/&RedWitchMagicTitle=magia roja
+Subclass/&RedWitchTitle=bruja roja
+Subclass/&WhiteWitchDescription=La magia blanca es fundamentalmente buena y benevolente para todos los seres vivos. Las brujas que adoptan este oficio, a pesar de la odiosa maldición que las infecta, a menudo se dedican a curar y cuidar, con la intención de mejorar el mundo.
+Subclass/&WhiteWitchMagicDescription=Ganas los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}
+Subclass/&WhiteWitchMagicTitle=Magia blanca
+Subclass/&WhiteWitchTitle=Bruja blanca
+Subclass/&WitchSubclassPathDescription=Tu conocimiento de la magia ha culminado al unirte a un Coven, un círculo innato de brujas que profundizan en un camino específico de brujería y maldiciones.
+Subclass/&WitchSubclassPathTitle=aquelarres de brujas
+Tooltip/&TagMaledictionTitle=Maldición

@@ -1,10 +1,10 @@
-Feature/&InspiringSurgePowerDescription	Gewähre einem Verbündeten eine zusätzliche Hauptaktion für 1 Runde. Kann nicht mit Action Surge gestapelt werden.
-Feature/&InspiringSurgePowerTitle	Inspirierende Welle
-Feature/&InspiringSurgePowerTitleShort	Inspirierende Welle
-Feature/&RallyingCryPowerDescription	Ersetzt Zweiter Wind durch eine Kraft, um 4x Kämpferstufen-Trefferpunkte bei einem oder mehreren Verbündeten innerhalb von 6 Zellen bis zu ihrem Trefferpunkte-Maximum wiederherzustellen.
-Feature/&RallyingCryPowerTitle	Sammelnder Schrei
-Feature/&RallyingCryPowerTitleShort	Sammelnder Schrei
-Feature/&RoyalEnvoyFeatureDescription	Addiere die Hälfte deines Kompetenzbonus (aufgerundet) zu jedem Charisma-Check, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
-Feature/&RoyalEnvoyFeatureTitle	Königlicher Gesandter
-Subclass/&FighterRoyalKnightDescription	Ein Ritter, der andere zu Größe inspiriert, indem er mutige Taten im Kampf begeht. Ein einsamer Ritter ist ein erfahrener Krieger, aber einer, der eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.
-Subclass/&FighterRoyalKnightTitle	königlicher Ritter
+Feature/&InspiringSurgePowerDescription=Gewähre einem Verbündeten eine zusätzliche Hauptaktion für 1 Runde. Kann nicht mit Action Surge gestapelt werden.
+Feature/&InspiringSurgePowerTitle=Inspirierende Welle
+Feature/&InspiringSurgePowerTitleShort=Inspirierende Welle
+Feature/&RallyingCryPowerDescription=Ersetzt Zweiter Wind durch eine Kraft, um 4x Kämpferstufen-Trefferpunkte bei einem oder mehreren Verbündeten innerhalb von 6 Zellen bis zu ihrem Trefferpunkte-Maximum wiederherzustellen.
+Feature/&RallyingCryPowerTitle=Sammelnder Schrei
+Feature/&RallyingCryPowerTitleShort=Sammelnder Schrei
+Feature/&RoyalEnvoyFeatureDescription=Addiere die Hälfte deines Kompetenzbonus (aufgerundet) zu jedem Charisma-Check, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
+Feature/&RoyalEnvoyFeatureTitle=Königlicher Gesandter
+Subclass/&FighterRoyalKnightDescription=Ein Ritter, der andere zu Größe inspiriert, indem er mutige Taten im Kampf begeht. Ein einsamer Ritter ist ein erfahrener Krieger, aber einer, der eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.
+Subclass/&FighterRoyalKnightTitle=königlicher Ritter

@@ -1,57 +1,57 @@
-BlueprintCategory/&FlatRoomsTitle Плоские	комнаты
-Caption/&GadgetParametersCustomRemoveDescription	Удалять:\n{0}.
-ContentPack/&CommunityExpansionPackDescription Расширение добавляет новые классы, подклассы, умения и заклинания. Есть более высокий предел уровня, мультикласс, функции QOL, исправления ошибок и многое другое. Это настоящий Рог Изобилия	(ТМ)...
-ContentPack/&CommunityExpansionPackTitle Расширение от игрового сообщества
-Failure/&FailureFlagTargetMeleeWeaponError Невозможно атаковать эту цель в ближнем бою текущим	оружием.
-Feature/&AlwaysBeardDescription {0}% шансов отрастить великолепную	бороду!
-Feature/&BardSkillsTitle Навыки	барда
-Feature/&EmptyString	ПУСТОЙ
-Format/&LevelAndExperienceFormat Уровень: {0}\nОпыт: {1}\n{2} очков, необходимых для достижения уровня	{3}
-Format/&LevelAndExperienceMaxedFormat Уровень: {0}\nОпыт: {1}\nдостигнут максимальный	уровень
-MainMenu/&ExportPdfDescription Понизьте уровень этого	Героя.
-MainMenu/&ExportPdfTitle Уровень	вниз
-Message/&CharacterExportDuplicateNameErrorDescription Экспорт отменен:\n\nГерой с таким именем уже есть в пуле.\nПожалуйста, попробуйте другое	имя.
-Message/&CharacterExportEmptyNameErrorDescription Экспорт отменен:\n\nПожалуйста, попробуйте непустое	имя.
-Message/&CharacterExportModalContentDescription Введите имя героя для	экспорта:
-Message/&CharacterExportModalTitleDescription Экспорт	персонажей.
-Message/&LevelDownConfirmationDescription Понизить уровень этого	героя?
-Message/&LevelDownMultiplayerAbortDescription Невозможно понизить уровень во время многопользовательской	игры.
-Message/&MessageModWelcomeDescription Мод Community Expansion содержит множество интересных функций, но по умолчанию ни одна из них не включена. Нажмите <color=yellow>Ctrl-F10</color>, чтобы открыть пользовательский интерфейс Unity Mod Manager [UMM], затем щелкните значок настроек рядом с «Расширение сообщества», чтобы открыть страницы настроек.\n\n Изучите варианты и выберите те, которые вам нравятся. Откроется пользовательский интерфейс	UMM.
-Message/&MessageModWelcomeTitle Мод расширения	сообщества
-Message/&RespecMultiplayerAbortDescription Нельзя сбросить во время многопользовательской игры или на карте	исследования.
-Message/&SpawnCustomEncounterDescription Создать столкновение с координатами ({0},	{1})?
-Message/&SpawnCustomEncounterErrorDescription Не может создавать столкновения в многопользовательской игре. Пока	что...
-Message/&SpawnCustomEncounterTitle	Сталкиваться
-Message/&TeleportPartyDescription Телепортировать группу по координатам ({0}, {1})?\nВы можете сломать квесты или карты, если телепортируетесь в неизвестное	место.
-Message/&TeleportPartyTitle	Телепорт
-Reaction/&ReadiedAction{0}Description Готов	{0}
-Reaction/&ReadiedAction{0}Title Готов	{0}
-Reaction/&SpendPower{0}Description Потратить	{0}
-Reaction/&SpendPower{0}Title Потратить	{0}
-Reaction/&SpendPowerBundleDescription Тратить	энергию.
-Reaction/&SpendPowerBundleTitle Тратить	энергию
-Reaction/&SubitemSelectPowerBundleTitle	Опции
-Reaction/&SubitemSelectSlotLevelTitle Уровень	слота
-Reaction/&Use{0}Description Используйте	{0}
-Reaction/&Use{0}Title Используйте	{0}
-Requirement/&FeatureSelectionRequireCharacterLevel Уровень	{0}
-Requirement/&FeatureSelectionRequireClassLevel Уровень {0} из	{1}
-RestActivity/&ZSRespecDescription Уважайте этого	героя.
-RestActivity/&ZSRespecTitle	Respec
-Screen/&EditorLocationSize3Title Огромный	[ИЗМЕНЕНО]
-Screen/&EditorLocationSize4Title Гигантский	[ИЗМЕНЕНО]
-Stage/&IdentityMorphotypeEyeHeader Стиль	глаз
-ToolTip/&CheckBoxDefaultPartyTitle Установите этот флажок, чтобы установить группу по умолчанию при запуске новых приключений или тестировании пользовательских локаций. Вы можете выбрать до {0} героев в порядке	очереди.
-Tooltip/&Tag9000Title Пользовательский	эффект
-Tooltip/&TagCommunityExpansionTitle Расширение	сообщества
-Tooltip/&TagOtherModContentTitle Из	мода
-UI/&CustomFeatureSelectionStageDescription Выберите дополнительные функции из вашего	класса/подкласса.
-UI/&CustomFeatureSelectionStageFeatures	Функции
-UI/&CustomFeatureSelectionStageNotDone Вы должны выбрать все доступные функции, прежде чем	продолжить
-UI/&CustomFeatureSelectionStageTitle Выбор	функции
-UI/&CustomFeatureSelectionTooltipTypeCantrip	Заговор
-UI/&CustomFeatureSelectionTooltipTypeFeature	Особенность
-UI/&CustomFeatureSelectionTooltipTypePower	Сила
-UI/&CustomFeatureSelectionTooltipTypeProficiency	мастерство
-UI/&ForcePreferredCantripDescription Если этот переключатель включен, сработает только предпочтительный колдовство. Если предпочитаемый заговор не выбран, то сработает первый действительный заговор, независимо от этого	переключателя.
-UI/&ForcePreferredCantripTitle Предпочитаемый Силовой Заговор
+BlueprintCategory/&FlatRoomsTitle=Плоские комнаты
+Caption/&GadgetParametersCustomRemoveDescription=Удалять:\n{0}.
+ContentPack/&CommunityExpansionPackDescription=Расширение добавляет новые классы, подклассы, умения и заклинания. Есть более высокий предел уровня, мультикласс, функции QOL, исправления ошибок и многое другое. Это настоящий Рог Изобилия (ТМ)...
+ContentPack/&CommunityExpansionPackTitle=Расширение от игрового сообщества
+Failure/&FailureFlagTargetMeleeWeaponError=Невозможно атаковать эту цель в ближнем бою текущим оружием.
+Feature/&AlwaysBeardDescription={0}% шансов отрастить великолепную бороду!
+Feature/&BardSkillsTitle=Навыки барда
+Feature/&EmptyString=ПУСТОЙ
+Format/&LevelAndExperienceFormat=Уровень: {0}\nОпыт: {1}\n{2} очков, необходимых для достижения уровня {3}
+Format/&LevelAndExperienceMaxedFormat=Уровень: {0}\nОпыт: {1}\nдостигнут максимальный уровень
+MainMenu/&ExportPdfDescription=Понизьте уровень этого Героя.
+MainMenu/&ExportPdfTitle=Уровень вниз
+Message/&CharacterExportDuplicateNameErrorDescription=Экспорт отменен:\n\nГерой с таким именем уже есть в пуле.\nПожалуйста, попробуйте другое имя.
+Message/&CharacterExportEmptyNameErrorDescription=Экспорт отменен:\n\nПожалуйста, попробуйте непустое имя.
+Message/&CharacterExportModalContentDescription=Введите имя героя для экспорта:
+Message/&CharacterExportModalTitleDescription=Экспорт персонажей.
+Message/&LevelDownConfirmationDescription=Понизить уровень этого героя?
+Message/&LevelDownMultiplayerAbortDescription=Невозможно понизить уровень во время многопользовательской игры.
+Message/&MessageModWelcomeDescription=Мод Community Expansion содержит множество интересных функций, но по умолчанию ни одна из них не включена. Нажмите <color=yellow>Ctrl-F10</color>, чтобы открыть пользовательский интерфейс Unity Mod Manager [UMM], затем щелкните значок настроек рядом с «Расширение сообщества», чтобы открыть страницы настроек.\n\n Изучите варианты и выберите те, которые вам нравятся. Откроется пользовательский интерфейс UMM.
+Message/&MessageModWelcomeTitle=Мод расширения сообщества
+Message/&RespecMultiplayerAbortDescription=Нельзя сбросить во время многопользовательской игры или на карте исследования.
+Message/&SpawnCustomEncounterDescription=Создать столкновение с координатами ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription=Не может создавать столкновения в многопользовательской игре. Пока что...
+Message/&SpawnCustomEncounterTitle=Сталкиваться
+Message/&TeleportPartyDescription=Телепортировать группу по координатам ({0}, {1})?\nВы можете сломать квесты или карты, если телепортируетесь в неизвестное место.
+Message/&TeleportPartyTitle=Телепорт
+Reaction/&ReadiedAction{0}Description=Готов {0}
+Reaction/&ReadiedAction{0}Title=Готов {0}
+Reaction/&SpendPower{0}Description=Потратить {0}
+Reaction/&SpendPower{0}Title=Потратить {0}
+Reaction/&SpendPowerBundleDescription=Тратить энергию.
+Reaction/&SpendPowerBundleTitle=Тратить энергию
+Reaction/&SubitemSelectPowerBundleTitle=Опции
+Reaction/&SubitemSelectSlotLevelTitle=Уровень слота
+Reaction/&Use{0}Description=Используйте {0}
+Reaction/&Use{0}Title=Используйте {0}
+Requirement/&FeatureSelectionRequireCharacterLevel=Уровень {0}
+Requirement/&FeatureSelectionRequireClassLevel=Уровень {0} из {1}
+RestActivity/&ZSRespecDescription=Уважайте этого героя.
+RestActivity/&ZSRespecTitle=Respec
+Screen/&EditorLocationSize3Title=Огромный [ИЗМЕНЕНО]
+Screen/&EditorLocationSize4Title=Гигантский [ИЗМЕНЕНО]
+Stage/&IdentityMorphotypeEyeHeader=Стиль глаз
+ToolTip/&CheckBoxDefaultPartyTitle=Установите этот флажок, чтобы установить группу по умолчанию при запуске новых приключений или тестировании пользовательских локаций. Вы можете выбрать до {0} героев в порядке очереди.
+Tooltip/&Tag9000Title=Пользовательский эффект
+Tooltip/&TagCommunityExpansionTitle=Расширение сообщества
+Tooltip/&TagOtherModContentTitle=Из мода
+UI/&CustomFeatureSelectionStageDescription=Выберите дополнительные функции из вашего класса/подкласса.
+UI/&CustomFeatureSelectionStageFeatures=Функции
+UI/&CustomFeatureSelectionStageNotDone=Вы должны выбрать все доступные функции, прежде чем продолжить
+UI/&CustomFeatureSelectionStageTitle=Выбор функции
+UI/&CustomFeatureSelectionTooltipTypeCantrip=Заговор
+UI/&CustomFeatureSelectionTooltipTypeFeature=Особенность
+UI/&CustomFeatureSelectionTooltipTypePower=Сила
+UI/&CustomFeatureSelectionTooltipTypeProficiency=мастерство
+UI/&ForcePreferredCantripDescription=Если этот переключатель включен, сработает только предпочтительный колдовство. Если предпочитаемый заговор не выбран, то сработает первый действительный заговор, независимо от этого переключателя.
+UI/&ForcePreferredCantripTitle=Предпочитаемый Силовой Заговор

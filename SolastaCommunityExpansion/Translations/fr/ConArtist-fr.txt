@@ -1,19 +1,19 @@
-Subclass/&AbilityAffinityRogueConArtistDescription	Avantage aux tests de capacité utilisant Persuasion, Tromperie, Performance et Tour de passe-passe.
-Subclass/&AbilityAffinityRogueConArtistTitle	Manipulateur
-Subclass/&MagicAffinityRoguishConArtistDC0Description	Votre DD de sauvegarde de sorts augmente de 0.
-Subclass/&MagicAffinityRoguishConArtistDC1Description	Votre DD de sauvegarde de sorts augmente de 1.
-Subclass/&MagicAffinityRoguishConArtistDC2Description	Votre DD de sauvegarde de sorts augmente de 2.
-Subclass/&MagicAffinityRoguishConArtistDC3Description	Votre DD de sauvegarde de sorts augmente de 3.
-Subclass/&MagicAffinityRoguishConArtistDC4Description	Votre DD de sauvegarde de sorts augmente de 4.
-Subclass/&MagicAffinityRoguishConArtistDC5Description	Votre DD de sauvegarde de sorts augmente de 5.
-Subclass/&MagicAffinityRoguishConArtistDCTitle	Manipulation améliorée
-Subclass/&RoguishConArtistDescription	Les escrocs sont des voleurs qui se spécialisent dans la tromperie et la tromperie des autres. Ils utilisent la magie pour aider leurs capacités de manipulation naturelles.
-Subclass/&RoguishConArtistFeintConditionDescription	Être trompé confère un avantage à la prochaine attaque.
-Subclass/&RoguishConArtistFeintConditionTitle	dupé
-Subclass/&RoguishConArtistFeintDescription	Gagnez la capacité de feinter au combat en tant qu'action bonus. Si la cible échoue à son jet de sauvegarde, cela confère un avantage lors de la prochaine attaque contre la cible.
-Subclass/&RoguishConArtistFeintTitle	Feinte
-Subclass/&RoguishConArtistMentalSavingThrowsDescription	Vous maîtrisez les jets de sauvegarde de Sagesse et de Charisme.
-Subclass/&RoguishConArtistMentalSavingThrowsTitle	Force mentale
-Subclass/&RoguishConArtistSpellcastingDescription	Lancez des sorts de magicien et des sorts mineurs des écoles de conjuration, d'enchantement, d'illusion et de transmutation. L'escroc utilise le charisme pour lancer ses sorts.
-Subclass/&RoguishConArtistSpellcastingTitle	Lancer des sorts
-Subclass/&RoguishConArtistTitle	escroc
+Subclass/&AbilityAffinityRogueConArtistDescription=Avantage aux tests de capacité utilisant Persuasion, Tromperie, Performance et Tour de passe-passe.
+Subclass/&AbilityAffinityRogueConArtistTitle=Manipulateur
+Subclass/&MagicAffinityRoguishConArtistDC0Description=Votre DD de sauvegarde de sorts augmente de 0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description=Votre DD de sauvegarde de sorts augmente de 1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description=Votre DD de sauvegarde de sorts augmente de 2.
+Subclass/&MagicAffinityRoguishConArtistDC3Description=Votre DD de sauvegarde de sorts augmente de 3.
+Subclass/&MagicAffinityRoguishConArtistDC4Description=Votre DD de sauvegarde de sorts augmente de 4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description=Votre DD de sauvegarde de sorts augmente de 5.
+Subclass/&MagicAffinityRoguishConArtistDCTitle=Manipulation améliorée
+Subclass/&RoguishConArtistDescription=Les escrocs sont des voleurs qui se spécialisent dans la tromperie et la tromperie des autres. Ils utilisent la magie pour aider leurs capacités de manipulation naturelles.
+Subclass/&RoguishConArtistFeintConditionDescription=Être trompé confère un avantage à la prochaine attaque.
+Subclass/&RoguishConArtistFeintConditionTitle=dupé
+Subclass/&RoguishConArtistFeintDescription=Gagnez la capacité de feinter au combat en tant qu'action bonus. Si la cible échoue à son jet de sauvegarde, cela confère un avantage lors de la prochaine attaque contre la cible.
+Subclass/&RoguishConArtistFeintTitle=Feinte
+Subclass/&RoguishConArtistMentalSavingThrowsDescription=Vous maîtrisez les jets de sauvegarde de Sagesse et de Charisme.
+Subclass/&RoguishConArtistMentalSavingThrowsTitle=Force mentale
+Subclass/&RoguishConArtistSpellcastingDescription=Lancez des sorts de magicien et des sorts mineurs des écoles de conjuration, d'enchantement, d'illusion et de transmutation. L'escroc utilise le charisme pour lancer ses sorts.
+Subclass/&RoguishConArtistSpellcastingTitle=Lancer des sorts
+Subclass/&RoguishConArtistTitle=escroc

@@ -1,14 +1,14 @@
-Subclass/&ConditionTransmuteConstitutionSaveDescription	Costituzione temporanea salva la competenza concessa dal potere della Forza di Trasmutazione.
-Subclass/&ConditionTransmuteConstitutionSaveTitle	La costituzione salva
-Subclass/&ConditionTransmutePoisonDescription	Resistenza temporanea di acido, freddo, fuoco, fulmine, necrotico, veleno e tuono concessa dal potere della Forza di Trasmutazione.
-Subclass/&ConditionTransmutePoisonTitle	Resistenza Elementale
-Subclass/&HealingPoolLifeTransmuterBonusDescription	Puoi imporre la tua volontà sulla realtà altre 2 volte al giorno.
-Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	Puoi imporre la tua volontà sulla realtà altre 4 volte al giorno.
-Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Forza di trasmutazione aggiuntiva
-Subclass/&HealingPoolLifeTransmuterBonusTitle	Forza di trasmutazione aggiuntiva
-Subclass/&HealingPoolLifeTransmuterListDescription	Puoi esprimere la tua volontà sulla realtà con poteri speciali 2 volte al giorno.
-Subclass/&HealingPoolLifeTransmuterListTitle	Forza di trasmutazione
-Subclass/&MagicAffinityLifeTransmuterListDescription	Quando si lanciano alcuni incantesimi di Trasmutazione e Negromanzia, vengono lanciati a uno slot incantesimo di 2 livelli superiore a quello utilizzato. Gli incantesimi migliorati includono: Falsa vita, Cecità, Volare, Conferire maledizione, Tocco vampirico, Macchia e Uccisione di nuvole.\n--Nota: l'intenzione è quella di avere anche il vantaggio di Arma magica, ma attualmente aumentare il livello dell'incantesimo in questo modo su Arma magica non ha alcun effetto.
-Subclass/&MagicAffinityLifeTransmuterListTitle	La realtà si piega
-Subclass/&TraditionLifeTransmuterDescription	Maestri nel manipolare sia la materia che l'energia vitale.
-Subclass/&TraditionLifeTransmuterTitle	Trasmutatore di vita
+Subclass/&ConditionTransmuteConstitutionSaveDescription=Costituzione temporanea salva la competenza concessa dal potere della Forza di Trasmutazione.
+Subclass/&ConditionTransmuteConstitutionSaveTitle=La costituzione salva
+Subclass/&ConditionTransmutePoisonDescription=Resistenza temporanea di acido, freddo, fuoco, fulmine, necrotico, veleno e tuono concessa dal potere della Forza di Trasmutazione.
+Subclass/&ConditionTransmutePoisonTitle=Resistenza Elementale
+Subclass/&HealingPoolLifeTransmuterBonusDescription=Puoi imporre la tua volontà sulla realtà altre 2 volte al giorno.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription=Puoi imporre la tua volontà sulla realtà altre 4 volte al giorno.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle=Forza di trasmutazione aggiuntiva
+Subclass/&HealingPoolLifeTransmuterBonusTitle=Forza di trasmutazione aggiuntiva
+Subclass/&HealingPoolLifeTransmuterListDescription=Puoi esprimere la tua volontà sulla realtà con poteri speciali 2 volte al giorno.
+Subclass/&HealingPoolLifeTransmuterListTitle=Forza di trasmutazione
+Subclass/&MagicAffinityLifeTransmuterListDescription=Quando si lanciano alcuni incantesimi di Trasmutazione e Negromanzia, vengono lanciati a uno slot incantesimo di 2 livelli superiore a quello utilizzato. Gli incantesimi migliorati includono: Falsa vita, Cecità, Volare, Conferire maledizione, Tocco vampirico, Macchia e Uccisione di nuvole.\n--Nota: l'intenzione è quella di avere anche il vantaggio di Arma magica, ma attualmente aumentare il livello dell'incantesimo in questo modo su Arma magica non ha alcun effetto.
+Subclass/&MagicAffinityLifeTransmuterListTitle=La realtà si piega
+Subclass/&TraditionLifeTransmuterDescription=Maestri nel manipolare sia la materia che l'energia vitale.
+Subclass/&TraditionLifeTransmuterTitle=Trasmutatore di vita

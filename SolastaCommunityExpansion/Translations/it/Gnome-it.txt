@@ -1,14 +1,14 @@
-Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Destrezza +1
-Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Attributo gnomo della foresta Aumento
-Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Intelligenza +2
-Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Incremento attributo gnomo
-Feature/&GnomeCunningFeatureDescription	Hai vantaggio su tutti i tiri salvezza su Intelligenza, Saggezza e Carisma contro la magia.
-Feature/&GnomeCunningFeatureTitle	Astuzia
-Feature/&GnomeNaturalIllusionistDescription	Conosci il trucchetto dell'ape fastidiosa. L'intelligenza è il tuo modificatore di incantesimi.
-Feature/&GnomeNaturalIllusionistTitle	Magia Naturale
-Feature/&ProficiencyGnomishLanguagesDescription	Comune, Gnomico.
-Feature/&ProficiencyGnomishLanguagesTitle	Le lingue
-Language/&GnomishLanguageDescription	Un'antica lingua solastan, preservata dagli gnomi che vivono nelle profonde foreste di Solasta, è sopravvissuta al Cataclisma.
-Language/&GnomishLanguageTitle	gnomico
-Race/&GnomeRaceDescription	Un costante ronzio di attività frenetica pervade le tane e i quartieri dove gli gnomi formano le loro comunità unite. Suoni più forti punteggiano il ronzio: uno scricchiolio di ingranaggi che macinano qui, una piccola esplosione là, un guaito di sorpresa o di trionfo, e soprattutto scoppi di risate. Gli gnomi si dilettano nella vita, godendosi ogni momento di invenzione, esplorazione, indagine, creazione e gioco.
-Race/&GnomeRaceTitle	Gnomo
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription=Destrezza +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle=Attributo gnomo della foresta Aumento
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription=Intelligenza +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle=Incremento attributo gnomo
+Feature/&GnomeCunningFeatureDescription=Hai vantaggio su tutti i tiri salvezza su Intelligenza, Saggezza e Carisma contro la magia.
+Feature/&GnomeCunningFeatureTitle=Astuzia
+Feature/&GnomeNaturalIllusionistDescription=Conosci il trucchetto dell'ape fastidiosa. L'intelligenza è il tuo modificatore di incantesimi.
+Feature/&GnomeNaturalIllusionistTitle=Magia Naturale
+Feature/&ProficiencyGnomishLanguagesDescription=Comune, Gnomico.
+Feature/&ProficiencyGnomishLanguagesTitle=Le lingue
+Language/&GnomishLanguageDescription=Un'antica lingua solastan, preservata dagli gnomi che vivono nelle profonde foreste di Solasta, è sopravvissuta al Cataclisma.
+Language/&GnomishLanguageTitle=gnomico
+Race/&GnomeRaceDescription=Un costante ronzio di attività frenetica pervade le tane e i quartieri dove gli gnomi formano le loro comunità unite. Suoni più forti punteggiano il ronzio: uno scricchiolio di ingranaggi che macinano qui, una piccola esplosione là, un guaito di sorpresa o di trionfo, e soprattutto scoppi di risate. Gli gnomi si dilettano nella vita, godendosi ogni momento di invenzione, esplorazione, indagine, creazione e gioco.
+Race/&GnomeRaceTitle=Gnomo

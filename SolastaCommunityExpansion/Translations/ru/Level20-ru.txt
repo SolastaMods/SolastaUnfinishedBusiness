@@ -1,25 +1,25 @@
-Feature/&BarbarianIndomitableMightDescription Если ваш результат проверки Силы меньше вашего показателя Силы, вы можете использовать этот результат вместо общего	результата.
-Feature/&BarbarianIndomitableMightTitle Неукротимая	мощь
-Feature/&IndomitableResistanceAddDescription +1 к использованию Неукротимого сопротивления между	отдыхами.
-Feature/&IndomitableResistanceAddTitle Неукротимое сопротивление	(увеличено)
-Feature/&IndomitableResistanceTitle Неукротимое	сопротивление
-Feature/&PowerPaladinAuraOfCourage18Description Предоставьте бонус спасброска союзникам в пределах 30	футов.
-Feature/&PowerPaladinAuraOfCourage18Title Улучшенная аура	отваги
-Feature/&PowerPaladinAuraOfProtection18Description Вы и ваши союзники в пределах 30 футов не можете быть	напуганы.
-Feature/&PowerPaladinAuraOfProtection18Title Улучшенная аура	защиты
-Feature/&PrimalChampionDescription На 20 уровне вы воплощаете силу дикой природы. Ваши показатели Силы и Телосложения увеличиваются на	4.
-Feature/&PrimalChampionTitle Первобытный	чемпион
-Feature/&ProficiencyRogueBlindSenseDescription Начиная с 14-го уровня, если вы способны слышать, вы знаете о местонахождении любого скрытого или невидимого существа в пределах 10 футов от	вас.
-Feature/&ProficiencyRogueBlindSenseTitle Слепое	чувство
-Feature/&ProficiencyRogueSlipperyMindDescription К 15 уровню вы приобрели большую ментальную силу. Вы получаете владение спасбросками	Мудрости.
-Feature/&ProficiencyRogueSlipperyMindTitle Скользкий	разум
-Feature/&RangerFeralSensesDescription Вы получаете сверхъестественные чувства, которые помогают вам сражаться с существами, которых вы не можете видеть. Когда вы атакуете существо, которого не видите, ваша неспособность его видеть не накладывает помехи на ваши броски атаки против	него.
-Feature/&RangerFeralSensesTitle Дикие	чувства
-Feature/&RangerVanishActionDescription Начиная с 14-го уровня, вы можете использовать действие «Спрятаться» в качестве бонусного действия в свой	ход.
-Feature/&RangerVanishActionTitle	исчезнуть
-Feature/&ZSPowerPaladinCleansingTouchDescription Снимите эффекты заклинаний, прикоснувшись к союзнику. Вы можете делать это количество раз в день, равное вашему модификатору	Харизмы.
-Feature/&ZSPowerPaladinCleansingTouchTitle Очищающее	прикосновение
-RestActivity/&ZSSorcerousRestorationDescription Восстановите 4 очка волшебства во время короткого	отдыха.
-RestActivity/&ZSSorcerousRestorationTitle Волшебное	восстановление
-Sorceror/&ZSSorcerousRestorationDescription Восстановите 4 очка волшебства во время короткого	отдыха.
-Sorceror/&ZSSorcerousRestorationTitle Волшебное	восстановление
+Feature/&BarbarianIndomitableMightDescription=Если ваш результат проверки Силы меньше вашего показателя Силы, вы можете использовать этот результат вместо общего результата.
+Feature/&BarbarianIndomitableMightTitle=Неукротимая мощь
+Feature/&IndomitableResistanceAddDescription=+1 к использованию Неукротимого сопротивления между отдыхами.
+Feature/&IndomitableResistanceAddTitle=Неукротимое сопротивление (увеличено)
+Feature/&IndomitableResistanceTitle=Неукротимое сопротивление
+Feature/&PowerPaladinAuraOfCourage18Description=Предоставьте бонус спасброска союзникам в пределах 30 футов.
+Feature/&PowerPaladinAuraOfCourage18Title=Улучшенная аура отваги
+Feature/&PowerPaladinAuraOfProtection18Description=Вы и ваши союзники в пределах 30 футов не можете быть напуганы.
+Feature/&PowerPaladinAuraOfProtection18Title=Улучшенная аура защиты
+Feature/&PrimalChampionDescription=На 20 уровне вы воплощаете силу дикой природы. Ваши показатели Силы и Телосложения увеличиваются на 4.
+Feature/&PrimalChampionTitle=Первобытный чемпион
+Feature/&ProficiencyRogueBlindSenseDescription=Начиная с 14-го уровня, если вы способны слышать, вы знаете о местонахождении любого скрытого или невидимого существа в пределах 10 футов от вас.
+Feature/&ProficiencyRogueBlindSenseTitle=Слепое чувство
+Feature/&ProficiencyRogueSlipperyMindDescription=К 15 уровню вы приобрели большую ментальную силу. Вы получаете владение спасбросками Мудрости.
+Feature/&ProficiencyRogueSlipperyMindTitle=Скользкий разум
+Feature/&RangerFeralSensesDescription=Вы получаете сверхъестественные чувства, которые помогают вам сражаться с существами, которых вы не можете видеть. Когда вы атакуете существо, которого не видите, ваша неспособность его видеть не накладывает помехи на ваши броски атаки против него.
+Feature/&RangerFeralSensesTitle=Дикие чувства
+Feature/&RangerVanishActionDescription=Начиная с 14-го уровня, вы можете использовать действие «Спрятаться» в качестве бонусного действия в свой ход.
+Feature/&RangerVanishActionTitle=исчезнуть
+Feature/&ZSPowerPaladinCleansingTouchDescription=Снимите эффекты заклинаний, прикоснувшись к союзнику. Вы можете делать это количество раз в день, равное вашему модификатору Харизмы.
+Feature/&ZSPowerPaladinCleansingTouchTitle=Очищающее прикосновение
+RestActivity/&ZSSorcerousRestorationDescription=Восстановите 4 очка волшебства во время короткого отдыха.
+RestActivity/&ZSSorcerousRestorationTitle=Волшебное восстановление
+Sorceror/&ZSSorcerousRestorationDescription=Восстановите 4 очка волшебства во время короткого отдыха.
+Sorceror/&ZSSorcerousRestorationTitle=Волшебное восстановление

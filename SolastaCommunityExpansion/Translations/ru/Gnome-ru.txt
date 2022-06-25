@@ -1,14 +1,14 @@
-Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription Ловкость	+1
-Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle Увеличение характеристик лесного	гнома
-Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription Интеллект	+2
-Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle Увеличение атрибута	гнома
-Feature/&GnomeCunningFeatureDescription Вы совершаете с преимуществом все спасброски Интеллекта, Мудрости и Харизмы против	магии.
-Feature/&GnomeCunningFeatureTitle	Хитрость
-Feature/&GnomeNaturalIllusionistDescription Вы знаете заговор надоедливой пчелы. Интеллект — это ваш модификатор колдовства для	него.
-Feature/&GnomeNaturalIllusionistTitle Природная	магия
-Feature/&ProficiencyGnomishLanguagesDescription Обыкновенный,	гномский.
-Feature/&ProficiencyGnomishLanguagesTitle	Языки
-Language/&GnomishLanguageDescription Старый соласанский язык, сохраненный гномами, живущими в дремучих лесах Соласты, пережил	Катаклизм.
-Language/&GnomishLanguageTitle	гномий
-Race/&GnomeRaceDescription Постоянный гул занятой деятельности пронизывает лабиринты и кварталы, где гномы образуют свои сплоченные сообщества. Гул перемежается более громкими звуками: здесь хруст скрежещущих шестеренок, там небольшой взрыв, визг удивления или триумфа и особенно взрывы смеха. Гномы наслаждаются жизнью, наслаждаясь каждым моментом изобретения, исследования, исследования, творчества и	игры.
-Race/&GnomeRaceTitle	Гном
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription=Ловкость +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle=Увеличение характеристик лесного гнома
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription=Интеллект +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle=Увеличение атрибута гнома
+Feature/&GnomeCunningFeatureDescription=Вы совершаете с преимуществом все спасброски Интеллекта, Мудрости и Харизмы против магии.
+Feature/&GnomeCunningFeatureTitle=Хитрость
+Feature/&GnomeNaturalIllusionistDescription=Вы знаете заговор надоедливой пчелы. Интеллект — это ваш модификатор колдовства для него.
+Feature/&GnomeNaturalIllusionistTitle=Природная магия
+Feature/&ProficiencyGnomishLanguagesDescription=Обыкновенный, гномский.
+Feature/&ProficiencyGnomishLanguagesTitle=Языки
+Language/&GnomishLanguageDescription=Старый соласанский язык, сохраненный гномами, живущими в дремучих лесах Соласты, пережил Катаклизм.
+Language/&GnomishLanguageTitle=гномий
+Race/&GnomeRaceDescription=Постоянный гул занятой деятельности пронизывает лабиринты и кварталы, где гномы образуют свои сплоченные сообщества. Гул перемежается более громкими звуками: здесь хруст скрежещущих шестеренок, там небольшой взрыв, визг удивления или триумфа и особенно взрывы смеха. Гномы наслаждаются жизнью, наслаждаясь каждым моментом изобретения, исследования, исследования, творчества и игры.
+Race/&GnomeRaceTitle=Гном

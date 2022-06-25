@@ -1,23 +1,23 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Hai una penalità di -2 su Saggezza (Percezione).
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento del punteggio di abilità
-Feature/&DarkelfMagicDescription	Conosci il trucchetto di Dancing Lights. Al 3° livello impari Faerie Fire e al 5° livello, Darkness. Entrambi possono essere utilizzati una volta per riposo lungo.
-Feature/&DarkelfMagicTitle	Magia degli Elfi Oscuri
-Feature/&DarkelfWeaponTrainingDescription	Hai competenza con stocchi, spade corte e balestre a mano.
-Feature/&DarkelfWeaponTrainingTitle	Addestramento con le armi degli elfi oscuri
-Feature/&LightAffinityDarkelfLightSensitivityDescription	Hai una penalità di -2 alle prove di Saggezza (Percezione) in piena luce. Inoltre, la tua velocità viene ridotta di 1 in condizioni di luce intensa.
-Feature/&LightAffinityDarkelfLightSensitivityTitle	Sensibilità alla luce brillante
-Feature/&MovementAffinityDarkelfLightSensitivityDescription	La tua velocità è ridotta di 1.
-Feature/&PowerDarkelfDarknessDescription	Crea un'area di oscurità magica. Utilizzabile una volta per riposo lungo.
-Feature/&PowerDarkelfDarknessTitle	Buio
-Feature/&PowerDarkelfFaerieFireDescription	Evidenzia le creature per dare vantaggio a chiunque le attacchi. Utilizzabile una volta per riposo lungo.
-Feature/&PowerDarkelfFaerieFireTitle	Fuoco delle fate
-Race/&DarkelfRaceDescription	Gli elfi oscuri sono discendenti di elfi che sono cambiati nel tempo vivendo nelle inospitali Badlands. Gli elfi oscuri sono in gran parte notturni e si sono adattati a vivere nelle antiche rovine di Badlands, in particolare nelle rovine sotterranee sepolte. Tendono ad avere la pelle scura e i capelli chiari.
-Race/&DarkelfRaceTitle	Elfo Oscuro
-Race/&DarkelfSurName1Title	Za'Moryra
-Race/&DarkelfSurName2Title	Dhal Neridthas
-Race/&DarkelfSurName3Title	DhalNerwenys
-Race/&DarkelfSurName4Title	Zo'Sonta
-Race/&DarkelfSurName5Title	Zo'Remon
-Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 penalità sulla velocità
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 penalità su Sapienza
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Hai una penalità di -2 su Saggezza (Percezione).
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento del punteggio di abilità
+Feature/&DarkelfMagicDescription=Conosci il trucchetto di Dancing Lights. Al 3° livello impari Faerie Fire e al 5° livello, Darkness. Entrambi possono essere utilizzati una volta per riposo lungo.
+Feature/&DarkelfMagicTitle=Magia degli Elfi Oscuri
+Feature/&DarkelfWeaponTrainingDescription=Hai competenza con stocchi, spade corte e balestre a mano.
+Feature/&DarkelfWeaponTrainingTitle=Addestramento con le armi degli elfi oscuri
+Feature/&LightAffinityDarkelfLightSensitivityDescription=Hai una penalità di -2 alle prove di Saggezza (Percezione) in piena luce. Inoltre, la tua velocità viene ridotta di 1 in condizioni di luce intensa.
+Feature/&LightAffinityDarkelfLightSensitivityTitle=Sensibilità alla luce brillante
+Feature/&MovementAffinityDarkelfLightSensitivityDescription=La tua velocità è ridotta di 1.
+Feature/&PowerDarkelfDarknessDescription=Crea un'area di oscurità magica. Utilizzabile una volta per riposo lungo.
+Feature/&PowerDarkelfDarknessTitle=Buio
+Feature/&PowerDarkelfFaerieFireDescription=Evidenzia le creature per dare vantaggio a chiunque le attacchi. Utilizzabile una volta per riposo lungo.
+Feature/&PowerDarkelfFaerieFireTitle=Fuoco delle fate
+Race/&DarkelfRaceDescription=Gli elfi oscuri sono discendenti di elfi che sono cambiati nel tempo vivendo nelle inospitali Badlands. Gli elfi oscuri sono in gran parte notturni e si sono adattati a vivere nelle antiche rovine di Badlands, in particolare nelle rovine sotterranee sepolte. Tendono ad avere la pelle scura e i capelli chiari.
+Race/&DarkelfRaceTitle=Elfo Oscuro
+Race/&DarkelfSurName1Title=Za'Moryra
+Race/&DarkelfSurName2Title=Dhal Neridthas
+Race/&DarkelfSurName3Title=DhalNerwenys
+Race/&DarkelfSurName4Title=Zo'Sonta
+Race/&DarkelfSurName5Title=Zo'Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle=-1 penalità sulla velocità
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=-2 penalità su Sapienza

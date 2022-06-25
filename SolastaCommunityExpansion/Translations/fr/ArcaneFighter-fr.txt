@@ -1,10 +1,10 @@
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Dégâts supplémentaires des attaques magiques
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Dégâts supplémentaires des attaques magiques
-Subclass/&ArcaneFighterAdditionalActionDescription	Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques avec une arme.
-Subclass/&ArcaneFighterAdditionalActionTitle	Combat de sorts
-Subclass/&ArcaneFighterBonusWeaponDamageDescription	Une fois par tour, vos attaques avec une arme infligent 1d8 dégâts supplémentaires.
-Subclass/&ArcaneFighterBonusWeaponDamageTitle	Attaques magiques
-Subclass/&TraditionArcaneFighterDescription	Canalisez votre magie dans des attaques d'armes.
-Subclass/&TraditionArcaneFighterTitle	Combattant arcanique
-Subclass/&WeaponProfArcaneFighterDescription	L'expérience du combat a donné à l'Arcane Fighter une formation aux armes simples et martiales.
-Subclass/&WeaponProfArcaneFighterTitle	Entraînement aux armes
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Dégâts supplémentaires des attaques magiques
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Dégâts supplémentaires des attaques magiques
+Subclass/&ArcaneFighterAdditionalActionDescription=Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques avec une arme.
+Subclass/&ArcaneFighterAdditionalActionTitle=Combat de sorts
+Subclass/&ArcaneFighterBonusWeaponDamageDescription=Une fois par tour, vos attaques avec une arme infligent 1d8 dégâts supplémentaires.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle=Attaques magiques
+Subclass/&TraditionArcaneFighterDescription=Canalisez votre magie dans des attaques d'armes.
+Subclass/&TraditionArcaneFighterTitle=Combattant arcanique
+Subclass/&WeaponProfArcaneFighterDescription=L'expérience du combat a donné à l'Arcane Fighter une formation aux armes simples et martiales.
+Subclass/&WeaponProfArcaneFighterTitle=Entraînement aux armes

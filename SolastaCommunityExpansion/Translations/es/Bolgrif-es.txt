@@ -1,16 +1,16 @@
-Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Fuerza +1
-Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Aumento de atributo
-Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Sabiduría +2
-Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle	Aumento de atributos
-Feature/&BolgrifDruidicMagicDescription	Conoces un cantrip de tu elección de la lista de hechizos de druida. La sabiduría es tu habilidad para lanzar hechizos.
-Feature/&BolgrifDruidicMagicTitle	Magia druídica
-Feature/&BolgrifInvisibilityPowerDescription	Como acción adicional, puedes volverte invisible mágicamente durante 1 asalto. Esta invisibilidad se rompe si realizas alguna acción ofensiva. Una vez que usas esta habilidad, no puedes volver a usarla hasta que termines un descanso corto o largo.
-Feature/&BolgrifInvisibilityPowerTitle	Desaparecer
-Feature/&BolgrifPowerfulBuildDescription	Cuenta su tamaño como Grande al determinar su capacidad de carga.
-Feature/&BolgrifPowerfulBuildTitle	Construcción poderosa
-Feature/&ProficiencyBolgrifLanguagesDescription	Común, Élfico y Gigante.
-Feature/&ProficiencyBolgrifLanguagesTitle	Idioma
-Language/&AbyssalDescription	El lenguaje abisal era la forma del lenguaje primordial que ha sido envuelto y torcido por la maldad del abismo.
-Language/&AbyssalTitle	Abisal
-Race/&BolgrifRaceDescription	Los bolgrifs son semigigantes que viven en las heladas tierras altas de Solasta. Son astutos, cautelosos, solitarios, desconfían de la mayoría de los humanoides excepto de los elfos y prefieren vivir lejos de la civilización en clanes muy unidos. Si son presionados a la batalla, los bolgrifs demuestran formidables habilidades con las armas y la magia de la naturaleza.
-Race/&BolgrifRaceTitle	bolgrif
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription=Fuerza +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle=Aumento de atributo
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription=Sabiduría +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle=Aumento de atributos
+Feature/&BolgrifDruidicMagicDescription=Conoces un cantrip de tu elección de la lista de hechizos de druida. La sabiduría es tu habilidad para lanzar hechizos.
+Feature/&BolgrifDruidicMagicTitle=Magia druídica
+Feature/&BolgrifInvisibilityPowerDescription=Como acción adicional, puedes volverte invisible mágicamente durante 1 asalto. Esta invisibilidad se rompe si realizas alguna acción ofensiva. Una vez que usas esta habilidad, no puedes volver a usarla hasta que termines un descanso corto o largo.
+Feature/&BolgrifInvisibilityPowerTitle=Desaparecer
+Feature/&BolgrifPowerfulBuildDescription=Cuenta su tamaño como Grande al determinar su capacidad de carga.
+Feature/&BolgrifPowerfulBuildTitle=Construcción poderosa
+Feature/&ProficiencyBolgrifLanguagesDescription=Común, Élfico y Gigante.
+Feature/&ProficiencyBolgrifLanguagesTitle=Idioma
+Language/&AbyssalDescription=El lenguaje abisal era la forma del lenguaje primordial que ha sido envuelto y torcido por la maldad del abismo.
+Language/&AbyssalTitle=Abisal
+Race/&BolgrifRaceDescription=Los bolgrifs son semigigantes que viven en las heladas tierras altas de Solasta. Son astutos, cautelosos, solitarios, desconfían de la mayoría de los humanoides excepto de los elfos y prefieren vivir lejos de la civilización en clanes muy unidos. Si son presionados a la batalla, los bolgrifs demuestran formidables habilidades con las armas y la magia de la naturaleza.
+Race/&BolgrifRaceTitle=bolgrif

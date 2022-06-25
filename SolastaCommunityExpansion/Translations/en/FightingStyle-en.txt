@@ -1,10 +1,10 @@
-FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet.
-FightingStyle/&BlindFightingTitle	Blind Fighting
-FightingStyle/&CripplingDescription	Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
-FightingStyle/&CripplingTitle	Crippling
-FightingStyle/&PugilistFightingDescription	Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have free hand, you can shove as a bonus action.
-FightingStyle/&PugilistFightingTitle	Pugilist
-FightingStyle/&TitanFightingDescription	You gain a +2 hit against creatures of size Large or bigger.
-FightingStyle/&TitanFightingTitle	Titan Fighting
-Modifier/&CripplingAdditionalDamageDescription	Crippling Damage.
-Modifier/&CripplingAdditionalDamageTitle	Crippling
+FightingStyle/&BlindFightingDescription=You have blindsight with a range of 10 feet.
+FightingStyle/&BlindFightingTitle=Blind Fighting
+FightingStyle/&CripplingDescription=Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
+FightingStyle/&CripplingTitle=Crippling
+FightingStyle/&PugilistFightingDescription=Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have free hand, you can shove as a bonus action.
+FightingStyle/&PugilistFightingTitle=Pugilist
+FightingStyle/&TitanFightingDescription=You gain a +2 hit against creatures of size Large or bigger.
+FightingStyle/&TitanFightingTitle=Titan Fighting
+Modifier/&CripplingAdditionalDamageDescription=Crippling Damage.
+Modifier/&CripplingAdditionalDamageTitle=Crippling

@@ -1,22 +1,22 @@
-Condition/&ConditionBarkWardDescription	Beschützt von den Geistern des Waldes. Erhalte 4 temporäre HP für jede Druidenstufe, die 10 Minuten lang anhält.
-Condition/&ConditionBarkWardTitle	Rinde Ward
-Condition/&ConditionImprovedBarkWardDescription	Die Geister des Waldes fügen Kreaturen, die sie mit einem Nahkampfangriff treffen, 2W8 Stichschaden zu.
-Condition/&ConditionImprovedBarkWardTitle	Verbesserter Bark Ward
-Condition/&ConditionSuperiorBarkWardDescription	Die Geister des Waldes gewähren Immunität gegen Gift und fügen Kreaturen, die mit einem Nahkampfangriff treffen, 3W8 Stichschaden zu.
-Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
-Feature/&DruidForestGuardianBarkWardDescription	Du erhältst die Fähigkeit, einen Bark Ward zu beschwören, um dich zu beschützen. Als Bonus-Aktion kannst du eine Verwendung deiner Wilden Form aufwenden, um 4 temporäre Trefferpunkte für jedes Level zu erhalten, das du in dieser Klasse hast. Diese temporären Trefferpunkte halten 10 Minuten lang an oder bis Sie Ihre Wildform erneut verwenden.
-Feature/&DruidForestGuardianBarkWardTitle	Rinde Ward
-Feature/&DruidForestGuardianExtraAttackDescription	Ab der 6. Stufe kannst du zweimal statt einmal angreifen, wenn du in deinem Zug die Angriffsaktion ausführst.
-Feature/&DruidForestGuardianExtraAttackTitle	Extra-Angriff
-Feature/&DruidForestGuardianImprovedBarkWardDescription	Deinem Rindenschutz wachsen jetzt Dornen, die Nahkampfangreifern Schaden zufügen. Feinde, die dich erfolgreich mit einem Nahkampfangriff treffen, erleiden 2W8 Stichschaden.
-Feature/&DruidForestGuardianImprovedBarkWardTitle	Verbesserter Bark Ward
-Feature/&DruidForestGuardianMagicDescription	Ab der 2. Stufe erhältst du, wenn du diesen Kreis wählst, Zugriff auf eine erweiterte Zauberliste, die immer bereit ist:\n{0}
-Feature/&DruidForestGuardianMagicTitle	Zirkelzauber
-Feature/&DruidForestGuardianSuperiorBarkWardDescription	Eure Fähigkeit „Bark Ward“ reflektiert jetzt 3W8 Stichschaden auf Nahkampfangreifer. Zusätzlich gewährt dir Bark Ward jetzt Immunität gegen Gift, solange es aktiv ist.
-Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
-Feature/&DruidForestGuardianSylvanDurabilityDescription	Waldwächter erhalten auf natürliche Weise die Widerstandsfähigkeit einer mächtigen Eiche. Auf der 2. Stufe erhöht sich Ihr Trefferpunktmaximum um 2 und erhöht sich um 1, wenn Sie in dieser Klasse eine Stufe erreichen.
-Feature/&DruidForestGuardianSylvanDurabilityTitle	Sylvanische Haltbarkeit
-Feature/&DruidForestGuardianSylvanWarMagicDescription	Du bist daran gewöhnt, druidische Magie in Harmonie mit kriegerischen Fähigkeiten einzusetzen. Auf der 2. Stufe kannst du Zauber wirken, die eine somatische Komponente erfordern, selbst wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
-Feature/&DruidForestGuardianSylvanWarMagicTitle	Sylvanische Kriegsmagie
-Subclass/&DruidForestGuardianDruidSubclassDescription	Kreis der Waldwächter-Druiden haben geschworen, die Wälder und alle, die darin leben, zu beschützen. Die Mitglieder dieses druidischen Zirkels sind geübt im Umgang mit Abschwörungsmagie und kriegerischen Kämpfen und sind furchterregende Gegner auf dem Schlachtfeld.
-Subclass/&DruidForestGuardianDruidSubclassTitle	Kreis der Waldwächter
+Condition/&ConditionBarkWardDescription=Beschützt von den Geistern des Waldes. Erhalte 4 temporäre HP für jede Druidenstufe, die 10 Minuten lang anhält.
+Condition/&ConditionBarkWardTitle=Rinde Ward
+Condition/&ConditionImprovedBarkWardDescription=Die Geister des Waldes fügen Kreaturen, die sie mit einem Nahkampfangriff treffen, 2W8 Stichschaden zu.
+Condition/&ConditionImprovedBarkWardTitle=Verbesserter Bark Ward
+Condition/&ConditionSuperiorBarkWardDescription=Die Geister des Waldes gewähren Immunität gegen Gift und fügen Kreaturen, die mit einem Nahkampfangriff treffen, 3W8 Stichschaden zu.
+Condition/&ConditionSuperiorBarkWardTitle=Superior Bark Ward
+Feature/&DruidForestGuardianBarkWardDescription=Du erhältst die Fähigkeit, einen Bark Ward zu beschwören, um dich zu beschützen. Als Bonus-Aktion kannst du eine Verwendung deiner Wilden Form aufwenden, um 4 temporäre Trefferpunkte für jedes Level zu erhalten, das du in dieser Klasse hast. Diese temporären Trefferpunkte halten 10 Minuten lang an oder bis Sie Ihre Wildform erneut verwenden.
+Feature/&DruidForestGuardianBarkWardTitle=Rinde Ward
+Feature/&DruidForestGuardianExtraAttackDescription=Ab der 6. Stufe kannst du zweimal statt einmal angreifen, wenn du in deinem Zug die Angriffsaktion ausführst.
+Feature/&DruidForestGuardianExtraAttackTitle=Extra-Angriff
+Feature/&DruidForestGuardianImprovedBarkWardDescription=Deinem Rindenschutz wachsen jetzt Dornen, die Nahkampfangreifern Schaden zufügen. Feinde, die dich erfolgreich mit einem Nahkampfangriff treffen, erleiden 2W8 Stichschaden.
+Feature/&DruidForestGuardianImprovedBarkWardTitle=Verbesserter Bark Ward
+Feature/&DruidForestGuardianMagicDescription=Ab der 2. Stufe erhältst du, wenn du diesen Kreis wählst, Zugriff auf eine erweiterte Zauberliste, die immer bereit ist:\n{0}
+Feature/&DruidForestGuardianMagicTitle=Zirkelzauber
+Feature/&DruidForestGuardianSuperiorBarkWardDescription=Eure Fähigkeit „Bark Ward“ reflektiert jetzt 3W8 Stichschaden auf Nahkampfangreifer. Zusätzlich gewährt dir Bark Ward jetzt Immunität gegen Gift, solange es aktiv ist.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle=Superior Bark Ward
+Feature/&DruidForestGuardianSylvanDurabilityDescription=Waldwächter erhalten auf natürliche Weise die Widerstandsfähigkeit einer mächtigen Eiche. Auf der 2. Stufe erhöht sich Ihr Trefferpunktmaximum um 2 und erhöht sich um 1, wenn Sie in dieser Klasse eine Stufe erreichen.
+Feature/&DruidForestGuardianSylvanDurabilityTitle=Sylvanische Haltbarkeit
+Feature/&DruidForestGuardianSylvanWarMagicDescription=Du bist daran gewöhnt, druidische Magie in Harmonie mit kriegerischen Fähigkeiten einzusetzen. Auf der 2. Stufe kannst du Zauber wirken, die eine somatische Komponente erfordern, selbst wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
+Feature/&DruidForestGuardianSylvanWarMagicTitle=Sylvanische Kriegsmagie
+Subclass/&DruidForestGuardianDruidSubclassDescription=Kreis der Waldwächter-Druiden haben geschworen, die Wälder und alle, die darin leben, zu beschützen. Die Mitglieder dieses druidischen Zirkels sind geübt im Umgang mit Abschwörungsmagie und kriegerischen Kämpfen und sind furchterregende Gegner auf dem Schlachtfeld.
+Subclass/&DruidForestGuardianDruidSubclassTitle=Kreis der Waldwächter

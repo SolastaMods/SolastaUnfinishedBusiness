@@ -1,18 +1,18 @@
-Subclass/&MagicAffinitySpellMasterBonusScribingDescription	Schreiben Sie einen zusätzlichen Zauber bei jedem Levelaufstieg.
-Subclass/&MagicAffinitySpellMasterBonusScribingTitle	Breite des Wissens
-Subclass/&MagicAffinitySpellMasterRecoveryDescription	Einmal pro langer Rast kannst du Zauberslots wiederherstellen (zusätzlich zur Arkanen Erholung).
-Subclass/&MagicAffinitySpellMasterRecoveryTitle	Arkane Tiefe
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Unbegrenzt oft kannst du Zauberslots wiederherstellen (zusätzlich zur Arkanen Wiederherstellung).
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Arkane Tiefe
-Subclass/&MagicAffinitySpellMasterScribingDescription	Das Schreiben von Zaubersprüchen dauert 1/4 der Zeit und Kosten, und Sie haben einen Vorteil.
-Subclass/&MagicAffinitySpellMasterScribingTitle	Meister Schreiber
-Subclass/&TraditionSpellMasterBonusCantripsDescription	Erhalte 2 zusätzliche bekannte Cantrips.
-Subclass/&TraditionSpellMasterBonusCantripsTitle	Bonus-Cantrips
-Subclass/&TraditionSpellMasterDescription	Zaubermeister tauchen in die Magie ein und versuchen, jeden Zauber zu lernen, den sie in die Finger bekommen können. Sie sind unübertroffen in ihrem Zauberwissen.
-Subclass/&TraditionSpellMasterExtraPreparedDescription	Bereiten Sie zusätzliche Intelligenzmodifikatorzauber vor, damit Sie immer das haben, was Sie brauchen.
-Subclass/&TraditionSpellMasterExtraPreparedTitle	Extra vorbereitet
-Subclass/&TraditionSpellMasterPreparedDescription	Bereiten Sie zusätzliche Fertigkeitsbonuszauber vor, damit Sie immer das haben, was Sie brauchen.
-Subclass/&TraditionSpellMasterPreparedTitle	Sei vorbereitet
-Subclass/&TraditionSpellMasterSpellResistanceDescription	Dein Training mit Magie verschafft dir einen Vorteil bei Rettungswürfen gegen Zauber.
-Subclass/&TraditionSpellMasterSpellResistanceTitle	Zauberwiderstand
-Subclass/&TraditionSpellMasterTitle	Zaubermeister
+Subclass/&MagicAffinitySpellMasterBonusScribingDescription=Schreiben Sie einen zusätzlichen Zauber bei jedem Levelaufstieg.
+Subclass/&MagicAffinitySpellMasterBonusScribingTitle=Breite des Wissens
+Subclass/&MagicAffinitySpellMasterRecoveryDescription=Einmal pro langer Rast kannst du Zauberslots wiederherstellen (zusätzlich zur Arkanen Erholung).
+Subclass/&MagicAffinitySpellMasterRecoveryTitle=Arkane Tiefe
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription=Unbegrenzt oft kannst du Zauberslots wiederherstellen (zusätzlich zur Arkanen Wiederherstellung).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle=Arkane Tiefe
+Subclass/&MagicAffinitySpellMasterScribingDescription=Das Schreiben von Zaubersprüchen dauert 1/4 der Zeit und Kosten, und Sie haben einen Vorteil.
+Subclass/&MagicAffinitySpellMasterScribingTitle=Meister Schreiber
+Subclass/&TraditionSpellMasterBonusCantripsDescription=Erhalte 2 zusätzliche bekannte Cantrips.
+Subclass/&TraditionSpellMasterBonusCantripsTitle=Bonus-Cantrips
+Subclass/&TraditionSpellMasterDescription=Zaubermeister tauchen in die Magie ein und versuchen, jeden Zauber zu lernen, den sie in die Finger bekommen können. Sie sind unübertroffen in ihrem Zauberwissen.
+Subclass/&TraditionSpellMasterExtraPreparedDescription=Bereiten Sie zusätzliche Intelligenzmodifikatorzauber vor, damit Sie immer das haben, was Sie brauchen.
+Subclass/&TraditionSpellMasterExtraPreparedTitle=Extra vorbereitet
+Subclass/&TraditionSpellMasterPreparedDescription=Bereiten Sie zusätzliche Fertigkeitsbonuszauber vor, damit Sie immer das haben, was Sie brauchen.
+Subclass/&TraditionSpellMasterPreparedTitle=Sei vorbereitet
+Subclass/&TraditionSpellMasterSpellResistanceDescription=Dein Training mit Magie verschafft dir einen Vorteil bei Rettungswürfen gegen Zauber.
+Subclass/&TraditionSpellMasterSpellResistanceTitle=Zauberwiderstand
+Subclass/&TraditionSpellMasterTitle=Zaubermeister

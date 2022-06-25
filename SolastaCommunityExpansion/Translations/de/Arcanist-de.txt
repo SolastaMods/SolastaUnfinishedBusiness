@@ -1,20 +1,20 @@
-Condition/&ConditionMarkedByArcanistDescription	Vom Zeichen des Arkanisten betroffen. Wenn es vom Zaubernden mit einem Waffenangriff getroffen wird, explodiert das Mal, fügt dem Betroffenen 1W6 Machtschaden zu und zerstört das Mal.
-Condition/&ConditionMarkedByArcanistTitle	Zeichen des Arkanisten
-Equipment/&ArcaneStaffDescription	Dieser Stab ist mit magischer Schrift beschriftet und kann als Fokus für das Wirken arkaner Zauber verwendet werden.
-Equipment/&ArcaneStaffTitle	Arkaner Stab
-Feature/&ArcaneDetonationDescription	Wenn du eine Kreatur mit dem Mal deines Arkanisten mit einem Waffenangriff triffst, detoniert das Mal, verursacht 1W6 Machtschaden und zerstört das Mal.
-Feature/&ArcaneDetonationTitle	Arkane Detonation
-Feature/&ArcaneDetonationUpgradeDescription	Ab der 11. Stufe erhöht sich der Schaden deiner Arkanen Detonation auf 2W6.
-Feature/&ArcaneDetonationUpgradeTitle	Größere Arkane Detonation
-Feature/&ArcanePulseDescription	Ab der 7. Stufe kannst du eine Eruption arkaner Energie in einer Entfernung von 30 Fuß verursachen. Feindliche Kreaturen innerhalb von 4,5 m um den Einschlagspunkt erleiden 4W8 Schaden und erhalten ein Zeichen des Arkanisten. Du kannst diese Fähigkeit pro langer Pause so oft einsetzen, wie es deinem Weisheitsmodifikator entspricht. Auf der 15. Stufe erhöht sich der Schaden deines Arkanen Pulses auf 8W8.
-Feature/&ArcanePulseTitle	Arkaner Puls
-Feature/&ArcanistAutoPreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Waldläuferzauber gelten, sie sind immer vorbereitet und zählen nicht zu der Anzahl der Waldläuferzauber, die du kennst:\n{0}
-Feature/&ArcanistAutoPreparedSpellsTitle	Waldläufer-Arkanist-Bonuszauber
-Feature/&ArcanistMarkDescription	Ab der 3. Stufe verleihen Sie Ihren Waffen arkane Macht. Kreaturen, die von deinen Angriffen getroffen werden, werden vom Zeichen des Arkanisten heimgesucht.
-Feature/&ArcanistMarkTitle	Zeichen des Arkanisten
-Feature/&MagicAffinityRangerArcanistDescription	Du bist geübt im Wirken von Zaubern im Kampf und kannst Zauber wirken, die eine somatische Komponente erfordern, selbst wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
-Feature/&MagicAffinityRangerArcanistTitle	Arkanes Kampftraining
-Feedback/&AdditionalDamageArcanistMarkFormat	Zeichen des Arkanisten!
-Feedback/&AdditionalDamageArcanistMarkLine	Das Zeichen des Arkanisten detoniert und fügt dem Ziel zusätzlichen Schaden zu!
-Subclass/&RangerArcanistRangerSubclassDescription	Der Waldläufer-Arkanist verschmilzt seine Waldläufer-Fähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Zeichen des Arkanisten belegen, und sie haben gelernt, einige Zaubersprüche als Teil ihres Zauberrepertoires für Waldläufer zu wirken.
-Subclass/&RangerArcanistRangerSubclassTitle	Ranger-Arkanist
+Condition/&ConditionMarkedByArcanistDescription=Vom Zeichen des Arkanisten betroffen. Wenn es vom Zaubernden mit einem Waffenangriff getroffen wird, explodiert das Mal, fügt dem Betroffenen 1W6 Machtschaden zu und zerstört das Mal.
+Condition/&ConditionMarkedByArcanistTitle=Zeichen des Arkanisten
+Equipment/&ArcaneStaffDescription=Dieser Stab ist mit magischer Schrift beschriftet und kann als Fokus für das Wirken arkaner Zauber verwendet werden.
+Equipment/&ArcaneStaffTitle=Arkaner Stab
+Feature/&ArcaneDetonationDescription=Wenn du eine Kreatur mit dem Mal deines Arkanisten mit einem Waffenangriff triffst, detoniert das Mal, verursacht 1W6 Machtschaden und zerstört das Mal.
+Feature/&ArcaneDetonationTitle=Arkane Detonation
+Feature/&ArcaneDetonationUpgradeDescription=Ab der 11. Stufe erhöht sich der Schaden deiner Arkanen Detonation auf 2W6.
+Feature/&ArcaneDetonationUpgradeTitle=Größere Arkane Detonation
+Feature/&ArcanePulseDescription=Ab der 7. Stufe kannst du eine Eruption arkaner Energie in einer Entfernung von 30 Fuß verursachen. Feindliche Kreaturen innerhalb von 4,5 m um den Einschlagspunkt erleiden 4W8 Schaden und erhalten ein Zeichen des Arkanisten. Du kannst diese Fähigkeit pro langer Pause so oft einsetzen, wie es deinem Weisheitsmodifikator entspricht. Auf der 15. Stufe erhöht sich der Schaden deines Arkanen Pulses auf 8W8.
+Feature/&ArcanePulseTitle=Arkaner Puls
+Feature/&ArcanistAutoPreparedSpellsDescription=Du erhältst Bonuszauber, die für dich als Waldläuferzauber gelten, sie sind immer vorbereitet und zählen nicht zu der Anzahl der Waldläuferzauber, die du kennst:\n{0}
+Feature/&ArcanistAutoPreparedSpellsTitle=Waldläufer-Arkanist-Bonuszauber
+Feature/&ArcanistMarkDescription=Ab der 3. Stufe verleihen Sie Ihren Waffen arkane Macht. Kreaturen, die von deinen Angriffen getroffen werden, werden vom Zeichen des Arkanisten heimgesucht.
+Feature/&ArcanistMarkTitle=Zeichen des Arkanisten
+Feature/&MagicAffinityRangerArcanistDescription=Du bist geübt im Wirken von Zaubern im Kampf und kannst Zauber wirken, die eine somatische Komponente erfordern, selbst wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
+Feature/&MagicAffinityRangerArcanistTitle=Arkanes Kampftraining
+Feedback/&AdditionalDamageArcanistMarkFormat=Zeichen des Arkanisten!
+Feedback/&AdditionalDamageArcanistMarkLine=Das Zeichen des Arkanisten detoniert und fügt dem Ziel zusätzlichen Schaden zu!
+Subclass/&RangerArcanistRangerSubclassDescription=Der Waldläufer-Arkanist verschmilzt seine Waldläufer-Fähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Zeichen des Arkanisten belegen, und sie haben gelernt, einige Zaubersprüche als Teil ihres Zauberrepertoires für Waldläufer zu wirken.
+Subclass/&RangerArcanistRangerSubclassTitle=Ranger-Arkanist

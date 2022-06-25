@@ -1,236 +1,236 @@
-Condition/&DH_ReverseGravity_Spell_Description	Обратная гравитация
-Condition/&DH_ReverseGravity_Spell_Title	Обратная гравитация
-Condition/&DH_TimeStop_Spell_Description	Застыло на остановке времени
-Condition/&DH_TimeStop_Spell_Title	Застыло на остановке времени
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	Грозовой шторм
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Грозовой шторм
-Feature/&DH_AtWill_Fireball_Power_Description	Неограниченный огненный шар
-Feature/&DH_AtWill_Fireball_Power_Title	Огненный шар
-Feature/&DH_AtWill_HoldMonster_Power_Description	3 использования в день
-Feature/&DH_AtWill_HoldMonster_Power_Title	Удержать монстра
-Feature/&DH_AtWill_Invisibility_Power_Description	Неограниченная невидимость
-Feature/&DH_AtWill_Invisibility_Power_Title	Невидимость
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	Молниеносная атака
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Молниеносная атака
-Monster/&DH_Custom_AirTitan_Description	При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
-Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Изначальный воздушный титан</color>
-Monster/&DH_Custom_AncientBlackDragon_Description	Самые злобные и мерзкие из цветных драконов, черные драконы собирают обломки и сокровища павших народов. Эти драконы ненавидят процветание слабых и наслаждаются крахом гуманоидных королевств. Они строят свои дома в зловонных болотах и ​​полуразрушенных руинах, где когда-то стояли королевства.
-Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>Древний черный дракон</color>
-Monster/&DH_Custom_AncientBlueDragon_Description	Тщеславные и территориальные синие драконы парят в небесах над пустынями, охотятся на караваны и грабят стада и поселения в зеленых землях за пределами досягаемости пустыни. Этих драконов также можно встретить в сухих степях, раскаленных бесплодных землях и скалистых побережьях. Они охраняют свои территории от всех потенциальных конкурентов, особенно от латунных драконов.
-Monster/&DH_Custom_AncientBlueDragon_Title	<color=#ff0000ff>Древний синий дракон</color>
-Monster/&DH_Custom_AncientGreenDragon_Description	Самые хитрые и коварные из истинных драконов, зеленые драконы используют неверное направление и хитрость, чтобы одержать верх над своими врагами. Гнусные и насквозь злые, они получают особое удовольствие, подрывая и развращая добросердечных. В древних лесах, по которым они бродят, зеленые драконы проявляют агрессию, которая часто направлена ​​не столько на территорию, сколько на получение власти и богатства с минимальными усилиями.
-Monster/&DH_Custom_AncientGreenDragon_Title	<color=#ff0000ff>Древний зеленый дракон</color>
-Monster/&DH_Custom_AncientRedDragon_Description	Самые алчные из истинных драконов, красные драконы неустанно стремятся увеличить свои сокровища. Они исключительно тщеславны даже для драконов, и их тщеславие отражается в их гордом осанке и презрении к другим существам.
-Monster/&DH_Custom_AncientRedDragon_Title	<color=#ff0000ff>Древний красный дракон</color>
-Monster/&DH_Custom_AncientWhiteDragon_Description	Белые драконы, самые маленькие, наименее умные и самые звероподобные из цветных драконов, обитают в холодных краях, предпочитая арктические районы или ледяные горы. Это злобные, жестокие рептилии, движимые голодом и жадностью.
-Monster/&DH_Custom_AncientWhiteDragon_Title	<color=#ff0000ff>Древний белый дракон</color>
-Monster/&DH_Custom_Archmage_Description	Архимаги - могущественные (и обычно довольно старые) заклинатели, посвященные изучению тайных искусств. Доброжелательные консультируют королей и королев, в то время как злые правят как тираны и преследуют личные интересы. Те, кто не является ни добрым, ни злым, уединяются в отдаленных башнях, чтобы без перерыва практиковать свою магию.
-Monster/&DH_Custom_Archmage_Title	<color=#ff0000ff>Архимаг</color>
-Monster/&DH_Custom_Balor_Description	Фигуры древнего и ужасного зла, балоры правят как полководцы демоническими армиями, стремясь захватить власть, уничтожая любых существ, которые противостоят им.
-Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>Балор</color>
-Monster/&DH_Custom_ConstructTitan_Description	Массивные конструкции, построенные для войны и выкованные из тяжелого металла. Неудержимый джаггернаут, он существует, чтобы следовать приказам своего создателя, и он защищает или атакует, как требует этот создатель.
-Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>Механическая конструкция Титан</color>
-Monster/&DH_Custom_Deva_Description	Дэвы — это ангелы, которые действуют как божественные посланники или агенты на Материальном Плане.
-Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>Дева</color>
-Monster/&DH_Custom_Djinni_Description	Гордые джинны со Стихийного Плана Воздуха, Хозяева воздуха, джинны ездят на мощных вихрях, которые они создают и направляют по прихоти, и которые могут даже нести пассажиров.
-Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>Джинни</color>
-Monster/&DH_Custom_EarthTitan_Description	При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
-Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>Изначальный земной титан</color>
-Monster/&DH_Custom_Efreeti_Description	Неповоротливые джинны Стихийного Плана Огня, ифриты — мастера пламени, невосприимчивые к огню и способные создавать его по прихоти.
-Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>Ефрем</color>
-Monster/&DH_Custom_Erinyes_Description	Эринии — свирепые и дисциплинированные воины. Сметаясь с небес, они несут скорую смерть существам, обидевшим своих хозяев.
-Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>Эриния</color>
-Monster/&DH_Custom_FireTitan_Description	При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
-Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>Изначальный Огненный Титан</color>
-Monster/&DH_Custom_GuardianNaga_Description	Мудрые и добрые, прекрасные наги-хранители охраняют священные места и предметы магической силы от попадания в руки злых сил. В своих скрытых редутах они изучают заклинания и вынашивают запутанные заговоры, чтобы помешать злым замыслам своих врагов.
-Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>Нага-страж</color>
-Monster/&DH_Custom_HornedDevil_Description	Летающая пехота адских легионов, рогатые дьяволы следуют приказам буквально.
-Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>Рогатый дьявол</color>
-Monster/&DH_Custom_IceDevil_Description	Стремясь к силе своих предводителей, демонов преисподней, ледяные дьяволы неустанно работают над продвижением по службе, убивая врагов Девяти кругов ада и забирая как можно больше душ для своих хозяев-архидьяволов.
-Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>Ледяной дьявол</color>
-Monster/&DH_Custom_Lich_Description	Личи — это останки великих волшебников, которые используют нежить как средство сохранения себя. Они укрепляют свою власть любой ценой, не интересуясь делами живых, за исключением тех случаев, когда эти дела мешают их собственным. Коварные и безумные, они жаждут давно забытых знаний и самых страшных тайн.
-Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>Лич</color>
-Monster/&DH_Custom_Nalfeshnee_Description	Налфешни — один из самых гротескных демонов — дородная пародия на обезьяну и кабана, вдвое выше человеческого роста, с пернатыми крыльями, которые кажутся слишком маленькими для его раздутого тела. За этими звериными чертами скрывается недюжинный ум и хитрость.
-Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>Налфешнее</color>
-Monster/&DH_Custom_PitFiend_Description	Бесспорные повелители большинства других демонов, демоны преисподней сопровождают эрцгерцогов и эрцгерцогинь Девяти кругов ада и выполняют их желания. Эти могучие демоны — генералы Девяти кругов ада, ведущие в бой свои адские легионы.
-Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>Дьявол ямы</color>
-Monster/&DH_Custom_Planetar_Description	Планетары действуют как оружие богов, которым они служат, представляя осязаемое представление могущества их божеств.
-Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>Планетар</color>
-Monster/&DH_Custom_Roc_Description	Рухи — одиночные существа, которые могут жить веками. Они укрываются в гнездах, сделанных из деревьев, палаток, разбитых кораблей и остатков угоняемых ими караванов, помещая эти массивные заросли в расщелины гор вне досягаемости меньших существ.
-Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>Рок</color>
-Monster/&DH_Custom_Solar_Description	На поле боя меч соляра летит в бой сам по себе, и единственная стрела из лука соляра может поразить цель при контакте. Столь велика небесная мощь соляра, что даже князья демонов дрожат от его звучных команд.
-Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>Солнечная энергия</color>
-Monster/&DH_Custom_StormGiant_Description	Штормовые гиганты — созерцательные провидцы, живущие в местах, далеких от цивилизации смертных. У большинства бледно-фиолетово-серая кожа и волосы, а также блестящие изумрудные глаза.
-Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Штормовой великан</color>
-Monster/&DH_Custom_Tarrasque_Description	Легендарный тарраск, пожалуй, самый страшный монстр Материального Плана. Широко распространено мнение, что существует только одно из этих существ, хотя никто не может предсказать, где и когда оно нанесет удар. Чешуйчатый двуногий тарраск имеет пятьдесят футов в высоту и семьдесят футов в длину и весит сотни тонн.
-Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Тарраск</color>
-Monster/&DH_Custom_Vampire_Description	Проснувшись в бесконечной ночи, вампиры жаждут жизни, которую они потеряли, и утоляют этот голод, выпивая кровь живых. Вампиры ненавидят солнечный свет, потому что его прикосновение обжигает их. Они никогда не отбрасывают тени или отражения, и любой вампир, желающий незаметно передвигаться среди живых, держится в темноте и вдали от отражающих поверхностей.
-Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Вампир</color>
-MonsterAttack/&DH_AirBlast_Attack_Description	5d6 гром и отталкивает 2 клетки
-MonsterAttack/&DH_AirBlast_Attack_Title	Поток воздуха
-MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 Дробление и 4d6 Гром
-MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Громовой удар
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Дробление
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Атака хвостом
-MonsterAttack/&DH_Balor_Longsword_Attack_Description	3d8+8 Разрубание и 3d8 Молния
-MonsterAttack/&DH_Balor_Longsword_Attack_Title	Атака длинным мечом
-MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8 Разрубание и 3d6 Огонь
-MonsterAttack/&DH_Balor_Whip_Attack_Title	Хлыстовая атака
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4d8 Силовой урон и цель сбита с ног
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Силовая пушка
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3d12+8 дробящий урон и цель отталкивается на 20 фт.
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	Слэм
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Не может действовать и получает урон кислотой 16d6 каждый ход. 60 единиц урона за одну атаку могут заставить глотателя срыгнуть.
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	проглотил
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	60 единиц урона за одну атаку могут заставить его изрыгнуть.
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	Глотающее существо
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2d10+9 Пронзающий и 2d8 Кислотный урон
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	Атака кислотным укусом
-MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2d10+9 колющий и 2d8 холодный урон
-MonsterAttack/&DH_DamageCold_Bite_Attack_Title	Атака ледяным укусом
-MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2d10+9 проникающий урон и 4d6 огненный урон
-MonsterAttack/&DH_DamageFire_Bite_Attack_Title	Атака огненным укусом
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2d10+9 проникающий урон и 2d10 урон от молнии
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	Атака молниеносным укусом
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2d10+9 колющего и 3d6 ядовитого урона
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	Атака ядовитым укусом
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7d10+8 Дробление
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	Валун
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4d10+8 Дробление
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	Удар по земле
-MonsterAttack/&DH_FireScimatar_Attack_Description	2d6+6 рубящий и 2d6 Огонь
-MonsterAttack/&DH_FireScimatar_Attack_Title	Скимитар огня
-MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5 Дробление + 10d6 Огонь
-MonsterAttack/&DH_FireTitan_Slam_Attack_Title	Обжигающий удар
-MonsterAttack/&DH_Fork_Attack_Description	2d8 +6 Пронзающий
-MonsterAttack/&DH_Fork_Attack_Title	Атака вилкой
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10 + 6 колющего урона
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Укус Атака
-MonsterAttack/&DH_Generic_Claw_Attack_Description	2d6 + 9 рубящего урона
-MonsterAttack/&DH_Generic_Claw_Attack_Title	Атака когтями
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2d10 + 9
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Укус Атака
-MonsterAttack/&DH_HornedDevilTail_Attack_Description	1d8 +6 Пронзающий, накладывает состояние Кровоточащая рана
-MonsterAttack/&DH_HornedDevilTail_Attack_Title	Атака хвостом
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3d6 Necrotic, сохраните, чтобы отменить
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Кровоточащая рана
-MonsterAttack/&DH_HurlFlame_Attack_Description	5d6 Огонь
-MonsterAttack/&DH_HurlFlame_Attack_Title	Бросить пламя
-MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5 Пронзающий и 3d6 Холодный
-MonsterAttack/&DH_Ice_Bite_Attack_Title	Ледяной укус
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3d6 Холод и накладывает паралич
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	Парализующее прикосновение
-MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5 рубящий удар и 2d6 молния
-MonsterAttack/&DH_LightningScimatar_Attack_Title	Скимитар молнии
-MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4 Пронзающий и 15 DC Con Спасбросок до половины 10d8 Poison
-MonsterAttack/&DH_NagaBite_Attack_Title	Ядовитый укус
-MonsterAttack/&DH_NagaSpit_Attack_Description	15 DC Con Спасбросок до половины 10d8 Poison
-MonsterAttack/&DH_NagaSpit_Attack_Title	Плевок Яд
-MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2d6+7 Яд, Накладывает состояние отравления
-MonsterAttack/&DH_PitFiend_Bite_Attack_Title	Укус Атака
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6d6 Позиция повторяется
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	отравлен
-MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2d6+8 Дробление и 6d6 Огонь
-MonsterAttack/&DH_PitFiend_Mace_Attack_Title	Атака булавой
-MonsterAttack/&DH_PoisonLongbow_Attack_Description	Длинный лук с ядовитыми стрелами
-MonsterAttack/&DH_PoisonLongbow_Attack_Title	Ядовитый длинный лук
-MonsterAttack/&DH_PoisonLongsword_Attack_Description	1d10+4 рубящий и 3d8 яд
-MonsterAttack/&DH_PoisonLongsword_Attack_Title	Ядовитый длинный меч
-MonsterAttack/&DH_RadiantLongbow_Attack_Description	2d6+8 Пронзающий и 6d8 Сияющий
-MonsterAttack/&DH_RadiantLongbow_Attack_Title	Убийство длинного лука.
-MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8 Режущий и 6d8 Сияющий
-MonsterAttack/&DH_RadiantLongsword_Attack_Title	Сияющий длинный меч
-MonsterAttack/&DH_Roc_Beak_Attack_Description	4d8+9 Пронзающий
-MonsterAttack/&DH_Roc_Beak_Attack_Title	Клюв
-MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9 Разрубание и цель схвачена и удерживается Рухом
-MonsterAttack/&DH_Roc_Talons_Attack_Title	Когти
-MonsterAttack/&DH_Tarrasque_Bite_Description	колющий урон 4d12 + 10, и цель должна пройти проверку Ловкости, иначе будет схвачена (Сл высвобождения 20).
-MonsterAttack/&DH_Tarrasque_Bite_Title	Кусать
-MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Пока этот захват не закончится, цель будет обездвижена.
-MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Пойманный Тарраском
-MonsterAttack/&DH_Tarrasque_Claw_Description	рубящий урон 4d8 + 10
-MonsterAttack/&DH_Tarrasque_Claw_Title	Коготь
-MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10 колющего урона
-MonsterAttack/&DH_Tarrasque_Horn_Title	Рог
-MonsterAttack/&DH_Tarrasque_Tail_Description	дробящий урон 4d6 + 10. Если цель — существо, она должна преуспеть в спасброске Силы со Сл 20, иначе будет сбита с ног.
-MonsterAttack/&DH_Tarrasque_Tail_Title	Хвост
-MonsterAttack/&DHCouatlBiteAttackDescription	Колющий урон, и цель должна преуспеть в спасброске Телосложения со Сл 13, иначе будет отравлена ​​на 24 часа. Пока этот яд не закончится, цель будет без сознания.
-MonsterAttack/&DHCouatlBiteAttackTitle	Кусать
-MonsterPower/&DH_AirTitan_Gale_Power_Description	4d10 Thunder и нажимается при неудачном сохранении
-MonsterPower/&DH_AirTitan_Gale_Power_Title	Кричащая буря
-MonsterPower/&DH_AirTitan_Lightning_Power_Description	3d10 Молния в области
-MonsterPower/&DH_AirTitan_Lightning_Power_Title	Удар молнии
-MonsterPower/&DH_AncientDragon_Wing_Power_Description	Драконы могут взмахивать крыльями, создавая достаточно ветра, чтобы отбросить большинство гуманоидов и сбить их с ног.
-MonsterPower/&DH_AncientDragon_Wing_Power_Title	Внезапная атака
-MonsterPower/&DH_Balor_FireAura_Power_Description	3d6 Огонь
-MonsterPower/&DH_Balor_FireAura_Power_Title	Огненная аура
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Балор Ответный удар
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Балор Ответный удар
-MonsterPower/&DH_Balor_Retaliate_Power_Description	Балор Ответный удар
-MonsterPower/&DH_Balor_Retaliate_Power_Title	Балор Ответный удар
-MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Телосложение: спасение или ослепление, пока не будет использовано меньшее восстановление
-MonsterPower/&DH_BlindingGaze_Power_Title	Ослепляющий взгляд
-MonsterPower/&DH_DamageAcid_Breath_Power_Description	15d8 Кислота
-MonsterPower/&DH_DamageAcid_Breath_Power_Title	Кислотное дыхание
-MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8 Холод
-MonsterPower/&DH_DamageCold_Breath_Power_Title	Ледяное дыхание
-MonsterPower/&DH_DamageFire_Breath_Power_Description	26d6 Огонь
-MonsterPower/&DH_DamageFire_Breath_Power_Title	Огненное дыхание
-MonsterPower/&DH_DamageLightning_Breath_Power_Description	16d10 Молния
-MonsterPower/&DH_DamageLightning_Breath_Power_Title	Молниеносное дыхание
-MonsterPower/&DH_DamagePoison_Breath_Power_Description	22d6 яд
-MonsterPower/&DH_DamagePoison_Breath_Power_Title	Ядовитое дыхание
-MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10 Radiant Damage и цель распадается на 0 HP
-MonsterPower/&DH_DisintegratingBeam_Power_Title	Распадающийся Луч
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4d10 Дробление
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	Землетрясение
-MonsterPower/&DH_ErinyesParry_Power_Description	+3 КД
-MonsterPower/&DH_ErinyesParry_Power_Title	Парировать
-MonsterPower/&DH_FireTitan_Aura_Power_Description	каждое существо в пределах 30 футов от него получает урон огнём 35 (10d6), а легковоспламеняющиеся предметы в ауре, которые не носят и не несут, воспламеняются.
-MonsterPower/&DH_FireTitan_Aura_Power_Title	Аура Огненного Титана
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	Существо получает урон огнём 35 (10d6) от прикосновения к Маегере или от удара по ней рукопашной атакой, находясь в пределах 10 футов от неё.
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Ответный удар огненного титана
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description	Существо получает урон огнём 35 (10d6) от прикосновения к Маегере или от удара по ней рукопашной атакой, находясь в пределах 10 футов от неё.
-MonsterPower/&DH_FireTitan_Retaliate_Power_Title	Ответный удар огненного титана
-MonsterPower/&DH_IlluminatingCrystals_Power_Description	Любое существо в области, когда заклинание накладывается, также выделяется светом. Во время действия объекты и существа, находящиеся под воздействием, излучают тусклый свет в радиусе 10 футов.
-MonsterPower/&DH_IlluminatingCrystals_Power_Title	Светящиеся кристаллы
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description	Зона фокусировки Титана в пределах 20 футов от него. Любое существо в цилиндре радиусом 20 футов и высотой 20 футов с центром в этой точке должно преуспеть в спасброске Ловкости со Сл 26, иначе оно получит дробящий урон 33 (6к10), упадет ничком и будет опутано на один раунд.
-MonsterPower/&DH_IncreasedGravityZone_Attack_Title	Зона повышенной гравитации
-MonsterPower/&DH_Lich_DisruptLife_Power_Description	6d6 Некротический
-MonsterPower/&DH_Lich_DisruptLife_Power_Title	Нарушить жизнь
-MonsterPower/&DH_SearingBurst_Power_Description	4d6 Огонь и 4d6 Сияние
-MonsterPower/&DH_SearingBurst_Power_Title	Жгучий взрыв
-MonsterPower/&DH_SleetStorm_Immunity_Description	Иммунитет к мокрому снегу
-MonsterPower/&DH_SleetStorm_Immunity_Title	Иммунитет к мокрому снегу
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Призывает 1 элементаля воздуха
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Призвать великого элементаля
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Призывает 1 элементаля земли
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title	Призвать великого элементаля
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Description	Эринии призваны сражаться
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Title	Призывает миньона: поражение
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Призывает 1 огненного элементаля
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Призвать великого элементаля
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Призывает 2 огненных шутов
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Призыв меньших элементалей
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	Призвать меньшее создание
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	Призвать меньшее создание
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Налфешни призван сражаться
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Призывает миньона: Налфешни
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Призывает 1 скарнского гуля
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	Вызов младшего элементаля
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	Призывает 4 змей ветра
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	Призыв меньших элементалей
-MonsterPower/&DH_SummonCreature_Wolves_Power_Description	Вампир волшебным образом призывает 3d6 волков
-MonsterPower/&DH_SummonCreature_Wolves_Power_Title	Дети Ночи
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Каждый раз, когда тарраск становится целью заклинания волшебная стрела, линейного заклинания или заклинания, требующего броска дальней атаки, тарраск не подвергается воздействию.
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Светоотражающий панцирь
-MonsterPower/&DH_TarrasqueSwallowPower_Description	Тарраск совершает одну атаку укусом против существа Большого или меньшего размера, которое он схватил. Если атака попадает, цель проглатывается, и схватка прекращается.
-MonsterPower/&DH_TarrasqueSwallowPower_Title	Глотать
-MonsterPower/&DH_VampireCharmPower_Description	Вампир нацеливается на одного гуманоида, которого он может видеть в пределах 30 футов от себя. Цель должна преуспеть в спасброске Мудрости со Сл 17 против этой магии, иначе будет очарована вампиром.
-MonsterPower/&DH_VampireCharmPower_Title	Очарование
-MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Молния на большой площади
-MonsterPower/&DHAirTitanLightningStormPowerTitle	Грозовой шторм
-MonsterPower/&DHGenericLightningAttackPowerDescription	12Д8
-MonsterPower/&DHGenericLightningAttackPowerTitle	Удар молнии
-Spell/&DHTimeStop_SpellDescription	Вы ненадолго останавливаете течение времени для всех, кроме себя. Для других существ время не проходит, в то время как вы совершаете 1d4 + 1 ход подряд, в течение которых вы можете использовать действия и двигаться как обычно.
-Spell/&DHTimeStop_SpellTitle	Остановка времени
+Condition/&DH_ReverseGravity_Spell_Description=Обратная гравитация
+Condition/&DH_ReverseGravity_Spell_Title=Обратная гравитация
+Condition/&DH_TimeStop_Spell_Description=Застыло на остановке времени
+Condition/&DH_TimeStop_Spell_Title=Застыло на остановке времени
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description=Грозовой шторм
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title=Грозовой шторм
+Feature/&DH_AtWill_Fireball_Power_Description=Неограниченный огненный шар
+Feature/&DH_AtWill_Fireball_Power_Title=Огненный шар
+Feature/&DH_AtWill_HoldMonster_Power_Description=3 использования в день
+Feature/&DH_AtWill_HoldMonster_Power_Title=Удержать монстра
+Feature/&DH_AtWill_Invisibility_Power_Description=Неограниченная невидимость
+Feature/&DH_AtWill_Invisibility_Power_Title=Невидимость
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description=Молниеносная атака
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title=Молниеносная атака
+Monster/&DH_Custom_AirTitan_Description=При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
+Monster/&DH_Custom_AirTitan_Title=<color=#ff0000ff>Изначальный воздушный титан</color>
+Monster/&DH_Custom_AncientBlackDragon_Description=Самые злобные и мерзкие из цветных драконов, черные драконы собирают обломки и сокровища павших народов. Эти драконы ненавидят процветание слабых и наслаждаются крахом гуманоидных королевств. Они строят свои дома в зловонных болотах и ​​полуразрушенных руинах, где когда-то стояли королевства.
+Monster/&DH_Custom_AncientBlackDragon_Title=<color=#ff0000ff>Древний черный дракон</color>
+Monster/&DH_Custom_AncientBlueDragon_Description=Тщеславные и территориальные синие драконы парят в небесах над пустынями, охотятся на караваны и грабят стада и поселения в зеленых землях за пределами досягаемости пустыни. Этих драконов также можно встретить в сухих степях, раскаленных бесплодных землях и скалистых побережьях. Они охраняют свои территории от всех потенциальных конкурентов, особенно от латунных драконов.
+Monster/&DH_Custom_AncientBlueDragon_Title=<color=#ff0000ff>Древний синий дракон</color>
+Monster/&DH_Custom_AncientGreenDragon_Description=Самые хитрые и коварные из истинных драконов, зеленые драконы используют неверное направление и хитрость, чтобы одержать верх над своими врагами. Гнусные и насквозь злые, они получают особое удовольствие, подрывая и развращая добросердечных. В древних лесах, по которым они бродят, зеленые драконы проявляют агрессию, которая часто направлена ​​не столько на территорию, сколько на получение власти и богатства с минимальными усилиями.
+Monster/&DH_Custom_AncientGreenDragon_Title=<color=#ff0000ff>Древний зеленый дракон</color>
+Monster/&DH_Custom_AncientRedDragon_Description=Самые алчные из истинных драконов, красные драконы неустанно стремятся увеличить свои сокровища. Они исключительно тщеславны даже для драконов, и их тщеславие отражается в их гордом осанке и презрении к другим существам.
+Monster/&DH_Custom_AncientRedDragon_Title=<color=#ff0000ff>Древний красный дракон</color>
+Monster/&DH_Custom_AncientWhiteDragon_Description=Белые драконы, самые маленькие, наименее умные и самые звероподобные из цветных драконов, обитают в холодных краях, предпочитая арктические районы или ледяные горы. Это злобные, жестокие рептилии, движимые голодом и жадностью.
+Monster/&DH_Custom_AncientWhiteDragon_Title=<color=#ff0000ff>Древний белый дракон</color>
+Monster/&DH_Custom_Archmage_Description=Архимаги - могущественные (и обычно довольно старые) заклинатели, посвященные изучению тайных искусств. Доброжелательные консультируют королей и королев, в то время как злые правят как тираны и преследуют личные интересы. Те, кто не является ни добрым, ни злым, уединяются в отдаленных башнях, чтобы без перерыва практиковать свою магию.
+Monster/&DH_Custom_Archmage_Title=<color=#ff0000ff>Архимаг</color>
+Monster/&DH_Custom_Balor_Description=Фигуры древнего и ужасного зла, балоры правят как полководцы демоническими армиями, стремясь захватить власть, уничтожая любых существ, которые противостоят им.
+Monster/&DH_Custom_Balor_Title=<color=#ff0000ff>Балор</color>
+Monster/&DH_Custom_ConstructTitan_Description=Массивные конструкции, построенные для войны и выкованные из тяжелого металла. Неудержимый джаггернаут, он существует, чтобы следовать приказам своего создателя, и он защищает или атакует, как требует этот создатель.
+Monster/&DH_Custom_ConstructTitan_Title=<color=#ff0000ff>Механическая конструкция Титан</color>
+Monster/&DH_Custom_Deva_Description=Дэвы — это ангелы, которые действуют как божественные посланники или агенты на Материальном Плане.
+Monster/&DH_Custom_Deva_Title=<color=#ff0000ff>Дева</color>
+Monster/&DH_Custom_Djinni_Description=Гордые джинны со Стихийного Плана Воздуха, Хозяева воздуха, джинны ездят на мощных вихрях, которые они создают и направляют по прихоти, и которые могут даже нести пассажиров.
+Monster/&DH_Custom_Djinni_Title=<color=#ff0000ff>Джинни</color>
+Monster/&DH_Custom_EarthTitan_Description=При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
+Monster/&DH_Custom_EarthTitan_Title=<color=#ff0000ff>Изначальный земной титан</color>
+Monster/&DH_Custom_Efreeti_Description=Неповоротливые джинны Стихийного Плана Огня, ифриты — мастера пламени, невосприимчивые к огню и способные создавать его по прихоти.
+Monster/&DH_Custom_Efreeti_Title=<color=#ff0000ff>Ефрем</color>
+Monster/&DH_Custom_Erinyes_Description=Эринии — свирепые и дисциплинированные воины. Сметаясь с небес, они несут скорую смерть существам, обидевшим своих хозяев.
+Monster/&DH_Custom_Erinyes_Title=<color=#ff0000ff>Эриния</color>
+Monster/&DH_Custom_FireTitan_Description=При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
+Monster/&DH_Custom_FireTitan_Title=<color=#ff0000ff>Изначальный Огненный Титан</color>
+Monster/&DH_Custom_GuardianNaga_Description=Мудрые и добрые, прекрасные наги-хранители охраняют священные места и предметы магической силы от попадания в руки злых сил. В своих скрытых редутах они изучают заклинания и вынашивают запутанные заговоры, чтобы помешать злым замыслам своих врагов.
+Monster/&DH_Custom_GuardianNaga_Title=<color=#ff0000ff>Нага-страж</color>
+Monster/&DH_Custom_HornedDevil_Description=Летающая пехота адских легионов, рогатые дьяволы следуют приказам буквально.
+Monster/&DH_Custom_HornedDevil_Title=<color=#ff0000ff>Рогатый дьявол</color>
+Monster/&DH_Custom_IceDevil_Description=Стремясь к силе своих предводителей, демонов преисподней, ледяные дьяволы неустанно работают над продвижением по службе, убивая врагов Девяти кругов ада и забирая как можно больше душ для своих хозяев-архидьяволов.
+Monster/&DH_Custom_IceDevil_Title=<color=#ff0000ff>Ледяной дьявол</color>
+Monster/&DH_Custom_Lich_Description=Личи — это останки великих волшебников, которые используют нежить как средство сохранения себя. Они укрепляют свою власть любой ценой, не интересуясь делами живых, за исключением тех случаев, когда эти дела мешают их собственным. Коварные и безумные, они жаждут давно забытых знаний и самых страшных тайн.
+Monster/&DH_Custom_Lich_Title=<color=#ff0000ff>Лич</color>
+Monster/&DH_Custom_Nalfeshnee_Description=Налфешни — один из самых гротескных демонов — дородная пародия на обезьяну и кабана, вдвое выше человеческого роста, с пернатыми крыльями, которые кажутся слишком маленькими для его раздутого тела. За этими звериными чертами скрывается недюжинный ум и хитрость.
+Monster/&DH_Custom_Nalfeshnee_Title=<color=#ff0000ff>Налфешнее</color>
+Monster/&DH_Custom_PitFiend_Description=Бесспорные повелители большинства других демонов, демоны преисподней сопровождают эрцгерцогов и эрцгерцогинь Девяти кругов ада и выполняют их желания. Эти могучие демоны — генералы Девяти кругов ада, ведущие в бой свои адские легионы.
+Monster/&DH_Custom_PitFiend_Title=<color=#ff0000ff>Дьявол ямы</color>
+Monster/&DH_Custom_Planetar_Description=Планетары действуют как оружие богов, которым они служат, представляя осязаемое представление могущества их божеств.
+Monster/&DH_Custom_Planetar_Title=<color=#ff0000ff>Планетар</color>
+Monster/&DH_Custom_Roc_Description=Рухи — одиночные существа, которые могут жить веками. Они укрываются в гнездах, сделанных из деревьев, палаток, разбитых кораблей и остатков угоняемых ими караванов, помещая эти массивные заросли в расщелины гор вне досягаемости меньших существ.
+Monster/&DH_Custom_Roc_Title=<color=#ff0000ff>Рок</color>
+Monster/&DH_Custom_Solar_Description=На поле боя меч соляра летит в бой сам по себе, и единственная стрела из лука соляра может поразить цель при контакте. Столь велика небесная мощь соляра, что даже князья демонов дрожат от его звучных команд.
+Monster/&DH_Custom_Solar_Title=<color=#ff0000ff>Солнечная энергия</color>
+Monster/&DH_Custom_StormGiant_Description=Штормовые гиганты — созерцательные провидцы, живущие в местах, далеких от цивилизации смертных. У большинства бледно-фиолетово-серая кожа и волосы, а также блестящие изумрудные глаза.
+Monster/&DH_Custom_StormGiant_Title=<color=#ff0000ff>Штормовой великан</color>
+Monster/&DH_Custom_Tarrasque_Description=Легендарный тарраск, пожалуй, самый страшный монстр Материального Плана. Широко распространено мнение, что существует только одно из этих существ, хотя никто не может предсказать, где и когда оно нанесет удар. Чешуйчатый двуногий тарраск имеет пятьдесят футов в высоту и семьдесят футов в длину и весит сотни тонн.
+Monster/&DH_Custom_Tarrasque_Title=<color=#ff0000ff>Тарраск</color>
+Monster/&DH_Custom_Vampire_Description=Проснувшись в бесконечной ночи, вампиры жаждут жизни, которую они потеряли, и утоляют этот голод, выпивая кровь живых. Вампиры ненавидят солнечный свет, потому что его прикосновение обжигает их. Они никогда не отбрасывают тени или отражения, и любой вампир, желающий незаметно передвигаться среди живых, держится в темноте и вдали от отражающих поверхностей.
+Monster/&DH_Custom_Vampire_Title=<color=#ff0000ff>Вампир</color>
+MonsterAttack/&DH_AirBlast_Attack_Description=5d6 гром и отталкивает 2 клетки
+MonsterAttack/&DH_AirBlast_Attack_Title=Поток воздуха
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description=4d6+6 Дробление и 4d6 Гром
+MonsterAttack/&DH_AirTitan_Slam_Attack_Title=Громовой удар
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Description=2D8+8 Дробление
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Title=Атака хвостом
+MonsterAttack/&DH_Balor_Longsword_Attack_Description=3d8+8 Разрубание и 3d8 Молния
+MonsterAttack/&DH_Balor_Longsword_Attack_Title=Атака длинным мечом
+MonsterAttack/&DH_Balor_Whip_Attack_Description=2D6+8 Разрубание и 3d6 Огонь
+MonsterAttack/&DH_Balor_Whip_Attack_Title=Хлыстовая атака
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description=4d8 Силовой урон и цель сбита с ног
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title=Силовая пушка
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description=3d12+8 дробящий урон и цель отталкивается на 20 фт.
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title=Слэм
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description=Не может действовать и получает урон кислотой 16d6 каждый ход. 60 единиц урона за одну атаку могут заставить глотателя срыгнуть.
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title=проглотил
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description=60 единиц урона за одну атаку могут заставить его изрыгнуть.
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title=Глотающее существо
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Description=2d10+9 Пронзающий и 2d8 Кислотный урон
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Title=Атака кислотным укусом
+MonsterAttack/&DH_DamageCold_Bite_Attack_Description=2d10+9 колющий и 2d8 холодный урон
+MonsterAttack/&DH_DamageCold_Bite_Attack_Title=Атака ледяным укусом
+MonsterAttack/&DH_DamageFire_Bite_Attack_Description=2d10+9 проникающий урон и 4d6 огненный урон
+MonsterAttack/&DH_DamageFire_Bite_Attack_Title=Атака огненным укусом
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Description=2d10+9 проникающий урон и 2d10 урон от молнии
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Title=Атака молниеносным укусом
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Description=2d10+9 колющего и 3d6 ядовитого урона
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Title=Атака ядовитым укусом
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description=7d10+8 Дробление
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title=Валун
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Description=4d10+8 Дробление
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Title=Удар по земле
+MonsterAttack/&DH_FireScimatar_Attack_Description=2d6+6 рубящий и 2d6 Огонь
+MonsterAttack/&DH_FireScimatar_Attack_Title=Скимитар огня
+MonsterAttack/&DH_FireTitan_Slam_Attack_Description=3d6+5 Дробление + 10d6 Огонь
+MonsterAttack/&DH_FireTitan_Slam_Attack_Title=Обжигающий удар
+MonsterAttack/&DH_Fork_Attack_Description=2d8 +6 Пронзающий
+MonsterAttack/&DH_Fork_Attack_Title=Атака вилкой
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description=2d10 + 6 колющего урона
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title=Укус Атака
+MonsterAttack/&DH_Generic_Claw_Attack_Description=2d6 + 9 рубящего урона
+MonsterAttack/&DH_Generic_Claw_Attack_Title=Атака когтями
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description=2d10 + 9
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title=Укус Атака
+MonsterAttack/&DH_HornedDevilTail_Attack_Description=1d8 +6 Пронзающий, накладывает состояние Кровоточащая рана
+MonsterAttack/&DH_HornedDevilTail_Attack_Title=Атака хвостом
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description=3d6 Necrotic, сохраните, чтобы отменить
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title=Кровоточащая рана
+MonsterAttack/&DH_HurlFlame_Attack_Description=5d6 Огонь
+MonsterAttack/&DH_HurlFlame_Attack_Title=Бросить пламя
+MonsterAttack/&DH_Ice_Bite_Attack_Description=2d6+5 Пронзающий и 3d6 Холодный
+MonsterAttack/&DH_Ice_Bite_Attack_Title=Ледяной укус
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description=3d6 Холод и накладывает паралич
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title=Парализующее прикосновение
+MonsterAttack/&DH_LightningScimatar_Attack_Description=2d6+5 рубящий удар и 2d6 молния
+MonsterAttack/&DH_LightningScimatar_Attack_Title=Скимитар молнии
+MonsterAttack/&DH_NagaBite_Attack_Description=1d8+4 Пронзающий и 15 DC Con Спасбросок до половины 10d8 Poison
+MonsterAttack/&DH_NagaBite_Attack_Title=Ядовитый укус
+MonsterAttack/&DH_NagaSpit_Attack_Description=15 DC Con Спасбросок до половины 10d8 Poison
+MonsterAttack/&DH_NagaSpit_Attack_Title=Плевок Яд
+MonsterAttack/&DH_PitFiend_Bite_Attack_Description=2d6+7 Яд, Накладывает состояние отравления
+MonsterAttack/&DH_PitFiend_Bite_Attack_Title=Укус Атака
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description=6d6 Позиция повторяется
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title=отравлен
+MonsterAttack/&DH_PitFiend_Mace_Attack_Description=2d6+8 Дробление и 6d6 Огонь
+MonsterAttack/&DH_PitFiend_Mace_Attack_Title=Атака булавой
+MonsterAttack/&DH_PoisonLongbow_Attack_Description=Длинный лук с ядовитыми стрелами
+MonsterAttack/&DH_PoisonLongbow_Attack_Title=Ядовитый длинный лук
+MonsterAttack/&DH_PoisonLongsword_Attack_Description=1d10+4 рубящий и 3d8 яд
+MonsterAttack/&DH_PoisonLongsword_Attack_Title=Ядовитый длинный меч
+MonsterAttack/&DH_RadiantLongbow_Attack_Description=2d6+8 Пронзающий и 6d8 Сияющий
+MonsterAttack/&DH_RadiantLongbow_Attack_Title=Убийство длинного лука.
+MonsterAttack/&DH_RadiantLongsword_Attack_Description=4D6+8 Режущий и 6d8 Сияющий
+MonsterAttack/&DH_RadiantLongsword_Attack_Title=Сияющий длинный меч
+MonsterAttack/&DH_Roc_Beak_Attack_Description=4d8+9 Пронзающий
+MonsterAttack/&DH_Roc_Beak_Attack_Title=Клюв
+MonsterAttack/&DH_Roc_Talons_Attack_Description=4d6+9 Разрубание и цель схвачена и удерживается Рухом
+MonsterAttack/&DH_Roc_Talons_Attack_Title=Когти
+MonsterAttack/&DH_Tarrasque_Bite_Description=колющий урон 4d12 + 10, и цель должна пройти проверку Ловкости, иначе будет схвачена (Сл высвобождения 20).
+MonsterAttack/&DH_Tarrasque_Bite_Title=Кусать
+MonsterAttack/&DH_Tarrasque_BiteCondition_Description=Пока этот захват не закончится, цель будет обездвижена.
+MonsterAttack/&DH_Tarrasque_BiteCondition_Title=Пойманный Тарраском
+MonsterAttack/&DH_Tarrasque_Claw_Description=рубящий урон 4d8 + 10
+MonsterAttack/&DH_Tarrasque_Claw_Title=Коготь
+MonsterAttack/&DH_Tarrasque_Horn_Description=4d10 + 10 колющего урона
+MonsterAttack/&DH_Tarrasque_Horn_Title=Рог
+MonsterAttack/&DH_Tarrasque_Tail_Description=дробящий урон 4d6 + 10. Если цель — существо, она должна преуспеть в спасброске Силы со Сл 20, иначе будет сбита с ног.
+MonsterAttack/&DH_Tarrasque_Tail_Title=Хвост
+MonsterAttack/&DHCouatlBiteAttackDescription=Колющий урон, и цель должна преуспеть в спасброске Телосложения со Сл 13, иначе будет отравлена ​​на 24 часа. Пока этот яд не закончится, цель будет без сознания.
+MonsterAttack/&DHCouatlBiteAttackTitle=Кусать
+MonsterPower/&DH_AirTitan_Gale_Power_Description=4d10 Thunder и нажимается при неудачном сохранении
+MonsterPower/&DH_AirTitan_Gale_Power_Title=Кричащая буря
+MonsterPower/&DH_AirTitan_Lightning_Power_Description=3d10 Молния в области
+MonsterPower/&DH_AirTitan_Lightning_Power_Title=Удар молнии
+MonsterPower/&DH_AncientDragon_Wing_Power_Description=Драконы могут взмахивать крыльями, создавая достаточно ветра, чтобы отбросить большинство гуманоидов и сбить их с ног.
+MonsterPower/&DH_AncientDragon_Wing_Power_Title=Внезапная атака
+MonsterPower/&DH_Balor_FireAura_Power_Description=3d6 Огонь
+MonsterPower/&DH_Balor_FireAura_Power_Title=Огненная аура
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description=Балор Ответный удар
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title=Балор Ответный удар
+MonsterPower/&DH_Balor_Retaliate_Power_Description=Балор Ответный удар
+MonsterPower/&DH_Balor_Retaliate_Power_Title=Балор Ответный удар
+MonsterPower/&DH_BlindingGaze_Power_Description=DC15 Телосложение: спасение или ослепление, пока не будет использовано меньшее восстановление
+MonsterPower/&DH_BlindingGaze_Power_Title=Ослепляющий взгляд
+MonsterPower/&DH_DamageAcid_Breath_Power_Description=15d8 Кислота
+MonsterPower/&DH_DamageAcid_Breath_Power_Title=Кислотное дыхание
+MonsterPower/&DH_DamageCold_Breath_Power_Description=16D8 Холод
+MonsterPower/&DH_DamageCold_Breath_Power_Title=Ледяное дыхание
+MonsterPower/&DH_DamageFire_Breath_Power_Description=26d6 Огонь
+MonsterPower/&DH_DamageFire_Breath_Power_Title=Огненное дыхание
+MonsterPower/&DH_DamageLightning_Breath_Power_Description=16d10 Молния
+MonsterPower/&DH_DamageLightning_Breath_Power_Title=Молниеносное дыхание
+MonsterPower/&DH_DamagePoison_Breath_Power_Description=22d6 яд
+MonsterPower/&DH_DamagePoison_Breath_Power_Title=Ядовитое дыхание
+MonsterPower/&DH_DisintegratingBeam_Power_Description=6D10 Radiant Damage и цель распадается на 0 HP
+MonsterPower/&DH_DisintegratingBeam_Power_Title=Распадающийся Луч
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Description=4d10 Дробление
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Title=Землетрясение
+MonsterPower/&DH_ErinyesParry_Power_Description=+3 КД
+MonsterPower/&DH_ErinyesParry_Power_Title=Парировать
+MonsterPower/&DH_FireTitan_Aura_Power_Description=каждое существо в пределах 30 футов от него получает урон огнём 35 (10d6), а легковоспламеняющиеся предметы в ауре, которые не носят и не несут, воспламеняются.
+MonsterPower/&DH_FireTitan_Aura_Power_Title=Аура Огненного Титана
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description=Существо получает урон огнём 35 (10d6) от прикосновения к Маегере или от удара по ней рукопашной атакой, находясь в пределах 10 футов от неё.
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title=Ответный удар огненного титана
+MonsterPower/&DH_FireTitan_Retaliate_Power_Description=Существо получает урон огнём 35 (10d6) от прикосновения к Маегере или от удара по ней рукопашной атакой, находясь в пределах 10 футов от неё.
+MonsterPower/&DH_FireTitan_Retaliate_Power_Title=Ответный удар огненного титана
+MonsterPower/&DH_IlluminatingCrystals_Power_Description=Любое существо в области, когда заклинание накладывается, также выделяется светом. Во время действия объекты и существа, находящиеся под воздействием, излучают тусклый свет в радиусе 10 футов.
+MonsterPower/&DH_IlluminatingCrystals_Power_Title=Светящиеся кристаллы
+MonsterPower/&DH_IncreasedGravityZone_Attack_Description=Зона фокусировки Титана в пределах 20 футов от него. Любое существо в цилиндре радиусом 20 футов и высотой 20 футов с центром в этой точке должно преуспеть в спасброске Ловкости со Сл 26, иначе оно получит дробящий урон 33 (6к10), упадет ничком и будет опутано на один раунд.
+MonsterPower/&DH_IncreasedGravityZone_Attack_Title=Зона повышенной гравитации
+MonsterPower/&DH_Lich_DisruptLife_Power_Description=6d6 Некротический
+MonsterPower/&DH_Lich_DisruptLife_Power_Title=Нарушить жизнь
+MonsterPower/&DH_SearingBurst_Power_Description=4d6 Огонь и 4d6 Сияние
+MonsterPower/&DH_SearingBurst_Power_Title=Жгучий взрыв
+MonsterPower/&DH_SleetStorm_Immunity_Description=Иммунитет к мокрому снегу
+MonsterPower/&DH_SleetStorm_Immunity_Title=Иммунитет к мокрому снегу
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description=Призывает 1 элементаля воздуха
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title=Призвать великого элементаля
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description=Призывает 1 элементаля земли
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title=Призвать великого элементаля
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Description=Эринии призваны сражаться
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Title=Призывает миньона: поражение
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description=Призывает 1 огненного элементаля
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title=Призвать великого элементаля
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description=Призывает 2 огненных шутов
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title=Призыв меньших элементалей
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description=Призвать меньшее создание
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title=Призвать меньшее создание
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description=Налфешни призван сражаться
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title=Призывает миньона: Налфешни
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description=Призывает 1 скарнского гуля
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title=Вызов младшего элементаля
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Description=Призывает 4 змей ветра
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Title=Призыв меньших элементалей
+MonsterPower/&DH_SummonCreature_Wolves_Power_Description=Вампир волшебным образом призывает 3d6 волков
+MonsterPower/&DH_SummonCreature_Wolves_Power_Title=Дети Ночи
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description=Каждый раз, когда тарраск становится целью заклинания волшебная стрела, линейного заклинания или заклинания, требующего броска дальней атаки, тарраск не подвергается воздействию.
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title=Светоотражающий панцирь
+MonsterPower/&DH_TarrasqueSwallowPower_Description=Тарраск совершает одну атаку укусом против существа Большого или меньшего размера, которое он схватил. Если атака попадает, цель проглатывается, и схватка прекращается.
+MonsterPower/&DH_TarrasqueSwallowPower_Title=Глотать
+MonsterPower/&DH_VampireCharmPower_Description=Вампир нацеливается на одного гуманоида, которого он может видеть в пределах 30 футов от себя. Цель должна преуспеть в спасброске Мудрости со Сл 17 против этой магии, иначе будет очарована вампиром.
+MonsterPower/&DH_VampireCharmPower_Title=Очарование
+MonsterPower/&DHAirTitanLightningStormPowerDescription=6d8 Молния на большой площади
+MonsterPower/&DHAirTitanLightningStormPowerTitle=Грозовой шторм
+MonsterPower/&DHGenericLightningAttackPowerDescription=12Д8
+MonsterPower/&DHGenericLightningAttackPowerTitle=Удар молнии
+Spell/&DHTimeStop_SpellDescription=Вы ненадолго останавливаете течение времени для всех, кроме себя. Для других существ время не проходит, в то время как вы совершаете 1d4 + 1 ход подряд, в течение которых вы можете использовать действия и двигаться как обычно.
+Spell/&DHTimeStop_SpellTitle=Остановка времени

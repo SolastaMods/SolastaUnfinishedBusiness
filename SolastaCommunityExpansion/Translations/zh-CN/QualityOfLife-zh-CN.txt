@@ -1,57 +1,57 @@
-BlueprintCategory/&FlatRoomsTitle	平房
-Caption/&GadgetParametersCustomRemoveDescription	移除:\n{0}
-ContentPack/&CommunityExpansionPackDescription	社区扩展包增加了新的职业、子职、专长和法术。它引入了更高的等级上限、兼职、QOL功能、Bug修复和更多特性。这是一个名副其实的丰饶之角
-ContentPack/&CommunityExpansionPackTitle	社区扩展包
-Failure/&FailureFlagTargetMeleeWeaponError	不能用当前武器对此目标进行近战攻击
-Feature/&AlwaysBeardDescription	{0}%	概率长出光荣的胡须
-Feature/&BardSkillsTitle	吟游诗人技艺
+BlueprintCategory/&FlatRoomsTitle=平房
+Caption/&GadgetParametersCustomRemoveDescription=移除:\n{0}
+ContentPack/&CommunityExpansionPackDescription=社区扩展包增加了新的职业、子职、专长和法术。它引入了更高的等级上限、兼职、QOL功能、Bug修复和更多特性。这是一个名副其实的丰饶之角
+ContentPack/&CommunityExpansionPackTitle=社区扩展包
+Failure/&FailureFlagTargetMeleeWeaponError=不能用当前武器对此目标进行近战攻击
+Feature/&AlwaysBeardDescription={0}%=概率长出光荣的胡须
+Feature/&BardSkillsTitle=吟游诗人技艺
 Feature/&EmptyString
-Format/&LevelAndExperienceFormat	等级：{0}\n经验值：{1}\n升级到等级{3}还需{2}点
-Format/&LevelAndExperienceMaxedFormat	等级：{0}\n经验值：{1}\n达到最大等级
-MainMenu/&ExportPdfDescription	降级此角色
-MainMenu/&ExportPdfTitle	降级
-Message/&CharacterExportDuplicateNameErrorDescription	导出取消：\n\n角色池中存在一个重复的名称\n请尝试使用不同的名字
-Message/&CharacterExportEmptyNameErrorDescription	导出取消：\n\n请尝试使用非空白的名字
-Message/&CharacterExportModalContentDescription	输入要导出的角色名称：
-Message/&CharacterExportModalTitleDescription	角色导出
-Message/&LevelDownConfirmationDescription	是否降级此角色？
-Message/&LevelDownMultiplayerAbortDescription	无法在多人游戏中降级角色
-Message/&MessageModWelcomeDescription	社区扩展包引入了大量令人惊喜的功能，但是默认未启用。点击<color=yellow>Ctrl-F10</color>打开Unity Mod	Manager的操作界面[UMM]，然后点击“社区扩展包”旁边的设置图标，打开设置页面\n\n探索这些选项并选择你喜欢的。UMM操作界面将开启
-Message/&MessageModWelcomeTitle	社区扩展包
-Message/&RespecMultiplayerAbortDescription	无法在多人游戏或冒险地图中重置角色
-Message/&SpawnCustomEncounterDescription	在坐标({0},	{1})处制造一场遭遇战？
-Message/&SpawnCustomEncounterErrorDescription	目前暂时无法在联机游戏上制造遭遇战
-Message/&SpawnCustomEncounterTitle	遭遇战
-Message/&TeleportPartyDescription	将队伍传送到({0},	{1})么？\n若你传送到一个未发现的地方，你可能会破坏任务或地图
-Message/&TeleportPartyTitle	传送
-Reaction/&ReadiedAction{0}Description	准备{0}
-Reaction/&ReadiedAction{0}Title	准备{0}
-Reaction/&SpendPower{0}Description	消耗{0}
-Reaction/&SpendPower{0}Title	消耗{0}
-Reaction/&SpendPowerBundleDescription	使用能力
-Reaction/&SpendPowerBundleTitle	使用能力
-Reaction/&SubitemSelectPowerBundleTitle	选项
-Reaction/&SubitemSelectSlotLevelTitle	法术位等级
-Reaction/&Use{0}Description	使用{0}
-Reaction/&Use{0}Title	使用{0}
-Requirement/&FeatureSelectionRequireCharacterLevel	等级{0}
-Requirement/&FeatureSelectionRequireClassLevel	等级{0}的{1}
-RestActivity/&ZSRespecDescription	重置此角色
-RestActivity/&ZSRespecTitle	重置
-Screen/&EditorLocationSize3Title	巨型[MODDED]
-Screen/&EditorLocationSize4Title	超巨型[MODDED]
-Stage/&IdentityMorphotypeEyeHeader	眼睛风格
-ToolTip/&CheckBoxDefaultPartyTitle	勾选此框，设置你在开始新的冒险或测试自定义地点时的默认阵容。你以勾选顺序最多能选择{0}个英雄
-Tooltip/&Tag9000Title	自定义效果
-Tooltip/&TagCommunityExpansionTitle	社区拓展
-Tooltip/&TagOtherModContentTitle	源于Mod
-UI/&CustomFeatureSelectionStageDescription	从你的职业/子职中选择额外特性
-UI/&CustomFeatureSelectionStageFeatures	特性
-UI/&CustomFeatureSelectionStageNotDone	你必须在继续前选择所有可选的特性
-UI/&CustomFeatureSelectionStageTitle	特性选择
-UI/&CustomFeatureSelectionTooltipTypeCantrip	戏法
-UI/&CustomFeatureSelectionTooltipTypeFeature	特性
-UI/&CustomFeatureSelectionTooltipTypePower	能力
-UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
-UI/&ForcePreferredCantripDescription	若此选项开启，仅默认戏法能触发。若未选择默认戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
-UI/&ForcePreferredCantripTitle	强制默认戏法
+Format/&LevelAndExperienceFormat=等级：{0}\n经验值：{1}\n升级到等级{3}还需{2}点
+Format/&LevelAndExperienceMaxedFormat=等级：{0}\n经验值：{1}\n达到最大等级
+MainMenu/&ExportPdfDescription=降级此角色
+MainMenu/&ExportPdfTitle=降级
+Message/&CharacterExportDuplicateNameErrorDescription=导出取消：\n\n角色池中存在一个重复的名称\n请尝试使用不同的名字
+Message/&CharacterExportEmptyNameErrorDescription=导出取消：\n\n请尝试使用非空白的名字
+Message/&CharacterExportModalContentDescription=输入要导出的角色名称：
+Message/&CharacterExportModalTitleDescription=角色导出
+Message/&LevelDownConfirmationDescription=是否降级此角色？
+Message/&LevelDownMultiplayerAbortDescription=无法在多人游戏中降级角色
+Message/&MessageModWelcomeDescription=社区扩展包引入了大量令人惊喜的功能，但是默认未启用。点击<color=yellow>Ctrl-F10</color>打开Unity Mod=Manager的操作界面[UMM]，然后点击“社区扩展包”旁边的设置图标，打开设置页面\n\n探索这些选项并选择你喜欢的。UMM操作界面将开启
+Message/&MessageModWelcomeTitle=社区扩展包
+Message/&RespecMultiplayerAbortDescription=无法在多人游戏或冒险地图中重置角色
+Message/&SpawnCustomEncounterDescription=在坐标({0},={1})处制造一场遭遇战？
+Message/&SpawnCustomEncounterErrorDescription=目前暂时无法在联机游戏上制造遭遇战
+Message/&SpawnCustomEncounterTitle=遭遇战
+Message/&TeleportPartyDescription=将队伍传送到({0},={1})么？\n若你传送到一个未发现的地方，你可能会破坏任务或地图
+Message/&TeleportPartyTitle=传送
+Reaction/&ReadiedAction{0}Description=准备{0}
+Reaction/&ReadiedAction{0}Title=准备{0}
+Reaction/&SpendPower{0}Description=消耗{0}
+Reaction/&SpendPower{0}Title=消耗{0}
+Reaction/&SpendPowerBundleDescription=使用能力
+Reaction/&SpendPowerBundleTitle=使用能力
+Reaction/&SubitemSelectPowerBundleTitle=选项
+Reaction/&SubitemSelectSlotLevelTitle=法术位等级
+Reaction/&Use{0}Description=使用{0}
+Reaction/&Use{0}Title=使用{0}
+Requirement/&FeatureSelectionRequireCharacterLevel=等级{0}
+Requirement/&FeatureSelectionRequireClassLevel=等级{0}的{1}
+RestActivity/&ZSRespecDescription=重置此角色
+RestActivity/&ZSRespecTitle=重置
+Screen/&EditorLocationSize3Title=巨型[MODDED]
+Screen/&EditorLocationSize4Title=超巨型[MODDED]
+Stage/&IdentityMorphotypeEyeHeader=眼睛风格
+ToolTip/&CheckBoxDefaultPartyTitle=勾选此框，设置你在开始新的冒险或测试自定义地点时的默认阵容。你以勾选顺序最多能选择{0}个英雄
+Tooltip/&Tag9000Title=自定义效果
+Tooltip/&TagCommunityExpansionTitle=社区拓展
+Tooltip/&TagOtherModContentTitle=源于Mod
+UI/&CustomFeatureSelectionStageDescription=从你的职业/子职中选择额外特性
+UI/&CustomFeatureSelectionStageFeatures=特性
+UI/&CustomFeatureSelectionStageNotDone=你必须在继续前选择所有可选的特性
+UI/&CustomFeatureSelectionStageTitle=特性选择
+UI/&CustomFeatureSelectionTooltipTypeCantrip=戏法
+UI/&CustomFeatureSelectionTooltipTypeFeature=特性
+UI/&CustomFeatureSelectionTooltipTypePower=能力
+UI/&CustomFeatureSelectionTooltipTypeProficiency=熟练度
+UI/&ForcePreferredCantripDescription=若此选项开启，仅默认戏法能触发。若未选择默认戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
+UI/&ForcePreferredCantripTitle=强制默认戏法

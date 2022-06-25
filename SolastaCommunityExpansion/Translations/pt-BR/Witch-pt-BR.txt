@@ -1,123 +1,123 @@
-Class/&WitchArmorProficiencyDescription	Armadura leve.
-Class/&WitchArmorProficiencyTitle	Proficiências em Armadura de Bruxa
-Class/&WitchBurnedFireResistanceDescription	Você tem resistência a dano de fogo.
-Class/&WitchBurnedFireResistanceTitle	Queimado: Resistência ao Fogo
-Class/&WitchBurnedProduceFlameDescription	Você conhece o truque Produzir Chama, que não conta para o número total de truques conhecidos.
-Class/&WitchBurnedProduceFlameTitle	Queimado: Produzir Chama
-Class/&WitchCacklePowerDescription	Você pode usar sua ação bônus para gargalhar. A duração de sua Maldição se estende por 1 rodada para cada criatura afetada a até 18 metros de você.\nNem todas as bruxas riem loucamente quando cacarejam, mas todas as gargalhadas requerem um componente verbal, como um feitiço. Estes variam de maldições e insultos mundanos, ao murmúrio de línguas mortas e falar de trás para frente.
-Class/&WitchCacklePowerTitle	Cacarejo
-Class/&WitchDescription	Afligidas por uma maldição sinistra, as bruxas podem transformar magia negra em Maldições, que elas usam para debilitar os inimigos. Eles também são acompanhados por seus familiares, companheiros mágicos leais que eles usam para dar o golpe mortal.
-Class/&WitchFamiliarPowerDescription	Você aprende o feitiço Witch Familiar, ou seja, um feitiço Find Familiar melhorado, e pode lançá-lo como um ritual sem componentes materiais. A magia não conta para o seu número de magias conhecidas. O feitiço melhora Encontrar Familiar das seguintes maneiras:\n• Seu familiar tem seu turno imediatamente antes ou depois do seu turno a cada rodada (sua escolha).\n• Uma vez por turno como uma ação ou ação bônus, você pode comandar mentalmente seu familiar para usar sua reação para fazer um ataque.\n• Quando você conjura um feitiço, você pode lançá-lo através de seu familiar como se ele tivesse conjurado o feitiço, mesmo que o feitiço não tenha alcance de toque.\n• Seu familiar pode usar seu bônus de ataque mágico para suas jogadas de ataque.\n• Seu familiar adiciona seu bônus de proficiência à sua Classe de Armadura, testes de resistência e jogadas de dano.\n• Você adiciona o dobro do seu nível de Bruxa aos pontos de vida máximos do seu familiar.
-Class/&WitchFamiliarPowerTitle	Familiar
-Class/&WitchFeatureSetBurnedCurseDescription	Quase todo o seu corpo foi queimado por chamas arcanas, deixando-o com cicatrizes negras marcantes e brasas de magia que queimam sob a pele. Como resultado, você tem resistência a dano de fogo e conhece o truque Produzir Chama, que não conta para o número total de truques conhecidos.
-Class/&WitchFeatureSetBurnedCurseTitle	Queimado
-Class/&WitchFeatureSetLovelessCurseDescription	Você está amaldiçoado a nunca encontrar o amor verdadeiro. Cansado e insatisfeito, nem mesmo a magia pode transformar seu coração; como resultado, você é imune a ser enfeitiçado.
-Class/&WitchFeatureSetLovelessCurseTitle	sem amor
-Class/&WitchFeatureSetRitualCastingDescription	Você pode lançar qualquer feitiço de Bruxa que você conheça como um ritual se esse feitiço tiver a etiqueta ritual.
-Class/&WitchFeatureSetRitualCastingTitle	Bruxa: Casting Ritual
-Class/&WitchFeatureSetVisionsCurseDescription	Você está amaldiçoado a ter visões terríveis do futuro, pressagiando a morte de seus amigos, familiares e você mesmo. Por mais que muitas dessas visões sejam enganos cruéis, às vezes são sombriamente precisas. Você pode adicionar seu modificador de Carisma, além do seu modificador de Destreza, às suas jogadas de iniciativa.
-Class/&WitchFeatureSetVisionsCurseTitle	Visões
-Class/&WitchLovelessCharmImmunityDescription	Você é imune a ser enfeitiçado.
-Class/&WitchLovelessCharmImmunityTitle	Loveless: Imunidade a Charme
-Class/&WitchMaledictionAbateDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros de você para fazer um teste de resistência de Carisma. Se falhar na resistência, a criatura não pode realizar reações até o final do seu próximo turno.
-Class/&WitchMaledictionAbateTitle	Pegue a maldição
-Class/&WitchMaledictionApathyDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros de você para fazer um teste de resistência de Carisma. Se falhar na resistência, até o final do seu próximo turno, a criatura se torna indiferente a uma criatura de sua escolha à qual ela é hostil. Essa indiferença termina se o alvo for atacado ou ferido por uma magia da criatura à qual é indiferente.
-Class/&WitchMaledictionApathyTitle	Maldição da Apatia
-Class/&WitchMaledictionCharmDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Sabedoria. Se falhar na resistência, a criatura fica enfeitiçada por você até o final do seu próximo turno.
-Class/&WitchMaledictionCharmTitle	Amuleto Maldição
-Class/&WitchMaledictionDisorientDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Constituição. Em uma falha na resistência, sempre que este alvo fizer uma jogada de ataque antes do final do seu próximo turno, ele deve rolar um d6 e subtrair o número rolado da jogada de ataque.
-Class/&WitchMaledictionDisorientTitle	Maldição Desorientar
-Class/&WitchMaledictionEvilEyeDescription	Com uma ação, escolha uma criatura que você possa ver que possa vê-lo a até 18 metros para fazer um teste de resistência de Sabedoria. Se falhar na resistência, a criatura fica com medo de você até o final do seu próximo turno.
-Class/&WitchMaledictionEvilEyeTitle	Maldição do mau-olhado
-Class/&WitchMaledictionObfuscateDescription	Com uma ação, você cria uma esfera de neblina de 6 metros de raio centrada em você. A esfera se espalha pelos cantos e sua área é fortemente obscurecida. Este efeito dura até o final do seu próximo turno ou até que um vento de velocidade moderada ou maior (pelo menos 10 milhas por hora) o disperse.
-Class/&WitchMaledictionObfuscateTitle	Ofuscar Maldição
-Class/&WitchMaledictionPoxDescription	Com uma ação, escolha uma criatura que você possa ver a até 1,5 metro para fazer um teste de resistência de Constituição. Se falhar na resistência, a criatura fica envenenada até o final do seu próximo turno.
-Class/&WitchMaledictionPoxTitle	Maldição da varíola
-Class/&WitchMaledictionRuinDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Constituição. Se falhar na resistência, a Classe de Armadura da criatura diminui em 3, para um mínimo de 10, até o final do seu próximo turno.
-Class/&WitchMaledictionRuinTitle	Arruinar Maldição
-Class/&WitchRitualCastingMagicAffinityDescription	Você pode lançar um feitiço de bruxa como um ritual se esse feitiço tiver a etiqueta ritual e você tiver o feitiço preparado.
-Class/&WitchRitualCastingMagicAffinityTitle	Fundição Ritual
-Class/&WitchSavingthrowProficiencyDescription	Sabedoria, Carisma.
-Class/&WitchSavingthrowProficiencyTitle	Proficiências em Testes de Resistência da Bruxa
-Class/&WitchSkillProficiencyDescription	Escolha dois de Arcana, Deception, Insight, Intimidation, Persuasion, Nature e Religion.
-Class/&WitchSkillProficiencyTitle	Habilidades de bruxa
-Class/&WitchSpellcastingDescription	Você é uma bruxa que é capaz de lançar feitiços da lista de feitiços de bruxa.
-Class/&WitchSpellcastingTitle	Feitiço de Bruxa
-Class/&WitchTitle	Bruxa
-Class/&WitchToolProficiencyDescription	Escolha um do Kit Herbalist e Kit do Poisoner.
-Class/&WitchToolProficiencyTitle	Proficiências em Ferramentas de Bruxa
-Class/&WitchVisionsInitiativeDescription	Você adiciona seu modificador de Carisma às suas rolagens de iniciativa.
-Class/&WitchVisionsInitiativeTitle	Iniciativa Visões
-Class/&WitchWeaponProficiencyDescription	Armas Simples.
-Class/&WitchWeaponProficiencyTitle	Proficiências com Armas de Bruxa
-Condition/&AbateDescription	Não pode usar reações.
-Condition/&AbateTitle	Abater
-Condition/&ApathyDescription	Indiferente à criatura alvo contra a qual é hostil. Essa indiferença termina se o alvo for atacado ou ferido por uma magia da criatura alvo.
-Condition/&ApathyTitle	Apatia
-Condition/&CharmDescription	Considera o lançador um aliado.
-Condition/&CharmTitle	Encantado
-Condition/&DebilitatedConditionDescription	Sofre de uma das seguintes condições: cego, ruína, sangrando ou atordoado.
-Condition/&DebilitatedConditionTitle	Debilitado
-Condition/&DisorientDescription	-1d6 nas jogadas de ataque.
-Condition/&DisorientTitle	Desorientado
-Condition/&EvilEyeDescription	Assustado. Incapaz de se aproximar da fonte do medo, desvantagem nas jogadas de ataque e testes de habilidade enquanto a fonte do medo está à vista.
-Condition/&EvilEyeTitle	Mau-olhado
-Condition/&FrenziedDescription	Esta criatura está frenética e atacará a criatura mais próxima.
-Condition/&FrenziedTitle	Frenético
-Condition/&PoxDescription	Condição de varíola.
-Condition/&PoxTitle	Varíola
-Condition/&RuinDescription	Penalidade de -3 AC, até um máximo de -10 AC.
-Condition/&RuinedDescription	Penalidade de -3 AC, até um máximo de -10 AC.
-Condition/&RuinedTitle	Arruinado
-Condition/&RuinTitle	Ruína
-Feature/&ClassWitchMaledictionReplaceDescription	Selecione Maldição para substituir.
-Feature/&ClassWitchMaledictionReplaceTitle	Substituir Maldição
-Feature/&WitchCurseChoiceDescription	Você é arruinado por uma terrível maldição que infecta seu corpo e sua alma.
-Feature/&WitchCurseChoiceTitle	Maldição da Bruxa
-Feature/&WitchMaledictionChoiceDescription	Você pode aprender vários encantamentos poderosos, conhecidos como Maldições, derivados da mesma magia insidiosa que o amaldiçoou.
-Feature/&WitchMaledictionChoiceTitle	Maldições
-Feature/&WitchSightDescription	Você pode sentir ou ver criaturas invisíveis a até 18 metros de você.
-Feature/&WitchSightTitle	Visão da Bruxa
-Modifier/&AttributeModifierRuinDescription	-3 na Classe de Armadura.
-Modifier/&AttributeModifierRuinTitle	Arruinado
-Modifier/&DisorientDescription	-1d6 nas jogadas de ataque.
-Modifier/&DisorientTitle	Desorientado
-Monster/&WitchOwlFamiliarDescription	Coruja Familiar.
-Monster/&WitchOwlFamiliarTitle	Coruja
-Screen/&CovenSpellDescription	Feitiço conhecido como parte de um Coven.
-Screen/&CovenSpellHeader	Conventículo
-Screen/&CovenSpellTitle	Conventículo
-Screen/&WitchSpellDescription	Feitiços conhecidos como Bruxa.
-Screen/&WitchSpellHeader	Bruxa
-Screen/&WitchSpellTitle	Bruxa
-Spell/&WitchFamiliarDescription	Você ganha o serviço de um familiar.
-Spell/&WitchFamiliarTitle	Bruxo Familiar
-Stage/&SubclassSelectionStageCovenDescription	Conventículo.
-Stage/&SubclassSelectionStageCovenFeaturesDescription	Conventículo.
-Stage/&SubclassSelectionStageCovenFeaturesHeader	Recursos do Coven
-Stage/&SubclassSelectionStageCovenFeaturesTitle	Conventículo
-Stage/&SubclassSelectionStageCovenHeader	Selecione um Coven
-Stage/&SubclassSelectionStageCovenTitle	Conventículo
-Subclass/&BloodWitchDescription	Proibida pela maioria dos covens de Bruxas, a magia do sangue se concentra no uso de feitiços sombrios e feitiços mortais que extraem da própria essência do conjurador. É fundamentalmente mais perigoso do que outros ofícios de bruxa, mas seus muitos riscos vêm com recompensas abundantes.
-Subclass/&BloodWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n {0}
-Subclass/&BloodWitchMagicTitle	Magia de Sangue
-Subclass/&BloodWitchTitle	Bruxa de Sangue
-Subclass/&GreenWitchDescription	Plantas, natureza e coisas que crescem são o domínio da magia verde. Normalmente um tipo de arcana defendido por druidas, algumas bruxas têm uma ligação estreita com os poderes da magia verde, e podem persuadir plantas e animais em suas ordens.
-Subclass/&GreenWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n{0}
-Subclass/&GreenWitchMagicTitle	Magia Verde
-Subclass/&GreenWitchTitle	Bruxa Verde
-Subclass/&PurpleWitchDescription	A magia púrpura domina os domínios das ilusões e encantamentos que dominam a mente das pessoas, e qualquer coisa que não seja exatamente o que parece. Os praticantes desta forma de magia são mestres de marionetes, moldando a realidade aparente daqueles ao seu redor a seu favor.
-Subclass/&PurpleWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n {0}
-Subclass/&PurpleWitchMagicTitle	Magia Roxa
-Subclass/&PurpleWitchTitle	Bruxa Púrpura
-Subclass/&RedWitchDescription	A magia arcana ligada à canalização dos elementos é considerada magia vermelha e é extremamente perigosa quando usada. Bruxas que se especializam em magia vermelha estão entre os conjuradores mais mortais que existem, canalizando sua maldição em ira arcana desimpedida.
-Subclass/&RedWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n {0}
-Subclass/&RedWitchMagicTitle	Magia Vermelha
-Subclass/&RedWitchTitle	Bruxa Vermelha
-Subclass/&WhiteWitchDescription	A magia branca é fundamentalmente boa e benevolente para todas as coisas vivas. As bruxas que adotam esse ofício, apesar da odiosa maldição que as infecta, muitas vezes se dedicam à cura e ao cuidado, com a intenção de melhorar o mundo.
-Subclass/&WhiteWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n {0}
-Subclass/&WhiteWitchMagicTitle	Magia branca
-Subclass/&WhiteWitchTitle	bruxa branca
-Subclass/&WitchSubclassPathDescription	Seu conhecimento de magia culminou em se juntar a um Coven, um círculo inato de bruxas que se aprofundam em um caminho específico de bruxaria e maldições.
-Subclass/&WitchSubclassPathTitle	Covens de bruxas
-Tooltip/&TagMaledictionTitle	Caramba
+Class/&WitchArmorProficiencyDescription=Armadura leve.
+Class/&WitchArmorProficiencyTitle=Proficiências em Armadura de Bruxa
+Class/&WitchBurnedFireResistanceDescription=Você tem resistência a dano de fogo.
+Class/&WitchBurnedFireResistanceTitle=Queimado: Resistência ao Fogo
+Class/&WitchBurnedProduceFlameDescription=Você conhece o truque Produzir Chama, que não conta para o número total de truques conhecidos.
+Class/&WitchBurnedProduceFlameTitle=Queimado: Produzir Chama
+Class/&WitchCacklePowerDescription=Você pode usar sua ação bônus para gargalhar. A duração de sua Maldição se estende por 1 rodada para cada criatura afetada a até 18 metros de você.\nNem todas as bruxas riem loucamente quando cacarejam, mas todas as gargalhadas requerem um componente verbal, como um feitiço. Estes variam de maldições e insultos mundanos, ao murmúrio de línguas mortas e falar de trás para frente.
+Class/&WitchCacklePowerTitle=Cacarejo
+Class/&WitchDescription=Afligidas por uma maldição sinistra, as bruxas podem transformar magia negra em Maldições, que elas usam para debilitar os inimigos. Eles também são acompanhados por seus familiares, companheiros mágicos leais que eles usam para dar o golpe mortal.
+Class/&WitchFamiliarPowerDescription=Você aprende o feitiço Witch Familiar, ou seja, um feitiço Find Familiar melhorado, e pode lançá-lo como um ritual sem componentes materiais. A magia não conta para o seu número de magias conhecidas. O feitiço melhora Encontrar Familiar das seguintes maneiras:\n• Seu familiar tem seu turno imediatamente antes ou depois do seu turno a cada rodada (sua escolha).\n• Uma vez por turno como uma ação ou ação bônus, você pode comandar mentalmente seu familiar para usar sua reação para fazer um ataque.\n• Quando você conjura um feitiço, você pode lançá-lo através de seu familiar como se ele tivesse conjurado o feitiço, mesmo que o feitiço não tenha alcance de toque.\n• Seu familiar pode usar seu bônus de ataque mágico para suas jogadas de ataque.\n• Seu familiar adiciona seu bônus de proficiência à sua Classe de Armadura, testes de resistência e jogadas de dano.\n• Você adiciona o dobro do seu nível de Bruxa aos pontos de vida máximos do seu familiar.
+Class/&WitchFamiliarPowerTitle=Familiar
+Class/&WitchFeatureSetBurnedCurseDescription=Quase todo o seu corpo foi queimado por chamas arcanas, deixando-o com cicatrizes negras marcantes e brasas de magia que queimam sob a pele. Como resultado, você tem resistência a dano de fogo e conhece o truque Produzir Chama, que não conta para o número total de truques conhecidos.
+Class/&WitchFeatureSetBurnedCurseTitle=Queimado
+Class/&WitchFeatureSetLovelessCurseDescription=Você está amaldiçoado a nunca encontrar o amor verdadeiro. Cansado e insatisfeito, nem mesmo a magia pode transformar seu coração; como resultado, você é imune a ser enfeitiçado.
+Class/&WitchFeatureSetLovelessCurseTitle=sem amor
+Class/&WitchFeatureSetRitualCastingDescription=Você pode lançar qualquer feitiço de Bruxa que você conheça como um ritual se esse feitiço tiver a etiqueta ritual.
+Class/&WitchFeatureSetRitualCastingTitle=Bruxa: Casting Ritual
+Class/&WitchFeatureSetVisionsCurseDescription=Você está amaldiçoado a ter visões terríveis do futuro, pressagiando a morte de seus amigos, familiares e você mesmo. Por mais que muitas dessas visões sejam enganos cruéis, às vezes são sombriamente precisas. Você pode adicionar seu modificador de Carisma, além do seu modificador de Destreza, às suas jogadas de iniciativa.
+Class/&WitchFeatureSetVisionsCurseTitle=Visões
+Class/&WitchLovelessCharmImmunityDescription=Você é imune a ser enfeitiçado.
+Class/&WitchLovelessCharmImmunityTitle=Loveless: Imunidade a Charme
+Class/&WitchMaledictionAbateDescription=Com uma ação, escolha uma criatura que você possa ver a até 18 metros de você para fazer um teste de resistência de Carisma. Se falhar na resistência, a criatura não pode realizar reações até o final do seu próximo turno.
+Class/&WitchMaledictionAbateTitle=Pegue a maldição
+Class/&WitchMaledictionApathyDescription=Com uma ação, escolha uma criatura que você possa ver a até 18 metros de você para fazer um teste de resistência de Carisma. Se falhar na resistência, até o final do seu próximo turno, a criatura se torna indiferente a uma criatura de sua escolha à qual ela é hostil. Essa indiferença termina se o alvo for atacado ou ferido por uma magia da criatura à qual é indiferente.
+Class/&WitchMaledictionApathyTitle=Maldição da Apatia
+Class/&WitchMaledictionCharmDescription=Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Sabedoria. Se falhar na resistência, a criatura fica enfeitiçada por você até o final do seu próximo turno.
+Class/&WitchMaledictionCharmTitle=Amuleto Maldição
+Class/&WitchMaledictionDisorientDescription=Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Constituição. Em uma falha na resistência, sempre que este alvo fizer uma jogada de ataque antes do final do seu próximo turno, ele deve rolar um d6 e subtrair o número rolado da jogada de ataque.
+Class/&WitchMaledictionDisorientTitle=Maldição Desorientar
+Class/&WitchMaledictionEvilEyeDescription=Com uma ação, escolha uma criatura que você possa ver que possa vê-lo a até 18 metros para fazer um teste de resistência de Sabedoria. Se falhar na resistência, a criatura fica com medo de você até o final do seu próximo turno.
+Class/&WitchMaledictionEvilEyeTitle=Maldição do mau-olhado
+Class/&WitchMaledictionObfuscateDescription=Com uma ação, você cria uma esfera de neblina de 6 metros de raio centrada em você. A esfera se espalha pelos cantos e sua área é fortemente obscurecida. Este efeito dura até o final do seu próximo turno ou até que um vento de velocidade moderada ou maior (pelo menos 10 milhas por hora) o disperse.
+Class/&WitchMaledictionObfuscateTitle=Ofuscar Maldição
+Class/&WitchMaledictionPoxDescription=Com uma ação, escolha uma criatura que você possa ver a até 1,5 metro para fazer um teste de resistência de Constituição. Se falhar na resistência, a criatura fica envenenada até o final do seu próximo turno.
+Class/&WitchMaledictionPoxTitle=Maldição da varíola
+Class/&WitchMaledictionRuinDescription=Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Constituição. Se falhar na resistência, a Classe de Armadura da criatura diminui em 3, para um mínimo de 10, até o final do seu próximo turno.
+Class/&WitchMaledictionRuinTitle=Arruinar Maldição
+Class/&WitchRitualCastingMagicAffinityDescription=Você pode lançar um feitiço de bruxa como um ritual se esse feitiço tiver a etiqueta ritual e você tiver o feitiço preparado.
+Class/&WitchRitualCastingMagicAffinityTitle=Fundição Ritual
+Class/&WitchSavingthrowProficiencyDescription=Sabedoria, Carisma.
+Class/&WitchSavingthrowProficiencyTitle=Proficiências em Testes de Resistência da Bruxa
+Class/&WitchSkillProficiencyDescription=Escolha dois de Arcana, Deception, Insight, Intimidation, Persuasion, Nature e Religion.
+Class/&WitchSkillProficiencyTitle=Habilidades de bruxa
+Class/&WitchSpellcastingDescription=Você é uma bruxa que é capaz de lançar feitiços da lista de feitiços de bruxa.
+Class/&WitchSpellcastingTitle=Feitiço de Bruxa
+Class/&WitchTitle=Bruxa
+Class/&WitchToolProficiencyDescription=Escolha um do Kit Herbalist e Kit do Poisoner.
+Class/&WitchToolProficiencyTitle=Proficiências em Ferramentas de Bruxa
+Class/&WitchVisionsInitiativeDescription=Você adiciona seu modificador de Carisma às suas rolagens de iniciativa.
+Class/&WitchVisionsInitiativeTitle=Iniciativa Visões
+Class/&WitchWeaponProficiencyDescription=Armas Simples.
+Class/&WitchWeaponProficiencyTitle=Proficiências com Armas de Bruxa
+Condition/&AbateDescription=Não pode usar reações.
+Condition/&AbateTitle=Abater
+Condition/&ApathyDescription=Indiferente à criatura alvo contra a qual é hostil. Essa indiferença termina se o alvo for atacado ou ferido por uma magia da criatura alvo.
+Condition/&ApathyTitle=Apatia
+Condition/&CharmDescription=Considera o lançador um aliado.
+Condition/&CharmTitle=Encantado
+Condition/&DebilitatedConditionDescription=Sofre de uma das seguintes condições: cego, ruína, sangrando ou atordoado.
+Condition/&DebilitatedConditionTitle=Debilitado
+Condition/&DisorientDescription=-1d6 nas jogadas de ataque.
+Condition/&DisorientTitle=Desorientado
+Condition/&EvilEyeDescription=Assustado. Incapaz de se aproximar da fonte do medo, desvantagem nas jogadas de ataque e testes de habilidade enquanto a fonte do medo está à vista.
+Condition/&EvilEyeTitle=Mau-olhado
+Condition/&FrenziedDescription=Esta criatura está frenética e atacará a criatura mais próxima.
+Condition/&FrenziedTitle=Frenético
+Condition/&PoxDescription=Condição de varíola.
+Condition/&PoxTitle=Varíola
+Condition/&RuinDescription=Penalidade de -3 AC, até um máximo de -10 AC.
+Condition/&RuinedDescription=Penalidade de -3 AC, até um máximo de -10 AC.
+Condition/&RuinedTitle=Arruinado
+Condition/&RuinTitle=Ruína
+Feature/&ClassWitchMaledictionReplaceDescription=Selecione Maldição para substituir.
+Feature/&ClassWitchMaledictionReplaceTitle=Substituir Maldição
+Feature/&WitchCurseChoiceDescription=Você é arruinado por uma terrível maldição que infecta seu corpo e sua alma.
+Feature/&WitchCurseChoiceTitle=Maldição da Bruxa
+Feature/&WitchMaledictionChoiceDescription=Você pode aprender vários encantamentos poderosos, conhecidos como Maldições, derivados da mesma magia insidiosa que o amaldiçoou.
+Feature/&WitchMaledictionChoiceTitle=Maldições
+Feature/&WitchSightDescription=Você pode sentir ou ver criaturas invisíveis a até 18 metros de você.
+Feature/&WitchSightTitle=Visão da Bruxa
+Modifier/&AttributeModifierRuinDescription=-3 na Classe de Armadura.
+Modifier/&AttributeModifierRuinTitle=Arruinado
+Modifier/&DisorientDescription=-1d6 nas jogadas de ataque.
+Modifier/&DisorientTitle=Desorientado
+Monster/&WitchOwlFamiliarDescription=Coruja Familiar.
+Monster/&WitchOwlFamiliarTitle=Coruja
+Screen/&CovenSpellDescription=Feitiço conhecido como parte de um Coven.
+Screen/&CovenSpellHeader=Conventículo
+Screen/&CovenSpellTitle=Conventículo
+Screen/&WitchSpellDescription=Feitiços conhecidos como Bruxa.
+Screen/&WitchSpellHeader=Bruxa
+Screen/&WitchSpellTitle=Bruxa
+Spell/&WitchFamiliarDescription=Você ganha o serviço de um familiar.
+Spell/&WitchFamiliarTitle=Bruxo Familiar
+Stage/&SubclassSelectionStageCovenDescription=Conventículo.
+Stage/&SubclassSelectionStageCovenFeaturesDescription=Conventículo.
+Stage/&SubclassSelectionStageCovenFeaturesHeader=Recursos do Coven
+Stage/&SubclassSelectionStageCovenFeaturesTitle=Conventículo
+Stage/&SubclassSelectionStageCovenHeader=Selecione um Coven
+Stage/&SubclassSelectionStageCovenTitle=Conventículo
+Subclass/&BloodWitchDescription=Proibida pela maioria dos covens de Bruxas, a magia do sangue se concentra no uso de feitiços sombrios e feitiços mortais que extraem da própria essência do conjurador. É fundamentalmente mais perigoso do que outros ofícios de bruxa, mas seus muitos riscos vêm com recompensas abundantes.
+Subclass/&BloodWitchMagicDescription=Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n {0}
+Subclass/&BloodWitchMagicTitle=Magia de Sangue
+Subclass/&BloodWitchTitle=Bruxa de Sangue
+Subclass/&GreenWitchDescription=Plantas, natureza e coisas que crescem são o domínio da magia verde. Normalmente um tipo de arcana defendido por druidas, algumas bruxas têm uma ligação estreita com os poderes da magia verde, e podem persuadir plantas e animais em suas ordens.
+Subclass/&GreenWitchMagicDescription=Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n{0}
+Subclass/&GreenWitchMagicTitle=Magia Verde
+Subclass/&GreenWitchTitle=Bruxa Verde
+Subclass/&PurpleWitchDescription=A magia púrpura domina os domínios das ilusões e encantamentos que dominam a mente das pessoas, e qualquer coisa que não seja exatamente o que parece. Os praticantes desta forma de magia são mestres de marionetes, moldando a realidade aparente daqueles ao seu redor a seu favor.
+Subclass/&PurpleWitchMagicDescription=Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n {0}
+Subclass/&PurpleWitchMagicTitle=Magia Roxa
+Subclass/&PurpleWitchTitle=Bruxa Púrpura
+Subclass/&RedWitchDescription=A magia arcana ligada à canalização dos elementos é considerada magia vermelha e é extremamente perigosa quando usada. Bruxas que se especializam em magia vermelha estão entre os conjuradores mais mortais que existem, canalizando sua maldição em ira arcana desimpedida.
+Subclass/&RedWitchMagicDescription=Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n {0}
+Subclass/&RedWitchMagicTitle=Magia Vermelha
+Subclass/&RedWitchTitle=Bruxa Vermelha
+Subclass/&WhiteWitchDescription=A magia branca é fundamentalmente boa e benevolente para todas as coisas vivas. As bruxas que adotam esse ofício, apesar da odiosa maldição que as infecta, muitas vezes se dedicam à cura e ao cuidado, com a intenção de melhorar o mundo.
+Subclass/&WhiteWitchMagicDescription=Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n {0}
+Subclass/&WhiteWitchMagicTitle=Magia branca
+Subclass/&WhiteWitchTitle=bruxa branca
+Subclass/&WitchSubclassPathDescription=Seu conhecimento de magia culminou em se juntar a um Coven, um círculo inato de bruxas que se aprofundam em um caminho específico de bruxaria e maldições.
+Subclass/&WitchSubclassPathTitle=Covens de bruxas
+Tooltip/&TagMaledictionTitle=Caramba

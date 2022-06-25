@@ -1,10 +1,10 @@
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Daño adicional de ataques con poder mágico
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Daño adicional de ataques con poder mágico
-Subclass/&ArcaneFighterAdditionalActionDescription	Puedes lanzar un hechizo después de derrotar a un enemigo con tus ataques con armas.
-Subclass/&ArcaneFighterAdditionalActionTitle	Lucha de hechizos
-Subclass/&ArcaneFighterBonusWeaponDamageDescription	Una vez por turno, tus ataques con armas infligen 1d8 de daño extra.
-Subclass/&ArcaneFighterBonusWeaponDamageTitle	Ataques con poder mágico
-Subclass/&TraditionArcaneFighterDescription	Canaliza tu magia en ataques con armas.
-Subclass/&TraditionArcaneFighterTitle	Luchador Arcano
-Subclass/&WeaponProfArcaneFighterDescription	La experiencia en combate le ha dado al Luchador Arcano entrenamiento en Armas Simples y Marciales.
-Subclass/&WeaponProfArcaneFighterTitle	Entrenamiento con armas
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Daño adicional de ataques con poder mágico
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Daño adicional de ataques con poder mágico
+Subclass/&ArcaneFighterAdditionalActionDescription=Puedes lanzar un hechizo después de derrotar a un enemigo con tus ataques con armas.
+Subclass/&ArcaneFighterAdditionalActionTitle=Lucha de hechizos
+Subclass/&ArcaneFighterBonusWeaponDamageDescription=Una vez por turno, tus ataques con armas infligen 1d8 de daño extra.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle=Ataques con poder mágico
+Subclass/&TraditionArcaneFighterDescription=Canaliza tu magia en ataques con armas.
+Subclass/&TraditionArcaneFighterTitle=Luchador Arcano
+Subclass/&WeaponProfArcaneFighterDescription=La experiencia en combate le ha dado al Luchador Arcano entrenamiento en Armas Simples y Marciales.
+Subclass/&WeaponProfArcaneFighterTitle=Entrenamiento con armas

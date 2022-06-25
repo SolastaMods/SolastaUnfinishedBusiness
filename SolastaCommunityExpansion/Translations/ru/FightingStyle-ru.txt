@@ -1,10 +1,10 @@
-FightingStyle/&BlindFightingDescription У вас есть слепое зрение с диапазоном 10	футов.
-FightingStyle/&BlindFightingTitle Слепой	бой
-FightingStyle/&CripplingDescription При попадании рукопашной атакой вы можете снизить скорость противника на 10 футов до начала своего следующего	хода.
-FightingStyle/&CripplingTitle	Калечащий
-FightingStyle/&PugilistFightingDescription Ваши удары без оружия наносят дополнительный дробящий урон 1d4, и вы можете бить левой рукой в ​​качестве бонусного действия.\nЕсли у вас есть свободная рука, вы можете толкнуть в качестве бонусного	действия.
-FightingStyle/&PugilistFightingTitle кулачный	бой
-FightingStyle/&TitanFightingDescription Вы получаете попадание +2 против существ размера Большой или	больше.
-FightingStyle/&TitanFightingTitle Битва	титанов
-Modifier/&CripplingAdditionalDamageDescription Калечащий	урон.
-Modifier/&CripplingAdditionalDamageTitle	Калечащий
+FightingStyle/&BlindFightingDescription=У вас есть слепое зрение с диапазоном 10 футов.
+FightingStyle/&BlindFightingTitle=Слепой бой
+FightingStyle/&CripplingDescription=При попадании рукопашной атакой вы можете снизить скорость противника на 10 футов до начала своего следующего хода.
+FightingStyle/&CripplingTitle=Калечащий
+FightingStyle/&PugilistFightingDescription=Ваши удары без оружия наносят дополнительный дробящий урон 1d4, и вы можете бить левой рукой в ​​качестве бонусного действия.\nЕсли у вас есть свободная рука, вы можете толкнуть в качестве бонусного действия.
+FightingStyle/&PugilistFightingTitle=кулачный бой
+FightingStyle/&TitanFightingDescription=Вы получаете попадание +2 против существ размера Большой или больше.
+FightingStyle/&TitanFightingTitle=Битва титанов
+Modifier/&CripplingAdditionalDamageDescription=Калечащий урон.
+Modifier/&CripplingAdditionalDamageTitle=Калечащий

@@ -1,18 +1,18 @@
-Subclass/&MagicAffinitySpellMasterBonusScribingDescription На каждом уровне выше напишите дополнительное	заклинание.
-Subclass/&MagicAffinitySpellMasterBonusScribingTitle Широта	знаний
-Subclass/&MagicAffinitySpellMasterRecoveryDescription Один раз за продолжительный отдых вы можете восстановить ячейки заклинаний (в дополнение к «Восстановлению тайной	магии»).
-Subclass/&MagicAffinitySpellMasterRecoveryTitle Тайная	глубина
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription Вы можете восстанавливать ячейки заклинаний неограниченное количество раз (в дополнение к Arcane	Recovery).
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle Тайная	глубина
-Subclass/&MagicAffinitySpellMasterScribingDescription Написание заклинаний занимает 1/4 времени и стоимости, и у вас есть	преимущество.
-Subclass/&MagicAffinitySpellMasterScribingTitle	Мастер-писец
-Subclass/&TraditionSpellMasterBonusCantripsDescription Получите 2 дополнительных известных	колдовства.
-Subclass/&TraditionSpellMasterBonusCantripsTitle Бонусные	заговоры
-Subclass/&TraditionSpellMasterDescription Мастера заклинаний погружаются в магию и пытаются выучить каждое заклинание, до которого они могут дотянуться. Они не имеют себе равных в своем знании	заклинаний.
-Subclass/&TraditionSpellMasterExtraPreparedDescription Подготовьте дополнительные заклинания с модификатором Интеллекта, чтобы у вас всегда было то, что вам	нужно.
-Subclass/&TraditionSpellMasterExtraPreparedTitle Дополнительная	подготовка
-Subclass/&TraditionSpellMasterPreparedDescription Подготовьте дополнительные бонусные заклинания, чтобы у вас всегда было то, что вам	нужно.
-Subclass/&TraditionSpellMasterPreparedTitle	Приготовься
-Subclass/&TraditionSpellMasterSpellResistanceDescription Ваше обучение магии дает вам преимущество в спасбросках от	заклинаний.
-Subclass/&TraditionSpellMasterSpellResistanceTitle Сопротивление	заклинаниям
-Subclass/&TraditionSpellMasterTitle Мастер	заклинаний
+Subclass/&MagicAffinitySpellMasterBonusScribingDescription=На каждом уровне выше напишите дополнительное заклинание.
+Subclass/&MagicAffinitySpellMasterBonusScribingTitle=Широта знаний
+Subclass/&MagicAffinitySpellMasterRecoveryDescription=Один раз за продолжительный отдых вы можете восстановить ячейки заклинаний (в дополнение к «Восстановлению тайной магии»).
+Subclass/&MagicAffinitySpellMasterRecoveryTitle=Тайная глубина
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription=Вы можете восстанавливать ячейки заклинаний неограниченное количество раз (в дополнение к Arcane Recovery).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle=Тайная глубина
+Subclass/&MagicAffinitySpellMasterScribingDescription=Написание заклинаний занимает 1/4 времени и стоимости, и у вас есть преимущество.
+Subclass/&MagicAffinitySpellMasterScribingTitle=Мастер-писец
+Subclass/&TraditionSpellMasterBonusCantripsDescription=Получите 2 дополнительных известных колдовства.
+Subclass/&TraditionSpellMasterBonusCantripsTitle=Бонусные заговоры
+Subclass/&TraditionSpellMasterDescription=Мастера заклинаний погружаются в магию и пытаются выучить каждое заклинание, до которого они могут дотянуться. Они не имеют себе равных в своем знании заклинаний.
+Subclass/&TraditionSpellMasterExtraPreparedDescription=Подготовьте дополнительные заклинания с модификатором Интеллекта, чтобы у вас всегда было то, что вам нужно.
+Subclass/&TraditionSpellMasterExtraPreparedTitle=Дополнительная подготовка
+Subclass/&TraditionSpellMasterPreparedDescription=Подготовьте дополнительные бонусные заклинания, чтобы у вас всегда было то, что вам нужно.
+Subclass/&TraditionSpellMasterPreparedTitle=Приготовься
+Subclass/&TraditionSpellMasterSpellResistanceDescription=Ваше обучение магии дает вам преимущество в спасбросках от заклинаний.
+Subclass/&TraditionSpellMasterSpellResistanceTitle=Сопротивление заклинаниям
+Subclass/&TraditionSpellMasterTitle=Мастер заклинаний
