@@ -120,6 +120,23 @@ public static class CustomReactionsContext
         }
     }
 
+    internal static void SaveReadyActionPreferedCantripPatch(CharacterActionParams actionParams,
+        ReadyActionType readyActionType)
+    {
+        if (actionParams != null && readyActionType == ReadyActionType.Cantrip)
+        {
+            actionParams.BoolParameter4 = ForcePreferredCantrip;
+        }
+    }
+
+    internal static void ReadReadyActionPreferedCantripPatch(CharacterActionParams actionParams)
+    {
+        if (actionParams is {ReadyActionType: ReadyActionType.Cantrip})
+        {
+            ForcePreferredCantrip = actionParams.BoolParameter4;
+        }
+    }
+
     public interface IDamagedReactionSpell
     {
         bool CanReact(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier attackModifier,
