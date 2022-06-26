@@ -318,13 +318,13 @@ All settings start disabled by default. On first start the mod will display an w
         {
             var collectedCredits = new StringBuilder();
 
-            foreach (var kvp in CreditsTable)
+            foreach (var (author, description) in CreditsTable)
             {
                 collectedCredits
                     .Append("\n[*][b]")
-                    .Append(kvp.Key)
+                    .Append(author)
                     .Append("[/b]: ")
-                    .Append(kvp.Value);
+                    .Append(description);
             }
 
             var racesAndSubs = new List<CharacterRaceDefinition>();

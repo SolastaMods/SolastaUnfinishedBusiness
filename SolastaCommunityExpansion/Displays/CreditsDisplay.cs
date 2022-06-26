@@ -29,7 +29,7 @@ internal static class CreditsDisplay
         }
     };
 
-    private static readonly List<(string, string)> CreditsTable = new()
+    internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"),
         ("Bazou", "Witch class, fighting styles"),
