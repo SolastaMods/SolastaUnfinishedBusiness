@@ -25,7 +25,7 @@ internal static class CreditsDisplay
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
                   "M. Harck, D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
                   "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson\n" +
-                  "J. Batanero, J. Gattis"
+                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes"
         }
     };
 
