@@ -15,7 +15,8 @@ public static class CustomReactionsContext
 {
     private static IDamagedReactionSpell _alwayseact;
 
-    public static bool ForcePreferredCantrip = false;
+    public static bool ForcePreferredCantrip = false;   //used by actual feature
+    public static bool ForcePreferredCantripUI = false; //used for local UI state
     public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();
 
     public static void Load()
@@ -125,7 +126,7 @@ public static class CustomReactionsContext
     {
         if (actionParams != null && readyActionType == ReadyActionType.Cantrip)
         {
-            actionParams.BoolParameter4 = ForcePreferredCantrip;
+            actionParams.BoolParameter4 = ForcePreferredCantripUI;
         }
     }
 
