@@ -50,7 +50,7 @@ internal static class ReadyActionSelectionPanel_Bind
             toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
             toggle.PersonalityFlagSelected = (_, state) =>
             {
-                CustomReactionsContext.ForcePreferredCantrip = state;
+                CustomReactionsContext.ForcePreferredCantripUI = state;
                 tooltip.Content = "UI/&ForcePreferredCantripDescription";
             };
         }
@@ -59,7 +59,7 @@ internal static class ReadyActionSelectionPanel_Bind
             toggle = parent.FindChildRecursive("ForcePreferredToggle").GetComponent<PersonalityFlagToggle>();
         }
 
-        toggle.Refresh(CustomReactionsContext.ForcePreferredCantrip, true);
+        toggle.Refresh(CustomReactionsContext.ForcePreferredCantripUI, true);
         toggle.tooltip.Content = "UI/&ForcePreferredCantripDescription";
     }
 }
