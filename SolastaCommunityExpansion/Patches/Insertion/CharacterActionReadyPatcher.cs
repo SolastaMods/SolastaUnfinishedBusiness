@@ -8,7 +8,7 @@ internal static class CharacterActionReadyPatcher
 {
     [HarmonyPatch(typeof(CharacterActionReady), "ExecuteImpl")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ReadyActionEngaged
+    internal static class ExecuteImpl
     {
         internal static void Prefix(CharacterActionReady __instance)
         {
