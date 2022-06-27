@@ -1,12 +1,12 @@
-FightingStyle/&ArcheryDescription	Вы получаете бонус +2 к броскам атаки стрелковым оружием.
-FightingStyle/&ArcheryTitle	Стрельба из лука
-FightingStyle/&DefenseDescription	При ношении доспехов вы получаете бонус +1 к КД.
-FightingStyle/&DefenseTitle	Защита
-FightingStyle/&DuelingDescription	Если вы держите в руках только одноручное оружие ближнего боя, вы получаете бонус +2 к броскам урона этим оружием.
-FightingStyle/&DuelingTitle	Дуэль
-FightingStyle/&GreatWeaponDescription	Выбросив 1 или 2 при броске на урон от атаки двуручным оружием ближнего боя, вы можете перебросить кость. Результат нового броска в таком случае используется обязательно, даже если это 1 или 2. Чтобы вы могли применить эту возможность, оружие должно иметь свойство «Двуручное» или «Универсальное».
-FightingStyle/&GreatWeaponTitle	Бой двуручным оружием
-FightingStyle/&ProtectionDescription	Когда видимое вами существо атакует любую цель, кроме вас, в пределах 5 футов от вас, вы можете воспользоваться реакцией и вынудить существо делать бросок атаки с помехой. Для этого вы должны быть вооружены щитом.
-FightingStyle/&ProtectionTitle	Оборона
-FightingStyle/&TwoWeaponDescription	Сражаясь двумя оружиями, вы можете добавлять свой модификатор характеристики к урону от второй атаки.
-FightingStyle/&TwoWeaponTitle	Бой двумя оружиями
+FightingStyle/&ArcheryDescription=Вы получаете бонус +2 к броскам атаки стрелковым оружием.
+FightingStyle/&ArcheryTitle=Стрельба из лука
+FightingStyle/&DefenseDescription=При ношении доспехов вы получаете бонус +1 к КД.
+FightingStyle/&DefenseTitle=Защита
+FightingStyle/&DuelingDescription=Если вы держите в руках только одноручное оружие ближнего боя, вы получаете бонус +2 к броскам урона этим оружием.
+FightingStyle/&DuelingTitle=Дуэль
+FightingStyle/&GreatWeaponDescription=Выбросив 1 или 2 при броске на урон от атаки двуручным оружием ближнего боя, вы можете перебросить кость. Результат нового броска в таком случае используется обязательно, даже если это 1 или 2. Чтобы вы могли применить эту возможность, оружие должно иметь свойство «Двуручное» или «Универсальное».
+FightingStyle/&GreatWeaponTitle=Бой двуручным оружием
+FightingStyle/&ProtectionDescription=Когда видимое вами существо атакует любую цель, кроме вас, в пределах 5 футов от вас, вы можете воспользоваться реакцией и вынудить существо делать бросок атаки с помехой. Для этого вы должны быть вооружены щитом.
+FightingStyle/&ProtectionTitle=Оборона
+FightingStyle/&TwoWeaponDescription=Сражаясь двумя оружиями, вы можете добавлять свой модификатор характеристики к урону от второй атаки.
+FightingStyle/&TwoWeaponTitle=Бой двумя оружиями

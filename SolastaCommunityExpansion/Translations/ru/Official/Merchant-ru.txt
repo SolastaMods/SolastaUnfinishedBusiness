@@ -1,28 +1,28 @@
-Merchant/&CaerCyflen_Annie_Bagmordah_Store_ScavengersTitle	Штаб утильщиков
-Merchant/&CaerCyflen_Dalon_Lark_Store_EinarTitle	Контакт с храмом Эйнара
-Merchant/&CaerCyflen_Gorim_Ironsoot_StoreTitle	Магазин для искателей приключений
-Merchant/&CaerCyflen_Halman_Summer_Store_AntiquariansTitle	Контакт с Антикварами
-Merchant/&CaerCyflen_Heddlon_Surespell_Store_ArcaneumTitle	Контакт с Арканиумом
-Merchant/&CaerCyflen_Hugo_Requer_StoreTitle	Магия и разное интересное
-Merchant/&CaerCyflen_Joriel_Foxeye_Store_CircleOfDanantarTitle	Контакт с Кругом Данантара
-Merchant/&CaerCyflen_Karel_Martel_Store_BartenderTitle	Услуги таверны
-Merchant/&CaerCyflen_Maddy_Greenisle_Store_ToKTitle	Контакт с Башней знаний
-Merchant/&CaerCyflenWeaponsmith2Description	сейчас не использовать
-Merchant/&CaerCyflenWeaponsmith2Title	Обычный оружейник
-Merchant/&CaerCyflenWeaponsmithDescription	сейчас не использовать
-Merchant/&CaerCyflenWeaponsmithTitle	Обычный оружейник
-Merchant/&Telema_Merchant_Wanderer_TelemaTitle	Странствующий торговец
-Merchant/&Coparann_Atima_StoreTitle	Местный жрец Аруна
-Merchant/&CC_PriestessPakri	Жрица Пакри
-Merchant/&CC_PriestMaraike	Жрец Марайке
-Merchant/&CC_PriestArun	Рогар Ардентфаер
-Merchant/&Circe_Title	Торговец руководствами по наложению заклятий
-Merchant/&DungeonMakerGeneralStoreTitle	Лавка
-Merchant/&DungeonMakerMagicalDevicesTitle	Магические устройства
-Merchant/&DungeonMakerWeaponsmithTitle	Оружейник
-Merchant/&DungeonMakerArmorerTitle	Бронник
-Merchant/&DungeonMakerCrafterTitle	Ремесленник
-Merchant/&DLC1_GiantTrader_StoreTitle	Великан-торговец
-Merchant/&DLC_Armorer_Title	Арсенал
-Merchant/&Yasmin_Mask_Title	Тайный торговец Маски
-Merchant/&DLC1_Hanno_StoreTitle	Торговец Кузни
+Merchant/&CaerCyflen_Annie_Bagmordah_Store_ScavengersTitle=Штаб утильщиков
+Merchant/&CaerCyflen_Dalon_Lark_Store_EinarTitle=Контакт с храмом Эйнара
+Merchant/&CaerCyflen_Gorim_Ironsoot_StoreTitle=Магазин для искателей приключений
+Merchant/&CaerCyflen_Halman_Summer_Store_AntiquariansTitle=Контакт с Антикварами
+Merchant/&CaerCyflen_Heddlon_Surespell_Store_ArcaneumTitle=Контакт с Арканиумом
+Merchant/&CaerCyflen_Hugo_Requer_StoreTitle=Магия и разное интересное
+Merchant/&CaerCyflen_Joriel_Foxeye_Store_CircleOfDanantarTitle=Контакт с Кругом Данантара
+Merchant/&CaerCyflen_Karel_Martel_Store_BartenderTitle=Услуги таверны
+Merchant/&CaerCyflen_Maddy_Greenisle_Store_ToKTitle=Контакт с Башней знаний
+Merchant/&CaerCyflenWeaponsmith2Description=сейчас не использовать
+Merchant/&CaerCyflenWeaponsmith2Title=Обычный оружейник
+Merchant/&CaerCyflenWeaponsmithDescription=сейчас не использовать
+Merchant/&CaerCyflenWeaponsmithTitle=Обычный оружейник
+Merchant/&Telema_Merchant_Wanderer_TelemaTitle=Странствующий торговец
+Merchant/&Coparann_Atima_StoreTitle=Местный жрец Аруна
+Merchant/&CC_PriestessPakri=Жрица Пакри
+Merchant/&CC_PriestMaraike=Жрец Марайке
+Merchant/&CC_PriestArun=Рогар Ардентфаер
+Merchant/&Circe_Title=Торговец руководствами по наложению заклятий
+Merchant/&DungeonMakerGeneralStoreTitle=Лавка
+Merchant/&DungeonMakerMagicalDevicesTitle=Магические устройства
+Merchant/&DungeonMakerWeaponsmithTitle=Оружейник
+Merchant/&DungeonMakerArmorerTitle=Бронник
+Merchant/&DungeonMakerCrafterTitle=Ремесленник
+Merchant/&DLC1_GiantTrader_StoreTitle=Великан-торговец
+Merchant/&DLC_Armorer_Title=Арсенал
+Merchant/&Yasmin_Mask_Title=Тайный торговец Маски
+Merchant/&DLC1_Hanno_StoreTitle=Торговец Кузни

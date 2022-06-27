@@ -193,3 +193,4 @@ ModUi/&Category=Categoria
 ModUi/&WeaponTag=Etichetta arma
 ModUi/&ItemTag=Etichetta articolo
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva del retroscena durante l'ispezione in background
+ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sulla descrizione comando dell'eroe <i><color=yellow>[es.: colpi critici, fallimenti critici, ecc.]</color></i>

@@ -1,29 +1,29 @@
-Format/&CurrentAndTemporaryHitPointsDescription	Текущие очки здоровья этого существа + временные очки здоровья. Временные очки здоровья расходуются первыми.  
-Format/&CurrentHitPointsDescription	Текущие очки здоровья этого существа.
-Format/&DifficultyEasyFormat	Низкий
-Format/&DifficultyHardFormat	Высокий
-Format/&DifficultyMediumFormat	Средняя длина
-Format/&DifficultyVeryHardFormat	Очень высокий
-Format/&HealthPlusTemporaryFormat	{0} + {1}
-Format/&ItemIdentifiedTitle	Предмет опознан: {0}
-Format/&LevelAndClassAndSubclassFormat	ур. {0} {1} ({2})
-Format/&LevelAndClassNoSubclassFormat	ур. {0} {1}
-Format/&LevelAndExperienceFormat	Уровень {0}, опыт: {1}\nНужно ещё {2} очк. опыта, чтобы достичь {3}-го уровня
-Format/&LevelAndExperienceMaxedFormat	Уровень {0}, опыт: {1}\nДостигнут максимальный уровень.
-Format/&LevelFormat	Уровень {0}
-Format/&MaxHealthFormat	из {0} ОЗ
-Format/&Rank1Title	1-й
-Format/&Rank2Title	2-й
-Format/&Rank3Title	3-й
-Format/&Rank4Title	4-й
-Format/&Rank5Title	5-й
-Format/&Rank6Title	6-й
-Format/&Rank7Title	7-й
-Format/&Rank8Title	8-й
-Format/&Rank9Title	9-й
-Format/&RevealedEvilTitle	Скверная
-Format/&RevealedGoodTitle	Добродетельная
-Format/&RevealedMagicalTitle	Обнаружена магия
-Format/&RevealedPoisonTitle	Отравляющая
-Format/&WorldDistanceFormat	{0} миль
-Format/&ItemIdentifiedNothingNewTitle	О предмете «{0}» больше ничего не найдено
+Format/&CurrentAndTemporaryHitPointsDescription=Текущие очки здоровья этого существа + временные очки здоровья. Временные очки здоровья расходуются первыми.  
+Format/&CurrentHitPointsDescription=Текущие очки здоровья этого существа.
+Format/&DifficultyEasyFormat=Низкий
+Format/&DifficultyHardFormat=Высокий
+Format/&DifficultyMediumFormat=Средняя длина
+Format/&DifficultyVeryHardFormat=Очень высокий
+Format/&HealthPlusTemporaryFormat={0} + {1}
+Format/&ItemIdentifiedTitle=Предмет опознан: {0}
+Format/&LevelAndClassAndSubclassFormat=ур. {0} {1} ({2})
+Format/&LevelAndClassNoSubclassFormat=ур. {0} {1}
+Format/&LevelAndExperienceFormat=Уровень {0}, опыт: {1}\nНужно ещё {2} очк. опыта, чтобы достичь {3}-го уровня
+Format/&LevelAndExperienceMaxedFormat=Уровень {0}, опыт: {1}\nДостигнут максимальный уровень.
+Format/&LevelFormat=Уровень {0}
+Format/&MaxHealthFormat=из {0} ОЗ
+Format/&Rank1Title=1-й
+Format/&Rank2Title=2-й
+Format/&Rank3Title=3-й
+Format/&Rank4Title=4-й
+Format/&Rank5Title=5-й
+Format/&Rank6Title=6-й
+Format/&Rank7Title=7-й
+Format/&Rank8Title=8-й
+Format/&Rank9Title=9-й
+Format/&RevealedEvilTitle=Скверная
+Format/&RevealedGoodTitle=Добродетельная
+Format/&RevealedMagicalTitle=Обнаружена магия
+Format/&RevealedPoisonTitle=Отравляющая
+Format/&WorldDistanceFormat={0} миль
+Format/&ItemIdentifiedNothingNewTitle=О предмете «{0}» больше ничего не найдено

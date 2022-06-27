@@ -1,8 +1,8 @@
-Label/&CampfireLocationRestDescription	
-Label/&CampfireLocationRestTitle	
-Label/&CampfireResumeTravelRestDescription	
-Label/&CampfireResumeTravelRestTitle	
-Label/&EnterLocationDescription	Ввести отряд в это место.
-Label/&EnterLocationTitle	Войти
-Label/&TravelToLocationDescription	Подготовиться к путешествию в это место.
-Label/&TravelToLocationTitle	Путешествовать
+Label/&CampfireLocationRestDescription=
+Label/&CampfireLocationRestTitle=
+Label/&CampfireResumeTravelRestDescription=
+Label/&CampfireResumeTravelRestTitle=
+Label/&EnterLocationDescription=Ввести отряд в это место.
+Label/&EnterLocationTitle=Войти
+Label/&TravelToLocationDescription=Подготовиться к путешествию в это место.
+Label/&TravelToLocationTitle=Путешествовать

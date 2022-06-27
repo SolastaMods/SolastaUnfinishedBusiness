@@ -193,3 +193,4 @@ ModUi/&Category=Kategorie
 ModUi/&WeaponTag=Waffen-Tag
 ModUi/&ItemTag=Artikel-Tag
 ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige der Hintergrundgeschichte bei der Hintergrundinspektion
+ModUi/&EnableStatsOnHeroTooltip=Zeigen Sie Statistiken im Tooltip des Helden an <i><color=yellow>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>

@@ -1,287 +1,287 @@
-Tooltip/&ActiveQuestsAtLocationPluralFormat	{0} активных зад.: {1}
-Tooltip/&ActiveQuestsAtLocationSingleFormat	{0} активное задание: {1}
-Tooltip/&AdvancementByAdditionalSlotMultipleFormat	За каждые {1} яч. заклинаний свыше {0}
-Tooltip/&AdvancementByAdditionalSlotSingleFormat	За каждую ячейку заклинания свыше {0}
-Tooltip/&AdvancementByCasterLevelFormat	На 5-м, 11-м и 17-м уровнях заклинателя
-Tooltip/&AdvancementDurationHours_1_8_24	Длительность повышается с 1 до 8, а затем до 24 часов
-Tooltip/&AdvancementDurationMinutes_1_10_480_144_Infinite	Длительность повышается с 1 минуты до 10, до 8 часов, до 24 часов, до бесконечности
-Tooltip/&AdvancementGainAdditionalDiceMultipleFormat	{0} кост. 
-Tooltip/&AdvancementGainAdditionalDiceSingleFormat	{0} кость 
-Tooltip/&AdvancementGainAdditionalHPFormat	{0} к максимальному количеству очков здоровья
-Tooltip/&AdvancementGainAdditionalItemBonusFormat	{0} бонус предмета (макс. {1})
-Tooltip/&AdvancementGainAdditionalSpellLevelMultipleFormat	{0} ур. заклинания 
-Tooltip/&AdvancementGainAdditionalSpellLevelSingleFormat	{0} уровень заклинания 
-Tooltip/&AdvancementGainAdditionalSummonMultipleFormat	{0} призв. сущ.
-Tooltip/&AdvancementGainAdditionalSummonSingleFormat	{0} призванное существо
-Tooltip/&AdvancementGainAdditionalTargetMultipleFormat	{0} цел. 
-Tooltip/&AdvancementGainAdditionalTargetSingleFormat	{0} цель 
-Tooltip/&AdvancementGainAdditionalTempHPFormat	{0} врем. очк. здоровья
-Tooltip/&AdvancementTitle	На более высоких уровнях
-Tooltip/&AdvantageTrendsTitle	Преимущество/помеха
-Tooltip/&AmmunitionEffectsTitle	Дополнительный урон/эффект
-Tooltip/&ArmorEffectsTitle	Эффекты доспехов
-Tooltip/&CantripSubtitleFormat	{0} — заговор\n
-Tooltip/&ChallengeDifficultyTitle	Рейтинг испытания
-Tooltip/&CompatibleProficienciesHeaderTitle	Совместимые виды мастерства
-Tooltip/&ContainerEmptyDescription	Пусто
-Tooltip/&ContainerUnknownContentDescription	Неизвестное содержимое
-Tooltip/&CoverHeaderTitle	Укрытие
-Tooltip/&CraftingDifficultyTitle	КС изготовления
-Tooltip/&CraftingDurationTitle	Длительность
-Tooltip/&CurrentlyEquipedTitle	Сейчас используется
-Tooltip/&DeviceChargesMaxPlural	Заряды: {0}
-Tooltip/&DeviceChargesMaxSingle	Заряд: {0}
-Tooltip/&DeviceFunctionRemainingCooldown	восстановление {0}
-Tooltip/&DeviceFunctionsTitle	Функц. предмета
-Tooltip/&DeviceFunctionsUnknown	Неизвестно
-Tooltip/&DeviceRechargeTitle	Перезарядить
-Tooltip/&DeviceUsageTitle	Использование
-Tooltip/&DurationTitle	Длительность
-Tooltip/&EffectDurationTitle	Длительность
-Tooltip/&FeatPrerequisiteAbilityScoreFormat	Мин. {0} {1}
-Tooltip/&FeatPrerequisiteCastSpellTitle	Способность накладывать заклинания
-Tooltip/&FeatPrerequisiteClassesFormat	Совместимые классы:\n{0}
-Tooltip/&FeatPrerequisiteFeatsFormat	Нужные особенности:\n{0}
-Tooltip/&FeatPrerequisiteRacesFormat	Совместимые наследия: {0}
-Tooltip/&FeatPrerequisitesTitle	Требования
-Tooltip/&FeatRedundantDescription	Вы уже обладаете некоторыми или всеми плюсами данной особенности, из-за чего она будет менее полезна вам.
-Tooltip/&FeatTitle	Особенность
-Tooltip/&HoldForMoreInfoTitle	Удерживайте <Alt>, чтобы получить больше информации
-Tooltip/&IngredientsHeaderTitle	Нужные ингредиенты
-Tooltip/&LightingBrightFormat	В ярком свете
-Tooltip/&LightingDarknessFormat	В темноте
-Tooltip/&LightingDimFormat	В тусклом свете
-Tooltip/&LightingTargetBrightFormat	{0} находится в ярком свете
-Tooltip/&LightingTargetDarknessFormat	{0} находится в темноте
-Tooltip/&LightingTargetDimFormat	{0} находится в тусклом свете
-Tooltip/&LightingTargetUnlitFormat	{0} не на свету
-Tooltip/&LightingUnlitFormat	Не на свету
-Tooltip/&LightSourceEffectsTitle	Эффекты освещения
-Tooltip/&NotProficientFormat	{0} не обладает навыками использования данного предмета и не может его применить.
-Tooltip/&PowerActivationTimeTitle	Активация
-Tooltip/&PowerEffectsTitle	Эффекты способности
-Tooltip/&PowerRechargeTitle	Перезарядить
-Tooltip/&PowerUsesTitle	Использования
-Tooltip/&PropertiesTitle	Свойства
-Tooltip/&ProximityLongRangeTitle	Дальнобойная атака
-Tooltip/&ProximityRangeEnemyNearbyTitle	Атака дальнего боя с врагом поблизости
-Tooltip/&ProxyControlableTitle	Контролируемый магический эффект
-Tooltip/&ProxyStaticTitle	Неподвижный магический эффект
-Tooltip/&RecipeTitle	Рецепт
-Tooltip/&RemainingDurationTitle	Оставшаяся длительность
-Tooltip/&RequiredSpellHeaderTitle	Нужное заклинание
-Tooltip/&SavingThrowTitle	Спасбросок
-Tooltip/&SourceHasFeatFormat	{0} имеет особенность {1}
-Tooltip/&SourceHasFightingStyleFormat	{0} имеет боевой стиль {1}
-Tooltip/&SourceHasFormat	{0} имеет: {1}
-Tooltip/&SourceUsesItemFormat	{0} использует: {1}
-Tooltip/&SpaceCapacityTitle	Вместимость хранилища
-Tooltip/&SpaceTitle	Пространство
-Tooltip/&SpellbookContentTitle	Содержимое книги заклинаний
-Tooltip/&SpellCastingTimeTitle	Время наложения
-Tooltip/&SpellComponentsTitle	Компоненты
-Tooltip/&SpellEffectsTitle	Эффекты заклинаний
-Tooltip/&SpellRangeTitle	Дальность
-Tooltip/&SpellSubtitleFormat	Уровень {0} {1}
-Tooltip/&SpellTargetTitle	Цель
-Tooltip/&StackSizeTitle	Размер стопки
-Tooltip/&StarterPackContentTitle	Содержимое
-Tooltip/&SubspellsEffectsTitle	Эффекты подзаклинаний
-Tooltip/&TagAmmunitionTitle	Боезапас
-Tooltip/&TagAreaOfEffectTitle	Область действия
-Tooltip/&TagAttunementTitle	Связь
-Tooltip/&TagBreakConcentrationTitle	Прервать концентрацию
-Tooltip/&TagBuffTitle	Усиление
-Tooltip/&TagCarryingCapacityTitle	Переносимый вес
-Tooltip/&TagChannelDivinityTitle	Божественный канал
-Tooltip/&TagComponentTitle	Компонент
-Tooltip/&TagConcentrationTitle	Концентрация
-Tooltip/&TagConsumableTitle	Расходуемый предмет
-Tooltip/&TagControlTitle	Управление
-Tooltip/&TagCounterTitle	Контратака
-Tooltip/&TagCurseTitle	Проклятие
-Tooltip/&TagDamageAcidTitle	Урон кислотой
-Tooltip/&TagDamageBludgeoningTitle	Дробящий урон
-Tooltip/&TagDamageColdTitle	Холодный урон
-Tooltip/&TagDamageFireTitle	Огненный урон
-Tooltip/&TagDamageForceTitle	Силовой урон
-Tooltip/&TagDamageLightningTitle	Электрический урон
-Tooltip/&TagDamageNecroticTitle	Некротический урон
-Tooltip/&TagDamagePiercingTitle	Колющий урон
-Tooltip/&TagDamagePoisonTitle	Урон ядом
-Tooltip/&TagDamagePsychicTitle	Духовный урон
-Tooltip/&TagDamageRadiantTitle	Сиятельный урон
-Tooltip/&TagDamageSlashingTitle	Рубящий урон
-Tooltip/&TagDamageThunderTitle	Звуковой урон
-Tooltip/&TagDamageTitle	Урон
-Tooltip/&TagDisperseCloudTitle	Рассеять облако
-Tooltip/&TagDissipateSpellsTitle	Прекратить заклинания
-Tooltip/&TagDivinationTitle	Ясновидение
-Tooltip/&TagDocumentTitle	Документ
-Tooltip/&TagExtinguishFireTitle	Тушение
-Tooltip/&TagExtinguishLightTitle	Рассеять свет
-Tooltip/&TagFactionRelicTitle	Реликвия фракции
-Tooltip/&TagFinesseTitle	Фехтовальное
-Tooltip/&TagFlamableTitle	Воспламеняемое
-Tooltip/&TagFlamingTitle	Поджигаемое
-Tooltip/&TagFoodTitle	Еда
-Tooltip/&TagGlassTitle	Стекло
-Tooltip/&TagGoldTitle	Золото
-Tooltip/&TagHealingTitle	Лечение
-Tooltip/&TagHeavyTitle	Тяжёлое
-Tooltip/&TagIngredientTitle	Ингредиент
-Tooltip/&TagItemPropertyTitle	Усиление предмета
-Tooltip/&TagLeatherTitle	Кожаная броня
-Tooltip/&TagLightSourceTitle	Источник света
-Tooltip/&TagLightTitle	Лёгкое
-Tooltip/&TagLoadingTitle	Заряжающееся
-Tooltip/&TagMagicalTitle	Магическое
-Tooltip/&TagMeleeTitle	Ближний бой
-Tooltip/&TagMetalArmorTitle	Металлические доспехи
-Tooltip/&TagMetalTitle	Металл
-Tooltip/&TagMotionTitle	Вынужденное передвижение
-Tooltip/&TagPaperTitle	Бумага
-Tooltip/&TagPotionTitle	Зелье
-Tooltip/&TagPowerTitle	Сила
-Tooltip/&TagProtectionTitle	Оборона
-Tooltip/&TagQuestTitle	Задание
-Tooltip/&TagRangeTitle	Дальность
-Tooltip/&TagReachTitle	Шест
-Tooltip/&TagReactionTitle	Реакция
-Tooltip/&TagRemoveDarknessTitle	Убрать тьму
-Tooltip/&TagRevealTrapsTitle	Обнаружение ловушек
-Tooltip/&TagReviveTitle	Оживить
-Tooltip/&TagRitualTitle	Ритуал
-Tooltip/&TagScrollTitle	Свиток
-Tooltip/&TagShapechangerTitle	Оборотень
-Tooltip/&TagSightBlockerTitle	Блокирует обзор
-Tooltip/&TagSilverTitle	Серебристые
-Tooltip/&TagSpellFocusTitle	Предмет для фокусировки
-Tooltip/&TagSpellSlotsTitle	Ячейки заклинаний
-Tooltip/&TagSpellTitle	Заклинание
-Tooltip/&TagStandardTitle	Стандарт
-Tooltip/&TagStealthAdvantageTitle	Преимущество в скрытности
-Tooltip/&TagStealthAutofailTitle	Автопровал скрытности
-Tooltip/&TagStealthDisadvantageTitle	Помеха в скрытности
-Tooltip/&TagSummonTitle	Призыв
-Tooltip/&TagTeleportTitle	Телепортация
-Tooltip/&TagTemporaryHitPointsTitle	Временные очки здоровья
-Tooltip/&TagThrownTitle	Метательное
-Tooltip/&TagTorchTitle	Факел
-Tooltip/&TagTwoHandedTitle	Двуручное
-Tooltip/&TagUnlockTitle	Разблокировать
-Tooltip/&TagVersatileTitle	Универсальное
-Tooltip/&TagVerticalityTitle	Вертикальное передвижение
-Tooltip/&TagWarListTitle	Военный список
-Tooltip/&TagWoodTitle	Дерево
-Tooltip/&TargetTagMetalArmorTitle	Цель носит металлические доспехи
-Tooltip/&ToolTypeTitle	Инструмент для изготовления
-Tooltip/&ValueNoneTitle	Нет
-Tooltip/&ValueTitle	Ценность
-Tooltip/&WeaponEffectsTitle	Эффекты при попадании
-Tooltip/&WeightCapacityMultiplierTitle	Множитель переносимого веса
-Tooltip/&WeightTitle	Вес
-Tooltip/&TrendConditionIsFormat	{0} теперь {1}
-Tooltip/&TrendConditionHasFormat	{0} имеет: {1}
-Tooltip/&TagDiseasedTitle	Болезнь
-Tooltip/&TagPoisonedTitle	Отравление
-Tooltip/&ItemPropertiesTitle	Свойства предмета
-Tooltip/&TagDebuffTitle	Ослабление
-Tooltip/&WeaponNotLightWarningDescription	Это тяжёлое оружие не позволяет персонажу использовать бонусную атаку оружием в другой руке.
-Tooltip/&AmmunitionSelectorPrimaryDescription	Ваше оружие дальнего боя будет в первую очередь использовать боеприпасы из этой ячейки снаряжения.
-Tooltip/&AmmunitionSelectorSecondaryDescription	Ваше оружие дальнего боя будет использовать боеприпасы из этой ячейки снаряжения, если приоритетная ячейка пуста. Щёлкните сюда, чтобы назначить эту ячейку приоритетной.
-Tooltip/&StealthBreakerCharacterDescription	Может заметить прячущегося персонажа. В конце хода прячущегося персонажа будет выполнена проверка ловкости (скрытность).
-Tooltip/&ItemDynamicPropertyFormat	{0}: {1}
-Tooltip/&ItemDynamicPropertyRemainingUseAttackSingleFormat	Осталось использований: {0} атака
-Tooltip/&ItemDynamicPropertyRemainingUseAttackPluralFormat	Осталось использований: {0} атк.
-Tooltip/&ItemDynamicPropertyRemainingUseHitSingleFormat	Осталось использований: {0} удар
-Tooltip/&ItemDynamicPropertyRemainingUseHitPluralFormat	Осталось использований: {0} уд.
-Tooltip/&ItemPropertyFormUsesAttackSingleFormat	({0} атака)
-Tooltip/&ItemPropertyFormUsesAttackPluralFormat	({0} атк.)
-Tooltip/&ItemPropertyFormUsesHitSingleFormat	({0} удар)
-Tooltip/&ItemPropertyFormUsesHitPluralFormat	({0} уд.)
-Tooltip/&ItemRarityCommonTitle	Всеобщий
-Tooltip/&ItemRarityUncommonTitle	Необычный
-Tooltip/&ItemRarityRareTitle	Редкий
-Tooltip/&ItemRarityVeryRareTitle	Очень редкий
-Tooltip/&ItemRarityLegendaryTitle	Легендарный
-Tooltip/&OutOfDarkvisionRangeFormat	(Вне зоны действия ночного зрения)
-Tooltip/&TagPerishableTitle	Скоропортящийся
-Tooltip/&TagAbilityScoreIncreaseTitle	Повышение характеристики
-Tooltip/&TrendMonsterAttackFormat	Атака: {0}
-Tooltip/&ToHitBonusTrendTitle	
-Tooltip/&DamageBonusTrendTitle	Бонус к урону: {0}
-Tooltip/&TrendBaseTitle	База
-Tooltip/&AttackRollAdditiveTrendsFormat	Модификатор броска атаки: {0}
-Tooltip/&SavingThrowAdditiveTrendsFormat	Модификатор спасброска: {0}
-Tooltip/&AbilityCheckAdditiveTrendsFormat	Модификатор проверки характеристик: {0}
-Tooltip/&TrendCoverFormat	Укрытие
-Tooltip/&SaveVersionWarningDescription	Это сохранение связано с более ранней версией игры, могут возникнуть ошибки совместимости.
-Tooltip/&TrendKnownSpellFormat	«{0}» — известное заклинание.
-Tooltip/&InvalidComponentRequirementTitle	Отсутствуют компоненты заклинания
-Tooltip/&TagIvoryTitle	Слоновья кость
-Tooltip/&TagPearlTitle	Жемчужина
-Tooltip/&TagGemTitle	Драгоценный камень
-Tooltip/&TagDiamondTitle	Бриллиант
-Tooltip/&SpecificComponentConsumedFormat	{0}: минимум {1} (израсходовано)
-Tooltip/&SpecificComponentNotConsumedFormat	{0}: минимум {1} (не израсходовано)
-Tooltip/&TagPoisonTitle	Ядовитый
-Tooltip/&PowerUsesAbilityScoreFormat	Бонус: {0}
-Tooltip/&PowerUsesAbilityScorePlusFixedFormat	Бонус +{1}: {0}
-Tooltip/&PowerUsesProficiencyBonusTitle	Бонус мастерства
-Tooltip/&TrendDifficultyFormat	Модификатор сложности
-Tooltip/&TagInDimLightOrDarknessTitle	Нехватка света
-Tooltip/&RecurrentEffectTitle	Периодический эффект:
-Tooltip/&FeatPrerequisiteArmorProficiencyFormat	Требуется мастерство: {0}
-Tooltip/&TagKillTitle	Мгновенная смерть
-Tooltip/&TagLightUpTitle	Зажечь
-Tooltip/&CampaignNodePortalDescription	Большие врата позволяют телепортироваться на это место или из него.
-Tooltip/&UnusedInSolastaDescription	Этот элемент, хоть и входит в набор правил и подходит для отыгрыша роли, не используется в главной кампании «Короны Магистра».
-Tooltip/&TagOrcTitle	Орк
-Tooltip/&PowerUsesAbilityScorePlusFixed	Бонус 1 + ХАР
-Tooltip/&DeityMarkFormat	На этот предмет нанесён символ божества: {0}.
-Tooltip/&WeaponNoAmmunitionWarningDescription	Нет подходящих боеприпасов.
-Tooltip/&TagBleedingTitle	Кровотечение
-Tooltip/&LootPackContentTitle	Содержимое набора трофеев:
-Tooltip/&TrapEffectsTitle	Эффекты ловушки
-Tooltip/&EnvironmentEffectsTitle	Эффекты окружения
-Tooltip/&RandomItemSingleTitle	Случайный предмет —
-Tooltip/&RandomItemPluralTitle	Случайные предметы —
-Tooltip/&EditorFilterLightsDescription	Показать/скрыть источники света
-Tooltip/&EditorFilterActivatorLinksDescription	Показать/скрыть активаторы
-Tooltip/&EditorFilterShortcutsDescription	Показать/скрыть клавиатурные команды
-Tooltip/&UserGadgetCanBeActivated	Устройство можно активировать дистанционно с помощью устройства активации
-Tooltip/&CampaignContentShortcutTooltip	Щёлкните, чтобы выделить и расширить эту категорию материалов и разбить все остальные категории
-Tooltip/&CampaignOnly	Доступно только при редактировании пользовательского места в рамках пользовательской кампании
-Tooltip/&NetworkPlayerMustBeAssignedTitle	Игроку не назначена ячейка персонажа.
-Tooltip/&MultiplayerSessionNewDescription	Эта многопользовательская игра начнет новое приключение.
-Tooltip/&ActiveQuestsNearEntrancePluralFormat	{0} активных зад. у входа: {1}
-Tooltip/&ActiveQuestsNearEntranceSingleFormat	{0} активное задание у входа: {1}
-Tooltip/&UnusedInCOTMButValleyYesDescription	Этот элемент, хоть и входит в набор правил и подходит для отыгрыша роли, не используется в главной кампании «Короны Магистра». Зато он есть в обновлении «Затерянная долина».
-Tooltip/&TagDamageAncestryTitle	Наследованный урон
-Tooltip/&HalfClassTitle	полукласс x
-Tooltip/&OfficialCampaignDescription	Это официальная кампания от Tactical Adventures, полностью переведённая на все поддерживаемые языки.
-Tooltip/&TrendMissingProficiencyTitle	Не обладает мастерством
-Tooltip/&SpellEffectsRandomTitle	Эффекты заклинаний (случайные)
-Tooltip/&SorceryPointsDescription	Очки колдовства можно использовать для выполнения метамагических действий и изменения эффектов заклинаний.
-Tooltip/&TrendMetamagicFormat	Метамагия: {0}
-Tooltip/&IronManModeDescription	В режиме «Железный человек» можно загрузить только последнее сохранение, все сохранения удаляются после поражения отряда.\nДанную настройку нельзя изменить во время игры.
-Tooltip/&AdvancementGainAdditionalSubtargetMultipleFormat	{0} доп. цел. 
-Tooltip/&AdvancementGainAdditionalSubtargetSingleFormat	{0} доп. цел. 
-Tooltip/&MetamagicVariableCostSpellLevelDescription	Стоимость зависит от уровня заклинания.
-Tooltip/&ShapeChangeFormSingleChoiceFormat	Изменяет ваш облик:
-Tooltip/&ShapeChangeFormRandomFromListFormat	Случайно выбирает один из обликов:
-Tooltip/&ShapeChangeFormFreeListSelectionFormat	Выберите один из этих обликов:
-Tooltip/&ShapeChangeFormClassLevelListSelectionFormat	Выберите один из доступных для уровня класса персонажа обликов:
-Tooltip/&ShapeChangeFormCreatureLevelFormat	Уровень {0}: {1}
-Tooltip/&TagShapeChangeTitle	Изменение облика
-Tooltip/&TagArcaneFocusTitle	Магическое сосредоточение
-Tooltip/&TagDivineFocusTitle	Божественное сосредоточение
-Tooltip/&TagDruidicFocusTitle	Друидическое сосредоточение
-Tooltip/&TagConjuredTitle	Вызванное
-Tooltip/&AdvancementGainAdditionalWeaponDieMultipleFormat	Кости урона оружием: {0}
-Tooltip/&AdvancementGainAdditionalWeaponDieSingleFormat	Кость урона оружием: {0}
-Tooltip/&LockedContentDescription	Этот элемент заблокирован, поскольку вы не приобрели соответствующий контент. Будет использован другой элемент.
-Tooltip/&MissingDLCFormat	— Отсутствует дополнение: «{0}»
-Tooltip/&HoldForMoreInfoTitleGamepad	Удерживайте, чтобы получить больше информации
-Tooltip/&Invalid_Component_Requirement_Title	
+Tooltip/&ActiveQuestsAtLocationPluralFormat={0} активных зад.: {1}
+Tooltip/&ActiveQuestsAtLocationSingleFormat={0} активное задание: {1}
+Tooltip/&AdvancementByAdditionalSlotMultipleFormat=За каждые {1} яч. заклинаний свыше {0}
+Tooltip/&AdvancementByAdditionalSlotSingleFormat=За каждую ячейку заклинания свыше {0}
+Tooltip/&AdvancementByCasterLevelFormat=На 5-м, 11-м и 17-м уровнях заклинателя
+Tooltip/&AdvancementDurationHours_1_8_24=Длительность повышается с 1 до 8, а затем до 24 часов
+Tooltip/&AdvancementDurationMinutes_1_10_480_144_Infinite=Длительность повышается с 1 минуты до 10, до 8 часов, до 24 часов, до бесконечности
+Tooltip/&AdvancementGainAdditionalDiceMultipleFormat={0} кост. 
+Tooltip/&AdvancementGainAdditionalDiceSingleFormat={0} кость 
+Tooltip/&AdvancementGainAdditionalHPFormat={0} к максимальному количеству очков здоровья
+Tooltip/&AdvancementGainAdditionalItemBonusFormat={0} бонус предмета (макс. {1})
+Tooltip/&AdvancementGainAdditionalSpellLevelMultipleFormat={0} ур. заклинания 
+Tooltip/&AdvancementGainAdditionalSpellLevelSingleFormat={0} уровень заклинания 
+Tooltip/&AdvancementGainAdditionalSummonMultipleFormat={0} призв. сущ.
+Tooltip/&AdvancementGainAdditionalSummonSingleFormat={0} призванное существо
+Tooltip/&AdvancementGainAdditionalTargetMultipleFormat={0} цел. 
+Tooltip/&AdvancementGainAdditionalTargetSingleFormat={0} цель 
+Tooltip/&AdvancementGainAdditionalTempHPFormat={0} врем. очк. здоровья
+Tooltip/&AdvancementTitle=На более высоких уровнях
+Tooltip/&AdvantageTrendsTitle=Преимущество/помеха
+Tooltip/&AmmunitionEffectsTitle=Дополнительный урон/эффект
+Tooltip/&ArmorEffectsTitle=Эффекты доспехов
+Tooltip/&CantripSubtitleFormat={0} — заговор\n
+Tooltip/&ChallengeDifficultyTitle=Рейтинг испытания
+Tooltip/&CompatibleProficienciesHeaderTitle=Совместимые виды мастерства
+Tooltip/&ContainerEmptyDescription=Пусто
+Tooltip/&ContainerUnknownContentDescription=Неизвестное содержимое
+Tooltip/&CoverHeaderTitle=Укрытие
+Tooltip/&CraftingDifficultyTitle=КС изготовления
+Tooltip/&CraftingDurationTitle=Длительность
+Tooltip/&CurrentlyEquipedTitle=Сейчас используется
+Tooltip/&DeviceChargesMaxPlural=Заряды: {0}
+Tooltip/&DeviceChargesMaxSingle=Заряд: {0}
+Tooltip/&DeviceFunctionRemainingCooldown=восстановление {0}
+Tooltip/&DeviceFunctionsTitle=Функц. предмета
+Tooltip/&DeviceFunctionsUnknown=Неизвестно
+Tooltip/&DeviceRechargeTitle=Перезарядить
+Tooltip/&DeviceUsageTitle=Использование
+Tooltip/&DurationTitle=Длительность
+Tooltip/&EffectDurationTitle=Длительность
+Tooltip/&FeatPrerequisiteAbilityScoreFormat=Мин. {0} {1}
+Tooltip/&FeatPrerequisiteCastSpellTitle=Способность накладывать заклинания
+Tooltip/&FeatPrerequisiteClassesFormat=Совместимые классы:\n{0}
+Tooltip/&FeatPrerequisiteFeatsFormat=Нужные особенности:\n{0}
+Tooltip/&FeatPrerequisiteRacesFormat=Совместимые наследия: {0}
+Tooltip/&FeatPrerequisitesTitle=Требования
+Tooltip/&FeatRedundantDescription=Вы уже обладаете некоторыми или всеми плюсами данной особенности, из-за чего она будет менее полезна вам.
+Tooltip/&FeatTitle=Особенность
+Tooltip/&HoldForMoreInfoTitle=Удерживайте <Alt>, чтобы получить больше информации
+Tooltip/&IngredientsHeaderTitle=Нужные ингредиенты
+Tooltip/&LightingBrightFormat=В ярком свете
+Tooltip/&LightingDarknessFormat=В темноте
+Tooltip/&LightingDimFormat=В тусклом свете
+Tooltip/&LightingTargetBrightFormat={0} находится в ярком свете
+Tooltip/&LightingTargetDarknessFormat={0} находится в темноте
+Tooltip/&LightingTargetDimFormat={0} находится в тусклом свете
+Tooltip/&LightingTargetUnlitFormat={0} не на свету
+Tooltip/&LightingUnlitFormat=Не на свету
+Tooltip/&LightSourceEffectsTitle=Эффекты освещения
+Tooltip/&NotProficientFormat={0} не обладает навыками использования данного предмета и не может его применить.
+Tooltip/&PowerActivationTimeTitle=Активация
+Tooltip/&PowerEffectsTitle=Эффекты способности
+Tooltip/&PowerRechargeTitle=Перезарядить
+Tooltip/&PowerUsesTitle=Использования
+Tooltip/&PropertiesTitle=Свойства
+Tooltip/&ProximityLongRangeTitle=Дальнобойная атака
+Tooltip/&ProximityRangeEnemyNearbyTitle=Атака дальнего боя с врагом поблизости
+Tooltip/&ProxyControlableTitle=Контролируемый магический эффект
+Tooltip/&ProxyStaticTitle=Неподвижный магический эффект
+Tooltip/&RecipeTitle=Рецепт
+Tooltip/&RemainingDurationTitle=Оставшаяся длительность
+Tooltip/&RequiredSpellHeaderTitle=Нужное заклинание
+Tooltip/&SavingThrowTitle=Спасбросок
+Tooltip/&SourceHasFeatFormat={0} имеет особенность {1}
+Tooltip/&SourceHasFightingStyleFormat={0} имеет боевой стиль {1}
+Tooltip/&SourceHasFormat={0} имеет: {1}
+Tooltip/&SourceUsesItemFormat={0} использует: {1}
+Tooltip/&SpaceCapacityTitle=Вместимость хранилища
+Tooltip/&SpaceTitle=Пространство
+Tooltip/&SpellbookContentTitle=Содержимое книги заклинаний
+Tooltip/&SpellCastingTimeTitle=Время наложения
+Tooltip/&SpellComponentsTitle=Компоненты
+Tooltip/&SpellEffectsTitle=Эффекты заклинаний
+Tooltip/&SpellRangeTitle=Дальность
+Tooltip/&SpellSubtitleFormat=Уровень {0} {1}
+Tooltip/&SpellTargetTitle=Цель
+Tooltip/&StackSizeTitle=Размер стопки
+Tooltip/&StarterPackContentTitle=Содержимое
+Tooltip/&SubspellsEffectsTitle=Эффекты подзаклинаний
+Tooltip/&TagAmmunitionTitle=Боезапас
+Tooltip/&TagAreaOfEffectTitle=Область действия
+Tooltip/&TagAttunementTitle=Связь
+Tooltip/&TagBreakConcentrationTitle=Прервать концентрацию
+Tooltip/&TagBuffTitle=Усиление
+Tooltip/&TagCarryingCapacityTitle=Переносимый вес
+Tooltip/&TagChannelDivinityTitle=Божественный канал
+Tooltip/&TagComponentTitle=Компонент
+Tooltip/&TagConcentrationTitle=Концентрация
+Tooltip/&TagConsumableTitle=Расходуемый предмет
+Tooltip/&TagControlTitle=Управление
+Tooltip/&TagCounterTitle=Контратака
+Tooltip/&TagCurseTitle=Проклятие
+Tooltip/&TagDamageAcidTitle=Урон кислотой
+Tooltip/&TagDamageBludgeoningTitle=Дробящий урон
+Tooltip/&TagDamageColdTitle=Холодный урон
+Tooltip/&TagDamageFireTitle=Огненный урон
+Tooltip/&TagDamageForceTitle=Силовой урон
+Tooltip/&TagDamageLightningTitle=Электрический урон
+Tooltip/&TagDamageNecroticTitle=Некротический урон
+Tooltip/&TagDamagePiercingTitle=Колющий урон
+Tooltip/&TagDamagePoisonTitle=Урон ядом
+Tooltip/&TagDamagePsychicTitle=Духовный урон
+Tooltip/&TagDamageRadiantTitle=Сиятельный урон
+Tooltip/&TagDamageSlashingTitle=Рубящий урон
+Tooltip/&TagDamageThunderTitle=Звуковой урон
+Tooltip/&TagDamageTitle=Урон
+Tooltip/&TagDisperseCloudTitle=Рассеять облако
+Tooltip/&TagDissipateSpellsTitle=Прекратить заклинания
+Tooltip/&TagDivinationTitle=Ясновидение
+Tooltip/&TagDocumentTitle=Документ
+Tooltip/&TagExtinguishFireTitle=Тушение
+Tooltip/&TagExtinguishLightTitle=Рассеять свет
+Tooltip/&TagFactionRelicTitle=Реликвия фракции
+Tooltip/&TagFinesseTitle=Фехтовальное
+Tooltip/&TagFlamableTitle=Воспламеняемое
+Tooltip/&TagFlamingTitle=Поджигаемое
+Tooltip/&TagFoodTitle=Еда
+Tooltip/&TagGlassTitle=Стекло
+Tooltip/&TagGoldTitle=Золото
+Tooltip/&TagHealingTitle=Лечение
+Tooltip/&TagHeavyTitle=Тяжёлое
+Tooltip/&TagIngredientTitle=Ингредиент
+Tooltip/&TagItemPropertyTitle=Усиление предмета
+Tooltip/&TagLeatherTitle=Кожаная броня
+Tooltip/&TagLightSourceTitle=Источник света
+Tooltip/&TagLightTitle=Лёгкое
+Tooltip/&TagLoadingTitle=Заряжающееся
+Tooltip/&TagMagicalTitle=Магическое
+Tooltip/&TagMeleeTitle=Ближний бой
+Tooltip/&TagMetalArmorTitle=Металлические доспехи
+Tooltip/&TagMetalTitle=Металл
+Tooltip/&TagMotionTitle=Вынужденное передвижение
+Tooltip/&TagPaperTitle=Бумага
+Tooltip/&TagPotionTitle=Зелье
+Tooltip/&TagPowerTitle=Сила
+Tooltip/&TagProtectionTitle=Оборона
+Tooltip/&TagQuestTitle=Задание
+Tooltip/&TagRangeTitle=Дальность
+Tooltip/&TagReachTitle=Шест
+Tooltip/&TagReactionTitle=Реакция
+Tooltip/&TagRemoveDarknessTitle=Убрать тьму
+Tooltip/&TagRevealTrapsTitle=Обнаружение ловушек
+Tooltip/&TagReviveTitle=Оживить
+Tooltip/&TagRitualTitle=Ритуал
+Tooltip/&TagScrollTitle=Свиток
+Tooltip/&TagShapechangerTitle=Оборотень
+Tooltip/&TagSightBlockerTitle=Блокирует обзор
+Tooltip/&TagSilverTitle=Серебристые
+Tooltip/&TagSpellFocusTitle=Предмет для фокусировки
+Tooltip/&TagSpellSlotsTitle=Ячейки заклинаний
+Tooltip/&TagSpellTitle=Заклинание
+Tooltip/&TagStandardTitle=Стандарт
+Tooltip/&TagStealthAdvantageTitle=Преимущество в скрытности
+Tooltip/&TagStealthAutofailTitle=Автопровал скрытности
+Tooltip/&TagStealthDisadvantageTitle=Помеха в скрытности
+Tooltip/&TagSummonTitle=Призыв
+Tooltip/&TagTeleportTitle=Телепортация
+Tooltip/&TagTemporaryHitPointsTitle=Временные очки здоровья
+Tooltip/&TagThrownTitle=Метательное
+Tooltip/&TagTorchTitle=Факел
+Tooltip/&TagTwoHandedTitle=Двуручное
+Tooltip/&TagUnlockTitle=Разблокировать
+Tooltip/&TagVersatileTitle=Универсальное
+Tooltip/&TagVerticalityTitle=Вертикальное передвижение
+Tooltip/&TagWarListTitle=Военный список
+Tooltip/&TagWoodTitle=Дерево
+Tooltip/&TargetTagMetalArmorTitle=Цель носит металлические доспехи
+Tooltip/&ToolTypeTitle=Инструмент для изготовления
+Tooltip/&ValueNoneTitle=Нет
+Tooltip/&ValueTitle=Ценность
+Tooltip/&WeaponEffectsTitle=Эффекты при попадании
+Tooltip/&WeightCapacityMultiplierTitle=Множитель переносимого веса
+Tooltip/&WeightTitle=Вес
+Tooltip/&TrendConditionIsFormat={0} теперь {1}
+Tooltip/&TrendConditionHasFormat={0} имеет: {1}
+Tooltip/&TagDiseasedTitle=Болезнь
+Tooltip/&TagPoisonedTitle=Отравление
+Tooltip/&ItemPropertiesTitle=Свойства предмета
+Tooltip/&TagDebuffTitle=Ослабление
+Tooltip/&WeaponNotLightWarningDescription=Это тяжёлое оружие не позволяет персонажу использовать бонусную атаку оружием в другой руке.
+Tooltip/&AmmunitionSelectorPrimaryDescription=Ваше оружие дальнего боя будет в первую очередь использовать боеприпасы из этой ячейки снаряжения.
+Tooltip/&AmmunitionSelectorSecondaryDescription=Ваше оружие дальнего боя будет использовать боеприпасы из этой ячейки снаряжения, если приоритетная ячейка пуста. Щёлкните сюда, чтобы назначить эту ячейку приоритетной.
+Tooltip/&StealthBreakerCharacterDescription=Может заметить прячущегося персонажа. В конце хода прячущегося персонажа будет выполнена проверка ловкости (скрытность).
+Tooltip/&ItemDynamicPropertyFormat={0}: {1}
+Tooltip/&ItemDynamicPropertyRemainingUseAttackSingleFormat=Осталось использований: {0} атака
+Tooltip/&ItemDynamicPropertyRemainingUseAttackPluralFormat=Осталось использований: {0} атк.
+Tooltip/&ItemDynamicPropertyRemainingUseHitSingleFormat=Осталось использований: {0} удар
+Tooltip/&ItemDynamicPropertyRemainingUseHitPluralFormat=Осталось использований: {0} уд.
+Tooltip/&ItemPropertyFormUsesAttackSingleFormat=({0} атака)
+Tooltip/&ItemPropertyFormUsesAttackPluralFormat=({0} атк.)
+Tooltip/&ItemPropertyFormUsesHitSingleFormat=({0} удар)
+Tooltip/&ItemPropertyFormUsesHitPluralFormat=({0} уд.)
+Tooltip/&ItemRarityCommonTitle=Всеобщий
+Tooltip/&ItemRarityUncommonTitle=Необычный
+Tooltip/&ItemRarityRareTitle=Редкий
+Tooltip/&ItemRarityVeryRareTitle=Очень редкий
+Tooltip/&ItemRarityLegendaryTitle=Легендарный
+Tooltip/&OutOfDarkvisionRangeFormat=(Вне зоны действия ночного зрения)
+Tooltip/&TagPerishableTitle=Скоропортящийся
+Tooltip/&TagAbilityScoreIncreaseTitle=Повышение характеристики
+Tooltip/&TrendMonsterAttackFormat=Атака: {0}
+Tooltip/&ToHitBonusTrendTitle=
+Tooltip/&DamageBonusTrendTitle=Бонус к урону: {0}
+Tooltip/&TrendBaseTitle=База
+Tooltip/&AttackRollAdditiveTrendsFormat=Модификатор броска атаки: {0}
+Tooltip/&SavingThrowAdditiveTrendsFormat=Модификатор спасброска: {0}
+Tooltip/&AbilityCheckAdditiveTrendsFormat=Модификатор проверки характеристик: {0}
+Tooltip/&TrendCoverFormat=Укрытие
+Tooltip/&SaveVersionWarningDescription=Это сохранение связано с более ранней версией игры, могут возникнуть ошибки совместимости.
+Tooltip/&TrendKnownSpellFormat=«{0}» — известное заклинание.
+Tooltip/&InvalidComponentRequirementTitle=Отсутствуют компоненты заклинания
+Tooltip/&TagIvoryTitle=Слоновья кость
+Tooltip/&TagPearlTitle=Жемчужина
+Tooltip/&TagGemTitle=Драгоценный камень
+Tooltip/&TagDiamondTitle=Бриллиант
+Tooltip/&SpecificComponentConsumedFormat={0}: минимум {1} (израсходовано)
+Tooltip/&SpecificComponentNotConsumedFormat={0}: минимум {1} (не израсходовано)
+Tooltip/&TagPoisonTitle=Ядовитый
+Tooltip/&PowerUsesAbilityScoreFormat=Бонус: {0}
+Tooltip/&PowerUsesAbilityScorePlusFixedFormat=Бонус +{1}: {0}
+Tooltip/&PowerUsesProficiencyBonusTitle=Бонус мастерства
+Tooltip/&TrendDifficultyFormat=Модификатор сложности
+Tooltip/&TagInDimLightOrDarknessTitle=Нехватка света
+Tooltip/&RecurrentEffectTitle=Периодический эффект:
+Tooltip/&FeatPrerequisiteArmorProficiencyFormat=Требуется мастерство: {0}
+Tooltip/&TagKillTitle=Мгновенная смерть
+Tooltip/&TagLightUpTitle=Зажечь
+Tooltip/&CampaignNodePortalDescription=Большие врата позволяют телепортироваться на это место или из него.
+Tooltip/&UnusedInSolastaDescription=Этот элемент, хоть и входит в набор правил и подходит для отыгрыша роли, не используется в главной кампании «Короны Магистра».
+Tooltip/&TagOrcTitle=Орк
+Tooltip/&PowerUsesAbilityScorePlusFixed=Бонус 1 + ХАР
+Tooltip/&DeityMarkFormat=На этот предмет нанесён символ божества: {0}.
+Tooltip/&WeaponNoAmmunitionWarningDescription=Нет подходящих боеприпасов.
+Tooltip/&TagBleedingTitle=Кровотечение
+Tooltip/&LootPackContentTitle=Содержимое набора трофеев:
+Tooltip/&TrapEffectsTitle=Эффекты ловушки
+Tooltip/&EnvironmentEffectsTitle=Эффекты окружения
+Tooltip/&RandomItemSingleTitle=Случайный предмет —
+Tooltip/&RandomItemPluralTitle=Случайные предметы —
+Tooltip/&EditorFilterLightsDescription=Показать/скрыть источники света
+Tooltip/&EditorFilterActivatorLinksDescription=Показать/скрыть активаторы
+Tooltip/&EditorFilterShortcutsDescription=Показать/скрыть клавиатурные команды
+Tooltip/&UserGadgetCanBeActivated=Устройство можно активировать дистанционно с помощью устройства активации
+Tooltip/&CampaignContentShortcutTooltip=Щёлкните, чтобы выделить и расширить эту категорию материалов и разбить все остальные категории
+Tooltip/&CampaignOnly=Доступно только при редактировании пользовательского места в рамках пользовательской кампании
+Tooltip/&NetworkPlayerMustBeAssignedTitle=Игроку не назначена ячейка персонажа.
+Tooltip/&MultiplayerSessionNewDescription=Эта многопользовательская игра начнет новое приключение.
+Tooltip/&ActiveQuestsNearEntrancePluralFormat={0} активных зад. у входа: {1}
+Tooltip/&ActiveQuestsNearEntranceSingleFormat={0} активное задание у входа: {1}
+Tooltip/&UnusedInCOTMButValleyYesDescription=Этот элемент, хоть и входит в набор правил и подходит для отыгрыша роли, не используется в главной кампании «Короны Магистра». Зато он есть в обновлении «Затерянная долина».
+Tooltip/&TagDamageAncestryTitle=Наследованный урон
+Tooltip/&HalfClassTitle=полукласс x
+Tooltip/&OfficialCampaignDescription=Это официальная кампания от Tactical Adventures, полностью переведённая на все поддерживаемые языки.
+Tooltip/&TrendMissingProficiencyTitle=Не обладает мастерством
+Tooltip/&SpellEffectsRandomTitle=Эффекты заклинаний (случайные)
+Tooltip/&SorceryPointsDescription=Очки колдовства можно использовать для выполнения метамагических действий и изменения эффектов заклинаний.
+Tooltip/&TrendMetamagicFormat=Метамагия: {0}
+Tooltip/&IronManModeDescription=В режиме «Железный человек» можно загрузить только последнее сохранение, все сохранения удаляются после поражения отряда.\nДанную настройку нельзя изменить во время игры.
+Tooltip/&AdvancementGainAdditionalSubtargetMultipleFormat={0} доп. цел. 
+Tooltip/&AdvancementGainAdditionalSubtargetSingleFormat={0} доп. цел. 
+Tooltip/&MetamagicVariableCostSpellLevelDescription=Стоимость зависит от уровня заклинания.
+Tooltip/&ShapeChangeFormSingleChoiceFormat=Изменяет ваш облик:
+Tooltip/&ShapeChangeFormRandomFromListFormat=Случайно выбирает один из обликов:
+Tooltip/&ShapeChangeFormFreeListSelectionFormat=Выберите один из этих обликов:
+Tooltip/&ShapeChangeFormClassLevelListSelectionFormat=Выберите один из доступных для уровня класса персонажа обликов:
+Tooltip/&ShapeChangeFormCreatureLevelFormat=Уровень {0}: {1}
+Tooltip/&TagShapeChangeTitle=Изменение облика
+Tooltip/&TagArcaneFocusTitle=Магическое сосредоточение
+Tooltip/&TagDivineFocusTitle=Божественное сосредоточение
+Tooltip/&TagDruidicFocusTitle=Друидическое сосредоточение
+Tooltip/&TagConjuredTitle=Вызванное
+Tooltip/&AdvancementGainAdditionalWeaponDieMultipleFormat=Кости урона оружием: {0}
+Tooltip/&AdvancementGainAdditionalWeaponDieSingleFormat=Кость урона оружием: {0}
+Tooltip/&LockedContentDescription=Этот элемент заблокирован, поскольку вы не приобрели соответствующий контент. Будет использован другой элемент.
+Tooltip/&MissingDLCFormat=— Отсутствует дополнение: «{0}»
+Tooltip/&HoldForMoreInfoTitleGamepad=Удерживайте, чтобы получить больше информации
+Tooltip/&Invalid_Component_Requirement_Title=

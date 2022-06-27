@@ -1,156 +1,156 @@
-Credits/&GameTechnicalVisionTitle	Игровое и техническое планирование
-Credits/&ArtTeamTitle	Художественный отдел
-Credits/&ArtDirectorTitle	Арт-директор
-Credits/&Lead3DArtistTitle	Ведущий дизайнер трёхмерной графики
-Credits/&LeadAnimatorTitle	Ведущий аниматор
-Credits/&3DCharacterArtistFemaleTitle	Дизайнер трёхмерных персонажей
-Credits/&3DEnvironmentArtistTitle	Дизайнер трёхмерного окружения
-Credits/&VisualEffectsArtistFemaleTitle	Дизайнер визуальных эффектов
-Credits/&ConceptArtistTitle	Концепт-дизайнер
-Credits/&DesignTeamTitle	Отдел дизайна
-Credits/&GameplayDirectorTitle	Директор по игровому процессу
-Credits/&SeniorLevelDesignerTitle	Старший дизайнер уровней
-Credits/&SeniorTechLevelDesignerTitle	Старший технический дизайнер уровней
-Credits/&LevelDesignerTitle	Дизайнер уровней
-Credits/&LevelBuilderTitle	Редактор уровней
-Credits/&CutsceneDirectionTitle	Дизайнер кат-сцен
-Credits/&NarrationTeamTitle	Сюжетная команда
-Credits/&UniverseStorylineTitle	Вселенная и история
-Credits/&NarrationDirection	Управление сюжетной командой
-Credits/&ProductionTeamTitle	Производственный отдел
-Credits/&ProducerFemaleTitle	Продюсер
-Credits/&QALeadFemaleTitle	Глава отдела контроля качества
-Credits/&AutotestTitle	Автоматическое тестирование
-Credits/&TechnicalTeamTitle	Технический отдел
-Credits/&TechLeadTitle	Ведущий инженер
-Credits/&GraphicsProgrammerTitle	Инженер по рендерингу
-Credits/&UIRuleserProgrammerTitle	Инженер пользовательского интерфейса/набор правил
-Credits/&ToolsProgrammerTitle	Инженер инструментов и игрового процесса
-Credits/&MarktingTeamTitle	Отдел маркетинга
-Credits/&MarketingDirectorTitle	Маркетинговый директор
-Credits/&LeadCommunityDeveloperTitle	Ведущий менеджер по работе с сообществом
-Credits/&AdministrationTeamTitle	Административный отдел
-Credits/&AdministrativeAndFinancialManagerFemaleTitle	Финансовый и административный менеджер
-Credits/&BoardMemberTitle	Исполнительный директор
-Credits/&ExternalPartnersTitle	Внешние партнёры
-Credits/&ExternalPartnersConceptTitle	Концепт-дизайнер дополнительных материалов
-Credits/&EnvironmentConceptArtistTitle	Концепт-дизайнер окружения и основной графики
-Credits/&CharacterConceptArtistTitle	Концепт-дизайнер персонажей
-Credits/&UIConceptArtistTitle	Художник по интерфейсу и рынку
-Credits/&ExternalQAName	Quantic Lab
-Credits/&ExternalQACEOTitle	Генеральный директор и основатель
-Credits/&ExternalQAHeadBusiness	Глава отдела коммерческого развития
-Credits/&ExternalQABusinessDev	Заместитель главы отдела коммерческого развития
-Credits/&ExternalQATechDirector	Директор технического отдела
-Credits/&ExternalQAQADirector	Директор отдела контроля качества
-Credits/&ExternalQAQAManager	Менеджеры отдела контроля качества
-Credits/&ExternalQAQALeadTester	Ведущие тестировщики отдела контроля качества
-Credits/&ExternalQAQATesters	Тестировщики отдела контроля качества
-Credits/&ExternalQAIT	Менеджеры отдела информационной инфраструктуры
-Credits/&ExternalQACompatLead	Ведущий тестировщик совместимости и производительности
-Credits/&ExternalQACompatTester	Тестировщики совместимости и производительности
-Credits/&SeniorWriterTitle	Старший сценарист
-Credits/&ExternalCommTeam	Коммуникационные партнёры
-Credits/&ExternalCommReberbName	Reverb Inc.
-Credits/&ExternalCommReberbGeneralManager	Генеральный руководитель
-Credits/&ExternalCommReberbSnrPRManager	Старший менеджер по связям с общественностью
-Credits/&ExternalCommReberbMktManager	Управляющий отдела маркетинга
-Credits/&ExternalCommReberbInfluencersPR	Работа с лидерами мнений/связь с общественностью
-Credits/&ExternalCommReberbOnlineMediamanager	Менеджер электронных СМИ
-Credits/&ExternalCommMinuitName	MinuitDouze
-Credits/&ExternalCommMinuitCoFounder	Соучредитель/заместитель директора
-Credits/&ExternalCommMinuitPRConsultant	Консультант по связям с общественностью
-Credits/&ExternalCommDeadGoodPRName	Dead Good PR
-Credits/&ExternalCommDeadGoodPRDirector	Директор и владелец
-Credits/&ExternalCommDeadGoodPRAccountManager	Менеджер по работе с клиентами
-Credits/&ExternalCommDeadGoodPRDigitalCreatives	Управляющий отдела цифровой обработки
-Credits/&ExternalCommFireName	fire without smoke
-Credits/&ExternalCommFireStudioHead	Глава студии
-Credits/&ExternalCommFireSnrProd	Старший продюсер
-Credits/&ExternalCommFireClientDirector	Директор отдела по работе с клиентами
-Credits/&ExternalCommBobbyName	Bobby Prod
-Credits/&ExternalCommBobbyOwner	Владелец и продюсер
-Credits/&ExternalCommBobbyProductionManager	Управляющий производственного отдела
-Credits/&ExternalCommREZName	REZ Creative
-Credits/&ExternalCommREZDirector	Креативный директор и продюсер
-Credits/&ExternalCommBarbesName	Barbès Prod
-Credits/&ExternalCommBarbesCoFounder	Соучредитель
-Credits/&ExternalCommSeptimeName	Septime Création
-Credits/&ExternalCommSeptimeCEO	Генеральный директор
-Credits/&ExternalCommSeptimeProducer	Руководитель проекта
-Credits/&ExternalCommSeptimeBackDev	Ведущий разработчик внутреннего и внешнего интерфейсов
-Credits/&CNCAcknowledgementTitle	Avec le soutien du FAJV, fonds cofinancé par le Centre National du Cinéma et de l'Image animée et le Ministère de l'Economie et des Finances
-Credits/&ExternalProdSweetAName	Sweet Arsenic
-Credits/&ExternalProdSweetABusinessManager	Бизнес-менеджер
-Credits/&ExternalProdSweetALeadArtist	Ведущий художник
-Credits/&External3DProdTeam	Партнёры по 3D-графике
-Credits/&ExternalAnimProdTeam	Партнёры по анимации
-Credits/&ExternalProdLeikirName	Leikir
-Credits/&ExternalProdOriginalForceName	Original Force LTD
-Credits/&ExternalProdAnimator	Аниматор
-Credits/&ExternalProdGameCoName	Gamecostudios Team
-Credits/&ExternalProdBusinessDev	Коммерческое развитие
-Credits/&ExternalProdProjectManager	Руководитель проекта
-Credits/&ExternalProdArtLead	Ведущий художник
-Credits/&ExternalProdProjectLead	Ведущий специалист проекта
-Credits/&ExternalProdQualityCheck	Контроль качества
-Credits/&ExternalProdKeyArt	Дизайнер основной графики GamecoStudios
-Credits/&ExternalProdCharacterArtLead	Ведущий художник персонажей
-Credits/&ExternalG4FProdName	G4F — продакшн
-Credits/&ExternalG4FRecordsName	G4F — запись
-Credits/&ExternalG4FVoicesName	G4F — локализация (голоса)
-Credits/&ExternalLeadSound	Ведущий звукорежиссёр
-Credits/&ExternalSoundDesigner	звукорежиссёр
-Credits/&ExternalCFO	CFO
-Credits/&ExternalCOO	COO
-Credits/&ExternalComposer	Композитор
-Credits/&ExternalLegal	Юридические вопросы
-Credits/&ExternalContentManager	Контент-менеджер
-Credits/&ExternalMasterRecordEngineer	Инженер записи и мастеринга
-Credits/&ExternalRecordEngineer	Инженер записи
-Credits/&ExternalCopyist	Копировщик
-Credits/&ExternalMusicians	Музыканты
-Credits/&ExternalVoiceDirector	Директор озвучивания и редактор диалогов
-Credits/&ExternalPMSoundEditor	Управление проектом и редактор по звуку
-Credits/&ExternalSoundEditor	Редакторы по звуку
-Credits/&ExternalHerosActor	Голос героя
-Credits/&ExternalNPCActor	Голос НИП
-Credits/&ExternalRealityzName	Realityz Team
-Credits/&LeadLDLB	Главный дизайнер уровней, левел-билд 
-Credits/&LDLB	Дизайнер уровней, левел-билд 
-Credits/&ToolsGameplayProgrammerTitle	Инженер инструментов и игрового процесса
-Credits/&ExternalStudioCreative	Креативный директор студии
-Credits/&ExternalUIUX	Партнёры по UI/UX
-Credits/&ExternalFigsName	Figs
-Credits/&ExternalUIUXJob	Дизайн UX/UI
-Credits/&ExternalPlaytestBy	Игровое тесты и отчёты
-Credits/&ExternalSkillooName	Skilloo
-Credits/&TATeamName	Tactical Adventures Team
-Credits/&SpecialThanks	Отдельное спасибо
-Credits/&ExternalTech	Технические партнёры
-Credits/&ExternalKnightsName	Knights of Unity
-Credits/&ExternalUnityDev	Unity-разработчик
-Credits/&ExternalLoca	Партнёр по локализации
-Credits/&ExternalAltaName	Altagram Group
-Credits/&ExternalAltaLQA	Ведущий специалист контроля качества локализации
-Credits/&ExternalAltaLingCoord	Лингвистический координатор
-Credits/&Baby	Соластанский ребёнок
-Credits/&Pets	Соластанские питомцы
-Credits/&PetsNote	Спасибо вам за весь пролитый на клавиатуру кофе и за вторжения в видеозвонки
-Credits/&ExternalQAPartners	Партнёры по контролю качества
-Credits/&ExternalCSPartners	Партнёр по 2D — кат-сценам
-Credits/&ExternalSound	Партнёры по звуку
-Credits/&AssocQAProd	Продюсер и заместитель главы отдела контроля качества
-Credits/&ExternalAltaLingCoordMale	Лингвистический координатор
-Credits/&TechLevelDesigner	Технический дизайнер уровней
-Credits/&TALyon	Tactical Adventures — Лион
-Credits/&SeniorProducerFemaleTitle	Старший продюсер
-Credits/&TAStudioDirector	Руководитель студии
-Credits/&LeadGameDesigner	Ведущий игровой дизайнер
-Credits/&JunArtDirectorFemaleTitle	Младший арт-директор
-Credits/&LeadTechnicalArtist	Ведущий технический художник
-Credits/&LeadAnimMocapAndKeyframe	Ведущий аниматор, захват движений и опорные кадры
-Credits/&LeadDevelopper	Ведущий разработчик
-Credits/&CommuDesign	Дизайнеры сообщества
-Credits/&CommuDesignMagicArmor	Магические доспехи
-Credits/&QASpecialist	Специалист контроля качества
+Credits/&GameTechnicalVisionTitle=Игровое и техническое планирование
+Credits/&ArtTeamTitle=Художественный отдел
+Credits/&ArtDirectorTitle=Арт-директор
+Credits/&Lead3DArtistTitle=Ведущий дизайнер трёхмерной графики
+Credits/&LeadAnimatorTitle=Ведущий аниматор
+Credits/&3DCharacterArtistFemaleTitle=Дизайнер трёхмерных персонажей
+Credits/&3DEnvironmentArtistTitle=Дизайнер трёхмерного окружения
+Credits/&VisualEffectsArtistFemaleTitle=Дизайнер визуальных эффектов
+Credits/&ConceptArtistTitle=Концепт-дизайнер
+Credits/&DesignTeamTitle=Отдел дизайна
+Credits/&GameplayDirectorTitle=Директор по игровому процессу
+Credits/&SeniorLevelDesignerTitle=Старший дизайнер уровней
+Credits/&SeniorTechLevelDesignerTitle=Старший технический дизайнер уровней
+Credits/&LevelDesignerTitle=Дизайнер уровней
+Credits/&LevelBuilderTitle=Редактор уровней
+Credits/&CutsceneDirectionTitle=Дизайнер кат-сцен
+Credits/&NarrationTeamTitle=Сюжетная команда
+Credits/&UniverseStorylineTitle=Вселенная и история
+Credits/&NarrationDirection=Управление сюжетной командой
+Credits/&ProductionTeamTitle=Производственный отдел
+Credits/&ProducerFemaleTitle=Продюсер
+Credits/&QALeadFemaleTitle=Глава отдела контроля качества
+Credits/&AutotestTitle=Автоматическое тестирование
+Credits/&TechnicalTeamTitle=Технический отдел
+Credits/&TechLeadTitle=Ведущий инженер
+Credits/&GraphicsProgrammerTitle=Инженер по рендерингу
+Credits/&UIRuleserProgrammerTitle=Инженер пользовательского интерфейса/набор правил
+Credits/&ToolsProgrammerTitle=Инженер инструментов и игрового процесса
+Credits/&MarktingTeamTitle=Отдел маркетинга
+Credits/&MarketingDirectorTitle=Маркетинговый директор
+Credits/&LeadCommunityDeveloperTitle=Ведущий менеджер по работе с сообществом
+Credits/&AdministrationTeamTitle=Административный отдел
+Credits/&AdministrativeAndFinancialManagerFemaleTitle=Финансовый и административный менеджер
+Credits/&BoardMemberTitle=Исполнительный директор
+Credits/&ExternalPartnersTitle=Внешние партнёры
+Credits/&ExternalPartnersConceptTitle=Концепт-дизайнер дополнительных материалов
+Credits/&EnvironmentConceptArtistTitle=Концепт-дизайнер окружения и основной графики
+Credits/&CharacterConceptArtistTitle=Концепт-дизайнер персонажей
+Credits/&UIConceptArtistTitle=Художник по интерфейсу и рынку
+Credits/&ExternalQAName=Quantic Lab
+Credits/&ExternalQACEOTitle=Генеральный директор и основатель
+Credits/&ExternalQAHeadBusiness=Глава отдела коммерческого развития
+Credits/&ExternalQABusinessDev=Заместитель главы отдела коммерческого развития
+Credits/&ExternalQATechDirector=Директор технического отдела
+Credits/&ExternalQAQADirector=Директор отдела контроля качества
+Credits/&ExternalQAQAManager=Менеджеры отдела контроля качества
+Credits/&ExternalQAQALeadTester=Ведущие тестировщики отдела контроля качества
+Credits/&ExternalQAQATesters=Тестировщики отдела контроля качества
+Credits/&ExternalQAIT=Менеджеры отдела информационной инфраструктуры
+Credits/&ExternalQACompatLead=Ведущий тестировщик совместимости и производительности
+Credits/&ExternalQACompatTester=Тестировщики совместимости и производительности
+Credits/&SeniorWriterTitle=Старший сценарист
+Credits/&ExternalCommTeam=Коммуникационные партнёры
+Credits/&ExternalCommReberbName=Reverb Inc.
+Credits/&ExternalCommReberbGeneralManager=Генеральный руководитель
+Credits/&ExternalCommReberbSnrPRManager=Старший менеджер по связям с общественностью
+Credits/&ExternalCommReberbMktManager=Управляющий отдела маркетинга
+Credits/&ExternalCommReberbInfluencersPR=Работа с лидерами мнений/связь с общественностью
+Credits/&ExternalCommReberbOnlineMediamanager=Менеджер электронных СМИ
+Credits/&ExternalCommMinuitName=MinuitDouze
+Credits/&ExternalCommMinuitCoFounder=Соучредитель/заместитель директора
+Credits/&ExternalCommMinuitPRConsultant=Консультант по связям с общественностью
+Credits/&ExternalCommDeadGoodPRName=Dead Good PR
+Credits/&ExternalCommDeadGoodPRDirector=Директор и владелец
+Credits/&ExternalCommDeadGoodPRAccountManager=Менеджер по работе с клиентами
+Credits/&ExternalCommDeadGoodPRDigitalCreatives=Управляющий отдела цифровой обработки
+Credits/&ExternalCommFireName=fire without smoke
+Credits/&ExternalCommFireStudioHead=Глава студии
+Credits/&ExternalCommFireSnrProd=Старший продюсер
+Credits/&ExternalCommFireClientDirector=Директор отдела по работе с клиентами
+Credits/&ExternalCommBobbyName=Bobby Prod
+Credits/&ExternalCommBobbyOwner=Владелец и продюсер
+Credits/&ExternalCommBobbyProductionManager=Управляющий производственного отдела
+Credits/&ExternalCommREZName=REZ Creative
+Credits/&ExternalCommREZDirector=Креативный директор и продюсер
+Credits/&ExternalCommBarbesName=Barbès Prod
+Credits/&ExternalCommBarbesCoFounder=Соучредитель
+Credits/&ExternalCommSeptimeName=Septime Création
+Credits/&ExternalCommSeptimeCEO=Генеральный директор
+Credits/&ExternalCommSeptimeProducer=Руководитель проекта
+Credits/&ExternalCommSeptimeBackDev=Ведущий разработчик внутреннего и внешнего интерфейсов
+Credits/&CNCAcknowledgementTitle=Avec le soutien du FAJV, fonds cofinancé par le Centre National du Cinéma et de l'Image animée et le Ministère de l'Economie et des Finances
+Credits/&ExternalProdSweetAName=Sweet Arsenic
+Credits/&ExternalProdSweetABusinessManager=Бизнес-менеджер
+Credits/&ExternalProdSweetALeadArtist=Ведущий художник
+Credits/&External3DProdTeam=Партнёры по 3D-графике
+Credits/&ExternalAnimProdTeam=Партнёры по анимации
+Credits/&ExternalProdLeikirName=Leikir
+Credits/&ExternalProdOriginalForceName=Original Force LTD
+Credits/&ExternalProdAnimator=Аниматор
+Credits/&ExternalProdGameCoName=Gamecostudios Team
+Credits/&ExternalProdBusinessDev=Коммерческое развитие
+Credits/&ExternalProdProjectManager=Руководитель проекта
+Credits/&ExternalProdArtLead=Ведущий художник
+Credits/&ExternalProdProjectLead=Ведущий специалист проекта
+Credits/&ExternalProdQualityCheck=Контроль качества
+Credits/&ExternalProdKeyArt=Дизайнер основной графики GamecoStudios
+Credits/&ExternalProdCharacterArtLead=Ведущий художник персонажей
+Credits/&ExternalG4FProdName=G4F — продакшн
+Credits/&ExternalG4FRecordsName=G4F — запись
+Credits/&ExternalG4FVoicesName=G4F — локализация (голоса)
+Credits/&ExternalLeadSound=Ведущий звукорежиссёр
+Credits/&ExternalSoundDesigner=звукорежиссёр
+Credits/&ExternalCFO=CFO
+Credits/&ExternalCOO=COO
+Credits/&ExternalComposer=Композитор
+Credits/&ExternalLegal=Юридические вопросы
+Credits/&ExternalContentManager=Контент-менеджер
+Credits/&ExternalMasterRecordEngineer=Инженер записи и мастеринга
+Credits/&ExternalRecordEngineer=Инженер записи
+Credits/&ExternalCopyist=Копировщик
+Credits/&ExternalMusicians=Музыканты
+Credits/&ExternalVoiceDirector=Директор озвучивания и редактор диалогов
+Credits/&ExternalPMSoundEditor=Управление проектом и редактор по звуку
+Credits/&ExternalSoundEditor=Редакторы по звуку
+Credits/&ExternalHerosActor=Голос героя
+Credits/&ExternalNPCActor=Голос НИП
+Credits/&ExternalRealityzName=Realityz Team
+Credits/&LeadLDLB=Главный дизайнер уровней, левел-билд 
+Credits/&LDLB=Дизайнер уровней, левел-билд 
+Credits/&ToolsGameplayProgrammerTitle=Инженер инструментов и игрового процесса
+Credits/&ExternalStudioCreative=Креативный директор студии
+Credits/&ExternalUIUX=Партнёры по UI/UX
+Credits/&ExternalFigsName=Figs
+Credits/&ExternalUIUXJob=Дизайн UX/UI
+Credits/&ExternalPlaytestBy=Игровое тесты и отчёты
+Credits/&ExternalSkillooName=Skilloo
+Credits/&TATeamName=Tactical Adventures Team
+Credits/&SpecialThanks=Отдельное спасибо
+Credits/&ExternalTech=Технические партнёры
+Credits/&ExternalKnightsName=Knights of Unity
+Credits/&ExternalUnityDev=Unity-разработчик
+Credits/&ExternalLoca=Партнёр по локализации
+Credits/&ExternalAltaName=Altagram Group
+Credits/&ExternalAltaLQA=Ведущий специалист контроля качества локализации
+Credits/&ExternalAltaLingCoord=Лингвистический координатор
+Credits/&Baby=Соластанский ребёнок
+Credits/&Pets=Соластанские питомцы
+Credits/&PetsNote=Спасибо вам за весь пролитый на клавиатуру кофе и за вторжения в видеозвонки
+Credits/&ExternalQAPartners=Партнёры по контролю качества
+Credits/&ExternalCSPartners=Партнёр по 2D — кат-сценам
+Credits/&ExternalSound=Партнёры по звуку
+Credits/&AssocQAProd=Продюсер и заместитель главы отдела контроля качества
+Credits/&ExternalAltaLingCoordMale=Лингвистический координатор
+Credits/&TechLevelDesigner=Технический дизайнер уровней
+Credits/&TALyon=Tactical Adventures — Лион
+Credits/&SeniorProducerFemaleTitle=Старший продюсер
+Credits/&TAStudioDirector=Руководитель студии
+Credits/&LeadGameDesigner=Ведущий игровой дизайнер
+Credits/&JunArtDirectorFemaleTitle=Младший арт-директор
+Credits/&LeadTechnicalArtist=Ведущий технический художник
+Credits/&LeadAnimMocapAndKeyframe=Ведущий аниматор, захват движений и опорные кадры
+Credits/&LeadDevelopper=Ведущий разработчик
+Credits/&CommuDesign=Дизайнеры сообщества
+Credits/&CommuDesignMagicArmor=Магические доспехи
+Credits/&QASpecialist=Специалист контроля качества

@@ -1,20 +1,20 @@
-Lore/&ObservableText_Wanderer_01	Чтобы активировать переключатель рельс требуется рычаг.
-Lore/&ObservableText_Wanderer_02	Вы вставляете рычаг. Теперь должно сработать.
-Lore/&ObservableText_Wanderer_03	Эта дверь серьёзно укреплена, вам понадобится огромная сила для того, чтобы открыть её.
-Lore/&ObservableText_Wanderer_04	Вечного покоя не существует.
-Lore/&ObservableText_Wanderer_05	Несите свет лишь неупокоенным душам.
-Lore/&ObservableText_Wanderer_06	Оставьте остальных во тьме смерти.
-Lore/&Wanderer_Tomb01	Ласориат Стронгхарт\nКапитан Первой центурии Второго легиона\nПочётный падший империи
-Lore/&Wanderer_Tomb02	Кератир Свифтспелл\nКомандир Первых укротителей стихий Второго легиона\nПочётный падший империи
-Lore/&ObservableText_DLC1_Complex_01	Согласно документу, в этом здании есть подземный ярус!
-Lore/&ObservableText_DLC1_Complex_02	Кажется, во всём комплексе в качестве ключей используются призмы из маны.
-Lore/&ObservableText_DLC1_Complex_03	Стопка исследовательских заметок.
-Lore/&ObservableText_DLC1_Complex_04	Углублённое изучение биологии
-Lore/&ObservableText_DLC1_Complex_05	Мана и принципы питаемых магией элементов
-Lore/&ObservableText_DLC1_Complex_06	Небольшая записка, в которой написано: «Доступ к тоннелям пока закрыт. Используйте лифт, если вам нужно попасть на нижний ярус».
-Lore/&ObservableText_DLC1_Marches_01	TBC
-Lore/&ObservableText_DLC1_Marches_02	TBC
-Lore/&ObservableText_DLC1_Marches_03	TBC
-Lore/&ObservableText_DLC1_Marches_04	TBC
-Lore/&ObservableText_DLC1_Marches_05	TBC
-Lore/&ObservableText_DLC1_Marches_06	TBC
+Lore/&ObservableText_Wanderer_01=Чтобы активировать переключатель рельс требуется рычаг.
+Lore/&ObservableText_Wanderer_02=Вы вставляете рычаг. Теперь должно сработать.
+Lore/&ObservableText_Wanderer_03=Эта дверь серьёзно укреплена, вам понадобится огромная сила для того, чтобы открыть её.
+Lore/&ObservableText_Wanderer_04=Вечного покоя не существует.
+Lore/&ObservableText_Wanderer_05=Несите свет лишь неупокоенным душам.
+Lore/&ObservableText_Wanderer_06=Оставьте остальных во тьме смерти.
+Lore/&Wanderer_Tomb01=Ласориат Стронгхарт\nКапитан Первой центурии Второго легиона\nПочётный падший империи
+Lore/&Wanderer_Tomb02=Кератир Свифтспелл\nКомандир Первых укротителей стихий Второго легиона\nПочётный падший империи
+Lore/&ObservableText_DLC1_Complex_01=Согласно документу, в этом здании есть подземный ярус!
+Lore/&ObservableText_DLC1_Complex_02=Кажется, во всём комплексе в качестве ключей используются призмы из маны.
+Lore/&ObservableText_DLC1_Complex_03=Стопка исследовательских заметок.
+Lore/&ObservableText_DLC1_Complex_04=Углублённое изучение биологии
+Lore/&ObservableText_DLC1_Complex_05=Мана и принципы питаемых магией элементов
+Lore/&ObservableText_DLC1_Complex_06=Небольшая записка, в которой написано: «Доступ к тоннелям пока закрыт. Используйте лифт, если вам нужно попасть на нижний ярус».
+Lore/&ObservableText_DLC1_Marches_01=TBC
+Lore/&ObservableText_DLC1_Marches_02=TBC
+Lore/&ObservableText_DLC1_Marches_03=TBC
+Lore/&ObservableText_DLC1_Marches_04=TBC
+Lore/&ObservableText_DLC1_Marches_05=TBC
+Lore/&ObservableText_DLC1_Marches_06=TBC

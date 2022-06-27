@@ -193,3 +193,4 @@ ModUi/&Category=类别
 ModUi/&WeaponTag=武器标签
 ModUi/&ItemTag=物品标签
 ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额外的背景故事
+ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=yellow>[即：暴击、暴击等]</color></i>

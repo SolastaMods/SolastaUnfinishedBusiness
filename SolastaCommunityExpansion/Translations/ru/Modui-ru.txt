@@ -193,3 +193,4 @@ ModUi/&Category=Category
 ModUi/&WeaponTag=Weapon Tag
 ModUi/&ItemTag=Item Tag
 ModUi/&EnableAdditionalBackstoryDisplay=Включить дополнительное отображение предыстории при фоновой проверке
+ModUi/&EnableStatsOnHeroTooltip=Отображать статистику во всплывающей подсказке героя <i><color=yellow>[т.е.: критические попадания, критические неудачи и т. д.]</color></i>

@@ -1,5 +1,5 @@
-TutorialSection/&BasicsTitle	Основы
-TutorialSection/&CombatTitle	Бой
-TutorialSection/&ExplorationTitle	Исследование
-TutorialSection/&InventoryTitle	Снаряжение
-TutorialSection/&TravelTitle	Путешествие
+TutorialSection/&BasicsTitle=Основы
+TutorialSection/&CombatTitle=Бой
+TutorialSection/&ExplorationTitle=Исследование
+TutorialSection/&InventoryTitle=Снаряжение
+TutorialSection/&TravelTitle=Путешествие

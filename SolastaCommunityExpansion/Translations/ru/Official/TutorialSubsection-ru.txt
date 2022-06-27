@@ -1,13 +1,13 @@
-TutorialSubsection/&Basics_CameraTitle	Камера
-TutorialSubsection/&Basics_MovingTitle	Перемещается
-TutorialSubsection/&Basics_PartyMngtTitle	Управление отрядом
-TutorialSubsection/&Basics_QuestTitle	Журнал заданий
-TutorialSubsection/&CombatMovementTitle	Передвижение
-TutorialSubsection/&CombatShoveTitle	Отталкивание
-TutorialSubsection/&Exploration_LocationMapTitle	Карта местности
-TutorialSubsection/&Exploration_MiscTitle	Разное
-TutorialSubsection/&Exploration_PointsOfInterestTitle	Важные объекты
-TutorialSubsection/&ExplorationJumpingClimbingTitle	Прыжки и лазание
-TutorialSubsection/&Inventory_LootingTitle	Поиск добычи
-TutorialSubsection/&Inventory_SpecialTitle	Особые ячейки
-TutorialSubsection/&Exploration_MagicTitle	Магия
+TutorialSubsection/&Basics_CameraTitle=Камера
+TutorialSubsection/&Basics_MovingTitle=Перемещается
+TutorialSubsection/&Basics_PartyMngtTitle=Управление отрядом
+TutorialSubsection/&Basics_QuestTitle=Журнал заданий
+TutorialSubsection/&CombatMovementTitle=Передвижение
+TutorialSubsection/&CombatShoveTitle=Отталкивание
+TutorialSubsection/&Exploration_LocationMapTitle=Карта местности
+TutorialSubsection/&Exploration_MiscTitle=Разное
+TutorialSubsection/&Exploration_PointsOfInterestTitle=Важные объекты
+TutorialSubsection/&ExplorationJumpingClimbingTitle=Прыжки и лазание
+TutorialSubsection/&Inventory_LootingTitle=Поиск добычи
+TutorialSubsection/&Inventory_SpecialTitle=Особые ячейки
+TutorialSubsection/&Exploration_MagicTitle=Магия

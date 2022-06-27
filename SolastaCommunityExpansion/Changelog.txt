@@ -8,4 +8,5 @@
 
 CHANGES:
 
-- Fix MP desync with preferred cantrips
+- Add a setting to display stats on Hero's tooltips
+- Improve translations

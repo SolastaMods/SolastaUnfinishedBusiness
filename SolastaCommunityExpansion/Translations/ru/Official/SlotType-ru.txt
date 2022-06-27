@@ -1,36 +1,36 @@
-SlotType/&AmmunitionSlotDescription	Здесь можно хранить боезапас для стрелкового оружия.
-SlotType/&AmmunitionSlotTitle	Боезапас
-SlotType/&BackSlotDescription	Сюда можно снаряжать рюкзаки и щиты, а также пристёгивать большое оружие.
-SlotType/&BackSlotTitle	Назад
-SlotType/&BeltSlotDescription	Сюда можно надевать пояса или ремни.
-SlotType/&BeltSlotTitle	Пояс
-SlotType/&ContainerSlotDescription	Здесь можно хранить любые предметы.
-SlotType/&ContainerSlotTitle	Хранилище
-SlotType/&FeetSlotDescription	Сюда можно надевать сапоги, тапки или туфли.
-SlotType/&FeetSlotTitle	Ноги
-SlotType/&FingerSlotDescription	Сюда можно надевать кольца.
-SlotType/&FingerSlotTitle	Палец
-SlotType/&GlovesSlotDescription	Сюда можно надевать перчатки или латные рукавицы.
-SlotType/&GlovesSlotTitle	Руки
-SlotType/&HeadSlotDescription	Сюда можно надевать шляпы, шлемы, короны или диадемы.
-SlotType/&HeadSlotTitle	Голова
-SlotType/&MainHandSlotDescription	Сюда можно снаряжать основное оружие.
-SlotType/&MainHandSlotTitle	Основная рука
-SlotType/&NeckSlotDescription	Сюда можно надевать ожерелья и амулеты.
-SlotType/&NeckSlotTitle	Шея
-SlotType/&OffHandSlotDescription	Сюда можно снаряжать вспомогательное оружие. Если в основную руку уже взято двуручное оружие, эта ячейка будет недоступна.
-SlotType/&OffHandSlotTitle	Вспомогательная рука
-SlotType/&PersonalStorageSlotDescription	В рюкзаке или другом хранилище можно переносить предметы при условии, что не превышено ограничение по весу.
-SlotType/&PersonalStorageSlotTitle	Личное хранилище
-SlotType/&SmallContainerSlotDescription	Здесь можно хранить небольшие предметы.
-SlotType/&SmallContainerSlotTitle	Маленькое хранилище
-SlotType/&TorchHolderSlotDescription	Здесь можно размещать только факелы или аналогичные им предметы.
-SlotType/&TorchHolderSlotTitle	Держатель для факела
-SlotType/&TorsoSlotDescription	Сюда можно надевать доспехи.
-SlotType/&TorsoSlotTitle	Торс
-SlotType/&UtilitySlotDescription	Здесь можно хранить полезные предметы (зелья, свитки, предметы для фокусировки, сумки для компонентов).
-SlotType/&UtilitySlotTitle	Полезные предметы
-SlotType/&WristsSlotDescription	Сюда можно надевать наручи.
-SlotType/&WristsSlotTitle	Запястья
-SlotType/&ShouldersSlotDescription	Здесь вы можете надевать плащи и наплечники.
-SlotType/&ShouldersSlotTitle	Плечи
+SlotType/&AmmunitionSlotDescription=Здесь можно хранить боезапас для стрелкового оружия.
+SlotType/&AmmunitionSlotTitle=Боезапас
+SlotType/&BackSlotDescription=Сюда можно снаряжать рюкзаки и щиты, а также пристёгивать большое оружие.
+SlotType/&BackSlotTitle=Назад
+SlotType/&BeltSlotDescription=Сюда можно надевать пояса или ремни.
+SlotType/&BeltSlotTitle=Пояс
+SlotType/&ContainerSlotDescription=Здесь можно хранить любые предметы.
+SlotType/&ContainerSlotTitle=Хранилище
+SlotType/&FeetSlotDescription=Сюда можно надевать сапоги, тапки или туфли.
+SlotType/&FeetSlotTitle=Ноги
+SlotType/&FingerSlotDescription=Сюда можно надевать кольца.
+SlotType/&FingerSlotTitle=Палец
+SlotType/&GlovesSlotDescription=Сюда можно надевать перчатки или латные рукавицы.
+SlotType/&GlovesSlotTitle=Руки
+SlotType/&HeadSlotDescription=Сюда можно надевать шляпы, шлемы, короны или диадемы.
+SlotType/&HeadSlotTitle=Голова
+SlotType/&MainHandSlotDescription=Сюда можно снаряжать основное оружие.
+SlotType/&MainHandSlotTitle=Основная рука
+SlotType/&NeckSlotDescription=Сюда можно надевать ожерелья и амулеты.
+SlotType/&NeckSlotTitle=Шея
+SlotType/&OffHandSlotDescription=Сюда можно снаряжать вспомогательное оружие. Если в основную руку уже взято двуручное оружие, эта ячейка будет недоступна.
+SlotType/&OffHandSlotTitle=Вспомогательная рука
+SlotType/&PersonalStorageSlotDescription=В рюкзаке или другом хранилище можно переносить предметы при условии, что не превышено ограничение по весу.
+SlotType/&PersonalStorageSlotTitle=Личное хранилище
+SlotType/&SmallContainerSlotDescription=Здесь можно хранить небольшие предметы.
+SlotType/&SmallContainerSlotTitle=Маленькое хранилище
+SlotType/&TorchHolderSlotDescription=Здесь можно размещать только факелы или аналогичные им предметы.
+SlotType/&TorchHolderSlotTitle=Держатель для факела
+SlotType/&TorsoSlotDescription=Сюда можно надевать доспехи.
+SlotType/&TorsoSlotTitle=Торс
+SlotType/&UtilitySlotDescription=Здесь можно хранить полезные предметы (зелья, свитки, предметы для фокусировки, сумки для компонентов).
+SlotType/&UtilitySlotTitle=Полезные предметы
+SlotType/&WristsSlotDescription=Сюда можно надевать наручи.
+SlotType/&WristsSlotTitle=Запястья
+SlotType/&ShouldersSlotDescription=Здесь вы можете надевать плащи и наплечники.
+SlotType/&ShouldersSlotTitle=Плечи

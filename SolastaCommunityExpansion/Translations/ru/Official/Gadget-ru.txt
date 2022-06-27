@@ -1,352 +1,352 @@
-Gadget/&CampfireTitle	Костёр
-Gadget/&CampfireDescription	Интерактивный костёр, используемый для начала долгого отдыха
-Gadget/&ChestTitle	Сундук
-Gadget/&ChestDescription	Хранилище для трофеев
-Gadget/&DoubleDoorTitle	Двойная дверь
-Gadget/&DoubleDoorDescription	Простая открывающаяся дверь
-Gadget/&EntranceTitle	Вход
-Gadget/&EntranceDescription	Начальная точка для отряда
-Gadget/&ExitTitle	Выход
-Gadget/&ExitDescription	Точка выхода для отряда. Может вести в другое пользовательское место.
-Gadget/&HiddenDoorTitle	Потайная дверь
-Gadget/&HiddenDoorDescription	Дверь, для обнаружения которой надо пройти проверку на восприятие
-Gadget/&InteractiveTorchTitle	Интерактивный факел
-Gadget/&InteractiveTorchDescription	Настенный факел, который можно зажигать и тушить
-Gadget/&LoreAreaTitle	Историческая область
-Gadget/&LoreAreaDescription	При входе в эту область будет показан текст
-Gadget/&MonsterMTitle	Монстр M
-Gadget/&MonsterMDescription	Создаёт одного среднего (или небольшого) монстра на позиции устройства
-Gadget/&MonsterLTitle	Монстр L
-Gadget/&MonsterLDescription	Создаёт одного большого монстра на позиции устройства
-Gadget/&MonsterMMultipleTitle	Несколько монстров M
-Gadget/&MonsterMMultipleDescription	Создаёт несколько средних (или небольших) монстров на позиции устройства
-Gadget/&TrapTitle	Ловушка
-Gadget/&TrapDescription	Ловушка, срабатывающая при наступании на её поверхность
-Gadget/&VirtualLoreTitle	Виртуальная история
-Gadget/&VirtualLoreDescription	Взаимодействие, отображающее исторический текст. Можно разместить на любом реквизите.
-Gadget/&VirtualLootTitle	Виртуальные трофеи
-Gadget/&VirtualLootDescription	Взаимодействие с трофеями. Можно разместить на любом реквизите, чтобы имитировать хранилище.
-Gadget/&ParameterExplicitItemsTitle	Явные предметы
-Gadget/&ParameterLootPackTitle	Набор трофеев
-Gadget/&ParameterItemListTitle	Список предметов
-Gadget/&ParameterParam_LockedTitle	Заперто
-Gadget/&ParameterUnlock_DCTitle	КС отпирания
-Gadget/&ParameterParam_TrappedTitle	С ловушкой
-Gadget/&ParameterPerception_DCTitle	КС восприятия
-Gadget/&ParameterDisarm_DCTitle	КС обезвреживания
-Gadget/&ParameterReveal_DCTitle	КС открытия
-Gadget/&ParameterTrapEffectTitle	Эффект ловушки
-Gadget/&ParameterEntranceIndexTitle	Индекс входа
-Gadget/&ParameterDestinationLocationTitle	Место назначения
-Gadget/&ParameterCreatureTitle	Существо
-Gadget/&ParameterQuantityTitle	Количество
-Gadget/&ParameterPerceptionDCTitle	КС восприятия
-Gadget/&ParameterSpeechTitle	Речь
-Gadget/&ParameterEncounterGroupTitle	Встреча с группой
-Gadget/&ParameterGroupIndexTitle	Индекс группы
-Gadget/&ParameterExplicitItemsDescription	Определяет, чем будет контент — заранее составленным набором трофеев или явно заданным списком предметов
-Gadget/&ParameterLootPackDescription	Заранее заданный список предметов, часть из которых будет определяться наугад
-Gadget/&ParameterItemListDescription	Задайте явный список предметов, которые будут появляться в хранилище
-Gadget/&ParameterParam_LockedDescription	Определяет, заперто ли это устройство
-Gadget/&ParameterUnlock_DCDescription	Класс сложности для отпирания этого устройства
-Gadget/&ParameterParam_TrappedDescription	Определяет, с ловушкой ли это устройство
-Gadget/&ParameterPerception_DCDescription	Класс сложности для обнаружения ловушки на устройстве
-Gadget/&ParameterDisarm_DCDescription	Класс сложности для обезвреживания ловушки на устройстве
-Gadget/&ParameterReveal_DCDescription	Класс сложности для обнаружения этого устройства
-Gadget/&ParameterTrapEffectDescription	Тип эффекта от срабатывания ловушки на устройстве
-Gadget/&ParameterEntranceIndexDescription	У этого места несколько входов. Индекс определяет вход, в который ведёт устройство выхода.
-Gadget/&ParameterDestinationLocationDescription	Название места, куда ведёт этот вход.
-Gadget/&ParameterCreatureDescription	Тип созданного существа
-Gadget/&ParameterQuantityDescription	Количество существ
-Gadget/&ParameterSpeechDescription	Текст, отображаемый при взаимодействии с этим устройством
-Gadget/&ParameterEncounterGroupDescription	Отметьте этот пункт, чтобы сделать созданное существо частью боевой группы, инициирующей бой
-Gadget/&ParameterGroupIndexDescription	Существа с одинаковым индексом группы (любым выбранным вами числом) будут принадлежать к одной боевой группе
-Gadget/&ParameterSavingThrowDCTitle	КС спасброска
-Gadget/&ParameterSavingThrowDCDescription	Класс сложности для спасброска
-Gadget/&ParameterAddDiceTitle	Дополнительная кость
-Gadget/&ParameterAddDiceDescription	Увеличить число костей для этого эффекта
-Gadget/&FallingChandelierTitle	Падающая люстра
-Gadget/&FallingChandelierDescription	Висящая люстра, которая при повреждении может упасть и нанести урон
-Gadget/&GrateTitle	Ящик
-Gadget/&GrateDescription	Металлический забор с рушащейся металлической дверью
-Gadget/&InvisiblePlateTitle	Невидимая пластина
-Gadget/&InvisiblePlateDescription	Невидимая пластина, активирующаяся при наступании на другие устройства
-Gadget/&LorePlaqueTitle	Табличка с историей
-Gadget/&LorePlaqueDescription	Настенная табличка с историческим текстом
-Gadget/&ManaLampTitle	Лампа маны
-Gadget/&ManaLampDescription	Интерактивная лампа, которая зажигается под воздействием заклинаний
-Gadget/&PrisonDoorTitle	Тюремная дверь
-Gadget/&PrisonDoorDescription	Металлическая дверь, открывающая и закрывающая доступ в место заключения
-Gadget/&ActivatorButtonTitle	Кнопка-активатор
-Gadget/&ActivatorButtonDescription	Кнопка, которую можно использовать для активации других устройств
-Gadget/&ActivatorAreaTitle	Зона-активатор
-Gadget/&ActivatorAreaDescription	При входе в эту зону активируются другие устройства
-Gadget/&ActivatorPlateTitle	Пластина-активатор
-Gadget/&ActivatorPlateDescription	Пластина, активирующаяся при наступании на другие устройства
-Gadget/&ActivatorTimedTitle	Таймер-активатор
-Gadget/&ActivatorTimedDescription	Невидимое устройство, активирующее другие устройства через регулярные временные интервалы
-Gadget/&WoodenDoorTitle	Деревянная дверь
-Gadget/&WoodenDoorDescription	Простая дверь
-Gadget/&ManaLampWallTitle	Лампа маны (настенная)
-Gadget/&ParameterTargetGadgetsTitle	Устройства-цели
-Gadget/&ParameterTargetGadgetsDescription	Устройства, срабатывающие при активации/деактивации этого устройства
-Gadget/&ParameterSymetricalTitle	Симметрия
-Gadget/&ParameterSymetricalDescription	Может ли активатор работать в обе стороны, например, открывать и закрывать дверь?
-Gadget/&ParameterOperationTitle	Операция
-Gadget/&ParameterOperationDescription	Тип операции, выполняемой на устройствах-целях
-Gadget/&ParameterOperationActivateTitle	Активировать
-Gadget/&ParameterOperationActivateDescription	Активирует другие устройства (например, открывает дверь)
-Gadget/&ParameterOperationDeactivateTitle	Деактивировать
-Gadget/&ParameterOperationDeactivateDescription	Деактивирует другие устройства (например, закрывает дверь)
-Gadget/&ParameterOperationActivateSymetricalTitle	Симметричная активация
-Gadget/&ParameterOperationActivateSymetricalDescription	Активация/дезактивация (например, открытие/закрытие двери)
-Gadget/&ParameterOperationEnableTitle	Включить
-Gadget/&ParameterOperationEnableDescription	Включить активатор, чтобы он активировал другие устройства
-Gadget/&ParameterOperationDisableTitle	Отключить
-Gadget/&ParameterOperationDisableDescription	Отключить активатор, чтобы он больше не активировал другие устройства (например, отключить таймер-активатор)
-Gadget/&ParameterOperationEnableSymetricalTitle	Симметричное включение
-Gadget/&ParameterOperationEnableSymetricalDescription	Включение/выключение (например, кнопкой можно включать и выключать таймер-активатор)
-Gadget/&LavaBulbTitle	Пузырь лавы
-Gadget/&MechanismTitle	Механизм
-Gadget/&TorchPikeTitle	Стойка для факела
-Gadget/&ParameterParam_HardLockedTitle	Заблокировано
-Gadget/&ParameterParam_HardLockedDescription	Это устройство нельзя открыть обычными средствами, требуется удалённый активатор
-Gadget/&ParameterParam_DefaultAsLitTitle	Светится
-Gadget/&ParameterParam_DefaultAsLitDescription	Определяет, светится ли это устройство по умолчанию (если пункт не выбран — не светится)
-Gadget/&ParameterParam_DefaultAsOpenedTitle	Открыто
-Gadget/&ParameterParam_DefaultAsOpenedDescription	Определяет, открыто ли это устройство по умолчанию
-Gadget/&MonsterHTitle	Монстр H
-Gadget/&MonsterHDescription	Создаёт одного огромного монстра на позиции устройства
-Gadget/&MonsterGTitle	Монстр G
-Gadget/&MonsterGDescription	Создаёт одного сверхогромного монстра на позиции устройства
-Gadget/&ParameterAutoSpawnTitle	Автосоздание
-Gadget/&ParameterAutoSpawnDescription	Если этот параметр выключен, монстр создаётся по срабатыванию удалённого активатора, а не при приближении героев
-Gadget/&ParameterLoreFormatTitle	Формат истории
-Gadget/&ParameterLoreFormatDescription	Форма, в которой пользователю предоставляется информация о мире игры
-Gadget/&ParameterLoreFormatMainCharacterTitle	Главный персонаж
-Gadget/&ParameterLoreFormatMainCharacterDescription	Контент отображается в виде реплик над головой первого действующего персонажа отряда
-Gadget/&ParameterLoreFormatRandomCharacterTitle	Случайный персонаж
-Gadget/&ParameterLoreFormatRandomCharacterDescription	Контент отображается в виде реплик над головой случайного действующего персонажа отряда и со временем исчезает
-Gadget/&ParameterLoreFormatGadgetFeedbackTitle	Обратная связь
-Gadget/&ParameterLoreFormatGadgetFeedbackDescription	Контент отображается на месте запустившего реакцию устройства
-Gadget/&ParameterLoreFormatTopHeaderTitle	Сверху
-Gadget/&ParameterLoreFormatTopHeaderDescription	Контент отображается в верхней части экрана крупным шрифтом и со временем исчезает
-Gadget/&ParameterLoreFormatTimedPanelTitle	Временное окно
-Gadget/&ParameterLoreFormatTimedPanelDescription	Контент отображается в окне в нижней части экрана и со временем исчезает
-Gadget/&ParameterLoreFormatModalPanelTitle	Модальное окно
-Gadget/&ParameterLoreFormatModalPanelDescription	Контент отображается в окне в центре экрана и остаётся видимым, пока пользователь не подтвердит информацию.
-Gadget/&PushBlockTitle	Толкаемый блок
-Gadget/&PushBlockDescription	Блок, который персонаж может передвинуть толчком на одну клетку
-Gadget/&FallingStalactiteTitle	Падающий сталактит
-Gadget/&FallingStalactiteDescription	Висящий сталактит, который при повреждении может упасть и нанести урон
-Gadget/&ParameterParam_DisplayOnceTitle	Отображать один раз
-Gadget/&ParameterParam_DisplayOnceDescription	Если выбран этот пункт, историческая информация отображается при срабатывании устройства только один раз
-Gadget/&ActivatorEntryTitle	Входной активатор
-Gadget/&ParameterParam_EntryOnceTitle	Один раз при входе
-Gadget/&ParameterParam_EntryOnceDescription	Если выбран этот пункт, историческая информация отображается при срабатывании устройства только один раз
-Gadget/&LoreActivatedTitle	Активация истории
-Gadget/&LoreActivatedDescription	Это устройство будет отображать исторические сведения при активации его устройством-активатором (например, активатором входа). Его можно разместить на любом свободном месте, т. к. оно невидимо и неинтерактивно.
-Gadget/&ParameterParam_DefaultAsActivatedTitle	Активирован
-Gadget/&ParameterParam_DefaultAsActivatedDescription	Определяет, активирован ли этот активатор по умолчанию
-Gadget/&ParameterKeyItemTitle	Ключевой предмет
-Gadget/&ParameterKeyItemDescription	Объект открывается автоматически, если отряд несёт этот предмет
-Gadget/&FoliageTitle	Растительность
-Gadget/&FoliageDescription	Уничтожаемая растительность, загораживающая путь
-Gadget/&FallingTrunkTitle	Поваленный ствол
-Gadget/&FallingTrunkDescription	Ствол дерева, который можно оттолкнуть
-Gadget/&PoisonBulbTitle	Ядовитый пузырь
-Gadget/&PoisonBulbDescription	Странный цветок, который взрывается при получении урона или при приближении игрока.
-Gadget/&LavaBulbDescription	Странный цветок, из которого вырывается пламя при получении урона или при приближении игрока.
-Gadget/&GrateDoorTitle	Металлическая дверь
-Gadget/&GrateDoorDescription	Простая металлическая дверь
-Gadget/&ParameterAdditionalLootTitle	Дополнительные трофеи
-Gadget/&ParameterAdditionalLootDescription	Список дополнительных трофеев, оставляемых существом после смерти.
-Gadget/&NpcIdleTitle	Бездействующий НИП
-Gadget/&NpcIdleDescription	Неигровой персонаж без доступных взаимодействий. Используется для заполнения окружения.
-Gadget/&NpcBanterTitle	Говорящий НИП
-Gadget/&NpcBanterDescription	Неигровой персонаж, при взаимодействии с которым отображается простая строка текста. Можно использовать в качестве горожан или городской стражи.
-Gadget/&NpcMerchantTitle	Торговец
-Gadget/&NpcMerchantDescription	НИП-торговец, который предлагает услуги по покупке и продаже предметов
-Gadget/&ParameterCharacterTitle	Персонаж
-Gadget/&ParameterCharacterDescription	НИП, появляющийся рядом с этим устройством
-Gadget/&ParameterBanterTitle	Разговор
-Gadget/&ParameterBanterDescription	Текст разговора, отображаемый у этого персонажа
-Gadget/&ParameterMerchantInventoryTitle	Возможности торговца
-Gadget/&ParameterMerchantInventoryDescription	Определяет услуги и предметы, предлагаемые торговцем.
-Gadget/&CampBedTitle	Кровать для долгого отдыха
-Gadget/&CampBedDescription	Интерактивная кровать, используемая для долгого отдыха
-Gadget/&InteractiveTorch_HighWallsTitle	Интерактивный факел (высокие стены)
-Gadget/&InteractiveTorch_HighWallsDescription	Можно разместить только на высоких стенах
-Gadget/&InteractiveTorch_ThinWallsTitle	Интерактивный факел (тонкие стены)
-Gadget/&InteractiveTorch_ThinWallsDescription	Можно разместить только на тонких стенах
-Gadget/&SimpleThinDoorTitle	Простая дверь
-Gadget/&SimpleThinDoorDescription	Простая открывающаяся дверь
-Gadget/&Bridge_EntranceTitle	Двойная дверь на мосту
-Gadget/&Bridge_EntranceDescription	Можно разместить только в комнате входа в город
-Gadget/&DoubleStairsDoorTitle	Двойная дверь (ступени)
-Gadget/&DoubleStairsDoorDescription	Используется в сочетании с соединительными ступенями
-Gadget/&CreatureDestroyerTitle	Уничтожитель существ
-Gadget/&CreatureDestroyerDescription	Уничтожает всех существ (монстров или НИПов), соответствующих индексу возникновения, указанному в генераторе существ. Существа уничтожаются навсегда и больше не появляются. Это устройство запускается активатором.
-Gadget/&ParameterDestroyedEncounterIndexTitle	Индекс возникновения для уничтожения
-Gadget/&ParameterDestroyedEncounterIndexDescription	Определяет индекс возникновения существ, которых нужно уничтожить.
-Gadget/&ParameterParam_EnabledTitle	Активировано
-Gadget/&ParameterParam_EnabledDescription	Устройство активируется по умолчанию или через удалённое устройство-активатор?
-Gadget/&TeleportIndividualTitle	Телепорт (индивидуальный)
-Gadget/&TeleportIndividualDescription	Переносит персонажа, который на него наступает, в точку назначения устройства (например, узел).
-Gadget/&TeleportPartyTitle	Телепорт (отряд)
-Gadget/&TeleportPartyDescription	Переносит отряд в точку назначения устройства (например, входное устройство). Для активации устройства на нём должен находиться весь отряд целиком.
-Gadget/&NodeTitle	Узел
-Gadget/&NodeDescription	Простое устройство, используется для указания позиции/точки назначения (например, для телепорта).
-Gadget/&ParameterDestinationTitle	Назначение
-Gadget/&ParameterDestinationDescription	Устройство назначения, используемое телепортом.
-Gadget/&ParameterInvisibleTitle	Невидимость
-Gadget/&ParameterInvisibleDescription	База телепорта и магический эффект скрыты.
-Gadget/&ParameterExitLoreTitle	История выхода
-Gadget/&ParameterExitLoreDescription	Текст истории, который отображается при использовании устройства выхода. Если вы оставите это поле пустым, ничего не будет отображаться.
-Gadget/&ParameterLocationsListTitle	Список мест
-Gadget/&ParameterLocationsListDescription	Список мест, куда может вести этот выход. Пользователь может выбрать желаемое место назначения из всплывающего окна.
-Gadget/&ParameterDisplayedTitleTitle	Отображаемое название
-Gadget/&ParameterDisplayedTitleDescription	Название места, которое отображается во всплывающем окне выбора. Если оставить это поле пустым, будет выбрано название по умолчанию.
-Gadget/&VirtualExitTitle	Виртуальный выход
-Gadget/&VirtualExitDescription	Устройство выхода, которое можно разместить над стенами и дверями и активировать, взаимодействуя с ним при наведении курсора мыши.
-Gadget/&ExitMultipleTitle	Выход (несколько)
-Gadget/&ExitMultipleDescription	Устройство, предоставляющее отряду несколько вариантов выхода.
-Gadget/&VirtualExitMultipleTitle	Виртуальный выход (несколько)
-Gadget/&VirtualExitMultipleDescription	Виртуальный выход в несколько мест назначения
-Gadget/&ParameterParam_ToggleTitle	Переключить
-Gadget/&ParameterParam_ToggleDescription	Активатор будет переключаться между активацией/деактивацией или включением/отключением при каждом нажатии вместо нажатия и отпускания.
-Gadget/&ParameterParam_DefaultAsEnabledTitle	Включено
-Gadget/&ParameterParam_DefaultAsEnabledDescription	Определяет, включен ли активатор по умолчанию.
-Gadget/&ParameterMultiLineTitle	Мультилиния
-Gadget/&ParameterMultiLineDescription	Выбор этого параметра позволяет редактировать несколько ремарок.
-Gadget/&ParameterRandomPlayTitle	Случайное воспроизведение
-Gadget/&ParameterRandomPlayDescription	Выбор этого параметра позволяет воспроизводить ремарки в случайном порядке. Иначе они будут читаться по порядку.
-Gadget/&ParameterBanterLinesTitle	Ремарки
-Gadget/&ParameterBanterLinesDescription	Список фраз, которые произносит это существо.
-Gadget/&ActivatorRollTitle	Активатор броска
-Gadget/&ActivatorRollDescription	Активатор, для работы которого требуется успешный спасбросок или проверка характеристик.
-Gadget/&ParameterIsAbilityCheckTitle	Проверка характеристик?
-Gadget/&ParameterIsAbilityCheckDescription	Если «нет», выполняется спасбросок.
-Gadget/&ParameterRollDCTitle	КС броска
-Gadget/&ParameterRollDCDescription	Класс сложности выполнения успешного спасброска или проверки характеристик.
-Gadget/&ParameterAbilityScoreTitle	Значение характеристики
-Gadget/&ParameterAbilityScoreDescription	Значение характеристики, модификатор которой добавлен к броску.
-Gadget/&ParameterProficiencyTitle	Мастерство
-Gadget/&ParameterProficiencyDescription	Мастерство (навык или инструмент), используемое, чтобы определить, можно ли добавить бонус мастерства к броску.
-Gadget/&ParameterSuccessActivationsTitle	Активация при успехе
-Gadget/&ParameterSuccessActivationsDescription	Список устройств, которые активируются при успешном броске.
-Gadget/&ParameterFailureActivationsTitle	Активация при неудаче
-Gadget/&ParameterFailureActivationsDescription	Список устройств, которые активируются при неудачном броске.
-Gadget/&GrantXPTitle	Выдача ОО
-Gadget/&GrantXPDescription	При удалённой активации это устройство выдаёт отряду очки опыта.
-Gadget/&ParameterXpGainTitle	Фиксированные ОО
-Gadget/&ParameterXpGainDescription	Количество выданных фиксированных очков опыта
-Gadget/&ParameterRequiredLevelTitle	Требуемый уровень
-Gadget/&ParameterRequiredLevelDescription	Уровень, который должен быть у всех членов отряда. Если у персонажа уже есть требуемый опыт, ничего не выдаётся.
-Gadget/&ParameterFlatGainTitle	Фиксированная выдача
-Gadget/&ParameterFlatGainDescription	При выборе этого параметра каждому члену отряда выдаётся фиксированное количество опыта. Или же устройство проверяет, что каждый член отряда имеет достаточно опыта для достижения указанного уровня.
-Gadget/&GrantItemTitle	Выдача предмета
-Gadget/&GrantItemDescription	Устройство выдаёт указанный предмет первому действующему члену отряда, который сможет его нести.
-Gadget/&ParameterGainedItemTitle	Полученный предмет
-Gadget/&ParameterGainedItemDescription	Предмет, полученный в результате этого действия.
-Gadget/&ParameterExecutionScopeTitle	Объём исполнения
-Gadget/&ParameterExecutionScopeDescription	Может использоваться, чтобы указать, работает ли устройство только в бою или во время исследования.
-Gadget/&ParameterExecutionScopeAllTitle	Все
-Gadget/&ParameterExecutionScopeAllDescription	Устройство работает в любой ситуации
-Gadget/&ParameterExecutionScopeExplorationOnlyTitle	Только при исследовании
-Gadget/&ParameterExecutionScopeExplorationOnlyDescription	Устройство работает только во время исследования
-Gadget/&ParameterExecutionScopeBattleOnlyTitle	Только в бою
-Gadget/&ParameterExecutionScopeBattleOnlyDescription	Устройство работает только в бою
-Gadget/&ParameterDurationTypeTitle	Тип длительности
-Gadget/&ParameterDurationTypeDescription	Тип длительности, определяющий, когда устройство будет активировано.
-Gadget/&ParameterDurationTypeRoundTitle	Раунд
-Gadget/&ParameterDurationTypeRoundDescription	Вне боя раунд составляет 6 секунд
-Gadget/&ParameterDurationTypeMinuteTitle	Минута
-Gadget/&ParameterDurationTypeMinuteDescription	В одной минуте 10 раундов
-Gadget/&ParameterDurationTypeHourTitle	Час
-Gadget/&ParameterDurationTypeHourDescription	Один час в реальном времени
-Gadget/&ParameterDurationTypeDayTitle	День
-Gadget/&ParameterDurationTypeDayDescription	Один день в реальном времени
-Gadget/&ParameterDurationValueTitle	Длительность
-Gadget/&ParameterDurationValueDescription	Количество единиц в указанном типе длительности (например, 10 раундов)
-Gadget/&ParameterParam_RepeatingTitle	Повтор
-Gadget/&ParameterParam_RepeatingDescription	Определяет, перезапускается ли активатор после срабатывания, чтобы сработать в течение того же периода.
-Gadget/&ActivatorEntryDescription	Активатор, включаемый при входе в подземелье. Он не реагирует на местоположение и действия персонажа, и поэтому его можно размещать где угодно в подземелье
-Gadget/&QuestOperationTitle	Операция задания
-Gadget/&QuestOperationDescription	Позволяет начать задание или обновить его прогресс. Полезно для продвижения шагов задания с помощью «переданного» инструмента проверки
-Gadget/&ActivatorQuestUpdateTitle	Активатор обновления задания
-Gadget/&ActivatorQuestUpdateDescription	Активатор, который задействуется при определённом обновлении задания
-Gadget/&ParameterQuestOperationTypeTitle	Тип операции
-Gadget/&ParameterQuestOperationTypeDescription	Тип операции, выполняемой для определённого задания
-Gadget/&ParameterQuestOperationTypeStartQuestTitle	Начать задание
-Gadget/&ParameterQuestOperationTypeStartQuestDescription	Начинает определённое задание. Не срабатывает, если задание уже начато
-Gadget/&ParameterQuestOperationTypeAchieveStepTitle	Достигнуть шаг
-Gadget/&ParameterQuestOperationTypeAchieveStepDescription	Достигнуть шаг задания с определённым номером исхода (1, 2...). Это может означать успех или провал в зависимости от метки результата
-Gadget/&ParameterQuestOperationTypeFailQuestTitle	Провал задания
-Gadget/&ParameterQuestOperationTypeFailQuestDescription	Моментально отмечает задание меткой «провалено» и отменяет все активные шаги
-Gadget/&ParameterQuestNameTitle	Название задания
-Gadget/&ParameterQuestNameDescription	Внутреннее название (невидимое для пользователя) задания, от которого зависит выполнение операции. Ничего не произойдёт, если название задания не будет найдено в кампании
-Gadget/&ParameterQuestStepNameTitle	Название шага
-Gadget/&ParameterQuestStepNameDescription	Внутреннее название (невидимое для пользователя) изменяемого шага задания. Эффекта не будет, если шаг неактивен
-Gadget/&ParameterQuestStepOutcomeTitle	Номер исхода
-Gadget/&ParameterQuestStepOutcomeDescription	Номер исхода, используемого в текущем шаге задания. 1 = первый исход, 2 = второй и так далее.
-Gadget/&ParameterQuestUpdateTypeTitle	Тип обновления
-Gadget/&ParameterQuestUpdateTypeDescription	Тип обновления, применяемого к заданию
-Gadget/&ParameterQuestUpdateTypeQuestStartedTitle	Задание начато
-Gadget/&ParameterQuestUpdateTypeQuestStartedDescription	Определённое задание начато
-Gadget/&ParameterQuestUpdateTypeQuestCompletedTitle	Задание выполнено
-Gadget/&ParameterQuestUpdateTypeQuestCompletedDescription	Определённое задание выполнено
-Gadget/&ParameterQuestUpdateTypeQuestFailedTitle	Задание провалено
-Gadget/&ParameterQuestUpdateTypeQuestFailedDescription	Определённое задание провалено
-Gadget/&ParameterQuestUpdateTypeQuestStepStartedTitle	Шаг задания начат
-Gadget/&ParameterQuestUpdateTypeQuestStepStartedDescription	Определённый шаг задания начат
-Gadget/&ParameterQuestUpdateTypeQuestStepAchievedTitle	Шаг задания достигнут
-Gadget/&ParameterQuestUpdateTypeQuestStepAchievedDescription	Определённый шаг задания достигнут (успешно или нет)
-Gadget/&TrapDoorTitle	Люк
-Gadget/&TrapDoorDescription	Может переместить отряд в другое место
-Gadget/&VariableOperationTitle	Операция переменной
-Gadget/&VariableOperationDescription	Позволяет вам выполнить действие в отношении игровой переменной, определяемой кампанией
-Gadget/&ActivatorVariableChangedTitle	Активатор изменения переменной
-Gadget/&ActivatorVariableChangedDescription	Активатор срабатывает при изменении переменной и проверяет определённое условие. Также проверка происходит во время перехода в новое место
-Gadget/&ParameterVariableTitle	Переменная
-Gadget/&ParameterVariableDescription	Переменная кампании, используемая устройством
-Gadget/&ParameterVariableOperationTypeTitle	Тип операции
-Gadget/&ParameterVariableOperationTypeDescription	Тип операции, выполняемой для определённой переменной
-Gadget/&ParameterVariableValueIntTitle	Ценность
-Gadget/&ParameterVariableValueIntDescription	Целочисленное значение, учитываемое для переменной
-Gadget/&ParameterVariableValueBoolTitle	Ценность
-Gadget/&ParameterVariableValueBoolDescription	Логическое значение, учитываемое для переменной
-Gadget/&ParameterVariableValueStringTitle	Ценность
-Gadget/&ParameterVariableValueStringDescription	Значение строки символов, учитываемое для переменной
-Gadget/&ParameterCustomDurationTitle	Пользовательская продолжительность
-Gadget/&ParameterCustomDurationDescription	Выберите, чтобы указать определённую продолжительность. В ином случае продолжительность будет указана автоматически
-Gadget/&ParameterLoreDurationSecondsTitle	Продолжительность (сек.)
-Gadget/&ParameterLoreDurationSecondsDescription	Продолжительность отображения текста (секунды)
-Gadget/&ParameterVariableTestTypeTitle	Тип проверки
-Gadget/&ParameterVariableTestTypeDescription	Тип проверки, применяемый к переменной
-Gadget/&ManholeCoverTitle	Крышка люка
-Gadget/&ManholeCoverDescription	Может переместить отряд в другое место
-Gadget/&CastleInnerWallsDoorTitle	Дверь внутренней стены замка
-Gadget/&CastleInnerWallsDoorDescription	Простая открывающаяся дверь (используется в дверных проёмах внутренних стен замка)
-Gadget/&WeaponRackTitle	Стойка для оружия
-Gadget/&ArmorStandTitle	Стойка для доспехов
-Gadget/&CavesInnerWallsDoorTitle	Дверь внутренней стены лавовой пещеры
-Gadget/&CavesInnerWallsDoorDescription	Простая открывающаяся дверь (используется в свободной стене — дверной проём)
-Gadget/&NpcDialogTitle	НИП для диалога
-Gadget/&NpcDialogDescription	Неигровой персонаж, которого можно добавить в диалог пользователя. Таким образом, можно создавать более сложные социальные взаимодействия в вашей кампании.
-Gadget/&ParameterDialogTitle	Диалог
-Gadget/&ParameterDialogDescription	График взаимодействия игрового персонажа/НИП, который вы отредактировали в кампании
-Gadget/&ParameterVariableValueDieTitle	Тип кости
-Gadget/&ParameterVariableValueDieDescription	Тип бросаемой кости.
-Gadget/&VirtualDialogTitle	Виртуальный диалог
-Gadget/&VirtualDialogDescription	Позволяет начать диалог с неодушевлённым объектом/сооружением.
-Gadget/&MapWaypointTitle	Точка маршрута на карте
-Gadget/&MapWaypointDescription	Размещает невидимую точку маршрута на карте, которую можно использовать для ориентирования или быстрого перемещения.
-Gadget/&ParameterWaypointTitleTitle	Название точки маршрута
-Gadget/&ParameterWaypointTitleDescription	Название этой точки маршрута на карте.
-Gadget/&ParameterAllowFastTravelTitle	Разрешить быстрое перемещение
-Gadget/&ParameterAllowFastTravelDescription	Можно ли совершать быстрое перемещение к этой точке маршрута?
-Gadget/&ParameterLocationExitTitle	Выход
-Gadget/&ParameterLocationExitDescription	Эта точка маршрута отмечена как выход в текущую местность?
-Gadget/&ParameterLongRestAvailableTitle	Возможен долгий отдых
-Gadget/&ParameterLongRestAvailableDescription	Эта точка маршрута отмечена как безопасное место для долгого отдыха?
+Gadget/&CampfireTitle=Костёр
+Gadget/&CampfireDescription=Интерактивный костёр, используемый для начала долгого отдыха
+Gadget/&ChestTitle=Сундук
+Gadget/&ChestDescription=Хранилище для трофеев
+Gadget/&DoubleDoorTitle=Двойная дверь
+Gadget/&DoubleDoorDescription=Простая открывающаяся дверь
+Gadget/&EntranceTitle=Вход
+Gadget/&EntranceDescription=Начальная точка для отряда
+Gadget/&ExitTitle=Выход
+Gadget/&ExitDescription=Точка выхода для отряда. Может вести в другое пользовательское место.
+Gadget/&HiddenDoorTitle=Потайная дверь
+Gadget/&HiddenDoorDescription=Дверь, для обнаружения которой надо пройти проверку на восприятие
+Gadget/&InteractiveTorchTitle=Интерактивный факел
+Gadget/&InteractiveTorchDescription=Настенный факел, который можно зажигать и тушить
+Gadget/&LoreAreaTitle=Историческая область
+Gadget/&LoreAreaDescription=При входе в эту область будет показан текст
+Gadget/&MonsterMTitle=Монстр M
+Gadget/&MonsterMDescription=Создаёт одного среднего (или небольшого) монстра на позиции устройства
+Gadget/&MonsterLTitle=Монстр L
+Gadget/&MonsterLDescription=Создаёт одного большого монстра на позиции устройства
+Gadget/&MonsterMMultipleTitle=Несколько монстров M
+Gadget/&MonsterMMultipleDescription=Создаёт несколько средних (или небольших) монстров на позиции устройства
+Gadget/&TrapTitle=Ловушка
+Gadget/&TrapDescription=Ловушка, срабатывающая при наступании на её поверхность
+Gadget/&VirtualLoreTitle=Виртуальная история
+Gadget/&VirtualLoreDescription=Взаимодействие, отображающее исторический текст. Можно разместить на любом реквизите.
+Gadget/&VirtualLootTitle=Виртуальные трофеи
+Gadget/&VirtualLootDescription=Взаимодействие с трофеями. Можно разместить на любом реквизите, чтобы имитировать хранилище.
+Gadget/&ParameterExplicitItemsTitle=Явные предметы
+Gadget/&ParameterLootPackTitle=Набор трофеев
+Gadget/&ParameterItemListTitle=Список предметов
+Gadget/&ParameterParam_LockedTitle=Заперто
+Gadget/&ParameterUnlock_DCTitle=КС отпирания
+Gadget/&ParameterParam_TrappedTitle=С ловушкой
+Gadget/&ParameterPerception_DCTitle=КС восприятия
+Gadget/&ParameterDisarm_DCTitle=КС обезвреживания
+Gadget/&ParameterReveal_DCTitle=КС открытия
+Gadget/&ParameterTrapEffectTitle=Эффект ловушки
+Gadget/&ParameterEntranceIndexTitle=Индекс входа
+Gadget/&ParameterDestinationLocationTitle=Место назначения
+Gadget/&ParameterCreatureTitle=Существо
+Gadget/&ParameterQuantityTitle=Количество
+Gadget/&ParameterPerceptionDCTitle=КС восприятия
+Gadget/&ParameterSpeechTitle=Речь
+Gadget/&ParameterEncounterGroupTitle=Встреча с группой
+Gadget/&ParameterGroupIndexTitle=Индекс группы
+Gadget/&ParameterExplicitItemsDescription=Определяет, чем будет контент — заранее составленным набором трофеев или явно заданным списком предметов
+Gadget/&ParameterLootPackDescription=Заранее заданный список предметов, часть из которых будет определяться наугад
+Gadget/&ParameterItemListDescription=Задайте явный список предметов, которые будут появляться в хранилище
+Gadget/&ParameterParam_LockedDescription=Определяет, заперто ли это устройство
+Gadget/&ParameterUnlock_DCDescription=Класс сложности для отпирания этого устройства
+Gadget/&ParameterParam_TrappedDescription=Определяет, с ловушкой ли это устройство
+Gadget/&ParameterPerception_DCDescription=Класс сложности для обнаружения ловушки на устройстве
+Gadget/&ParameterDisarm_DCDescription=Класс сложности для обезвреживания ловушки на устройстве
+Gadget/&ParameterReveal_DCDescription=Класс сложности для обнаружения этого устройства
+Gadget/&ParameterTrapEffectDescription=Тип эффекта от срабатывания ловушки на устройстве
+Gadget/&ParameterEntranceIndexDescription=У этого места несколько входов. Индекс определяет вход, в который ведёт устройство выхода.
+Gadget/&ParameterDestinationLocationDescription=Название места, куда ведёт этот вход.
+Gadget/&ParameterCreatureDescription=Тип созданного существа
+Gadget/&ParameterQuantityDescription=Количество существ
+Gadget/&ParameterSpeechDescription=Текст, отображаемый при взаимодействии с этим устройством
+Gadget/&ParameterEncounterGroupDescription=Отметьте этот пункт, чтобы сделать созданное существо частью боевой группы, инициирующей бой
+Gadget/&ParameterGroupIndexDescription=Существа с одинаковым индексом группы (любым выбранным вами числом) будут принадлежать к одной боевой группе
+Gadget/&ParameterSavingThrowDCTitle=КС спасброска
+Gadget/&ParameterSavingThrowDCDescription=Класс сложности для спасброска
+Gadget/&ParameterAddDiceTitle=Дополнительная кость
+Gadget/&ParameterAddDiceDescription=Увеличить число костей для этого эффекта
+Gadget/&FallingChandelierTitle=Падающая люстра
+Gadget/&FallingChandelierDescription=Висящая люстра, которая при повреждении может упасть и нанести урон
+Gadget/&GrateTitle=Ящик
+Gadget/&GrateDescription=Металлический забор с рушащейся металлической дверью
+Gadget/&InvisiblePlateTitle=Невидимая пластина
+Gadget/&InvisiblePlateDescription=Невидимая пластина, активирующаяся при наступании на другие устройства
+Gadget/&LorePlaqueTitle=Табличка с историей
+Gadget/&LorePlaqueDescription=Настенная табличка с историческим текстом
+Gadget/&ManaLampTitle=Лампа маны
+Gadget/&ManaLampDescription=Интерактивная лампа, которая зажигается под воздействием заклинаний
+Gadget/&PrisonDoorTitle=Тюремная дверь
+Gadget/&PrisonDoorDescription=Металлическая дверь, открывающая и закрывающая доступ в место заключения
+Gadget/&ActivatorButtonTitle=Кнопка-активатор
+Gadget/&ActivatorButtonDescription=Кнопка, которую можно использовать для активации других устройств
+Gadget/&ActivatorAreaTitle=Зона-активатор
+Gadget/&ActivatorAreaDescription=При входе в эту зону активируются другие устройства
+Gadget/&ActivatorPlateTitle=Пластина-активатор
+Gadget/&ActivatorPlateDescription=Пластина, активирующаяся при наступании на другие устройства
+Gadget/&ActivatorTimedTitle=Таймер-активатор
+Gadget/&ActivatorTimedDescription=Невидимое устройство, активирующее другие устройства через регулярные временные интервалы
+Gadget/&WoodenDoorTitle=Деревянная дверь
+Gadget/&WoodenDoorDescription=Простая дверь
+Gadget/&ManaLampWallTitle=Лампа маны (настенная)
+Gadget/&ParameterTargetGadgetsTitle=Устройства-цели
+Gadget/&ParameterTargetGadgetsDescription=Устройства, срабатывающие при активации/деактивации этого устройства
+Gadget/&ParameterSymetricalTitle=Симметрия
+Gadget/&ParameterSymetricalDescription=Может ли активатор работать в обе стороны, например, открывать и закрывать дверь?
+Gadget/&ParameterOperationTitle=Операция
+Gadget/&ParameterOperationDescription=Тип операции, выполняемой на устройствах-целях
+Gadget/&ParameterOperationActivateTitle=Активировать
+Gadget/&ParameterOperationActivateDescription=Активирует другие устройства (например, открывает дверь)
+Gadget/&ParameterOperationDeactivateTitle=Деактивировать
+Gadget/&ParameterOperationDeactivateDescription=Деактивирует другие устройства (например, закрывает дверь)
+Gadget/&ParameterOperationActivateSymetricalTitle=Симметричная активация
+Gadget/&ParameterOperationActivateSymetricalDescription=Активация/дезактивация (например, открытие/закрытие двери)
+Gadget/&ParameterOperationEnableTitle=Включить
+Gadget/&ParameterOperationEnableDescription=Включить активатор, чтобы он активировал другие устройства
+Gadget/&ParameterOperationDisableTitle=Отключить
+Gadget/&ParameterOperationDisableDescription=Отключить активатор, чтобы он больше не активировал другие устройства (например, отключить таймер-активатор)
+Gadget/&ParameterOperationEnableSymetricalTitle=Симметричное включение
+Gadget/&ParameterOperationEnableSymetricalDescription=Включение/выключение (например, кнопкой можно включать и выключать таймер-активатор)
+Gadget/&LavaBulbTitle=Пузырь лавы
+Gadget/&MechanismTitle=Механизм
+Gadget/&TorchPikeTitle=Стойка для факела
+Gadget/&ParameterParam_HardLockedTitle=Заблокировано
+Gadget/&ParameterParam_HardLockedDescription=Это устройство нельзя открыть обычными средствами, требуется удалённый активатор
+Gadget/&ParameterParam_DefaultAsLitTitle=Светится
+Gadget/&ParameterParam_DefaultAsLitDescription=Определяет, светится ли это устройство по умолчанию (если пункт не выбран — не светится)
+Gadget/&ParameterParam_DefaultAsOpenedTitle=Открыто
+Gadget/&ParameterParam_DefaultAsOpenedDescription=Определяет, открыто ли это устройство по умолчанию
+Gadget/&MonsterHTitle=Монстр H
+Gadget/&MonsterHDescription=Создаёт одного огромного монстра на позиции устройства
+Gadget/&MonsterGTitle=Монстр G
+Gadget/&MonsterGDescription=Создаёт одного сверхогромного монстра на позиции устройства
+Gadget/&ParameterAutoSpawnTitle=Автосоздание
+Gadget/&ParameterAutoSpawnDescription=Если этот параметр выключен, монстр создаётся по срабатыванию удалённого активатора, а не при приближении героев
+Gadget/&ParameterLoreFormatTitle=Формат истории
+Gadget/&ParameterLoreFormatDescription=Форма, в которой пользователю предоставляется информация о мире игры
+Gadget/&ParameterLoreFormatMainCharacterTitle=Главный персонаж
+Gadget/&ParameterLoreFormatMainCharacterDescription=Контент отображается в виде реплик над головой первого действующего персонажа отряда
+Gadget/&ParameterLoreFormatRandomCharacterTitle=Случайный персонаж
+Gadget/&ParameterLoreFormatRandomCharacterDescription=Контент отображается в виде реплик над головой случайного действующего персонажа отряда и со временем исчезает
+Gadget/&ParameterLoreFormatGadgetFeedbackTitle=Обратная связь
+Gadget/&ParameterLoreFormatGadgetFeedbackDescription=Контент отображается на месте запустившего реакцию устройства
+Gadget/&ParameterLoreFormatTopHeaderTitle=Сверху
+Gadget/&ParameterLoreFormatTopHeaderDescription=Контент отображается в верхней части экрана крупным шрифтом и со временем исчезает
+Gadget/&ParameterLoreFormatTimedPanelTitle=Временное окно
+Gadget/&ParameterLoreFormatTimedPanelDescription=Контент отображается в окне в нижней части экрана и со временем исчезает
+Gadget/&ParameterLoreFormatModalPanelTitle=Модальное окно
+Gadget/&ParameterLoreFormatModalPanelDescription=Контент отображается в окне в центре экрана и остаётся видимым, пока пользователь не подтвердит информацию.
+Gadget/&PushBlockTitle=Толкаемый блок
+Gadget/&PushBlockDescription=Блок, который персонаж может передвинуть толчком на одну клетку
+Gadget/&FallingStalactiteTitle=Падающий сталактит
+Gadget/&FallingStalactiteDescription=Висящий сталактит, который при повреждении может упасть и нанести урон
+Gadget/&ParameterParam_DisplayOnceTitle=Отображать один раз
+Gadget/&ParameterParam_DisplayOnceDescription=Если выбран этот пункт, историческая информация отображается при срабатывании устройства только один раз
+Gadget/&ActivatorEntryTitle=Входной активатор
+Gadget/&ParameterParam_EntryOnceTitle=Один раз при входе
+Gadget/&ParameterParam_EntryOnceDescription=Если выбран этот пункт, историческая информация отображается при срабатывании устройства только один раз
+Gadget/&LoreActivatedTitle=Активация истории
+Gadget/&LoreActivatedDescription=Это устройство будет отображать исторические сведения при активации его устройством-активатором (например, активатором входа). Его можно разместить на любом свободном месте, т. к. оно невидимо и неинтерактивно.
+Gadget/&ParameterParam_DefaultAsActivatedTitle=Активирован
+Gadget/&ParameterParam_DefaultAsActivatedDescription=Определяет, активирован ли этот активатор по умолчанию
+Gadget/&ParameterKeyItemTitle=Ключевой предмет
+Gadget/&ParameterKeyItemDescription=Объект открывается автоматически, если отряд несёт этот предмет
+Gadget/&FoliageTitle=Растительность
+Gadget/&FoliageDescription=Уничтожаемая растительность, загораживающая путь
+Gadget/&FallingTrunkTitle=Поваленный ствол
+Gadget/&FallingTrunkDescription=Ствол дерева, который можно оттолкнуть
+Gadget/&PoisonBulbTitle=Ядовитый пузырь
+Gadget/&PoisonBulbDescription=Странный цветок, который взрывается при получении урона или при приближении игрока.
+Gadget/&LavaBulbDescription=Странный цветок, из которого вырывается пламя при получении урона или при приближении игрока.
+Gadget/&GrateDoorTitle=Металлическая дверь
+Gadget/&GrateDoorDescription=Простая металлическая дверь
+Gadget/&ParameterAdditionalLootTitle=Дополнительные трофеи
+Gadget/&ParameterAdditionalLootDescription=Список дополнительных трофеев, оставляемых существом после смерти.
+Gadget/&NpcIdleTitle=Бездействующий НИП
+Gadget/&NpcIdleDescription=Неигровой персонаж без доступных взаимодействий. Используется для заполнения окружения.
+Gadget/&NpcBanterTitle=Говорящий НИП
+Gadget/&NpcBanterDescription=Неигровой персонаж, при взаимодействии с которым отображается простая строка текста. Можно использовать в качестве горожан или городской стражи.
+Gadget/&NpcMerchantTitle=Торговец
+Gadget/&NpcMerchantDescription=НИП-торговец, который предлагает услуги по покупке и продаже предметов
+Gadget/&ParameterCharacterTitle=Персонаж
+Gadget/&ParameterCharacterDescription=НИП, появляющийся рядом с этим устройством
+Gadget/&ParameterBanterTitle=Разговор
+Gadget/&ParameterBanterDescription=Текст разговора, отображаемый у этого персонажа
+Gadget/&ParameterMerchantInventoryTitle=Возможности торговца
+Gadget/&ParameterMerchantInventoryDescription=Определяет услуги и предметы, предлагаемые торговцем.
+Gadget/&CampBedTitle=Кровать для долгого отдыха
+Gadget/&CampBedDescription=Интерактивная кровать, используемая для долгого отдыха
+Gadget/&InteractiveTorch_HighWallsTitle=Интерактивный факел (высокие стены)
+Gadget/&InteractiveTorch_HighWallsDescription=Можно разместить только на высоких стенах
+Gadget/&InteractiveTorch_ThinWallsTitle=Интерактивный факел (тонкие стены)
+Gadget/&InteractiveTorch_ThinWallsDescription=Можно разместить только на тонких стенах
+Gadget/&SimpleThinDoorTitle=Простая дверь
+Gadget/&SimpleThinDoorDescription=Простая открывающаяся дверь
+Gadget/&Bridge_EntranceTitle=Двойная дверь на мосту
+Gadget/&Bridge_EntranceDescription=Можно разместить только в комнате входа в город
+Gadget/&DoubleStairsDoorTitle=Двойная дверь (ступени)
+Gadget/&DoubleStairsDoorDescription=Используется в сочетании с соединительными ступенями
+Gadget/&CreatureDestroyerTitle=Уничтожитель существ
+Gadget/&CreatureDestroyerDescription=Уничтожает всех существ (монстров или НИПов), соответствующих индексу возникновения, указанному в генераторе существ. Существа уничтожаются навсегда и больше не появляются. Это устройство запускается активатором.
+Gadget/&ParameterDestroyedEncounterIndexTitle=Индекс возникновения для уничтожения
+Gadget/&ParameterDestroyedEncounterIndexDescription=Определяет индекс возникновения существ, которых нужно уничтожить.
+Gadget/&ParameterParam_EnabledTitle=Активировано
+Gadget/&ParameterParam_EnabledDescription=Устройство активируется по умолчанию или через удалённое устройство-активатор?
+Gadget/&TeleportIndividualTitle=Телепорт (индивидуальный)
+Gadget/&TeleportIndividualDescription=Переносит персонажа, который на него наступает, в точку назначения устройства (например, узел).
+Gadget/&TeleportPartyTitle=Телепорт (отряд)
+Gadget/&TeleportPartyDescription=Переносит отряд в точку назначения устройства (например, входное устройство). Для активации устройства на нём должен находиться весь отряд целиком.
+Gadget/&NodeTitle=Узел
+Gadget/&NodeDescription=Простое устройство, используется для указания позиции/точки назначения (например, для телепорта).
+Gadget/&ParameterDestinationTitle=Назначение
+Gadget/&ParameterDestinationDescription=Устройство назначения, используемое телепортом.
+Gadget/&ParameterInvisibleTitle=Невидимость
+Gadget/&ParameterInvisibleDescription=База телепорта и магический эффект скрыты.
+Gadget/&ParameterExitLoreTitle=История выхода
+Gadget/&ParameterExitLoreDescription=Текст истории, который отображается при использовании устройства выхода. Если вы оставите это поле пустым, ничего не будет отображаться.
+Gadget/&ParameterLocationsListTitle=Список мест
+Gadget/&ParameterLocationsListDescription=Список мест, куда может вести этот выход. Пользователь может выбрать желаемое место назначения из всплывающего окна.
+Gadget/&ParameterDisplayedTitleTitle=Отображаемое название
+Gadget/&ParameterDisplayedTitleDescription=Название места, которое отображается во всплывающем окне выбора. Если оставить это поле пустым, будет выбрано название по умолчанию.
+Gadget/&VirtualExitTitle=Виртуальный выход
+Gadget/&VirtualExitDescription=Устройство выхода, которое можно разместить над стенами и дверями и активировать, взаимодействуя с ним при наведении курсора мыши.
+Gadget/&ExitMultipleTitle=Выход (несколько)
+Gadget/&ExitMultipleDescription=Устройство, предоставляющее отряду несколько вариантов выхода.
+Gadget/&VirtualExitMultipleTitle=Виртуальный выход (несколько)
+Gadget/&VirtualExitMultipleDescription=Виртуальный выход в несколько мест назначения
+Gadget/&ParameterParam_ToggleTitle=Переключить
+Gadget/&ParameterParam_ToggleDescription=Активатор будет переключаться между активацией/деактивацией или включением/отключением при каждом нажатии вместо нажатия и отпускания.
+Gadget/&ParameterParam_DefaultAsEnabledTitle=Включено
+Gadget/&ParameterParam_DefaultAsEnabledDescription=Определяет, включен ли активатор по умолчанию.
+Gadget/&ParameterMultiLineTitle=Мультилиния
+Gadget/&ParameterMultiLineDescription=Выбор этого параметра позволяет редактировать несколько ремарок.
+Gadget/&ParameterRandomPlayTitle=Случайное воспроизведение
+Gadget/&ParameterRandomPlayDescription=Выбор этого параметра позволяет воспроизводить ремарки в случайном порядке. Иначе они будут читаться по порядку.
+Gadget/&ParameterBanterLinesTitle=Ремарки
+Gadget/&ParameterBanterLinesDescription=Список фраз, которые произносит это существо.
+Gadget/&ActivatorRollTitle=Активатор броска
+Gadget/&ActivatorRollDescription=Активатор, для работы которого требуется успешный спасбросок или проверка характеристик.
+Gadget/&ParameterIsAbilityCheckTitle=Проверка характеристик?
+Gadget/&ParameterIsAbilityCheckDescription=Если «нет», выполняется спасбросок.
+Gadget/&ParameterRollDCTitle=КС броска
+Gadget/&ParameterRollDCDescription=Класс сложности выполнения успешного спасброска или проверки характеристик.
+Gadget/&ParameterAbilityScoreTitle=Значение характеристики
+Gadget/&ParameterAbilityScoreDescription=Значение характеристики, модификатор которой добавлен к броску.
+Gadget/&ParameterProficiencyTitle=Мастерство
+Gadget/&ParameterProficiencyDescription=Мастерство (навык или инструмент), используемое, чтобы определить, можно ли добавить бонус мастерства к броску.
+Gadget/&ParameterSuccessActivationsTitle=Активация при успехе
+Gadget/&ParameterSuccessActivationsDescription=Список устройств, которые активируются при успешном броске.
+Gadget/&ParameterFailureActivationsTitle=Активация при неудаче
+Gadget/&ParameterFailureActivationsDescription=Список устройств, которые активируются при неудачном броске.
+Gadget/&GrantXPTitle=Выдача ОО
+Gadget/&GrantXPDescription=При удалённой активации это устройство выдаёт отряду очки опыта.
+Gadget/&ParameterXpGainTitle=Фиксированные ОО
+Gadget/&ParameterXpGainDescription=Количество выданных фиксированных очков опыта
+Gadget/&ParameterRequiredLevelTitle=Требуемый уровень
+Gadget/&ParameterRequiredLevelDescription=Уровень, который должен быть у всех членов отряда. Если у персонажа уже есть требуемый опыт, ничего не выдаётся.
+Gadget/&ParameterFlatGainTitle=Фиксированная выдача
+Gadget/&ParameterFlatGainDescription=При выборе этого параметра каждому члену отряда выдаётся фиксированное количество опыта. Или же устройство проверяет, что каждый член отряда имеет достаточно опыта для достижения указанного уровня.
+Gadget/&GrantItemTitle=Выдача предмета
+Gadget/&GrantItemDescription=Устройство выдаёт указанный предмет первому действующему члену отряда, который сможет его нести.
+Gadget/&ParameterGainedItemTitle=Полученный предмет
+Gadget/&ParameterGainedItemDescription=Предмет, полученный в результате этого действия.
+Gadget/&ParameterExecutionScopeTitle=Объём исполнения
+Gadget/&ParameterExecutionScopeDescription=Может использоваться, чтобы указать, работает ли устройство только в бою или во время исследования.
+Gadget/&ParameterExecutionScopeAllTitle=Все
+Gadget/&ParameterExecutionScopeAllDescription=Устройство работает в любой ситуации
+Gadget/&ParameterExecutionScopeExplorationOnlyTitle=Только при исследовании
+Gadget/&ParameterExecutionScopeExplorationOnlyDescription=Устройство работает только во время исследования
+Gadget/&ParameterExecutionScopeBattleOnlyTitle=Только в бою
+Gadget/&ParameterExecutionScopeBattleOnlyDescription=Устройство работает только в бою
+Gadget/&ParameterDurationTypeTitle=Тип длительности
+Gadget/&ParameterDurationTypeDescription=Тип длительности, определяющий, когда устройство будет активировано.
+Gadget/&ParameterDurationTypeRoundTitle=Раунд
+Gadget/&ParameterDurationTypeRoundDescription=Вне боя раунд составляет 6 секунд
+Gadget/&ParameterDurationTypeMinuteTitle=Минута
+Gadget/&ParameterDurationTypeMinuteDescription=В одной минуте 10 раундов
+Gadget/&ParameterDurationTypeHourTitle=Час
+Gadget/&ParameterDurationTypeHourDescription=Один час в реальном времени
+Gadget/&ParameterDurationTypeDayTitle=День
+Gadget/&ParameterDurationTypeDayDescription=Один день в реальном времени
+Gadget/&ParameterDurationValueTitle=Длительность
+Gadget/&ParameterDurationValueDescription=Количество единиц в указанном типе длительности (например, 10 раундов)
+Gadget/&ParameterParam_RepeatingTitle=Повтор
+Gadget/&ParameterParam_RepeatingDescription=Определяет, перезапускается ли активатор после срабатывания, чтобы сработать в течение того же периода.
+Gadget/&ActivatorEntryDescription=Активатор, включаемый при входе в подземелье. Он не реагирует на местоположение и действия персонажа, и поэтому его можно размещать где угодно в подземелье
+Gadget/&QuestOperationTitle=Операция задания
+Gadget/&QuestOperationDescription=Позволяет начать задание или обновить его прогресс. Полезно для продвижения шагов задания с помощью «переданного» инструмента проверки
+Gadget/&ActivatorQuestUpdateTitle=Активатор обновления задания
+Gadget/&ActivatorQuestUpdateDescription=Активатор, который задействуется при определённом обновлении задания
+Gadget/&ParameterQuestOperationTypeTitle=Тип операции
+Gadget/&ParameterQuestOperationTypeDescription=Тип операции, выполняемой для определённого задания
+Gadget/&ParameterQuestOperationTypeStartQuestTitle=Начать задание
+Gadget/&ParameterQuestOperationTypeStartQuestDescription=Начинает определённое задание. Не срабатывает, если задание уже начато
+Gadget/&ParameterQuestOperationTypeAchieveStepTitle=Достигнуть шаг
+Gadget/&ParameterQuestOperationTypeAchieveStepDescription=Достигнуть шаг задания с определённым номером исхода (1, 2...). Это может означать успех или провал в зависимости от метки результата
+Gadget/&ParameterQuestOperationTypeFailQuestTitle=Провал задания
+Gadget/&ParameterQuestOperationTypeFailQuestDescription=Моментально отмечает задание меткой «провалено» и отменяет все активные шаги
+Gadget/&ParameterQuestNameTitle=Название задания
+Gadget/&ParameterQuestNameDescription=Внутреннее название (невидимое для пользователя) задания, от которого зависит выполнение операции. Ничего не произойдёт, если название задания не будет найдено в кампании
+Gadget/&ParameterQuestStepNameTitle=Название шага
+Gadget/&ParameterQuestStepNameDescription=Внутреннее название (невидимое для пользователя) изменяемого шага задания. Эффекта не будет, если шаг неактивен
+Gadget/&ParameterQuestStepOutcomeTitle=Номер исхода
+Gadget/&ParameterQuestStepOutcomeDescription=Номер исхода, используемого в текущем шаге задания. 1 = первый исход, 2 = второй и так далее.
+Gadget/&ParameterQuestUpdateTypeTitle=Тип обновления
+Gadget/&ParameterQuestUpdateTypeDescription=Тип обновления, применяемого к заданию
+Gadget/&ParameterQuestUpdateTypeQuestStartedTitle=Задание начато
+Gadget/&ParameterQuestUpdateTypeQuestStartedDescription=Определённое задание начато
+Gadget/&ParameterQuestUpdateTypeQuestCompletedTitle=Задание выполнено
+Gadget/&ParameterQuestUpdateTypeQuestCompletedDescription=Определённое задание выполнено
+Gadget/&ParameterQuestUpdateTypeQuestFailedTitle=Задание провалено
+Gadget/&ParameterQuestUpdateTypeQuestFailedDescription=Определённое задание провалено
+Gadget/&ParameterQuestUpdateTypeQuestStepStartedTitle=Шаг задания начат
+Gadget/&ParameterQuestUpdateTypeQuestStepStartedDescription=Определённый шаг задания начат
+Gadget/&ParameterQuestUpdateTypeQuestStepAchievedTitle=Шаг задания достигнут
+Gadget/&ParameterQuestUpdateTypeQuestStepAchievedDescription=Определённый шаг задания достигнут (успешно или нет)
+Gadget/&TrapDoorTitle=Люк
+Gadget/&TrapDoorDescription=Может переместить отряд в другое место
+Gadget/&VariableOperationTitle=Операция переменной
+Gadget/&VariableOperationDescription=Позволяет вам выполнить действие в отношении игровой переменной, определяемой кампанией
+Gadget/&ActivatorVariableChangedTitle=Активатор изменения переменной
+Gadget/&ActivatorVariableChangedDescription=Активатор срабатывает при изменении переменной и проверяет определённое условие. Также проверка происходит во время перехода в новое место
+Gadget/&ParameterVariableTitle=Переменная
+Gadget/&ParameterVariableDescription=Переменная кампании, используемая устройством
+Gadget/&ParameterVariableOperationTypeTitle=Тип операции
+Gadget/&ParameterVariableOperationTypeDescription=Тип операции, выполняемой для определённой переменной
+Gadget/&ParameterVariableValueIntTitle=Ценность
+Gadget/&ParameterVariableValueIntDescription=Целочисленное значение, учитываемое для переменной
+Gadget/&ParameterVariableValueBoolTitle=Ценность
+Gadget/&ParameterVariableValueBoolDescription=Логическое значение, учитываемое для переменной
+Gadget/&ParameterVariableValueStringTitle=Ценность
+Gadget/&ParameterVariableValueStringDescription=Значение строки символов, учитываемое для переменной
+Gadget/&ParameterCustomDurationTitle=Пользовательская продолжительность
+Gadget/&ParameterCustomDurationDescription=Выберите, чтобы указать определённую продолжительность. В ином случае продолжительность будет указана автоматически
+Gadget/&ParameterLoreDurationSecondsTitle=Продолжительность (сек.)
+Gadget/&ParameterLoreDurationSecondsDescription=Продолжительность отображения текста (секунды)
+Gadget/&ParameterVariableTestTypeTitle=Тип проверки
+Gadget/&ParameterVariableTestTypeDescription=Тип проверки, применяемый к переменной
+Gadget/&ManholeCoverTitle=Крышка люка
+Gadget/&ManholeCoverDescription=Может переместить отряд в другое место
+Gadget/&CastleInnerWallsDoorTitle=Дверь внутренней стены замка
+Gadget/&CastleInnerWallsDoorDescription=Простая открывающаяся дверь (используется в дверных проёмах внутренних стен замка)
+Gadget/&WeaponRackTitle=Стойка для оружия
+Gadget/&ArmorStandTitle=Стойка для доспехов
+Gadget/&CavesInnerWallsDoorTitle=Дверь внутренней стены лавовой пещеры
+Gadget/&CavesInnerWallsDoorDescription=Простая открывающаяся дверь (используется в свободной стене — дверной проём)
+Gadget/&NpcDialogTitle=НИП для диалога
+Gadget/&NpcDialogDescription=Неигровой персонаж, которого можно добавить в диалог пользователя. Таким образом, можно создавать более сложные социальные взаимодействия в вашей кампании.
+Gadget/&ParameterDialogTitle=Диалог
+Gadget/&ParameterDialogDescription=График взаимодействия игрового персонажа/НИП, который вы отредактировали в кампании
+Gadget/&ParameterVariableValueDieTitle=Тип кости
+Gadget/&ParameterVariableValueDieDescription=Тип бросаемой кости.
+Gadget/&VirtualDialogTitle=Виртуальный диалог
+Gadget/&VirtualDialogDescription=Позволяет начать диалог с неодушевлённым объектом/сооружением.
+Gadget/&MapWaypointTitle=Точка маршрута на карте
+Gadget/&MapWaypointDescription=Размещает невидимую точку маршрута на карте, которую можно использовать для ориентирования или быстрого перемещения.
+Gadget/&ParameterWaypointTitleTitle=Название точки маршрута
+Gadget/&ParameterWaypointTitleDescription=Название этой точки маршрута на карте.
+Gadget/&ParameterAllowFastTravelTitle=Разрешить быстрое перемещение
+Gadget/&ParameterAllowFastTravelDescription=Можно ли совершать быстрое перемещение к этой точке маршрута?
+Gadget/&ParameterLocationExitTitle=Выход
+Gadget/&ParameterLocationExitDescription=Эта точка маршрута отмечена как выход в текущую местность?
+Gadget/&ParameterLongRestAvailableTitle=Возможен долгий отдых
+Gadget/&ParameterLongRestAvailableDescription=Эта точка маршрута отмечена как безопасное место для долгого отдыха?

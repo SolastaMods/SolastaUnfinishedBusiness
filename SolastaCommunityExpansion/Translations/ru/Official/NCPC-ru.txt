@@ -1,1 +1,1 @@
-NCPC/&NPC_Esfalad_Graymas	Эсфалад Греймас
+NCPC/&NPC_Esfalad_Graymas=Эсфалад Греймас

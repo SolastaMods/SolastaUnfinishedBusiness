@@ -1,7 +1,7 @@
-Voice/&Female1Title	
-Voice/&Female2Title	
-Voice/&Male1Title	
-Voice/&Male2Title	
-Voice/&Voice1Title	Голос 1
-Voice/&Voice2Title	Голос 2
-Voice/&Voice3Title	Голос 3
+Voice/&Female1Title=
+Voice/&Female2Title=
+Voice/&Male1Title=
+Voice/&Male2Title=
+Voice/&Voice1Title=Голос 1
+Voice/&Voice2Title=Голос 2
+Voice/&Voice3Title=Голос 3

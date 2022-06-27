@@ -1,26 +1,26 @@
-Language/&CommonDescription	Стандартный язык Соласты, упрощённая разновидность имперского языка высших эльфов с примесями тирмарского. Наследие истории Соласты.
-Language/&CommonTitle	Всеобщий
-Language/&DwarvishDescription	Старый соластанский язык, сохранённый дварфами, живущими за пределами имперского доминиона. Пережил Катаклизм.
-Language/&DwarvishTitle	Дварфский
-Language/&ElvishDescription	Старый соластанский язык, на котором говорят высшие и лесные эльфы — но в основном последние.
-Language/&ElvishTitle	Эльфийский
-Language/&GiantDescription	Язык, на котором говорит большая часть крупных гуманоидов, в частности истинные великаны и более мелкие существа, такие как огры.
-Language/&GiantTitle	Великан
-Language/&GoblinDescription	Грубый диалект гоблинов проще даже орочьего наречия.
-Language/&GoblinTitle	Гоблин
-Language/&HalflingDescription	Старый язык полуросликов, появившийся до их раскола на болотные и островные племена.
-Language/&HalflingTitle	Полуросликовый
-Language/&OrcDescription	Язык, на котором говорят орки и их собратья.
-Language/&OrcTitle	Орочий
-Language/&ReptilianDescription	Язык, на котором говорят Сорр-Аккат и их собратья.
-Language/&ReptilianTitle	Рептилий
-Language/&SpyCodeDescription	Эта книга с разными кодами и шифрами позволяет вам читать большую часть зашифрованных сообщений.
-Language/&SpyCodeTitle	Кодовая книга шпиона
-Language/&TerranDescription	Диалект изначального языка, на котором говорили обитатели земного измерения стихий и прочие существа, связанные с Землёй.
-Language/&TerranTitle	Земной
-Language/&TirmarianDescription	Древний язык, произошедший из Тирмара, затерянного мира людей. Сохраняется и передаётся от поколения к поколению со времён Катаклизма.
-Language/&TirmarianTitle	Старотирмарский
-Language/&DraconicTitle	Драконий
-Language/&DraconicDescription	Язык, на котором разговаривают драконы и другие рептилии.
-Language/&DruidicTitle	Друидический
-Language/&DruidicDescription	Тайный язык друидов.
+Language/&CommonDescription=Стандартный язык Соласты, упрощённая разновидность имперского языка высших эльфов с примесями тирмарского. Наследие истории Соласты.
+Language/&CommonTitle=Всеобщий
+Language/&DwarvishDescription=Старый соластанский язык, сохранённый дварфами, живущими за пределами имперского доминиона. Пережил Катаклизм.
+Language/&DwarvishTitle=Дварфский
+Language/&ElvishDescription=Старый соластанский язык, на котором говорят высшие и лесные эльфы — но в основном последние.
+Language/&ElvishTitle=Эльфийский
+Language/&GiantDescription=Язык, на котором говорит большая часть крупных гуманоидов, в частности истинные великаны и более мелкие существа, такие как огры.
+Language/&GiantTitle=Великан
+Language/&GoblinDescription=Грубый диалект гоблинов проще даже орочьего наречия.
+Language/&GoblinTitle=Гоблин
+Language/&HalflingDescription=Старый язык полуросликов, появившийся до их раскола на болотные и островные племена.
+Language/&HalflingTitle=Полуросликовый
+Language/&OrcDescription=Язык, на котором говорят орки и их собратья.
+Language/&OrcTitle=Орочий
+Language/&ReptilianDescription=Язык, на котором говорят Сорр-Аккат и их собратья.
+Language/&ReptilianTitle=Рептилий
+Language/&SpyCodeDescription=Эта книга с разными кодами и шифрами позволяет вам читать большую часть зашифрованных сообщений.
+Language/&SpyCodeTitle=Кодовая книга шпиона
+Language/&TerranDescription=Диалект изначального языка, на котором говорили обитатели земного измерения стихий и прочие существа, связанные с Землёй.
+Language/&TerranTitle=Земной
+Language/&TirmarianDescription=Древний язык, произошедший из Тирмара, затерянного мира людей. Сохраняется и передаётся от поколения к поколению со времён Катаклизма.
+Language/&TirmarianTitle=Старотирмарский
+Language/&DraconicTitle=Драконий
+Language/&DraconicDescription=Язык, на котором разговаривают драконы и другие рептилии.
+Language/&DruidicTitle=Друидический
+Language/&DruidicDescription=Тайный язык друидов.

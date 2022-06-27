@@ -193,3 +193,4 @@ ModUi/&Category=Catégorie
 ModUi/&WeaponTag=Étiquette d'arme
 ModUi/&ItemTag=Étiquette d'article
 ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage de l'arrière-plan supplémentaire lors de l'inspection en arrière-plan
+ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'infobulle du héros <i><color=yellow>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>

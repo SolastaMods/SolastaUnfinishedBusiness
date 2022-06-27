@@ -1,262 +1,262 @@
-Prop/&CandelabraTitle	Канделябр
-Prop/&CandelabraDescription	Декоративный канделябр
-Prop/&ColumnATitle	Колонна A
-Prop/&ColumnADescription	Декоративная колонна
-Prop/&ColumnBTitle	Колонна B
-Prop/&ColumnBDescription	Декоративная колонна
-Prop/&FireBasinTitle	Жаровня
-Prop/&FireBasinDescription	Горящая жаровня, освещающая окрестности
-Prop/&BenchTitle	Скамейка
-Prop/&BenchDescription	Декоративная скамейка
-Prop/&GuardrailsATitle	Поручни
-Prop/&GuardrailsADescription	Низкая стена, которую можно использовать как тяжёлое укрытие
-Prop/&DebrisATitle	Обломки
-Prop/&DebrisADescription	Куча камня, мешающая передвижению
-Prop/&GuardrailsBrokenATitle	Сломанный поручень A
-Prop/&GuardrailsBrokenADescription	Короткая и сломанная низкая стена, которую можно использовать как тяжёлое укрытие
-Prop/&GuardrailsBrokenBTitle	Сломанный поручень B
-Prop/&GuardrailsBrokenBDescription	Длинная и сломанная низкая стена, которую можно использовать как тяжёлое укрытие
-Prop/&GuardrailsLinkTitle	Часть поручня
-Prop/&GuardrailsLinkDescription	Колонна для низкой стены
-Prop/&GuardrailsStraightATitle	Прямой поручень A
-Prop/&GuardrailsStraightADescription	Короткая низкая стена, которую можно использовать как тяжёлое укрытие
-Prop/&GuardrailsStraightBTitle	Прямой поручень B
-Prop/&GuardrailsStraightBDescription	Длинная низкая стена, которую можно использовать как тяжёлое укрытие
-Prop/&MausoleumTitle	Мавзолей
-Prop/&MausoleumDescription	Недоступный погребальный монумент
-Prop/&StatueTitle	Статуя
-Prop/&StatueDescription	Декоративная статуя
-Prop/&TombATitle	Гробница A
-Prop/&TombADescription	Гробница, в которую нельзя войти
-Prop/&TombBTitle	Гробница B
-Prop/&TombBDescription	Декоративная гробница, мешающая передвижению
-Prop/&TombCTitle	Гробница C
-Prop/&VaseTitle	Ваза
-Prop/&VaseDescription	Декоративная погребальная ваза
-Prop/&WallBlockerATitle	Стена-заслон
-Prop/&WallBlockerADescription	Широкая стена, загораживающая проход
-Prop/&WallBlockerBTitle	Стена-заслон
-Prop/&WallBlockerBDescription	Широкая стена, загораживающая проход
-Prop/&WallChainTitle	Цепь
-Prop/&WallChainDescription	Кусок металла, висящий на стене
-Prop/&WallCrawl	Стена с дырой для заползания
-Prop/&WallCrawlDescription	Широкая стена с дырой, сквозь которую можно проползти
-Prop/&WallTorchTitle	Настенный факел
-Prop/&WallTorchDescription	Вечно горящий факел, который можно разместить на стене
-Prop/&BlockTitle	Блок
-Prop/&BlockDescription	Предмет, с помощью которого можно делить комнату на подразделы
-Prop/&AltarTitle	Алтарь
-Prop/&AltarDescription	Религиозная постройка для молитв божеству
-Prop/&AlchemyTableTitle	Алхимический стол
-Prop/&ArmorStandTitle	Стойка для доспехов
-Prop/&BannerTitle	Знамя
-Prop/&BarrelsTitle	Бочки
-Prop/&BarrelStackTitle	Штабель бочек
-Prop/&BedTitle	Кровать
-Prop/&BirdCageTitle	Птичья клетка
-Prop/&BookShelfTitle	Книжная полка
-Prop/&BookStackTitle	Стопка книг
-Prop/&CabinetTitle	Шкаф
-Prop/&CarpetTitle	Ковёр
-Prop/&ChairTitle	Стул
-Prop/&CorpseTitle	Труп
-Prop/&CouchTitle	Диван
-Prop/&CrateTitle	Ящик
-Prop/&CrateStackTitle	Штабель ящиков
-Prop/&CushionsTitle	Подушки
-Prop/&FakeDoorTitle	Фальшивая дверь
-Prop/&FakeDoorDescription	Фальшивая дверь для обозначения входа/выхода из подземелья. Для использования в сочетании с устройством входа/выхода
-Prop/&FakeStairsTitle	Фальшивые ступени
-Prop/&FakeStairsDescription	Фальшивые ступени для обозначения входа/выхода из подземелья. Для использования в сочетании с устройством входа/выхода
-Prop/&FireplaceTitle	Камин
-Prop/&GlobeTitle	Глобус
-Prop/&GreenHouseTitle	Теплица
-Prop/&HarpTitle	Арфа
-Prop/&MirrorTitle	Зеркало
-Prop/&PaintingTitle	Картина
-Prop/&PlantTitle	Растение
-Prop/&PrisonFenceTitle	Тюремный забор
-Prop/&ShelvesTitle	Полки
-Prop/&StillTitle	Дистиллятор
-Prop/&StoolTitle	Табурет
-Prop/&StoveTitle	Печь
-Prop/&TableTitle	Стол
-Prop/&TelescopeTitle	Телескоп
-Prop/&TreasurePedestalTitle	Подставка для сокровища
-Prop/&WindowTitle	Окно
-Prop/&WorkTableTitle	Рабочий стол
-Prop/&WallSimpleTitle	Свободная стена
-Prop/&WallThinTitle	Тонкая стена
-Prop/&ReadingDeskTitle	Стол для чтения
-Prop/&SpinningWheelTitle	Прялка
-Prop/&DeskTitle	Стол
-Prop/&SpiderWebsTitle	Паутина
-Prop/&BasketTitle	Корзина
-Prop/&BedrollTitle	Скатка
-Prop/&BraseroTitle	Жаровня
-Prop/&CageTitle	Клетка
-Prop/&CartTitle	Тележка
-Prop/&CocoonTitle	Кокон
-Prop/&HutTitle	Хижина
-Prop/&LavaBasinTitle	Бассейн с лавой
-Prop/&MarketBoothTitle	Торговый ларёк
-Prop/&MushroomsTitle	Грибы
-Prop/&RocksTitle	Камни
-Prop/&SkinsTitle	Кожи
-Prop/&SpiderEggsTitle	Паучьи яйца
-Prop/&RockTitle	Камень
-Prop/&StalagmiteTitle	Сталагмит
-Prop/&StoneTitle	Камень
-Prop/&StrawTitle	Солома
-Prop/&StructureTitle	Сооружение
-Prop/&TotemTitle	Тотем
-Prop/&WoodenPlatformTitle	Деревянная платформа
-Prop/&FakeStairsUpTitle	Фальшивые ступени (вверх)
-Prop/&FakeStairsDownTitle	Фальшивые ступени (вниз)
-Prop/&MonumentTitle	Памятник
-Prop/&ThicketTitle	Кустарник
-Prop/&TentTitle	Палатка
-Prop/&BushesTitle	Кусты
-Prop/&DoubleThinDoorTitle	Узкая двойная дверь
-Prop/&DoubleThinDoorDescription	Узкая двойная дверь, которую необходимо открыть
-Prop/&TombstoneTitle	Надгробие
-Prop/&TombstonePackTitle	Несколько надгробий
-Prop/&FieldTitle	Поле
-Prop/&FieldBlockedDescription	Засеянное поле
-Prop/&FieldDifficultDescription	Открытое поле со сложным рельефом
-Prop/&HayStackTitle	Стог сена
-Prop/&LogsTitle	Деревянные брёвна
-Prop/&CaveEntranceTitle	Вход в пещеру
-Prop/&DrainGrateTitle	Отливная решётка
-Prop/&Path_StraightTitle	Прямая тропа
-Prop/&Path_TurnTitle	Изогнутая тропа
-Prop/&Path_YjunctionTitle	Y-образный перекрёсток
-Prop/&Path_SjunctionTitle	S-образный перекрёсток
-Prop/&Path_EndTitle	Тупик
-Prop/&Path_CrossRoadTitle	X-образный перекрёсток
-Prop/&PlanksTitle	Деревянные доски
-Prop/&StumpTitle	Пень
-Prop/&LadderTitle	Лестница
-Prop/&FakeLadderUpTitle	Фальшивая лестница
-Prop/&FakeLadderUpDescription	Фальшивая лестница для обозначения входа/выхода из подземелья. Для использования в сочетании с устройством входа/выхода
-Prop/&ArchTitle	Арка
-Prop/&CellTitle	Клетка
-Prop/&ColumnDestroyedTitle	Разрушенная колонна
-Prop/&ColumnLowgroundTitle	Колонна в низменности
-Prop/&ColumnLowgroundDescription	Декоративная колонна, которую можно поместить только в низменности
-Prop/&CreeperTitle	Вьюнок/плющ
-Prop/&RootTitle	Корни
-Prop/&ScaffoldingTitle	Помост
-Prop/&StairsTitle	Ступени
-Prop/&StairsDestoyedTitle	Разрушенные ступени
-Prop/&WallDestoyedTitle	Разрушенная стена
-Prop/&WallLinkTitle	Часть стены
-Prop/&SlopeTitle	Спуск
-Prop/&TrunkTitle	Ствол
-Prop/&WoodLogTitle	Бревно
-Prop/&CookingStuffTitle	Котелок
-Prop/&ArchEndTitle	Разрушенная арка
-Prop/&ColumnTitle	Колонна
-Prop/&RuinedKioskTitle	Руины павильона
-Prop/&RuinedWallTitle	Руины стен
-Prop/&CaravanTitle	Караван
-Prop/&BridgeTitle	Мост
-Prop/&RitualStoneTitle	Ритуальный камень
-Prop/&SkullPileTitle	Груда черепов
-Prop/&Beam_ScreenTitle	Балочный заслон
-Prop/&Tavern_CounterTitle	Таверна (прилавок)
-Prop/&Walls_LowTitle	Низкая стена
-Prop/&PennantTitle	Знамя
-Prop/&HousePatchTitle	Рынок
-Prop/&Drying_ClothesTitle	Вывешенная одежда
-Prop/&WoodFenceTitle	Деревянные заборы
-Prop/&FountainTitle	Фонтан
-Prop/&GallowTitle	Виселицы
-Prop/&Flowers_PatchTitle	Цветочный куст
-Prop/&Flowerbed_LineTitle	Длинная клумба
-Prop/&Garden_GroundTitle	Садовая земля
-Prop/&Garden_HedgeTitle	Садовая изгородь
-Prop/&KioskTitle	Садовая беседка
-Prop/&Wall_CreeperTitle	Настенный плющ
-Prop/&Wall_CreeperDescription	Растительность, помещаемая на стены
-Prop/&HouseTitle	Дом
-Prop/&Paved_Road_StraightTitle	Прямая мощёная дорога
-Prop/&Paved_Road_SquareTitle	Квадратная мощёная дорога
-Prop/&Paved_Road_TurnTitle	Мощёная дорога (поворот)
-Prop/&Paved_Road_TShapeTitle	Мощёная дорога (Т-образная)
-Prop/&Paved_Road_CrossTitle	Мощёная дорога (перекрёсток)
-Prop/&Paved_Road_DeadEndTitle	Мощёная дорога (тупик)
-Prop/&Information_BoardTitle	Доска объявлений
-Prop/&SeparatorTitle	Разделитель
-Prop/&SeparatorDescription	Деревянная балка, помещаемая между тонкими стенами
-Prop/&JuniperGroundTitle	Можжевельник
-Prop/&ManholeCoverTitle	Крышка люка
-Prop/&Merchant_BannerTitle	Флаг торговца
-Prop/&Merchant_SignTitle	Вывеска торговца
-Prop/&NightStandTitle	Прикроватная тумбочка
-Prop/&ShopStructureTitle	Сооружение (лавка)
-Prop/&ShopBookStandTitle	Книжная лавка (стойка)
-Prop/&ShopFoodStandTitle	Продовольственная лавка (стойка)
-Prop/&ShopGeneralStoreTitle	Лавка (стойка)
-Prop/&GenericShopTitle	Обычная лавка (стойка)
-Prop/&ShopMagicTitle	Магическая лавка (стойка)
-Prop/&ShopBookCounterTitle	Книжная лавка (прилавок)
-Prop/&ShopFoodCounterTitle	Продовольственная лавка (прилавок)
-Prop/&ShopGeneralCounterTitle	Лавка (прилавок)
-Prop/&Shop_WoodenShedTitle	Деревянный сарай
-Prop/&TownSeparationWallsTitle	Внутренние городские стены
-Prop/&TownSeparationButressTitle	Внутренние городские подпорки
-Prop/&SmallWallsLadderTitle	Плющ для лазания
-Prop/&SmallWallsLadderDescription	Только для размещения на стенных заслонах
-Prop/&StableTitle	Стойло
-Prop/&Statue_Little_EmperorTitle	Статуя молодого императора
-Prop/&Statue_Maisy_JadeTitle	Статуя Мэйси (янтарь)
-Prop/&Statue_Maisy_StoneTitle	Статуя Мэйси (камень)
-Prop/&Statue_Maisy_MarbleTitle	Статуя Мэйси (мрамор)
-Prop/&Statue_MisayeTitle	Статуя Мисайе
-Prop/&StreetLampostTitle	Уличный фонарь
-Prop/&StairsConnectorTitle	Соединительные ступени
-Prop/&StairsConnectorDescription	Лестница, соединяющая комнаты, находящиеся на разном уровне
-Prop/&WallButressTitle	Подпорка
-Prop/&WoodPalissadeTitle	Деревянный забор
-Prop/&WoodPalissadeDescription	Надёжное укрытие
-Prop/&House_ExtensionTitle	Пристройка (дом)
-Prop/&House_ExtensionDescription	Размещается вдоль стен дома
-Prop/&Wooden_BeamTitle	Деревянная балка
-Prop/&Y_SeparatorTitle	Y-образная деревянная балка
-Prop/&Y_SeparatorDescription	Размещается на стенах (не на тонких стенах)
-Prop/&BurningDebrisTitle	Горящие обломки
-Prop/&CastleInnerWallTitle	Внутренняя стена замка
-Prop/&CastleWallFillerTitle	Наполнение внутренней стены замка
-Prop/&CastleWallDoorwayTitle	Дверной проём внутренней стены замка
-Prop/&CastleWallObstacleTitle	Препятствие внутренней стены замка
-Prop/&CastleTowerTitle	Башня замка
-Prop/&CastleWallTitle	Стена замка
-Prop/&BrokenFurnituresTitle	Сломанная мебель
-Prop/&PalaceTitle	Эльфийский дворец
-Prop/&BarraksTitle	Барак
-Prop/&TreeTitle	Дерево
-Prop/&CaveWallDoorwaysTitle	Свободная стена — дверной проём
-Prop/&TrophyTitle	Охотничий трофей
-Prop/&TrophyDescription	Размещается на стенах (не на тонких стенах)
-Prop/&BoatTitle	Лодка
-Prop/&DresserTitle	Комод
-Prop/&HutWitchTitle	Ведьма в хижине
-Prop/&LakeTitle	Маленькое озеро
-Prop/&PuddleTitle	Лужа
-Prop/&Trunk_CrawlingTitle	Упавшие деревья
-Prop/&Trunk_CrawlingDescription	Можно проползти под упавшими деревьями.
-Prop/&WoodenHouseTitle	Деревянный дом
-Prop/&SuspendingLanternTitle	Подвесной фонарь
-Prop/&NestGiantTitle	Гигантское гнездо
-Prop/&SquarePlantTitle	Садовый глобус
-Prop/&ThroneTitle	Трон
-Prop/&SuspendingPlanterTitle	Подвесное растение
-Prop/&MagicRuneTitle	Магическая руна
-Prop/&BenchDestroyedTitle	Разрушенная скамейка
-Prop/&CorpseClericTitle	Доспехи жреца
-Prop/&CorpseFullPlateTitle	Полные латные доспехи
-Prop/&CorpseScaleMailTitle	Чешуйчатый доспех
-Prop/&CorpseSorcererTitle	Труп заклинателя
-Prop/&OutpostTitle	Разрушенный аванпост
-Prop/&PlateauTitle	Плато
+Prop/&CandelabraTitle=Канделябр
+Prop/&CandelabraDescription=Декоративный канделябр
+Prop/&ColumnATitle=Колонна A
+Prop/&ColumnADescription=Декоративная колонна
+Prop/&ColumnBTitle=Колонна B
+Prop/&ColumnBDescription=Декоративная колонна
+Prop/&FireBasinTitle=Жаровня
+Prop/&FireBasinDescription=Горящая жаровня, освещающая окрестности
+Prop/&BenchTitle=Скамейка
+Prop/&BenchDescription=Декоративная скамейка
+Prop/&GuardrailsATitle=Поручни
+Prop/&GuardrailsADescription=Низкая стена, которую можно использовать как тяжёлое укрытие
+Prop/&DebrisATitle=Обломки
+Prop/&DebrisADescription=Куча камня, мешающая передвижению
+Prop/&GuardrailsBrokenATitle=Сломанный поручень A
+Prop/&GuardrailsBrokenADescription=Короткая и сломанная низкая стена, которую можно использовать как тяжёлое укрытие
+Prop/&GuardrailsBrokenBTitle=Сломанный поручень B
+Prop/&GuardrailsBrokenBDescription=Длинная и сломанная низкая стена, которую можно использовать как тяжёлое укрытие
+Prop/&GuardrailsLinkTitle=Часть поручня
+Prop/&GuardrailsLinkDescription=Колонна для низкой стены
+Prop/&GuardrailsStraightATitle=Прямой поручень A
+Prop/&GuardrailsStraightADescription=Короткая низкая стена, которую можно использовать как тяжёлое укрытие
+Prop/&GuardrailsStraightBTitle=Прямой поручень B
+Prop/&GuardrailsStraightBDescription=Длинная низкая стена, которую можно использовать как тяжёлое укрытие
+Prop/&MausoleumTitle=Мавзолей
+Prop/&MausoleumDescription=Недоступный погребальный монумент
+Prop/&StatueTitle=Статуя
+Prop/&StatueDescription=Декоративная статуя
+Prop/&TombATitle=Гробница A
+Prop/&TombADescription=Гробница, в которую нельзя войти
+Prop/&TombBTitle=Гробница B
+Prop/&TombBDescription=Декоративная гробница, мешающая передвижению
+Prop/&TombCTitle=Гробница C
+Prop/&VaseTitle=Ваза
+Prop/&VaseDescription=Декоративная погребальная ваза
+Prop/&WallBlockerATitle=Стена-заслон
+Prop/&WallBlockerADescription=Широкая стена, загораживающая проход
+Prop/&WallBlockerBTitle=Стена-заслон
+Prop/&WallBlockerBDescription=Широкая стена, загораживающая проход
+Prop/&WallChainTitle=Цепь
+Prop/&WallChainDescription=Кусок металла, висящий на стене
+Prop/&WallCrawl=Стена с дырой для заползания
+Prop/&WallCrawlDescription=Широкая стена с дырой, сквозь которую можно проползти
+Prop/&WallTorchTitle=Настенный факел
+Prop/&WallTorchDescription=Вечно горящий факел, который можно разместить на стене
+Prop/&BlockTitle=Блок
+Prop/&BlockDescription=Предмет, с помощью которого можно делить комнату на подразделы
+Prop/&AltarTitle=Алтарь
+Prop/&AltarDescription=Религиозная постройка для молитв божеству
+Prop/&AlchemyTableTitle=Алхимический стол
+Prop/&ArmorStandTitle=Стойка для доспехов
+Prop/&BannerTitle=Знамя
+Prop/&BarrelsTitle=Бочки
+Prop/&BarrelStackTitle=Штабель бочек
+Prop/&BedTitle=Кровать
+Prop/&BirdCageTitle=Птичья клетка
+Prop/&BookShelfTitle=Книжная полка
+Prop/&BookStackTitle=Стопка книг
+Prop/&CabinetTitle=Шкаф
+Prop/&CarpetTitle=Ковёр
+Prop/&ChairTitle=Стул
+Prop/&CorpseTitle=Труп
+Prop/&CouchTitle=Диван
+Prop/&CrateTitle=Ящик
+Prop/&CrateStackTitle=Штабель ящиков
+Prop/&CushionsTitle=Подушки
+Prop/&FakeDoorTitle=Фальшивая дверь
+Prop/&FakeDoorDescription=Фальшивая дверь для обозначения входа/выхода из подземелья. Для использования в сочетании с устройством входа/выхода
+Prop/&FakeStairsTitle=Фальшивые ступени
+Prop/&FakeStairsDescription=Фальшивые ступени для обозначения входа/выхода из подземелья. Для использования в сочетании с устройством входа/выхода
+Prop/&FireplaceTitle=Камин
+Prop/&GlobeTitle=Глобус
+Prop/&GreenHouseTitle=Теплица
+Prop/&HarpTitle=Арфа
+Prop/&MirrorTitle=Зеркало
+Prop/&PaintingTitle=Картина
+Prop/&PlantTitle=Растение
+Prop/&PrisonFenceTitle=Тюремный забор
+Prop/&ShelvesTitle=Полки
+Prop/&StillTitle=Дистиллятор
+Prop/&StoolTitle=Табурет
+Prop/&StoveTitle=Печь
+Prop/&TableTitle=Стол
+Prop/&TelescopeTitle=Телескоп
+Prop/&TreasurePedestalTitle=Подставка для сокровища
+Prop/&WindowTitle=Окно
+Prop/&WorkTableTitle=Рабочий стол
+Prop/&WallSimpleTitle=Свободная стена
+Prop/&WallThinTitle=Тонкая стена
+Prop/&ReadingDeskTitle=Стол для чтения
+Prop/&SpinningWheelTitle=Прялка
+Prop/&DeskTitle=Стол
+Prop/&SpiderWebsTitle=Паутина
+Prop/&BasketTitle=Корзина
+Prop/&BedrollTitle=Скатка
+Prop/&BraseroTitle=Жаровня
+Prop/&CageTitle=Клетка
+Prop/&CartTitle=Тележка
+Prop/&CocoonTitle=Кокон
+Prop/&HutTitle=Хижина
+Prop/&LavaBasinTitle=Бассейн с лавой
+Prop/&MarketBoothTitle=Торговый ларёк
+Prop/&MushroomsTitle=Грибы
+Prop/&RocksTitle=Камни
+Prop/&SkinsTitle=Кожи
+Prop/&SpiderEggsTitle=Паучьи яйца
+Prop/&RockTitle=Камень
+Prop/&StalagmiteTitle=Сталагмит
+Prop/&StoneTitle=Камень
+Prop/&StrawTitle=Солома
+Prop/&StructureTitle=Сооружение
+Prop/&TotemTitle=Тотем
+Prop/&WoodenPlatformTitle=Деревянная платформа
+Prop/&FakeStairsUpTitle=Фальшивые ступени (вверх)
+Prop/&FakeStairsDownTitle=Фальшивые ступени (вниз)
+Prop/&MonumentTitle=Памятник
+Prop/&ThicketTitle=Кустарник
+Prop/&TentTitle=Палатка
+Prop/&BushesTitle=Кусты
+Prop/&DoubleThinDoorTitle=Узкая двойная дверь
+Prop/&DoubleThinDoorDescription=Узкая двойная дверь, которую необходимо открыть
+Prop/&TombstoneTitle=Надгробие
+Prop/&TombstonePackTitle=Несколько надгробий
+Prop/&FieldTitle=Поле
+Prop/&FieldBlockedDescription=Засеянное поле
+Prop/&FieldDifficultDescription=Открытое поле со сложным рельефом
+Prop/&HayStackTitle=Стог сена
+Prop/&LogsTitle=Деревянные брёвна
+Prop/&CaveEntranceTitle=Вход в пещеру
+Prop/&DrainGrateTitle=Отливная решётка
+Prop/&Path_StraightTitle=Прямая тропа
+Prop/&Path_TurnTitle=Изогнутая тропа
+Prop/&Path_YjunctionTitle=Y-образный перекрёсток
+Prop/&Path_SjunctionTitle=S-образный перекрёсток
+Prop/&Path_EndTitle=Тупик
+Prop/&Path_CrossRoadTitle=X-образный перекрёсток
+Prop/&PlanksTitle=Деревянные доски
+Prop/&StumpTitle=Пень
+Prop/&LadderTitle=Лестница
+Prop/&FakeLadderUpTitle=Фальшивая лестница
+Prop/&FakeLadderUpDescription=Фальшивая лестница для обозначения входа/выхода из подземелья. Для использования в сочетании с устройством входа/выхода
+Prop/&ArchTitle=Арка
+Prop/&CellTitle=Клетка
+Prop/&ColumnDestroyedTitle=Разрушенная колонна
+Prop/&ColumnLowgroundTitle=Колонна в низменности
+Prop/&ColumnLowgroundDescription=Декоративная колонна, которую можно поместить только в низменности
+Prop/&CreeperTitle=Вьюнок/плющ
+Prop/&RootTitle=Корни
+Prop/&ScaffoldingTitle=Помост
+Prop/&StairsTitle=Ступени
+Prop/&StairsDestoyedTitle=Разрушенные ступени
+Prop/&WallDestoyedTitle=Разрушенная стена
+Prop/&WallLinkTitle=Часть стены
+Prop/&SlopeTitle=Спуск
+Prop/&TrunkTitle=Ствол
+Prop/&WoodLogTitle=Бревно
+Prop/&CookingStuffTitle=Котелок
+Prop/&ArchEndTitle=Разрушенная арка
+Prop/&ColumnTitle=Колонна
+Prop/&RuinedKioskTitle=Руины павильона
+Prop/&RuinedWallTitle=Руины стен
+Prop/&CaravanTitle=Караван
+Prop/&BridgeTitle=Мост
+Prop/&RitualStoneTitle=Ритуальный камень
+Prop/&SkullPileTitle=Груда черепов
+Prop/&Beam_ScreenTitle=Балочный заслон
+Prop/&Tavern_CounterTitle=Таверна (прилавок)
+Prop/&Walls_LowTitle=Низкая стена
+Prop/&PennantTitle=Знамя
+Prop/&HousePatchTitle=Рынок
+Prop/&Drying_ClothesTitle=Вывешенная одежда
+Prop/&WoodFenceTitle=Деревянные заборы
+Prop/&FountainTitle=Фонтан
+Prop/&GallowTitle=Виселицы
+Prop/&Flowers_PatchTitle=Цветочный куст
+Prop/&Flowerbed_LineTitle=Длинная клумба
+Prop/&Garden_GroundTitle=Садовая земля
+Prop/&Garden_HedgeTitle=Садовая изгородь
+Prop/&KioskTitle=Садовая беседка
+Prop/&Wall_CreeperTitle=Настенный плющ
+Prop/&Wall_CreeperDescription=Растительность, помещаемая на стены
+Prop/&HouseTitle=Дом
+Prop/&Paved_Road_StraightTitle=Прямая мощёная дорога
+Prop/&Paved_Road_SquareTitle=Квадратная мощёная дорога
+Prop/&Paved_Road_TurnTitle=Мощёная дорога (поворот)
+Prop/&Paved_Road_TShapeTitle=Мощёная дорога (Т-образная)
+Prop/&Paved_Road_CrossTitle=Мощёная дорога (перекрёсток)
+Prop/&Paved_Road_DeadEndTitle=Мощёная дорога (тупик)
+Prop/&Information_BoardTitle=Доска объявлений
+Prop/&SeparatorTitle=Разделитель
+Prop/&SeparatorDescription=Деревянная балка, помещаемая между тонкими стенами
+Prop/&JuniperGroundTitle=Можжевельник
+Prop/&ManholeCoverTitle=Крышка люка
+Prop/&Merchant_BannerTitle=Флаг торговца
+Prop/&Merchant_SignTitle=Вывеска торговца
+Prop/&NightStandTitle=Прикроватная тумбочка
+Prop/&ShopStructureTitle=Сооружение (лавка)
+Prop/&ShopBookStandTitle=Книжная лавка (стойка)
+Prop/&ShopFoodStandTitle=Продовольственная лавка (стойка)
+Prop/&ShopGeneralStoreTitle=Лавка (стойка)
+Prop/&GenericShopTitle=Обычная лавка (стойка)
+Prop/&ShopMagicTitle=Магическая лавка (стойка)
+Prop/&ShopBookCounterTitle=Книжная лавка (прилавок)
+Prop/&ShopFoodCounterTitle=Продовольственная лавка (прилавок)
+Prop/&ShopGeneralCounterTitle=Лавка (прилавок)
+Prop/&Shop_WoodenShedTitle=Деревянный сарай
+Prop/&TownSeparationWallsTitle=Внутренние городские стены
+Prop/&TownSeparationButressTitle=Внутренние городские подпорки
+Prop/&SmallWallsLadderTitle=Плющ для лазания
+Prop/&SmallWallsLadderDescription=Только для размещения на стенных заслонах
+Prop/&StableTitle=Стойло
+Prop/&Statue_Little_EmperorTitle=Статуя молодого императора
+Prop/&Statue_Maisy_JadeTitle=Статуя Мэйси (янтарь)
+Prop/&Statue_Maisy_StoneTitle=Статуя Мэйси (камень)
+Prop/&Statue_Maisy_MarbleTitle=Статуя Мэйси (мрамор)
+Prop/&Statue_MisayeTitle=Статуя Мисайе
+Prop/&StreetLampostTitle=Уличный фонарь
+Prop/&StairsConnectorTitle=Соединительные ступени
+Prop/&StairsConnectorDescription=Лестница, соединяющая комнаты, находящиеся на разном уровне
+Prop/&WallButressTitle=Подпорка
+Prop/&WoodPalissadeTitle=Деревянный забор
+Prop/&WoodPalissadeDescription=Надёжное укрытие
+Prop/&House_ExtensionTitle=Пристройка (дом)
+Prop/&House_ExtensionDescription=Размещается вдоль стен дома
+Prop/&Wooden_BeamTitle=Деревянная балка
+Prop/&Y_SeparatorTitle=Y-образная деревянная балка
+Prop/&Y_SeparatorDescription=Размещается на стенах (не на тонких стенах)
+Prop/&BurningDebrisTitle=Горящие обломки
+Prop/&CastleInnerWallTitle=Внутренняя стена замка
+Prop/&CastleWallFillerTitle=Наполнение внутренней стены замка
+Prop/&CastleWallDoorwayTitle=Дверной проём внутренней стены замка
+Prop/&CastleWallObstacleTitle=Препятствие внутренней стены замка
+Prop/&CastleTowerTitle=Башня замка
+Prop/&CastleWallTitle=Стена замка
+Prop/&BrokenFurnituresTitle=Сломанная мебель
+Prop/&PalaceTitle=Эльфийский дворец
+Prop/&BarraksTitle=Барак
+Prop/&TreeTitle=Дерево
+Prop/&CaveWallDoorwaysTitle=Свободная стена — дверной проём
+Prop/&TrophyTitle=Охотничий трофей
+Prop/&TrophyDescription=Размещается на стенах (не на тонких стенах)
+Prop/&BoatTitle=Лодка
+Prop/&DresserTitle=Комод
+Prop/&HutWitchTitle=Ведьма в хижине
+Prop/&LakeTitle=Маленькое озеро
+Prop/&PuddleTitle=Лужа
+Prop/&Trunk_CrawlingTitle=Упавшие деревья
+Prop/&Trunk_CrawlingDescription=Можно проползти под упавшими деревьями.
+Prop/&WoodenHouseTitle=Деревянный дом
+Prop/&SuspendingLanternTitle=Подвесной фонарь
+Prop/&NestGiantTitle=Гигантское гнездо
+Prop/&SquarePlantTitle=Садовый глобус
+Prop/&ThroneTitle=Трон
+Prop/&SuspendingPlanterTitle=Подвесное растение
+Prop/&MagicRuneTitle=Магическая руна
+Prop/&BenchDestroyedTitle=Разрушенная скамейка
+Prop/&CorpseClericTitle=Доспехи жреца
+Prop/&CorpseFullPlateTitle=Полные латные доспехи
+Prop/&CorpseScaleMailTitle=Чешуйчатый доспех
+Prop/&CorpseSorcererTitle=Труп заклинателя
+Prop/&OutpostTitle=Разрушенный аванпост
+Prop/&PlateauTitle=Плато

@@ -193,3 +193,4 @@ ModUi/&Category=Categoria
 ModUi/&WeaponTag=Marca de Arma
 ModUi/&ItemTag=Etiqueta do item
 ModUi/&EnableAdditionalBackstoryDisplay=Ativar exibição de história de fundo adicional na inspeção em segundo plano
+ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=yellow>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>

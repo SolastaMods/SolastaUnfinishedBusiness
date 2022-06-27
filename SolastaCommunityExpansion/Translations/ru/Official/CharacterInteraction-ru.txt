@@ -1,36 +1,36 @@
-CharacterInteraction/&BanditTrackDescription	Следы людей — вероятно, бандитов. Выглядят довольно свежими.
-CharacterInteraction/&DisarmTrapDescription	Щёлкните, чтобы попытаться обезвредить ловушку.
-CharacterInteraction/&HardClimbDescription	Щёлкните, чтобы попытаться залезть.
-CharacterInteraction/&LightDescription	Щёлкните, чтобы зажечь этот огонь.
-CharacterInteraction/&LockPickChestDescription	Щёлкните, чтобы попытаться вскрыть замок на сундуке.
-CharacterInteraction/&LockPickDoorDescription	Щёлкните, чтобы попытаться вскрыть замок на двери.
-CharacterInteraction/&LootContainerDescription	Щёлкните, чтобы взять предметы из этого хранилища.
-CharacterInteraction/&NpcInteractionDescription	Щёлкните, чтобы взаимодействовать с этим персонажем.
-CharacterInteraction/&ObserveDescription	Щёлкните, чтобы изучить этот объект.
-CharacterInteraction/&OpenCloseDoorDescription	Щёлкните, чтобы открыть/закрыть эту дверь.
-CharacterInteraction/&PushDescription	Щёлкните, чтобы толкнуть этот объект.
-CharacterInteraction/&StartLongRestDescription	Щёлкните, чтобы расположиться отрядом на долгий отдых.
-CharacterInteraction/&TriggerTrapDescription	Спровоцировать обрушение.
-CharacterInteraction/&UseDescription	Щёлкните, чтобы использовать этот объект.
-CharacterInteraction/&GoblinTrackDescription	Следы... вероятно, гоблинов. Выглядят довольно свежими.
-CharacterInteraction/&UnknownTrackDescription	Свежие следы, вероятно, оставленные фанатиками.
-CharacterInteraction/&SorakTrackDescription	Следы рептилий... может быть, сораки?
-CharacterInteraction/&QuickShoppingDescription	Щёлкните, чтобы использовать быструю покупку.
-CharacterInteraction/&WaitDescription	Щёлкните, чтобы дождаться восхода Луны.
-CharacterInteraction/&UseScavengersDescription	Щёлкните, чтобы использовать систему Утильщиков
-CharacterInteraction/&TakeScimitarDescription	Щёлкните, чтобы использовать саблю и щит в этом бою.
-CharacterInteraction/&TakeDaggersDescription	Щёлкните, чтобы использовать кинжалы в этом бою.
-CharacterInteraction/&TakeGreataxeDescription	Щёлкните, чтобы использовать двуручный топор в этом бою.
-CharacterInteraction/&LeaveArenaDescription	Щёлкните, чтобы покинуть арену и остановить дуэль.
-CharacterInteraction/&PlantDocumentDescription	Подложить документ
-CharacterInteraction/&Unlock_Door_With_Key_Description	Используйте подходящий ключ, чтобы открыть дверь.
-CharacterInteraction/&NpcInteractionMerchantDMTitle	Торговец
-CharacterInteraction/&PrayDescription_Einar	Найдите минутку, чтобы помолиться Эйнару, богу доблести и верности. Статуя держит в руках кинжал в манакалонском стиле.
-CharacterInteraction/&PrayDescription_Pakri	Найдите минутку, чтобы помолиться Пакри, богине закона и знаний. Статуя держит в руках короткий лук в тирмарском стиле.
-CharacterInteraction/&PrayDescription_Misaye	Найдите минутку, чтобы помолиться Мисайе, богине удачи и озорства. Статуя держит в руках кинжал в тирмарском стиле.
-CharacterInteraction/&PrayDescription_Arun	Найдите минутку, чтобы помолиться Аруну, первобытному богу природы. Статуя держит в руках длинный меч в тирмарском стиле.
-CharacterInteraction/&PrayDescription_Maraike	Найдите минутку, чтобы помолиться Марайке, богине жизни и смерти. Статуя держит в руках булаву в тирмарском стиле.
-CharacterInteraction/&NpcInteractionEnlistDescription	Щёлкните, чтобы выбрать персонажа в качестве спутника.
-CharacterInteraction/&DLC1_VIPTracksDescription	Отпечатки старых сапог.
-CharacterInteraction/&PrayDescription	Остановитесь и помолитесь этому божеству.
-CharacterInteraction/&Misayes_Message_Description	Выберите предпочитаемое божество. У вас не будет второй возможности. Подумайте как следует, прежде чем сделать выбор... Или не думайте.
+CharacterInteraction/&BanditTrackDescription=Следы людей — вероятно, бандитов. Выглядят довольно свежими.
+CharacterInteraction/&DisarmTrapDescription=Щёлкните, чтобы попытаться обезвредить ловушку.
+CharacterInteraction/&HardClimbDescription=Щёлкните, чтобы попытаться залезть.
+CharacterInteraction/&LightDescription=Щёлкните, чтобы зажечь этот огонь.
+CharacterInteraction/&LockPickChestDescription=Щёлкните, чтобы попытаться вскрыть замок на сундуке.
+CharacterInteraction/&LockPickDoorDescription=Щёлкните, чтобы попытаться вскрыть замок на двери.
+CharacterInteraction/&LootContainerDescription=Щёлкните, чтобы взять предметы из этого хранилища.
+CharacterInteraction/&NpcInteractionDescription=Щёлкните, чтобы взаимодействовать с этим персонажем.
+CharacterInteraction/&ObserveDescription=Щёлкните, чтобы изучить этот объект.
+CharacterInteraction/&OpenCloseDoorDescription=Щёлкните, чтобы открыть/закрыть эту дверь.
+CharacterInteraction/&PushDescription=Щёлкните, чтобы толкнуть этот объект.
+CharacterInteraction/&StartLongRestDescription=Щёлкните, чтобы расположиться отрядом на долгий отдых.
+CharacterInteraction/&TriggerTrapDescription=Спровоцировать обрушение.
+CharacterInteraction/&UseDescription=Щёлкните, чтобы использовать этот объект.
+CharacterInteraction/&GoblinTrackDescription=Следы... вероятно, гоблинов. Выглядят довольно свежими.
+CharacterInteraction/&UnknownTrackDescription=Свежие следы, вероятно, оставленные фанатиками.
+CharacterInteraction/&SorakTrackDescription=Следы рептилий... может быть, сораки?
+CharacterInteraction/&QuickShoppingDescription=Щёлкните, чтобы использовать быструю покупку.
+CharacterInteraction/&WaitDescription=Щёлкните, чтобы дождаться восхода Луны.
+CharacterInteraction/&UseScavengersDescription=Щёлкните, чтобы использовать систему Утильщиков
+CharacterInteraction/&TakeScimitarDescription=Щёлкните, чтобы использовать саблю и щит в этом бою.
+CharacterInteraction/&TakeDaggersDescription=Щёлкните, чтобы использовать кинжалы в этом бою.
+CharacterInteraction/&TakeGreataxeDescription=Щёлкните, чтобы использовать двуручный топор в этом бою.
+CharacterInteraction/&LeaveArenaDescription=Щёлкните, чтобы покинуть арену и остановить дуэль.
+CharacterInteraction/&PlantDocumentDescription=Подложить документ
+CharacterInteraction/&Unlock_Door_With_Key_Description=Используйте подходящий ключ, чтобы открыть дверь.
+CharacterInteraction/&NpcInteractionMerchantDMTitle=Торговец
+CharacterInteraction/&PrayDescription_Einar=Найдите минутку, чтобы помолиться Эйнару, богу доблести и верности. Статуя держит в руках кинжал в манакалонском стиле.
+CharacterInteraction/&PrayDescription_Pakri=Найдите минутку, чтобы помолиться Пакри, богине закона и знаний. Статуя держит в руках короткий лук в тирмарском стиле.
+CharacterInteraction/&PrayDescription_Misaye=Найдите минутку, чтобы помолиться Мисайе, богине удачи и озорства. Статуя держит в руках кинжал в тирмарском стиле.
+CharacterInteraction/&PrayDescription_Arun=Найдите минутку, чтобы помолиться Аруну, первобытному богу природы. Статуя держит в руках длинный меч в тирмарском стиле.
+CharacterInteraction/&PrayDescription_Maraike=Найдите минутку, чтобы помолиться Марайке, богине жизни и смерти. Статуя держит в руках булаву в тирмарском стиле.
+CharacterInteraction/&NpcInteractionEnlistDescription=Щёлкните, чтобы выбрать персонажа в качестве спутника.
+CharacterInteraction/&DLC1_VIPTracksDescription=Отпечатки старых сапог.
+CharacterInteraction/&PrayDescription=Остановитесь и помолитесь этому божеству.
+CharacterInteraction/&Misayes_Message_Description=Выберите предпочитаемое божество. У вас не будет второй возможности. Подумайте как следует, прежде чем сделать выбор... Или не думайте.

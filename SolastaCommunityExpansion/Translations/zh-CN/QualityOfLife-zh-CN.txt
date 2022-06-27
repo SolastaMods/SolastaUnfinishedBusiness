@@ -5,7 +5,8 @@ ContentPack/&CommunityExpansionPackTitle=社区扩展包
 Failure/&FailureFlagTargetMeleeWeaponError=不能用当前武器对此目标进行近战攻击
 Feature/&AlwaysBeardDescription={0}%=概率长出光荣的胡须
 Feature/&BardSkillsTitle=吟游诗人技艺
-Feature/&EmptyString
+Feature/&EmptyString=
+Feature/&Emptystring=
 Format/&LevelAndExperienceFormat=等级：{0}\n经验值：{1}\n升级到等级{3}还需{2}点
 Format/&LevelAndExperienceMaxedFormat=等级：{0}\n经验值：{1}\n达到最大等级
 MainMenu/&ExportPdfDescription=降级此角色
