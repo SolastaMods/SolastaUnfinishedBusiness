@@ -193,3 +193,4 @@ ModUi/&Category=Category
 ModUi/&WeaponTag=Weapon Tag
 ModUi/&ItemTag=Item Tag
 ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection
+ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=yellow>[i.e.: critical hits, critical failures, etc.]</color></i>

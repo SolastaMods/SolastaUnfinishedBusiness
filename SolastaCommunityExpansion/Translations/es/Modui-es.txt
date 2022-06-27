@@ -193,3 +193,4 @@ ModUi/&Category=Categoría
 ModUi/&WeaponTag=Etiqueta de arma
 ModUi/&ItemTag=Etiqueta de artículo
 ModUi/&EnableAdditionalBackstoryDisplay=Habilite la visualización de antecedentes adicionales en la inspección de antecedentes
+ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=yellow>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
