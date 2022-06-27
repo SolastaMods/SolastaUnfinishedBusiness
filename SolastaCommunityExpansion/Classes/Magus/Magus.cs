@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AwesomeTechnologies.VegetationSystem;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
@@ -7,6 +8,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
+using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
@@ -109,7 +111,7 @@ public static class Magus
 
     private static void BuildSpells()
     {
-        FeatureDefinitionClassMagusCastSpell = FeatureDefinitionCastSpellBuilder
+        /*FeatureDefinitionClassMagusCastSpell = FeatureDefinitionCastSpellBuilder
             .Create("ClassMagusCastSpell", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ClassMagusSpellcasting", Category.Class)
             .SetKnownCantrips(4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
@@ -123,6 +125,22 @@ public static class Magus
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSpellList(MagusSpells.MagusSpellList)
             .SetReplacedSpells(SpellsHelper.FullCasterReplacedSpells)
+            .AddToDB();*/
+        
+        
+        FeatureDefinitionClassMagusCastSpell = FeatureDefinitionCastSpellBuilder
+            .Create("ClassMagusCastSpell", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusSpellcasting", Category.Class)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
+            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
+            .SetSpellList(MagusSpells.MagusSpellList)
+            .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.WholeList)
+            .SetSpellReadyness(RuleDefinitions.SpellReadyness.Prepared)
+            .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusHalfLevel)
+            .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
+            .SetSpellCastingLevel(1)
+            .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
+            .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
             .AddToDB();
     }
 
@@ -162,10 +180,16 @@ public static class Magus
 
         // unfathomable terror: creatures with you can see and within 6 cell will no longer immune to fear
         var unfathomableTerror = BuildUnfathomableHorror(ArcanaPool);
+
+        // grant mage armor add INT modifier to AC
+        var magisterArmor = BuildAmorOfTheMagister();
         
+        // grant bane and force enemy disadvantage when saving throw against it 
+        var greaterBane = BuildGreaterBane();
+        
+        // frost fang: hopefully cold damage with sweet animation
+        var frostFang = BuildFrostFang(ArcanaPool);
         // mind spike
-        // exile
-        // immunity disruption: fire, ice, acid, thunder, lighting, necro
         // soul drinker: regain an arcana focus
 
         PowerBundleContext.RegisterPowerBundle(ArcanaPool, true, ruptureStrike, nullifyStrike, terrorStrike, exileStrike);
@@ -175,39 +199,36 @@ public static class Magus
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("ArcaneArt", Resources.EldritchInvocation, 128, 128))
             .SetRequireClassLevels(true)
-            .SetLevelFeatures(2, ruptureStrike, eldritchPredator, terrorStrike)
-            .SetLevelFeatures(5, nullifyStrike, unfathomableTerror, exileStrike)
+            .SetLevelFeatures(3, magisterArmor, ruptureStrike, eldritchPredator, terrorStrike, greaterBane /*corrosiveTouch*/)
+            .SetLevelFeatures(7, nullifyStrike, unfathomableTerror/*,burningWound*/ )
+            .SetLevelFeatures(11, exileStrike, frostFang)
             .AddToDB();
     }
 
     private static void BuildProgression(CharacterClassDefinitionBuilder classMagusBuilder)
     {
-        // No subclass for now
-        /*var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
-            .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassWarlockPatron", Category.Subclass)
-            .SetSubclassSuffix("Patron")
-            .SetFilterByDeity(false)
-            .SetSubclasses(
-                AHWarlockSubclassSoulBladePact.Build(),
-                DHWarlockSubclassAncientForestPatron.Build(),
-                DHWarlockSubclassElementalPatron.Build(),
-                DHWarlockSubclassMoonLitPatron.Build()
-            )
-            .AddToDB();*/
+        var warCaster = BuildWarCaster();
 
+        var extraAttack = BuildExtraAttack();
+        
         classMagusBuilder
             .AddFeaturesAtLevel(1,
                 FeatureDefinitionProficiencySavingThrow,
                 FeatureDefinitionProficiencyArmor,
                 FeatureDefinitionProficiencyWeapon,
                 FeatureDefinitionProficiencyTool,
-                FeatureDefinitionSkillPoints
+                FeatureDefinitionSkillPoints,
+                FeatureDefinitionClassMagusCastSpell
             )
-            .AddFeaturesAtLevel(2, FeatureDefinitionClassMagusCastSpell, ArcanaPool, ArcaneArt, ArcaneArt)
+            .AddFeaturesAtLevel(2, warCaster)
+            .AddFeaturesAtLevel(3, ArcanaPool, ArcaneArt, ArcaneArt)
             .AddFeatureAtLevel(4, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-            .AddFeaturesAtLevel(5, ArcaneArt, ArcaneArt)
+            .AddFeatureAtLevel(5, extraAttack)
+            //.AddFeaturesAtLevel(6)
+            .AddFeaturesAtLevel(7, ArcaneArt, ArcaneArt)
             .AddFeatureAtLevel(8, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+            //.AddFeatureAtLevel(10,)
+            .AddFeaturesAtLevel(11, ArcaneArt, ArcaneArt)
             .AddFeatureAtLevel(12, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
     }
 
@@ -242,9 +263,9 @@ public static class Magus
                 DatabaseHelper.ToolTypeDefinitions.EnchantingToolType,
                 DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType)
             .SetAbilityScorePriorities(
+                AttributeDefinitions.Intelligence,
                 AttributeDefinitions.Dexterity,
                 AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
                 AttributeDefinitions.Wisdom,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Charisma)
@@ -253,18 +274,45 @@ public static class Magus
             .SetHitDice(DieType.D8)
             .SetIngredientGatheringOdds(DatabaseHelper.CharacterClassDefinitions.Sorcerer.IngredientGatheringOdds)
             .SetPictogram(DatabaseHelper.CharacterClassDefinitions.Wizard.ClassPictogramReference);
-
+        
+        ClassMagus = classMagusBuilder.AddToDB();
+        
         BuildEquipment(classMagusBuilder);
         BuildProficiencies();
         BuildSpells();
         BuildArcaneArt();
         BuildProgression(classMagusBuilder);
 
-        ClassMagus = classMagusBuilder.AddToDB();
-
         return ClassMagus;
     }
 
+    #region war_caster
+    private static FeatureDefinition BuildWarCaster()
+    {
+        return FeatureDefinitionProficiencyBuilder
+            .Create("ClassMagusWarCaster", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusWarCaster", Category.Class)
+            .SetProficiencies(ProficiencyType.Feat, OtherFeats.Warcaster.Name)
+            .AddToDB();
+    }
+    #endregion
+    
+    #region extra_attack
+    private static FeatureDefinition BuildExtraAttack()
+    {
+        return FeatureDefinitionAttributeModifierBuilder
+            .Create("ClassMagusExtraAttack", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack.guiPresentation)
+            .SetModifiedAttribute(AttributeDefinitions.AttacksNumber)
+            .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            .SetModifierValue(1)
+            .AddToDB();
+    }
+    #endregion
+
+    #region blood_ritual
+    
+    #endregion
     #region rupture_strike
     private static FeatureDefinitionPower BuildRuptureStrike(FeatureDefinitionPower sharedPool)
     {
@@ -275,8 +323,7 @@ public static class Magus
             .AddToDB();
         condition.specialDuration = true;
         condition.durationParameter = 1;
-        condition.durationParameterDie = DieType.D4;
-        condition.durationType = DurationType.Round;
+        condition.durationType = DurationType.Minute;
         
         condition.turnOccurence = (TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd;
         condition.RecurrentEffectForms.Add(new EffectForm
@@ -477,9 +524,8 @@ public static class Magus
                 .SetConditionType(ConditionType.Detrimental)
                 .SetSpecialDuration(true)
                 .AddToDB();
-        condition.durationParameterDie = DieType.D4;
         condition.durationParameter = 1;
-        condition.durationType = DurationType.Round;
+        condition.durationType = DurationType.Minute;
         
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtNullifyStrike", DefinitionBuilder.CENamespaceGuid)
@@ -596,8 +642,7 @@ public static class Magus
             .AddToDB();
         condition.specialDuration = true;
         condition.durationParameter = 1;
-        condition.durationParameterDie = DieType.D4;
-        condition.durationType = DurationType.Round;
+        condition.durationType = DurationType.Minute;
         condition.forceBehavior = true;
         condition.fearSource = true;
         condition.battlePackage = DatabaseHelper.DecisionPackageDefinitions.Fear;
@@ -628,12 +673,12 @@ public static class Magus
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build()
                     )
-                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ChillTouch)
+                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.Fear)
                     .Build())
             .AddToDB();
         
-        var canUseExileStrike = CharacterValidators.HasBeenGrantedFeature(power);
-        power.SetCustomSubFeatures(new PowerUseValidity(canUseExileStrike, CharacterValidators.NoShield, CharacterValidators.EmptyOffhand));
+        var canUseTerrorStrike = CharacterValidators.HasBeenGrantedFeature(power);
+        power.SetCustomSubFeatures(new PowerUseValidity(canUseTerrorStrike, CharacterValidators.NoShield, CharacterValidators.EmptyOffhand));
         
         return power;
     }
@@ -649,7 +694,7 @@ public static class Magus
         }
     }
 
-    private  class ConditionFrightenByUnfathomableHorrorBuilder
+    private class ConditionFrightenByUnfathomableHorrorBuilder
         : ConditionDefinitionBuilder<ConditionFrightenByUnfathomableHorror, ConditionFrightenByUnfathomableHorrorBuilder>
     {
         internal ConditionFrightenByUnfathomableHorrorBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
@@ -702,13 +747,157 @@ public static class Magus
             .Build();
 
         return FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMagusArcaneArUnfathomableError", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArUnfathomableError")
+            .Create("ClassMagusArcaneArtUnfathomableError", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtUnfathomableError")
             .SetSharedPool(sharedPool)
             .SetEffectDescription(effect)
             .SetActivationTime(ActivationTime.PermanentUnlessIncapacitated)
             .AddToDB();
     }
     
+    #endregion
+    
+    #region amor_of_the_magister
+    private static FeatureDefinitionAttributeModifier enhancedMageAmor = FeatureDefinitionAttributeModifierBuilder
+        .Create("ClassMagusArmorOfTheMagisterACModifier", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation("ClassMagusArmorOfTheMagisterACModifier", Category.Class)
+        .SetSituationalContext(SituationalContext.None)
+        .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+        .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
+        .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
+        .AddToDB();
+    private static EffectDescription EnhanceMageAmor(SpellDefinition spell, EffectDescription effect,
+        RulesetCharacter caster)
+    {
+        if (spell != DatabaseHelper.SpellDefinitions.MageArmor)
+        {
+            return effect;
+        }
+
+        var effectForm = effect.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
+        FeatureDefinitionAttributeModifier feature = effectForm.conditionForm.conditionDefinition.features[0] as FeatureDefinitionAttributeModifier;
+        if (feature != null)
+        {
+            feature.modifierValue =
+                13 + AttributeDefinitions.ComputeAbilityScoreModifier(
+                    caster.TryGetAttributeValue(AttributeDefinitions.Intelligence));
+        }
+
+        return effect;
+    }
+    private static FeatureDefinition BuildAmorOfTheMagister()
+    {
+        //  grant mage amor 
+        var bonusSpellList = new List<SpellDefinition>();
+        bonusSpellList.Add(DatabaseHelper.SpellDefinitions.MageArmor);
+        var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("ClassMagusArmorOfTheMagisterBonusSpell", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusArmorOfTheMagisterBonusSpell", Category.Class)
+            .SetAutoTag("MagisterArmor")
+            .SetSpellcastingClass(ClassMagus)
+            .SetPreparedSpellGroups(
+                new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+                { 
+                    classLevel   = 1,
+                    spellsList   = bonusSpellList
+                })
+            .AddToDB();
+            
+        // enhance mage armor effect
+        var enhancedMageAmor = FeatureDefinitionSpellModifierBuilder
+            .Create("ClassMagusArmorOfTheMagisterModifyMageAmorEffect", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusArmorOfTheMagisterModifyMageAmorEffect", Category.Class)
+            .SetEffectModifier(EnhanceMageAmor)
+            .AddToDB();
+        
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("ClassMagusArcaneArtArmorOfTheMagister", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusArcaneArtArmorOfTheMagister", Category.Class)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .AddFeatureSet(autoPreparedSpells, enhancedMageAmor)
+            .AddToDB();
+    }
+    #endregion
+    
+    #region greater_ban
+    private static FeatureDefinition BuildGreaterBane()
+    {
+        //  grant bane 
+        var bonusSpellList = new List<SpellDefinition>();
+        bonusSpellList.Add(DatabaseHelper.SpellDefinitions.Bane);
+        var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("ClassMagusGreaterBaneBonusSpell", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusGreaterBaneBonusSpell", Category.Class)
+            .SetAutoTag("GreaterBane")
+            .SetSpellcastingClass(ClassMagus)
+            .SetPreparedSpellGroups(
+                new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+                { 
+                    classLevel   = 1,
+                    spellsList   = bonusSpellList
+                })
+            .AddToDB();
+        
+        // force disadvantage on enemies saving throw
+        var greaterBane = FeatureDefinitionMagicAffinityBuilder
+            .Create("ClassMagusGreaterBaneSavingThrowAffinityModifier", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusGreaterBaneSavingThrowAffinityModifier", Category.Class)
+            .AddToDB();
+        greaterBane.forcedSavingThrowAffinity = AdvantageType.Disadvantage;
+        greaterBane.forcedSpellDefinition = DatabaseHelper.SpellDefinitions.Bane;
+            
+        // greater bane
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("ClassMagusArcaneArtGreaterBane", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusArcaneArtGreaterBane", Category.Class)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .AddFeatureSet(autoPreparedSpells, greaterBane)
+            .AddToDB();
+    }
+    #endregion
+
+    #region frost_fang
+
+    private static FeatureDefinition BuildFrostFang(FeatureDefinitionPower sharedPool)
+    {
+        var frostFangAdditionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            .Create("ClassMagusAdditionalDamageFrostFang", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusAdditionalDamageFrostFang", Category.Class)
+            .SetNotificationTag("FrostFang")
+            .SetDamageDice(DieType.D8, 2)
+            .SetSpecificDamageType(DamageTypeCold)
+            .SetImpactParticleReference(DatabaseHelper.SpellDefinitions.ConeOfCold.effectDescription.effectParticleParameters.impactParticleReference)
+            .SetFrequencyLimit(FeatureLimitedUsage.None)
+            .AddToDB();
+
+        var frostFangCondition = ConditionDefinitionBuilder
+            .Create("ClassMagusConditionFrostFang", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusConditionFrostFang", Category.Class)
+            .SetSpecialDuration(true)
+            .SetDuration(DurationType.Minute, 1)
+            .SetFeatures(frostFangAdditionalDamage)
+            .AddToDB();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .AddEffectForm(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(frostFangCondition, ConditionForm.ConditionOperation.Add, true, false)
+                    .Build()
+            )
+            .Build();
+        effectDescription.effectParticleParameters = DatabaseHelper.MonsterAttackDefinitions
+            .Attack_Orc_Grimblade_IceBlade.effectDescription.effectParticleParameters;
+        
+        return FeatureDefinitionPowerBuilder
+            .Create("ClassMagusArcaneArtFrostFang", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusArcaneArtFrostFang", Category.Class)
+            //.SetSharedPool(sharedPool)
+            .SetActivationTime(ActivationTime.BonusAction)
+            .SetRechargeRate(RechargeRate.AtWill)
+            .SetEffectDescription(effectDescription)
+            .AddToDB();
+    }
     #endregion
 }

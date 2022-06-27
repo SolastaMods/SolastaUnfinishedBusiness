@@ -355,13 +355,13 @@ public static class MagusSpells
     };
     
     internal static SpellListDefinition MagusSpellList { get; } = SpellListDefinitionBuilder
-        .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ClassMagusSpellList", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentationNoContent()
+        .Create("ClassMagusSpellList", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation("ClassMagusSpellList", Category.Class)
         .ClearSpells()
         .SetSpellsAtLevel(0, SunlightBlade, ResonatingStrike, TrueStrike, Sparkle, Light, FireBolt, ChillTouch, RayOfFrost, ShockingGrasp)
-        .SetSpellsAtLevel(1, Shield, MageArmor, ExpeditiousRetreat, ProtectionFromEvilGood, HellishRebukeSpell, PactMarkSpell, Sleep, Bane)
-        .SetSpellsAtLevel(2, SeeInvisibility, HoldPerson, Invisibility, MistyStep, RayOfEnfeeblement, Shatter, SpiderClimb, ScorchingRay)
-        .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, Slow, Haste, BestowCurse, StinkingCloud)
+        .SetSpellsAtLevel(1, Shield, MageArmor, ExpeditiousRetreat, ProtectionFromEvilGood, FeatherFall, InflictWounds, Sleep, Bane)
+        .SetSpellsAtLevel(2, SeeInvisibility, HoldPerson, Invisibility, MistyStep, RayOfEnfeeblement, Shatter, SpiderClimb, ScorchingRay, Blur, Silence)
+        .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, Slow, Haste, BestowCurse, StinkingCloud, Fireball, LightningBolt)
         .SetSpellsAtLevel(4, Banishment, Blight, DimensionDoor, GreaterInvisibility, PhantasmalKiller)
         .SetSpellsAtLevel(5, HoldMonster, MindTwist, ConjureElemental, Contagion)
         .SetSpellsAtLevel(6, Sunbeam, Disintegrate, GlobeOfInvulnerability, Eyebite)
