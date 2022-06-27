@@ -9,3 +9,4 @@
 CHANGES:
 
 - Add a setting to display stats on Hero's tooltips
+- Improve translations
