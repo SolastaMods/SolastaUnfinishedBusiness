@@ -1,6 +1,6 @@
-﻿Race/&HalfElfDarkElfRaceDescription	Los Half-Dark-Elves son descendientes de elfos que han cambiado con el tiempo al vivir en las inhóspitas Badlands. Su herencia humana los hizo adaptables a la luz brillante.
-Race/&HalfElfDarkElfRaceTitle	Elfo-Medio Oscuro
-Race/&HalfElfHighElfRaceDescription	Los Half-High-Elves elfos están entrenados para usar la magia desde muy temprano.
-Race/&HalfElfHighElfRaceTitle	Elfo-Medio Alto
-Race/&HalfElfSylvanElfRaceDescription	Los Half-Sylvan-Elves están entrenados para sobrevivir en la naturaleza y son particularmente aptos para sobrevivir. Como herencia de los elfos silvanos, están entrenados para luchar con espadas y arcos desde la infancia.
-Race/&HalfElfSylvanElfRaceTitle	Elfo_Medio Silvano
+﻿Race/&HalfElfDarkElfRaceDescription=Los Half-Dark-Elves son descendientes de elfos que han cambiado con el tiempo al vivir en las inhóspitas Badlands. Su herencia humana los hizo adaptables a la luz brillante.
+Race/&HalfElfDarkElfRaceTitle=Elfo-Medio Oscuro
+Race/&HalfElfHighElfRaceDescription=Los Half-High-Elves elfos están entrenados para usar la magia desde muy temprano.
+Race/&HalfElfHighElfRaceTitle=Elfo-Medio Alto
+Race/&HalfElfSylvanElfRaceDescription=Los Half-Sylvan-Elves están entrenados para sobrevivir en la naturaleza y son particularmente aptos para sobrevivir. Como herencia de los elfos silvanos, están entrenados para luchar con espadas y arcos desde la infancia.
+Race/&HalfElfSylvanElfRaceTitle=Elfo_Medio Silvano

@@ -1,10 +1,10 @@
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
-Subclass/&ArcaneFighterAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
-Subclass/&ArcaneFighterAdditionalActionTitle	Spell Fighting
-Subclass/&ArcaneFighterBonusWeaponDamageDescription	Once per turn, your weapon attacks deal an extra 1d8 damage.
-Subclass/&ArcaneFighterBonusWeaponDamageTitle	Magically Powered Attacks
-Subclass/&TraditionArcaneFighterDescription	Channel your magic into weapon attacks.
-Subclass/&TraditionArcaneFighterTitle	Arcane Fighter
-Subclass/&WeaponProfArcaneFighterDescription	Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
-Subclass/&WeaponProfArcaneFighterTitle	Weapon Training
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Additional Damage from Magically Powered Attacks
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Additional Damage from Magically Powered Attacks
+Subclass/&ArcaneFighterAdditionalActionDescription=You can cast a spell after defeating an enemy with your weapon attacks.
+Subclass/&ArcaneFighterAdditionalActionTitle=Spell Fighting
+Subclass/&ArcaneFighterBonusWeaponDamageDescription=Once per turn, your weapon attacks deal an extra 1d8 damage.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle=Magically Powered Attacks
+Subclass/&TraditionArcaneFighterDescription=Channel your magic into weapon attacks.
+Subclass/&TraditionArcaneFighterTitle=Arcane Fighter
+Subclass/&WeaponProfArcaneFighterDescription=Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
+Subclass/&WeaponProfArcaneFighterTitle=Weapon Training

@@ -1,10 +1,10 @@
-Feature/&InspiringSurgePowerDescription	Concedi a un alleato un'azione principale aggiuntiva per 1 round. Non si accumula con Action Surge.
-Feature/&InspiringSurgePowerTitle	Spinta ispiratrice
-Feature/&InspiringSurgePowerTitleShort	Spinta ispiratrice
-Feature/&RallyingCryPowerDescription	Sostituisce Secondo Vento con un potere per ripristinare 4 punti ferita del livello combattente a uno o più alleati entro 6 caselle, fino al massimo dei loro punti ferita.
-Feature/&RallyingCryPowerTitle	Grido di battaglia
-Feature/&RallyingCryPowerTitleShort	Grido di battaglia
-Feature/&RoyalEnvoyFeatureDescription	Aggiungi metà del tuo bonus di competenza (arrotondato per eccesso) a qualsiasi prova di Carisma effettuata che non utilizzi già il tuo bonus di competenza. Inoltre, diventi esperto nei tiri salvezza di Carisma.
-Feature/&RoyalEnvoyFeatureTitle	Inviato reale
-Subclass/&FighterRoyalKnightDescription	Un cavaliere che ispira grandezza negli altri commettendo azioni coraggiose in battaglia. Un cavaliere solitario è un abile guerriero, ma chi guida una banda di alleati può trasformare anche la milizia meno equipaggiata in una feroce banda da guerra.
-Subclass/&FighterRoyalKnightTitle	Cavaliere Reale
+Feature/&InspiringSurgePowerDescription=Concedi a un alleato un'azione principale aggiuntiva per 1 round. Non si accumula con Action Surge.
+Feature/&InspiringSurgePowerTitle=Spinta ispiratrice
+Feature/&InspiringSurgePowerTitleShort=Spinta ispiratrice
+Feature/&RallyingCryPowerDescription=Sostituisce Secondo Vento con un potere per ripristinare 4 punti ferita del livello combattente a uno o più alleati entro 6 caselle, fino al massimo dei loro punti ferita.
+Feature/&RallyingCryPowerTitle=Grido di battaglia
+Feature/&RallyingCryPowerTitleShort=Grido di battaglia
+Feature/&RoyalEnvoyFeatureDescription=Aggiungi metà del tuo bonus di competenza (arrotondato per eccesso) a qualsiasi prova di Carisma effettuata che non utilizzi già il tuo bonus di competenza. Inoltre, diventi esperto nei tiri salvezza di Carisma.
+Feature/&RoyalEnvoyFeatureTitle=Inviato reale
+Subclass/&FighterRoyalKnightDescription=Un cavaliere che ispira grandezza negli altri commettendo azioni coraggiose in battaglia. Un cavaliere solitario è un abile guerriero, ma chi guida una banda di alleati può trasformare anche la milizia meno equipaggiata in una feroce banda da guerra.
+Subclass/&FighterRoyalKnightTitle=Cavaliere Reale

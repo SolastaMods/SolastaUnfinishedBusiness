@@ -1,0 +1,262 @@
+Prop/&CandelabraTitle	Candelabro
+Prop/&CandelabraDescription	Um candelabro decorativo.
+Prop/&ColumnATitle	Coluna A
+Prop/&ColumnADescription	Uma coluna decorativa.
+Prop/&ColumnBTitle	Coluna B
+Prop/&ColumnBDescription	Uma coluna decorativa.
+Prop/&FireBasinTitle	Pira
+Prop/&FireBasinDescription	Pira acesa que ilumina os arredores.
+Prop/&BenchTitle	Banco
+Prop/&BenchDescription	Um banco decorativo.
+Prop/&GuardrailsATitle	Mureta
+Prop/&GuardrailsADescription	Mureta que serve como proteção robusta.
+Prop/&DebrisATitle	Escombros
+Prop/&DebrisADescription	Pedaços de pedra que obstruem o movimento.
+Prop/&GuardrailsBrokenATitle	Mureta Quebrada A
+Prop/&GuardrailsBrokenADescription	Mureta quebrada, de tamanho pequeno, que serve como proteção robusta.
+Prop/&GuardrailsBrokenBTitle	Mureta Quebrada B
+Prop/&GuardrailsBrokenBDescription	Mureta quebrada, de tamanho grande, que serve como proteção robusta.
+Prop/&GuardrailsLinkTitle	Conexão de Mureta
+Prop/&GuardrailsLinkDescription	Uma pilastra que liga muretas.
+Prop/&GuardrailsStraightATitle	Mureta Reta A
+Prop/&GuardrailsStraightADescription	Mureta pequena que serve como proteção robusta.
+Prop/&GuardrailsStraightBTitle	Mureta Reta B
+Prop/&GuardrailsStraightBDescription	Mureta grande que serve como proteção robusta.
+Prop/&MausoleumTitle	Mausoléu
+Prop/&MausoleumDescription	Monumento funerário inacessível.
+Prop/&StatueTitle	Estátua
+Prop/&StatueDescription	Uma estátua decorativa.
+Prop/&TombATitle	Tumba A
+Prop/&TombADescription	Tumba em que se pode entrar.
+Prop/&TombBTitle	Tumba B
+Prop/&TombBDescription	Tumba decorativa que obstrui o movimento.
+Prop/&TombCTitle	Tumba C
+Prop/&VaseTitle	Urna
+Prop/&VaseDescription	Urna funerária decorativa.
+Prop/&WallBlockerATitle	Parede de Bloqueio
+Prop/&WallBlockerADescription	Parede larga que bloqueia uma passagem.
+Prop/&WallBlockerBTitle	Parede de Bloqueio
+Prop/&WallBlockerBDescription	Parede larga que bloqueia uma passagem.
+Prop/&WallChainTitle	Corrente
+Prop/&WallChainDescription	Pedaço de metal pendurado na parede.
+Prop/&WallCrawl	Parede com Buraco
+Prop/&WallCrawlDescription	Parede larga com um buraco pelo qual se pode passar agachado.
+Prop/&WallTorchTitle	Tocha de Parede
+Prop/&WallTorchDescription	Tocha de fogo perene que pode ser colocada na parede.
+Prop/&BlockTitle	Bloqueio
+Prop/&BlockDescription	Estrutura sólida que pode ser usada para dividir uma câmara em áreas menores.
+Prop/&AltarTitle	Altar
+Prop/&AltarDescription	Estrutura votiva usada para rezar para uma divindade.
+Prop/&AlchemyTableTitle	Bancada de Alquimia
+Prop/&ArmorStandTitle	Suporte de Armadura
+Prop/&BannerTitle	Estandarte
+Prop/&BarrelsTitle	Barris
+Prop/&BarrelStackTitle	Pilha de Barris
+Prop/&BedTitle	Cama
+Prop/&BirdCageTitle	Gaiola
+Prop/&BookShelfTitle	Estante de Livros
+Prop/&BookStackTitle	Pilha de Livros
+Prop/&CabinetTitle	Armário
+Prop/&CarpetTitle	Tapete
+Prop/&ChairTitle	Cadeira
+Prop/&CorpseTitle	Cadáver
+Prop/&CouchTitle	Sofá
+Prop/&CrateTitle	Caixote
+Prop/&CrateStackTitle	Pilha de Caixotes
+Prop/&CushionsTitle	Almofadas
+Prop/&FakeDoorTitle	Porta Falsa
+Prop/&FakeDoorDescription	Porta falsa usada para representar a entrada ou saída de um cenário. Use em conjunto com um dispositivo de entrada/saída.
+Prop/&FakeStairsTitle	Escadaria Falsa
+Prop/&FakeStairsDescription	Escada falsa usada para representar a entrada ou saída de um cenário. Use em conjunto com um dispositivo de entrada/saída.
+Prop/&FireplaceTitle	Lareira
+Prop/&GlobeTitle	Globo
+Prop/&GreenHouseTitle	Estufa
+Prop/&HarpTitle	Harpa
+Prop/&MirrorTitle	Espelho
+Prop/&PaintingTitle	Pintura
+Prop/&PlantTitle	Planta
+Prop/&PrisonFenceTitle	Grade de Prisão
+Prop/&ShelvesTitle	Prateleiras
+Prop/&StillTitle	Alambique
+Prop/&StoolTitle	Banco
+Prop/&StoveTitle	Fogão
+Prop/&TableTitle	Mesa
+Prop/&TelescopeTitle	Telescópio
+Prop/&TreasurePedestalTitle	Pedestal de Tesouro
+Prop/&WindowTitle	Janela
+Prop/&WorkTableTitle	Bancada de Trabalho
+Prop/&WallSimpleTitle	Parede Livre
+Prop/&WallThinTitle	Parede Fina
+Prop/&ReadingDeskTitle	Mesa de Leitura
+Prop/&SpinningWheelTitle	Roca
+Prop/&DeskTitle	Escrivaninha
+Prop/&SpiderWebsTitle	Teias de Aranha
+Prop/&BasketTitle	Cesta
+Prop/&BedrollTitle	Saco de Dormir
+Prop/&BraseroTitle	Braseiro
+Prop/&CageTitle	Jaula
+Prop/&CartTitle	Carroça
+Prop/&CocoonTitle	Casulo
+Prop/&HutTitle	Abrigo
+Prop/&LavaBasinTitle	Enseada de Lava
+Prop/&MarketBoothTitle	Estande do Mercado
+Prop/&MushroomsTitle	Cogumelos
+Prop/&RocksTitle	Rochas
+Prop/&SkinsTitle	Peles
+Prop/&SpiderEggsTitle	Ovos de Aranha
+Prop/&RockTitle	Rocha
+Prop/&StalagmiteTitle	Estalagmite
+Prop/&StoneTitle	Pedra
+Prop/&StrawTitle	Palha
+Prop/&StructureTitle	Estrutura
+Prop/&TotemTitle	Totem
+Prop/&WoodenPlatformTitle	Plataforma de Madeira
+Prop/&FakeStairsUpTitle	Escadaria Falsa (para cima)
+Prop/&FakeStairsDownTitle	Escadaria Falsa (para baixo)
+Prop/&MonumentTitle	Monumento
+Prop/&ThicketTitle	Moita
+Prop/&TentTitle	Barraca
+Prop/&BushesTitle	Arbustos
+Prop/&DoubleThinDoorTitle	Portas Duplas Estreitas
+Prop/&DoubleThinDoorDescription	Portas duplas e estreitas.
+Prop/&TombstoneTitle	Lápide
+Prop/&TombstonePackTitle	Pacote de Lápides
+Prop/&FieldTitle	Lavoura
+Prop/&FieldBlockedDescription	Terreno cultivado.
+Prop/&FieldDifficultDescription	Campo aberto com terreno difícil.
+Prop/&HayStackTitle	Palheiro
+Prop/&LogsTitle	Toras de Madeira
+Prop/&CaveEntranceTitle	Entrada de Caverna
+Prop/&DrainGrateTitle	Grade de Escoadouro
+Prop/&Path_StraightTitle	Caminho Reto
+Prop/&Path_TurnTitle	Caminho Curvo
+Prop/&Path_YjunctionTitle	Encruzilhada em Y
+Prop/&Path_SjunctionTitle	Encruzilhada em S
+Prop/&Path_EndTitle	Beco Sem Saída
+Prop/&Path_CrossRoadTitle	Encruzilhada em Y
+Prop/&PlanksTitle	Tábuas de Madeira
+Prop/&StumpTitle	Toco de Árvore
+Prop/&LadderTitle	Escada
+Prop/&FakeLadderUpTitle	Escada Falsa
+Prop/&FakeLadderUpDescription	Escada falsa usada para representar a entrada ou saída de um cenário. Use em conjunto com um dispositivo de entrada/saída.
+Prop/&ArchTitle	Arco
+Prop/&CellTitle	Cela
+Prop/&ColumnDestroyedTitle	Coluna Destruída
+Prop/&ColumnLowgroundTitle	Coluna de Terreno Inferior
+Prop/&ColumnLowgroundDescription	Coluna decorativa que só pode ser colocada em terreno inferior.
+Prop/&CreeperTitle	Trepadeira
+Prop/&RootTitle	Raízes
+Prop/&ScaffoldingTitle	Andaime
+Prop/&StairsTitle	Escadaria
+Prop/&StairsDestoyedTitle	Escadaria Destruída
+Prop/&WallDestoyedTitle	Parede Destruída
+Prop/&WallLinkTitle	Ligação de Parede
+Prop/&SlopeTitle	Inclinação
+Prop/&TrunkTitle	Arca
+Prop/&WoodLogTitle	Tora de Madeira
+Prop/&CookingStuffTitle	Panela
+Prop/&ArchEndTitle	Arco Destruído
+Prop/&ColumnTitle	Coluna
+Prop/&RuinedKioskTitle	Quiosque em Ruínas
+Prop/&RuinedWallTitle	Parede em Ruínas
+Prop/&CaravanTitle	Caravana
+Prop/&BridgeTitle	Ponte
+Prop/&RitualStoneTitle	Pedra de Ritual
+Prop/&SkullPileTitle	Pilha de Crânios
+Prop/&Beam_ScreenTitle	Parede de Madeira Vazada
+Prop/&Tavern_CounterTitle	Balcão de Taberna
+Prop/&Walls_LowTitle	Muro Baixo
+Prop/&PennantTitle	Pendão
+Prop/&HousePatchTitle	Mercado
+Prop/&Drying_ClothesTitle	Roupas Penduradas
+Prop/&WoodFenceTitle	Cercas de Madeira
+Prop/&FountainTitle	Fonte
+Prop/&GallowTitle	Forca
+Prop/&Flowers_PatchTitle	Arbusto de Flores
+Prop/&Flowerbed_LineTitle	Canteiro de Flores Linear
+Prop/&Garden_GroundTitle	Terreno de Jardim
+Prop/&Garden_HedgeTitle	Cerca de Jardim
+Prop/&KioskTitle	Quiosque de Jardim
+Prop/&Wall_CreeperTitle	Trepadeiras
+Prop/&Wall_CreeperDescription	Vegetação para colocar em muros
+Prop/&HouseTitle	Casa
+Prop/&Paved_Road_StraightTitle	Estrada Pavimentada (Reta)
+Prop/&Paved_Road_SquareTitle	Estrada Pavimentada (Quadrado)
+Prop/&Paved_Road_TurnTitle	Estrada Pavimentada (Curva)
+Prop/&Paved_Road_TShapeTitle	Estrada Pavimentada (em T)
+Prop/&Paved_Road_CrossTitle	Estrada Pavimentada (Cruzamento)
+Prop/&Paved_Road_DeadEndTitle	Estrada Pavimentada (Sem Saída)
+Prop/&Information_BoardTitle	Quadro de Informações
+Prop/&SeparatorTitle	Separador
+Prop/&SeparatorDescription	Viga de madeira para separar paredes finas
+Prop/&JuniperGroundTitle	Moita de Zimbro
+Prop/&ManholeCoverTitle	Tampa de Bueiro
+Prop/&Merchant_BannerTitle	Faixa de Mercador
+Prop/&Merchant_SignTitle	Placa de Mercador
+Prop/&NightStandTitle	Mesa de Cabeceira
+Prop/&ShopStructureTitle	Estrutura de Loja
+Prop/&ShopBookStandTitle	Estande de Livraria
+Prop/&ShopFoodStandTitle	Estande de Alimentos
+Prop/&ShopGeneralStoreTitle	Estande de Variedades
+Prop/&GenericShopTitle	Estande de Itens Genéricos
+Prop/&ShopMagicTitle	Estande de Loja Mágica
+Prop/&ShopBookCounterTitle	Balcão de Livraria
+Prop/&ShopFoodCounterTitle	Balcão de Alimentos
+Prop/&ShopGeneralCounterTitle	Balcão de Variedades
+Prop/&Shop_WoodenShedTitle	Cabana de Madeira
+Prop/&TownSeparationWallsTitle	Muros Internos da Cidade
+Prop/&TownSeparationButressTitle	Contraforte Interno de Cidade
+Prop/&SmallWallsLadderTitle	Hera Fácil de Escalar
+Prop/&SmallWallsLadderDescription	Para colocar APENAS em bloqueios de parede
+Prop/&StableTitle	Estábulo
+Prop/&Statue_Little_EmperorTitle	Estátua de um Jovem Imperador
+Prop/&Statue_Maisy_JadeTitle	Estátua da Pérola (jade)
+Prop/&Statue_Maisy_StoneTitle	Estátua da Pérola (pedra)
+Prop/&Statue_Maisy_MarbleTitle	Estátua da Pérola (mármore)
+Prop/&Statue_MisayeTitle	Estátua de Misaye
+Prop/&StreetLampostTitle	Lamparina de Rua
+Prop/&StairsConnectorTitle	Escadaria Conectora
+Prop/&StairsConnectorDescription	Uma escadaria que conecta o piso inferior às salas do piso superior
+Prop/&WallButressTitle	Contraforte
+Prop/&WoodPalissadeTitle	Paliçada de Madeira
+Prop/&WoodPalissadeDescription	Concede cobertura robusta
+Prop/&House_ExtensionTitle	Extensão (casa)
+Prop/&House_ExtensionDescription	Para posicionar nas paredes da casa
+Prop/&Wooden_BeamTitle	Viga de Madeira
+Prop/&Y_SeparatorTitle	Viga de Madeira em Y
+Prop/&Y_SeparatorDescription	Para posicionar em paredes (mas não paredes finas)
+Prop/&BurningDebrisTitle	Escombros em Chamas
+Prop/&CastleInnerWallTitle	Muro Interno do Castelo
+Prop/&CastleWallFillerTitle	Pedaço do Muro Interno do Castelo
+Prop/&CastleWallDoorwayTitle	Passagem do Muro Interno do Castelo
+Prop/&CastleWallObstacleTitle	Obstáculo do Muro Interno do Castelo
+Prop/&CastleTowerTitle	Torre do Castelo
+Prop/&CastleWallTitle	Muro do Castelo
+Prop/&BrokenFurnituresTitle	Mobília Quebrada
+Prop/&PalaceTitle	Palácio Élfico
+Prop/&BarraksTitle	Caserna
+Prop/&TreeTitle	Árvore Simples
+Prop/&CaveWallDoorwaysTitle	Parede Livre - Passagem
+Prop/&TrophyTitle	Troféu de Caça
+Prop/&TrophyDescription	Para posicionar em paredes (mas não paredes finas)
+Prop/&BoatTitle	Barco
+Prop/&DresserTitle	Cômoda
+Prop/&HutWitchTitle	Cabana da Bruxa
+Prop/&LakeTitle	Lago Pequeno
+Prop/&PuddleTitle	Poça
+Prop/&Trunk_CrawlingTitle	Árvores Caídas
+Prop/&Trunk_CrawlingDescription	Você pode rastejar sob as árvores caídas.
+Prop/&WoodenHouseTitle	Casa de Madeira
+Prop/&SuspendingLanternTitle	Lamparina
+Prop/&NestGiantTitle	Ninho Gigante
+Prop/&SquarePlantTitle	Jardim do Globo Mundial
+Prop/&ThroneTitle	Trono
+Prop/&SuspendingPlanterTitle	Plantas Penduradas
+Prop/&MagicRuneTitle	Runa Mágica
+Prop/&BenchDestroyedTitle	Banco Destruído
+Prop/&CorpseClericTitle	Armadura de Clérigo
+Prop/&CorpseFullPlateTitle	Armadura de Placas Completa
+Prop/&CorpseScaleMailTitle	Brunea
+Prop/&CorpseSorcererTitle	Cadáver do Feiticeiro
+Prop/&OutpostTitle	Entreposto em Ruínas
+Prop/&PlateauTitle	Planalto

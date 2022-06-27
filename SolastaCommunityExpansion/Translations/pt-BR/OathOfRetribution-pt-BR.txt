@@ -1,20 +1,20 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Feitiços de Juramento de Retribuição
-Power/&PowerOathOfRetributionTenaciousPursuitDescription	Quando você acertar o ataque corpo a corpo com sucesso, este poder lhe concederá um movimento de corrida como uma ação bônus por um único turno, 5 vezes por descanso longo. Este movimento não provoca ataques de oportunidade.
-Power/&PowerOathOfRetributionTenaciousPursuitTitle	Perseguição tenaz
-Power/&PowerOathOfRetributionZealousAccusationDescription	Canalize Divindade para designar uma criatura dentro de 12 quadrados e forçar o alvo a um teste de resistência de Sabedoria. Demônios e mortos-vivos têm uma desvantagem neste teste de resistência.\nSe falhar na resistência, o alvo não pode se mover e ficar amedrontado por um minuto ou até sofrer algum dano.
-Power/&PowerOathOfRetributionZealousAccusationTitle	Canalizar Divindade: Acusação Zelosa
-Power/&PowerOathOfRetributionZealousCondemnationDescription	Canalize Divindade para ganhar vantagem em seu ataque contra o alvo designado dentro de 2 quadrados como uma ação bônus. O poder dura 1 minuto ou até que o alvo esteja morto ou inconsciente.
-Power/&PowerOathOfRetributionZealousCondemnationTitle	Canalizar Divindade: Condenação Zelosa
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} pode ganhar movimento de ação bônus de corrida ao atingir este inimigo usando este poder.
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Perseguição tenaz
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Ative a ação bônus de corrida.
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Perseguir
-Condition/&ConditionBonusRushTenaciousPursuitDescription	A bênção concede a você o poder de perseguir e vingar o inimigo.\nO traço de bônus é ativado por um único turno. Este movimento não provoca ataques de oportunidade.
-Condition/&ConditionBonusRushTenaciousPursuitTitle	Perseguindo
-Condition/&ConditionFrightenedZealousAccusationDescription	Absolutamente dominado pelo poder da santidade.\nNão pode se mover e assustado por 1 minuto ou até receber qualquer dano.
-Condition/&ConditionFrightenedZealousAccusationTitle	Aterrorizado
-Condition/&ConditionTrueStrikeZealousCondemnationDescription	Marcado pela gloriosa determinação.\nAtaques a este alvo receberão vantagem por 1 minuto ou até que o alvo esteja morto ou inconsciente.
-Condition/&ConditionTrueStrikeZealousCondemnationTitle	Estigmatizado
-Subclass/&PaladinOathOfRetributionDescription	Paladinos que juram o Juramento de Retribuição se comprometem totalmente a acabar com a impiedade e a injustiça com extremo preconceito. Para esses paladinos, o dever de vingar pecados e corrupções pesa mais que seus próprios valores.
-Subclass/&PaladinOathOfRetributionTitle	Juramento de Retribuição
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription={0}.
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle=Feitiços de Juramento de Retribuição
+Power/&PowerOathOfRetributionTenaciousPursuitDescription=Quando você acertar o ataque corpo a corpo com sucesso, este poder lhe concederá um movimento de corrida como uma ação bônus por um único turno, 5 vezes por descanso longo. Este movimento não provoca ataques de oportunidade.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle=Perseguição tenaz
+Power/&PowerOathOfRetributionZealousAccusationDescription=Canalize Divindade para designar uma criatura dentro de 12 quadrados e forçar o alvo a um teste de resistência de Sabedoria. Demônios e mortos-vivos têm uma desvantagem neste teste de resistência.\nSe falhar na resistência, o alvo não pode se mover e ficar amedrontado por um minuto ou até sofrer algum dano.
+Power/&PowerOathOfRetributionZealousAccusationTitle=Canalizar Divindade: Acusação Zelosa
+Power/&PowerOathOfRetributionZealousCondemnationDescription=Canalize Divindade para ganhar vantagem em seu ataque contra o alvo designado dentro de 2 quadrados como uma ação bônus. O poder dura 1 minuto ou até que o alvo esteja morto ou inconsciente.
+Power/&PowerOathOfRetributionZealousCondemnationTitle=Canalizar Divindade: Condenação Zelosa
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription={0} pode ganhar movimento de ação bônus de corrida ao atingir este inimigo usando este poder.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=Perseguição tenaz
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription=Ative a ação bônus de corrida.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle=Perseguir
+Condition/&ConditionBonusRushTenaciousPursuitDescription=A bênção concede a você o poder de perseguir e vingar o inimigo.\nO traço de bônus é ativado por um único turno. Este movimento não provoca ataques de oportunidade.
+Condition/&ConditionBonusRushTenaciousPursuitTitle=Perseguindo
+Condition/&ConditionFrightenedZealousAccusationDescription=Absolutamente dominado pelo poder da santidade.\nNão pode se mover e assustado por 1 minuto ou até receber qualquer dano.
+Condition/&ConditionFrightenedZealousAccusationTitle=Aterrorizado
+Condition/&ConditionTrueStrikeZealousCondemnationDescription=Marcado pela gloriosa determinação.\nAtaques a este alvo receberão vantagem por 1 minuto ou até que o alvo esteja morto ou inconsciente.
+Condition/&ConditionTrueStrikeZealousCondemnationTitle=Estigmatizado
+Subclass/&PaladinOathOfRetributionDescription=Paladinos que juram o Juramento de Retribuição se comprometem totalmente a acabar com a impiedade e a injustiça com extremo preconceito. Para esses paladinos, o dever de vingar pecados e corrupções pesa mais que seus próprios valores.
+Subclass/&PaladinOathOfRetributionTitle=Juramento de Retribuição

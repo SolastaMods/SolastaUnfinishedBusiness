@@ -1,236 +1,236 @@
-Condition/&DH_ReverseGravity_Spell_Description	Gravità inversa
-Condition/&DH_ReverseGravity_Spell_Title	Gravità inversa
-Condition/&DH_TimeStop_Spell_Description	Congelato da Time Stop
-Condition/&DH_TimeStop_Spell_Title	Congelato dall'arresto del tempo
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	Tempesta di fulmini
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Tempesta di fulmini
-Feature/&DH_AtWill_Fireball_Power_Description	Palla di fuoco a volontà
-Feature/&DH_AtWill_Fireball_Power_Title	Palla di fuoco
-Feature/&DH_AtWill_HoldMonster_Power_Description	3 usi al giorno
-Feature/&DH_AtWill_HoldMonster_Power_Title	Trattenere un mostro
-Feature/&DH_AtWill_Invisibility_Power_Description	Invisibilità su volontà
-Feature/&DH_AtWill_Invisibility_Power_Title	Invisibilità
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	Attacco Lampo
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Attacco del fulmine
-Monster/&DH_Custom_AirTitan_Description	Quando vengono evocati, questi elementali anziani si manifestano come esseri dalla capacità apocalittica, entità la cui sola esistenza promette distruzione.
-Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Titano dell'Aria Primordiale</color>
-Monster/&DH_Custom_AncientBlackDragon_Description	I draghi neri, i più malvagi e vili dei draghi cromatici, raccolgono i relitti e i tesori dei popoli caduti. Questi draghi detestano vedere i deboli prosperare e gioiscono del crollo dei regni umanoidi. Si rifugiano nelle paludi fetide e nelle rovine fatiscenti dove un tempo sorgevano i regni.
-Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>Antico Drago Nero</color>
-Monster/&DH_Custom_AncientBlueDragon_Description	Vani e territoriali, i draghi blu si librano nei cieli sopra i deserti, predando le carovane e saccheggiando le mandrie e gli insediamenti nelle terre verdeggianti oltre la portata del deserto. Questi draghi si trovano anche nelle steppe aride, nei calanchi roventi e sulle coste rocciose. Difendono i loro territori da tutti i potenziali concorrenti, soprattutto dai draghi d'ottone.
-Monster/&DH_Custom_AncientBlueDragon_Title	<color=#ff0000ff>Drago Blu Antico</color>
-Monster/&DH_Custom_AncientGreenDragon_Description	I draghi verdi sono i più astuti e infidi tra i draghi veri e propri, e usano depistaggi e inganni per avere la meglio sui loro nemici. Di carattere cattivo e completamente malvagio, traggono particolare piacere nel sovvertire e corrompere i buoni di cuore. Nelle antiche foreste in cui si aggirano, i draghi verdi dimostrano un'aggressività che spesso non riguarda tanto il territorio quanto l'acquisizione di potere e ricchezza con il minor sforzo possibile.
-Monster/&DH_Custom_AncientGreenDragon_Title	<color=#ff0000ff>Antico Drago Verde</color>
-Monster/&DH_Custom_AncientRedDragon_Description	I draghi rossi, i più bramosi tra i veri draghi, cercano instancabilmente di aumentare i loro tesori. Sono eccezionalmente vanitosi, anche per i draghi, e la loro presunzione si riflette nel portamento fiero e nel disprezzo per le altre creature.
-Monster/&DH_Custom_AncientRedDragon_Title	<color=#ff0000ff>Drago Rosso Antico</color>
-Monster/&DH_Custom_AncientWhiteDragon_Description	I draghi bianchi, i più piccoli, i meno intelligenti e i più animaleschi dei draghi cromatici, vivono in climi gelidi, prediligendo le zone artiche o le montagne ghiacciate. Sono rettili feroci e crudeli, guidati dalla fame e dall'avidità.
-Monster/&DH_Custom_AncientWhiteDragon_Title	<color=#ff0000ff>Antico Drago Bianco</color>
-Monster/&DH_Custom_Archmage_Description	Gli arcimaghi sono potenti incantatori (di solito piuttosto anziani) che si dedicano allo studio delle arti arcane. Quelli benevoli consigliano re e regine, mentre quelli malvagi governano come tiranni e perseguono il lichdom. Quelli che non sono né buoni né malvagi si rinchiudono in torri remote per praticare la loro magia senza interruzioni.
-Monster/&DH_Custom_Archmage_Title	<color=#ff0000ff>Archmagia</color>
-Monster/&DH_Custom_Balor_Description	Figure di antica e terribile malvagità, i balor governano come generali su eserciti demoniaci, bramosi di conquistare il potere distruggendo tutte le creature che si oppongono a loro.
-Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>Balor</color>
-Monster/&DH_Custom_ConstructTitan_Description	Costruzioni massicce costruite per la guerra e realizzate in metallo pesante. Un'inarrestabile macchina da guerra, che esiste per seguire gli ordini del suo creatore e che protegge o attacca secondo le sue esigenze.
-Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>Costrutto meccanico Titano</color>
-Monster/&DH_Custom_Deva_Description	I deva sono angeli che agiscono come messaggeri o agenti divini sul Piano Materiale,
-Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>Deva</color>
-Monster/&DH_Custom_Djinni_Description	Orgogliosi geni del Piano Elementale dell'Aria, maestri dell'aria, i djinn cavalcano potenti vortici che creano e dirigono per capriccio e che possono anche trasportare passeggeri.
-Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>Djinni</color>
-Monster/&DH_Custom_EarthTitan_Description	Quando vengono evocati, questi elementali anziani si manifestano come esseri dalla capacità apocalittica, entità la cui sola esistenza promette distruzione.
-Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>Titano Primordiale della Terra</color>
-Monster/&DH_Custom_Efreeti_Description	Geni imponenti del Piano Elementale del Fuoco, gli efreet sono maestri della fiamma, immuni al fuoco e in grado di crearlo per capriccio.
-Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>Efreeti</color>
-Monster/&DH_Custom_Erinyes_Description	Gli efreet sono guerrieri feroci e disciplinati. Scendono dai cieli e portano rapidamente la morte alle creature che hanno fatto torto ai loro padroni.
-Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>Erinyes</color>
-Monster/&DH_Custom_FireTitan_Description	Quando vengono evocati, questi elementali anziani si manifestano come esseri dalla capacità apocalittica, entità la cui sola esistenza promette distruzione.
-Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>Titano di Fuoco Primordiale</color>
-Monster/&DH_Custom_GuardianNaga_Description	Saggi e buoni, i bellissimi naga guardiani proteggono i luoghi sacri e gli oggetti di potere magico dalle cadute in mani malvagie. Nelle loro ridotte nascoste, ricercano incantesimi e ordiscono trame contorte per sventare i disegni malvagi dei loro nemici.
-Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>Guardiano Naga</color>
-Monster/&DH_Custom_HornedDevil_Description	Fanteria volante delle legioni infernali, i diavoli cornuti seguono gli ordini alla lettera.
-Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>Diavolo cornuto</color>
-Monster/&DH_Custom_IceDevil_Description	Desiderosi del potere dei loro superiori pit fiend, i diavoli di ghiaccio lavorano incessantemente per la promozione, massacrando i nemici dei Nove Inferi e reclamando quante più anime possibili per i loro arcidemoni.
-Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>Diavolo del ghiaccio</color>
-Monster/&DH_Custom_Lich_Description	I Liche sono i resti di grandi maghi che hanno abbracciato la morte come mezzo per preservarsi. Favoriscono il loro potere ad ogni costo, non avendo alcun interesse per gli affari dei vivi se non quando questi interferiscono con i loro. Complici e folli, sono affamati di conoscenze a lungo dimenticate e dei segreti più terribili.
-Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>Lich</color>
-Monster/&DH_Custom_Nalfeshnee_Description	Il nalfeshnee è uno dei demoni più grotteschi: una corpulenta parodia di scimmia e cinghiale alta il doppio di un umano, con ali piumate che sembrano troppo piccole per il suo corpo gonfio. Questi tratti brutali nascondono un'intelligenza e un'astuzia notevoli.
-Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>Nalfeshnee</color>
-Monster/&DH_Custom_PitFiend_Description	Signori indiscussi della maggior parte degli altri diavoli, i Pit Fiend assistono gli arciduchi e le arciduchesse dei Nove Inferi ed eseguono i loro desideri. Questi potenti diavoli sono i generali dei Nove Inferi e guidano le loro legioni infernali in battaglia.
-Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>Fiamma della Fossa</color>
-Monster/&DH_Custom_Planetar_Description	I planetari agiscono come armi degli dei che servono, presentando una rappresentazione tangibile della potenza delle loro divinità.
-Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>Planetar</color>
-Monster/&DH_Custom_Roc_Description	I Roc sono creature solitarie che possono vivere per secoli. Si rifugiano in nidi fatti di alberi, tende, navi distrutte e resti di carovane che portano via, collocando questi enormi grovigli in fenditure montuose fuori dalla portata di creature minori.
-Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>Roc</color>
-Monster/&DH_Custom_Solar_Description	Sul campo di battaglia, la spada di un solar vola da sola nella mischia e una singola freccia dall'arco di un solar può colpire un bersaglio morto al contatto. La sua forza celeste è così grande che persino i principi demoni si ritirano ai suoi comandi risonanti.
-Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>Solare</color>
-Monster/&DH_Custom_StormGiant_Description	I giganti della tempesta sono veggenti contemplativi che vivono in luoghi lontani dalla civiltà mortale. La maggior parte di essi ha pelle e capelli grigio-violacei e occhi di smeraldo scintillanti.
-Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Gigante della Tempesta</color>
-Monster/&DH_Custom_Tarrasque_Description	Il leggendario tarrasque è forse il mostro più temuto del Piano Materiale. È opinione diffusa che esista solo una di queste creature, anche se nessuno può prevedere dove e quando colpirà. Un bipede squamoso, il tarrasque è alto cinquanta piedi e lungo settanta, con un peso di centinaia di tonnellate.
-Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasque</color>
-Monster/&DH_Custom_Vampire_Description	Svegliatisi in una notte senza fine, i vampiri hanno fame della vita che hanno perso e la saziano bevendo il sangue dei vivi. I vampiri aborrono la luce del sole, perché il suo tocco li brucia. Non proiettano mai ombre o riflessi, e qualsiasi vampiro che voglia muoversi inosservato tra i vivi si tiene nell'oscurità e lontano dalle superfici riflettenti.
-Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampiro</color>
-MonsterAttack/&DH_AirBlast_Attack_Description	5d6 tuono e spinge 2 celle
-MonsterAttack/&DH_AirBlast_Attack_Title	Esplosione d'aria
-MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 randellate e 4d6 tuono
-MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Fendente Tonante
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 randellate
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Attacco con la coda
-MonsterAttack/&DH_Balor_Longsword_Attack_Description	3D8+8 Colpi d'arma da taglio e 3D8 Fulmini
-MonsterAttack/&DH_Balor_Longsword_Attack_Title	Attacco con spada lunga
-MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8 Colpo d'arma da taglio e 3D6 Fuoco
-MonsterAttack/&DH_Balor_Whip_Attack_Title	Attacco con frusta
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8 danni da Forza e il bersaglio viene steso a terra
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Cannone della Forza
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8 danni da percosse e il bersaglio viene spinto a 6 metri di altezza
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	Colpo di pistola
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Non può agire e subisce 16d6 danni da acido ogni turno.  60 danni in un singolo attacco possono costringere l'ingoiatore a rigurgitare.
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	Inghiottitoio
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	60 danni in un singolo attacco possono costringerlo a rigurgitare.
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	Creatura inghiottitrice
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2D10+9 danni da perforazione e 2D8 danni da acido
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	Attacco con morso acido
-MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2D10+9 perforante e 2D8 danni da freddo
-MonsterAttack/&DH_DamageCold_Bite_Attack_Title	Attacco con morso di ghiaccio
-MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2D10+9 perforante e 4D6 danni da fuoco
-MonsterAttack/&DH_DamageFire_Bite_Attack_Title	Attacco con morso di fuoco
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2D10+9 perforante & 2D10 danni da fulmine
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	Attacco con morso di fulmine
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2D10+9 perforante e 3D6 danni da veleno
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	Attacco con morso avvelenato
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7D10+8 Colpo secco
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	Boulder
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4D10+8 Colpi di randello
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	Colpo al suolo
-MonsterAttack/&DH_FireScimatar_Attack_Description	2d6+6 fendenti e 2d6 fuoco
-MonsterAttack/&DH_FireScimatar_Attack_Title	Scimitarra
-MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5 randellate + 10d6 fuoco
-MonsterAttack/&DH_FireTitan_Slam_Attack_Title	Colpo lacerante
-MonsterAttack/&DH_Fork_Attack_Description	2D8 +6 perforante
-MonsterAttack/&DH_Fork_Attack_Title	Attacco con forchetta
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10 + 6 danni da perforazione
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Attacco con morso
-MonsterAttack/&DH_Generic_Claw_Attack_Description	2D6 + 9 danni da taglio
-MonsterAttack/&DH_Generic_Claw_Attack_Title	Attacco con artiglio
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2D10 + 9
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Attacco con morso
-MonsterAttack/&DH_HornedDevilTail_Attack_Description	1D8 +6 perforante , infligge la condizione di Ferita Sanguinante
-MonsterAttack/&DH_HornedDevilTail_Attack_Title	Attacco con la coda
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6 Necrotico, tiro salvezza per annullare
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Ferita Sanguinante
-MonsterAttack/&DH_HurlFlame_Attack_Description	5d6 Fuoco
-MonsterAttack/&DH_HurlFlame_Attack_Title	Scagliare fiamme
-MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5 penetranti e 3d6 freddi
-MonsterAttack/&DH_Ice_Bite_Attack_Title	Morso di ghiaccio
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6 Freddo e infligge la condizione di Paralizzato
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	Tocco Paralizzante
-MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5 fendenti e 2d6 fulmini
-MonsterAttack/&DH_LightningScimatar_Attack_Title	Scimitarra
-MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4 perforante e 15 DC Con Save per dimezzare 10d8 veleno
-MonsterAttack/&DH_NagaBite_Attack_Title	Morso avvelenato
-MonsterAttack/&DH_NagaSpit_Attack_Description	15 DC Con Save per dimezzare 10d8 veleno
-MonsterAttack/&DH_NagaSpit_Attack_Title	Sputare veleno
-MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2d6+7 Veleno, infligge condizione di veleno
-MonsterAttack/&DH_PitFiend_Bite_Attack_Title	Attacco con morso
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6 Posione ricorrente
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	Avvelenato
-MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2D6+8 Percosse e 6D6 Fuoco
-MonsterAttack/&DH_PitFiend_Mace_Attack_Title	Attacco con mazza
-MonsterAttack/&DH_PoisonLongbow_Attack_Description	Arco lungo con frecce avvelenate
-MonsterAttack/&DH_PoisonLongbow_Attack_Title	Arco lungo avvelenato
-MonsterAttack/&DH_PoisonLongsword_Attack_Description	1d10+4 Colpo d'arma da taglio e 3d8 Veleno
-MonsterAttack/&DH_PoisonLongsword_Attack_Title	Spada lunga avvelenata
-MonsterAttack/&DH_RadiantLongbow_Attack_Description	2D6+8 perforante & 6D8 radiante
-MonsterAttack/&DH_RadiantLongbow_Attack_Title	Arco lungo da uccisione.
-MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8 Colpo d'arma da taglio e 6D8 Radiante
-MonsterAttack/&DH_RadiantLongsword_Attack_Title	Radiante Spadone
-MonsterAttack/&DH_Roc_Beak_Attack_Description	4d8+9 penetrante
-MonsterAttack/&DH_Roc_Beak_Attack_Title	Becco
-MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9 Colpo d'arma da taglio e il bersaglio è afferrato e trattenuto dal Roc
-MonsterAttack/&DH_Roc_Talons_Attack_Title	Talenti
-MonsterAttack/&DH_Tarrasque_Bite_Description	4d12 + 10 danni da perforazione e il bersaglio deve superare una prova di Destrezza o essere afferrato (fuga DC 20).
-MonsterAttack/&DH_Tarrasque_Bite_Title	Morso
-MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Finché la presa non termina, il bersaglio è immobilizzato.
-MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Catturato da Tarrasque
-MonsterAttack/&DH_Tarrasque_Claw_Description	4d8 + 10 danni da taglio
-MonsterAttack/&DH_Tarrasque_Claw_Title	Artiglio
-MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10) danni perforanti
-MonsterAttack/&DH_Tarrasque_Horn_Title	Corno
-MonsterAttack/&DH_Tarrasque_Tail_Description	4d6 + 10 danni da percosse. Se il bersaglio è una creatura, deve riuscire a superare un tiro salvezza di Forza a DC 20 o essere messo a terra.
-MonsterAttack/&DH_Tarrasque_Tail_Title	Coda
-MonsterAttack/&DHCouatlBiteAttackDescription	Danni da perforazione e il bersaglio deve superare un tiro salvezza di Costituzione a DC 13 o essere avvelenato per 24 ore. Finché l'avvelenamento non termina, il bersaglio è incosciente.
-MonsterAttack/&DHCouatlBiteAttackTitle	Morso
-MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10 Tuono e spinta su tiro salvezza fallito
-MonsterPower/&DH_AirTitan_Gale_Power_Title	Galoppo urlante
-MonsterPower/&DH_AirTitan_Lightning_Power_Description	3D10 Fulmine nell'area
-MonsterPower/&DH_AirTitan_Lightning_Power_Title	Colpo di fulmine
-MonsterPower/&DH_AncientDragon_Wing_Power_Description	I draghi possono sbattere le ali per produrre un vento sufficiente a spingere via la maggior parte degli umanoidi e a farli cadere a terra.
-MonsterPower/&DH_AncientDragon_Wing_Power_Title	Attacco con le ali
-MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Fuoco
-MonsterPower/&DH_Balor_FireAura_Power_Title	Aura di fuoco
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Ritorsione di Balor
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Ritorsione di Balor
-MonsterPower/&DH_Balor_Retaliate_Power_Description	Ritorsione di Balor
-MonsterPower/&DH_Balor_Retaliate_Power_Title	Ritorsione di Balor
-MonsterPower/&DH_BlindingGaze_Power_Description	Tiro Costituzione DC15 o accecamento fino a quando non si utilizza una riparazione inferiore
-MonsterPower/&DH_BlindingGaze_Power_Title	Sguardo Accecante
-MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Acido
-MonsterPower/&DH_DamageAcid_Breath_Power_Title	Soffio Acido
-MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8 Freddo
-MonsterPower/&DH_DamageCold_Breath_Power_Title	Soffio di ghiaccio
-MonsterPower/&DH_DamageFire_Breath_Power_Description	26D6 Fuoco
-MonsterPower/&DH_DamageFire_Breath_Power_Title	Soffio di fuoco
-MonsterPower/&DH_DamageLightning_Breath_Power_Description	16D10 Fulmine
-MonsterPower/&DH_DamageLightning_Breath_Power_Title	Soffio di fulmine
-MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6 Veleno
-MonsterPower/&DH_DamagePoison_Breath_Power_Title	Soffio velenoso
-MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10 Danno Radiante e il bersaglio viene disintegrato a 0 HP
-MonsterPower/&DH_DisintegratingBeam_Power_Title	Raggio disintegrante
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10 Colpi d'arma da fuoco
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	Terremoto
-MonsterPower/&DH_ErinyesParry_Power_Description	#ERRORE!
-MonsterPower/&DH_ErinyesParry_Power_Title	Parata
-MonsterPower/&DH_FireTitan_Aura_Power_Description	Ogni creatura entro 9 metri subisce 35 (10d6) danni da fuoco e gli oggetti infiammabili nell'aura che non sono indossati o trasportati prendono fuoco.
-MonsterPower/&DH_FireTitan_Aura_Power_Title	Aura del Titano del Fuoco
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	Una creatura subisce 35 (10d6) danni da fuoco se tocca Maegera o se la colpisce con un attacco in mischia mentre si trova entro 3 metri da essa.
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Ritorsione del Titano di Fuoco
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description	Una creatura subisce 35 (10d6) danni da fuoco toccando Maegera o colpendola con un attacco in mischia entro 3 metri da essa.
-MonsterPower/&DH_FireTitan_Retaliate_Power_Title	Ritorsione del Titano del Fuoco
-MonsterPower/&DH_IlluminatingCrystals_Power_Description	Ogni creatura che si trova nell'area al momento del lancio dell'incantesimo viene anche delineata dalla luce. Per tutta la durata, gli oggetti e le creature colpite emanano una luce fioca in un raggio di 3 metri.
-MonsterPower/&DH_IlluminatingCrystals_Power_Title	Cristalli illuminanti
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description	Il Titano focalizza la zona nel raggio di 6 metri. Qualsiasi creatura in un cilindro di 6 metri di raggio e di 6 metri di altezza, centrato su questo punto, deve superare un tiro salvezza di Destrezza con DC 26 o subire 33 (6d10) danni da percosse, cadere prona ed essere immobilizzata per un round.
-MonsterPower/&DH_IncreasedGravityZone_Attack_Title	Zona a Gravità Aumentata
-MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Necrotico
-MonsterPower/&DH_Lich_DisruptLife_Power_Title	Disturbo della vita
-MonsterPower/&DH_SearingBurst_Power_Description	4D6 Fuoco e 4D6 Radiante
-MonsterPower/&DH_SearingBurst_Power_Title	Esplosione lacerante
-MonsterPower/&DH_SleetStorm_Immunity_Description	Immunità alla Tempesta di Nevischio
-MonsterPower/&DH_SleetStorm_Immunity_Title	Immunità alla Tempesta di Nevischio
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Evoca 1 Elementale dell'Aria
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Evoca un elemento maggiore
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Evoca 1 Elementale della Terra
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title	Evoca un Elemento Maggiore
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Description	Un Erinyes è chiamato a combattere
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Title	Evoca un minion: Erinni
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Evoca 1 Elementale del Fuoco
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Evoca un Elemento Maggiore
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Evoca 2 Giullari del Fuoco
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Evoca Elementali Minori
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	Evoca un costrutto minore
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	Evoca un costrutto minore
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Un Nalfeshnee è chiamato a combattere
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Evoca Minion: Nalfeshnee
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Evoca 1 Skarn Ghoul
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	Evoca un Elementale Minore
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	Evoca 4 serpenti del vento
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	Evoca Elementali Minori
-MonsterPower/&DH_SummonCreature_Wolves_Power_Description	Il vampiro richiama magicamente 3d6 lupi
-MonsterPower/&DH_SummonCreature_Wolves_Power_Title	Figli della Notte
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Ogni volta che il tarrasque viene bersagliato da un incantesimo di missile magico, da un incantesimo di linea o da un incantesimo che richiede un tiro di attacco a distanza, il tarrasque non subisce alcun effetto.
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Carapace riflettente
-MonsterPower/&DH_TarrasqueSwallowPower_Description	Il tarrasque effettua un attacco con morso contro una creatura Grande o più piccola che sta afferrando. Se l'attacco va a segno, il bersaglio viene inghiottito e la presa termina.
-MonsterPower/&DH_TarrasqueSwallowPower_Title	Ingoiare
-MonsterPower/&DH_VampireCharmPower_Description	Il vampiro prende di mira un umanoide che riesce a vedere nel raggio di 9 metri. Il bersaglio deve superare un tiro salvezza di Saggezza a Dc 17 contro questa magia o essere incantato dal vampiro.
-MonsterPower/&DH_VampireCharmPower_Title	Fascino
-MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Fulmini ad ampio raggio
-MonsterPower/&DHAirTitanLightningStormPowerTitle	Tempesta di fulmini
-MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
-MonsterPower/&DHGenericLightningAttackPowerTitle	Colpo di fulmine
-Spell/&DHTimeStop_SpellDescription	Fermate brevemente il flusso del tempo per tutti tranne che per voi stessi. Il tempo non passa per le altre creature, mentre voi prendete 1d4 + 1 turni di fila, durante i quali potete usare azioni e muovervi normalmente.
-Spell/&DHTimeStop_SpellTitle	Arresto del tempo
+Condition/&DH_ReverseGravity_Spell_Description=Gravità inversa
+Condition/&DH_ReverseGravity_Spell_Title=Gravità inversa
+Condition/&DH_TimeStop_Spell_Description=Congelato da Time Stop
+Condition/&DH_TimeStop_Spell_Title=Congelato dall'arresto del tempo
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description=Tempesta di fulmini
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title=Tempesta di fulmini
+Feature/&DH_AtWill_Fireball_Power_Description=Palla di fuoco a volontà
+Feature/&DH_AtWill_Fireball_Power_Title=Palla di fuoco
+Feature/&DH_AtWill_HoldMonster_Power_Description=3 usi al giorno
+Feature/&DH_AtWill_HoldMonster_Power_Title=Trattenere un mostro
+Feature/&DH_AtWill_Invisibility_Power_Description=Invisibilità su volontà
+Feature/&DH_AtWill_Invisibility_Power_Title=Invisibilità
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description=Attacco Lampo
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title=Attacco del fulmine
+Monster/&DH_Custom_AirTitan_Description=Quando vengono evocati, questi elementali anziani si manifestano come esseri dalla capacità apocalittica, entità la cui sola esistenza promette distruzione.
+Monster/&DH_Custom_AirTitan_Title=<color=#ff0000ff>Titano dell'Aria Primordiale</color>
+Monster/&DH_Custom_AncientBlackDragon_Description=I draghi neri, i più malvagi e vili dei draghi cromatici, raccolgono i relitti e i tesori dei popoli caduti. Questi draghi detestano vedere i deboli prosperare e gioiscono del crollo dei regni umanoidi. Si rifugiano nelle paludi fetide e nelle rovine fatiscenti dove un tempo sorgevano i regni.
+Monster/&DH_Custom_AncientBlackDragon_Title=<color=#ff0000ff>Antico Drago Nero</color>
+Monster/&DH_Custom_AncientBlueDragon_Description=Vani e territoriali, i draghi blu si librano nei cieli sopra i deserti, predando le carovane e saccheggiando le mandrie e gli insediamenti nelle terre verdeggianti oltre la portata del deserto. Questi draghi si trovano anche nelle steppe aride, nei calanchi roventi e sulle coste rocciose. Difendono i loro territori da tutti i potenziali concorrenti, soprattutto dai draghi d'ottone.
+Monster/&DH_Custom_AncientBlueDragon_Title=<color=#ff0000ff>Drago Blu Antico</color>
+Monster/&DH_Custom_AncientGreenDragon_Description=I draghi verdi sono i più astuti e infidi tra i draghi veri e propri, e usano depistaggi e inganni per avere la meglio sui loro nemici. Di carattere cattivo e completamente malvagio, traggono particolare piacere nel sovvertire e corrompere i buoni di cuore. Nelle antiche foreste in cui si aggirano, i draghi verdi dimostrano un'aggressività che spesso non riguarda tanto il territorio quanto l'acquisizione di potere e ricchezza con il minor sforzo possibile.
+Monster/&DH_Custom_AncientGreenDragon_Title=<color=#ff0000ff>Antico Drago Verde</color>
+Monster/&DH_Custom_AncientRedDragon_Description=I draghi rossi, i più bramosi tra i veri draghi, cercano instancabilmente di aumentare i loro tesori. Sono eccezionalmente vanitosi, anche per i draghi, e la loro presunzione si riflette nel portamento fiero e nel disprezzo per le altre creature.
+Monster/&DH_Custom_AncientRedDragon_Title=<color=#ff0000ff>Drago Rosso Antico</color>
+Monster/&DH_Custom_AncientWhiteDragon_Description=I draghi bianchi, i più piccoli, i meno intelligenti e i più animaleschi dei draghi cromatici, vivono in climi gelidi, prediligendo le zone artiche o le montagne ghiacciate. Sono rettili feroci e crudeli, guidati dalla fame e dall'avidità.
+Monster/&DH_Custom_AncientWhiteDragon_Title=<color=#ff0000ff>Antico Drago Bianco</color>
+Monster/&DH_Custom_Archmage_Description=Gli arcimaghi sono potenti incantatori (di solito piuttosto anziani) che si dedicano allo studio delle arti arcane. Quelli benevoli consigliano re e regine, mentre quelli malvagi governano come tiranni e perseguono il lichdom. Quelli che non sono né buoni né malvagi si rinchiudono in torri remote per praticare la loro magia senza interruzioni.
+Monster/&DH_Custom_Archmage_Title=<color=#ff0000ff>Archmagia</color>
+Monster/&DH_Custom_Balor_Description=Figure di antica e terribile malvagità, i balor governano come generali su eserciti demoniaci, bramosi di conquistare il potere distruggendo tutte le creature che si oppongono a loro.
+Monster/&DH_Custom_Balor_Title=<color=#ff0000ff>Balor</color>
+Monster/&DH_Custom_ConstructTitan_Description=Costruzioni massicce costruite per la guerra e realizzate in metallo pesante. Un'inarrestabile macchina da guerra, che esiste per seguire gli ordini del suo creatore e che protegge o attacca secondo le sue esigenze.
+Monster/&DH_Custom_ConstructTitan_Title=<color=#ff0000ff>Costrutto meccanico Titano</color>
+Monster/&DH_Custom_Deva_Description=I deva sono angeli che agiscono come messaggeri o agenti divini sul Piano Materiale,
+Monster/&DH_Custom_Deva_Title=<color=#ff0000ff>Deva</color>
+Monster/&DH_Custom_Djinni_Description=Orgogliosi geni del Piano Elementale dell'Aria, maestri dell'aria, i djinn cavalcano potenti vortici che creano e dirigono per capriccio e che possono anche trasportare passeggeri.
+Monster/&DH_Custom_Djinni_Title=<color=#ff0000ff>Djinni</color>
+Monster/&DH_Custom_EarthTitan_Description=Quando vengono evocati, questi elementali anziani si manifestano come esseri dalla capacità apocalittica, entità la cui sola esistenza promette distruzione.
+Monster/&DH_Custom_EarthTitan_Title=<color=#ff0000ff>Titano Primordiale della Terra</color>
+Monster/&DH_Custom_Efreeti_Description=Geni imponenti del Piano Elementale del Fuoco, gli efreet sono maestri della fiamma, immuni al fuoco e in grado di crearlo per capriccio.
+Monster/&DH_Custom_Efreeti_Title=<color=#ff0000ff>Efreeti</color>
+Monster/&DH_Custom_Erinyes_Description=Gli efreet sono guerrieri feroci e disciplinati. Scendono dai cieli e portano rapidamente la morte alle creature che hanno fatto torto ai loro padroni.
+Monster/&DH_Custom_Erinyes_Title=<color=#ff0000ff>Erinyes</color>
+Monster/&DH_Custom_FireTitan_Description=Quando vengono evocati, questi elementali anziani si manifestano come esseri dalla capacità apocalittica, entità la cui sola esistenza promette distruzione.
+Monster/&DH_Custom_FireTitan_Title=<color=#ff0000ff>Titano di Fuoco Primordiale</color>
+Monster/&DH_Custom_GuardianNaga_Description=Saggi e buoni, i bellissimi naga guardiani proteggono i luoghi sacri e gli oggetti di potere magico dalle cadute in mani malvagie. Nelle loro ridotte nascoste, ricercano incantesimi e ordiscono trame contorte per sventare i disegni malvagi dei loro nemici.
+Monster/&DH_Custom_GuardianNaga_Title=<color=#ff0000ff>Guardiano Naga</color>
+Monster/&DH_Custom_HornedDevil_Description=Fanteria volante delle legioni infernali, i diavoli cornuti seguono gli ordini alla lettera.
+Monster/&DH_Custom_HornedDevil_Title=<color=#ff0000ff>Diavolo cornuto</color>
+Monster/&DH_Custom_IceDevil_Description=Desiderosi del potere dei loro superiori pit fiend, i diavoli di ghiaccio lavorano incessantemente per la promozione, massacrando i nemici dei Nove Inferi e reclamando quante più anime possibili per i loro arcidemoni.
+Monster/&DH_Custom_IceDevil_Title=<color=#ff0000ff>Diavolo del ghiaccio</color>
+Monster/&DH_Custom_Lich_Description=I Liche sono i resti di grandi maghi che hanno abbracciato la morte come mezzo per preservarsi. Favoriscono il loro potere ad ogni costo, non avendo alcun interesse per gli affari dei vivi se non quando questi interferiscono con i loro. Complici e folli, sono affamati di conoscenze a lungo dimenticate e dei segreti più terribili.
+Monster/&DH_Custom_Lich_Title=<color=#ff0000ff>Lich</color>
+Monster/&DH_Custom_Nalfeshnee_Description=Il nalfeshnee è uno dei demoni più grotteschi: una corpulenta parodia di scimmia e cinghiale alta il doppio di un umano, con ali piumate che sembrano troppo piccole per il suo corpo gonfio. Questi tratti brutali nascondono un'intelligenza e un'astuzia notevoli.
+Monster/&DH_Custom_Nalfeshnee_Title=<color=#ff0000ff>Nalfeshnee</color>
+Monster/&DH_Custom_PitFiend_Description=Signori indiscussi della maggior parte degli altri diavoli, i Pit Fiend assistono gli arciduchi e le arciduchesse dei Nove Inferi ed eseguono i loro desideri. Questi potenti diavoli sono i generali dei Nove Inferi e guidano le loro legioni infernali in battaglia.
+Monster/&DH_Custom_PitFiend_Title=<color=#ff0000ff>Fiamma della Fossa</color>
+Monster/&DH_Custom_Planetar_Description=I planetari agiscono come armi degli dei che servono, presentando una rappresentazione tangibile della potenza delle loro divinità.
+Monster/&DH_Custom_Planetar_Title=<color=#ff0000ff>Planetar</color>
+Monster/&DH_Custom_Roc_Description=I Roc sono creature solitarie che possono vivere per secoli. Si rifugiano in nidi fatti di alberi, tende, navi distrutte e resti di carovane che portano via, collocando questi enormi grovigli in fenditure montuose fuori dalla portata di creature minori.
+Monster/&DH_Custom_Roc_Title=<color=#ff0000ff>Roc</color>
+Monster/&DH_Custom_Solar_Description=Sul campo di battaglia, la spada di un solar vola da sola nella mischia e una singola freccia dall'arco di un solar può colpire un bersaglio morto al contatto. La sua forza celeste è così grande che persino i principi demoni si ritirano ai suoi comandi risonanti.
+Monster/&DH_Custom_Solar_Title=<color=#ff0000ff>Solare</color>
+Monster/&DH_Custom_StormGiant_Description=I giganti della tempesta sono veggenti contemplativi che vivono in luoghi lontani dalla civiltà mortale. La maggior parte di essi ha pelle e capelli grigio-violacei e occhi di smeraldo scintillanti.
+Monster/&DH_Custom_StormGiant_Title=<color=#ff0000ff>Gigante della Tempesta</color>
+Monster/&DH_Custom_Tarrasque_Description=Il leggendario tarrasque è forse il mostro più temuto del Piano Materiale. È opinione diffusa che esista solo una di queste creature, anche se nessuno può prevedere dove e quando colpirà. Un bipede squamoso, il tarrasque è alto cinquanta piedi e lungo settanta, con un peso di centinaia di tonnellate.
+Monster/&DH_Custom_Tarrasque_Title=<color=#ff0000ff>Tarrasque</color>
+Monster/&DH_Custom_Vampire_Description=Svegliatisi in una notte senza fine, i vampiri hanno fame della vita che hanno perso e la saziano bevendo il sangue dei vivi. I vampiri aborrono la luce del sole, perché il suo tocco li brucia. Non proiettano mai ombre o riflessi, e qualsiasi vampiro che voglia muoversi inosservato tra i vivi si tiene nell'oscurità e lontano dalle superfici riflettenti.
+Monster/&DH_Custom_Vampire_Title=<color=#ff0000ff>Vampiro</color>
+MonsterAttack/&DH_AirBlast_Attack_Description=5d6 tuono e spinge 2 celle
+MonsterAttack/&DH_AirBlast_Attack_Title=Esplosione d'aria
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description=4d6+6 randellate e 4d6 tuono
+MonsterAttack/&DH_AirTitan_Slam_Attack_Title=Fendente Tonante
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Description=2D8+8 randellate
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Title=Attacco con la coda
+MonsterAttack/&DH_Balor_Longsword_Attack_Description=3D8+8 Colpi d'arma da taglio e 3D8 Fulmini
+MonsterAttack/&DH_Balor_Longsword_Attack_Title=Attacco con spada lunga
+MonsterAttack/&DH_Balor_Whip_Attack_Description=2D6+8 Colpo d'arma da taglio e 3D6 Fuoco
+MonsterAttack/&DH_Balor_Whip_Attack_Title=Attacco con frusta
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description=4D8 danni da Forza e il bersaglio viene steso a terra
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title=Cannone della Forza
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description=3D12+8 danni da percosse e il bersaglio viene spinto a 6 metri di altezza
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title=Colpo di pistola
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description=Non può agire e subisce 16d6 danni da acido ogni turno.  60 danni in un singolo attacco possono costringere l'ingoiatore a rigurgitare.
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title=Inghiottitoio
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description=60 danni in un singolo attacco possono costringerlo a rigurgitare.
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title=Creatura inghiottitrice
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Description=2D10+9 danni da perforazione e 2D8 danni da acido
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Title=Attacco con morso acido
+MonsterAttack/&DH_DamageCold_Bite_Attack_Description=2D10+9 perforante e 2D8 danni da freddo
+MonsterAttack/&DH_DamageCold_Bite_Attack_Title=Attacco con morso di ghiaccio
+MonsterAttack/&DH_DamageFire_Bite_Attack_Description=2D10+9 perforante e 4D6 danni da fuoco
+MonsterAttack/&DH_DamageFire_Bite_Attack_Title=Attacco con morso di fuoco
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Description=2D10+9 perforante & 2D10 danni da fulmine
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Title=Attacco con morso di fulmine
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Description=2D10+9 perforante e 3D6 danni da veleno
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Title=Attacco con morso avvelenato
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description=7D10+8 Colpo secco
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title=Boulder
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Description=4D10+8 Colpi di randello
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Title=Colpo al suolo
+MonsterAttack/&DH_FireScimatar_Attack_Description=2d6+6 fendenti e 2d6 fuoco
+MonsterAttack/&DH_FireScimatar_Attack_Title=Scimitarra
+MonsterAttack/&DH_FireTitan_Slam_Attack_Description=3d6+5 randellate + 10d6 fuoco
+MonsterAttack/&DH_FireTitan_Slam_Attack_Title=Colpo lacerante
+MonsterAttack/&DH_Fork_Attack_Description=2D8 +6 perforante
+MonsterAttack/&DH_Fork_Attack_Title=Attacco con forchetta
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description=2d10 + 6 danni da perforazione
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title=Attacco con morso
+MonsterAttack/&DH_Generic_Claw_Attack_Description=2D6 + 9 danni da taglio
+MonsterAttack/&DH_Generic_Claw_Attack_Title=Attacco con artiglio
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description=2D10 + 9
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title=Attacco con morso
+MonsterAttack/&DH_HornedDevilTail_Attack_Description=1D8 +6 perforante , infligge la condizione di Ferita Sanguinante
+MonsterAttack/&DH_HornedDevilTail_Attack_Title=Attacco con la coda
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description=3D6 Necrotico, tiro salvezza per annullare
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title=Ferita Sanguinante
+MonsterAttack/&DH_HurlFlame_Attack_Description=5d6 Fuoco
+MonsterAttack/&DH_HurlFlame_Attack_Title=Scagliare fiamme
+MonsterAttack/&DH_Ice_Bite_Attack_Description=2d6+5 penetranti e 3d6 freddi
+MonsterAttack/&DH_Ice_Bite_Attack_Title=Morso di ghiaccio
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description=3D6 Freddo e infligge la condizione di Paralizzato
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title=Tocco Paralizzante
+MonsterAttack/&DH_LightningScimatar_Attack_Description=2d6+5 fendenti e 2d6 fulmini
+MonsterAttack/&DH_LightningScimatar_Attack_Title=Scimitarra
+MonsterAttack/&DH_NagaBite_Attack_Description=1d8+4 perforante e 15 DC Con Save per dimezzare 10d8 veleno
+MonsterAttack/&DH_NagaBite_Attack_Title=Morso avvelenato
+MonsterAttack/&DH_NagaSpit_Attack_Description=15 DC Con Save per dimezzare 10d8 veleno
+MonsterAttack/&DH_NagaSpit_Attack_Title=Sputare veleno
+MonsterAttack/&DH_PitFiend_Bite_Attack_Description=2d6+7 Veleno, infligge condizione di veleno
+MonsterAttack/&DH_PitFiend_Bite_Attack_Title=Attacco con morso
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description=6D6 Posione ricorrente
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title=Avvelenato
+MonsterAttack/&DH_PitFiend_Mace_Attack_Description=2D6+8 Percosse e 6D6 Fuoco
+MonsterAttack/&DH_PitFiend_Mace_Attack_Title=Attacco con mazza
+MonsterAttack/&DH_PoisonLongbow_Attack_Description=Arco lungo con frecce avvelenate
+MonsterAttack/&DH_PoisonLongbow_Attack_Title=Arco lungo avvelenato
+MonsterAttack/&DH_PoisonLongsword_Attack_Description=1d10+4 Colpo d'arma da taglio e 3d8 Veleno
+MonsterAttack/&DH_PoisonLongsword_Attack_Title=Spada lunga avvelenata
+MonsterAttack/&DH_RadiantLongbow_Attack_Description=2D6+8 perforante & 6D8 radiante
+MonsterAttack/&DH_RadiantLongbow_Attack_Title=Arco lungo da uccisione.
+MonsterAttack/&DH_RadiantLongsword_Attack_Description=4D6+8 Colpo d'arma da taglio e 6D8 Radiante
+MonsterAttack/&DH_RadiantLongsword_Attack_Title=Radiante Spadone
+MonsterAttack/&DH_Roc_Beak_Attack_Description=4d8+9 penetrante
+MonsterAttack/&DH_Roc_Beak_Attack_Title=Becco
+MonsterAttack/&DH_Roc_Talons_Attack_Description=4d6+9 Colpo d'arma da taglio e il bersaglio è afferrato e trattenuto dal Roc
+MonsterAttack/&DH_Roc_Talons_Attack_Title=Talenti
+MonsterAttack/&DH_Tarrasque_Bite_Description=4d12 + 10 danni da perforazione e il bersaglio deve superare una prova di Destrezza o essere afferrato (fuga DC 20).
+MonsterAttack/&DH_Tarrasque_Bite_Title=Morso
+MonsterAttack/&DH_Tarrasque_BiteCondition_Description=Finché la presa non termina, il bersaglio è immobilizzato.
+MonsterAttack/&DH_Tarrasque_BiteCondition_Title=Catturato da Tarrasque
+MonsterAttack/&DH_Tarrasque_Claw_Description=4d8 + 10 danni da taglio
+MonsterAttack/&DH_Tarrasque_Claw_Title=Artiglio
+MonsterAttack/&DH_Tarrasque_Horn_Description=4d10 + 10) danni perforanti
+MonsterAttack/&DH_Tarrasque_Horn_Title=Corno
+MonsterAttack/&DH_Tarrasque_Tail_Description=4d6 + 10 danni da percosse. Se il bersaglio è una creatura, deve riuscire a superare un tiro salvezza di Forza a DC 20 o essere messo a terra.
+MonsterAttack/&DH_Tarrasque_Tail_Title=Coda
+MonsterAttack/&DHCouatlBiteAttackDescription=Danni da perforazione e il bersaglio deve superare un tiro salvezza di Costituzione a DC 13 o essere avvelenato per 24 ore. Finché l'avvelenamento non termina, il bersaglio è incosciente.
+MonsterAttack/&DHCouatlBiteAttackTitle=Morso
+MonsterPower/&DH_AirTitan_Gale_Power_Description=4D10 Tuono e spinta su tiro salvezza fallito
+MonsterPower/&DH_AirTitan_Gale_Power_Title=Galoppo urlante
+MonsterPower/&DH_AirTitan_Lightning_Power_Description=3D10 Fulmine nell'area
+MonsterPower/&DH_AirTitan_Lightning_Power_Title=Colpo di fulmine
+MonsterPower/&DH_AncientDragon_Wing_Power_Description=I draghi possono sbattere le ali per produrre un vento sufficiente a spingere via la maggior parte degli umanoidi e a farli cadere a terra.
+MonsterPower/&DH_AncientDragon_Wing_Power_Title=Attacco con le ali
+MonsterPower/&DH_Balor_FireAura_Power_Description=3D6 Fuoco
+MonsterPower/&DH_Balor_FireAura_Power_Title=Aura di fuoco
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description=Ritorsione di Balor
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title=Ritorsione di Balor
+MonsterPower/&DH_Balor_Retaliate_Power_Description=Ritorsione di Balor
+MonsterPower/&DH_Balor_Retaliate_Power_Title=Ritorsione di Balor
+MonsterPower/&DH_BlindingGaze_Power_Description=Tiro Costituzione DC15 o accecamento fino a quando non si utilizza una riparazione inferiore
+MonsterPower/&DH_BlindingGaze_Power_Title=Sguardo Accecante
+MonsterPower/&DH_DamageAcid_Breath_Power_Description=15D8 Acido
+MonsterPower/&DH_DamageAcid_Breath_Power_Title=Soffio Acido
+MonsterPower/&DH_DamageCold_Breath_Power_Description=16D8 Freddo
+MonsterPower/&DH_DamageCold_Breath_Power_Title=Soffio di ghiaccio
+MonsterPower/&DH_DamageFire_Breath_Power_Description=26D6 Fuoco
+MonsterPower/&DH_DamageFire_Breath_Power_Title=Soffio di fuoco
+MonsterPower/&DH_DamageLightning_Breath_Power_Description=16D10 Fulmine
+MonsterPower/&DH_DamageLightning_Breath_Power_Title=Soffio di fulmine
+MonsterPower/&DH_DamagePoison_Breath_Power_Description=22D6 Veleno
+MonsterPower/&DH_DamagePoison_Breath_Power_Title=Soffio velenoso
+MonsterPower/&DH_DisintegratingBeam_Power_Description=6D10 Danno Radiante e il bersaglio viene disintegrato a 0 HP
+MonsterPower/&DH_DisintegratingBeam_Power_Title=Raggio disintegrante
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Description=4D10 Colpi d'arma da fuoco
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Title=Terremoto
+MonsterPower/&DH_ErinyesParry_Power_Description=#ERRORE!
+MonsterPower/&DH_ErinyesParry_Power_Title=Parata
+MonsterPower/&DH_FireTitan_Aura_Power_Description=Ogni creatura entro 9 metri subisce 35 (10d6) danni da fuoco e gli oggetti infiammabili nell'aura che non sono indossati o trasportati prendono fuoco.
+MonsterPower/&DH_FireTitan_Aura_Power_Title=Aura del Titano del Fuoco
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description=Una creatura subisce 35 (10d6) danni da fuoco se tocca Maegera o se la colpisce con un attacco in mischia mentre si trova entro 3 metri da essa.
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title=Ritorsione del Titano di Fuoco
+MonsterPower/&DH_FireTitan_Retaliate_Power_Description=Una creatura subisce 35 (10d6) danni da fuoco toccando Maegera o colpendola con un attacco in mischia entro 3 metri da essa.
+MonsterPower/&DH_FireTitan_Retaliate_Power_Title=Ritorsione del Titano del Fuoco
+MonsterPower/&DH_IlluminatingCrystals_Power_Description=Ogni creatura che si trova nell'area al momento del lancio dell'incantesimo viene anche delineata dalla luce. Per tutta la durata, gli oggetti e le creature colpite emanano una luce fioca in un raggio di 3 metri.
+MonsterPower/&DH_IlluminatingCrystals_Power_Title=Cristalli illuminanti
+MonsterPower/&DH_IncreasedGravityZone_Attack_Description=Il Titano focalizza la zona nel raggio di 6 metri. Qualsiasi creatura in un cilindro di 6 metri di raggio e di 6 metri di altezza, centrato su questo punto, deve superare un tiro salvezza di Destrezza con DC 26 o subire 33 (6d10) danni da percosse, cadere prona ed essere immobilizzata per un round.
+MonsterPower/&DH_IncreasedGravityZone_Attack_Title=Zona a Gravità Aumentata
+MonsterPower/&DH_Lich_DisruptLife_Power_Description=6D6 Necrotico
+MonsterPower/&DH_Lich_DisruptLife_Power_Title=Disturbo della vita
+MonsterPower/&DH_SearingBurst_Power_Description=4D6 Fuoco e 4D6 Radiante
+MonsterPower/&DH_SearingBurst_Power_Title=Esplosione lacerante
+MonsterPower/&DH_SleetStorm_Immunity_Description=Immunità alla Tempesta di Nevischio
+MonsterPower/&DH_SleetStorm_Immunity_Title=Immunità alla Tempesta di Nevischio
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description=Evoca 1 Elementale dell'Aria
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title=Evoca un elemento maggiore
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description=Evoca 1 Elementale della Terra
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title=Evoca un Elemento Maggiore
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Description=Un Erinyes è chiamato a combattere
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Title=Evoca un minion: Erinni
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description=Evoca 1 Elementale del Fuoco
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title=Evoca un Elemento Maggiore
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description=Evoca 2 Giullari del Fuoco
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title=Evoca Elementali Minori
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description=Evoca un costrutto minore
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title=Evoca un costrutto minore
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description=Un Nalfeshnee è chiamato a combattere
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title=Evoca Minion: Nalfeshnee
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description=Evoca 1 Skarn Ghoul
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title=Evoca un Elementale Minore
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Description=Evoca 4 serpenti del vento
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Title=Evoca Elementali Minori
+MonsterPower/&DH_SummonCreature_Wolves_Power_Description=Il vampiro richiama magicamente 3d6 lupi
+MonsterPower/&DH_SummonCreature_Wolves_Power_Title=Figli della Notte
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description=Ogni volta che il tarrasque viene bersagliato da un incantesimo di missile magico, da un incantesimo di linea o da un incantesimo che richiede un tiro di attacco a distanza, il tarrasque non subisce alcun effetto.
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title=Carapace riflettente
+MonsterPower/&DH_TarrasqueSwallowPower_Description=Il tarrasque effettua un attacco con morso contro una creatura Grande o più piccola che sta afferrando. Se l'attacco va a segno, il bersaglio viene inghiottito e la presa termina.
+MonsterPower/&DH_TarrasqueSwallowPower_Title=Ingoiare
+MonsterPower/&DH_VampireCharmPower_Description=Il vampiro prende di mira un umanoide che riesce a vedere nel raggio di 9 metri. Il bersaglio deve superare un tiro salvezza di Saggezza a Dc 17 contro questa magia o essere incantato dal vampiro.
+MonsterPower/&DH_VampireCharmPower_Title=Fascino
+MonsterPower/&DHAirTitanLightningStormPowerDescription=6d8 Fulmini ad ampio raggio
+MonsterPower/&DHAirTitanLightningStormPowerTitle=Tempesta di fulmini
+MonsterPower/&DHGenericLightningAttackPowerDescription=12D8
+MonsterPower/&DHGenericLightningAttackPowerTitle=Colpo di fulmine
+Spell/&DHTimeStop_SpellDescription=Fermate brevemente il flusso del tempo per tutti tranne che per voi stessi. Il tempo non passa per le altre creature, mentre voi prendete 1d4 + 1 turni di fila, durante i quali potete usare azioni e muovervi normalmente.
+Spell/&DHTimeStop_SpellTitle=Arresto del tempo

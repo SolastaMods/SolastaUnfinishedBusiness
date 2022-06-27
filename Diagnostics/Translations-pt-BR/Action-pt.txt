@@ -1,0 +1,156 @@
+Action/&ActionDisarmDescription	[OBSOLETE]Click to disarm this trap.
+Action/&ActionManipulateDescription	[OBSOLETE]Click to interact with this object.
+Action/&ActionObserveDescription	[OBSOLETE]Click to examine this object.
+Action/&ActionStatusAvailableDescription	Esta ação fica disponível durante o turno deste personagem.
+Action/&ActionStatusCannotPerformDescription	Esta criatura não pode realizar este tipo de ação.
+Action/&ActionStatusEngagedDescription	A ação já está em andamento. Não é permitido usar ações do mesmo tipo (principal, bônus etc.) até que a atual termine.
+Action/&ActionStatusIrrelevantDescription	A ação é irrelevante aqui. Tente outra coisa.
+Action/&ActionStatusNoLongerAvailableDescription	Ação indisponível. Uma ação do mesmo tipo (principal, bônus etc.) foi selecionada.
+Action/&ActionStatusOutOfUsesDescription	Ação indisponível. Acabaram os usos ou munições.
+Action/&ActionStatusSpentDescription	Esta ação já foi usada neste turno.
+Action/&ActionStatusUnavailableDescription	Ação indisponível neste turno.
+Action/&ActionTypeBonusAvailableMultipleDescription	Esta ação bônus está disponível!
+Action/&ActionTypeBonusAvailableSingleDescription	Sua ação bônus está disponível!
+Action/&ActionTypeBonusDescription	São magias, poderes especiais e armas equipadas na mão inábil que concedem ações bônus.
+Action/&ActionTypeBonusTitle	Bônus
+Action/&ActionTypeBonusUnavailableMultipleDescription	Você usou esta ação bônus.
+Action/&ActionTypeBonusUnavailableSingleDescription	Você usou sua ação bônus.
+Action/&ActionTypeFreeOnceAvailableMultipleDescription	Esta ação gratuita está disponível!
+Action/&ActionTypeFreeOnceAvailableSingleDescription	Sua ação gratuita está disponível!
+Action/&ActionTypeFreeOnceDescription	Você pode realizar certas ações gratuitas no seu turno, como embainhar uma arma ou deixar um item no chão.
+Action/&ActionTypeFreeOnceTitle	Ações Gratuitas
+Action/&ActionTypeFreeOnceUnavailableMultipleDescription	Você usou esta ação gratuita.
+Action/&ActionTypeFreeOnceUnavailableSingleDescription	Você usou sua ação gratuita.
+Action/&ActionTypeMainAvailableMultipleDescription	Esta ação principal está disponível!
+Action/&ActionTypeMainAvailableSingleDescription	Sua ação principal está disponível!
+Action/&ActionTypeMainDescription	A ação principal é a coisa mais importante que você faz no turno, como andar, atacar, conjurar magia ou usar uma habilidade.
+Action/&ActionTypeMainTitle	Ações Principais
+Action/&ActionTypeMainUnavailableMultipleDescription	Você usou esta ação principal.
+Action/&ActionTypeMainUnavailableSingleDescription	Você usou sua ação principal.
+Action/&ActionTypeMoveDescription	A ação de movimento costuma ter um gasto de pontos de movimento. Saltar e escalar requerem um teste de habilidade.
+Action/&ActionTypeMoveTitle	Locomoção
+Action/&ActionTypeOtherDescription	Você pode realizar outras ações livremente ou gastando pontos de movimento.
+Action/&ActionTypeOtherTitle	Outras Ações
+Action/&ActionTypeReactionAvailableMultipleDescription	Esta reação está disponível!
+Action/&ActionTypeReactionAvailableSingleDescription	Sua reação está disponível!
+Action/&ActionTypeReactionDescription	Condições específicas podem ativar reações, tais como um ataque de oportunidade.
+Action/&ActionTypeReactionTitle	Reações
+Action/&ActionTypeReactionUnavailableMultipleDescription	Você usou esta reação.
+Action/&ActionTypeReactionUnavailableSingleDescription	Você usou sua reação.
+Action/&ActionUnlockDescription	[OBSOLETE]Clique para desbloquear este objeto.
+Action/&AssignTargetDescription	Você pode selecionar um novo alvo para {0}.
+Action/&AssignTargetTitle	Alvo
+Action/&AttackCoverFullDescription	O alvo tem cobertura total atrás de um obstáculo.
+Action/&AttackCoverHalfDescription	O alvo tem cobertura parcial ({0} CA).\n
+Action/&AttackCoverThreeQuartersDescription	O alvo tem cobertura de três quartos ({0} CA).\n
+Action/&AttackDescription	Atacar um inimigo com esta arma: {0} ({1} para Acertar)\n{2}
+Action/&AttackExecuteAdvantageDescription	Clique para atacar o alvo com uma vantagem!
+Action/&AttackExecuteDescription	Clique para atacar o alvo!
+Action/&AttackExecuteDisadvantageDescription	Clique para atacar o alvo com uma desvantagem.
+Action/&AttackIterativeDescription	Você pode atacar {0} vezes no seu turno e intercalar os ataques entre movimentos.
+Action/&AttackTitle	Ataque
+Action/&BlockAttackDescription	Impõe uma desvantagem sobre um inimigo que for atacar um aliado próximo.
+Action/&BlockAttackTitle	Bloquear ataque
+Action/&CastDescription	Escolha uma magia para conjurar.
+Action/&CastRitualDescription	Conjurar uma magia como ritual (leva 10 minutos, não gasta espaço de magia).
+Action/&CastRitualTitle	Ritual
+Action/&CastSpellHigherSlotAddDiceTile	Acrescentar {0} dados ao efeito.
+Action/&CastSpellHigherSlotAddDieTile	Acrescentar {0} dado ao efeito.
+Action/&CastSpellHigherSlotAddHPTile	Acrescentar {0} pontos de vida.
+Action/&CastSpellHigherSlotAddItemBonusTile	Aumentar em {0} o bônus do item.
+Action/&CastSpellHigherSlotAddSpellLevelPluralTile	{0} níveis extras de magia.
+Action/&CastSpellHigherSlotAddSpellLevelSingleTile	{0} nível extra de magia.
+Action/&CastSpellHigherSlotAddSummonPluralTile	Invocar {0} criaturas a mais.
+Action/&CastSpellHigherSlotAddSummonSingleTile	Invocar {0} criatura a mais.
+Action/&CastSpellHigherSlotAddTargetCellsTile	Atingir {0} espaços a mais.
+Action/&CastSpellHigherSlotAddTargetPluralTile	Mais {0} alvos.
+Action/&CastSpellHigherSlotAddTargetSingleTile	Mais {0} alvo.
+Action/&CastSpellHigherSlotAddTempHPTile	Acrescentar {0} pontos de vida temporários.
+Action/&CastSpellHigherSlotTile	Conjurar magia usando um espaço de nível {0}.
+Action/&CastTitle	Conjurar Magia
+Action/&CautiousDescription	Ativar ou desativar o modo cautela. Personagens nesse modo são mais furtivos e percebem melhor objetos e criaturas.
+Action/&CautiousTitle	Cautela
+Action/&ClimbDescription	Subir ou descer por superfícies. Escalar uma superfície vertical escorregadia também requer sucesso em um teste de Força (Preparo Físico).
+Action/&ClimbTitle	Escalada
+Action/&CunningActionDescription	A partir do 2º nível, o seu pensamento rápido e agilidade permitem que você se mova e aja com presteza. Você pode realizar uma ação bônus em todos os seus turnos de combate. Para esse fim, você só pode usar as ações Disparada e Desengajar-se.
+Action/&CunningActionTitle	Ação Astuta
+Action/&DashDescription	Ao realizar a ação de Disparada, você ganha movimentação extra no seu turno atual. O aumento equivale à sua velocidade após o cálculo dos modificadores.
+Action/&DashTitle	Disparada
+Action/&DisengageDescription	Se você realizar a ação de Desengajar-se, o seu movimento não propicia ataques de oportunidade até o final do turno.
+Action/&DisengageTitle	Desengajar-se
+Action/&DodgeDescription	Ao realizar a ação de Esquivar-se, você se concentra totalmente em evitar ataques. Até o início do seu próximo turno, toda rolagem de ataque contra você tem desvantagem se você estiver vendo o atacante, e você faz testes de resistência de Destreza com uma vantagem.
+Action/&DodgeTitle	Esquivar-se
+Action/&DropProneDescription	Você pode ir ao chão sem usar pontos de movimento. Para se movimentar nessa posição, você precisa rastejar ou usar magias como a de teleporte. O custo do movimento dobra enquanto você está rastejando. Por conseguinte, o custo para se rastejar em terreno difícil é triplicado. Ao ir ao chão, você ganha a condição de Prostração: ataques corpo a corpo contra você têm vantagem, enquanto ataques à distância contra você e os seus ataques têm desvantagem.
+Action/&DropProneTitle	Ir ao Chão
+Action/&EnemyCreatureTitle	Criatura Inimiga
+Action/&EnemyTargetHeaderTitle	{0} (Inimigo)
+Action/&EquipDescription	Equipar ou desequipar um item.
+Action/&EquipTitle	Equipar
+Action/&ExtinguishDescription	Extinguir um fogo que afeta você.
+Action/&ExtinguishTitle	Extinguir
+Action/&FriendlyCreatureTitle	Criatura Aliada
+Action/&FriendlyTargetHeaderTitle	{0} (Aliado)
+Action/&HideDescription	Ao realizar a ação de Esconder-se, você faz um teste de Destreza (Furtividade) para tentar se esconder, seguindo as respectivas regras. Obtendo sucesso, toda rolagem de ataque contra você tem uma desvantagem, e você tem uma vantagem nos seus ataques. Esse efeito dura até detectarem você. Você não pode tentar se esconder caso já tenham detectado você.
+Action/&HideTitle	Esconder-se
+Action/&InventoryDescription	Gerenciar o inventário do personagem.
+Action/&InventoryTitle	Inventário
+Action/&JumpDescription	Realizar um salto curto ou longo.
+Action/&JumpTitle	Saltar
+Action/&LevitateDescription	Fazer o personagem afetado subir ou descer.
+Action/&LevitateTitle	Levitar
+Action/&MoveDescription	Andar até o destino especificado, respeitando a sua velocidade. Você pode intercalar o seu movimento com outras ações.
+Action/&MoveTitle	Desbloquear
+Action/&NeutralCreatureTitle	Criatura Neutra
+Action/&NeutralTargetHeaderTitle	{0} (Neutro)
+Action/&PickUpDescription	Pegar um item que esteja na posição do personagem.
+Action/&PickUpTitle	Pegar
+Action/&PowerDescription	Ativar um poder ou habilidade especial.
+Action/&PowerTitle	Usar Poder
+Action/&ReadyDescription	Preparar um ataque a ser realizado em momento posterior do turno.
+Action/&ReadyTitle	Preparar-se
+Action/&ShoveDescription	Usar a sua Força para empurrar uma criatura um espaço para longe de você, ou então derrubá-la. O alvo não pode ser mais de um tamanho maior que o seu e precisa estar no seu alcance.
+Action/&ShoveTitle	Empurrar
+Action/&SpellCoverHalfDescription	O alvo tem cobertura parcial ({0} em teste de resistência).\n
+Action/&SpellCoverThreeQuartersDescription	O alvo tem cobertura de três quartos ({0} em teste de resistência).\n
+Action/&SpellExecuteDescription	Clique para selecionar este alvo para a sua magia.
+Action/&StandUpDescription	Ficar de pé tem um custo de movimentação igual à metade da sua velocidade. Você não pode se levantar se não tiver movimento suficiente sobrando, ou se a sua velocidade for 0.
+Action/&StandUpTitle	Levantar-se
+Action/&UseFunctionAdditionalChargePlural	Conjurar magia usando {0} cargas de item a mais.
+Action/&UseFunctionAdditionalChargeSingle	Conjurar magia usando uma carga de item a mais.
+Action/&UseItemDescription	Usar as funções especiais de um dispositivo ou item mágico.
+Action/&UseItemTitle	Usar Item
+Action/&VampiricTouchDescription	Atacar o alvo com uma magia corpo a corpo, causando 3d6 de dano necrótico e recuperando uma quantidade de pontos de vida igual à metade do dano causado.
+Action/&VampiricTouchTitle	Toque Vampírico
+Action/&ActionTeleportDescription	Teleporte.
+Action/&UnhideTitle	Revelar
+Action/&UnhideDescription	Revelar é uma ação gratuita.
+Action/&ActionStatusCannotPerformDetectedDescription	Esta ação só pode ser realizada se o personagem não for detectado. Saia do campo de visão para continuar.
+Action/&BreakFreeTitle	Soltar
+Action/&BreakFreeDescription	Usa uma ação para se soltar, seja por força ou agilidade.
+Action/&BreakEnchantmentTitle	Quebrar Encantamento
+Action/&BreakEnchantmentDescription	Toque uma criatura para remover uma condição negativa (enfeitiçamento, medo, possessão).
+Action/&DismissalTitle	Expulsão
+Action/&DismissalDescription	Execute um ataque mágico corpo a corpo para expulsar um celestial, elemental, fada, ínfero ou morto-vivo extraplanar para o seu plano de origem.
+Action/&AttackToss_Title	Arremessar
+Action/&SunbeamTitle	Raio de Sol
+Action/&SunbeamDescription	Você pode usar sua ação para direcionar o raio para uma criatura, causando 6d8 de dano radiante a cada turno. Mortos-vivos e limos têm desvantagem em testes de resistência.
+Action/&RageStartDescription	Concede vantagem em testes de Força, bônus em dano corpo a corpo e resistência a dano cortante, perfurante e de concussão. Dura 1 minuto. Para evitar o fim precoce da fúria, você deve atacar ou sofrer dano em cada rodada.
+Action/&RageStartTitle	Fúria
+Action/&RageStopDescription	Interrompe imediatamente a fúria, mas usa um ponto de fúria.
+Action/&RageStopTitle	Parar Fúria
+Action/&RecklessAttackDescription	Antes de fazer o primeiro ataque no seu turno, você pode optar por atacar de forma imprudente. Assim, você ganha vantagem em rolagens de ataque com arma corpo a corpo usando Força durante o turno, mas as rolagens de ataque contra você terão vantagem até seu próximo turno.
+Action/&RecklessAttackTitle	Ataque Temerário
+Action/&RevertShapeTitle	Reverter Forma
+Action/&RevertShapeDescription	Volte à sua forma natural.
+Action/&SpiritRallyTitle	Convocação Espiritual
+Action/&SpiritRallyDescription	Você pode invocar seu espírito afim se não estiver em combate. Ele virá do plano seu plano de origem, atravessando obstáculos para se teleportar até você.
+Action/&CastSpellHigherSlotAddWeaponDieTile	Aumenta em {0} o dado de dano de arma.
+Action/&RecallItemTitle	Repetir Item
+Action/&RecallItemDescription	Crie novamente o item criado anteriormente pelo efeito {0}.
+Action/&ReapplyEffectTitle	Reaplicar Efeito
+Action/&ReapplyEffectDescription	Reaplica o efeito {0}.
+Action/&ActionStatusMissingFreeHandDescription	Para realizar esta ação, você precisa ter uma mão livre.
+Action/&AttackExecuteAdvantageGamepadDescription	Pressione <sprite index={0}> para atacar o alvo com uma vantagem!
+Action/&AttackExecuteGamepadDescription	Pressione <sprite index={0}> para atacar o alvo!
+Action/&AttackExecuteDisadvantageGamepadDescription	Pressione <sprite index={0}> para atacar o alvo com uma desvantagem.
+Action/&SpellExecuteGamepadDescription	Pressione <sprite index={0}> para selecionar este alvo para a sua magia.

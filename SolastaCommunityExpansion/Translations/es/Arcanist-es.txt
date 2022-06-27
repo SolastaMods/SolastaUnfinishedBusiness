@@ -1,20 +1,20 @@
-Condition/&ConditionMarkedByArcanistDescription	Afligido por la marca del arcanista. Cuando es golpeado por el lanzador con un ataque de arma, la marca detona, infligiendo 1d6 de daño de fuerza a los afectados y destruyendo la marca.
-Condition/&ConditionMarkedByArcanistTitle	Marca del arcanista
-Equipment/&ArcaneStaffDescription	Este bastón está inscrito con escritura mágica y puede usarse como foco para lanzar hechizos arcanos.
-Equipment/&ArcaneStaffTitle	Bastón Arcano
-Feature/&ArcaneDetonationDescription	Cuando golpeas a una criatura que tiene tu Marca del Arcanista con un ataque de arma, la marca detona, infligiendo 1d6 puntos de daño de fuerza y ​​destruyendo la marca.
-Feature/&ArcaneDetonationTitle	Detonación Arcana
-Feature/&ArcaneDetonationUpgradeDescription	A partir del nivel 11, el daño de tu Detonación Arcana aumenta a 2d6.
-Feature/&ArcaneDetonationUpgradeTitle	Gran detonación arcana
-Feature/&ArcanePulseDescription	A partir del nivel 7, puedes provocar una erupción de energía arcana a una distancia de 30 pies. Las criaturas hostiles en un radio de 15 pies del punto de impacto reciben 4d8 de daño y obtienen una Marca de arcanista. Puedes usar esta habilidad un número de veces igual a tu modificador de Sabiduría por descanso prolongado. A nivel 15, el daño de tu Pulso Arcano aumenta a 8d8.
-Feature/&ArcanePulseTitle	Pulso Arcano
-Feature/&ArcanistAutoPreparedSpellsDescription	Obtienes hechizos de bonificación que se consideran hechizos de guardabosques para ti, siempre están preparados y no cuentan contra la cantidad de hechizos de guardabosques que conoces:\n{0}
-Feature/&ArcanistAutoPreparedSpellsTitle	Hechizos de bonificación de arcanista guardabosques
-Feature/&ArcanistMarkDescription	A partir del 3er nivel, imbuyes tus armas con poder arcano. Las criaturas que son golpeadas por tus ataques se ven afectadas por la Marca del arcanista.
-Feature/&ArcanistMarkTitle	Marca del arcanista
-Feature/&MagicAffinityRangerArcanistDescription	Eres competente lanzando hechizos en batalla y puedes lanzar hechizos que requieran un componente somático incluso si ambas manos sostienen un arma o un escudo.
-Feature/&MagicAffinityRangerArcanistTitle	Entrenamiento de combate arcano
-Feedback/&AdditionalDamageArcanistMarkFormat	¡Marca del arcanista!
-Feedback/&AdditionalDamageArcanistMarkLine	¡La marca del arcanista detona e inflige daño extra al objetivo!
-Subclass/&RangerArcanistRangerSubclassDescription	El Guardabosques Arcanista combina sus habilidades de Guardabosques con habilidades arcanas. Sus armas pueden afectar a sus oponentes con la Marca del arcanista y han aprendido a lanzar algunos hechizos de mago como parte de su repertorio de hechizos de guardabosques.
-Subclass/&RangerArcanistRangerSubclassTitle	guardabosques arcanista
+Condition/&ConditionMarkedByArcanistDescription=Afligido por la marca del arcanista. Cuando es golpeado por el lanzador con un ataque de arma, la marca detona, infligiendo 1d6 de daño de fuerza a los afectados y destruyendo la marca.
+Condition/&ConditionMarkedByArcanistTitle=Marca del arcanista
+Equipment/&ArcaneStaffDescription=Este bastón está inscrito con escritura mágica y puede usarse como foco para lanzar hechizos arcanos.
+Equipment/&ArcaneStaffTitle=Bastón Arcano
+Feature/&ArcaneDetonationDescription=Cuando golpeas a una criatura que tiene tu Marca del Arcanista con un ataque de arma, la marca detona, infligiendo 1d6 puntos de daño de fuerza y ​​destruyendo la marca.
+Feature/&ArcaneDetonationTitle=Detonación Arcana
+Feature/&ArcaneDetonationUpgradeDescription=A partir del nivel 11, el daño de tu Detonación Arcana aumenta a 2d6.
+Feature/&ArcaneDetonationUpgradeTitle=Gran detonación arcana
+Feature/&ArcanePulseDescription=A partir del nivel 7, puedes provocar una erupción de energía arcana a una distancia de 30 pies. Las criaturas hostiles en un radio de 15 pies del punto de impacto reciben 4d8 de daño y obtienen una Marca de arcanista. Puedes usar esta habilidad un número de veces igual a tu modificador de Sabiduría por descanso prolongado. A nivel 15, el daño de tu Pulso Arcano aumenta a 8d8.
+Feature/&ArcanePulseTitle=Pulso Arcano
+Feature/&ArcanistAutoPreparedSpellsDescription=Obtienes hechizos de bonificación que se consideran hechizos de guardabosques para ti, siempre están preparados y no cuentan contra la cantidad de hechizos de guardabosques que conoces:\n{0}
+Feature/&ArcanistAutoPreparedSpellsTitle=Hechizos de bonificación de arcanista guardabosques
+Feature/&ArcanistMarkDescription=A partir del 3er nivel, imbuyes tus armas con poder arcano. Las criaturas que son golpeadas por tus ataques se ven afectadas por la Marca del arcanista.
+Feature/&ArcanistMarkTitle=Marca del arcanista
+Feature/&MagicAffinityRangerArcanistDescription=Eres competente lanzando hechizos en batalla y puedes lanzar hechizos que requieran un componente somático incluso si ambas manos sostienen un arma o un escudo.
+Feature/&MagicAffinityRangerArcanistTitle=Entrenamiento de combate arcano
+Feedback/&AdditionalDamageArcanistMarkFormat=¡Marca del arcanista!
+Feedback/&AdditionalDamageArcanistMarkLine=¡La marca del arcanista detona e inflige daño extra al objetivo!
+Subclass/&RangerArcanistRangerSubclassDescription=El Guardabosques Arcanista combina sus habilidades de Guardabosques con habilidades arcanas. Sus armas pueden afectar a sus oponentes con la Marca del arcanista y han aprendido a lanzar algunos hechizos de mago como parte de su repertorio de hechizos de guardabosques.
+Subclass/&RangerArcanistRangerSubclassTitle=guardabosques arcanista

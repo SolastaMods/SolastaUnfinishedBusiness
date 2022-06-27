@@ -1,23 +1,23 @@
-Reaction/&CoordinatedAttackDescription	{0} è stato attaccato da un attacco coordinato, alcuni personaggi possono usare la loro reazione per unirsi a questo attacco.
-Reaction/&CoordinatedAttackReactDescription	Usa la reazione per attaccare il bersaglio.
-Reaction/&CoordinatedAttackReactTitle	attacco
-Reaction/&CoordinatedAttackTitle	Attacco coordinato
-Reaction/&SubitemSelectCoordinatedAttackTitle	Seleziona azione
-Subclass/&FighterMarshalCoordinatedAttackDescription	Quando colpisci un nemico con un attacco in mischia, i tuoi alleati possono usare la loro reazione per effettuare un attacco di opportunità contro il tuo bersaglio.
-Subclass/&FighterMarshalCoordinatedAttackTitle	Attacco coordinato
-Subclass/&FighterMarshalDescription	Abili nello studio delle debolezze dei nemici e nel coordinare gli attacchi degli altri membri del gruppo per sfruttarli, i combattenti che si sono allenati in questa parte marziale sono famosi ochestratori del campo di battaglia.
-Subclass/&FighterMarshalEncouragementPowerDescription	Il coraggio del maresciallo ispira il suo membro del partito. Gli alleati entro 3 metri da lui aggiungono 1d4 al tiro per colpire e al tiro salvezza.
-Subclass/&FighterMarshalEncouragementPowerTitle	Incoraggiamento
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Il legame tra il maresciallo e il suo compagno supera il confine tra la vita e la morte. Come azione bonus, il maresciallo può evocare uno spirito dei suoi compagni caduti per aiutarlo in combattimento.
-Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Compagno eterno
-Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Sei immune all'effetto paura.
-Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Comandante senza paura
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Aggiungi il tuo livello di conoscenza del tuo attuale bersaglio ai tuoi tiri per colpire e per i danni.
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Conosci il tuo nemico
-Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Come azione bonus, puoi tentare di aumentare le tue conoscenze sul tuo bersaglio tirando una prova di Sopravvivenza. Puoi farlo due volte per riposo breve.
-Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Studia il tuo nemico
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoca 1 spirito del compagno caduto del maresciallo. Ogni spirito ha 45 + il doppio del tuo livello di Combattente in HP e la sua CA è 16 + il tuo bonus di competenza. Gli spiriti sono immuni alle condizioni di veleno, freddo, necrotico, prono, paralizzato e trattenuto. Gli spiriti hanno resistenza ai danni da fuoco, acido, fulmini e tuoni e hanno resistenza ai danni taglienti, contundenti e perforanti non magici. Nel loro turno, possono volare fino a 50 piedi ed effettuare un singolo attacco con arma da mischia che infligge 2d6 + 5 danni magici taglienti con un bonus di 5 + bonus di competenza per colpire.
-Subclass/&FighterMarshalSummonEternalComradePowerTitle	Evoca compagno eterno
-Subclass/&FighterMarshalTitle	Maresciallo
-Subclass/&MarshalEternalComradeDescription	Compagno caduto
-Subclass/&MarshalEternalComradeTitle	Compagno caduto
+Reaction/&CoordinatedAttackDescription={0} è stato attaccato da un attacco coordinato, alcuni personaggi possono usare la loro reazione per unirsi a questo attacco.
+Reaction/&CoordinatedAttackReactDescription=Usa la reazione per attaccare il bersaglio.
+Reaction/&CoordinatedAttackReactTitle=attacco
+Reaction/&CoordinatedAttackTitle=Attacco coordinato
+Reaction/&SubitemSelectCoordinatedAttackTitle=Seleziona azione
+Subclass/&FighterMarshalCoordinatedAttackDescription=Quando colpisci un nemico con un attacco in mischia, i tuoi alleati possono usare la loro reazione per effettuare un attacco di opportunità contro il tuo bersaglio.
+Subclass/&FighterMarshalCoordinatedAttackTitle=Attacco coordinato
+Subclass/&FighterMarshalDescription=Abili nello studio delle debolezze dei nemici e nel coordinare gli attacchi degli altri membri del gruppo per sfruttarli, i combattenti che si sono allenati in questa parte marziale sono famosi ochestratori del campo di battaglia.
+Subclass/&FighterMarshalEncouragementPowerDescription=Il coraggio del maresciallo ispira il suo membro del partito. Gli alleati entro 3 metri da lui aggiungono 1d4 al tiro per colpire e al tiro salvezza.
+Subclass/&FighterMarshalEncouragementPowerTitle=Incoraggiamento
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription=Il legame tra il maresciallo e il suo compagno supera il confine tra la vita e la morte. Come azione bonus, il maresciallo può evocare uno spirito dei suoi compagni caduti per aiutarlo in combattimento.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle=Compagno eterno
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription=Sei immune all'effetto paura.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle=Comandante senza paura
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription=Aggiungi il tuo livello di conoscenza del tuo attuale bersaglio ai tuoi tiri per colpire e per i danni.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle=Conosci il tuo nemico
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription=Come azione bonus, puoi tentare di aumentare le tue conoscenze sul tuo bersaglio tirando una prova di Sopravvivenza. Puoi farlo due volte per riposo breve.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle=Studia il tuo nemico
+Subclass/&FighterMarshalSummonEternalComradePowerDescription=Evoca 1 spirito del compagno caduto del maresciallo. Ogni spirito ha 45 + il doppio del tuo livello di Combattente in HP e la sua CA è 16 + il tuo bonus di competenza. Gli spiriti sono immuni alle condizioni di veleno, freddo, necrotico, prono, paralizzato e trattenuto. Gli spiriti hanno resistenza ai danni da fuoco, acido, fulmini e tuoni e hanno resistenza ai danni taglienti, contundenti e perforanti non magici. Nel loro turno, possono volare fino a 50 piedi ed effettuare un singolo attacco con arma da mischia che infligge 2d6 + 5 danni magici taglienti con un bonus di 5 + bonus di competenza per colpire.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle=Evoca compagno eterno
+Subclass/&FighterMarshalTitle=Maresciallo
+Subclass/&MarshalEternalComradeDescription=Compagno caduto
+Subclass/&MarshalEternalComradeTitle=Compagno caduto

@@ -1,165 +1,165 @@
-ActionAffinity/&DHFeeblemindSpellDescription	Incapaz de lanzar hechizos.
-ActionAffinity/&DHFeeblemindSpellTitle	Débil mental
-AttributeModifier/&DHFeeblemindChaSpellDescription	La puntuación de carisma se establece en 1.
-AttributeModifier/&DHFeeblemindChaSpellTitle	carisma débil
-AttributeModifier/&DHFeeblemindIntSpellDescription	La puntuación de carisma se establece en 1.
-AttributeModifier/&DHFeeblemindIntSpellTitle	Inteligencia débil
-Condition/&ConditionMuleDescription	Tu velocidad no se ve reducida por estorbos o armaduras pesadas. Puedes llevar 20 libras adicionales.
-Condition/&ConditionMuleTitle	Mula
-Condition/&DHFeeblemindSpellDescription	Las puntuaciones de Inteligencia y Carisma de la criatura se convierten en 1. La criatura no puede lanzar hechizos, activar objetos mágicos, entender el lenguaje o comunicarse de forma inteligible.
-Condition/&DHFeeblemindSpellTitle	Débil mental
-Condition/&DHForesightSpellDescription	Ventaja en todas las tiradas de ataque, pruebas de habilidad y tiradas de salvación. Otras criaturas tienen desventaja en las tiradas de ataque.
-Condition/&DHForesightSpellTitle	Previsión
-Condition/&DHHolyAuraSpellDescription	Ventaja en todas las tiradas de salvación. Otras criaturas tienen desventaja en las tiradas de ataque. Cuando un demonio o un no-muerto golpea a una criatura afectada con un ataque cuerpo a cuerpo, el atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que finalice el conjuro.
-Condition/&DHHolyAuraSpellTitle	Protegido por el Aura Sagrada
-Condition/&DHMindBlankSpellDescription	Inmune al daño psíquico y al estado encantado.
-Condition/&DHMindBlankSpellTitle	Mente en blanco
-Condition/&DHReverseGravitySpellDescription	No puedo moverme.
-Condition/&DHReverseGravitySpellTitle	Atrapado por la gravedad inversa
-Condition/&DHTimeStopSpellDescription	El tiempo se congela para la criatura afectada.
-Condition/&DHTimeStopSpellTitle	tiempo detenido
-Condition/&DHWeirdSpellDescription	Atemorizado. Al final de cada turno, haz una tirada de salvación de Sabiduría. Si falla, recibe 4d10 de daño psíquico. Con un éxito, esta condición finaliza.
-Condition/&DHWeirdSpellTitle	raro
-Condition/&EWResonatingStrikeDamageDescription	A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño de trueno adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
-Condition/&EWResonatingStrikeDamageTitle	Resonancia
-Condition/&EWSunlightBladeDamageDescription	A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño radiante adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
-Condition/&EWSunlightBladeDamageTitle	Quemadura de Sunlit Blade
-DamageAffinity/&DHHolyAuraSpellDescription	Cuando un demonio o un no-muerto golpea con un ataque cuerpo a cuerpo, el aura destella con una luz brillante y el atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que termine el hechizo.
-DamageAffinity/&DHHolyAuraSpellTitle	Represalia del aura sagrada
-Feat/&AlchemistSubclassSpellsDescription	{0}.
-Feat/&AlchemistSubclassSpellsTitle	Aprende hechizos para hacer pociones
-Feat/&AutoPreparedSpellsDescription	{0}.
-Feat/&AutoPreparedSpellsTitle	Aprende hechizos de Scout Sentinel
-Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Obtienes hechizos de bonificación que se consideran hechizos de Tinkerer para ti, siempre están preparados y no cuentan contra la cantidad de hechizos de Tinkerer que conoces.
-Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Hechizos de construcción protectora
-Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Obtienes hechizos de bonificación que se consideran hechizos de Tinkerer para ti, siempre están preparados y no cuentan contra la cantidad de hechizos de Tinkerer que conoces.
-Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Hechizos de construcción protectora
-Feature/&DHHolyAuraBlindingPowerDescription	Cuando un demonio o un no-muerto golpea a una criatura afectada con un ataque cuerpo a cuerpo, el aura destella con una luz brillante. El atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que termine el conjuro.
-Feature/&DHHolyAuraBlindingPowerTitle	Represalia del aura sagrada
-Feature/&ElementalistSpellsMagicAffinityDescription	Eliges de una lista ampliada de hechizos cuando aprendes un hechizo de brujo. Los siguientes hechizos se agregan a la lista de hechizos de Warlock para ti: {0}
-Feature/&ElementalistSpellsMagicAffinityTitle	Hechizos de elementalista
-Feature/&SpellAsInvocationAtWillDescription	Lanza {0} a voluntad.
-Feature/&SpellAsInvocationOncePerDayDescription	Lanza {0} una vez hasta un descanso prolongado.
-Feedback/&AdditionalDamageResonatingStrikeFormat	¡Golpe resonante!
-Feedback/&AdditionalDamageResonatingStrikeLine	¡{0} resuena {1}! (+{2})
-Feedback/&AdditionalDamageSunlightBladeFormat	¡Hoja iluminada por el sol!
-Feedback/&AdditionalDamageSunlightBladeLine	¡{0} quema {1} con Sunlit Blade! (+{2})
-Feedback/&NotifyEffectResonatingStrikeLine	¡{0} resuena {1}!
-Monster/&DHCustomCouatlDescription	Los couatls son seres serpentinos benévolos de gran intelecto y perspicacia. Sus alas de colores brillantes y su manera amable hablan de sus orígenes celestiales.
-Monster/&DHCustomCouatlTitle	Couatl
-Monster/&OwlFamiliarDescription	Búho Familiar.
-Monster/&OwlFamiliarTitle	Búho
-MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Daño perforante, y el objetivo debe tener éxito en una tirada de salvación de Constitución CD 13 o quedará envenenado durante 24 horas. Hasta que este veneno termine, el objetivo está inconsciente.
-MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Morder
-Reaction/&CastSpellInRetributionDescription	¡{0} está atacando a {1}! ¡Puedes lanzar {2} en respuesta!
-Reaction/&CastSpellInRetributionReactDescription	Haz clic para enviar {0}.
-Reaction/&CastSpellInRetributionReactTitle	Lanzar hechizo
-Reaction/&CastSpellInRetributionTitle	Lanzar hechizo de reacción
-Reaction/&SpendSpellSlot{0}Description	Gastar hechizo {0}
-Reaction/&SpendSpellSlot{0}Title	Gastar hechizo {0}
-Screen/&FeyTeleportSpellDescription	Este hechizo Fey siempre está preparado.
-Screen/&FeyTeleportSpellTitle	Vidente
-Screen/&MulticlassSpellDescription	Conoces este hechizo de otro repertorio.
-Screen/&MulticlassSpellTitle	multiclase
-Screen/&ShadowTouchedSpellDescription	Este hechizo de Sombra siempre está preparado.
-Screen/&ShadowTouchedSpellTitle	Sombra
-Screen/&SpellSlotsUsedLongDescription	Has gastado {0} espacio(s) de hechizo en este nivel.
-Screen/&SpellSlotsUsedShortDescription	Has gastado {0} espacio(s) mágico(s) de pacto.
-Screen/&SpellSlotsUsedShortLongDescription	Has gastado {0} espacio(s) mágico(s) de pacto y {1} espacio(s) de hechizo en este nivel.
-Spell/&AcidClawsDescription	Haz un ataque mortal con tus garras afiladas.
-Spell/&AcidClawsTitle	Garras sangrientas
-Spell/&AHHellishRebukeDescription	Señalas con el dedo y la criatura que te dañó queda momentáneamente rodeada de llamas infernales. La criatura debe hacer una tirada de salvación de Destreza. Se necesitan 2d10 de daño por fuego en una salvación fallida, o la mitad de daño en una con éxito.
-Spell/&AHHellishRebukeTitle	reprensión infernal
-Spell/&BurstOfRadianceDescription	Crea un destello brillante de luz resplandeciente que daña a todos los enemigos a tu alrededor.
-Spell/&BurstOfRadianceTitle	Explosión de resplandor
-Spell/&CJDivineWordDescription	Pronuncias una palabra divina, imbuida del poder que dio forma al mundo en los albores de la creación. Elige cualquier cantidad de criaturas que puedas ver dentro del alcance. Cada criatura que pueda oírte debe hacer una tirada de salvación de Carisma. En una salvación fallida, una criatura sufre un efecto basado en sus puntos de golpe actuales:\n• 50 puntos de golpe o menos: ensordecido durante 1 minuto\n• 40 puntos de golpe o menos: ensordecido y cegado durante 10 minutos\n• 30 puntos de golpe o menos: cegado, ensordecido y aturdido durante 1 hora\n• 20 puntos de golpe o menos: muerto al instante\nIndependientemente de sus puntos de golpe actuales, un celestial, un elemental, un feérico o un demonio que falla su salvación se ve obligado a regresar a su plano de origen (si aún no está allí) y no puede regresar a su plano actual por 24 horas por cualquier medio que no sea un hechizo de deseo.
-Spell/&CJDivineWordTitle	Palabra Divina
-Spell/&DHAnimalShapesSpellDescription	Elige cualquier cantidad de criaturas voluntarias que puedas ver dentro del alcance. Transformas cada objetivo en la forma de una bestia grande o más pequeña con una calificación de desafío de 4 o menos.
-Spell/&DHAnimalShapesSpellTitle	formas de animales
-Spell/&DHCastSpellArchMageDescription	Habilidad de lanzamiento de archimagos.
-Spell/&DHCastSpellArchMageTitle	Habilidad de lanzamiento de archimagos
-Spell/&DHCastSpellGuardianNagaDescription	Habilidad de lanzamiento de archimagos.
-Spell/&DHCastSpellGuardianNagaTitle	Habilidad de lanzamiento de archimagos
-Spell/&DHCastSpellLichDescription	Habilidad de lanzamiento de liches.
-Spell/&DHCastSpellLichTitle	Habilidad de lanzamiento de liches
-Spell/&DHConjureCelestialSpellDescription	Invocas a un celestial con una calificación de desafío de 4 o inferior, que aparece en un espacio desocupado que puedes ver dentro del alcance. El celestial desaparece cuando llega a 0 puntos de golpe o cuando termina el hechizo. El celestial es amigable contigo y tus compañeros mientras dure.
-Spell/&DHConjureCelestialSpellTitle	Conjurar celestial (Couatl)
-Spell/&DHDominateMonsterSpellDescription	Intentas engañar a una criatura que puedes ver dentro del alcance. Debe tener éxito en una tirada de salvación de Sabiduría o ser hechizado por ti mientras dure.
-Spell/&DHDominateMonsterSpellTitle	dominar monstruo
-Spell/&DHFeeblemindSpellDescription	Explotas la mente de una criatura que puedes ver dentro del alcance, intentando destrozar su intelecto y personalidad. El objetivo sufre 4d6 de daño psíquico y debe hacer una tirada de salvación de Inteligencia. Si falla, las puntuaciones de Inteligencia y Carisma de la criatura se vuelven 1. La criatura no puede lanzar hechizos, activar objetos mágicos, comprender el lenguaje o comunicarse de forma inteligible.
-Spell/&DHFeeblemindSpellTitle	Débil mental
-Spell/&DHFingerOfDeathSpellDescription	El objetivo debe realizar una tirada de salvación de Constitución. Se necesitan 7d8 + 30 de daño necrótico en una salvación fallida, o la mitad de daño en una exitosa.
-Spell/&DHFingerOfDeathSpellTitle	Dedo de la muerte (sin zombi)
-Spell/&DHForesightSpellDescription	Tocas a una criatura voluntaria y le otorgas una habilidad limitada para ver el futuro inmediato. Mientras dure, el objetivo no puede ser sorprendido y tiene ventaja en las tiradas de ataque, las pruebas de habilidad y las tiradas de salvación. Además, otras criaturas tienen desventaja en las tiradas de ataque contra el objetivo mientras dure.
-Spell/&DHForesightSpellTitle	Previsión
-Spell/&DHHolyAuraSpellDescription	La luz divina sale de ti y se funde en un suave resplandor en un radio de 30 pies a tu alrededor. Las criaturas de tu elección en ese radio cuando lanzas este conjuro emiten una luz tenue en un radio de 5 pies y tienen ventaja en todas las tiradas de salvación, y otras criaturas tienen desventaja en las tiradas de ataque contra ellas hasta que finaliza el conjuro.
-Spell/&DHHolyAuraSpellTitle	aura sagrada
-Spell/&DHIncendiaryCloudSpellDescription	Aparece una nube de humo arremolinada atravesada por brasas al rojo vivo en una esfera de 20 pies de radio centrada en un punto dentro del alcance. La nube se extiende por las esquinas y está muy oscurecida. Dura mientras dura o hasta que un viento de velocidad moderada o mayor (al menos 10 millas por hora) la dispersa.\nCuando aparece la nube, cada criatura en ella debe hacer una tirada de salvación de Destreza. Una criatura sufre 10d8 de daño por fuego si falla la salvación, o la mitad de daño si tiene éxito. Una criatura también debe hacer esta tirada de salvación cuando entra en el área del hechizo por primera vez en un turno o termina su turno allí.\nLa nube se aleja 10 pies directamente de ti en la dirección que elijas al comienzo de cada uno de tus turnos.
-Spell/&DHIncendiaryCloudSpellTitle	Nube incendiaria
-Spell/&DHMassHealSpellDescription	Un torrente de energía curativa fluye desde ti hacia las criaturas heridas que te rodean. Restauras 120 puntos de golpe cada uno a 6 criaturas que puedes ver dentro del alcance. Las criaturas curadas por este conjuro también se curan de todas las enfermedades y de cualquier efecto que las cegue o ensordezca. Este hechizo no tiene efecto sobre muertos vivientes o construcciones.
-Spell/&DHMassHealSpellTitle	Curación masiva
-Spell/&DHMazeSpellDescription	Destierras a una criatura que puedes ver dentro del alcance en un semiplano laberíntico. El objetivo permanece allí durante la duración o hasta que escapa del laberinto. /nEl objetivo puede usar su acción para intentar una prueba de Inteligencia CD 20 para escapar.
-Spell/&DHMazeSpellTitle	Laberinto
-Spell/&DHMeteorSwarmSingleTargetSpellDescription	Orbes llameantes de fuego caen en picado al suelo en un solo punto que puedes ver dentro del alcance. Cada criatura en una esfera de 40 pies de radio centrada en el punto que elijas debe hacer una tirada de salvación de Destreza. La esfera se extiende por las esquinas. Una criatura sufre 20d6 de daño por fuego y 20d6 de daño contundente si falla la salvación, o la mitad de daño si tiene éxito. Una criatura en el área de más de un estallido de fuego se ve afectada solo una vez.
-Spell/&DHMeteorSwarmSingleTargetSpellTitle	Enjambre de meteoritos (objetivo único)
-Spell/&DHMindBlankSpellDescription	Hasta que finalice el conjuro, una criatura voluntaria que toques es inmune al daño psíquico, cualquier efecto que pueda sentir sus emociones o leer sus pensamientos, conjuros de adivinación y la condición encantada.
-Spell/&DHMindBlankSpellTitle	Mente en blanco
-Spell/&DHPowerWordHealSpellDescription	Una ola de energía curativa inunda a la criatura que tocas. El objetivo recupera todos sus puntos de golpe. Si la criatura está encantada, asustada, paralizada o aturdida, la condición finaliza. Si la criatura está boca abajo, puede usar su reacción para ponerse de pie. Este hechizo no tiene efecto sobre muertos vivientes o construcciones.
-Spell/&DHPowerWordHealSpellTitle	Palabra de poder sanar
-Spell/&DHPowerWordKillSpellDescription	Pronuncias una palabra de poder que puede obligar a una criatura que puedas ver dentro del alcance a morir instantáneamente. Si la criatura que eliges tiene 100 puntos de golpe o menos, muere. De lo contrario, el hechizo no tiene efecto.
-Spell/&DHPowerWordKillSpellTitle	Palabra de poder matar
-Spell/&DHPowerWordStunSpellDescription	Pronuncias una palabra de poder que puede abrumar la mente de una criatura que puedes ver dentro del alcance, dejándola estupefacta. Si el objetivo tiene 150 puntos de golpe o menos, queda aturdido. De lo contrario, el hechizo no tiene efecto.
-Spell/&DHPowerWordStunSpellTitle	Aturdimiento de palabra de poder
-Spell/&DHReverseGravitySpellDescription	Este hechizo invierte la gravedad en un cilindro de 50 pies de radio y 100 pies de alto centrado en un punto dentro del alcance.
-Spell/&DHReverseGravitySpellTitle	Gravedad inversa
-Spell/&DHShapechangeSpellDescription	Asumes la forma de una criatura diferente durante la duración. La nueva forma puede ser de cualquier criatura con una calificación de desafío igual a tu nivel o inferior.
-Spell/&DHShapechangeSpellTitle	Cambio de forma
-Spell/&DHSunBurstSpellDescription	La luz del sol brilla en un radio de 60 pies centrado en un punto que elija dentro del alcance. Cada criatura en esa luz debe hacer una tirada de salvación de Constitución. Si falla, la criatura sufre 12d6 de daño radiante y queda cegada durante 1 minuto. Si tiene éxito, recibe la mitad de daño y no queda cegado por este hechizo. Los muertos vivientes y los cienos tienen desventaja en esta tirada de salvación. Una criatura cegada por este hechizo hace otra tirada de salvación de Constitución al final de cada uno de sus turnos. Con una salvación exitosa, ya no queda cegado. Este hechizo disipa cualquier oscuridad en su área que haya sido creada por un hechizo.
-Spell/&DHSunBurstSpellTitle	rayos de sol
-Spell/&DHTimeStopSpellDescription	Detienes brevemente el flujo del tiempo para todos menos para ti. No pasa el tiempo para otras criaturas, mientras tomas 1d4 + 1 turnos seguidos, durante los cuales puedes usar acciones y moverte normalmente.
-Spell/&DHTimeStopSpellTitle	parada de tiempo
-Spell/&DHWeirdSpellDescription	Basándote en los miedos más profundos de un grupo de criaturas, creas criaturas ilusorias en sus mentes, visibles solo para ellos. Cada criatura en una esfera de 30 pies de radio centrada en un punto de tu elección dentro del alcance debe hacer una tirada de salvación de Sabiduría. En una salvación fallida, una criatura queda asustada por la duración. La ilusión apela a los miedos más profundos de la criatura, manifestando sus peores pesadillas como una amenaza implacable. Al final de cada uno de los turnos de la criatura asustada, debe superar una tirada de salvación de Sabiduría o recibir 4d10 de daño psíquico. Con una salvación exitosa, el conjuro termina para esa criatura.
-Spell/&DHWeirdSpellTitle	Extraño
-Spell/&EarthTremorDescription	Golpeas el suelo y desatas un temblor de fuerza sísmica, arrojando tierra, rocas y arena.
-Spell/&EarthTremorTitle	Terremoto
-Spell/&EWResonatingStrikeDescription	Selecciona una criatura dentro de tu alcance cuerpo a cuerpo y una criatura diferente que puedas ver a menos de 5 pies del objetivo principal. Haces un ataque cuerpo a cuerpo con el arma actual contra la primera criatura. En un golpe, el objetivo sufre los efectos normales del ataque del arma y el sonido resonante salta al segundo objetivo, infligiendo un daño de trueno igual a tu modificador de habilidad de lanzamiento de hechizos.\nEn el nivel 5, el ataque cuerpo a cuerpo inflige 1d8 de daño de trueno extra al objetivo con un golpe, y el daño de trueno a la segunda criatura aumenta a 1d8 + tu modificador de habilidad para lanzar conjuros. Ambas tiradas de daño aumentan en 1d8 en los niveles 11 y 17.
-Spell/&EWResonatingStrikeTitle	Golpe resonante
-Spell/&EWSunlightBladeDescription	Haz un ataque cuerpo a cuerpo con un arma. En un golpe, el objetivo sufre los efectos normales del ataque y se ve envuelto en una energía radiante que brilla intensamente, arrojando una luz tenue durante el turno. El próximo ataque contra esta criatura mientras está resaltada se realiza con ventaja.\nA nivel 5, el ataque cuerpo a cuerpo inflige 1d8 de daño radiante adicional al objetivo. El daño aumenta en otros 1d8 a nivel 11 y 17.
-Spell/&EWSunlightBladeTitle	Hoja iluminada por el sol
-Spell/&FindFamiliarDescription	Obtienes el servicio de un familiar.
-Spell/&FindFamiliarImpDescription	Invoca a tu familiar en forma de diablillo.
-Spell/&FindFamiliarImpTitle	Encuentra familiar (Diablillo)
-Spell/&FindFamiliarPsuedodragonDescription	Invoca a tu familiar en forma de pseudodragón.
-Spell/&FindFamiliarPsuedodragonTitle	Encuentra familiar (pseudodragón)
-Spell/&FindFamiliarQuasitDescription	Invoca a tu familiar en forma de cuasit.
-Spell/&FindFamiliarQuasitTitle	Encuentra familiar (cuasit)
-Spell/&FindFamiliarSpriteDescription	Invoca a tu familiar en forma de Sprite.
-Spell/&FindFamiliarSpriteTitle	Encuentra Familiar (Sprite)
-Spell/&FindFamiliarTitle	Encuentra familiar
-Spell/&FrenzyDescription	Con un gesto, reducís una multitud a la base del instinto y la violencia. Elija un punto que pueda ver dentro del alcance. Cada criatura a 20 pies o menos de ese punto debe hacer una tirada de salvación de Sabiduría. En una salvación fallida, una criatura entra en frenesí durante la duración. Cuando una criatura entra en frenesí, desenvaina un arma cuerpo a cuerpo, si tiene una. Una criatura frenética debe usar su acción al comienzo de su turno para atacar a una criatura a su alcance. Utiliza un arma cuerpo a cuerpo, si la tiene, o un arma improvisada o un ataque sin armas, si no la tiene. Si varios objetivos están dentro del alcance de la criatura, elige su objetivo al azar. Si no hay ningún objetivo al alcance de la criatura, se ataca a sí misma, contra su propia CA, infligiendo daño de forma normal con un golpe. Al final de su turno, una criatura frenética puede repetir su tirada de salvación, acabando pronto con el efecto si tiene éxito.
-Spell/&FrenzyTitle	Frenesí
-Spell/&IlluminatingSphereDescription	Hace que se enciendan fuentes de luz como antorchas y lámparas de maná en el área de efecto.
-Spell/&IlluminatingSphereTitle	esfera iluminadora
-Spell/&IPConjureInvisibleStalkerTitle	Conjurar elemental (acechador invisible)
-Spell/&MinorLifestealDescription	Drenas la energía vital de una criatura hostil que puedes ver dentro del alcance. Luego curas puntos de vida iguales a la cantidad de daño infligido. Este hechizo no tiene efecto sobre muertos vivientes o construcciones.
-Spell/&MinorLifestealTitle	Robo de vida menor
-Spell/&MirrorImageDescription	Imagen de espejo
-Spell/&MirrorImageTitle	Imagen de espejo
-Spell/&MuleDescription	El destinatario de este hechizo puede ignorar los efectos de cargas pesadas o armaduras en la velocidad de movimiento. También pueden llevar un poco más de peso.
-Spell/&MuleTitle	Mula
-Spell/&PetalStormDescription	Elija un cubo de aire de 15 pies desocupado que pueda ver dentro del alcance. Una fuerza elemental de vientos arremolinados aparece en el cubo y dura lo que dura el hechizo. La nube oscurece fuertemente su área. Cualquier criatura que entre en la tormenta por primera vez en un turno o comience su turno allí debe hacer una tirada de salvación de Fuerza. Si falla, la criatura sufre 3d4 de daño cortante. Como acción adicional, puedes mover la tormenta hasta 30 pies en cualquier dirección.
-Spell/&PetalStormTitle	Tormenta de pétalos
-Spell/&ProtectThresholdDescription	Trazando sigilos arcanos a lo largo de su límite, puedes proteger una puerta, ventana u otro portal de entrada. Mientras dura, una criatura sobrenatural invisible acecha el portal protegido. Cualquier criatura que intente atravesar el portal debe hacer una tirada de salvación de Sabiduría o recibir 4d6 de daño psíquico, o la mitad si tiene éxito.
-Spell/&ProtectThresholdTitle	Umbral de protección
-Spell/&RadiantMotesDescription	Libera un enjambre de 5 proyectiles radiantes que infligen 2 de daño radiante cada uno, pero nunca fallan. Los objetivos pueden irradiar luz durante un máximo de 1 minuto.\nCuando lanzas este hechizo usando un espacio de hechizo de nivel 2 o superior, el hechizo crea 2 proyectiles más para cada espacio por encima del nivel 1.
-Spell/&RadiantMotesTitle	Motas radiantes
-Spell/&ThunderStrikeDescription	Crea un estallido de sonido atronador, obligando a las criaturas adyacentes a ti a realizar una tirada de salvación de Constitución o recibir 1d6 de daño por trueno.\nEl daño de este hechizo aumenta en 1d6 cuando alcanzas el nivel 5 (2d6), el nivel 11 (3d6) y el nivel 17 (4d6).
-Spell/&ThunderStrikeTitle	Ráfaga de sonido
-Spell/&WinterBreathDescription	Crea una ráfaga de viento frío para congelar a tus enemigos y derribarlos.
-Spell/&WinterBreathTitle	Aliento de invierno
-SpellList/&ElementalistSpellsListDescription	Lista de hechizos de elementalista.
-SpellList/&ElementalistSpellsListTitle	Lista de hechizos de elementalista
-Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	Puedes recuperar espacios de conjuros durante un breve descanso dos veces al día.
-Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Preparación alquímica
-Subclass/&PowerSpellRefuelingRingDescription	Cuando activas esto, recuperas la mitad de tu nivel en espacios de hechizos.
-Subclass/&PowerSpellRefuelingRingTitle	Anillo de recarga de hechizos
+ActionAffinity/&DHFeeblemindSpellDescription=Incapaz de lanzar hechizos.
+ActionAffinity/&DHFeeblemindSpellTitle=Débil mental
+AttributeModifier/&DHFeeblemindChaSpellDescription=La puntuación de carisma se establece en 1.
+AttributeModifier/&DHFeeblemindChaSpellTitle=carisma débil
+AttributeModifier/&DHFeeblemindIntSpellDescription=La puntuación de carisma se establece en 1.
+AttributeModifier/&DHFeeblemindIntSpellTitle=Inteligencia débil
+Condition/&ConditionMuleDescription=Tu velocidad no se ve reducida por estorbos o armaduras pesadas. Puedes llevar 20 libras adicionales.
+Condition/&ConditionMuleTitle=Mula
+Condition/&DHFeeblemindSpellDescription=Las puntuaciones de Inteligencia y Carisma de la criatura se convierten en 1. La criatura no puede lanzar hechizos, activar objetos mágicos, entender el lenguaje o comunicarse de forma inteligible.
+Condition/&DHFeeblemindSpellTitle=Débil mental
+Condition/&DHForesightSpellDescription=Ventaja en todas las tiradas de ataque, pruebas de habilidad y tiradas de salvación. Otras criaturas tienen desventaja en las tiradas de ataque.
+Condition/&DHForesightSpellTitle=Previsión
+Condition/&DHHolyAuraSpellDescription=Ventaja en todas las tiradas de salvación. Otras criaturas tienen desventaja en las tiradas de ataque. Cuando un demonio o un no-muerto golpea a una criatura afectada con un ataque cuerpo a cuerpo, el atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que finalice el conjuro.
+Condition/&DHHolyAuraSpellTitle=Protegido por el Aura Sagrada
+Condition/&DHMindBlankSpellDescription=Inmune al daño psíquico y al estado encantado.
+Condition/&DHMindBlankSpellTitle=Mente en blanco
+Condition/&DHReverseGravitySpellDescription=No puedo moverme.
+Condition/&DHReverseGravitySpellTitle=Atrapado por la gravedad inversa
+Condition/&DHTimeStopSpellDescription=El tiempo se congela para la criatura afectada.
+Condition/&DHTimeStopSpellTitle=tiempo detenido
+Condition/&DHWeirdSpellDescription=Atemorizado. Al final de cada turno, haz una tirada de salvación de Sabiduría. Si falla, recibe 4d10 de daño psíquico. Con un éxito, esta condición finaliza.
+Condition/&DHWeirdSpellTitle=raro
+Condition/&EWResonatingStrikeDamageDescription=A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño de trueno adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
+Condition/&EWResonatingStrikeDamageTitle=Resonancia
+Condition/&EWSunlightBladeDamageDescription=A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño radiante adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
+Condition/&EWSunlightBladeDamageTitle=Quemadura de Sunlit Blade
+DamageAffinity/&DHHolyAuraSpellDescription=Cuando un demonio o un no-muerto golpea con un ataque cuerpo a cuerpo, el aura destella con una luz brillante y el atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que termine el hechizo.
+DamageAffinity/&DHHolyAuraSpellTitle=Represalia del aura sagrada
+Feat/&AlchemistSubclassSpellsDescription={0}.
+Feat/&AlchemistSubclassSpellsTitle=Aprende hechizos para hacer pociones
+Feat/&AutoPreparedSpellsDescription={0}.
+Feat/&AutoPreparedSpellsTitle=Aprende hechizos de Scout Sentinel
+Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription=Obtienes hechizos de bonificación que se consideran hechizos de Tinkerer para ti, siempre están preparados y no cuentan contra la cantidad de hechizos de Tinkerer que conoces.
+Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle=Hechizos de construcción protectora
+Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription=Obtienes hechizos de bonificación que se consideran hechizos de Tinkerer para ti, siempre están preparados y no cuentan contra la cantidad de hechizos de Tinkerer que conoces.
+Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle=Hechizos de construcción protectora
+Feature/&DHHolyAuraBlindingPowerDescription=Cuando un demonio o un no-muerto golpea a una criatura afectada con un ataque cuerpo a cuerpo, el aura destella con una luz brillante. El atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que termine el conjuro.
+Feature/&DHHolyAuraBlindingPowerTitle=Represalia del aura sagrada
+Feature/&ElementalistSpellsMagicAffinityDescription=Eliges de una lista ampliada de hechizos cuando aprendes un hechizo de brujo. Los siguientes hechizos se agregan a la lista de hechizos de Warlock para ti: {0}
+Feature/&ElementalistSpellsMagicAffinityTitle=Hechizos de elementalista
+Feature/&SpellAsInvocationAtWillDescription=Lanza {0} a voluntad.
+Feature/&SpellAsInvocationOncePerDayDescription=Lanza {0} una vez hasta un descanso prolongado.
+Feedback/&AdditionalDamageResonatingStrikeFormat=¡Golpe resonante!
+Feedback/&AdditionalDamageResonatingStrikeLine=¡{0} resuena {1}! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat=¡Hoja iluminada por el sol!
+Feedback/&AdditionalDamageSunlightBladeLine=¡{0} quema {1} con Sunlit Blade! (+{2})
+Feedback/&NotifyEffectResonatingStrikeLine=¡{0} resuena {1}!
+Monster/&DHCustomCouatlDescription=Los couatls son seres serpentinos benévolos de gran intelecto y perspicacia. Sus alas de colores brillantes y su manera amable hablan de sus orígenes celestiales.
+Monster/&DHCustomCouatlTitle=Couatl
+Monster/&OwlFamiliarDescription=Búho Familiar.
+Monster/&OwlFamiliarTitle=Búho
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription=Daño perforante, y el objetivo debe tener éxito en una tirada de salvación de Constitución CD 13 o quedará envenenado durante 24 horas. Hasta que este veneno termine, el objetivo está inconsciente.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle=Morder
+Reaction/&CastSpellInRetributionDescription=¡{0} está atacando a {1}! ¡Puedes lanzar {2} en respuesta!
+Reaction/&CastSpellInRetributionReactDescription=Haz clic para enviar {0}.
+Reaction/&CastSpellInRetributionReactTitle=Lanzar hechizo
+Reaction/&CastSpellInRetributionTitle=Lanzar hechizo de reacción
+Reaction/&SpendSpellSlot{0}Description=Gastar hechizo {0}
+Reaction/&SpendSpellSlot{0}Title=Gastar hechizo {0}
+Screen/&FeyTeleportSpellDescription=Este hechizo Fey siempre está preparado.
+Screen/&FeyTeleportSpellTitle=Vidente
+Screen/&MulticlassSpellDescription=Conoces este hechizo de otro repertorio.
+Screen/&MulticlassSpellTitle=multiclase
+Screen/&ShadowTouchedSpellDescription=Este hechizo de Sombra siempre está preparado.
+Screen/&ShadowTouchedSpellTitle=Sombra
+Screen/&SpellSlotsUsedLongDescription=Has gastado {0} espacio(s) de hechizo en este nivel.
+Screen/&SpellSlotsUsedShortDescription=Has gastado {0} espacio(s) mágico(s) de pacto.
+Screen/&SpellSlotsUsedShortLongDescription=Has gastado {0} espacio(s) mágico(s) de pacto y {1} espacio(s) de hechizo en este nivel.
+Spell/&AcidClawsDescription=Haz un ataque mortal con tus garras afiladas.
+Spell/&AcidClawsTitle=Garras sangrientas
+Spell/&AHHellishRebukeDescription=Señalas con el dedo y la criatura que te dañó queda momentáneamente rodeada de llamas infernales. La criatura debe hacer una tirada de salvación de Destreza. Se necesitan 2d10 de daño por fuego en una salvación fallida, o la mitad de daño en una con éxito.
+Spell/&AHHellishRebukeTitle=reprensión infernal
+Spell/&BurstOfRadianceDescription=Crea un destello brillante de luz resplandeciente que daña a todos los enemigos a tu alrededor.
+Spell/&BurstOfRadianceTitle=Explosión de resplandor
+Spell/&CJDivineWordDescription=Pronuncias una palabra divina, imbuida del poder que dio forma al mundo en los albores de la creación. Elige cualquier cantidad de criaturas que puedas ver dentro del alcance. Cada criatura que pueda oírte debe hacer una tirada de salvación de Carisma. En una salvación fallida, una criatura sufre un efecto basado en sus puntos de golpe actuales:\n• 50 puntos de golpe o menos: ensordecido durante 1 minuto\n• 40 puntos de golpe o menos: ensordecido y cegado durante 10 minutos\n• 30 puntos de golpe o menos: cegado, ensordecido y aturdido durante 1 hora\n• 20 puntos de golpe o menos: muerto al instante\nIndependientemente de sus puntos de golpe actuales, un celestial, un elemental, un feérico o un demonio que falla su salvación se ve obligado a regresar a su plano de origen (si aún no está allí) y no puede regresar a su plano actual por 24 horas por cualquier medio que no sea un hechizo de deseo.
+Spell/&CJDivineWordTitle=Palabra Divina
+Spell/&DHAnimalShapesSpellDescription=Elige cualquier cantidad de criaturas voluntarias que puedas ver dentro del alcance. Transformas cada objetivo en la forma de una bestia grande o más pequeña con una calificación de desafío de 4 o menos.
+Spell/&DHAnimalShapesSpellTitle=formas de animales
+Spell/&DHCastSpellArchMageDescription=Habilidad de lanzamiento de archimagos.
+Spell/&DHCastSpellArchMageTitle=Habilidad de lanzamiento de archimagos
+Spell/&DHCastSpellGuardianNagaDescription=Habilidad de lanzamiento de archimagos.
+Spell/&DHCastSpellGuardianNagaTitle=Habilidad de lanzamiento de archimagos
+Spell/&DHCastSpellLichDescription=Habilidad de lanzamiento de liches.
+Spell/&DHCastSpellLichTitle=Habilidad de lanzamiento de liches
+Spell/&DHConjureCelestialSpellDescription=Invocas a un celestial con una calificación de desafío de 4 o inferior, que aparece en un espacio desocupado que puedes ver dentro del alcance. El celestial desaparece cuando llega a 0 puntos de golpe o cuando termina el hechizo. El celestial es amigable contigo y tus compañeros mientras dure.
+Spell/&DHConjureCelestialSpellTitle=Conjurar celestial (Couatl)
+Spell/&DHDominateMonsterSpellDescription=Intentas engañar a una criatura que puedes ver dentro del alcance. Debe tener éxito en una tirada de salvación de Sabiduría o ser hechizado por ti mientras dure.
+Spell/&DHDominateMonsterSpellTitle=dominar monstruo
+Spell/&DHFeeblemindSpellDescription=Explotas la mente de una criatura que puedes ver dentro del alcance, intentando destrozar su intelecto y personalidad. El objetivo sufre 4d6 de daño psíquico y debe hacer una tirada de salvación de Inteligencia. Si falla, las puntuaciones de Inteligencia y Carisma de la criatura se vuelven 1. La criatura no puede lanzar hechizos, activar objetos mágicos, comprender el lenguaje o comunicarse de forma inteligible.
+Spell/&DHFeeblemindSpellTitle=Débil mental
+Spell/&DHFingerOfDeathSpellDescription=El objetivo debe realizar una tirada de salvación de Constitución. Se necesitan 7d8 + 30 de daño necrótico en una salvación fallida, o la mitad de daño en una exitosa.
+Spell/&DHFingerOfDeathSpellTitle=Dedo de la muerte (sin zombi)
+Spell/&DHForesightSpellDescription=Tocas a una criatura voluntaria y le otorgas una habilidad limitada para ver el futuro inmediato. Mientras dure, el objetivo no puede ser sorprendido y tiene ventaja en las tiradas de ataque, las pruebas de habilidad y las tiradas de salvación. Además, otras criaturas tienen desventaja en las tiradas de ataque contra el objetivo mientras dure.
+Spell/&DHForesightSpellTitle=Previsión
+Spell/&DHHolyAuraSpellDescription=La luz divina sale de ti y se funde en un suave resplandor en un radio de 30 pies a tu alrededor. Las criaturas de tu elección en ese radio cuando lanzas este conjuro emiten una luz tenue en un radio de 5 pies y tienen ventaja en todas las tiradas de salvación, y otras criaturas tienen desventaja en las tiradas de ataque contra ellas hasta que finaliza el conjuro.
+Spell/&DHHolyAuraSpellTitle=aura sagrada
+Spell/&DHIncendiaryCloudSpellDescription=Aparece una nube de humo arremolinada atravesada por brasas al rojo vivo en una esfera de 20 pies de radio centrada en un punto dentro del alcance. La nube se extiende por las esquinas y está muy oscurecida. Dura mientras dura o hasta que un viento de velocidad moderada o mayor (al menos 10 millas por hora) la dispersa.\nCuando aparece la nube, cada criatura en ella debe hacer una tirada de salvación de Destreza. Una criatura sufre 10d8 de daño por fuego si falla la salvación, o la mitad de daño si tiene éxito. Una criatura también debe hacer esta tirada de salvación cuando entra en el área del hechizo por primera vez en un turno o termina su turno allí.\nLa nube se aleja 10 pies directamente de ti en la dirección que elijas al comienzo de cada uno de tus turnos.
+Spell/&DHIncendiaryCloudSpellTitle=Nube incendiaria
+Spell/&DHMassHealSpellDescription=Un torrente de energía curativa fluye desde ti hacia las criaturas heridas que te rodean. Restauras 120 puntos de golpe cada uno a 6 criaturas que puedes ver dentro del alcance. Las criaturas curadas por este conjuro también se curan de todas las enfermedades y de cualquier efecto que las cegue o ensordezca. Este hechizo no tiene efecto sobre muertos vivientes o construcciones.
+Spell/&DHMassHealSpellTitle=Curación masiva
+Spell/&DHMazeSpellDescription=Destierras a una criatura que puedes ver dentro del alcance en un semiplano laberíntico. El objetivo permanece allí durante la duración o hasta que escapa del laberinto. /nEl objetivo puede usar su acción para intentar una prueba de Inteligencia CD 20 para escapar.
+Spell/&DHMazeSpellTitle=Laberinto
+Spell/&DHMeteorSwarmSingleTargetSpellDescription=Orbes llameantes de fuego caen en picado al suelo en un solo punto que puedes ver dentro del alcance. Cada criatura en una esfera de 40 pies de radio centrada en el punto que elijas debe hacer una tirada de salvación de Destreza. La esfera se extiende por las esquinas. Una criatura sufre 20d6 de daño por fuego y 20d6 de daño contundente si falla la salvación, o la mitad de daño si tiene éxito. Una criatura en el área de más de un estallido de fuego se ve afectada solo una vez.
+Spell/&DHMeteorSwarmSingleTargetSpellTitle=Enjambre de meteoritos (objetivo único)
+Spell/&DHMindBlankSpellDescription=Hasta que finalice el conjuro, una criatura voluntaria que toques es inmune al daño psíquico, cualquier efecto que pueda sentir sus emociones o leer sus pensamientos, conjuros de adivinación y la condición encantada.
+Spell/&DHMindBlankSpellTitle=Mente en blanco
+Spell/&DHPowerWordHealSpellDescription=Una ola de energía curativa inunda a la criatura que tocas. El objetivo recupera todos sus puntos de golpe. Si la criatura está encantada, asustada, paralizada o aturdida, la condición finaliza. Si la criatura está boca abajo, puede usar su reacción para ponerse de pie. Este hechizo no tiene efecto sobre muertos vivientes o construcciones.
+Spell/&DHPowerWordHealSpellTitle=Palabra de poder sanar
+Spell/&DHPowerWordKillSpellDescription=Pronuncias una palabra de poder que puede obligar a una criatura que puedas ver dentro del alcance a morir instantáneamente. Si la criatura que eliges tiene 100 puntos de golpe o menos, muere. De lo contrario, el hechizo no tiene efecto.
+Spell/&DHPowerWordKillSpellTitle=Palabra de poder matar
+Spell/&DHPowerWordStunSpellDescription=Pronuncias una palabra de poder que puede abrumar la mente de una criatura que puedes ver dentro del alcance, dejándola estupefacta. Si el objetivo tiene 150 puntos de golpe o menos, queda aturdido. De lo contrario, el hechizo no tiene efecto.
+Spell/&DHPowerWordStunSpellTitle=Aturdimiento de palabra de poder
+Spell/&DHReverseGravitySpellDescription=Este hechizo invierte la gravedad en un cilindro de 50 pies de radio y 100 pies de alto centrado en un punto dentro del alcance.
+Spell/&DHReverseGravitySpellTitle=Gravedad inversa
+Spell/&DHShapechangeSpellDescription=Asumes la forma de una criatura diferente durante la duración. La nueva forma puede ser de cualquier criatura con una calificación de desafío igual a tu nivel o inferior.
+Spell/&DHShapechangeSpellTitle=Cambio de forma
+Spell/&DHSunBurstSpellDescription=La luz del sol brilla en un radio de 60 pies centrado en un punto que elija dentro del alcance. Cada criatura en esa luz debe hacer una tirada de salvación de Constitución. Si falla, la criatura sufre 12d6 de daño radiante y queda cegada durante 1 minuto. Si tiene éxito, recibe la mitad de daño y no queda cegado por este hechizo. Los muertos vivientes y los cienos tienen desventaja en esta tirada de salvación. Una criatura cegada por este hechizo hace otra tirada de salvación de Constitución al final de cada uno de sus turnos. Con una salvación exitosa, ya no queda cegado. Este hechizo disipa cualquier oscuridad en su área que haya sido creada por un hechizo.
+Spell/&DHSunBurstSpellTitle=rayos de sol
+Spell/&DHTimeStopSpellDescription=Detienes brevemente el flujo del tiempo para todos menos para ti. No pasa el tiempo para otras criaturas, mientras tomas 1d4 + 1 turnos seguidos, durante los cuales puedes usar acciones y moverte normalmente.
+Spell/&DHTimeStopSpellTitle=parada de tiempo
+Spell/&DHWeirdSpellDescription=Basándote en los miedos más profundos de un grupo de criaturas, creas criaturas ilusorias en sus mentes, visibles solo para ellos. Cada criatura en una esfera de 30 pies de radio centrada en un punto de tu elección dentro del alcance debe hacer una tirada de salvación de Sabiduría. En una salvación fallida, una criatura queda asustada por la duración. La ilusión apela a los miedos más profundos de la criatura, manifestando sus peores pesadillas como una amenaza implacable. Al final de cada uno de los turnos de la criatura asustada, debe superar una tirada de salvación de Sabiduría o recibir 4d10 de daño psíquico. Con una salvación exitosa, el conjuro termina para esa criatura.
+Spell/&DHWeirdSpellTitle=Extraño
+Spell/&EarthTremorDescription=Golpeas el suelo y desatas un temblor de fuerza sísmica, arrojando tierra, rocas y arena.
+Spell/&EarthTremorTitle=Terremoto
+Spell/&EWResonatingStrikeDescription=Selecciona una criatura dentro de tu alcance cuerpo a cuerpo y una criatura diferente que puedas ver a menos de 5 pies del objetivo principal. Haces un ataque cuerpo a cuerpo con el arma actual contra la primera criatura. En un golpe, el objetivo sufre los efectos normales del ataque del arma y el sonido resonante salta al segundo objetivo, infligiendo un daño de trueno igual a tu modificador de habilidad de lanzamiento de hechizos.\nEn el nivel 5, el ataque cuerpo a cuerpo inflige 1d8 de daño de trueno extra al objetivo con un golpe, y el daño de trueno a la segunda criatura aumenta a 1d8 + tu modificador de habilidad para lanzar conjuros. Ambas tiradas de daño aumentan en 1d8 en los niveles 11 y 17.
+Spell/&EWResonatingStrikeTitle=Golpe resonante
+Spell/&EWSunlightBladeDescription=Haz un ataque cuerpo a cuerpo con un arma. En un golpe, el objetivo sufre los efectos normales del ataque y se ve envuelto en una energía radiante que brilla intensamente, arrojando una luz tenue durante el turno. El próximo ataque contra esta criatura mientras está resaltada se realiza con ventaja.\nA nivel 5, el ataque cuerpo a cuerpo inflige 1d8 de daño radiante adicional al objetivo. El daño aumenta en otros 1d8 a nivel 11 y 17.
+Spell/&EWSunlightBladeTitle=Hoja iluminada por el sol
+Spell/&FindFamiliarDescription=Obtienes el servicio de un familiar.
+Spell/&FindFamiliarImpDescription=Invoca a tu familiar en forma de diablillo.
+Spell/&FindFamiliarImpTitle=Encuentra familiar (Diablillo)
+Spell/&FindFamiliarPsuedodragonDescription=Invoca a tu familiar en forma de pseudodragón.
+Spell/&FindFamiliarPsuedodragonTitle=Encuentra familiar (pseudodragón)
+Spell/&FindFamiliarQuasitDescription=Invoca a tu familiar en forma de cuasit.
+Spell/&FindFamiliarQuasitTitle=Encuentra familiar (cuasit)
+Spell/&FindFamiliarSpriteDescription=Invoca a tu familiar en forma de Sprite.
+Spell/&FindFamiliarSpriteTitle=Encuentra Familiar (Sprite)
+Spell/&FindFamiliarTitle=Encuentra familiar
+Spell/&FrenzyDescription=Con un gesto, reducís una multitud a la base del instinto y la violencia. Elija un punto que pueda ver dentro del alcance. Cada criatura a 20 pies o menos de ese punto debe hacer una tirada de salvación de Sabiduría. En una salvación fallida, una criatura entra en frenesí durante la duración. Cuando una criatura entra en frenesí, desenvaina un arma cuerpo a cuerpo, si tiene una. Una criatura frenética debe usar su acción al comienzo de su turno para atacar a una criatura a su alcance. Utiliza un arma cuerpo a cuerpo, si la tiene, o un arma improvisada o un ataque sin armas, si no la tiene. Si varios objetivos están dentro del alcance de la criatura, elige su objetivo al azar. Si no hay ningún objetivo al alcance de la criatura, se ataca a sí misma, contra su propia CA, infligiendo daño de forma normal con un golpe. Al final de su turno, una criatura frenética puede repetir su tirada de salvación, acabando pronto con el efecto si tiene éxito.
+Spell/&FrenzyTitle=Frenesí
+Spell/&IlluminatingSphereDescription=Hace que se enciendan fuentes de luz como antorchas y lámparas de maná en el área de efecto.
+Spell/&IlluminatingSphereTitle=esfera iluminadora
+Spell/&IPConjureInvisibleStalkerTitle=Conjurar elemental (acechador invisible)
+Spell/&MinorLifestealDescription=Drenas la energía vital de una criatura hostil que puedes ver dentro del alcance. Luego curas puntos de vida iguales a la cantidad de daño infligido. Este hechizo no tiene efecto sobre muertos vivientes o construcciones.
+Spell/&MinorLifestealTitle=Robo de vida menor
+Spell/&MirrorImageDescription=Imagen de espejo
+Spell/&MirrorImageTitle=Imagen de espejo
+Spell/&MuleDescription=El destinatario de este hechizo puede ignorar los efectos de cargas pesadas o armaduras en la velocidad de movimiento. También pueden llevar un poco más de peso.
+Spell/&MuleTitle=Mula
+Spell/&PetalStormDescription=Elija un cubo de aire de 15 pies desocupado que pueda ver dentro del alcance. Una fuerza elemental de vientos arremolinados aparece en el cubo y dura lo que dura el hechizo. La nube oscurece fuertemente su área. Cualquier criatura que entre en la tormenta por primera vez en un turno o comience su turno allí debe hacer una tirada de salvación de Fuerza. Si falla, la criatura sufre 3d4 de daño cortante. Como acción adicional, puedes mover la tormenta hasta 30 pies en cualquier dirección.
+Spell/&PetalStormTitle=Tormenta de pétalos
+Spell/&ProtectThresholdDescription=Trazando sigilos arcanos a lo largo de su límite, puedes proteger una puerta, ventana u otro portal de entrada. Mientras dura, una criatura sobrenatural invisible acecha el portal protegido. Cualquier criatura que intente atravesar el portal debe hacer una tirada de salvación de Sabiduría o recibir 4d6 de daño psíquico, o la mitad si tiene éxito.
+Spell/&ProtectThresholdTitle=Umbral de protección
+Spell/&RadiantMotesDescription=Libera un enjambre de 5 proyectiles radiantes que infligen 2 de daño radiante cada uno, pero nunca fallan. Los objetivos pueden irradiar luz durante un máximo de 1 minuto.\nCuando lanzas este hechizo usando un espacio de hechizo de nivel 2 o superior, el hechizo crea 2 proyectiles más para cada espacio por encima del nivel 1.
+Spell/&RadiantMotesTitle=Motas radiantes
+Spell/&ThunderStrikeDescription=Crea un estallido de sonido atronador, obligando a las criaturas adyacentes a ti a realizar una tirada de salvación de Constitución o recibir 1d6 de daño por trueno.\nEl daño de este hechizo aumenta en 1d6 cuando alcanzas el nivel 5 (2d6), el nivel 11 (3d6) y el nivel 17 (4d6).
+Spell/&ThunderStrikeTitle=Ráfaga de sonido
+Spell/&WinterBreathDescription=Crea una ráfaga de viento frío para congelar a tus enemigos y derribarlos.
+Spell/&WinterBreathTitle=Aliento de invierno
+SpellList/&ElementalistSpellsListDescription=Lista de hechizos de elementalista.
+SpellList/&ElementalistSpellsListTitle=Lista de hechizos de elementalista
+Subclass/&MagicAffinityAlchemistSpellRecoveryDescription=Puedes recuperar espacios de conjuros durante un breve descanso dos veces al día.
+Subclass/&MagicAffinityAlchemistSpellRecoveryTitle=Preparación alquímica
+Subclass/&PowerSpellRefuelingRingDescription=Cuando activas esto, recuperas la mitad de tu nivel en espacios de hechizos.
+Subclass/&PowerSpellRefuelingRingTitle=Anillo de recarga de hechizos

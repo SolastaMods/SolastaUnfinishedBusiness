@@ -1,25 +1,25 @@
-Feature/&BarbarianIndomitableMightDescription	Wenn Ihr Gesamtwert für einen Stärkewurf geringer ist als Ihr Stärkewert, können Sie diesen Wert anstelle des Gesamtwerts verwenden.
-Feature/&BarbarianIndomitableMightTitle	Unbezwingbare Macht
-Feature/&IndomitableResistanceAddDescription	+1 Unbeugsamer Widerstandseinsatz zwischen Pausen.
-Feature/&IndomitableResistanceAddTitle	Unbezwingbarer Widerstand (erhöht)
-Feature/&IndomitableResistanceTitle	Unbezwingbarer Widerstand
-Feature/&PowerPaladinAuraOfCourage18Description	Gewährt Verbündeten innerhalb von 30 Fuß einen Rettungswurfbonus.
-Feature/&PowerPaladinAuraOfCourage18Title	Verbesserte Aura des Mutes
-Feature/&PowerPaladinAuraOfProtection18Description	Sie und Ihre Verbündeten innerhalb von 30 Fuß können nicht erschreckt werden.
-Feature/&PowerPaladinAuraOfProtection18Title	Verbesserte Aura des Schutzes
-Feature/&PrimalChampionDescription	Auf Stufe 20 verkörperst du die Macht der Wildnis. Ihre Stärke- und Konstitutionswerte erhöhen sich um 4.
-Feature/&PrimalChampionTitle	Erster Champion
-Feature/&ProficiencyRogueBlindSenseDescription	Wenn du ab der 14. Stufe hören kannst, weißt du, wo sich versteckte oder unsichtbare Kreaturen innerhalb von 10 Fuß von dir befinden.
-Feature/&ProficiencyRogueBlindSenseTitle	Blindsinn
-Feature/&ProficiencyRogueSlipperyMindDescription	Bis zur 15. Stufe haben Sie eine größere mentale Stärke erlangt. Du lernst Weisheitswürfe.
-Feature/&ProficiencyRogueSlipperyMindTitle	Schlüpfriger Geist
-Feature/&RangerFeralSensesDescription	Du erhältst übernatürliche Sinne, die dir helfen, Kreaturen zu bekämpfen, die du nicht sehen kannst. Wenn du eine Kreatur angreifst, die du nicht sehen kannst, hat deine Unfähigkeit, sie zu sehen, keinen Nachteil bei deinen Angriffswürfen gegen sie.
-Feature/&RangerFeralSensesTitle	Wilde Sinne
-Feature/&RangerVanishActionDescription	Ab der 14. Stufe kannst du die Aktion Verstecken als Bonusaktion in deinem Zug nutzen.
-Feature/&RangerVanishActionTitle	Verschwinden
-Feature/&ZSPowerPaladinCleansingTouchDescription	Entferne Zaubereffekte, indem du einen Verbündeten berührst. Du kannst dies so oft am Tag tun, wie es deinem Charisma-Modifikator entspricht.
-Feature/&ZSPowerPaladinCleansingTouchTitle	Reinigende Berührung
-RestActivity/&ZSSorcerousRestorationDescription	Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
-RestActivity/&ZSSorcerousRestorationTitle	Zauberhafte Wiederherstellung
-Sorceror/&ZSSorcerousRestorationDescription	Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
-Sorceror/&ZSSorcerousRestorationTitle	Zauberhafte Wiederherstellung
+Feature/&BarbarianIndomitableMightDescription=Wenn Ihr Gesamtwert für einen Stärkewurf geringer ist als Ihr Stärkewert, können Sie diesen Wert anstelle des Gesamtwerts verwenden.
+Feature/&BarbarianIndomitableMightTitle=Unbezwingbare Macht
+Feature/&IndomitableResistanceAddDescription=+1 Unbeugsamer Widerstandseinsatz zwischen Pausen.
+Feature/&IndomitableResistanceAddTitle=Unbezwingbarer Widerstand (erhöht)
+Feature/&IndomitableResistanceTitle=Unbezwingbarer Widerstand
+Feature/&PowerPaladinAuraOfCourage18Description=Gewährt Verbündeten innerhalb von 30 Fuß einen Rettungswurfbonus.
+Feature/&PowerPaladinAuraOfCourage18Title=Verbesserte Aura des Mutes
+Feature/&PowerPaladinAuraOfProtection18Description=Sie und Ihre Verbündeten innerhalb von 30 Fuß können nicht erschreckt werden.
+Feature/&PowerPaladinAuraOfProtection18Title=Verbesserte Aura des Schutzes
+Feature/&PrimalChampionDescription=Auf Stufe 20 verkörperst du die Macht der Wildnis. Ihre Stärke- und Konstitutionswerte erhöhen sich um 4.
+Feature/&PrimalChampionTitle=Erster Champion
+Feature/&ProficiencyRogueBlindSenseDescription=Wenn du ab der 14. Stufe hören kannst, weißt du, wo sich versteckte oder unsichtbare Kreaturen innerhalb von 10 Fuß von dir befinden.
+Feature/&ProficiencyRogueBlindSenseTitle=Blindsinn
+Feature/&ProficiencyRogueSlipperyMindDescription=Bis zur 15. Stufe haben Sie eine größere mentale Stärke erlangt. Du lernst Weisheitswürfe.
+Feature/&ProficiencyRogueSlipperyMindTitle=Schlüpfriger Geist
+Feature/&RangerFeralSensesDescription=Du erhältst übernatürliche Sinne, die dir helfen, Kreaturen zu bekämpfen, die du nicht sehen kannst. Wenn du eine Kreatur angreifst, die du nicht sehen kannst, hat deine Unfähigkeit, sie zu sehen, keinen Nachteil bei deinen Angriffswürfen gegen sie.
+Feature/&RangerFeralSensesTitle=Wilde Sinne
+Feature/&RangerVanishActionDescription=Ab der 14. Stufe kannst du die Aktion Verstecken als Bonusaktion in deinem Zug nutzen.
+Feature/&RangerVanishActionTitle=Verschwinden
+Feature/&ZSPowerPaladinCleansingTouchDescription=Entferne Zaubereffekte, indem du einen Verbündeten berührst. Du kannst dies so oft am Tag tun, wie es deinem Charisma-Modifikator entspricht.
+Feature/&ZSPowerPaladinCleansingTouchTitle=Reinigende Berührung
+RestActivity/&ZSSorcerousRestorationDescription=Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
+RestActivity/&ZSSorcerousRestorationTitle=Zauberhafte Wiederherstellung
+Sorceror/&ZSSorcerousRestorationDescription=Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
+Sorceror/&ZSSorcerousRestorationTitle=Zauberhafte Wiederherstellung

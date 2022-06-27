@@ -81,6 +81,12 @@ internal static class GameUiDisplay
 
         UI.Label("");
 
+        toggle = Main.Settings.EnableStatsOnHeroTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableStatsOnHeroTooltip = toggle;
+        }
+
         toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalIconsOnLevelMap"), ref toggle, UI.AutoWidth()))
         {

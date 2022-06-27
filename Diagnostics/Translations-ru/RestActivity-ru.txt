@@ -1,0 +1,11 @@
+RestActivity/&ArcaneRecoveryDescription	Раз в день, завершив короткий отдых, вы можете восстановить некоторое количество потраченных ячеек заклинания (макс. 5-го уровня) на значение не более половины от вашего уровня волшебника, округлённое вверх.
+RestActivity/&ArcaneRecoveryTitle	Мистическое восстановление
+RestActivity/&AttuneItemDescription	Связь с предметом даёт доступ к его особенным свойствам и функциям.
+RestActivity/&AttuneItemTitle	Создать связь с предметом
+RestActivity/&LevelUpDescription	Начать повышение уровня этого персонажа.
+RestActivity/&LevelUpTitle	Новый уровень
+RestActivity/&PrepareSpellsDescription	Завершив долгий отдых, вы можете изменить список подготовленных заклинаний.
+RestActivity/&PrepareSpellsTitle	Подготовить заклинания
+RestActivity/&ArcaneRecoveryExecutedDescription	<b>«Мистическое восстановление»</b>: {0} восстанавливает следующие ячейки заклинаний:
+RestActivity/&NaturalRecoveryTitle	Природное восстановление
+RestActivity/&NaturalRecoveryDescription	Раз в день, завершив короткий отдых, вы можете восстановить некоторое количество потраченных ячеек заклинания (макс. 5-го уровня) на значение не более половины от вашего уровня друида, округлённое вверх.

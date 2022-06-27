@@ -1,0 +1,253 @@
+NPC/&Kaseinax_Magister_Title	Магистр
+NPC/&MasterOfMagic_Title	Мастер магии
+NPC/&Merchant	Торговец
+NPC/&NPC_Adam_the_twelfth_Title	Адам Двенадцатый
+NPC/&NPC_AkshaTitle	Акша
+NPC/&NPC_AlenaSwiftTitle	Элина Быстрая
+NPC/&NPC_Angbi_Title	Ангби Крамссон
+NPC/&NPC_AnnieBagmordahTitle	Энни Багмода
+NPC/&NPC_ArwinMertonTitle	Арвин Мертон
+NPC/&NPC_ArwinMertonUnknownTitle	Неизвестный пьяница
+NPC/&NPC_AtimaBladeburnTitle	Атима Блейдбёрн
+NPC/&NPC_BanditCrossbowDescription	Этот бандит держится сзади и стреляет из арбалета.
+NPC/&NPC_BanditCrossbowTitle	Бандит-застрельщик.
+NPC/&NPC_BanditDescription	Злой воин с саблей.
+NPC/&NPC_BanditDwarfDescription	Приземистый и крепкий бандит с саблей.
+NPC/&NPC_BanditDwarfTitle	Дварф-бандит
+NPC/&NPC_BanditHalflingDescription	Низкорослый и худощавый бандит с арбалетом.
+NPC/&NPC_BanditHalflingTitle	Дварф-бандит
+NPC/&NPC_BanditLoanSharkDescription	Ростовщик
+NPC/&NPC_BanditLoanSharkTitle	Ростовщик
+NPC/&NPC_BanditQuartermasterTitle	Бандит-старшина
+NPC/&NPC_BanditSwordsmanDescription	Высокий и сильный бандит с двуручным мечом.
+NPC/&NPC_BanditSwordsmanTitle	Разбойник
+NPC/&NPC_BanditTitle	Бандит
+NPC/&NPC_BericSunblazeTitle	Маршал Берик Санблейз
+NPC/&NPC_BerylStonebeardTitle	Берил Стоунбирд
+NPC/&NPC_BradfordRavensworthTitle	Брэдфорд Рейвенсворт
+NPC/&NPC_CeiwadSilverflowerTitle	Принцесса Кейвад Сильверфлауэр
+NPC/&NPC_CitizenTitle	Горожанин
+NPC/&NPC_CityGuardTitle	Городской стражник
+NPC/&NPC_CoparannGuardTitle	Копараннский стражник
+NPC/&NPC_DalonLarkTitle	Капеллан Дейлон Ларк
+NPC/&NPC_DarikSunbirdTitle	Далиат Санбёд
+NPC/&NPC_DekTitle	Дек
+NPC/&NPC_EdvanDanantarTitle	Грандмастер Эдван Данантар
+NPC/&NPC_Galar_Title	Галар Голдентонг
+NPC/&NPC_GorimIronsootTitle	Горим Айронсут
+NPC/&NPC_Gromnir_Title	Барон Громнир Стоунфист
+NPC/&NPC_HalmanGormsdottirTitle	Канцлер Герта Гормсдоттир
+NPC/&NPC_HalmanSummerTitle	Халман Саммер
+NPC/&NPC_HeatherMerranTitle	Капитан Хезер Мерран
+NPC/&NPC_HectorTitle	Гектор
+NPC/&NPC_HeddlonSurespellTitle	Хеддлон Щёспелл
+NPC/&NPC_Hieronymus	Неизвестный герой
+NPC/&NPC_HugoRequerTitle	Хьюго Рекер
+NPC/&NPC_IdrielFairbrowTitle	Идриэль Фейрброу
+NPC/&NPC_IlastarKeenmindAirgetineDescription	Иластар — отпрыск благородного дома Эргетинов, чьи основатели были волшебниками Арканиума. Как и многие имперские семьи того времени, его семья изначально была малой ветвью клана и начала набирать политический вес после Катаклизма, поддержав первого императора («Стонущего Императора»), который принял непростые решения, позволившие выжить цивилизации и вырасти Новой империи. Иластар как никто в его поколении осознавал масштаб потерь и всячески продвигал участие в Совете в надежде собрать магические материалы и письмена, помогающие лучше постигнуть магию и тем самым дать империи преимущество в будущих конфликтах. Больше всего его беспокоит перспектива обнародования исторических документов, открывающих ту правду, которую лучше оставить скрытой. 
+NPC/&NPC_IlastarKeenmindAirgetineTitle	Мастер Иластар Кинмайнд Эргетин
+NPC/&NPC_IolairFaisechTitle	Старейшина Иолайр Фейсек
+NPC/&NPC_JorielFoxeyeTitle	Джориэль Фокси
+NPC/&NPC_KarelMartelTitle	Карел Мартел
+NPC/&NPC_Kiaradth_Bright_SparkTitle	Мэр Киарадт Брайт-Спарк
+NPC/&NPC_Kythaela_Title	Китаэла
+NPC/&NPC_LeiraKeanDescription	Лейра Кин родилась и выросла в Сердце Доблести — городе, воздвигнутом вокруг Эйнариума. Она довольно рано обрела в своём сердце Эйнара, и многие считали, что из неё получится хорошая жрица. Вместо этого она избрала путь паладина, посвятив свою жизнь защите Соласты от всех опасностей, связанных с Сорр-Аккат. Лейра — истинный паладин, по ней сразу видна серьёзность её намерений. Она хорошо знает историю и свободно говорит на древнетирмарском языке. Она неплохой воин и хорошо разбирается в других. Она справедлива и внимательна, она принимает решения, исходя из фактов, а не домыслов и слухов. Благодаря этому её и выдвинули в Совет на должность хранительницы присяги. 
+NPC/&NPC_LeiraKeanTitle	Хранительница Лейра Кин
+NPC/&NPC_LenaTitle	Лена
+NPC/&NPC_LiamTitle	Лиам
+NPC/&NPC_LisbathTownsendTitle	Лисбет Таунсенд
+NPC/&NPC_Lizzaria_Title	Лиззария из Гримхолда
+NPC/&NPC_LordCarranTitle	Лорд Карран
+NPC/&NPC_MaddyGreenisleTitle	Мэдди Гринайл
+NPC/&NPC_Mardracht_Title	Мастер Мардрахт
+NPC/&NPC_MedwalStrongfireTitle	Медвал Стронгфайр
+NPC/&NPC_MordenKyreTitle	Морден Кайр
+NPC/&NPC_NecromancerAcolyteTitle	Некромант-послушник
+NPC/&NPC_NecromancerTitle	Некромант
+NPC/&NPC_Nikannen_Title	Йорис Никаннен
+NPC/&NPC_Priest_Of_ArunTitle	Жрец Аруна
+NPC/&NPC_Priest_Of_EinarTitle	Жрец Эйнара
+NPC/&NPC_Priest_Of_MaraikeTitle	Жрец Марайке
+NPC/&NPC_Priest_Of_PakriTitle	Жрица Пакри
+NPC/&NPC_RazanTitle	Раза
+NPC/&NPC_RobarSharpTitle	Робар Шарп
+NPC/&NPC_Talbut_Title	Талбут Серый
+NPC/&NPC_TEMP_Quest_GiverTitle	TEMP_Quest_Giver
+NPC/&NPC_VerissaIronshellTitle	Капитан Верисса Айроншелл
+NPC/&NPC_Wilf_Title	Уилф Вормхарт
+NPC/&NPC_NecromancerBoneKeepTitle	Тёмный ученик
+NPC/&NPC_NecromancerBoneKeepDescription	Опасный, но не обученный до конца некромант, вероятно, ученик более опытного наставника, находящегося поблизости.
+NPC/&Milan_ScavengersTitle	Милан
+NPC/&NPC_Ceannard_Title	Кеннард
+NPC/&NPC_Kebra_Title	Кебра
+NPC/&NPC_Brok_Title	Брок
+NPC/&NPC_Arbal_Title	Арбал
+NPC/&NPC_Mildred_Title	Милдред Вормхарт
+NPC/&NPC_Maid_Title	Горничная
+NPC/&NPC_CoparannGuardSorakAgentTitle	Осквернённый стражник
+NPC/&NPC_Gromnir_SorakTitle	Сорак-лазутчик
+NPC/&NPC_Spectral_Servant_Title	Спектральный слуга
+NPC/&NPC_Bitterroot_Title	Биттеррут
+NPC/&NPC_Dackin_Title	Мастер Дакин
+NPC/&NPC_Adria_Title	Адрия
+NPC/&NPC_Lyria_Title	Лирия
+NPC/&NPC_Drew_Title	Дрю
+NPC/&NPC_Notary_Title	Нотариус
+NPC/&NPC_MajorGateOfficer_Title	Распорядитель больших врат
+NPC/&NPC_MajorGateOfficer_Description	Прикоснитесь, чтобы использовать большие врата.
+NPC/&NPC_SpeakRavensworth_Description	Поговорите, чтобы войти в резиденцию.
+NPC/&NPC_Edrof_Title	Эдроф
+NPC/&NPC_Radulf_Title	Радульф
+NPC/&NPC_Urka_Title	Укка
+NPC/&NPC_Galaefin	Мастер Галеафин
+NPC/&NPC_GalaefinsButler	Дворецкий
+NPC/&NPC_Illoreth	Иллорет
+NPC/&NPC_Stig_Title	Стиг
+NPC/&NPC_CaporalDan_Title	Капрал Данн
+NPC/&NPC_PrivateGarth_Title	Рядовой Гарт
+NPC/&NPC_ShieldguardTradtsson_Title	Щитоносец Традтссон
+NPC/&NPC_PrivateRodric_Title	Родрик
+NPC/&NPC_Bertram	Бертрам
+NPC/&NPC_CaerLemGarrison	Солдат Совета
+NPC/&NPC_Priest_Of_MisayeTitle	Нел
+NPC/&NPC_Coparann_Archivist_Title	Архивариус
+NPC/&NPC_Arrok_Title	Аррок
+NPC/&NPC_Joran_Title	Джоран Краули
+NPC/&NPC_GenericSorakInfiltrator_Title	Сорак-лазутчик
+NPC/&NPC_Belmont_Title	Лорд Бельмонт
+NPC/&NPC_CityGuard_Embassy_Empire_Title	Стаж посольства Новой империи
+NPC/&NPC_CityGuard_Embassy_Gallivan_Title	Страж посольства Галливана
+NPC/&NPC_Priest_Of_MisayeDescription	Жрец Мисайе
+NPC/&NPC_Scavenger_TOM_Title	Рамин Блейк
+NPC/&NPC_Council_Trooper_Title	Солдат Совета Наследия
+NPC/&GunnarElderen_Title	Гуннар Элдерен
+NPC/&NPC_Galaefin_Plaque_Title	Мастер Галеафин, философ и пэр королевства.
+NPC/&AllanMiller_Title	Алан Миллер
+NPC/&NPC_Backer_Ron_Title	Рон
+NPC/&NPC_Backer_Zhoron_Title	Жорон
+NPC/&NPC_Estalla_Title	Эсталла Мёртвых
+NPC/&NPC_Rogrok_Title	Рогрок
+NPC/&NPC_Rogrok_Description	Вождь, который решил перестать сражаться с топором в руках и стать торговцем.
+NPC/&NPC_Circe_Title	Цирке Герардоирин
+NPC/&NPC_Circe_Description	Эта коварная дама перебралась сюда, чтобы найти как можно больше книг.
+NPC/&NPC_Mogo_Title	Бедный Мого
+NPC/&NPC_Laethar_Title	Император Лаэтар
+NPC/&NPC_Magister_Title	Касейнакс
+NPC/&NPC_Adrasteia_Title	Адрастея
+NPC/&NPC_DLC_Mask_Fighter_Title	Боец Маски
+NPC/&NPC_DLC_Mask_Fighter_Description	Боец, служащий таинственной организации «Маска».
+NPC/&NPC_DLC_Mask_Cleric_Title	Жрец Маски
+NPC/&NPC_DLC_Mask_Cleric_Description	Жрец, служащий таинственной организации «Маска».
+NPC/&NPC_DLC_Mask_Spy_Title	Шпион Маски
+NPC/&NPC_DLC_Mask_Spy_Description	Шпион, служащий таинственной организации «Маска».
+NPC/&NPC_DLC_Rebellion_Marksman_Title	Мятежник-стрелок
+NPC/&NPC_DLC_Rebellion_Marksman_Description	Лучник из армии мятежников.
+NPC/&NPC_DLC_Tower_Watchman_Title	Дозорный
+NPC/&NPC_DLC_Tower_Watchman_Description	Солдат, который не пропускает чужаков.
+NPC/&NPC_DLC_Praetorian_Title	Гвардеец
+NPC/&NPC_DLC_Praetorian_Description	Элитный солдат из личной стражи Оренетиса.
+NPC/&NPC_DLC_ShoutingStone	Кричащий камень
+NPC/&NPC_DLC_ShoutingStone_Description	Лучше тебе не знать.
+NPC/&NPC_DLC_TownCrier	Глашатай
+NPC/&NPC_DLC_TownCrier_Description	Официальный представитель Доминиона, рассказывающий новости.
+NPC/&NPC_Hendeolas_Title	Хендеолас Анфарел
+NPC/&NPC_Hendeolas_Description	Лидером Восстания оказался... владыка мумий!
+NPC/&NPC_Orenetis_RealName	Перифан Пытливый ум
+NPC/&Guard_Captain_Title	Капитан стражи
+NPC/&Guard_Captain_Description	Офицер стражи комплекса.
+NPC/&Guard_Elite_Title	Элитный стражник
+NPC/&Guard_Elite_Description	Стражник высшего звена.
+NPC/&Guard_Recruit_Title	Стражник
+NPC/&Guard_Recruit_Description	Обычный стражник.
+NPC/&Guard_Trainer_Title	Тренер стражи
+NPC/&Guard_Trainer_Description	Умелый тренер, служащий стражи комплекса.
+NPC/&Guard_Watcher_Title	Стражник-дозорный
+NPC/&Guard_Watcher_Description	Дозорный, служащий стражи комплекса.
+NPC/&Mana_Crafter_Title	Изготовитель маны
+NPC/&Mana_Scholar_Title	Исследователь маны
+NPC/&Mana_Scientist_Title	Учёный маны
+NPC/&NPC_Auroc	Аурок
+NPC/&NPC_Lorson	Лорсон
+NPC/&NPC_Sima_Temple	Сима Темпл
+NPC/&NPC_Ellaria_Anfarel	Эллариа Анфарел
+NPC/&NPC_Renno_Highwater	Ренно Хайуотер
+NPC/&NPC_Store_Reya	Услуги жреца
+NPC/&NPC_Marches_01_Title	Лорд Хаммонд
+NPC/&NPC_Marches_02_Title	Хелия Фэйрблэйд
+NPC/&NPC_Marches_03_Title	Лейрин Кэтпо
+NPC/&NPC_Marches_04_Title	Крим Сансейл
+NPC/&NPC_Valley_Telerien_Purevoice_Title	Телериен Пьюрвойс
+NPC/&NPC_Valley_Samko_Flint_Title	Самко Флинт
+NPC/&NPC_Forge_Hasdrubal_Title	Хасдрубал
+NPC/&NPC_Forge_Ravener_Title	Рейвенер
+NPC/&NPC_Forge_Charmer_Title	Чармер
+NPC/&NPC_Forge_Cook_Title	Бадри
+NPC/&NPC_Swamp_HillGiant_Title	Руган
+NPC/&NPC_Swamp_Apprentice_Title	Лисантир
+NPC/&NPC_ThePeople_Henrik	Хенрик Рэдхенд
+NPC/&NPC_ThePeople_Rose	Роуз Фэйрвинд
+NPC/&NPC_ThePeople_Reya	Рея Шилдберг
+NPC/&NPC_ThePeople_Karelia	Карелия Сноуфокс
+NPC/&NPC_Orenetis	Оренетис
+NPC/&NPC_Orenetis_Malariel	Малариэль Брогарад
+NPC/&NPC_MarinVing	Марин Винг
+NPC/&NPC_VandoKlarn	Вандо Кларн
+NPC/&NPC_Mask_CafrainShadow	Кафрэйн Шэдоу
+NPC/&NPC_Orenetis_Finaliel	Финалиэль Шарпмайнд
+NPC/&NPC_DLC_City_Guard_Title	Городской стражник
+NPC/&NPC_DLC_City_Guard_Description	Высший эльф-стражник с гербом Оренетиса.
+NPC/&NPC_DLC1_Anfarel_Noble	Элериен Анфарел
+NPC/&NPC_DLC1_ThePeople_Tortured	Пленник
+NPC/&NPC_Forge_Escorted_01	Бадри
+NPC/&NPC_Forge_Escorted_02	Герта
+NPC/&NPC_Tuznut_Title	Тузан Анфарел
+NPC/&NPC_Tuznut_Description	Неопытный искатель приключений.
+NPC/&NPC_Forge_Guard_Title	Стражник
+NPC/&NPC_Forge_Guard_Description	Обычный стражник лагеря Кузни.
+NPC/&NPC_Forge_Charmer_Description	Житель лагеря Кузни.
+NPC/&NPC_Forge_Hasdrubal_Description	Глава Кузни.
+NPC/&NPC_Forge_Ravener_Description	Главный охотник Кузни.
+NPC/&NPC_Forge_Cook_Description	Главный повар Кузни.
+NPC/&NPC_Forge_Merchant_Description	Торговец лагеря Кузни.
+NPC/&NPC_Forge_Escorted_01_Description	Бадри, посланник Кузни.
+NPC/&NPC_Forge_Escorted_02_Description	Герта, страж Кузни.
+NPC/&NPC_Forge_Merchant_Title	Ханно Мадстрайдер
+NPC/&NPC_Swamp_HillGiant_Description	Дружелюбный великан.
+NPC/&NPC_Swamp_Apprentice_Description	Странный эльф-волшебник.
+NPC/&DLC1_NPC_Jakson_Title	Ханник
+NPC/&DLC1_NPC_Jakson_Description	Ханник — популярный в столице музыкант.
+NPC/&Mana_Scholar_Description	Этот эльф выглядит в точности как Оренетис...
+NPC/&Sitinero_Title	Ситенеро
+NPC/&DLC1_NPC_Marin_Ving	Марин Винг
+NPC/&DLC1_NPC_Vando_Klarn	Вандо Кларн
+NPC/&DLC1_NPC_CityGuard_Captain_Sharp	Лейтенант Шарпайз
+NPC/&DLC1_NPC_Nobleman_ThePeople03_Title	Аристократ
+NPC/&DLC1_NPC_Nobleman_ThePeople03_Description	Пьяный задира
+NPC/&NPC_Red	Красные
+NPC/&NPC_Valley_Telerien_Purevoice_Speak	Интендант Кузни
+NPC/&Prisoner_Title	Пленник
+NPC/&NPC_DLC_Armorer	Гейл Хант
+NPC/&NPC_Dominion_Soldier_Title	Солдат Доминиона
+NPC/&NPC_Dominion_Soldier_Description	Солдат вооружённых сил Доминиона.
+NPC/&NPC_Dominion_Archer_Title	Лучник Доминиона
+NPC/&NPC_Dominion_Archer_Description	Лучник вооружённых сил Доминиона.
+NPC/&NPC_Dominion_Arcanist_Title	Укротитель стихий Доминиона
+NPC/&NPC_Dominion_Arcanist_Description	Боевой маг вооружённых сил Доминиона.
+NPC/&NPC_Dominion_Praetorian_Title	Гвардеец Доминиона
+NPC/&NPC_Dominion_Praetorian_Description	Элитный воин из личной стражи хранителя.
+NPC/&NPC_Rebellion_Blue	Голубые
+NPC/&NPC_Rebellion_Blue_Description	Переговорщик Восстания
+NPC/&NPC_Dominion_Rookie_Title	Новичок Доминиона
+NPC/&NPC_Dominion_Rookie_Description	Молодой и неопытный боец, служащий Доминиону.
+NPC/&MaskMerchant_Yasmin_Title	Ясмин
+NPC/&MaskMerchant_Yasmin_Description	Интендант Маски
+NPC/&NPC_DLC_Rebellion_Soldier_Title	Мятежник-воин
+NPC/&NPC_DLC_Rebellion_Soldier_Description	Участник Восстания, готовый умереть, сражаясь за Доминион.
+NPC/&NPC_DLC1_Drooly_Title	Слюнявчик
+NPC/&NPC_DLC1_Drooly_Description	Небольшой питомец-волк. Походил бы на маленькую милую собачку, если бы не огромные клыки.
+NPC/&NPC_Forge_Guard_HalflingScout_Title	Разведчик Кузни
+NPC/&NPC_Forge_Guard_HalflingScout_Description	Типичный сторонник Кузни: маленький, хитрый и крепкий.
+NPC/&NPC_Forge_Guard_HalfElfRanger_Title	Следопыт Кузни
+NPC/&NPC_Forge_Guard_HalfElfRanger_Description	Типичный сторонник Кузни: превосходный боец и лучник.
+NPC/&NPC_Forge_Guard_HumanDruid_Title	Друид Кузни
+NPC/&NPC_Forge_Guard_HumanDruid_Description	Типичный сторонник Кузни, связывающий фракцию с природой.

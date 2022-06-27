@@ -1,20 +1,20 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Oath of Retribution Spells
-Power/&PowerOathOfRetributionTenaciousPursuitDescription	When you successfully hit the melee attack, this power will grants you a dash move as a bonus action for a single turn, 5 times per long rest. This movement doesn't provoke opportunity attacks.
-Power/&PowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
-Power/&PowerOathOfRetributionZealousAccusationDescription	Channel Divinity to designate a creature within 12 tiles and force the target a Wisdom saving throw. Fiends and undead have a disadvantage on this saving throw. \nOn a failed save, the target cannot move and being frightened for one minute or until it takes any damage.
-Power/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: Zealous Accusation
-Power/&PowerOathOfRetributionZealousCondemnationDescription	Channel Divinity to gain an advantage on your attack against the designated target within 2 tiles as a bonus action. The power lasts 1 minute or until the target is dead or unconscious.
-Power/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Zealous Condemnation
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} can earn dash bonus action move by striking this enemy using this power.
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activate dash bonus action.
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Pursue
-Condition/&ConditionBonusRushTenaciousPursuitDescription	The blessing grants you a power to chase and avenge the enemy. \nBonus dash is enabled for a single turn. This movement doesn't provoke opportunity attacks.
-Condition/&ConditionBonusRushTenaciousPursuitTitle	Chasing
-Condition/&ConditionFrightenedZealousAccusationDescription	Absolutely overwhelmed by the power of holiness. \nCannot move and frighted for 1 minute or until take any damage.
-Condition/&ConditionFrightenedZealousAccusationTitle	Terrified
-Condition/&ConditionTrueStrikeZealousCondemnationDescription	Marked by glorious determination. \nAttacks to this target will receive an advantage for 1 minute or until the target is dead or unconscious.
-Condition/&ConditionTrueStrikeZealousCondemnationTitle	Stigmatized
-Subclass/&PaladinOathOfRetributionDescription	Paladins who swear the Oath of Retribution fully commit themselves to terminate the unholiness and injustice with extreme prejudice. For these paladins, the duty of avenging sins and corruptions weighs greater than their own values.
-Subclass/&PaladinOathOfRetributionTitle	Oath of Retribution
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription={0}.
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle=Oath of Retribution Spells
+Power/&PowerOathOfRetributionTenaciousPursuitDescription=When you successfully hit the melee attack, this power will grants you a dash move as a bonus action for a single turn, 5 times per long rest. This movement doesn't provoke opportunity attacks.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle=Tenacious Pursuit
+Power/&PowerOathOfRetributionZealousAccusationDescription=Channel Divinity to designate a creature within 12 tiles and force the target a Wisdom saving throw. Fiends and undead have a disadvantage on this saving throw. \nOn a failed save, the target cannot move and being frightened for one minute or until it takes any damage.
+Power/&PowerOathOfRetributionZealousAccusationTitle=Channel Divinity: Zealous Accusation
+Power/&PowerOathOfRetributionZealousCondemnationDescription=Channel Divinity to gain an advantage on your attack against the designated target within 2 tiles as a bonus action. The power lasts 1 minute or until the target is dead or unconscious.
+Power/&PowerOathOfRetributionZealousCondemnationTitle=Channel Divinity: Zealous Condemnation
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription={0} can earn dash bonus action move by striking this enemy using this power.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=Tenacious Pursuit
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription=Activate dash bonus action.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle=Pursue
+Condition/&ConditionBonusRushTenaciousPursuitDescription=The blessing grants you a power to chase and avenge the enemy. \nBonus dash is enabled for a single turn. This movement doesn't provoke opportunity attacks.
+Condition/&ConditionBonusRushTenaciousPursuitTitle=Chasing
+Condition/&ConditionFrightenedZealousAccusationDescription=Absolutely overwhelmed by the power of holiness. \nCannot move and frighted for 1 minute or until take any damage.
+Condition/&ConditionFrightenedZealousAccusationTitle=Terrified
+Condition/&ConditionTrueStrikeZealousCondemnationDescription=Marked by glorious determination. \nAttacks to this target will receive an advantage for 1 minute or until the target is dead or unconscious.
+Condition/&ConditionTrueStrikeZealousCondemnationTitle=Stigmatized
+Subclass/&PaladinOathOfRetributionDescription=Paladins who swear the Oath of Retribution fully commit themselves to terminate the unholiness and injustice with extreme prejudice. For these paladins, the duty of avenging sins and corruptions weighs greater than their own values.
+Subclass/&PaladinOathOfRetributionTitle=Oath of Retribution

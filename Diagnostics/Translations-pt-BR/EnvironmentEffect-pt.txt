@@ -1,0 +1,14 @@
+EnvironmentEffect/&CollapsingRoofTitle	Desabamento do Teto
+EnvironmentEffect/&CollapsingRoofDescription	Várias pedras de tamanhos diversos caem no chão.
+EnvironmentEffect/&DisturbingRunesTitle	Runas Perturbadoras
+EnvironmentEffect/&DisturbingRunesDescription	Runas que afetam a mente, causam dano à alma e provocam comportamentos aleatórios.
+EnvironmentEffect/&DeathGlyphTitle	Glifo da Morte
+EnvironmentEffect/&DeathGlyphDescription	Pisar neste glifo causa dano necrótico e terror.
+EnvironmentEffect/&FireBurstTitle	Explosão de Fogo
+EnvironmentEffect/&FireBurstDescription	Uma erupção que causa dano de fogo.
+EnvironmentEffect/&GroundSpikesTitle	Espinhos no Chão
+EnvironmentEffect/&GroundSpikesDescription	Espetos emergem do chão, causando dano perfurante.
+EnvironmentEffect/&LightningDischargeTitle	Descarga Elétrica
+EnvironmentEffect/&LightningDischargeDescription	Solta eletricidade na área, causando dano elétrico.
+EnvironmentEffect/&PoisonCloudTitle	Nuvem Venenosa
+EnvironmentEffect/&PoisonCloudDescription	Uma nuvem tóxica causa dano de veneno e a condição de envenenamento.

@@ -1,123 +1,123 @@
-Class/&WitchArmorProficiencyDescription	Armure légère.
-Class/&WitchArmorProficiencyTitle	Compétences en armure de sorcière
-Class/&WitchBurnedFireResistanceDescription	Vous avez la résistance aux dégâts de feu.
-Class/&WitchBurnedFireResistanceTitle	Brûlé : Résistance au feu
-Class/&WitchBurnedProduceFlameDescription	Vous connaissez le sort mineur Produce Flame, qui ne compte pas dans votre nombre total de sorts mineurs connus.
-Class/&WitchBurnedProduceFlameTitle	Brûlé : produit une flamme
-Class/&WitchCacklePowerDescription	Vous pouvez utiliser votre action bonus pour caqueter. La durée de votre Malédiction est prolongée de 1 round pour chaque créature affectée dans un rayon de 18 mètres autour de vous.\nToutes les sorcières ne rient pas de manière maniaque lorsqu'elles ricanent, mais tous les ricanements nécessitent une composante verbale, comme un sort. Celles-ci vont des malédictions et des insultes banales au murmure de langues mortes et au parler à l'envers.
-Class/&WitchCacklePowerTitle	Caqueter
-Class/&WitchDescription	Affligées par une sinistre malédiction, les sorcières peuvent transformer la magie noire en malédictions, qu'elles utilisent pour affaiblir leurs ennemis. Ils sont également accompagnés de leurs familiers, fidèles compagnons magiques qu'ils utilisent pour porter le coup fatal.
-Class/&WitchFamiliarPowerDescription	Vous apprenez le sort Witch Familiar, c'est-à-dire un sort Find Familiar amélioré, et pouvez le lancer comme un rituel sans composants matériels. Le sort ne compte pas dans votre nombre de sorts connus. Le sort améliore Find Familiar des manières suivantes :\n• Votre familier joue son tour immédiatement avant ou après votre tour à chaque tour (au choix).\n• Une fois par tour, en tant qu'action ou action bonus, vous pouvez ordonner mentalement à votre familier d'utiliser sa réaction pour effectuer une attaque.\n• Lorsque vous lancez un sort, vous pouvez le délivrer à travers votre familier comme s'il avait lancé le sort, même si le sort n'a pas de portée de contact.\n• Votre familier peut utiliser votre bonus d'attaque des sorts pour ses jets d'attaque.\n• Votre familier ajoute votre bonus de compétence à sa classe d'armure, ses jets de sauvegarde et ses jets de dégâts.\n• Vous ajoutez deux fois votre niveau de Sorcière aux points de vie maximum de votre familier.
-Class/&WitchFamiliarPowerTitle	Familier
-Class/&WitchFeatureSetBurnedCurseDescription	La quasi-totalité de votre corps a été brûlée par des flammes arcaniques, vous laissant avec des cicatrices noires saisissantes et des braises de magie qui brûlent sous la peau. En conséquence, vous avez une résistance aux dégâts de feu et vous connaissez le sort mineur Produce Flame, qui ne compte pas dans votre nombre total de sorts mineurs connus.
-Class/&WitchFeatureSetBurnedCurseTitle	Brûlé
-Class/&WitchFeatureSetLovelessCurseDescription	Tu es maudit de ne jamais trouver le véritable amour. Blasé et désaffecté, même la magie ne peut transformer votre cœur ; par conséquent, vous êtes immunisé contre le charme.
-Class/&WitchFeatureSetLovelessCurseTitle	sans amour
-Class/&WitchFeatureSetRitualCastingDescription	Vous pouvez lancer n'importe quel sort de sorcière que vous connaissez en tant que rituel si ce sort a l'étiquette de rituel.
-Class/&WitchFeatureSetRitualCastingTitle	Sorcière : Casting Rituel
-Class/&WitchFeatureSetVisionsCurseDescription	Vous êtes maudit d'avoir de terribles visions de l'avenir, présageant la mort de vos amis, de votre famille et de vous-même. Cependant, bon nombre de ces visions sont de cruelles tromperies, elles sont parfois d'une précision sinistre. Vous pouvez ajouter votre modificateur de Charisme, en plus de votre modificateur de Dextérité, à vos jets d'initiative.
-Class/&WitchFeatureSetVisionsCurseTitle	Visions
-Class/&WitchLovelessCharmImmunityDescription	Vous êtes immunisé contre le charme.
-Class/&WitchLovelessCharmImmunityTitle	Sans amour : immunité aux charmes
-Class/&WitchMaledictionAbateDescription	Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres autour de vous pour effectuer un jet de sauvegarde de Charisme. En cas d'échec, la créature ne peut pas réagir avant la fin de votre prochain tour.
-Class/&WitchMaledictionAbateTitle	Attrapez la malédiction
-Class/&WitchMaledictionApathyDescription	Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres autour de vous pour effectuer un jet de sauvegarde de Charisme. En cas d'échec, jusqu'à la fin de votre prochain tour, la créature devient indifférente envers une créature de votre choix à laquelle elle est hostile. Cette indifférence prend fin si la cible est attaquée ou blessée par un sort de la créature à laquelle elle est indifférente.
-Class/&WitchMaledictionApathyTitle	Apathie Malédiction
-Class/&WitchMaledictionCharmDescription	Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres pour effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la créature est charmée par vous jusqu'à la fin de votre prochain tour.
-Class/&WitchMaledictionCharmTitle	Charme Malédiction
-Class/&WitchMaledictionDisorientDescription	Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres pour effectuer un jet de sauvegarde de Constitution. En cas d'échec, chaque fois que cette cible effectue un jet d'attaque avant la fin de votre prochain tour, elle doit lancer un d6 et soustraire le nombre obtenu au jet d'attaque.
-Class/&WitchMaledictionDisorientTitle	Disorient Malediction
-Class/&WitchMaledictionEvilEyeDescription	Par une action, choisissez une créature que vous pouvez voir et qui peut vous voir dans un rayon de 18 mètres pour effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la créature a peur de vous jusqu'à la fin de votre prochain tour.
-Class/&WitchMaledictionEvilEyeTitle	Malédiction du mauvais œil
-Class/&WitchMaledictionObfuscateDescription	Par une action, vous créez une sphère de brouillard de 6 mètres de rayon centrée sur vous-même. La sphère s'étend autour des coins et sa zone est fortement obscurcie. Cet effet dure jusqu'à la fin de votre prochain tour ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 10 milles à l'heure) le disperse.
-Class/&WitchMaledictionObfuscateTitle	Obfusquer la malédiction
-Class/&WitchMaledictionPoxDescription	Par une action, choisissez une créature que vous pouvez voir dans un rayon de 1,50 mètre pour effectuer un jet de sauvegarde de Constitution. En cas d'échec, la créature est empoisonnée jusqu'à la fin de votre prochain tour.
-Class/&WitchMaledictionPoxTitle	Malédiction de la Vérole
-Class/&WitchMaledictionRuinDescription	Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres pour effectuer un jet de sauvegarde de Constitution. En cas d'échec, la classe d'armure de la créature diminue de 3, jusqu'à un minimum de 10, jusqu'à la fin de votre prochain tour.
-Class/&WitchMaledictionRuinTitle	Ruin Malediction
-Class/&WitchRitualCastingMagicAffinityDescription	Vous pouvez lancer un sort de sorcière en tant que rituel si ce sort a l'étiquette de rituel et que vous avez préparé le sort.
-Class/&WitchRitualCastingMagicAffinityTitle	Casting rituel
-Class/&WitchSavingthrowProficiencyDescription	Sagesse, Charisme.
-Class/&WitchSavingthrowProficiencyTitle	Compétences du lancer de sauvegarde de sorcière
-Class/&WitchSkillProficiencyDescription	Choisissez-en deux parmi Arcanes, Tromperie, Perspicacité, Intimidation, Persuasion, Nature et Religion.
-Class/&WitchSkillProficiencyTitle	Compétences de sorcière
-Class/&WitchSpellcastingDescription	Vous êtes une sorcière capable de lancer des sorts de la liste des sorts de sorcière.
-Class/&WitchSpellcastingTitle	Lancer de sorts de sorcière
-Class/&WitchTitle	Sorcière
-Class/&WitchToolProficiencyDescription	Choisissez-en un parmi le kit d'herboriste et le kit d'empoisonneur.
-Class/&WitchToolProficiencyTitle	Compétences en outils de sorcière
-Class/&WitchVisionsInitiativeDescription	Vous ajoutez votre modificateur de Charisme à vos jets d'initiative.
-Class/&WitchVisionsInitiativeTitle	Initiative Visions
-Class/&WitchWeaponProficiencyDescription	Armes simples.
-Class/&WitchWeaponProficiencyTitle	Maîtrise des armes de sorcière
-Condition/&AbateDescription	Impossible d'utiliser les réactions.
-Condition/&AbateTitle	Diminuer
-Condition/&ApathyDescription	Indifférent à la créature ciblée à laquelle il est hostile. Cette indifférence prend fin si la cible est attaquée ou blessée par un sort de la créature ciblée.
-Condition/&ApathyTitle	Apathie
-Condition/&CharmDescription	Considère le lanceur comme un allié.
-Condition/&CharmTitle	Charmé
-Condition/&DebilitatedConditionDescription	Souffrez de l'une des conditions suivantes : aveuglé, fléau, saignant ou étourdi.
-Condition/&DebilitatedConditionTitle	Débilité
-Condition/&DisorientDescription	-1d6 aux jets d'attaque.
-Condition/&DisorientTitle	Désorienté
-Condition/&EvilEyeDescription	Effrayé. Incapable d'approcher la source de la peur, désavantage aux jets d'attaque et aux tests de capacité alors que la source de la peur est en vue.
-Condition/&EvilEyeTitle	Mauvais œil
-Condition/&FrenziedDescription	Cette créature est frénétique et attaquera la créature la plus proche.
-Condition/&FrenziedTitle	Frénétique
-Condition/&PoxDescription	État de la variole.
-Condition/&PoxTitle	Variole
-Condition/&RuinDescription	Pénalité de -3 CA, jusqu'à un maximum de -10 CA.
-Condition/&RuinedDescription	Pénalité de -3 CA, jusqu'à un maximum de -10 CA.
-Condition/&RuinedTitle	Ruiné
-Condition/&RuinTitle	Ruine
-Feature/&WitchCurseChoiceDescription	Vous êtes ravagé par une terrible malédiction qui infecte votre corps et votre âme.
-Feature/&WitchCurseChoiceTitle	Malédiction de sorcière
-Feature/&WitchMaledictionChoiceDescription	Vous pouvez apprendre un certain nombre d'incantations puissantes, connues sous le nom de Malédictions, dérivées de la même magie insidieuse qui vous a maudit.
-Feature/&WitchMaledictionChoiceTitle	Malédictions
-Feature/&WitchSightDescription	Vous pouvez sentir ou voir des créatures invisibles à moins de 18 mètres de vous.
-Feature/&WitchSightTitle	Vue de sorcière
-Modifier/&AttributeModifierRuinDescription	-3 à la classe d'armure.
-Modifier/&AttributeModifierRuinTitle	Ruiné
-Modifier/&DisorientDescription	-1d6 aux jets d'attaque.
-Modifier/&DisorientTitle	Désorienté
-Monster/&WitchOwlFamiliarDescription	Chouette Familier.
-Monster/&WitchOwlFamiliarTitle	Chouette
-Screen/&CovenSpellDescription	Sort connu dans le cadre d'un Coven.
-Screen/&CovenSpellHeader	Couvent
-Screen/&CovenSpellTitle	Couvent
-Screen/&WitchSpellDescription	Sorts connus sous le nom de Sorcière.
-Screen/&WitchSpellHeader	Sorcière
-Screen/&WitchSpellTitle	Sorcière
-Spell/&WitchFamiliarDescription	Vous gagnez le service d'un familier.
-Spell/&WitchFamiliarTitle	Familier de la sorcière
-Stage/&SubclassSelectionStageCovenDescription	Couvent.
-Stage/&SubclassSelectionStageCovenFeaturesDescription	Couvent.
-Stage/&SubclassSelectionStageCovenFeaturesHeader	Caractéristiques du Coven
-Stage/&SubclassSelectionStageCovenFeaturesTitle	Couvent
-Stage/&SubclassSelectionStageCovenHeader	Sélectionnez un coven
-Stage/&SubclassSelectionStageCovenTitle	Couvent
-Subclass/&BloodWitchDescription	Interdite par la plupart des covens de sorcières, la magie du sang se concentre sur l'utilisation de sorts sombres et de maléfices mortels qui puisent dans l'essence même du lanceur de sorts. Il est fondamentalement plus périlleux que les autres métiers de sorcière, mais ses nombreux risques s'accompagnent de nombreuses récompenses.
-Subclass/&BloodWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
-Subclass/&BloodWitchMagicTitle	Magie du sang
-Subclass/&BloodWitchTitle	Sorcière de sang
-Subclass/&GreenWitchDescription	Les plantes, la nature et les choses qui poussent sont le domaine de la magie verte. Normalement un type d'arcane défendu par les druides, certaines sorcières ont un lien étroit avec les pouvoirs de la magie verte et peuvent amadouer les plantes et les animaux dans leur volonté.
-Subclass/&GreenWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n{0}
-Subclass/&GreenWitchMagicTitle	Magie verte
-Subclass/&GreenWitchTitle	Sorcière verte
-Subclass/&PurpleWitchDescription	La magie pourpre règne sur les domaines des illusions et des enchantements qui s'emparent de l'esprit des gens, et de tout ce qui n'est pas tout à fait ce qu'il paraît. Les praticiens de cette forme de magie sont des marionnettistes, façonnant la réalité apparente de ceux qui les entourent à leur avantage.
-Subclass/&PurpleWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
-Subclass/&PurpleWitchMagicTitle	Magie violette
-Subclass/&PurpleWitchTitle	Sorcière violette
-Subclass/&RedWitchDescription	La magie arcanique liée à la canalisation des éléments est considérée comme de la magie rouge et est extrêmement dangereuse lorsqu'elle est utilisée. Les sorcières spécialisées dans la magie rouge sont parmi les lanceurs de sorts les plus meurtriers qui existent, canalisant leur malédiction en une colère arcanique sans entrave.
-Subclass/&RedWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
-Subclass/&RedWitchMagicTitle	Magie rouge
-Subclass/&RedWitchTitle	Sorcière rouge
-Subclass/&WhiteWitchDescription	La magie blanche est fondamentalement bonne et bienveillante pour tous les êtres vivants. Les sorcières qui adoptent ce métier, malgré la malédiction haineuse qui les infecte, se consacrent souvent à la guérison et aux soins, dans le but d'améliorer le monde.
-Subclass/&WhiteWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
-Subclass/&WhiteWitchMagicTitle	Magie blanche
-Subclass/&WhiteWitchTitle	Sorcière blanche
-Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions.
-Subclass/&WitchSubclassPathTitle	Couvents de sorcières
-Tooltip/&TagMaledictionTitle	Bon sang
-Feature/&ClassWitchMaledictionReplaceTitle	Replace Malediction
-Feature/&ClassWitchMaledictionReplaceDescription	Sélectionnez Malédiction à remplacer.
+Class/&WitchArmorProficiencyDescription=Armure légère.
+Class/&WitchArmorProficiencyTitle=Compétences en armure de sorcière
+Class/&WitchBurnedFireResistanceDescription=Vous avez la résistance aux dégâts de feu.
+Class/&WitchBurnedFireResistanceTitle=Brûlé : Résistance au feu
+Class/&WitchBurnedProduceFlameDescription=Vous connaissez le sort mineur Produce Flame, qui ne compte pas dans votre nombre total de sorts mineurs connus.
+Class/&WitchBurnedProduceFlameTitle=Brûlé : produit une flamme
+Class/&WitchCacklePowerDescription=Vous pouvez utiliser votre action bonus pour caqueter. La durée de votre Malédiction est prolongée de 1 round pour chaque créature affectée dans un rayon de 18 mètres autour de vous.\nToutes les sorcières ne rient pas de manière maniaque lorsqu'elles ricanent, mais tous les ricanements nécessitent une composante verbale, comme un sort. Celles-ci vont des malédictions et des insultes banales au murmure de langues mortes et au parler à l'envers.
+Class/&WitchCacklePowerTitle=Caqueter
+Class/&WitchDescription=Affligées par une sinistre malédiction, les sorcières peuvent transformer la magie noire en malédictions, qu'elles utilisent pour affaiblir leurs ennemis. Ils sont également accompagnés de leurs familiers, fidèles compagnons magiques qu'ils utilisent pour porter le coup fatal.
+Class/&WitchFamiliarPowerDescription=Vous apprenez le sort Witch Familiar, c'est-à-dire un sort Find Familiar amélioré, et pouvez le lancer comme un rituel sans composants matériels. Le sort ne compte pas dans votre nombre de sorts connus. Le sort améliore Find Familiar des manières suivantes :\n• Votre familier joue son tour immédiatement avant ou après votre tour à chaque tour (au choix).\n• Une fois par tour, en tant qu'action ou action bonus, vous pouvez ordonner mentalement à votre familier d'utiliser sa réaction pour effectuer une attaque.\n• Lorsque vous lancez un sort, vous pouvez le délivrer à travers votre familier comme s'il avait lancé le sort, même si le sort n'a pas de portée de contact.\n• Votre familier peut utiliser votre bonus d'attaque des sorts pour ses jets d'attaque.\n• Votre familier ajoute votre bonus de compétence à sa classe d'armure, ses jets de sauvegarde et ses jets de dégâts.\n• Vous ajoutez deux fois votre niveau de Sorcière aux points de vie maximum de votre familier.
+Class/&WitchFamiliarPowerTitle=Familier
+Class/&WitchFeatureSetBurnedCurseDescription=La quasi-totalité de votre corps a été brûlée par des flammes arcaniques, vous laissant avec des cicatrices noires saisissantes et des braises de magie qui brûlent sous la peau. En conséquence, vous avez une résistance aux dégâts de feu et vous connaissez le sort mineur Produce Flame, qui ne compte pas dans votre nombre total de sorts mineurs connus.
+Class/&WitchFeatureSetBurnedCurseTitle=Brûlé
+Class/&WitchFeatureSetLovelessCurseDescription=Tu es maudit de ne jamais trouver le véritable amour. Blasé et désaffecté, même la magie ne peut transformer votre cœur ; par conséquent, vous êtes immunisé contre le charme.
+Class/&WitchFeatureSetLovelessCurseTitle=sans amour
+Class/&WitchFeatureSetRitualCastingDescription=Vous pouvez lancer n'importe quel sort de sorcière que vous connaissez en tant que rituel si ce sort a l'étiquette de rituel.
+Class/&WitchFeatureSetRitualCastingTitle=Sorcière : Casting Rituel
+Class/&WitchFeatureSetVisionsCurseDescription=Vous êtes maudit d'avoir de terribles visions de l'avenir, présageant la mort de vos amis, de votre famille et de vous-même. Cependant, bon nombre de ces visions sont de cruelles tromperies, elles sont parfois d'une précision sinistre. Vous pouvez ajouter votre modificateur de Charisme, en plus de votre modificateur de Dextérité, à vos jets d'initiative.
+Class/&WitchFeatureSetVisionsCurseTitle=Visions
+Class/&WitchLovelessCharmImmunityDescription=Vous êtes immunisé contre le charme.
+Class/&WitchLovelessCharmImmunityTitle=Sans amour : immunité aux charmes
+Class/&WitchMaledictionAbateDescription=Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres autour de vous pour effectuer un jet de sauvegarde de Charisme. En cas d'échec, la créature ne peut pas réagir avant la fin de votre prochain tour.
+Class/&WitchMaledictionAbateTitle=Attrapez la malédiction
+Class/&WitchMaledictionApathyDescription=Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres autour de vous pour effectuer un jet de sauvegarde de Charisme. En cas d'échec, jusqu'à la fin de votre prochain tour, la créature devient indifférente envers une créature de votre choix à laquelle elle est hostile. Cette indifférence prend fin si la cible est attaquée ou blessée par un sort de la créature à laquelle elle est indifférente.
+Class/&WitchMaledictionApathyTitle=Apathie Malédiction
+Class/&WitchMaledictionCharmDescription=Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres pour effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la créature est charmée par vous jusqu'à la fin de votre prochain tour.
+Class/&WitchMaledictionCharmTitle=Charme Malédiction
+Class/&WitchMaledictionDisorientDescription=Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres pour effectuer un jet de sauvegarde de Constitution. En cas d'échec, chaque fois que cette cible effectue un jet d'attaque avant la fin de votre prochain tour, elle doit lancer un d6 et soustraire le nombre obtenu au jet d'attaque.
+Class/&WitchMaledictionDisorientTitle=Disorient Malediction
+Class/&WitchMaledictionEvilEyeDescription=Par une action, choisissez une créature que vous pouvez voir et qui peut vous voir dans un rayon de 18 mètres pour effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la créature a peur de vous jusqu'à la fin de votre prochain tour.
+Class/&WitchMaledictionEvilEyeTitle=Malédiction du mauvais œil
+Class/&WitchMaledictionObfuscateDescription=Par une action, vous créez une sphère de brouillard de 6 mètres de rayon centrée sur vous-même. La sphère s'étend autour des coins et sa zone est fortement obscurcie. Cet effet dure jusqu'à la fin de votre prochain tour ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 10 milles à l'heure) le disperse.
+Class/&WitchMaledictionObfuscateTitle=Obfusquer la malédiction
+Class/&WitchMaledictionPoxDescription=Par une action, choisissez une créature que vous pouvez voir dans un rayon de 1,50 mètre pour effectuer un jet de sauvegarde de Constitution. En cas d'échec, la créature est empoisonnée jusqu'à la fin de votre prochain tour.
+Class/&WitchMaledictionPoxTitle=Malédiction de la Vérole
+Class/&WitchMaledictionRuinDescription=Par une action, choisissez une créature que vous pouvez voir dans un rayon de 18 mètres pour effectuer un jet de sauvegarde de Constitution. En cas d'échec, la classe d'armure de la créature diminue de 3, jusqu'à un minimum de 10, jusqu'à la fin de votre prochain tour.
+Class/&WitchMaledictionRuinTitle=Ruin Malediction
+Class/&WitchRitualCastingMagicAffinityDescription=Vous pouvez lancer un sort de sorcière en tant que rituel si ce sort a l'étiquette de rituel et que vous avez préparé le sort.
+Class/&WitchRitualCastingMagicAffinityTitle=Casting rituel
+Class/&WitchSavingthrowProficiencyDescription=Sagesse, Charisme.
+Class/&WitchSavingthrowProficiencyTitle=Compétences du lancer de sauvegarde de sorcière
+Class/&WitchSkillProficiencyDescription=Choisissez-en deux parmi Arcanes, Tromperie, Perspicacité, Intimidation, Persuasion, Nature et Religion.
+Class/&WitchSkillProficiencyTitle=Compétences de sorcière
+Class/&WitchSpellcastingDescription=Vous êtes une sorcière capable de lancer des sorts de la liste des sorts de sorcière.
+Class/&WitchSpellcastingTitle=Lancer de sorts de sorcière
+Class/&WitchTitle=Sorcière
+Class/&WitchToolProficiencyDescription=Choisissez-en un parmi le kit d'herboriste et le kit d'empoisonneur.
+Class/&WitchToolProficiencyTitle=Compétences en outils de sorcière
+Class/&WitchVisionsInitiativeDescription=Vous ajoutez votre modificateur de Charisme à vos jets d'initiative.
+Class/&WitchVisionsInitiativeTitle=Initiative Visions
+Class/&WitchWeaponProficiencyDescription=Armes simples.
+Class/&WitchWeaponProficiencyTitle=Maîtrise des armes de sorcière
+Condition/&AbateDescription=Impossible d'utiliser les réactions.
+Condition/&AbateTitle=Diminuer
+Condition/&ApathyDescription=Indifférent à la créature ciblée à laquelle il est hostile. Cette indifférence prend fin si la cible est attaquée ou blessée par un sort de la créature ciblée.
+Condition/&ApathyTitle=Apathie
+Condition/&CharmDescription=Considère le lanceur comme un allié.
+Condition/&CharmTitle=Charmé
+Condition/&DebilitatedConditionDescription=Souffrez de l'une des conditions suivantes : aveuglé, fléau, saignant ou étourdi.
+Condition/&DebilitatedConditionTitle=Débilité
+Condition/&DisorientDescription=-1d6 aux jets d'attaque.
+Condition/&DisorientTitle=Désorienté
+Condition/&EvilEyeDescription=Effrayé. Incapable d'approcher la source de la peur, désavantage aux jets d'attaque et aux tests de capacité alors que la source de la peur est en vue.
+Condition/&EvilEyeTitle=Mauvais œil
+Condition/&FrenziedDescription=Cette créature est frénétique et attaquera la créature la plus proche.
+Condition/&FrenziedTitle=Frénétique
+Condition/&PoxDescription=État de la variole.
+Condition/&PoxTitle=Variole
+Condition/&RuinDescription=Pénalité de -3 CA, jusqu'à un maximum de -10 CA.
+Condition/&RuinedDescription=Pénalité de -3 CA, jusqu'à un maximum de -10 CA.
+Condition/&RuinedTitle=Ruiné
+Condition/&RuinTitle=Ruine
+Feature/&WitchCurseChoiceDescription=Vous êtes ravagé par une terrible malédiction qui infecte votre corps et votre âme.
+Feature/&WitchCurseChoiceTitle=Malédiction de sorcière
+Feature/&WitchMaledictionChoiceDescription=Vous pouvez apprendre un certain nombre d'incantations puissantes, connues sous le nom de Malédictions, dérivées de la même magie insidieuse qui vous a maudit.
+Feature/&WitchMaledictionChoiceTitle=Malédictions
+Feature/&WitchSightDescription=Vous pouvez sentir ou voir des créatures invisibles à moins de 18 mètres de vous.
+Feature/&WitchSightTitle=Vue de sorcière
+Modifier/&AttributeModifierRuinDescription=-3 à la classe d'armure.
+Modifier/&AttributeModifierRuinTitle=Ruiné
+Modifier/&DisorientDescription=-1d6 aux jets d'attaque.
+Modifier/&DisorientTitle=Désorienté
+Monster/&WitchOwlFamiliarDescription=Chouette Familier.
+Monster/&WitchOwlFamiliarTitle=Chouette
+Screen/&CovenSpellDescription=Sort connu dans le cadre d'un Coven.
+Screen/&CovenSpellHeader=Couvent
+Screen/&CovenSpellTitle=Couvent
+Screen/&WitchSpellDescription=Sorts connus sous le nom de Sorcière.
+Screen/&WitchSpellHeader=Sorcière
+Screen/&WitchSpellTitle=Sorcière
+Spell/&WitchFamiliarDescription=Vous gagnez le service d'un familier.
+Spell/&WitchFamiliarTitle=Familier de la sorcière
+Stage/&SubclassSelectionStageCovenDescription=Couvent.
+Stage/&SubclassSelectionStageCovenFeaturesDescription=Couvent.
+Stage/&SubclassSelectionStageCovenFeaturesHeader=Caractéristiques du Coven
+Stage/&SubclassSelectionStageCovenFeaturesTitle=Couvent
+Stage/&SubclassSelectionStageCovenHeader=Sélectionnez un coven
+Stage/&SubclassSelectionStageCovenTitle=Couvent
+Subclass/&BloodWitchDescription=Interdite par la plupart des covens de sorcières, la magie du sang se concentre sur l'utilisation de sorts sombres et de maléfices mortels qui puisent dans l'essence même du lanceur de sorts. Il est fondamentalement plus périlleux que les autres métiers de sorcière, mais ses nombreux risques s'accompagnent de nombreuses récompenses.
+Subclass/&BloodWitchMagicDescription=Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
+Subclass/&BloodWitchMagicTitle=Magie du sang
+Subclass/&BloodWitchTitle=Sorcière de sang
+Subclass/&GreenWitchDescription=Les plantes, la nature et les choses qui poussent sont le domaine de la magie verte. Normalement un type d'arcane défendu par les druides, certaines sorcières ont un lien étroit avec les pouvoirs de la magie verte et peuvent amadouer les plantes et les animaux dans leur volonté.
+Subclass/&GreenWitchMagicDescription=Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n{0}
+Subclass/&GreenWitchMagicTitle=Magie verte
+Subclass/&GreenWitchTitle=Sorcière verte
+Subclass/&PurpleWitchDescription=La magie pourpre règne sur les domaines des illusions et des enchantements qui s'emparent de l'esprit des gens, et de tout ce qui n'est pas tout à fait ce qu'il paraît. Les praticiens de cette forme de magie sont des marionnettistes, façonnant la réalité apparente de ceux qui les entourent à leur avantage.
+Subclass/&PurpleWitchMagicDescription=Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
+Subclass/&PurpleWitchMagicTitle=Magie violette
+Subclass/&PurpleWitchTitle=Sorcière violette
+Subclass/&RedWitchDescription=La magie arcanique liée à la canalisation des éléments est considérée comme de la magie rouge et est extrêmement dangereuse lorsqu'elle est utilisée. Les sorcières spécialisées dans la magie rouge sont parmi les lanceurs de sorts les plus meurtriers qui existent, canalisant leur malédiction en une colère arcanique sans entrave.
+Subclass/&RedWitchMagicDescription=Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
+Subclass/&RedWitchMagicTitle=Magie rouge
+Subclass/&RedWitchTitle=Sorcière rouge
+Subclass/&WhiteWitchDescription=La magie blanche est fondamentalement bonne et bienveillante pour tous les êtres vivants. Les sorcières qui adoptent ce métier, malgré la malédiction haineuse qui les infecte, se consacrent souvent à la guérison et aux soins, dans le but d'améliorer le monde.
+Subclass/&WhiteWitchMagicDescription=Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
+Subclass/&WhiteWitchMagicTitle=Magie blanche
+Subclass/&WhiteWitchTitle=Sorcière blanche
+Subclass/&WitchSubclassPathDescription=Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions.
+Subclass/&WitchSubclassPathTitle=Couvents de sorcières
+Tooltip/&TagMaledictionTitle=Bon sang
+Feature/&ClassWitchMaledictionReplaceTitle=Replace Malediction
+Feature/&ClassWitchMaledictionReplaceDescription=Sélectionnez Malédiction à remplacer.

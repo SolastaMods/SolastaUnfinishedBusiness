@@ -1,0 +1,125 @@
+Reaction/&AlterAttackSpellDescription	{0} está atacando {1}! Conjure {2} para bloquear o ataque.
+Reaction/&AlterAttackSpellReactDescription	Clique para conjurar {0} e bloquear o ataque.
+Reaction/&AlterAttackSpellReactTitle	Conjurar Magia
+Reaction/&AlterAttackSpellTitle	Previna o ataque iminente.
+Reaction/&BlockAttackDescription	{0} está atacando {1}! Você pode reagir para deixar o inimigo em desvantagem.
+Reaction/&BlockAttackReactDescription	Clique para bloquear o personagem atacante e impor uma desvantagem. Isto usa sua reação até o próximo turno.
+Reaction/&BlockAttackReactTitle	Bloquear
+Reaction/&BlockAttackTitle	Ataque em Aliado
+Reaction/&CastFallPreventionSpellDescriptionPlural	{0} estão prestes a cair perigosamente! Você pode conjurar {1} para prevenir danos.
+Reaction/&CastFallPreventionSpellDescriptionSingle	{0} está prestes a cair perigosamente! Você pode conjurar {1} para prevenir danos.
+Reaction/&CastFallPreventionSpellReactDescription	Clique para conjurar a magia {0} e prevenir o dano de queda.
+Reaction/&CastFallPreventionSpellReactTitle	Conjurar Magia
+Reaction/&CastFallPreventionSpellTitle	Queda Dolorosa
+Reaction/&CastImmunityToSpellDescription	{0} está conjurando {3} em {1}! Você pode conjurar {2} para contra-atacar a magia.
+Reaction/&CastImmunityToSpellReactDescription	Clique para conjurar {0} e revidar o ataque com magia.
+Reaction/&CastImmunityToSpellReactTitle	Conjurar Magia
+Reaction/&CastImmunityToSpellTitle	Ataque Sofrido com Magia
+Reaction/&ChooseAReactionTitle	Escolher uma Reação
+Reaction/&ChooseAnOptionTitle	Escolher uma Opção
+Reaction/&CounterAttackWithPowerDescription	{0} atingiu {1}! Você pode contra-atacar com {2}.
+Reaction/&CounterAttackWithPowerReactDescription	Clique para usar {0} e contra-atacar.
+Reaction/&CounterAttackWithPowerReactTitle	Atacar
+Reaction/&CounterAttackWithPowerTitle	Ataque Inimigo
+Reaction/&CounterSpellDescription	{0} está conjurando um feitiço! Você pode reagir para contra-atacar a magia.
+Reaction/&CounterSpellReactDescription	Clique para conjurar uma contramagia e revidar o feitiço inimigo.
+Reaction/&CounterSpellReactTitle	Revidar
+Reaction/&CounterSpellTitle	Magias Hostis
+Reaction/&GiantKillerDescription	{0}, uma criatura {2}, atacou {1}, que pode usar uma reação para contra-atacar.
+Reaction/&GiantKillerReactDescription	Clique para contra-atacar. Isto usa sua reação até o próximo turno.
+Reaction/&GiantKillerReactTitle	Ataque
+Reaction/&GiantKillerTitle	Matador de Gigantes
+Reaction/&MainTitle	Reagindo a
+Reaction/&OpportunityAttackDescription	{0} está saindo de uma área sob ameaça de um ou mais personagens.
+Reaction/&OpportunityAttackReactDescription	Clique para atacar o personagem/a criatura que está em retirada. Isto usa sua reação até o próximo turno.
+Reaction/&OpportunityAttackReactTitle	Ataque
+Reaction/&OpportunityAttackTitle	Ataque de Oportunidade
+Reaction/&PassDescription	Você não reage a este evento e, assim, economiza uma reação.
+Reaction/&PassTitle	Passar
+Reaction/&ReactionShotDescription	{0} atacou {1}, que pode usar uma reação para revidar com um ataque à distância.
+Reaction/&ReactionShotReactDescription	Clique para contra-atacar. Isto usa sua reação até o próximo turno.
+Reaction/&ReactionShotReactTitle	Ataque
+Reaction/&ReactionShotTitle	Tiro de Reação
+Reaction/&SecondsTitle	seg
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeDescription	{0} pode causar dano adicional ao usar Canalizar Divindade.
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeReactDescription	Clique para reforçar o dano ao usar Canalizar Divindade: Ataque Decisivo.
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeReactTitle	Atacar
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeTitle	Ataque Bem-Sucedido
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowDescription	{0} pode tentar emaranhar o alvo ao gastar um uso da Flecha Mágica.
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowReactDescription	Clique para tentar emaranhar o alvo.
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowReactTitle	Emaranhar
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowTitle	Ataque Bem-Sucedido
+Reaction/&SpendSpellSlotDivineSmiteDescription	Ao gastar um espaço de magia, {0} pode punir o alvo, causando dano adicional.
+Reaction/&SpendSpellSlotDivineSmiteReactDescription	Clique para gastar um espaço de magia e aumentar o dano ao alvo.
+Reaction/&SpendSpellSlotDivineSmiteReactTitle	Punir
+Reaction/&SpendSpellSlotDivineSmiteTitle	Punição Divina
+Reaction/&SubitemSelectCounterspellDescription	Selecione um nível de espaço para conjurar uma contramagia.
+Reaction/&SubitemSelectCounterspellTitle	Nível de Espaço
+Reaction/&SubitemSelectDivineSmiteDescription	Selecione um nível de espaço para conjurar a Punição Divina.
+Reaction/&SubitemSelectDivineSmiteTitle	Nível de Espaço
+Reaction/&SubitemSelectFeatherFallDescription	Selecione um nível de espaço para conjurar a Queda Suave.
+Reaction/&SubitemSelectFeatherFallTitle	Nível de Espaço
+Reaction/&SubitemSelectShieldDescription	Selecione um nível de espaço para conjurar um escudo.
+Reaction/&SubitemSelectShieldTitle	Nível de Espaço
+Reaction/&UncannyDodgeDescription	{0} está atacando {1}, que pode reagir para reduzir pela metade o dano recebido.
+Reaction/&UncannyDodgeReactDescription	Clique para usar sua reação e reduzir pela metade o dano do ataque.
+Reaction/&UncannyDodgeReactTitle	Reduzir à Metade
+Reaction/&UncannyDodgeTitle	Esquiva Sobrenatural
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdDescription	Por tempo limitado, {0} pode ficar imune a dano de frio e recuperar alguns pontos de vida.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdReactDescription	Clique para ficar imune a dano de frio e recuperar pontos de vida.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdReactTitle	Abraçar
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdTitle	Estudioso dos Elementos (Frio)
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireDescription	Por tempo limitado, {0} pode ficar imune a dano de fogo e recuperar alguns pontos de vida.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireReactDescription	Clique para ficar imune a dano de fogo e recuperar pontos de vida.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireReactTitle	Abraçar
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireTitle	Estudioso dos Elementos (Fogo)
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningDescription	Por tempo limitado, {0} pode ficar imune a dano elétrico e recuperar alguns pontos de vida.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningReactDescription	Clique para ficar imune a dano elétrico e recuperar pontos de vida.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningReactTitle	Abraçar
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningTitle	Estudioso dos Elementos (Elétrico)
+Reaction/&DeflectMissileDescription	{0} está atacando {1}, que pode reagir para reduzir o dano recebido em 1D10 + modificador de DES.
+Reaction/&DeflectMissileReactDescription	Clique para usar sua reação e reduzir o dano do ataque.
+Reaction/&DeflectMissileReactTitle	Desviar
+Reaction/&DeflectMissileTitle	Ataque com Projétil
+Reaction/&AlterAttackPowerDescription	{0} está atacando {1}! Você pode usar {2} para aumentar a classe de armadura do alvo até o fim do turno de {0}.
+Reaction/&AlterAttackPowerReactDescription	Clique para usar {0} e bloquear o ataque.
+Reaction/&AlterAttackPowerReactTitle	Bloquear
+Reaction/&AlterAttackPowerTitle	Previna o ataque iminente.
+Reaction/&IndomitableResistanceReactTitle	Rolar Novamente
+Reaction/&IndomitableResistanceReactDescription	Role novamente para tentar passar no teste de resistência.
+Reaction/&IndomitableResistanceTitle	Indomável
+Reaction/&IndomitableResistanceDescription	{0} falhou em um teste de resistência contra {1}, mas pode tentar rolar novamente.
+Reaction/&ShadowRetributionReactTitle	Conjurar Truque
+Reaction/&ShadowRetributionReactDescription	Conjure o truque no conjurador inimigo.
+Reaction/&ShadowRetributionDescription	{0} é alvo de uma magia hostil de {1} e pode contra-atacar com a magia {2}.
+Reaction/&SwiftRetaliationReactTitle	Ataque
+Reaction/&SwiftRetaliationReactDescription	Clique para contra-atacar em corpo a corpo.
+Reaction/&SwiftRetaliationTitle	Retaliação Ágil
+Reaction/&SwiftRetaliationDescription	{0} atacou {1}, que pode usar uma reação para revidar com um ataque corpo a corpo.
+Reaction/&RageVersusSurpriseDescription	{0} está sob efeito de surpresa e não pode agir nesta rodada, a não ser que você decida incitar sua fúria.
+Reaction/&RageVersusSurpriseReactDescription	Clique para usar fúria (você tem {0}).
+Reaction/&RageVersusSurpriseReactTitle	Fúria ({0})
+Reaction/&SpendPowerPowerBerserkerFrenzyDescription	Assim que a fúria começa, você pode entrar em um frenesi que confere um ataque extra com sua arma corpo a corpo ao custo de um nível de exaustão quando a fúria terminar.
+Reaction/&SpendPowerPowerBerserkerFrenzyTitle	Frenesi
+Reaction/&SpendPowerPowerBerserkerFrenzyReactDescription	Clique para entrar em frenesi com sua fúria.
+Reaction/&SpendPowerPowerBerserkerFrenzyReactTitle	Frenesi
+Reaction/&WarCryDescription	{0} sofre dano de magia ou efeito mágico durante um rompante de fúria e pode causar dano a todos os inimigos em um raio de 6 espaços.
+Reaction/&WarCryReactDescription	Clique para causar dano aos inimigos ao redor.
+Reaction/&WarCryReactTitle	Grito de Guerra
+Reaction/&WarCryTitle	Reagindo a Dano Mágico
+Reaction/&SharedPainDescription	{0} está sofrendo dano, que pode ser partilhado igualmente com {1}
+Reaction/&SharedPainReactDescription	Clique para dividir igualmente o dano entre o druida e o espírito afim.
+Reaction/&SharedPainReactTitle	Partilhar
+Reaction/&SharedPainTitle	Dor Partilhada
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosTitle	Golpe do Caos
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosDescription	{0} pode usar "Canalizar Divindade" para usar um Golpe do Caos.
+Reaction/&BorrowLuckReactTitle	Rolar Novamente
+Reaction/&BorrowLuckReactDescription	Role novamente para tentar passar no teste de resistência.
+Reaction/&BorrowLuckTitle	Emprestar Sorte
+Reaction/&BorrowLuckDescription	{0} falhou em um teste de resistência contra {1}, mas pode tentar rolar novamente, ao custo de sofrer desvantagem no próximo teste de resistência.
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosReactTitle	Atacar
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosReactDescription	Use "Canalizar Divindade" para adicionar dano psíquico e aplicar uma condição aleatória no alvo.
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetTitle	Alvo Elusivo
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetDescription	Um ataque corpo a corpo acertou {0}, que pode usar uma reação para ganhar os benefícios de Esquiva e Desengajamento até o fim do próximo turno.​​​​​​
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetReactTitle	Esquivar-se
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetReactDescription	Ganhe Esquiva e Desengajamento

@@ -1,19 +1,19 @@
-Subclass/&AbilityAffinityRogueConArtistDescription	Vorteil bei Fähigkeitsprüfungen mit Überzeugung, Täuschung, Leistung und Fingerfertigkeit.
-Subclass/&AbilityAffinityRogueConArtistTitle	Manipulativ
-Subclass/&MagicAffinityRoguishConArtistDC0Description	Der SG deines Zauberwurfs erhöht sich um 0.
-Subclass/&MagicAffinityRoguishConArtistDC1Description	Der SG deines Zauberwurfs erhöht sich um 1.
-Subclass/&MagicAffinityRoguishConArtistDC2Description	Der SG deines Zauberwurfs erhöht sich um 2.
-Subclass/&MagicAffinityRoguishConArtistDC3Description	Der SG deines Zauberwurfs erhöht sich um 3.
-Subclass/&MagicAffinityRoguishConArtistDC4Description	Der SG deines Zauberwurfs erhöht sich um 4.
-Subclass/&MagicAffinityRoguishConArtistDC5Description	Der SG deines Zauberwurfs erhöht sich um 5.
-Subclass/&MagicAffinityRoguishConArtistDCTitle	Verbesserte Manipulation
-Subclass/&RoguishConArtistDescription	Betrüger sind Schurken, die sich darauf spezialisiert haben, andere zu täuschen und auszutricksen. Sie verwenden Magie, um ihre natürlichen manipulativen Fähigkeiten zu unterstützen.
-Subclass/&RoguishConArtistFeintConditionDescription	Ausgetrickst zu werden gewährt beim nächsten Angriff einen Vorteil.
-Subclass/&RoguishConArtistFeintConditionTitle	Ausgetrickst
-Subclass/&RoguishConArtistFeintDescription	Erhalte als Bonusaktion die Fähigkeit, im Kampf zu antäuschen. Wenn dem Ziel der Rettungswurf misslingt, gewährt dies einen Vorteil beim nächsten Angriff gegen das Ziel.
-Subclass/&RoguishConArtistFeintTitle	Finte
-Subclass/&RoguishConArtistMentalSavingThrowsDescription	Du erlernst Weisheits- und Charisma-Rettungswürfe.
-Subclass/&RoguishConArtistMentalSavingThrowsTitle	Mentale Stärke
-Subclass/&RoguishConArtistSpellcastingDescription	Wirke Zaubersprüche und Cantrips aus den Schulen der Beschwörung, Verzauberung, Illusion und Transmutation. Der Betrüger nutzt Charisma, um seine Zauber zu wirken.
-Subclass/&RoguishConArtistSpellcastingTitle	Zaubern
-Subclass/&RoguishConArtistTitle	Trickbetrüger
+Subclass/&AbilityAffinityRogueConArtistDescription=Vorteil bei Fähigkeitsprüfungen mit Überzeugung, Täuschung, Leistung und Fingerfertigkeit.
+Subclass/&AbilityAffinityRogueConArtistTitle=Manipulativ
+Subclass/&MagicAffinityRoguishConArtistDC0Description=Der SG deines Zauberwurfs erhöht sich um 0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description=Der SG deines Zauberwurfs erhöht sich um 1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description=Der SG deines Zauberwurfs erhöht sich um 2.
+Subclass/&MagicAffinityRoguishConArtistDC3Description=Der SG deines Zauberwurfs erhöht sich um 3.
+Subclass/&MagicAffinityRoguishConArtistDC4Description=Der SG deines Zauberwurfs erhöht sich um 4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description=Der SG deines Zauberwurfs erhöht sich um 5.
+Subclass/&MagicAffinityRoguishConArtistDCTitle=Verbesserte Manipulation
+Subclass/&RoguishConArtistDescription=Betrüger sind Schurken, die sich darauf spezialisiert haben, andere zu täuschen und auszutricksen. Sie verwenden Magie, um ihre natürlichen manipulativen Fähigkeiten zu unterstützen.
+Subclass/&RoguishConArtistFeintConditionDescription=Ausgetrickst zu werden gewährt beim nächsten Angriff einen Vorteil.
+Subclass/&RoguishConArtistFeintConditionTitle=Ausgetrickst
+Subclass/&RoguishConArtistFeintDescription=Erhalte als Bonusaktion die Fähigkeit, im Kampf zu antäuschen. Wenn dem Ziel der Rettungswurf misslingt, gewährt dies einen Vorteil beim nächsten Angriff gegen das Ziel.
+Subclass/&RoguishConArtistFeintTitle=Finte
+Subclass/&RoguishConArtistMentalSavingThrowsDescription=Du erlernst Weisheits- und Charisma-Rettungswürfe.
+Subclass/&RoguishConArtistMentalSavingThrowsTitle=Mentale Stärke
+Subclass/&RoguishConArtistSpellcastingDescription=Wirke Zaubersprüche und Cantrips aus den Schulen der Beschwörung, Verzauberung, Illusion und Transmutation. Der Betrüger nutzt Charisma, um seine Zauber zu wirken.
+Subclass/&RoguishConArtistSpellcastingTitle=Zaubern
+Subclass/&RoguishConArtistTitle=Trickbetrüger

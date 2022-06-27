@@ -1,0 +1,32 @@
+Room/&Corner_12CTitle	Угол
+Room/&Crossroad_12CTitle	Перекрёсток
+Room/&Hallway_12CTitle	Вестибюль
+Room/&Line_12CTitle	Линия
+Room/&Room_Big_24CTitle	Большая комната
+Room/&Room_Small_24CTitle	Маленькая комната
+Room/&Line_24CTitle	Коридор
+Room/&Turn_12CTitle	Поворот
+Room/&Room_Big_48CTitle	Огромная комната
+Room/&Clearing_Large_24CTitle	Большая просека
+Room/&Clearing_Small_12CTitle	Малая просека
+Room/&Curve_12CTitle	Маленькая изогнутая комната
+Room/&Curve_24CTitle	Большая изогнутая комната
+Room/&Curve_U_24CTitle	Большая изогнутая комната
+Room/&Pond_Large_24CTitle	Большой пруд
+Room/&Pond_Small_12CTitle	Маленький пруд
+Room/&Building_Lodge_24CTitle	Большой дом
+Room/&Building_Cabin_12CTitle	Маленькая хижина
+Room/&Ruin_Large_24CTitle	Большая просека с руинами
+Room/&Ruin_Small_12CTitle	Малая просека с руинами
+Room/&Town_Large_24CTitle	Большой район
+Room/&Town_Medium_12CTitle	Маленький район
+Room/&Town_Corner_12CTitle	Маленький район со стенами
+Room/&Town_Entrance_24CTitle	Вход в город
+Room/&Town_Exterior_MediumTitle	Открытый маленький район
+Room/&Town_OuterWalls_MediumTitle	Маленький район со стенами
+Room/&Big_HighGround_24CTitle	Большая комната с возвышенностью
+Room/&Room_12CTitle	Маленькая комната
+Room/&Room_High_12CTitle	Маленькая комната с возвышенностью
+Room/&River_24CTitle	Река
+Room/&Houses_12CTitle	Дома
+Room/&Lake_Title	Озеро

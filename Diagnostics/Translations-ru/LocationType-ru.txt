@@ -1,0 +1,55 @@
+LocationType/&CaveDescription	Подземное помещение, где могут храниться неожиданные богатства и подстерегать опасности.
+LocationType/&CaveTitle	Пещера
+LocationType/&Forest ruinDescription	Посреди леса вы обнаруживаете небольшие руины из древних времён.
+LocationType/&Forest ruinTitle	Лесные руины
+LocationType/&FortressDescription	Укреплённая оборонительная постройка.
+LocationType/&FortressTitle	Крепость
+LocationType/&ManacalonOracleDescription	Вы обнаружили древний храм, где манакалонские простолюдины поклонялись мастерам магии.
+LocationType/&ManacalonOracleTitle	Манакалонский храм
+LocationType/&ManacalonPrisonDescription	Вы наткнулись на разрушенную подземную постройку — тюрьму, где эльфы империи Манакалон держали заключённых.
+LocationType/&ManacalonPrisonTitle	Манакалонская тюрьма
+LocationType/&RuinDescription	Развалины старинной постройки, таинственные и полные возможностей.
+LocationType/&RuinTitle	Руины
+LocationType/&TownDescription	Обжитое место, где можно получить разные простые услуги.
+LocationType/&TownTitle	Город
+LocationType/&UnknownDescription	Тип этого места неизвестен.
+LocationType/&UnknownTitle	Неизвестно
+LocationType/&ManacalonOracleKnownTitle	Храм
+LocationType/&ManacalonOracleKnownDescription	У реки находится разрушенное манакалонское здание, которое Китаэла назвала храмом.
+LocationType/&ManacalonPrisonKnownTitle	Подземелья
+LocationType/&ManacalonPrisonKnownDescription	По всей видимости, тут была имперская тюрьма. Китаэла сказала, что её построили до эльфийских войн.
+LocationType/&ForestTitle	Лес
+LocationType/&ForestDescription	Лесистая местность.
+LocationType/&SwampTitle	Болото
+LocationType/&SwampDescription	Болотистая местность.
+LocationType/&Encounter_Jungle_Village_Title	Деревня в джунглях
+LocationType/&Encounter_Jungle_Village_Description	Небольшая деревня посреди джунглей.
+LocationType/&Encounter_Jungle_Ruin_Title	Руины в джунглях
+LocationType/&Encounter_Jungle_Ruin_Description	Руины эпохи до Катаклизма. Прямо посреди джунглей.
+LocationType/&Encounter_Jungle_Road_Title	Дорога в джунглях
+LocationType/&Encounter_Jungle_Road_Description	Дорога, проходящая через джунгли.
+LocationType/&Encounter_Jungle_River_Title	Джунглевая река
+LocationType/&Encounter_Jungle_River_Description	Чистый и быстрый поток, текущий через джунгли.
+LocationType/&Encounter_Jungle_Outpost_Description	Один из многих аванпостов, поставленных Оренетисом для контроля над долиной.
+LocationType/&Encounter_Stonehenge_Title	Мегалитовый участок
+LocationType/&Encounter_Stonehenge_Description	Древний археологический памятник. Огромные мегалиты образуют круг.
+LocationType/&Encounter_Bridge_Title	Разрушенный мост
+LocationType/&Encounter_Bridge_Description	Разрушенный мост посреди болота.
+LocationType/&Encounter_Mines_Title	Шахты
+LocationType/&Encounter_Mines_Description	Вход в старую заброшенную шахту в Пограничье.
+LocationType/&Encounter_Cave_Title	Лагерь в пещере
+LocationType/&Encounter_Cave_Description	Лагерь в небольшой пещере посреди джунглей.
+LocationType/&DLC1_Encounter_SpiderNest_Title	Паучье гнездо
+LocationType/&DLC1_Encounter_SpiderNest_Description	Телериен сообщил, что это паучье гнездо.
+LocationType/&Encounter_Jungle_Outpost1_Title	Аванпост Ченна
+LocationType/&Encounter_Jungle_Outpost2_Title	Аванпост Сатилс
+LocationType/&Encounter_Jungle_Outpost3_Title	Аванпост Петрал
+LocationType/&Encounter_Jungle_Outpost4_Title	Аванпост Гартис
+LocationType/&Encounter_Jungle_Outpost5_Title	Аванпост Фелег
+LocationType/&Encounter_Jungle_Outpost6_Title	Аванпост Норен
+LocationType/&DLC1_Encounter_Anfarel_Town_Title	Каэр Анфрел
+LocationType/&DLC1_Encounter_Anfarel_Town_Description	Обычный город в джунглях и дом могущественной семьи манакалонской эры, рода Анфарел.
+LocationType/&DLC1_HuntingGrounds_Title	Охотничьи угодья
+LocationType/&DLC1_HuntingGrounds_Description	Хенрик сказал, что это место отлично подходит для охоты на медведей Пустошей.
+LocationType/&Encounter_Jungle_Outpost_Title	Неизвестный аванпост
+LocationType/&Forest	

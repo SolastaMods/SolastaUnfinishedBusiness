@@ -1,0 +1,10 @@
+KnowledgeLevel/&KnownDescription	Você conhece bem esta criatura.
+KnowledgeLevel/&KnownTitle	Conhecido (3)
+KnowledgeLevel/&MasteredDescription	Você sabe tudo sobre esta criatura.
+KnowledgeLevel/&MasteredTitle	Pleno Domínio (4)
+KnowledgeLevel/&ObservedDescription	Você observou esta criatura brevemente.
+KnowledgeLevel/&ObservedTitle	Observado (1)
+KnowledgeLevel/&StudiedDescription	Você estudou esta criatura.
+KnowledgeLevel/&StudiedTitle	Estudado (2)
+KnowledgeLevel/&UnknownDescription	Você nunca viu esta criatura.
+KnowledgeLevel/&UnknownTitle	Desconhecido (0)

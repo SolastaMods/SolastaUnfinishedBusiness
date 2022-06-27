@@ -150,7 +150,7 @@ public class FeatureDefinitionRemover : FeatureDefinition, IFeatureDefinitionCus
         ServiceRepository.GetService<ICharacterBuildingService>()
             .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
         //technically we return feature not where we took it from
-        tag = AttributeDefinitions.GetClassTag(lastClass, classLevel - 1);
+        tag = AttributeDefinitions.GetClassTag(lastClass, classLevel);
         ServiceRepository.GetService<ICharacterBuildingService>()
             .GrantFeatures(hero, new List<FeatureDefinition> {FeatureToRemove}, tag, false);
     }

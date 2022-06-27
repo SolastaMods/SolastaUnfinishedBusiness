@@ -8,5 +8,5 @@
 
 CHANGES:
 
-- Fix Dark-Half elf not getting Faerie Fire and Darkness
-- Fix Royal Knight's Inspiring Surge target filtering
+- Add a setting to display stats on Hero's tooltips
+- Improve translations

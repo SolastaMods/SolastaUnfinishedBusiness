@@ -1,10 +1,10 @@
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Zusätzlicher Schaden durch magisch angetriebene Angriffe
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Zusätzlicher Schaden durch magisch angetriebene Angriffe
-Subclass/&ArcaneFighterAdditionalActionDescription	Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
-Subclass/&ArcaneFighterAdditionalActionTitle	Zauberkampf
-Subclass/&ArcaneFighterBonusWeaponDamageDescription	Einmal pro Runde verursachen deine Waffenangriffe 1W8 zusätzlichen Schaden.
-Subclass/&ArcaneFighterBonusWeaponDamageTitle	Magisch angetriebene Angriffe
-Subclass/&TraditionArcaneFighterDescription	Kanalisieren Sie Ihre Magie in Waffenangriffe.
-Subclass/&TraditionArcaneFighterTitle	Arkaner Kämpfer
-Subclass/&WeaponProfArcaneFighterDescription	Die Erfahrung im Kampf hat dem Arcane Fighter eine Ausbildung in einfachen und Kampfwaffen gegeben.
-Subclass/&WeaponProfArcaneFighterTitle	Waffentraining
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Zusätzlicher Schaden durch magisch angetriebene Angriffe
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Zusätzlicher Schaden durch magisch angetriebene Angriffe
+Subclass/&ArcaneFighterAdditionalActionDescription=Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
+Subclass/&ArcaneFighterAdditionalActionTitle=Zauberkampf
+Subclass/&ArcaneFighterBonusWeaponDamageDescription=Einmal pro Runde verursachen deine Waffenangriffe 1W8 zusätzlichen Schaden.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle=Magisch angetriebene Angriffe
+Subclass/&TraditionArcaneFighterDescription=Kanalisieren Sie Ihre Magie in Waffenangriffe.
+Subclass/&TraditionArcaneFighterTitle=Arkaner Kämpfer
+Subclass/&WeaponProfArcaneFighterDescription=Die Erfahrung im Kampf hat dem Arcane Fighter eine Ausbildung in einfachen und Kampfwaffen gegeben.
+Subclass/&WeaponProfArcaneFighterTitle=Waffentraining

@@ -1,0 +1,8 @@
+InputBinding/&LeftAlt	Лев. Alt + 
+InputBinding/&LeftControl	Лев. Ctrl + 
+InputBinding/&LeftShift	Лев. Shift + 
+InputBinding/&MainFormat	Комбинация: {0}
+InputBinding/&OrFormat	или 
+InputBinding/&RightAlt	Прав. Alt + 
+InputBinding/&RightControl	Прав. Ctrl + 
+InputBinding/&RightShift	Прав. Shift + 

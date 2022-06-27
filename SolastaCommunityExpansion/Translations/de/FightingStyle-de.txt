@@ -1,10 +1,10 @@
-FightingStyle/&BlindFightingDescription	Sie haben Blindsicht mit einer Reichweite von 10 Fuß.
-FightingStyle/&BlindFightingTitle	Blindes Kämpfen
-FightingStyle/&CripplingDescription	Wenn du mit einem Nahkampfangriff triffst, kannst du die Geschwindigkeit deines Gegners bis zum Beginn deines nächsten Zuges um 10 Fuß verringern.
-FightingStyle/&CripplingTitle	Lähmend
-FightingStyle/&PugilistFightingDescription	Deine waffenlosen Schläge verursachen zusätzlich 1W4 Knüppelschaden und du kannst als Bonusaktion mit deiner Nebenhand schlagen.\nWenn Sie freie Hand haben, können Sie als Bonusaktion schubsen.
-FightingStyle/&PugilistFightingTitle	Faustkämpfer
-FightingStyle/&TitanFightingDescription	Du erhältst einen Treffer von +2 gegen Kreaturen der Größe Large oder größer.
-FightingStyle/&TitanFightingTitle	Kampf gegen Titanen
-Modifier/&CripplingAdditionalDamageDescription	Lähmender Schaden.
-Modifier/&CripplingAdditionalDamageTitle	Lähmend
+FightingStyle/&BlindFightingDescription=Sie haben Blindsicht mit einer Reichweite von 10 Fuß.
+FightingStyle/&BlindFightingTitle=Blindes Kämpfen
+FightingStyle/&CripplingDescription=Wenn du mit einem Nahkampfangriff triffst, kannst du die Geschwindigkeit deines Gegners bis zum Beginn deines nächsten Zuges um 10 Fuß verringern.
+FightingStyle/&CripplingTitle=Lähmend
+FightingStyle/&PugilistFightingDescription=Deine waffenlosen Schläge verursachen zusätzlich 1W4 Knüppelschaden und du kannst als Bonusaktion mit deiner Nebenhand schlagen.\nWenn Sie freie Hand haben, können Sie als Bonusaktion schubsen.
+FightingStyle/&PugilistFightingTitle=Faustkämpfer
+FightingStyle/&TitanFightingDescription=Du erhältst einen Treffer von +2 gegen Kreaturen der Größe Large oder größer.
+FightingStyle/&TitanFightingTitle=Kampf gegen Titanen
+Modifier/&CripplingAdditionalDamageDescription=Lähmender Schaden.
+Modifier/&CripplingAdditionalDamageTitle=Lähmend

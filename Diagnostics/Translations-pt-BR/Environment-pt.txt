@@ -1,0 +1,26 @@
+Environment/&CatacombsTitle	Catacumba
+Environment/&CatacombsDescription	Rede subterrânea de tumbas e criptas.
+Environment/&NecropolisTitle	Necrópole
+Environment/&NecropolisDescription	Domínio subterrâneo dos mortos.
+Environment/&SewersTitle	Esgotos
+Environment/&SewersDescription	Uma série de galerias de esgoto e drenagem.
+Environment/&StrongholdTitle	Fortaleza
+Environment/&StrongholdDescription	Interior de um castelo de pedra.
+Environment/&ElvenPalaceTitle	Palácio Élfico
+Environment/&ElvenPalaceDescription	Vestígios do luxo do reino de Manacalon.
+Environment/&LavaCavesTitle	Cavernas de Lava
+Environment/&LavaCavesDescription	Rede de cavernas subterrâneas habitadas por seres tribais.
+Environment/&WoodlandTitle	Floresta
+Environment/&WoodlandDescription	Explore uma série de clareiras dentro de uma floresta temperada.
+Environment/&TownTitle	Burgo
+Environment/&TownDescription	Explore as ruas de uma cidade medieval
+Environment/&TownInteriorTitle	Interiores das Cidades
+Environment/&TownInteriorDescription	Conjunto de decorações de interiores para casas e outras edificações que busca representar a parte interna das construções de uma cidade
+Environment/&JungleTitle	Selva
+Environment/&JungleDescription	Floresta tropical densa e úmida.
+Environment/&SwampTitle	Pântano
+Environment/&SwampDescription	A lama e a humidade tornam as viagens pelo pântano bastante desagradáveis.
+Environment/&CityValleyTitle	Vale Urbano
+Environment/&CityValleyDescription	Explore as ruas de uma cidade perdida, oculta no coração da selva.
+Environment/&ValleyPalaceTitle	Palácio do Vale
+Environment/&ValleyPalaceDescription	Um palácio luxuoso, nas profundezas do vale.

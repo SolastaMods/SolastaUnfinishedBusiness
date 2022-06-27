@@ -1,23 +1,23 @@
-Reaction/&CoordinatedAttackDescription {0} был атакован скоординированной атакой, некоторые персонажи могут использовать свою реакцию, чтобы присоединиться к этой	атаке.
-Reaction/&CoordinatedAttackReactDescription Используйте реакцию, чтобы атаковать	цель.
-Reaction/&CoordinatedAttackReactTitle	Атака
-Reaction/&CoordinatedAttackTitle Скоординированная	атака
-Reaction/&SubitemSelectCoordinatedAttackTitle Выберите	действие
-Subclass/&FighterMarshalCoordinatedAttackDescription Когда вы поражаете врага атакой в ​​ближнем бою, ваши союзники могут использовать свою реакцию, чтобы провести провоцированную атаку против вашей	цели.
-Subclass/&FighterMarshalCoordinatedAttackTitle Скоординированная	атака
-Subclass/&FighterMarshalDescription Искусные в изучении слабостей врагов и координации атак других членов группы, чтобы использовать их, бойцы, которые тренировались в этой боевой части, являются известными очестраторами на поле	боя.
-Subclass/&FighterMarshalEncouragementPowerDescription Мужество маршала вдохновляет его однопартийца. Союзники в пределах 10 футов от него добавляют 1d4 к броску атаки и	спасброску.
-Subclass/&FighterMarshalEncouragementPowerTitle	Поощрение
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription Связь между маршалом и его товарищем пересекает границу между жизнью и смертью. В качестве бонусного действия маршал может призвать одного духа своих павших товарищей, чтобы тот помог ему в	бою.
-Subclass/&FighterMarshalEternalComradeFeatureSetTitle Вечный	товарищ
-Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription Вы невосприимчивы к эффекту	страха.
-Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle Бесстрашный	командир
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription Вы добавляете свой уровень знания вашей текущей цели к своим броскам атаки и	урона.
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle Знай своего	врага
-Subclass/&FighterMarshalStudyYourEnemyPowerDescription В качестве бонусного действия вы можете попытаться увеличить свои знания о своей цели, бросив проверку Выживания. Вы можете сделать это дважды за короткий	отдых.
-Subclass/&FighterMarshalStudyYourEnemyPowerTitle Изучай своего	врага
-Subclass/&FighterMarshalSummonEternalComradePowerDescription Призвать 1 дух павшего товарища маршала. У каждого духа 45 + удвоенный уровень здоровья вашего бойца, а его КД равен 16 + ваш бонус мастерства. Духи невосприимчивы к яду, холоду, некрозу, поверженности, параличу и обездвиживанию. Духи обладают устойчивостью к урону от огня, кислоты, молнии и грома, а также к немагическим рубящим, дробящим и колющим повреждениям. В свой ход они могут взлететь на 50 футов и совершить одну рукопашную атаку оружием, которая наносит 2d6 + 5 магического рубящего урона с бонусом 5 + бонус мастерства к	попаданию.
-Subclass/&FighterMarshalSummonEternalComradePowerTitle Призвать Вечного	Товарища
-Subclass/&FighterMarshalTitle	Маршал
-Subclass/&MarshalEternalComradeDescription Падший	товарищ
-Subclass/&MarshalEternalComradeTitle Падший	товарищ
+Reaction/&CoordinatedAttackDescription={0} был атакован скоординированной атакой, некоторые персонажи могут использовать свою реакцию, чтобы присоединиться к этой атаке.
+Reaction/&CoordinatedAttackReactDescription=Используйте реакцию, чтобы атаковать цель.
+Reaction/&CoordinatedAttackReactTitle=Атака
+Reaction/&CoordinatedAttackTitle=Скоординированная атака
+Reaction/&SubitemSelectCoordinatedAttackTitle=Выберите действие
+Subclass/&FighterMarshalCoordinatedAttackDescription=Когда вы поражаете врага атакой в ​​ближнем бою, ваши союзники могут использовать свою реакцию, чтобы провести провоцированную атаку против вашей цели.
+Subclass/&FighterMarshalCoordinatedAttackTitle=Скоординированная атака
+Subclass/&FighterMarshalDescription=Искусные в изучении слабостей врагов и координации атак других членов группы, чтобы использовать их, бойцы, которые тренировались в этой боевой части, являются известными очестраторами на поле боя.
+Subclass/&FighterMarshalEncouragementPowerDescription=Мужество маршала вдохновляет его однопартийца. Союзники в пределах 10 футов от него добавляют 1d4 к броску атаки и спасброску.
+Subclass/&FighterMarshalEncouragementPowerTitle=Поощрение
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription=Связь между маршалом и его товарищем пересекает границу между жизнью и смертью. В качестве бонусного действия маршал может призвать одного духа своих павших товарищей, чтобы тот помог ему в бою.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle=Вечный товарищ
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription=Вы невосприимчивы к эффекту страха.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle=Бесстрашный командир
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription=Вы добавляете свой уровень знания вашей текущей цели к своим броскам атаки и урона.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle=Знай своего врага
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription=В качестве бонусного действия вы можете попытаться увеличить свои знания о своей цели, бросив проверку Выживания. Вы можете сделать это дважды за короткий отдых.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle=Изучай своего врага
+Subclass/&FighterMarshalSummonEternalComradePowerDescription=Призвать 1 дух павшего товарища маршала. У каждого духа 45 + удвоенный уровень здоровья вашего бойца, а его КД равен 16 + ваш бонус мастерства. Духи невосприимчивы к яду, холоду, некрозу, поверженности, параличу и обездвиживанию. Духи обладают устойчивостью к урону от огня, кислоты, молнии и грома, а также к немагическим рубящим, дробящим и колющим повреждениям. В свой ход они могут взлететь на 50 футов и совершить одну рукопашную атаку оружием, которая наносит 2d6 + 5 магического рубящего урона с бонусом 5 + бонус мастерства к попаданию.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle=Призвать Вечного Товарища
+Subclass/&FighterMarshalTitle=Маршал
+Subclass/&MarshalEternalComradeDescription=Падший товарищ
+Subclass/&MarshalEternalComradeTitle=Падший товарищ

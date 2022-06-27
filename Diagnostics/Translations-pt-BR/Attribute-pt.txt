@@ -1,0 +1,95 @@
+Attribute/&ArmorClassDescription	A Classe de Armadura (CA) representa a capacidade de uma criatura não ser atingida na batalha.
+Attribute/&ArmorClassTitle	CA
+Attribute/&AttacksNumberDescription	Indica o número de ataques que o personagem pode realizar por turno.
+Attribute/&AttacksNumberTitle	Ataques
+Attribute/&ChannelDivinityNumberDescription	Indica o número de vezes que você pode usar a ação Canalizar Divindade entre descansos.
+Attribute/&ChannelDivinityNumberTitle	Usos de Canalizar Divindade
+Attribute/&CharacterLevelDescription	Indica o número de níveis de experiência que o personagem obteve, somando todos os níveis de classe.
+Attribute/&CharacterLevelTitle	Nível de Personagem
+Attribute/&CharismaDescription	O Carisma mede a sua capacidade de interagir com os outros de forma profícua. Ele inclui alguns fatores como confiança e eloquência, e pode representar uma personalidade encantadora e dominante.\nImportante para: Paladinos, Feiticeiros.
+Attribute/&CharismaTitle	CAR
+Attribute/&CharismaTitleLong	Carisma
+Attribute/&ConstitutionDescription	A Constituição mede vida, vigor e força vital.\nImportante para: todos.
+Attribute/&ConstitutionTitle	CON
+Attribute/&ConstitutionTitleLong	Constituição
+Attribute/&CriticalThresholdDescription	Refere-se ao resultado mais baixo em 1d20 que resultará em um acerto crítico.
+Attribute/&CriticalThresholdTitle	Limiar Crítico
+Attribute/&DexterityDescription	A Destreza mede agilidade, reflexos e equilíbrio.\nImportante para: Patrulheiros, Ladinos.
+Attribute/&DexterityTitle	DES
+Attribute/&DexterityTitleLong	Destreza
+Attribute/&ExperienceDescription	O montante atual de pontos de experiência do personagem. Para o próximo nível: {0} EXP
+Attribute/&ExperienceTitle	Experiência
+Attribute/&HealingPoolDescription	Uma reserva de pontos de cura que servem para tratar ferimentos e remover aflições.
+Attribute/&HealingPoolTitle	Reserva de Cura
+Attribute/&HitDiceDescription	Indica o número de dados de vida que o personagem ganhou avançando em classes, e que servem para recuperar vida em momentos de descanso.
+Attribute/&HitDiceTitle	Dados de Vida
+Attribute/&HitPointBonusPerLevelDescription	Os pontos de vida extras que você ganha a cada nível, além dos dados de vida.
+Attribute/&HitPointBonusPerLevelTitle	Bônus de Pontos de Vida por Nível
+Attribute/&HitPointsDescription	Indica o número máximo de pontos de vida que uma criatura aguenta perder antes de tombar inconsciente ou morrer.
+Attribute/&HitPointsTitle	PV
+Attribute/&InitiativeDescription	A Iniciativa determina a ordem dos turnos das criaturas em combate.
+Attribute/&InitiativeTitle	Inic.
+Attribute/&IntelligenceDescription	A Inteligência mede a acuidade mental, a precisão das lembranças e a capacidade de raciocínio.\nImportante para: Magos.
+Attribute/&IntelligenceTitle	INT
+Attribute/&IntelligenceTitleLong	Inteligência
+Attribute/&MovePointsCurrentFormat	{0}/{1}
+Attribute/&MovePointsDescription	Indica o número de espaços que uma criatura pode percorrer em uma rodada de combate.
+Attribute/&MovePointsEmptyFormat	0
+Attribute/&MovePointsMaxFormat	de {0}
+Attribute/&MovePointsTitle	Mover
+Attribute/&ProficiencyBonusDescription	O bônus de proficiência é um bônus geral do personagem que é acrescido às rolagens em que você é proficiente: rolagens de ataque usando armas com proficiência, testes de ferramenta ou perícia com proficiência, testes de resistência com proficiência, e o bônus de ataque e dificuldade do teste de resistência dos seus ataques mágicos. O bônus de proficiência aumenta nos níveis 5, 9, 13 e 17, representando a especialização crescente do seu personagem nesses ataques, testes de ferramenta/perícia, testes de resistência e habilidades mágicas.
+Attribute/&ProficiencyBonusTitle	Prof.
+Attribute/&SpeedDescription	Indica o número de espaços que um personagem pode percorrer em um turno.
+Attribute/&SpeedTitle	Velocidade
+Attribute/&SpeedUnitBurrowFormat	cavar {0} {1}
+Attribute/&SpeedUnitClimbFormat	escalar {0} {1}
+Attribute/&SpeedUnitEmptyFormat	{0}
+Attribute/&SpeedUnitFlyFormat	voar {0} {1}
+Attribute/&SpeedUnitIncorporealFormat	incorpóreo {0} {1}
+Attribute/&SpeedUnitSwimFormat	nadar {0} {1}
+Attribute/&SpeedUnitWalkFormat	{0} {1}
+Attribute/&StrengthDescription	A Força mede o poder corporal, o treinamento atlético e o seu limite de empregar força bruta.\nImportante para: Guerreiros, Paladinos, Bárbaros.
+Attribute/&StrengthTitle	FOR
+Attribute/&StrengthTitleLong	Força
+Attribute/&TagBackgroundCantripTitle	Truque do Histórico
+Attribute/&TagBackgroundExpertiseTitle	Especialização do Histórico
+Attribute/&TagBackgroundFeatTitle	Talentos do Histórico
+Attribute/&TagBackgroundLanguageTitle	Idiomas do Histórico
+Attribute/&TagBackgroundSkillTitle	Perícias do Histórico
+Attribute/&TagBackgroundSpellTitle	Magias do Histórico
+Attribute/&TagBackgroundToolTypeTitle	Ferramentas do Histórico
+Attribute/&TagClassCantripTitle	Truques da Classe
+Attribute/&TagClassExpertiseTitle	Especialização da Classe
+Attribute/&TagClassFeatTitle	Talentos da Classe
+Attribute/&TagClassLanguageTitle	Idiomas da Classe
+Attribute/&TagClassSkillTitle	Perícias da Classe
+Attribute/&TagClassSpellTitle	Magias da Classe
+Attribute/&TagClassToolTypeTitle	Ferramentas da Classe
+Attribute/&TagRaceCantripTitle	Truques da Ancestralidade
+Attribute/&TagRaceExpertiseTitle	Especialização da Ancestralidade
+Attribute/&TagRaceFeatTitle	Talentos da Ancestralidade
+Attribute/&TagRaceLanguageTitle	Idiomas da Ancestralidade
+Attribute/&TagRaceSkillTitle	Perícias da Ancestralidade
+Attribute/&TagRaceSpellTitle	Magias da Ancestralidade
+Attribute/&TagRaceToolTypeTitle	Ferramentas da Ancestralidade
+Attribute/&TagSubclassCantripTitle	Truques da Subclasse
+Attribute/&TagSubclassExpertiseTitle	Especialização da Subclasse
+Attribute/&TagSubclassFeatTitle	Talentos da Subclasse
+Attribute/&TagSubclassLanguageTitle	Idiomas da Subclasse
+Attribute/&TagSubclassSkillTitle	Perícias da Subclasse
+Attribute/&TagSubclassSpellTitle	Magias da Subclasse
+Attribute/&TagSubclassToolTypeTitle	Ferramentas da Subclasse
+Attribute/&WisdomDescription	A Sabedoria reflete o seu afinamento com o mundo ao redor e representa perceptividade e intuição.\nImportante para: Clérigos, Patrulheiros, Druidas.
+Attribute/&WisdomTitle	SAB
+Attribute/&WisdomTitleLong	Sabedoria
+Attribute/&SorceryPointsDescription	Trata-se de uma reserva de poder interno para alterar magias (1 ponto por nível de Feiticeiro). Restaura-se após um descanso longo.
+Attribute/&SorceryPointsTitle	Pontos de Feitiçaria
+Attribute/&TagUnlearnSpellTitle	Esquecer Magia
+Attribute/&TagRaceMetamagicTitle	Opções de Metamagia por Ancestralidade
+Attribute/&TagClassMetamagicTitle	Opções de Metamagia por Classe
+Attribute/&TagSubclassMetamagicTitle	Opções de Metamagia por Subclasse
+Attribute/&TagBackgroundMetamagicTitle	Opções de Metamagia por Histórico
+Attribute/&RagePointsDescription	Determina quantos rompantes de fúria você pode ter.
+Attribute/&RagePointsTitle	Pontos de Fúria
+Attribute/&RageDamageDescription	Trata-se do dano adicional que você causa com ataques corpo a corpo.
+Attribute/&RageDamageTitle	Dano de Fúria

@@ -1,16 +1,16 @@
-Subclass/&MagicAffinityMasterManipulatorDC0Description	It is harder for opponents to resist your spells. The save DC increases by 0.
-Subclass/&MagicAffinityMasterManipulatorDC1Description	It is harder for opponents to resist your spells. The save DC increases by 1.
-Subclass/&MagicAffinityMasterManipulatorDC2Description	It is harder for opponents to resist your spells. The save DC increases by 2.
-Subclass/&MagicAffinityMasterManipulatorDC3Description	It is harder for opponents to resist your spells. The save DC increases by 3.
-Subclass/&MagicAffinityMasterManipulatorDC4Description	It is harder for opponents to resist your spells. The save DC increases by 4.
-Subclass/&MagicAffinityMasterManipulatorDC5Description	It is harder for opponents to resist your spells. The save DC increases by 5.
-Subclass/&MagicAffinityMasterManipulatorDCDescription	It is harder for opponents to resist your spells. The save DC increases by 3.
-Subclass/&MagicAffinityMasterManipulatorDCTitle	Arcane Force
-Subclass/&MagicAffinityMasterManipulatorListDescription	When casting some Enchantment, Abjuration, and Illusion spells they are cast at a spell slot 1 level higher than the one used. Improved spells include: Charm Person, Sleep, Color Spray, Hold Person, Invisibility, Counterspell, Dispel Magic, Banishment, Confusion, Phantasmal Killer, Dominate Person, and Hold Monster.
-Subclass/&MagicAffinityMasterManipulatorListTitle	Arcane Manipulation
-Subclass/&ManipulatorMentalSavingThrowsDescription	Gain proficiency in saving throws with Constitution and Charisma.
-Subclass/&ManipulatorMentalSavingThrowsTitle	Mental Resistance
-Subclass/&PowerManipulatorDominatePersonDescription	You can use Dominate Person a number of times per long rest equal to your Intelligence modifier.
-Subclass/&PowerManipulatorDominatePersonTitle	Dominate Person
-Subclass/&TraditionMasterManipulatorDescription	Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
-Subclass/&TraditionMasterManipulatorTitle	Master Manipulator
+Subclass/&MagicAffinityMasterManipulatorDC0Description=It is harder for opponents to resist your spells. The save DC increases by 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description=It is harder for opponents to resist your spells. The save DC increases by 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description=It is harder for opponents to resist your spells. The save DC increases by 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description=It is harder for opponents to resist your spells. The save DC increases by 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description=It is harder for opponents to resist your spells. The save DC increases by 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description=It is harder for opponents to resist your spells. The save DC increases by 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription=It is harder for opponents to resist your spells. The save DC increases by 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle=Arcane Force
+Subclass/&MagicAffinityMasterManipulatorListDescription=When casting some Enchantment, Abjuration, and Illusion spells they are cast at a spell slot 1 level higher than the one used. Improved spells include: Charm Person, Sleep, Color Spray, Hold Person, Invisibility, Counterspell, Dispel Magic, Banishment, Confusion, Phantasmal Killer, Dominate Person, and Hold Monster.
+Subclass/&MagicAffinityMasterManipulatorListTitle=Arcane Manipulation
+Subclass/&ManipulatorMentalSavingThrowsDescription=Gain proficiency in saving throws with Constitution and Charisma.
+Subclass/&ManipulatorMentalSavingThrowsTitle=Mental Resistance
+Subclass/&PowerManipulatorDominatePersonDescription=You can use Dominate Person a number of times per long rest equal to your Intelligence modifier.
+Subclass/&PowerManipulatorDominatePersonTitle=Dominate Person
+Subclass/&TraditionMasterManipulatorDescription=Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+Subclass/&TraditionMasterManipulatorTitle=Master Manipulator

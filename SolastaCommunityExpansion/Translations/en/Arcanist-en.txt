@@ -1,20 +1,20 @@
-Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark. When hit by the caster with a weapon attack, the mark detonates, dealing 1d6 force damage to the afflicted and destroying the mark.
-Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
-Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
-Equipment/&ArcaneStaffTitle	Arcane Staff
-Feature/&ArcaneDetonationDescription	When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
-Feature/&ArcaneDetonationTitle	Arcane Detonation
-Feature/&ArcaneDetonationUpgradeDescription	Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.
-Feature/&ArcaneDetonationUpgradeTitle	Greater Arcane Detonation
-Feature/&ArcanePulseDescription	Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 feet. Hostile creatures within 15 feet of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
-Feature/&ArcanePulseTitle	Arcane Pulse
-Feature/&ArcanistAutoPreparedSpellsDescription	You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know: \n{0}\n\n
-Feature/&ArcanistAutoPreparedSpellsTitle	Ranger Arcanist Bonus Spells
-Feature/&ArcanistMarkDescription	Starting at 3rd level, you imbue your weapons with arcane power. Creatures that are hit by your attacks are afflicted by the Arcanist's Mark.
-Feature/&ArcanistMarkTitle	Arcanist's Mark
-Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
-Feature/&MagicAffinityRangerArcanistTitle	Arcane Combat Training 
-Feedback/&AdditionalDamageArcanistMarkFormat	Arcanist's Mark!
-Feedback/&AdditionalDamageArcanistMarkLine	Arcanist's Mark detonates and deals extra damage to the target!
-Subclass/&RangerArcanistRangerSubclassDescription	The Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
-Subclass/&RangerArcanistRangerSubclassTitle	Ranger Arcanist
+Condition/&ConditionMarkedByArcanistDescription=Afflicted by Arcanist's Mark. When hit by the caster with a weapon attack, the mark detonates, dealing 1d6 force damage to the afflicted and destroying the mark.
+Condition/&ConditionMarkedByArcanistTitle=Arcanist's Mark
+Equipment/&ArcaneStaffDescription=This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
+Equipment/&ArcaneStaffTitle=Arcane Staff
+Feature/&ArcaneDetonationDescription=When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
+Feature/&ArcaneDetonationTitle=Arcane Detonation
+Feature/&ArcaneDetonationUpgradeDescription=Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.
+Feature/&ArcaneDetonationUpgradeTitle=Greater Arcane Detonation
+Feature/&ArcanePulseDescription=Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 feet. Hostile creatures within 15 feet of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
+Feature/&ArcanePulseTitle=Arcane Pulse
+Feature/&ArcanistAutoPreparedSpellsDescription=You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know: \n{0}\n\n
+Feature/&ArcanistAutoPreparedSpellsTitle=Ranger Arcanist Bonus Spells
+Feature/&ArcanistMarkDescription=Starting at 3rd level, you imbue your weapons with arcane power. Creatures that are hit by your attacks are afflicted by the Arcanist's Mark.
+Feature/&ArcanistMarkTitle=Arcanist's Mark
+Feature/&MagicAffinityRangerArcanistDescription=You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
+Feature/&MagicAffinityRangerArcanistTitle=Arcane Combat Training 
+Feedback/&AdditionalDamageArcanistMarkFormat=Arcanist's Mark!
+Feedback/&AdditionalDamageArcanistMarkLine=Arcanist's Mark detonates and deals extra damage to the target!
+Subclass/&RangerArcanistRangerSubclassDescription=The Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
+Subclass/&RangerArcanistRangerSubclassTitle=Ranger Arcanist

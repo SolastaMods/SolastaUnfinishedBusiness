@@ -1,10 +1,10 @@
-Feature/&InspiringSurgePowerDescription	Otorga a un aliado una acción principal adicional durante 1 ronda. No se acumula con Action Surge.
-Feature/&InspiringSurgePowerTitle	Oleada inspiradora
-Feature/&InspiringSurgePowerTitleShort	Oleada inspiradora
-Feature/&RallyingCryPowerDescription	Reemplaza Second Wind con un poder para restaurar 4x puntos de golpe de los niveles de luchador a uno o más aliados dentro de 6 celdas, hasta su máximo de puntos de golpe.
-Feature/&RallyingCryPowerTitle	Grito de guerra
-Feature/&RallyingCryPowerTitleShort	Grito de guerra
-Feature/&RoyalEnvoyFeatureDescription	Añade la mitad de tu bonificación por competencia (redondeando hacia arriba) a cualquier prueba de Carisma que realices y que aún no utilice tu bonificación por competencia. Además, te vuelves competente con las tiradas de salvación de Carisma.
-Feature/&RoyalEnvoyFeatureTitle	enviado real
-Subclass/&FighterRoyalKnightDescription	Un caballero que inspira grandeza en los demás al cometer hazañas valientes en la batalla. Un caballero solitario es un guerrero habilidoso, pero uno que lidera una banda de aliados puede transformar incluso a la milicia peor equipada en una feroz banda de guerra.
-Subclass/&FighterRoyalKnightTitle	Caballero real
+Feature/&InspiringSurgePowerDescription=Otorga a un aliado una acción principal adicional durante 1 ronda. No se acumula con Action Surge.
+Feature/&InspiringSurgePowerTitle=Oleada inspiradora
+Feature/&InspiringSurgePowerTitleShort=Oleada inspiradora
+Feature/&RallyingCryPowerDescription=Reemplaza Second Wind con un poder para restaurar 4x puntos de golpe de los niveles de luchador a uno o más aliados dentro de 6 celdas, hasta su máximo de puntos de golpe.
+Feature/&RallyingCryPowerTitle=Grito de guerra
+Feature/&RallyingCryPowerTitleShort=Grito de guerra
+Feature/&RoyalEnvoyFeatureDescription=Añade la mitad de tu bonificación por competencia (redondeando hacia arriba) a cualquier prueba de Carisma que realices y que aún no utilice tu bonificación por competencia. Además, te vuelves competente con las tiradas de salvación de Carisma.
+Feature/&RoyalEnvoyFeatureTitle=enviado real
+Subclass/&FighterRoyalKnightDescription=Un caballero que inspira grandeza en los demás al cometer hazañas valientes en la batalla. Un caballero solitario es un guerrero habilidoso, pero uno que lidera una banda de aliados puede transformar incluso a la milicia peor equipada en una feroz banda de guerra.
+Subclass/&FighterRoyalKnightTitle=Caballero real

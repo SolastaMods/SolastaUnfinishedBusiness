@@ -1,6 +1,6 @@
-﻿Race/&HalfElfDarkElfRaceDescription	Meio-Elfos Escuros são descendentes de elfos que foram alterados ao longo do tempo por viverem nas inóspitas Badlands. Sua herança humana os tornou adaptáveis ​​à luz brilhante.
-Race/&HalfElfDarkElfRaceTitle	Meio-Elfo Escuro
-Race/&HalfElfHighElfRaceDescription	Meio-Elfos Altos são treinados para usar magia muito cedo.
-Race/&HalfElfHighElfRaceTitle	Meio-Elfo Alto
-Race/&HalfElfSylvanElfRaceDescription	Meio-Elfos Silvestres são treinados para sobreviver na selva e são particularmente aptos à sobrevivência. Como sua herança élfica silvestre, eles são treinados para lutar com espadas e arcos desde a infância.
-Race/&HalfElfSylvanElfRaceTitle	Meio-Elfo Silvestre
+﻿Race/&HalfElfDarkElfRaceDescription=Meio-Elfos Escuros são descendentes de elfos que foram alterados ao longo do tempo por viverem nas inóspitas Badlands. Sua herança humana os tornou adaptáveis ​​à luz brilhante.
+Race/&HalfElfDarkElfRaceTitle=Meio-Elfo Escuro
+Race/&HalfElfHighElfRaceDescription=Meio-Elfos Altos são treinados para usar magia muito cedo.
+Race/&HalfElfHighElfRaceTitle=Meio-Elfo Alto
+Race/&HalfElfSylvanElfRaceDescription=Meio-Elfos Silvestres são treinados para sobreviver na selva e são particularmente aptos à sobrevivência. Como sua herança élfica silvestre, eles são treinados para lutar com espadas e arcos desde a infância.
+Race/&HalfElfSylvanElfRaceTitle=Meio-Elfo Silvestre

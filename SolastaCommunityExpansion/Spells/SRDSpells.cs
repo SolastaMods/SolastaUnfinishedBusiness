@@ -231,10 +231,10 @@ public static class SrdSpells
     //                     SummonForm.Type.Creature,
     //                     new ItemDefinition(),
     //                     1,
-    //                     DatabaseHelper.MonsterDefinitions.Zombie.name,
-    //                     DatabaseHelper.ConditionDefinitions.ConditionMindDominatedByCaster,
+    //                    MonsterDefinitions.Zombie.name,
+    //                    ConditionDefinitions.ConditionMindDominatedByCaster,
     //                     true,
-    //                     DatabaseHelper.DecisionPackageDefinitions.IdleGuard_Default,
+    //                    DecisionPackageDefinitions.IdleGuard_Default,
     //                     new EffectProxyDefinition()).Build()
     //               );
     //
@@ -801,7 +801,7 @@ public static class SrdSpells
                 FeatureDefinitionSenses.SenseTruesight16,
                 // wildshape was meant to be a substitute for the couatl's shapechanging but the game didnt like it
                 // (gave the couatl a second position in the intiative order)
-                // DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape,
+                //FeatureDefinitionPowers.PowerDruidWildShape,
                 FeatureDefinitionAttackModifiers.AttackModifierKindredSpiritMagicSpiritMagicAttack,
                 FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity,
@@ -1987,12 +1987,12 @@ public static class SrdSpells
             Definition.ForbiddenActions.Empty();
             Definition.ForbiddenActions.AddRange
             (
-                DatabaseHelper.ActionDefinitions.CastBonus.Id,
-                DatabaseHelper.ActionDefinitions.CastMain.Id,
-                DatabaseHelper.ActionDefinitions.CastNoCost.Id,
-                DatabaseHelper.ActionDefinitions.CastReaction.Id,
-                DatabaseHelper.ActionDefinitions.CastReadied.Id,
-                DatabaseHelper.ActionDefinitions.CastRitual.Id
+               ActionDefinitions.Id.CastBonus,
+               ActionDefinitions.Id.CastMain,
+               ActionDefinitions.Id.CastNoCost,
+               ActionDefinitions.Id.CastReaction,
+               ActionDefinitions.Id.CastReadied,
+               ActionDefinitions.Id.CastRitual
             );
         }
 

@@ -1,0 +1,18 @@
+Notification/&FactionRelationDecreaseDescription	Suas relações com esta facção pioraram.
+Notification/&FactionRelationDecreaseTitle	Relações Pioradas ({0})
+Notification/&FactionRelationIncreaseDescription	Suas relações com esta facção melhoraram.
+Notification/&FactionRelationIncreaseTitle	Relações Melhoradas ({0})
+Notification/&LocationRevealedDescription	Um novo destino está disponível.
+Notification/&LocationRevealedTitle	Novo Local Revelado
+Notification/&MapWaypointRevealedDescription	Clique para abrir o mapa.
+Notification/&MapWaypointRevealedTitle	Novo Ponto de Rota Adicionado
+Notification/&MonsterInformationDescription	Você ganhou conhecimento.
+Notification/&MonsterInformationTitle	Bestiário Atualizado
+Notification/&QuestStepAchievedDescription	Você conseguiu concluir um objetivo da missão.
+Notification/&QuestStepAchievedTitle	Objetivo Concluído
+Notification/&QuestStepFailedDescription	Você não conseguiu concluir um objetivo da missão.
+Notification/&QuestStepFailedTitle	Objetivo Fracassado
+Notification/&QuestStepStartedDescription	Você começou um novo objetivo desta missão.
+Notification/&QuestStepStartedTitle	Novo Objetivo
+Notification/&RecipeLearnedDescription	Confira as opções de criação.
+Notification/&RecipeLearnedTitle	Nova Opção de Criação

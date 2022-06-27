@@ -1,24 +1,24 @@
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen.
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Zauberschild
-Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	Wenn eine Waffe aktiv ist, zählen ihre Angriffe als magisch und Sie verwenden Ihre Intelligenz für Ihre Angriffs- und Schadenswürfe.
-Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arkane Waffe
-Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	Du erhältst einen zusätzlichen Angriff.
-Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Extra-Angriff
-Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen. Dadurch erhältst du bis zu deinem nächsten Zug +3 auf deine RK.
-Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Arkane Ablenkung
-Subclass/&FighterSpellShieldDescription	Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie verwenden Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
-Subclass/&FighterSpellShieldSpellcastingDescription	Wirke Zaubersprüche und Cantrips aus den Schulen Abjuration, Illusion, Transmutation und Nekromantie.
-Subclass/&FighterSpellShieldSpellcastingTitle	Zaubern
-Subclass/&FighterSpellShieldSpellResistanceDescription	Deine Erfahrung mit Zaubersprüchen und insbesondere der Bannzaubermagie hat dich resistent gegen gegen dich gerichtete Zauber gemacht.
-Subclass/&FighterSpellShieldSpellResistanceTitle	Zauberwiderstand
-Subclass/&FighterSpellShieldTitle	Zauberschild
-Subclass/&MagicAffinityFighterSpellShieldDescription	Vorteil bei Konzentrationswürfen sowie die Fähigkeit, somatische Komponenten von Zaubersprüchen auszuführen, während Gegenstände gehalten werden.
-Subclass/&MagicAffinityFighterSpellShieldTitle	Kampf-Casting
-Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Verschaffen Sie sich aufgrund der Erfahrung im Chaos des Kampfes einen Vorteil bei Konzentrationswürfen.
-Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Verbesserte Konzentration
-Subclass/&PowerSpellShieldArcaneDeflectionDescription	Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen. Dadurch erhältst du bis zu deinem nächsten Zug +{0} auf deine AC.
-Subclass/&PowerSpellShieldArcaneDeflectionTitle	Arkane Ablenkung
-Subclass/&PowerSpellShieldRangedDeflectionDescription	Wenn ein Angreifer, den du sehen kannst, dich mit einem Fernkampfangriff oder Zauber trifft, kannst du deine Reaktion nutzen, um den Schaden des Angriffs gegen dich zu halbieren.
-Subclass/&PowerSpellShieldRangedDeflectionTitle	Fernablenkung
-Subclass/&SpellShieldAdditionalActionDescription	Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
-Subclass/&SpellShieldAdditionalActionTitle	Zauberkampf
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription=Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen.
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle=Zauberschild
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription=Wenn eine Waffe aktiv ist, zählen ihre Angriffe als magisch und Sie verwenden Ihre Intelligenz für Ihre Angriffs- und Schadenswürfe.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle=Arkane Waffe
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription=Du erhältst einen zusätzlichen Angriff.
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle=Extra-Angriff
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription=Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen. Dadurch erhältst du bis zu deinem nächsten Zug +3 auf deine RK.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle=Arkane Ablenkung
+Subclass/&FighterSpellShieldDescription=Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie verwenden Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
+Subclass/&FighterSpellShieldSpellcastingDescription=Wirke Zaubersprüche und Cantrips aus den Schulen Abjuration, Illusion, Transmutation und Nekromantie.
+Subclass/&FighterSpellShieldSpellcastingTitle=Zaubern
+Subclass/&FighterSpellShieldSpellResistanceDescription=Deine Erfahrung mit Zaubersprüchen und insbesondere der Bannzaubermagie hat dich resistent gegen gegen dich gerichtete Zauber gemacht.
+Subclass/&FighterSpellShieldSpellResistanceTitle=Zauberwiderstand
+Subclass/&FighterSpellShieldTitle=Zauberschild
+Subclass/&MagicAffinityFighterSpellShieldDescription=Vorteil bei Konzentrationswürfen sowie die Fähigkeit, somatische Komponenten von Zaubersprüchen auszuführen, während Gegenstände gehalten werden.
+Subclass/&MagicAffinityFighterSpellShieldTitle=Kampf-Casting
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription=Verschaffen Sie sich aufgrund der Erfahrung im Chaos des Kampfes einen Vorteil bei Konzentrationswürfen.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle=Verbesserte Konzentration
+Subclass/&PowerSpellShieldArcaneDeflectionDescription=Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen. Dadurch erhältst du bis zu deinem nächsten Zug +{0} auf deine AC.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle=Arkane Ablenkung
+Subclass/&PowerSpellShieldRangedDeflectionDescription=Wenn ein Angreifer, den du sehen kannst, dich mit einem Fernkampfangriff oder Zauber trifft, kannst du deine Reaktion nutzen, um den Schaden des Angriffs gegen dich zu halbieren.
+Subclass/&PowerSpellShieldRangedDeflectionTitle=Fernablenkung
+Subclass/&SpellShieldAdditionalActionDescription=Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
+Subclass/&SpellShieldAdditionalActionTitle=Zauberkampf

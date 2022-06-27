@@ -1,18 +1,18 @@
-Subclass/&MagicAffinitySpellMasterBonusScribingDescription	Escriba un hechizo adicional en cada nivel superior.
-Subclass/&MagicAffinitySpellMasterBonusScribingTitle	Amplitud de conocimiento
-Subclass/&MagicAffinitySpellMasterRecoveryDescription	Una vez por descanso prolongado, puedes recuperar espacios de hechizos (además de Recuperación arcana).
-Subclass/&MagicAffinitySpellMasterRecoveryTitle	Profundidad Arcana
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Tiempos ilimitados que puedes recuperar espacios de hechizos (además de Recuperación Arcana).
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Profundidad Arcana
-Subclass/&MagicAffinitySpellMasterScribingDescription	Escribir hechizos toma 1/4 del tiempo y costo, y tienes ventaja.
-Subclass/&MagicAffinitySpellMasterScribingTitle	Maestro escribano
-Subclass/&TraditionSpellMasterBonusCantripsDescription	Gana 2 cantrips adicionales conocidos.
-Subclass/&TraditionSpellMasterBonusCantripsTitle	trucos de bonificación
-Subclass/&TraditionSpellMasterDescription	Los maestros de hechizos se sumergen en la magia y tratan de aprender todos los hechizos que pueden tener en sus manos. Son inigualables en su conocimiento de hechizos.
-Subclass/&TraditionSpellMasterExtraPreparedDescription	Prepara hechizos adicionales modificadores de Inteligencia para que siempre tengas lo que necesitas.
-Subclass/&TraditionSpellMasterExtraPreparedTitle	extra preparado
-Subclass/&TraditionSpellMasterPreparedDescription	Prepara hechizos adicionales de bonificación de competencia para que siempre tengas lo que necesitas.
-Subclass/&TraditionSpellMasterPreparedTitle	Estar preparado
-Subclass/&TraditionSpellMasterSpellResistanceDescription	Tu entrenamiento con la magia te da ventaja en las tiradas de salvación contra hechizos.
-Subclass/&TraditionSpellMasterSpellResistanceTitle	Resistencia a conjuros
-Subclass/&TraditionSpellMasterTitle	Experto en ortografía
+Subclass/&MagicAffinitySpellMasterBonusScribingDescription=Escriba un hechizo adicional en cada nivel superior.
+Subclass/&MagicAffinitySpellMasterBonusScribingTitle=Amplitud de conocimiento
+Subclass/&MagicAffinitySpellMasterRecoveryDescription=Una vez por descanso prolongado, puedes recuperar espacios de hechizos (además de Recuperación arcana).
+Subclass/&MagicAffinitySpellMasterRecoveryTitle=Profundidad Arcana
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription=Tiempos ilimitados que puedes recuperar espacios de hechizos (además de Recuperación Arcana).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle=Profundidad Arcana
+Subclass/&MagicAffinitySpellMasterScribingDescription=Escribir hechizos toma 1/4 del tiempo y costo, y tienes ventaja.
+Subclass/&MagicAffinitySpellMasterScribingTitle=Maestro escribano
+Subclass/&TraditionSpellMasterBonusCantripsDescription=Gana 2 cantrips adicionales conocidos.
+Subclass/&TraditionSpellMasterBonusCantripsTitle=trucos de bonificación
+Subclass/&TraditionSpellMasterDescription=Los maestros de hechizos se sumergen en la magia y tratan de aprender todos los hechizos que pueden tener en sus manos. Son inigualables en su conocimiento de hechizos.
+Subclass/&TraditionSpellMasterExtraPreparedDescription=Prepara hechizos adicionales modificadores de Inteligencia para que siempre tengas lo que necesitas.
+Subclass/&TraditionSpellMasterExtraPreparedTitle=extra preparado
+Subclass/&TraditionSpellMasterPreparedDescription=Prepara hechizos adicionales de bonificación de competencia para que siempre tengas lo que necesitas.
+Subclass/&TraditionSpellMasterPreparedTitle=Estar preparado
+Subclass/&TraditionSpellMasterSpellResistanceDescription=Tu entrenamiento con la magia te da ventaja en las tiradas de salvación contra hechizos.
+Subclass/&TraditionSpellMasterSpellResistanceTitle=Resistencia a conjuros
+Subclass/&TraditionSpellMasterTitle=Experto en ortografía

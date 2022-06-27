@@ -1,24 +1,24 @@
-FlexibleRaces/&PointPoolAbilityScore3Description Используйте три повышения характеристик в любой комбинации по вашему	выбору.
-FlexibleRaces/&PointPoolAbilityScore3Title Увеличение показателя	способности
-FlexibleRaces/&PointPoolAbilityScore4Description Используйте четыре повышения характеристик в любой комбинации по вашему	выбору.
-FlexibleRaces/&PointPoolAbilityScore4Title Увеличение показателя	способности
-Race/&PointPoolSelect10FeatsDescription Выберите 10 дополнительных умений для своего	персонажа.
-Race/&PointPoolSelect10FeatsTitle 10 бонусных	умений
-Race/&PointPoolSelect11FeatsDescription Выберите 11 дополнительных умений для своего	персонажа.
-Race/&PointPoolSelect11FeatsTitle 11 бонусных	умений
-Race/&PointPoolSelect2FeatsDescription Выберите 2 дополнительных умения для своего	персонажа.
-Race/&PointPoolSelect2FeatsTitle 2 бонусных	умения
-Race/&PointPoolSelect3FeatsDescription Выберите 3 дополнительных умения для своего	персонажа.
-Race/&PointPoolSelect3FeatsTitle 3 бонусных	умения
-Race/&PointPoolSelect4FeatsDescription Выберите 4 дополнительных умения для своего	персонажа.
-Race/&PointPoolSelect4FeatsTitle 4 бонусных	умения
-Race/&PointPoolSelect5FeatsDescription Выберите 5 дополнительных умений для своего	персонажа.
-Race/&PointPoolSelect5FeatsTitle 5 бонусных	навыков
-Race/&PointPoolSelect6FeatsDescription Выберите 6 дополнительных умений для своего	персонажа.
-Race/&PointPoolSelect6FeatsTitle 6 бонусных	навыков
-Race/&PointPoolSelect7FeatsDescription Выберите 7 дополнительных умений для своего	персонажа.
-Race/&PointPoolSelect7FeatsTitle 7 бонусных	навыков
-Race/&PointPoolSelect8FeatsDescription Выберите 8 дополнительных умений для своего	персонажа.
-Race/&PointPoolSelect8FeatsTitle 8 бонусных	навыков
-Race/&PointPoolSelect9FeatsDescription Выберите 9 дополнительных умений для своего	персонажа.
-Race/&PointPoolSelect9FeatsTitle 9 бонусных	навыков
+FlexibleRaces/&PointPoolAbilityScore3Description=Используйте три повышения характеристик в любой комбинации по вашему выбору.
+FlexibleRaces/&PointPoolAbilityScore3Title=Увеличение показателя способности
+FlexibleRaces/&PointPoolAbilityScore4Description=Используйте четыре повышения характеристик в любой комбинации по вашему выбору.
+FlexibleRaces/&PointPoolAbilityScore4Title=Увеличение показателя способности
+Race/&PointPoolSelect10FeatsDescription=Выберите 10 дополнительных умений для своего персонажа.
+Race/&PointPoolSelect10FeatsTitle=10 бонусных умений
+Race/&PointPoolSelect11FeatsDescription=Выберите 11 дополнительных умений для своего персонажа.
+Race/&PointPoolSelect11FeatsTitle=11 бонусных умений
+Race/&PointPoolSelect2FeatsDescription=Выберите 2 дополнительных умения для своего персонажа.
+Race/&PointPoolSelect2FeatsTitle=2 бонусных умения
+Race/&PointPoolSelect3FeatsDescription=Выберите 3 дополнительных умения для своего персонажа.
+Race/&PointPoolSelect3FeatsTitle=3 бонусных умения
+Race/&PointPoolSelect4FeatsDescription=Выберите 4 дополнительных умения для своего персонажа.
+Race/&PointPoolSelect4FeatsTitle=4 бонусных умения
+Race/&PointPoolSelect5FeatsDescription=Выберите 5 дополнительных умений для своего персонажа.
+Race/&PointPoolSelect5FeatsTitle=5 бонусных навыков
+Race/&PointPoolSelect6FeatsDescription=Выберите 6 дополнительных умений для своего персонажа.
+Race/&PointPoolSelect6FeatsTitle=6 бонусных навыков
+Race/&PointPoolSelect7FeatsDescription=Выберите 7 дополнительных умений для своего персонажа.
+Race/&PointPoolSelect7FeatsTitle=7 бонусных навыков
+Race/&PointPoolSelect8FeatsDescription=Выберите 8 дополнительных умений для своего персонажа.
+Race/&PointPoolSelect8FeatsTitle=8 бонусных навыков
+Race/&PointPoolSelect9FeatsDescription=Выберите 9 дополнительных умений для своего персонажа.
+Race/&PointPoolSelect9FeatsTitle=9 бонусных навыков

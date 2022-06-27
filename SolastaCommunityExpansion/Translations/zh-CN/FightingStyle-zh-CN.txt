@@ -1,10 +1,10 @@
-FightingStyle/&BlindFightingDescription	你获得10英尺范围的盲感
-FightingStyle/&BlindFightingTitle	盲斗
-FightingStyle/&CripplingDescription	用近战攻击命中后，你能将对手的速度降低10英尺，直到你下一回合开始
-FightingStyle/&CripplingTitle	致残
-FightingStyle/&PugilistFightingDescription	你的徒手攻击造成额外的1d4点伤害，并且你能以附赠动作进行副手攻击\n若你有一只手为空，你能以附赠动作进行推撞
-FightingStyle/&PugilistFightingTitle	搏击
-FightingStyle/&TitanFightingDescription	你对大体型或大体型以上的生物伤害+2
-FightingStyle/&TitanFightingTitle	泰坦战技
-Modifier/&CripplingAdditionalDamageDescription	致残伤害
-Modifier/&CripplingAdditionalDamageTitle	致残
+FightingStyle/&BlindFightingDescription=你获得10英尺范围的盲感
+FightingStyle/&BlindFightingTitle=盲斗
+FightingStyle/&CripplingDescription=用近战攻击命中后，你能将对手的速度降低10英尺，直到你下一回合开始
+FightingStyle/&CripplingTitle=致残
+FightingStyle/&PugilistFightingDescription=你的徒手攻击造成额外的1d4点伤害，并且你能以附赠动作进行副手攻击\n若你有一只手为空，你能以附赠动作进行推撞
+FightingStyle/&PugilistFightingTitle=搏击
+FightingStyle/&TitanFightingDescription=你对大体型或大体型以上的生物伤害+2
+FightingStyle/&TitanFightingTitle=泰坦战技
+Modifier/&CripplingAdditionalDamageDescription=致残伤害
+Modifier/&CripplingAdditionalDamageTitle=致残

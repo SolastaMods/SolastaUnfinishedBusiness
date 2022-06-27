@@ -97,6 +97,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowUnmarkedSorcerers { get; set; }
     public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
     public bool UnlockEyeStyles { get; set; }
+    public bool AddNewBrightEyeColors { get; set; }
     public bool UnlockGlowingEyeColors { get; set; }
     public bool UnlockGlowingColorsForAllMarksAndTatoos { get; set; }
 
@@ -260,6 +261,7 @@ public class Settings : UnityModManager.ModSettings
     public bool FollowCharactersOnTeleport { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
+    public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }

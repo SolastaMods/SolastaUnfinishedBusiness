@@ -1,0 +1,30 @@
+Alignment/&ChaoticEvilDescription	Criaturas caóticas e más (CM) agem com violência arbitrária, incentivadas por cobiça, ódio ou sanguinolência. Demônios, dragões vermelhos e orcs são caóticos e maus.
+Alignment/&ChaoticEvilTitle	Caótico e Mau
+Alignment/&ChaoticEvilTitleShort	CM
+Alignment/&ChaoticGoodDescription	Criaturas caóticas e boas (CB) seguem a orientação da consciência, e pouco se preocupam com as expectativas alheias. Dragões de bronze, muitos elfos e unicórnios são caóticos e bons.
+Alignment/&ChaoticGoodTitle	Caótico e Bom
+Alignment/&ChaoticGoodTitleShort	CB
+Alignment/&ChaoticNeutralDescription	Criaturas caóticas e neutras (CN) seguem seus caprichos, e colocam sua liberdade pessoal acima de tudo. Muitos bárbaros e ladinos, além de alguns bardos, são caóticos e neutros.
+Alignment/&ChaoticNeutralTitle	Caótico e Neutro
+Alignment/&ChaoticNeutralTitleShort	CN
+Alignment/&LawfulEvilDescription	Criaturas ordeiras e más (OM) tomam o que querem metodicamente, dentro dos limites de um código de tradições, lealdade e ordem. Demônios, dragões azuis e hobgoblins são ordeiros e maus.
+Alignment/&LawfulEvilTitle	Ordeiro e Mau
+Alignment/&LawfulEvilTitleShort	OM
+Alignment/&LawfulGoodDescription	É certo que criaturas ordeiras e boas (OB) sempre farão a coisa certa conforme as expectativas da sociedade. Dragões de ouro, paladinos e a maioria dos anões são ordeiros e bons.
+Alignment/&LawfulGoodTitle	Ordeiro e Bom
+Alignment/&LawfulGoodTitleShort	OB
+Alignment/&LawfulNeutralDescription	Indivíduos ordeiros e neutros (ON) agem de acordo com a lei, com as tradições ou com códigos pessoais. Muitos monges e alguns magos são ordeiros e neutros.
+Alignment/&LawfulNeutralTitle	Ordeiro e Neutro
+Alignment/&LawfulNeutralTitleShort	ON
+Alignment/&NeutralDescription	Neutro (N) é o alinhamento de quem prefere não se meter em questões morais e não se posiciona, fazendo sempre o que parecer melhor a cada momento. O povo lagarto, a maioria dos druidas e muitos humanos são neutros.
+Alignment/&NeutralEvilDescription	Neutro e mau (NM) é o alinhamento de quem faz o que conseguir fazer sem ter que enfrentar consequência, tudo isso sem compaixão nem escrúpulos. Muitos drows, alguns gigantes das nuvens e yugoloths são neutros e maus.
+Alignment/&NeutralEvilTitle	Neutro e Mau
+Alignment/&NeutralEvilTitleShort	NM
+Alignment/&NeutralGoodDescription	Criaturas neutras e boas (NB) fazem o que podem para ajudar os outros de acordo com a necessidade. Muitos celestiais, alguns gigantes das nuvens e a maioria dos gnomos são neutros e bons.
+Alignment/&NeutralGoodTitle	Neutro e Bom
+Alignment/&NeutralGoodTitleShort	NB
+Alignment/&NeutralTitle	Neutro
+Alignment/&NeutralTitleShort	N
+Alignment/&UnalignedDescription	A maioria das criaturas desprovidas de pensamento racional não tem alinhamento. Essas criaturas são incapazes de tomar decisões morais e éticas por conta de sua natureza bestial. Tubarões são predadores ferozes, por exemplo, mas não são maus; eles não têm alinhamento.
+Alignment/&UnalignedTitle	Sem Alinhamento
+Alignment/&UnalignedTitleShort	SA

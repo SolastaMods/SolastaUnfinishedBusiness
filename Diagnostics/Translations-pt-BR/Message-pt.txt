@@ -1,0 +1,265 @@
+Message/&AbortCreationDescription	Quer cancelar a criação de personagem?
+Message/&AbortCreationTitle	Cancelar a Criação de Personagem
+Message/&AbortLevelUpDescription	Quer mesmo cancelar o processo de aumento de nível de personagem?
+Message/&AbortLevelUpTitle	Cancelar Aumento de Nível de Personagem
+Message/&AmountGainedFormat	
+Message/&AttunementLostDescription	O item "{0}" perdeu o vínculo.
+Message/&AttunementLostTitle	Vínculo Perdido
+Message/&AttunementRemovalDescription	Quer mesmo remover o vínculo com este item?
+Message/&AttunementRemovalTitle	Remover Vínculo
+Message/&AttunementReplacementDescription	No momento, este item está vinculado a {0}. Quem mesmo vinculá-lo a {1}?
+Message/&AttunementReplacementTitle	Substituição de Vínculo
+Message/&CannotLoad	Impossível Carregar Agora
+Message/&CannotSave	Impossível Salvar Agora
+Message/&CharacterDeletionDescription	Quer mesmo excluir este personagem? Esta ação é irreversível.
+Message/&CharacterDeletionTitle	Exclusão de Personagem
+Message/&ConcentrationLossDescription	Ao conjurar a magia {0}, você perderá concentração na magia {1}. Quer mesmo prosseguir?
+Message/&ConcentrationLossTitle	Perda de Concentração
+Message/&CraftingAbortDescription	Quer mesmo encerrar esta operação de criação? Você perderá todo o progresso e os ingredientes gastos.
+Message/&CraftingAbortTitle	Encerrar Criação
+Message/&FastTravelConfirmationDescription	Quer mesmo fazer uma viagem rápida para este destino? (O tempo avançará rapidamente.) 
+Message/&FastTravelConfirmationTitle	Viagem Rápida
+Message/&FastTravelErrorPathNotFoundDescription	Não é possível fazer viagem rápida para este destino, pois o caminho está bloqueado.
+Message/&FastTravelErrorTitle	Viagem Rápida
+Message/&FastTravelExitLocationDescription	Quer mesmo fazer uma viagem rápida para esta saída e deixar a área atual? (O tempo avançará rapidamente) 
+Message/&FastTravelExitLocationTitle	Viagem Rápida para Sair da Área
+Message/&IdentificationCancelledTitle	A identificação do item foi cancelada.
+Message/&IncompletePreparationDescription	Você não preparou todas as magias disponíveis. Quer mesmo continuar?
+Message/&IncompletePreparationTitle	Preparo de Magia Incompleto
+Message/&ItemsOnGroundDescription	Se você sair desta tela, perderá os itens deixados no chão. Quer mesmo prosseguir?
+Message/&ItemsOnGroundTitle	Perder Itens
+Message/&LegalDisagreeAndQuitDescription	Como você não aceitou os termos, o aplicativo será encerrado.
+Message/&LegalDisagreeAndQuitTitle	Sair do Jogo
+Message/&MessageCancelTitle	Cancelar
+Message/&MessageNoTitle	Não
+Message/&MessageOkTitle	Ok
+Message/&MessageYesTitle	Sim
+Message/&PartyLosesGoldPieces	O grupo perde {0} peças de ouro
+Message/&QuitLocationDescription	Você está prestes a sair da área atual. Prosseguir?
+Message/&QuitLocationTitle	Sair da Área
+Message/&ResumeCampDescription	Quer continuar acampando?
+Message/&ResumeCampTitle	Continuar Acampando
+Message/&ResumeRestDescription	Quer continuar o descanso longo?
+Message/&ResumeRestTitle	Continuar Descanso Longo
+Message/&SavedGameDeleteDescription	Quer mesmo excluir em definitivo o jogo salvo "{0}"?
+Message/&SavedGameDeleteTitle	Excluir Jogo Salvo
+Message/&SavedGameOverwriteDescription	Quer mesmo substituir o jogo salvo "{0}" pelo jogo atual?
+Message/&SavedGameOverwriteTitle	Substituir Jogo Salvo
+Message/&ScrollScribeDestructionDescription	Redigir a magia no grimório escolhido causará a destruição do pergaminho. Quer mesmo prosseguir?
+Message/&ScrollScribeDestructionTitle	Redigir no Pergaminho
+Message/&SessionCancelDescription	Quer mesmo sair das configurações desta nova aventura?
+Message/&SessionCancelTitle	Cancelar Aventura
+Message/&SettingConfirmSettingsDescription	Quer mesmo manter as alterações destas configurações?
+Message/&SettingConfirmSettingsTitle	Confirmar Configurações
+Message/&SettingExitWithoutApplyDescription	Quer mesmo fechar este painel e descartar todas as alterações já feitas?
+Message/&SettingExitWithoutApplyTitle	Descartar Alterações
+Message/&SkipLevelUpFormat	Você não concluiu a sequência de aumento de nível para {0}. Quer mesmo sair?
+Message/&SkipLevelUpTitle	Pular o Aumento de Nível de Personagem
+Message/&WaitForLongRestDescription	Você já fez um descanso longo hoje. Gostaria de esperar até o começo de um novo dia?
+Message/&WaitForLongRestTitle	Esperar para Fazer um Descanso Longo
+Message/&EndEarlyAccessDescription	Você chegou ao fim do conteúdo de Acesso Antecipado. Retornando ao menu principal.
+Message/&EndEarlyAccessTitle	Fim do Acesso Antecipado
+Message/&EndEarlyAccessMainMenuTitle	Menu Principal
+Message/&EndEarlyAccessContinuePlayingTitle	Continuar Jogando
+Message/&MessageKeyAlreadyBoundTitle	Tecla já Mapeada
+Message/&MessageKeyAlreadyBoundDescription	A tecla {0} já foi mapeada com o comando {1}
+Message/&MessageOverrideTitle	Ajustar Manualmente
+Message/&SettingDefaultSettingsDescription	Quer mesmo redefinir os valores padrão desta categoria de configurações?
+Message/&SettingDefaultSettingsTitle	Redefinir para Configurações Padrão
+Message/&RestartRequiredDescription	É preciso reiniciar o aplicativo para validar esta alteração.
+Message/&RestartRequiredTitle	Necessário Reiniciar
+Message/&ScrollScribeAlreadyInSpellbookDescription	A magia {0} já está neste grimório
+Message/&ScrollScribeAlreadyInSpellbookTitle	Já no Grimório
+Message/&MandatoryDestinationFormat	Você precisa ir até "{0}"
+Message/&CharacterCannotMove	{0} não consegue se mover.
+Message/&OverrideCustomDifficultyTitle	Anular Configurações Personalizadas
+Message/&OverrideCustomDifficultyDescription	Desfaz todas as configurações personalizadas que você possa ter feito no menu Configurações do Jogo. Deseja continuar?
+Message/&SteamInitFailedDescription	A conexão com o cliente Steam falhou. Verifique se está tentando iniciar o jogo a partir do Steam. Pode ser preciso reiniciar o cliente. O jogo será encerrado agora.
+Message/&SteamInitFailedTitle	Falha ao Inicializar o Steam
+Message/&NativeCrashDetectedTitle	O Jogo Não Foi Fechado Corretamente
+Message/&NativeCrashDetectedDescription	O jogo não foi fechado corretamente. Se esta for a primeira vez que a mensagem aparece, recomendamos que reduza as configurações gráficas e reporte o ocorrido à nossa equipe no fórum.
+Message/&EndEarlyAccessDescription2	Você chegou no fim do conteúdo do Acesso Antecipado. A história principal não continuará, mas você pode continuar viajando, coletando coisas e completando missões opcionais.
+Message/&TravelAbortedDescription	Viagem interrompida. O grupo vai parar no próximo local.
+Message/&CharactersNotUpdatedTitle	Atualizar Arquivos de Personagens
+Message/&CharactersNotUpdatedDescription	Alguns arquivos de alguns personagens não foram atualizados. Tem certeza de que deseja continuar?
+Message/&GdkSignedOutTitle	Encerrou
+Message/&GdkSignedOutDescription	A sessão do Xbox Live foi encerrada. O jogo será fechado. [Reconecte-se ao Xbox Live e inicie o jogo de novo.]
+Message/&GdkCloudDataSavedFailedTitle	Erro ao Salvar na Nuvem
+Message/&GdkCloudDataSavedFailedDescription	Houve um erro ao salvar o conteúdo nos servidores da nuvem. [Tente de novo mais tarde.]
+Message/&GdkCloudDataDeletedTitle	Erro ao Excluir Salvamento na Nuvem
+Message/&GdkCloudDataDeletedDescription	Houve um erro ao excluir o conteúdo dos servidores na nuvem. [Tente de novo mais tarde.]
+Message/&UserLocationDeleteConfirmationTitle	Exclusão de Local
+Message/&UserLocationDeleteConfirmationDescription	Quer mesmo excluir este local de usuário?
+Message/&UserLocationOverwriteConfirmationTitle	Substituição de Local
+Message/&UserLocationOverwriteConfirmationDescription	Ao salvar o local com esse nome, você vai substituir outro local com o mesmo nome. Quer mesmo continuar?
+Message/&EditorLeaveConfirmationTitle	Saindo do Editor
+Message/&EditorLeaveConfirmationDescription	Quer mesmo sair sem salvar o seu local?
+Message/&HiddenDoorTitle	Porta Oculta!
+Message/&UnknownUserLocationDescription	Local de usuário desconhecido: {0}
+Message/&InvalidUserLocationEntranceIndexDescription	O índice de entrada escolhido é inválido: {0}
+Message/&UserLocationSizeReductionTitle	Redução de Tamanho
+Message/&UserLocationSizeReductionDescription	Ao reduzir o tamanho deste local, você pode acabar destruindo algumas salas e adereços, começando do canto superior direito. Quer mesmo continuar?
+Message/&UserLocationOutdatedTitle	Local Obsoleto
+Message/&UserLocationOutdatedDescription	Um ou mais locais têm conteúdo obsoleto (sala, dispositivo, adereço) que foi removido.
+Message/&UserLocationEnvironmentChangeTitle	Mudança de Ambiente
+Message/&UserLocationEnvironmentChangeDescription	Ao mudar o ambiente deste local, você removerá algumas salas, adereços e/ou dispositivos incompatíveis. Quer mesmo continuar?
+Message/&UserLocationEmptyTitleTitle	Título Inválido
+Message/&UserLocationEmptyTitleDescription	Você precisa inserir um título válido para o seu local de usuário.
+Message/&EditorLocationSwitchConfirmationTitle	Troca de Local de Usuário
+Message/&EditorLocationSwitchConfirmationDescription	O local "{0}" tem alterações não salvas. Quer mesmo abrir o local "{1}" e perder essas alterações?
+Message/&UserLocationDuplicateTitleTitle	Título Duplicado
+Message/&UserLocationDuplicateTitleDescription	Já existe um local com o mesmo nome.
+Message/&UserCampaignDeleteConfirmationTitle	Excluir Campanha
+Message/&UserCampaignDeleteConfirmationDescription	Tem certeza de que quer excluir esta campanha de usuário?
+Message/&UserCampaignOverwriteConfirmationTitle	Sobrescrever Campanha
+Message/&UserCampaignOverwriteConfirmationDescription	Se você salvar esta campanha com esse nome, ela substituirá outra campanha existente com esse mesmo nome. Quer mesmo continuar?
+Message/&UserCampaignLosingChangesTitle	Alterações Serão Perdidas
+Message/&UserCampaignLosingChangesDescription	Você está prestes a perder as alterações feitas à campanha. Quer mesmo continuar?
+Message/&UnknownUserCampaignDescription	Campanha de usuário desconhecido: {0}
+Message/&UserItemDeleteConfirmationTitle	Exclusão de Item Personalizado
+Message/&UserItemDeleteConfirmationDescription	Quer mesmo excluir este item personalizado?
+Message/&UserMonsterDeleteConfirmationTitle	Exclusão de Monstro Personalizado
+Message/&UserMonsterDeleteConfirmationDescription	Quer mesmo excluir este monstro personalizado?
+Message/&UserNpcDeleteConfirmationTitle	Exclusão de NPC Personalizado
+Message/&UserNpcDeleteConfirmationDescription	Quer mesmo excluir este NPC personalizado?
+Message/&UserMerchantInventoryDeleteConfirmationTitle	Exclusão de Inventário Personalizado
+Message/&UserMerchantInventoryDeleteConfirmationDescription	Quer mesmo excluir este inventário personalizado de mercador?
+Message/&UserContentStockUnitDeleteConfirmationTitle	Exclusão de Unidade de Estoque
+Message/&UserContentStockUnitDeleteConfirmationDescription	Quer mesmo excluir esta unidade de estoque do inventário do mercador?
+Message/&OutdatedLocationLoadingTitle	Incompatibilidade de Versão do Conteúdo
+Message/&OutdatedLocationLoadingDescriptionFormat	O conteúdo foi salvo na versão {0}. E a versão do conteúdo no disco é {1}. Qual conteúdo você quer carregar?\n Aviso: Carregar a partir do disco pode impedir que o conteúdo salvo seja carregado.
+Message/&OutdatedLocationLoadSaveDescription	O que foi salvo
+Message/&OutdatedLocationLoadDiskDescription	A versão em disco
+Message/&LocationExportedDescription	O local foi exportado.
+Message/&UserQuestDeleteConfirmationTitle	Exclusão de Missão
+Message/&UserQuestDeleteConfirmationDescription	Quer mesmo excluir esta missão?
+Message/&QuestEditorLeaveConfirmationDescription	Quer mesmo sair sem salvar a sua missão?
+Message/&UserQuestEmptyInternalNameTitle	Nome Interno de Missão Inválido
+Message/&UserQuestEmptyInternalNameDescription	Você precisa dar um nome interno válido para a sua missão.
+Message/&UserQuestDuplicateInternalNameTitle	Nome Interno de Missão Repetido
+Message/&UserQuestDuplicateInternalNameDescription	O nome interno deve ser único, e esta campanha já tem uma missão com esse mesmo nome interno.
+Message/&UserQuestEmptyTitleTitle	Título de Missão Inválido
+Message/&UserQuestEmptyTitleDescription	Você precisa dar um título válido para a sua missão.
+Message/&UserGraphStateDuplicateLinkDescription	Esses dois conectores já têm um vínculo do mesmo tipo entre eles.
+Message/&UserQuestSingleLinkDescription	O início de uma missão só pode ser conectado a um passo de destino.
+Message/&UserVariableDeleteConfirmationTitle	Exclusão de Variável
+Message/&UserVariableDeleteConfirmationDescription	Quer mesmo excluir a variável?
+Message/&VariableEditorLeaveConfirmationDescription	Quer mesmo sair sem salvar a sua missão?
+Message/&UserVariableEmptyInternalNameTitle	Nome de Variável Inválido
+Message/&UserVariableEmptyInternalNameDescription	Você precisa dar um nome válido para a sua variável.
+Message/&UserVariableDuplicateInternalNameTitle	Nome de Variável Repetido
+Message/&UserVariableDuplicateInternalNameDescription	Esta campanha já tem uma variável com esse mesmo nome. Escolha outro.
+Message/&UserVariableEmptyTitleTitle	Título de Variável Inválido
+Message/&UserVariableEmptyTitleDescription	Você precisa dar um título válido para a sua variável.
+Message/&DungeonMakerInvalidnventoryOperationDescription	O jogo ainda não está pronto para realizar operações de inventário no momento.
+Message/&UserDialogDeleteConfirmationTitle	Exclusão de Diálogo
+Message/&UserDialogDeleteConfirmationDescription	Quer mesmo excluir este diálogo?
+Message/&DialogEditorLeaveConfirmationDescription	Quer mesmo sair sem salvar o seu diálogo?
+Message/&UserDialogSingleLinkDescription	O começo do diálogo só pode ser conectado a um estado de destino.
+Message/&UserDialogEmptyInternalNameTitle	Nome Interno do Diálogo Inválido
+Message/&UserDialogEmptyInternalNameDescription	Você precisa dar um nome interno válido para o seu diálogo.
+Message/&UserDialogDuplicateInternalNameTitle	Nome Interno do Diálogo Repetido
+Message/&UserDialogDuplicateInternalNameDescription	O nome interno deve ser único, e esta campanha já tem um diálogo com esse mesmo nome interno.
+Message/&UserDialogEmptyTitleTitle	Título de Diálogo Inválido
+Message/&UserDialogEmptyTitleDescription	Você precisa dar um título válido para o seu diálogo.
+Message/&CannotExecuteCommandDescription	No momento, não é possível executar esse comando.
+Message/&UserCampaignContentExportedFormat	O conteúdo selecionado foi exportado para a campanha "{0}".
+Message/&UserCampaignContentImportedFormat	O conteúdo selecionado foi importado da campanha "{0}".
+Message/&UserCampaignDuplicatedContentIgnoredFormat	Repetição(ões) ignorada(s): {0}.
+Message/&UserCampaignDuplicatedContentOverwrittenFormat	Repetição(ões) sobrescrita(s): {0}.
+Message/&DialogNotConnectedToAnyStateDescription	Este diálogo de usuário não está conectado a nenhum estado e não será reproduzido.
+Message/&NoValidDestinationDescription	Sem destino válido, por enquanto...
+Message/&EmptyUserCampaignTitleDescription	A campanha de usuário precisa de um título.
+Message/&NetworkErrorDuringLoadTitle	Erro ao carregar
+Message/&NetworkErrorDuringLoadDescription	Não foi possível recuperar as informações necessárias dos outros jogadores. Tente novamente mais tarde.
+Message/&MultiplayerVoteClientRejectedDescription	{0} rejeitou a solicitação.
+Message/&MultiplayerVoteHostCancelledDescription	{0} cancelou a votação.
+Message/&MultiplayerVoteClientAllClientsAcceptedDescription	Todos os jogadores aceitaram.
+Message/&MultiplayerWaitNofityDescription	{0} está aguardando você concluir suas ações.
+Message/&MultiplayerWaitQuitGameConfirmTitle	Sair do Jogo
+Message/&MultiplayerWaitQuitGameConfirmDescription	Quer mesmo sair dessa sessão multijogador?
+Message/&NetworkPlayerKickedSelfTitle	Expulso
+Message/&NetworkPlayerKickedSelfDescription	Expulsaram você do jogo. Você pode continuar jogando sem os outros, ou sair do jogo pelo menu.
+Message/&NetworkPlayerKickedOtherTitle	Expulsão de Jogador
+Message/&NetworkPlayerKickedOtherDescriptionFormat	{1} expulsou {0} do jogo.
+Message/&GamingPlatformCloudStorageFullTitle	Espaço Insuficiente
+Message/&GamingPlatformCloudStorageFullDescrytpion	Não há espaço restante para salvar na nuvem. Exclua alguns arquivos salvos antigos pelo menu principal do jogo.
+Message/&NetworkPlayerRequestCharacterFormat	{0} quer jogar com {1}.
+Message/&NetworkEveryPlayerMustBeAssignedTitle	É preciso designar todos os jogadores antes de prosseguir.
+Message/&NetworkRegion_asia_Title	Ásia
+Message/&NetworkRegion_au_Title	Austrália
+Message/&NetworkRegion_cae_Title	Canadá (Leste)
+Message/&NetworkRegion_eu_Title	Europa
+Message/&NetworkRegion_in_Title	Índia
+Message/&NetworkRegion_jp_Title	Japão
+Message/&NetworkRegion_ru_Title	Rússia
+Message/&NetworkRegion_rue_Title	Rússia (Leste)
+Message/&NetworkRegion_za_Title	África do Sul
+Message/&NetworkRegion_sa_Title	América do Sul
+Message/&NetworkRegion_kr_Title	Coreia do Sul
+Message/&NetworkRegion_tr_Title	Turquia
+Message/&NetworkRegion_us_Title	EUA (Leste)
+Message/&NetworkRegion_usw_Title	EUA (Oeste)
+Message/&NetworkRegionTitle	Região do Servidor
+Message/&NetworkErrorDuringLoadUnauthorizedDescription	No momento, o Solasta multijogador está desativado devido a problemas inesperados. Acompanhe quaisquer atualizações nos nossos canais oficiais.
+Message/&FastTravelErrorInvalidCharacterDescription	Não é possível viajar rápido com este personagem no seu grupo.
+Message/&PasswordCopiedTitle	Senha copiada p/ área de transferência
+Message/&AllCharactersMustHaveDistinctNamesTitle	Todos os personagens precisam ter nomes distintos.
+Message/&NetworkPlayerKickedSelfSessionDescription	Organizador(a) expulsou você do jogo.
+Message/&FailedQuestDueToFactionStatusTitle	Missões Irrelevantes
+Message/&FailedQuestDueToFactionStatusDescription	Como você alterou sua relação com a facção {0}, algumas missões foram canceladas automaticamente.
+Message/&FailedQuestCriricalCharacterDeathTitle	Morte de Personagem Crucial
+Message/&FailedQuestCriricalCharacterDeathDescription	Devido à morte de {0}, a missão {1} não está mais disponível.
+Message/&FastTravelErrorInvalidContextDescription	Não é possível viajar rápido enquanto este personagem estiver ocupado.
+Message/&InvalidCharactersFromDisconnectionTitle	Sessão corrompida
+Message/&InvalidCharactersFromDisconnectionDescription	Não foi possível recuperar após a desconexão do jogador em um ponto crítico do jogo. Reinicie a sessão a partir de uma instância válida. Lamentamos a inconveniência.
+Message/&ModioWebRequestErrorTitle	Erro de conexão
+Message/&ModioLoginWebRequestErrorDescription	Ocorreu um erro: {0}
+Message/&ModioLoginEmailRefusedDescription	Este e-mail foi rejeitado pelo servidor do mod.io. Corrija os possíveis erros ou tente usar outro e-mail.
+Message/&CorruptedCharacterErrorTitle	Arquivo de personagem corrompido
+Message/&CorruptedCharacterErrorDescription	Este arquivo de personagem está corrompido. Este problema pode acontecer principalmente quando o personagem é criado com um mod. Reinicie o jogo e não volte a usar este personagem.
+Message/&NetworkModdedSessionTitle	Mods detectados
+Message/&NetworkModdedSessionDescription	Aviso! Um jogador acabou de ingressar com mods instalados. Mods podem causar travamentos e dessincronização pesada durante a jogabilidade no modo multiplayer. É altamente recomendável que todos removam todos os mods antes de iniciar um jogo multiplayer.
+Message/&NetworkModdedSessionSelfDescription	Aviso! Solasta detectou mods instalados. Mods podem causar travamentos e dessincronização pesada durante a jogabilidade no modo multiplayer. É altamente recomendável que você desinstale seus mods antes de iniciar um jogo multiplayer.
+Message/&AutoJoinGameFailureRoomNotFoundDescription	A sala que você tentou acessar não está mais disponível.
+Message/&QuitWithoutSavingIronManTitle	Não é possível salvar
+Message/&QuitWithoutSavingIronManDescription	O jogo não pode ser salvo agora e, por isso, parte do seu progresso será perdida. Deseja mesmo sair?
+Message/&NotFreeSlotToConjureItemFormat	Espaço(s) indisponível(is): {0}
+Message/&SpellSlotRecoveryUnspentCapitalTitle	Capital de Recuperação Disponível
+Message/&SpellSlotRecoveryUnspentCapitalDescription	Você não gastou todo o capital de recuperação. Quer mesmo prosseguir?
+Message/&MerchantLockedTitle	Outra pessoa já está interagindo com este mercador
+Message/&UserCampaignLoadErrorTitle	Erro ao Carregar
+Message/&UserCampaignLoadErrorDescription	Não foi possível carregar a campanha utilizada para salvar este jogo. Voltando ao menu principal.
+Message/&ModErrorWarningTitle	Aviso de mod
+Message/&ModErrorWarningDescription	O Solasta detectou uma instabilidade que pode ter sido causada por um mod. Se tiver algum problema, considere desinstalar seus mods. Jogos de campanha salvos com mods podem não carregar corretamente se os mods correspondentes forem removidos ou estiverem desatualizados.
+Message/&NetworkWaitingForPlayerTitle	Aguardando jogadores
+Message/&NetworkPlayerLeftRoomFormat	{0} saiu da sala.
+Message/&NetworkPlayerJoinedRoomFormat	{0} entrou na sala.
+Message/&NetworkWaitingForHostTitle	Aguardando o organizador
+Message/&NetworkFeatureUnavailableShortTitle	Indisponível em multijogador
+Message/&NetworkFeatureTemporarilyUnavailableTitle	Recurso temporariamente indisponível em multijogador
+Message/&NetworkWaitingForPlayerTitleFormat	Aguardando {0}
+Message/&NetworkRoomLeftTitle	Saiu da Sala
+Message/&NetworkRoomLeftDescription	A conexão com a sala foi perdida. Verifique sua conexão com a internet.
+Message/&CannotQuickLoadInMultiplayer	Não é Possível Carregar Rápido no Multijogador
+Message/&NetworkKickPlayerTitle	Expulse o jogador da sala
+Message/&NetworkKickPlayerDescription	Quer mesmo expulsar o jogador?
+Message/&MissingCrossplayPrivilegeTitle	Crossplay Negado
+Message/&MissingCrossplayPrivilegeDescription	No momento, você não tem acesso ao modo multijogador online em crossplay.
+Message/&MissingMultiplayerPrivilegeTitle	Acesso Negado ao Multijogador
+Message/&MissingMultiplayerPrivilegeDescription	No momento, você não tem acesso ao modo multijogador online.
+Message/&MissingUserContentPrivilegeTitle	Acesso Negado ao Criador de Mapas
+Message/&MissingUserContentPrivilegeDescription	No momento, você não tem acesso ao conteúdo criado por outras pessoas.
+Message/&NetworkSkippedByHostTitle	{0} ignorou
+Message/&AutoJoinGameTitle	Entrar no Jogo
+Message/&AutoJoinGameDescription	Você perderá o progresso que não foi salvo. Deseja continuar?
+Message/&AutoJoinGameFailureTitle	Falha ao Entrar
+Message/&AutoJoinGameFailureRoomFullDescription	A sala que você tentou acessar está lotada.
+Message/&NetworkNoSkipIntroTitle	Pular Introdução
+Message/&NetworkNoSkipIntroDescription	A introdução é voltada ao modo individual. Não a recomendamos para uma experiência multijogador. Deseja pular?
+Message/&GamepadTooltipActivated	Modo dica ativado
+Message/&GamepadTooltipDeactivated	Modo dica desativado
+Message/&PlanarModeActivatedDescription	Modo Planar Ativado
+Message/&PlanarModeDeactivatedDescription	Modo Planar Desativado
+Message/&GamepadInvitationsSent	
+Message/&SettingsAppliedDescription	

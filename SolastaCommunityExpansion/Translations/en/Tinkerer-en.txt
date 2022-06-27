@@ -1,299 +1,299 @@
-Class/&TinkererDescription	Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.
-Class/&TinkererTitle	Tinkerer
-Condition/&SentinelStopMovementConditionDescription	Unable to move. Speed set to 0.
-Condition/&SentinelStopMovementConditionTitle	Stopped
-Equipment/&ImprovedLightningSpearDescription	Deal 1d6 lightning damage with an additional 1d6 lightning damage once per turn.\nCan create advantage for allies and disadvantage for enemies with a single attack.
-Equipment/&ImprovedLightningSpearTitle	Improved Lightning Spear
-Equipment/&LightningSpearDescription	Deal 1d6 lightning damage with an additional 1d6 lightning damage once per turn.
-Equipment/&LightningSpearTitle	Lightning Spear
-Feat/&AlchemistSubclassElixirsDescription	Learn to make experimental elixirs: Healing, Swiftness, Resilience, Boldness, Flight.
-Feat/&AlchemistSubclassElixirsTitle	Experimental Elixirs
-Feat/&ArtificerAlchemistAlchemicalSavantDescription	When you heal, you heal additional HP equal to 1d4 + your level.
-Feat/&ArtificerAlchemistAlchemicalSavantTitle	Elixir Savant
-Feat/&ArtificerAlchemistBoldnessElixirDescription	Can roll a d4 and add the number rolled to every attack roll and saving throw you make for 1 minute.
-Feat/&ArtificerAlchemistBoldnessElixirTitle	Boldness Elixir
-Feat/&ArtificerAlchemistFlyElixirDescription	Gain a flying speed of 10 feet for 10 minutes.
-Feat/&ArtificerAlchemistFlyElixirTitle	Fly Elixir
-Feat/&ArtificerAlchemistHealElixirDescription	Heal target for 2d4 + Intelligence modifier.
-Feat/&ArtificerAlchemistHealElixirTitle	Healing Elixir
-Feat/&ArtificerAlchemistResilienceElixirDescription	Increase target AC by +1 for 10 minutes.
-Feat/&ArtificerAlchemistResilienceElixirTitle	Resilience Elixir
-Feat/&ArtificerAlchemistSwiftnessElixirDescription	Increase target movement speed by 10ft for 1 hour.
-Feat/&ArtificerAlchemistSwiftnessElixirTitle	Swiftness Elixir
-Feat/&ArtificerArtilleristArcaneFirearmDescription	When casting evocation spells, deal an extra 1d8 damage once per turn.
-Feat/&ArtificerArtilleristArcaneFirearmTitle	Blasting Enhancement
-Feat/&ArtificerArtillerstDetonationSpellPreparedDescription	You gain the ability to detonate one of your devices causing damage to those near the target.
-Feat/&ArtificerArtillerstDetonationSpellPreparedTitle	Device Detonation
-Feat/&ArtificerArtillerstImprovedCannonsDescription	The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield.
-Feat/&ArtificerArtillerstImprovedCannonsTitle	Improved Cannons
-Feat/&ArtilleristCannonDetonationDescription	Detonate one of your devices causing creatures within 20 ft of the targeted location to make a Dexterity save. The creatures take 3d8 force damage on a failed save, and half as much damage on a successful one.
-Feat/&ArtilleristCannonDetonationTitle	Device Detonation
-Feat/&ArtilleristFlameCannon15Description	Spew fire in a cone as a bonus action, dealing 6d8 fire damage if targets fail a DEX saving throw.
-Feat/&ArtilleristFlameCannon15Title	Flamethrower
-Feat/&ArtilleristFlameCannon9Description	Spew fire in a cone as a bonus action, dealing 3d8 fire damage if targets fail a DEX saving throw.
-Feat/&ArtilleristFlameCannon9Title	Flamethrower
-Feat/&ArtilleristFlameCannonDescription	Spew fire in a cone as a bonus action, dealing 2d8 fire damage if targets fail a DEX saving throw.
-Feat/&ArtilleristFlameCannonTitle	Flamethrower
-Feat/&ArtilleristForceCannon15Description	Make a ranged attack against up to 2 targets as a bonus action, dealing 3d8 force damage on a hit.
-Feat/&ArtilleristForceCannon15Title	Force Cannon
-Feat/&ArtilleristForceCannon9Description	Make a ranged attack as a bonus action, dealing 3d8 force damage on a hit.
-Feat/&ArtilleristForceCannon9Title	Force Cannon
-Feat/&ArtilleristForceCannonDescription	Make a ranged attack as a bonus action, dealing 2d8 force damage on a hit.
-Feat/&ArtilleristForceCannonTitle	Force Cannon
-Feat/&ArtilleristProtectorCannon15Description	Emit positive energy as a bonus action. Allies within 20 feet gain temp HP equal to 1d8 + your Intelligence modifier.
-Feat/&ArtilleristProtectorCannon15Title	Arcane Shield
-Feat/&ArtilleristProtectorCannonDescription	Emit positive energy as a bonus action. Allies within 10 feet gain temp HP equal to 1d8 + your Intelligence modifier.
-Feat/&ArtilleristProtectorCannonTitle	Arcane Shield
-Feat/&ArtilleristSubclassSpellsDescription	{0}.
-Feat/&ArtilleristSubclassSpellsTitle	Learn Blaster Spells
-Feat/&ArtilleryConstructDescription	Can damage or protect allies.
-Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips:Mending Construct, Dismiss Construct \nLevel 1: Resummon Artillery Construct.
-Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construct Spells
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	You gain bonus spells that are considered Tinkerer spells for you, they are always prepared and don't count against the number of Tinkerer spells you know.
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construct Spells
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	You gain bonus spells that are considered Tinkerer spells for you, they are always prepared and don't count against the number of Tinkerer spells you know.
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construct Spells
-Feat/&ArtilleryModePoolDescription	Choose your Artillery Mode.
-Feat/&ArtilleryModePoolTitle	Artillery Mode
-Feat/&AttackModifierArtificerBattleSmithJolt2Description	Your weapon attacks deal an additional 3 damage.
-Feat/&AttackModifierArtificerBattleSmithJolt2Title	Improved Weapon Attack Jolt
-Feat/&AttackModifierArtificerBattleSmithJoltDescription	Your weapon attacks deal an additional 3 damage.
-Feat/&AttackModifierArtificerBattleSmithJoltTitle	Weapon Attack Jolt
-Feat/&BattleSmithSubclassSpellsDescription	{0}.
-Feat/&BattleSmithSubclassSpellsTitle	Learn Weapon Smith Spells
-Feat/&ExtraInfusionSlotsDescription	You gain extra infusion slots that must be used on armor/weapons.
-Feat/&ExtraInfusionSlotsTitle	Extra Infusions
-Feat/&FeatSentinelDescription	You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n• When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n• Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n• When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
-Feat/&FeatSentinelTitle	Sentinel
-Feat/&FlameArtillery_2Description	3d8 fire damage (Cone).
-Feat/&FlameArtillery_2Title	Flame Artillery (Improved)
-Feat/&FlameArtilleryConstructDescription	Creates a cone of fire that deals 2d8 damage on a failed save.
-Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3d8 damage on a failed save.
-Feat/&FlameArtilleryConstructTitle	Flame Artillery Construct
-Feat/&FlameArtilleryDescription	2d8 fire damage (Cone).
-Feat/&FlameArtilleryTitle	Flame Artillery
-Feat/&ForceArtillery_2Description	3d8 force damage and push target 5 ft.
-Feat/&ForceArtillery_2Title	Force Artillery (Improved)
-Feat/&ForceArtilleryAdditionalDamageDescription	The upgraded construct deals 1d8 more damage per hit.
-Feat/&ForceArtilleryConstructDescription	Deals 2d8 force damage and pushes target 5ft away from Construct.
-Feat/&ForceArtilleryConstructDescription_3	Deals 3d8 force damage and pushes target 5ft away from Construct.
-Feat/&ForceArtilleryConstructTitle	Force Artillery Construct
-Feat/&ForceArtilleryDescription	2d8 Force damage and push 5 ft.
-Feat/&HalfCoverShieldDescription	Allies within 10 feet gain +2 AC.
-Feat/&HalfCoverShieldTitle	Half Cover Dome
-Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Once per day, you can cast greater restoration.
-Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Greater Restoration
-Feat/&PowerAlchemistHealElixirsDescription	Once per day, you can cast heal.
-Feat/&PowerAlchemistHealElixirsTitle	Heal
-Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast lesser restoration without expending a spell slot. You can do this a number of times per long rest equal to your Intelligence modifier.
-Feat/&PowerAlchemistRestorativeElixirsTitle	Restorative Elixirs
-Feat/&ResummonArtilleryConstruct_03Title	Resummon Artillery Construct 1
-Feat/&ResummonArtilleryConstruct_09Title	Resummon Artillery Construct 2
-Feat/&ResummonArtilleryConstruct_15Title	Resummon Artillery Construct 3
-Feat/&ResummonArtilleryConstructDescription	This spell allows the Tinkerer to resummon an Artillery Construct in one of multiple modes after the initial summons expires. The resummoned construct also lasts 1 hour.
-Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Multiple Armor Functions</color></size>\nYou can switch between function modes once per day by creating and using temporary weapons\n\n<size=17><color=#add8e6ff>Sentinel Mode</color></size>\nGain a limited number of temporary HP based on level. Impose disadvantage on enemies attacking allies\n\n<size=17><color=#add8e6ff>Scout Mode</color></size>\nGain increased movement, stealth advantage and a ranged attack which deals an extra die of damage once a turn.\n\n<size=17><color=#add8e6ff>Features</color></size>\nYou can use the armor's weapons as a spellcasting focus for your spells\nHeavy Armor does not have a strength requirement\nYou gain proficiency in smith's tools and heavy armor.
-Feat/&ScoutSentinelFeatureSet_level03Title	Scout Sentinel
-Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Extra Attack</color></size>\nYou can attack one more time, per combat turn, when you use the attack or shove actions.
-Feat/&ScoutSentinelFeatureSet_level05Title	Scout Sentinel
-Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Extra Infusion Slots</color></size>\nYou gain extra infusion slots, should be used on armor.
-Feat/&ScoutSentinelFeatureSet_level09Title	Scout Sentinel
-Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Improved Sentinel Mode</color></size>\nCan now pull enemies into melee range with a bonus action and inflict 1d8 thunder damage via the Gauntlet Grapple power\n\n<size=17><color=#add8e6ff>Improved Scout Mode</color></size>\nCan now create advantage for allies and disadvantage for enemies with a single attack.
-Feat/&ScoutSentinelFeatureSet_level15Title	Scout Sentinel
-Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with its summoner's levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1d8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire. Creatures must make a Dexterity saving throw or take 2d8 damage\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2d8 force damage and pushes enemy 5ft away.
-Feat/&SummonArtilleryConstructlevel09Description	A new function has been added. The Artillery Construct can destroy itself, forcing a Dexterity save or dealing 3d8 force damage on a failure. \nAdditionally both the Flame and Force Artillery damage rolls increase by 1d8 to a total of 3d8.
-Feat/&SummonArtilleryConstructlevel09Title	Artillery Construct Upgrade: Self-Destruct
-Feat/&SummonArtilleryConstructlevel15Description	A new function has been added. The Artillery Construct now provides half cover to allies within 10ft \n<size=17><color=#add8e6ff>Artillery Construct Upgrade: Reinforcements</color></size>\nYou can now summon two Artillery Constructs. The constructs can be of the same or different modes.
-Feat/&SummonArtilleryConstructlevel15Title	Artillery Construct Upgrade: Half Cover Dome
-Feat/&SummonArtilleryConstructTitle	Summon Artillery Construct
-Feat/&SummonProtectorConstructDescription	Your very own Battle Buddy stands ready to defend you and attack enemies. The Protector Construct can Self-Repair 3 times a day and can impose disadvantage on attacks on allies.
-Feat/&SummonProtectorConstructDescription_2	Summon Protector Construct Upgrade.
-Feat/&SummonProtectorConstructDescription_Upgrade	Summon Protector Construct Upgrade.
-Feat/&SummonProtectorConstructTitle	Summon Protector Construct
-Feat/&SummonProtectorConstructTitle_2	Summon Protector Construct Upgrade
-Feat/&SummonProtectorConstructTitle_Upgrade	Summon Protector Construct Upgrade
-Feat/&TempHPShieldConstructDescription	Grants 1d8 + 4 temporary HP to allies within 10ft.
-Feat/&TempHPShieldConstructTitle	Protecting Dome Construct
-Feat/&TempHPShieldDescription	Provide 1d8 + 4 TempHP to allies within 10ft.
-Feat/&TinkererConstructFamilyDescription	Created by Tinkerer.
-Feat/&TinkererConstructFamilyTitle	Tinkerer Construct
-Feature/&ArtificerInfusionCastingDescription	You can perform the somatic components of spells while holding weapons and shields.
-Feature/&ArtificerInfusionCastingTitle	Infusion Casting
-Feature/&ArtificerSpecialistArchetypesDescription	What field of study do you specialize in? Tinkerers can be damage dealers, healers, and martial specialists.
-Feature/&ArtificerSpecialistArchetypesTitle	Tinkerer Specializations
-Feature/&FlameArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3d8 damage on a failed save. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
-Feature/&FlameArtillery_09ModePowerTitle	Summon Flame Artillery Construct
-Feature/&FlameArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3d8 damage on a failed save. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
-Feature/&FlameArtillery_15ModePowerTitle	Summon Flame Artillery Construct
-Feature/&FlameArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 2d8 damage on a failed save.
-Feature/&FlameArtilleryModePowerTitle	Summon Flame Artillery Construct
-Feature/&ForceArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushes enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
-Feature/&ForceArtillery_09ModePowerTitle	Summon Force Artillery Construct
-Feature/&ForceArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushes enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
-Feature/&ForceArtillery_15ModePowerTitle	Summon Force Artillery Construct
-Feature/&ForceArtilleryAdditionalDamageTitle	Upgraded damage
-Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 2d8 force damage and pushes target 5ft away.
-Feature/&ForceArtilleryModePowerTitle	Summon Force Artillery Construct
-Feature/&ForceArtilleryTitle	Force Artillery
-Feature/&ImprovedScoutModePowerDescription	Gain Improved Scout Mode features. Can now create advantage for allies and disadvantage for enemies with a single attack.
-Feature/&ImprovedScoutModePowerTitle	Improved Scout Mode
-Feature/&ImprovedSentinelModePowerDescription	Gain Improved Sentinel Mode features via the Gauntlet Grapple power.
-Feature/&ImprovedSentinelModePowerTitle	Improved Sentinel Mode
-Feature/&SavingThrowTinkererProficiencyDescription	Proficiency in Constitution and Intelligence saving throws.
-Feature/&SavingThrowTinkererProficiencyTitle	Saving Throw Proficiency
-Feature/&ScoutModePowerDescription	Gain increased movement, advantage on Stealth checks and once per turn, your ranged weapon attacks deals an extra die of damage.
-Feature/&ScoutModePowerTitle	Scout Mode
-Feature/&SentinelModePowerDescription	Gain Temp HP equal to level. Impose Disadvantage on enemies attacking allies.
-Feature/&SentinelModePowerTitle	Sentinel Mode
-Feature/&TempHPShield_09ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1d8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
-Feature/&TempHPShield_09ModePowerTitle	Summon Protecting Dome Construct
-Feature/&TempHPShield_15ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1d8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: Provides half cover to allies within 10ft.
-Feature/&TempHPShield_15ModePowerTitle	Summon Protecting Dome Construct
-Feature/&TempHPShieldModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1d8 + 4 temporary HP to allies within 10ft.
-Feature/&TempHPShieldModePowerTitle	Summon Protecting Dome Construct
-Feature/&TempHPShieldTitle	Protecting Dome
-Feature/&TinkererArmorProficiencyDescription	Proficiency with Light and Medium armors as well as shields.
-Feature/&TinkererArmorProficiencyTitle	Tinkerer Armor Proficiency
-Feature/&TinkererInfusionChoiceDescription	Select the infusions that you will have available to use. Note each infusion can be active only once. Activating it a second time will cancel the first.
-Feature/&TinkererInfusionChoiceTitle	Infusion Choice
-Feature/&TinkererInfusionReplaceDescription	Select the infusions to replace.
-Feature/&TinkererInfusionReplaceTitle	Replace Infusion
-Feature/&TinkererSkillGainChoicesPluralDescription	Tinkerer skills are Arcana, History, Investigation, Medicine, Nature, Perception and Sleight of Hand.
-Feature/&TinkererSkillPointsTitle	Tinkerer Skills
-Feature/&TinkererToolsExpertiseDescription	Gain expertise with many tools including Thieves' Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools.
-Feature/&TinkererToolsExpertiseTitle	Tinkerer Tool Expertise
-Feature/&TinkererToolsProficiencyDescription	Gain proficiency with many tools including Thieves' Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools.
-Feature/&TinkererToolsProficiencyTitle	Tool Proficiencies
-Feature/&TinkererWeaponProficiencyDescription	Proficiency with simple weapons.
-Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
-Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
-Feedback/&AdditionalDamageArcaneFirearmLine	Dealing additional damage from Blasting Enhancement
-Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
-Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon
-Feedback/&AdditionalDamageLightningSpearFormat	Lightning Spear!
-Feedback/&AdditionalDamageLightningSpearLine	{0} strikes {1} with Lightning Spear! (+{2})
-Feedback/&AdditionalDamageUpgradedConstructFormat	Upgraded Damage
-Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1d8 more damage per hit.
-Feedback/&LightningSpearAdditionalDamageDescription	Deals an additional 1d6 lightning damage once per turn.
-Feedback/&LightningSpearAdditionalDamageTitle	Lightning Spear extra damage
-Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
-Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
-Reaction/&ReactionAttackFeatSentinelDescription	{0} attacked one of your allies, in response you can use your reaction to attack.
-Reaction/&ReactionAttackFeatSentinelReactDescription	Use reaction to attack.
-Reaction/&ReactionAttackFeatSentinelReactTitle	Attack
-Reaction/&ReactionAttackFeatSentinelTitle	Sentinel Reaction
-Rules/&AdvantageAttackOnEnemyDescription	Advantage to attack enemy.
-Rules/&AdvantageAttackOnEnemyTitle	Lit Up
-Rules/&DisadvantageOnAttackByEnemyDescription	Distracted by lightning jolt.
-Rules/&DisadvantageOnAttackByEnemyTitle	Jolted
-Rules/&ExtraDamageOnAttackConditionDescription	Extra damage from Lighting Spear.
-Rules/&ExtraDamageOnAttackConditionTitle	Static shocked
-Rules/&HalfCoverShieldAttributeDescription	Allies within 10 ft gain +2 AC.
-Rules/&HalfCoverShieldAttributeTitle	Half Cover Dome
-Rules/&HalfCoverShieldConditionDescription	+2 AC.
-Rules/&HalfCoverShieldConditionTitle	Protected by Dome
-Rules/&LightningSpearPowerDescription	Deal 2d6 lightning damage.
-Rules/&LightningSpearPowerTitle	Lightning Spear
-Rules/&SelfDestructionConditionDescription	Self-Destruction.
-Rules/&SelfDestructionConditionTitle	Self-Destruction
-Rules/&ThunderStruckBalancingAdvantageDescription	Balancing thunderstruck to only work for allies.
-Rules/&ThunderStruckBalancingAdvantageTitle	Taunted
-Rules/&ThunderStruckDescription	Disadvantage when attacking Scout Sentinel's allies.
-Rules/&ThunderStruckTitle	Thunderstruck (Distracted)
-SpellList/&SpellListTinkererDescription	Tinkerer Spelllist.
-SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
-Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
-Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
-Stage/&SubclassSelectionStageSpecialistHeader	Specializations
-Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialist None Description.
-Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
-Subclass/&ArtificerAlchemistDescription	You specialize in potions, buffs, healing, and spell casting.
-Subclass/&ArtificerAlchemistTitle	Potion Maker
-Subclass/&ArtificerArtileristCannonsDescription	You create a set of cannons that you can activate in battle as a bonus action.
-Subclass/&ArtificerArtileristCannonsTitle	Cannons
-Subclass/&ArtificerArtilleristDescription	You specialize in hurling projectiles and causing explosions.
-Subclass/&ArtificerArtilleristTitle	Blaster
-Subclass/&ArtificerBattleSmithDescription	You specialize in using magical weapons in combat.
-Subclass/&ArtificerBattleSmithTitle	Weapon Smith
-Subclass/&ArtificerSpellcastingDescription	Cast Tinkerer spells.
-Subclass/&ArtificerSpellcastingTitle	Tinkerer Spellcasting
-Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Your attacks count as magical and you use your Intelligence for attack and damage rolls.
-Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Infused Weapon
-Subclass/&AttackModifierArtificerBlindingWeaponDescription	A weapon you choose that gains the ability to blind targets on hit (against a Constitution save). You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&AttackModifierArtificerBlindingWeaponTitle	Blinding Weapon
-Subclass/&AttackModifierArtificerEnhancedArmorDescription	An armor you choose becomes magical and provides an additional +1 AC. You can only have an infusion active once. Activating it a second time will cancel the first.
-Subclass/&AttackModifierArtificerEnhancedArmorTitle	Enhanced Armor
-Subclass/&AttackModifierArtificerEnhancedFocusDescription	A spellcasting focus you choose becomes magical and gains +1 to spell attack rolls and spell save DC. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&AttackModifierArtificerEnhancedFocusTitle	Enhanced Focus
-Subclass/&AttackModifierArtificerEnhancedWeaponDescription	A weapon you choose becomes magical and gains +1 to attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&AttackModifierArtificerEnhancedWeaponTitle	Enhanced Weapon
-Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	An armor you choose becomes magical and provides +2 AC. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle	Improved Enhanced Armor
-Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	A spellcasting focus you choose becomes magical and gains +2 to spell attack rolls and spell save DC. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle	Improved Enhanced Focus
-Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription	Touch a weapon and it becomes magical and gains +2 to attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle	Improved Enhanced Weapon
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	You infuse your weapon with power. Your attacks count as magical and you add +7 to your attack and damage rolls.
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Improved Infuse Weapon
-Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription	You gain an extra attack.
-Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle	Extra Attack
-Subclass/&CancelCancelElixirFlyDescription	End the Fly condition from the Potion Maker Elixir.
-Subclass/&CancelCancelElixirFlyTitle	Cancel Fly
-Subclass/&CancelCancelElixirResilienceDescription	End the Resilience condition from the Potion Maker Elixir.
-Subclass/&CancelCancelElixirResilienceTitle	Cancel Resilience
-Subclass/&CancelCancelElixirSwiftnessDescription	End the Swiftness condition from the Potion Maker Elixir.
-Subclass/&CancelCancelElixirSwiftnessTitle	Cancel Swiftness
-Subclass/&ConditionResistantArmorTitle	Resistant Armor
-Subclass/&ConditionResistnatArmorDescription	Your armor is resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage.
-Subclass/&CraftingTinkererMagicItemAdeptDescription	You are adept at crafting magic items. It takes you 1/4 the time to craft items and you apply double your proficiency bonus when crafting.
-Subclass/&CraftingTinkererMagicItemAdeptTitle	Magic Item Adept
-Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimensional space to help it hold more weight without encumbering you. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Bag of Holding
-Subclass/&HArtilleryIncreaseDescription	Artillery Pool Increase.
-Subclass/&HArtilleryIncreaseTitle	Artillery Pool Increase
-Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription	You can now infuse an two additional items each day. These are intended to be used for your special Weapon Smith weapon.
-Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle	Weapon Smith Weapon Infusion
-Subclass/&HealingPoolArtificerInfusionsDescription	2 times per day infuse items with magical effects.
-Subclass/&HealingPoolArtificerInfusionsIncreaseDescription	You can now infuse one additional item each day.
-Subclass/&HealingPoolArtificerInfusionsIncreaseTitle	More Infusions
-Subclass/&HealingPoolArtificerInfusionsTitle	Infusions
-Subclass/&MagicAffinityAlchemicalSavantListDescription	When casting Acid Arrow and Flaming Sphere they behave as if cast 2 levels higher. Your cantrips are also boosted so even when the enemy saves they still take half damage.
-Subclass/&MagicAffinityAlchemicalSavantListTitle	Elixir Savant Spells
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as magical and you add your +7 to your attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Improved Infuse Weapon
-Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as magical and you use your Intelligence for attack and damage rolls until the next long rest.
-Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle	Infuse Weapon
-Subclass/&PowerInfuseArmorMagicalStrengthDescription	Infuse armor with magical strength. You gain advantage on Strength ability checks and saving throws. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&PowerInfuseArmorMagicalStrengthTitle	Armor of Magical Strength
-Subclass/&PowerInfuseDarkvisionDescription	Infuse the ability to see in the dark into a pair of goggles. You can only have one of each infusion active at a time. Activating it a second time will cancel the first. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&PowerInfuseDarkvisionTitle	Goggles of Night
-Subclass/&PowerInfuseMindSharpenerDescription	Infuse an armor or robe with the ability to aid your spell casting concentration. You gain advantage on concentration checks and any damage less than 20 doesn't trigger a check. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&PowerInfuseMindSharpenerTitle	Mind Sharpener
-Subclass/&PowerInfuseResistantArmorDescription	Infuse damage resistance into your armor. It becomes resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
-Subclass/&PowerInfuseResistantArmorTitle	Resistant Armor
-Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Imbued into your armor is magical improvements to your ability to avoid bad effects. You gain 3d4 to every saving throw you make.
-Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Soul of Tinkerer
-Subclass/&PowerTinkererSpellStoringItemDescription	As a bonus action, you can regain spell slots. You can do this a number of times per day equal to your Intelligence modifier.
-Subclass/&PowerTinkererSpellStoringItemTitle	Spell Storing Item
-Subclass/&PowerTransmuteConstitutionDescription	Use your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
-Subclass/&PowerTransmuteConstitutionTitle	Constitution Saves
-Subclass/&PowerTransmuteDarkvisionDescription	Use your Transmute Force to grant Superior Darkvision until the next long rest.
-Subclass/&PowerTransmuteDarkvisionTitle	Superior Darkvision
-Subclass/&PowerTransmuteElementalResistanceDescription	Use your Transmute Force to grant resistance to acid, cold, fire, lightning, necrotic, poison and thunder damage until the end of your next long rest.
-Subclass/&PowerTransmuteElementalResistanceTitle	Elemental Resistance
-Subclass/&PowerTransmuteFlyDescription	Use your Transmute Force to grant the ability of flight.
-Subclass/&PowerTransmuteFlyTitle	Fly
-Subclass/&PowerTransmuteHealDescription	Use your Transmute Force to heal up to 6 targets.
-Subclass/&PowerTransmuteHealTitle	Heal
-Subclass/&PowerTransmuteReviveDescription	Use your Transmute Force to revive a character (within 1 minute of them dying).
-Subclass/&PowerTransmuteReviveTitle	Revive
-Subclass/&ScoutSentinelTinkererSubclassDescription	A Scout Sentinel Tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
-Subclass/&ScoutSentinelTinkererSubclassTitle	Scout Sentinel
-Subclass/&TinkererFlashOfGeniusConditionDescription	Inspired by a flash of genius to have a bonus on ability checks and saving throws.
-Subclass/&TinkererFlashOfGeniusConditionTitle	Flash of Genius
-Subclass/&TinkererFlashOfGeniusPowerDescription	You can use your genius to inspire yourself and others on ability checks and saving throws.
-Subclass/&TinkererFlashOfGeniusPowerTitle	Flash of Genius
-Subclass/&TinkererMagicalTinkeringDescription	Gain the ability to do several minor effects (Dazzle, Sparkle, Shine).
-Subclass/&TinkererMagicalTinkeringTitle	Magical Tinkering
-Subclass/&WeaponProfArtificerBattleSmithDescription	Experience in combat has given the Weapon Smith training in Martial Weapons.
-Subclass/&WeaponProfArtificerBattleSmithTitle	Weapon Training
-Tooltip/&TagScoutSentinelWeaponTitle	Scout Sentinel
+Class/&TinkererDescription=Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.
+Class/&TinkererTitle=Tinkerer
+Condition/&SentinelStopMovementConditionDescription=Unable to move. Speed set to 0.
+Condition/&SentinelStopMovementConditionTitle=Stopped
+Equipment/&ImprovedLightningSpearDescription=Deal 1d6 lightning damage with an additional 1d6 lightning damage once per turn.\nCan create advantage for allies and disadvantage for enemies with a single attack.
+Equipment/&ImprovedLightningSpearTitle=Improved Lightning Spear
+Equipment/&LightningSpearDescription=Deal 1d6 lightning damage with an additional 1d6 lightning damage once per turn.
+Equipment/&LightningSpearTitle=Lightning Spear
+Feat/&AlchemistSubclassElixirsDescription=Learn to make experimental elixirs: Healing, Swiftness, Resilience, Boldness, Flight.
+Feat/&AlchemistSubclassElixirsTitle=Experimental Elixirs
+Feat/&ArtificerAlchemistAlchemicalSavantDescription=When you heal, you heal additional HP equal to 1d4 + your level.
+Feat/&ArtificerAlchemistAlchemicalSavantTitle=Elixir Savant
+Feat/&ArtificerAlchemistBoldnessElixirDescription=Can roll a d4 and add the number rolled to every attack roll and saving throw you make for 1 minute.
+Feat/&ArtificerAlchemistBoldnessElixirTitle=Boldness Elixir
+Feat/&ArtificerAlchemistFlyElixirDescription=Gain a flying speed of 10 feet for 10 minutes.
+Feat/&ArtificerAlchemistFlyElixirTitle=Fly Elixir
+Feat/&ArtificerAlchemistHealElixirDescription=Heal target for 2d4 + Intelligence modifier.
+Feat/&ArtificerAlchemistHealElixirTitle=Healing Elixir
+Feat/&ArtificerAlchemistResilienceElixirDescription=Increase target AC by +1 for 10 minutes.
+Feat/&ArtificerAlchemistResilienceElixirTitle=Resilience Elixir
+Feat/&ArtificerAlchemistSwiftnessElixirDescription=Increase target movement speed by 10ft for 1 hour.
+Feat/&ArtificerAlchemistSwiftnessElixirTitle=Swiftness Elixir
+Feat/&ArtificerArtilleristArcaneFirearmDescription=When casting evocation spells, deal an extra 1d8 damage once per turn.
+Feat/&ArtificerArtilleristArcaneFirearmTitle=Blasting Enhancement
+Feat/&ArtificerArtillerstDetonationSpellPreparedDescription=You gain the ability to detonate one of your devices causing damage to those near the target.
+Feat/&ArtificerArtillerstDetonationSpellPreparedTitle=Device Detonation
+Feat/&ArtificerArtillerstImprovedCannonsDescription=The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield.
+Feat/&ArtificerArtillerstImprovedCannonsTitle=Improved Cannons
+Feat/&ArtilleristCannonDetonationDescription=Detonate one of your devices causing creatures within 20 ft of the targeted location to make a Dexterity save. The creatures take 3d8 force damage on a failed save, and half as much damage on a successful one.
+Feat/&ArtilleristCannonDetonationTitle=Device Detonation
+Feat/&ArtilleristFlameCannon15Description=Spew fire in a cone as a bonus action, dealing 6d8 fire damage if targets fail a DEX saving throw.
+Feat/&ArtilleristFlameCannon15Title=Flamethrower
+Feat/&ArtilleristFlameCannon9Description=Spew fire in a cone as a bonus action, dealing 3d8 fire damage if targets fail a DEX saving throw.
+Feat/&ArtilleristFlameCannon9Title=Flamethrower
+Feat/&ArtilleristFlameCannonDescription=Spew fire in a cone as a bonus action, dealing 2d8 fire damage if targets fail a DEX saving throw.
+Feat/&ArtilleristFlameCannonTitle=Flamethrower
+Feat/&ArtilleristForceCannon15Description=Make a ranged attack against up to 2 targets as a bonus action, dealing 3d8 force damage on a hit.
+Feat/&ArtilleristForceCannon15Title=Force Cannon
+Feat/&ArtilleristForceCannon9Description=Make a ranged attack as a bonus action, dealing 3d8 force damage on a hit.
+Feat/&ArtilleristForceCannon9Title=Force Cannon
+Feat/&ArtilleristForceCannonDescription=Make a ranged attack as a bonus action, dealing 2d8 force damage on a hit.
+Feat/&ArtilleristForceCannonTitle=Force Cannon
+Feat/&ArtilleristProtectorCannon15Description=Emit positive energy as a bonus action. Allies within 20 feet gain temp HP equal to 1d8 + your Intelligence modifier.
+Feat/&ArtilleristProtectorCannon15Title=Arcane Shield
+Feat/&ArtilleristProtectorCannonDescription=Emit positive energy as a bonus action. Allies within 10 feet gain temp HP equal to 1d8 + your Intelligence modifier.
+Feat/&ArtilleristProtectorCannonTitle=Arcane Shield
+Feat/&ArtilleristSubclassSpellsDescription={0}.
+Feat/&ArtilleristSubclassSpellsTitle=Learn Blaster Spells
+Feat/&ArtilleryConstructDescription=Can damage or protect allies.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription=Cantrips:Mending Construct, Dismiss Construct \nLevel 1: Resummon Artillery Construct.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle=Construct Spells
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription=You gain bonus spells that are considered Tinkerer spells for you, they are always prepared and don't count against the number of Tinkerer spells you know.
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle=Construct Spells
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription=You gain bonus spells that are considered Tinkerer spells for you, they are always prepared and don't count against the number of Tinkerer spells you know.
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle=Construct Spells
+Feat/&ArtilleryModePoolDescription=Choose your Artillery Mode.
+Feat/&ArtilleryModePoolTitle=Artillery Mode
+Feat/&AttackModifierArtificerBattleSmithJolt2Description=Your weapon attacks deal an additional 3 damage.
+Feat/&AttackModifierArtificerBattleSmithJolt2Title=Improved Weapon Attack Jolt
+Feat/&AttackModifierArtificerBattleSmithJoltDescription=Your weapon attacks deal an additional 3 damage.
+Feat/&AttackModifierArtificerBattleSmithJoltTitle=Weapon Attack Jolt
+Feat/&BattleSmithSubclassSpellsDescription={0}.
+Feat/&BattleSmithSubclassSpellsTitle=Learn Weapon Smith Spells
+Feat/&ExtraInfusionSlotsDescription=You gain extra infusion slots that must be used on armor/weapons.
+Feat/&ExtraInfusionSlotsTitle=Extra Infusions
+Feat/&FeatSentinelDescription=You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n• When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n• Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n• When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
+Feat/&FeatSentinelTitle=Sentinel
+Feat/&FlameArtillery_2Description=3d8 fire damage (Cone).
+Feat/&FlameArtillery_2Title=Flame Artillery (Improved)
+Feat/&FlameArtilleryConstructDescription=Creates a cone of fire that deals 2d8 damage on a failed save.
+Feat/&FlameArtilleryConstructDescription_3=Creates a cone of fire that deals 3d8 damage on a failed save.
+Feat/&FlameArtilleryConstructTitle=Flame Artillery Construct
+Feat/&FlameArtilleryDescription=2d8 fire damage (Cone).
+Feat/&FlameArtilleryTitle=Flame Artillery
+Feat/&ForceArtillery_2Description=3d8 force damage and push target 5 ft.
+Feat/&ForceArtillery_2Title=Force Artillery (Improved)
+Feat/&ForceArtilleryAdditionalDamageDescription=The upgraded construct deals 1d8 more damage per hit.
+Feat/&ForceArtilleryConstructDescription=Deals 2d8 force damage and pushes target 5ft away from Construct.
+Feat/&ForceArtilleryConstructDescription_3=Deals 3d8 force damage and pushes target 5ft away from Construct.
+Feat/&ForceArtilleryConstructTitle=Force Artillery Construct
+Feat/&ForceArtilleryDescription=2d8 Force damage and push 5 ft.
+Feat/&HalfCoverShieldDescription=Allies within 10 feet gain +2 AC.
+Feat/&HalfCoverShieldTitle=Half Cover Dome
+Feat/&PowerAlchemistGreaterRestorativeElixirsDescription=Once per day, you can cast greater restoration.
+Feat/&PowerAlchemistGreaterRestorativeElixirsTitle=Greater Restoration
+Feat/&PowerAlchemistHealElixirsDescription=Once per day, you can cast heal.
+Feat/&PowerAlchemistHealElixirsTitle=Heal
+Feat/&PowerAlchemistRestorativeElixirsDescription=You can cast lesser restoration without expending a spell slot. You can do this a number of times per long rest equal to your Intelligence modifier.
+Feat/&PowerAlchemistRestorativeElixirsTitle=Restorative Elixirs
+Feat/&ResummonArtilleryConstruct_03Title=Resummon Artillery Construct 1
+Feat/&ResummonArtilleryConstruct_09Title=Resummon Artillery Construct 2
+Feat/&ResummonArtilleryConstruct_15Title=Resummon Artillery Construct 3
+Feat/&ResummonArtilleryConstructDescription=This spell allows the Tinkerer to resummon an Artillery Construct in one of multiple modes after the initial summons expires. The resummoned construct also lasts 1 hour.
+Feat/&ScoutSentinelFeatureSet_level03Description=<size=17><color=#add8e6ff>Multiple Armor Functions</color></size>\nYou can switch between function modes once per day by creating and using temporary weapons\n\n<size=17><color=#add8e6ff>Sentinel Mode</color></size>\nGain a limited number of temporary HP based on level. Impose disadvantage on enemies attacking allies\n\n<size=17><color=#add8e6ff>Scout Mode</color></size>\nGain increased movement, stealth advantage and a ranged attack which deals an extra die of damage once a turn.\n\n<size=17><color=#add8e6ff>Features</color></size>\nYou can use the armor's weapons as a spellcasting focus for your spells\nHeavy Armor does not have a strength requirement\nYou gain proficiency in smith's tools and heavy armor.
+Feat/&ScoutSentinelFeatureSet_level03Title=Scout Sentinel
+Feat/&ScoutSentinelFeatureSet_level05Description=<size=17><color=#add8e6ff>Extra Attack</color></size>\nYou can attack one more time, per combat turn, when you use the attack or shove actions.
+Feat/&ScoutSentinelFeatureSet_level05Title=Scout Sentinel
+Feat/&ScoutSentinelFeatureSet_level09Description=<size=17><color=#add8e6ff>Extra Infusion Slots</color></size>\nYou gain extra infusion slots, should be used on armor.
+Feat/&ScoutSentinelFeatureSet_level09Title=Scout Sentinel
+Feat/&ScoutSentinelFeatureSet_level15Description=<size=17><color=#add8e6ff>Improved Sentinel Mode</color></size>\nCan now pull enemies into melee range with a bonus action and inflict 1d8 thunder damage via the Gauntlet Grapple power\n\n<size=17><color=#add8e6ff>Improved Scout Mode</color></size>\nCan now create advantage for allies and disadvantage for enemies with a single attack.
+Feat/&ScoutSentinelFeatureSet_level15Title=Scout Sentinel
+Feat/&SummonArtilleryConstructDescription=The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with its summoner's levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1d8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire. Creatures must make a Dexterity saving throw or take 2d8 damage\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2d8 force damage and pushes enemy 5ft away.
+Feat/&SummonArtilleryConstructlevel09Description=A new function has been added. The Artillery Construct can destroy itself, forcing a Dexterity save or dealing 3d8 force damage on a failure. \nAdditionally both the Flame and Force Artillery damage rolls increase by 1d8 to a total of 3d8.
+Feat/&SummonArtilleryConstructlevel09Title=Artillery Construct Upgrade: Self-Destruct
+Feat/&SummonArtilleryConstructlevel15Description=A new function has been added. The Artillery Construct now provides half cover to allies within 10ft \n<size=17><color=#add8e6ff>Artillery Construct Upgrade: Reinforcements</color></size>\nYou can now summon two Artillery Constructs. The constructs can be of the same or different modes.
+Feat/&SummonArtilleryConstructlevel15Title=Artillery Construct Upgrade: Half Cover Dome
+Feat/&SummonArtilleryConstructTitle=Summon Artillery Construct
+Feat/&SummonProtectorConstructDescription=Your very own Battle Buddy stands ready to defend you and attack enemies. The Protector Construct can Self-Repair 3 times a day and can impose disadvantage on attacks on allies.
+Feat/&SummonProtectorConstructDescription_2=Summon Protector Construct Upgrade.
+Feat/&SummonProtectorConstructDescription_Upgrade=Summon Protector Construct Upgrade.
+Feat/&SummonProtectorConstructTitle=Summon Protector Construct
+Feat/&SummonProtectorConstructTitle_2=Summon Protector Construct Upgrade
+Feat/&SummonProtectorConstructTitle_Upgrade=Summon Protector Construct Upgrade
+Feat/&TempHPShieldConstructDescription=Grants 1d8 + 4 temporary HP to allies within 10ft.
+Feat/&TempHPShieldConstructTitle=Protecting Dome Construct
+Feat/&TempHPShieldDescription=Provide 1d8 + 4 TempHP to allies within 10ft.
+Feat/&TinkererConstructFamilyDescription=Created by Tinkerer.
+Feat/&TinkererConstructFamilyTitle=Tinkerer Construct
+Feature/&ArtificerInfusionCastingDescription=You can perform the somatic components of spells while holding weapons and shields.
+Feature/&ArtificerInfusionCastingTitle=Infusion Casting
+Feature/&ArtificerSpecialistArchetypesDescription=What field of study do you specialize in? Tinkerers can be damage dealers, healers, and martial specialists.
+Feature/&ArtificerSpecialistArchetypesTitle=Tinkerer Specializations
+Feature/&FlameArtillery_09ModePowerDescription=Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3d8 damage on a failed save. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
+Feature/&FlameArtillery_09ModePowerTitle=Summon Flame Artillery Construct
+Feature/&FlameArtillery_15ModePowerDescription=Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3d8 damage on a failed save. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
+Feature/&FlameArtillery_15ModePowerTitle=Summon Flame Artillery Construct
+Feature/&FlameArtilleryModePowerDescription=Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 2d8 damage on a failed save.
+Feature/&FlameArtilleryModePowerTitle=Summon Flame Artillery Construct
+Feature/&ForceArtillery_09ModePowerDescription=Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushes enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
+Feature/&ForceArtillery_09ModePowerTitle=Summon Force Artillery Construct
+Feature/&ForceArtillery_15ModePowerDescription=Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushes enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
+Feature/&ForceArtillery_15ModePowerTitle=Summon Force Artillery Construct
+Feature/&ForceArtilleryAdditionalDamageTitle=Upgraded damage
+Feature/&ForceArtilleryModePowerDescription=Summons a construct that lasts 1 hour. \nForce Artillery: Deals 2d8 force damage and pushes target 5ft away.
+Feature/&ForceArtilleryModePowerTitle=Summon Force Artillery Construct
+Feature/&ForceArtilleryTitle=Force Artillery
+Feature/&ImprovedScoutModePowerDescription=Gain Improved Scout Mode features. Can now create advantage for allies and disadvantage for enemies with a single attack.
+Feature/&ImprovedScoutModePowerTitle=Improved Scout Mode
+Feature/&ImprovedSentinelModePowerDescription=Gain Improved Sentinel Mode features via the Gauntlet Grapple power.
+Feature/&ImprovedSentinelModePowerTitle=Improved Sentinel Mode
+Feature/&SavingThrowTinkererProficiencyDescription=Proficiency in Constitution and Intelligence saving throws.
+Feature/&SavingThrowTinkererProficiencyTitle=Saving Throw Proficiency
+Feature/&ScoutModePowerDescription=Gain increased movement, advantage on Stealth checks and once per turn, your ranged weapon attacks deals an extra die of damage.
+Feature/&ScoutModePowerTitle=Scout Mode
+Feature/&SentinelModePowerDescription=Gain Temp HP equal to level. Impose Disadvantage on enemies attacking allies.
+Feature/&SentinelModePowerTitle=Sentinel Mode
+Feature/&TempHPShield_09ModePowerDescription=Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1d8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
+Feature/&TempHPShield_09ModePowerTitle=Summon Protecting Dome Construct
+Feature/&TempHPShield_15ModePowerDescription=Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1d8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: Provides half cover to allies within 10ft.
+Feature/&TempHPShield_15ModePowerTitle=Summon Protecting Dome Construct
+Feature/&TempHPShieldModePowerDescription=Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1d8 + 4 temporary HP to allies within 10ft.
+Feature/&TempHPShieldModePowerTitle=Summon Protecting Dome Construct
+Feature/&TempHPShieldTitle=Protecting Dome
+Feature/&TinkererArmorProficiencyDescription=Proficiency with Light and Medium armors as well as shields.
+Feature/&TinkererArmorProficiencyTitle=Tinkerer Armor Proficiency
+Feature/&TinkererInfusionChoiceDescription=Select the infusions that you will have available to use. Note each infusion can be active only once. Activating it a second time will cancel the first.
+Feature/&TinkererInfusionChoiceTitle=Infusion Choice
+Feature/&TinkererInfusionReplaceDescription=Select the infusions to replace.
+Feature/&TinkererInfusionReplaceTitle=Replace Infusion
+Feature/&TinkererSkillGainChoicesPluralDescription=Tinkerer skills are Arcana, History, Investigation, Medicine, Nature, Perception and Sleight of Hand.
+Feature/&TinkererSkillPointsTitle=Tinkerer Skills
+Feature/&TinkererToolsExpertiseDescription=Gain expertise with many tools including Thieves' Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools.
+Feature/&TinkererToolsExpertiseTitle=Tinkerer Tool Expertise
+Feature/&TinkererToolsProficiencyDescription=Gain proficiency with many tools including Thieves' Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools.
+Feature/&TinkererToolsProficiencyTitle=Tool Proficiencies
+Feature/&TinkererWeaponProficiencyDescription=Proficiency with simple weapons.
+Feature/&TinkererWeaponProficiencyTitle=Tinkerer Weapon Proficiencies
+Feedback/&AdditionalDamageArcaneFirearmFormat=Blasting Enhancement!
+Feedback/&AdditionalDamageArcaneFirearmLine=Dealing additional damage from Blasting Enhancement
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat=Blinding Weapon
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine=Additional damage and trying to apply Blindness from Blinding Weapon
+Feedback/&AdditionalDamageLightningSpearFormat=Lightning Spear!
+Feedback/&AdditionalDamageLightningSpearLine={0} strikes {1} with Lightning Spear! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat=Upgraded Damage
+Feedback/&AdditionalDamageUpgradedConstructLine=The upgraded construct deals 1d8 more damage per hit.
+Feedback/&LightningSpearAdditionalDamageDescription=Deals an additional 1d6 lightning damage once per turn.
+Feedback/&LightningSpearAdditionalDamageTitle=Lightning Spear extra damage
+Item/&ForceArtilleryProjectileDescription=ForceArtilleryProjectile.
+Item/&ForceArtilleryProjectileTitle=ForceArtilleryProjectile
+Reaction/&ReactionAttackFeatSentinelDescription={0} attacked one of your allies, in response you can use your reaction to attack.
+Reaction/&ReactionAttackFeatSentinelReactDescription=Use reaction to attack.
+Reaction/&ReactionAttackFeatSentinelReactTitle=Attack
+Reaction/&ReactionAttackFeatSentinelTitle=Sentinel Reaction
+Rules/&AdvantageAttackOnEnemyDescription=Advantage to attack enemy.
+Rules/&AdvantageAttackOnEnemyTitle=Lit Up
+Rules/&DisadvantageOnAttackByEnemyDescription=Distracted by lightning jolt.
+Rules/&DisadvantageOnAttackByEnemyTitle=Jolted
+Rules/&ExtraDamageOnAttackConditionDescription=Extra damage from Lighting Spear.
+Rules/&ExtraDamageOnAttackConditionTitle=Static shocked
+Rules/&HalfCoverShieldAttributeDescription=Allies within 10 ft gain +2 AC.
+Rules/&HalfCoverShieldAttributeTitle=Half Cover Dome
+Rules/&HalfCoverShieldConditionDescription=+2 AC.
+Rules/&HalfCoverShieldConditionTitle=Protected by Dome
+Rules/&LightningSpearPowerDescription=Deal 2d6 lightning damage.
+Rules/&LightningSpearPowerTitle=Lightning Spear
+Rules/&SelfDestructionConditionDescription=Self-Destruction.
+Rules/&SelfDestructionConditionTitle=Self-Destruction
+Rules/&ThunderStruckBalancingAdvantageDescription=Balancing thunderstruck to only work for allies.
+Rules/&ThunderStruckBalancingAdvantageTitle=Taunted
+Rules/&ThunderStruckDescription=Disadvantage when attacking Scout Sentinel's allies.
+Rules/&ThunderStruckTitle=Thunderstruck (Distracted)
+SpellList/&SpellListTinkererDescription=Tinkerer Spelllist.
+SpellList/&SpellListTinkererTitle=Tinkerer Spelllist
+Stage/&SubclassSelectionStageSpecialistDescription=Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures=Specialist Features
+Stage/&SubclassSelectionStageSpecialistHeader=Specializations
+Stage/&SubclassSelectionStageSpecialistNoneDescription=Specialist None Description.
+Stage/&SubclassSelectionStageSpecialistTitle=Select Specialization
+Subclass/&ArtificerAlchemistDescription=You specialize in potions, buffs, healing, and spell casting.
+Subclass/&ArtificerAlchemistTitle=Potion Maker
+Subclass/&ArtificerArtileristCannonsDescription=You create a set of cannons that you can activate in battle as a bonus action.
+Subclass/&ArtificerArtileristCannonsTitle=Cannons
+Subclass/&ArtificerArtilleristDescription=You specialize in hurling projectiles and causing explosions.
+Subclass/&ArtificerArtilleristTitle=Blaster
+Subclass/&ArtificerBattleSmithDescription=You specialize in using magical weapons in combat.
+Subclass/&ArtificerBattleSmithTitle=Weapon Smith
+Subclass/&ArtificerSpellcastingDescription=Cast Tinkerer spells.
+Subclass/&ArtificerSpellcastingTitle=Tinkerer Spellcasting
+Subclass/&AttackModifierArtificerBattleSmithWeaponDescription=Your attacks count as magical and you use your Intelligence for attack and damage rolls.
+Subclass/&AttackModifierArtificerBattleSmithWeaponTitle=Infused Weapon
+Subclass/&AttackModifierArtificerBlindingWeaponDescription=A weapon you choose that gains the ability to blind targets on hit (against a Constitution save). You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerBlindingWeaponTitle=Blinding Weapon
+Subclass/&AttackModifierArtificerEnhancedArmorDescription=An armor you choose becomes magical and provides an additional +1 AC. You can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerEnhancedArmorTitle=Enhanced Armor
+Subclass/&AttackModifierArtificerEnhancedFocusDescription=A spellcasting focus you choose becomes magical and gains +1 to spell attack rolls and spell save DC. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerEnhancedFocusTitle=Enhanced Focus
+Subclass/&AttackModifierArtificerEnhancedWeaponDescription=A weapon you choose becomes magical and gains +1 to attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerEnhancedWeaponTitle=Enhanced Weapon
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription=An armor you choose becomes magical and provides +2 AC. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle=Improved Enhanced Armor
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription=A spellcasting focus you choose becomes magical and gains +2 to spell attack rolls and spell save DC. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle=Improved Enhanced Focus
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription=Touch a weapon and it becomes magical and gains +2 to attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle=Improved Enhanced Weapon
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription=You infuse your weapon with power. Your attacks count as magical and you add +7 to your attack and damage rolls.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle=Improved Infuse Weapon
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription=You gain an extra attack.
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle=Extra Attack
+Subclass/&CancelCancelElixirFlyDescription=End the Fly condition from the Potion Maker Elixir.
+Subclass/&CancelCancelElixirFlyTitle=Cancel Fly
+Subclass/&CancelCancelElixirResilienceDescription=End the Resilience condition from the Potion Maker Elixir.
+Subclass/&CancelCancelElixirResilienceTitle=Cancel Resilience
+Subclass/&CancelCancelElixirSwiftnessDescription=End the Swiftness condition from the Potion Maker Elixir.
+Subclass/&CancelCancelElixirSwiftnessTitle=Cancel Swiftness
+Subclass/&ConditionResistantArmorTitle=Resistant Armor
+Subclass/&ConditionResistnatArmorDescription=Your armor is resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage.
+Subclass/&CraftingTinkererMagicItemAdeptDescription=You are adept at crafting magic items. It takes you 1/4 the time to craft items and you apply double your proficiency bonus when crafting.
+Subclass/&CraftingTinkererMagicItemAdeptTitle=Magic Item Adept
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription=Touch an bag and infuse an extra dimensional space to help it hold more weight without encumbering you. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&EquipmentModifierArtificerBagOfHolderTitle=Bag of Holding
+Subclass/&HArtilleryIncreaseDescription=Artillery Pool Increase.
+Subclass/&HArtilleryIncreaseTitle=Artillery Pool Increase
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription=You can now infuse an two additional items each day. These are intended to be used for your special Weapon Smith weapon.
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle=Weapon Smith Weapon Infusion
+Subclass/&HealingPoolArtificerInfusionsDescription=2 times per day infuse items with magical effects.
+Subclass/&HealingPoolArtificerInfusionsIncreaseDescription=You can now infuse one additional item each day.
+Subclass/&HealingPoolArtificerInfusionsIncreaseTitle=More Infusions
+Subclass/&HealingPoolArtificerInfusionsTitle=Infusions
+Subclass/&MagicAffinityAlchemicalSavantListDescription=When casting Acid Arrow and Flaming Sphere they behave as if cast 2 levels higher. Your cantrips are also boosted so even when the enemy saves they still take half damage.
+Subclass/&MagicAffinityAlchemicalSavantListTitle=Elixir Savant Spells
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription=You infuse your weapon with power. Your attacks count as magical and you add your +7 to your attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle=Improved Infuse Weapon
+Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription=You infuse your weapon with power. Your attacks count as magical and you use your Intelligence for attack and damage rolls until the next long rest.
+Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle=Infuse Weapon
+Subclass/&PowerInfuseArmorMagicalStrengthDescription=Infuse armor with magical strength. You gain advantage on Strength ability checks and saving throws. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&PowerInfuseArmorMagicalStrengthTitle=Armor of Magical Strength
+Subclass/&PowerInfuseDarkvisionDescription=Infuse the ability to see in the dark into a pair of goggles. You can only have one of each infusion active at a time. Activating it a second time will cancel the first. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&PowerInfuseDarkvisionTitle=Goggles of Night
+Subclass/&PowerInfuseMindSharpenerDescription=Infuse an armor or robe with the ability to aid your spell casting concentration. You gain advantage on concentration checks and any damage less than 20 doesn't trigger a check. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&PowerInfuseMindSharpenerTitle=Mind Sharpener
+Subclass/&PowerInfuseResistantArmorDescription=Infuse damage resistance into your armor. It becomes resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&PowerInfuseResistantArmorTitle=Resistant Armor
+Subclass/&PowerTinkererSoulOfArtificeSavesDescription=Imbued into your armor is magical improvements to your ability to avoid bad effects. You gain 3d4 to every saving throw you make.
+Subclass/&PowerTinkererSoulOfArtificeSavesTitle=Soul of Tinkerer
+Subclass/&PowerTinkererSpellStoringItemDescription=As a bonus action, you can regain spell slots. You can do this a number of times per day equal to your Intelligence modifier.
+Subclass/&PowerTinkererSpellStoringItemTitle=Spell Storing Item
+Subclass/&PowerTransmuteConstitutionDescription=Use your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
+Subclass/&PowerTransmuteConstitutionTitle=Constitution Saves
+Subclass/&PowerTransmuteDarkvisionDescription=Use your Transmute Force to grant Superior Darkvision until the next long rest.
+Subclass/&PowerTransmuteDarkvisionTitle=Superior Darkvision
+Subclass/&PowerTransmuteElementalResistanceDescription=Use your Transmute Force to grant resistance to acid, cold, fire, lightning, necrotic, poison and thunder damage until the end of your next long rest.
+Subclass/&PowerTransmuteElementalResistanceTitle=Elemental Resistance
+Subclass/&PowerTransmuteFlyDescription=Use your Transmute Force to grant the ability of flight.
+Subclass/&PowerTransmuteFlyTitle=Fly
+Subclass/&PowerTransmuteHealDescription=Use your Transmute Force to heal up to 6 targets.
+Subclass/&PowerTransmuteHealTitle=Heal
+Subclass/&PowerTransmuteReviveDescription=Use your Transmute Force to revive a character (within 1 minute of them dying).
+Subclass/&PowerTransmuteReviveTitle=Revive
+Subclass/&ScoutSentinelTinkererSubclassDescription=A Scout Sentinel Tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
+Subclass/&ScoutSentinelTinkererSubclassTitle=Scout Sentinel
+Subclass/&TinkererFlashOfGeniusConditionDescription=Inspired by a flash of genius to have a bonus on ability checks and saving throws.
+Subclass/&TinkererFlashOfGeniusConditionTitle=Flash of Genius
+Subclass/&TinkererFlashOfGeniusPowerDescription=You can use your genius to inspire yourself and others on ability checks and saving throws.
+Subclass/&TinkererFlashOfGeniusPowerTitle=Flash of Genius
+Subclass/&TinkererMagicalTinkeringDescription=Gain the ability to do several minor effects (Dazzle, Sparkle, Shine).
+Subclass/&TinkererMagicalTinkeringTitle=Magical Tinkering
+Subclass/&WeaponProfArtificerBattleSmithDescription=Experience in combat has given the Weapon Smith training in Martial Weapons.
+Subclass/&WeaponProfArtificerBattleSmithTitle=Weapon Training
+Tooltip/&TagScoutSentinelWeaponTitle=Scout Sentinel

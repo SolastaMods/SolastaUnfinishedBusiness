@@ -1,25 +1,25 @@
-Feature/&BarbarianIndomitableMightDescription	Se il tuo totale per una prova di Forza è inferiore al tuo punteggio di Forza, puoi usare quel punteggio al posto del totale.
-Feature/&BarbarianIndomitableMightTitle	Potenza indomabile
-Feature/&IndomitableResistanceAddDescription	+1 Indomabile Resistenza all'uso tra le pause.
-Feature/&IndomitableResistanceAddTitle	Resistenza indomabile (aumentata)
-Feature/&IndomitableResistanceTitle	Resistenza indomita
-Feature/&PowerPaladinAuraOfCourage18Description	Concede un bonus al tiro salvezza agli alleati entro 9 metri.
-Feature/&PowerPaladinAuraOfCourage18Title	Aura di coraggio migliorata
-Feature/&PowerPaladinAuraOfProtection18Description	Tu e i tuoi alleati entro 9 metri non potete spaventarvi.
-Feature/&PowerPaladinAuraOfProtection18Title	Aura di protezione migliorata
-Feature/&PrimalChampionDescription	Al 20° livello, incarni il potere delle terre selvagge. I tuoi punteggi di Forza e Costituzione aumentano di 4.
-Feature/&PrimalChampionTitle	Campione Primordiale
-Feature/&ProficiencyRogueBlindSenseDescription	A partire dal 14° livello, se sei in grado di sentire, sei consapevole della posizione di qualsiasi creatura nascosta o invisibile entro 3 metri da te.
-Feature/&ProficiencyRogueBlindSenseTitle	Senso cieco
-Feature/&ProficiencyRogueSlipperyMindDescription	Al 15° livello, hai acquisito maggiore forza mentale. Acquisisci competenza nei tiri salvezza di Saggezza.
-Feature/&ProficiencyRogueSlipperyMindTitle	Mente scivolosa
-Feature/&RangerFeralSensesDescription	Acquisisci sensi soprannaturali che ti aiutano a combattere le creature che non puoi vedere. Quando attacchi una creatura che non puoi vedere, la tua incapacità di vederla non impone svantaggio ai tuoi tiri per colpire contro di essa.
-Feature/&RangerFeralSensesTitle	Sensi selvaggi
-Feature/&RangerVanishActionDescription	A partire dal 14° livello, puoi usare l'azione Nascondersi come azione bonus nel tuo turno.
-Feature/&RangerVanishActionTitle	Svanire
-Feature/&ZSPowerPaladinCleansingTouchDescription	Rimuovi gli effetti degli incantesimi toccando un alleato. Puoi farlo un numero di volte al giorno pari al tuo modificatore di Carisma.
-Feature/&ZSPowerPaladinCleansingTouchTitle	Tocco detergente
-RestActivity/&ZSSorcerousRestorationDescription	Recupera 4 punti stregoneria durante un breve riposo.
-RestActivity/&ZSSorcerousRestorationTitle	Stregoneria Restauro
-Sorceror/&ZSSorcerousRestorationDescription	Recupera 4 punti stregoneria durante un breve riposo.
-Sorceror/&ZSSorcerousRestorationTitle	Stregoneria Restauro
+Feature/&BarbarianIndomitableMightDescription=Se il tuo totale per una prova di Forza è inferiore al tuo punteggio di Forza, puoi usare quel punteggio al posto del totale.
+Feature/&BarbarianIndomitableMightTitle=Potenza indomabile
+Feature/&IndomitableResistanceAddDescription=+1 Indomabile Resistenza all'uso tra le pause.
+Feature/&IndomitableResistanceAddTitle=Resistenza indomabile (aumentata)
+Feature/&IndomitableResistanceTitle=Resistenza indomita
+Feature/&PowerPaladinAuraOfCourage18Description=Concede un bonus al tiro salvezza agli alleati entro 9 metri.
+Feature/&PowerPaladinAuraOfCourage18Title=Aura di coraggio migliorata
+Feature/&PowerPaladinAuraOfProtection18Description=Tu e i tuoi alleati entro 9 metri non potete spaventarvi.
+Feature/&PowerPaladinAuraOfProtection18Title=Aura di protezione migliorata
+Feature/&PrimalChampionDescription=Al 20° livello, incarni il potere delle terre selvagge. I tuoi punteggi di Forza e Costituzione aumentano di 4.
+Feature/&PrimalChampionTitle=Campione Primordiale
+Feature/&ProficiencyRogueBlindSenseDescription=A partire dal 14° livello, se sei in grado di sentire, sei consapevole della posizione di qualsiasi creatura nascosta o invisibile entro 3 metri da te.
+Feature/&ProficiencyRogueBlindSenseTitle=Senso cieco
+Feature/&ProficiencyRogueSlipperyMindDescription=Al 15° livello, hai acquisito maggiore forza mentale. Acquisisci competenza nei tiri salvezza di Saggezza.
+Feature/&ProficiencyRogueSlipperyMindTitle=Mente scivolosa
+Feature/&RangerFeralSensesDescription=Acquisisci sensi soprannaturali che ti aiutano a combattere le creature che non puoi vedere. Quando attacchi una creatura che non puoi vedere, la tua incapacità di vederla non impone svantaggio ai tuoi tiri per colpire contro di essa.
+Feature/&RangerFeralSensesTitle=Sensi selvaggi
+Feature/&RangerVanishActionDescription=A partire dal 14° livello, puoi usare l'azione Nascondersi come azione bonus nel tuo turno.
+Feature/&RangerVanishActionTitle=Svanire
+Feature/&ZSPowerPaladinCleansingTouchDescription=Rimuovi gli effetti degli incantesimi toccando un alleato. Puoi farlo un numero di volte al giorno pari al tuo modificatore di Carisma.
+Feature/&ZSPowerPaladinCleansingTouchTitle=Tocco detergente
+RestActivity/&ZSSorcerousRestorationDescription=Recupera 4 punti stregoneria durante un breve riposo.
+RestActivity/&ZSSorcerousRestorationTitle=Stregoneria Restauro
+Sorceror/&ZSSorcerousRestorationDescription=Recupera 4 punti stregoneria durante un breve riposo.
+Sorceror/&ZSSorcerousRestorationTitle=Stregoneria Restauro

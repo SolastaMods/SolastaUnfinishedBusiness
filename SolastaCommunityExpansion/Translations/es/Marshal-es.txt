@@ -1,23 +1,23 @@
-Reaction/&CoordinatedAttackDescription	{0} fue atacado por un ataque coordinado, algunos personajes pueden usar su reacción para unirse a este ataque.
-Reaction/&CoordinatedAttackReactDescription	Usa la reacción para atacar al objetivo.
-Reaction/&CoordinatedAttackReactTitle	Ataque
-Reaction/&CoordinatedAttackTitle	Ataque coordinado
-Reaction/&SubitemSelectCoordinatedAttackTitle	Seleccione la acción
-Subclass/&FighterMarshalCoordinatedAttackDescription	Cuando golpeas a un enemigo con un ataque cuerpo a cuerpo, tus aliados pueden usar su reacción para realizar un ataque de oportunidad contra tu objetivo.
-Subclass/&FighterMarshalCoordinatedAttackTitle	Ataque coordinado
-Subclass/&FighterMarshalDescription	Expertos en estudiar las debilidades de los enemigos y coordinar los ataques de otros miembros del grupo para explotarlos, los luchadores que se entrenaron en esta parte marcial son famosos oquestradores del campo de batalla.
-Subclass/&FighterMarshalEncouragementPowerDescription	El coraje del mariscal inspira a su miembro del partido. Los aliados a 10 pies de él suman 1d4 a la tirada de ataque y la tirada de salvación.
-Subclass/&FighterMarshalEncouragementPowerTitle	Ánimo
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	El vínculo entre el mariscal y su camarada cruza la frontera entre la vida y la muerte. Como acción adicional, el mariscal puede convocar a un espíritu de sus camaradas caídos para que lo ayude en el combate.
-Subclass/&FighterMarshalEternalComradeFeatureSetTitle	camarada eterna
-Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Eres inmune al efecto del miedo.
-Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Comandante intrépido
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Añades tu nivel de conocimiento de tu objetivo actual a tus tiradas de ataque y daño.
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Conoce a tu enemigo
-Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Como acción adicional, puedes intentar aumentar tu conocimiento sobre tu objetivo haciendo una prueba de Supervivencia. Puedes hacer esto dos veces por descanso corto.
-Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estudia a tu enemigo
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoca 1 espíritu del camarada caído del mariscal. Cada espíritu tiene 45 + el doble de tu nivel de Luchador en HP y su CA es 16 + tu bonificación por competencia. Los espíritus son inmunes al veneno, frío, necrótico, propenso, paralizado y refrenado. Los espíritus tienen resistencia al daño por fuego, ácido, rayos y truenos y tienen resistencia contra daños no mágicos cortantes, contundentes y perforantes. En su turno, pueden volar hasta 50 pies y hacer un único ataque con arma cuerpo a cuerpo que inflige 2d6 + 5 de daño cortante mágico con una bonificación de 5 + bonificación de competencia para impactar.
-Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocar camarada eterna
-Subclass/&FighterMarshalTitle	Mariscal
-Subclass/&MarshalEternalComradeDescription	camarada caído
-Subclass/&MarshalEternalComradeTitle	camarada caído
+Reaction/&CoordinatedAttackDescription={0} fue atacado por un ataque coordinado, algunos personajes pueden usar su reacción para unirse a este ataque.
+Reaction/&CoordinatedAttackReactDescription=Usa la reacción para atacar al objetivo.
+Reaction/&CoordinatedAttackReactTitle=Ataque
+Reaction/&CoordinatedAttackTitle=Ataque coordinado
+Reaction/&SubitemSelectCoordinatedAttackTitle=Seleccione la acción
+Subclass/&FighterMarshalCoordinatedAttackDescription=Cuando golpeas a un enemigo con un ataque cuerpo a cuerpo, tus aliados pueden usar su reacción para realizar un ataque de oportunidad contra tu objetivo.
+Subclass/&FighterMarshalCoordinatedAttackTitle=Ataque coordinado
+Subclass/&FighterMarshalDescription=Expertos en estudiar las debilidades de los enemigos y coordinar los ataques de otros miembros del grupo para explotarlos, los luchadores que se entrenaron en esta parte marcial son famosos oquestradores del campo de batalla.
+Subclass/&FighterMarshalEncouragementPowerDescription=El coraje del mariscal inspira a su miembro del partido. Los aliados a 10 pies de él suman 1d4 a la tirada de ataque y la tirada de salvación.
+Subclass/&FighterMarshalEncouragementPowerTitle=Ánimo
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription=El vínculo entre el mariscal y su camarada cruza la frontera entre la vida y la muerte. Como acción adicional, el mariscal puede convocar a un espíritu de sus camaradas caídos para que lo ayude en el combate.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle=camarada eterna
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription=Eres inmune al efecto del miedo.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle=Comandante intrépido
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription=Añades tu nivel de conocimiento de tu objetivo actual a tus tiradas de ataque y daño.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle=Conoce a tu enemigo
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription=Como acción adicional, puedes intentar aumentar tu conocimiento sobre tu objetivo haciendo una prueba de Supervivencia. Puedes hacer esto dos veces por descanso corto.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle=Estudia a tu enemigo
+Subclass/&FighterMarshalSummonEternalComradePowerDescription=Invoca 1 espíritu del camarada caído del mariscal. Cada espíritu tiene 45 + el doble de tu nivel de Luchador en HP y su CA es 16 + tu bonificación por competencia. Los espíritus son inmunes al veneno, frío, necrótico, propenso, paralizado y refrenado. Los espíritus tienen resistencia al daño por fuego, ácido, rayos y truenos y tienen resistencia contra daños no mágicos cortantes, contundentes y perforantes. En su turno, pueden volar hasta 50 pies y hacer un único ataque con arma cuerpo a cuerpo que inflige 2d6 + 5 de daño cortante mágico con una bonificación de 5 + bonificación de competencia para impactar.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle=Invocar camarada eterna
+Subclass/&FighterMarshalTitle=Mariscal
+Subclass/&MarshalEternalComradeDescription=camarada caído
+Subclass/&MarshalEternalComradeTitle=camarada caído

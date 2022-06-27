@@ -10,29 +10,31 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]AceHigh[/b]: SoulBlade subclass, Tactician subclass, feats, no identification
 [*][b]Bazou[/b]: Witch class, fighting styles
 [*][b]Boofat[/b]: alwaysAlt
-[*][b]Burtsev-Alexey[/b]: deep copy algorithm
 [*][b]ChrisJohnDigital[/b]: Tinkerer class, crafting, faction relations, feats, fighting styles, items, subclasses, progression
 [*][b]Dreadmaker[/b]: Forest Guardian subclass
-[*][b]DubhHerder[/b]: high level spells, feats migration, bug models replacement, high level monsters, Warlock class and subclasses
+[*][b]DubhHerder[/b]: high level spells, feats, bug models replacement, high level monsters, Warlock class and subclasses
 [*][b]ElAntonious[/b]: Arcanist subclass, feats
-[*][b]Esker[/b]: Warlock class design, quality assurance
 [*][b]exsonics01[/b]: Oath of Retribution subclass
 [*][b]Holic75[/b]: SolastaModHelpers, SolastaExtraContent
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
-[*][b]Lyraele[/b]: Warlock class design, quality assurance
-[*][b]Narria[/b]: modKit creator, developer
 [*][b]Nd[/b]: Marshal and Opportunist subclasses
-[*][b]Nyowwww[/b]: Chinese translations
-[*][b]PraiseThyBus[/b]: quality assurance
-[*][b]Prioritizer[/b]: Russian translations
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
-[*][b]SilverGriffon[/b]: PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race
-[*][b]Sinai-dev[/b]: Unity Explorer UI standalone
+[*][b]SilverGriffon[/b]: pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race
 [*][b]Spacehamster[/b]: dataminer
 [*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
-[*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Holic75's code integration
+[*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration
+[*][b][/b]: 
+[*][b]Esker[/b]: ruleset support, classes design, quality assurance
+[*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
+[*][b]PraiseThyBus[/b]: quality assurance
+[*][b][/b]: 
+[*][b]Nyowwww[/b]: Chinese translations
+[*][b]Prioritizer[/b]: Russian translations
+[*][b]Burtsev-Alexey[/b]: deep copy algorithm
+[*][b]Narria[/b]: modKit creator, developer
+[*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [/list]
 
 [size=4][b]How to Install - Windows[/b][/size]

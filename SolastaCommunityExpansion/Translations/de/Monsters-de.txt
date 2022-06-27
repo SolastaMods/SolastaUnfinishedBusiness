@@ -1,236 +1,236 @@
-Condition/&DH_ReverseGravity_Spell_Description	Umgekehrte Schwerkraft
-Condition/&DH_ReverseGravity_Spell_Title	Umgekehrte Schwerkraft
-Condition/&DH_TimeStop_Spell_Description	Eingefroren durch Zeitstopp
-Condition/&DH_TimeStop_Spell_Title	Eingefroren durch Zeitstopp
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	Gewitter
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Gewitter
-Feature/&DH_AtWill_Fireball_Power_Description	Beliebiger Feuerball
-Feature/&DH_AtWill_Fireball_Power_Title	Feuerball
-Feature/&DH_AtWill_HoldMonster_Power_Description	3 Anwendungen pro Tag
-Feature/&DH_AtWill_HoldMonster_Power_Title	Monster halten
-Feature/&DH_AtWill_Invisibility_Power_Description	Beliebige Unsichtbarkeit
-Feature/&DH_AtWill_Invisibility_Power_Title	Unsichtbarkeit
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	Blitzangriff
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Blitzangriff
-Monster/&DH_Custom_AirTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
-Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Urzeitlicher Lufttitan</color>
-Monster/&DH_Custom_AncientBlackDragon_Description	Schwarze Drachen sind die bösartigsten und abscheulichsten der chromatischen Drachen und sammeln die Trümmer und Schätze gefallener Völker. Diese Drachen verabscheuen es, die Schwachen gedeihen zu sehen und schwelgen im Untergang humanoider Königreiche. Sie leben in stinkenden Sümpfen und zerfallenden Ruinen, wo einst Königreiche standen.
-Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>Uralter schwarzer Drache</color>
-Monster/&DH_Custom_AncientBlueDragon_Description	Eitel und territorial schweben blaue Drachen durch den Himmel über Wüsten, jagen Karawanen und plündern Herden und Siedlungen in den grünen Ländern außerhalb der Reichweite der Wüste. Diese Drachen können auch in trockenen Steppen, sengenden Ödlanden und felsigen Küsten gefunden werden. Sie bewachen ihre Territorien gegen alle potenziellen Konkurrenten, insbesondere Messingdrachen.
-Monster/&DH_Custom_AncientBlueDragon_Title	<color=#ff0000ff>Uralter blauer Drache</color>
-Monster/&DH_Custom_AncientGreenDragon_Description	Grüne Drachen sind die listigsten und tückischsten echten Drachen und nutzen Irreführung und Tricks, um die Oberhand gegen ihre Feinde zu gewinnen. Sie sind schlecht gelaunt und durch und durch böse und haben besondere Freude daran, die Gutherzigen zu untergraben und zu korrumpieren. In den uralten Wäldern, die sie durchstreifen, demonstrieren grüne Drachen eine Aggression, bei der es oft weniger um Territorien geht, als darum, mit möglichst geringem Aufwand Macht und Reichtum zu erlangen.
-Monster/&DH_Custom_AncientGreenDragon_Title	<color=#ff0000ff>Uralter grüner Drache</color>
-Monster/&DH_Custom_AncientRedDragon_Description	Rote Drachen, die begehrlichsten der wahren Drachen, versuchen unermüdlich, ihre Schatzvorräte zu vermehren. Sie sind außergewöhnlich eitel, sogar für Drachen, und ihre Einbildung spiegelt sich in ihrer stolzen Haltung und ihrer Verachtung für andere Kreaturen wider.
-Monster/&DH_Custom_AncientRedDragon_Title	<color=#ff0000ff>Uralter roter Drache</color>
-Monster/&DH_Custom_AncientWhiteDragon_Description	Weiße Drachen, die kleinsten, am wenigsten intelligenten und animalischsten der chromatischen Drachen, leben in kalten Gefilden und bevorzugen arktische Gebiete oder eisige Berge. Sie sind bösartige, grausame Reptilien, die von Hunger und Gier getrieben werden.
-Monster/&DH_Custom_AncientWhiteDragon_Title	<color=#ff0000ff>Uralter weißer Drache</color>
-Monster/&DH_Custom_Archmage_Description	Erzmagier sind mächtige (und normalerweise ziemlich alte) Zauberkundige, die sich dem Studium der arkanen Künste verschrieben haben. Wohlwollende beraten Könige und Königinnen, während Böse als Tyrannen regieren und dem Lichtum nachjagen. Diejenigen, die weder gut noch böse sind, verstecken sich in abgelegenen Türmen, um ihre Magie ohne Unterbrechung auszuüben.
-Monster/&DH_Custom_Archmage_Title	<color=#ff0000ff>Erzmagier</color>
-Monster/&DH_Custom_Balor_Description	Balors, Gestalten des uralten und schrecklichen Bösen, herrschen als Generäle über dämonische Armeen und sehnen sich danach, die Macht zu ergreifen, während sie alle Kreaturen vernichten, die sich ihnen widersetzen
-Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>Balor</color>
-Monster/&DH_Custom_ConstructTitan_Description	Massive Konstrukte, die für den Krieg gebaut und aus schwerem Metall geschmiedet wurden. Als unaufhaltsamer Moloch existiert er, um den Befehlen seines Schöpfers zu folgen, und er beschützt oder greift an, wie dieser Schöpfer es verlangt.
-Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>Titan des mechanischen Konstrukts</color>
-Monster/&DH_Custom_Deva_Description	Devas sind Engel, die als göttliche Boten oder Agenten für die Materielle Ebene agieren,
-Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>Deva</color>
-Monster/&DH_Custom_Djinni_Description	Stolze Dschinns aus der Elementarebene der Luft, Meister der Luft, die Dschinn reiten auf mächtigen Wirbelstürmen, die sie aus einer Laune heraus erschaffen und lenken und die sogar Passagiere befördern können.
-Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>Dschinn</color>
-Monster/&DH_Custom_EarthTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
-Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>Titan der Urerde</color>
-Monster/&DH_Custom_Efreeti_Description	Die Efreet sind riesige Genies der Elementarebene des Feuers und Meister der Flamme, immun gegen Feuer und in der Lage, es aus einer Laune heraus zu erschaffen.
-Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>Ephraim</color>
-Monster/&DH_Custom_Erinyes_Description	Die Erinyes sind wilde und disziplinierte Krieger. Sie stürzen vom Himmel herab und bringen Kreaturen, die ihren Meistern Unrecht getan haben, den schnellen Tod
-Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>Erine</color>
-Monster/&DH_Custom_FireTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
-Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>Urzeitlicher Feuertitan</color>
-Monster/&DH_Custom_GuardianNaga_Description	Die wunderschönen Wächternagas sind weise und gut und schützen heilige Orte und Gegenstände mit magischer Kraft davor, in böse Hände zu geraten. In ihren verborgenen Schanzen erforschen sie Zaubersprüche und schmieden komplizierte Pläne, um die bösen Pläne ihrer Feinde zu vereiteln.
-Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>Wächter-Naga</color>
-Monster/&DH_Custom_HornedDevil_Description	Die fliegende Infanterie der höllischen Legionen, gehörnte Teufel folgen buchstabengetreu den Befehlen.
-Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>Gehörnter Teufel</color>
-Monster/&DH_Custom_IceDevil_Description	Eisteufel, die die Macht ihrer Vorgesetzten begehren, arbeiten unaufhörlich an ihrer Beförderung, schlachten die Feinde der Neun Höllen ab und beanspruchen so viele Seelen wie möglich für ihre Erzteufelmeister.
-Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>Eisteufel</color>
-Monster/&DH_Custom_Lich_Description	Liches sind die Überreste großer Zauberer, die den Untod annehmen, um sich selbst zu erhalten. Sie fördern ihre eigene Macht um jeden Preis und haben kein Interesse an den Angelegenheiten der Lebenden, es sei denn, diese Angelegenheiten stören ihre eigenen. Intrigant und wahnsinnig hungern sie nach längst vergessenem Wissen und den schrecklichsten Geheimnissen.
-Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>Lich</color>
-Monster/&DH_Custom_Nalfeshnee_Description	Der Nalfeshnee ist einer der grotesksten Dämonen – ein korpulenter Hohn aus Affe und Eber, doppelt so groß wie ein Mensch, mit gefiederten Flügeln, die zu klein für seinen aufgedunsenen Körper erscheinen. Hinter diesen brutalen Gesichtszügen verbirgt sich eine bemerkenswerte Intelligenz und List.
-Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>Nalfeshnee</color>
-Monster/&DH_Custom_PitFiend_Description	Die unbestrittenen Herren der meisten anderen Teufel, Grubenteufel, dienen den Erzherzögen und Erzherzoginnen der Neun Höllen und führen ihre Wünsche aus. Diese mächtigen Teufel sind die Generäle der Neun Höllen und führen ihre höllischen Legionen in die Schlacht.
-Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>Pit Fiend</color>
-Monster/&DH_Custom_Planetar_Description	Planetare fungieren als Waffen der Götter, denen sie dienen, und präsentieren eine greifbare Darstellung der Macht ihrer Gottheiten.
-Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>Planet</color>
-Monster/&DH_Custom_Roc_Description	Rocs sind Einzelgänger, die Jahrhunderte leben können. Sie verstecken sich in Nestern aus Bäumen, Zelten, kaputten Schiffen und den Überresten von Karawanen, die sie wegtragen, und platzieren diese massiven Verwicklungen in Bergklüften außerhalb der Reichweite geringerer Kreaturen.
-Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>Rok</color>
-Monster/&DH_Custom_Solar_Description	Auf dem Schlachtfeld fliegt das Schwert des Solar von selbst ins Getümmel, und ein einzelner Pfeil vom Bogen eines Solar kann ein Ziel bei Kontakt tot treffen. Die himmlische Macht eines Solars ist so groß, dass sogar Dämonenfürsten vor seinen widerhallenden Befehlen zusammenzucken.
-Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>Solar</color>
-Monster/&DH_Custom_StormGiant_Description	Sturmriesen sind kontemplative Seher, die an Orten leben, die weit entfernt von der Zivilisation der Sterblichen liegen. Die meisten haben blass lila-graue Haut und Haare und glitzernde smaragdgrüne Augen.
-Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Sturmriese</color>
-Monster/&DH_Custom_Tarrasque_Description	Die legendäre Tarrasque ist möglicherweise das am meisten gefürchtete Monster der Materiellen Ebene. Es wird allgemein angenommen, dass nur eine dieser Kreaturen existiert, obwohl niemand vorhersagen kann, wo und wann sie zuschlagen wird. Der Tarrasque ist ein schuppiger Zweibeiner, fünfzehn Meter hoch und zwanzig Meter lang und wiegt Hunderte von Tonnen
-Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasque</color>
-Monster/&DH_Custom_Vampire_Description	Zu einer endlosen Nacht erwacht, hungern Vampire nach dem Leben, das sie verloren haben, und stillen diesen Hunger, indem sie das Blut der Lebenden trinken. Vampire verabscheuen Sonnenlicht, denn seine Berührung verbrennt sie. Sie werfen niemals Schatten oder Reflexionen, und jeder Vampir, der sich unbemerkt zwischen den Lebenden bewegen möchte, hält sich in der Dunkelheit und weit entfernt von reflektierenden Oberflächen auf.
-Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampir</color>
-MonsterAttack/&DH_AirBlast_Attack_Description	5W6 Donner und schiebt 2 Zellen
-MonsterAttack/&DH_AirBlast_Attack_Title	Luftstoß
-MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4W6+6 Knüppeln & 4W6 Donner
-MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Donnernder Slam
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2W8+8 Knüppeln
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Schwanzangriff
-MonsterAttack/&DH_Balor_Longsword_Attack_Description	3W8+8 Hieb & 3W8 Blitz
-MonsterAttack/&DH_Balor_Longsword_Attack_Title	Langschwertangriff
-MonsterAttack/&DH_Balor_Whip_Attack_Description	2W6+8 Hieb & 3W6 Feuer
-MonsterAttack/&DH_Balor_Whip_Attack_Title	Peitschenangriff
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4W8 Gewaltschaden und Ziel wird zu Boden geworfen
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Kraftkanone
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3W12+8 Knüppelschaden und Ziel wird 20 Fuß gestoßen
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	Zuschlagen
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Kann nicht handeln und erleidet jede Runde 16W6 Säureschaden. 60 Schaden bei einem einzigen Angriff können den Schlucker zum Erbrechen zwingen.
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	Geschluckt
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	60 Schaden bei einem einzigen Angriff können es zum Erbrechen zwingen.
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	Schluckende Kreatur
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2W10+9 Stichschaden & 2W8 Säureschaden
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	Angriff durch Säurebiss
-MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2W10+9 Durchdringungs- und 2W8 Kälteschaden
-MonsterAttack/&DH_DamageCold_Bite_Attack_Title	Eisbiss-Angriff
-MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2W10+9 Stich- und 4W6 Feuerschaden
-MonsterAttack/&DH_DamageFire_Bite_Attack_Title	Feuerbiss-Angriff
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2W10+9 Stich- und 2W10 Blitzschaden
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	Blitzschlagangriff
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2W10+9 Stichschaden & 3W6 Giftschaden
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	Giftbiss-Angriff
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7D10+8 Knüppeln
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	Felsblock
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4W10+8 Knüppeln
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	Bodenschlag
-MonsterAttack/&DH_FireScimatar_Attack_Description	2W6+6 Hieb & 2W6 Feuer
-MonsterAttack/&DH_FireScimatar_Attack_Title	Scimatar
-MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3W6+5 Knüppeln + 10W6 Feuer
-MonsterAttack/&DH_FireTitan_Slam_Attack_Title	Sengender Slam
-MonsterAttack/&DH_Fork_Attack_Description	2W8 +6 Durchdringend
-MonsterAttack/&DH_Fork_Attack_Title	Fork-Angriff
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2W10 + 6 Stichschaden
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Bissangriff
-MonsterAttack/&DH_Generic_Claw_Attack_Description	2W6 + 9 Hiebschaden
-MonsterAttack/&DH_Generic_Claw_Attack_Title	Klauenangriff
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2D10 + 9
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Bissangriff
-MonsterAttack/&DH_HornedDevilTail_Attack_Description	1W8 +6 Durchdringend, verursacht den Zustand Blutende Wunde
-MonsterAttack/&DH_HornedDevilTail_Attack_Title	Schwanzangriff
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6 Necrotic, zum Abbrechen speichern
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Blutende Wunde
-MonsterAttack/&DH_HurlFlame_Attack_Description	5W6 Feuer
-MonsterAttack/&DH_HurlFlame_Attack_Title	Flamme schleudern
-MonsterAttack/&DH_Ice_Bite_Attack_Description	2W6+5 Durchbohren & 3W6 Kälte
-MonsterAttack/&DH_Ice_Bite_Attack_Title	Eisbiss
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3W6 Erkältung und verursacht einen gelähmten Zustand
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	Lähmende Berührung
-MonsterAttack/&DH_LightningScimatar_Attack_Description	2W6+5 Hieb & 2W6 Blitz
-MonsterAttack/&DH_LightningScimatar_Attack_Title	Scimatar
-MonsterAttack/&DH_NagaBite_Attack_Description	1W8+4 Durchbohren & 15 DC Con Save auf die Hälfte von 10W8 Gift
-MonsterAttack/&DH_NagaBite_Attack_Title	Giftbiss
-MonsterAttack/&DH_NagaSpit_Attack_Description	15 DC Con Save bis zur Hälfte 10W8 Gift
-MonsterAttack/&DH_NagaSpit_Attack_Title	Gift spucken
-MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2W6+7 Gift, Verursacht einen Giftzustand
-MonsterAttack/&DH_PitFiend_Bite_Attack_Title	Bissangriff
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6 Wiederkehrende Posion
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	Vergiftet
-MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2W6+8 Knüppeln & 6W6 Feuer
-MonsterAttack/&DH_PitFiend_Mace_Attack_Title	Keulenangriff
-MonsterAttack/&DH_PoisonLongbow_Attack_Description	Langbogen mit Giftpfeilen
-MonsterAttack/&DH_PoisonLongbow_Attack_Title	Gift-Langbogen
-MonsterAttack/&DH_PoisonLongsword_Attack_Description	1W10+4 Hieb & 3W8 Gift
-MonsterAttack/&DH_PoisonLongsword_Attack_Title	Giftiges Langschwert
-MonsterAttack/&DH_RadiantLongbow_Attack_Description	2W6+8 Durchdringend & 6W8 Strahlend
-MonsterAttack/&DH_RadiantLongbow_Attack_Title	Langbogen töten.
-MonsterAttack/&DH_RadiantLongsword_Attack_Description	4W6+8 Hieb & 6W8 Strahlend
-MonsterAttack/&DH_RadiantLongsword_Attack_Title	Strahlendes Großschwert
-MonsterAttack/&DH_Roc_Beak_Attack_Description	4W8+9 Durchbohren
-MonsterAttack/&DH_Roc_Beak_Attack_Title	Schnabel
-MonsterAttack/&DH_Roc_Talons_Attack_Description	4W6+9 Hiebe und das Ziel wird von Roc gepackt und zurückgehalten
-MonsterAttack/&DH_Roc_Talons_Attack_Title	Krallen
-MonsterAttack/&DH_Tarrasque_Bite_Description	4W12 + 10 Stichschaden und das Ziel muss einen Geschicklichkeitswurf bestehen oder sich festhalten (Flucht SG 20).
-MonsterAttack/&DH_Tarrasque_Bite_Title	Beissen
-MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Bis dieser Ringkampf endet, ist das Ziel festgehalten.
-MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Gefangen von Tarrasque
-MonsterAttack/&DH_Tarrasque_Claw_Description	4W8 + 10 Hiebschaden
-MonsterAttack/&DH_Tarrasque_Claw_Title	Klaue
-MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10) Stichschaden
-MonsterAttack/&DH_Tarrasque_Horn_Title	Horn
-MonsterAttack/&DH_Tarrasque_Tail_Description	4W6 + 10 Wuchtschaden. Wenn das Ziel eine Kreatur ist, muss ihr ein Stärkewurf gegen SG 20 gelingen oder sie wird zu Boden geworfen
-MonsterAttack/&DH_Tarrasque_Tail_Title	Schwanz
-MonsterAttack/&DHCouatlBiteAttackDescription	Durchdringender Schaden, und dem Ziel muss ein Konstitutionswurf gegen SG 13 gelingen oder es wird 24 Stunden lang vergiftet. Bis dieses Gift endet, ist das Ziel bewusstlos.
-MonsterAttack/&DHCouatlBiteAttackTitle	Beissen
-MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10 Thunder und auf fehlgeschlagenes Speichern gedrückt
-MonsterPower/&DH_AirTitan_Gale_Power_Title	Schreiender Sturm
-MonsterPower/&DH_AirTitan_Lightning_Power_Description	3D10 Blitz im Bereich
-MonsterPower/&DH_AirTitan_Lightning_Power_Title	Blitzschlag
-MonsterPower/&DH_AncientDragon_Wing_Power_Description	Drachen können mit ihren Flügeln schlagen, um genug Wind zu erzeugen, um die meisten Humanoiden wegzutreiben und sie zu Boden zu werfen.
-MonsterPower/&DH_AncientDragon_Wing_Power_Title	Flügelangriff
-MonsterPower/&DH_Balor_FireAura_Power_Description	3W6 Feuer
-MonsterPower/&DH_Balor_FireAura_Power_Title	Feuer-Aura
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor-Vergeltung
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor-Vergeltung
-MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor-Vergeltung
-MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor-Vergeltung
-MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Konstitution Speichern oder geblendet werden, bis geringere Wiederherstellung verwendet wird
-MonsterPower/&DH_BlindingGaze_Power_Title	Blendender Blick
-MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Säure
-MonsterPower/&DH_DamageAcid_Breath_Power_Title	Saurer Atem
-MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8 Kalt
-MonsterPower/&DH_DamageCold_Breath_Power_Title	Eisatem
-MonsterPower/&DH_DamageFire_Breath_Power_Description	26D6 Feuer
-MonsterPower/&DH_DamageFire_Breath_Power_Title	Feueratem
-MonsterPower/&DH_DamageLightning_Breath_Power_Description	16D10 Blitz
-MonsterPower/&DH_DamageLightning_Breath_Power_Title	Blitzatem
-MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6 Gift
-MonsterPower/&DH_DamagePoison_Breath_Power_Title	Giftiger Atem
-MonsterPower/&DH_DisintegratingBeam_Power_Description	6W10 Radiant Damage und das Ziel wird bei 0 HP aufgelöst
-MonsterPower/&DH_DisintegratingBeam_Power_Title	Zerfallender Strahl
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10 Knüppeln
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	Erdbeben
-MonsterPower/&DH_ErinyesParry_Power_Description	+3 AK
-MonsterPower/&DH_ErinyesParry_Power_Title	Parieren
-MonsterPower/&DH_FireTitan_Aura_Power_Description	jede Kreatur innerhalb von 30 Fuß erleidet 35 (10W6) Feuerschaden und brennbare Objekte in der Aura, die nicht getragen oder getragen werden, entzünden sich.
-MonsterPower/&DH_FireTitan_Aura_Power_Title	Aura des Feuertitans
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	Eine Kreatur erleidet 35 (10W6) Feuerschaden, wenn sie Maegera berührt oder sie mit einem Nahkampfangriff trifft, während sie sich in einem Umkreis von 3 m um sie befindet
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Vergeltung der Feuertitanen
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description	Eine Kreatur erleidet 35 (10W6) Feuerschaden, wenn sie Maegera berührt oder sie mit einem Nahkampfangriff trifft, während sie sich in einem Umkreis von 3 m um sie befindet
-MonsterPower/&DH_FireTitan_Retaliate_Power_Title	Vergeltung der Feuertitanen
-MonsterPower/&DH_IlluminatingCrystals_Power_Description	Alle Kreaturen, die sich beim Wirken des Zaubers in der Nähe befinden, werden ebenfalls hell umrandet. Für die Dauer werfen Objekte und betroffene Kreaturen ein schwaches Licht in einem Radius von 3 m ab.
-MonsterPower/&DH_IlluminatingCrystals_Power_Title	Leuchtende Kristalle
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description	Der Titan konzentriert sich auf eine Zone innerhalb von 20 Fuß von ihm. Jede Kreatur in einem 20-Fuß-Radius, 20-Fuß-hohen Zylinder, der auf diesen Punkt zentriert ist, muss einen Geschicklichkeitswurf gegen SG 26 bestehen oder 33 (6W10) Knüppelschaden erleiden und zu Boden fallen und für eine Runde festgehalten werden.
-MonsterPower/&DH_IncreasedGravityZone_Attack_Title	Erhöhte Gravitationszone
-MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Nekrotisch
-MonsterPower/&DH_Lich_DisruptLife_Power_Title	Das Leben stören
-MonsterPower/&DH_SearingBurst_Power_Description	4W6 Feuer & 4W6 Strahlend
-MonsterPower/&DH_SearingBurst_Power_Title	Sengender Ausbruch
-MonsterPower/&DH_SleetStorm_Immunity_Description	Immunität gegen Eisregen
-MonsterPower/&DH_SleetStorm_Immunity_Title	Immunität gegen Eisregen
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Beschwört 1 Luftelementar
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Beschwöre einen großen Elementar
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Beschwört 1 Erdelementar
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title	Beschwöre einen großen Elementar
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Description	Ein Erinyes wird zum Kampf gerufen
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Title	Beschwört Diener: Niederlage
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Beschwört 1 Feuerelementar
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Beschwöre einen großen Elementar
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Beschwört 2 Feuernarren
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Beschwöre niedere Elementare
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	Beschwöre ein kleineres Konstrukt
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	Beschwöre ein kleineres Konstrukt
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Ein Nalfeshnee wird zum Kampf gerufen
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Beschwört Diener: Nalfeshnee
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Beschwört 1 Skarn-Ghul
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	Beschwöre einen geringeren Elementar
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	Beschwört 4 Windschlangen
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	Beschwöre niedere Elementare
-MonsterPower/&DH_SummonCreature_Wolves_Power_Description	Der Vampir ruft auf magische Weise 3W6 Wölfe
-MonsterPower/&DH_SummonCreature_Wolves_Power_Title	Kinder der Nacht
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Jedes Mal, wenn die Tarrasque von einem Magischen Geschosszauber, einem Linienzauber oder einem Zauber, der einen Distanzwurf erfordert, angegriffen wird, bleibt die Tarrasque unberührt
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Reflektierender Panzer
-MonsterPower/&DH_TarrasqueSwallowPower_Description	Die Tarrasque führt einen Bissangriff gegen eine große oder kleinere Kreatur durch, die sie festhält. Wenn der Angriff trifft, wird das Ziel verschluckt und der Ringkampf endet.
-MonsterPower/&DH_TarrasqueSwallowPower_Title	Schlucken
-MonsterPower/&DH_VampireCharmPower_Description	Der Vampir zielt auf einen Humanoiden, den er innerhalb von 30 Fuß von ihm sehen kann. Dem Ziel muss ein Weisheitswurf gegen SG 17 gegen diese Magie gelingen, sonst wird es vom Vampir bezaubert.
-MonsterPower/&DH_VampireCharmPower_Title	Charme
-MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Blitz im weiten Bereich
-MonsterPower/&DHAirTitanLightningStormPowerTitle	Gewitter
-MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
-MonsterPower/&DHGenericLightningAttackPowerTitle	Blitzschlag
-Spell/&DHTimeStop_SpellDescription	Du stoppst kurzzeitig den Fluss der Zeit für alle außer für dich selbst. Für andere Kreaturen vergeht keine Zeit, während Sie 1W4 + 1 Züge hintereinander machen, in denen Sie Aktionen verwenden und sich wie gewohnt bewegen können.
-Spell/&DHTimeStop_SpellTitle	Zeitstopp
+Condition/&DH_ReverseGravity_Spell_Description=Umgekehrte Schwerkraft
+Condition/&DH_ReverseGravity_Spell_Title=Umgekehrte Schwerkraft
+Condition/&DH_TimeStop_Spell_Description=Eingefroren durch Zeitstopp
+Condition/&DH_TimeStop_Spell_Title=Eingefroren durch Zeitstopp
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description=Gewitter
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title=Gewitter
+Feature/&DH_AtWill_Fireball_Power_Description=Beliebiger Feuerball
+Feature/&DH_AtWill_Fireball_Power_Title=Feuerball
+Feature/&DH_AtWill_HoldMonster_Power_Description=3 Anwendungen pro Tag
+Feature/&DH_AtWill_HoldMonster_Power_Title=Monster halten
+Feature/&DH_AtWill_Invisibility_Power_Description=Beliebige Unsichtbarkeit
+Feature/&DH_AtWill_Invisibility_Power_Title=Unsichtbarkeit
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description=Blitzangriff
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title=Blitzangriff
+Monster/&DH_Custom_AirTitan_Description=Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
+Monster/&DH_Custom_AirTitan_Title=<color=#ff0000ff>Urzeitlicher Lufttitan</color>
+Monster/&DH_Custom_AncientBlackDragon_Description=Schwarze Drachen sind die bösartigsten und abscheulichsten der chromatischen Drachen und sammeln die Trümmer und Schätze gefallener Völker. Diese Drachen verabscheuen es, die Schwachen gedeihen zu sehen und schwelgen im Untergang humanoider Königreiche. Sie leben in stinkenden Sümpfen und zerfallenden Ruinen, wo einst Königreiche standen.
+Monster/&DH_Custom_AncientBlackDragon_Title=<color=#ff0000ff>Uralter schwarzer Drache</color>
+Monster/&DH_Custom_AncientBlueDragon_Description=Eitel und territorial schweben blaue Drachen durch den Himmel über Wüsten, jagen Karawanen und plündern Herden und Siedlungen in den grünen Ländern außerhalb der Reichweite der Wüste. Diese Drachen können auch in trockenen Steppen, sengenden Ödlanden und felsigen Küsten gefunden werden. Sie bewachen ihre Territorien gegen alle potenziellen Konkurrenten, insbesondere Messingdrachen.
+Monster/&DH_Custom_AncientBlueDragon_Title=<color=#ff0000ff>Uralter blauer Drache</color>
+Monster/&DH_Custom_AncientGreenDragon_Description=Grüne Drachen sind die listigsten und tückischsten echten Drachen und nutzen Irreführung und Tricks, um die Oberhand gegen ihre Feinde zu gewinnen. Sie sind schlecht gelaunt und durch und durch böse und haben besondere Freude daran, die Gutherzigen zu untergraben und zu korrumpieren. In den uralten Wäldern, die sie durchstreifen, demonstrieren grüne Drachen eine Aggression, bei der es oft weniger um Territorien geht, als darum, mit möglichst geringem Aufwand Macht und Reichtum zu erlangen.
+Monster/&DH_Custom_AncientGreenDragon_Title=<color=#ff0000ff>Uralter grüner Drache</color>
+Monster/&DH_Custom_AncientRedDragon_Description=Rote Drachen, die begehrlichsten der wahren Drachen, versuchen unermüdlich, ihre Schatzvorräte zu vermehren. Sie sind außergewöhnlich eitel, sogar für Drachen, und ihre Einbildung spiegelt sich in ihrer stolzen Haltung und ihrer Verachtung für andere Kreaturen wider.
+Monster/&DH_Custom_AncientRedDragon_Title=<color=#ff0000ff>Uralter roter Drache</color>
+Monster/&DH_Custom_AncientWhiteDragon_Description=Weiße Drachen, die kleinsten, am wenigsten intelligenten und animalischsten der chromatischen Drachen, leben in kalten Gefilden und bevorzugen arktische Gebiete oder eisige Berge. Sie sind bösartige, grausame Reptilien, die von Hunger und Gier getrieben werden.
+Monster/&DH_Custom_AncientWhiteDragon_Title=<color=#ff0000ff>Uralter weißer Drache</color>
+Monster/&DH_Custom_Archmage_Description=Erzmagier sind mächtige (und normalerweise ziemlich alte) Zauberkundige, die sich dem Studium der arkanen Künste verschrieben haben. Wohlwollende beraten Könige und Königinnen, während Böse als Tyrannen regieren und dem Lichtum nachjagen. Diejenigen, die weder gut noch böse sind, verstecken sich in abgelegenen Türmen, um ihre Magie ohne Unterbrechung auszuüben.
+Monster/&DH_Custom_Archmage_Title=<color=#ff0000ff>Erzmagier</color>
+Monster/&DH_Custom_Balor_Description=Balors, Gestalten des uralten und schrecklichen Bösen, herrschen als Generäle über dämonische Armeen und sehnen sich danach, die Macht zu ergreifen, während sie alle Kreaturen vernichten, die sich ihnen widersetzen
+Monster/&DH_Custom_Balor_Title=<color=#ff0000ff>Balor</color>
+Monster/&DH_Custom_ConstructTitan_Description=Massive Konstrukte, die für den Krieg gebaut und aus schwerem Metall geschmiedet wurden. Als unaufhaltsamer Moloch existiert er, um den Befehlen seines Schöpfers zu folgen, und er beschützt oder greift an, wie dieser Schöpfer es verlangt.
+Monster/&DH_Custom_ConstructTitan_Title=<color=#ff0000ff>Titan des mechanischen Konstrukts</color>
+Monster/&DH_Custom_Deva_Description=Devas sind Engel, die als göttliche Boten oder Agenten für die Materielle Ebene agieren,
+Monster/&DH_Custom_Deva_Title=<color=#ff0000ff>Deva</color>
+Monster/&DH_Custom_Djinni_Description=Stolze Dschinns aus der Elementarebene der Luft, Meister der Luft, die Dschinn reiten auf mächtigen Wirbelstürmen, die sie aus einer Laune heraus erschaffen und lenken und die sogar Passagiere befördern können.
+Monster/&DH_Custom_Djinni_Title=<color=#ff0000ff>Dschinn</color>
+Monster/&DH_Custom_EarthTitan_Description=Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
+Monster/&DH_Custom_EarthTitan_Title=<color=#ff0000ff>Titan der Urerde</color>
+Monster/&DH_Custom_Efreeti_Description=Die Efreet sind riesige Genies der Elementarebene des Feuers und Meister der Flamme, immun gegen Feuer und in der Lage, es aus einer Laune heraus zu erschaffen.
+Monster/&DH_Custom_Efreeti_Title=<color=#ff0000ff>Ephraim</color>
+Monster/&DH_Custom_Erinyes_Description=Die Erinyes sind wilde und disziplinierte Krieger. Sie stürzen vom Himmel herab und bringen Kreaturen, die ihren Meistern Unrecht getan haben, den schnellen Tod
+Monster/&DH_Custom_Erinyes_Title=<color=#ff0000ff>Erine</color>
+Monster/&DH_Custom_FireTitan_Description=Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
+Monster/&DH_Custom_FireTitan_Title=<color=#ff0000ff>Urzeitlicher Feuertitan</color>
+Monster/&DH_Custom_GuardianNaga_Description=Die wunderschönen Wächternagas sind weise und gut und schützen heilige Orte und Gegenstände mit magischer Kraft davor, in böse Hände zu geraten. In ihren verborgenen Schanzen erforschen sie Zaubersprüche und schmieden komplizierte Pläne, um die bösen Pläne ihrer Feinde zu vereiteln.
+Monster/&DH_Custom_GuardianNaga_Title=<color=#ff0000ff>Wächter-Naga</color>
+Monster/&DH_Custom_HornedDevil_Description=Die fliegende Infanterie der höllischen Legionen, gehörnte Teufel folgen buchstabengetreu den Befehlen.
+Monster/&DH_Custom_HornedDevil_Title=<color=#ff0000ff>Gehörnter Teufel</color>
+Monster/&DH_Custom_IceDevil_Description=Eisteufel, die die Macht ihrer Vorgesetzten begehren, arbeiten unaufhörlich an ihrer Beförderung, schlachten die Feinde der Neun Höllen ab und beanspruchen so viele Seelen wie möglich für ihre Erzteufelmeister.
+Monster/&DH_Custom_IceDevil_Title=<color=#ff0000ff>Eisteufel</color>
+Monster/&DH_Custom_Lich_Description=Liches sind die Überreste großer Zauberer, die den Untod annehmen, um sich selbst zu erhalten. Sie fördern ihre eigene Macht um jeden Preis und haben kein Interesse an den Angelegenheiten der Lebenden, es sei denn, diese Angelegenheiten stören ihre eigenen. Intrigant und wahnsinnig hungern sie nach längst vergessenem Wissen und den schrecklichsten Geheimnissen.
+Monster/&DH_Custom_Lich_Title=<color=#ff0000ff>Lich</color>
+Monster/&DH_Custom_Nalfeshnee_Description=Der Nalfeshnee ist einer der grotesksten Dämonen – ein korpulenter Hohn aus Affe und Eber, doppelt so groß wie ein Mensch, mit gefiederten Flügeln, die zu klein für seinen aufgedunsenen Körper erscheinen. Hinter diesen brutalen Gesichtszügen verbirgt sich eine bemerkenswerte Intelligenz und List.
+Monster/&DH_Custom_Nalfeshnee_Title=<color=#ff0000ff>Nalfeshnee</color>
+Monster/&DH_Custom_PitFiend_Description=Die unbestrittenen Herren der meisten anderen Teufel, Grubenteufel, dienen den Erzherzögen und Erzherzoginnen der Neun Höllen und führen ihre Wünsche aus. Diese mächtigen Teufel sind die Generäle der Neun Höllen und führen ihre höllischen Legionen in die Schlacht.
+Monster/&DH_Custom_PitFiend_Title=<color=#ff0000ff>Pit Fiend</color>
+Monster/&DH_Custom_Planetar_Description=Planetare fungieren als Waffen der Götter, denen sie dienen, und präsentieren eine greifbare Darstellung der Macht ihrer Gottheiten.
+Monster/&DH_Custom_Planetar_Title=<color=#ff0000ff>Planet</color>
+Monster/&DH_Custom_Roc_Description=Rocs sind Einzelgänger, die Jahrhunderte leben können. Sie verstecken sich in Nestern aus Bäumen, Zelten, kaputten Schiffen und den Überresten von Karawanen, die sie wegtragen, und platzieren diese massiven Verwicklungen in Bergklüften außerhalb der Reichweite geringerer Kreaturen.
+Monster/&DH_Custom_Roc_Title=<color=#ff0000ff>Rok</color>
+Monster/&DH_Custom_Solar_Description=Auf dem Schlachtfeld fliegt das Schwert des Solar von selbst ins Getümmel, und ein einzelner Pfeil vom Bogen eines Solar kann ein Ziel bei Kontakt tot treffen. Die himmlische Macht eines Solars ist so groß, dass sogar Dämonenfürsten vor seinen widerhallenden Befehlen zusammenzucken.
+Monster/&DH_Custom_Solar_Title=<color=#ff0000ff>Solar</color>
+Monster/&DH_Custom_StormGiant_Description=Sturmriesen sind kontemplative Seher, die an Orten leben, die weit entfernt von der Zivilisation der Sterblichen liegen. Die meisten haben blass lila-graue Haut und Haare und glitzernde smaragdgrüne Augen.
+Monster/&DH_Custom_StormGiant_Title=<color=#ff0000ff>Sturmriese</color>
+Monster/&DH_Custom_Tarrasque_Description=Die legendäre Tarrasque ist möglicherweise das am meisten gefürchtete Monster der Materiellen Ebene. Es wird allgemein angenommen, dass nur eine dieser Kreaturen existiert, obwohl niemand vorhersagen kann, wo und wann sie zuschlagen wird. Der Tarrasque ist ein schuppiger Zweibeiner, fünfzehn Meter hoch und zwanzig Meter lang und wiegt Hunderte von Tonnen
+Monster/&DH_Custom_Tarrasque_Title=<color=#ff0000ff>Tarrasque</color>
+Monster/&DH_Custom_Vampire_Description=Zu einer endlosen Nacht erwacht, hungern Vampire nach dem Leben, das sie verloren haben, und stillen diesen Hunger, indem sie das Blut der Lebenden trinken. Vampire verabscheuen Sonnenlicht, denn seine Berührung verbrennt sie. Sie werfen niemals Schatten oder Reflexionen, und jeder Vampir, der sich unbemerkt zwischen den Lebenden bewegen möchte, hält sich in der Dunkelheit und weit entfernt von reflektierenden Oberflächen auf.
+Monster/&DH_Custom_Vampire_Title=<color=#ff0000ff>Vampir</color>
+MonsterAttack/&DH_AirBlast_Attack_Description=5W6 Donner und schiebt 2 Zellen
+MonsterAttack/&DH_AirBlast_Attack_Title=Luftstoß
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description=4W6+6 Knüppeln & 4W6 Donner
+MonsterAttack/&DH_AirTitan_Slam_Attack_Title=Donnernder Slam
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Description=2W8+8 Knüppeln
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Title=Schwanzangriff
+MonsterAttack/&DH_Balor_Longsword_Attack_Description=3W8+8 Hieb & 3W8 Blitz
+MonsterAttack/&DH_Balor_Longsword_Attack_Title=Langschwertangriff
+MonsterAttack/&DH_Balor_Whip_Attack_Description=2W6+8 Hieb & 3W6 Feuer
+MonsterAttack/&DH_Balor_Whip_Attack_Title=Peitschenangriff
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description=4W8 Gewaltschaden und Ziel wird zu Boden geworfen
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title=Kraftkanone
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description=3W12+8 Knüppelschaden und Ziel wird 20 Fuß gestoßen
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title=Zuschlagen
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description=Kann nicht handeln und erleidet jede Runde 16W6 Säureschaden. 60 Schaden bei einem einzigen Angriff können den Schlucker zum Erbrechen zwingen.
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title=Geschluckt
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description=60 Schaden bei einem einzigen Angriff können es zum Erbrechen zwingen.
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title=Schluckende Kreatur
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Description=2W10+9 Stichschaden & 2W8 Säureschaden
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Title=Angriff durch Säurebiss
+MonsterAttack/&DH_DamageCold_Bite_Attack_Description=2W10+9 Durchdringungs- und 2W8 Kälteschaden
+MonsterAttack/&DH_DamageCold_Bite_Attack_Title=Eisbiss-Angriff
+MonsterAttack/&DH_DamageFire_Bite_Attack_Description=2W10+9 Stich- und 4W6 Feuerschaden
+MonsterAttack/&DH_DamageFire_Bite_Attack_Title=Feuerbiss-Angriff
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Description=2W10+9 Stich- und 2W10 Blitzschaden
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Title=Blitzschlagangriff
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Description=2W10+9 Stichschaden & 3W6 Giftschaden
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Title=Giftbiss-Angriff
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description=7D10+8 Knüppeln
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title=Felsblock
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Description=4W10+8 Knüppeln
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Title=Bodenschlag
+MonsterAttack/&DH_FireScimatar_Attack_Description=2W6+6 Hieb & 2W6 Feuer
+MonsterAttack/&DH_FireScimatar_Attack_Title=Scimatar
+MonsterAttack/&DH_FireTitan_Slam_Attack_Description=3W6+5 Knüppeln + 10W6 Feuer
+MonsterAttack/&DH_FireTitan_Slam_Attack_Title=Sengender Slam
+MonsterAttack/&DH_Fork_Attack_Description=2W8 +6 Durchdringend
+MonsterAttack/&DH_Fork_Attack_Title=Fork-Angriff
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description=2W10 + 6 Stichschaden
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title=Bissangriff
+MonsterAttack/&DH_Generic_Claw_Attack_Description=2W6 + 9 Hiebschaden
+MonsterAttack/&DH_Generic_Claw_Attack_Title=Klauenangriff
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description=2D10 + 9
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title=Bissangriff
+MonsterAttack/&DH_HornedDevilTail_Attack_Description=1W8 +6 Durchdringend, verursacht den Zustand Blutende Wunde
+MonsterAttack/&DH_HornedDevilTail_Attack_Title=Schwanzangriff
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description=3D6 Necrotic, zum Abbrechen speichern
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title=Blutende Wunde
+MonsterAttack/&DH_HurlFlame_Attack_Description=5W6 Feuer
+MonsterAttack/&DH_HurlFlame_Attack_Title=Flamme schleudern
+MonsterAttack/&DH_Ice_Bite_Attack_Description=2W6+5 Durchbohren & 3W6 Kälte
+MonsterAttack/&DH_Ice_Bite_Attack_Title=Eisbiss
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description=3W6 Erkältung und verursacht einen gelähmten Zustand
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title=Lähmende Berührung
+MonsterAttack/&DH_LightningScimatar_Attack_Description=2W6+5 Hieb & 2W6 Blitz
+MonsterAttack/&DH_LightningScimatar_Attack_Title=Scimatar
+MonsterAttack/&DH_NagaBite_Attack_Description=1W8+4 Durchbohren & 15 DC Con Save auf die Hälfte von 10W8 Gift
+MonsterAttack/&DH_NagaBite_Attack_Title=Giftbiss
+MonsterAttack/&DH_NagaSpit_Attack_Description=15 DC Con Save bis zur Hälfte 10W8 Gift
+MonsterAttack/&DH_NagaSpit_Attack_Title=Gift spucken
+MonsterAttack/&DH_PitFiend_Bite_Attack_Description=2W6+7 Gift, Verursacht einen Giftzustand
+MonsterAttack/&DH_PitFiend_Bite_Attack_Title=Bissangriff
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description=6D6 Wiederkehrende Posion
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title=Vergiftet
+MonsterAttack/&DH_PitFiend_Mace_Attack_Description=2W6+8 Knüppeln & 6W6 Feuer
+MonsterAttack/&DH_PitFiend_Mace_Attack_Title=Keulenangriff
+MonsterAttack/&DH_PoisonLongbow_Attack_Description=Langbogen mit Giftpfeilen
+MonsterAttack/&DH_PoisonLongbow_Attack_Title=Gift-Langbogen
+MonsterAttack/&DH_PoisonLongsword_Attack_Description=1W10+4 Hieb & 3W8 Gift
+MonsterAttack/&DH_PoisonLongsword_Attack_Title=Giftiges Langschwert
+MonsterAttack/&DH_RadiantLongbow_Attack_Description=2W6+8 Durchdringend & 6W8 Strahlend
+MonsterAttack/&DH_RadiantLongbow_Attack_Title=Langbogen töten.
+MonsterAttack/&DH_RadiantLongsword_Attack_Description=4W6+8 Hieb & 6W8 Strahlend
+MonsterAttack/&DH_RadiantLongsword_Attack_Title=Strahlendes Großschwert
+MonsterAttack/&DH_Roc_Beak_Attack_Description=4W8+9 Durchbohren
+MonsterAttack/&DH_Roc_Beak_Attack_Title=Schnabel
+MonsterAttack/&DH_Roc_Talons_Attack_Description=4W6+9 Hiebe und das Ziel wird von Roc gepackt und zurückgehalten
+MonsterAttack/&DH_Roc_Talons_Attack_Title=Krallen
+MonsterAttack/&DH_Tarrasque_Bite_Description=4W12 + 10 Stichschaden und das Ziel muss einen Geschicklichkeitswurf bestehen oder sich festhalten (Flucht SG 20).
+MonsterAttack/&DH_Tarrasque_Bite_Title=Beissen
+MonsterAttack/&DH_Tarrasque_BiteCondition_Description=Bis dieser Ringkampf endet, ist das Ziel festgehalten.
+MonsterAttack/&DH_Tarrasque_BiteCondition_Title=Gefangen von Tarrasque
+MonsterAttack/&DH_Tarrasque_Claw_Description=4W8 + 10 Hiebschaden
+MonsterAttack/&DH_Tarrasque_Claw_Title=Klaue
+MonsterAttack/&DH_Tarrasque_Horn_Description=4d10 + 10) Stichschaden
+MonsterAttack/&DH_Tarrasque_Horn_Title=Horn
+MonsterAttack/&DH_Tarrasque_Tail_Description=4W6 + 10 Wuchtschaden. Wenn das Ziel eine Kreatur ist, muss ihr ein Stärkewurf gegen SG 20 gelingen oder sie wird zu Boden geworfen
+MonsterAttack/&DH_Tarrasque_Tail_Title=Schwanz
+MonsterAttack/&DHCouatlBiteAttackDescription=Durchdringender Schaden, und dem Ziel muss ein Konstitutionswurf gegen SG 13 gelingen oder es wird 24 Stunden lang vergiftet. Bis dieses Gift endet, ist das Ziel bewusstlos.
+MonsterAttack/&DHCouatlBiteAttackTitle=Beissen
+MonsterPower/&DH_AirTitan_Gale_Power_Description=4D10 Thunder und auf fehlgeschlagenes Speichern gedrückt
+MonsterPower/&DH_AirTitan_Gale_Power_Title=Schreiender Sturm
+MonsterPower/&DH_AirTitan_Lightning_Power_Description=3D10 Blitz im Bereich
+MonsterPower/&DH_AirTitan_Lightning_Power_Title=Blitzschlag
+MonsterPower/&DH_AncientDragon_Wing_Power_Description=Drachen können mit ihren Flügeln schlagen, um genug Wind zu erzeugen, um die meisten Humanoiden wegzutreiben und sie zu Boden zu werfen.
+MonsterPower/&DH_AncientDragon_Wing_Power_Title=Flügelangriff
+MonsterPower/&DH_Balor_FireAura_Power_Description=3W6 Feuer
+MonsterPower/&DH_Balor_FireAura_Power_Title=Feuer-Aura
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description=Balor-Vergeltung
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title=Balor-Vergeltung
+MonsterPower/&DH_Balor_Retaliate_Power_Description=Balor-Vergeltung
+MonsterPower/&DH_Balor_Retaliate_Power_Title=Balor-Vergeltung
+MonsterPower/&DH_BlindingGaze_Power_Description=DC15 Konstitution Speichern oder geblendet werden, bis geringere Wiederherstellung verwendet wird
+MonsterPower/&DH_BlindingGaze_Power_Title=Blendender Blick
+MonsterPower/&DH_DamageAcid_Breath_Power_Description=15D8 Säure
+MonsterPower/&DH_DamageAcid_Breath_Power_Title=Saurer Atem
+MonsterPower/&DH_DamageCold_Breath_Power_Description=16D8 Kalt
+MonsterPower/&DH_DamageCold_Breath_Power_Title=Eisatem
+MonsterPower/&DH_DamageFire_Breath_Power_Description=26D6 Feuer
+MonsterPower/&DH_DamageFire_Breath_Power_Title=Feueratem
+MonsterPower/&DH_DamageLightning_Breath_Power_Description=16D10 Blitz
+MonsterPower/&DH_DamageLightning_Breath_Power_Title=Blitzatem
+MonsterPower/&DH_DamagePoison_Breath_Power_Description=22D6 Gift
+MonsterPower/&DH_DamagePoison_Breath_Power_Title=Giftiger Atem
+MonsterPower/&DH_DisintegratingBeam_Power_Description=6W10 Radiant Damage und das Ziel wird bei 0 HP aufgelöst
+MonsterPower/&DH_DisintegratingBeam_Power_Title=Zerfallender Strahl
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Description=4D10 Knüppeln
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Title=Erdbeben
+MonsterPower/&DH_ErinyesParry_Power_Description=+3 AK
+MonsterPower/&DH_ErinyesParry_Power_Title=Parieren
+MonsterPower/&DH_FireTitan_Aura_Power_Description=jede Kreatur innerhalb von 30 Fuß erleidet 35 (10W6) Feuerschaden und brennbare Objekte in der Aura, die nicht getragen oder getragen werden, entzünden sich.
+MonsterPower/&DH_FireTitan_Aura_Power_Title=Aura des Feuertitans
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description=Eine Kreatur erleidet 35 (10W6) Feuerschaden, wenn sie Maegera berührt oder sie mit einem Nahkampfangriff trifft, während sie sich in einem Umkreis von 3 m um sie befindet
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title=Vergeltung der Feuertitanen
+MonsterPower/&DH_FireTitan_Retaliate_Power_Description=Eine Kreatur erleidet 35 (10W6) Feuerschaden, wenn sie Maegera berührt oder sie mit einem Nahkampfangriff trifft, während sie sich in einem Umkreis von 3 m um sie befindet
+MonsterPower/&DH_FireTitan_Retaliate_Power_Title=Vergeltung der Feuertitanen
+MonsterPower/&DH_IlluminatingCrystals_Power_Description=Alle Kreaturen, die sich beim Wirken des Zaubers in der Nähe befinden, werden ebenfalls hell umrandet. Für die Dauer werfen Objekte und betroffene Kreaturen ein schwaches Licht in einem Radius von 3 m ab.
+MonsterPower/&DH_IlluminatingCrystals_Power_Title=Leuchtende Kristalle
+MonsterPower/&DH_IncreasedGravityZone_Attack_Description=Der Titan konzentriert sich auf eine Zone innerhalb von 20 Fuß von ihm. Jede Kreatur in einem 20-Fuß-Radius, 20-Fuß-hohen Zylinder, der auf diesen Punkt zentriert ist, muss einen Geschicklichkeitswurf gegen SG 26 bestehen oder 33 (6W10) Knüppelschaden erleiden und zu Boden fallen und für eine Runde festgehalten werden.
+MonsterPower/&DH_IncreasedGravityZone_Attack_Title=Erhöhte Gravitationszone
+MonsterPower/&DH_Lich_DisruptLife_Power_Description=6D6 Nekrotisch
+MonsterPower/&DH_Lich_DisruptLife_Power_Title=Das Leben stören
+MonsterPower/&DH_SearingBurst_Power_Description=4W6 Feuer & 4W6 Strahlend
+MonsterPower/&DH_SearingBurst_Power_Title=Sengender Ausbruch
+MonsterPower/&DH_SleetStorm_Immunity_Description=Immunität gegen Eisregen
+MonsterPower/&DH_SleetStorm_Immunity_Title=Immunität gegen Eisregen
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description=Beschwört 1 Luftelementar
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title=Beschwöre einen großen Elementar
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description=Beschwört 1 Erdelementar
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title=Beschwöre einen großen Elementar
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Description=Ein Erinyes wird zum Kampf gerufen
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Title=Beschwört Diener: Niederlage
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description=Beschwört 1 Feuerelementar
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title=Beschwöre einen großen Elementar
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description=Beschwört 2 Feuernarren
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title=Beschwöre niedere Elementare
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description=Beschwöre ein kleineres Konstrukt
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title=Beschwöre ein kleineres Konstrukt
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description=Ein Nalfeshnee wird zum Kampf gerufen
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title=Beschwört Diener: Nalfeshnee
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description=Beschwört 1 Skarn-Ghul
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title=Beschwöre einen geringeren Elementar
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Description=Beschwört 4 Windschlangen
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Title=Beschwöre niedere Elementare
+MonsterPower/&DH_SummonCreature_Wolves_Power_Description=Der Vampir ruft auf magische Weise 3W6 Wölfe
+MonsterPower/&DH_SummonCreature_Wolves_Power_Title=Kinder der Nacht
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description=Jedes Mal, wenn die Tarrasque von einem Magischen Geschosszauber, einem Linienzauber oder einem Zauber, der einen Distanzwurf erfordert, angegriffen wird, bleibt die Tarrasque unberührt
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title=Reflektierender Panzer
+MonsterPower/&DH_TarrasqueSwallowPower_Description=Die Tarrasque führt einen Bissangriff gegen eine große oder kleinere Kreatur durch, die sie festhält. Wenn der Angriff trifft, wird das Ziel verschluckt und der Ringkampf endet.
+MonsterPower/&DH_TarrasqueSwallowPower_Title=Schlucken
+MonsterPower/&DH_VampireCharmPower_Description=Der Vampir zielt auf einen Humanoiden, den er innerhalb von 30 Fuß von ihm sehen kann. Dem Ziel muss ein Weisheitswurf gegen SG 17 gegen diese Magie gelingen, sonst wird es vom Vampir bezaubert.
+MonsterPower/&DH_VampireCharmPower_Title=Charme
+MonsterPower/&DHAirTitanLightningStormPowerDescription=6d8 Blitz im weiten Bereich
+MonsterPower/&DHAirTitanLightningStormPowerTitle=Gewitter
+MonsterPower/&DHGenericLightningAttackPowerDescription=12D8
+MonsterPower/&DHGenericLightningAttackPowerTitle=Blitzschlag
+Spell/&DHTimeStop_SpellDescription=Du stoppst kurzzeitig den Fluss der Zeit für alle außer für dich selbst. Für andere Kreaturen vergeht keine Zeit, während Sie 1W4 + 1 Züge hintereinander machen, in denen Sie Aktionen verwenden und sich wie gewohnt bewegen können.
+Spell/&DHTimeStop_SpellTitle=Zeitstopp

@@ -1,194 +1,196 @@
-﻿ModUi/&AddAllToStore	Добавить все в магазин
-ModUi/&AddBleedingToLesserRestoration	Добавить состояние <color=orange>Кровотечение</color> к состояниям, снимаемым <color=orange>Большим и Малым восстановлением</color>
-ModUi/&AddHelpActionToAllRaces	Добавить действие <color=orange>Помощь</color> всем расам.
-ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Также добаить их в Создатель Подземелий</i>
-ModUi/&AddPickpocketableLoot	Добавить добычу для карманных краж <i><color=yellow>[рекомендуется, если умение <color=orange>Карманная Кража</color> включено]</color></i>
-ModUi/&AddToStore	Добавить в магазин
-ModUi/&Advanced	<color=yellow>Дополнительно:</color>
-ModUi/&AdvancedHelp	. <b><color=#C04040E0>ВНИМАНИЕ:</color></b> Эти настройки потребуют, чтобы у игрока был установлен этот мод.
-ModUi/&Adventure	<color=yellow>Приключение:</color>
-ModUi/&AllItemInDm	Все предметы в Создателе Подземелий
-ModUi/&AllowAnyClassToWearSylvanArmor	Разрешить любому классу носить Лесной доспех или одежду Несущего Свет.
-ModUi/&AllowDruidToWearMetalArmor	Разрешить <color=orange>Друидам</color> носить металлические доспехи
-ModUi/&AllowDungeonsMaxLevel20	Разрешить подземелья с максимальным уровнем 20 <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Разрешить размещение гаджетов и объектов в любом месте на карте <i><color=yellow>[нажмите <color=cyan>CTRL</color> во время размещения, чтобы обойти любую проверку]</color></i>
-ModUi/&AllowStackedMaterialComponent	Разрешить составной материальный компонент <i><color=yellow>[например, 2 алмаза по 500 зм эквивалентны бриллианту за 1000 зм]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Разрешить выбор целей при использовании заклинания <color=orange>Цепная молния</color>
-ModUi/&AllowUnmarkedSorcerers	Разрешить неотмеченных <color=orange>Заклинателей</color>
-ModUi/&AllRecipesInDm	Все рецепты в Создателе Подземелий
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	Клавиша <color=cyan>ALT</color> выделяет гаджеты только в поле зрения группы [только в пользовательских подземельях]
-ModUi/&AutoPauseOnVictory	Ставить паузу после победы в бою
-ModUi/&Basic	<color=yellow>Основное:</color>
-ModUi/&Battle	<color=yellow>Битва:</color>
-ModUi/&Bestiary	Бестиарий
-ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Наложить Проклятие</color> не требует концентрации при использовании ячейки заклинания 5+ уровня
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity	Состояние <color=orange>Ослепённый</color> не позволяет совершать провоцированные атаки (атаки по возможности)
-ModUi/&Blueprints	Чертежи
-ModUi/&Campaigns	<color=yellow>Кампании:</color>
-ModUi/&CampaignsAndLocations	<color=yellow>Кампании и локации:</color>
-ModUi/&Character	Персонаж
-ModUi/&CharactersPool	Пул персонажей
-ModUi/&Classes	<color=yellow>Классы</color>
-ModUi/&Crafting	<color=yellow>Изготовление:</color>
-ModUi/&CraftingHelp	. Нажмите кнопку, чтобы мгновенно изучить рецепты активной группой\n. Предметы, добавленные в магазины, могут потребовать, чтобы группа ушла из локации и вернулась.
-ModUi/&Credits	Благодарности
-ModUi/&CreditsAndDiagnostics	Благодарности и диагностика
-ModUi/&DisableAutoEquip	Отключить автоэкипировку предметов в инвентаре
-ModUi/&DisableSenseDarkVisionFromAllRaces	Отключить <color=orange>Чувство Тёмное зрение</color> для всех рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Отключить <color=orange>Чувство Превосходное тёмное зрение</color> для всех рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&DisplayAllKnownSpellsDuringLevelUp	Отображать все известные заклинания других классов при повышении уровня
-ModUi/&DontFollowCharacterInBattle	Боевая камера не следует за персонажем, когда он уже на экране
-ModUi/&DontFollowMargin	<i><color=white>+ Если только герой не за экраном или находится в пределах % от края экрана</color></i>
-ModUi/&DungeonMaker	<color=yellow>Создатель Подземелий:</color>
-ModUi/&DungeonMakerBasicHelp	. Эти настройки не потребуют от игрока установки этого мода.\n. Вы можете встроить любую переменную кампании в свои диалоги, описания и т.д.\n. CE заменит их на их значения во время игры <i><color=yellow>[т.е.: Привет, {Приветствие}, герой!]</color></i>
-ModUi/&DungeonMakerMenu	Создатель Подземелий
-ModUi/&EmpressGarbAppearance	Внешний вид <color=orange>Одеяния Императрицы</color>
-ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Добавить новые предметы фокусоровки в Создатель Подземелий</i>
-ModUi/&EnableAdditionalIconsOnLevelMap	Включить дополнительные значки для лагерей, выходов и телепортов на карте уровня
-ModUi/&EnableAlternateHuman	Разрешить альтернативные особенности человека <i><color=yellow>[+1 бонусная особенность (черта) / +1 к двум характеристикам на выбор / +1 навык]</color></i>
-ModUI/&EnableBetaContent	Включить контент бета-версии <i><color=yellow>[имейте в виду, что ваши сохранения или герои могут сломаться в будущем]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&EnableCancelEditOnRightMouseClick	Включить отмену действия по щелчку правой кнопкой мыши
-ModUi/&EnableCharacterChecker	Включить экран инспектора персонажа
-ModUi/&EnableCharacterExport	Включить экспорт персонажа по <color=cyan>CTRL-SHIFT-(E)</color> <i><color=yellow>[только на экране проверки персонажа]</color></i>
-ModUi/&EnableCheatMenu	Включить меню читов
-ModUi/&EnableCtrlClickBypassAttackReactionPanel	При атаке с зажатой <color=cyan>CTRL</color> игнорировать всплывающие панели реакций
-ModUi/&EnableCtrlClickBypassMetamagicPanel	При наложении заклинаний с зажатой <color=cyan>CTRL</color> игнорировать всплывающие панели метамагии <color=orange>Заклинателя</color>
-ModUi/&EnableCtrlClickOnlySwapsMainHand	При смене набора оружия с зажатой <color=cyan>CTRL</color> сохранять предмет во второй руке
-ModUi/&EnableDungeonMakerModdedContent	Включить Создатель Подземелий Pro <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>\n\nвключает в себя плоские комнаты, размеры подземелий 150x150 и 200x200 и простое совмещение элементов из разных сред\nу вас должна быть хотя бы одна комната на открытой местности, если вы выбираете среду на открытой местности
-ModUi/&EnableEpicPointsAndArray	Включить эпическую систему покупки характеристик на 35 очков и набор значений <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0> [Требуется перезагрузка]</color></i></b>
-ModUi/&EnableExtraHighLevelMonsters	Включить дополнительных монстров высокого уровня (Опасность 20+) для кампаний 3 и 4 тира (11+ уровня) <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels	Включить выбор бонусных особенностей (черт) на уровнях класса 2, 6, 10 и 14
-ModUi/&EnableFlexibleBackgrounds	Включить гибкие предыстории <i><color=yellow>[выбор владений навыками и инструментами из предысторий]</color></i>
-ModUi/&EnableFlexibleRaces	Включить гибкие расы <i><color=yellow>[выбирать распределение очков характеристик вместо использования стандартный расовых бонусов]</color></i>
-ModUi/&EnableHotkeyDebugOverlay	Открывать оверлей отладки по <color=cyan>CTRL-SHIFT-(D)</color>
-ModUi/&EnableHotkeyToggleHud	Открывать худ по <color=cyan>CTRL-SHIFT-(H)</color>, чтобы переключать видимость всех панелей пользовательского интерфейса
-ModUi/&EnableHotkeyToggleIndividualHud	Изменять видимость панелей пользовательского интерфейса по: <color=cyan>CTRL-SHIFT-(C)</color> - панель управления, <color=cyan>CTRL-SHIFT-(L)</color> - лог, <color=cyan>CTRL-SHIFT-(M)</color> - карта, <color=cyan>CTRL-SHIFT-(P)</color> - партия
-ModUi/&EnableHotkeyZoomCamera	Включить приближение камеры по <color=cyan>CTRL-SHIFT-(Z)</color> <i><color=yellow>[полезно при создании скриншотов подземелий для публикации]</color></i>
-ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ игнорировать только если не критическое попадание</i>
-ModUi/&EnableInventoryFilteringAndSorting	Включить фильтрацию и сортировку инвентаря
-ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Выделять красным любой предмет, которым герой не владеет</i>
-ModUi/&EnableInvisibleCrownOfTheMagister	Скрывать <color=orange>Корону Магистра</color> в интерфейсе игры
-ModUi/&EnableLevel20	Включить уровень 20 <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&EnableLogDialoguesToConsole	Включить запись диалогов в игровую консоль (лог) во время повествования
-ModUi/&EnableMinInOutAttributes	Учитывать требования к минимальным значениям характеристик
-ModUi/&EnableOnTheFlyTranslations	Включить перевод пользовательского контента в режиме реального времени <i><color=yellow>[требуется стабильное интернет-соединение для постоянной отправки данных на https://translate.googleapis.com]</color></i>
-ModUi/&EnableRelearnSpells	Разрешить выбирать заговоры или заклинания, уже изученные в других классах
-ModUi/&EnableRespec	Разрешить действия пересборки персонажа (RESPEC) и понижения уровня (Level Down) после отдыха
-ModUi/&EnablesAsiAndFeat	Разрешить одновременно и увеличение значений характеристик, и выбор бонусной особенности (черты) <i><color=yellow>[вместо выбора только одного]</color></i>
-ModUi/&EnableSaveByLocation	Включить сохранение по кампаниям/местоположениям
-ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Включить восстановление <color=orange>Тайного Оружия</color> у <color=orange>Волшебника</color> Тайного Бойца после короткого отдыха
-ModUi/&EnableTeleportParty	Включить телепортацию группы по <color=cyan>CTRL-SHIFT-(T)</color> <i><color=yellow>[вы можете сломать задания или карты, если телепортируетесь в неразведанное место]</color></i>
-ModUi/&EnableTogglesToOverwriteDefaultTestParty	Включить переключатели в пуле персонажей, чтобы устанавливать игровую и тестовую группы по умолчанию.
-ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Включить неограниченное <color=orange>Мистическое восстановление</color> у <color=orange>Волшебника</color> Мастера Заклинаний\n<i><color=yellow>Можно включать только когда у способности есть доступные использования или перед созданием персонажа</color></i>
-ModUi/&EnableUpcastConjureElementalAndFey	Разрешить использовать <color=orange>Сотворение элементаля</color>, <color=orange>Сотворение фей</color> на больших уровнях заклинания
-ModUi/&Encounters	Столкновения
-ModUi/&ExecuteBatchTranslations	Пакетные переводы: <i><color=yellow>[кампании сохраняются обратно в пул с префиксом целевого языка]</color></i>
-ModUi/&ExpandAll	Раскрыть все
-ModUi/&FactionHelp	<color=#C04040E0>Загрузите официальную кампанию, чтобы изменить отношения фракций...</color>
-ModUi/&FactionRelations	<color=yellow>Отношения фракций:</color>
-ModUi/&FasterTimeModifier	<color=white>Множитель скорости игры при нажатии пробела</color>
-ModUi/&Feats	<color=yellow>Бонусные особенности (черты)</color>
-ModUi/&FeatsFightingStyles	Бонусные особенности (черты) и Боевые стили
-ModUi/&FightingStyles	<color=yellow>Боевые стили</color>
-ModUi/&FixSorcererTwinnedLogic	Исправить использование метамагии Раздвоенного заклинания <color=orange>Чародея</color> <i><color=yellow>[заклинание должно быть неспособно нацеливаться более чем на одно существо на текущем уровне заклинания]</color></i>
-ModUi/&FollowCharactersOnTeleport	Камера следует за телепортированным персонажем(ами)
-ModUi/&FullyControlConjurations	Полностью контролировать призванных существ <i><color=yellow>[животных, элементалей и т. д.]</color></i>
-ModUi/&Gameplay	Геймплей
-ModUi/&GameUi	Игровой интерфейс
-ModUi/&General	<color=yellow>Общее:</color>
-ModUi/&GeneralMenu	Общее
-ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Скрыть визуальные эффекты выходов и телепортов, если они ещё не обнаружены
-ModUi/&HideMonsterHitPoints	Отображать здоровье монстров по шагам 25% / 50% / 75% / 100% вместо точных очков жизни
-ModUi/&HiderArmor	Скрыть доспехи
-ModUi/&House	<color=yellow>Домашние правила (хоумбрю):</color>
-ModUi/&IncreaseSenseNormalVision	<color=white>Увеличить дальность <color=orange>Чувства Нормальное зрение</color>, чтобы позволить совершать атаки на большой дистанции</color> <i><color=yellow>[40 идеально подходит для того, чтобы враги не присоединялись к битве слишком издалека]< /цвет></я>
-ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&InitialChoices	<color=yellow>Начальные выборы:</color>
-ModUi/&Interface	Интерфейс
-ModUi/&InventoryAndItems	<color=yellow>Инвентарь и предметы:</color>
-ModUi/&InvertAltBehaviorOnTooltips	Инвертировать поведение клавиши <color=cyan>ALT</color> во всплывающих подсказках
-ModUi/&ItemInDm	Предметы в Создателе Подземелий
-ModUi/&Items	<color=yellow>Предметы:</color>
-ModUi/&ItemsCraftingMerchants	Предметы, изготовление и торговцы
-ModUi/&ItemsHelp1	<color=#C04040E0>У вас должен быть открыт экран проверки персонажей, чтобы добавлять предметы героям...</color>
-ModUi/&ItemsHelp2	. Нажмите +, чтобы добавить предметы в наземный контейнер на панели проверки.
-ModUi/&KeyboardMouse	Клавиатура и мышь
-ModUi/&MakeAllMagicStaveArcaneFoci	Сделать все магические посохи магическими фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color= #C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Также отмечать местоположение невидимых телепортов на карте уровня после обнаружения</i>
-ModUi/&MaxAllowedClasses	<color=white>Максимум разрешённых классов</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Макс. файлов резервных копий для каждого местоположения или кампании</color>
-ModUi/&MaxBackupHelp	. Файлы резервных копий сохраняются в папке <i><color=yellow>ПАПКА_ИГРЫ/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>.
-ModUi/&MaxSpellLevelsPerLine	<color=white>Максимальное количество уровней в строке на панели заклинаний</color>
-ModUi/&Merchants	<color=yellow>Продавцы:</color>
-ModUi/&Monsters	<color=yellow>Монстры:</color>
-ModUi/&Multiclass	<color=yellow>Мультикласс:</color>
-ModUi/&MulticlassKeyHelp	При нажатии на заклинание с зажатой <color=cyan>SHIFT</color> тратить ячейку заклинания вместо обычной ячейки магии договора
-ModUi/&MultiplyTheExperienceGainedBy	<color=white>Умножать получаемый опыт на </color> <color=#C04040E0>[%]</color>
-ModUi/&NoExperienceOnLevelUp	Не требовать опыт для повышения уровня
-ModUi/&NotAvailable	Для этого мода пока ещё нет доступного {0}...
-ModUi/&OfferAdditionalLoreFriendlyNames	Предлагать дополнительные органично вписывающиеся в лор имена при создании персонажа
-ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Показывать только самых сильных существ в списке призыва</i>
-ModUi/&OverrideMinMaxLevel	Переопределять требуемые минимальный и максимальный уровни при запуске новых приключений.
-ModUi/&OverridePartySize	<color=white>Переопределять размер группы в пользовательских приключениях</color>
-ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Переопределить увеличение бонуса к сложности спасброска от <color=orange>Улучшенной манипуляции</color> <color=orange>Разбойника</color> Мошенника</color>
-ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Переопределить сложность спасброска от <color=orange>Тайной манипуляции</color> <color=orange>Волшебника</color> Мастера-манипулятора</color>
-ModUi/&OverwriteGameLanguage	<color=yellow>Выбрать неофициально поддерживаемый язык:</color>
-ModUi/&Patches	<color=yellow>Патчи:</color>
-ModUi/&PrimedItems	Подготовленные предметы
-ModUi/&Progression	<color=yellow>Прогресс:</color>
-ModUi/&QuickCastLightCantripOnWornItemsFirst	Быстрое использование заговора <color=orange>Свет</color> в первую очередь выбирает предметы, носимые на голове или туловище.
-ModUi/&Races	<color=yellow>Расы</color>
-ModUi/&RacesClassesSubclasses	Расы, классы и подклассы
-ModUi/&RecipeCost	<color=white>Стоимость рецепта</color>
-ModUi/&RecipesInDm	Рецепты в Создателе Подземелий
-ModUi/&RelicForgeries	Поддельные реликвии
-ModUi/&RemoveAttunementRequirements	Убрать требования к настройке на магические предметы <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&RemoveBugVisualModels	Заменять в игре похожие на жуков модели альтернативными <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	Убрать требование концентрации для любых заклинаний <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
-ModUi/&RemoveHumanoidFilterOnHideousLaughter	Удалите гуманоидный фильтр на <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&RemoveIdentifcationRequirements	Убрать требования к опознанию <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&RemoveRecurringEffectOnEntangle	Эффект <color=orange>Запутывание</color> применяется только во время применения <i><color=yellow>[т.е. нет повторяющегося эффекта]</color></i> <b><i><color=#C04040E0 >[Требуется перезагрузка]</color></i></b>
-ModUi/&RestockAntiquarians	Восполнять запасы Антикваров <i><color=yellow>[Халман Саммер]</color></i>
-ModUi/&RestockArcaneum	Восполнять запасы Арканиума <i><color=yellow>[Хеддлон Щёспелл]</color></i>
-ModUi/&RestockCircleOfDanantar	Восполнять запасы Круга Данантара <i><color=yellow>[Джориэль Фокси]</color></i>
-ModUi/&RestockHelp	. Переопределить значения по умолчанию, чтобы заставить все запасы торговца со временем восполняться (за исключением руководств и фолиантов).\n. Обратите внимание, что для восполнения запасов некоторых предметов может потребоваться до 7 игровых дней.
-ModUi/&RestockTowerOfKnowledge	Восполнять запасы Башни Знаний <i><color=yellow>[Мэдди Гринайл]</color></i>
-ModUi/&Rules	Правила
-ModUi/&ScaleMerchantPricesCorrectly	Правильно/в точности масштабировать торговые цены
-ModUi/&SelectAll	Выбрать все
-ModUi/&SelectSuggested	Выбрать рекомендуемые
-ModUi/&Services	Сервисы
-ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Установить вероятность появления бороды при использовании</color> <color=orange>Пояса Дварфов</color>
-ModUi/&ShowCraftingRecipeInDetailedTooltips	Показывать рецепт изготовления в подробных всплывающих подсказках
-ModUi/&ShowDescriptions	Показать описания
-ModUi/&SpellInstructions	. Вы можете отдельно назначить каждое заклинание любому списку заклинаний или просто выбрать предложенный набор
-ModUi/&SpellLevelFilter	<b><i><color=white>фильтр уровня заклинаний</color> <color=yellow>[-1 для отображения всех заклинаний]</color></i></b>
-ModUi/&Spells	<color=yellow>Заклинания:</color>
-ModUi/&SpellsMenu	Заклинания
-ModUi/&SRD	<color=yellow>SRD:</color>
-ModUi/&StockGorimStoreWithAllNonMagicalClothing	Снабдить магазин Горим всей немагической одеждой <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci	Снабдить магазин Хьюго <color=orange>Жезлом Опознания</color>, <color=orange>Чародейским посохом</color>, <color=orange>Воротником Друида</color>, <color=orange>Посохом</color> и <color=orange>Дубиной</color> в качестве предметов для фокусировки
-ModUi/&Subclasses	<color=yellow>Подклассы</color>
-ModUi/&TargetLanguage	Целевой язык
-ModUi/&Tools	Инструменты
-ModUi/&TotalFeatsGrantedFistLevel	<color=white>Всего бонусных особенностей (черт) на первом уровне</color>
-ModUi/&Translate	Перевести
-ModUi/&TranslateCancel	Отменить {0} в {1}
-ModUi/&TranslationEngine	Движок перевода
-ModUi/&Translations	Переводы
-ModUi/&UnleashEnemyAsNpc	Разрешить выбор монстров на гаджетах НИП <i><color=yellow>[зажмите <color=cyan>CTRL</color> при нажатии на кнопку «Выбрать» на панели гаджетов]</color></i>
-ModUi/&UnleashNpcAsEnemy	Разрешить выбор НИП на гаджетах монстров <i><color=yellow>[зажмите <color=cyan>CTRL</color> при нажатии на кнопку «Выбрать» на панели гаджетов]</color></i>
-ModUi/&UnlockAllNpcFaces	Разблокировать все лица НИП
-ModUi/&UnlockEyeStyles	Разблокировать стили глаз
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Разблокировать светящиеся цвета для всех отметин и татуировок
-ModUi/&UnlockGlowingEyeColors	Разблокировать светящиеся цвета глаз
-ModUi/&UnlockMarkAndTatoosForAllCharacters	Разблокировать отметины и татуировки для всех персонажей
-ModUi/&UseHeightOneCylinderEffect	Отображать эффект цилиндра высотой 1 при использовании <color=orange>Черных щупалец, Опутывания, Жира</color> (квадрат) и <color=orange>Шип роста</color> (круглый)
-ModUi/&UseOfficialAdvantageDisadvantageRules	Использовать официальные правила преимущества/помехи
-ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
-ModUi/&TotalCraftingTimeModifier	<color=white>Сокращение времени изготовления на</color>
-ModUi/&ChangeSleetStormToCube	Измените <color=orange>Sleet Storm</color>, чтобы использовать куб вместо цилиндра.
-ModUi/&Category	Category
-ModUi/&WeaponTag	Weapon Tag
-ModUi/&ItemTag	Item Tag
-ModUi/&EnableAdditionalBackstoryDisplay	Включить дополнительное отображение предыстории при фоновой проверке
+﻿ModUi/&AddAllToStore=Добавить все в магазин
+ModUi/&AddBleedingToLesserRestoration=Добавить состояние <color=orange>Кровотечение</color> к состояниям, снимаемым <color=orange>Большим и Малым восстановлением</color>
+ModUi/&AddNewBrightEyeColors=Добавьте новые яркие цвета для глаз <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&AddHelpActionToAllRaces=Добавить действие <color=orange>Помощь</color> всем расам.
+ModUi/&AddNewWeaponsAndRecipesToEditor=<i>+ Также добаить их в Создатель Подземелий</i>
+ModUi/&AddPickpocketableLoot=Добавить добычу для карманных краж <i><color=yellow>[рекомендуется, если умение <color=orange>Карманная Кража</color> включено]</color></i>
+ModUi/&AddToStore=Добавить в магазин
+ModUi/&Advanced=<color=yellow>Дополнительно:</color>
+ModUi/&AdvancedHelp=. <b><color=#C04040E0>ВНИМАНИЕ:</color></b> Эти настройки потребуют, чтобы у игрока был установлен этот мод.
+ModUi/&Adventure=<color=yellow>Приключение:</color>
+ModUi/&AllItemInDm=Все предметы в Создателе Подземелий
+ModUi/&AllowAnyClassToWearSylvanArmor=Разрешить любому классу носить Лесной доспех или одежду Несущего Свет.
+ModUi/&AllowDruidToWearMetalArmor=Разрешить <color=orange>Друидам</color> носить металлические доспехи
+ModUi/&AllowDungeonsMaxLevel20=Разрешить подземелья с максимальным уровнем 20 <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Разрешить размещение гаджетов и объектов в любом месте на карте <i><color=yellow>[нажмите <color=#1E81B0>CTRL</color> во время размещения, чтобы обойти любую проверку]</color></i>
+ModUi/&AllowStackedMaterialComponent=Разрешить составной материальный компонент <i><color=yellow>[например, 2 алмаза по 500 зм эквивалентны бриллианту за 1000 зм]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Разрешить выбор целей при использовании заклинания <color=orange>Цепная молния</color>
+ModUi/&AllowUnmarkedSorcerers=Разрешить неотмеченных <color=orange>Заклинателей</color>
+ModUi/&AllRecipesInDm=Все рецепты в Создателе Подземелий
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Клавиша <color=#1E81B0>ALT</color> выделяет гаджеты только в поле зрения группы [только в пользовательских подземельях]
+ModUi/&AutoPauseOnVictory=Ставить паузу после победы в бою
+ModUi/&Basic=<color=yellow>Основное:</color>
+ModUi/&Battle=<color=yellow>Битва:</color>
+ModUi/&Bestiary=Бестиарий
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=orange>Наложить Проклятие</color> не требует концентрации при использовании ячейки заклинания 5+ уровня
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Состояние <color=orange>Ослепённый</color> не позволяет совершать провоцированные атаки (атаки по возможности)
+ModUi/&Blueprints=Чертежи
+ModUi/&Campaigns=<color=yellow>Кампании:</color>
+ModUi/&CampaignsAndLocations=<color=yellow>Кампании и локации:</color>
+ModUi/&Character=Персонаж
+ModUi/&CharactersPool=Пул персонажей
+ModUi/&Classes=<color=yellow>Классы</color>
+ModUi/&Crafting=<color=yellow>Изготовление:</color>
+ModUi/&CraftingHelp=. Нажмите кнопку, чтобы мгновенно изучить рецепты активной группой\n. Предметы, добавленные в магазины, могут потребовать, чтобы группа ушла из локации и вернулась.
+ModUi/&Credits=Благодарности
+ModUi/&CreditsAndDiagnostics=Благодарности и диагностика
+ModUi/&DisableAutoEquip=Отключить автоэкипировку предметов в инвентаре
+ModUi/&DisableSenseDarkVisionFromAllRaces=Отключить <color=orange>Чувство Тёмное зрение</color> для всех рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Отключить <color=orange>Чувство Превосходное тёмное зрение</color> для всех рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&DisplayAllKnownSpellsDuringLevelUp=Отображать все известные заклинания других классов при повышении уровня
+ModUi/&DontFollowCharacterInBattle=Боевая камера не следует за персонажем, когда он уже на экране
+ModUi/&DontFollowMargin=<i><color=white>+ Если только герой не за экраном или находится в пределах % от края экрана</color></i>
+ModUi/&DungeonMaker=<color=yellow>Создатель Подземелий:</color>
+ModUi/&DungeonMakerBasicHelp=. Эти настройки не потребуют от игрока установки этого мода.\n. Вы можете встроить любую переменную кампании в свои диалоги, описания и т.д.\n. CE заменит их на их значения во время игры <i><color=yellow>[т.е.: Привет, {Приветствие}, герой!]</color></i>
+ModUi/&DungeonMakerMenu=Создатель Подземелий
+ModUi/&EmpressGarbAppearance=Внешний вид <color=orange>Одеяния Императрицы</color>
+ModUi/&EnableAdditionalFociInDungeonMaker=<i>+ Добавить новые предметы фокусоровки в Создатель Подземелий</i>
+ModUi/&EnableAdditionalIconsOnLevelMap=Включить дополнительные значки для лагерей, выходов и телепортов на карте уровня
+ModUi/&EnableAlternateHuman=Разрешить альтернативные особенности человека <i><color=yellow>[+1 бонусная особенность (черта) / +1 к двум характеристикам на выбор / +1 навык]</color></i>
+ModUI/&EnableBetaContent=Включить контент бета-версии <i><color=yellow>[имейте в виду, что ваши сохранения или герои могут сломаться в будущем]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&EnableCancelEditOnRightMouseClick=Включить отмену действия по щелчку правой кнопкой мыши
+ModUi/&EnableCharacterChecker=Включить экран инспектора персонажа
+ModUi/&EnableCharacterExport=Включить экспорт персонажа по <color=#1E81B0>CTRL-SHIFT-(E)</color> <i><color=yellow>[только на экране проверки персонажа]</color></i>
+ModUi/&EnableCheatMenu=Включить меню читов
+ModUi/&EnableCtrlClickBypassAttackReactionPanel=При атаке с зажатой <color=#1E81B0>CTRL</color> игнорировать всплывающие панели реакций
+ModUi/&EnableCtrlClickBypassMetamagicPanel=При наложении заклинаний с зажатой <color=#1E81B0>CTRL</color> игнорировать всплывающие панели метамагии <color=orange>Заклинателя</color>
+ModUi/&EnableCtrlClickOnlySwapsMainHand=При смене набора оружия с зажатой <color=#1E81B0>CTRL</color> сохранять предмет во второй руке
+ModUi/&EnableDungeonMakerModdedContent=Включить Создатель Подземелий Pro <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>\n\nвключает в себя плоские комнаты, размеры подземелий 150x150 и 200x200 и простое совмещение элементов из разных сред\nу вас должна быть хотя бы одна комната на открытой местности, если вы выбираете среду на открытой местности
+ModUi/&EnableEpicPointsAndArray=Включить эпическую систему покупки характеристик на 35 очков и набор значений <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0> [Требуется перезагрузка]</color></i></b>
+ModUi/&EnableExtraHighLevelMonsters=Включить дополнительных монстров высокого уровня (Опасность 20+) для кампаний 3 и 4 тира (11+ уровня) <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
+ModUi/&EnableFeatsAtEvenLevels=Включить выбор бонусных особенностей (черт) на уровнях класса 2, 6, 10 и 14
+ModUi/&EnableFlexibleBackgrounds=Включить гибкие предыстории <i><color=yellow>[выбор владений навыками и инструментами из предысторий]</color></i>
+ModUi/&EnableFlexibleRaces=Включить гибкие расы <i><color=yellow>[выбирать распределение очков характеристик вместо использования стандартный расовых бонусов]</color></i>
+ModUi/&EnableHotkeyDebugOverlay=Открывать оверлей отладки по <color=#1E81B0>CTRL-SHIFT-(D)</color>
+ModUi/&EnableHotkeyToggleHud=Открывать худ по <color=#1E81B0>CTRL-SHIFT-(H)</color>, чтобы переключать видимость всех панелей пользовательского интерфейса
+ModUi/&EnableHotkeyToggleIndividualHud=Изменять видимость панелей пользовательского интерфейса по: <color=#1E81B0>CTRL-SHIFT-(C)</color> - панель управления, <color=#1E81B0>CTRL-SHIFT-(L)</color> - лог, <color=#1E81B0>CTRL-SHIFT-(M)</color> - карта, <color=#1E81B0>CTRL-SHIFT-(P)</color> - партия
+ModUi/&EnableHotkeyZoomCamera=Включить приближение камеры по <color=#1E81B0>CTRL-SHIFT-(Z)</color> <i><color=yellow>[полезно при создании скриншотов подземелий для публикации]</color></i>
+ModUi/&EnableIgnoreCtrlClickOnCriticalHit=<i>+ игнорировать только если не критическое попадание</i>
+ModUi/&EnableInventoryFilteringAndSorting=Включить фильтрацию и сортировку инвентаря
+ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Выделять красным любой предмет, которым герой не владеет</i>
+ModUi/&EnableInvisibleCrownOfTheMagister=Скрывать <color=orange>Корону Магистра</color> в интерфейсе игры
+ModUi/&EnableLevel20=Включить уровень 20 <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&EnableLogDialoguesToConsole=Включить запись диалогов в игровую консоль (лог) во время повествования
+ModUi/&EnableMinInOutAttributes=Учитывать требования к минимальным значениям характеристик
+ModUi/&EnableOnTheFlyTranslations=Включить перевод пользовательского контента в режиме реального времени <i><color=yellow>[требуется стабильное интернет-соединение для постоянной отправки данных на https://translate.googleapis.com]</color></i>
+ModUi/&EnableRelearnSpells=Разрешить выбирать заговоры или заклинания, уже изученные в других классах
+ModUi/&EnableRespec=Разрешить действия пересборки персонажа (RESPEC) и понижения уровня (Level Down) после отдыха
+ModUi/&EnablesAsiAndFeat=Разрешить одновременно и увеличение значений характеристик, и выбор бонусной особенности (черты) <i><color=yellow>[вместо выбора только одного]</color></i>
+ModUi/&EnableSaveByLocation=Включить сохранение по кампаниям/местоположениям
+ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Включить восстановление <color=orange>Тайного Оружия</color> у <color=orange>Волшебника</color> Тайного Бойца после короткого отдыха
+ModUi/&EnableTeleportParty=Включить телепортацию группы по <color=#1E81B0>CTRL-SHIFT-(T)</color> <i><color=yellow>[вы можете сломать задания или карты, если телепортируетесь в неразведанное место]</color></i>
+ModUi/&EnableTogglesToOverwriteDefaultTestParty=Включить переключатели в пуле персонажей, чтобы устанавливать игровую и тестовую группы по умолчанию.
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Включить неограниченное <color=orange>Мистическое восстановление</color> у <color=orange>Волшебника</color> Мастера Заклинаний\n<i><color=yellow>Можно включать только когда у способности есть доступные использования или перед созданием персонажа</color></i>
+ModUi/&EnableUpcastConjureElementalAndFey=Разрешить использовать <color=orange>Сотворение элементаля</color>, <color=orange>Сотворение фей</color> на больших уровнях заклинания
+ModUi/&Encounters=Столкновения
+ModUi/&ExecuteBatchTranslations=Пакетные переводы: <i><color=yellow>[кампании сохраняются обратно в пул с префиксом целевого языка]</color></i>
+ModUi/&ExpandAll=Раскрыть все
+ModUi/&FactionHelp=<color=#C04040E0>Загрузите официальную кампанию, чтобы изменить отношения фракций...</color>
+ModUi/&FactionRelations=<color=yellow>Отношения фракций:</color>
+ModUi/&FasterTimeModifier=<color=white>Множитель скорости игры при нажатии пробела</color>
+ModUi/&Feats=<color=yellow>Бонусные особенности (черты)</color>
+ModUi/&FeatsFightingStyles=Бонусные особенности (черты) и Боевые стили
+ModUi/&FightingStyles=<color=yellow>Боевые стили</color>
+ModUi/&FixSorcererTwinnedLogic=Исправить использование метамагии Раздвоенного заклинания <color=orange>Чародея</color> <i><color=yellow>[заклинание должно быть неспособно нацеливаться более чем на одно существо на текущем уровне заклинания]</color></i>
+ModUi/&FollowCharactersOnTeleport=Камера следует за телепортированным персонажем(ами)
+ModUi/&FullyControlConjurations=Полностью контролировать призванных существ <i><color=yellow>[животных, элементалей и т. д.]</color></i>
+ModUi/&Gameplay=Геймплей
+ModUi/&GameUi=Игровой интерфейс
+ModUi/&General=<color=yellow>Общее:</color>
+ModUi/&GeneralMenu=Общее
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Скрыть визуальные эффекты выходов и телепортов, если они ещё не обнаружены
+ModUi/&HideMonsterHitPoints=Отображать здоровье монстров по шагам 25% / 50% / 75% / 100% вместо точных очков жизни
+ModUi/&HiderArmor=Скрыть доспехи
+ModUi/&House=<color=yellow>Домашние правила (хоумбрю):</color>
+ModUi/&IncreaseSenseNormalVision=<color=white>Увеличить дальность <color=orange>Чувства Нормальное зрение</color>, чтобы позволить совершать атаки на большой дистанции</color> <i><color=yellow>[40 идеально подходит для того, чтобы враги не присоединялись к битве слишком издалека]< /цвет></я>
+ModUi/&IncreaseSenseNormalVisionHelp=<b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&InitialChoices=<color=yellow>Начальные выборы:</color>
+ModUi/&Interface=Интерфейс
+ModUi/&InventoryAndItems=<color=yellow>Инвентарь и предметы:</color>
+ModUi/&InvertAltBehaviorOnTooltips=Инвертировать поведение клавиши <color=#1E81B0>ALT</color> во всплывающих подсказках
+ModUi/&ItemInDm=Предметы в Создателе Подземелий
+ModUi/&Items=<color=yellow>Предметы:</color>
+ModUi/&ItemsCraftingMerchants=Предметы, изготовление и торговцы
+ModUi/&ItemsHelp1=<color=#C04040E0>У вас должен быть открыт экран проверки персонажей, чтобы добавлять предметы героям...</color>
+ModUi/&ItemsHelp2=. Нажмите +, чтобы добавить предметы в наземный контейнер на панели проверки.
+ModUi/&KeyboardMouse=Клавиатура и мышь
+ModUi/&MakeAllMagicStaveArcaneFoci=Сделать все магические посохи магическими фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color= #C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Также отмечать местоположение невидимых телепортов на карте уровня после обнаружения</i>
+ModUi/&MaxAllowedClasses=<color=white>Максимум разрешённых классов</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&MaxBackupFilesPerLocationCampaign=<color=white>Макс. файлов резервных копий для каждого местоположения или кампании</color>
+ModUi/&MaxBackupHelp=. Файлы резервных копий сохраняются в папке <i><color=yellow>ПАПКА_ИГРЫ/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>.
+ModUi/&MaxSpellLevelsPerLine=<color=white>Максимальное количество уровней в строке на панели заклинаний</color>
+ModUi/&Merchants=<color=yellow>Продавцы:</color>
+ModUi/&Monsters=<color=yellow>Монстры:</color>
+ModUi/&Multiclass=<color=yellow>Мультикласс:</color>
+ModUi/&MulticlassKeyHelp=При нажатии на заклинание с зажатой <color=#1E81B0>SHIFT</color> тратить ячейку заклинания вместо обычной ячейки магии договора
+ModUi/&MultiplyTheExperienceGainedBy=<color=white>Умножать получаемый опыт на </color> <color=#C04040E0>[%]</color>
+ModUi/&NoExperienceOnLevelUp=Не требовать опыт для повышения уровня
+ModUi/&NotAvailable=Для этого мода пока ещё нет доступного {0}...
+ModUi/&OfferAdditionalLoreFriendlyNames=Предлагать дополнительные органично вписывающиеся в лор имена при создании персонажа
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Показывать только самых сильных существ в списке призыва</i>
+ModUi/&OverrideMinMaxLevel=Переопределять требуемые минимальный и максимальный уровни при запуске новых приключений.
+ModUi/&OverridePartySize=<color=white>Переопределять размер группы в пользовательских приключениях</color>
+ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Переопределить увеличение бонуса к сложности спасброска от <color=orange>Улучшенной манипуляции</color> <color=orange>Разбойника</color> Мошенника</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Переопределить сложность спасброска от <color=orange>Тайной манипуляции</color> <color=orange>Волшебника</color> Мастера-манипулятора</color>
+ModUi/&OverwriteGameLanguage=<color=yellow>Выбрать неофициально поддерживаемый язык:</color>
+ModUi/&Patches=<color=yellow>Патчи:</color>
+ModUi/&PrimedItems=Подготовленные предметы
+ModUi/&Progression=<color=yellow>Прогресс:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst=Быстрое использование заговора <color=orange>Свет</color> в первую очередь выбирает предметы, носимые на голове или туловище.
+ModUi/&Races=<color=yellow>Расы</color>
+ModUi/&RacesClassesSubclasses=Расы, классы и подклассы
+ModUi/&RecipeCost=<color=white>Стоимость рецепта</color>
+ModUi/&RecipesInDm=Рецепты в Создателе Подземелий
+ModUi/&RelicForgeries=Поддельные реликвии
+ModUi/&RemoveAttunementRequirements=Убрать требования к настройке на магические предметы <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&RemoveBugVisualModels=Заменять в игре похожие на жуков модели альтернативными <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell=Убрать требование концентрации для любых заклинаний <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter=Удалите гуманоидный фильтр на <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&RemoveIdentifcationRequirements=Убрать требования к опознанию <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle=Эффект <color=orange>Запутывание</color> применяется только во время применения <i><color=yellow>[т.е. нет повторяющегося эффекта]</color></i> <b><i><color=#C04040E0 >[Требуется перезагрузка]</color></i></b>
+ModUi/&RestockAntiquarians=Восполнять запасы Антикваров <i><color=yellow>[Халман Саммер]</color></i>
+ModUi/&RestockArcaneum=Восполнять запасы Арканиума <i><color=yellow>[Хеддлон Щёспелл]</color></i>
+ModUi/&RestockCircleOfDanantar=Восполнять запасы Круга Данантара <i><color=yellow>[Джориэль Фокси]</color></i>
+ModUi/&RestockHelp=. Переопределить значения по умолчанию, чтобы заставить все запасы торговца со временем восполняться (за исключением руководств и фолиантов).\n. Обратите внимание, что для восполнения запасов некоторых предметов может потребоваться до 7 игровых дней.
+ModUi/&RestockTowerOfKnowledge=Восполнять запасы Башни Знаний <i><color=yellow>[Мэдди Гринайл]</color></i>
+ModUi/&Rules=Правила
+ModUi/&ScaleMerchantPricesCorrectly=Правильно/в точности масштабировать торговые цены
+ModUi/&SelectAll=Выбрать все
+ModUi/&SelectSuggested=Выбрать рекомендуемые
+ModUi/&Services=Сервисы
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>Установить вероятность появления бороды при использовании</color> <color=orange>Пояса Дварфов</color>
+ModUi/&ShowCraftingRecipeInDetailedTooltips=Показывать рецепт изготовления в подробных всплывающих подсказках
+ModUi/&ShowDescriptions=Показать описания
+ModUi/&SpellInstructions=. Вы можете отдельно назначить каждое заклинание любому списку заклинаний или просто выбрать предложенный набор
+ModUi/&SpellLevelFilter=<b><i><color=white>фильтр уровня заклинаний</color> <color=yellow>[-1 для отображения всех заклинаний]</color></i></b>
+ModUi/&Spells=<color=yellow>Заклинания:</color>
+ModUi/&SpellsMenu=Заклинания
+ModUi/&SRD=<color=yellow>SRD:</color>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing=Снабдить магазин Горим всей немагической одеждой <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&StockHugoStoreWithAdditionalFoci=Снабдить магазин Хьюго <color=orange>Жезлом Опознания</color>, <color=orange>Чародейским посохом</color>, <color=orange>Воротником Друида</color>, <color=orange>Посохом</color> и <color=orange>Дубиной</color> в качестве предметов для фокусировки
+ModUi/&Subclasses=<color=yellow>Подклассы</color>
+ModUi/&TargetLanguage=Целевой язык
+ModUi/&Tools=Инструменты
+ModUi/&TotalFeatsGrantedFistLevel=<color=white>Всего бонусных особенностей (черт) на первом уровне</color>
+ModUi/&Translate=Перевести
+ModUi/&TranslateCancel=Отменить {0} в {1}
+ModUi/&TranslationEngine=Движок перевода
+ModUi/&Translations=Переводы
+ModUi/&UnleashEnemyAsNpc=Разрешить выбор монстров на гаджетах НИП <i><color=yellow>[зажмите <color=#1E81B0>CTRL</color> при нажатии на кнопку «Выбрать» на панели гаджетов]</color></i>
+ModUi/&UnleashNpcAsEnemy=Разрешить выбор НИП на гаджетах монстров <i><color=yellow>[зажмите <color=#1E81B0>CTRL</color> при нажатии на кнопку «Выбрать» на панели гаджетов]</color></i>
+ModUi/&UnlockAllNpcFaces=Разблокировать все лица НИП
+ModUi/&UnlockEyeStyles=Разблокировать стили глаз
+ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Разблокировать светящиеся цвета для всех отметин и татуировок
+ModUi/&UnlockGlowingEyeColors=Разблокировать светящиеся цвета глаз
+ModUi/&UnlockMarkAndTatoosForAllCharacters=Разблокировать отметины и татуировки для всех персонажей
+ModUi/&UseHeightOneCylinderEffect=Отображать эффект цилиндра высотой 1 при использовании <color=orange>Черных щупалец, Опутывания, Жира</color> (квадрат) и <color=orange>Шип роста</color> (круглый)
+ModUi/&UseOfficialAdvantageDisadvantageRules=Использовать официальные правила преимущества/помехи
+ModUi/&Visuals=<color=yellow>Визуальные эффекты:</color>
+ModUi/&TotalCraftingTimeModifier=<color=white>Сокращение времени изготовления на</color>
+ModUi/&ChangeSleetStormToCube=Измените <color=orange>Sleet Storm</color>, чтобы использовать куб вместо цилиндра.
+ModUi/&Category=Category
+ModUi/&WeaponTag=Weapon Tag
+ModUi/&ItemTag=Item Tag
+ModUi/&EnableAdditionalBackstoryDisplay=Включить дополнительное отображение предыстории при фоновой проверке
+ModUi/&EnableStatsOnHeroTooltip=Отображать статистику во всплывающей подсказке героя <i><color=yellow>[т.е.: критические попадания, критические неудачи и т. д.]</color></i>

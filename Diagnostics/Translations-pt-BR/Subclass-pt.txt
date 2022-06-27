@@ -1,0 +1,84 @@
+Subclass/&DomainBattleDescription	O domínio da Batalha confere poderosas magias de combate. Os clérigos do domínio causam dano e proveem cura à linha de frente.
+Subclass/&DomainBattleTitle	Batalha
+Subclass/&DomainElementalColdDescription	No domínio Elemental, o clérigo entra em plena sintonia com os elementos. No subdomínio do gelo, você adquire maior resistência a dano de frio e aprende ataques de gelo.
+Subclass/&DomainElementalColdTitle	Elemental (Gelo)
+Subclass/&DomainElementalFireDescription	No domínio Elemental, o clérigo entra em plena sintonia com os elementos. No subdomínio do fogo, você adquire maior resistência a dano de fogo e aprende ataques de fogo.
+Subclass/&DomainElementalFireTitle	Elemental (Fogo)
+Subclass/&DomainElementalLightningDescription	No domínio Elemental, o clérigo entra em plena sintonia com os elementos. No subdomínio elétrico, você adquire maior resistência a dano elétrico e aprende ataques elétricos.
+Subclass/&DomainElementalLightningTitle	Elemental (Elétrico)
+Subclass/&DomainInsightDescription	O domínio da Intuição engloba o aprendizado, a memória e a dedução. Os devotos de tal domínio ostentam notório conhecimento e estimada sabedoria.
+Subclass/&DomainInsightTitle	Intuição
+Subclass/&DomainLawDescription	O domínio da Lei provê magias e poderes para aplacar os criminosos, pois prioriza a proteção dos inocentes e a punição aos malfeitores.
+Subclass/&DomainLawTitle	Lei
+Subclass/&DomainLifeDescription	O domínio da Vida tem foco na vibrante energia positiva, uma das forças fundamentais do universo, pois sustenta todas as formas de vida e provê habilidades ímpares de cura.
+Subclass/&DomainLifeTitle	Vida
+Subclass/&DomainOblivionTitle	Oblívio
+Subclass/&DomainSunDescription	O domínio do Sol engloba os poderes da luz purificante e do calor solar. Clérigos devotos deste domínio são faróis iluminados em um mundo de trevas.
+Subclass/&DomainSunTitle	Sol
+Subclass/&MartialChampionDescription	Campeões têm como principal atributo uma força bruta de letalidade suprema. Aqueles que seguem tal arquétipo combinam treinamento rigoroso com excelência física para desferirem golpes devastadores.
+Subclass/&MartialChampionTitle	Campeão
+Subclass/&MartialMountaineerDescription	Alpinistas são especialistas no combate em terrenos difíceis e espaços confinados, além de serem bons escaramuçadores. Quando têm o equipamento ideal, eles se sobressaem em ambientes pequenos.
+Subclass/&MartialMountaineerTitle	Alpinistas
+Subclass/&MartialSpellbladeDescription	Laminarcanas são hábeis com magias e armas em igual medida. Tamanha versatilidade é letal, pois surpreende inimigos propensos a acreditar que combatentes blindados não sabem conjurar magias.
+Subclass/&MartialSpellbladeTitle	Laminarcana
+Subclass/&PaladinOathOfDevotionDescription	Os paladinos que fazem o Juramento da Devoção defendem os ideais mais sublimes de justiça, virtude e ordem. Eles agem com honradez na busca pelo bem maior e empenham-se para ter uma conduta impecável, muitas vezes exigindo o mesmo do resto do mundo, com resultados nem sempre favoráveis.
+Subclass/&PaladinOathOfDevotionTitle	Juramento da Devoção
+Subclass/&PaladinOathOfTheMotherlandDescription	Os paladinos que fazem o Juramento da Terra-Mãe dedicam-se de corpo e alma à restauração do mundo pré-Cataclismo, enfrentando a decadência da terra e restaurando a vida, apesar da natureza violenta e vulcânica do território. Eles rejeitam o termo "Terras Áridas", pois preferem o nome "Terra-Mãe".
+Subclass/&PaladinOathOfTheMotherlandTitle	Juramento da Terra-Mãe
+Subclass/&PaladinOathOfTirmarDescription	Os paladinos que fazem o Juramento de Tirmar pertencem a uma ordem antiga que remete à Inquisição Tirmariana. Obcecados com seus arqui-inimigos, os lendários Sorr-Akkath, eles realizam seus rituais no idioma tirmariano antigo e mantêm rixas com eles desde o tempo do Cataclismo, mil anos atrás.
+Subclass/&PaladinOathOfTirmarTitle	Juramento de Tirmar
+Subclass/&RangerHunterDescription	Aqueles que desejam representar o arquétipo caçador devem aceitar se tornar um baluarte entre a civilização e os terrores da natureza. Os que seguem essa jornada aprendem técnicas especializadas para enfrentar as ameaças pelo caminho.
+Subclass/&RangerHunterTitle	Caçador
+Subclass/&RangerMarksmanDescription	Atiradores são arqueiros especialistas que herdaram técnicas desenvolvidas pelas tropas de elite de elfos altaneiros do Império de Manacalon. Estão entre os guerreiros de combate à distância mais mortíferos de Solasta. 
+Subclass/&RangerMarksmanTitle	Atirador
+Subclass/&RangerShadowTamerDescription	Domadores das sombras costumam perambular pelas regiões desoladas além das Fronteiras. Eles conhecem a História e os idiomas das trevas, assim como os perigos das terríveis cavernas habitadas por monstros.
+Subclass/&RangerShadowTamerTitle	Domador das Sombras
+Subclass/&RoguishDarkweaverDescription	Umbromantes são treinados por uma sociedade secreta que se estende por todos os reinos. Eles desenvolveram técnicas para aprimorar sua mobilidade em todas as três dimensões e dominaram a arte de criar venenos.
+Subclass/&RoguishDarkweaverTitle	Umbromante
+Subclass/&RoguishShadowcasterDescription	Trevanistas são trapaceiros ardilosos treinados em magias arcanas e técnicas ladinas que usam mágica para tornar seus movimentos ainda mais imprevisíveis e implacáveis. Há quem acredite que eles não existam.
+Subclass/&RoguishShadowcasterTitle	Trevanista
+Subclass/&RoguishThiefDescription	Gatunos aperfeiçoam suas habilidades na arte de furtar. Além de aprimorarem sua agilidade e furtividade, eles aprendem técnicas úteis para infiltração em ruínas antigas, ler idiomas desconhecidos e lançar mão de itens mágicos que normalmente não usariam.
+Subclass/&RoguishThiefTitle	Gatuno
+Subclass/&TraditionGreenmageDescription	Magos verdes são herdeiros das antigas tradições dos elfos silvestres. São guardiões da floresta especializados na mágica da natureza, além de arqueiros dedicados e treinados para sobreviver sem magias, se necessário, como foi o caso na iminência do Cataclismo.
+Subclass/&TraditionGreenmageTitle	Mago Verde
+Subclass/&TraditionLoremasterDescription	Mestres historiadores são obcecados por conhecimentos perdidos dos tempos pré-Cataclismo. Eles sabem que havia magia superior no antigo Império e desejam aprender mais sobre os feitiços e rituais perdidos. Sua magia é focada na acumulação de todo e qualquer conhecimento.
+Subclass/&TraditionLoremasterTitle	Mestre Historiador
+Subclass/&TraditionShockArcanistDescription	Arcanistas de choque eram magos combatentes do Império de Manacalon. Seus ensinamentos sobreviveram ao Cataclismo e se tornaram uma tradição mágica renomada e temida que é ensinada em todas as escolas de magia importantes.
+Subclass/&TraditionShockArcanistTitle	Arcanista de Choque
+Subclass/&DomainOblivionDescription	O Domínio do Oblívio mostra um aspecto mais sombrio de Maraike, o aspecto da deusa da morte. Clérigos que escolhem esse domínio consideram a vida e a morte como parte de uma coisa só, um grande ciclo, e podem usar magia de necromancia normalmente.
+Subclass/&SorcerousDraconicBloodlineDescription	Sua magia inata é oriunda de magia dracônica, mesclada com o seu sangue ou o dos seus ancestrais. Geralmente, feiticeiros com esta origem são descendentes de um poderoso feiticeiro de eras remotas que fez uma barganha com um dragão ou tinha ascendência dracônica.
+Subclass/&SorcerousDraconicBloodlineTitle	Linhagem Dracônica
+Subclass/&SorcerousManaPainterTitle	Artista de Mana
+Subclass/&SorcerousManaPainterDescription	Alguns habitantes de Solasta aprenderam a drenar magia de tudo ao seu redor, lugares, objetos e até pessoas, em decorrência da escassez de mana que se seguiu ao Cataclismo. Eles aprenderam a canalizar o pouco mana disponível para conjurar magias e criar poções e pergaminhos. E, embora seus inimigos os chamem de ladrões de mana, eles são verdadeiros artistas arcanos.
+Subclass/&SorcerousChildRiftTitle	Cria da Fenda
+Subclass/&SorcerousChildRiftDescription	A Fenda e seu encerramento cataclísmico afetou o sangue de algumas pessoas, dando a elas a capacidade inata de conjurar magias de maneira instintiva. A natureza da Fenda também as alterou profundamente. Elas não são mais de carne e osso apenas, e sim carne, osso, mana, luz e sombra.
+Subclass/&PathBerserkerDescription	A Trilha do Berserker é repleta de cólera e encharcada de sangue. Ao ter um rompante de fúria de berseker, você regozija no caos da batalha e abdica do senso de autopreservação.
+Subclass/&PathBerserkerTitle	Trilha do Berserker
+Subclass/&PathMagebaneDescription	Os seguidores desta trilha nutrem um ódio profundo e uma aversão desmedida pela magia e pelos arcanistas. Para eles, a perícia física é o caminho mais idôneo.
+Subclass/&PathMagebaneTitle	Trilha do Arcanicida
+Subclass/&PathStoneDescription	Os bárbaros que seguem esta trilha se fortalecem através do seu vínculo com as pedras. Eles são conhecidos pela tenacidade, pois jamais hesitam perante as adversidades e prosperam em cenários hostis.
+Subclass/&PathStoneTitle	Trilha da Pedra
+Subclass/&CircleLandDescription	O Círculo da Terra é composto de sábios e místicos que protegem o antigo conhecimento da Antiga Fé. Como integrante deste círculo, você tem uma magia influenciada pela terra onde deu os primeiros passos nos ritos misteriosos do grupo.
+Subclass/&CircleLandTitle	Círculo da Terra
+Subclass/&CircleKindredDescription	Na aurora dos tempos, a harmonia imperava entre animais e seres sencientes. Alguns até formaram laços inseparáveis, mesclando duas mentes e almas em dois corpos, para que as duas existências desfrutassem da união. Esse vínculo antigo sobrevive no Círculo dos Espíritos Afins, uma ordem de druidas que preserva esse laço sagrado.
+Subclass/&CircleKindredTitle	Círculo dos Espíritos Afins
+Subclass/&CircleWindsDescription	Druidas deste círculo extraem força dos ventos. Em meio ao Cataclismo, a conexão dos druidas com a natureza esmoreceu, com a exceção dos integrantes do Círculo dos Ventos. Ao sentirem as correntes de mana carregadas pelo vento, eles mantiveram seu vínculo com o natural. Desta forma, conseguiram proteger a natureza contra os maiores estragos do Cataclismo.
+Subclass/&CircleWindsTitle	Círculo dos Ventos
+Subclass/&MartialCommanderTitle	Comandante
+Subclass/&MartialCommanderDescription	Por meio de disciplina e treinamento, comandantes lideram tropas rumo à vitória. Eles reforçam os atributos ofensivos e defensivos de aliados e jamais se recusam a pegar em armas e partir para o ataque.
+Subclass/&RoguishHoodlumTitle	Rufião
+Subclass/&RoguishHoodlumDescription	Quando precisar rachar crânios e espancar patifes, chame os rufiões. Estes brutamontes não são soldados profissionais, mas dominam a arte da violência, um recurso crucial para vencer lutas.
+Subclass/&TraditionCourtMageTitle	Mago da Corte
+Subclass/&TraditionCourtMageDescription	Magos da corte são a versão arcana dos guarda-costas de elite. Eram muito estimados na era de Manacalon, quando a magia governava a sociedade. Nos anos recentes, tal tradição voltou a ganhar força.
+Subclass/&DomainMischiefTitle	Travessura
+Subclass/&DomainMischiefDescription	O domínio da Travessura abriga aqueles que buscam alegria, prazer e riqueza por meio de sorte, truques e manipulações.
+Subclass/&RangerSwiftBladeTitle	Lâmina Ágil
+Subclass/&RangerSwiftBladeDescription	Lâminas ágeis são leves, discretas e letais. Derrubam alvos em segundos, depois saem do palco do duelo e mergulham no mar verdejante sem deixar vestígios.
+Subclass/&OathOfJugementTitle	Juramento do Juízo
+Subclass/&OathOfJugementDescription	Os paladinos que fazem o Juramento do Juízo pregam a punição para todos os pecados, inclusive os menores. Contudo, o castigo tem de ser justo. Eles são implacáveis na busca pela justiça e inclementes no embate aos oponentes. Não subestime estes guerreiros idôneos!
+Subclass/&SorcerousHauntedSoulTitle	Alma Assombrada
+Subclass/&SorcerousHauntedSoulDescription	Almas assombradas são feiticeiros cujas habilidades inatas atraem espíritos malignos. Aqueles que sobrevivem ao flagelo desenvolvem uma relação simbiótica com os fantasmas, canalizando o poder espiritual ao custo da perda gradual da própria alma.
+Subclass/&PathClawTitle	Trilha da Garra
+Subclass/&PathClawDescription	Todos sabem que os Bárbaros da Trilha da Garra são descendentes de um antigo clã que tem laços com dragões. Quando entram em um rompante de fúria, a ancestralidade emana e domina os sentidos desses Bárbaros, permitindo que realizem incríveis proezas.
+Subclass/&CircleBalanceTitle	Círculo do Equilíbrio
+Subclass/&CircleBalanceDescription	Há quem diga que os druidas do Círculo do Equilíbrio são curandeiros gentis, mas há quem alegue que são carrascos inclementes. A verdade é que ambos estão certos: a natureza provê e priva.

@@ -1,0 +1,8 @@
+InputBinding/&LeftAlt	AltEsq + 
+InputBinding/&LeftControl	CtrlEsq + 
+InputBinding/&LeftShift	ShiftEsq + 
+InputBinding/&MainFormat	Atalho: {0}
+InputBinding/&OrFormat	ou 
+InputBinding/&RightAlt	AltDir + 
+InputBinding/&RightControl	CtrlDir + 
+InputBinding/&RightShift	ShiftDir + 

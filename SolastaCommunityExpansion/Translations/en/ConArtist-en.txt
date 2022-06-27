@@ -1,19 +1,19 @@
-Subclass/&AbilityAffinityRogueConArtistDescription	Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
-Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
-Subclass/&MagicAffinityRoguishConArtistDC0Description	Your spell save DC increases by 0.
-Subclass/&MagicAffinityRoguishConArtistDC1Description	Your spell save DC increases by 1.
-Subclass/&MagicAffinityRoguishConArtistDC2Description	Your spell save DC increases by 2.
-Subclass/&MagicAffinityRoguishConArtistDC3Description	Your spell save DC increases by 3.
-Subclass/&MagicAffinityRoguishConArtistDC4Description	Your spell save DC increases by 4.
-Subclass/&MagicAffinityRoguishConArtistDC5Description	Your spell save DC increases by 5.
-Subclass/&MagicAffinityRoguishConArtistDCTitle	Improved Manipulation
-Subclass/&RoguishConArtistDescription	Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
-Subclass/&RoguishConArtistFeintConditionDescription	Being tricked grants advantage on the next attack.
-Subclass/&RoguishConArtistFeintConditionTitle	Tricked
-Subclass/&RoguishConArtistFeintDescription	Gain the ability to feint in combat as a bonus action. If the target fails their saving throw, this grants advantage on the next attack against the target.
-Subclass/&RoguishConArtistFeintTitle	Feint
-Subclass/&RoguishConArtistMentalSavingThrowsDescription	You gain proficiency in Wisdom and Charisma saving throws.
-Subclass/&RoguishConArtistMentalSavingThrowsTitle	Mental Strength
-Subclass/&RoguishConArtistSpellcastingDescription	Cast Wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
-Subclass/&RoguishConArtistSpellcastingTitle	Spellcasting
-Subclass/&RoguishConArtistTitle	Con Artist
+Subclass/&AbilityAffinityRogueConArtistDescription=Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
+Subclass/&AbilityAffinityRogueConArtistTitle=Manipulative
+Subclass/&MagicAffinityRoguishConArtistDC0Description=Your spell save DC increases by 0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description=Your spell save DC increases by 1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description=Your spell save DC increases by 2.
+Subclass/&MagicAffinityRoguishConArtistDC3Description=Your spell save DC increases by 3.
+Subclass/&MagicAffinityRoguishConArtistDC4Description=Your spell save DC increases by 4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description=Your spell save DC increases by 5.
+Subclass/&MagicAffinityRoguishConArtistDCTitle=Improved Manipulation
+Subclass/&RoguishConArtistDescription=Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
+Subclass/&RoguishConArtistFeintConditionDescription=Being tricked grants advantage on the next attack.
+Subclass/&RoguishConArtistFeintConditionTitle=Tricked
+Subclass/&RoguishConArtistFeintDescription=Gain the ability to feint in combat as a bonus action. If the target fails their saving throw, this grants advantage on the next attack against the target.
+Subclass/&RoguishConArtistFeintTitle=Feint
+Subclass/&RoguishConArtistMentalSavingThrowsDescription=You gain proficiency in Wisdom and Charisma saving throws.
+Subclass/&RoguishConArtistMentalSavingThrowsTitle=Mental Strength
+Subclass/&RoguishConArtistSpellcastingDescription=Cast Wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
+Subclass/&RoguishConArtistSpellcastingTitle=Spellcasting
+Subclass/&RoguishConArtistTitle=Con Artist

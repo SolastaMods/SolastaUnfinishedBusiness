@@ -1,10 +1,10 @@
-FightingStyle/&BlindFightingDescription	Hai la vista cieca con un raggio di 10 piedi.
-FightingStyle/&BlindFightingTitle	Combattimento alla cieca
-FightingStyle/&CripplingDescription	Dopo aver colpito con un attacco in mischia, puoi ridurre la velocità del tuo avversario di 3 metri fino all'inizio del tuo prossimo turno.
-FightingStyle/&CripplingTitle	Paralizzante
-FightingStyle/&PugilistFightingDescription	I tuoi colpi senz'armi infliggono 1d4 danni contundenti aggiuntivi e puoi dare un pugno con la mano secondaria come azione bonus.\nSe hai la mano libera, puoi spingere come azione bonus.
-FightingStyle/&PugilistFightingTitle	Pugile
-FightingStyle/&TitanFightingDescription	Ottieni un colpo +2 contro creature di taglia Grande o superiore.
-FightingStyle/&TitanFightingTitle	Combattimento di Titani
-Modifier/&CripplingAdditionalDamageDescription	Danno paralizzante.
-Modifier/&CripplingAdditionalDamageTitle	Paralizzante
+FightingStyle/&BlindFightingDescription=Hai la vista cieca con un raggio di 10 piedi.
+FightingStyle/&BlindFightingTitle=Combattimento alla cieca
+FightingStyle/&CripplingDescription=Dopo aver colpito con un attacco in mischia, puoi ridurre la velocità del tuo avversario di 3 metri fino all'inizio del tuo prossimo turno.
+FightingStyle/&CripplingTitle=Paralizzante
+FightingStyle/&PugilistFightingDescription=I tuoi colpi senz'armi infliggono 1d4 danni contundenti aggiuntivi e puoi dare un pugno con la mano secondaria come azione bonus.\nSe hai la mano libera, puoi spingere come azione bonus.
+FightingStyle/&PugilistFightingTitle=Pugile
+FightingStyle/&TitanFightingDescription=Ottieni un colpo +2 contro creature di taglia Grande o superiore.
+FightingStyle/&TitanFightingTitle=Combattimento di Titani
+Modifier/&CripplingAdditionalDamageDescription=Danno paralizzante.
+Modifier/&CripplingAdditionalDamageTitle=Paralizzante

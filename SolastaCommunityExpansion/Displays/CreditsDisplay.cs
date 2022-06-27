@@ -17,63 +17,69 @@ internal static class CreditsDisplay
         {"Tactical Adventures", "early access to DLC builds and community support"},
         {"JetBrains", "one year Rider IDE subscription for 3 developers"},
         {"", ""},
-        {"Critical Hit", "<b>J. Cohen</b>, <b>L. Goldiner</b>"},
+        {"Critical Hit", "<b>M. Miller</b>, <b>J. Cohen</b>, <b>L. Goldiner</b>"},
         {"D20", "D. Fenter, B. Lane, J. Loustaunau"},
         {"D12", "E. Antonio, C. Aardappel, M. Klepac"},
         {"D8", "R. Baker, R. Maxim, D. Boggs"},
         {
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
-                  "M. Harck, D. Schoop, K. Cooper, M. Thompson, L.Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
-                  "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert"
+                  "M. Harck, D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
+                  "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson\n" +
+                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes"
         }
     };
 
-    internal static readonly Dictionary<string, string> CreditsTable = new()
+    internal static readonly List<(string, string)> CreditsTable = new()
     {
-        {"AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"},
-        {"Bazou", "Witch class, fighting styles"},
-        {"Boofat", "alwaysAlt"},
-        {"Burtsev-Alexey", "deep copy algorithm"},
-        {
+        ("AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"),
+        ("Bazou", "Witch class, fighting styles"),
+        ("Boofat", "alwaysAlt"),
+        (
             "ChrisJohnDigital",
             "Tinkerer class, crafting, faction relations, feats, fighting styles, items, subclasses, progression"
-        },
-        {"Dreadmaker", "Forest Guardian subclass"},
-        {
+        ),
+        ("Dreadmaker", "Forest Guardian subclass"),
+        (
             "DubhHerder",
-            "high level spells, feats migration, bug models replacement, high level monsters, Warlock class and subclasses"
-        },
-        {"ElAntonious", "Arcanist subclass, feats"},
-        {"Esker", "Warlock class design, quality assurance"},
-        {"exsonics01", "Oath of Retribution subclass"},
-        {"Holic75", "SolastaModHelpers, SolastaExtraContent"},
-        {
+            "high level spells, feats, bug models replacement, high level monsters, Warlock class and subclasses"
+        ),
+        ("ElAntonious", "Arcanist subclass, feats"),
+
+        ("exsonics01", "Oath of Retribution subclass"),
+        ("Holic75", "SolastaModHelpers, SolastaExtraContent"),
+        (
             "ImpPhil",
             "adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map"
-        },
-        {"Lyraele", "Warlock class design, quality assurance"},
-        {"Narria", "modKit creator, developer"},
-        {"Nd", "Marshal and Opportunist subclasses"},
-        {"Nyowwww", "Chinese translations"},
-        {"PraiseThyBus", "quality assurance"},
-        {"Prioritizer", "Russian translations"},
-        {"RedOrca", "Path of the Light subclass, Indomitable Might"},
-        {
+        ),
+        ("Nd", "Marshal and Opportunist subclasses"),
+
+        ("RedOrca", "Path of the Light subclass, Indomitable Might"),
+        (
             "SilverGriffon",
-            "PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race"
-        },
-        {"Sinai-dev", "Unity Explorer UI standalone"},
-        {"Spacehamster", "dataminer"},
-        {
+            "pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race"
+        ),
+
+        ("Spacehamster", "dataminer"),
+        (
             "TPABOBAP",
             "Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration"
-        },
-        {"View619", "Darkvision, Superior Dark Vision"},
-        {"Vylantze", "English terms review, tweaks, bug fixes"},
-        {
+        ),
+        ("View619", "Darkvision, Superior Dark Vision"),
+        ("Vylantze", "English terms review, tweaks, bug fixes"),
+        (
             "Zappastuff",
-            "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Holic75's code integration"
-        }
+            "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration"
+        ),
+        ("", ""),
+        ("Esker", "ruleset support, classes design, quality assurance"),
+        ("Lyraele", "ruleset support, classes design, quality assurance"),
+        ("PraiseThyBus", "quality assurance"),
+        ("",""),
+        ("Nyowwww", "Chinese translations"),
+        ("Prioritizer", "Russian translations"),
+        ("Burtsev-Alexey", "deep copy algorithm"),
+        ("Narria", "modKit creator, developer"),
+        ("Sinai-dev", "Unity Explorer UI standalone")
     };
 
     private static bool IsUnityExplorerInstalled { get; } =
@@ -171,12 +177,12 @@ internal static class CreditsDisplay
         }
 
         // credits
-        foreach (var kvp in CreditsTable)
+        foreach (var (author,content) in CreditsTable)
         {
             using (UI.HorizontalScope())
             {
-                UI.Label(kvp.Key.orange(), UI.Width(150));
-                UI.Label(kvp.Value, UI.Width(600));
+                UI.Label(author.orange(), UI.Width(150));
+                UI.Label(content, UI.Width(600));
             }
         }
 

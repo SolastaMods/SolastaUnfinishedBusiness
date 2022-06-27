@@ -1,6 +1,6 @@
-﻿Race/&HalfElfDarkElfRaceDescription	Тёмные Полуэльфы — потомки эльфов, которые со временем изменились, живя в негостеприимных бесплодных землях. Их человеческое наследие сделало их приспособленными к яркому свету.
-Race/&HalfElfDarkElfRaceTitle	Тёмный Полуэльф
-Race/&HalfElfHighElfRaceDescription	Высших Полуэльфов обучают использовать магию очень рано.
-Race/&HalfElfHighElfRaceTitle	Высший Полуэльф
-Race/&HalfElfSylvanElfRaceDescription	Лесные Полуэльфы обучены выживать в дикой природе и особенно способны к выживанию. Как наследие лесных эльфов, их с детства обучают сражаться на мечах и луках.
-Race/&HalfElfSylvanElfRaceTitle	Лесной Полуэльф
+﻿Race/&HalfElfDarkElfRaceDescription=Тёмные Полуэльфы — потомки эльфов, которые со временем изменились, живя в негостеприимных бесплодных землях. Их человеческое наследие сделало их приспособленными к яркому свету.
+Race/&HalfElfDarkElfRaceTitle=Тёмный Полуэльф
+Race/&HalfElfHighElfRaceDescription=Высших Полуэльфов обучают использовать магию очень рано.
+Race/&HalfElfHighElfRaceTitle=Высший Полуэльф
+Race/&HalfElfSylvanElfRaceDescription=Лесные Полуэльфы обучены выживать в дикой природе и особенно способны к выживанию. Как наследие лесных эльфов, их с детства обучают сражаться на мечах и луках.
+Race/&HalfElfSylvanElfRaceTitle=Лесной Полуэльф

@@ -1,0 +1,6 @@
+Size/&GargantuanTitle	Сверхогромный
+Size/&HugeTitle	Огромный
+Size/&LargeTitle	Большой
+Size/&MediumTitle	Средняя длина
+Size/&SmallTitle	Маленький
+Size/&TinyTitle	Крошечный
