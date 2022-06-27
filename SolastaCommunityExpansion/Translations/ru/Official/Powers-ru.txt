@@ -1,6 +1,6 @@
 Powers/&Power_Deady_Leap_Title=Смертоносный прыжок
 Powers/&Power_Deady_Leap_Description=Этот монстр может разбежаться и прыгнуть на врагов, чтобы раздавить их.
-Powers/&Orenetis_DraconicRegen_Title=Драконья регенерация
+Powers/&Orenetis_DraconicRegen_Title=Регенерация Дракона
 Powers/&Orenetis_DraconicRegen_Description=В жилах Оренетиса течёт драконья кровь, которая наделила его особыми способностями. А первый шторм маны только усилил их. Он восстанавливает 10 ОЗ в начале своего хода.
 Powers/&ActioneStopTitle=Остановить ярость
 Powers/&Mummy_Lord_BlasphemousWords_Title=Нечестивые слова
