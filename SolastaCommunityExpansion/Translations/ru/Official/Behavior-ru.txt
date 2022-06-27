@@ -1,22 +1,22 @@
-Behavior/&AttackingDescription	Существо атакует свою цель.
-Behavior/&AttackingTitle	Атакует
-Behavior/&IdleDescription	Существо ничего не делает.
-Behavior/&IdleTitle	Бездействует
-Behavior/&InterceptingDescription	Существо обнаружило цель и движется к ней.
-Behavior/&InterceptingTitle	Перехватывает
-Behavior/&InvestigatingDescription	Существо исследует источник раздражения (шум, свет).
-Behavior/&InvestigatingTitle	Исследует
-Behavior/&MovingDescription	Существо куда-то направляется.
-Behavior/&MovingTitle	Перемещается
-Behavior/&NoBehaviorDescription	Существо ничего не делает либо не вошло в своё начальное состояние.
-Behavior/&NoBehaviorTitle	Нет поведения
-Behavior/&PlanningDescription	Существо обдумывает свои дальнейшие действия.
-Behavior/&PlanningTitle	Планирует
-Behavior/&SneakingDescription	Персонаж пытается действовать незаметно.
-Behavior/&SneakingTitle	Крадётся
-Behavior/&TalkingDescription	Существо разговаривает.
-Behavior/&TalkingTitle	Разговаривает
-Behavior/&WaitingDescription	Существо ждёт.
-Behavior/&WaitingTitle	Ждёт
-Behavior/&WatchingDescription	Существо высматривает врагов.
-Behavior/&WatchingTitle	Наблюдает
+Behavior/&AttackingDescription=Существо атакует свою цель.
+Behavior/&AttackingTitle=Атакует
+Behavior/&IdleDescription=Существо ничего не делает.
+Behavior/&IdleTitle=Бездействует
+Behavior/&InterceptingDescription=Существо обнаружило цель и движется к ней.
+Behavior/&InterceptingTitle=Перехватывает
+Behavior/&InvestigatingDescription=Существо исследует источник раздражения (шум, свет).
+Behavior/&InvestigatingTitle=Исследует
+Behavior/&MovingDescription=Существо куда-то направляется.
+Behavior/&MovingTitle=Перемещается
+Behavior/&NoBehaviorDescription=Существо ничего не делает либо не вошло в своё начальное состояние.
+Behavior/&NoBehaviorTitle=Нет поведения
+Behavior/&PlanningDescription=Существо обдумывает свои дальнейшие действия.
+Behavior/&PlanningTitle=Планирует
+Behavior/&SneakingDescription=Персонаж пытается действовать незаметно.
+Behavior/&SneakingTitle=Крадётся
+Behavior/&TalkingDescription=Существо разговаривает.
+Behavior/&TalkingTitle=Разговаривает
+Behavior/&WaitingDescription=Существо ждёт.
+Behavior/&WaitingTitle=Ждёт
+Behavior/&WatchingDescription=Существо высматривает врагов.
+Behavior/&WatchingTitle=Наблюдает

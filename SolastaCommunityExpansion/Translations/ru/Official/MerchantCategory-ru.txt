@@ -1,8 +1,8 @@
-MerchantCategory/&AdventuringTitle	Снаряжение для странников
-MerchantCategory/&AllTitle	Все предметы
-MerchantCategory/&ArmorTitle	Доспехи
-MerchantCategory/&CraftingTitle	Изготовление предметов
-MerchantCategory/&IngredientTitle	Ингредиенты
-MerchantCategory/&MagicDeviceTitle	Магические устройства
-MerchantCategory/&WeaponTitle	Оружие
-MerchantCategory/&DocumentTitle	Документы
+MerchantCategory/&AdventuringTitle=Снаряжение для странников
+MerchantCategory/&AllTitle=Все предметы
+MerchantCategory/&ArmorTitle=Доспехи
+MerchantCategory/&CraftingTitle=Изготовление предметов
+MerchantCategory/&IngredientTitle=Ингредиенты
+MerchantCategory/&MagicDeviceTitle=Магические устройства
+MerchantCategory/&WeaponTitle=Оружие
+MerchantCategory/&DocumentTitle=Документы

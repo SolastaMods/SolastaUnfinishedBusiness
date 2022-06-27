@@ -1,1 +1,1 @@
-Internal/&ChineseCaracters	Не используется
+Internal/&ChineseCaracters=Не используется

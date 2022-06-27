@@ -1,1 +1,1 @@
-Toolitp/&MultiplayerSessionSavedDescription	Эта многопользовательская игра возобновит сохраненную игру.
+Toolitp/&MultiplayerSessionSavedDescription=Эта многопользовательская игра возобновит сохраненную игру.

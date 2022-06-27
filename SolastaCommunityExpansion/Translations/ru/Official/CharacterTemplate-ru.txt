@@ -1,1 +1,1 @@
-CharacterTemplate/&RosLastName	Рос
+CharacterTemplate/&RosLastName=Рос
