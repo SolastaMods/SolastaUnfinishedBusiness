@@ -15,7 +15,6 @@ ModUi/&AllowDungeonsMaxLevel20=Разрешить подземелья с мак
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Разрешить размещение гаджетов и объектов в любом месте на карте <i><color=yellow>[нажмите <color=#1E81B0>CTRL</color> во время размещения, чтобы обойти любую проверку]</color></i>
 ModUi/&AllowStackedMaterialComponent=Разрешить составной материальный компонент <i><color=yellow>[например, 2 алмаза по 500 зм эквивалентны бриллианту за 1000 зм]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Разрешить выбор целей при использовании заклинания <color=orange>Цепная молния</color>
-ModUi/&AllowUnmarkedSorcerers=Разрешить неотмеченных <color=orange>Заклинателей</color>
 ModUi/&AllRecipesInDm=Все рецепты в Создателе Подземелий
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Клавиша <color=#1E81B0>ALT</color> выделяет гаджеты только в поле зрения группы [только в пользовательских подземельях]
 ModUi/&AutoPauseOnVictory=Ставить паузу после победы в бою

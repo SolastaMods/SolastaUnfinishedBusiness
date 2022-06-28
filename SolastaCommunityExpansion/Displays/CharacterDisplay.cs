@@ -148,12 +148,6 @@ internal static class CharacterDisplay
 
         UI.Label("");
 
-        toggle = Main.Settings.AllowUnmarkedSorcerers;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowUnmarkedSorcerers"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowUnmarkedSorcerers = toggle;
-        }
-
         toggle = Main.Settings.UnlockMarkAndTatoosForAllCharacters;
         if (UI.Toggle(Gui.Localize("ModUi/&UnlockMarkAndTatoosForAllCharacters"), ref toggle, UI.AutoWidth()))
         {

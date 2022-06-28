@@ -15,7 +15,6 @@ ModUi/&AllowDungeonsMaxLevel20=允许自定义地城最大等级达到20级<i><c
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=允许在地图上任何地方放置互动物件和装饰物<i><color=yellow>[在放置时按<color=#1E81B0>CTRL</color>跳过任何检定]</color></i>
 ModUi/&AllowStackedMaterialComponent=允许材料成分叠加计算<i><color=yellow>[e.g. 2个500gp的钻石等同于1000gp的钻石]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施放<color=orange>连锁闪电</color>法术时选择目标
-ModUi/&AllowUnmarkedSorcerers=允许<color=orange>术士</color>没有脸部印记
 ModUi/&AllRecipesInDm=所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件[仅限自定义地牢]
 ModUi/&AutoPauseOnVictory=战斗胜利后暂停游戏

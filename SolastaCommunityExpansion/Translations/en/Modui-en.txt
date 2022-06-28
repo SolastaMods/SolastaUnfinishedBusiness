@@ -15,7 +15,6 @@ ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20 <b><i><color=#C0
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Allow gadgets and props to be placed anywhere on the map <i><color=yellow>[press <color=#1E81B0>CTRL</color> during placement to bypass any check]</color></i>
 ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=yellow>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=orange>Chain Lightning</color> spell
-ModUi/&AllowUnmarkedSorcerers=Allow <color=orange>Sorcerers</color> without origin markings and tattoos
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view [only in custom dungeons]
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle

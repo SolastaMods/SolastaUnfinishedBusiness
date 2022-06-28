@@ -15,7 +15,6 @@ ModUi/&AllowDungeonsMaxLevel20=Verliese mit maximaler Stufe 20 zulassen <b><i><c
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Ermöglicht das Platzieren von Gadgets und Requisiten überall auf der Karte <i><color=yellow>[drücken Sie während der Platzierung <color=#1E81B0>CTRL</color>, um jede Überprüfung zu umgehen]</color></i>
 ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente zulassen <i><color=yellow>[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Zielauswahl beim Wirken des Zaubers <color=orange>Kettenblitz</color> zulassen
-ModUi/&AllowUnmarkedSorcerers=Erlaube <color=orange>Zauberer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor [nur in benutzerdefinierten Dungeons]
 ModUi/&AutoPauseOnVictory=Pausiere die Benutzeroberfläche, wenn du im Kampf siegst

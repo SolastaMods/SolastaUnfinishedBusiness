@@ -75,7 +75,7 @@ internal static class FaceUnlockContext
             }
         }
 
-        if (Main.Settings.UnlockMarkAndTatoosForAllCharacters)
+        if (Main.Settings.UnlockAllNpcFaces || Main.Settings.UnlockMarkAndTatoosForAllCharacters)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
                          x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecoration))
@@ -84,16 +84,13 @@ internal static class FaceUnlockContext
             }
         }
 
-        if (Main.Settings.AllowUnmarkedSorcerers)
-        {
-            SorcerousDraconicBloodline.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default;
-            SorcerousManaPainter.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default;
-            SorcerousChildRift.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default;
-            SorcerousHauntedSoul.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default;
-        }
+        SorcerousDraconicBloodline.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+            .Default;
+        SorcerousManaPainter.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+            .Default;
+        SorcerousChildRift.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+            .Default;
+        SorcerousHauntedSoul.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+            .Default;
     }
 }
