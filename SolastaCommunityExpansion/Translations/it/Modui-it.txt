@@ -15,6 +15,7 @@ ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20 <b><i><co
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Consenti il ​​posizionamento di gadget e oggetti di scena in qualsiasi punto della mappa <i><color=yellow>[premi <color=#1E81B0>CTRL</color> durante il posizionamento per ignorare qualsiasi controllo]</color></i>
 ModUi/&AllowStackedMaterialComponent=Consenti componente materiale impilato <i><color=yellow>[es. 2x500 mo di diamante equivalgono a 1000 mo di diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezione del bersaglio quando lanci l'incantesimo <color=orange>Catena di fulmini</color>
+ModUi/&AllowUnmarkedSorcerers=Consenti <color=orange>stregoni</color> senza segni di origine e tatuaggi
 ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo [solo nei dungeon personalizzati]
 ModUi/&AutoPauseOnVictory=Metti in pausa l'interfaccia utente quando vinci in battaglia

@@ -15,6 +15,7 @@ ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20 <b><i><c
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Permitir que gadgets e adereços sejam colocados em qualquer lugar no mapa <i><color=yellow>[pressione <color=#1E81B0>CTRL</color> durante o posicionamento para ignorar qualquer verificação]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <i><color=yellow>[ex. 2x500gp diamante é equivalente a 1000gp diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir a seleção de alvos ao lançar o feitiço <color=orange>Chain Lightning</color>
+ModUi/&AllowUnmarkedSorcerers=Permitir <color=orange>Feiticeiros</color> sem marcações de origem e tatuagens
 ModUi/&AllRecipesInDm=Todas as receitas em DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca os gadgets no campo de visão do grupo [somente em masmorras personalizadas]
 ModUi/&AutoPauseOnVictory=Pause a interface do usuário quando for vitorioso na batalha

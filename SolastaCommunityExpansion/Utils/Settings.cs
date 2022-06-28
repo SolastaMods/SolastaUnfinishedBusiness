@@ -94,6 +94,7 @@ public class Settings : UnityModManager.ModSettings
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }
     public bool UnlockAllNpcFaces { get; set; }
+    public bool AllowUnmarkedSorcerers { get; set; }
     public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
     public bool UnlockEyeStyles { get; set; }
     public bool AddNewBrightEyeColors { get; set; }
