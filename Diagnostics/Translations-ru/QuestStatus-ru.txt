@@ -1,3 +1,0 @@
-QuestStatus/&HeaderQuestCompletedTitle	Задание выполнено
-QuestStatus/&HeaderQuestFailedTitle	Задание провалено!
-QuestStatus/&HeaderQuestNewTitle	Начато новое задание

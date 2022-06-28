@@ -1,8 +1,0 @@
-TreasureTable/&GemsTitle	Драгоценные камни
-TreasureTable/&ConsumablesTitle	Расходные предметы
-TreasureTable/&MagicWeapons_ArmorsTitle	Магическое оружие и доспехи
-TreasureTable/&Wondrous_ItemsTitle	Чудесные предметы
-TreasureTable/&IngredientsTitle	Ингредиенты
-TreasureTable/&Mundane_GearTitle	Повседневное снаряжение
-TreasureTable/&25_GP_Art_ItemsTitle	Предметы искусства — 25 зм
-TreasureTable/&50_GP_Art_ItemsTitle	Предметы искусства — 50 зм

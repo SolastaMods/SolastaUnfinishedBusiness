@@ -89,8 +89,14 @@ internal static class CharacterBuildingManager_CreateCharacter
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_LevelUpCharacter
 {
-    internal static void Prefix(RulesetCharacterHero hero)
+    internal static void Prefix(RulesetCharacterHero hero, ref bool force)
     {
+        // ensure the hero will get the experience gain
+        if (Main.Settings.NoExperienceOnLevelUp)
+        {
+            force = true;
+        }
+
         var lastClass = hero.ClassesHistory.Last();
 
         hero.ClassesAndSubclasses.TryGetValue(lastClass, out var lastSubclass);

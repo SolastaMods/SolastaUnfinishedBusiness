@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionMoveModes;
@@ -26,9 +28,12 @@ internal static class HalfElfVariantRaceBuilder
         var darkelfDarkness = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
             .GetElement("PowerDarkelfDarkness");
 
+        var halfDarkelfSpriteReference =
+            CustomIcons.CreateAssetReferenceSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
+
         var halfElfDarkElf = CharacterRaceDefinitionBuilder
             .Create(DarkelfSubraceBuilder.DarkelfSubrace, "HalfElfDarkElfRace", RaceNamespace)
-            .SetGuiPresentation(Category.Race, DarkelfSubraceBuilder.DarkelfSubrace.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Race, halfDarkelfSpriteReference)
             .SetFeaturesAtLevel(1,
                 darkelfDarkMagic,
                 MoveModeMove6)
@@ -36,17 +41,23 @@ internal static class HalfElfVariantRaceBuilder
             .AddFeaturesAtLevel(5, darkelfDarkness)
             .AddToDB();
 
+        var halfHighSpriteReference =
+            CustomIcons.CreateAssetReferenceSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
+
         var halfElfHighElf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "HalfElfHighElfRace", RaceNamespace)
-            .SetGuiPresentation(Category.Race, ElfHigh.guiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Race, halfHighSpriteReference)
             .SetFeaturesAtLevel(1,
                 CastSpellElfHigh,
                 MoveModeMove6)
             .AddToDB();
 
+        var halfSylvanSpriteReference =
+            CustomIcons.CreateAssetReferenceSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
+
         var halfElfSylvanElf = CharacterRaceDefinitionBuilder
             .Create(ElfSylvan, "HalfElfSylvanElfRace", RaceNamespace)
-            .SetGuiPresentation(Category.Race, ElfSylvan.guiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Race, halfSylvanSpriteReference)
             .SetFeaturesAtLevel(1,
                 MoveModeMove7)
             .AddToDB();

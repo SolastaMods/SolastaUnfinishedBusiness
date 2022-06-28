@@ -323,6 +323,36 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] HalfDarkelf {
+            get {
+                object obj = ResourceManager.GetObject("HalfDarkelf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] HalfHighElf {
+            get {
+                object obj = ResourceManager.GetObject("HalfHighElf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static byte[] HalfSylvanElf {
+            get {
+                object obj = ResourceManager.GetObject("HalfSylvanElf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] HandXbow {
             get {
                 object obj = ResourceManager.GetObject("HandXbow", resourceCulture);

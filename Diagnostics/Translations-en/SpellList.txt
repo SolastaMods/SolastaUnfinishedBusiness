@@ -1,7 +1,0 @@
-SpellList/&SpellListClericTitle	Cleric Spells
-SpellList/&SpellListPaladinTitle	Paladin Spells
-SpellList/&SpellListRangerTitle	Ranger Spells
-SpellList/&SpellListSpellbladeTitle	Spellblade Spells
-SpellList/&SpellListWizardTitle	Wizard Spells
-SpellList/&SpellListSorcererTitle	Sorcerer Spells
-SpellList/&SpellListDruidTitle	Druid Spells

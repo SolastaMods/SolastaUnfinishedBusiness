@@ -1,6 +1,0 @@
-Status/&ConcentrationFormat	{0} está se concentrando para manter a magia "{1}".
-Status/&ConcentrationStopDescription	Clique para interromper a concentração.
-Status/&HealthStatusFormat	Vida: {0}
-Status/&ReadiedCantripAttackFormat	{0} já pode usar um ataque com truque, se a oportunidade surgir.
-Status/&ReadiedMeleeAttackFormat	{0} já pode usar um ataque corpo a corpo, se a oportunidade surgir.
-Status/&ReadiedRangedAttackFormat	{0} já pode usar um ataque à distância, se a oportunidade surgir.

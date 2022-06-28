@@ -213,7 +213,7 @@
     "description": "Race/&HalfElfDarkElfRaceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "881f7262bbde5680a12517b92a886088",
+      "m_AssetGUID": "e4f5dcde84f2559c812170d55fe6658c",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

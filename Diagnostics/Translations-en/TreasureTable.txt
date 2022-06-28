@@ -1,8 +1,0 @@
-TreasureTable/&GemsTitle	Gems
-TreasureTable/&ConsumablesTitle	Consumables
-TreasureTable/&MagicWeapons_ArmorsTitle	Magic Weapons and Armor
-TreasureTable/&Wondrous_ItemsTitle	Wondrous Items
-TreasureTable/&IngredientsTitle	Ingredients
-TreasureTable/&Mundane_GearTitle	Mundane Gear
-TreasureTable/&25_GP_Art_ItemsTitle	25 gp Art Items
-TreasureTable/&50_GP_Art_ItemsTitle	50 gp Art Items

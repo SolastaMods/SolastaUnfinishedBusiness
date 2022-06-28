@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -344,5 +344,14 @@
   </data>
   <data name="Names" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Names.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HalfDarkelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HalfDarkelfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HalfHighElf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HalfHighElfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HalfSylvanElf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HalfSylvanElfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

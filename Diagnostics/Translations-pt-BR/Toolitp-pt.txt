@@ -1,1 +1,0 @@
-Toolitp/&MultiplayerSessionSavedDescription	Este jogo multijogador retoma um jogo salvo.

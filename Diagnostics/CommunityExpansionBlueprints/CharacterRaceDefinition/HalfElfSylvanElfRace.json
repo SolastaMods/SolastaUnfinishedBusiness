@@ -97,9 +97,9 @@
     "description": "Race/&HalfElfSylvanElfRaceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4b4b5a8a740fc404db0aeb46ed1b1300",
-      "m_SubObjectName": "SylvanElf",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "21efaa1da5a15b538a50a8d66a88dd66",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

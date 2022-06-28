@@ -1,5 +1,0 @@
-BodyHairStyle/&Hairstyle_A	Пикси
-BodyHairStyle/&Hairstyle_B	Средняя длина
-BodyHairStyle/&Hairstyle_C	Короткая длина
-BodyHairStyle/&Hairstyle_D	Пучок
-BodyHairStyle/&Hairstyle_E	Коса вокруг головы

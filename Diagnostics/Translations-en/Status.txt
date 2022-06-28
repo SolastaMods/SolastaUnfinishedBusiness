@@ -1,6 +1,0 @@
-Status/&ConcentrationFormat	{0} is concentrating to maintain the spell "{1}".
-Status/&ConcentrationStopDescription	Click to stop concentrating.
-Status/&HealthStatusFormat	Health: {0}
-Status/&ReadiedCantripAttackFormat	{0} is ready to use a cantrip attack if the opportunity arises.
-Status/&ReadiedMeleeAttackFormat	{0} is ready to use a melee attack if the opportunity arises.
-Status/&ReadiedRangedAttackFormat	{0} is ready to use a ranged attack if the opportunity arises.
