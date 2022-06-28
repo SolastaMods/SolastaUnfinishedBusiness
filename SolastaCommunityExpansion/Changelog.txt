@@ -8,7 +8,4 @@
 
 CHANGES:
 
-- Add cells traveled [ft, m] to Hero's tooltips
-- Add new sprites to Half-elf subraces
-- Fix no experience on level up to correctly grant xp
-- Improve Russian translations
+- Fix Sorcerer creation interaction with Tattoos
