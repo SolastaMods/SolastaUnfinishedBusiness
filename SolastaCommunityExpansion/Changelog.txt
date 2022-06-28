@@ -8,6 +8,7 @@
 
 CHANGES:
 
+- Add cells traveled [ft, m] to Hero's tooltips
 - Add new sprites for Half-elf subraces
-- Improve no experience on level up
+- Fix no experience on level up to correctly grant xp
 - Improve Russian translations
