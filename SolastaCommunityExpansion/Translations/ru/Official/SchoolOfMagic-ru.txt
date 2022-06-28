@@ -1,8 +1,8 @@
-SchoolOfMagic/&AbjurationTitle=Ограждение
-SchoolOfMagic/&ConjurationTitle=Вызов
+SchoolOfMagic/&AbjurationTitle=Преграждение
+SchoolOfMagic/&ConjurationTitle=Призыв
 SchoolOfMagic/&DivinationTitle=Ясновидение
-SchoolOfMagic/&EnchantmentTitle=Заклятие
-SchoolOfMagic/&EvocationTitle=Воплощение
+SchoolOfMagic/&EnchantmentTitle=Зачарование
+SchoolOfMagic/&EvocationTitle=Созидание
 SchoolOfMagic/&IllusionTitle=Иллюзия
 SchoolOfMagic/&NecromancyTitle=Некромантия
 SchoolOfMagic/&TransmutationTitle=Преобразование
