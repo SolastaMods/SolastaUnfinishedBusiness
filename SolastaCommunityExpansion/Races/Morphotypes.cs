@@ -117,112 +117,112 @@ internal static class Morphotypes
         var brightEyes00  = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CE_BrightEyeColor_00", "0736115f-5f15-4a01-abd1-7fa069b6278a")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(40)
             .AddToDB();
 
         var brightEyes01 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_01, "CE_BrightEyeColor_01", "0736115f-5f15-4a01-abd1-7fa069b6278b")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(41)
             .AddToDB();
 
         var brightEyes02 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_02, "CE_BrightEyeColor_02", "0736115f-5f15-4a01-abd1-7fa069b6278c")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(42)
             .AddToDB();
 
         var brightEyes03 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_03, "CE_BrightEyeColor_03", "0736115f-5f15-4a01-abd1-7fa069b6278d")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(43)
             .AddToDB();
 
         var brightEyes04 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_04, "CE_BrightEyeColor_04", "0736115f-5f15-4a01-abd1-7fa069b6278e")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(44)
             .AddToDB();
 
         var brightEyes05 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_05, "CE_BrightEyeColor_05", "0736115f-5f15-4a01-abd1-7fa069b6278f")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(45)
             .AddToDB();
 
         var brightEyes06 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_06, "CE_BrightEyeColor_06", "0736115f-5f15-4a01-abd1-7fa069b62780")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(46)
             .AddToDB();
 
         var brightEyes07 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_07, "CE_BrightEyeColor_07", "0736115f-5f15-4a01-abd1-7fa069b62782")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(47)
             .AddToDB();
 
         var brightEyes08 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_08, "CE_BrightEyeColor_08", "0736115f-5f15-4a01-abd1-7fa069b62783")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(48)
             .AddToDB();
 
         var brightEyes09 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_09, "CE_BrightEyeColor_09", "0736115f-5f15-4a01-abd1-7fa069b62784")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(49)
             .AddToDB();
 
         var brightEyes10 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_10, "CE_BrightEyeColor_10", "0736115f-5f15-4a01-abd1-7fa069b62785")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(50)
             .AddToDB();
 
         var brightEyes11 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_11, "CE_BrightEyeColor_11", "0736115f-5f15-4a01-abd1-7fa069b62786")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(51)
             .AddToDB();
 
         var brightEyes12 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_12, "CE_BrightEyeColor_12", "0736115f-5f15-4a01-abd1-7fa069b62787")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(52)
             .AddToDB();
 
         var brightEyes13 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_13, "CE_BrightEyeColor_13", "0736115f-5f15-4a01-abd1-7fa069b62788")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(53)
             .AddToDB();
 
         var brightEyes14 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_14, "CE_BrightEyeColor_14", "0736115f-5f15-4a01-abd1-7fa069b62789")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(54)
             .AddToDB();
 
         var brightEyes15 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_15, "CE_BrightEyeColor_15", "aaa4520d-c7c8-4d8c-b1e5-add88efe7eca")
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(55)
             .AddToDB();
 
@@ -257,7 +257,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_00.MainColor.b * 20,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(56)
             .AddToDB();
 
@@ -271,7 +271,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_01.MainColor.b * 20,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(57)
             .AddToDB();
 
@@ -285,7 +285,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_03.MainColor.b * 20,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(58)
             .AddToDB();
 
@@ -299,7 +299,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_06.MainColor.b * 20,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(59)
             .AddToDB();
 
@@ -313,7 +313,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_10.MainColor.b * 20,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(60)
             .AddToDB();
 
@@ -327,7 +327,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_12.MainColor.b * 20,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(61)
             .AddToDB();
 
@@ -341,7 +341,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_00.MainColor.b * 80,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(62)
             .AddToDB();
 
@@ -355,7 +355,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_01.MainColor.b * 80,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(63)
             .AddToDB();
 
@@ -369,7 +369,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_03.MainColor.b * 80,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(64)
             .AddToDB();
 
@@ -383,7 +383,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_06.MainColor.b * 80,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(65)
             .AddToDB();
 
@@ -397,7 +397,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_10.MainColor.b * 80,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(66)
             .AddToDB();
 
@@ -411,7 +411,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_12.MainColor.b * 80,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(67)
             .AddToDB();
 
@@ -425,7 +425,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_00.MainColor.b * 160,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(68)
             .AddToDB();
 
@@ -439,7 +439,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_01.MainColor.b * 160,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(69)
             .AddToDB();
 
@@ -453,7 +453,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_03.MainColor.b * 160,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(70)
             .AddToDB();
 
@@ -467,7 +467,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_06.MainColor.b * 160,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(71)
             .AddToDB();
 
@@ -481,7 +481,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_10.MainColor.b * 160,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(72)
             .AddToDB();
 
@@ -495,7 +495,7 @@ internal static class Morphotypes
                 b = BodyDecorationColor_SorcererManaPainter_12.MainColor.b * 160,
                 a = 1.0f,
             })
-            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(73)
             .AddToDB();
 
