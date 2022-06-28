@@ -8,5 +8,6 @@
 
 CHANGES:
 
-- Add a setting to display stats on Hero's tooltips
-- Improve translations
+- Add new sprites for Half-elf subraces
+- Improve no experience on level up
+- Improve Russian translations
