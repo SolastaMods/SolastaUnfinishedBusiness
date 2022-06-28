@@ -963,6 +963,7 @@ ModUi/&ChangeSleetStormToCube=Change	<color=orange>Sleet Storm</color> to use a 
 ModUi/&WeaponTag=Weapon	Tag
 ModUi/&ItemTag=Item	Tag
 ModUi/&EnableAdditionalBackstoryDisplay=Enable	additional backstory display on background inspection
+ModUi/&EnableStatsOnHeroTooltip=Display	stats on hero's tooltip <i><color=yellow>[i.e.: critical hits, critical failures, etc.]</color></i>
 Class/&ClassMonkDescription=Monks	are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a Monk does.
 Condition/&ClassMonkEmptyBodyConditionDescription=You	have resistance to all damage but force.
 Condition/&ClassMonkEmptyBodyConditionTitle=Empty	Body
