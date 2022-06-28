@@ -1,7 +1,0 @@
-SpellList/&SpellListClericTitle	Заклинания жреца
-SpellList/&SpellListPaladinTitle	Заклинания паладина
-SpellList/&SpellListRangerTitle	Заклинания следопыта
-SpellList/&SpellListSpellbladeTitle	Заклинания боевого волшебника
-SpellList/&SpellListWizardTitle	Заклинания волшебника
-SpellList/&SpellListSorcererTitle	Заклинания заклинателя
-SpellList/&SpellListDruidTitle	Заклинания друида

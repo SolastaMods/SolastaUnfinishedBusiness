@@ -1,8 +1,0 @@
-MerchantCategory/&AdventuringTitle	Adventuring Gear
-MerchantCategory/&AllTitle	All Items
-MerchantCategory/&ArmorTitle	Armor
-MerchantCategory/&CraftingTitle	Crafting
-MerchantCategory/&IngredientTitle	Ingredients
-MerchantCategory/&MagicDeviceTitle	Magic Devices
-MerchantCategory/&WeaponTitle	Weapons
-MerchantCategory/&DocumentTitle	Documents

@@ -1,5 +1,0 @@
-TutorialSection/&BasicsTitle	Básico
-TutorialSection/&CombatTitle	Combate
-TutorialSection/&ExplorationTitle	Exploração
-TutorialSection/&InventoryTitle	Inventário
-TutorialSection/&TravelTitle	Viagem

@@ -1,8 +1,0 @@
-Label/&CampfireLocationRestDescription	
-Label/&CampfireLocationRestTitle	
-Label/&CampfireResumeTravelRestDescription	
-Label/&CampfireResumeTravelRestTitle	
-Label/&EnterLocationDescription	Have the party enter this location.
-Label/&EnterLocationTitle	Enter
-Label/&TravelToLocationDescription	Prepare to travel to this location.
-Label/&TravelToLocationTitle	Travel

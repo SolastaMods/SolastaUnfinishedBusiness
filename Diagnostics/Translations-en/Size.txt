@@ -1,6 +1,0 @@
-Size/&GargantuanTitle	Gargantuan
-Size/&HugeTitle	Huge
-Size/&LargeTitle	Large
-Size/&MediumTitle	Medium
-Size/&SmallTitle	Small
-Size/&TinyTitle	Tiny
