@@ -290,7 +290,8 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (attackMode is not {Reach: false, Ranged: true, Thrown: false})
+            if (attackMode is not {Reach: false, Ranged: true, Thrown: false}
+                && weapon.ItemDefinition.WeaponDescription.WeaponType != "DartType")
             {
                 return;
             }

@@ -9,4 +9,5 @@
 CHANGES:
 
 - Add a setting to tweak Darkelves light sensitivity
-- Fix Sorcerer hero creation
+- Fix Sorcerer new hero creation
+- Improve Deadeye feat to support Darts
