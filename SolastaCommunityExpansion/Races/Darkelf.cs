@@ -41,6 +41,7 @@ internal static class DarkelfSubraceBuilder
             .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight, "CombatAffinityDarkelfLightSensitivity", "a4f82743-0d75-4178-ba25-b3707420e170")
             .SetGuiPresentation(Category.Feature)
             .SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Disadvantage)
+            .SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(RuleDefinitions.DieType.D4)
             .AddToDB();
 
@@ -74,12 +75,17 @@ internal static class DarkelfSubraceBuilder
         if (Main.Settings.ReduceDarkelfLightPenalty)
         {
             darkelfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.None;
-            darkelfCombatAffinityLightSensitivity.myAttackModifierSign = RuleDefinitions.AttackModifierSign.Substract;
-            darkelfCombatAffinityLightSensitivity.myAttackModifierDiceNumber = 1;
             darkelfCombatAffinityLightSensitivity.myAttackModifierValueDetermination = RuleDefinitions.CombatAddinityValueDetermination.Die;
             darkelfConditionLightSensitive.GuiPresentation.description = "Feature/&LightAffinityDarkelfReducedLightSensitivityDescription";
             darkelfLightAffinity.GuiPresentation.description = "Feature/&LightAffinityDarkelfReducedLightSensitivityDescription";
-        };
+        }
+        else
+        {
+            darkelfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
+            darkelfCombatAffinityLightSensitivity.myAttackModifierValueDetermination = RuleDefinitions.CombatAddinityValueDetermination.None;
+            darkelfConditionLightSensitive.GuiPresentation.description = "Feature/&LightAffinityDarkelfLightSensitivityDescription";
+            darkelfLightAffinity.GuiPresentation.description = "Feature/&LightAffinityDarkelfLightSensitivityDescription";
+        }
 
         var darkelfDarkelfMagicSpellList = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "DarkelfMagicSpellList",

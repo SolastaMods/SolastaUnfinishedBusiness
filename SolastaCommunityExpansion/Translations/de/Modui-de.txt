@@ -142,6 +142,7 @@ ModUi/&Races=<color=yellow>Rassen und Unterrassen</color>
 ModUi/&RacesClassesSubclasses=Rassen, Klassen und Unterklassen
 ModUi/&RecipeCost=<color=white>Rezeptkosten</color>
 ModUi/&RecipesInDm=Rezepte in DM
+ModUi/&ReduceDarkelfLightPenalty=Reduziere den Lichtmalus der Dunkelelf auf -1W4 auf Angriffe anstatt auf den Nachteil
 ModUi/&RelicForgeries=Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements=Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBugVisualModels=Ersetzen Sie fehlerähnliche Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -186,7 +187,7 @@ ModUi/&UnlockGlowingEyeColors=Fügen Sie leuchtende Augenfarben hinzu <b><i><col
 ModUi/&UnlockMarkAndTatoosForAllCharacters=Schalte <color=Orange>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
 ModUi/&UseHeightOneCylinderEffect=Zeigen Sie einen Zylindereffekt der Höhe 1 an, wenn Sie <color=orange>Schwarze Tentakel, Verstricken, Fett</color> (quadratisch) und <color=orange>Stachelwachstum</color> (rund) wirken.
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
-ModUi/&Visuals=<color=yellow>Visuals:</color>
+ModUi/&Visuals=<color=yellow>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&TotalCraftingTimeModifier=<color=white>Herstellungszeit verkürzen um</color>
 ModUi/&ChangeSleetStormToCube=Ändern Sie <color=orange>Schneeregen</color>, um einen Würfel anstelle eines Zylinders zu verwenden
 ModUi/&Category=Kategorie

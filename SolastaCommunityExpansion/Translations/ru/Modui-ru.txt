@@ -142,6 +142,7 @@ ModUi/&Races=<color=yellow>Расы</color>
 ModUi/&RacesClassesSubclasses=Расы, классы и подклассы
 ModUi/&RecipeCost=<color=white>Стоимость рецепта</color>
 ModUi/&RecipesInDm=Рецепты в Создателе Подземелий
+ModUi/&ReduceDarkelfLightPenalty=Уменьшите Штраф Света Темных Эльфов до -1d4 к атакам вместо Неудобства
 ModUi/&RelicForgeries=Поддельные реликвии
 ModUi/&RemoveAttunementRequirements=Убрать требования к настройке на магические предметы <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&RemoveBugVisualModels=Заменять в игре похожие на жуков модели альтернативными <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>

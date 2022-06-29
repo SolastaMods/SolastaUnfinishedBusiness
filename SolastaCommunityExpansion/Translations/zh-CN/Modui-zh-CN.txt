@@ -142,6 +142,7 @@ ModUi/&Races=<color=yellow>种族&亚种</color>
 ModUi/&RacesClassesSubclasses=种族，职业与子职
 ModUi/&RecipeCost=<color=white>配方消耗</color>
 ModUi/&RecipesInDm=配方加入地城制作
+ModUi/&ReduceDarkelfLightPenalty=将暗精灵的光惩罚降低到 -1d4 攻击而不是劣势
 ModUi/&RelicForgeries=遗物赝品
 ModUi/&RemoveAttunementRequirements=移除同调的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RemoveBugVisualModels=将虫类模型以类似模型替代<i><color=#C04040E0>[需要重启游戏]</color></i>
@@ -186,7 +187,7 @@ ModUi/&UnlockGlowingEyeColors=解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters=解锁全部角色的标记和纹身
 ModUi/&UseHeightOneCylinderEffect=施放<color=orange>艾伐黑触手、纠缠术、油腻术</color>(方形)和<color=orange>荆棘丛生</color>(圆形)时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
-ModUi/&Visuals=<color=yellow>视效：</color>
+ModUi/&Visuals=<color=yellow>视效：</color><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&TotalCraftingTimeModifier=<color=white>制作耗时降低倍率</color>
 ModUi/&ChangeSleetStormToCube=将<color=orange>雪风暴</color>范围从圆柱体替换为立方体
 ModUi/&Category=类别

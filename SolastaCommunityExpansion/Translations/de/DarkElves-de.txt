@@ -1,23 +1,43 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Du hast einen Malus von -2 auf Weisheit (Wahrnehmung).
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=You have Disadvantage on Perception.
+	LEER
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Disadvantage on Perception
+	LEER
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisma +1
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Erhöhung des Fähigkeitswerts
-Feature/&DarkelfMagicDescription=Du kennst den Cantrip von Dancing Lights. Auf der 3. Stufe lernst du Feenfeuer und auf der 5. Stufe Dunkelheit. Beide können einmal pro langer Pause verwendet werden.
-Feature/&DarkelfMagicTitle=Magie der Dunkelelfen
-Feature/&DarkelfWeaponTrainingDescription=Sie beherrschen den Umgang mit Degen, Kurzschwertern und Handarmbrüsten.
-Feature/&DarkelfWeaponTrainingTitle=Waffentraining der Dunkelelfen
-Feature/&LightAffinityDarkelfLightSensitivityDescription=Du hast einen Malus von -2 auf Weisheitswürfe (Wahrnehmung) bei hellem Licht. Außerdem wird deine Geschwindigkeit bei hellem Licht um 1 reduziert.
-Feature/&LightAffinityDarkelfLightSensitivityTitle=Helle Lichtempfindlichkeit
-Feature/&MovementAffinityDarkelfLightSensitivityDescription=Deine Geschwindigkeit wird um 1 verringert.
-Feature/&PowerDarkelfDarknessDescription=Erschaffe einen Bereich magischer Dunkelheit. Einmal pro langer Pause verwendbar.
-Feature/&PowerDarkelfDarknessTitle=Dunkelheit
-Feature/&PowerDarkelfFaerieFireDescription=Markieren Sie Kreaturen, um jedem, der sie angreift, einen Vorteil zu verschaffen. Einmal pro langer Pause verwendbar.
-Feature/&PowerDarkelfFaerieFireTitle=Feenfeuer
-Race/&DarkelfRaceDescription=Dunkelelfen sind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Dunkelelfen sind größtenteils nachtaktiv und haben sich an das Leben in alten Ruinen der Ödlande angepasst, insbesondere in vergrabenen unterirdischen Ruinen. Sie neigen zu dunkler Haut und hellem Haar.
-Race/&DarkelfRaceTitle=Dunkelelf
+	LEER
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Ability Score Increase
+	LEER
+Feature/&DarkelfMagicDescription=You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
+	LEER
+Feature/&DarkelfMagicTitle=Dark Elf Magic
+	LEER
+Feature/&DarkelfWeaponTrainingDescription=You have proficiency with rapiers, shortswords, and hand crossbows.
+	LEER
+Feature/&DarkelfWeaponTrainingTitle=Dark Elf Weapon Training
+	LEER
+Feature/&LightAffinityDarkelfLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks and attack rolls in bright light.
+	LEER
+Feature/&LightAffinityDarkelfLightSensitivityTitle=Bright Light Sensitivity
+	LEER
+Feature/&LightAffinityDarkelfReducedLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks in bright light. In addition, you suffer a -1d4 penalty on attack rolls in bright light.
+	LEER
+Feature/&PowerDarkelfDarknessDescription=Create an area of magical darkness. Usable once per long rest.
+	LEER
+Feature/&PowerDarkelfDarknessTitle=Darkness
+	LEER
+Feature/&PowerDarkelfFaerieFireDescription=Highlight creatures to give advantage to anyone attacking them. Usable once per long rest.
+	LEER
+Feature/&PowerDarkelfFaerieFireTitle=Faerie Fire
+	LEER
+Race/&DarkelfRaceDescription=Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
+	LEER
+Race/&DarkelfRaceTitle=Dark Elf
+	LEER
 Race/&DarkelfSurName1Title=Za'Moryra
-Race/&DarkelfSurName2Title=Dhal Neridthas
+	LEER
+Race/&DarkelfSurName2Title=DhalNeridthas
+	LEER
 Race/&DarkelfSurName3Title=DhalNerwenys
+	LEER
 Race/&DarkelfSurName4Title=Zo'Sonta
-Race/&DarkelfSurName5Title=Zo’Remon
-Feature/&MovementAffinityDarkelfLightSensitivityTitle=-1 Malus auf Geschwindigkeit
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Malus von -2 auf Weisheit
+	LEER
+Race/&DarkelfSurName5Title=Zo'Remon	LEER

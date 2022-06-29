@@ -1,23 +1,43 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Vous avez un malus de -2 en Sagesse (Perception).
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisme +1
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Augmentation du score de capacité
-Feature/&DarkelfMagicDescription=Vous connaissez le sort mineur Dancing Lights. Au niveau 3, vous apprenez le feu féerique et au niveau 5, les ténèbres. Les deux peuvent être utilisés une fois par repos long.
-Feature/&DarkelfMagicTitle=Magie des Elfes Noirs
-Feature/&DarkelfWeaponTrainingDescription=Vous maîtrisez les rapières, les épées courtes et les arbalètes à main.
-Feature/&DarkelfWeaponTrainingTitle=Entraînement aux armes des elfes noirs
-Feature/&LightAffinityDarkelfLightSensitivityDescription=Vous avez un malus de -2 aux tests de Sagesse (Perception) en pleine lumière. De plus, votre vitesse est réduite de 1 en pleine lumière.
-Feature/&LightAffinityDarkelfLightSensitivityTitle=Sensibilité à la lumière vive
-Feature/&MovementAffinityDarkelfLightSensitivityDescription=Votre vitesse est réduite de 1.
-Feature/&PowerDarkelfDarknessDescription=Créez une zone d'obscurité magique. Utilisable une fois par repos long.
-Feature/&PowerDarkelfDarknessTitle=Ténèbres
-Feature/&PowerDarkelfFaerieFireDescription=Mettez en surbrillance les créatures pour donner l'avantage à quiconque les attaque. Utilisable une fois par repos long.
-Feature/&PowerDarkelfFaerieFireTitle=Feu féerique
-Race/&DarkelfRaceDescription=Les elfes noirs sont des descendants d'elfes qui ont changé au fil du temps en vivant dans les Badlands inhospitalières. Les elfes noirs sont en grande partie nocturnes et se sont adaptés à la vie dans les anciennes ruines des Badlands, en particulier les ruines souterraines enfouies. Ils ont tendance à avoir la peau foncée et les cheveux pâles.
-Race/&DarkelfRaceTitle=Elfe noir
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=You have Disadvantage on Perception.
+	VIDE
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Disadvantage on Perception
+	VIDE
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisma +1
+	VIDE
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Ability Score Increase
+	VIDE
+Feature/&DarkelfMagicDescription=You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
+	VIDE
+Feature/&DarkelfMagicTitle=Dark Elf Magic
+	VIDE
+Feature/&DarkelfWeaponTrainingDescription=You have proficiency with rapiers, shortswords, and hand crossbows.
+	VIDE
+Feature/&DarkelfWeaponTrainingTitle=Dark Elf Weapon Training
+	VIDE
+Feature/&LightAffinityDarkelfLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks and attack rolls in bright light.
+	VIDE
+Feature/&LightAffinityDarkelfLightSensitivityTitle=Bright Light Sensitivity
+	VIDE
+Feature/&LightAffinityDarkelfReducedLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks in bright light. In addition, you suffer a -1d4 penalty on attack rolls in bright light.
+	VIDE
+Feature/&PowerDarkelfDarknessDescription=Create an area of magical darkness. Usable once per long rest.
+	VIDE
+Feature/&PowerDarkelfDarknessTitle=Darkness
+	VIDE
+Feature/&PowerDarkelfFaerieFireDescription=Highlight creatures to give advantage to anyone attacking them. Usable once per long rest.
+	VIDE
+Feature/&PowerDarkelfFaerieFireTitle=Faerie Fire
+	VIDE
+Race/&DarkelfRaceDescription=Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
+	VIDE
+Race/&DarkelfRaceTitle=Dark Elf
+	VIDE
 Race/&DarkelfSurName1Title=Za'Moryra
+	VIDE
 Race/&DarkelfSurName2Title=DhalNeridthas
+	VIDE
 Race/&DarkelfSurName3Title=DhalNerwenys
+	VIDE
 Race/&DarkelfSurName4Title=Zo'Sonta
-Race/&DarkelfSurName5Title=Zo'Remon
-Feature/&MovementAffinityDarkelfLightSensitivityTitle=-1 malus sur la vitesse
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=-2 malus en Sagesse
+	VIDE
+Race/&DarkelfSurName5Title=Zo'Remon	VIDE
