@@ -8,4 +8,5 @@
 
 CHANGES:
 
-- Fix Sorcerer creation interaction with Tattoos
+- Add a setting to tweak Darkelves light sensitivity
+- Fix Sorcerer hero creation
