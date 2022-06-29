@@ -55,23 +55,22 @@ Subclass/&RoguishConArtistMentalSavingThrowsDescription=You	gain proficiency in 
 Subclass/&RoguishConArtistMentalSavingThrowsTitle=Mental	Strength
 Subclass/&RoguishConArtistSpellcastingDescription=Cast	Wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
 Subclass/&RoguishConArtistTitle=Con	Artist
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=You	have a -2 penalty on Wisdom (Perception).
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=You	have Disadvantage on Perception.
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Disadvantage	on Perception
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisma	+1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Ability	Score Increase
 Feature/&DarkelfMagicDescription=You	know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
 Feature/&DarkelfMagicTitle=Dark	Elf Magic
 Feature/&DarkelfWeaponTrainingDescription=You	have proficiency with rapiers, shortswords, and hand crossbows.
 Feature/&DarkelfWeaponTrainingTitle=Dark	Elf Weapon Training
-Feature/&LightAffinityDarkelfLightSensitivityDescription=You	have a -2 penalty on Wisdom (Perception) checks in bright light. In addition, your speed is reduced by 1 in bright light.
+Feature/&LightAffinityDarkelfLightSensitivityDescription=You	have Disadvantage on Wisdom (Perception) checks and attack rolls in bright light.
 Feature/&LightAffinityDarkelfLightSensitivityTitle=Bright	Light Sensitivity
-Feature/&MovementAffinityDarkelfLightSensitivityDescription=Your	speed is reduced by 1.
+Feature/&LightAffinityDarkelfReducedLightSensitivityDescription=You	have Disadvantage on Wisdom (Perception) checks in bright light. In addition, you suffer a -1d4 penalty on attack rolls in bright light.
 Feature/&PowerDarkelfDarknessDescription=Create	an area of magical darkness. Usable once per long rest.
 Feature/&PowerDarkelfFaerieFireDescription=Highlight	creatures to give advantage to anyone attacking them. Usable once per long rest.
 Feature/&PowerDarkelfFaerieFireTitle=Faerie	Fire
 Race/&DarkelfRaceDescription=Dark	elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 Race/&DarkelfRaceTitle=Dark	Elf
-Feature/&MovementAffinityDarkelfLightSensitivityTitle=-1	penalty on speed
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=-2	penalty on Wisdom
 Condition/&ConditionBarkWardDescription=Protected	by the spirits of the forest. Gain 4 temp HP for each level of Druid, lasting 10 minutes.
 Condition/&ConditionBarkWardTitle=Bark	Ward
 Condition/&ConditionImprovedBarkWardDescription=The	spirits of the forest deal 2d8 piercing damage to creatures that hit with a melee attack.
@@ -923,6 +922,7 @@ ModUi/&Races=<color=yellow>Races	& Subraces</color>
 ModUi/&RacesClassesSubclasses=Races,	Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's	Cost</color>
 ModUi/&RecipesInDm=Recipes	in DM
+ModUi/&ReduceDarkelfLightPenalty=Reduce	Darkelf Light Penalty to -1d4 on attacks instead of Disadvantage
 ModUi/&RelicForgeries=Relic	Forgeries
 ModUi/&RemoveAttunementRequirements=Remove	attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels=Replace	bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -958,6 +958,7 @@ ModUi/&UnlockGlowingEyeColors=Add	glowing eye colors <b><i><color=#C04040E0>[Req
 ModUi/&UnlockMarkAndTatoosForAllCharacters=Unlock	<color=Orange>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UseHeightOneCylinderEffect=Display	a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square) and <color=orange>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use	official advantage / disadvantage rules
+ModUi/&Visuals=<color=yellow>Visuals:</color>	<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce	crafting time by</color>
 ModUi/&ChangeSleetStormToCube=Change	<color=orange>Sleet Storm</color> to use a cube instead of a cylinder
 ModUi/&WeaponTag=Weapon	Tag

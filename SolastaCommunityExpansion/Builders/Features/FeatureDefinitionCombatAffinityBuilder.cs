@@ -16,6 +16,12 @@ public abstract class
         return This();
     }
 
+    public TBuilder SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign modifierSign)
+    {
+        Definition.myAttackModifierSign = modifierSign;
+        return This();
+    }
+
     public TBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
     {
         Definition.myAttackAdvantage = advantage;
