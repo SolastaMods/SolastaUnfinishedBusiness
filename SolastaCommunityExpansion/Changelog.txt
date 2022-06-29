@@ -9,5 +9,6 @@
 CHANGES:
 
 - Add a setting to tweak Darkelves light sensitivity
+- Deprecate Blind fighting style
 - Fix Sorcerer new hero creation
 - Improve Deadeye feat to support Darts
