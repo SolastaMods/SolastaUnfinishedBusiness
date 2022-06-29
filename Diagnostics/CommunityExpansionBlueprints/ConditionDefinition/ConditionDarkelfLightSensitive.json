@@ -5,7 +5,7 @@
   "conditionType": "Detrimental",
   "features": [
     "Definition:AbilityCheckAffinityDarkelfLightSensitivity:a4f82743-0d75-4178-ba25-b3707420e17e",
-    "Definition:MovementAffinityDarkelfLightSensitivity:17c4b5a2-ae5e-4565-a399-73beaaa09431"
+    "Definition:CombatAffinityDarkelfLightSensitivity:a4f82743-0d75-4178-ba25-b3707420e170"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
