@@ -134,7 +134,6 @@ internal class DivineHeart : AbstractSubclass
             .AddFeatureAtLevel(divineHeartDivineRecoveryPower, 18)
             .AddToDB();
     }
-
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
         return FeatureDefinitionSubclassChoices.SubclassChoiceSorcerousOrigin;
