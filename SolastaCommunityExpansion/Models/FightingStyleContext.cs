@@ -14,7 +14,7 @@ internal static class FightingStyleContext
     internal static void Load()
     {
         // DEPRECATED
-        _ = (new BlindFighting()).GetStyle();
+        _ = new BlindFighting().GetStyle();
         LoadStyle(new Crippling());
         LoadStyle(new Pugilist());
         LoadStyle(new TitanFighting());

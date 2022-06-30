@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Api.Extensions;
-using TA;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Sorcerer;
+
 internal class DivineHeart : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("58ce31d8-6a37-4d6e-adbd-b9b60658a3ef");
@@ -58,7 +57,8 @@ internal class DivineHeart : AbstractSubclass
             .AddToDB();
 
         var divineHeartDeityChoice = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetDivineHeartDeityChoice", SubclassNamespace)
+            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetDivineHeartDeityChoice",
+                SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
                 divineHeartArun,
@@ -69,35 +69,43 @@ internal class DivineHeart : AbstractSubclass
             .AddToDB();
 
         var divineHeartDivineFortitude = FeatureDefinitionAttributeModifierBuilder
-            .Create(FeatureDefinitionAttributeModifiers.AttributeModifierDwarfHillToughness, "AttributeModifierDivineHeartDivineFortitude", SubclassNamespace)
+            .Create(FeatureDefinitionAttributeModifiers.AttributeModifierDwarfHillToughness,
+                "AttributeModifierDivineHeartDivineFortitude", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var divineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
-            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList, "MagicAffinityDivineHeartClericSpellsList", SubclassNamespace)
+            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
+                "MagicAffinityDivineHeartClericSpellsList", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetExtendedSpellList(SpellListDefinitions.SpellListCleric)
             .AddToDB();
 
         var divineHeartEmpoweredHealingModifier = FeatureDefinitionDieRollModifierBuilder
-            .Create(FeatureDefinitionDieRollModifiers.DieRollModifierEmpoweredSpell, "DieRollModifierDivineHeartEmpoweredHealing", SubclassNamespace)
-            .SetGuiPresentation("Feature/&PowerDivineHeartEmpoweredHealingTitle", "Feature/&PowerDivineHeartEmpoweredHealingDescription")
+            .Create(FeatureDefinitionDieRollModifiers.DieRollModifierEmpoweredSpell,
+                "DieRollModifierDivineHeartEmpoweredHealing", SubclassNamespace)
+            .SetGuiPresentation("Feature/&PowerDivineHeartEmpoweredHealingTitle",
+                "Feature/&PowerDivineHeartEmpoweredHealingDescription")
             .AddToDB();
 
         divineHeartEmpoweredHealingModifier.validityContext = RuleDefinitions.RollContext.HealValueRoll;
-        divineHeartEmpoweredHealingModifier.rerollLocalizationKey = "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription";
+        divineHeartEmpoweredHealingModifier.rerollLocalizationKey =
+            "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription";
 
         var divineHeartEmpoweredHealingCondition = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionSorcererChildRiftDeflection, "ConditionDivineHeartEmpoweredHealing", SubclassNamespace)
+            .Create(ConditionDefinitions.ConditionSorcererChildRiftDeflection, "ConditionDivineHeartEmpoweredHealing",
+                SubclassNamespace)
             .SetGuiPresentation(Category.Condition)
             .SetFeatures(divineHeartEmpoweredHealingModifier)
             .AddToDB();
 
         var divineHeartEmpoweredHealingPower = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection, "PowerDivineHeartEmpoweredHealing", SubclassNamespace)
+            .Create(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection, "PowerDivineHeartEmpoweredHealing",
+                SubclassNamespace)
             .SetGuiPresentation(Category.Feature, HealingWord.GuiPresentation.SpriteReference)
             .AddToDB();
-        divineHeartEmpoweredHealingPower.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition = divineHeartEmpoweredHealingCondition;
+        divineHeartEmpoweredHealingPower.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
+            divineHeartEmpoweredHealingCondition;
 
         var divineHeartPlanarPortalPower = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartPlanarPortal", SubclassNamespace)
@@ -135,10 +143,12 @@ internal class DivineHeart : AbstractSubclass
             .AddFeatureAtLevel(divineHeartDivineRecoveryPower, 18)
             .AddToDB();
     }
+
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
         return FeatureDefinitionSubclassChoices.SubclassChoiceSorcerousOrigin;
     }
+
     internal override CharacterSubclassDefinition GetSubclass()
     {
         return Subclass;

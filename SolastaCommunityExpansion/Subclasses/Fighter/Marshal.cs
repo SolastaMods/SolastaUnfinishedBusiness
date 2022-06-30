@@ -531,7 +531,7 @@ internal static class EncourageBuilder
                     .SetConditionForm(conditionEncouraged, ConditionForm.ConditionOperation.Add, false, false)
                     .Build()
             ).Build();
-        
+
         effect.SetCanBePlacedOnCharacter(true);
 
         return FeatureDefinitionPowerBuilder

@@ -10,7 +10,6 @@ using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Sorcerer;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 
-
 namespace SolastaCommunityExpansion.Models;
 
 internal static class SubclassesContext

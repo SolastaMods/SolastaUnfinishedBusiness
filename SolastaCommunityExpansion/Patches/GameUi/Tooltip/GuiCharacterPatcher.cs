@@ -21,7 +21,7 @@ internal static class CharacterPlateGame_OnPointerEnter
         }
 
         var sb = new StringBuilder();
-        var totalAttacks = (float) hero.successfulAttacks + hero.failedAttacks;
+        var totalAttacks = (float)hero.successfulAttacks + hero.failedAttacks;
         var hitAccuracy = totalAttacks > 0 ? hero.successfulAttacks / totalAttacks : 0;
         var feet = hero.travelledCells / 5f;
         var meter = feet * 0.3048;

@@ -333,7 +333,8 @@ internal static class ToolsDisplay
                     UI.Width(30));
 
                 var label = item.GuiPresentation.Title.StartsWith("Equipment/&CraftingManual")
-                    ? Gui.Format(item.GuiPresentation.Title, item.DocumentDescription.RecipeDefinition.CraftedItem.FormatTitle())
+                    ? Gui.Format(item.GuiPresentation.Title,
+                        item.DocumentDescription.RecipeDefinition.CraftedItem.FormatTitle())
                     : item.FormatTitle();
 
                 UI.Label(label, UI.AutoWidth());

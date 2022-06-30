@@ -16,17 +16,17 @@ namespace SolastaCommunityExpansion.Utils;
 
 public static class Translations
 {
-    internal static readonly Dictionary<string, string> TranslationsCache = new();
-
     public enum Engine
     {
         Baidu,
         Google
     }
 
+    private static readonly Dictionary<string, string> TranslationsCache = new();
+
     internal static readonly string[] AvailableLanguages = {"de", "en", "es", "fr", "it", "pt", "ru", "zh-CN"};
 
-    internal static string[] AvailableEngines = Enum.GetNames(typeof(Engine));
+    internal static readonly string[] AvailableEngines = Enum.GetNames(typeof(Engine));
 
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 
