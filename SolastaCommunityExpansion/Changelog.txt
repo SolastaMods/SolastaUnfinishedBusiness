@@ -8,11 +8,12 @@
 
 ATTENTION:
 
-- RESPEC any hero with Blind fighting style or feat
+- RESPEC any hero/save with blind fighting style or feat
 
 CHANGES:
 
-- Add a setting to tweak Darkelves light sensitivity
-- Deprecate Blind fighting style and feat
-- Fix Sorcerer new hero creation
-- Improve Deadeye feat to support Darts
+- Add sorcerer Divine Heart subclass
+- Update dark elves light sensitivity with an UI setting
+- Deprecate blind fighting style and feat
+- Fix sorcerers creation
+- Improve deadeye feat to support darts
