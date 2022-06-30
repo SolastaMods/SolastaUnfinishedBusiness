@@ -5513,6 +5513,7 @@ ClassWarlockSpellList	SpellListDefinition	SpellListDefinition	fb4cc42a-8287-5d39
 DarkelfMagicSpellList	SpellListDefinition	SpellListDefinition	7e84092e-8b26-4870-8244-ce435a95b67f
 DHCouatlSpellList	SpellListDefinition	SpellListDefinition	9c861b19-ef70-5207-b1b4-d779a6c0d1aa
 DHPactOfTheTomeSpellList	SpellListDefinition	SpellListDefinition	297fb15a-6b35-5375-bb2e-fe8fcf8cc1e6
+DivineHeartClericSpellsList	SpellListDefinition	SpellListDefinition	cdb599e3-1080-51ea-b809-76a7392d0645
 ElementalistSpellsList	SpellListDefinition	SpellListDefinition	bf646de5-3d7b-53e5-93d4-4e70bd24501b
 GuardianNaga_Spelllist	SpellListDefinition	SpellListDefinition	773d2cbf-c21f-5ef8-8f40-d9a9dc2e88a7
 Lich_Spelllist	SpellListDefinition	SpellListDefinition	5b9c4eaf-d258-581c-a8e9-2d89dd643b1a
