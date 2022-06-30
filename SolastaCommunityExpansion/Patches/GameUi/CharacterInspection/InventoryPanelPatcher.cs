@@ -12,7 +12,8 @@ internal static class InventoryPanel_OnBeginShow
     {
         InventoryManagementContext.RefreshControlsVisibility();
 
-        if (Main.Settings.EnableInventoryFilteringAndSorting)
+        if (Main.Settings.EnableInventoryFilteringAndSorting
+            && !Global.IsMultiplayer)
         {
             InventoryManagementContext.SelectionChanged();
         }
@@ -26,7 +27,9 @@ internal static class ContainerPanel_Bind
     internal static void Postfix(InventoryPanel __instance)
     {
         // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
-        if (Main.Settings.EnableInventoryFilteringAndSorting && __instance.MainContainerPanel)
+        if (Main.Settings.EnableInventoryFilteringAndSorting
+            && !Global.IsMultiplayer
+            && __instance.MainContainerPanel)
         {
             InventoryManagementContext.SortAndFilter(__instance.MainContainerPanel.Container);
         }
