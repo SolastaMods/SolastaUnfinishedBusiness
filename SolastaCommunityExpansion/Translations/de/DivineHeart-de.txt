@@ -1,53 +1,27 @@
-﻿Condition/&ConditionDivineHeartEmpoweredHealingTitle=Empowered Healing
-	LEER
-Condition/&ConditionDivineHeartEmpoweredHealingDescription=If you cast a Healing spell this turn, you reroll a result of 1 or 2.
-	LEER
-Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Hit Point per level
-	LEER
-Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Divine Fortitude
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartArunDescription=Protection From Evil and Good is always known and prepared.
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartArunTitle=Arun: Protection From Evil and Good
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartEinarDescription=Einar - Inflict Wounds is always known and prepared.
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartEinarTitle=Einar: Inflict Wounds
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeDescription=Mariake - Cure Wounds is always known and prepared.
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeTitle=Mariake: Cure Wounds
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeDescription=Misaye - Bane is always known and prepared.
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeTitle=Misaye: Bane
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartPakriDescription=Pakri - Bless is always known and prepared.
-	LEER
-Feature/&AutoPreparedSpellsSorcererDivineHeartPakriTitle=Pakri: Bless
-	LEER
-Feature/&FeatureSetDivineHeartDeityChoiceDescription=Select the Divine source of your magic (and bonus prepared spell)
-	LEER
-Feature/&FeatureSetDivineHeartDeityChoiceTitle=Deity Choice
-	LEER
-Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Your connection to the divine allows you to learn and cast Cleric spells as Sorcerer spells.
-	LEER
-Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Divine Magic
-	LEER
-Feature/&PowerDivineHeartDivineRecoveryTitle=Divine Recovery
-	LEER
-Feature/&PowerDivineHeartDivineRecoveryDescription=As a Bonus Action, you can restore 70 hit points to yourself and remove blindness and diseases. Usable once per long rest. 
-	LEER
-Feature/&PowerDivineHeartEmpoweredHealingTitle=Empowered Healing
-	LEER
-Feature/&PowerDivineHeartEmpoweredHealingDescription=Until the start of your next turn, when casting a healing spell you reroll healing dice rolls of 1 or 2, keeping the new result. Activate this power as a Bonus Action expending 1 sorcerer point. 
-	LEER
-Feature/&PowerDivineHeartEmpoweredHealingRerollDescription={0} uses Empowered Healing to reroll a {1} damage die from {2} to {3}.
-	LEER
-Feature/&PowerDivineHeartPlanarPortalDescription=Opens a portal that can carry a friendly creature and yourself to a specified destination.
-	LEER
-Feature/&PowerDivineHeartPlanarPortalTitle=Planar Portal
-	LEER
-Subclass/&SorcerousDivineHeartDescription=Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
-	LEER
-Subclass/&SorcerousDivineHeartTitle=Divine Heart	LEER
+﻿Condition/&ConditionDivineHeartEmpoweredHealingTitle=Ermächtigte Heilung
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Wenn du in diesem Zug einen Heilzauber wirkst, würfelst du ein Ergebnis von 1 oder 2 neu.
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Trefferpunkt pro Level
+Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Göttliche Stärke
+Feature/&AutoPreparedSpellsSorcererDivineHeartArunDescription=Schutz vor Bösem und Gutem ist immer bekannt und vorbereitet.
+Feature/&AutoPreparedSpellsSorcererDivineHeartArunTitle=Arun: Schutz vor Bösem und Gutem
+Feature/&AutoPreparedSpellsSorcererDivineHeartEinarDescription=Einar - Inflict Wounds ist immer bekannt und vorbereitet.
+Feature/&AutoPreparedSpellsSorcererDivineHeartEinarTitle=Einar: Wunden zufügen
+Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeDescription=Mariake - Cure Wounds ist immer bekannt und vorbereitet.
+Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeTitle=Mariake: Wunden heilen
+Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeDescription=Misaye - Bane ist immer bekannt und vorbereitet.
+Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeTitle=Misaye: Vier
+Feature/&AutoPreparedSpellsSorcererDivineHeartPakriDescription=Pakri - Bless ist immer bekannt und vorbereitet.
+Feature/&AutoPreparedSpellsSorcererDivineHeartPakriTitle=Pakri: Segne
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Wähle die göttliche Quelle deiner Magie (und des vorbereiteten Bonuszaubers)
+Feature/&FeatureSetDivineHeartDeityChoiceTitle=Wahl der Gottheit
+Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Deine Verbindung zum Göttlichen ermöglicht es dir, Klerikerzauber als Hexenmeisterzauber zu lernen und zu wirken.
+Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Göttliche Magie
+Feature/&PowerDivineHeartDivineRecoveryTitle=Göttliche Genesung
+Feature/&PowerDivineHeartDivineRecoveryDescription=Als Bonusaktion können Sie 70 Trefferpunkte wiederherstellen und Blindheit und Krankheiten entfernen. Einmal pro langer Pause verwendbar.
+Feature/&PowerDivineHeartEmpoweredHealingTitle=Ermächtigte Heilung
+Feature/&PowerDivineHeartEmpoweredHealingDescription=Bis zum Beginn deines nächsten Zuges würfelst du beim Wirken eines Heilzaubers Heilwürfelwürfe von 1 oder 2 neu und behältst das neue Ergebnis. Aktiviere diese Kraft als Bonusaktion, die 1 Zaubererpunkt verbraucht.
+Feature/&PowerDivineHeartEmpoweredHealingRerollDescription={0} verwendet Verstärkte Heilung, um einen {1} Schadenswürfel von {2} auf {3} neu zu würfeln.
+Feature/&PowerDivineHeartPlanarPortalDescription=Öffnet ein Portal, das eine verbündete Kreatur und dich selbst zu einem bestimmten Ziel tragen kann.
+Feature/&PowerDivineHeartPlanarPortalTitle=Planares Portal
+Subclass/&SorcerousDivineHeartDescription=Ihre angeborene Magie wurde Ihnen von einer Gottheit zu einem Zweck verliehen, den Sie vielleicht verstehen oder auch nicht.
+Subclass/&SorcerousDivineHeartTitle=Göttliches Herz

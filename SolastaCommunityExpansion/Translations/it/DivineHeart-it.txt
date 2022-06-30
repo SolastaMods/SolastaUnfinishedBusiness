@@ -1,53 +1,27 @@
-﻿Condition/&ConditionDivineHeartEmpoweredHealingTitle=Empowered Healing
-	VUOTO
-Condition/&ConditionDivineHeartEmpoweredHealingDescription=If you cast a Healing spell this turn, you reroll a result of 1 or 2.
-	VUOTO
-Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Hit Point per level
-	VUOTO
-Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Divine Fortitude
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartArunDescription=Protection From Evil and Good is always known and prepared.
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartArunTitle=Arun: Protection From Evil and Good
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartEinarDescription=Einar - Inflict Wounds is always known and prepared.
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartEinarTitle=Einar: Inflict Wounds
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeDescription=Mariake - Cure Wounds is always known and prepared.
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeTitle=Mariake: Cure Wounds
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeDescription=Misaye - Bane is always known and prepared.
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeTitle=Misaye: Bane
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartPakriDescription=Pakri - Bless is always known and prepared.
-	VUOTO
-Feature/&AutoPreparedSpellsSorcererDivineHeartPakriTitle=Pakri: Bless
-	VUOTO
-Feature/&FeatureSetDivineHeartDeityChoiceDescription=Select the Divine source of your magic (and bonus prepared spell)
-	VUOTO
-Feature/&FeatureSetDivineHeartDeityChoiceTitle=Deity Choice
-	VUOTO
-Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Your connection to the divine allows you to learn and cast Cleric spells as Sorcerer spells.
-	VUOTO
-Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Divine Magic
-	VUOTO
-Feature/&PowerDivineHeartDivineRecoveryTitle=Divine Recovery
-	VUOTO
-Feature/&PowerDivineHeartDivineRecoveryDescription=As a Bonus Action, you can restore 70 hit points to yourself and remove blindness and diseases. Usable once per long rest. 
-	VUOTO
-Feature/&PowerDivineHeartEmpoweredHealingTitle=Empowered Healing
-	VUOTO
-Feature/&PowerDivineHeartEmpoweredHealingDescription=Until the start of your next turn, when casting a healing spell you reroll healing dice rolls of 1 or 2, keeping the new result. Activate this power as a Bonus Action expending 1 sorcerer point. 
-	VUOTO
-Feature/&PowerDivineHeartEmpoweredHealingRerollDescription={0} uses Empowered Healing to reroll a {1} damage die from {2} to {3}.
-	VUOTO
-Feature/&PowerDivineHeartPlanarPortalDescription=Opens a portal that can carry a friendly creature and yourself to a specified destination.
-	VUOTO
-Feature/&PowerDivineHeartPlanarPortalTitle=Planar Portal
-	VUOTO
-Subclass/&SorcerousDivineHeartDescription=Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
-	VUOTO
-Subclass/&SorcerousDivineHeartTitle=Divine Heart	VUOTO
+﻿Condition/&ConditionDivineHeartEmpoweredHealingTitle=Guarigione potenziata
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se lanci una magia di Guarigione in questo turno, ritiri il risultato di 1 o 2.
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Punto Ferita per livello
+Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Fortezza Divina
+Feature/&AutoPreparedSpellsSorcererDivineHeartArunDescription=La protezione dal male e dal bene è sempre conosciuta e preparata.
+Feature/&AutoPreparedSpellsSorcererDivineHeartArunTitle=Arun: protezione dal male e dal bene
+Feature/&AutoPreparedSpellsSorcererDivineHeartEinarDescription=Einar - Infliggi ferite è sempre conosciuto e preparato.
+Feature/&AutoPreparedSpellsSorcererDivineHeartEinarTitle=Einar: infliggi ferite
+Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeDescription=Mariake - Cure Wounds è sempre conosciuta e preparata.
+Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeTitle=Mariake: Cura le ferite
+Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeDescription=Misaye - Bane è sempre conosciuto e preparato.
+Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeTitle=Misaye: Quattro
+Feature/&AutoPreparedSpellsSorcererDivineHeartPakriDescription=Pakri - Bless è sempre conosciuto e preparato.
+Feature/&AutoPreparedSpellsSorcererDivineHeartPakriTitle=Pakri: Benedici
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Seleziona la fonte divina della tua magia (e l'incantesimo bonus preparato)
+Feature/&FeatureSetDivineHeartDeityChoiceTitle=Scelta della divinità
+Feature/&MagicAffinityDivineHeartClericSpellsListDescription=La tua connessione con il divino ti consente di imparare e lanciare incantesimi da Chierico come incantesimi da Stregone.
+Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Magia Divina
+Feature/&PowerDivineHeartDivineRecoveryTitle=Recupero Divino
+Feature/&PowerDivineHeartDivineRecoveryDescription=Come Azione Bonus, puoi ripristinare 70 punti ferita e rimuovere cecità e malattie. Utilizzabile una volta per riposo lungo.
+Feature/&PowerDivineHeartEmpoweredHealingTitle=Guarigione potenziata
+Feature/&PowerDivineHeartEmpoweredHealingDescription=Fino all'inizio del tuo prossimo turno, quando lanci un incantesimo di guarigione rilancia i tiri dei dadi di guarigione di 1 o 2, mantenendo il nuovo risultato. Attiva questo potere come Azione Bonus spendendo 1 punto stregone.
+Feature/&PowerDivineHeartEmpoweredHealingRerollDescription={0} usa la Guarigione Potenziata per tirare un {1} dado di danno da {2} a {3}.
+Feature/&PowerDivineHeartPlanarPortalDescription=Apre un portale che può trasportare una creatura amica e te stesso verso una destinazione specificata.
+Feature/&PowerDivineHeartPlanarPortalTitle=Portale Planare
+Subclass/&SorcerousDivineHeartDescription=La tua innata magia ti è stata impartita da una Divinità per uno scopo che potresti capire o meno.
+Subclass/&SorcerousDivineHeartTitle=Cuore Divino

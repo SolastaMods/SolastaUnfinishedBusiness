@@ -75,7 +75,7 @@ def unpack_record(record):
     term = ""
     text = ""
     try:
-        (term, text) = record.split("\t", 1)
+        (term, text) = record.split("=", 1)
         text = text.strip()
     except:
         term = record
@@ -139,7 +139,7 @@ def translate_file(input_file, output_file, code, dictionary=None):
             translated = translate_chunk(text, code)
             fixed = fix_translated_format(translated)
             replaced = apply_dictionary(dictionary, fixed)
-            f.write(f"{term}\t{replaced}\n")
+            f.write(f"{term}={replaced}\n")
 
 
 def main():

@@ -1,43 +1,22 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=You have Disadvantage on Perception.
-	VAZIO
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Disadvantage on Perception
-	VAZIO
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisma +1
-	VAZIO
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Ability Score Increase
-	VAZIO
-Feature/&DarkelfMagicDescription=You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
-	VAZIO
-Feature/&DarkelfMagicTitle=Dark Elf Magic
-	VAZIO
-Feature/&DarkelfWeaponTrainingDescription=You have proficiency with rapiers, shortswords, and hand crossbows.
-	VAZIO
-Feature/&DarkelfWeaponTrainingTitle=Dark Elf Weapon Training
-	VAZIO
-Feature/&LightAffinityDarkelfLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks and attack rolls in bright light.
-	VAZIO
-Feature/&LightAffinityDarkelfLightSensitivityTitle=Bright Light Sensitivity
-	VAZIO
-Feature/&LightAffinityDarkelfReducedLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks in bright light. In addition, you suffer a -1d4 penalty on attack rolls in bright light.
-	VAZIO
-Feature/&PowerDarkelfDarknessDescription=Create an area of magical darkness. Usable once per long rest.
-	VAZIO
-Feature/&PowerDarkelfDarknessTitle=Darkness
-	VAZIO
-Feature/&PowerDarkelfFaerieFireDescription=Highlight creatures to give advantage to anyone attacking them. Usable once per long rest.
-	VAZIO
-Feature/&PowerDarkelfFaerieFireTitle=Faerie Fire
-	VAZIO
-Race/&DarkelfRaceDescription=Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
-	VAZIO
-Race/&DarkelfRaceTitle=Dark Elf
-	VAZIO
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Você tem Desvantagem em Percepção.
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Desvantagem na Percepção
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento de pontuação de habilidade
+Feature/&DarkelfMagicDescription=Você conhece o truque das Luzes Dançantes. No 3º nível você aprende Faerie Fire e no 5º nível, Darkness. Ambos podem ser usados ​​uma vez por descanso longo.
+Feature/&DarkelfMagicTitle=Magia dos Elfos Negros
+Feature/&DarkelfWeaponTrainingDescription=Você tem proficiência com rapieiras, espadas curtas e bestas de mão.
+Feature/&DarkelfWeaponTrainingTitle=Treinamento de Arma dos Elfos Negros
+Feature/&LightAffinityDarkelfLightSensitivityDescription=Você tem Desvantagem em testes de Sabedoria (Percepção) e jogadas de ataque sob luz forte.
+Feature/&LightAffinityDarkelfLightSensitivityTitle=Sensibilidade à luz brilhante
+Feature/&LightAffinityDarkelfReducedLightSensitivityDescription=Você tem Desvantagem em testes de Sabedoria (Percepção) sob luz forte. Além disso, você sofre uma penalidade de -1d4 nas jogadas de ataque sob luz forte.
+Feature/&PowerDarkelfDarknessDescription=Crie uma área de escuridão mágica. Utilizável uma vez por descanso longo.
+Feature/&PowerDarkelfDarknessTitle=Trevas
+Feature/&PowerDarkelfFaerieFireDescription=Destaque as criaturas para dar vantagem a qualquer um que as ataque. Utilizável uma vez por descanso longo.
+Feature/&PowerDarkelfFaerieFireTitle=Fogo das Fadas
+Race/&DarkelfRaceDescription=Elfos negros são descendentes de elfos que foram alterados ao longo do tempo por viver nas inóspitas Badlands. Elfos negros são em grande parte noturnos e se adaptaram a viver em antigas ruínas de Badlands, especialmente ruínas subterrâneas enterradas. Eles tendem a ter pele escura e cabelos claros.
+Race/&DarkelfRaceTitle=Elfo negro
 Race/&DarkelfSurName1Title=Za'Moryra
-	VAZIO
-Race/&DarkelfSurName2Title=DhalNeridthas
-	VAZIO
-Race/&DarkelfSurName3Title=DhalNerwenys
-	VAZIO
+Race/&DarkelfSurName2Title=Dhal Neridthas
+Race/&DarkelfSurName3Title=Dhal Nerwenys
 Race/&DarkelfSurName4Title=Zo'Sonta
-	VAZIO
-Race/&DarkelfSurName5Title=Zo'Remon	VAZIO
+Race/&DarkelfSurName5Title=Zo'Remon

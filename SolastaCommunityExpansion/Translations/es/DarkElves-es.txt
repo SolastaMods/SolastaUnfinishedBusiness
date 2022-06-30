@@ -1,43 +1,22 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=You have Disadvantage on Perception.
-	VACÍO
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Disadvantage on Perception
-	VACÍO
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisma +1
-	VACÍO
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Ability Score Increase
-	VACÍO
-Feature/&DarkelfMagicDescription=You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
-	VACÍO
-Feature/&DarkelfMagicTitle=Dark Elf Magic
-	VACÍO
-Feature/&DarkelfWeaponTrainingDescription=You have proficiency with rapiers, shortswords, and hand crossbows.
-	VACÍO
-Feature/&DarkelfWeaponTrainingTitle=Dark Elf Weapon Training
-	VACÍO
-Feature/&LightAffinityDarkelfLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks and attack rolls in bright light.
-	VACÍO
-Feature/&LightAffinityDarkelfLightSensitivityTitle=Bright Light Sensitivity
-	VACÍO
-Feature/&LightAffinityDarkelfReducedLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks in bright light. In addition, you suffer a -1d4 penalty on attack rolls in bright light.
-	VACÍO
-Feature/&PowerDarkelfDarknessDescription=Create an area of magical darkness. Usable once per long rest.
-	VACÍO
-Feature/&PowerDarkelfDarknessTitle=Darkness
-	VACÍO
-Feature/&PowerDarkelfFaerieFireDescription=Highlight creatures to give advantage to anyone attacking them. Usable once per long rest.
-	VACÍO
-Feature/&PowerDarkelfFaerieFireTitle=Faerie Fire
-	VACÍO
-Race/&DarkelfRaceDescription=Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
-	VACÍO
-Race/&DarkelfRaceTitle=Dark Elf
-	VACÍO
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Tienes Desventaja en la Percepción.
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Desventaja en la percepción
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento de puntuación de habilidad
+Feature/&DarkelfMagicDescription=Conoces el cantrip Luces Danzantes. En el 3er nivel aprendes Fuego feérico y en el 5to nivel, Oscuridad. Ambos pueden usarse una vez por descanso prolongado.
+Feature/&DarkelfMagicTitle=Magia de los elfos oscuros
+Feature/&DarkelfWeaponTrainingDescription=Tienes competencia con estoques, espadas cortas y ballestas de mano.
+Feature/&DarkelfWeaponTrainingTitle=Entrenamiento con armas de los elfos oscuros
+Feature/&LightAffinityDarkelfLightSensitivityDescription=Tienes Desventaja en las pruebas de Sabiduría (Percepción) y tiradas de ataque con luz brillante.
+Feature/&LightAffinityDarkelfLightSensitivityTitle=Sensibilidad a la luz brillante
+Feature/&LightAffinityDarkelfReducedLightSensitivityDescription=Tienes Desventaja en las pruebas de Sabiduría (Percepción) con luz brillante. Además, sufres una penalización de -1d4 en las tiradas de ataque con luz brillante.
+Feature/&PowerDarkelfDarknessDescription=Crea un área de oscuridad mágica. Utilizable una vez por descanso prolongado.
+Feature/&PowerDarkelfDarknessTitle=Oscuridad
+Feature/&PowerDarkelfFaerieFireDescription=Resalta a las criaturas para dar ventaja a cualquiera que las ataque. Utilizable una vez por descanso prolongado.
+Feature/&PowerDarkelfFaerieFireTitle=fuego de hadas
+Race/&DarkelfRaceDescription=Los elfos oscuros son descendientes de elfos que han cambiado con el tiempo al vivir en las inhóspitas Badlands. Los elfos oscuros son en gran parte nocturnos y se han adaptado a vivir en las antiguas ruinas de Badlands, especialmente en las ruinas subterráneas enterradas. Suelen tener la piel oscura y el pelo pálido.
+Race/&DarkelfRaceTitle=Duende oscuro
 Race/&DarkelfSurName1Title=Za'Moryra
-	VACÍO
 Race/&DarkelfSurName2Title=DhalNeridthas
-	VACÍO
 Race/&DarkelfSurName3Title=DhalNerwenys
-	VACÍO
 Race/&DarkelfSurName4Title=Zo'Sonta
-	VACÍO
-Race/&DarkelfSurName5Title=Zo'Remon	VACÍO
+Race/&DarkelfSurName5Title=Zo'Remon
