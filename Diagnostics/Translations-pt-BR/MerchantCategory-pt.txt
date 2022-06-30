@@ -1,8 +1,0 @@
-MerchantCategory/&AdventuringTitle	Aparato de Aventura
-MerchantCategory/&AllTitle	Todos os Itens
-MerchantCategory/&ArmorTitle	Armadura
-MerchantCategory/&CraftingTitle	Criação
-MerchantCategory/&IngredientTitle	Ingredientes
-MerchantCategory/&MagicDeviceTitle	Dispositivos Mágicos
-MerchantCategory/&WeaponTitle	Armas
-MerchantCategory/&DocumentTitle	Documentos

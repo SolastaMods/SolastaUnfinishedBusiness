@@ -21,8 +21,10 @@ internal static class CharacterPlateGame_OnPointerEnter
         }
 
         var sb = new StringBuilder();
-        var totalAttacks = (float) hero.successfulAttacks + hero.failedAttacks;
+        var totalAttacks = (float)hero.successfulAttacks + hero.failedAttacks;
         var hitAccuracy = totalAttacks > 0 ? hero.successfulAttacks / totalAttacks : 0;
+        var feet = hero.travelledCells / 5f;
+        var meter = feet * 0.3048;
 
         sb.AppendLine(hero.Name);
         sb.AppendLine();
@@ -35,6 +37,7 @@ internal static class CharacterPlateGame_OnPointerEnter
         sb.AppendLine($"<b>{Gui.Localize("Modal/&StatRestoredHealthTitle")}</b> {hero.restoredHealth:N0}");
         sb.AppendLine($"<b>{Gui.Localize("Modal/&StatUsedMagicAndPowersTitle")}</b> {hero.usedMagicAndPowers:N0}");
         sb.AppendLine($"<b>{Gui.Localize("Modal/&StatKnockOutsTitle")}</b> {hero.knockOuts:N0}");
+        sb.AppendLine($"<b>{Gui.Localize("Modal/&StatTravelledCellsTitle")}</b> {feet:N0}ft / {meter:N0}m");
 
         tooltip.Content = sb.ToString();
         tooltip.TooltipClass = string.Empty;

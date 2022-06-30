@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDivineHeartDeityChoice:617dd561-4aea-5cfd-a10a-e8d1b0aafa62",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierDivineHeartDivineFortitude:f9bafa06-1aa7-548f-9ca2-3f05a29d5fdb",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityDivineHeartClericSpellsList:7ce73890-581f-530a-852d-ea4a7cc56ea7",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDivineHeartEmpoweredHealing:1305386c-47da-54e1-81c6-870405a6733c",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDivineHeartPlanarPortal:675c3a48-85b0-5f62-8085-da0eb9c45c10",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDivineHeartDivineRecovery:85b8126d-2797-51b5-a82a-234cd6a83984",
+      "level": 18
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&SorcerousDivineHeartTitle",
+    "description": "Subclass/&SorcerousDivineHeartDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f13740c3947aa0f49a79fa8da3a44eba",
+      "m_SubObjectName": "DomainLife",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ed8aa839-3e42-5f5b-8c57-a6d782cbd523",
+  "contentPack": 9999,
+  "name": "DivineHeart"
+}

@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Domain",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 1,
+      "spellsList": [
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeTitle",
+    "description": "Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9524b4bf-ace3-583d-be33-41226f05a7cd",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsSorcererDivineHeartMariake"
+}

@@ -1,4 +1,0 @@
-Power/&PowerStoneGolemSlow_Title	Замедление
-Power/&PowerStoneGolemSlow_Description	Каменные големы могут замедлять противников поблизости.
-Power/&WightLifeDrain_Description	
-Power/&WightLordCircleofDeath_Description	

@@ -1,8 +1,0 @@
-InputBinding/&LeftAlt	LeftAlt + 
-InputBinding/&LeftControl	LeftCtrl + 
-InputBinding/&LeftShift	LeftShift + 
-InputBinding/&MainFormat	Shortcut: {0}
-InputBinding/&OrFormat	or 
-InputBinding/&RightAlt	RightAlt + 
-InputBinding/&RightControl	RightCtrl + 
-InputBinding/&RightShift	RightShift + 

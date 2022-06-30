@@ -1,6 +1,0 @@
-Status/&ConcentrationFormat	{0} концентрируется, чтобы поддерживать действие заклинания «{1}».
-Status/&ConcentrationStopDescription	Щёлкните, чтобы прервать концентрацию.
-Status/&HealthStatusFormat	Здоровье: {0}
-Status/&ReadiedCantripAttackFormat	Персонаж {0} готов использовать атаку заговором при первой возможности.
-Status/&ReadiedMeleeAttackFormat	Персонаж {0} готов использовать атаку ближнего боя при первой возможности.
-Status/&ReadiedRangedAttackFormat	Персонаж {0} готов использовать атаку дальнего боя при первой возможности.

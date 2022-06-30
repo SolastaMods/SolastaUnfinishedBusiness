@@ -61,6 +61,13 @@ internal static class RacesClassesAndSubclassesDisplay
             Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc = intValue;
             MasterManipulator.UpdateSpellDCBoost();
         }
+
+        UI.Label("");
+        toggle = Main.Settings.ReduceDarkelfLightPenalty;
+        if (UI.Toggle(Gui.Localize("ModUi/&ReduceDarkelfLightPenalty"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ReduceDarkelfLightPenalty = toggle;
+        }
     }
 
     internal static void DisplayClassesAndSubclasses()

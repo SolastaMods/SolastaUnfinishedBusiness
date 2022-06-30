@@ -43,9 +43,9 @@ public static class EncountersDisplay
             {
                 UI.Label($"Str: {hero.GetAttribute(AttributeDefinitions.Strength).CurrentValue:0#}".white(),
                     UI.Width(48));
-                UI.Label($"Con: {hero.GetAttribute(AttributeDefinitions.Constitution).CurrentValue:0#}".yellow(),
-                    UI.Width(48));
                 UI.Label($"Dex: {hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue:0#}".white(),
+                    UI.Width(48));
+                UI.Label($"Con: {hero.GetAttribute(AttributeDefinitions.Constitution).CurrentValue:0#}".yellow(),
                     UI.Width(48));
                 UI.Label($"Int: {hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue:0#}".yellow(),
                     UI.Width(48));
@@ -123,8 +123,8 @@ public static class EncountersDisplay
             if (showAttributes)
             {
                 UI.Label($"Str: {monsterDefinition.AbilityScores[0]:0#}".white(), UI.Width(48));
-                UI.Label($"Con: {monsterDefinition.AbilityScores[1]:0#}".yellow(), UI.Width(48));
-                UI.Label($"Dex: {monsterDefinition.AbilityScores[2]:0#}".white(), UI.Width(48));
+                UI.Label($"Dex: {monsterDefinition.AbilityScores[1]:0#}".yellow(), UI.Width(48));
+                UI.Label($"Con: {monsterDefinition.AbilityScores[2]:0#}".white(), UI.Width(48));
                 UI.Label($"Int: {monsterDefinition.AbilityScores[3]:0#}".yellow(), UI.Width(48));
                 UI.Label($"Wis: {monsterDefinition.AbilityScores[4]:0#}".white(), UI.Width(48));
                 UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".yellow(), UI.Width(48));
@@ -308,8 +308,8 @@ public static class EncountersDisplay
         UI.Label(". use the Characters Pool tab to add heroes as enemies to the challenge", UI.AutoWidth());
         UI.Label(". click " + "minus".italic() + " to remove participants from the group");
         UI.Label(
-            ". pan the camera to the desired encounter location and press " + "ctrl-shift-(S)".cyan() +
-            "pawn to place the enemies", UI.AutoWidth());
+            ". pan the camera to the desired encounter location and press <color=#1E81B0>CTRL-SHIFT-(S)</color>pawn to place the enemies",
+            UI.AutoWidth());
         UI.Label("");
 
         if (EncountersSpawnContext.EncounterCharacters.Count == 0)

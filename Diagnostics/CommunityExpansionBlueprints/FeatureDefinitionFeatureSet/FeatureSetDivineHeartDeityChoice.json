@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AutoPreparedSpellsSorcererDivineHeartArun:758190d7-cb73-5f0f-bd8f-b20cd2abb84a",
+    "Definition:AutoPreparedSpellsSorcererDivineHeartEinar:01f4409b-c758-57af-8c64-fecb7bc67587",
+    "Definition:AutoPreparedSpellsSorcererDivineHeartMariake:9524b4bf-ace3-583d-be33-41226f05a7cd",
+    "Definition:AutoPreparedSpellsSorcererDivineHeartMisaye:38df9259-caeb-55eb-b02b-c3841a384db2",
+    "Definition:AutoPreparedSpellsSorcererDivineHeartPakri:0ea97f67-392d-518a-862c-32139665249b"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 1,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetDivineHeartDeityChoiceTitle",
+    "description": "Feature/&FeatureSetDivineHeartDeityChoiceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "617dd561-4aea-5cfd-a10a-e8d1b0aafa62",
+  "contentPack": 9999,
+  "name": "FeatureSetDivineHeartDeityChoice"
+}

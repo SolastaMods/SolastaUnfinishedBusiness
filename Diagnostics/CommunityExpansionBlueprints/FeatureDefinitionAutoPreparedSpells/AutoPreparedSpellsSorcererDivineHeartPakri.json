@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Domain",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 1,
+      "spellsList": [
+        "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AutoPreparedSpellsSorcererDivineHeartPakriTitle",
+    "description": "Feature/&AutoPreparedSpellsSorcererDivineHeartPakriDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0ea97f67-392d-518a-862c-32139665249b",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsSorcererDivineHeartPakri"
+}

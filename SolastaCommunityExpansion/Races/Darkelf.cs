@@ -28,20 +28,25 @@ internal static class DarkelfSubraceBuilder
                 AttributeDefinitions.Charisma, 1)
             .AddToDB();
 
-        var darkElfPerception = FeatureDefinitionAbilityCheckAffinityBuilder
+        var darkElfPerceptionLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityDarkelfLightSensitivity", "a4f82743-0d75-4178-ba25-b3707420e17e")
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
-                RuleDefinitions.CharacterAbilityCheckAffinity.None, RuleDefinitions.DieType.D1, -2,
+                RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage, RuleDefinitions.DieType.D1, 0,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
-        darkElfPerception.AffinityGroups[0].lightingContext = RuleDefinitions.LightingContext.BrightLight;
+        darkElfPerceptionLightSensitivity.AffinityGroups[0].lightingContext =
+            RuleDefinitions.LightingContext.BrightLight;
 
-        var darkelfMovementAffinty = FeatureDefinitionMovementAffinityBuilder
-            .Create(FeatureDefinitionMovementAffinitys.MovementAffinityHeavyArmorOverload,
-                "MovementAffinityDarkelfLightSensitivity", "17c4b5a2-ae5e-4565-a399-73beaaa09431")
-            .SetGuiPresentation(Category.Feature)
-            .SetBaseSpeedAdditiveModifier(-1)
+        var darkelfCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
+            .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight,
+                "CombatAffinityDarkelfLightSensitivity", "a4f82743-0d75-4178-ba25-b3707420e170")
+            .SetGuiPresentation(
+                "Feature/&LightAffinityDarkelfLightSensitivityTitle",
+                "Feature/&LightAffinityDarkelfLightSensitivityDescription")
+            .SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Disadvantage)
+            .SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign.Substract)
+            .SetMyAttackModifierDieType(RuleDefinitions.DieType.D4)
             .AddToDB();
 
         var darkelfConditionLightSensitive = ConditionDefinitionBuilder
@@ -53,7 +58,7 @@ internal static class DarkelfSubraceBuilder
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive(true)
             .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-            .SetFeatures(darkElfPerception, darkelfMovementAffinty)
+            .SetFeatures(darkElfPerceptionLightSensitivity, darkelfCombatAffinityLightSensitivity)
             .AddToDB();
 
         // this allows the condition to still display as a label on character panel
@@ -69,6 +74,29 @@ internal static class DarkelfSubraceBuilder
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(darkelfLightingEffectAndCondition)
             .AddToDB();
+
+        if (Main.Settings.ReduceDarkelfLightPenalty)
+        {
+            const string reducedDescription = "Feature/&LightAffinityDarkelfReducedLightSensitivityDescription";
+
+            darkelfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.None;
+            darkelfCombatAffinityLightSensitivity.myAttackModifierValueDetermination =
+                RuleDefinitions.CombatAddinityValueDetermination.Die;
+            darkelfCombatAffinityLightSensitivity.GuiPresentation.description = reducedDescription;
+            darkelfConditionLightSensitive.GuiPresentation.description = reducedDescription;
+            darkelfLightAffinity.GuiPresentation.description = reducedDescription;
+        }
+        else
+        {
+            darkelfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
+            darkelfCombatAffinityLightSensitivity.myAttackModifierValueDetermination =
+                RuleDefinitions.CombatAddinityValueDetermination.None;
+            darkelfCombatAffinityLightSensitivity.GuiPresentation.description =
+                darkelfLightAffinity.GuiPresentation.Description;
+            darkelfConditionLightSensitive.GuiPresentation.description =
+                darkelfLightAffinity.GuiPresentation.Description;
+            darkelfLightAffinity.GuiPresentation.description = darkelfLightAffinity.GuiPresentation.Description;
+        }
 
         var darkelfDarkelfMagicSpellList = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "DarkelfMagicSpellList",

@@ -122,9 +122,9 @@
     "description": "Race/&HalfElfHighElfRaceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "366bd85cddeb50740858c0b15593b4cd",
-      "m_SubObjectName": "HighElf",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "52168f8215fb561db1a83cced5250c1d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

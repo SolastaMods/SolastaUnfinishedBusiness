@@ -23,4 +23,4 @@ DialogFlags/&SelfPreservation_Title=Осторожность
 DialogFlags/&Slang_Description=Этот персонаж часто использует сленг, в том числе грубые и вульгарные выражения.
 DialogFlags/&Slang_Title=Сленг
 DialogFlags/&Violence_Description=Стремление решать проблемы насилием, даже когда есть другие варианты.
-DialogFlags/&Violence_Title=Насилие
+DialogFlags/&Violence_Title=Жестокость

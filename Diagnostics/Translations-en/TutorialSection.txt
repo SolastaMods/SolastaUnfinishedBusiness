@@ -1,5 +1,0 @@
-TutorialSection/&BasicsTitle	Basics
-TutorialSection/&CombatTitle	Combat
-TutorialSection/&ExplorationTitle	Exploration
-TutorialSection/&InventoryTitle	Inventory
-TutorialSection/&TravelTitle	Travel

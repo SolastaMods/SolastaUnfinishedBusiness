@@ -1,4 +1,0 @@
-Document/&Lightfiller_01_Title	Código do Cofre da Fonte Silveira
-Document/&Lightfiller_01_Content	Não pode se comunicar fora da família
-Document/&Lightfiller_02_Title	Chave da Cela para Convidados
-Document/&Lightfiller_02_Content	Pode se comunicar segundo o critério da guarda

@@ -1,7 +1,7 @@
 Music/&NoneTitle=<Нет>
 Music/&CaerLemTitle=Каэр Лем
 Music/&CaerCyflenTitle=Каэр Кифлен
-Music/&DarkCastleExteriorTitle=
+Music/&DarkCastleExteriorTitle=Темный Замок
 Music/&CoparanTitle=Копаранн
 Music/&WizardsTowerTitle=Башня волшебника
 Music/&MastermindTitle=Сверхразум

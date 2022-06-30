@@ -32,7 +32,7 @@
     "maxValue": 100.0
   },
   "originAllowed": [],
-  "subClassFilterMask": "Default",
+  "subClassFilterMask": "All",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
