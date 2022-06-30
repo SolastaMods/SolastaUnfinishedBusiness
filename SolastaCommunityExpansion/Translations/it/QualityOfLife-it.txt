@@ -6,7 +6,6 @@ Failure/&FailureFlagTargetMeleeWeaponError=Non è possibile eseguire attacchi in
 Feature/&AlwaysBeardDescription={0}% di possibilità di farsi crescere una barba gloriosa!
 Feature/&BardSkillsTitle=Abilità da bardo
 Feature/&EmptyString=
-Feature/&Emptystring=
 Format/&LevelAndExperienceFormat=Livello: {0}\nEsperienza: {1}\n{2} punti richiesti per raggiungere il livello {3}
 Format/&LevelAndExperienceMaxedFormat=Livello: {0}\nEsperienza: {1}\nlivello massimo raggiunto
 MainMenu/&ExportPdfDescription=Abbassa di livello questo eroe.

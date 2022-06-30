@@ -6,7 +6,6 @@ Failure/&FailureFlagTargetMeleeWeaponError=Não é possível realizar ataques co
 Feature/&AlwaysBeardDescription={0}% de chances de crescer uma barba gloriosa!
 Feature/&BardSkillsTitle=Habilidades de Bardo
 Feature/&EmptyString=
-Feature/&Emptystring=
 Format/&LevelAndExperienceFormat=Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
 Format/&LevelAndExperienceMaxedFormat=Nível: {0}\nExperiência: {1}\nnível máximo atingido
 MainMenu/&ExportPdfDescription=Desça o nível deste Herói.

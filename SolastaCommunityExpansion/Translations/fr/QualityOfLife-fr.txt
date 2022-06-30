@@ -6,7 +6,6 @@ Failure/&FailureFlagTargetMeleeWeaponError=Impossible d'effectuer une attaque au
 Feature/&AlwaysBeardDescription={0} % de chances de faire pousser une magnifique barbe !
 Feature/&BardSkillsTitle=Compétences de barde
 Feature/&EmptyString=
-Feature/&Emptystring=
 Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat=Niveau : {0}\nExpérience : {1}\nniveau maximum atteint
 MainMenu/&ExportPdfDescription=Nivelez ce héros.

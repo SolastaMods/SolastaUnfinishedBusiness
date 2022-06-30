@@ -3,3 +3,4 @@ Equipment/&ScrollConjureMinorElementalDescription=When you use this scroll, you 
 Equipment/&ScrollDeathWardTitle=Scroll of Deathward
 Equipment/&ScrollDeathWardDescription=When you use this scroll, you cast the spell Deathward.
 Feature/&AttributeModifier{0}Description={0}
+Prop/&PrisonFenceDestroyedTitle=Prison Fence Destroyed

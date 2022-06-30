@@ -6,7 +6,6 @@ Failure/&FailureFlagTargetMeleeWeaponError=Невозможно атаковат
 Feature/&AlwaysBeardDescription={0}% шансов отрастить великолепную бороду!
 Feature/&BardSkillsTitle=Навыки барда
 Feature/&EmptyString=
-Feature/&Emptystring=
 Format/&LevelAndExperienceFormat=Уровень: {0}\nОпыт: {1}\n{2} очков, необходимых для достижения уровня {3}
 Format/&LevelAndExperienceMaxedFormat=Уровень: {0}\nОпыт: {1}\nдостигнут максимальный уровень
 MainMenu/&ExportPdfDescription=Понизьте уровень этого Героя.

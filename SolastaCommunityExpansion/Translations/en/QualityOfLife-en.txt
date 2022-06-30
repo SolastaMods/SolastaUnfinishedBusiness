@@ -6,7 +6,6 @@ Failure/&FailureFlagTargetMeleeWeaponError=Can't perform melee attack on this ta
 Feature/&AlwaysBeardDescription={0}% chances to grow a glorious beard!
 Feature/&BardSkillsTitle=Bard Skills
 Feature/&EmptyString=
-Feature/&Emptystring=
 Format/&LevelAndExperienceFormat=Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nExperience: {1}\nmax level reached
 MainMenu/&ExportPdfDescription=Level down this Hero.
