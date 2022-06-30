@@ -6,14 +6,6 @@
 - The [donation] button is under Mod UI > Credits
 - It opens a browser page with a paypal support link
 
-ATTENTION:
-
-- RESPEC any hero/save with blind fighting style or feat
-
 CHANGES:
 
-- Add sorcerer Divine Heart subclass
-- Update dark elves light sensitivity with an UI setting
-- Deprecate blind fighting style and feat
-- Fix sorcerers creation
-- Improve deadeye feat to support darts
+- Fix Divine Heart interaction with ancestry cantrips

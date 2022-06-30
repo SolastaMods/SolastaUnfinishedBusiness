@@ -74,11 +74,17 @@ internal class DivineHeart : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var divineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
+        var divineHeartClericSpellsList = SpellListDefinitionBuilder
+            .Create(SpellListDefinitions.SpellListCleric, "DivineHeartClericSpellsList", SubclassNamespace)
+            .SetGuiPresentationNoContent()
+            .ClearSpellsAtLevel(0)
+            .AddToDB();
+        
+        var magicAffinityDivineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
             .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
                 "MagicAffinityDivineHeartClericSpellsList", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
-            .SetExtendedSpellList(SpellListDefinitions.SpellListCleric)
+            .SetExtendedSpellList(divineHeartClericSpellsList)
             .AddToDB();
 
         var divineHeartEmpoweredHealingModifier = FeatureDefinitionDieRollModifierBuilder
@@ -137,7 +143,7 @@ internal class DivineHeart : AbstractSubclass
                 DomainLife.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(divineHeartDeityChoice, 1)
             .AddFeatureAtLevel(divineHeartDivineFortitude, 1)
-            .AddFeatureAtLevel(divineHeartClericSpellsList, 1)
+            .AddFeatureAtLevel(magicAffinityDivineHeartClericSpellsList, 1)
             .AddFeatureAtLevel(divineHeartEmpoweredHealingPower, 6)
             .AddFeatureAtLevel(divineHeartPlanarPortalPower, 14)
             .AddFeatureAtLevel(divineHeartDivineRecoveryPower, 18)
