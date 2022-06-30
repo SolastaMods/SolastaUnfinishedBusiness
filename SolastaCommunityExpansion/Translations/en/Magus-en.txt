@@ -1,0 +1,2 @@
+﻿Class/&ClassMagusDescription=Student of both philosophies, blending magical ability and martial prowess into something entirely unique, a discipline in which both spell and steel are used to devastating effect.
+Class/&ClassMagusTitle=Magus
