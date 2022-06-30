@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -29,3 +30,4 @@ internal class BlindFighting : AbstractFightingStyle
             .AddToDB();
     }
 }
+#endif

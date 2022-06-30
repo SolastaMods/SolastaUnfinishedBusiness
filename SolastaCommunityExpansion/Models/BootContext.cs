@@ -139,7 +139,7 @@ internal static class BootContext
             null);
     }
 
-    internal static void DisplayWelcomeMessage()
+    private static void DisplayWelcomeMessage()
     {
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Informative1,

@@ -8,9 +8,6 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class LevelUpContext
 {
-    public const bool THIS_CLASS = true;
-    public const bool OTHER_CLASSES = false;
-
     // keeps a tab on all heroes leveling up
     private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
 
@@ -37,10 +34,10 @@ public static class LevelUpContext
         characterLevelAttribute.Refresh();
 
         var experienceAttribute = rulesetCharacterHero.GetAttribute(AttributeDefinitions.Experience);
+
         experienceAttribute.MaxValue = Main.Settings.EnableLevel20
             ? Level20Context.MOD_MAX_EXPERIENCE
             : Level20Context.GAME_MAX_EXPERIENCE;
-
         experienceAttribute.Refresh();
     }
 
@@ -264,28 +261,31 @@ public static class LevelUpContext
 
         foreach (var featureDefinition in featureDefinitions)
         {
-            if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell &&
-                featureDefinitionCastSpell.SpellListDefinition != null)
+            switch (featureDefinition)
             {
-                allowedSpells.AddRange(
-                    featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(x => x.Spells));
-            }
-            else if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity &&
-                     featureDefinitionMagicAffinity.ExtendedSpellList != null)
-            {
-                allowedSpells.AddRange(
-                    featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(x => x.Spells));
-            }
-            else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips &&
-                     featureDefinitionBonusCantrips.BonusCantrips != null)
-            {
-                allowedSpells.AddRange(featureDefinitionBonusCantrips.BonusCantrips);
-            }
-            else if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells &&
-                     featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
-            {
-                allowedSpells.AddRange(
-                    featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                case FeatureDefinitionCastSpell featureDefinitionCastSpell
+                    when featureDefinitionCastSpell.SpellListDefinition != null:
+                    allowedSpells.AddRange(
+                        featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(x => x.Spells));
+                    break;
+
+                case FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
+                    when featureDefinitionMagicAffinity.ExtendedSpellList != null:
+                    allowedSpells.AddRange(
+                        featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(x => x.Spells));
+                    break;
+
+                case FeatureDefinitionBonusCantrips {BonusCantrips: { }} featureDefinitionBonusCantrips:
+                    allowedSpells.AddRange(featureDefinitionBonusCantrips.BonusCantrips);
+                    break;
+
+                case FeatureDefinitionAutoPreparedSpells
+                {
+                    AutoPreparedSpellsGroups: { }
+                } featureDefinitionAutoPreparedSpells:
+                    allowedSpells.AddRange(
+                        featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                    break;
             }
         }
 
@@ -348,32 +348,23 @@ public static class LevelUpContext
 
     public static HashSet<SpellDefinition> GetAllowedSpells(RulesetCharacterHero hero)
     {
-        if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
-        {
-            return new HashSet<SpellDefinition>();
-        }
-
-        return levelUpData.AllowedSpells;
+        return !LevelUpTab.TryGetValue(hero, out var levelUpData)
+            ? new HashSet<SpellDefinition>()
+            : levelUpData.AllowedSpells;
     }
 
     public static HashSet<SpellDefinition> GetAllowedAutoPreparedSpells(RulesetCharacterHero hero)
     {
-        if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
-        {
-            return new HashSet<SpellDefinition>();
-        }
-
-        return levelUpData.AllowedAutoPreparedSpells;
+        return !LevelUpTab.TryGetValue(hero, out var levelUpData)
+            ? new HashSet<SpellDefinition>()
+            : levelUpData.AllowedAutoPreparedSpells;
     }
 
     public static HashSet<SpellDefinition> GetOtherClassesKnownSpells(RulesetCharacterHero hero)
     {
-        if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
-        {
-            return new HashSet<SpellDefinition>();
-        }
-
-        return levelUpData.OtherClassesKnownSpells;
+        return !LevelUpTab.TryGetValue(hero, out var levelUpData)
+            ? new HashSet<SpellDefinition>()
+            : levelUpData.OtherClassesKnownSpells;
     }
 
     public static void GrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)

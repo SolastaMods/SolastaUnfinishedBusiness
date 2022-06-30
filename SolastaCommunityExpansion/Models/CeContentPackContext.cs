@@ -14,7 +14,7 @@ internal static class CeContentPackContext
 
     public const string CETag = "CommunityExpansion";
 
-    internal static readonly ContentPackDefinition ContentPackDefinition = CreateContentPackDefinition();
+    private static readonly ContentPackDefinition ContentPackDefinition = CreateContentPackDefinition();
 
     private static ContentPackDefinition CreateContentPackDefinition()
     {
