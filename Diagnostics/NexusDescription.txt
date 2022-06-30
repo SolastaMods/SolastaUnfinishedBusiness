@@ -144,12 +144,10 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Blaster[/b]: You specialize in hurling projectiles and causing explosions.
 [*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat.
 [*][b]Scout Sentinel[/b]: A Scout Sentinel Tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
-[*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 [*][b]Soulblade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]Moonlit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
-[*][b]None[/b]: 
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
@@ -159,6 +157,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Arcane Fighter[/b]: Channel your magic into weapon attacks.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Con Artist[/b]: Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
+[*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
 [*][b]Life Transmuter[/b]: Masters of manipulating both matter and life energy.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
 [*][b]Master Manipulator[/b]: Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
@@ -213,7 +212,6 @@ You gain proficiency in Tirmarian.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
 [*][b]Fighting Style: Archery[/b]: You gain a +2 bonus to attack rolls with ranged weapons.
-[*][b]Fighting Style: Blind Fighting[/b]: You have blindsight with a range of 10 feet.
 [*][b]Fighting Style: Crippling[/b]: When you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.
 [*][b]Fighting Style: Defense[/b]: While you are wearing armor, you gain a +1 bonus to AC.
 [*][b]Fighting Style: Dueling[/b]: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
@@ -314,7 +312,6 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 
 [list=1]
 
-[*][b]Blind Fighting[/b]: You have blindsight with a range of 10 feet.
 [*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
 If you have free hand, you can shove as a bonus action.
@@ -438,4 +435,3 @@ The cloud moves 10 feet directly away from you in a direction that you choose at
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
 [line]
-

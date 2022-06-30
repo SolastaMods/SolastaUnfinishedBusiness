@@ -109,6 +109,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
     public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
     public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
+    public bool ReduceDarkelfLightPenalty { get; set; }
     public int RaceSliderPosition { get; set; } = 4;
     public List<string> RaceEnabled { get; } = new();
     public int ClassSliderPosition { get; set; } = 4;

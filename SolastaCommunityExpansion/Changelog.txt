@@ -6,9 +6,14 @@
 - The [donation] button is under Mod UI > Credits
 - It opens a browser page with a paypal support link
 
+ATTENTION:
+
+- RESPEC any hero/save with blind fighting style or feat
+
 CHANGES:
 
-- Add cells traveled [ft, m] to Hero's tooltips
-- Add new sprites to Half-elf subraces
-- Fix no experience on level up to correctly grant xp
-- Improve Russian translations
+- Add sorcerer Divine Heart subclass
+- Update dark elves light sensitivity with an UI setting
+- Deprecate blind fighting style and feat
+- Fix sorcerers creation
+- Improve deadeye feat to support darts

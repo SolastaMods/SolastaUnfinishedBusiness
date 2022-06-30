@@ -142,6 +142,7 @@ ModUi/&Races=<color=yellow>Raças e Sub-raças</color>
 ModUi/&RacesClassesSubclasses=Raças, Classes e Subclasses
 ModUi/&RecipeCost=<color=white>Custo da Receita</color>
 ModUi/&RecipesInDm=Receitas no DM
+ModUi/&ReduceDarkelfLightPenalty=Reduza a Penalidade de Luz Darkelf para -1d4 em ataques em vez de Desvantagem
 ModUi/&RelicForgeries=Falsificações de relíquias
 ModUi/&RemoveAttunementRequirements=Remova os requisitos de sintonização <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a bugs por visuais alternativos no jogo <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -186,7 +187,7 @@ ModUi/&UnlockGlowingEyeColors=Adicione cores de olhos brilhantes <b><i><color=#C
 ModUi/&UnlockMarkAndTatoosForAllCharacters=Desbloqueie as marcas e tatuagens de origem do <color=Orange>Feiticeiro</color> para todos os personagens
 ModUi/&UseHeightOneCylinderEffect=Exibe um efeito de cilindro de altura 1 ao lançar <color=orange>Black Tentacles, Entangle, Grease</color> (quadrado) e <color=orange>Spike Growth</color> (redondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use regras oficiais de vantagem/desvantagem
-ModUi/&Visuals=<color=yellow>Visual:</color>
+ModUi/&Visuals=<color=yellow>Visual:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduza o tempo de criação</color>
 ModUi/&ChangeSleetStormToCube=Altere <color=orange>Sleet Storm</color> para usar um cubo em vez de um cilindro
 ModUi/&Category=Categoria

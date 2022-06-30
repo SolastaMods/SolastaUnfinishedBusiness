@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -1987,12 +1986,12 @@ public static class SrdSpells
             Definition.ForbiddenActions.Empty();
             Definition.ForbiddenActions.AddRange
             (
-               ActionDefinitions.Id.CastBonus,
-               ActionDefinitions.Id.CastMain,
-               ActionDefinitions.Id.CastNoCost,
-               ActionDefinitions.Id.CastReaction,
-               ActionDefinitions.Id.CastReadied,
-               ActionDefinitions.Id.CastRitual
+                ActionDefinitions.Id.CastBonus,
+                ActionDefinitions.Id.CastMain,
+                ActionDefinitions.Id.CastNoCost,
+                ActionDefinitions.Id.CastReaction,
+                ActionDefinitions.Id.CastReadied,
+                ActionDefinitions.Id.CastRitual
             );
         }
 

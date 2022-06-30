@@ -142,6 +142,7 @@ ModUi/&Races=<color=yellow>Razze e sottorazze</color>
 ModUi/&RacesClassesSubclasses=Razze, classi e sottoclassi
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM
+ModUi/&ReduceDarkelfLightPenalty=Riduce la Penalità Luce degli Elfi Oscuri a -1d4 sugli attacchi invece che su Svantaggio
 ModUi/&RelicForgeries=Falsi di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a bug con elementi visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -186,7 +187,7 @@ ModUi/&UnlockGlowingEyeColors=Aggiungi colori degli occhi luminosi <b><i><color=
 ModUi/&UnlockMarkAndTatoosForAllCharacters=Sblocca i segni di origine e i tatuaggi di <color=Orange>Stregone</color> per tutti i personaggi
 ModUi/&UseHeightOneCylinderEffect=Mostra un effetto cilindro di altezza 1 quando lanci <color=orange>Black Tentacles, Entangle, Grease</color> (quadrato) e <color=orange>Spike Growth</color> (tondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
-ModUi/&Visuals=<color=yellow>Visuali:</color>
+ModUi/&Visuals=<color=yellow>Visuali:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>
 ModUi/&ChangeSleetStormToCube=Cambia <color=orange>Sleet Storm</color> per usare un cubo invece di un cilindro
 ModUi/&Category=Categoria

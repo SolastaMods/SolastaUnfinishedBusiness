@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using Mono.CSharp;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ internal static class InventorySlotBox_RefreshState
         }
 
         if (!Main.Settings.EnableInventoryFilteringAndSorting
+            || Global.IsMultiplayer
             || !Main.Settings.EnableInventoryTaintNonProficientItemsRed)
         {
             return;
@@ -33,7 +35,7 @@ internal static class InventorySlotBox_RefreshState
 
         if (!Global.InspectedHero.IsProficientWithItem(itemDefinition))
         {
-            __instance.equipedItemImage.color = new Color(1, 0, 0);
+            __instance.equipedItemImage.color = Color.red;
         }
     }
 }

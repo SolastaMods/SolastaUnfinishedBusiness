@@ -7,6 +7,7 @@ using SolastaCommunityExpansion.Subclasses.Fighter;
 using SolastaCommunityExpansion.Subclasses.Paladin;
 using SolastaCommunityExpansion.Subclasses.Ranger;
 using SolastaCommunityExpansion.Subclasses.Rogue;
+using SolastaCommunityExpansion.Subclasses.Sorcerer;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 
 namespace SolastaCommunityExpansion.Models;
@@ -56,6 +57,7 @@ internal static class SubclassesContext
         LoadSubclass(new SpellMaster());
         LoadSubclass(new SpellShield());
         LoadSubclass(new Tactician());
+        LoadSubclass(new DivineHeart());
 
         Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
 

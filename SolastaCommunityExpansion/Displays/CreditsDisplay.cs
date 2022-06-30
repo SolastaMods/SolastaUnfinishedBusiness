@@ -25,7 +25,7 @@ internal static class CreditsDisplay
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
                   "M. Harck, D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
                   "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson\n" +
-                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes"
+                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker"
         }
     };
 
@@ -44,7 +44,6 @@ internal static class CreditsDisplay
             "high level spells, feats, bug models replacement, high level monsters, Warlock class and subclasses"
         ),
         ("ElAntonious", "Arcanist subclass, feats"),
-
         ("exsonics01", "Oath of Retribution subclass"),
         ("Holic75", "SolastaModHelpers, SolastaExtraContent"),
         (
@@ -52,13 +51,11 @@ internal static class CreditsDisplay
             "adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map"
         ),
         ("Nd", "Marshal and Opportunist subclasses"),
-
         ("RedOrca", "Path of the Light subclass, Indomitable Might"),
         (
             "SilverGriffon",
-            "pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race"
+            "pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, Dark Elf race, Divine Heart subclass"
         ),
-
         ("Spacehamster", "dataminer"),
         (
             "TPABOBAP",
@@ -74,7 +71,7 @@ internal static class CreditsDisplay
         ("Esker", "ruleset support, classes design, quality assurance"),
         ("Lyraele", "ruleset support, classes design, quality assurance"),
         ("PraiseThyBus", "quality assurance"),
-        ("",""),
+        ("", ""),
         ("Nyowwww", "Chinese translations"),
         ("Prioritizer", "Russian translations"),
         ("Burtsev-Alexey", "deep copy algorithm"),
@@ -177,7 +174,7 @@ internal static class CreditsDisplay
         }
 
         // credits
-        foreach (var (author,content) in CreditsTable)
+        foreach (var (author, content) in CreditsTable)
         {
             using (UI.HorizontalScope())
             {
