@@ -1,0 +1,53 @@
+﻿Condition/&ConditionDivineHeartEmpoweredHealingTitle=Empowered Healing
+	LEER
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=If you cast a Healing spell this turn, you reroll a result of 1 or 2.
+	LEER
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Hit Point per level
+	LEER
+Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Divine Fortitude
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartArunDescription=Protection From Evil and Good is always known and prepared.
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartArunTitle=Arun: Protection From Evil and Good
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartEinarDescription=Einar - Inflict Wounds is always known and prepared.
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartEinarTitle=Einar: Inflict Wounds
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeDescription=Mariake - Cure Wounds is always known and prepared.
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeTitle=Mariake: Cure Wounds
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeDescription=Misaye - Bane is always known and prepared.
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeTitle=Misaye: Bane
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartPakriDescription=Pakri - Bless is always known and prepared.
+	LEER
+Feature/&AutoPreparedSpellsSorcererDivineHeartPakriTitle=Pakri: Bless
+	LEER
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Select the Divine source of your magic (and bonus prepared spell)
+	LEER
+Feature/&FeatureSetDivineHeartDeityChoiceTitle=Deity Choice
+	LEER
+Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Your connection to the divine allows you to learn and cast Cleric spells as Sorcerer spells.
+	LEER
+Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Divine Magic
+	LEER
+Feature/&PowerDivineHeartDivineRecoveryTitle=Divine Recovery
+	LEER
+Feature/&PowerDivineHeartDivineRecoveryDescription=As a Bonus Action, you can restore 70 hit points to yourself and remove blindness and diseases. Usable once per long rest. 
+	LEER
+Feature/&PowerDivineHeartEmpoweredHealingTitle=Empowered Healing
+	LEER
+Feature/&PowerDivineHeartEmpoweredHealingDescription=Until the start of your next turn, when casting a healing spell you reroll healing dice rolls of 1 or 2, keeping the new result. Activate this power as a Bonus Action expending 1 sorcerer point. 
+	LEER
+Feature/&PowerDivineHeartEmpoweredHealingRerollDescription={0} uses Empowered Healing to reroll a {1} damage die from {2} to {3}.
+	LEER
+Feature/&PowerDivineHeartPlanarPortalDescription=Opens a portal that can carry a friendly creature and yourself to a specified destination.
+	LEER
+Feature/&PowerDivineHeartPlanarPortalTitle=Planar Portal
+	LEER
+Subclass/&SorcerousDivineHeartDescription=Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
+	LEER
+Subclass/&SorcerousDivineHeartTitle=Divine Heart	LEER
