@@ -81,8 +81,9 @@ internal class DivineHeart : AbstractSubclass
 
         var divineHeartEmpoweredHealingModifier = FeatureDefinitionDieRollModifierBuilder
             .Create(FeatureDefinitionDieRollModifiers.DieRollModifierEmpoweredSpell, "DieRollModifierDivineHeartEmpoweredHealing", SubclassNamespace)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation("Feature/&PowerDivineHeartEmpoweredHealingTitle", "Feature/&PowerDivineHeartEmpoweredHealingDescription")
             .AddToDB();
+
         divineHeartEmpoweredHealingModifier.validityContext = RuleDefinitions.RollContext.HealValueRoll;
         divineHeartEmpoweredHealingModifier.rerollLocalizationKey = "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription";
 
