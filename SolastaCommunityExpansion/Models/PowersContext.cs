@@ -14,22 +14,12 @@ internal static class PowersContext
 
     private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
-    internal static void Load()
-    {
-        LoadHelpPower();
-    }
-
     internal static void LateLoad()
     {
         Switch();
     }
 
     internal static void Switch()
-    {
-        SwitchHelpPower();
-    }
-
-    internal static void SwitchHelpPower()
     {
         var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
         var subRaces = dbCharacterRaceDefinition
@@ -59,7 +49,7 @@ internal static class PowersContext
         }
     }
 
-    private static void LoadHelpPower()
+    internal static void Load()
     {
         var effectDescription = TrueStrike.EffectDescription.Copy();
 
@@ -91,27 +81,5 @@ internal static class PowersContext
                 effectDescription,
                 true)
             .AddToDB();
-    }
-
-    public static void ApplyPowerEffectForms(FeatureDefinitionPower power, RulesetCharacter source,
-        RulesetCharacter target, string logTag = null)
-    {
-        var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
-
-        if (logTag != null)
-        {
-            target.AdditionalDamageGenerated(source, target, RuleDefinitions.DieType.D1, 0, 0, logTag);
-        }
-
-        var usablePower = UsablePowersProvider.Get(power, source);
-        var effectPower = ruleset.InstantiateEffectPower(source, usablePower, false);
-        var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
-        formsParams.FillSourceAndTarget(source, target);
-        formsParams.FillFromActiveEffect(effectPower);
-        formsParams.FillSoloPowerSpecialParameters();
-        formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
-        ruleset.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
-        ruleset.ClearDamageFormsByIndex();
-        ruleset.TerminateEffect(effectPower, false);
     }
 }

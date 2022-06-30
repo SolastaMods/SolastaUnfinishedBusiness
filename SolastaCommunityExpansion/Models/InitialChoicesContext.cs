@@ -19,8 +19,8 @@ internal static class InitialChoicesContext
     internal const int MOD_MAX_ATTRIBUTE = 17;
     internal const int MOD_BUY_POINTS = 35;
 
-    internal static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
-    internal static bool PreviousAlternateHuman { get; set; }
+    private static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
+    private static bool PreviousAlternateHuman { get; set; }
 
     internal static void Load()
     {
@@ -52,7 +52,7 @@ internal static class InitialChoicesContext
         SwitchFirstLevelTotalFeats();
     }
 
-    internal static void LoadEpicArray()
+    private static void LoadEpicArray()
     {
         if (Main.Settings.EnableEpicPointsAndArray)
         {
@@ -64,7 +64,7 @@ internal static class InitialChoicesContext
         }
     }
 
-    internal static void LoadVision()
+    private static void LoadVision()
     {
         if (Main.Settings.DisableSenseDarkVisionFromAllRaces)
         {
@@ -157,7 +157,7 @@ internal static class InitialChoicesContext
         LoadRacesLevel1Feats(Main.Settings.TotalFeatsGrantedFistLevel, Main.Settings.EnableAlternateHuman);
     }
 
-    internal static void BuildFeatureUnlocks(int initialFeats, bool alternateHuman,
+    private static void BuildFeatureUnlocks(int initialFeats, bool alternateHuman,
         out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman)
     {
         var featureDefinitionPointPoolDb = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
@@ -199,7 +199,7 @@ internal static class InitialChoicesContext
         }
     }
 
-    internal static void LoadRacesLevel1Feats(int initialFeats, bool alternateHuman)
+    private static void LoadRacesLevel1Feats(int initialFeats, bool alternateHuman)
     {
         var human = DatabaseHelper.CharacterRaceDefinitions.Human;
 
@@ -240,7 +240,7 @@ internal static class InitialChoicesContext
         }
     }
 
-    internal static void UnloadRacesLevel1Feats(int initialFeats, bool alternateHuman)
+    private static void UnloadRacesLevel1Feats(int initialFeats, bool alternateHuman)
     {
         var human = DatabaseHelper.CharacterRaceDefinitions.Human;
 

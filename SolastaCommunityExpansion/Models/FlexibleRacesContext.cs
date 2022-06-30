@@ -94,13 +94,14 @@ internal static class FlexibleRacesContext
             var exists = characterRaceDefinition.FeatureUnlocks.Exists(x =>
                 x.FeatureDefinition == keyValuePair.Value.FeatureDefinition);
 
-            if (!exists && enabled)
+            switch (exists)
             {
-                characterRaceDefinition.FeatureUnlocks.Add(keyValuePair.Value);
-            }
-            else if (exists && !enabled)
-            {
-                characterRaceDefinition.FeatureUnlocks.Remove(keyValuePair.Value);
+                case false when enabled:
+                    characterRaceDefinition.FeatureUnlocks.Add(keyValuePair.Value);
+                    break;
+                case true when !enabled:
+                    characterRaceDefinition.FeatureUnlocks.Remove(keyValuePair.Value);
+                    break;
             }
         }
 
@@ -125,13 +126,14 @@ internal static class FlexibleRacesContext
                 var exists =
                     characterRaceDefinition.FeatureUnlocks.Exists(x => x.FeatureDefinition == featureDefinition);
 
-                if (exists && enabled)
+                switch (exists)
                 {
-                    RemoveMatchingFeature(characterRaceDefinition.FeatureUnlocks, featureDefinition);
-                }
-                else if (!exists && !enabled)
-                {
-                    characterRaceDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDefinition, 1));
+                    case true when enabled:
+                        RemoveMatchingFeature(characterRaceDefinition.FeatureUnlocks, featureDefinition);
+                        break;
+                    case false when !enabled:
+                        characterRaceDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDefinition, 1));
+                        break;
                 }
             }
         }

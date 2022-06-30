@@ -7,9 +7,7 @@ internal static class GuiWrapperContext
         var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
         var runtimeService = ServiceRepository.GetService<IRuntimeService>();
 
-        if (guiWrapperService is not GuiWrapperManager guiWrapperManager
-            || runtimeService == null
-            || runtimeService.Runtime == null)
+        if (guiWrapperService is not GuiWrapperManager guiWrapperManager || runtimeService?.Runtime == null)
         {
             return;
         }
