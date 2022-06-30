@@ -25,7 +25,7 @@ internal static class CreditsDisplay
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
                   "M. Harck, D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
                   "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson\n" +
-                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes"
+                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker"
         }
     };
 
@@ -54,7 +54,7 @@ internal static class CreditsDisplay
         ("RedOrca", "Path of the Light subclass, Indomitable Might"),
         (
             "SilverGriffon",
-            "pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race"
+            "pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, Dark Elf race, Divine Heart subclass"
         ),
         ("Spacehamster", "dataminer"),
         (

@@ -75,7 +75,6 @@ public static class TranslationsDisplay
             }
         }
 
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&ExecuteBatchTranslations"));
         UI.Label("");
@@ -92,7 +91,7 @@ public static class TranslationsDisplay
             {
                 string buttonLabel;
 
-                UI.Label(userCampaign.Author.bold().orange(), UI.Width(120));
+                UI.Label(userCampaign.Author.Substring(0, Math.Min(16, userCampaign.Author.Length)).bold().orange(), UI.Width(120));
                 UI.Label(userCampaign.Title.bold().italic(), UI.Width(300));
 
                 if (UserCampaignsTranslatorContext.CurrentExports.TryGetValue(exportName, out var status))
