@@ -10,8 +10,13 @@ internal static class CharacterPlateGame_OnPointerEnter
 {
     internal static void Prefix(CharacterPlateGame __instance)
     {
-        var hero = __instance.GuiCharacter.RulesetCharacterHero;
+        var hero = __instance.GuiCharacter?.RulesetCharacterHero;
         var tooltip = __instance.GuiTooltip;
+
+        if (tooltip == null)
+        {
+            return;
+        }
 
         if (hero == null || !Main.Settings.EnableStatsOnHeroTooltip)
         {
