@@ -217,15 +217,15 @@ internal class Arcanist : AbstractSubclass
     private static FeatureDefinitionPower CreateArcanePulse(string name, string title, string description,
         EffectForm marked_effect, EffectForm damage_effect)
     {
-        var pulse_description = new EffectDescription();
-        pulse_description.Copy(MagicMissile.EffectDescription);
-        pulse_description.SetCreatedByCharacter(true);
-        pulse_description.SetTargetSide(RuleDefinitions.Side.Enemy);
-        pulse_description.SetTargetType(RuleDefinitions.TargetType.Sphere);
-        pulse_description.SetTargetParameter(3);
-        pulse_description.SetRangeType(RuleDefinitions.RangeType.Distance);
-        pulse_description.SetRangeParameter(30);
-        pulse_description.EffectForms.SetRange(damage_effect, marked_effect);
+        var pulseDescription = new EffectDescription();
+        pulseDescription.Copy(MagicMissile.EffectDescription);
+        pulseDescription.SetCreatedByCharacter(true);
+        pulseDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
+        pulseDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
+        pulseDescription.SetTargetParameter(3);
+        pulseDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+        pulseDescription.SetRangeParameter(30);
+        pulseDescription.EffectForms.SetRange(damage_effect, marked_effect);
 
         return FeatureDefinitionPowerBuilder
             .Create(name, RA_BASE_GUID)
@@ -235,7 +235,7 @@ internal class Arcanist : AbstractSubclass
             .SetShowCasting(true)
             .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
             .SetActivation(RuleDefinitions.ActivationTime.Action, 1)
-            .SetEffectDescription(pulse_description)
+            .SetEffectDescription(pulseDescription)
             .SetAbility(AttributeDefinitions.Wisdom)
             .SetShortTitle("Arcane Pulse")
             .AddToDB();

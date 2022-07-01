@@ -125,13 +125,6 @@ internal class ArcaneFighter : AbstractSubclass
 
     internal static void UpdateEnchantWeapon()
     {
-        if (Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter)
-        {
-            EnchantWeapon.rechargeRate = RuleDefinitions.RechargeRate.ShortRest;
-        }
-        else
-        {
-            EnchantWeapon.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
-        }
+        EnchantWeapon.rechargeRate = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter ? RuleDefinitions.RechargeRate.ShortRest : RuleDefinitions.RechargeRate.LongRest;
     }
 }

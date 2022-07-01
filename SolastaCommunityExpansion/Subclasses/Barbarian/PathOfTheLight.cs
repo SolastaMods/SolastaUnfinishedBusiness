@@ -318,16 +318,18 @@ internal class PathOfTheLight : AbstractSubclass
         }
 
         // Intentionally *includes* conditions that have Illuminated as their parent (like the Illuminating Burst condition)
-        if (!character.HasConditionOfTypeOrSubType(IlluminatedConditionName)
-            && (character.PersonalLightSource?.SourceName == IlluminatingStrikeName ||
-                character.PersonalLightSource?.SourceName == IlluminatingBurstName))
+        if (character.HasConditionOfTypeOrSubType(IlluminatedConditionName) ||
+            (character.PersonalLightSource?.SourceName != IlluminatingStrikeName &&
+             character.PersonalLightSource?.SourceName != IlluminatingBurstName))
         {
-            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-
-            visibilityService.RemoveCharacterLightSource(GameLocationCharacter.GetFromActor(removedFrom),
-                character.PersonalLightSource);
-            character.PersonalLightSource = null;
+            return;
         }
+
+        var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+
+        visibilityService.RemoveCharacterLightSource(GameLocationCharacter.GetFromActor(removedFrom),
+            character.PersonalLightSource);
+        character.PersonalLightSource = null;
     }
 
     // Helper classes

@@ -190,10 +190,7 @@ public static class Translations
             var term = split[0];
             var text = split[1];
 
-            foreach (var kvp in Glossary)
-            {
-                text = text.Replace(kvp.Key, kvp.Value);
-            }
+            text = Glossary.Aggregate(text, (current, kvp) => current.Replace(kvp.Key, kvp.Value));
 
             var termData = languageSourceData.GetTermData(term);
 
