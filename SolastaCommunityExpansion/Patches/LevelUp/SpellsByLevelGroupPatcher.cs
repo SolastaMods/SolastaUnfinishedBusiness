@@ -57,6 +57,9 @@ internal static class SpellsByLevelGroup_CommonBind
         List<SpellDefinition> allSpells,
         List<SpellDefinition> auToPreparedSpells)
     {
+        __instance.spellsTable.gameObject.SetActive(true);
+        __instance.slotStatusTable.gameObject.SetActive(true);
+
         if (bindMode == SpellBox.BindMode.Preparation || bindMode == SpellBox.BindMode.Inspection)
         {
             return;
