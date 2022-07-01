@@ -288,11 +288,6 @@ public static class GUIHelper
         return fillStyle;
     }
 
-    public static void GUIDrawRect(Rect position, Color color)
-    {
-        GUI.Box(position, GUIContent.none, FillStyle(color));
-    }
-
     //private static GUIStyle divStyle;
     public static void Div(Color color, float indent = 0, float height = 0, float width = 0)
     {

@@ -11,19 +11,11 @@ public static partial class UI
 
     private static GUIStyle _buttonStyle;
 
-    private static GUIStyle _largeStyle;
-
     private static GUIStyle _textBoxStyle;
 
     private static GUIStyle _toggleStyle;
 
     public static GUIStyle divStyle;
-
-    private static Texture2D _rarityTexture;
-
-    private static GUIStyle _rarityStyle;
-
-    private static GUIStyle _rarityButtonStyle;
 
     public static GUIStyle buttonStyle
     {
@@ -35,29 +27,6 @@ public static partial class UI
             }
 
             return _buttonStyle;
-        }
-    }
-
-    public static GUIStyle largeStyle
-    {
-        get
-        {
-            if (_largeStyle == null)
-            {
-                _largeStyle = new GUIStyle(GUI.skin.box) {richText = true};
-            }
-
-            _largeStyle.fixedHeight = 24.point();
-            //_largeStyle.contentOffset = new Vector2(0, -6.point());
-            _largeStyle.padding = new RectOffset(0, 0, -3.point(), 0);
-#pragma warning disable CS0618 // Type or member is obsolete
-            _largeStyle.clipOffset = new Vector2(0, 3.point());
-#pragma warning restore CS0618 // Type or member is obsolete
-            _largeStyle.fontSize = 21.point();
-            _largeStyle.fontStyle = FontStyle.Bold;
-            _largeStyle.normal.background = GUI.skin.label.normal.background;
-
-            return _largeStyle;
         }
     }
 
@@ -96,49 +65,6 @@ public static partial class UI
         }
     }
 
-    public static Texture2D RarityTexture
-    {
-        get
-        {
-            if (_rarityTexture == null)
-            {
-                _rarityTexture = new Texture2D(1, 1);
-            }
-
-            _rarityTexture.SetPixel(0, 0, RGBA.black.color());
-            _rarityTexture.Apply();
-            return _rarityTexture;
-        }
-    }
-
-    public static GUIStyle rarityStyle
-    {
-        get
-        {
-            if (_rarityStyle == null)
-            {
-                _rarityStyle = new GUIStyle(GUI.skin.button);
-                _rarityStyle.normal.background = RarityTexture;
-            }
-
-            return _rarityStyle;
-        }
-    }
-
-    public static GUIStyle rarityButtonStyle
-    {
-        get
-        {
-            if (_rarityButtonStyle == null)
-            {
-                _rarityButtonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
-                _rarityButtonStyle.normal.background = RarityTexture;
-            }
-
-            return _rarityButtonStyle;
-        }
-    }
-
     private static int point(this int x)
     {
         return UnityModManager.UI.Scale(x);
@@ -169,9 +95,7 @@ public static partial class UI
             fillTexture = new Texture2D(1, 1);
         }
 
-        //if (divStyle == null) {
         divStyle = new GUIStyle {fixedHeight = 1};
-        //}
         fillTexture.SetPixel(0, 0, color);
         fillTexture.Apply();
         divStyle.normal.background = fillTexture;

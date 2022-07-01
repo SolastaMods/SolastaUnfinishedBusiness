@@ -62,17 +62,6 @@ public static partial class UI
         GL.Label(content, options);
     }
 
-    public static void DescriptiveLabel(string title, string description, params GUILayoutOption[] options)
-    {
-        options = options.AddDefaults(Width(300));
-        using (HorizontalScope())
-        {
-            Label(title, options);
-            Space(25);
-            Label(description);
-        }
-    }
-
     public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth,
         GUIStyle style, Func<string, string> formatter = null, params GUILayoutOption[] options)
     {
