@@ -46,58 +46,59 @@ internal static class EncountersSpawnContext
 
     internal static List<MonsterDefinition> GetMonsters()
     {
-        if (Monsters.Count == 0)
+        if (Monsters.Count != 0)
         {
-            var monsterDefinitionDatabase = DatabaseRepository.GetDatabase<MonsterDefinition>();
-
-            if (monsterDefinitionDatabase != null)
-            {
-                Monsters.AddRange(monsterDefinitionDatabase.Where(x =>
-                    x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
-                Monsters.Sort((a, b) =>
-                {
-                    if (a.ChallengeRating == b.ChallengeRating)
-                    {
-                        return a.FormatTitle().CompareTo(b.FormatTitle());
-                    }
-
-                    return a.ChallengeRating.CompareTo(b.ChallengeRating);
-                });
-            }
+            return Monsters;
         }
+
+        var monsterDefinitionDatabase = DatabaseRepository.GetDatabase<MonsterDefinition>();
+
+        if (monsterDefinitionDatabase == null)
+        {
+            return Monsters;
+        }
+
+        Monsters.AddRange(monsterDefinitionDatabase.Where(x =>
+            x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
+        Monsters.Sort((a, b) => a.ChallengeRating == b.ChallengeRating
+            ? a.FormatTitle().CompareTo(b.FormatTitle())
+            : a.ChallengeRating.CompareTo(b.ChallengeRating));
 
         return Monsters;
     }
 
     internal static List<RulesetCharacterHero> GetHeroes()
     {
-        if (Heroes.Count == 0)
+        if (Heroes.Count != 0)
         {
-            var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
-
-            if (characterPoolService != null)
-            {
-                foreach (var name in characterPoolService.Pool.Keys)
-                {
-                    var filename = characterPoolService.BuildCharacterFilename(name.Substring(0, name.Length - 4));
-
-                    characterPoolService.LoadCharacter(filename, out var hero, out var _);
-                    Heroes.Add(hero);
-                }
-
-                Heroes.Sort((a, b) =>
-                {
-                    var compareName = a.Name.CompareTo(b.Name);
-
-                    if (compareName == 0)
-                    {
-                        compareName = a.SurName.CompareTo(b.SurName);
-                    }
-
-                    return compareName;
-                });
-            }
+            return Heroes;
         }
+
+        var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
+
+        if (characterPoolService == null)
+        {
+            return Heroes;
+        }
+
+        foreach (var filename in characterPoolService.Pool.Keys.Select(name =>
+                     characterPoolService.BuildCharacterFilename(name.Substring(0, name.Length - 4))))
+        {
+            characterPoolService.LoadCharacter(filename, out var hero, out var _);
+            Heroes.Add(hero);
+        }
+
+        Heroes.Sort((a, b) =>
+        {
+            var compareName = a.Name.CompareTo(b.Name);
+
+            if (compareName == 0)
+            {
+                compareName = a.SurName.CompareTo(b.SurName);
+            }
+
+            return compareName;
+        });
 
         return Heroes;
     }
@@ -156,18 +157,18 @@ internal static class EncountersSpawnContext
             }
         }
 
-        foreach (var character in EncounterCharacters)
+        foreach (var gameLocationCharacter in EncounterCharacters.Select(character =>
+                     gameLocationCharacterService.CreateCharacter(
+                         PlayerControllerManager.DmControllerId, character, RuleDefinitions.Side.Enemy,
+                         new GameLocationBehaviourPackage
+                         {
+                             BattleStartBehavior =
+                                 GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
+                             DecisionPackageDefinition = IdleGuard_Default,
+                             EncounterId = EncounterId++,
+                             FormationDefinition = EncounterCharacters.Count > 1 ? Squad4 : SingleCreature
+                         })))
         {
-            var gameLocationCharacter = gameLocationCharacterService.CreateCharacter(
-                PlayerControllerManager.DmControllerId, character, RuleDefinitions.Side.Enemy,
-                new GameLocationBehaviourPackage
-                {
-                    BattleStartBehavior = GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
-                    DecisionPackageDefinition = IdleGuard_Default,
-                    EncounterId = EncounterId++,
-                    FormationDefinition = EncounterCharacters.Count > 1 ? Squad4 : SingleCreature
-                });
-
             gameLocationCharacter.CollectExistingLightSources(true);
             gameLocationCharacter.RefreshActionPerformances();
             gameLocationCharacter.RulesetCharacter.SetBaseFaction(HostileMonsters);

@@ -39,7 +39,7 @@ internal static class ItemOptionsContext
 
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
-    internal static void LoadClothingGorimStock()
+    private static void LoadClothingGorimStock()
     {
         if (!Main.Settings.StockGorimStoreWithAllNonMagicalClothing)
         {
@@ -110,10 +110,7 @@ internal static class ItemOptionsContext
 
     internal static void SwitchEmpressGarb()
     {
-        if (EmpressGarbOriginalItemPresentation == null)
-        {
-            EmpressGarbOriginalItemPresentation = Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
-        }
+        EmpressGarbOriginalItemPresentation ??= Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
 
         switch (Main.Settings.EmpressGarbAppearance)
         {
@@ -204,11 +201,13 @@ internal static class ItemOptionsContext
                      .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
                      .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
         {
-            if (Main.Settings.MakeAllMagicStaveArcaneFoci)
+            if (!Main.Settings.MakeAllMagicStaveArcaneFoci)
             {
-                item.IsFocusItem = true;
-                item.FocusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
+                continue;
             }
+
+            item.IsFocusItem = true;
+            item.FocusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
         }
     }
 
@@ -271,14 +270,16 @@ internal static class ItemOptionsContext
         GreenmageArmor.RequiredAttunementClasses.Clear();
         WizardClothes_Alternate.RequiredAttunementClasses.Clear();
 
-        if (!Main.Settings.AllowAnyClassToWearSylvanArmor)
+        if (Main.Settings.AllowAnyClassToWearSylvanArmor)
         {
-            GreenmageArmor.RequiredAttunementClasses.Add(Wizard);
-            WizardClothes_Alternate.RequiredAttunementClasses.Add(Wizard);
+            return;
         }
+
+        GreenmageArmor.RequiredAttunementClasses.Add(Wizard);
+        WizardClothes_Alternate.RequiredAttunementClasses.Add(Wizard);
     }
 
-    internal static void LoadRemoveIdentification()
+    private static void LoadRemoveIdentification()
     {
         if (Main.Settings.RemoveIdentifcationRequirements)
         {
@@ -288,7 +289,11 @@ internal static class ItemOptionsContext
             }
         }
 
-        if (Main.Settings.RemoveAttunementRequirements)
+        if (!Main.Settings.RemoveAttunementRequirements)
+        {
+            return;
+        }
+
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
             {

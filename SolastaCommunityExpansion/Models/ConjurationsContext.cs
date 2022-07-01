@@ -64,7 +64,7 @@ internal static class ConjurationsContext
         }
     }
 
-    internal static void AddSummonsSubSpells()
+    private static void AddSummonsSubSpells()
     {
         // Invisible Stalker
         if (!DatabaseRepository.GetDatabase<SpellDefinition>()

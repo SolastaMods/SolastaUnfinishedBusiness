@@ -123,30 +123,25 @@ internal static class GameUiContext
         [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
         GuiPanel GetInitiativeOrPartyPanel()
         {
-            switch (gameLocationBaseScreen)
+            return gameLocationBaseScreen switch
             {
-                case GameLocationScreenExploration gameLocationScreenExploration:
-                    return gameLocationScreenExploration.partyControlPanel;
-                case GameLocationScreenBattle gameLocationScreenBattle:
-                    return gameLocationScreenBattle.initiativeTable;
-                default:
-                    return null;
-            }
+                GameLocationScreenExploration gameLocationScreenExploration => gameLocationScreenExploration
+                    .partyControlPanel,
+                GameLocationScreenBattle gameLocationScreenBattle => gameLocationScreenBattle.initiativeTable,
+                _ => null
+            };
         }
 
         [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
         TimeAndNavigationPanel GetTimeAndNavigationPanel()
         {
-            switch (gameLocationBaseScreen)
+            return gameLocationBaseScreen switch
             {
-                case GameLocationScreenExploration gameLocationScreenExploration:
-                    return gameLocationScreenExploration
-                        .timeAndNavigationPanel;
-                case GameLocationScreenBattle gameLocationScreenBattle:
-                    return gameLocationScreenBattle.timeAndNavigationPanel;
-                default:
-                    return null;
-            }
+                GameLocationScreenExploration gameLocationScreenExploration => gameLocationScreenExploration
+                    .timeAndNavigationPanel,
+                GameLocationScreenBattle gameLocationScreenBattle => gameLocationScreenBattle.timeAndNavigationPanel,
+                _ => null
+            };
         }
     }
 
@@ -214,7 +209,7 @@ internal static class GameUiContext
         }
     }
 
-    internal static class Teleporter
+    private static class Teleporter
     {
         internal static void ConfirmTeleportParty()
         {

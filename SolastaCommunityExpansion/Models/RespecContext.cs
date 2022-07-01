@@ -35,6 +35,8 @@ public static class RespecContext
         _ = RestActivityLevelDown;
         _ = RestActivityRespec;
 
+        ServiceRepository.GetService<IFunctorService>()
+            .RegisterFunctor(LevelDownName, new LevelDownContext.FunctorLevelDown());
         ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
 
         Switch();

@@ -41,15 +41,6 @@ internal static class ItemCraftingContext
         {"StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle")}
     };
 
-    private static readonly List<string> SortCategories = new()
-    {
-        "Name",
-        "Category",
-        "Cost",
-        "Weight",
-        "Cost per Weight"
-    };
-
     private static readonly List<string> ItemCategories = new()
     {
         "All",
@@ -97,26 +88,25 @@ internal static class ItemCraftingContext
 
     internal static void UpdateRecipeCost()
     {
-        foreach (var items in RecipeBooks.Values)
+        foreach (var item in RecipeBooks.Values.SelectMany(items => items))
         {
-            foreach (var item in items)
-            {
-                item.costs = new[] {0, Main.Settings.RecipeCost, 0, 0, 0};
-            }
+            item.costs = new[] {0, Main.Settings.RecipeCost, 0, 0, 0};
         }
     }
 
     internal static void AddToStore(string key)
     {
-        if (Main.Settings.CraftingInStore.Contains(key))
+        if (!Main.Settings.CraftingInStore.Contains(key))
         {
-            foreach (var item in RecipeBooks[key])
+            return;
+        }
+
+        foreach (var item in RecipeBooks[key])
+        {
+            foreach (var merchant in MerchantTypeContext.MerchantTypes
+                         .Where(x => x.Item2.IsDocument))
             {
-                foreach (var merchant in MerchantTypeContext.MerchantTypes
-                             .Where(x => x.Item2.IsDocument))
-                {
-                    ItemRecipeGenerationHelper.StockItem(merchant.Item1, item);
-                }
+                ItemRecipeGenerationHelper.StockItem(merchant.Item1, item);
             }
         }
     }
@@ -159,7 +149,7 @@ internal static class ItemCraftingContext
         }
     }
 
-    internal static void LoadFilteringAndSorting()
+    private static void LoadFilteringAndSorting()
     {
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
         var craftingPanel = characterInspectionScreen.craftingPanel;

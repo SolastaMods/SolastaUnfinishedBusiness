@@ -6,19 +6,9 @@ namespace ModKit;
 
 public static class RichText
 {
-    public static string ToHtmlString(this RGBA color)
-    {
-        return $"{color:X}";
-    }
-
     public static string size(this string s, int size)
     {
         return _ = $"<size={size}>{s}</size>";
-    }
-
-    public static string mainCategory(this string s)
-    {
-        return s.size(16).bold();
     }
 
     public static string bold(this string s)
@@ -31,7 +21,7 @@ public static class RichText
         return _ = $"<i>{s}</i>";
     }
 
-    public static string color(this string s, string color)
+    private static string color(this string s, string color)
     {
         return _ = $"<color={color}>{s}</color>";
     }
@@ -39,16 +29,6 @@ public static class RichText
     public static string color(this string str, RGBA color)
     {
         return $"<color=#{color:X}>{str}</color>";
-    }
-
-    public static string color(this string str, Color32 color)
-    {
-        return $"<color=#{color.r:X}{color.g:X}{color.b:X}{color.a:X}>{str}</color>";
-    }
-
-    public static string color(this string str, Color color)
-    {
-        return $"<color=#{color.r:X}{color.g:X}{color.b:X}{color.a:X}>{str}</color>";
     }
 
     public static string white(this string s)
@@ -99,15 +79,5 @@ public static class RichText
     public static string orange(this string s)
     {
         return s.color("orange");
-    }
-
-    public static string warningLargeRedFormat(this string s)
-    {
-        return _ = s.red().size(16).bold();
-    }
-
-    public static string SizePercent(this string s, int percent)
-    {
-        return _ = $"<size={percent}%>{s}</size>";
     }
 }

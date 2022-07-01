@@ -9,11 +9,6 @@ internal static class LevelDownContext
 {
     public static bool IsLevelDown { get; set; }
 
-    internal static void Load()
-    {
-        ServiceRepository.GetService<IFunctorService>().RegisterFunctor("LevelDown", new FunctorLevelDown());
-    }
-
     internal static void ConfirmAndExecute(string filename)
     {
         var service = ServiceRepository.GetService<ICharacterPoolService>();
@@ -194,7 +189,7 @@ internal static class LevelDownContext
         }
     }
 
-    private class FunctorLevelDown : Functor
+    internal class FunctorLevelDown : Functor
     {
         public override IEnumerator Execute(
             FunctorParametersDescription functorParameters,

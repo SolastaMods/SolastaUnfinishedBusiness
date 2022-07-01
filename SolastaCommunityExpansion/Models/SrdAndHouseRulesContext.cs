@@ -60,7 +60,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void ApplyBarbarianUnarmoredDefenseNotStacking()
+    private static void ApplyBarbarianUnarmoredDefenseNotStacking()
     {
         DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
             .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER);

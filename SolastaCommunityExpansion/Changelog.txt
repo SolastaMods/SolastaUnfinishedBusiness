@@ -8,4 +8,6 @@
 
 CHANGES:
 
-- Fix Divine Heart interaction with ancestry cantrips
+- Allow any throwable weapon to benefit from deadeye
+- Fix a load save game issue under certain scenarios
+- Improve Chinese translations

@@ -75,14 +75,16 @@ internal static class DmProEditorContext
         var rightCategory = DatabaseRepository.GetDatabase<BlueprintCategory>().GetElement(right.Category);
         var result = leftCategory.FormatTitle().CompareTo(rightCategory.FormatTitle());
 
+        if (result != 0)
+        {
+            return result;
+        }
+
+        result = left.name.CompareTo(right.name);
+
         if (result == 0)
         {
-            result = left.name.CompareTo(right.name);
-
-            if (result == 0)
-            {
-                result = left.GuiPresentation.SortOrder - right.GuiPresentation.SortOrder;
-            }
+            result = left.GuiPresentation.SortOrder - right.GuiPresentation.SortOrder;
         }
 
         return result;
@@ -153,12 +155,12 @@ internal static class DmProEditorContext
 
     private static void CreateFlatRooms(int maxMultiplier)
     {
-        const string template = "Crossroad_12C";
+        const string TEMPLATE = "Crossroad_12C";
         var dbRoomBlueprint = DatabaseRepository.GetDatabase<RoomBlueprint>();
 
         for (var multiplier = 1; multiplier <= maxMultiplier; multiplier++)
         {
-            var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(template));
+            var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(TEMPLATE));
 
             flatRoom.name = $"Flat{multiplier:D2}Room";
             flatRoom.guid = GuidHelper.Create(GUID, flatRoom.name).ToString();

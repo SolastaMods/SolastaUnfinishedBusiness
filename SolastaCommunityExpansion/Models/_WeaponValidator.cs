@@ -11,11 +11,11 @@ public static class WeaponValidators
 {
     public static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
-    public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
-    public static readonly IsWeaponValidHandler IsReactionAttack = IsReactionAttackMode;
+    // public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
+    // public static readonly IsWeaponValidHandler IsReactionAttack = IsReactionAttackMode;
 
-    public static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
-        HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
+    // public static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
+    //     HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
 
     public static bool IsPolearm(RulesetItem weapon)
     {
@@ -76,82 +76,73 @@ public static class WeaponValidators
 
     public static bool IsThrownWeapon(RulesetItem weapon)
     {
-        if (weapon == null)
-        {
-            return false;
-        }
+        var weaponDescription = weapon?.ItemDefinition.WeaponDescription;
 
-        var weaponDescription = weapon.ItemDefinition.WeaponDescription;
-
-        if (weaponDescription == null)
-        {
-            return false;
-        }
-
-        return weaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
+        return weaponDescription != null && weaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
     }
 
-    public static bool IsReactionAttackMode(RulesetAttackMode attackMode, RulesetItem weapon,
-        RulesetCharacter character)
+    // public static bool IsReactionAttackMode(RulesetAttackMode attackMode, RulesetItem weapon,
+    //     RulesetCharacter character)
+    // {
+    //     return attackMode is {ActionType: ActionDefinitions.ActionType.Reaction};
+    // }
+    //
+    // public static bool HasAnyTag(RulesetItem item, params string[] tags)
+    // {
+    //     var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
+    //     item?.FillTags(tagsMap, null, true);
+    //     return tagsMap.Keys.Any(tags.Contains);
+    // }
+
+    private static bool HasAnyWeaponTag(RulesetItem item, params string[] tags)
     {
-        return attackMode is {ActionType: ActionDefinitions.ActionType.Reaction};
+        return HasAnyWeaponTag(item?.ItemDefinition, tags);
     }
 
-    public static bool HasAnyTag(RulesetItem item, params string[] tags)
-    {
-        var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
-        item?.FillTags(tagsMap, null, true);
-        return tagsMap.Keys.Any(tags.Contains);
-    }
-
-    public static bool HasAnyWeaponTag(RulesetItem item, params string[] tags)
-    {
-        return item != null && HasAnyWeaponTag(item.ItemDefinition, tags);
-    }
-
-    public static bool HasAnyWeaponTag(ItemDefinition item, params string[] tags)
+    private static bool HasAnyWeaponTag(ItemDefinition item, params string[] tags)
     {
         var weaponTags = GetWeaponTags(item);
-        return weaponTags != null && tags.Any(t => weaponTags.Contains(t));
+
+        return tags.Any(t => weaponTags.Contains(t));
     }
 
-    private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)
-    {
-        var hasTag = false;
-        if (mode != null)
-        {
-            hasTag = mode.AttackTags.Contains(tag);
-            if (!hasTag)
-            {
-                var tags = GetWeaponTags(mode.SourceDefinition as ItemDefinition);
-                if (tags != null && tags.Contains(tag))
-                {
-                    hasTag = true;
-                }
-            }
-
-            return hasTag;
-        }
-
-        if (weapon != null)
-        {
-            var tags = GetWeaponTags(weapon.ItemDefinition);
-            if (tags != null && tags.Contains(tag))
-            {
-                hasTag = true;
-            }
-        }
-
-        return hasTag;
-    }
+    // private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)
+    // {
+    //     var hasTag = false;
+    //     if (mode != null)
+    //     {
+    //         hasTag = mode.AttackTags.Contains(tag);
+    //         if (!hasTag)
+    //         {
+    //             var tags = GetWeaponTags(mode.SourceDefinition as ItemDefinition);
+    //             if (tags != null && tags.Contains(tag))
+    //             {
+    //                 hasTag = true;
+    //             }
+    //         }
+    //
+    //         return hasTag;
+    //     }
+    //
+    //     if (weapon != null)
+    //     {
+    //         var tags = GetWeaponTags(weapon.ItemDefinition);
+    //         if (tags != null && tags.Contains(tag))
+    //         {
+    //             hasTag = true;
+    //         }
+    //     }
+    //
+    //     return hasTag;
+    // }
 
     private static List<string> GetWeaponTags(ItemDefinition item)
     {
-        if (item != null)
+        if (item != null && item.IsWeapon)
         {
-            return item.WeaponDescription?.WeaponTags;
+            return item.WeaponDescription.WeaponTags;
         }
 
-        return null;
+        return new List<string>();
     }
 }

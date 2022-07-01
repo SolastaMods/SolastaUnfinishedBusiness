@@ -5,13 +5,17 @@ namespace SolastaCommunityExpansion.Models;
 internal static class IntegrationContext
 {
     internal const string CLASS_MONK = "ClassMonk";
+
     internal const string CLASS_TINKERER = "ClassTinkerer";
-    internal const string CLASS_WARDEN = "ClassWarden";
+
+    //internal const string CLASS_WARDEN = "ClassWarden";
     internal const string CLASS_WARLOCK = "ClassWarlock";
+
     internal const string CLASS_WITCH = "ClassWitch";
-    internal const string CLASS_MAGUS = "ClassMagus";
-    internal const string SUBCLASS_CONARTIST = "RoguishConArtist";
-    internal const string SUBCLASS_SPELLSHIELD = "FighterSpellShield";
+
+    //internal const string CLASS_MAGUS = "ClassMagus";
+    private const string SUBCLASS_CONARTIST = "RoguishConArtist";
+    private const string SUBCLASS_SPELLSHIELD = "FighterSpellShield";
 
     // Sentinel blueprints to avoid a bunch of null check in code
 
@@ -26,11 +30,15 @@ internal static class IntegrationContext
         .AddToDB();
 
     internal static CharacterClassDefinition MonkClass { get; private set; } = DummyClass;
+
     internal static CharacterClassDefinition TinkererClass { get; private set; } = DummyClass;
-    internal static CharacterClassDefinition WardenClass { get; private set; } = DummyClass;
+
+    //internal static CharacterClassDefinition WardenClass { get; private set; } = DummyClass;
     internal static CharacterClassDefinition WarlockClass { get; private set; } = DummyClass;
+
     internal static CharacterClassDefinition WitchClass { get; private set; } = DummyClass;
-    internal static CharacterClassDefinition MagusClass { get; private set; } = DummyClass;
+
+    //internal static CharacterClassDefinition MagusClass { get; private set; } = DummyClass;
     internal static CharacterSubclassDefinition ConArtistSubclass { get; private set; } = DummySubclass;
     internal static CharacterSubclassDefinition SpellShieldSubclass { get; private set; } = DummySubclass;
 
@@ -41,10 +49,10 @@ internal static class IntegrationContext
 
         dbCharacterClassDefinition.TryGetElement(CLASS_MONK, out var unofficialMonk);
         dbCharacterClassDefinition.TryGetElement(CLASS_TINKERER, out var unofficialTinkerer);
-        dbCharacterClassDefinition.TryGetElement(CLASS_WARDEN, out var unofficialWarden);
+        //dbCharacterClassDefinition.TryGetElement(CLASS_WARDEN, out var unofficialWarden);
         dbCharacterClassDefinition.TryGetElement(CLASS_WARLOCK, out var unofficialWarlock);
         dbCharacterClassDefinition.TryGetElement(CLASS_WITCH, out var unofficialWitch);
-        dbCharacterClassDefinition.TryGetElement(CLASS_MAGUS, out var unofficialMagus);
+        //dbCharacterClassDefinition.TryGetElement(CLASS_MAGUS, out var unofficialMagus);
         dbCharacterSubclassDefinition.TryGetElement(SUBCLASS_CONARTIST, out var unofficialConArtist);
         dbCharacterSubclassDefinition.TryGetElement(SUBCLASS_SPELLSHIELD, out var unofficialSpellShield);
 
@@ -52,10 +60,10 @@ internal static class IntegrationContext
 
         MonkClass = unofficialMonk ? unofficialMonk : DummyClass;
         TinkererClass = unofficialTinkerer ? unofficialTinkerer : DummyClass;
-        WardenClass = unofficialWarden ? unofficialWarden : DummyClass;
+        //WardenClass = unofficialWarden ? unofficialWarden : DummyClass;
         WitchClass = unofficialWitch ? unofficialWitch : DummyClass;
         WarlockClass = unofficialWarlock ? unofficialWarlock : DummyClass;
-        MagusClass = unofficialMagus ? unofficialMagus : DummyClass;
+        //MagusClass = unofficialMagus ? unofficialMagus : DummyClass;
         ConArtistSubclass = unofficialConArtist ? unofficialConArtist : DummySubclass;
         SpellShieldSubclass = unofficialSpellShield ? unofficialSpellShield : DummySubclass;
     }

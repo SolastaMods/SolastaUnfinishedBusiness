@@ -30,7 +30,7 @@ public static class ItemPropertyDescriptions
     public static readonly ItemPropertyDescription AcidImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.AcidSplash));
 
-    public static ItemPropertyDescription BuildFrom(
+    private static ItemPropertyDescription BuildFrom(
         FeatureDefinition feature,
         bool appliesOnItemOnly = true,
         KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.InactiveAndHidden)
@@ -47,12 +47,12 @@ public static class ItemPropertyDescriptions
     }
 
 
-    public static FeatureDefinition BuildAttackVFXFromSpell(SpellDefinition spell)
+    private static FeatureDefinition BuildAttackVFXFromSpell(SpellDefinition spell)
     {
         return BuildAttackVFXFromEffect($"AttackImpact{spell.Name}SpellVFX", spell.EffectDescription);
     }
 
-    public static FeatureDefinition BuildAttackVFXFromEffect(string name, EffectDescription effect)
+    private static FeatureDefinition BuildAttackVFXFromEffect(string name, EffectDescription effect)
     {
         return FeatureDefinitionAttackModifierBuilder
             .Create(name, DefinitionBuilder.CENamespaceGuid)
