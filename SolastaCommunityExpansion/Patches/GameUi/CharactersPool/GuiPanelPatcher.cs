@@ -13,13 +13,15 @@ internal static class GuiPanel_Show
 {
     internal static void Postfix(GuiPanel __instance)
     {
-        if (__instance is MainMenuScreen mainMenuScreen && Global.LastLevelUpHeroName != null)
+        if (__instance is not MainMenuScreen mainMenuScreen || Global.LastLevelUpHeroName == null)
         {
-            var charactersPanel =
-                AccessTools.Field(mainMenuScreen.GetType(), "charactersPanel").GetValue(mainMenuScreen) as
-                    CharactersPanel;
-
-            charactersPanel.Show();
+            return;
         }
+
+        var charactersPanel =
+            AccessTools.Field(mainMenuScreen.GetType(), "charactersPanel").GetValue(mainMenuScreen) as
+                CharactersPanel;
+
+        charactersPanel.Show();
     }
 }

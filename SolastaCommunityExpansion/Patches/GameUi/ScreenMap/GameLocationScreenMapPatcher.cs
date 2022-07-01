@@ -29,57 +29,63 @@ internal static class GameLocationScreenMap_BindGadgets
                 Main.Log(
                     $"{gameGadget.UniqueNameId}, Revealed={gameGadget.Revealed}, Enabled={gameGadget.IsEnabled()}, Invisible={gameGadget.IsInvisible()}");
 
-                if (gameGadget.Revealed) // Not checking for Enabled here unlike game code
+                if (!gameGadget.Revealed)
                 {
-                    var itemType = (MapGadgetItem.ItemType)int.MinValue;
-
-                    if (gameGadget.UniqueNameId.StartsWith("Camp"))
-                    {
-                        itemType = (MapGadgetItem.ItemType)(-1);
-                    }
-                    else if ((gameGadget.UniqueNameId.StartsWith("Exit") ||
-                              gameGadget.UniqueNameId.StartsWith("VirtualExit")) && gameGadget.IsEnabled())
-                    {
-                        itemType = (MapGadgetItem.ItemType)(-2);
-                    }
-                    else if (gameGadget.UniqueNameId.StartsWith("Teleporter")
-                             && (Main.Settings.MarkInvisibleTeleportersOnLevelMap || !gameGadget.IsInvisible()))
-                    {
-                        itemType = (MapGadgetItem.ItemType)(-3);
-                    }
-                    else if (gameGadget.CheckIsLocked())
-                    {
-                        itemType = MapGadgetItem.ItemType.Lock;
-                    }
-                    else if (gameGadget.CheckHasActiveDetectedTrap())
-                    {
-                        itemType = MapGadgetItem.ItemType.Trap;
-                    }
-                    else if (gameGadget.ItemContainer != null)
-                    {
-                        itemType = MapGadgetItem.ItemType.Container;
-                    }
-
-                    if ((int)itemType > int.MinValue)
-                    {
-                        ++__instance.activeMapGadgetItems;
-                        for (var index = __instance.mapGadgetItems.Count - 1;
-                             index < __instance.activeMapGadgetItems;
-                             ++index)
-                        {
-                            var gameObject = Object.Instantiate(__instance.mapGadgetItemPrefab,
-                                __instance.mapItemsTransform);
-
-                            if (gameObject.TryGetComponent<MapGadgetItem>(out var mapGadgetItem))
-                            {
-                                mapGadgetItem.Unbind();
-                                __instance.mapGadgetItems.Add(mapGadgetItem);
-                            }
-                        }
-
-                        __instance.mapGadgetItems[__instance.activeMapGadgetItems - 1].Bind(gameGadget, itemType);
-                    }
+                    continue;
                 }
+
+                var itemType = (MapGadgetItem.ItemType)int.MinValue;
+
+                if (gameGadget.UniqueNameId.StartsWith("Camp"))
+                {
+                    itemType = (MapGadgetItem.ItemType)(-1);
+                }
+                else if ((gameGadget.UniqueNameId.StartsWith("Exit") ||
+                          gameGadget.UniqueNameId.StartsWith("VirtualExit")) && gameGadget.IsEnabled())
+                {
+                    itemType = (MapGadgetItem.ItemType)(-2);
+                }
+                else if (gameGadget.UniqueNameId.StartsWith("Teleporter")
+                         && (Main.Settings.MarkInvisibleTeleportersOnLevelMap || !gameGadget.IsInvisible()))
+                {
+                    itemType = (MapGadgetItem.ItemType)(-3);
+                }
+                else if (gameGadget.CheckIsLocked())
+                {
+                    itemType = MapGadgetItem.ItemType.Lock;
+                }
+                else if (gameGadget.CheckHasActiveDetectedTrap())
+                {
+                    itemType = MapGadgetItem.ItemType.Trap;
+                }
+                else if (gameGadget.ItemContainer != null)
+                {
+                    itemType = MapGadgetItem.ItemType.Container;
+                }
+
+                if ((int)itemType <= int.MinValue)
+                {
+                    continue;
+                }
+
+                ++__instance.activeMapGadgetItems;
+                for (var index = __instance.mapGadgetItems.Count - 1;
+                     index < __instance.activeMapGadgetItems;
+                     ++index)
+                {
+                    var gameObject = Object.Instantiate(__instance.mapGadgetItemPrefab,
+                        __instance.mapItemsTransform);
+
+                    if (!gameObject.TryGetComponent<MapGadgetItem>(out var mapGadgetItem))
+                    {
+                        continue;
+                    }
+
+                    mapGadgetItem.Unbind();
+                    __instance.mapGadgetItems.Add(mapGadgetItem);
+                }
+
+                __instance.mapGadgetItems[__instance.activeMapGadgetItems - 1].Bind(gameGadget, itemType);
             }
         }
 

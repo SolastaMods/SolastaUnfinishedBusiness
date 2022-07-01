@@ -11,13 +11,13 @@ internal static class GamingPlatformManager_IsContentPackAvailable
 {
     public static bool Prefix(GamingPlatformDefinitions.ContentPack contentPack, ref bool __result)
     {
-        if (contentPack == CeContentPackContext.CeContentPack)
+        if (contentPack != CeContentPackContext.CeContentPack)
         {
-            __result = true;
-
-            return false;
+            return true;
         }
 
-        return true;
+        __result = true;
+
+        return false;
     }
 }

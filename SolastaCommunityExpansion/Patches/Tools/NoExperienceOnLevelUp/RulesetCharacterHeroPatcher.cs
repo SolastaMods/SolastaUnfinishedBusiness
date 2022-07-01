@@ -22,20 +22,25 @@ internal static class RulesetCharacterHero_CanLevelUp
             return false;
         }
 
-        if (Main.Settings.EnableLevel20)
+        if (!Main.Settings.EnableLevel20)
+        {
+            return true;
+        }
+
         {
             var levelCap = Main.Settings.EnableLevel20
                 ? Level20Context.MOD_MAX_LEVEL
                 : Level20Context.GAME_MAX_LEVEL;
             // If the game doesn't know how much XP to reach the next level it uses -1 to determine if the character can level up.
             // When a character is level 20, this ends up meaning the character can now level up forever unless we stop it here.
-            if (__instance.ClassesHistory.Count >= levelCap)
+            if (__instance.ClassesHistory.Count < levelCap)
             {
-                __result = false;
-                return false;
+                return true;
             }
-        }
 
-        return true;
+            __result = false;
+
+            return false;
+        }
     }
 }

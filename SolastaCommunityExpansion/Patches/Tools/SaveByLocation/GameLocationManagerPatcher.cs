@@ -25,11 +25,14 @@ internal static class GameLocationManager_LoadLocationAsync
         {
             // Record which campaign/location the latest load game belongs to
 
+#if DEBUG
             var session = sessionService.Session;
-            var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
             Main.Log(
                 $"Campaign-ss: Campaign={session.CampaignDefinitionName}, Location: {session.UserLocationName}");
+#endif
+            var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
+
 
             selectedCampaignService.SetCampaignLocation(userCampaignName, userLocationName);
         }

@@ -20,7 +20,6 @@ internal static class NewAdventurePanel_Refresh
             return;
         }
 
-        var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
         var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
             __instance.characterSessionPlatesTable.childCount);
 
@@ -31,12 +30,14 @@ internal static class NewAdventurePanel_Refresh
             var characterPlateSession =
                 __instance.characterSessionPlatesTable.GetChild(i).GetComponent<CharacterPlateSession>();
 
-            if (characterPlateSession.gameObject.activeSelf)
+            if (!characterPlateSession.gameObject.activeSelf)
             {
-                var heroname = Main.Settings.DefaultPartyHeroes[i];
-
-                __instance.AutotestSelectCharacter(i, heroname);
+                continue;
             }
+
+            var heroname = Main.Settings.DefaultPartyHeroes[i];
+
+            __instance.AutotestSelectCharacter(i, heroname);
         }
 
         ShouldAssignDefaultParty = false;

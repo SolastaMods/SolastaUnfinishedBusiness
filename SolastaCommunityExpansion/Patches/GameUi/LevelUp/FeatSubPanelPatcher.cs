@@ -91,19 +91,21 @@ internal static class FeatSubPanel_SetState
 
                 var featItem = child.GetComponent<FeatItem>();
 
-                if (!trainedFeats.Contains(featItem.GuiFeatDefinition.FeatDefinition))
+                if (trainedFeats.Contains(featItem.GuiFeatDefinition.FeatDefinition))
                 {
-                    var x = j % COLUMNS;
-                    var y = j / COLUMNS;
-                    var posX = x * (WIDTH + (SPACING * 2));
-                    var posY = -y * (HEIGHT + SPACING);
-
-                    rect = child.GetComponent<RectTransform>();
-                    rect.anchoredPosition = new Vector2(posX, posY);
-                    rect.sizeDelta = new Vector2(WIDTH, HEIGHT);
-
-                    j++;
+                    continue;
                 }
+
+                var x = j % COLUMNS;
+                var y = j / COLUMNS;
+                var posX = x * (WIDTH + (SPACING * 2));
+                var posY = -y * (HEIGHT + SPACING);
+
+                rect = child.GetComponent<RectTransform>();
+                rect.anchoredPosition = new Vector2(posX, posY);
+                rect.sizeDelta = new Vector2(WIDTH, HEIGHT);
+
+                j++;
             }
         }
 

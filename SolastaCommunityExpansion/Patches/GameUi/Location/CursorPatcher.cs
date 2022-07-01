@@ -12,30 +12,34 @@ internal static class Cursor_OnClickSecondaryPointer
     /// </summary>
     internal static void Postfix(Cursor __instance)
     {
-        if (Main.Settings.EnableCancelEditOnRightMouseClick)
+        if (!Main.Settings.EnableCancelEditOnRightMouseClick)
         {
-            Main.Log($"{__instance.GetType().Name}: Right-click");
-
-            if (__instance is not CursorCampaignDefault &&
-                __instance is not CursorEditableGraphDefault &&
-                __instance is not CursorLocationBattleDefault &&
-                __instance is not CursorLocationEditorDefault &&
-                __instance is not CursorLocationExplorationDefault)
-            {
-                var screen = Gui.CurrentLocationScreen;
-
-                // Don't use ?? on Unity objec
-                if (screen == null)
-                {
-                    screen = Gui.GuiService.GetScreen<UserLocationEditorScreen>();
-                }
-
-                if (screen != null && screen.Visible)
-                {
-                    Main.Log($"Cancelling {screen.GetType().Name} cursor");
-                    screen.HandleInput(InputCommands.Id.Cancel);
-                }
-            }
+            return;
         }
+
+        Main.Log($"{__instance.GetType().Name}: Right-click");
+
+        if (__instance is CursorCampaignDefault || __instance is CursorEditableGraphDefault ||
+            __instance is CursorLocationBattleDefault || __instance is CursorLocationEditorDefault ||
+            __instance is CursorLocationExplorationDefault)
+        {
+            return;
+        }
+
+        var screen = Gui.CurrentLocationScreen;
+
+        // Don't use ?? on Unity objec
+        if (screen == null)
+        {
+            screen = Gui.GuiService.GetScreen<UserLocationEditorScreen>();
+        }
+
+        if (screen == null || !screen.Visible)
+        {
+            return;
+        }
+
+        Main.Log($"Cancelling {screen.GetType().Name} cursor");
+        screen.HandleInput(InputCommands.Id.Cancel);
     }
 }

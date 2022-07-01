@@ -97,7 +97,6 @@ internal static class SpellRepertoirePanel_Bind
         else
         {
             var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
-            var isWarlockRepertoire = SharedSpellsContext.IsWarlock(spellRepertoire.SpellCastingClass);
             var isSharedcaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
             var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -73,16 +74,14 @@ internal static class GameLocationBattleManagerPatcher
         internal static void Prefix(GameLocationCharacter mover)
         {
             var matchingOccurenceConditions = new List<RulesetCondition>();
-            foreach (var item in mover.RulesetCharacter.ConditionsByCategory)
+            foreach (var item2 in mover.RulesetCharacter.ConditionsByCategory
+                         .SelectMany(item => item.Value))
             {
-                foreach (var item2 in item.Value)
+                switch (item2.endOccurence)
                 {
-                    switch (item2.endOccurence)
-                    {
-                        case (RuleDefinitions.TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd:
-                            matchingOccurenceConditions.Add(item2);
-                            break;
-                    }
+                    case (RuleDefinitions.TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd:
+                        matchingOccurenceConditions.Add(item2);
+                        break;
                 }
             }
 

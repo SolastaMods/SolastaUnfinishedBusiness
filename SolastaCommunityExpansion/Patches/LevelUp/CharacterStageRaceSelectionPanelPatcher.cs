@@ -22,7 +22,7 @@ internal static class CharacterStageRaceSelectionPanel_OnBeginShow
         __instance.sortedSubRaces.Clear();
 
         foreach (var characterRaceDefinition in allRaces
-                     .Where(x => x.SubRaces != null && x.SubRaces.Count > 0))
+                     .Where(x => x.SubRaces is {Count: > 0}))
         {
             if (characterRaceDefinition.SubRaces.Count > __instance.maxSubRacesPerRace)
             {

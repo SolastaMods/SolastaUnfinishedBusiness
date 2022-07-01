@@ -21,16 +21,17 @@ internal static class RulesetCharacter_ComputeAutopreparedSpells
         foreach (var featureDefinition in __instance.FeaturesToBrowse)
         {
             var autoPreparedSpells = featureDefinition as FeatureDefinitionAutoPreparedSpells;
-            if (autoPreparedSpells.SpellcastingClass == spellcastingClass)
+            if (autoPreparedSpells.SpellcastingClass != spellcastingClass)
             {
-                foreach (var preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
-                {
-                    if (preparedSpellsGroup.ClassLevel <= GetSpellcastingLevel(__instance, spellRepertoire))
-                    {
-                        spellRepertoire.AutoPreparedSpells.AddRange(preparedSpellsGroup.SpellsList);
-                        spellRepertoire.AutoPreparedTag = autoPreparedSpells.AutoPreparedTag;
-                    }
-                }
+                continue;
+            }
+
+            foreach (var preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups
+                         .Where(preparedSpellsGroup => preparedSpellsGroup.ClassLevel <=
+                                                       GetSpellcastingLevel(__instance, spellRepertoire)))
+            {
+                spellRepertoire.AutoPreparedSpells.AddRange(preparedSpellsGroup.SpellsList);
+                spellRepertoire.AutoPreparedTag = autoPreparedSpells.AutoPreparedTag;
             }
         }
 
@@ -40,20 +41,19 @@ internal static class RulesetCharacter_ComputeAutopreparedSpells
 
     private static int GetSpellcastingLevel(RulesetCharacter character, RulesetSpellRepertoire spellRepertoire)
     {
-        if (character is RulesetCharacterHero hero)
+        if (character is not RulesetCharacterHero hero)
         {
-            if (spellRepertoire.SpellCastingClass != null)
-            {
-                return hero.ClassesAndLevels[spellRepertoire.SpellCastingClass];
-            }
-
-            if (spellRepertoire.SpellCastingSubclass != null)
-            {
-                return hero.ComputeSubclassLevel(spellRepertoire.SpellCastingSubclass);
-            }
+            return character.GetAttribute(AttributeDefinitions.CharacterLevel).BaseValue;
         }
 
-        return character.GetAttribute(AttributeDefinitions.CharacterLevel).BaseValue;
+        if (spellRepertoire.SpellCastingClass != null)
+        {
+            return hero.ClassesAndLevels[spellRepertoire.SpellCastingClass];
+        }
+
+        return spellRepertoire.SpellCastingSubclass != null
+            ? hero.ComputeSubclassLevel(spellRepertoire.SpellCastingSubclass)
+            : character.GetAttribute(AttributeDefinitions.CharacterLevel).BaseValue;
     }
 
     private static CharacterClassDefinition GetClassForSubclass(CharacterSubclassDefinition subclass)

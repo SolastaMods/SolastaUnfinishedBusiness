@@ -130,11 +130,13 @@ internal static class PowerSelectionPanelPatcher
                 secondRow.gameObject.SetActive(false);
             }
 
-            if (thirdRow != null && thirdRow.gameObject.activeSelf)
+            if (thirdRow == null || !thirdRow.gameObject.activeSelf)
             {
-                Gui.ReleaseChildrenToPool(thirdRow);
-                thirdRow.gameObject.SetActive(false);
+                return;
             }
+
+            Gui.ReleaseChildrenToPool(thirdRow);
+            thirdRow.gameObject.SetActive(false);
         }
     }
 }

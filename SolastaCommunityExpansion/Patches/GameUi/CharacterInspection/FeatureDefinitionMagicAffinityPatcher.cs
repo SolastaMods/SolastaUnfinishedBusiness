@@ -76,12 +76,10 @@ internal static class FeatureDefinitionDescriptionPatcher
                 spells[duplet.Level].AddRange(duplet.Spells);
             }
 
-            foreach (var level in levels)
+            foreach (var level in levels
+                         .Where(level => spells.ContainsKey(level) && spells[level].Empty()))
             {
-                if (spells.ContainsKey(level) && spells[level].Empty())
-                {
-                    spells.Remove(level);
-                }
+                spells.Remove(level);
             }
 
             var spellList = "\n" + string.Join("\n",

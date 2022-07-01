@@ -60,13 +60,14 @@ internal static class CharacterControlPanel_OnConfigurationSwitchedHandler
 
         if (foundActivePanel)
         {
-            if (__instance is CharacterControlPanelExploration exploration)
+            switch (__instance)
             {
-                panelToActivate = exploration.ExplorationActionPanel;
-            }
-            else if (__instance is CharacterControlPanelBattle battlePanel)
-            {
-                ActivateBattlePanel(battlePanel);
+                case CharacterControlPanelExploration exploration:
+                    panelToActivate = exploration.ExplorationActionPanel;
+                    break;
+                case CharacterControlPanelBattle battlePanel:
+                    ActivateBattlePanel(battlePanel);
+                    break;
             }
         }
 

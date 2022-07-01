@@ -62,42 +62,47 @@ internal static class SpellSelectionPanelPatcher
             var spellLevelsOnLine = 0;
             var curTable = spellRepertoireLinesTable;
 
-            for (var repertoireIndex = 0; repertoireIndex < spellRepertoires.Count; repertoireIndex++)
+            foreach (var rulesetSpellRepertoire in spellRepertoires)
             {
-                var rulesetSpellRepertoire = spellRepertoires[repertoireIndex];
                 var startLevel = 0;
 
                 for (var level = startLevel;
                      level <= rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel;
                      level++)
                 {
-                    if (IsLevelActive(rulesetSpellRepertoire, level, actionType))
+                    if (!IsLevelActive(rulesetSpellRepertoire, level, actionType))
                     {
-                        spellLevelsOnLine++;
-
-                        if (spellLevelsOnLine >= Main.Settings.MaxSpellLevelsPerLine)
-                        {
-                            curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType,
-                                cantripOnly, spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires,
-                                needNewLine, lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel, level);
-                            startLevel = level + 1;
-                            lineIndex++;
-                            spellLevelsOnLine = 0;
-                            needNewLine = true;
-                            indexOfLine = 0;
-                        }
+                        continue;
                     }
+
+                    spellLevelsOnLine++;
+
+                    if (spellLevelsOnLine < Main.Settings.MaxSpellLevelsPerLine)
+                    {
+                        continue;
+                    }
+
+                    curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType,
+                        cantripOnly, spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires,
+                        needNewLine, lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel, level);
+                    startLevel = level + 1;
+                    lineIndex++;
+                    spellLevelsOnLine = 0;
+                    needNewLine = true;
+                    indexOfLine = 0;
                 }
 
-                if (spellLevelsOnLine != 0)
+                if (spellLevelsOnLine == 0)
                 {
-                    curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType, cantripOnly,
-                        spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires, needNewLine,
-                        lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel,
-                        rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel);
-                    needNewLine = false;
-                    indexOfLine++;
+                    continue;
                 }
+
+                curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType, cantripOnly,
+                    spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires, needNewLine,
+                    lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel,
+                    rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel);
+                needNewLine = false;
+                indexOfLine++;
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(curTable);
@@ -163,25 +168,14 @@ internal static class SpellSelectionPanelPatcher
         private static bool IsLevelActive(RulesetSpellRepertoire spellRepertoire, int level,
             ActionDefinitions.ActionType actionType)
         {
-            var spellActivationTime = RuleDefinitions.ActivationTime.Action;
-            switch (actionType)
+            var spellActivationTime = actionType switch
             {
-                case ActionDefinitions.ActionType.Bonus:
-                    spellActivationTime = RuleDefinitions.ActivationTime.BonusAction;
-                    break;
-
-                case ActionDefinitions.ActionType.Main:
-                    spellActivationTime = RuleDefinitions.ActivationTime.Action;
-                    break;
-
-                case ActionDefinitions.ActionType.Reaction:
-                    spellActivationTime = RuleDefinitions.ActivationTime.Reaction;
-                    break;
-
-                case ActionDefinitions.ActionType.NoCost:
-                    spellActivationTime = RuleDefinitions.ActivationTime.NoCost;
-                    break;
-            }
+                ActionDefinitions.ActionType.Bonus => RuleDefinitions.ActivationTime.BonusAction,
+                ActionDefinitions.ActionType.Main => RuleDefinitions.ActivationTime.Action,
+                ActionDefinitions.ActionType.Reaction => RuleDefinitions.ActivationTime.Reaction,
+                ActionDefinitions.ActionType.NoCost => RuleDefinitions.ActivationTime.NoCost,
+                _ => RuleDefinitions.ActivationTime.Action
+            };
 
             if (level == 0)
             {
@@ -191,33 +185,21 @@ internal static class SpellSelectionPanelPatcher
                     return true;
                 }
 
-                foreach (var cantrip in spellRepertoire.KnownCantrips)
-                {
-                    if (cantrip.ActivationTime == spellActivationTime)
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
+                return spellRepertoire.KnownCantrips.Any(cantrip => cantrip.ActivationTime == spellActivationTime);
             }
 
-            if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared &&
-                spellRepertoire.PreparedSpells
+            switch (spellRepertoire.SpellCastingFeature.SpellReadyness)
+            {
+                case RuleDefinitions.SpellReadyness.Prepared when spellRepertoire.PreparedSpells
                     .Any(spellDefinition =>
                         spellDefinition.SpellLevel == level
-                        && spellDefinition.ActivationTime == spellActivationTime))
-            {
-                return true;
+                        && spellDefinition.ActivationTime == spellActivationTime):
+                case RuleDefinitions.SpellReadyness.AllKnown
+                    when spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level):
+                    return true;
+                default:
+                    return false;
             }
-
-            if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown &&
-                spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level))
-            {
-                return true;
-            }
-
-            return false;
         }
     }
 
@@ -233,14 +215,13 @@ internal static class SpellSelectionPanelPatcher
                 return;
             }
 
-            foreach (var spellTable in spellLineTables)
+            foreach (var spellTable in spellLineTables
+                         .Where(spellTable =>
+                             spellTable != null && spellTable.gameObject.activeSelf && spellTable.childCount > 0))
             {
-                if (spellTable != null && spellTable.gameObject.activeSelf && spellTable.childCount > 0)
-                {
-                    Gui.ReleaseChildrenToPool(spellTable);
-                    spellTable.SetParent(null);
-                    Object.Destroy(spellTable.gameObject);
-                }
+                Gui.ReleaseChildrenToPool(spellTable);
+                spellTable.SetParent(null);
+                Object.Destroy(spellTable.gameObject);
             }
 
             spellLineTables.Clear();

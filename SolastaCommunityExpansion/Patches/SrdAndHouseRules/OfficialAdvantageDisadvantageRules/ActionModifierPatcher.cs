@@ -10,16 +10,16 @@ internal static class ActionModifier_AttackAdvantageTrend
 {
     public static bool Prefix(ActionModifier __instance, ref int __result)
     {
-        if (Main.Settings.UseOfficialAdvantageDisadvantageRules)
+        if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
         {
-            var advantage = __instance.attackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
-            var disadvantage = __instance.attackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;
-
-            __result = advantage + disadvantage;
-
-            return false;
+            return true;
         }
 
-        return true;
+        var advantage = __instance.attackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
+        var disadvantage = __instance.attackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;
+
+        __result = advantage + disadvantage;
+
+        return false;
     }
 }
