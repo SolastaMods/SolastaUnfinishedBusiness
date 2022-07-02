@@ -43,26 +43,28 @@ internal static class GameGadget_ComputeIsRevealed
 
         foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
         {
-            if (gridAccessor.Visited(position))
+            if (!gridAccessor.Visited(position))
             {
-                var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
-                var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
-                var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
-
-                var isInvisible = __instance.IsInvisible();
-                var isEnabled = __instance.IsEnabled();
-
-                if (worldGadget != null)
-                {
-                    GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget,
-                        isEnabled && !isInvisible);
-                }
-
-                __instance.revealed = true;
-                __result = true;
-
-                break;
+                continue;
             }
+
+            var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
+            var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
+            var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
+
+            var isInvisible = __instance.IsInvisible();
+            var isEnabled = __instance.IsEnabled();
+
+            if (worldGadget != null)
+            {
+                GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget,
+                    isEnabled && !isInvisible);
+            }
+
+            __instance.revealed = true;
+            __result = true;
+
+            break;
         }
     }
 }
@@ -88,25 +90,31 @@ internal static class GameGadget_SetCondition
             //Main.Log("GameGadget_SetCondition: " + string.Join(",", __instance.conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
 #endif
 
-            if ((param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)
-                && __instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))
+            if ((param != GameGadgetExtensions.Enabled && param != GameGadgetExtensions.ParamEnabled) ||
+                !__instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))
             {
-                var service = ServiceRepository.GetService<IGameLocationService>();
-
-                if (service != null)
-                {
-                    var worldGadget = service.WorldLocation.WorldSectors
-                        .SelectMany(ws => ws.WorldGadgets)
-                        .FirstOrDefault(wg => wg.GameGadget == __instance);
-
-                    if (worldGadget != null)
-                    {
-                        Main.Log($"GameGadget_SetCondition-setting-animation {__instance.UniqueNameId}: {state}");
-
-                        GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, state);
-                    }
-                }
+                return;
             }
+
+            var service = ServiceRepository.GetService<IGameLocationService>();
+
+            if (service == null)
+            {
+                return;
+            }
+
+            var worldGadget = service.WorldLocation.WorldSectors
+                .SelectMany(ws => ws.WorldGadgets)
+                .FirstOrDefault(wg => wg.GameGadget == __instance);
+
+            if (worldGadget == null)
+            {
+                return;
+            }
+
+            Main.Log($"GameGadget_SetCondition-setting-animation {__instance.UniqueNameId}: {state}");
+
+            GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, state);
         }
         else
         {

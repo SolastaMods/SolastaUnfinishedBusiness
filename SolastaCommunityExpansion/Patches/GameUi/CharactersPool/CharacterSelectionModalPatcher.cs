@@ -29,11 +29,13 @@ internal static class CharacterSelectionModal_EnumeratePlates
 
             yield return instruction;
 
-            if (instruction.LoadsField(levelsField))
+            if (!instruction.LoadsField(levelsField))
             {
-                yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
-                bypass = 2;
+                continue;
             }
+
+            yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
+            bypass = 2;
         }
     }
 }

@@ -11,13 +11,13 @@ internal static class HeroDefinitions_MaxHeroExperience
 {
     internal static bool Prefix(ref int __result)
     {
-        if (Main.Settings.EnableLevel20)
+        if (!Main.Settings.EnableLevel20)
         {
-            __result = MOD_MAX_EXPERIENCE;
-
-            return false;
+            return true;
         }
 
-        return true;
+        __result = MOD_MAX_EXPERIENCE;
+
+        return false;
     }
 }

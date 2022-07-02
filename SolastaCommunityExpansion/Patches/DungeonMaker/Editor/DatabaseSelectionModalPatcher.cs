@@ -11,18 +11,20 @@ internal static class DatabaseSelectionModal_BuildMonsters
 {
     internal static void Prefix(DatabaseSelectionModal __instance)
     {
-        if (Main.Settings.UnleashNpcAsEnemy)
+        if (!Main.Settings.UnleashNpcAsEnemy)
         {
-            var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
+            return;
+        }
 
-            __instance.allMonsters.Clear();
+        var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
 
-            if (isCtrlPressed)
-            {
-                __instance.allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
-                    .Where(x => !x.GuiPresentation.Hidden)
-                    .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
-            }
+        __instance.allMonsters.Clear();
+
+        if (isCtrlPressed)
+        {
+            __instance.allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+                .Where(x => !x.GuiPresentation.Hidden)
+                .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
         }
     }
 }
@@ -34,18 +36,20 @@ internal static class DatabaseSelectionModal_BuildNpcs
 {
     internal static void Prefix(DatabaseSelectionModal __instance)
     {
-        if (Main.Settings.UnleashEnemyAsNpc)
+        if (!Main.Settings.UnleashEnemyAsNpc)
         {
-            var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
+            return;
+        }
 
-            __instance.allNpcs.Clear();
+        var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
 
-            if (isCtrlPressed)
-            {
-                __instance.allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
-                    .Where(x => !x.GuiPresentation.Hidden)
-                    .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
-            }
+        __instance.allNpcs.Clear();
+
+        if (isCtrlPressed)
+        {
+            __instance.allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+                .Where(x => !x.GuiPresentation.Hidden)
+                .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
         }
     }
 }

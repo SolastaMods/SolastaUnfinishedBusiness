@@ -12,23 +12,25 @@ internal static class RuleDefinitions_ComputeAdvantage
 {
     public static void Postfix(List<TrendInfo> trends, ref AdvantageType __result)
     {
-        if (Main.Settings.UseOfficialAdvantageDisadvantageRules)
+        if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
         {
-            var hasAdvantage = trends.Any(t => t.value > 0);
-            var hasDisadvantage = trends.Any(t => t.value < 0);
+            return;
+        }
 
-            if (!(hasAdvantage ^ hasDisadvantage))
-            {
-                __result = AdvantageType.None;
-            }
-            else if (hasAdvantage)
-            {
-                __result = AdvantageType.Advantage;
-            }
-            else
-            {
-                __result = AdvantageType.Disadvantage;
-            }
+        var hasAdvantage = trends.Any(t => t.value > 0);
+        var hasDisadvantage = trends.Any(t => t.value < 0);
+
+        if (!(hasAdvantage ^ hasDisadvantage))
+        {
+            __result = AdvantageType.None;
+        }
+        else if (hasAdvantage)
+        {
+            __result = AdvantageType.Advantage;
+        }
+        else
+        {
+            __result = AdvantageType.Disadvantage;
         }
     }
 }

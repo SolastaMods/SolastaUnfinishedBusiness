@@ -45,13 +45,7 @@ internal static class KnowYourEnemyBuilder
 {
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)
     {
-        GameBestiaryEntry entry = null;
-        if (ServiceRepository.GetService<IGameLoreService>().Bestiary.TryGetBestiaryEntry(enemy, out entry))
-        {
-            return entry.KnowledgeLevelDefinition.Level;
-        }
-
-        return 0;
+        return ServiceRepository.GetService<IGameLoreService>().Bestiary.TryGetBestiaryEntry(enemy, out var entry) ? entry.KnowledgeLevelDefinition.Level : 0;
     }
 
     private static void KnowYourEnemyOnAttackDelegate(GameLocationCharacter attacker,
@@ -183,8 +177,7 @@ internal static class StudyYourEnemyBuilder
             var level = entry.KnowledgeLevelDefinition.Level;
             var num = level;
 
-            if (outcome == RollOutcome.Success
-                || outcome == RollOutcome.CriticalSuccess)
+            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 var num2 = outcome == RollOutcome.Success ? 1 : 2;
                 num = Mathf.Min(entry.KnowledgeLevelDefinition.Level + num2, 4);
@@ -294,18 +287,20 @@ internal static class CoordinatedAttackBuilder
             reactions.Add(reactionParams);
         }
 
-        if (!reactions.Empty() && battleManager != null)
+        if (reactions.Empty() || battleManager == null)
         {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            foreach (var reaction in reactions)
-            {
-                actionService.ReactForOpportunityAttack(reaction);
-            }
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield break;
         }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        foreach (var reaction in reactions)
+        {
+            actionService.ReactForOpportunityAttack(reaction);
+        }
+
+        yield return battleManager.WaitForReactions(attacker, actionService, count);
     }
 
     internal static FeatureDefinition BuildCoordinatedAttack()

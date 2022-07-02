@@ -124,10 +124,12 @@ internal class ConArtist : AbstractSubclass
 
     internal static void UpdateSpellDCBoost()
     {
-        if (DcIncreaseAffinity)
+        if (!DcIncreaseAffinity)
         {
-            DcIncreaseAffinity.saveDCModifier = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
-            DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
+            return;
         }
+
+        DcIncreaseAffinity.saveDCModifier = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
+        DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
     }
 }

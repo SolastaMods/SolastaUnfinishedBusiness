@@ -27,7 +27,7 @@ internal static class ModManagerUI
 
         if (open)
         {
-            IsOpen = open;
+            IsOpen = true;
         }
         else
         {

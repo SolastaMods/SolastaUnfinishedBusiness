@@ -846,7 +846,7 @@ ModUi/&AllowStackedMaterialComponent=Allow	stacked material component <i><color=
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow	target selection when casting the <color=orange>Chain Lightning</color> spell
 ModUi/&AllowUnmarkedSorcerers=Allow	<color=orange>Sorcerers</color> without origin markings and tattoos
 ModUi/&AllRecipesInDm=All	recipes in DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>	key only highlight gadgets in party field of view [only in custom dungeons]
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>	key only highlight gadgets in party field of view <i><color=yellow>[only in custom dungeons]</color></i>
 ModUi/&AutoPauseOnVictory=Pause	the UI when victorious in battle
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=orange>Bestow	Curse</color> does not require concentration when cast with L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=orange>Blinded</color>	condition doesn't allow attack of opportunity
@@ -949,7 +949,7 @@ ModUi/&Races=<color=yellow>Races	& Subraces</color>
 ModUi/&RacesClassesSubclasses=Races,	Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's	Cost</color>
 ModUi/&RecipesInDm=Recipes	in DM
-ModUi/&ReduceDarkelfLightPenalty=Reduce	Darkelf Light Penalty to -1d4 on attacks instead of Disadvantage
+ModUi/&ReduceDarkelfLightPenalty=Swap	<color=orange>Dark Elf</color> Light Penalty to -1d4 on attacks instead of Disadvantage
 ModUi/&RelicForgeries=Relic	Forgeries
 ModUi/&RemoveAttunementRequirements=Remove	attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels=Replace	bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -1612,6 +1612,7 @@ Equipment/&ScrollConjureMinorElementalTitle=Scroll	of Conjure Minor Elementals
 Equipment/&ScrollConjureMinorElementalDescription=When	you use this scroll, you cast the spell Conjure Minor Elementals.
 Equipment/&ScrollDeathWardTitle=Scroll	of Deathward
 Equipment/&ScrollDeathWardDescription=When	you use this scroll, you cast the spell Deathward.
+Prop/&PrisonFenceDestroyedTitle=Prison	Fence Destroyed
 Feature/&CounterStrikePowerDescription=Spend	a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Feature/&CounterStrikePowerTitle=Counter	Strike
 Feature/&GambitResourcePoolAddDescription=Adds	an additional gambit die.

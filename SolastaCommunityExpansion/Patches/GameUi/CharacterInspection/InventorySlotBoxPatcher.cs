@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using Mono.CSharp;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
@@ -24,9 +23,7 @@ internal static class InventorySlotBox_RefreshState
             return;
         }
 
-        if (__instance.InventorySlot == null
-            || __instance.InventorySlot.EquipedItem == null
-            || __instance.equipedItemImage == null)
+        if (__instance.InventorySlot?.EquipedItem == null || __instance.equipedItemImage == null)
         {
             return;
         }

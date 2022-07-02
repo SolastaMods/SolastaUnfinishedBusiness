@@ -40,14 +40,15 @@ internal static class RulesetCharacter_IsComponentMaterialValid
         {
             var approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs);
 
-            if (item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag)
-                // calculate value of stack
-                && approximateCostInGold * item.StackCount >= spellDefinition.SpecificMaterialComponentCostGp)
+            if (!item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) ||
+                approximateCostInGold * item.StackCount < spellDefinition.SpecificMaterialComponentCostGp)
             {
-                __result = true;
-
-                failure = string.Empty;
+                continue;
             }
+
+            __result = true;
+
+            failure = string.Empty;
         }
     }
 }

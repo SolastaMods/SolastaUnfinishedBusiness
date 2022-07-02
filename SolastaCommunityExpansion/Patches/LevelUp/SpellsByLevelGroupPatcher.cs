@@ -57,7 +57,10 @@ internal static class SpellsByLevelGroup_CommonBind
         List<SpellDefinition> allSpells,
         List<SpellDefinition> auToPreparedSpells)
     {
-        if (bindMode == SpellBox.BindMode.Preparation || bindMode == SpellBox.BindMode.Inspection)
+        __instance.spellsTable.gameObject.SetActive(true);
+        __instance.slotStatusTable.gameObject.SetActive(true);
+
+        if (bindMode is SpellBox.BindMode.Preparation or SpellBox.BindMode.Inspection)
         {
             return;
         }
@@ -95,7 +98,7 @@ internal static class SpellsByLevelGroup_CommonBind
 
             allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Contains(x));
 
-            // try add to avoid dups
+            // try add to avoid duplicates
             foreach (var spell in otherClassesKnownSpells)
             {
                 allSpells.TryAdd(spell);

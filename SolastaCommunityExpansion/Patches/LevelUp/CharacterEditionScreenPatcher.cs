@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterEditionScreen_LoadStagePanels
 {
-    internal static CustomFeatureSelectionPanel GetPanel(CharacterEditionScreen __instance)
+    private static CustomFeatureSelectionPanel GetPanel(CharacterEditionScreen __instance)
     {
         var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
         var stagePanelPrefabs =
@@ -29,20 +29,25 @@ internal static class CharacterEditionScreen_LoadStagePanels
 
     internal static void Postfix(CharacterEditionScreen __instance)
     {
-        if (__instance is CharacterCreationScreen)
+        switch (__instance)
         {
-            var customFeatureSelection = GetPanel(__instance);
-            var last = __instance.stagePanelsByName.ElementAt(__instance.stagePanelsByName.Count - 1);
+            case CharacterCreationScreen:
+            {
+                var customFeatureSelection = GetPanel(__instance);
+                var last = __instance.stagePanelsByName.ElementAt(__instance.stagePanelsByName.Count - 1);
 
-            __instance.stagePanelsByName.Remove(last.Key);
-            __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
-            __instance.stagePanelsByName.Add(last.Key, last.Value);
-        }
-        else if (__instance is CharacterLevelUpScreen)
-        {
-            var customFeatureSelection = GetPanel(__instance);
+                __instance.stagePanelsByName.Remove(last.Key);
+                __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
+                __instance.stagePanelsByName.Add(last.Key, last.Value);
+                break;
+            }
+            case CharacterLevelUpScreen:
+            {
+                var customFeatureSelection = GetPanel(__instance);
 
-            __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
+                __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
+                break;
+            }
         }
 
         //

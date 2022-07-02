@@ -12,8 +12,7 @@ internal static class SpellBox_Refresh
     public static void Postfix(SpellBox __instance)
     {
         if (__instance.GuiSpellDefinition == null
-            || __instance.bindMode == SpellBox.BindMode.Preparation
-            || __instance.bindMode == SpellBox.BindMode.Inspection)
+            || __instance.bindMode is SpellBox.BindMode.Preparation or SpellBox.BindMode.Inspection)
         {
             return;
         }
@@ -57,11 +56,13 @@ internal static class SpellBox_Refresh
 
         var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(hero);
 
-        if (otherClassesKnownSpells.Contains(__instance.SpellDefinition))
+        if (!otherClassesKnownSpells.Contains(__instance.SpellDefinition))
         {
-            __instance.autoPreparedTitle.Text = "Screen/&MulticlassSpellTitle";
-            __instance.autoPreparedTooltip.Content = "Screen/&MulticlassSpellDescription";
-            __instance.autoPreparedGroup.gameObject.SetActive(true);
+            return;
         }
+
+        __instance.autoPreparedTitle.Text = "Screen/&MulticlassSpellTitle";
+        __instance.autoPreparedTooltip.Content = "Screen/&MulticlassSpellDescription";
+        __instance.autoPreparedGroup.gameObject.SetActive(true);
     }
 }

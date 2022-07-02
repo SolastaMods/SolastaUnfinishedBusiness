@@ -41,17 +41,18 @@ internal static class GuiCharacter_FormatHealthGauge
             return; // health wasn't dirty so healthGauge hasn't been updated
         }
 
-        if (__instance.RulesetCharacterMonster != null &&
-            __instance.RulesetCharacterMonster.Side == RuleDefinitions.Side.Enemy) // Only change for monsters
-
+        if (__instance.RulesetCharacterMonster == null ||
+            __instance.RulesetCharacterMonster.Side != RuleDefinitions.Side.Enemy)
         {
-            var ratio = Mathf.Clamp(__instance.CurrentHitPoints / (float)__instance.HitPoints, 0.0f, 1f);
-
-            ratio = HideMonsterHitPointsContext.GetSteppedHealthRatio(ratio);
-
-            healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x,
-                (float)(-parentHeight * (1.0 - ratio)));
+            return;
         }
+
+        var ratio = Mathf.Clamp(__instance.CurrentHitPoints / (float)__instance.HitPoints, 0.0f, 1f);
+
+        ratio = HideMonsterHitPointsContext.GetSteppedHealthRatio(ratio);
+
+        healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x,
+            (float)(-parentHeight * (1.0 - ratio)));
     }
 }
 

@@ -10,16 +10,16 @@ internal static class TooltipPanel_SetupFeatures
 {
     internal static void Prefix(ref TooltipDefinitions.Scope scope)
     {
-        if (Main.Settings.InvertAltBehaviorOnTooltips)
+        if (!Main.Settings.InvertAltBehaviorOnTooltips)
         {
-            if (scope == TooltipDefinitions.Scope.Simplified)
-            {
-                scope = TooltipDefinitions.Scope.Detailed;
-            }
-            else if (scope == TooltipDefinitions.Scope.Detailed)
-            {
-                scope = TooltipDefinitions.Scope.Simplified;
-            }
+            return;
         }
+
+        scope = scope switch
+        {
+            TooltipDefinitions.Scope.Simplified => TooltipDefinitions.Scope.Detailed,
+            TooltipDefinitions.Scope.Detailed => TooltipDefinitions.Scope.Simplified,
+            _ => scope
+        };
     }
 }

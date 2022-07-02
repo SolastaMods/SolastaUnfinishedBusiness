@@ -79,17 +79,17 @@ internal static class CursorLocationGeometricShape_UpdateGeometricShape
         var targetParameter2Field =
             typeof(CursorLocationGeometricShape).GetField("targetParameter2",
                 BindingFlags.Instance | BindingFlags.NonPublic);
-        var updateCubePosition_RegularMethod = typeof(GeometricShape).GetMethod("UpdateCubePosition_Regular");
-        var myUpdateCubePosition_RegularMethod =
+        var updateCubePositionRegularMethod = typeof(GeometricShape).GetMethod("UpdateCubePosition_Regular");
+        var myUpdateCubePositionRegularMethod =
             typeof(CursorLocationGeometricShape_UpdateGeometricShape).GetMethod("MyUpdateCubePosition_Regular");
 
         foreach (var instruction in instructions)
         {
-            if (instruction.Calls(updateCubePosition_RegularMethod))
+            if (instruction.Calls(updateCubePositionRegularMethod))
             {
                 yield return new CodeInstruction(OpCodes.Ldarg_0); // this
                 yield return new CodeInstruction(OpCodes.Ldfld, targetParameter2Field);
-                yield return new CodeInstruction(OpCodes.Call, myUpdateCubePosition_RegularMethod);
+                yield return new CodeInstruction(OpCodes.Call, myUpdateCubePositionRegularMethod);
             }
             else
             {

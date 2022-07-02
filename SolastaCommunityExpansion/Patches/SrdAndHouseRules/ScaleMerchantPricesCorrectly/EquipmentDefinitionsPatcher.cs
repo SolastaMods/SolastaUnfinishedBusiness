@@ -68,11 +68,13 @@ internal static class EquipmentDefinitions_ScaleAndRoundCosts
             (scaledAndRoundedCopper - (scaledCosts[1] * 100) - (scaledCosts[3] * 10) - scaledCosts[4]) / 1000;
 
         // only show platinum if baseCosts had platinum
-        if (baseCosts[0] == 0)
+        if (baseCosts[0] != 0)
         {
-            scaledCosts[1] += 10 * scaledCosts[0];
-            scaledCosts[0] = 0;
+            return false;
         }
+
+        scaledCosts[1] += 10 * scaledCosts[0];
+        scaledCosts[0] = 0;
 
         return false;
     }
@@ -84,10 +86,10 @@ internal static class EquipmentDefinitions_ScaleAndRoundCosts
 internal static class Precision
 {
     // 2^-24
-    public const float FLOAT_EPSILON = 0.0000000596046448f;
+    private const float FLOAT_EPSILON = 0.0000000596046448f;
 
     // 2^-53
-    public const double DOUBLE_EPSILON = 0.00000000000000011102230246251565d;
+    private const double DOUBLE_EPSILON = 0.00000000000000011102230246251565d;
 
     public static bool AlmostEquals(this double a, double b, double epsilon = DOUBLE_EPSILON)
     {

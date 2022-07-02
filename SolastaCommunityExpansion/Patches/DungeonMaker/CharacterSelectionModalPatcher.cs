@@ -11,10 +11,12 @@ internal static class CharacterSelectionModal_SelectFromPool
 {
     internal static void Prefix(CharacterSelectionModal __instance)
     {
-        if (Main.Settings.OverrideMinMaxLevel)
+        if (!Main.Settings.OverrideMinMaxLevel)
         {
-            __instance.MinLevel = DungeonMakerContext.DUNGEON_MIN_LEVEL;
-            __instance.MaxLevel = DungeonMakerContext.DUNGEON_MAX_LEVEL;
+            return;
         }
+
+        __instance.MinLevel = DungeonMakerContext.DUNGEON_MIN_LEVEL;
+        __instance.MaxLevel = DungeonMakerContext.DUNGEON_MAX_LEVEL;
     }
 }

@@ -81,12 +81,13 @@ internal class MasterManipulator : AbstractSubclass
 
     internal static void UpdateSpellDCBoost()
     {
-        if (DcIncreaseAffinity)
+        if (!DcIncreaseAffinity)
         {
-            DcIncreaseAffinity.saveDCModifier = Main.Settings
-                .OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
-            DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
+            return;
         }
+
+        DcIncreaseAffinity.saveDCModifier = Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
+        DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
     }
 
     private static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier,

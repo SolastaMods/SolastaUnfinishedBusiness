@@ -191,25 +191,29 @@ internal static class LoadPanel_OnBeginShow
                     .GetComponentsInChildren<RectTransform>()
                     .SingleOrDefault(c => c.gameObject.name == "ButtonsBar")?.gameObject;
 
-                if (buttonBar != null)
+                if (buttonBar == null)
                 {
-                    var horizontalLayoutGroup = buttonBar.GetComponent<HorizontalLayoutGroup>();
-
-                    if (horizontalLayoutGroup != null)
-                    {
-                        Dropdown.transform.SetParent(horizontalLayoutGroup.transform, false);
-
-                        horizontalLayoutGroup.childForceExpandWidth = true;
-                        horizontalLayoutGroup.childForceExpandHeight = true;
-                        horizontalLayoutGroup.childControlWidth = true;
-                        horizontalLayoutGroup.childControlHeight = true;
-                        horizontalLayoutGroup.childAlignment = TextAnchor.MiddleLeft;
-
-                        var dropDownLayout = dd.gameObject.AddComponent<LayoutElement>();
-                        // any large flexible width will do
-                        dropDownLayout.flexibleWidth = 3;
-                    }
+                    return dd;
                 }
+
+                var horizontalLayoutGroup = buttonBar.GetComponent<HorizontalLayoutGroup>();
+
+                if (horizontalLayoutGroup == null)
+                {
+                    return dd;
+                }
+
+                Dropdown.transform.SetParent(horizontalLayoutGroup.transform, false);
+
+                horizontalLayoutGroup.childForceExpandWidth = true;
+                horizontalLayoutGroup.childForceExpandHeight = true;
+                horizontalLayoutGroup.childControlWidth = true;
+                horizontalLayoutGroup.childControlHeight = true;
+                horizontalLayoutGroup.childAlignment = TextAnchor.MiddleLeft;
+
+                var dropDownLayout = dd.gameObject.AddComponent<LayoutElement>();
+                // any large flexible width will do
+                dropDownLayout.flexibleWidth = 3;
             }
             else
             {
