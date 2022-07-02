@@ -1,455 +1,455 @@
-﻿DwarfFemale	Abagtha
-DwarfFemale	Bera
-DwarfFemale	Birsha
-DwarfFemale	Brallesyl
-DwarfFemale	Bretri
-DwarfFemale	Bronnura
-DwarfFemale	Clauda
-DwarfFemale	Dabareh
-DwarfFemale	Dearma
-DwarfFemale	Demelza
-DwarfFemale	Dodai
-DwarfFemale	Dura
-DwarfFemale	Gath
-DwarfFemale	Hadar
-DwarfFemale	Hagar
-DwarfFemale	Halah
-DwarfFemale	Hanan
-DwarfFemale	Iddo
-DwarfFemale	Jenndora
-DwarfFemale	Jenrin
-DwarfFemale	Juttah
-DwarfFemale	Melea
-DwarfFemale	Meribah
-DwarfFemale	Misnan
-DwarfFemale	Myrnera
-DwarfFemale	Nasnyl
-DwarfFemale	Nisleen
-DwarfFemale	Obal
-DwarfFemale	Peleg
-DwarfFemale	Ramah
-DwarfFemale	Renmera
-DwarfFemale	Sarai
-DwarfFemale	Torthiel
-DwarfMale	Abaddon
-DwarfMale	Adar
-DwarfMale	Agur
-DwarfMale	Balmar
-DwarfMale	Barabbas
-DwarfMale	Beor
-DwarfMale	Bildad
-DwarfMale	Charran
-DwarfMale	Dagon
-DwarfMale	Doldahr
-DwarfMale	Dor
-DwarfMale	Ebed
-DwarfMale	Ezra
-DwarfMale	Gareb
-DwarfMale	Gergrom 
-DwarfMale	Gozan
-DwarfMale	Granren
-DwarfMale	Grilgarn
-DwarfMale	Grilthrum
-DwarfMale	Hadrach
-DwarfMale	Haggai
-DwarfMale	Haggeri
-DwarfMale	Jorah
-DwarfMale	Kramgrim
-DwarfMale	Medan
-DwarfMale	Obadiah
-DwarfMale	Shobab
-DwarfMale	Sorek
-DwarfMale	Thalmor
-DwarfMale	Thendrar
-DwarfMale	Thurdram
-DwarfMale	Vongram
-DwarfMale	Ziklag
-DwarfSur	Ashmaul
-DwarfSur	Caskbender
-DwarfSur	Deeprock
-DwarfSur	Duskhood
-DwarfSur	Flintbrew
-DwarfSur	Flintmail
-DwarfSur	Greyforged
-DwarfSur	Ingotbuster
-DwarfSur	Magmapike
-DwarfSur	Oakenbrand
-DwarfSur	Onyxheart
-DwarfSur	Trollfury
-DwarfSur	Wargranite
-ElfFemale	Abdiel
-ElfFemale	Adiel
-ElfFemale	Cilicia
-ElfFemale	Dalmanutha
-ElfFemale	Eliah
-ElfFemale	Gaddiel
-ElfFemale	Galatia
-ElfFemale	Hena
-ElfFemale	Hermogenes
-ElfFemale	Ildilyntra
-ElfFemale	Illyricum
-ElfFemale	Ilythyrra
-ElfFemale	Ithiel
-ElfFemale	Jahdiel
-ElfFemale	Jehezekel
-ElfFemale	Lycaonia
-ElfFemale	Lydda
-ElfFemale	Lythienne
-ElfFemale	Maranatha
-ElfFemale	Mysia
-ElfFemale	Nanthaliene
-ElfFemale	Othniel
-ElfFemale	Samariah
-ElfFemale	Sisera
-ElfMale	Alosrin
-ElfMale	Ananias
-ElfMale	Avourel
-ElfMale	Dathan
-ElfMale	Eldad
-ElfMale	Elidad
-ElfMale	Enochiel
-ElfMale	Eshbanil
-ElfMale	Ethamiel
-ElfMale	Fortunatus
-ElfMale	Gaeleath
-ElfMale	Habakkuk
-ElfMale	Hammelech
-ElfMale	Hamutal
-ElfMale	Hazeroth
-ElfMale	Hymeneus
-ElfMale	Ibzan
-ElfMale	Isilynor
-ElfMale	Jozachar
-ElfMale	Lysias
-ElfMale	Magdiel
-ElfMale	Mithredath
-ElfMale	Nueleth
-ElfMale	Rehoboam
-ElfMale	Ruvaen
-ElfMale	Silvyr
-ElfMale	Timnah
-ElfSur	Moryra
-ElfSur	Neridithas
-ElfSur	Neriwenys
-HalfElfFemale	Adalia
-HalfElfFemale	Ahrendue
-HalfElfFemale	Aleesia
-HalfElfFemale	Barbara
-HalfElfFemale	Calarel
-HalfElfFemale	Candace
-HalfElfFemale	Celia
-HalfElfFemale	Claudia
-HalfElfFemale	Dawn
-HalfElfFemale	Deborah
-HalfElfFemale	Delilah
-HalfElfFemale	Diana
-HalfElfFemale	Drusilla
-HalfElfFemale	Elaine
-HalfElfFemale	Elisa
-HalfElfFemale	Elisha
-HalfElfFemale	Elizabeth
-HalfElfFemale	Ellarian
-HalfElfFemale	Esther
-HalfElfFemale	Estrid
-HalfElfFemale	Gylledhia
-HalfElfFemale	Harriet
-HalfElfFemale	Isarrel
-HalfElfFemale	Jesse
-HalfElfFemale	Julia
-HalfElfFemale	Juliette
-HalfElfFemale	Kindreth
-HalfElfFemale	Leah
-HalfElfFemale	Lilith
-HalfElfFemale	Lucette
-HalfElfFemale	Lydda
-HalfElfFemale	Lydia
-HalfElfFemale	Naomi
-HalfElfFemale	Ophelie
-HalfElfFemale	Priscilla
-HalfElfFemale	Rachel
-HalfElfFemale	Rose
-HalfElfFemale	Sariandi
-HalfElfFemale	Syndra
-HalfElfFemale	Thasinia
-HalfElfMale	Aaron
-HalfElfMale	Adam
-HalfElfMale	Anakiir
-HalfElfMale	Ben
-HalfElfMale	Bronwyn
-HalfElfMale	Daniel
-HalfElfMale	Dean
-HalfElfMale	Dothan
-HalfElfMale	Edwin
-HalfElfMale	Eli
-HalfElfMale	Enos
-HalfElfMale	Ephraim
-HalfElfMale	Ethan
-HalfElfMale	Gabriel
-HalfElfMale	Gaspar
-HalfElfMale	Gideon
-HalfElfMale	Ian
-HalfElfMale	Illendir
-HalfElfMale	Iolas
-HalfElfMale	Jacob
-HalfElfMale	Jan
-HalfElfMale	John
-HalfElfMale	Linus
-HalfElfMale	Luke
-HalfElfMale	Mark
-HalfElfMale	Mason
-HalfElfMale	Matthias
-HalfElfMale	Michael
-HalfElfMale	Nicolas
-HalfElfMale	Robert
-HalfElfMale	Silas
-HalfElfMale	William
-HalfElfSur	Colton
-HalfElfSur	Darksight
-HalfElfSur	Forechaser
-HalfElfSur	Greenfeather
-HalfElfSur	Loralana
-HalfElfSur	Sparrow
-HalfElfSur	Windflower
-HalflingFemale	Asriella
-HalflingFemale	Bilshan
-HalflingFemale	Carmi
-HalflingFemale	Darda
-HalflingFemale	Darni
-HalflingFemale	Dibri
-HalflingFemale	Eden
-HalflingFemale	Evi
-HalflingFemale	Gabbatha
-HalflingFemale	Gilboa
-HalflingFemale	Harana
-HalflingFemale	Hazael
-HalflingFemale	Hophni
-HalflingFemale	Igdaliah
-HalflingFemale	Leora
-HalflingFemale	Marri
-HalflingFemale	Maryola
-HalflingFemale	Matri
-HalflingFemale	Minni
-HalflingFemale	Myra
-HalflingFemale	Nekoda
-HalflingFemale	Odine
-HalflingFemale	Pisidia
-HalflingFemale	Qirana
-HalflingFemale	Rhesa
-HalflingFemale	Riblah
-HalflingFemale	Syllie
-HalflingFemale	Tebaliah
-HalflingFemale	Therwyse
-HalflingFemale	Trynola
-HalflingFemale	Vada
-HalflingFemale	Vadrey
-HalflingFemale	Yosys
-HalflingFemale	Zemira
-HalflingMale	Alpheus
-HalflingMale	Anrin
-HalflingMale	Apollyon
-HalflingMale	Arphaxad
-HalflingMale	Barnabus
-HalflingMale	Barpos
-HalflingMale	Bartholomew
-HalflingMale	Belrin
-HalflingMale	Cephas
-HalflingMale	Cornelius
-HalflingMale	Corser
-HalflingMale	Crispus
-HalflingMale	Erastus
-HalflingMale	Ezekial
-HalflingMale	Felix
-HalflingMale	Flynnan
-HalflingMale	Gallio
-HalflingMale	Haman
-HalflingMale	Hiram
-HalflingMale	Ichabod
-HalflingMale	Idopos
-HalflingMale	Janvias
-HalflingMale	Nehemiah
-HalflingMale	Nicodemus
-HalflingMale	Perder
-HalflingMale	Quinmo
-HalflingMale	Riclos
-HalflingMale	Sergius
-HalflingMale	Sharbin
-HalflingMale	Tabor
-HalflingMale	Thaddeus
-HalflingMale	Valumo
-HalflingMale	Valver
-HalflingMale	Vinrin
-HalflingMale	Zebadiah
-HalflingMale	Zerubbabel
-HalflingSur	Ambershaker
-HalflingSur	Brushgather
-HalflingSur	Burrows
-HalflingSur	Fatflower
-HalflingSur	Greatfellow
-HalflingSur	Hornblower
-HalflingSur	Millbridge
-HalflingSur	Ostgood
-HalflingSur	Talltalker
-HalflingSur	Tealeaf
-HalflingSur	Tosscobble
-HalflingSur	Underbough
-HalfOrcFemale	Amashi
-HalfOrcFemale	Baalah
-HalfOrcFemale	Grunish
-HalfOrcFemale	Gryotah
-HalfOrcFemale	Karati
-HalfOrcFemale	Kinha
-HalfOrcFemale	Krutish
-HalfOrcFemale	Ruda
-HalfOrcFemale	Tamaz
-HalfOrcFemale	Tikna
-HalfOrcMale	Amalek
-HalfOrcMale	Crugul
-HalfOrcMale	Druk
-HalfOrcMale	Garruk
-HalfOrcMale	Gruk
-HalfOrcMale	Grumogak
-HalfOrcMale	Kronan
-HalfOrcMale	Kurgan
-HalfOrcMale	Mokask
-HalfOrcMale	Turruk
-HumanFemale	Barbara
-HumanFemale	Candace
-HumanFemale	Claudia
-HumanFemale	Dasia
-HumanFemale	Dawn
-HumanFemale	Deborah
-HumanFemale	Delilah
-HumanFemale	Diana
-HumanFemale	Dinah
-HumanFemale	Drusilla
-HumanFemale	Eden
-HumanFemale	Elaine
-HumanFemale	Elisha
-HumanFemale	Elizabeth
-HumanFemale	Esther
-HumanFemale	Harriet
-HumanFemale	Jesse
-HumanFemale	Julia
-HumanFemale	Juliette
-HumanFemale	Leah
-HumanFemale	Liealia
-HumanFemale	Lila
-HumanFemale	Lilith
-HumanFemale	Lydia
-HumanFemale	Marcelina
-HumanFemale	Marisol
-HumanFemale	Miriam
-HumanFemale	Naomi
-HumanFemale	Natascha
-HumanFemale	Payton
-HumanFemale	Priscilla
-HumanFemale	Rachel
-HumanFemale	Reyna
-HumanFemale	Rose
-HumanFemale	Vinka
-HumanMale	Aaron
-HumanMale	Adam
-HumanMale	Asher
-HumanMale	Austin
-HumanMale	Ben
-HumanMale	Caleb
-HumanMale	Daniel
-HumanMale	Darius
-HumanMale	Edwin
-HumanMale	Eli
-HumanMale	Ethan
-HumanMale	Gabriel
-HumanMale	Gideon
-HumanMale	Gomer
-HumanMale	Ian
-HumanMale	Jacob
-HumanMale	Jadon
-HumanMale	Lincoln
-HumanMale	Linus
-HumanMale	Luke
-HumanMale	Mark
-HumanMale	Michael
-HumanMale	Nicolas
-HumanMale	Robert
-HumanMale	Roy
-HumanMale	Silas
-HumanMale	Uriah
-HumanMale	William
-HumanSur	Collier
-HumanSur	Cooper
-HumanSur	Farrier
-HumanSur	Miller
-HumanSur	Smith
-HumanSur	Tailor
-HumanSur	Tanner
-SylvanElfFemale	,Alenia
-SylvanElfFemale	Adriel
-SylvanElfFemale	Alais
-SylvanElfFemale	Carshena
-SylvanElfFemale	Cherith
-SylvanElfFemale	Damarie
-SylvanElfFemale	Delilah
-SylvanElfFemale	Diana
-SylvanElfFemale	Elaith
-SylvanElfFemale	Gennesaret
-SylvanElfFemale	Habazziniah
-SylvanElfFemale	Hilkiah
-SylvanElfFemale	Ibri
-SylvanElfFemale	Iefyr
-SylvanElfFemale	Imri
-SylvanElfFemale	Ioelena
-SylvanElfFemale	Jezreel
-SylvanElfFemale	Kaylessa
-SylvanElfFemale	Kilyn
-SylvanElfFemale	Lasea
-SylvanElfFemale	Lystra
-SylvanElfFemale	Mara
-SylvanElfFemale	Moriah
-SylvanElfFemale	Morwenna
-SylvanElfFemale	Patara
-SylvanElfFemale	Rakal
-SylvanElfFemale	Sapphira
-SylvanElfFemale	Sionia
-SylvanElfFemale	Taeral
-SylvanElfFemale	Tannyll
-SylvanElfFemale	Terah
-SylvanElfMale	Archelaus
-SylvanElfMale	Aymer
-SylvanElfMale	Dalphon
-SylvanElfMale	Demetrius
-SylvanElfMale	Dothan
-SylvanElfMale	Eglah
-SylvanElfMale	Ehlark
-SylvanElfMale	Elmodam
-SylvanElfMale	Elon
-SylvanElfMale	Esek
-SylvanElfMale	Farryn
-SylvanElfMale	Festus
-SylvanElfMale	Folas
-SylvanElfMale	Ganamede
-SylvanElfMale	Gerar
-SylvanElfMale	Golan
-SylvanElfMale	Gorwin
-SylvanElfMale	Hadad
-SylvanElfMale	Hagred
-SylvanElfMale	Haran
-SylvanElfMale	Harod
-SylvanElfMale	Hothir
-SylvanElfMale	Ilvisar
-SylvanElfMale	Malluch
-SylvanElfMale	Matthias
-SylvanElfMale	Navarre
-SylvanElfMale	Obed
-SylvanElfMale	Silvanus
-SylvanElfMale	Vaeril
-SylvanElfMale	Zeresh
-SylvanElfSur	Blueneedle
-SylvanElfSur	Dunhawk
-SylvanElfSur	Greystag
-SylvanElfSur	Hollyblossom
-SylvanElfSur	Oakheart
-SylvanElfSur	Shadowbrook
-SylvanElfSur	Slenderbough
-SylvanElfSur	Thistlewood
-SylvanElfSur	Turningleaf
-SylvanElfSur	Whitehart
+﻿Dwarf	Female	Abagtha
+Dwarf	Female	Bera
+Dwarf	Female	Birsha
+Dwarf	Female	Brallesyl
+Dwarf	Female	Bretri
+Dwarf	Female	Bronnura
+Dwarf	Female	Clauda
+Dwarf	Female	Dabareh
+Dwarf	Female	Dearma
+Dwarf	Female	Demelza
+Dwarf	Female	Dodai
+Dwarf	Female	Dura
+Dwarf	Female	Gath
+Dwarf	Female	Hadar
+Dwarf	Female	Hagar
+Dwarf	Female	Halah
+Dwarf	Female	Hanan
+Dwarf	Female	Iddo
+Dwarf	Female	Jenndora
+Dwarf	Female	Jenrin
+Dwarf	Female	Juttah
+Dwarf	Female	Melea
+Dwarf	Female	Meribah
+Dwarf	Female	Misnan
+Dwarf	Female	Myrnera
+Dwarf	Female	Nasnyl
+Dwarf	Female	Nisleen
+Dwarf	Female	Obal
+Dwarf	Female	Peleg
+Dwarf	Female	Ramah
+Dwarf	Female	Renmera
+Dwarf	Female	Sarai
+Dwarf	Female	Torthiel
+Dwarf	Male	Abaddon
+Dwarf	Male	Adar
+Dwarf	Male	Agur
+Dwarf	Male	Balmar
+Dwarf	Male	Barabbas
+Dwarf	Male	Beor
+Dwarf	Male	Bildad
+Dwarf	Male	Charran
+Dwarf	Male	Dagon
+Dwarf	Male	Doldahr
+Dwarf	Male	Dor
+Dwarf	Male	Ebed
+Dwarf	Male	Ezra
+Dwarf	Male	Gareb
+Dwarf	Male	Gergrom 
+Dwarf	Male	Gozan
+Dwarf	Male	Granren
+Dwarf	Male	Grilgarn
+Dwarf	Male	Grilthrum
+Dwarf	Male	Hadrach
+Dwarf	Male	Haggai
+Dwarf	Male	Haggeri
+Dwarf	Male	Jorah
+Dwarf	Male	Kramgrim
+Dwarf	Male	Medan
+Dwarf	Male	Obadiah
+Dwarf	Male	Shobab
+Dwarf	Male	Sorek
+Dwarf	Male	Thalmor
+Dwarf	Male	Thendrar
+Dwarf	Male	Thurdram
+Dwarf	Male	Vongram
+Dwarf	Male	Ziklag
+Dwarf	Sur	Ashmaul
+Dwarf	Sur	Caskbender
+Dwarf	Sur	Deeprock
+Dwarf	Sur	Duskhood
+Dwarf	Sur	Flintbrew
+Dwarf	Sur	Flintmail
+Dwarf	Sur	Greyforged
+Dwarf	Sur	Ingotbuster
+Dwarf	Sur	Magmapike
+Dwarf	Sur	Oakenbrand
+Dwarf	Sur	Onyxheart
+Dwarf	Sur	Trollfury
+Dwarf	Sur	Wargranite
+Elf	Female	Abdiel
+Elf	Female	Adiel
+Elf	Female	Cilicia
+Elf	Female	Dalmanutha
+Elf	Female	Eliah
+Elf	Female	Gaddiel
+Elf	Female	Galatia
+Elf	Female	Hena
+Elf	Female	Hermogenes
+Elf	Female	Ildilyntra
+Elf	Female	Illyricum
+Elf	Female	Ilythyrra
+Elf	Female	Ithiel
+Elf	Female	Jahdiel
+Elf	Female	Jehezekel
+Elf	Female	Lycaonia
+Elf	Female	Lydda
+Elf	Female	Lythienne
+Elf	Female	Maranatha
+Elf	Female	Mysia
+Elf	Female	Nanthaliene
+Elf	Female	Othniel
+Elf	Female	Samariah
+Elf	Female	Sisera
+Elf	Male	Alosrin
+Elf	Male	Ananias
+Elf	Male	Avourel
+Elf	Male	Dathan
+Elf	Male	Eldad
+Elf	Male	Elidad
+Elf	Male	Enochiel
+Elf	Male	Eshbanil
+Elf	Male	Ethamiel
+Elf	Male	Fortunatus
+Elf	Male	Gaeleath
+Elf	Male	Habakkuk
+Elf	Male	Hammelech
+Elf	Male	Hamutal
+Elf	Male	Hazeroth
+Elf	Male	Hymeneus
+Elf	Male	Ibzan
+Elf	Male	Isilynor
+Elf	Male	Jozachar
+Elf	Male	Lysias
+Elf	Male	Magdiel
+Elf	Male	Mithredath
+Elf	Male	Nueleth
+Elf	Male	Rehoboam
+Elf	Male	Ruvaen
+Elf	Male	Silvyr
+Elf	Male	Timnah
+Elf	Sur	Moryra
+Elf	Sur	Neridithas
+Elf	Sur	Neriwenys
+HalfElf	Female	Adalia
+HalfElf	Female	Ahrendue
+HalfElf	Female	Aleesia
+HalfElf	Female	Barbara
+HalfElf	Female	Calarel
+HalfElf	Female	Candace
+HalfElf	Female	Celia
+HalfElf	Female	Claudia
+HalfElf	Female	Dawn
+HalfElf	Female	Deborah
+HalfElf	Female	Delilah
+HalfElf	Female	Diana
+HalfElf	Female	Drusilla
+HalfElf	Female	Elaine
+HalfElf	Female	Elisa
+HalfElf	Female	Elisha
+HalfElf	Female	Elizabeth
+HalfElf	Female	Ellarian
+HalfElf	Female	Esther
+HalfElf	Female	Estrid
+HalfElf	Female	Gylledhia
+HalfElf	Female	Harriet
+HalfElf	Female	Isarrel
+HalfElf	Female	Jesse
+HalfElf	Female	Julia
+HalfElf	Female	Juliette
+HalfElf	Female	Kindreth
+HalfElf	Female	Leah
+HalfElf	Female	Lilith
+HalfElf	Female	Lucette
+HalfElf	Female	Lydda
+HalfElf	Female	Lydia
+HalfElf	Female	Naomi
+HalfElf	Female	Ophelie
+HalfElf	Female	Priscilla
+HalfElf	Female	Rachel
+HalfElf	Female	Rose
+HalfElf	Female	Sariandi
+HalfElf	Female	Syndra
+HalfElf	Female	Thasinia
+HalfElf	Male	Aaron
+HalfElf	Male	Adam
+HalfElf	Male	Anakiir
+HalfElf	Male	Ben
+HalfElf	Male	Bronwyn
+HalfElf	Male	Daniel
+HalfElf	Male	Dean
+HalfElf	Male	Dothan
+HalfElf	Male	Edwin
+HalfElf	Male	Eli
+HalfElf	Male	Enos
+HalfElf	Male	Ephraim
+HalfElf	Male	Ethan
+HalfElf	Male	Gabriel
+HalfElf	Male	Gaspar
+HalfElf	Male	Gideon
+HalfElf	Male	Ian
+HalfElf	Male	Illendir
+HalfElf	Male	Iolas
+HalfElf	Male	Jacob
+HalfElf	Male	Jan
+HalfElf	Male	John
+HalfElf	Male	Linus
+HalfElf	Male	Luke
+HalfElf	Male	Mark
+HalfElf	Male	Mason
+HalfElf	Male	Matthias
+HalfElf	Male	Michael
+HalfElf	Male	Nicolas
+HalfElf	Male	Robert
+HalfElf	Male	Silas
+HalfElf	Male	William
+HalfElf	Sur	Colton
+HalfElf	Sur	Darksight
+HalfElf	Sur	Forechaser
+HalfElf	Sur	Greenfeather
+HalfElf	Sur	Loralana
+HalfElf	Sur	Sparrow
+HalfElf	Sur	Windflower
+Halfling	Female	Asriella
+Halfling	Female	Bilshan
+Halfling	Female	Carmi
+Halfling	Female	Darda
+Halfling	Female	Darni
+Halfling	Female	Dibri
+Halfling	Female	Eden
+Halfling	Female	Evi
+Halfling	Female	Gabbatha
+Halfling	Female	Gilboa
+Halfling	Female	Harana
+Halfling	Female	Hazael
+Halfling	Female	Hophni
+Halfling	Female	Igdaliah
+Halfling	Female	Leora
+Halfling	Female	Marri
+Halfling	Female	Maryola
+Halfling	Female	Matri
+Halfling	Female	Minni
+Halfling	Female	Myra
+Halfling	Female	Nekoda
+Halfling	Female	Odine
+Halfling	Female	Pisidia
+Halfling	Female	Qirana
+Halfling	Female	Rhesa
+Halfling	Female	Riblah
+Halfling	Female	Syllie
+Halfling	Female	Tebaliah
+Halfling	Female	Therwyse
+Halfling	Female	Trynola
+Halfling	Female	Vada
+Halfling	Female	Vadrey
+Halfling	Female	Yosys
+Halfling	Female	Zemira
+Halfling	Male	Alpheus
+Halfling	Male	Anrin
+Halfling	Male	Apollyon
+Halfling	Male	Arphaxad
+Halfling	Male	Barnabus
+Halfling	Male	Barpos
+Halfling	Male	Bartholomew
+Halfling	Male	Belrin
+Halfling	Male	Cephas
+Halfling	Male	Cornelius
+Halfling	Male	Corser
+Halfling	Male	Crispus
+Halfling	Male	Erastus
+Halfling	Male	Ezekial
+Halfling	Male	Felix
+Halfling	Male	Flynnan
+Halfling	Male	Gallio
+Halfling	Male	Haman
+Halfling	Male	Hiram
+Halfling	Male	Ichabod
+Halfling	Male	Idopos
+Halfling	Male	Janvias
+Halfling	Male	Nehemiah
+Halfling	Male	Nicodemus
+Halfling	Male	Perder
+Halfling	Male	Quinmo
+Halfling	Male	Riclos
+Halfling	Male	Sergius
+Halfling	Male	Sharbin
+Halfling	Male	Tabor
+Halfling	Male	Thaddeus
+Halfling	Male	Valumo
+Halfling	Male	Valver
+Halfling	Male	Vinrin
+Halfling	Male	Zebadiah
+Halfling	Male	Zerubbabel
+Halfling	Sur	Ambershaker
+Halfling	Sur	Brushgather
+Halfling	Sur	Burrows
+Halfling	Sur	Fatflower
+Halfling	Sur	Greatfellow
+Halfling	Sur	Hornblower
+Halfling	Sur	Millbridge
+Halfling	Sur	Ostgood
+Halfling	Sur	Talltalker
+Halfling	Sur	Tealeaf
+Halfling	Sur	Tosscobble
+Halfling	Sur	Underbough
+HalfOrc	Female	Amashi
+HalfOrc	Female	Baalah
+HalfOrc	Female	Grunish
+HalfOrc	Female	Gryotah
+HalfOrc	Female	Karati
+HalfOrc	Female	Kinha
+HalfOrc	Female	Krutish
+HalfOrc	Female	Ruda
+HalfOrc	Female	Tamaz
+HalfOrc	Female	Tikna
+HalfOrc	Male	Amalek
+HalfOrc	Male	Crugul
+HalfOrc	Male	Druk
+HalfOrc	Male	Garruk
+HalfOrc	Male	Gruk
+HalfOrc	Male	Grumogak
+HalfOrc	Male	Kronan
+HalfOrc	Male	Kurgan
+HalfOrc	Male	Mokask
+HalfOrc	Male	Turruk
+Human	Female	Barbara
+Human	Female	Candace
+Human	Female	Claudia
+Human	Female	Dasia
+Human	Female	Dawn
+Human	Female	Deborah
+Human	Female	Delilah
+Human	Female	Diana
+Human	Female	Dinah
+Human	Female	Drusilla
+Human	Female	Eden
+Human	Female	Elaine
+Human	Female	Elisha
+Human	Female	Elizabeth
+Human	Female	Esther
+Human	Female	Harriet
+Human	Female	Jesse
+Human	Female	Julia
+Human	Female	Juliette
+Human	Female	Leah
+Human	Female	Liealia
+Human	Female	Lila
+Human	Female	Lilith
+Human	Female	Lydia
+Human	Female	Marcelina
+Human	Female	Marisol
+Human	Female	Miriam
+Human	Female	Naomi
+Human	Female	Natascha
+Human	Female	Payton
+Human	Female	Priscilla
+Human	Female	Rachel
+Human	Female	Reyna
+Human	Female	Rose
+Human	Female	Vinka
+Human	Male	Aaron
+Human	Male	Adam
+Human	Male	Asher
+Human	Male	Austin
+Human	Male	Ben
+Human	Male	Caleb
+Human	Male	Daniel
+Human	Male	Darius
+Human	Male	Edwin
+Human	Male	Eli
+Human	Male	Ethan
+Human	Male	Gabriel
+Human	Male	Gideon
+Human	Male	Gomer
+Human	Male	Ian
+Human	Male	Jacob
+Human	Male	Jadon
+Human	Male	Lincoln
+Human	Male	Linus
+Human	Male	Luke
+Human	Male	Mark
+Human	Male	Michael
+Human	Male	Nicolas
+Human	Male	Robert
+Human	Male	Roy
+Human	Male	Silas
+Human	Male	Uriah
+Human	Male	William
+Human	Sur	Collier
+Human	Sur	Cooper
+Human	Sur	Farrier
+Human	Sur	Miller
+Human	Sur	Smith
+Human	Sur	Tailor
+Human	Sur	Tanner
+ElfSylvan	Female	,Alenia
+ElfSylvan	Female	Adriel
+ElfSylvan	Female	Alais
+ElfSylvan	Female	Carshena
+ElfSylvan	Female	Cherith
+ElfSylvan	Female	Damarie
+ElfSylvan	Female	Delilah
+ElfSylvan	Female	Diana
+ElfSylvan	Female	Elaith
+ElfSylvan	Female	Gennesaret
+ElfSylvan	Female	Habazziniah
+ElfSylvan	Female	Hilkiah
+ElfSylvan	Female	Ibri
+ElfSylvan	Female	Iefyr
+ElfSylvan	Female	Imri
+ElfSylvan	Female	Ioelena
+ElfSylvan	Female	Jezreel
+ElfSylvan	Female	Kaylessa
+ElfSylvan	Female	Kilyn
+ElfSylvan	Female	Lasea
+ElfSylvan	Female	Lystra
+ElfSylvan	Female	Mara
+ElfSylvan	Female	Moriah
+ElfSylvan	Female	Morwenna
+ElfSylvan	Female	Patara
+ElfSylvan	Female	Rakal
+ElfSylvan	Female	Sapphira
+ElfSylvan	Female	Sionia
+ElfSylvan	Female	Taeral
+ElfSylvan	Female	Tannyll
+ElfSylvan	Female	Terah
+ElfSylvan	Male	Archelaus
+ElfSylvan	Male	Aymer
+ElfSylvan	Male	Dalphon
+ElfSylvan	Male	Demetrius
+ElfSylvan	Male	Dothan
+ElfSylvan	Male	Eglah
+ElfSylvan	Male	Ehlark
+ElfSylvan	Male	Elmodam
+ElfSylvan	Male	Elon
+ElfSylvan	Male	Esek
+ElfSylvan	Male	Farryn
+ElfSylvan	Male	Festus
+ElfSylvan	Male	Folas
+ElfSylvan	Male	Ganamede
+ElfSylvan	Male	Gerar
+ElfSylvan	Male	Golan
+ElfSylvan	Male	Gorwin
+ElfSylvan	Male	Hadad
+ElfSylvan	Male	Hagred
+ElfSylvan	Male	Haran
+ElfSylvan	Male	Harod
+ElfSylvan	Male	Hothir
+ElfSylvan	Male	Ilvisar
+ElfSylvan	Male	Malluch
+ElfSylvan	Male	Matthias
+ElfSylvan	Male	Navarre
+ElfSylvan	Male	Obed
+ElfSylvan	Male	Silvanus
+ElfSylvan	Male	Vaeril
+ElfSylvan	Male	Zeresh
+ElfSylvan	Sur	Blueneedle
+ElfSylvan	Sur	Dunhawk
+ElfSylvan	Sur	Greystag
+ElfSylvan	Sur	Hollyblossom
+ElfSylvan	Sur	Oakheart
+ElfSylvan	Sur	Shadowbrook
+ElfSylvan	Sur	Slenderbough
+ElfSylvan	Sur	Thistlewood
+ElfSylvan	Sur	Turningleaf
+ElfSylvan	Sur	Whitehart
