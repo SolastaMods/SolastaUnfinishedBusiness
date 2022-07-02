@@ -27,11 +27,13 @@ internal static class CharacterReactionItem_Bind
 
         var bindIndex = codes.FindIndex(x => x.Calls(bind));
 
-        if (bindIndex > 0)
+        if (bindIndex <= 0)
         {
-            codes[bindIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
-            codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_1));
+            return codes.AsEnumerable();
         }
+
+        codes[bindIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
+        codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_1));
 
         return codes.AsEnumerable();
     }

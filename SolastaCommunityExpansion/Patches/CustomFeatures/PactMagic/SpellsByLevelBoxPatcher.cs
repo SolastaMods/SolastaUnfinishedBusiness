@@ -17,15 +17,15 @@ internal static class SpellsByLevelBox_OnActivateStandardBox
             spellsByLevelBox.spellRepertoire;
         var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
 
-        if (isWarlockSpell && spellDefinition.SpellLevel > 0)
+        if (!isWarlockSpell || spellDefinition.SpellLevel <= 0)
         {
-            var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-
-            return warlockSpellLevel;
+            return spellDefinition.SpellLevel;
         }
 
-        return spellDefinition.SpellLevel;
+        var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
+        var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
+        return warlockSpellLevel;
     }
 
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

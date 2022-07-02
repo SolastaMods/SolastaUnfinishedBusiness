@@ -46,11 +46,8 @@ internal static class RulesetAttribute_Refresh
 
         if (!exclusives.Empty())
         {
-            var value = int.MinValue;
-            foreach (var modifier in exclusives)
-            {
-                value = Math.Max(value, modifier.ApplyOnValue(currentValue));
-            }
+            var value = exclusives
+                .Select(modifier => modifier.ApplyOnValue(currentValue)).Prepend(int.MinValue).Max();
 
             currentValue = value;
         }
@@ -86,14 +83,16 @@ internal static class RulesetCharacter_RefreshArmorClassInFeatures
 
         var index = codes.FindIndex(c => c.Calls(method));
 
-        if (index > 0)
+        if (index <= 0)
         {
-            var custom = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation,
-                float, string, FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuild).Method;
-
-            codes[index] = new CodeInstruction(OpCodes.Call, custom);
-            codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_2));
+            return codes.AsEnumerable();
         }
+
+        var custom = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation,
+            float, string, FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuild).Method;
+
+        codes[index] = new CodeInstruction(OpCodes.Call, custom);
+        codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_2));
 
         return codes.AsEnumerable();
     }

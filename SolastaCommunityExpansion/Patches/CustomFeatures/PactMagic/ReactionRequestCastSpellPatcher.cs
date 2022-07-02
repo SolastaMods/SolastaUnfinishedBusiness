@@ -24,9 +24,9 @@ internal static class ReactionRequestCastSpell_BuildSlotSubOptions
         __instance.SubOptionsAvailability.Clear();
 
         var spellRepertoire = rulesetEffect.SpellRepertoire;
-        var minSpellLebvel = rulesetEffect.SpellDefinition.SpellLevel;
+        var minSpellLevel = rulesetEffect.SpellDefinition.SpellLevel;
         var selected = MulticlassGameUiContext
-            .AddAvailableSubLevels(__instance.SubOptionsAvailability, hero, spellRepertoire, minSpellLebvel);
+            .AddAvailableSubLevels(__instance.SubOptionsAvailability, hero, spellRepertoire, minSpellLevel);
 
         if (selected >= 0)
         {

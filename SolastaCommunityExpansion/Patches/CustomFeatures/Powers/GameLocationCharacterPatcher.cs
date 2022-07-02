@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -21,23 +22,27 @@ internal static class GameLocationCharacter_CanUseAtLeastOnPower
         var rulesetCharacter = __instance.RulesetCharacter;
         if (__result)
         {
-            if (rulesetCharacter != null)
+            if (rulesetCharacter == null)
             {
-                __result = false;
-                foreach (var rulesetUsablePower in rulesetCharacter.UsablePowers)
-                {
-                    if (CanUsePower(rulesetCharacter, rulesetUsablePower))
-                    {
-                        __result = true;
-                        return;
-                    }
-                }
+                return;
             }
 
+            if (!rulesetCharacter.UsablePowers
+                    .Any(rulesetUsablePower => CanUsePower(rulesetCharacter, rulesetUsablePower)))
+            {
+                __result = false;
+
+                return;
+            }
+
+            __result = true;
+        }
+
+        if (rulesetCharacter == null)
+        {
             return;
         }
 
-        if (rulesetCharacter != null)
         {
             foreach (var rulesetUsablePower in rulesetCharacter.UsablePowers)
             {

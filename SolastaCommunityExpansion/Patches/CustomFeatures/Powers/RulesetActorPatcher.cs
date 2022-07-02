@@ -18,15 +18,17 @@ internal static class RulesetActor_RefreshAttributes
     public static int GetClassOrCharacterLevel(int characterLevel, RulesetCharacter rulesetCharacter,
         string attribute)
     {
-        if (rules.TryGetValue(attribute, out var characterClass))
+        if (!rules.TryGetValue(attribute, out var characterClass))
         {
-            var hero = rulesetCharacter as RulesetCharacterHero ??
-                       rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+            return characterLevel;
+        }
 
-            if (hero != null && hero.ClassesAndLevels.TryGetValue(characterClass, out var classLevel))
-            {
-                return classLevel;
-            }
+        var hero = rulesetCharacter as RulesetCharacterHero ??
+                   rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+        if (hero != null && hero.ClassesAndLevels.TryGetValue(characterClass, out var classLevel))
+        {
+            return classLevel;
         }
 
         return characterLevel;

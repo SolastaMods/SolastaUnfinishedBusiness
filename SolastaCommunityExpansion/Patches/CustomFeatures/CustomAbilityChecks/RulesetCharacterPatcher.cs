@@ -27,16 +27,18 @@ internal static class RulesetCharacter_RollAbilityCheck
     {
         var features = __instance.EnumerateFeaturesToBrowse<IChangeAbilityCheck>();
 
-        if (features.Count > 0)
+        if (features.Count <= 0)
         {
-            var newMinRoll = features
-                .Max(x => x.MinRoll(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName,
-                    advantageTrends, modifierTrends));
+            return;
+        }
 
-            if (minRoll < newMinRoll)
-            {
-                minRoll = newMinRoll;
-            }
+        var newMinRoll = features
+            .Max(x => x.MinRoll(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName,
+                advantageTrends, modifierTrends));
+
+        if (minRoll < newMinRoll)
+        {
+            minRoll = newMinRoll;
         }
     }
 }
@@ -69,16 +71,18 @@ internal static class RulesetCharacter_ResolveContestCheck
             out secondRoll, enumerateFeatures, canRerollDice);
         var features = rulesetCharacter.EnumerateFeaturesToBrowse<IChangeAbilityCheck>();
 
-        if (features.Count > 0)
+        if (features.Count <= 0)
         {
-            var newMinRoll = features
-                .Max(x => x.MinRoll(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName,
-                    advantageTrends, modifierTrends));
+            return result;
+        }
 
-            if (result < newMinRoll)
-            {
-                result = newMinRoll;
-            }
+        var newMinRoll = features
+            .Max(x => x.MinRoll(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName,
+                advantageTrends, modifierTrends));
+
+        if (result < newMinRoll)
+        {
+            result = newMinRoll;
         }
 
         return result;

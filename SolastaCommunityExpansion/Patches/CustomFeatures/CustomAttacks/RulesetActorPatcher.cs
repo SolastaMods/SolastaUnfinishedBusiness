@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -28,22 +27,13 @@ internal static class RulesetActor_ProcessConditionsMatchingOccurenceType
         }
 
         foreach (var contender in battleService.Battle.AllContenders
-                     .Where(x => x != null
-                                 && !x.destroying && !x.destroyedBody && x.RulesetActor != null))
+                     .Where(x => x is {destroying: false, destroyedBody: false, RulesetActor: { }}))
         {
-            var conditionsToRemove = new List<RulesetCondition>();
-
-            foreach (var keyValuePair in contender.RulesetActor.ConditionsByCategory)
-            {
-                foreach (var rulesetCondition in keyValuePair.Value)
-                {
-                    if (rulesetCondition.SourceGuid == __instance.Guid &&
-                        rulesetCondition.ConditionDefinition is IConditionRemovedOnSourceTurnStart)
-                    {
-                        conditionsToRemove.Add(rulesetCondition);
-                    }
-                }
-            }
+            var conditionsToRemove = (from keyValuePair in contender.RulesetActor.ConditionsByCategory
+                from rulesetCondition in keyValuePair.Value
+                where rulesetCondition.SourceGuid == __instance.Guid &&
+                      rulesetCondition.ConditionDefinition is IConditionRemovedOnSourceTurnStart
+                select rulesetCondition).ToList();
 
             foreach (var conditionToRemove in conditionsToRemove)
             {

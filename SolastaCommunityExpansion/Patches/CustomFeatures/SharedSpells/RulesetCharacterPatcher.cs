@@ -173,7 +173,11 @@ internal static class RulesetCharacter_RefreshSpellRepertoires
              sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass));
 
         // combines the Shared Slot System and Warlock Pact Magic
-        if (warlockRepertoire != null && anySharedRepertoire != null)
+        if (warlockRepertoire == null || anySharedRepertoire == null)
+        {
+            return;
+        }
+
         {
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
             var warlockSlotsCapacities =
