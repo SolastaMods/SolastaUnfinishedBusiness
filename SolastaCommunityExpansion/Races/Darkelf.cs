@@ -35,6 +35,7 @@ internal static class DarkelfSubraceBuilder
                 RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage, RuleDefinitions.DieType.D1, 0,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
+
         darkElfPerceptionLightSensitivity.AffinityGroups[0].lightingContext =
             RuleDefinitions.LightingContext.BrightLight;
 
@@ -77,14 +78,14 @@ internal static class DarkelfSubraceBuilder
 
         if (Main.Settings.ReduceDarkelfLightPenalty)
         {
-            const string reducedDescription = "Feature/&LightAffinityDarkelfReducedLightSensitivityDescription";
+            const string REDUCED_DESCRIPTION = "Feature/&LightAffinityDarkelfReducedLightSensitivityDescription";
 
             darkelfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.None;
             darkelfCombatAffinityLightSensitivity.myAttackModifierValueDetermination =
                 RuleDefinitions.CombatAddinityValueDetermination.Die;
-            darkelfCombatAffinityLightSensitivity.GuiPresentation.description = reducedDescription;
-            darkelfConditionLightSensitive.GuiPresentation.description = reducedDescription;
-            darkelfLightAffinity.GuiPresentation.description = reducedDescription;
+            darkelfCombatAffinityLightSensitivity.GuiPresentation.description = REDUCED_DESCRIPTION;
+            darkelfConditionLightSensitive.GuiPresentation.description = REDUCED_DESCRIPTION;
+            darkelfLightAffinity.GuiPresentation.description = REDUCED_DESCRIPTION;
         }
         else
         {
@@ -98,7 +99,7 @@ internal static class DarkelfSubraceBuilder
             darkelfLightAffinity.GuiPresentation.description = darkelfLightAffinity.GuiPresentation.Description;
         }
 
-        var darkelfDarkelfMagicSpellList = SpellListDefinitionBuilder
+        var darkelfMagicSpellList = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "DarkelfMagicSpellList",
                 "7e84092e-8b26-4870-8244-ce435a95b67f")
             .SetGuiPresentationNoContent()
@@ -110,7 +111,7 @@ internal static class DarkelfSubraceBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "DarkelfMagic",
                 "0271c652-b4aa-4346-806d-9711e634271b")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellList(darkelfDarkelfMagicSpellList)
+            .SetSpellList(darkelfMagicSpellList)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .AddToDB();
 

@@ -18,12 +18,12 @@ internal static class SessionState_Setup_Begin
         bool notify)
     {
         if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty &&
-            slotIndex < Main.Settings.DefaultPartyHeroes.Count)
+            slotIndex < Main.Settings.defaultPartyHeroes.Count)
         {
             var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
 
             filename = characterPoolService.BuildCharacterFilename(
-                Main.Settings.DefaultPartyHeroes.ElementAt(slotIndex));
+                Main.Settings.defaultPartyHeroes.ElementAt(slotIndex));
         }
 
         session.AssignCharacterToPlayer(playerIndex, slotIndex, filename, notify);

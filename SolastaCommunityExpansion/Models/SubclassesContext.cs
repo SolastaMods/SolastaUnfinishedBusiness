@@ -67,8 +67,8 @@ internal static class SubclassesContext
         }
 
         ArcaneFighter.UpdateEnchantWeapon();
-        ConArtist.UpdateSpellDCBoost();
-        MasterManipulator.UpdateSpellDCBoost();
+        ConArtist.UpdateSpellDcBoost();
+        MasterManipulator.UpdateSpellDcBoost();
         SpellMaster.UpdateBonusRecovery();
     }
 

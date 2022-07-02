@@ -2,6 +2,7 @@
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Utils;
 
@@ -12,7 +13,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IX
     {
     }
 
-    public SerializableDictionary(IDictionary<TKey, TValue> dictionary) : base(dictionary) { }
+    public SerializableDictionary([NotNull] IDictionary<TKey, TValue> dictionary) : base(dictionary) { }
 
     public XmlSchema GetSchema()
     {

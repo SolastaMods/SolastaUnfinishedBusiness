@@ -7,7 +7,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefin
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
-internal class Tactician : AbstractSubclass
+internal sealed class Tactician : AbstractSubclass
 {
     private CharacterSubclassDefinition Subclass;
 
@@ -44,9 +44,7 @@ internal static class KnockDownPowerBuilder
 
         //Create the prone effect - Weirdly enough the motion form seems to also automatically apply the prone condition
         var proneMotionEffect = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
-        var proneMotion = new MotionForm();
-        proneMotion.type = MotionForm.MotionType.FallProne;
-        proneMotion.distance = 1;
+        var proneMotion = new MotionForm {type = MotionForm.MotionType.FallProne, distance = 1};
         proneMotionEffect.motionForm = proneMotion;
         proneMotionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
@@ -87,11 +85,11 @@ internal static class InspirePowerBuilder
     {
         //Create the temp hp form
         var healingEffect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
-        var tempHPForm = new TemporaryHitPointsForm
+        var tempHpForm = new TemporaryHitPointsForm
         {
             DiceNumber = 1, DieType = RuleDefinitions.DieType.D6, BonusHitPoints = 2
         };
-        healingEffect.temporaryHitPointsForm = tempHPForm;
+        healingEffect.temporaryHitPointsForm = tempHpForm;
 
         //Create the bless effect - A fun test, unfortunately the two effects can't have varying durations AFAIK so a bless or similar effect might be overpowered (was thinking a bless for 1 round).  Alternatively both could last 1 minute instead and be intended for in battle.
         //EffectForm blessEffect = new EffectForm();

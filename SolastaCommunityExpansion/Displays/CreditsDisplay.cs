@@ -80,8 +80,8 @@ internal static class CreditsDisplay
     };
 
     private static bool IsUnityExplorerInstalled { get; } =
-        File.Exists(Path.Combine(Main.MOD_FOLDER, "UnityExplorer.STANDALONE.Mono.dll")) &&
-        File.Exists(Path.Combine(Main.MOD_FOLDER, "UniverseLib.Mono.dll"));
+        File.Exists(Path.Combine(Main.ModFolder, "UnityExplorer.STANDALONE.Mono.dll")) &&
+        File.Exists(Path.Combine(Main.ModFolder, "UniverseLib.Mono.dll"));
 
     private static bool IsUnityExplorerEnabled { get; set; }
 

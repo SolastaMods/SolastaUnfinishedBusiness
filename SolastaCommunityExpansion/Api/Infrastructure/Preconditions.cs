@@ -65,7 +65,7 @@ public static class Preconditions
 
     [Conditional("DEBUG")]
     [AssertionMethod]
-    internal static void AreEqual<T>(T left, T right, string message)
+    internal static void AreEqual<T>([NotNull] T left, T right, string message)
     {
         if (!left.Equals(right))
         {

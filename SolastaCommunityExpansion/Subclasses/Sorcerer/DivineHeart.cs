@@ -9,7 +9,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Sorcerer;
 
-internal class DivineHeart : AbstractSubclass
+internal sealed class DivineHeart : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("58ce31d8-6a37-4d6e-adbd-b9b60658a3ef");
     private readonly CharacterSubclassDefinition Subclass;

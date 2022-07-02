@@ -50,7 +50,7 @@ public static class DungeonMakerContext
     // must be public because of transpiler
     public static void BackupAndDelete(string path, UserContent userContent)
     {
-        var backupDirectory = Path.Combine(Main.MOD_FOLDER, BACKUP_FOLDER);
+        var backupDirectory = Path.Combine(Main.ModFolder, BACKUP_FOLDER);
 
         Directory.CreateDirectory(backupDirectory);
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
 
@@ -7,11 +8,11 @@ namespace SolastaCommunityExpansion.ItemCrafting;
 
 internal static class ArmorAndShieldData
 {
-    private static ItemCollection items;
+    private static ItemCollection _items;
 
-    internal static ItemCollection Items
-    {
-        get => items ??= new ItemCollection
+    [NotNull]
+    internal static ItemCollection Items =>
+        _items ??= new ItemCollection
         {
             BaseGuid = new Guid("16757d1b-518f-4669-af43-1ddf5d23c223"),
             BaseWeapons =
@@ -47,6 +48,4 @@ internal static class ArmorAndShieldData
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_BreastplateOfDeflection)
             }
         };
-        set => items = value;
-    }
 }

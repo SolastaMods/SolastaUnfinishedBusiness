@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
@@ -15,16 +16,18 @@ public static class RulesetActorExtensions
     ///     features.  false to just return features.
     /// </param>
     /// <param name="featuresOrigin"></param>
+    [NotNull]
     public static ICollection<T> EnumerateFeaturesToBrowse<T>(
-        this RulesetActor actor, bool populateActorFeaturesToBrowse = false,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
+        [NotNull] this RulesetActor actor, bool populateActorFeaturesToBrowse = false,
+        [CanBeNull] Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
     {
         var features = populateActorFeaturesToBrowse ? actor.FeaturesToBrowse : new List<FeatureDefinition>();
         actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
         return features.OfType<T>().ToList();
     }
 
-    private static List<T> FeaturesByType<T>(RulesetActor actor) where T : class
+    [NotNull]
+    private static List<T> FeaturesByType<T>([CanBeNull] RulesetActor actor) where T : class
     {
         var list = new List<FeatureDefinition>();
 
@@ -36,6 +39,7 @@ public static class RulesetActorExtensions
             .ToList();
     }
 
+    [NotNull]
     public static List<T> GetFeaturesByType<T>(this RulesetActor actor) where T : class
     {
         return FeaturesByType<T>(actor);
@@ -51,7 +55,7 @@ public static class RulesetActorExtensions
             .OfType<T>()
             .ToList();
     }
-    
+
     private static IEnumerable<FeatureDefinition> Unfold(FeatureDefinition feature)
     {
         return feature is FeatureDefinitionFeatureSet {Mode: FeatureSetMode.Union} set
@@ -70,18 +74,19 @@ public static class RulesetActorExtensions
         return FeaturesByType<FeatureDefinition>(actor).Any(features.Contains);
     }
 
-    public static bool HasAllFeatures(this RulesetActor actor, params FeatureDefinition[] features)
+    public static bool HasAllFeatures(this RulesetActor actor, [NotNull] params FeatureDefinition[] features)
     {
         return HasAllFeatures(actor, features.ToList());
     }
 
-    public static bool HasAllFeatures(this RulesetActor actor, IEnumerable<FeatureDefinition> features)
+    public static bool HasAllFeatures(this RulesetActor actor, [NotNull] IEnumerable<FeatureDefinition> features)
     {
         var all = FeaturesByType<FeatureDefinition>(actor);
         return FlattenFeatureList(features).All(f => all.Contains(f));
     }
 
-    public static IEnumerable<FeatureDefinition> FlattenFeatureList(IEnumerable<FeatureDefinition> features)
+    [NotNull]
+    public static IEnumerable<FeatureDefinition> FlattenFeatureList([NotNull] IEnumerable<FeatureDefinition> features)
     {
         //TODO: should we add FeatureDefinitionFeatureSetCustom flattening too?
         return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
@@ -89,6 +94,7 @@ public static class RulesetActorExtensions
             : new List<FeatureDefinition> {f});
     }
 
+    [NotNull]
     public static List<T> GetSubFeaturesByType<T>(this RulesetActor actor) where T : class
     {
         return FeaturesByType<FeatureDefinition>(actor)

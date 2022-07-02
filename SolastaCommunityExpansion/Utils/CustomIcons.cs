@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaCommunityExpansion.Builders;
@@ -57,7 +58,8 @@ internal static class CustomIcons
         return sprite;
     }
 
-    internal static Sprite GetSpriteByGuid(string guid)
+    [CanBeNull]
+    internal static Sprite GetSpriteByGuid([NotNull] string guid)
     {
         return SpritesByGuid.TryGetValue(guid, out var sprite) ? sprite : null;
     }
@@ -76,16 +78,19 @@ internal static class CustomIcons
         return (id, GetSpriteGuid(id));
     }
 
+    [NotNull]
     private static string GetSpriteGuid(string id)
     {
         return GuidHelper.Create(DefinitionBuilder.CENamespaceGuid, id).ToString("n");
     }
 
+    [NotNull]
     internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Byte[] bitmap, int size)
     {
         return CreateAssetReferenceSprite(name, bitmap, size, size);
     }
 
+    [NotNull]
     internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Byte[] bitmap, int sizex,
         int sizey)
     {
@@ -125,7 +130,7 @@ internal static class CustomIcons
 
         return sprite.texture;
     }
-    
+
     private static Texture2D DuplicateTexture(Texture2D source)
     {
         var renderTex = RenderTexture.GetTemporary(

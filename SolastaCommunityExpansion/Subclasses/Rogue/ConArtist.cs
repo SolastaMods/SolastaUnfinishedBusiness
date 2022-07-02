@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
@@ -7,7 +8,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SchoolOfMagicDefinitio
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue;
 
-internal class ConArtist : AbstractSubclass
+internal sealed class ConArtist : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
 
@@ -99,7 +100,7 @@ internal class ConArtist : AbstractSubclass
     private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
         FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityRoguishConArtistDC", SubclassNamespace)
-            .SetGuiPresentation(GetSpellDCPresentation().Build())
+            .SetGuiPresentation(GetSpellDcPresentation().Build())
             .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
                 Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,
                 RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
@@ -115,14 +116,15 @@ internal class ConArtist : AbstractSubclass
         return Subclass;
     }
 
-    private static GuiPresentationBuilder GetSpellDCPresentation()
+    [NotNull]
+    private static GuiPresentationBuilder GetSpellDcPresentation()
     {
         return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDCTitle",
             "Subclass/&MagicAffinityRoguishConArtistDC" +
             Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description");
     }
 
-    internal static void UpdateSpellDCBoost()
+    internal static void UpdateSpellDcBoost()
     {
         if (!DcIncreaseAffinity)
         {
@@ -130,6 +132,6 @@ internal class ConArtist : AbstractSubclass
         }
 
         DcIncreaseAffinity.saveDCModifier = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
-        DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
+        DcIncreaseAffinity.guiPresentation = GetSpellDcPresentation().Build();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 
@@ -7,18 +8,18 @@ namespace SolastaCommunityExpansion.Api.Extensions;
 
 internal static class RulesetCharacterExension
 {
-    public static bool IsValid(this RulesetCharacter instance, params CharacterValidator[] validators)
+    public static bool IsValid(this RulesetCharacter instance, [NotNull] params CharacterValidator[] validators)
     {
         return validators.All(v => v(instance));
     }
 
-    public static bool IsValid(this RulesetCharacter instance, IEnumerable<CharacterValidator> validators)
+    public static bool IsValid(this RulesetCharacter instance, [CanBeNull] IEnumerable<CharacterValidator> validators)
     {
         return validators == null || validators.All(v => v(instance));
     }
 
     /**Checks if power has enough uses and that all validators are OK*/
-    public static bool CanUsePower(this RulesetCharacter instance, FeatureDefinitionPower power)
+    public static bool CanUsePower(this RulesetCharacter instance, [CanBeNull] FeatureDefinitionPower power)
     {
         if (power == null)
         {
@@ -30,33 +31,31 @@ internal static class RulesetCharacterExension
             return false;
         }
 
-        return power.GetAllSubFeaturesOfType<IPowerUseValidity>()
+        return (power.GetAllSubFeaturesOfType<IPowerUseValidity>() ?? new List<IPowerUseValidity>())
             .All(v => v.CanUsePower(instance));
     }
 
     public static bool CanCastCantrip(
-        this RulesetCharacter character,
+        [NotNull] this RulesetCharacter character,
         SpellDefinition cantrip,
-        out RulesetSpellRepertoire spellRepertoire)
+        [CanBeNull] out RulesetSpellRepertoire spellRepertoire)
     {
         spellRepertoire = null;
-        foreach (var reperoire in character.spellRepertoires)
+        foreach (var reperoire in from reperoire in character.spellRepertoires
+                 from knownCantrip in reperoire.KnownCantrips
+                 where knownCantrip == cantrip
+                       || (knownCantrip.SpellsBundle && knownCantrip.SubspellsList.Contains(cantrip))
+                 select reperoire)
         {
-            foreach (var knownCantrip in reperoire.KnownCantrips)
-            {
-                if (knownCantrip == cantrip
-                    || (knownCantrip.SpellsBundle && knownCantrip.SubspellsList.Contains(cantrip)))
-                {
-                    spellRepertoire = reperoire;
-                    return true;
-                }
-            }
+            spellRepertoire = reperoire;
+            return true;
         }
 
         return false;
     }
 
-    public static List<RulesetAttackMode> GetAttackModesByActionType(this RulesetCharacter instance,
+    [NotNull]
+    public static List<RulesetAttackMode> GetAttackModesByActionType([NotNull] this RulesetCharacter instance,
         ActionDefinitions.ActionType actionType)
     {
         return instance.AttackModes
@@ -70,7 +69,8 @@ internal static class RulesetCharacterExension
             .Any(p => p.CanAddAbilityBonusToSecondary);
     }
 
-    public static RulesetItem GetItemInSlot(this RulesetCharacter instance, string slot)
+    [CanBeNull]
+    public static RulesetItem GetItemInSlot([CanBeNull] this RulesetCharacter instance, string slot)
     {
         if (instance == null
             || instance.CharacterInventory == null

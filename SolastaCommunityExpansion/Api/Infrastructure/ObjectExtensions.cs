@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using JetBrains.Annotations;
 using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Api.Infrastructure;
@@ -12,7 +13,7 @@ public static class ObjectExtensions
         typeof(object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
-    private static bool IsPrimitive(this Type type)
+    private static bool IsPrimitive([NotNull] this Type type)
     {
         if (type == typeof(string))
         {
@@ -22,7 +23,7 @@ public static class ObjectExtensions
         return type.IsValueType && type.IsPrimitive;
     }
 
-    private static object InternalCopy(object originalObject, IDictionary<object, object> visited)
+    private static object InternalCopy([CanBeNull] object originalObject, IDictionary<object, object> visited)
     {
         if (originalObject == null)
         {
@@ -50,7 +51,8 @@ public static class ObjectExtensions
         if (typeToReflect.IsArray)
         {
             var arrayType = typeToReflect.GetElementType();
-            if (IsPrimitive(arrayType))
+
+            if (arrayType != null && IsPrimitive(arrayType))
             {
                 var clonedArray = (Array)cloneObject;
                 clonedArray.ForEach((array, indices) =>
@@ -65,7 +67,7 @@ public static class ObjectExtensions
     }
 
     private static void RecursiveCopyBaseTypePrivateFields(object originalObject,
-        IDictionary<object, object> visited, object cloneObject, Type typeToReflect)
+        IDictionary<object, object> visited, object cloneObject, [NotNull] Type typeToReflect)
     {
         if (typeToReflect.BaseType == null)
         {
@@ -80,10 +82,10 @@ public static class ObjectExtensions
     }
 
     private static void CopyFields(object originalObject, IDictionary<object, object> visited, object cloneObject,
-        Type typeToReflect,
+        [NotNull] Type typeToReflect,
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public |
-                                    BindingFlags.FlattenHierarchy, Func<FieldInfo, bool> filter = null)
+                                    BindingFlags.FlattenHierarchy, [CanBeNull] Func<FieldInfo, bool> filter = null)
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     {
         foreach (var fieldInfo in typeToReflect.GetFields(bindingFlags))
@@ -122,7 +124,7 @@ public static class ObjectExtensions
     }
 }
 
-public class ReferenceEqualityComparer : EqualityComparer<object>
+public sealed class ReferenceEqualityComparer : EqualityComparer<object>
 {
     public override bool Equals(object x, object y)
     {

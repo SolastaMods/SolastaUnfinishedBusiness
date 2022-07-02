@@ -1,10 +1,12 @@
-﻿namespace SolastaCommunityExpansion.Api.Infrastructure;
+﻿using JetBrains.Annotations;
+
+namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public static class GameConsoleHelper
 {
     private const string DefaultUseText = "Feedback/&ActivatePowerLine";
 
-    public static void LogCharacterUsedPower(RulesetCharacter character, FeatureDefinitionPower power,
+    public static void LogCharacterUsedPower(RulesetCharacter character, [NotNull] FeatureDefinitionPower power,
         string text = DefaultUseText, bool indent = false)
     {
         var abilityName = string.IsNullOrEmpty(power.ShortTitleOverride)
@@ -14,7 +16,7 @@ public static class GameConsoleHelper
         LogCharacterActivatesAbility(character, abilityName, text, indent);
     }
 
-    public static void LogCharacterActivatesAbility(RulesetCharacter character, string abilityName,
+    public static void LogCharacterActivatesAbility([NotNull] RulesetCharacter character, string abilityName,
         string text = DefaultUseText, bool indent = false)
     {
         var console = Gui.Game.GameConsole;

@@ -7,7 +7,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPower
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
-internal class SpellMaster : AbstractSubclass
+internal sealed class SpellMaster : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("9f322734-1498-4f65-ace5-e6072b1d99be");
     private readonly CharacterSubclassDefinition Subclass;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Api;
 
@@ -24,7 +25,7 @@ public static class GuidHelper
     ///     <a href="http://code.logos.com/blog/2011/04/generating_a_deterministic_guid.html">Generating a deterministic GUID</a>
     ///     .
     /// </remarks>
-    internal static Guid Create(Guid namespaceId, string name, int version = 5)
+    internal static Guid Create(Guid namespaceId, [NotNull] string name, int version = 5)
     {
         if (name == null)
         {
@@ -77,7 +78,7 @@ public static class GuidHelper
         SwapBytes(guid, 6, 7);
     }
 
-    private static void SwapBytes(byte[] guid, int left, int right)
+    private static void SwapBytes([NotNull] byte[] guid, int left, int right)
     {
         (guid[right], guid[left]) = (guid[left], guid[right]);
     }

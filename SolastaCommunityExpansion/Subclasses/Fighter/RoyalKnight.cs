@@ -10,7 +10,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FightingStyleDefinitio
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
-internal class RoyalKnight : AbstractSubclass
+internal sealed class RoyalKnight : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("f5efd735-ff95-4256-ad17-dde585aeb4e2");
     private readonly CharacterSubclassDefinition Subclass;

@@ -20,7 +20,7 @@ internal static class NewAdventurePanel_Refresh
             return;
         }
 
-        var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
+        var max = Math.Min(Main.Settings.defaultPartyHeroes.Count,
             __instance.characterSessionPlatesTable.childCount);
 
         __instance.RecreateSession();
@@ -35,7 +35,7 @@ internal static class NewAdventurePanel_Refresh
                 continue;
             }
 
-            var heroname = Main.Settings.DefaultPartyHeroes[i];
+            var heroname = Main.Settings.defaultPartyHeroes[i];
 
             __instance.AutotestSelectCharacter(i, heroname);
         }

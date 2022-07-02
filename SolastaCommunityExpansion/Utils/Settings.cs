@@ -6,7 +6,7 @@ using UnityModManagerNet;
 
 namespace SolastaCommunityExpansion.Utils;
 
-public class Core
+public sealed class Core
 {
 }
 
@@ -216,7 +216,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCheatMenu { get; set; }
     public bool OverrideMinMaxLevel { get; set; }
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
-    public List<string> DefaultPartyHeroes = new();
+    public List<string> defaultPartyHeroes = new();
     public bool NoExperienceOnLevelUp { get; set; }
     public int OverridePartySize { get; set; } = DungeonMakerContext.GAME_PARTY_SIZE;
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;

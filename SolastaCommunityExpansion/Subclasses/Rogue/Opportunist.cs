@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
@@ -8,7 +9,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue;
 
-internal class Opportunist : AbstractSubclass
+internal sealed class Opportunist : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("2db81c3c-a9e2-4829-b27b-47af3ba42c76");
 
@@ -22,7 +23,8 @@ internal class Opportunist : AbstractSubclass
         return CreateOpportunist();
     }
 
-    private static void QuickStrikeOnAttackDelegate(GameLocationCharacter attacker, GameLocationCharacter defender,
+    private static void QuickStrikeOnAttackDelegate([CanBeNull] GameLocationCharacter attacker,
+        [CanBeNull] GameLocationCharacter defender,
         ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
     {
         // melee attack only
@@ -31,7 +33,7 @@ internal class Opportunist : AbstractSubclass
             return;
         }
 
-        // grant advatage if attacker is performing an opportunity attack or has higher inititative.
+        // grant advantage if attacker is performing an opportunity attack or has higher initiative.
         if (attacker.LastInitiative > defender.LastInitiative ||
             (attackerAttackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
              attacker.GetActionStatus(ActionDefinitions.Id.AttackOpportunity,
@@ -46,7 +48,7 @@ internal class Opportunist : AbstractSubclass
     {
         var subclassNamespace = new Guid("b217342c-5b1b-46eb-9f2f-86239c3088bf");
 
-        // Grant advantage when attack enemis whos inititative is lower than your
+        // Grant advantage when attack enemies whose initiative is lower than your
         // or when perform an attack of opportunity.
         var quickStrike = FeatureDefinitionOnAttackEffectBuilder
             .Create("RoguishOppotunistQuickStrike", subclassNamespace)
@@ -62,7 +64,7 @@ internal class Opportunist : AbstractSubclass
             .SetTargetingData(
                 RuleDefinitions.Side.Enemy,
                 RuleDefinitions.RangeType.MeleeHit,
-                0, // I think this parameter is irrelevant if range type is meleehit.
+                0, // I think this parameter is irrelevant if range type is melee hit.
                 RuleDefinitions.TargetType.Individuals, // allow multiple effect stack ?
                 0,
                 0)
@@ -90,8 +92,8 @@ internal class Opportunist : AbstractSubclass
                 .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .Build());
 
-        // Enemies struck by your sneak attack suffered from one of the following condtion (Baned, Blinded, Bleed, Stunned)
-        // if they fail a CON save agaisnt the DC of 8 + your DEX mod + your prof.
+        // Enemies struck by your sneak attack suffered from one of the following condition (Baned, Blinded, Bleed, Stunned)
+        // if they fail a CON save against the DC of 8 + your DEX mod + your prof.
         var debilitatingStrikePower = FeatureDefinitionConditionalPowerBuilder
             .Create("RoguishOpportunistDebilitatingStrikePower", SubclassNamespace)
             .Configure(
@@ -118,7 +120,7 @@ internal class Opportunist : AbstractSubclass
             .AddToDB();
     }
 
-    private class DebilitatedConditionBuilder : ConditionDefinitionBuilder
+    private sealed class DebilitatedConditionBuilder : ConditionDefinitionBuilder
     {
         private const string Name = "Debilitated";
         private const string TitleString = "Condition/&DebilitatedConditionTitle";
