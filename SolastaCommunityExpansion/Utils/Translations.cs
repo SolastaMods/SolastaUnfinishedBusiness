@@ -87,16 +87,24 @@ public static class Translations
 
     private static string TranslateGoogle(string sourceText, string targetCode)
     {
+        const string BASE = "https://translate.googleapis.com/translate_a/single";
+
         try
         {
             var encoded = HttpUtility.UrlEncode(sourceText);
-            var url =
-                $"https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl={targetCode}&dt=t&q={encoded}";
+            var url = $"{BASE}?client=gtx&sl=auto&tl={targetCode}&dt=t&q={encoded}";
             var payload = GetPayload(url);
             var json = JsonConvert.DeserializeObject(payload);
+            var result = string.Empty;
 
-            // TODO: create a model for this
-            return ((((json as JArray).First() as JArray).First() as JArray).First() as JValue).Value.ToString();
+            if (json is not JArray outerArray)
+            {
+                return sourceText;
+            }
+
+            return outerArray.First() is not JArray terms
+                ? sourceText
+                : terms.Aggregate(result, (current, term) => current + term.First());
         }
         catch
         {
