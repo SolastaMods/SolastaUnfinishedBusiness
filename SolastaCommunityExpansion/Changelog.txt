@@ -1,13 +1,9 @@
 ﻿PATRONS:
 
-- Thanks to all individuals who contributed so far...
-- We could do much more if everyone donates $1-$5
-
 - The [donation] button is under Mod UI > Credits
 - It opens a browser page with a paypal support link
 
 CHANGES:
 
-- Allow any throwable weapon to benefit from deadeye
-- Fix a load save game issue under certain scenarios
-- Improve Chinese translations
+- Fix the batch translation tool
+- Fix spells selection under certain scenarios
