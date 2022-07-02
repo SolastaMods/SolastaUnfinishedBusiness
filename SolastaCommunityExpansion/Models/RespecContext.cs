@@ -14,7 +14,7 @@ public static class RespecContext
     private const string LevelDownName = "LevelDown";
     private const string RespecName = "Respec";
 
-    public static RestActivityDefinition RestActivityLevelDown { get; } = RestActivityDefinitionBuilder
+    private static RestActivityDefinition RestActivityLevelDown { get; } = RestActivityDefinitionBuilder
         .Create(LevelDownName, "fdb4d86eaef942d1a22dbf1fb5a7299f")
         .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
         .SetRestData(
@@ -22,7 +22,7 @@ public static class RespecContext
             RestActivityDefinition.ActivityCondition.None, LevelDownName, string.Empty)
         .AddToDB();
 
-    public static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
+    private static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
         .Create(RespecName, "40824029eb224fb581f0d4e5989b6735")
         .SetGuiPresentation("RestActivity/&ZSRespecTitle", "RestActivity/&ZSRespecDescription")
         .SetRestData(
@@ -99,7 +99,7 @@ public static class RespecContext
             gameLocationScreenExploration.Show();
         }
 
-        internal static IEnumerator StartRespec(RulesetCharacterHero hero)
+        private static IEnumerator StartRespec(RulesetCharacterHero hero)
         {
             var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
@@ -118,7 +118,7 @@ public static class RespecContext
             IsRespecing = !hero.TryGetHeroBuildingData(out var _);
         }
 
-        internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
+        private static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
         {
             var guid = oldHero.Guid;
             var tags = oldHero.Tags;
@@ -155,7 +155,7 @@ public static class RespecContext
             IsRespecing = false;
         }
 
-        internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero,
+        private static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero,
             int3 position)
         {
             var inventoryCommandService = ServiceRepository.GetService<IInventoryCommandService>();
@@ -175,7 +175,7 @@ public static class RespecContext
             }
         }
 
-        internal static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
+        private static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
         {
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
             var restAfterPanel = restModalScreen.restAfterPanel;

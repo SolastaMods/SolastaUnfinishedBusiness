@@ -25,13 +25,15 @@ internal static class LevelDownContext
     private static void RemoveFeaturesByTag(RulesetCharacterHero hero, CharacterClassDefinition classDefinition,
         string tag)
     {
-        if (hero.ActiveFeatures.ContainsKey(tag))
+        if (!hero.ActiveFeatures.ContainsKey(tag))
         {
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
-            CustomFeaturesContext.RemoveFeatures(hero, classDefinition, tag, hero.ActiveFeatures[tag]);
-
-            hero.ActiveFeatures.Remove(tag);
+            return;
         }
+
+        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+        CustomFeaturesContext.RemoveFeatures(hero, classDefinition, tag, hero.ActiveFeatures[tag]);
+
+        hero.ActiveFeatures.Remove(tag);
     }
 
     private static void LevelDown(RulesetCharacterHero hero)
@@ -186,6 +188,9 @@ internal static class LevelDownContext
                 }
 
                 break;
+
+            case RuleDefinitions.SpellKnowledge.FixedList:
+                break;
         }
     }
 
@@ -220,16 +225,18 @@ internal static class LevelDownContext
                 yield return null;
             }
 
-            if (state > 0)
+            if (state <= 0)
             {
-                if (functorParameters.RestingHero.ClassesHistory.Count > 1)
-                {
-                    LevelDown(functorParameters.RestingHero);
-                }
-                else
-                {
-                    yield return new FunctorRespec().Execute(functorParameters, context);
-                }
+                yield break;
+            }
+
+            if (functorParameters.RestingHero.ClassesHistory.Count > 1)
+            {
+                LevelDown(functorParameters.RestingHero);
+            }
+            else
+            {
+                yield return new FunctorRespec().Execute(functorParameters, context);
             }
         }
     }

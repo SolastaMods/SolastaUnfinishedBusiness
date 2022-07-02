@@ -17,27 +17,29 @@ public static class UsablePowersProvider
             result = actor.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
         }
 
-        if (result == null)
+        if (result != null)
         {
-            if (UsablePowers.ContainsKey(power))
-            {
-                result = UsablePowers[power];
-            }
-            else
-            {
-                result = new RulesetUsablePower(power, null, null);
-                UsablePowers.Add(power, result);
-            }
-
-            //Update properties to match actor 
-            UpdateSaveDC(actor, result);
-            UpdatePoolUses(actor, result);
+            return result;
         }
+
+        if (UsablePowers.ContainsKey(power))
+        {
+            result = UsablePowers[power];
+        }
+        else
+        {
+            result = new RulesetUsablePower(power, null, null);
+            UsablePowers.Add(power, result);
+        }
+
+        //Update properties to match actor
+        UpdateSaveDC(actor, result);
+        UpdatePoolUses(actor, result);
 
         return result;
     }
 
-    public static void UpdatePoolUses(RulesetCharacter character, RulesetUsablePower usablePower)
+    private static void UpdatePoolUses(RulesetCharacter character, RulesetUsablePower usablePower)
     {
         if (character == null)
         {
@@ -79,11 +81,13 @@ public static class UsablePowersProvider
                         break;
                     }
 
-                    if (spellRepertoire.SpellCastingSubclass != null)
+                    if (spellRepertoire.SpellCastingSubclass == null)
                     {
-                        rulesetSpellRepertoire = spellRepertoire;
-                        break;
+                        continue;
                     }
+
+                    rulesetSpellRepertoire = spellRepertoire;
+                    break;
                 }
 
                 if (rulesetSpellRepertoire != null)

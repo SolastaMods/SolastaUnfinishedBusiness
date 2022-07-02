@@ -32,7 +32,7 @@ public static class PlayerControllerContext
         }
     }
 
-    internal static bool SideFlipped { get; private set; }
+    private static bool SideFlipped { get; set; }
 
     internal static void RefreshGuiState()
     {
@@ -57,9 +57,8 @@ public static class PlayerControllerContext
     {
         var activePlayerController = Gui.ActivePlayerController;
 
-        for (var i = 0; i < PlayerCharacters.Count; i++)
+        foreach (var playerCharacter in PlayerCharacters)
         {
-            var playerCharacter = PlayerCharacters[i];
             var controllerId = reset || controllersChoices[playerCharacter] == 0
                 ? PLAYER_CONTROLLER_ID
                 : PlayerControllerManager.DmControllerId;
@@ -81,30 +80,34 @@ public static class PlayerControllerContext
             UpdatePartyControllerIds();
         }
 
-        if (Main.Settings.EnableEnemiesControlledByPlayer && enemies.Contains(activeContender))
+        if (!Main.Settings.EnableEnemiesControlledByPlayer || !enemies.Contains(activeContender))
         {
-            SideFlipped = true;
-            enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
-            players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
-            Gui.ActivePlayerController.ControlledCharacters.Clear();
-            Gui.ActivePlayerController.ControlledCharacters.AddRange(enemies);
+            return;
         }
+
+        SideFlipped = true;
+        enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
+        players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
+        Gui.ActivePlayerController.ControlledCharacters.Clear();
+        Gui.ActivePlayerController.ControlledCharacters.AddRange(enemies);
     }
 
     internal static void Stop(GameLocationBattle battle)
     {
         UpdatePartyControllerIds(true);
 
-        if (SideFlipped)
+        if (!SideFlipped)
         {
-            var enemies = battle.EnemyContenders;
-            var players = battle.PlayerContenders;
-
-            SideFlipped = false;
-            enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
-            players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
-            Gui.ActivePlayerController.ControlledCharacters.Clear();
-            Gui.ActivePlayerController.ControlledCharacters.AddRange(players);
+            return;
         }
+
+        var enemies = battle.EnemyContenders;
+        var players = battle.PlayerContenders;
+
+        SideFlipped = false;
+        enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
+        players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
+        Gui.ActivePlayerController.ControlledCharacters.Clear();
+        Gui.ActivePlayerController.ControlledCharacters.AddRange(players);
     }
 }

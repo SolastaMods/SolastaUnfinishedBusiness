@@ -13,7 +13,7 @@ internal static class MessageModal_OnEndShow
 {
     internal static void Postfix(MessageModal __instance)
     {
-        if (!Main.Settings.EnableCharacterExport || __instance.contentLabel.Text != INPUT_MODAL_MARK)
+        if (!Main.Settings.EnableCharacterExport || __instance.contentLabel.Text != InputModalMark)
         {
             if (InputField != null)
             {

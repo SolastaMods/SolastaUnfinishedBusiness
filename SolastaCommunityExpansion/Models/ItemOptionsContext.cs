@@ -302,27 +302,8 @@ internal static class ItemOptionsContext
         }
     }
 
-    // private static void FixGameRecipesTitles()
-    // {
-    //     var craftingRecipes = DatabaseRepository.GetDatabase<ItemDefinition>()
-    //         .GetAllElements()
-    //         .Where(x => x.IsDocument)
-    //         .Where(x =>
-    //             x.GuiPresentation.Title == "Equipment/&CraftingManualTitle"
-    //             || x.GuiPresentation.Title == "Equipment/&CraftingManual_x5_Title");
-    //
-    //     foreach (var craftingRecipe in craftingRecipes)
-    //     {
-    //         var itemTitle = craftingRecipe.DocumentDescription.RecipeDefinition.FormatTitle();
-    //
-    //         craftingRecipe.GuiPresentation.title =
-    //             Gui.Format(craftingRecipe.GuiPresentation.Title, itemTitle);
-    //     }
-    // }
-
     internal static void Load()
     {
-        //FixGameRecipesTitles();
         LoadRemoveIdentification();
         LoadClothingGorimStock();
         SwitchSetBeltOfDwarvenKindBeardChances();
@@ -357,18 +338,19 @@ internal static class ItemOptionsContext
             Definition.GuiPresentation.Description = description;
             Definition.UsableDeviceDescription.DeviceFunctions[0].spellDefinition = Identify;
 
-            var stockFocus = new StockUnitDescription();
-
-            stockFocus.itemDefinition = Definition;
-            stockFocus.initialAmount = 1;
-            stockFocus.initialized = true;
-            stockFocus.factionStatus = "Indifference";
-            stockFocus.maxAmount = 2;
-            stockFocus.minAmount = 1;
-            stockFocus.stackCount = 1;
-            stockFocus.reassortAmount = 1;
-            stockFocus.reassortRateValue = 1;
-            stockFocus.reassortRateType = RuleDefinitions.DurationType.Day;
+            var stockFocus = new StockUnitDescription
+            {
+                itemDefinition = Definition,
+                initialAmount = 1,
+                initialized = true,
+                factionStatus = "Indifference",
+                maxAmount = 2,
+                minAmount = 1,
+                stackCount = 1,
+                reassortAmount = 1,
+                reassortRateValue = 1,
+                reassortRateType = RuleDefinitions.DurationType.Day
+            };
 
             StockFocus.Add(stockFocus);
         }

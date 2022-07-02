@@ -32,7 +32,7 @@ public static class SharedSpellsContext
         //{ "PowerAlchemistSpellBonusRecovery", TinkererClass },
     };
 
-    public static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
+    private static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
     {
         {Cleric, CasterType.Full},
         {Druid, CasterType.Full},
@@ -45,7 +45,7 @@ public static class SharedSpellsContext
         //{ WitchClass, CasterType.Full },
     };
 
-    public static Dictionary<CharacterSubclassDefinition, CasterType> SubclassCasterType { get; } = new()
+    private static Dictionary<CharacterSubclassDefinition, CasterType> SubclassCasterType { get; } = new()
     {
         {MartialSpellblade, CasterType.OneThird}, {RoguishShadowCaster, CasterType.OneThird}
         // added during load
@@ -89,13 +89,9 @@ public static class SharedSpellsContext
         // otherwise gets hero from level up
         var hero = Global.ActiveLevelUpHero;
 
-        if (hero != null)
-        {
-            return hero;
-        }
+        return hero ?? Global.InspectedHero;
 
         // finally falls back to inspection [when browsing hero in char pool]
-        return Global.InspectedHero;
     }
 
     public static bool IsWarlock(CharacterClassDefinition characterClassDefinition)
@@ -143,39 +139,29 @@ public static class SharedSpellsContext
     {
         var warlockLevel = GetWarlockLevel(rulesetCharacterHero);
 
-        if (warlockLevel > 0)
-        {
-            return WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0);
-        }
-
-        return 0;
+        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0) : 0;
     }
 
     public static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
     {
         var warlockLevel = GetWarlockLevel(rulesetCharacterHero);
 
-        if (warlockLevel > 0)
-        {
-            return WarlockCastingSlots[warlockLevel - 1].Slots[0];
-        }
-
-        return 0;
+        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
     }
 
     public static int GetWarlockUsedSlots(RulesetCharacterHero rulesetCharacterHero)
     {
         var repertoire = GetWarlockSpellRepertoire(rulesetCharacterHero);
 
-        if (repertoire != null)
+        if (repertoire == null)
         {
-            repertoire.usedSpellsSlots
-                .TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out var warlockUsedSlots);
-
-            return warlockUsedSlots;
+            return 0;
         }
 
-        return 0;
+        repertoire.usedSpellsSlots
+            .TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out var warlockUsedSlots);
+
+        return warlockUsedSlots;
     }
 
     public static RulesetSpellRepertoire GetWarlockSpellRepertoire(RulesetCharacterHero rulesetCharacterHero)
@@ -185,7 +171,7 @@ public static class SharedSpellsContext
 
     public static int GetSharedCasterLevel(RulesetCharacterHero rulesetCharacterHero)
     {
-        if (rulesetCharacterHero == null || rulesetCharacterHero.ClassesAndLevels == null)
+        if (rulesetCharacterHero?.ClassesAndLevels == null)
         {
             return 0;
         }
@@ -221,25 +207,20 @@ public static class SharedSpellsContext
 
         var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero);
 
-        if (sharedCasterLevel > 0)
-        {
-            return FullCastingSlots[sharedCasterLevel - 1].Slots.IndexOf(0);
-        }
-
-        return 0;
+        return sharedCasterLevel > 0 ? FullCastingSlots[sharedCasterLevel - 1].Slots.IndexOf(0) : 0;
     }
 
     public static int GetClassSpellLevel(RulesetSpellRepertoire spellRepertoire)
     {
-        if (spellRepertoire != null && spellRepertoire.SpellCastingFeature.SlotsPerLevels != null)
+        if (spellRepertoire?.SpellCastingFeature.SlotsPerLevels == null)
         {
-            var slotsPerLevel =
-                spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1];
-
-            return slotsPerLevel.Slots.IndexOf(0);
+            return 0;
         }
 
-        return 0;
+        var slotsPerLevel =
+            spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1];
+
+        return slotsPerLevel.Slots.IndexOf(0);
     }
 
     public static void Load()
@@ -254,7 +235,7 @@ public static class SharedSpellsContext
         RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
     }
 
-    public class CasterLevelContext
+    private class CasterLevelContext
     {
         private readonly Dictionary<CasterType, int> levels;
 
