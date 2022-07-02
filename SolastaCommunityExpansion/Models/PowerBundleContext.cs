@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ModKit;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -52,7 +51,12 @@ public static class PowerBundleContext
 
     public static Bundle GetBundle(FeatureDefinitionPower master)
     {
-        return master ? Bundles.GetValueOrDefault(master) : null;
+        if (master == null)
+        {
+            return null;
+        }
+
+        return Bundles.TryGetValue(master, out var result) ? result : null;
     }
 
     public static Bundle GetBundle(SpellDefinition master)
@@ -92,7 +96,7 @@ public static class PowerBundleContext
 
     public static FeatureDefinitionPower GetPower(SpellDefinition spell)
     {
-        return Spells2Powers.GetValueOrDefault(spell);
+        return Spells2Powers.TryGetValue(spell, out var result) ? result : null;
     }
 
     public static FeatureDefinitionPower GetPower(string name)
@@ -110,27 +114,19 @@ public static class PowerBundleContext
 
     public static SpellDefinition GetSpell(FeatureDefinitionPower power)
     {
-        return Powers2Spells.GetValueOrDefault(power);
+        return Powers2Spells.TryGetValue(power, out var result) ? result : null;
     }
 
     public static List<SpellDefinition> GetSubSpells(FeatureDefinitionPower masterPower)
     {
-        if (masterPower != null)
+        if (masterPower == null)
         {
-            var subPowers = GetBundleSubPowers(masterPower);
-            if (subPowers != null)
-            {
-                List<SpellDefinition> spells = new();
-                foreach (var power in subPowers)
-                {
-                    spells.Add(GetSpell(power));
-                }
-
-                return spells;
-            }
+            return null;
         }
 
-        return null;
+        var subPowers = GetBundleSubPowers(masterPower);
+
+        return subPowers?.Select(GetSpell).ToList();
     }
 
     // Bundled sub-powers usually are not added to the character, so their UsblePower lacks class or race oringin
@@ -145,6 +141,7 @@ public static class PowerBundleContext
         }
 
         var usablePower = activePower.UsablePower;
+
         if (usablePower.OriginClass != null
             || usablePower.OriginRace != null
             || usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.AtWill)
@@ -166,7 +163,7 @@ public static class PowerBundleContext
             .RegisterFunctor(UseCustomRestPowerFunctorName, new FunctorUseCustomRestPower());
     }
 
-    public class Bundle
+    public sealed class Bundle
     {
         /**
              * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
@@ -178,7 +175,7 @@ public static class PowerBundleContext
     }
 }
 
-internal class FunctorUseCustomRestPower : Functor
+internal sealed class FunctorUseCustomRestPower : Functor
 {
     private bool powerUsed;
 

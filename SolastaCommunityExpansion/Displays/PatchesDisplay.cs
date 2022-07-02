@@ -4,7 +4,6 @@ using System.Reflection;
 using HarmonyLib;
 using ModKit;
 using UnityEngine;
-using static ModKit.RichTextExtensions;
 
 namespace SolastaCommunityExpansion.Displays;
 
@@ -228,12 +227,12 @@ internal static class PatchesDisplay
 
     private static List<Patch> EnabledPatchesForMethod(MethodBase method)
     {
-        return _patches.GetValueOrDefault(method, new List<Patch>());
+        return _patches.TryGetValue(method, out var result) ? result : new List<Patch>();
     }
 
     private static List<Patch> DisabledPatchesForMethod(MethodBase method)
     {
-        return _disabled.GetValueOrDefault(method, new List<Patch>());
+        return _disabled.TryGetValue(method, out var result) ? result : new List<Patch>();
     }
 
     private static void EnablePatchForMethod(bool enabled, Patch patch, MethodBase method)

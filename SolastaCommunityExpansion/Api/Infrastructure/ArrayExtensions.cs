@@ -19,7 +19,7 @@ public static class ArrayExtensions
     }
 }
 
-internal class ArrayTraverse
+internal sealed class ArrayTraverse
 {
     private readonly int[] maxLengths;
 

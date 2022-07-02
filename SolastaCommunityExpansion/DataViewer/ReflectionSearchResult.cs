@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using ModKit;
-using ModKit.Utility;
 
 namespace SolastaCommunityExpansion.DataViewer;
 

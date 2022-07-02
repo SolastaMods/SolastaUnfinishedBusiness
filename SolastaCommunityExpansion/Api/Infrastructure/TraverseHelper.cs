@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public static class TraverseHelper
 {
-    private static bool FailOnMissingMember { get; } = true;
+    private static bool FailOnMissingMember => true;
 
     /// <summary>
     ///     Usage
@@ -42,7 +42,7 @@ public static class TraverseHelper
         // AccessTools.FieldRefAccess<T, V>(instance, fieldName) = value;
     }
 
-    internal static V GetField<T, V>(this T instance, string fieldName) where T : class
+    private static V GetField<T, V>(this T instance, string fieldName) where T : class
     {
         Preconditions.IsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));

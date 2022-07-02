@@ -21,23 +21,6 @@ public class ModManager<TCore, TSettings>
     where TCore : class, new()
     where TSettings : UnityModManager.ModSettings, new()
 {
-    #region Fields & Properties
-
-    private UnityModManager.ModEntry.ModLogger _logger;
-    private List<IModEventHandler> _eventHandlers;
-
-    public TCore Core { get; private set; }
-
-    public TSettings Settings { get; private set; }
-
-    public Version Version { get; private set; }
-
-    public bool Enabled { get; private set; }
-
-    public bool Patched { get; private set; }
-
-    #endregion
-
     #region Toggle
 
     public void Enable(UnityModManager.ModEntry modEntry, Assembly assembly)
@@ -123,53 +106,6 @@ public class ModManager<TCore, TSettings>
         process.Log("Enabled.");
     }
 
-#if false
-        public void Disable(UnityModManager.ModEntry modEntry, bool unpatch = false) {
-            _logger = modEntry.Logger;
-
-            using ProcessLogger process = new(_logger);
-            process.Log("Disabling.");
-
-            Enabled = false;
-
-            // use try-catch to prevent the progression being disrupt by exceptions
-            if (_eventHandlers != null) {
-                process.Log("Raising events: OnDisable()");
-                for (var i = _eventHandlers.Count - 1; i >= 0; i--) {
-                    try { _eventHandlers[i].HandleModDisable(); }
-                    catch (Exception e) { Error(e); }
-                }
-                _eventHandlers = null;
-            }
-
-            if (unpatch) {
-                Harmony harmonyInstance = new(modEntry.Info.Id);
-                foreach (var method in harmonyInstance.GetPatchedMethods().ToList()) {
-                    var patchInfo = Harmony.GetPatchInfo(method);
-                    var patches =
-                        patchInfo.Transpilers.Concat(patchInfo.Postfixes).Concat(patchInfo.Prefixes)
-                        .Where(patch => patch.owner == modEntry.Info.Id);
-                    if (patches.Any()) {
-                        process.Log($"Unpatching: {patches.First().PatchMethod.DeclaringType.FullName} from {method.DeclaringType.FullName}.{method.Name}");
-                        foreach (var patch in patches) {
-                            try { harmonyInstance.Unpatch(method, patch.PatchMethod); }
-                            catch (Exception e) { Error(e); }
-                        }
-                    }
-                }
-                Patched = false;
-            }
-
-            modEntry.OnSaveGUI -= HandleSaveGUI;
-            Core = null;
-            Settings = null;
-            Version = null;
-            _logger = null;
-
-            process.Log("Disabled.");
-        }
-#endif
-
     #endregion
 
     #region Settings
@@ -184,6 +120,46 @@ public class ModManager<TCore, TSettings>
     {
         UnityModManager.ModSettings.Save(Settings, modEntry);
     }
+
+    #endregion
+
+    private class ProcessLogger : IDisposable
+    {
+        private readonly UnityModManager.ModEntry.ModLogger _logger;
+        private readonly Stopwatch _stopWatch = new();
+
+        public ProcessLogger(UnityModManager.ModEntry.ModLogger logger)
+        {
+            _logger = logger;
+            _stopWatch.Start();
+        }
+
+        public void Dispose()
+        {
+            _stopWatch.Stop();
+        }
+
+        [Conditional("DEBUG")]
+        public void Log(string status)
+        {
+            _logger.Log($"[{_stopWatch.Elapsed:ss\\.ff}] {status}");
+        }
+    }
+
+    #region Fields & Properties
+
+    private UnityModManager.ModEntry.ModLogger _logger;
+    private List<IModEventHandler> _eventHandlers;
+
+    public TCore Core { get; private set; }
+
+    public TSettings Settings { get; private set; }
+
+    public Version Version { get; private set; }
+
+    public bool Enabled { get; private set; }
+
+    public bool Patched { get; private set; }
 
     #endregion
 
@@ -227,27 +203,4 @@ public class ModManager<TCore, TSettings>
     //public void Debug(object obj) => _logger.Log(obj?.ToString() ?? "null");
 
     #endregion
-
-    private class ProcessLogger : IDisposable
-    {
-        private readonly UnityModManager.ModEntry.ModLogger _logger;
-        private readonly Stopwatch _stopWatch = new();
-
-        public ProcessLogger(UnityModManager.ModEntry.ModLogger logger)
-        {
-            _logger = logger;
-            _stopWatch.Start();
-        }
-
-        public void Dispose()
-        {
-            _stopWatch.Stop();
-        }
-
-        [Conditional("DEBUG")]
-        public void Log(string status)
-        {
-            _logger.Log($"[{_stopWatch.Elapsed:ss\\.ff}] {status}");
-        }
-    }
 }

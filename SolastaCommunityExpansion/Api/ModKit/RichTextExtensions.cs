@@ -12,11 +12,8 @@ public static class StringExtensions
         {
             return false;
         }
-#if false
-            return source.IndexOf(other, 0, StringComparison.InvariantCulture) != -1;
-#else
+
         return source.IndexOf(other, 0, StringComparison.InvariantCultureIgnoreCase) != -1;
-#endif
     }
 
     public static string MarkedSubstring(this string source, string other)
@@ -25,23 +22,21 @@ public static class StringExtensions
         {
             return source;
         }
-#if false
-            if (source.Contains(other)) {
-                return source.Replace(other, other.Cyan()).Bold();
-            }
-            //source = source.Replace(source, other.Cyan()).Bold();
-#else
+
         var index = source.IndexOf(other, StringComparison.InvariantCultureIgnoreCase);
-        if (index != -1)
+
+        if (index == -1)
         {
-            var substr = source.Substring(index, other.Length);
-            source = source.Replace(substr, substr.Cyan()).Bold();
+            return source;
         }
-#endif
+
+        var substr = source.Substring(index, other.Length);
+        source = source.Replace(substr, substr.Cyan()).Bold();
+
         return source;
     }
 
-    public static string Repeat(this string s, int n)
+    private static string Repeat(this string s, int n)
     {
         if (n < 0 || s == null || s.Length == 0)
         {
@@ -64,10 +59,6 @@ public static class RichTextExtensions
     {
         return $"<b>{str}</b>";
     }
-
-    //public static string Color(this string str, Color color) => $"<color=#{ColorUtility.ToHtmlStringRGBA(color)}>{str}</color>";
-
-    //public static string Color(this string str, RGBA color) => $"<color=#{color:X}>{str}</color>";
 
     public static string Color(this string str, string rrggbbaa)
     {
@@ -137,10 +128,5 @@ public static class RichTextExtensions
     public static string ToSentence(this string str)
     {
         return Regex.Replace(str, @"((?<=\p{Ll})\p{Lu})|\p{Lu}(?=\p{Ll})", " $0").TrimStart();
-        //return string.Concat(str.Select(c => char.IsUpper(c) ? " " + c : c.ToString())).TrimStart(' ');
     }
-
-    //public static string Size(this string str, int size) => $"<size={size}>{str}</size>";
-
-    //public static string SizePercent(this string str, int percent) => $"<size={percent}%>{str}</size>";
 }

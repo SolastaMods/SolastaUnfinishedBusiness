@@ -15,13 +15,3 @@ public class NamedAction
     public string name { get; }
     public Action action { get; }
 }
-
-public class NamedFunc<T>
-{
-    public NamedFunc(string name)
-    {
-        this.name = name;
-    }
-
-    public string name { get; }
-}

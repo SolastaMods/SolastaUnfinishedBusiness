@@ -12,7 +12,7 @@ public static class ObjectExtensions
         typeof(object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
-    public static bool IsPrimitive(this Type type)
+    private static bool IsPrimitive(this Type type)
     {
         if (type == typeof(string))
         {
@@ -30,6 +30,7 @@ public static class ObjectExtensions
         }
 
         var typeToReflect = originalObject.GetType();
+
         if (IsPrimitive(typeToReflect))
         {
             return originalObject;
@@ -66,14 +67,16 @@ public static class ObjectExtensions
     private static void RecursiveCopyBaseTypePrivateFields(object originalObject,
         IDictionary<object, object> visited, object cloneObject, Type typeToReflect)
     {
-        if (typeToReflect.BaseType != null)
+        if (typeToReflect.BaseType == null)
         {
-            RecursiveCopyBaseTypePrivateFields(originalObject, visited, cloneObject, typeToReflect.BaseType);
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-            CopyFields(originalObject, visited, cloneObject, typeToReflect.BaseType,
-                BindingFlags.Instance | BindingFlags.NonPublic, info => info.IsPrivate);
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+            return;
         }
+
+        RecursiveCopyBaseTypePrivateFields(originalObject, visited, cloneObject, typeToReflect.BaseType);
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+        CopyFields(originalObject, visited, cloneObject, typeToReflect.BaseType,
+            BindingFlags.Instance | BindingFlags.NonPublic, info => info.IsPrivate);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
 
     private static void CopyFields(object originalObject, IDictionary<object, object> visited, object cloneObject,
@@ -101,7 +104,7 @@ public static class ObjectExtensions
         }
     }
 
-    public static object DeepCopy(this object originalObject)
+    private static object DeepCopy(this object originalObject)
     {
         return InternalCopy(originalObject, new Dictionary<object, object>(new ReferenceEqualityComparer()));
     }
@@ -128,11 +131,6 @@ public class ReferenceEqualityComparer : EqualityComparer<object>
 
     public override int GetHashCode(object obj)
     {
-        if (obj == null)
-        {
-            return 0;
-        }
-
         return obj.GetHashCode();
     }
 }

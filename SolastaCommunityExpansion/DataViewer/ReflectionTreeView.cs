@@ -269,11 +269,11 @@ public class ReflectionTreeView
                 var name = node.Name;
                 name = name.MarkedSubstring(searchText);
                 UI.ToggleButton(ref expanded,
-                    $"[{node.NodeTypePrefix}] ".color(RGBA.grey) +
-                    name + " : " + node.Type.Name.color(
-                        node.IsBaseType ? RGBA.grey :
-                        node.IsGameObject ? RGBA.magenta :
-                        node.IsEnumerable ? RGBA.cyan : RGBA.orange),
+                    $"[{node.NodeTypePrefix}] ".grey() +
+                    name + " : " + (
+                        node.IsBaseType ? node.Type.Name.grey() :
+                        node.IsGameObject ? node.Type.Name.magenta() :
+                        node.IsEnumerable ? node.Type.Name.cyan() : node.Type.Name.orange()),
                     _buttonStyle, GUILayout.ExpandWidth(false), GUILayout.MinWidth(TitleMinWidth));
 
                 // value
@@ -285,7 +285,7 @@ public class ReflectionTreeView
                 // instance type
                 if (node.InstType != null && node.InstType != node.Type)
                 {
-                    GUILayout.Label(node.InstType.Name.color(RGBA.yellow), _buttonStyle,
+                    GUILayout.Label(node.InstType.Name.yellow(), _buttonStyle,
                         GUILayout.ExpandWidth(false));
                 }
             }

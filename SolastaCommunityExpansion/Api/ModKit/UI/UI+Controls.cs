@@ -274,25 +274,25 @@ public static partial class UI
         var v = value;
         if (v > min)
         {
-            ActionButton(" < ", () => { v = Math.Max(v - increment, min); }, textBoxStyle, AutoWidth());
+            ActionButton(" < ", () => { v = Math.Max(v - increment, min); }, TextBoxStyle, AutoWidth());
         }
         else
         {
             Space(-21);
-            ActionButton("min ".cyan(), () => { }, textBoxStyle, AutoWidth());
+            ActionButton("min ".cyan(), () => { }, TextBoxStyle, AutoWidth());
         }
 
         Space(-8);
         var temp = false;
-        Button($"{v}".orange().bold(), ref temp, textBoxStyle, AutoWidth());
+        Button($"{v}".orange().bold(), ref temp, TextBoxStyle, AutoWidth());
         Space(-8);
         if (v < max)
         {
-            ActionButton(" > ", () => { v = Math.Min(v + increment, max); }, textBoxStyle, AutoWidth());
+            ActionButton(" > ", () => { v = Math.Min(v + increment, max); }, TextBoxStyle, AutoWidth());
         }
         else
         {
-            ActionButton(" max".cyan(), () => { }, textBoxStyle, AutoWidth());
+            ActionButton(" max".cyan(), () => { }, TextBoxStyle, AutoWidth());
             Space(-27);
         }
 
@@ -411,25 +411,25 @@ public static partial class UI
         {
             using (VerticalScope(Width(300)))
             {
-                Space((sliderTop - 1).point());
+                Space((sliderTop - 1).Point());
                 Label(title.cyan(), Width(300));
-                Space(sliderBottom.point());
+                Space(sliderBottom.Point());
             }
 
             Space(25);
             using (VerticalScope(Width(200)))
             {
-                Space((sliderTop + 4).point());
+                Space((sliderTop + 4).Point());
                 newValue = (float)Math.Round(GL.HorizontalSlider(value, min, max, Width(200)), decimals);
-                Space(sliderBottom.point());
+                Space(sliderBottom.Point());
             }
 
             Space(25);
             using (VerticalScope(Width(75)))
             {
-                Space((sliderTop + 2).point());
+                Space((sliderTop + 2).Point());
                 FloatTextField(ref newValue, null, Width(75));
-                Space(sliderBottom.point());
+                Space(sliderBottom.Point());
             }
 
             if (units.Length > 0)
@@ -440,9 +440,9 @@ public static partial class UI
             Space(25);
             using (VerticalScope(AutoWidth()))
             {
-                Space((sliderTop - 0).point());
+                Space((sliderTop - 0).Point());
                 ActionButton("Reset", () => { newValue = defaultValue; }, AutoWidth());
-                Space(sliderBottom.point());
+                Space(sliderBottom.Point());
             }
         }
 
@@ -507,9 +507,9 @@ public static partial class UI
         BeginHorizontal(options);
         using (VerticalScope(Width(300)))
         {
-            Space((sliderTop - 1).point());
+            Space((sliderTop - 1).Point());
             Label(title.cyan(), Width(300));
-            Space(sliderBottom.point());
+            Space(sliderBottom.Point());
         }
 
         Space(25);
@@ -522,18 +522,18 @@ public static partial class UI
         var logNewValue = logValue;
         using (VerticalScope(Width(200)))
         {
-            Space((sliderTop + 4).point());
+            Space((sliderTop + 4).Point());
             logNewValue = GL.HorizontalSlider(logValue, logMin, logMax, Width(200));
-            Space(sliderBottom.point());
+            Space(sliderBottom.Point());
         }
 
         var newValue = (float)Math.Round(Math.Pow(10, logNewValue / 100f) - offset, places);
         Space(25);
         using (VerticalScope(Width(75)))
         {
-            Space((sliderTop + 2).point());
+            Space((sliderTop + 2).Point());
             FloatTextField(ref newValue, null, Width(75));
-            Space(sliderBottom.point());
+            Space(sliderBottom.Point());
         }
 
         if (units.Length > 0)
@@ -544,9 +544,9 @@ public static partial class UI
         Space(25);
         using (VerticalScope(AutoWidth()))
         {
-            Space((sliderTop + 0).point());
+            Space((sliderTop + 0).Point());
             ActionButton("Reset", () => { newValue = defaultValue; }, AutoWidth());
-            Space(sliderBottom.point());
+            Space(sliderBottom.Point());
         }
 
         EndHorizontal();

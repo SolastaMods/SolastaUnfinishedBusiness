@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ModKit;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -93,20 +92,23 @@ Different Archfey, e.g. Winter-themed
                    )
                 {
                     var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
-                    var used = attacker.UsedSpecialFeatures.GetValueOrDefault(lifeSapId);
 
-                    if (belowHalfHealth || used == 0)
+                    attacker.UsedSpecialFeatures.TryGetValue(lifeSapId, out var used);
+
+                    if (!belowHalfHealth && used != 0)
                     {
-                        attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
-
-                        var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-                        var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
-                        var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
-
-                        var ability = GuiPresentationBuilder.CreateTitleKey(lifeSapId, Category.Power);
-                        GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
-                        RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
+                        return;
                     }
+
+                    attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
+
+                    var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                    var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
+                    var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
+
+                    var ability = GuiPresentationBuilder.CreateTitleKey(lifeSapId, Category.Power);
+                    GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
+                    RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
                 }
             })
             .AddToDB();

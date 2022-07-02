@@ -1,7 +1,5 @@
 ﻿// borrowed shamelessly and enhanced from Bag of Tricks https://www.nexusmods.com/pathfinderkingmaker/mods/26, which is under the MIT License
 
-using UnityEngine;
-
 namespace ModKit;
 
 public static class RichText
@@ -26,11 +24,6 @@ public static class RichText
         return _ = $"<color={color}>{s}</color>";
     }
 
-    public static string color(this string str, RGBA color)
-    {
-        return $"<color=#{color:X}>{str}</color>";
-    }
-
     public static string white(this string s)
     {
         return s.color("white");
@@ -39,6 +32,11 @@ public static class RichText
     public static string grey(this string s)
     {
         return s.color("#A0A0A0FF");
+    }
+
+    public static string medgrey(this string s)
+    {
+        return s.color("#A8A8A8ff");
     }
 
     public static string red(this string s)

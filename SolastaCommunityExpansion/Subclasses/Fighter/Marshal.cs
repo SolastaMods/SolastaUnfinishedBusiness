@@ -45,7 +45,9 @@ internal static class KnowYourEnemyBuilder
 {
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)
     {
-        return ServiceRepository.GetService<IGameLoreService>().Bestiary.TryGetBestiaryEntry(enemy, out var entry) ? entry.KnowledgeLevelDefinition.Level : 0;
+        return ServiceRepository.GetService<IGameLoreService>().Bestiary.TryGetBestiaryEntry(enemy, out var entry)
+            ? entry.KnowledgeLevelDefinition.Level
+            : 0;
     }
 
     private static void KnowYourEnemyOnAttackDelegate(GameLocationCharacter attacker,

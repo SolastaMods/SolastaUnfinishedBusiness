@@ -79,7 +79,7 @@ internal class DivineHeart : AbstractSubclass
             .SetGuiPresentationNoContent()
             .ClearSpellsAtLevel(0)
             .AddToDB();
-        
+
         var magicAffinityDivineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
             .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
                 "MagicAffinityDivineHeartClericSpellsList", SubclassNamespace)

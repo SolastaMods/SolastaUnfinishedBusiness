@@ -19,7 +19,6 @@ public static partial class UI
     public static Vector2[] ummScrollPosition;
     public static bool IsNarrow => ummWidth < 1200;
 
-    public static bool IsWide => ummWidth >= 1920;
     /*** UI Builders
      * 
      * This is a simple UI framework that simulates the style of SwiftUI.  
@@ -105,16 +104,6 @@ public static partial class UI
 
         Group(actions);
         EndVertical();
-    }
-
-    public static void Section(string title, params Action[] actions)
-    {
-        Space(25);
-        Label($"====== {title} ======".bold(), GL.ExpandWidth(true));
-        Space(25);
-        foreach (var action in actions) { action(); }
-
-        Space(10);
     }
 
     public static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)

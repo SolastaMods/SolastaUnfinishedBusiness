@@ -290,7 +290,8 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (attackMode is not ({Reach: false, Ranged: true, Thrown: false} or {Reach: false, Ranged: false, Thrown: true}))
+            if (attackMode is not ({Reach: false, Ranged: true, Thrown: false} or
+                {Reach: false, Ranged: false, Thrown: true}))
             {
                 return;
             }

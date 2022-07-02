@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace ModKit.Utility;
@@ -10,20 +8,12 @@ public static class GUIHelper
     public const string onMark = "<color=green><b>✔</b></color>";
     public const string offMark = "<color=#A0A0A0E0>✖</color>";
 
-    public static string FormatOn = "▼".white().Bold() + " {0}";
-    public static string FormatOff = "▶".green().Bold() + " {0}";
-    public static string FormatNone = " ▪".white() + "   {0}";
+    private static string FormatOn = "▼".white().Bold() + " {0}";
+    private static string FormatOff = "▶".green().Bold() + " {0}";
+    private static string FormatNone = " ▪".white() + "   {0}";
 
-    public static string GetToggleText(ToggleState toggleState, string text)
-    {
-        return toggleState switch
-        {
-            ToggleState.Off => string.Format(FormatOff, text),
-            ToggleState.On => string.Format(FormatOn, text),
-            ToggleState.None => string.Format(FormatNone, text),
-            _ => string.Format(FormatNone)
-        };
-    }
+    private static Texture2D fillTexture;
+    private static readonly Color fillColor = new(1f, 1f, 1f, 0.65f);
 
     public static int AdjusterButton(int value, string text, int min = int.MinValue, int max = int.MaxValue)
     {
@@ -47,29 +37,6 @@ public static class GUIHelper
         }
 
         return value != oldValue;
-    }
-
-    public static void Hyperlink(string url, Color normalColor, Color hoverColor, GUIStyle style)
-    {
-        Hyperlink(url, url, normalColor, hoverColor, style);
-    }
-
-    public static void Hyperlink(string text, string url, Color normalColor, Color hoverColor, GUIStyle style)
-    {
-        var color = GUI.color;
-        GUI.color = Color.clear;
-        GUILayout.Label(text, style, GUILayout.ExpandWidth(false));
-        var lastRect = GUILayoutUtility.GetLastRect();
-        GUI.color = lastRect.Contains(Event.current.mousePosition) ? hoverColor : normalColor;
-        if (GUI.Button(lastRect, text, style))
-        {
-            Application.OpenURL(url);
-        }
-
-        lastRect.y += lastRect.height - 2;
-        lastRect.height = 1;
-        GUI.DrawTexture(lastRect, Texture2D.whiteTexture, ScaleMode.StretchToFill);
-        GUI.color = color;
     }
 
     public static void TextField(ref string value, GUIStyle style = null, params GUILayoutOption[] options)
@@ -100,138 +67,6 @@ public static class GUIHelper
             }
         }
     }
-#if false
-        static bool CheckboxPrivate(
-            ref bool value,
-            string title,
-            GUIStyle style = null,
-            params GUILayoutOption[] options
-    ) {
-            bool changed = false;
-            title = value ? title.Bold() : title.color(RGBA.lightgrey);
-            if (UI.Toggle(title, ref value, 0, options)) changed = true;
-            //if (GUILayout.Button("" + (value ? onMark : offMark) + " " + title, style, options)) { value = !value; }
-            return changed;
-        }
-        public static bool Checkbox(
-                ref bool value,
-                String title,
-                GUIStyle style = null,
-                params GUILayoutOption[] options) {
-            return CheckboxPrivate(ref value, title, style, options);
-        }
-#endif
-    public static ToggleState ToggleButton(ToggleState toggle, string text, GUIStyle style = null,
-        params GUILayoutOption[] options)
-    {
-        UI.ToggleButton(ref toggle, text, style, options);
-        return toggle;
-    }
-
-    public static ToggleState ToggleButton(ToggleState toggle, string text, Action on, Action off,
-        GUIStyle style = null, params GUILayoutOption[] options)
-    {
-        ToggleButton(ref toggle, text, on, off, style, options);
-        return toggle;
-    }
-
-    public static void ToggleButton(ref ToggleState toggle, string text, Action on, Action off,
-        GUIStyle style = null, params GUILayoutOption[] options)
-    {
-        var old = toggle;
-        UI.ToggleButton(ref toggle, text, style, options);
-        if (toggle != old)
-        {
-            if (toggle.IsOn())
-            {
-                on?.Invoke();
-            }
-            else
-            {
-                off?.Invoke();
-            }
-        }
-    }
-
-    public static void ToggleButton(ref ToggleState toggle, string text, ref float minWidth, GUIStyle style = null,
-        params GUILayoutOption[] options)
-    {
-        GUIContent content = new(GetToggleText(toggle, text));
-        style ??= GUI.skin.button;
-        minWidth = Math.Max(minWidth, style.CalcSize(content).x);
-        if (GUILayout.Button(content, style,
-                options?.Concat(new[] {GUILayout.Width(minWidth)}).ToArray() ?? new[] {GUILayout.Width(minWidth)}))
-        {
-            toggle = toggle.Flip();
-        }
-    }
-
-    public static void ToggleButton(ref ToggleState toggle, string text, ref float minWidth, Action on, Action off,
-        GUIStyle style = null, params GUILayoutOption[] options)
-    {
-        var old = toggle;
-        ToggleButton(ref toggle, text, ref minWidth, style, options);
-        if (toggle != old)
-        {
-            if (toggle.IsOn())
-            {
-                on?.Invoke();
-            }
-            else
-            {
-                off?.Invoke();
-            }
-        }
-    }
-
-    public static ToggleState ToggleTypeList(ToggleState toggle, string text, HashSet<string> selectedTypes,
-        HashSet<Type> allTypes, GUIStyle style = null, params GUILayoutOption[] options)
-    {
-        GUILayout.BeginHorizontal();
-
-        UI.ToggleButton(ref toggle, text, style, options);
-
-        if (toggle.IsOn())
-        {
-            using (new GUILayout.VerticalScope())
-            {
-                using (new GUILayout.HorizontalScope())
-                {
-                    if (GUILayout.Button("Select All"))
-                    {
-                        foreach (var type in allTypes)
-                        {
-                            selectedTypes.Add(type.FullName);
-                        }
-                    }
-
-                    if (GUILayout.Button("Deselect All"))
-                    {
-                        selectedTypes.Clear();
-                    }
-                }
-
-                foreach (var type in allTypes)
-                {
-                    ToggleButton(selectedTypes.Contains(type.FullName) ? ToggleState.On : ToggleState.Off,
-                        type.Name.ToSentence(),
-                        () => selectedTypes.Add(type.FullName),
-                        () => selectedTypes.Remove(type.FullName),
-                        style, options);
-                }
-            }
-        }
-
-        GUILayout.EndHorizontal();
-
-        return toggle;
-    }
-
-    public static void Toolbar(ref int selected, string[] texts, GUIStyle style = null,
-        params GUILayoutOption[] options)
-    {
-        selected = GUILayout.Toolbar(selected, texts, style ?? GUI.skin.button, options);
-    }
 
     public static void SelectionGrid(ref int selected, string[] texts, int xCount, GUIStyle style = null,
         params GUILayoutOption[] options)
@@ -250,46 +85,7 @@ public static class GUIHelper
         }
     }
 
-    public static float RoundedHorizontalSlider(float value, int digits, float leftValue, float rightValue,
-        params GUILayoutOption[] options)
-    {
-        if (digits < 0)
-        {
-            var num = (float)Math.Pow(10d, -digits);
-            return (float)Math.Round(GUILayout.HorizontalSlider(value, leftValue, rightValue, options) / num, 0) *
-                   num;
-        }
-
-        return (float)Math.Round(GUILayout.HorizontalSlider(value, leftValue, rightValue, options), digits);
-    }
-
-    private static Texture2D fillTexture;
-    private static GUIStyle fillStyle;
-    private static readonly Color fillColor = new(1f, 1f, 1f, 0.65f);
-    private static readonly Color color = new(1f, 1f, 1f, 0.35f);
-
-    public static Color FillColor2 { get; set; } = color;
-
-    public static GUIStyle FillStyle(Color color)
-    {
-        if (fillTexture == null)
-        {
-            fillTexture = new Texture2D(1, 1);
-        }
-
-        if (fillStyle == null)
-        {
-            fillStyle = new GUIStyle();
-        }
-
-        fillTexture.SetPixel(0, 0, color);
-        fillTexture.Apply();
-        fillStyle.normal.background = fillTexture;
-        return fillStyle;
-    }
-
-    //private static GUIStyle divStyle;
-    public static void Div(Color color, float indent = 0, float height = 0, float width = 0)
+    private static void Div(Color color, float indent = 0, float height = 0, float width = 0)
     {
         if (fillTexture == null)
         {
