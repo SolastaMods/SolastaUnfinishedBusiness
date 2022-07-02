@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static ModKit.Utility.StringExtensions;
+using static ModKit.StringExtensions;
 
 namespace SolastaCommunityExpansion.DataViewer;
 

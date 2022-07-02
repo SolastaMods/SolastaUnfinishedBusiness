@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using ModKit.Utility;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.DialoguesOnConsole;
 
@@ -17,6 +16,6 @@ internal static class NarrativeStateCharacterSpeech_RecordSpeechLine_Getter
 
         var screen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
 
-        screen.Game.GameConsole.LogSimpleLine($"{speakerName.Yellow().Bold()}: {textLine}");
+        screen.Game.GameConsole.LogSimpleLine($"<b><color=yellow>{speakerName}:</color></b> {textLine}");
     }
 }

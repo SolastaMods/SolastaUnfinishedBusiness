@@ -289,7 +289,7 @@ public static class EncountersDisplay
 
                     UI.HStack(playerCharacters[index].Name, 1, () =>
                     {
-                        if (UI.SelectionGrid(ref playerCharactersChoices[index], controllers, controllers.Length,
+                        if (UI.SelectionGrid(ref playerCharactersChoices[index], controllers, controllers.Length, 2,
                                 UI.Width(300)))
                         {
                             PlayerControllerContext.PlayerCharactersChoices = playerCharactersChoices;

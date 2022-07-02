@@ -6,29 +6,14 @@ namespace ModKit;
 public static partial class UI
 {
     private static Texture2D fillTexture;
-    private static GUIStyle fillStyle;
-    private static readonly Color fillColor = new(1f, 1f, 1f, 0.65f);
 
-    private static GUIStyle _buttonStyle;
+    private static readonly Color fillColor = new(1f, 1f, 1f, 0.65f);
 
     private static GUIStyle _textBoxStyle;
 
     private static GUIStyle _toggleStyle;
 
     public static GUIStyle divStyle;
-
-    public static GUIStyle buttonStyle
-    {
-        get
-        {
-            if (_buttonStyle == null)
-            {
-                _buttonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
-            }
-
-            return _buttonStyle;
-        }
-    }
 
     public static GUIStyle textBoxStyle
     {
@@ -68,24 +53,6 @@ public static partial class UI
     private static int point(this int x)
     {
         return UnityModManager.UI.Scale(x);
-    }
-
-    public static GUIStyle FillStyle(Color color)
-    {
-        if (fillTexture == null)
-        {
-            fillTexture = new Texture2D(1, 1);
-        }
-
-        if (fillStyle == null)
-        {
-            fillStyle = new GUIStyle();
-        }
-
-        fillTexture.SetPixel(0, 0, color);
-        fillTexture.Apply();
-        fillStyle.normal.background = fillTexture;
-        return fillStyle;
     }
 
     public static void Div(Color color, float indent = 0, float height = 0, float width = 0)

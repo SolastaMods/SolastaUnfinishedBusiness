@@ -3,25 +3,18 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using ModKit;
 
-namespace ModKit.Utility;
+namespace SolastaCommunityExpansion.Utils;
 
 [XmlRoot("SerializableDictionary")]
-public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable, IUpdatableSettings
+public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable
 {
     public SerializableDictionary()
     {
     }
 
     public SerializableDictionary(IDictionary<TKey, TValue> dictionary) : base(dictionary) { }
-
-    public void AddMissingKeys(IUpdatableSettings from)
-    {
-        if (from is SerializableDictionary<TKey, TValue> fromDict)
-        {
-            this.Union(fromDict.Where(k => !ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
-        }
-    }
 
     public XmlSchema GetSchema()
     {

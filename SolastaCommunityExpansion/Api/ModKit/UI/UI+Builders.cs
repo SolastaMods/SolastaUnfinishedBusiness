@@ -126,7 +126,7 @@ public static partial class UI
 
         var sel = selected;
         var titles = actions.Select((a, i) => i == sel ? a.name.orange().bold() : a.name);
-        SelectionGrid(ref selected, titles.ToArray(), titles.Count(), ExpandWidth(true));
+        SelectionGrid(ref selected, titles.ToArray(), titles.Count(), 6, ExpandWidth(true));
         GL.BeginVertical("box");
         header?.Invoke();
         actions[selected].action();

@@ -14,22 +14,6 @@ public static class GuidHelper
     /// </summary>
     /// <param name="namespaceId">The ID of the namespace.</param>
     /// <param name="name">The name (within that namespace).</param>
-    /// <returns>A UUID derived from the namespace and name.</returns>
-    /// <remarks>
-    ///     See
-    ///     <a href="http://code.logos.com/blog/2011/04/generating_a_deterministic_guid.html">Generating a deterministic GUID</a>
-    ///     .
-    /// </remarks>
-    public static Guid Create(Guid namespaceId, string name)
-    {
-        return Create(namespaceId, name, 5);
-    }
-
-    /// <summary>
-    ///     Creates a name-based UUID using the algorithm from RFC 4122 §4.3.
-    /// </summary>
-    /// <param name="namespaceId">The ID of the namespace.</param>
-    /// <param name="name">The name (within that namespace).</param>
     /// <param name="version">
     ///     The version number of the UUID to create; this value must be either
     ///     3 (for MD5 hashing) or 5 (for SHA-1 hashing).
@@ -40,7 +24,7 @@ public static class GuidHelper
     ///     <a href="http://code.logos.com/blog/2011/04/generating_a_deterministic_guid.html">Generating a deterministic GUID</a>
     ///     .
     /// </remarks>
-    public static Guid Create(Guid namespaceId, string name, int version)
+    internal static Guid Create(Guid namespaceId, string name, int version = 5)
     {
         if (name == null)
         {
@@ -85,7 +69,7 @@ public static class GuidHelper
     }
 
     // Converts a GUID (expressed as a byte array) to/from network order (MSB-first).
-    internal static void SwapByteOrder(byte[] guid)
+    private static void SwapByteOrder(byte[] guid)
     {
         SwapBytes(guid, 0, 3);
         SwapBytes(guid, 1, 2);

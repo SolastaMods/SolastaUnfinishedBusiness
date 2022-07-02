@@ -9,7 +9,7 @@ using System.Collections;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace ModKit.Utility;
+namespace SolastaCommunityExpansion.DataViewer;
 
 public static partial class ReflectionCache
 {

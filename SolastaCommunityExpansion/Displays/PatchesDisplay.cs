@@ -4,7 +4,7 @@ using System.Reflection;
 using HarmonyLib;
 using ModKit;
 using UnityEngine;
-using static ModKit.Utility.RichTextExtensions;
+using static ModKit.RichTextExtensions;
 
 namespace SolastaCommunityExpansion.Displays;
 
