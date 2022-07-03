@@ -74,17 +74,11 @@ internal sealed class DivineHeart : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var divineHeartClericSpellsList = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListCleric, "DivineHeartClericSpellsList", SubclassNamespace)
-            .SetGuiPresentationNoContent()
-            .ClearSpellsAtLevel(0)
-            .AddToDB();
-
         var magicAffinityDivineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
             .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
                 "MagicAffinityDivineHeartClericSpellsList", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
-            .SetExtendedSpellList(divineHeartClericSpellsList)
+            .SetExtendedSpellList(SpellListDefinitions.SpellListCleric)
             .AddToDB();
 
         var divineHeartEmpoweredHealingModifier = FeatureDefinitionDieRollModifierBuilder
