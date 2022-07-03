@@ -1,3 +1,4 @@
 ﻿CHANGES:
 
 - Improve Half-Elf variants and Flexible Races integration
+- Improve batch translations
