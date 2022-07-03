@@ -178,8 +178,8 @@ ModUi/&Translate=Tradurre
 ModUi/&TranslateCancel=Annulla {0} alle {1}
 ModUi/&TranslationEngine=Motore di traduzione
 ModUi/&Translations=Traduzioni
-ModUi/&UnleashEnemyAsNpc=Consenti ai mostri di essere selezionati sui gadget NPC <i><color=yellow>[premi <color=#1E81B0>CTRL</color> mentre fai clic su Seleziona sul pannello del gadget]</color></i>
-ModUi/&UnleashNpcAsEnemy=Consenti agli NPC di essere selezionati sui gadget dei mostri <i><color=yellow>[premi <color=#1E81B0>CTRL</color> mentre fai clic su Seleziona sul pannello dei gadget]</color></i>
+ModUi/&UnleashEnemyAsNpc=Consenti ai mostri di essere selezionati sui gadget NPC
+ModUi/&UnleashNpcAsEnemy=Consenti agli NPC di essere selezionati sui gadget dei mostri
 ModUi/&UnlockAllNpcFaces=Sblocca tutte le facce degli NPC
 ModUi/&UnlockEyeStyles=Sblocca gli stili degli occhi
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Sblocca colori luminosi per tutti i segni e i tatuaggi

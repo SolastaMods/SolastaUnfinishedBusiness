@@ -178,8 +178,8 @@ ModUi/&Translate=翻译
 ModUi/&TranslateCancel=从{1}取消{0}
 ModUi/&TranslationEngine=翻译引擎
 ModUi/&Translations=翻译
-ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物<i><color=yellow>[在互动物件面板上点击时按<color=#1E81B0>CTRL</color>选择]</color></i>
-ModUi/&UnleashNpcAsEnemy=允许在怪物互动物件上选择NPC<i><color=yellow>[在互动物件面板上点击时按<color=#1E81B0>CTRL</color>选择]</color></i>
+ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物
+ModUi/&UnleashNpcAsEnemy=允许在怪物互动物件上选择NPC
 ModUi/&UnlockAllNpcFaces=解锁全部NPC脸型
 ModUi/&UnlockEyeStyles=解锁眼部样式
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=解锁所有标记和纹身的发光颜色
