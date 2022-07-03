@@ -4,7 +4,7 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor;
 
-[HarmonyPatch(typeof(DatabaseSelectionModal), "SelectMonsterDefinition")]
+[HarmonyPatch(typeof(DatabaseSelectionModal), "BuildMonsters")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class DatabaseSelectionModal_BuildMonsters
 {
@@ -34,7 +34,7 @@ internal static class DatabaseSelectionModal_BuildMonsters
 }
 
 // this patch unleashes all monster definitions to be used as NPCs
-[HarmonyPatch(typeof(DatabaseSelectionModal), "SelectNpcDefinition")]
+[HarmonyPatch(typeof(DatabaseSelectionModal), "BuildNpcs")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class DatabaseSelectionModal_BuildNpcs
 {
