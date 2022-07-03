@@ -120,6 +120,7 @@ internal static class GameLocationCharacter_FindActionAttackMode
         ActionDefinitions.Id actionId)
     {
         var skip = __instance.GetSkipAttackModes();
+
         if (skip == 0)
         {
             return;

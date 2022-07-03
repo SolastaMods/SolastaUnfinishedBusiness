@@ -104,25 +104,28 @@ internal static class RulesetCharacter_ResolveContestCheck
             {
                 ++found;
 
-                // first call to roll die checks the initiator
-                if (found == 1)
+                switch (found)
                 {
-                    yield return new CodeInstruction(OpCodes.Ldarg, 1); // baseBonus
-                    yield return new CodeInstruction(OpCodes.Ldarg, 2); // rollModifier
-                    yield return new CodeInstruction(OpCodes.Ldarg, 3); // abilityScoreName
-                    yield return new CodeInstruction(OpCodes.Ldarg, 4); // proficiencyName
-                    yield return new CodeInstruction(OpCodes.Ldarg, 5); // advantageTrends
-                    yield return new CodeInstruction(OpCodes.Ldarg, 6); // modifierTrends
-                }
-                // second call to roll die checks the opponent
-                else if (found == 2)
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg, 7); // opponentBaseBonus
-                    yield return new CodeInstruction(OpCodes.Ldarg, 8); // opponentRollModifier
-                    yield return new CodeInstruction(OpCodes.Ldarg, 9); // opponentAbilityScoreName
-                    yield return new CodeInstruction(OpCodes.Ldarg, 10); // opponentProficiencyName
-                    yield return new CodeInstruction(OpCodes.Ldarg, 11); // opponentAdvantageTrends
-                    yield return new CodeInstruction(OpCodes.Ldarg, 12); // opponentModifierTrends
+                    // first call to roll die checks the initiator
+                    case 1:
+                        yield return new CodeInstruction(OpCodes.Ldarg, 1); // baseBonus
+                        yield return new CodeInstruction(OpCodes.Ldarg, 2); // rollModifier
+                        yield return new CodeInstruction(OpCodes.Ldarg, 3); // abilityScoreName
+                        yield return new CodeInstruction(OpCodes.Ldarg, 4); // proficiencyName
+                        yield return new CodeInstruction(OpCodes.Ldarg, 5); // advantageTrends
+                        yield return new CodeInstruction(OpCodes.Ldarg, 6); // modifierTrends
+
+                        break;
+                    // second call to roll die checks the opponent
+                    case 2:
+                        yield return new CodeInstruction(OpCodes.Ldarg, 7); // opponentBaseBonus
+                        yield return new CodeInstruction(OpCodes.Ldarg, 8); // opponentRollModifier
+                        yield return new CodeInstruction(OpCodes.Ldarg, 9); // opponentAbilityScoreName
+                        yield return new CodeInstruction(OpCodes.Ldarg, 10); // opponentProficiencyName
+                        yield return new CodeInstruction(OpCodes.Ldarg, 11); // opponentAdvantageTrends
+                        yield return new CodeInstruction(OpCodes.Ldarg, 12); // opponentModifierTrends
+
+                        break;
                 }
 
                 yield return new CodeInstruction(OpCodes.Call, extendedRollDieMethod);

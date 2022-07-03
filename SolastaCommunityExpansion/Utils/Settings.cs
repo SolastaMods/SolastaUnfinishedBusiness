@@ -20,6 +20,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool DisplayWelcomeMessage { get; set; } = true;
     public bool EnableBetaContent { get; set; }
+    public int EnableDiagsDump { get; set; }
 
     //
     // Blueprints Viewer UI
