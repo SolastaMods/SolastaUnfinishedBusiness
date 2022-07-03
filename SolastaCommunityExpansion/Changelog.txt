@@ -1,3 +1,3 @@
 ﻿CHANGES:
 
-- minor fixes
+- Improve Half-Elf variants and Flexible Races integration
