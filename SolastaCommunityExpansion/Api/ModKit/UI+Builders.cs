@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Api.ModKit;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
@@ -58,14 +59,6 @@ public static partial class UI
         }
     }
 
-    public static void Group(params Action[] actions)
-    {
-        foreach (var action in actions)
-        {
-            action();
-        }
-    }
-
     public static void HStack(string title = null, int stride = 0, params Action[] actions)
     {
         var length = actions.Length;
@@ -94,15 +87,6 @@ public static partial class UI
 
             EndHorizontal();
         }
-    }
-
-    public static void VStack(string title = null, params Action[] actions)
-    {
-        BeginVertical();
-        if (title != null) { Label(title); }
-
-        Group(actions);
-        EndVertical();
     }
 
     public static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)

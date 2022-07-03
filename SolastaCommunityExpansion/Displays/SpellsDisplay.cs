@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using ModKit;
-using SolastaCommunityExpansion.Api.ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Displays.Shared;
 

@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Api.ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 

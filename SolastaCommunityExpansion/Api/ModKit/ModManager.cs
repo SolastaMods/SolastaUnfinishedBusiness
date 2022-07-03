@@ -14,8 +14,6 @@ public interface IModEventHandler
     int Priority { get; }
 
     void HandleModEnable();
-
-    //void HandleModDisable();
 }
 
 public sealed class ModManager<TCore, TSettings>

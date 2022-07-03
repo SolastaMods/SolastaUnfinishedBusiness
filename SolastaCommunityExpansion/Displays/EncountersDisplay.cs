@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using ModKit;
-using SolastaCommunityExpansion.Api.ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Displays;
@@ -285,7 +285,7 @@ public static class EncountersDisplay
 
                 for (var i = 0; i < playerCharacters.Count; i++)
                 {
-                    // Prevent captured closure 
+                    // Prevent captured closure
                     var index = i;
 
                     UI.HStack(playerCharacters[index].Name, 1, () =>

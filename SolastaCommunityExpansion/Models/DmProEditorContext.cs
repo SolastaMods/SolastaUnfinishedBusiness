@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModKit;
 using SolastaCommunityExpansion.Api;
-using SolastaCommunityExpansion.Api.ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Object = UnityEngine.Object;

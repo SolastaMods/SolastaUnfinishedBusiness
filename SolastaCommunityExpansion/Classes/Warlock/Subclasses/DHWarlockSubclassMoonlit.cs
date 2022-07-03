@@ -17,7 +17,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 
-public static class DHWarlockSubclassMoonLitPatron
+public static class WarlockSubclassMoonLitPatron
 {
     private static FeatureDefinition _invisFeature;
 
@@ -69,13 +69,13 @@ public static class DHWarlockSubclassMoonLitPatron
             lightingState = LocationDefinitions.LightingState.Darkness, condition = moonlitInvisibleCondition
         };
 
-        var MoonLitLightAffinityWeak = FeatureDefinitionLightAffinityBuilder
+        var moonLitLightAffinityWeak = FeatureDefinitionLightAffinityBuilder
             .Create("MoonLitLightAffinity", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("MoonLitLightAffinity", Category.Feature)
             .AddLightingEffectAndCondition(unlit)
             .AddToDB();
 
-        var MoonLitLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
+        var moonLitLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
             .Create("MoonLitLightAffinityStrong", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("MoonLitLightAffinityStrong", Category.Feature)
             .AddLightingEffectAndCondition(dim)
@@ -83,14 +83,14 @@ public static class DHWarlockSubclassMoonLitPatron
             .AddToDB();
 
         // should probably be expanded to include a magicaffinty that has immunity to darkness spells as well
-        var MoonLitDarknessImmunity = FeatureDefinitionConditionAffinityBuilder
+        var moonLitDarknessImmunity = FeatureDefinitionConditionAffinityBuilder
             .Create("MoonLitDarknessImmunity", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("MoonLitDarknessImmunity", Category.Feature)
             .SetConditionAffinityType(ConditionAffinityType.Immunity)
             .SetConditionType(DatabaseHelper.ConditionDefinitions.ConditionDarkness)
             .AddToDB();
 
-        var DarkMoon = FeatureDefinitionPowerBuilder
+        var darkMoon = FeatureDefinitionPowerBuilder
             .Create("MoonlitDarkMoon", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power, Darkness.GuiPresentation.SpriteReference)
             .Configure(
@@ -107,7 +107,7 @@ public static class DHWarlockSubclassMoonLitPatron
                 true)
             .AddToDB();
 
-        var FullMoon = FeatureDefinitionPowerBuilder
+        var fullMoon = FeatureDefinitionPowerBuilder
             .Create("MoonlitFullMoon", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power, Daylight.GuiPresentation.SpriteReference)
             .Configure(
@@ -143,7 +143,7 @@ public static class DHWarlockSubclassMoonLitPatron
             .AddToDB();
         DanceoftheNightSky.EffectDescription.SetTargetParameter(4);
 
-        var MoonTouchedCondition = ConditionDefinitionBuilder
+        var moonTouchedCondition = ConditionDefinitionBuilder
             .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate, "MoonTouchedCondition",
                 DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Condition)
@@ -152,7 +152,7 @@ public static class DHWarlockSubclassMoonLitPatron
             .SetFeatures(MovementAffinityConditionLevitate)
             .AddToDB();
 
-        var MoonTouched = FeatureDefinitionPowerBuilder
+        var moonTouched = FeatureDefinitionPowerBuilder
             .Create("MoonlitMoonTouched", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power)
             .Configure(
@@ -189,7 +189,7 @@ public static class DHWarlockSubclassMoonLitPatron
                         new List<SaveAffinityBySenseDescription>())
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(
-                            MoonTouchedCondition,
+                            moonTouchedCondition,
                             ConditionForm.ConditionOperation.Add,
                             false,
                             false,
@@ -209,12 +209,12 @@ public static class DHWarlockSubclassMoonLitPatron
             .AddToDB();
 
 
-        var AtWillMoonbeam = SpellDefinitionBuilder
+        var atWillMoonbeam = SpellDefinitionBuilder
             .Create(MoonBeam, "MoonlitAtWillMoonbeam", DefinitionBuilder.CENamespaceGuid)
             .SetSpellLevel(0)
             .AddToDB();
 
-        var AtWillFaerieFire = SpellDefinitionBuilder
+        var atWillFaerieFire = SpellDefinitionBuilder
             .Create(FaerieFire, "MoonlitAtWillFaerieFire", DefinitionBuilder.CENamespaceGuid)
             .SetSpellLevel(0)
             .AddToDB();
@@ -223,8 +223,8 @@ public static class DHWarlockSubclassMoonLitPatron
             .Create("MoonlitBonusCantrips", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .ClearBonusCantrips()
-            .AddBonusCantrip(AtWillMoonbeam)
-            .AddBonusCantrip(AtWillFaerieFire)
+            .AddBonusCantrip(atWillMoonbeam)
+            .AddBonusCantrip(atWillFaerieFire)
             .AddToDB();
         /*
          Moonlit
@@ -250,21 +250,21 @@ public static class DHWarlockSubclassMoonLitPatron
             .AddFeatureAtLevel(MoonLitExpandedSpelllistAfinity, 1)
             .AddFeatureAtLevel(SenseSuperiorDarkvision, 1)
             //  .AddFeatureAtLevel(ConditionAffinityBlindnessImmunity, 1)
-            .AddFeatureAtLevel(MoonLitDarknessImmunity, 1)
-            .AddFeatureAtLevel(MoonLitLightAffinityWeak, 2)
-            .AddFeatureAtLevel(MoonLitLightAffinityStrong, 6)
-            .AddFeatureAtLevel(FullMoon, 6)
-            .AddFeatureAtLevel(DarkMoon, 6)
+            .AddFeatureAtLevel(moonLitDarknessImmunity, 1)
+            .AddFeatureAtLevel(moonLitLightAffinityWeak, 2)
+            .AddFeatureAtLevel(moonLitLightAffinityStrong, 6)
+            .AddFeatureAtLevel(fullMoon, 6)
+            .AddFeatureAtLevel(darkMoon, 6)
             // .AddFeatureAtLevel(, 6)
             .AddFeatureAtLevel(DanceoftheNightSky, 10)
-            .AddFeatureAtLevel(MoonTouched, 10)
+            .AddFeatureAtLevel(moonTouched, 10)
             .AddFeatureAtLevel(MoonlitBonusCantrips, 14)
             // .AddFeatureAtLevel(, 14)
             .AddToDB();
     }
 }
 
-internal class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustomOnActionFeature,
+internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustomOnActionFeature,
     ICustomConditionFeature
 {
     private static readonly string CATEGORY_REVEALED = "MoonlitRevealed";

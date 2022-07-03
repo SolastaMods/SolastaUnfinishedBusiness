@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -31,7 +32,7 @@ public static class Warlock
 
     private static FeatureDefinitionCastSpell FeatureDefinitionClassWarlockCastSpell { get; set; }
 
-    private static void BuildEquipment(CharacterClassDefinitionBuilder classWarlockBuilder)
+    private static void BuildEquipment([NotNull] CharacterClassDefinitionBuilder classWarlockBuilder)
     {
         classWarlockBuilder
             .AddEquipmentRow(
@@ -117,10 +118,10 @@ public static class Warlock
         FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();
     }
 
-    private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
+    private static void BuildProgression([NotNull] CharacterClassDefinitionBuilder classWarlockBuilder)
     {
         // DEPRECATED
-        _ = DHWarlockSubclassRiftWalkerPatron.Build();
+        _ = WarlockSubclassRiftWalkerPatron.Build();
 
         var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
             .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)
@@ -128,10 +129,10 @@ public static class Warlock
             .SetSubclassSuffix("Patron")
             .SetFilterByDeity(false)
             .SetSubclasses(
-                AHWarlockSubclassSoulBladePact.Build(),
-                DHWarlockSubclassAncientForestPatron.Build(),
-                DHWarlockSubclassElementalPatron.Build(),
-                DHWarlockSubclassMoonLitPatron.Build()
+                WarlockSubclassSoulBladePact.Build(),
+                WarlockSubclassAncientForestPatron.Build(),
+                WarlockSubclassElementalPatron.Build(),
+                WarlockSubclassMoonLitPatron.Build()
             )
             .AddToDB();
 

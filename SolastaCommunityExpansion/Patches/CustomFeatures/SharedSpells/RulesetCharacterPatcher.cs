@@ -54,7 +54,7 @@ internal static class RulesetCharacter_ApplyRest
             var usedSpellsSlots =
                 spellRepertoire.usedSpellsSlots;
 
-            for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
+            for (var i = WarlockSpells.PactMagicSlotTabIndex; i <= warlockSpellLevel; i++)
             {
                 if (usedSpellsSlots.ContainsKey(i))
                 {

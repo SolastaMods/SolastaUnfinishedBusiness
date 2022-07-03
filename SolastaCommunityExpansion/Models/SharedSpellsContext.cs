@@ -159,7 +159,7 @@ public static class SharedSpellsContext
         }
 
         repertoire.usedSpellsSlots
-            .TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out var warlockUsedSlots);
+            .TryGetValue(PactMagicSlotTabIndex, out var warlockUsedSlots);
 
         return warlockUsedSlots;
     }

@@ -7,42 +7,42 @@ using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features;
 
-internal class WarlockClassPactBoonSetBuilder : FeatureDefinitionFeatureSetBuilder
+internal sealed class WarlockClassPactBoonSetBuilder : FeatureDefinitionFeatureSetBuilder
 {
     private const string WarlockClassPactBoonSetName = "WarlockClassPactBoonSet";
 
     internal static readonly FeatureDefinitionFeatureSet WarlockClassPactBoonSet =
         CreateAndAddToDB(WarlockClassPactBoonSetName);
 
-    protected WarlockClassPactBoonSetBuilder(string name) : base(
+    private WarlockClassPactBoonSetBuilder(string name) : base(
         DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, CENamespaceGuid)
     {
         Definition.GuiPresentation.Title = "Feature/&AHWarlockClassPactBoonSetTitle";
         Definition.GuiPresentation.Description = "Feature/&AHWarlockClassPactBoonSetDescription";
 
         Definition.FeatureSet.Clear();
-        Definition.FeatureSet.Add(AHWarlockClassPactOfTheBladeSetBuilder.AHWarlockClassPactOfTheBladeSet);
-        Definition.FeatureSet.Add(DHWarlockClassPactOfTheChainFeatureSetBuilder
-            .DHWarlockClassPactOfTheChainFeatureSet);
-        Definition.FeatureSet.Add(DHPactOfTheTomeFeatureSetBuilder.DHPactOfTheTomeFeatureSet);
+        Definition.FeatureSet.Add(WarlockClassPactOfTheBladeSetBuilder.WarlockClassPactOfTheBladeSet);
+        Definition.FeatureSet.Add(WarlockClassPactOfTheChainFeatureSetBuilder
+            .WarlockClassPactOfTheChainFeatureSet);
+        Definition.FeatureSet.Add(PactOfTheTomeFeatureSetBuilder.PactOfTheTomeFeatureSet);
         Definition.uniqueChoices = true;
         Definition.enumerateInDescription = true;
     }
 
-    internal static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
+    private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
     {
         return new WarlockClassPactBoonSetBuilder(name).AddToDB();
     }
 }
 
-internal class AHWarlockClassPactOfTheBladeSetBuilder : FeatureDefinitionFeatureSetBuilder
+internal sealed class WarlockClassPactOfTheBladeSetBuilder : FeatureDefinitionFeatureSetBuilder
 {
-    private const string AHWarlockClassPactOfTheBladeSetName = "AHWarlockClassPactOfTheBladeSet";
+    private const string AhWarlockClassPactOfTheBladeSetName = "AHWarlockClassPactOfTheBladeSet";
 
-    internal static readonly FeatureDefinitionFeatureSet AHWarlockClassPactOfTheBladeSet =
-        CreateAndAddToDB(AHWarlockClassPactOfTheBladeSetName);
+    internal static readonly FeatureDefinitionFeatureSet WarlockClassPactOfTheBladeSet =
+        CreateAndAddToDB(AhWarlockClassPactOfTheBladeSetName);
 
-    protected AHWarlockClassPactOfTheBladeSetBuilder(string name) : base(
+    private WarlockClassPactOfTheBladeSetBuilder(string name) : base(
         DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, CENamespaceGuid)
     {
         Definition.GuiPresentation.Title = "Feature/&AHWarlockClassPactOfTheBladeSetTitle";
@@ -56,20 +56,20 @@ internal class AHWarlockClassPactOfTheBladeSetBuilder : FeatureDefinitionFeature
         Definition.uniqueChoices = false;
     }
 
-    internal static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
+    private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
     {
-        return new AHWarlockClassPactOfTheBladeSetBuilder(name).AddToDB();
+        return new WarlockClassPactOfTheBladeSetBuilder(name).AddToDB();
     }
 }
 
-internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
+internal sealed class WarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
 {
-    private const string DHWarlockClassPactOfTheChainFeatureSetName = "DHWarlockClassPactOfTheChainFeatureSet";
+    private const string WarlockClassPactOfTheChainFeatureSetName = "DHWarlockClassPactOfTheChainFeatureSet";
 
-    internal static readonly FeatureDefinitionFeatureSet DHWarlockClassPactOfTheChainFeatureSet =
-        CreateAndAddToDB(DHWarlockClassPactOfTheChainFeatureSetName);
+    internal static readonly FeatureDefinitionFeatureSet WarlockClassPactOfTheChainFeatureSet =
+        CreateAndAddToDB(WarlockClassPactOfTheChainFeatureSetName);
 
-    protected DHWarlockClassPactOfTheChainFeatureSetBuilder(string name) : base(
+    private WarlockClassPactOfTheChainFeatureSetBuilder(string name) : base(
         DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, CENamespaceGuid)
     {
         Definition.GuiPresentation.Title = "Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle";
@@ -85,8 +85,8 @@ internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinition
         WarlockPactOfTheChainSummons.buildPactofChainFamiliarInvisibilityPower();
         WarlockPactOfTheChainSummons.buildPactofChainFamiliarScarePower();
         var pseudodragon = WarlockPactOfTheChainSummons.buildCustomPseudodragon();
-        var sprite = WarlockPactOfTheChainSummons.buildCustomSprite();
-        var imp = WarlockPactOfTheChainSummons.buildCustomImp();
+        var sprite = WarlockPactOfTheChainSummons.BuildCustomSprite();
+        var imp = WarlockPactOfTheChainSummons.BuildCustomImp();
         var quasit = WarlockPactOfTheChainSummons.buildCustomQuasit();
 
 
@@ -119,10 +119,10 @@ internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinition
         effectDescriptionSprite.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir
             .EffectDescription.EffectParticleParameters);
 
-        var FindFamiliarSpriteGui = new GuiPresentationBuilder(
+        var findFamiliarSpriteGui = new GuiPresentationBuilder(
             "Spell/&FindFamiliarSpriteTitle",
             "Spell/&FindFamiliarSpriteDescription");
-        FindFamiliarSpriteGui.SetSpriteReference(sprite.GuiPresentation.SpriteReference);
+        findFamiliarSpriteGui.SetSpriteReference(sprite.GuiPresentation.SpriteReference);
 
 
         var effectDescriptionImp = new EffectDescriptionBuilder()
@@ -136,10 +136,10 @@ internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinition
                 .EffectParticleParameters);
 
 
-        var FindFamiliarImpGui = new GuiPresentationBuilder(
+        var findFamiliarImpGui = new GuiPresentationBuilder(
             "Spell/&FindFamiliarImpTitle",
             "Spell/&FindFamiliarImpDescription");
-        FindFamiliarImpGui.SetSpriteReference(imp.GuiPresentation.SpriteReference);
+        findFamiliarImpGui.SetSpriteReference(imp.GuiPresentation.SpriteReference);
 
         var effectDescriptionQuasit = new EffectDescriptionBuilder();
         effectDescriptionQuasit.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
@@ -158,9 +158,9 @@ internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinition
         FindFamiliarQuasitGui.SetSpriteReference(quasit.GuiPresentation.SpriteReference);
 
 
-        var FindFamiliarImpPowerBuilder = FeatureDefinitionPowerBuilder
+        var findFamiliarImpPowerBuilder = FeatureDefinitionPowerBuilder
             .Create("FindFamiliarImpPower", CENamespaceGuid)
-            .SetGuiPresentation(FindFamiliarImpGui.Build())
+            .SetGuiPresentation(findFamiliarImpGui.Build())
             .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
@@ -173,7 +173,7 @@ internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinition
                 AttributeDefinitions.Charisma,
                 effectDescriptionImp.Build(),
                 true);
-        var FindFamiliarImpPower = FindFamiliarImpPowerBuilder.AddToDB();
+        var findFamiliarImpPower = findFamiliarImpPowerBuilder.AddToDB();
 
         var FindFamiliarPseudodragonPowerBuilder = FeatureDefinitionPowerBuilder
             .Create("FindFamiliarPseudodragonPower", CENamespaceGuid)
@@ -192,9 +192,9 @@ internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinition
                 true);
         var FindFamiliarPseudodragonPower = FindFamiliarPseudodragonPowerBuilder.AddToDB();
 
-        var FindFamiliarSpritePowerBuilder = FeatureDefinitionPowerBuilder
+        var findFamiliarSpritePowerBuilder = FeatureDefinitionPowerBuilder
             .Create("FindFamiliarSpritePower", CENamespaceGuid)
-            .SetGuiPresentation(FindFamiliarSpriteGui.Build())
+            .SetGuiPresentation(findFamiliarSpriteGui.Build())
             .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
@@ -207,7 +207,7 @@ internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinition
                 AttributeDefinitions.Charisma,
                 effectDescriptionSprite.Build(),
                 true);
-        var FindFamiliarSpritePower = FindFamiliarSpritePowerBuilder.AddToDB();
+        var findFamiliarSpritePower = findFamiliarSpritePowerBuilder.AddToDB();
 
         var FindFamiliarQuasitPowerBuilder = FeatureDefinitionPowerBuilder
             .Create("FindFamiliarQuasitPower", CENamespaceGuid)
@@ -237,31 +237,31 @@ internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinition
 
         PowerBundleContext.RegisterPowerBundle(findFamiliarPowerBundle, false,
             FindFamiliarPseudodragonPower,
-            FindFamiliarSpritePower,
-            FindFamiliarImpPower,
+            findFamiliarSpritePower,
+            findFamiliarImpPower,
             FindFamiliarQuasitPower
         );
         Definition.FeatureSet.Add(findFamiliarPowerBundle);
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar,
             FindFamiliarPseudodragonPower,
-            FindFamiliarSpritePower,
-            FindFamiliarImpPower,
+            findFamiliarSpritePower,
+            findFamiliarImpPower,
             FindFamiliarQuasitPower
         );
 
         Definition.mode = FeatureDefinitionFeatureSet.FeatureSetMode.Union;
     }
 
-    internal static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
+    private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
     {
-        return new DHWarlockClassPactOfTheChainFeatureSetBuilder(name).AddToDB();
+        return new WarlockClassPactOfTheChainFeatureSetBuilder(name).AddToDB();
     }
 }
 
-internal class DHPactOfTheTomeFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
+internal sealed class PactOfTheTomeFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
 {
-    private const string DHPactOfTheTomeFeatureSetName = "DHPactOfTheTomeFeatureSet";
+    private const string PactOfTheTomeFeatureSetName = "DHPactOfTheTomeFeatureSet";
 
     private static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips =
         FeatureDefinitionPointPoolBuilder
@@ -271,10 +271,10 @@ internal class DHPactOfTheTomeFeatureSetBuilder : FeatureDefinitionFeatureSetBui
             .OnlyUniqueChoices()
             .AddToDB();
 
-    internal static readonly FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet =
-        CreateAndAddToDB(DHPactOfTheTomeFeatureSetName);
+    internal static readonly FeatureDefinitionFeatureSet PactOfTheTomeFeatureSet =
+        CreateAndAddToDB(PactOfTheTomeFeatureSetName);
 
-    protected DHPactOfTheTomeFeatureSetBuilder(string name) : base(
+    private PactOfTheTomeFeatureSetBuilder(string name) : base(
         DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, CENamespaceGuid)
     {
         Definition.GuiPresentation.Title = "Feature/&DHPactOfTheTomeFeatureSetTitle";
@@ -282,23 +282,23 @@ internal class DHPactOfTheTomeFeatureSetBuilder : FeatureDefinitionFeatureSetBui
 
         Definition.FeatureSet.Clear();
         Definition.FeatureSet.Add(DHPactOfTheTomeBonusCantrips);
-        Definition.FeatureSet.Add(DHPactOfTheTomeMagicAffinityBuilder.DHPactOfTheTomeMagicAffinity);
+        Definition.FeatureSet.Add(DHPactOfTheTomeMagicAffinityBuilder.PactOfTheTomeMagicAffinity);
     }
 
-    internal static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
+    private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
     {
-        return new DHPactOfTheTomeFeatureSetBuilder(name).AddToDB();
+        return new PactOfTheTomeFeatureSetBuilder(name).AddToDB();
     }
 }
 
-internal class DHPactOfTheTomeSpellListBuilder : SpellListDefinitionBuilder
+internal sealed class PactOfTheTomeSpellListBuilder : SpellListDefinitionBuilder
 {
     private const string PactOfTheTomeSpellListName = "DHPactOfTheTomeSpellList";
 
-    internal static readonly SpellListDefinition DHPactOfTheTomeSpellList =
+    internal static readonly SpellListDefinition PactOfTheTomeSpellList =
         CreateAndAddToDB(PactOfTheTomeSpellListName);
 
-    protected DHPactOfTheTomeSpellListBuilder(string name) : base(
+    private PactOfTheTomeSpellListBuilder(string name) : base(
         DatabaseHelper.SpellListDefinitions.SpellListKythaela_Cantrips, name, CENamespaceGuid)
     {
         Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
@@ -316,29 +316,29 @@ internal class DHPactOfTheTomeSpellListBuilder : SpellListDefinitionBuilder
             .AddRange(DatabaseHelper.SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells);
     }
 
-    internal static SpellListDefinition CreateAndAddToDB(string name)
+    private static SpellListDefinition CreateAndAddToDB(string name)
     {
-        return new DHPactOfTheTomeSpellListBuilder(name).AddToDB();
+        return new PactOfTheTomeSpellListBuilder(name).AddToDB();
     }
 }
 
-internal class DHPactOfTheTomeMagicAffinityBuilder : FeatureDefinitionMagicAffinityBuilder
+internal sealed class DHPactOfTheTomeMagicAffinityBuilder : FeatureDefinitionMagicAffinityBuilder
 {
     private const string PactOfTheTomeMagicAffinityName = "DHPactOfTheTomeMagicAffinity";
 
-    internal static readonly FeatureDefinitionMagicAffinity DHPactOfTheTomeMagicAffinity =
+    internal static readonly FeatureDefinitionMagicAffinity PactOfTheTomeMagicAffinity =
         CreateAndAddToDB(PactOfTheTomeMagicAffinityName);
 
-    protected DHPactOfTheTomeMagicAffinityBuilder(string name) : base(
+    private DHPactOfTheTomeMagicAffinityBuilder(string name) : base(
         DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList, name, CENamespaceGuid)
     {
         Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
         Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
 
-        Definition.extendedSpellList = DHPactOfTheTomeSpellListBuilder.DHPactOfTheTomeSpellList;
+        Definition.extendedSpellList = PactOfTheTomeSpellListBuilder.PactOfTheTomeSpellList;
     }
 
-    internal static FeatureDefinitionMagicAffinity CreateAndAddToDB(string name)
+    private static FeatureDefinitionMagicAffinity CreateAndAddToDB(string name)
     {
         return new DHPactOfTheTomeMagicAffinityBuilder(name).AddToDB();
     }

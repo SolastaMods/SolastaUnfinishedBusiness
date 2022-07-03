@@ -15,8 +15,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
 
 internal static class ScoutSentinelTinkererSubclassBuilder
 {
-    public const string Name = "ScoutSentinel";
-    public const string Guid = "fb2e5f73-d552-430f-b329-1f0a2ecdf6bd";
+    private const string Name = "ScoutSentinel";
+    private const string Guid = "fb2e5f73-d552-430f-b329-1f0a2ecdf6bd";
 
     // ArmorModePool needs to be instantiated before the two modes.
     private static FeatureDefinitionPower armorModePool;
@@ -35,18 +35,22 @@ internal static class ScoutSentinelTinkererSubclassBuilder
         var itemPropertyForm = new ItemPropertyForm();
         itemPropertyForm.FeatureBySlotLevel.Add(
             new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
-        var effectItem = new EffectForm {FormType = EffectForm.EffectFormType.ItemProperty};
-        effectItem.itemPropertyForm = itemPropertyForm;
+        var effectItem = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.ItemProperty, itemPropertyForm = itemPropertyForm
+        };
         return effectItem;
     }
 
     private static FeatureDefinitionPowerSharedPool CreateScoutModePower()
     {
-        var guiPresentationScout = new GuiPresentation();
-        guiPresentationScout.description = "Feature/&ScoutModePowerDescription";
-        guiPresentationScout.title = "Feature/&ScoutModePowerTitle";
-        guiPresentationScout.spriteReference = ShadowArmor.GuiPresentation.SpriteReference;
-        guiPresentationScout.sortOrder = 1;
+        var guiPresentationScout = new GuiPresentation
+        {
+            description = "Feature/&ScoutModePowerDescription",
+            title = "Feature/&ScoutModePowerTitle",
+            spriteReference = ShadowArmor.GuiPresentation.SpriteReference,
+            sortOrder = 1
+        };
 
         var effectScoutMode = new EffectDescription();
         effectScoutMode.Copy(ProduceFlameHold.EffectDescription);
@@ -92,10 +96,12 @@ internal static class ScoutSentinelTinkererSubclassBuilder
         effectsentinelmode.EffectForms[0].SummonForm.number = 1;
         effectsentinelmode.EffectForms.Add(CreateEffectItem());
 
-        var guiPresentationSentinel = new GuiPresentation();
-        guiPresentationSentinel.description = "Feature/&SentinelModePowerDescription";
-        guiPresentationSentinel.title = "Feature/&SentinelModePowerTitle";
-        guiPresentationSentinel.spriteReference = MageArmor.GuiPresentation.SpriteReference;
+        var guiPresentationSentinel = new GuiPresentation
+        {
+            description = "Feature/&SentinelModePowerDescription",
+            title = "Feature/&SentinelModePowerTitle",
+            spriteReference = MageArmor.GuiPresentation.SpriteReference
+        };
 
         return new FeatureDefinitionPowerSharedPoolBuilder
         (
@@ -241,16 +247,20 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
 
         Definition.FeatureSet.Clear();
 
-        var guiPresentationImprovedSentinel = new GuiPresentation();
-        guiPresentationImprovedSentinel.description = "Feature/&ImprovedSentinelModePowerDescription";
-        guiPresentationImprovedSentinel.title = "Feature/&ImprovedSentinelModePowerTitle";
-        guiPresentationImprovedSentinel.spriteReference = MageArmor.GuiPresentation.SpriteReference;
+        var guiPresentationImprovedSentinel = new GuiPresentation
+        {
+            description = "Feature/&ImprovedSentinelModePowerDescription",
+            title = "Feature/&ImprovedSentinelModePowerTitle",
+            spriteReference = MageArmor.GuiPresentation.SpriteReference
+        };
 
         var itemPropertyForm = new ItemPropertyForm();
         itemPropertyForm.FeatureBySlotLevel.Add(
             new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
-        var effectItem = new EffectForm {FormType = EffectForm.EffectFormType.ItemProperty};
-        effectItem.itemPropertyForm = itemPropertyForm;
+        var effectItem = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.ItemProperty, itemPropertyForm = itemPropertyForm
+        };
 
         var effectImprovedSentinelmode = new EffectDescription();
         effectImprovedSentinelmode.Copy(ProduceFlameHold.EffectDescription);
@@ -284,11 +294,13 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
 
         Improvedsentinelmodepower.overriddenPower = ScoutSentinelTinkererSubclassBuilder.SentinelModePower;
 
-        var guiPresentationImprovedScout = new GuiPresentation();
-        guiPresentationImprovedScout.description = "Feature/&ImprovedScoutModePowerDescription";
-        guiPresentationImprovedScout.title = "Feature/&ImprovedScoutModePowerTitle";
-        guiPresentationImprovedScout.spriteReference = ShadowArmor.GuiPresentation.SpriteReference;
-        guiPresentationImprovedScout.sortOrder = 1;
+        var guiPresentationImprovedScout = new GuiPresentation
+        {
+            description = "Feature/&ImprovedScoutModePowerDescription",
+            title = "Feature/&ImprovedScoutModePowerTitle",
+            spriteReference = ShadowArmor.GuiPresentation.SpriteReference,
+            sortOrder = 1
+        };
 
         var effectImprovedScoutMode = new EffectDescription();
         effectImprovedScoutMode.Copy(ProduceFlameHold.EffectDescription);
@@ -554,13 +566,15 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
 
         newEffectDescription.SetEffectParticleParameters(Shatter.EffectDescription.EffectParticleParameters);
 
-        var ThunderPunch = new WeaponDescription();
-        ThunderPunch.weaponType = "UnarmedStrikeType";
-        ThunderPunch.reachRange = 1;
-        ThunderPunch.maxRange = 1;
-        ThunderPunch.closeRange = 1;
-        ThunderPunch.ammunitionType = "";
-        ThunderPunch.effectDescription = newEffectDescription;
+        var ThunderPunch = new WeaponDescription
+        {
+            weaponType = "UnarmedStrikeType",
+            reachRange = 1,
+            maxRange = 1,
+            closeRange = 1,
+            ammunitionType = "",
+            effectDescription = newEffectDescription
+        };
         ThunderPunch.WeaponTags.Add("ScoutSentinelWeapon");
 
         var usingBonusActionItemPower =
@@ -570,27 +584,31 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         usingBonusActionItemPower.knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden;
 
         var deviceFunctionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions
-            .PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
-        deviceFunctionDescription.canOverchargeSpell = false;
-        deviceFunctionDescription.durationType = RuleDefinitions.DurationType.UntilLongRest;
-        deviceFunctionDescription.featureDefinitionPower = ThunderShieldBuilder.ThunderShield;
-        deviceFunctionDescription.parentUsage = EquipmentDefinitions.ItemUsage.ByFunction;
-        deviceFunctionDescription.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
-        deviceFunctionDescription.type = DeviceFunctionDescription.FunctionType.Power;
-        deviceFunctionDescription.useAffinity = DeviceFunctionDescription.FunctionUseAffinity
-            .IterationPerRecharge;
-        deviceFunctionDescription.useAmount = 6;
+            .PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0])
+        {
+            canOverchargeSpell = false,
+            durationType = RuleDefinitions.DurationType.UntilLongRest,
+            featureDefinitionPower = ThunderShieldBuilder.ThunderShield,
+            parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
+            rechargeRate = RuleDefinitions.RechargeRate.LongRest,
+            type = DeviceFunctionDescription.FunctionType.Power,
+            useAffinity = DeviceFunctionDescription.FunctionUseAffinity
+                .IterationPerRecharge,
+            useAmount = 6
+        };
 
-        var usableDeviceDescription = new UsableDeviceDescription();
-        usableDeviceDescription.usage = EquipmentDefinitions.ItemUsage.ByFunction;
-        usableDeviceDescription.chargesCapitalNumber = 5;
-        usableDeviceDescription.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
-        usableDeviceDescription.rechargeNumber = 0;
-        usableDeviceDescription.rechargeDie = RuleDefinitions.DieType.D1;
-        usableDeviceDescription.rechargeBonus = 5;
-        usableDeviceDescription.outOfChargesConsequence = EquipmentDefinitions.ItemOutOfCharges.Persist;
-        usableDeviceDescription.magicAttackBonus = 11;
-        usableDeviceDescription.saveDC = 19;
+        var usableDeviceDescription = new UsableDeviceDescription
+        {
+            usage = EquipmentDefinitions.ItemUsage.ByFunction,
+            chargesCapitalNumber = 5,
+            rechargeRate = RuleDefinitions.RechargeRate.LongRest,
+            rechargeNumber = 0,
+            rechargeDie = RuleDefinitions.DieType.D1,
+            rechargeBonus = 5,
+            outOfChargesConsequence = EquipmentDefinitions.ItemOutOfCharges.Persist,
+            magicAttackBonus = 11,
+            saveDC = 19
+        };
         usableDeviceDescription.DeviceFunctions.Add(deviceFunctionDescription);
 
         Definition.SlotTypes.AddRange(new List<string> {"MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"});
@@ -599,9 +617,8 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
             "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"
         });
 
-        var focusItemDescription = new FocusItemDescription();
-        focusItemDescription.shownAsFocus = true;
-        focusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
+        var focusItemDescription =
+            new FocusItemDescription {shownAsFocus = true, focusType = EquipmentDefinitions.FocusType.Arcane};
 
         Definition.activeOnGround = false;
         Definition.canBeStacked = true;
@@ -876,13 +893,15 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
 
         newEffectDescription.SetEffectParticleParameters(LightningBolt.EffectDescription.EffectParticleParameters);
 
-        var LightningSpear = new WeaponDescription();
-        LightningSpear.weaponType = "DartType";
-        LightningSpear.reachRange = 1;
-        LightningSpear.maxRange = 60;
-        LightningSpear.closeRange = 18;
-        LightningSpear.ammunitionType = "";
-        LightningSpear.effectDescription = newEffectDescription;
+        var LightningSpear = new WeaponDescription
+        {
+            weaponType = "DartType",
+            reachRange = 1,
+            maxRange = 60,
+            closeRange = 18,
+            ammunitionType = "",
+            effectDescription = newEffectDescription
+        };
         LightningSpear.WeaponTags.Add("ScoutSentinelWeapon");
 
         var LightningSpearAdditionalDamage =
@@ -912,9 +931,8 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
             "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"
         });
 
-        var focusItemDescription = new FocusItemDescription();
-        focusItemDescription.shownAsFocus = true;
-        focusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
+        var focusItemDescription =
+            new FocusItemDescription {shownAsFocus = true, focusType = EquipmentDefinitions.FocusType.Arcane};
 
         Definition.activeOnGround = false;
         Definition.canBeStacked = true;
@@ -1045,15 +1063,17 @@ internal sealed class ImprovedSentinelSuitWeaponBuilder : ItemDefinitionBuilder
             .GuiPresentation.SpriteReference;
 
         var grapplefunction = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions
-            .PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
-        grapplefunction.canOverchargeSpell = false;
-        grapplefunction.durationType = RuleDefinitions.DurationType.UntilLongRest;
-        grapplefunction.featureDefinitionPower = GauntletsGrappleBuilder.GauntletsGrapple;
-        grapplefunction.parentUsage = EquipmentDefinitions.ItemUsage.ByFunction;
-        grapplefunction.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
-        grapplefunction.type = DeviceFunctionDescription.FunctionType.Power;
-        grapplefunction.useAffinity = DeviceFunctionDescription.FunctionUseAffinity.IterationPerRecharge;
-        grapplefunction.useAmount = 6;
+            .PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0])
+        {
+            canOverchargeSpell = false,
+            durationType = RuleDefinitions.DurationType.UntilLongRest,
+            featureDefinitionPower = GauntletsGrappleBuilder.GauntletsGrapple,
+            parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
+            rechargeRate = RuleDefinitions.RechargeRate.LongRest,
+            type = DeviceFunctionDescription.FunctionType.Power,
+            useAffinity = DeviceFunctionDescription.FunctionUseAffinity.IterationPerRecharge,
+            useAmount = 6
+        };
 
         Definition.UsableDeviceDescription.DeviceFunctions.Add(grapplefunction);
         Definition.UsableDeviceDescription.chargesCapitalNumber = 10;
@@ -1090,9 +1110,7 @@ internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
 
         var motionEffect = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
 
-        var motion = new MotionForm();
-        motion.distance = 6;
-        motion.type = MotionForm.MotionType.DragToOrigin;
+        var motion = new MotionForm {distance = 6, type = MotionForm.MotionType.DragToOrigin};
 
         motionEffect.motionForm = motion;
         motionEffect.applyLevel = EffectForm.LevelApplianceType.MultiplyBonus;
@@ -1198,13 +1216,15 @@ internal sealed class ImprovedScoutSuitWeaponBuilder : ItemDefinitionBuilder
         var lightSourceForm = new LightSourceForm();
         lightSourceForm.Copy(Shine.EffectDescription.EffectForms[0].LightSourceForm);
 
-        var MagicalLightSourceEffect = new EffectForm();
-        MagicalLightSourceEffect.levelMultiplier = 1;
-        MagicalLightSourceEffect.levelType = RuleDefinitions.LevelSourceType.CharacterLevel;
-        MagicalLightSourceEffect.HasSavingThrow = false;
-        MagicalLightSourceEffect.createdByCharacter = true;
-        MagicalLightSourceEffect.FormType = EffectForm.EffectFormType.LightSource;
-        MagicalLightSourceEffect.lightSourceForm = lightSourceForm;
+        var MagicalLightSourceEffect = new EffectForm
+        {
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.CharacterLevel,
+            HasSavingThrow = false,
+            createdByCharacter = true,
+            FormType = EffectForm.EffectFormType.LightSource,
+            lightSourceForm = lightSourceForm
+        };
 
         Definition.WeaponDescription.EffectDescription.EffectForms.Add(EnemyAttackDisadvantageEffect);
         Definition.WeaponDescription.EffectDescription.EffectForms.Add(ExtraAttackEffect);

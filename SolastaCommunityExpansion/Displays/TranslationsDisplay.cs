@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ModKit;
-using SolastaCommunityExpansion.Api.ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 

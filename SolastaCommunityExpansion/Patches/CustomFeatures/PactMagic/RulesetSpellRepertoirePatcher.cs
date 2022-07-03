@@ -204,7 +204,7 @@ internal static class RulesetSpellRepertoirePatcher
             var usedSpellsSlots =
                 rulesetSpellRepertoire.usedSpellsSlots;
 
-            for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
+            for (var i = WarlockSpells.PactMagicSlotTabIndex; i <= warlockSpellLevel; i++)
             {
                 // don't mess with cantrips
                 if (i == 0)

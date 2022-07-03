@@ -5,25 +5,29 @@ namespace SolastaCommunityExpansion.Api.ModKit;
 
 public static class GUIHelper
 {
-    private static Texture2D fillTexture;
-    private static readonly Color fillColor = new(1f, 1f, 1f, 0.65f);
+    private static Texture2D _fillTexture;
+    private static readonly Color FillColor = new(1f, 1f, 1f, 0.65f);
 
     public static int AdjusterButton(int value, string text, int min = int.MinValue, int max = int.MaxValue)
     {
         AdjusterButton(ref value, text, min, max);
+
         return value;
     }
 
     public static bool AdjusterButton(ref int value, string text, int min = int.MinValue, int max = int.MaxValue)
     {
         var oldValue = value;
+
         GUILayout.Label(text, GUILayout.ExpandWidth(false));
+
         if (GUILayout.Button("-", GUILayout.ExpandWidth(false)) && value > min)
         {
             value--;
         }
 
         GUILayout.Label(value.ToString(), GUILayout.ExpandWidth(false));
+
         if (GUILayout.Button("+", GUILayout.ExpandWidth(false)) && value < max)
         {
             value++;
@@ -80,15 +84,15 @@ public static class GUIHelper
 
     private static void Div(Color color, float indent = 0, float height = 0, float width = 0)
     {
-        if (fillTexture == null)
+        if (_fillTexture == null)
         {
-            fillTexture = new Texture2D(1, 1);
+            _fillTexture = new Texture2D(1, 1);
         }
 
         var divStyle = new GUIStyle {fixedHeight = 1};
-        fillTexture.SetPixel(0, 0, color);
-        fillTexture.Apply();
-        divStyle.normal.background = fillTexture;
+        _fillTexture.SetPixel(0, 0, color);
+        _fillTexture.Apply();
+        divStyle.normal.background = _fillTexture;
         divStyle.margin = new RectOffset((int)indent, 0, 4, 4);
         if (width > 0)
         {
@@ -106,6 +110,6 @@ public static class GUIHelper
 
     public static void Div(float indent = 0, float height = 25, float width = 0)
     {
-        Div(fillColor, indent, height, width);
+        Div(FillColor, indent, height, width);
     }
 }

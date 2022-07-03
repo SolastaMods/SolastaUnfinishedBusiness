@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using ModKit;
-using SolastaCommunityExpansion.Api.ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Displays;

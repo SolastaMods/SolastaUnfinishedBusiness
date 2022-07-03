@@ -543,15 +543,16 @@ internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
 
         var ExplosionEffect = new EffectForm
         {
-            FormType = EffectForm.EffectFormType.Damage, DamageForm = ExplosionDamage
+            FormType = EffectForm.EffectFormType.Damage,
+            DamageForm = ExplosionDamage,
+            createdByCharacter = true,
+            HasSavingThrow = true,
+            SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage,
+            AddBonusMode = RuleDefinitions.AddBonusMode.None,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.EffectLevel,
+            applyLevel = EffectForm.LevelApplianceType.No
         };
-        ExplosionEffect.createdByCharacter = true;
-        ExplosionEffect.HasSavingThrow = true;
-        ExplosionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
-        ExplosionEffect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        ExplosionEffect.levelMultiplier = 1;
-        ExplosionEffect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
-        ExplosionEffect.applyLevel = EffectForm.LevelApplianceType.No;
 
         var newEffectDescription = new EffectDescription();
         newEffectDescription.Copy(Definition.EffectDescription);
@@ -608,18 +609,21 @@ internal sealed class SelfDestructionConditionBuilder : ConditionDefinitionBuild
 
         Definition.Features.Clear();
 
-        var SelfDestruct = new KillForm();
-        SelfDestruct.challengeRating = 10;
-        SelfDestruct.hitPoints = 200;
-        SelfDestruct.killCondition = RuleDefinitions.KillCondition.Always;
+        var SelfDestruct = new KillForm
+        {
+            challengeRating = 10, hitPoints = 200, killCondition = RuleDefinitions.KillCondition.Always
+        };
 
-        var KillEffect = new EffectForm {FormType = EffectForm.EffectFormType.Kill};
-        KillEffect.killForm = SelfDestruct;
-        KillEffect.createdByCharacter = true;
-        KillEffect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        KillEffect.levelMultiplier = 1;
-        KillEffect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
-        KillEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        var KillEffect = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.Kill,
+            killForm = SelfDestruct,
+            createdByCharacter = true,
+            AddBonusMode = RuleDefinitions.AddBonusMode.None,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.EffectLevel,
+            applyLevel = EffectForm.LevelApplianceType.No
+        };
 
         Definition.RecurrentEffectForms.Add(KillEffect);
 

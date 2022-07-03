@@ -418,11 +418,11 @@ internal static class InfusionHelpers
 
         var addBlindingCondition = new ConditionOperationDescription
         {
-            Operation = ConditionOperationDescription.ConditionOperation.Add, ConditionDefinition = ConditionBlinded
+            Operation = ConditionOperationDescription.ConditionOperation.Add,
+            ConditionDefinition = ConditionBlinded,
+            saveAffinity = RuleDefinitions.EffectSavingThrowType.Negates,
+            conditionName = ConditionBlinded.Name
         };
-
-        addBlindingCondition.saveAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
-        addBlindingCondition.conditionName = ConditionBlinded.Name;
 
         var radiantDamage = new FeatureHelpers.FeatureDefinitionAdditionalDamageBuilder(
                 "AdditionalDamageRadiantWeapon",

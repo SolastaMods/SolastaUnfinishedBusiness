@@ -2,8 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
-using ModKit;
-using SolastaCommunityExpansion.Api.ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using static SolastaCommunityExpansion.Models.DmProEditorContext;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;

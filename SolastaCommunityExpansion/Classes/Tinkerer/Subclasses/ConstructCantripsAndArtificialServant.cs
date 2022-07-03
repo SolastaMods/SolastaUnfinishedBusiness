@@ -83,9 +83,10 @@ internal sealed class MendingConstructBuilder : SpellDefinitionBuilder
         var mendingconstruct =
             new HealingForm {BonusHealing = 0, DieType = RuleDefinitions.DieType.D6, DiceNumber = 2};
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
-        effect.healingForm = mendingconstruct;
-        effect.createdByCharacter = true;
+        var effect = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.Healing, healingForm = mendingconstruct, createdByCharacter = true
+        };
 
         Definition.ritual = false;
         Definition.spellLevel = 0;
@@ -130,13 +131,15 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
         Definition.materialComponentType = RuleDefinitions.MaterialComponentType.None;
         Definition.verboseComponent = false;
 
-        var dismissConstruct = new CounterForm();
-        dismissConstruct.type = CounterForm.CounterType.DismissCreature;
+        var dismissConstruct = new CounterForm {type = CounterForm.CounterType.DismissCreature};
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Counter};
-        effect.counterForm = dismissConstruct;
-        effect.HasSavingThrow = false;
-        effect.createdByCharacter = true;
+        var effect = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.Counter,
+            counterForm = dismissConstruct,
+            HasSavingThrow = false,
+            createdByCharacter = true
+        };
 
         var effectDescription = new EffectDescription();
         effectDescription.Copy(Definition.EffectDescription);
@@ -331,21 +334,25 @@ internal sealed class CancelFlyingConditionBuilder : FeatureDefinitionPowerBuild
         Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.ExpeditiousRetreat
             .GuiPresentation.SpriteReference;
 
-        var Condition = new ConditionForm();
-        Condition.applyToSelf = false;
-        Condition.forceOnSelf = false;
-        Condition.Operation = ConditionForm.ConditionOperation.Remove;
-        Condition.conditionDefinitionName = DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged.Name;
-        Condition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged;
+        var Condition = new ConditionForm
+        {
+            applyToSelf = false,
+            forceOnSelf = false,
+            Operation = ConditionForm.ConditionOperation.Remove,
+            conditionDefinitionName = DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged.Name,
+            ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged
+        };
 
-        var effect = new EffectForm();
-        effect.applyLevel = EffectForm.LevelApplianceType.No;
-        effect.levelMultiplier = 1;
-        effect.levelType = RuleDefinitions.LevelSourceType.None;
-        effect.createdByCharacter = true;
-        effect.FormType = EffectForm.EffectFormType.Condition;
-        effect.ConditionForm = Condition;
-        effect.canSaveToCancel = false;
+        var effect = new EffectForm
+        {
+            applyLevel = EffectForm.LevelApplianceType.No,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.None,
+            createdByCharacter = true,
+            FormType = EffectForm.EffectFormType.Condition,
+            ConditionForm = Condition,
+            canSaveToCancel = false
+        };
 
         var effectDescription = new EffectDescription();
         effectDescription.Copy(Definition.EffectDescription);

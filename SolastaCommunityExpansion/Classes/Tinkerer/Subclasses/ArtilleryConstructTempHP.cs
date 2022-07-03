@@ -36,14 +36,16 @@ internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
             BonusHitPoints = 4
         };
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
-        effect.temporaryHitPointsForm = tempHPShield;
-        effect.createdByCharacter = true;
-
-        effect.AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus;
-        effect.levelMultiplier = 1;
-        effect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
-        effect.applyLevel = EffectForm.LevelApplianceType.No;
+        var effect = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.TemporaryHitPoints,
+            temporaryHitPointsForm = tempHPShield,
+            createdByCharacter = true,
+            AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.EffectLevel,
+            applyLevel = EffectForm.LevelApplianceType.No
+        };
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();

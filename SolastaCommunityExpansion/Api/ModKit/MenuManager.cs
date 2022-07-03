@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 using UnityModManagerNet;
 
