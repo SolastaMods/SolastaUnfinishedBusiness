@@ -79,8 +79,8 @@ Feature/&AutoPreparedSpellsSorcererDivineHeartArunDescription=Protection	From Ev
 Feature/&AutoPreparedSpellsSorcererDivineHeartArunTitle=Arun:	Protection From Evil and Good
 Feature/&AutoPreparedSpellsSorcererDivineHeartEinarDescription=Einar	- Inflict Wounds is always known and prepared.
 Feature/&AutoPreparedSpellsSorcererDivineHeartEinarTitle=Einar:	Inflict Wounds
-Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeDescription=Mariake	- Cure Wounds is always known and prepared.
-Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeTitle=Mariake:	Cure Wounds
+Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeDescription=Maraike	- Cure Wounds is always known and prepared.
+Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeTitle=Maraike:	Cure Wounds
 Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeDescription=Misaye	- Bane is always known and prepared.
 Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeTitle=Misaye:	Bane
 Feature/&AutoPreparedSpellsSorcererDivineHeartPakriDescription=Pakri	- Bless is always known and prepared.
@@ -976,8 +976,8 @@ ModUi/&TargetLanguage=Target	Language
 ModUi/&TotalFeatsGrantedFistLevel=<color=white>Total	feats granted at first level</color>
 ModUi/&TranslateCancel=Cancel	{0} at {1}
 ModUi/&TranslationEngine=Translation	engine
-ModUi/&UnleashEnemyAsNpc=Allow	Monsters to be selected on NPC gadgets <i><color=yellow>[press <color=#1E81B0>CTRL</color> while clicking Select on gadget panel]</color></i>
-ModUi/&UnleashNpcAsEnemy=Allow	NPCs to be selected on monster gadgets <i><color=yellow>[press <color=#1E81B0>CTRL</color> while clicking Select on gadget panel]</color></i>
+ModUi/&UnleashEnemyAsNpc=Allow	Monsters to be selected on NPC gadgets
+ModUi/&UnleashNpcAsEnemy=Allow	NPCs to be selected on monster gadgets
 ModUi/&UnlockAllNpcFaces=Unlock	all NPC faces
 ModUi/&UnlockEyeStyles=Unlock	eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Unlock	glowing colors for all markings and tattoos

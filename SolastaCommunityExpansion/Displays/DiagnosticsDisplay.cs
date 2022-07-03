@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using ModKit;
-using SolastaCommunityExpansion.Api.ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Patches.Diagnostic;
