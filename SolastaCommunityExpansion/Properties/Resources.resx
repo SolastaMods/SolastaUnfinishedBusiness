@@ -353,5 +353,7 @@
   </data>
   <data name="HalfSylvanElf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HalfSylvanElfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sorcerer_Armor_Male_Blue_BaseColor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sorcerer_Armor_Male_Blue_BaseColor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

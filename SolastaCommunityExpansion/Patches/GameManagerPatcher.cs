@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using I2.Loc;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using SolastaMonsters.Models;
@@ -138,6 +139,16 @@ internal static class GameManager_BindPostDatabase
 
             // Manages update or welcome messages
             BootContext.Load();
+            
+            var sorcererArmor = SolastaCommunityExpansion.Api.DatabaseHelper.ItemDefinitions.SorcererArmor;
+            var sorcererArmorBlueAsset =
+                CustomIcons.CreateAssetReferenceSprite("Sorcerer1Armor", Properties.Resources.Sorcerer_Armor_Male_Blue_BaseColor, 2048, 2048);
+
+            sorcererArmor.itemPresentation.armorAddressableName = "Sorcerer1";
+            sorcererArmor.itemPresentation.assetReference = sorcererArmorBlueAsset;
+
+
+
         };
     }
 }

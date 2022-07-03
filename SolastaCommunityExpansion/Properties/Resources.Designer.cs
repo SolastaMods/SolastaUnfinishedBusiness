@@ -677,6 +677,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Sorcerer_Armor_Male_Blue_BaseColor {
+            get {
+                object obj = ResourceManager.GetObject("Sorcerer_Armor_Male_Blue_BaseColor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] SunlightBlade {
             get {
                 object obj = ResourceManager.GetObject("SunlightBlade", resourceCulture);
