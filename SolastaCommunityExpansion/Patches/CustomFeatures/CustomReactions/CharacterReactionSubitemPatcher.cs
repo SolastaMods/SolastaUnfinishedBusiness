@@ -14,12 +14,15 @@ internal static class CharacterReactionSubitem_Unbind
         toggle.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 34);
 
         var background = toggle.FindChildRecursive("Background");
-        if (background != null)
+
+        if (background == null)
         {
-            if (background.TryGetComponent<GuiTooltip>(out var tooltip))
-            {
-                tooltip.Disabled = true;
-            }
+            return;
+        }
+
+        if (background.TryGetComponent<GuiTooltip>(out var tooltip))
+        {
+            tooltip.Disabled = true;
         }
     }
 }

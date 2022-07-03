@@ -12,34 +12,6 @@ namespace SolastaCommunityExpansion.Patches.Bugfix;
 [HarmonyPatch(typeof(GameLocationManager), "StopCharacterEffectsIfRelevant")]
 internal static class GameLocationManager_StopCharacterEffectsIfRelevant
 {
-#if false //Disabling force unsummon part since it looks like it is needed
-        internal static void Prefix(GameLocationManager __instance, bool willEnterChainedLocation)
-        {
-            if (willEnterChainedLocation) { return; }
-
-            //remove summoned monsters upon entering new locations, since the game somehow removes corresponding summoned (and all other conditions)
-            //from them and thus they are no longer linked to the caster
-            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
-            var gameLocationCharacters = characterService.GuestCharacters.ToArray();
-            foreach (var locationCharacter in gameLocationCharacters)
-            {
-                var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-                var isSummon = rulesetCharacter.ConditionsByCategory.Any(c => c.Value.Any(cc =>
-                    cc.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature));
-
-                var isKindredSpirit = rulesetCharacter is RulesetCharacterMonster monster
-                                       && monster.MonsterDefinition.CreatureTags.Contains("KindredSpirit");
-
-                if (isSummon && !isKindredSpirit)
-                {
-                    characterService.DestroyCharacterBody(locationCharacter);
-                }
-            }
-        }
-#endif
-
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
         //
@@ -58,7 +30,7 @@ internal static class GameLocationManager_StopCharacterEffectsIfRelevant
         return code;
     }
 
-    internal static void MaybeTerminate(RulesetEffect effect, bool self, bool willEnterChainedLocation)
+    private static void MaybeTerminate(RulesetEffect effect, bool self, bool willEnterChainedLocation)
     {
         var baseDefinition = effect.SourceDefinition;
 

@@ -1,9 +1,11 @@
-﻿using SolastaCommunityExpansion.Api.Diagnostics;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Diagnostics;
 
 namespace SolastaCommunityExpansion.Api;
 
 public static partial class DatabaseHelper
 {
+    [NotNull]
     public static T GetDefinition<T>(string key, string guid) where T : BaseDefinition
     {
         var db = DatabaseRepository.GetDatabase<T>();
@@ -24,7 +26,8 @@ public static partial class DatabaseHelper
         return definition;
     }
 
-    public static bool TryGetDefinition<T>(string key, string guid, out T definition) where T : BaseDefinition
+    public static bool TryGetDefinition<T>([CanBeNull] string key, string guid, [CanBeNull] out T definition)
+        where T : BaseDefinition
     {
         var db = DatabaseRepository.GetDatabase<T>();
 

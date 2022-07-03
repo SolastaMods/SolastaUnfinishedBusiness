@@ -23,6 +23,7 @@ internal static class Helper
             foreach (var masterPower in bundles)
             {
                 var bundle = PowerBundleContext.GetBundle(masterPower);
+
                 if (!bundle.TerminateAll)
                 {
                     continue;

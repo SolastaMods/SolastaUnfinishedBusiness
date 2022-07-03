@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
@@ -6,13 +7,14 @@ namespace SolastaCommunityExpansion.Api.Extensions;
 
 public static class UnityImageExtensions
 {
-    public static void SetupSprite(this Image imageComponent, GuiPresentation presentation,
+    public static void SetupSprite([NotNull] this Image imageComponent, [NotNull] GuiPresentation presentation,
         bool _ = false)
     {
         SetupSprite(imageComponent, presentation.SpriteReference);
     }
 
-    public static void SetupSprite(this Image imageComponent, AssetReferenceSprite spriteReference,
+    public static void SetupSprite([NotNull] this Image imageComponent,
+        [CanBeNull] AssetReferenceSprite spriteReference,
         bool changeActiveStatus = false)
     {
         if (imageComponent.sprite != null)

@@ -26,7 +26,7 @@ internal static class BootContext
 
     private static string GetInstalledVersion()
     {
-        var infoPayload = File.ReadAllText(Path.Combine(Main.MOD_FOLDER, "Info.json"));
+        var infoPayload = File.ReadAllText(Path.Combine(Main.ModFolder, "Info.json"));
         var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
         return infoJson["Version"].Value<string>();
@@ -76,8 +76,8 @@ internal static class BootContext
 
         string message;
         var zipFile = $"SolastaCommunityExpansion-{version}.zip";
-        var fullZipFile = Path.Combine(Main.MOD_FOLDER, zipFile);
-        var fullZipFolder = Path.Combine(Main.MOD_FOLDER, "SolastaCommunityExpansion");
+        var fullZipFile = Path.Combine(Main.ModFolder, zipFile);
+        var fullZipFolder = Path.Combine(Main.ModFolder, "SolastaCommunityExpansion");
         var url = $"{BASE_URL}/releases/download/{version}/{zipFile}";
 
         try
@@ -89,12 +89,12 @@ internal static class BootContext
                 Directory.Delete(fullZipFolder, true);
             }
 
-            ZipFile.ExtractToDirectory(fullZipFile, Main.MOD_FOLDER);
+            ZipFile.ExtractToDirectory(fullZipFile, Main.ModFolder);
             File.Delete(fullZipFile);
 
             foreach (var destFile in destFiles)
             {
-                var fullDestFile = Path.Combine(Main.MOD_FOLDER, destFile);
+                var fullDestFile = Path.Combine(Main.ModFolder, destFile);
 
                 File.Delete(fullDestFile);
                 File.Move(

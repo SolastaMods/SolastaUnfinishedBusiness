@@ -140,18 +140,20 @@ internal static class DmProRendererContext
 
             var name = transform.gameObject.name;
 
-            if ((name.Contains("Wall") && !name.Contains("Drain")) || name.Contains("Column") ||
-                name.Contains("DM_Dirt_Pack"))
+            if ((!name.Contains("Wall") || name.Contains("Drain")) && !name.Contains("Column") &&
+                !name.Contains("DM_Dirt_Pack"))
             {
-                // need to keep parents around otherwise pure flat locations don't render correctly
-                if (transform.childCount > 0)
-                {
-                    transform.position = new Vector3(-1f, 0f, -1f);
-                }
-                else
-                {
-                    transform.gameObject.SetActive(false);
-                }
+                return;
+            }
+
+            // need to keep parents around otherwise pure flat locations don't render correctly
+            if (transform.childCount > 0)
+            {
+                transform.position = new Vector3(-1f, 0f, -1f);
+            }
+            else
+            {
+                transform.gameObject.SetActive(false);
             }
         }
 
@@ -162,37 +164,41 @@ internal static class DmProRendererContext
 
         DisableWalls(roomTransform);
 
-        if (int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var multiplier))
+        if (!int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var multiplier))
         {
-            var rnd = new Random();
-            var position = roomTransform.position;
-            var moveBy = (multiplier - 1) * FLAT_ROOM_SIZE / 2;
-            var newPosition = new Vector3(position.x - moveBy, 0, position.z - moveBy);
-
-            roomTransform.position = newPosition;
-
-            for (var x = 0; x < multiplier; x++)
-            {
-                for (var z = 0; z < multiplier; z++)
-                {
-                    if (x > 0 || z > 0)
-                    {
-                        // placing textures using a random angle to remove the repetition feeling a bit
-                        var angle = LocationDefinitions.OrientationToAngle(
-                            (LocationDefinitions.Orientation)rnd.Next(0, 3));
-                        var newRoom = Object.Instantiate(roomTransform.gameObject,
-                            new Vector3(newPosition.x + (FLAT_ROOM_SIZE * x), 0,
-                                newPosition.z + (FLAT_ROOM_SIZE * z)), Quaternion.identity,
-                            roomTransform.parent);
-
-                        newRoom.transform.rotation = Quaternion.Euler(0, angle, 0);
-                    }
-                }
-            }
-
-            // adds a hint to fix the reflection probe later on
-            roomTransform.name = FLAT_ROOM_TAG + roomTransform.name;
+            return;
         }
+
+        var rnd = new Random();
+        var position = roomTransform.position;
+        var moveBy = (multiplier - 1) * FLAT_ROOM_SIZE / 2;
+        var newPosition = new Vector3(position.x - moveBy, 0, position.z - moveBy);
+
+        roomTransform.position = newPosition;
+
+        for (var x = 0; x < multiplier; x++)
+        {
+            for (var z = 0; z < multiplier; z++)
+            {
+                if (x <= 0 && z <= 0)
+                {
+                    continue;
+                }
+
+                // placing textures using a random angle to remove the repetition feeling a bit
+                var angle = LocationDefinitions.OrientationToAngle(
+                    (LocationDefinitions.Orientation)rnd.Next(0, 3));
+                var newRoom = Object.Instantiate(roomTransform.gameObject,
+                    new Vector3(newPosition.x + (FLAT_ROOM_SIZE * x), 0,
+                        newPosition.z + (FLAT_ROOM_SIZE * z)), Quaternion.identity,
+                    roomTransform.parent);
+
+                newRoom.transform.rotation = Quaternion.Euler(0, angle, 0);
+            }
+        }
+
+        // adds a hint to fix the reflection probe later on
+        roomTransform.name = FLAT_ROOM_TAG + roomTransform.name;
     }
 
     public static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)

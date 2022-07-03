@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Patches.Diagnostic;
@@ -182,16 +183,16 @@ All settings start disabled by default. On first start the mod will display an w
         {
             UI.Label("");
             UI.Label(". You can set the environment variable " +
-                     DiagnosticsContext.ProjectEnvironmentVariable.italic().yellow() +
+                     DiagnosticsContext.ProjectEnvironmentVariable.Italic().Yellow() +
                      " to customize the output folder");
 
             if (DiagnosticsContext.ProjectFolder == null)
             {
-                UI.Label(". The output folder is set to " + "your game folder".yellow().bold());
+                UI.Label(". The output folder is set to " + "your game folder".Yellow().Bold());
             }
             else
             {
-                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.yellow().bold());
+                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.Yellow().Bold());
             }
 
             UI.Label("");
@@ -209,7 +210,7 @@ All settings start disabled by default. On first start the mod will display an w
             }
             else
             {
-                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".bold().yellow();
+                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".Bold().Yellow();
             }
 
             if (percentageCompleteTa2 == 0)
@@ -218,7 +219,7 @@ All settings start disabled by default. On first start the mod will display an w
             }
             else
             {
-                exportTaLabel2 = "Cancel TA export at " + $"{percentageCompleteTa2:00.0%}".bold().yellow();
+                exportTaLabel2 = "Cancel TA export at " + $"{percentageCompleteTa2:00.0%}".Bold().Yellow();
             }
 
             if (percentageCompleteCe == 0)
@@ -227,7 +228,7 @@ All settings start disabled by default. On first start the mod will display an w
             }
             else
             {
-                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".bold().yellow();
+                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".Bold().Yellow();
             }
 
             using (UI.HorizontalScope())

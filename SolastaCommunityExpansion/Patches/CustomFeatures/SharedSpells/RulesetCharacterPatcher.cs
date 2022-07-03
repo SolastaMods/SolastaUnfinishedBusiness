@@ -54,7 +54,7 @@ internal static class RulesetCharacter_ApplyRest
             var usedSpellsSlots =
                 spellRepertoire.usedSpellsSlots;
 
-            for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
+            for (var i = WarlockSpells.PactMagicSlotTabIndex; i <= warlockSpellLevel; i++)
             {
                 if (usedSpellsSlots.ContainsKey(i))
                 {
@@ -173,7 +173,11 @@ internal static class RulesetCharacter_RefreshSpellRepertoires
              sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass));
 
         // combines the Shared Slot System and Warlock Pact Magic
-        if (warlockRepertoire != null && anySharedRepertoire != null)
+        if (warlockRepertoire == null || anySharedRepertoire == null)
+        {
+            return;
+        }
+
         {
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
             var warlockSlotsCapacities =

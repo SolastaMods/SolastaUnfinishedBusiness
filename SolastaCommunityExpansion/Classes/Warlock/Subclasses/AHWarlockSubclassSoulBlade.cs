@@ -9,7 +9,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 
-public static class AHWarlockSubclassSoulBladePact
+public static class WarlockSubclassSoulBladePact
 {
     internal static CharacterSubclassDefinition Build()
     {

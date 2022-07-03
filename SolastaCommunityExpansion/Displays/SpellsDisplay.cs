@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Displays.Shared;
 
@@ -83,7 +84,7 @@ internal static class SpellsDisplay
             }
 
             DisplayDefinitions(
-                kvp.Key.yellow(),
+                kvp.Key.Yellow(),
                 spellListContext.Switch,
                 allowedSpells,
                 spellEnabled,

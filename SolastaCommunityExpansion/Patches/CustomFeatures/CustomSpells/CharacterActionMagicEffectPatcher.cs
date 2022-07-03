@@ -70,9 +70,14 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
         var chainAction = definition.GetFirstSubFeatureOfType<IChainMagicEffect>()
             ?.GetNextMagicEffect(__instance, attackAction, attackOutcome);
 
-        if (chainAction != null)
+        if (chainAction == null)
+        {
+            yield break;
+        }
+
         {
             var enums = chainAction.Execute();
+
             while (enums.MoveNext())
             {
                 yield return enums.Current;

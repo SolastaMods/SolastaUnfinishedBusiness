@@ -14,15 +14,17 @@ internal static class ShapeOptionItem_Bind
         RulesetCharacter shifter,
         int requiredLevel)
     {
-        if (shifter is RulesetCharacterHero rulesetCharacterHero
-            && rulesetCharacterHero.ClassesAndLevels.TryGetValue(Druid, out var levels))
+        if (shifter is not RulesetCharacterHero rulesetCharacterHero ||
+            !rulesetCharacterHero.ClassesAndLevels.TryGetValue(Druid, out var levels))
         {
-            var isShapeOptionAvailable = requiredLevel <= levels;
-
-            __instance.levelLabel.TMP_Text.color =
-                isShapeOptionAvailable ? __instance.validLevelColor : __instance.invalidLevelColor;
-            __instance.toggle.interactable = isShapeOptionAvailable;
-            __instance.canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
+            return;
         }
+
+        var isShapeOptionAvailable = requiredLevel <= levels;
+
+        __instance.levelLabel.TMP_Text.color =
+            isShapeOptionAvailable ? __instance.validLevelColor : __instance.invalidLevelColor;
+        __instance.toggle.interactable = isShapeOptionAvailable;
+        __instance.canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
     }
 }

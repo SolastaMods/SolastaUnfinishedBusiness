@@ -2,7 +2,8 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using ModKit;
+using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
@@ -14,7 +15,7 @@ internal static class Main
 {
     internal static bool IsDebugBuild = Debug.isDebugBuild;
 
-    internal static string MOD_FOLDER { get; } =
+    internal static string ModFolder { get; } =
         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
     internal static bool Enabled { get; set; }
@@ -31,13 +32,15 @@ internal static class Main
     {
         Logger.Log(msg);
 
-        if (console)
+        if (!console)
         {
-            var game = Gui.Game;
-            if (game != null)
-            {
-                game.GameConsole?.LogSimpleLine(msg);
-            }
+            return;
+        }
+
+        var game = Gui.Game;
+        if (game != null)
+        {
+            game.GameConsole?.LogSimpleLine(msg);
         }
     }
 
@@ -53,7 +56,7 @@ internal static class Main
         Logger?.Error(msg);
     }
 
-    internal static bool Load(UnityModManager.ModEntry modEntry)
+    internal static bool Load([NotNull] UnityModManager.ModEntry modEntry)
     {
         try
         {

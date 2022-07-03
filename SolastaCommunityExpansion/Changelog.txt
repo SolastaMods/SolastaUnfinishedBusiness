@@ -1,9 +1,6 @@
-﻿PATRONS:
+﻿CHANGES:
 
-- The [donation] button is under Mod UI > Credits
-- It opens a browser page with a paypal support link
-
-CHANGES:
-
-- Fix the batch translation tool
-- Fix spells selection under certain scenarios
+- Fix Divine Heart cantrips offering
+- Fix DM Pro NPCs / Monsters unreleased content offering
+- Improve Half-Elf variants and Flexible Races integration
+- Improve batch translations

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityExplorer;
 using static SolastaCommunityExpansion.Displays.PatchesDisplay;
 
@@ -80,8 +81,8 @@ internal static class CreditsDisplay
     };
 
     private static bool IsUnityExplorerInstalled { get; } =
-        File.Exists(Path.Combine(Main.MOD_FOLDER, "UnityExplorer.STANDALONE.Mono.dll")) &&
-        File.Exists(Path.Combine(Main.MOD_FOLDER, "UniverseLib.Mono.dll"));
+        File.Exists(Path.Combine(Main.ModFolder, "UnityExplorer.STANDALONE.Mono.dll")) &&
+        File.Exists(Path.Combine(Main.ModFolder, "UniverseLib.Mono.dll"));
 
     private static bool IsUnityExplorerEnabled { get; set; }
 
@@ -120,13 +121,13 @@ internal static class CreditsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Donations".bold().yellow(), () =>
+            UI.ActionButton("Donations".Bold().Yellow(), () =>
             {
                 OpenUrl(
                     "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion");
             }, UI.Width(150));
 
-            UI.ActionButton("Wiki".bold().yellow(), () =>
+            UI.ActionButton("Wiki".Bold().Yellow(), () =>
             {
                 OpenUrl(
                     "https://github.com/SolastaMods/SolastaCommunityExpansion/wiki");
@@ -134,7 +135,7 @@ internal static class CreditsDisplay
 
             if (IsUnityExplorerInstalled)
             {
-                UI.ActionButton("Unity Explorer UI".bold().yellow(), () =>
+                UI.ActionButton("Unity Explorer UI".Bold().Yellow(), () =>
                 {
                     if (!IsUnityExplorerEnabled)
                     {
@@ -178,7 +179,7 @@ internal static class CreditsDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.Label(author.orange(), UI.Width(150));
+                UI.Label(author.Orange(), UI.Width(150));
                 UI.Label(content, UI.Width(600));
             }
         }
@@ -190,7 +191,7 @@ internal static class CreditsDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.Label(kvp.Key.orange(), UI.Width(150));
+                UI.Label(kvp.Key.Orange(), UI.Width(150));
                 UI.Label(kvp.Value, UI.Width(600));
             }
         }

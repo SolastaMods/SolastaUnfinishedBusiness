@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
@@ -13,12 +14,12 @@ internal static class GameGadgetExtensions
     /// <summary>
     ///     Returns state of Invisible parameter, or false if not present
     /// </summary>
-    public static bool IsInvisible(this GameGadget gadget)
+    public static bool IsInvisible([NotNull] this GameGadget gadget)
     {
         return gadget.CheckConditionName(Invisible, true, false);
     }
 
-    public static bool IsEnabled(this GameGadget gadget, bool valueIfParamsNotPresent = false)
+    public static bool IsEnabled([NotNull] this GameGadget gadget, bool valueIfParamsNotPresent = false)
     {
         // We need to know if both Enabled and ParamEnabled are missing
         var names = gadget.conditionNames;

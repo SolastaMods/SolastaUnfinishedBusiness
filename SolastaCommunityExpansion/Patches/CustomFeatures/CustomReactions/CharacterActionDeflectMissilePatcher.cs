@@ -55,12 +55,14 @@ internal static class CharacterActionDeflectMissile_ExecuteImpl
         {
             var definitionActionAffinity = (FeatureDefinitionActionAffinity)featureDefinition;
 
-            if (definitionActionAffinity.AuthorizedActions.Contains(ActionDefinitions.Id.DeflectMissile))
+            if (!definitionActionAffinity.AuthorizedActions.Contains(ActionDefinitions.Id.DeflectMissile))
             {
-                feature = definitionActionAffinity;
-
-                break;
+                continue;
             }
+
+            feature = definitionActionAffinity;
+
+            break;
         }
 
         if (feature != null)

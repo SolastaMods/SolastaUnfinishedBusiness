@@ -71,22 +71,24 @@ internal static class SaveByLocationContext
 
         var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
-        if (selectedCampaignService != null && mostRecent != null)
+        if (selectedCampaignService == null || mostRecent == null)
         {
-            Main.Log($"Most recent folder={mostRecent.Path}");
+            return;
+        }
 
-            switch (mostRecent.LocationType)
-            {
-                default:
-                    selectedCampaignService.SetStandardCampaignLocation();
-                    break;
-                case LocationType.UserLocation:
-                    selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, Path.GetFileName(mostRecent.Path));
-                    break;
-                case LocationType.CustomCampaign:
-                    selectedCampaignService.SetCampaignLocation(Path.GetFileName(mostRecent.Path), string.Empty);
-                    break;
-            }
+        Main.Log($"Most recent folder={mostRecent.Path}");
+
+        switch (mostRecent.LocationType)
+        {
+            default:
+                selectedCampaignService.SetStandardCampaignLocation();
+                break;
+            case LocationType.UserLocation:
+                selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, Path.GetFileName(mostRecent.Path));
+                break;
+            case LocationType.CustomCampaign:
+                selectedCampaignService.SetCampaignLocation(Path.GetFileName(mostRecent.Path), string.Empty);
+                break;
         }
     }
 
@@ -126,17 +128,19 @@ internal static class SaveByLocationContext
         {
             var repo = ServiceRepository.GetService<T>();
 
-            if (repo == null)
+            if (repo != null)
             {
-                repo = new T();
-                ServiceRepository.AddService(repo);
+                return repo;
             }
+
+            repo = new T();
+            ServiceRepository.AddService(repo);
 
             return repo;
         }
     }
 
-    internal interface ISelectedCampaignService : IService
+    private interface ISelectedCampaignService : IService
     {
         string CampaignOrLocationName { get; }
         LocationType LocationType { get; }

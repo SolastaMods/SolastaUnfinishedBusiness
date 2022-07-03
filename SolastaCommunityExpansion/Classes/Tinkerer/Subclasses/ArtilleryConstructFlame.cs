@@ -40,14 +40,18 @@ internal sealed class FlameArtilleryBuilder : FeatureDefinitionPowerBuilder
         // AlterationForm alterationForm = new AlterationForm();
         //alterationForm.SetAlterationType (AlterationForm.Type.LightUp);
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Damage, DamageForm = flameArtillery};
-        effect.createdByCharacter = true;
-        effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
-        effect.HasSavingThrow = true;
-        effect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        effect.levelMultiplier = 1;
-        effect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
-        effect.applyLevel = EffectForm.LevelApplianceType.No;
+        var effect = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.Damage,
+            DamageForm = flameArtillery,
+            createdByCharacter = true,
+            SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage,
+            HasSavingThrow = true,
+            AddBonusMode = RuleDefinitions.AddBonusMode.None,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.EffectLevel,
+            applyLevel = EffectForm.LevelApplianceType.No
+        };
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();

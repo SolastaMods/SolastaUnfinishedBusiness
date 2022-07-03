@@ -2,6 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
@@ -197,11 +198,11 @@ internal static class ToolsDisplay
 
                 if (flip)
                 {
-                    title = title.yellow();
+                    title = title.Yellow();
                 }
                 else
                 {
-                    title = title.white();
+                    title = title.White();
                 }
 
                 intValue = gameFactionService.FactionRelations[faction.Name];
@@ -241,16 +242,16 @@ internal static class ToolsDisplay
         using (UI.HorizontalScope())
         {
             UI.Space(40f);
-            UI.Label("Category".bold(), UI.Width(100));
+            UI.Label("Category".Bold(), UI.Width(100));
 
             if (CurrentItemsFilterIndex == 11 /* Weapons */)
             {
                 UI.Space(40f);
-                UI.Label("Weapon Tag".bold(), UI.Width(100));
+                UI.Label("Weapon Tag".Bold(), UI.Width(100));
             }
 
             UI.Space(40f);
-            UI.Label("Item Tag".bold(), UI.Width(100));
+            UI.Label("Item Tag".Bold(), UI.Width(100));
 
             UI.Space(40f);
             UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
@@ -324,7 +325,7 @@ internal static class ToolsDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.ActionButton("+".bold().red(), () =>
+                UI.ActionButton("+".Bold().Red(), () =>
                     {
                         var rulesetItem = rulesetItemFactoryService.CreateStandardItem(item, true, characterName);
 

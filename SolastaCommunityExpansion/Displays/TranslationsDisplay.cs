@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 
@@ -91,13 +92,14 @@ public static class TranslationsDisplay
             {
                 string buttonLabel;
 
-                UI.Label(userCampaign.Author.Substring(0, Math.Min(16, userCampaign.Author.Length)).bold().orange(), UI.Width(120));
-                UI.Label(userCampaign.Title.bold().italic(), UI.Width(300));
+                UI.Label(userCampaign.Author.Substring(0, Math.Min(16, userCampaign.Author.Length)).Bold().Orange(),
+                    UI.Width(120));
+                UI.Label(userCampaign.Title.Bold().Italic(), UI.Width(300));
 
                 if (UserCampaignsTranslatorContext.CurrentExports.TryGetValue(exportName, out var status))
                 {
                     buttonLabel = Gui.Format("ModUi/&TranslateCancel", status.LanguageCode.ToUpper(),
-                        $"{status.PercentageComplete:00.0%}").bold().yellow();
+                        $"{status.PercentageComplete:00.0%}").Bold().Yellow();
                 }
                 else
                 {

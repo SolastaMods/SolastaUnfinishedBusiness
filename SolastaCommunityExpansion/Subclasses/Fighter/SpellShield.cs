@@ -7,7 +7,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
-internal class SpellShield : AbstractSubclass
+internal sealed class SpellShield : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("d4732dc2-c4f9-4a35-a12a-ae2d7858ff74");
     private readonly CharacterSubclassDefinition Subclass;

@@ -18,15 +18,17 @@ internal static class RulesetCharacter_RechargePowersForTurnStart
     {
         foreach (var usablePower in __instance.UsablePowers)
         {
-            if (usablePower?.PowerDefinition is IStartOfTurnRecharge startOfTurnRecharge &&
-                usablePower.RemainingUses < usablePower.MaxUses)
+            if (usablePower?.PowerDefinition is not IStartOfTurnRecharge startOfTurnRecharge ||
+                usablePower.RemainingUses >= usablePower.MaxUses)
             {
-                usablePower.Recharge();
+                continue;
+            }
 
-                if (!startOfTurnRecharge.IsRechargeSilent && __instance.PowerRecharged != null)
-                {
-                    __instance.PowerRecharged(__instance, usablePower);
-                }
+            usablePower.Recharge();
+
+            if (!startOfTurnRecharge.IsRechargeSilent && __instance.PowerRecharged != null)
+            {
+                __instance.PowerRecharged(__instance, usablePower);
             }
         }
     }
@@ -93,11 +95,13 @@ internal static class RulesetCharacter_ApplyRest
 
         var bindIndex = codes.FindIndex(x => x.Calls(bind));
 
-        if (bindIndex > 0)
+        if (bindIndex <= 0)
         {
-            codes[bindIndex] = new CodeInstruction(OpCodes.Call, maxUses);
-            codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_0));
+            return codes.AsEnumerable();
         }
+
+        codes[bindIndex] = new CodeInstruction(OpCodes.Call, maxUses);
+        codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_0));
 
         return codes.AsEnumerable();
     }

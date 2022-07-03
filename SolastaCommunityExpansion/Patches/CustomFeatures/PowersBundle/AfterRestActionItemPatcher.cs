@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
@@ -18,30 +19,31 @@ internal static class AfterRestActionItem_OnExecuteCb
 
         var activity = __instance.RestActivityDefinition;
 
-        if (activity.Functor == PowerBundleContext.UseCustomRestPowerFunctorName &&
-            activity.StringParameter != null)
+        if (activity.Functor != PowerBundleContext.UseCustomRestPowerFunctorName || activity.StringParameter == null)
         {
-            var masterPower = PowerBundleContext.GetPower(activity.StringParameter);
-
-            if (masterPower)
-            {
-                var masterSpell = PowerBundleContext.GetSpell(masterPower);
-                var repertoire = new RulesetSpellRepertoire();
-                var subspellSelectionModalScreen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
-                var handler = new SpellsByLevelBox.SpellCastEngagedHandler(
-                    (spellRepertoire, spell, slotLevel) => PowerEngagedHandler(__instance, spell));
-
-                repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
-
-                subspellSelectionModalScreen.Bind(masterSpell, __instance.Hero, repertoire, handler, 0,
-                    __instance.RectTransform);
-                subspellSelectionModalScreen.Show();
-
-                return false;
-            }
+            return true;
         }
 
-        return true;
+        var masterPower = PowerBundleContext.GetPower(activity.StringParameter);
+
+        if (!masterPower)
+        {
+            return true;
+        }
+
+        var masterSpell = PowerBundleContext.GetSpell(masterPower);
+        var repertoire = new RulesetSpellRepertoire();
+        var subspellSelectionModalScreen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
+        var handler = new SpellsByLevelBox.SpellCastEngagedHandler(
+            (spellRepertoire, spell, slotLevel) => PowerEngagedHandler(__instance, spell));
+
+        repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
+
+        subspellSelectionModalScreen.Bind(masterSpell, __instance.Hero, repertoire, handler, 0,
+            __instance.RectTransform);
+        subspellSelectionModalScreen.Show();
+
+        return false;
     }
 
     private static void PowerEngagedHandler(AfterRestActionItem item, SpellDefinition spell)
@@ -74,15 +76,8 @@ internal static class AfterRestActionItem_OnExecuteCb
 
             do
             {
-                needsToWait = false;
-                foreach (var partyCharacter in gameLocationCharacterService.PartyCharacters)
-                {
-                    if (gameLocationActionService.IsCharacterActing(partyCharacter))
-                    {
-                        needsToWait = true;
-                        break;
-                    }
-                }
+                needsToWait = gameLocationCharacterService.PartyCharacters
+                    .Any(partyCharacter => gameLocationActionService.IsCharacterActing(partyCharacter));
 
                 if (needsToWait)
                 {

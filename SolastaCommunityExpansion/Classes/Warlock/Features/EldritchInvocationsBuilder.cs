@@ -36,18 +36,18 @@ internal static class EldritchInvocationsBuilder
             : "Requirement/&WarlockMissingEldritchBlast";
 
     private static readonly IFeatureDefinitionWithPrerequisites.Validate RequirePactOfTheBlade = () =>
-        Global.ActiveLevelUpHeroHasFeature(AHWarlockClassPactOfTheBladeSetBuilder.AHWarlockClassPactOfTheBladeSet)
+        Global.ActiveLevelUpHeroHasFeature(WarlockClassPactOfTheBladeSetBuilder.WarlockClassPactOfTheBladeSet)
             ? null
             : "Requirement/&WarlockRequiresPactOfBlade";
 
     private static readonly IFeatureDefinitionWithPrerequisites.Validate RequirePactOfTheTome = () =>
-        Global.ActiveLevelUpHeroHasFeature(DHPactOfTheTomeFeatureSetBuilder.DHPactOfTheTomeFeatureSet)
+        Global.ActiveLevelUpHeroHasFeature(PactOfTheTomeFeatureSetBuilder.PactOfTheTomeFeatureSet)
             ? null
             : "Requirement/&WarlockRequiresPactOfTome";
 
     private static readonly IFeatureDefinitionWithPrerequisites.Validate RequirePactOfTheChain = () =>
-        Global.ActiveLevelUpHeroHasFeature(DHWarlockClassPactOfTheChainFeatureSetBuilder
-            .DHWarlockClassPactOfTheChainFeatureSet)
+        Global.ActiveLevelUpHeroHasFeature(WarlockClassPactOfTheChainFeatureSetBuilder
+            .WarlockClassPactOfTheChainFeatureSet)
             ? null
             : "Requirement/&WarlockRequiresPactOfChain";
 
@@ -537,7 +537,7 @@ internal static class EldritchInvocationsBuilder
             .Create("WarlockConditionShadowsSpecial", DefinitionBuilder.CENamespaceGuid)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetGuiPresentationNoContent()
-            .SetFeatures(DHWarlockSubclassMoonLitPatron.InvisibilityFeature)
+            .SetFeatures(WarlockSubclassMoonLitPatron.InvisibilityFeature)
             .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
             .AddToDB();
 

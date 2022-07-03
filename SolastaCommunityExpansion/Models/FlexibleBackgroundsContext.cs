@@ -11,7 +11,7 @@ public static class FlexibleBackgroundsContext
 {
     private const string FlexibleBackgroundsGuid = "f7713746-2028-410d-9df6-20f261f4d6aa";
 
-    public static readonly Guid FLEX_BACK_BASE_GUID = new(FlexibleBackgroundsGuid);
+    private static readonly Guid FLEX_BACK_BASE_GUID = new(FlexibleBackgroundsGuid);
 
     private static readonly FeatureDefinition skillThree = FeatureDefinitionPointPoolBuilder
         .Create("BackgroundSkillSelect3", "e6f2ed65-a44e-4314-b38c-393abb4ad900")

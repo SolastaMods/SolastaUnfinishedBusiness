@@ -11,11 +11,13 @@ internal class GraphicsCharacter_ResetScale
 {
     internal static void Postfix(GraphicsCharacter __instance, ref float __result)
     {
-        if (__instance.RulesetCharacter is RulesetCharacterHero rulesetCharacterHero
-            && RacesContext.RaceScaleMap.TryGetValue(rulesetCharacterHero.RaceDefinition, out var scale))
+        if (__instance.RulesetCharacter is not RulesetCharacterHero rulesetCharacterHero ||
+            !RacesContext.RaceScaleMap.TryGetValue(rulesetCharacterHero.RaceDefinition, out var scale))
         {
-            __result *= scale;
-            __instance.transform.localScale = new Vector3(__result, __result, __result);
+            return;
         }
+
+        __result *= scale;
+        __instance.transform.localScale = new Vector3(__result, __result, __result);
     }
 }

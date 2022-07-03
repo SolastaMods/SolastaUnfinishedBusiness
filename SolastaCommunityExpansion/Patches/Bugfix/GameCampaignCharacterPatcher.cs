@@ -9,7 +9,7 @@ internal static class GameCampaignCharacterPatcher
     // this makes powers and spells that last until rest properly terminate on rest during world travel
     [HarmonyPatch(typeof(GameCampaignCharacter), "EngageRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EngageRest
+    internal static class GameCampaignCharacter_EngageRest
     {
         internal static bool Prefix(GameCampaignCharacter __instance, RuleDefinitions.RestType restType)
         {

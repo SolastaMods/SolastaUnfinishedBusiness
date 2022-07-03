@@ -11,7 +11,8 @@ namespace SolastaCommunityExpansion.Patches.Bugfix;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class Functor_SelectCharacters
 {
-    internal static void Postfix(FunctorParametersDescription functorParameters,
+    internal static void Postfix(
+        FunctorParametersDescription functorParameters,
         List<GameLocationCharacter> selectedCharacters)
     {
         //
@@ -38,26 +39,21 @@ internal static class Functor_SelectCharacters
                 continue;
             }
 
-            foreach (var rulesetConditions in rulesetCharacter.ConditionsByCategory.Values)
-            {
-                var found = rulesetConditions
+            if (!rulesetCharacter.ConditionsByCategory.Values.Select(rulesetConditions => rulesetConditions
                     .Where(x => x.ConditionDefinition ==
                                 DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature)
                     .Any(x => gameLocationCharacterService.PartyCharacters.Any(y =>
-                        y.RulesetCharacter.Guid == x.SourceGuid));
-
-                if (found)
-                {
-                    var playerPlacementMarkers = functorParameters.PlayerPlacementMarkers;
-                    var newPlayerPlacementMarkers =
-                        playerPlacementMarkers.AddToArray(playerPlacementMarkers[idx++ % len]);
-
-                    functorParameters.playerPlacementMarkers = newPlayerPlacementMarkers;
-                    selectedCharacters.Add(guestCharacter);
-
-                    break;
-                }
+                        y.RulesetCharacter.Guid == x.SourceGuid))).Any(found => found))
+            {
+                continue;
             }
+
+            var playerPlacementMarkers = functorParameters.PlayerPlacementMarkers;
+            var newPlayerPlacementMarkers =
+                playerPlacementMarkers.AddToArray(playerPlacementMarkers[idx++ % len]);
+
+            functorParameters.playerPlacementMarkers = newPlayerPlacementMarkers;
+            selectedCharacters.Add(guestCharacter);
         }
     }
 }

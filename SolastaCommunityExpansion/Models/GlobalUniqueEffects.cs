@@ -11,18 +11,21 @@ public class GlobalUniqueEffects
     private static readonly Dictionary<Group, (List<FeatureDefinitionPower>, List<SpellDefinition>)>
         _groups = new();
 
-    public static (List<FeatureDefinitionPower>, List<SpellDefinition>) GetGroup(Group group)
+    private static (List<FeatureDefinitionPower>, List<SpellDefinition>) GetGroup(Group group)
     {
-        if (!_groups.ContainsKey(group))
+        if (_groups.ContainsKey(group))
         {
-            var newGroup = new ValueTuple<List<FeatureDefinitionPower>, List<SpellDefinition>>();
-            newGroup.Item1 = new List<FeatureDefinitionPower>();
-            newGroup.Item2 = new List<SpellDefinition>();
-            _groups.Add(group, newGroup);
-            return newGroup;
+            return _groups[group];
         }
 
-        return _groups[group];
+        var newGroup = new ValueTuple<List<FeatureDefinitionPower>, List<SpellDefinition>>
+        {
+            Item1 = new List<FeatureDefinitionPower>(), Item2 = new List<SpellDefinition>()
+        };
+
+        _groups.Add(group, newGroup);
+
+        return newGroup;
     }
 
     /**Returns copies*/

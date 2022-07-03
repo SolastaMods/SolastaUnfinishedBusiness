@@ -60,13 +60,13 @@ public static class PickPocketContext
 
         initialized = true;
 
-        var sleight_of_hand = DatabaseHelper.SkillDefinitions.SleightOfHand;
-        sleight_of_hand.GuiPresentation.unusedInSolastaCOTM = false;
+        var sleightOfHand = DatabaseHelper.SkillDefinitions.SleightOfHand;
+        sleightOfHand.GuiPresentation.unusedInSolastaCOTM = false;
 
-        var treasure_copper = new TreasureOption();
-        treasure_copper.odds = 30;
-        treasure_copper.itemDefinition = DatabaseHelper.ItemDefinitions._1D6_Copper_Coins;
-        treasure_copper.amount = 3;
+        var treasureCopper = new TreasureOption
+        {
+            odds = 30, itemDefinition = DatabaseHelper.ItemDefinitions._1D6_Copper_Coins, amount = 3
+        };
 
         var treasure_silver = new TreasureOption();
         treasure_silver.odds = 12;
@@ -149,7 +149,7 @@ public static class PickPocketContext
             .SetGuiPresentationNoContent()
             .AddToDB();
 
-        pick_pocket_table.TreasureOptions.Add(treasure_copper);
+        pick_pocket_table.TreasureOptions.Add(treasureCopper);
         pick_pocket_table.TreasureOptions.Add(treasure_silver);
         pick_pocket_table.TreasureOptions.Add(treasure_gold);
         pick_pocket_table.TreasureOptions.Add(treasure_scrollbless);
@@ -167,7 +167,7 @@ public static class PickPocketContext
             .Create(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items,
                 "PickPocketTableC", "f1bbd8e5-3e05-48da-9c70-2db676a280b4")
             .SetGuiPresentationNoContent()
-            .AddTreasureOptions(treasure_copper, treasure_abyss_moss, treasure_deeproot_lichen,
+            .AddTreasureOptions(treasureCopper, treasure_abyss_moss, treasure_deeproot_lichen,
                 treasure_goblinhair_fungus)
             .AddToDB();
 

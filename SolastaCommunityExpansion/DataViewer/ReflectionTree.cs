@@ -7,7 +7,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using ModKit;
 using UnityEngine;
-using static ModKit.Utility.ReflectionCache;
 using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.DataViewer;
@@ -147,7 +146,7 @@ public abstract class Node
                 }
             }
 
-            return Count;
+            return count;
         }
     }
 

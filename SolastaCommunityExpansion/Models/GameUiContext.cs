@@ -174,12 +174,14 @@ internal static class GameUiContext
             {
                 var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
 
-                if (gameLocationSelectionService.SelectedCharacters.Count > 0)
+                if (gameLocationSelectionService.SelectedCharacters.Count <= 0)
                 {
-                    characterControlPanel.Bind(gameLocationSelectionService.SelectedCharacters[0],
-                        gameLocationBaseScreen.ActionTooltipDock);
-                    characterControlPanel.Show();
+                    return;
                 }
+
+                characterControlPanel.Bind(gameLocationSelectionService.SelectedCharacters[0],
+                    gameLocationBaseScreen.ActionTooltipDock);
+                characterControlPanel.Show();
             }
         }
 

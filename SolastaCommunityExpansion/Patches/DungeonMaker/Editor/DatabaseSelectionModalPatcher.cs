@@ -1,11 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor;
 
-[HarmonyPatch(typeof(DatabaseSelectionModal), "SelectMonsterDefinition")]
+[HarmonyPatch(typeof(DatabaseSelectionModal), "BuildMonsters")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class DatabaseSelectionModal_BuildMonsters
 {
@@ -16,21 +15,26 @@ internal static class DatabaseSelectionModal_BuildMonsters
             return;
         }
 
-        var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
-
         __instance.allMonsters.Clear();
 
-        if (isCtrlPressed)
+        __instance.allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+            .Where(x => !x.GuiPresentation.Hidden)
+            .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
+
+        var service = ServiceRepository.GetService<IGamingPlatformService>();
+
+        for (var index = __instance.allMonsters.Count - 1; index >= 0; --index)
         {
-            __instance.allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
-                .Where(x => !x.GuiPresentation.Hidden)
-                .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
+            if (!service.IsContentPackAvailable(__instance.allMonsters[index].ContentPack))
+            {
+                __instance.allMonsters.RemoveAt(index);
+            }
         }
     }
 }
 
 // this patch unleashes all monster definitions to be used as NPCs
-[HarmonyPatch(typeof(DatabaseSelectionModal), "SelectNpcDefinition")]
+[HarmonyPatch(typeof(DatabaseSelectionModal), "BuildNpcs")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class DatabaseSelectionModal_BuildNpcs
 {
@@ -41,15 +45,20 @@ internal static class DatabaseSelectionModal_BuildNpcs
             return;
         }
 
-        var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
-
         __instance.allNpcs.Clear();
 
-        if (isCtrlPressed)
+        __instance.allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+            .Where(x => !x.GuiPresentation.Hidden)
+            .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
+
+        var service = ServiceRepository.GetService<IGamingPlatformService>();
+
+        for (var index = __instance.allNpcs.Count - 1; index >= 0; --index)
         {
-            __instance.allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
-                .Where(x => !x.GuiPresentation.Hidden)
-                .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
+            if (!service.IsContentPackAvailable(__instance.allNpcs[index].ContentPack))
+            {
+                __instance.allNpcs.RemoveAt(index);
+            }
         }
     }
 }

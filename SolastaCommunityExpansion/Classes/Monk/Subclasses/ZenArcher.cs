@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
@@ -431,32 +430,32 @@ public static class ZenArcher
         return IsMonkWeapon(character, mainHandItem?.ItemDefinition);
     }
 
-    private class ZenArcherMarker
+    private sealed class ZenArcherMarker
     {
         //Used for easier detecton of Zen Archer characters to extend their Monk weapon list
     }
 
-    public class ZenArcherStunningArrows
+    public sealed class ZenArcherStunningArrows
     {
         //Used for easier detecton of Zen Archer characters to allow stunning strike on arrows
     }
 
-    private class ExtendWeaponRange : IModifyAttackModeForWeapon
-    {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
-        {
-            if (attackMode == null || attackMode.Magical || (!attackMode.Ranged && !attackMode.Thrown))
-            {
-                return;
-            }
-
-            if (!Monk.IsMonkWeapon(character, attackMode))
-            {
-                return;
-            }
-
-            attackMode.CloseRange = Math.Min(16, attackMode.CloseRange * 2);
-            attackMode.MaxRange = Math.Min(32, attackMode.MaxRange * 2);
-        }
-    }
+    // private class ExtendWeaponRange : IModifyAttackModeForWeapon
+    // {
+    //     public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+    //     {
+    //         if (attackMode == null || attackMode.Magical || (!attackMode.Ranged && !attackMode.Thrown))
+    //         {
+    //             return;
+    //         }
+    //
+    //         if (!Monk.IsMonkWeapon(character, attackMode))
+    //         {
+    //             return;
+    //         }
+    //
+    //         attackMode.CloseRange = Math.Min(16, attackMode.CloseRange * 2);
+    //         attackMode.MaxRange = Math.Min(32, attackMode.MaxRange * 2);
+    //     }
+    // }
 }

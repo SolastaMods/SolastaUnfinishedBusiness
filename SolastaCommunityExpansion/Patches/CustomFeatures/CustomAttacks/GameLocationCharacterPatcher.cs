@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -119,6 +120,7 @@ internal static class GameLocationCharacter_FindActionAttackMode
         ActionDefinitions.Id actionId)
     {
         var skip = __instance.GetSkipAttackModes();
+
         if (skip == 0)
         {
             return;
@@ -126,36 +128,36 @@ internal static class GameLocationCharacter_FindActionAttackMode
 
         var skipped = 0;
 
-        if (actionId == ActionDefinitions.Id.AttackMain || actionId == ActionDefinitions.Id.AttackOff ||
-            actionId == ActionDefinitions.Id.AttackOpportunity || actionId == ActionDefinitions.Id.AttackReadied ||
-            actionId == ActionDefinitions.Id.ReactionShot || actionId == ActionDefinitions.Id.Volley ||
-            actionId == ActionDefinitions.Id.WhirlwindAttack)
+        if (actionId != ActionDefinitions.Id.AttackMain && actionId != ActionDefinitions.Id.AttackOff &&
+            actionId != ActionDefinitions.Id.AttackOpportunity && actionId != ActionDefinitions.Id.AttackReadied &&
+            actionId != ActionDefinitions.Id.ReactionShot && actionId != ActionDefinitions.Id.Volley &&
+            actionId != ActionDefinitions.Id.WhirlwindAttack)
         {
-            foreach (var attackMode in __instance.RulesetCharacter.AttackModes)
-            {
-                if (!attackMode.AfterChargeOnly &&
-                    ((attackMode.ActionType == ActionDefinitions.ActionType.Main &&
-                      (actionId == ActionDefinitions.Id.AttackMain ||
-                       actionId == ActionDefinitions.Id.AttackReadied ||
-                       actionId == ActionDefinitions.Id.Volley ||
-                       actionId == ActionDefinitions.Id.WhirlwindAttack)) ||
-                     (attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
-                      actionId == ActionDefinitions.Id.AttackOff) ||
-                     (attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
-                      actionId == ActionDefinitions.Id.AttackOpportunity) ||
-                     (attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
-                      actionId == ActionDefinitions.Id.ReactionShot)))
-                {
-                    // The only difference is this condition
-                    if (skipped == skip)
-                    {
-                        __result = attackMode;
-                        break;
-                    }
+            return;
+        }
 
-                    skipped++;
-                }
+        foreach (var attackMode in __instance.RulesetCharacter.AttackModes
+                     .Where(attackMode => !attackMode.AfterChargeOnly &&
+                                          ((attackMode.ActionType == ActionDefinitions.ActionType.Main &&
+                                            (actionId == ActionDefinitions.Id.AttackMain ||
+                                             actionId == ActionDefinitions.Id.AttackReadied ||
+                                             actionId == ActionDefinitions.Id.Volley ||
+                                             actionId == ActionDefinitions.Id.WhirlwindAttack)) ||
+                                           (attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
+                                            actionId == ActionDefinitions.Id.AttackOff) ||
+                                           (attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
+                                            actionId == ActionDefinitions.Id.AttackOpportunity) ||
+                                           (attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
+                                            actionId == ActionDefinitions.Id.ReactionShot))))
+        {
+            // The only difference is this condition
+            if (skipped == skip)
+            {
+                __result = attackMode;
+                break;
             }
+
+            skipped++;
         }
     }
 }

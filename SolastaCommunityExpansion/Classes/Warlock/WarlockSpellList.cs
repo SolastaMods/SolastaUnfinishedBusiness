@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock;
 // keep public as CE:MC depends on it
 public static class WarlockSpells
 {
-    public const int PACT_MAGIC_SLOT_TAB_INDEX = -1;
+    public const int PactMagicSlotTabIndex = -1;
 
     // ideally this would be immutable. Could return a copy so that it can't be accidentally modified.
     public static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } = new()

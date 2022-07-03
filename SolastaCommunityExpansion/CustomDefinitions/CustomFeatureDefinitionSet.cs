@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModKit;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaCommunityExpansion.Api.Infrastructure;
@@ -79,8 +78,8 @@ public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
 
     public List<FeatureDefinition> GetLevelFeatures(int level)
     {
-        //TODO: decide if we want to wrap this into new list, to be sure htis one is immutable
-        return FeaturesByLevel.GetValueOrDefault(level);
+        //TODO: decide if we want to wrap this into new list, to be sure this one is immutable
+        return FeaturesByLevel.TryGetValue(level, out var result) ? result : null;
     }
 }
 

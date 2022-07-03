@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ModKit.Utility;
+namespace SolastaCommunityExpansion.DataViewer;
 
 public class DoubleDictionary<TKey1, TKey2, TValue>
 {

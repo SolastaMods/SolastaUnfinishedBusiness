@@ -13,9 +13,6 @@ public static class Global
                                          Gui.GameLocation.LocationDefinition &&
                                          Gui.GameLocation.LocationDefinition.IsUserLocation;
 
-    // is new adventure panel in context
-    public static bool IsNewAdventurePanelInContext { get; set; }
-
     // last level up hero name
     public static string LastLevelUpHeroName { get; set; }
 

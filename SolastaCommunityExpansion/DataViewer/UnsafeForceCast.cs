@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection.Emit;
-using ModKit.Utility;
 
 namespace SolastaCommunityExpansion.DataViewer;
 

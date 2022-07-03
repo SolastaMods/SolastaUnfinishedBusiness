@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ModKit;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -17,7 +16,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 
-public static class DHWarlockSubclassAncientForestPatron
+public static class WarlockSubclassAncientForestPatron
 {
     public static CharacterSubclassDefinition Build()
     {
@@ -93,25 +92,28 @@ Different Archfey, e.g. Winter-themed
                    )
                 {
                     var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
-                    var used = attacker.UsedSpecialFeatures.GetValueOrDefault(lifeSapId);
 
-                    if (belowHalfHealth || used == 0)
+                    attacker.UsedSpecialFeatures.TryGetValue(lifeSapId, out var used);
+
+                    if (!belowHalfHealth && used != 0)
                     {
-                        attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
-
-                        var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-                        var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
-                        var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
-
-                        var ability = GuiPresentationBuilder.CreateTitleKey(lifeSapId, Category.Power);
-                        GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
-                        RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
+                        return;
                     }
+
+                    attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
+
+                    var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                    var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
+                    var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
+
+                    var ability = GuiPresentationBuilder.CreateTitleKey(lifeSapId, Category.Power);
+                    GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
+                    RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
                 }
             })
             .AddToDB();
 
-        var Regrowth = FeatureDefinitionPowerBuilder
+        var regrowth = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinLayOnHands, "AncientForestRegrowth", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference)
             .AddToDB();
@@ -166,23 +168,23 @@ Different Archfey, e.g. Winter-themed
             .AddFeatureSet(herbalBrewPool)
             .AddToDB();
 
-        var Photosynthesis = ConditionDefinitionBuilder
+        var photosynthesis = ConditionDefinitionBuilder
             .Create("AncientForestPhotosynthesis", DefinitionBuilder.CENamespaceGuid)
             .SetSilent(Silent.None)
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(DatabaseHelper.FeatureDefinitionRegenerations.RegenerationRing)
             .AddToDB();
 
-        var AncientForestLightAffinity = FeatureDefinitionLightAffinityBuilder
+        var ancientForestLightAffinity = FeatureDefinitionLightAffinityBuilder
             .Create("AncientForestLightAffinity", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("AncientForestLightAffinity", Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Bright, condition = Photosynthesis
+                lightingState = LocationDefinitions.LightingState.Bright, condition = photosynthesis
             })
             .AddToDB();
 
-        var AtWillEntanglePower = FeatureDefinitionPowerBuilder
+        var atWillEntanglePower = FeatureDefinitionPowerBuilder
             .Create("AncientForestAtWillEntangle", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Entangle.GuiPresentation)
             .Configure(
@@ -199,17 +201,17 @@ Different Archfey, e.g. Winter-themed
                 true)
             .AddToDB();
 
-        var RootedCondition = ConditionDefinitionBuilder
+        var rootedCondition = ConditionDefinitionBuilder
             .Create("AncientForestRootedCondition", DefinitionBuilder.CENamespaceGuid)
             .SetSilent(Silent.None)
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained)
             .AddFeatures(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
             .AddFeatures(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging)
-            .AddFeatures(AtWillEntanglePower)
+            .AddFeatures(atWillEntanglePower)
             .AddToDB();
 
-        var RootedPower = FeatureDefinitionPowerBuilder
+        var rootedPower = FeatureDefinitionPowerBuilder
             .Create("AncientForestRootedPower", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
             .Configure(
@@ -225,7 +227,7 @@ Different Archfey, e.g. Winter-themed
                 new EffectDescriptionBuilder()
                     .AddEffectForm(
                         new EffectFormBuilder().SetConditionForm(
-                            RootedCondition,
+                            rootedCondition,
                             ConditionForm.ConditionOperation.Add,
                             true,
                             true,
@@ -296,13 +298,13 @@ Different Archfey, e.g. Winter-themed
         }
         // should Use features sets so character saves don't break
 
-        var AncientForestAttributeModifierRegrowth = FeatureDefinitionAttributeModifierBuilder
+        var ancientForestAttributeModifierRegrowth = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModifierRegrowth",
                 DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
-        var AncientForestAttributeModifierRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
+        var ancientForestAttributeModifierRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierPaladinHealingPoolMultiplier,
                 "AncientForestAttributeModifierRegrowthMultiplier", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
@@ -318,14 +320,14 @@ Different Archfey, e.g. Winter-themed
             .SetGuiPresentation("WarlockAncientForest", Category.Subclass,
                 TraditionGreenmage.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(ancientForestExpandedSpellListAffinity, 1)
-            .AddFeatureAtLevel(AncientForestAttributeModifierRegrowth, 1)
-            .AddFeatureAtLevel(AncientForestAttributeModifierRegrowthMultiplier, 1)
-            .AddFeatureAtLevel(Regrowth, 1)
+            .AddFeatureAtLevel(ancientForestAttributeModifierRegrowth, 1)
+            .AddFeatureAtLevel(ancientForestAttributeModifierRegrowthMultiplier, 1)
+            .AddFeatureAtLevel(regrowth, 1)
             .AddFeatureAtLevel(AncientForestBonusCantrip, 1)
             .AddFeatureAtLevel(herbalBrewFeatureSet, 6)
             .AddFeatureAtLevel(lifeSapFeature, 6)
-            .AddFeatureAtLevel(AncientForestLightAffinity, 10)
-            .AddFeatureAtLevel(RootedPower, 10)
+            .AddFeatureAtLevel(ancientForestLightAffinity, 10)
+            .AddFeatureAtLevel(rootedPower, 10)
             .AddFeatureAtLevel(AncientForestAttributeModifierBarkskin, 14)
             .AddFeatureAtLevel(WallofThornsFeatureSet, 14)
             .AddToDB();
@@ -345,9 +347,7 @@ Different Archfey, e.g. Winter-themed
             baseItem.GuiPresentation.SpriteReference
         ).Build();
 
-        var food = new FoodDescription();
-        food.nutritiveCapacity = 0;
-        food.perishable = true;
+        var food = new FoodDescription {nutritiveCapacity = 0, perishable = true};
 
         var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName, DefinitionBuilder.CENamespaceGuid)
             .SetGold(0)
@@ -447,9 +447,7 @@ Different Archfey, e.g. Winter-themed
                 true)
             .AddToDB();
 
-        var food = new FoodDescription();
-        food.nutritiveCapacity = 0;
-        food.perishable = true;
+        var food = new FoodDescription {nutritiveCapacity = 0, perishable = true};
 
         var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName, DefinitionBuilder.CENamespaceGuid)
             .SetGold(0)

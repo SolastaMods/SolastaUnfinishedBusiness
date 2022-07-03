@@ -1,6 +1,7 @@
 ﻿#if DEBUG
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Api.Diagnostics
@@ -28,14 +29,14 @@ namespace SolastaCommunityExpansion.Api.Diagnostics
     /// SomeType.SomeMethod: Exit
     /// </para>
     /// </summary>
-    public class MethodLogger : SetResetDisposable
+    public sealed class MethodLogger : SetResetDisposable
     {
         private readonly string methodName;
 
         // Very annoying there's no CallerTypeNameAttribute
         private readonly string typeName;
 
-        public MethodLogger(string typeName, [CallerMemberName] string methodName = null) :
+        public MethodLogger(string typeName, [CallerMemberName] [CanBeNull] string methodName = null) :
             base(() => Main.Log($"{typeName}.{methodName}: Enter"), () => Main.Log($"{typeName}.{methodName}: Leave"))
         {
             this.methodName = methodName;

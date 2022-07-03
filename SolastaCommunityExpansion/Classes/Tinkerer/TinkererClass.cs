@@ -278,9 +278,7 @@ internal static class TinkererClass
 
         // Infusions -- Focus, Weapon, Mind Sharpener, Armor of Magical Strength are given in subclasses
         // Defense
-        var infusionChoiceGui = new GuiPresentationBuilder(
-            "Subclass/&TinkererInfusionChoiceTitle",
-            "Subclass/&TinkererInfusionChoiceDescription");
+
         artificerBuilder.AddFeatureAtLevel(2, infusionChoice, 4);
         artificerBuilder.AddFeatureAtLevel(3, infusionReplace);
 
@@ -304,12 +302,12 @@ internal static class TinkererClass
 
         artificerBuilder.AddFeatureAtLevel(6, toolExpertise);
 
-        var InfusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
+        var infusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
             .Create("AttributeModiferArtificerInfusionIncreaseHealingPool", GuidNamespace)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
             .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
             .AddToDB();
-        artificerBuilder.AddFeatureAtLevel(6, InfusionPoolIncrease);
+        artificerBuilder.AddFeatureAtLevel(6, infusionPoolIncrease);
 
         artificerBuilder.AddFeatureAtLevel(6, infusionChoice, 2);
         artificerBuilder.AddFeatureAtLevel(6, infusionReplace);
@@ -379,7 +377,7 @@ internal static class TinkererClass
         artificerBuilder.AddFeatureAtLevel(9, infusionReplace);
 
         // Magic Item Adept (10)
-        var CraftingTinkererMagicItemAdeptPresentation = new GuiPresentationBuilder(
+        var craftingTinkererMagicItemAdeptPresentation = new GuiPresentationBuilder(
             "Subclass/&CraftingTinkererMagicItemAdeptTitle",
             "Subclass/&CraftingTinkererMagicItemAdeptDescription");
         var craftingAffinity = new FeatureHelpers.FeatureDefinitionCraftingAffinityBuilder(
@@ -392,16 +390,16 @@ internal static class TinkererClass
                 ToolTypeDefinitions.HerbalismKitType,
                 ToolTypeDefinitions.EnchantingToolType,
                 ToolTypeDefinitions.ArtisanToolSmithToolsType
-            }, 0.25f, true, CraftingTinkererMagicItemAdeptPresentation.Build()).AddToDB();
+            }, 0.25f, true, craftingTinkererMagicItemAdeptPresentation.Build()).AddToDB();
         artificerBuilder.AddFeatureAtLevel(10, craftingAffinity);
         // boost to infusions (many of the +1s become +2s)
 
-        var InfusionPoolIncrease10 = FeatureDefinitionPowerPoolModifierBuilder
+        var infusionPoolIncrease10 = FeatureDefinitionPowerPoolModifierBuilder
             .Create("AttributeModiferArtificerInfusionIncreaseHealingPool10", GuidNamespace)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
             .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
             .AddToDB();
-        artificerBuilder.AddFeatureAtLevel(10, InfusionPoolIncrease10);
+        artificerBuilder.AddFeatureAtLevel(10, infusionPoolIncrease10);
 
         artificerBuilder.AddFeaturesAtLevel(10,
             infusionChoice,
@@ -441,13 +439,13 @@ internal static class TinkererClass
 
         // 14- magic item savant another attunement slot and ignore requirements on magic items
         // also another infusion slot
-        var InfusionPoolIncrease14 = FeatureDefinitionPowerPoolModifierBuilder
+        var infusionPoolIncrease14 = FeatureDefinitionPowerPoolModifierBuilder
             .Create("AttributeModiferArtificerInfusionIncreaseHealingPool14", GuidNamespace)
             .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
             .AddToDB();
 
-        artificerBuilder.AddFeatureAtLevel(14, InfusionPoolIncrease14);
+        artificerBuilder.AddFeatureAtLevel(14, infusionPoolIncrease14);
         artificerBuilder.AddFeatureAtLevel(14, infusionChoice, 2);
         artificerBuilder.AddFeatureAtLevel(14, infusionReplace);
         // probably give several infusions another boost here
@@ -465,26 +463,26 @@ internal static class TinkererClass
 
         // 18 - magic item master another attunement slot
         // also another infusion slot
-        var InfusionPoolIncrease18 = FeatureDefinitionPowerPoolModifierBuilder
+        var infusionPoolIncrease18 = FeatureDefinitionPowerPoolModifierBuilder
             .Create("AttributeModiferArtificerInfusionIncreaseHealingPool18", GuidNamespace)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
             .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
             .AddToDB();
 
-        artificerBuilder.AddFeatureAtLevel(18, InfusionPoolIncrease18);
+        artificerBuilder.AddFeatureAtLevel(18, infusionPoolIncrease18);
         artificerBuilder.AddFeatureAtLevel(18, infusionChoice, 2);
         artificerBuilder.AddFeatureAtLevel(18, infusionReplace);
 
         artificerBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
         artificerBuilder.AddFeatureAtLevel(19, infusionReplace);
 
-        var SoulOfArtificeGui = new GuiPresentationBuilder(
+        var soulOfArtificeGui = new GuiPresentationBuilder(
             "Subclass/&PowerTinkererSoulOfArtificeSavesTitle",
             "Subclass/&PowerTinkererSoulOfArtificeSavesDescription");
         var soulOfArtificeSaves = FeatureHelpers.BuildSavingThrowAffinity("TinkererSoulOfArtificeSavingThrow",
             AbilityScores, RuleDefinitions.CharacterSavingThrowAffinity.None,
             FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 3, RuleDefinitions.DieType.D4,
-            false, SoulOfArtificeGui.Build());
+            false, soulOfArtificeGui.Build());
         artificerBuilder.AddFeatureAtLevel(20, soulOfArtificeSaves);
         artificerBuilder.AddFeatureAtLevel(20, infusionReplace);
 

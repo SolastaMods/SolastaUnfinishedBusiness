@@ -8,8 +8,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features;
 internal static class WarlockPactOfTheChainSummons
 {
     private static FeatureDefinition _help;
-    public static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower { get; private set; }
-    public static FeatureDefinitionPower PactofChainFamiliarScarePower { get; private set; }
+    private static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower { get; set; }
+    private static FeatureDefinitionPower PactofChainFamiliarScarePower { get; set; }
 
     private static FeatureDefinition Help
     {
@@ -136,7 +136,7 @@ internal static class WarlockPactOfTheChainSummons
     //          .ClearEffectForms()
     //          .SetRequiredMonsterTag("WarlockFamiliar")
     //          .SetAddedConditions(
-    //              acConditionDefinition, stConditionDefinition, damageConditionDefinition, hitConditionDefinition, 
+    //              acConditionDefinition, stConditionDefinition, damageConditionDefinition, hitConditionDefinition,
     //              hpConditionDefinition, hpConditionDefinition)
     //          .AddToDB();
     //
@@ -254,7 +254,7 @@ internal static class WarlockPactOfTheChainSummons
         return monster;
     }
 
-    public static MonsterDefinition buildCustomSprite()
+    public static MonsterDefinition BuildCustomSprite()
     {
         var baseMonster = DatabaseHelper.MonsterDefinitions.Dryad;
 
@@ -374,7 +374,7 @@ internal static class WarlockPactOfTheChainSummons
         return monster;
     }
 
-    public static MonsterDefinition buildCustomImp()
+    public static MonsterDefinition BuildCustomImp()
     {
         var baseMonster = DatabaseHelper.MonsterDefinitions.Goblin;
 

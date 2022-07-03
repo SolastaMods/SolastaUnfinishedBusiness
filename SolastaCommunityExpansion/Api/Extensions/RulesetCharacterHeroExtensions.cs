@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
 public static class RulesetCharacterHeroExtensions
 {
     public static RulesetAttackMode RefreshAttackModePublic(
-        this RulesetCharacterHero instance,
+        [NotNull] this RulesetCharacterHero instance,
         ActionDefinitions.ActionType actionType,
         ItemDefinition itemDefinition,
         WeaponDescription weaponDescription,
@@ -14,7 +15,7 @@ public static class RulesetCharacterHeroExtensions
         string slotName,
         List<IAttackModificationProvider> attackModifiers,
         Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
-        RulesetItem weapon = null)
+        [CanBeNull] RulesetItem weapon = null)
     {
         var attackMode = instance.RefreshAttackMode(actionType, itemDefinition, weaponDescription,
             freeOffHand, canAddAbilityDamageBonus, slotName, attackModifiers, featuresOrigin, weapon);
@@ -22,7 +23,8 @@ public static class RulesetCharacterHeroExtensions
         return attackMode;
     }
 
-    public static List<(string, T)> GetTaggedFeaturesByType<T>(this RulesetCharacterHero hero) where T : class
+    [NotNull]
+    public static List<(string, T)> GetTaggedFeaturesByType<T>([NotNull] this RulesetCharacterHero hero) where T : class
     {
         var list = new List<(string, T)>();
 
@@ -34,7 +36,9 @@ public static class RulesetCharacterHeroExtensions
         return list;
     }
 
-    private static IEnumerable<(string, T)> GetTaggedFeatures<T>(string tag, IEnumerable<FeatureDefinition> features)
+    [NotNull]
+    private static IEnumerable<(string, T)> GetTaggedFeatures<T>(string tag,
+        [NotNull] IEnumerable<FeatureDefinition> features)
         where T : class
     {
         var list = new List<(string, T)>();

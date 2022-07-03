@@ -12,9 +12,9 @@ internal static class CharactersPanel_EnumeratePlates
 {
     private static void Rebase(Transform parent, int max)
     {
-        while (Main.Settings.DefaultPartyHeroes.Count > max)
+        while (Main.Settings.defaultPartyHeroes.Count > max)
         {
-            var heroToDelete = Main.Settings.DefaultPartyHeroes.ElementAt(0);
+            var heroToDelete = Main.Settings.defaultPartyHeroes.ElementAt(0);
 
             var child = parent.FindChildRecursive(heroToDelete);
 
@@ -67,7 +67,7 @@ internal static class CharactersPanel_EnumeratePlates
         var max = Main.Settings.OverridePartySize;
         var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
 
-        Main.Settings.DefaultPartyHeroes.RemoveAll(x => !characterPoolService.ContainsCharacter(x));
+        Main.Settings.defaultPartyHeroes.RemoveAll(x => !characterPoolService.ContainsCharacter(x));
 
         for (var i = 0; i < __instance.charactersTable.childCount; i++)
         {
@@ -81,17 +81,17 @@ internal static class CharactersPanel_EnumeratePlates
 
             checkBoxToggle.gameObject.SetActive(true);
             checkBoxToggle.onValueChanged = new Toggle.ToggleEvent();
-            checkBoxToggle.isOn = Main.Settings.DefaultPartyHeroes.Contains(character.name);
+            checkBoxToggle.isOn = Main.Settings.defaultPartyHeroes.Contains(character.name);
             checkBoxToggle.onValueChanged.AddListener(delegate
             {
                 if (checkBoxToggle.isOn)
                 {
-                    Main.Settings.DefaultPartyHeroes.Add(character.name);
+                    Main.Settings.defaultPartyHeroes.Add(character.name);
                     Rebase(character.parent.transform, max);
                 }
                 else
                 {
-                    Main.Settings.DefaultPartyHeroes.Remove(character.name);
+                    Main.Settings.defaultPartyHeroes.Remove(character.name);
                 }
             });
         }

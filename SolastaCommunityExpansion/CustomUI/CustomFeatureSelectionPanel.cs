@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ModKit;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -1167,7 +1166,7 @@ internal static class SpellBoxExtensions
 
     public static FeatureDefinition GetFeature(this SpellBox box)
     {
-        return Features.GetValueOrDefault(box);
+        return Features.TryGetValue(box, out var result) ? result : null;
     }
 
     public static void CustomFeatureBind(

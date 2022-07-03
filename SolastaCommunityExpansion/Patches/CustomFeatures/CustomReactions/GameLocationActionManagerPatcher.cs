@@ -35,13 +35,13 @@ internal static class GameLocationActionManager_ReactToSpendPower
 {
     internal static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
     {
-        if (reactionParams.RulesetEffect is RulesetEffectPower powerEffect
-            && powerEffect.PowerDefinition.IsBundlePower())
+        if (reactionParams.RulesetEffect is not RulesetEffectPower powerEffect ||
+            !powerEffect.PowerDefinition.IsBundlePower())
         {
-            __instance.AddInterruptRequest(new ReactionRequestSpendBundlePower(reactionParams));
-            return false;
+            return true;
         }
 
-        return true;
+        __instance.AddInterruptRequest(new ReactionRequestSpendBundlePower(reactionParams));
+        return false;
     }
 }

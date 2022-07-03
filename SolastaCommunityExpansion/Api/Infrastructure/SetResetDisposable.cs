@@ -8,7 +8,7 @@ public class SetResetDisposable : Disposable
 {
     private Action _reset;
 
-    public SetResetDisposable([NotNull] Action set, [NotNull] Action reset)
+    protected SetResetDisposable([NotNull] Action set, [NotNull] Action reset)
     {
         Preconditions.IsNotNull(set, nameof(set));
         Preconditions.IsNotNull(reset, nameof(reset));

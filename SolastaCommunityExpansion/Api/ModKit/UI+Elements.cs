@@ -1,7 +1,5 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
 
-using UnityEngine;
-
 namespace ModKit;
 
 public static partial class UI
@@ -14,14 +12,8 @@ public static partial class UI
     public const string DisclosureGlyphEmpty = " <color=#B8B8B8FF> </color> ";
 
     // Basic UI Elements (box, div, etc.)
-
-    public static void GUIDrawRect(Rect position, Color color)
-    {
-        GUI.Box(position, GUIContent.none, FillStyle(color));
-    }
-
     public static void Div(float indent = 0, float height = 0, float width = 0)
     {
-        Div(fillColor, indent, height, width);
+        Div(FillColor, indent, height, width);
     }
 }

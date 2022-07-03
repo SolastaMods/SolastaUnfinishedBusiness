@@ -70,28 +70,12 @@ internal static class SpellsContext
 
     internal static bool IsAllSetSelected()
     {
-        foreach (var spellListContext in SpellListContextTab.Values)
-        {
-            if (!spellListContext.IsAllSetSelected)
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return SpellListContextTab.Values.All(spellListContext => spellListContext.IsAllSetSelected);
     }
 
     internal static bool IsSuggestedSetSelected()
     {
-        foreach (var spellListContext in SpellListContextTab.Values)
-        {
-            if (!spellListContext.IsSuggestedSetSelected)
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return SpellListContextTab.Values.All(spellListContext => spellListContext.IsSuggestedSetSelected);
     }
 
     internal static void SelectAllSet(bool toggle)

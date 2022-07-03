@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Api.ModKit;
 
 namespace SolastaCommunityExpansion.Displays;
 
@@ -11,8 +13,8 @@ internal static class Shared
 
     internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
     {
-        UI.Label("Bem-vindo / Benarrivato / Bienvenido / Bienvenue / Welcome / Wilkommen / добро пожаловать / 欢迎".bold()
-            .yellow());
+        UI.Label("Bem-vindo / Benarrivato / Bienvenido / Bienvenue / Welcome / Wilkommen / добро пожаловать / 欢迎".Bold()
+            .Yellow());
         UI.Div();
 
         if (Main.Enabled)
@@ -99,7 +101,7 @@ internal static class Shared
 
                             if (flip)
                             {
-                                title = title.yellow();
+                                title = title.Yellow();
                             }
 
                             toggle = selectedDefinitions.Contains(definition.Name);
@@ -114,7 +116,7 @@ internal static class Shared
 
                                 if (flip)
                                 {
-                                    description = description.yellow();
+                                    description = description.Yellow();
                                 }
 
                                 UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));

@@ -24,27 +24,16 @@ public static class MulticlassInOutRulesContext
         // only allows existing classes with required In/Out attributes
         else if (hero.ClassesAndLevels.Count >= Main.Settings.MaxAllowedClasses)
         {
-            foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
-            {
-                if (!Main.Settings.EnableMinInOutAttributes
-                    || ApproveMultiClassInOut(hero, characterClassDefinition))
-                {
-                    allowedClasses.Add(characterClassDefinition);
-                }
-            }
+            allowedClasses.AddRange(hero.ClassesAndLevels.Keys.Where(characterClassDefinition =>
+                !Main.Settings.EnableMinInOutAttributes || ApproveMultiClassInOut(hero, characterClassDefinition)));
         }
 
         // only allows supported classes with required In/Out attributes
         else
         {
-            foreach (var classDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
-            {
-                if (IsSupported(classDefinition)
-                    && (!Main.Settings.EnableMinInOutAttributes || ApproveMultiClassInOut(hero, classDefinition)))
-                {
-                    allowedClasses.Add(classDefinition);
-                }
-            }
+            allowedClasses.AddRange(DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(classDefinition =>
+                IsSupported(classDefinition) && (!Main.Settings.EnableMinInOutAttributes ||
+                                                 ApproveMultiClassInOut(hero, classDefinition))));
         }
 
         allowedClasses.Sort((a, b) =>
@@ -52,12 +41,7 @@ public static class MulticlassInOutRulesContext
             hero.ClassesAndLevels.TryGetValue(a, out var aLevels);
             hero.ClassesAndLevels.TryGetValue(b, out var bLevels);
 
-            if (aLevels == bLevels)
-            {
-                return a.FormatTitle().CompareTo(b.FormatTitle());
-            }
-
-            return bLevels.CompareTo(aLevels);
+            return aLevels == bLevels ? a.FormatTitle().CompareTo(b.FormatTitle()) : bLevels.CompareTo(aLevels);
         });
 
         selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
@@ -67,14 +51,9 @@ public static class MulticlassInOutRulesContext
     {
         var attribute = hero.GetAttribute(attributeName);
         var activeModifiers = attribute.ActiveModifiers;
-        var currentValue = attribute.BaseValue;
-
-        foreach (var activeModifier in activeModifiers
-                     .Where(x => x.Operation ==
-                                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive))
-        {
-            currentValue += Mathf.FloorToInt(activeModifier.Value);
-        }
+        var currentValue = attribute.BaseValue + activeModifiers
+            .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            .Sum(activeModifier => Mathf.FloorToInt(activeModifier.Value));
 
         return Mathf.Clamp(currentValue, int.MinValue,
             attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
@@ -82,15 +61,12 @@ public static class MulticlassInOutRulesContext
 
     private static Dictionary<string, int> GetItemsAttributeModifiers(RulesetCharacterHero hero)
     {
-        var attributeModifiers = new Dictionary<string, int>();
         var items = new List<RulesetItem>();
 
         hero.CharacterInventory.EnumerateAllItems(items, false);
 
-        foreach (var attributeName in AttributeDefinitions.AbilityScoreNames)
-        {
-            attributeModifiers.Add(attributeName, 0);
-        }
+        var attributeModifiers =
+            AttributeDefinitions.AbilityScoreNames.ToDictionary(attributeName => attributeName, attributeName => 0);
 
         foreach (var featureDefinitionAttributeModifier in items
                      .SelectMany(x => x.ItemDefinition.StaticProperties
@@ -108,7 +84,7 @@ public static class MulticlassInOutRulesContext
     }
 
     [SuppressMessage("Convert switch statement to expression", "IDE0066")]
-    public static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+    private static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
     {
         if (classDefinition.GuiPresentation.Hidden)
         {
@@ -171,7 +147,7 @@ public static class MulticlassInOutRulesContext
         }
     }
 
-    public static bool IsSupported(CharacterClassDefinition classDefinition)
+    private static bool IsSupported(CharacterClassDefinition classDefinition)
     {
         return !classDefinition.GuiPresentation.Hidden;
     }

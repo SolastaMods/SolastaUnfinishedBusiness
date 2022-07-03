@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.CustomUI;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
@@ -6,8 +7,8 @@ namespace SolastaCommunityExpansion.Api.Extensions;
 
 internal static class CharacterReactionSubitemExtension
 {
-    internal static void BindWarcaster(this CharacterReactionSubitem instance,
-        ReactionRequestWarcaster reactionRequest,
+    internal static void BindWarcaster([NotNull] this CharacterReactionSubitem instance,
+        [NotNull] ReactionRequestWarcaster reactionRequest,
         int slotLevel,
         bool interactable,
         CharacterReactionSubitem.SubitemSelectedHandler subitemSelected)
@@ -58,8 +59,8 @@ internal static class CharacterReactionSubitemExtension
         }
     }
 
-    internal static void BindPowerBundle(this CharacterReactionSubitem instance,
-        ReactionRequestSpendBundlePower reactionRequest,
+    internal static void BindPowerBundle([NotNull] this CharacterReactionSubitem instance,
+        [NotNull] ReactionRequestSpendBundlePower reactionRequest,
         int slotLevel,
         bool interactable,
         CharacterReactionSubitem.SubitemSelectedHandler subitemSelected)

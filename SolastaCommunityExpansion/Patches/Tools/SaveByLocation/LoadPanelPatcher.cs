@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 using static GuiDropdown;
@@ -127,13 +127,13 @@ internal static class LoadPanel_OnBeginShow
             {
                 default:
                     Main.Error($"Unknown LocationType: {locationType}");
-                    return title.red();
+                    return title.Red();
                 case LocationType.StandardCampaign:
                     return title;
                 case LocationType.CustomCampaign:
-                    return title.yellow();
+                    return title.Yellow();
                 case LocationType.UserLocation:
-                    return title.orange();
+                    return title.Orange();
             }
         }
 

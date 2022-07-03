@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
-using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using static SolastaCommunityExpansion.Models.DmProEditorContext;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
@@ -53,7 +53,7 @@ internal static class UserLocationSettingsModal_RuntimeLoaded
 
             __instance.optionsListSize.Add(new GuiDropdown.OptionDataAdvanced
             {
-                text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).yellow() + " " +
+                text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).Yellow() + " " +
                        Gui.Format("{0} x {1}", sizeString, sizeString),
                 TooltipContent = string.Empty
             });

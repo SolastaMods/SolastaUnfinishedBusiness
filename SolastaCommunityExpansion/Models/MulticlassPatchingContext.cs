@@ -66,7 +66,7 @@ internal static class MulticlassPatchingContext
         AddNonOfficialBlueprintsToFeaturesCollections();
     }
 
-    internal static void AddNonOfficialBlueprintsToFeaturesCollections()
+    private static void AddNonOfficialBlueprintsToFeaturesCollections()
     {
         var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
         var dbFeatureDefinitionProficiency = DatabaseRepository.GetDatabase<FeatureDefinitionProficiency>();
@@ -216,7 +216,7 @@ internal static class MulticlassPatchingContext
         }
     }
 
-    internal static void PatchFeatureUnlocks()
+    private static void PatchFeatureUnlocks()
     {
         var patches = new Dictionary<MethodInfo, HeroContext>
         {

@@ -178,8 +178,8 @@ ModUi/&Translate=Translate
 ModUi/&TranslateCancel=Cancel {0} at {1}
 ModUi/&TranslationEngine=Translation engine
 ModUi/&Translations=Translations
-ModUi/&UnleashEnemyAsNpc=Allow Monsters to be selected on NPC gadgets <i><color=yellow>[press <color=#1E81B0>CTRL</color> while clicking Select on gadget panel]</color></i>
-ModUi/&UnleashNpcAsEnemy=Allow NPCs to be selected on monster gadgets <i><color=yellow>[press <color=#1E81B0>CTRL</color> while clicking Select on gadget panel]</color></i>
+ModUi/&UnleashEnemyAsNpc=Allow Monsters to be selected on NPC gadgets
+ModUi/&UnleashNpcAsEnemy=Allow NPCs to be selected on monster gadgets
 ModUi/&UnlockAllNpcFaces=Unlock all NPC faces
 ModUi/&UnlockEyeStyles=Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Unlock glowing colors for all markings and tattoos

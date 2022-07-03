@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using UnityEngine.AddressableAssets;
@@ -20,16 +19,6 @@ internal static class WitchSubclassHelper
             .SetPreparedSpellGroups(autoSpellLists)
             .SetCastingClass(witchClass)
             .SetAutoTag("Coven")
-            .AddToDB();
-
-        var featureSet = FeatureDefinitionFeatureSetBuilder
-            .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages,
-                $"FeatureSet{color}WitchMagic", namespaceGuid)
-            // .SetGuiPresentation($"{color}WitchMagic", Category.Subclass)
-            .SetGuiPresentation($"Subclass/&{color}WitchMagic", Gui.NoLocalization)
-            .SetFeatureSet(preparedSpells)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(true)
             .AddToDB();
 
         return CharacterSubclassDefinitionBuilder

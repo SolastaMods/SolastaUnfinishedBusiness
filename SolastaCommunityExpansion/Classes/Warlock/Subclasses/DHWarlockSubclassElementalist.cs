@@ -13,9 +13,9 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 
-internal static class DHWarlockSubclassElementalPatron
+internal static class WarlockSubclassElementalPatron
 {
-    public const string Name = "DHWarlockSubclassElementalPatron";
+    private const string Name = "DHWarlockSubclassElementalPatron";
 
     //Think about making smaller base pool of elements, with ability to expand via eldritch Invocations or Mysterium Arcana
     private static readonly Dictionary<string, ElementalFormConfig> ElementalFormCfg = new()
@@ -144,25 +144,10 @@ internal static class DHWarlockSubclassElementalPatron
             .SetOverriddenPower(ElementalFormPool)
             .AddToDB();
 
-
         BuildElementalForms();
         ElementalistSpells();
 
-        //Leaving this so that characters who took this subclass befre would load properly
-        var FeatureSet_Level01 = FeatureDefinitionFeatureSetBuilder
-            .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
-                "ElementalPatronFeatureSet_Level01", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ElementalPatronDummyFeatureSetTitle", Gui.NoLocalization)
-            .ClearFeatureSet()
-            .AddFeatureSet(ElementalFormPool)
-            .AddFeatureSet(ElementalistMagicAffinity)
-            //.AddFeature(DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityShockArcanistArcaneWarfare)
-            // bonus cantrip granted/selection for cantrips that deal the above damage?
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
-            .AddToDB();
-
-        var FeatureSet_Level06 = FeatureDefinitionFeatureSetBuilder
+        var featureSetLevel06 = FeatureDefinitionFeatureSetBuilder
             .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
                 "ElementalPatronFeatureSet_Level06", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
@@ -178,30 +163,6 @@ internal static class DHWarlockSubclassElementalPatron
             .SetUniqueChoices(false)
             .AddToDB();
 
-        /* enhanced Elemental form (1 power , 2 effect forms aura sphere target and condition applied to self)
-    * = immune ( heals from damage)
-    * and
-    * creates damage aura or damage retaliation
-        something like =
-    * "damageType": "DamageCold",
-       "damageAffinityType": "Immunity",
-       "tagsIgnoringAffinity": [],
-       "healsBack": true,
-       "healBackCap": 10,
-   */
-
-        //Leaving this so that characters who took this subclass befre would load properly
-        var FeatureSet_Level10 = FeatureDefinitionFeatureSetBuilder.Create(
-                DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
-                "ElementalPatronFeatureSet_Level10", DefinitionBuilder.CENamespaceGuid)
-            // .SetGuiPresentation(Category.Feature)
-            .SetGuiPresentation("Feature/&ElementalPatronDummyFeatureSetTitle", Gui.NoLocalization)
-            .ClearFeatureSet()
-            .AddFeatureSet(EnhancedElementalFormPool)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
-            .AddToDB();
-
         // cantrip at will version of Protection from Energy or conjure minor elementals
         AtWillConjureMinorElementals();
 
@@ -210,7 +171,7 @@ internal static class DHWarlockSubclassElementalPatron
                 DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
             // .AddFeatureAtLevel(FeatureSet_Level01, 1)
             .AddFeaturesAtLevel(1, ElementalistMagicAffinity, ElementalFormPool)
-            .AddFeatureAtLevel(FeatureSet_Level06, 6)
+            .AddFeatureAtLevel(featureSetLevel06, 6)
             .AddFeatureAtLevel(EnhancedElementalFormPool, 10)
             .AddFeatureAtLevel(MinorElementalBonusCantrip, 14)
             .AddToDB();
@@ -228,9 +189,9 @@ internal static class DHWarlockSubclassElementalPatron
 
         foreach (var e in ElementalFormCfg)
         {
-            var (RPower, EPower) = BuildElementalForm(e.Key, e.Value, iconRegular, iconEnhanced);
-            regularPowers.Add(RPower);
-            enhancedPowers.Add(EPower);
+            var (rPower, ePower) = BuildElementalForm(e.Key, e.Value, iconRegular, iconEnhanced);
+            regularPowers.Add(rPower);
+            enhancedPowers.Add(ePower);
         }
 
         PowerBundleContext.RegisterPowerBundle(ElementalFormPool, true, regularPowers);
@@ -250,7 +211,7 @@ internal static class DHWarlockSubclassElementalPatron
         ).Build();
     }
 
-    public static (FeatureDefinitionPower, FeatureDefinitionPower)
+    private static (FeatureDefinitionPower, FeatureDefinitionPower)
         BuildElementalForm(string text, ElementalFormConfig cfg, AssetReferenceSprite iconRegular,
             AssetReferenceSprite iconEnhanced)
     {
@@ -284,7 +245,7 @@ internal static class DHWarlockSubclassElementalPatron
             .SetConditionParticleReference(cfg.Particles)
             .AddToDB();
 
-        var ElementalFormPower = new FeatureDefinitionPowerSharedPoolBuilder(
+        var elementalFormPower = new FeatureDefinitionPowerSharedPoolBuilder(
                 "DH_ElementalForm_" + text,
                 ElementalFormPool,
                 RechargeRate.LongRest,
@@ -324,7 +285,7 @@ internal static class DHWarlockSubclassElementalPatron
             .SetCharacterShaderReference(cfg.Shaders)
             .AddToDB();
 
-        var EnhancedElementalFormPower = new FeatureDefinitionPowerSharedPoolBuilder(
+        var enhancedElementalFormPower = new FeatureDefinitionPowerSharedPoolBuilder(
                 "DH_EnhancedElementalForm_" + text,
                 EnhancedElementalFormPool,
                 RechargeRate.LongRest,
@@ -344,13 +305,13 @@ internal static class DHWarlockSubclassElementalPatron
                 GuiPresentation("ElementalFormEnhanced", text, cfg),
                 true
             )
-            .SetOverriddenPower(ElementalFormPower)
+            .SetOverriddenPower(elementalFormPower)
             .AddToDB();
 
-        return (ElementalFormPower, EnhancedElementalFormPower);
+        return (elementalFormPower, enhancedElementalFormPower);
     }
 
-    public static void AtWillConjureMinorElementals()
+    private static void AtWillConjureMinorElementals()
     {
         var AtWillConjureMinorElementalsBuilder = SpellDefinitionBuilder
             .Create(ConjureMinorElementals, "DHAtWillConjureMinorElementals", DefinitionBuilder.CENamespaceGuid);
@@ -364,7 +325,7 @@ internal static class DHWarlockSubclassElementalPatron
     }
 
 
-    public static void ElementalistSpells()
+    private static void ElementalistSpells()
     {
         var ElementalistSpellList = SpellListDefinitionBuilder
             .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellsList",
@@ -387,7 +348,7 @@ internal static class DHWarlockSubclassElementalPatron
             .AddToDB();
     }
 
-    internal class ElementalFormConfig
+    private sealed class ElementalFormConfig
     {
         internal DamageDefinition DamageType;
         internal FeatureDefinitionDamageAffinity Immunity;

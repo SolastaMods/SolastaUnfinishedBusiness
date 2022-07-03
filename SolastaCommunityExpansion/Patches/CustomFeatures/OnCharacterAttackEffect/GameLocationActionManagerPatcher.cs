@@ -60,22 +60,27 @@ internal static class GameLocationActionManager_ReactForReadiedAction
     internal static bool Prefix(CharacterActionParams reactionParams)
     {
         // For some reason TA do not set reactionParams.ReadyActionType to ReadyActionType.Cantrip
-        // So we manualy detect it as casting spell level 0
-        if (reactionParams.RulesetEffect is RulesetEffectSpell {SlotLevel: 0} spell)
+        // So we manually detect it as casting spell level 0
+        if (reactionParams.RulesetEffect is not RulesetEffectSpell {SlotLevel: 0} spell)
         {
-            var spelltargets = spell.ComputeTargetParameter();
-            if (reactionParams.RulesetEffect.EffectDescription.IsSingleTarget && spelltargets > 1)
-            {
-                var target = reactionParams.TargetCharacters.FirstOrDefault();
-                var mod = reactionParams.ActionModifiers.FirstOrDefault();
+            return true;
+        }
 
-                while (target != null && mod != null && reactionParams.TargetCharacters.Count < spelltargets)
-                {
-                    reactionParams.TargetCharacters.Add(target);
-                    // Technically casts after first might need to have different mods, but not by much since we attacking same target.
-                    reactionParams.ActionModifiers.Add(mod);
-                }
-            }
+        var spelltargets = spell.ComputeTargetParameter();
+
+        if (!reactionParams.RulesetEffect.EffectDescription.IsSingleTarget || spelltargets <= 1)
+        {
+            return true;
+        }
+
+        var target = reactionParams.TargetCharacters.FirstOrDefault();
+        var mod = reactionParams.ActionModifiers.FirstOrDefault();
+
+        while (target != null && mod != null && reactionParams.TargetCharacters.Count < spelltargets)
+        {
+            reactionParams.TargetCharacters.Add(target);
+            // Technically casts after first might need to have different mods, but not by much since we attacking same target.
+            reactionParams.ActionModifiers.Add(mod);
         }
 
         return true;

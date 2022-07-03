@@ -50,12 +50,9 @@ internal static class ConjurationsContext
     internal static void Load()
     {
         // NOTE: assumes monsters have FullyControlledWhenAllied=false by default
-
-        var controlled = Main.Settings.FullyControlConjurations;
-
         foreach (var conjuredMonster in ConjuredMonsters)
         {
-            conjuredMonster.fullyControlledWhenAllied = controlled;
+            conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
         }
 
         if (Main.Settings.EnableUpcastConjureElementalAndFey)
@@ -91,16 +88,18 @@ internal static class ConjurationsContext
             }
         }
 
-        // TODO: add higher and lower level elementals
+        // TODO: add higher level elemental
         // TODO: add higher level fey
 
-        ConfigureAdvancement(ConjureElemental);
         ConfigureAdvancement(ConjureFey);
+        ConfigureAdvancement(ConjureElemental);
+        ConfigureAdvancement(ConjureMinorElementals);
 
-        // Set advancement at spell level,not sub-spell
+        // Set advancement at spell level, not sub-spell
         static void ConfigureAdvancement(SpellDefinition spell)
         {
             var advancement = spell.EffectDescription.EffectAdvancement;
+
             advancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
             advancement.additionalSpellLevelPerIncrement = 1;
         }

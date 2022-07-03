@@ -8,7 +8,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefin
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
-internal class ArcaneFighter : AbstractSubclass
+internal sealed class ArcaneFighter : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("cab151dd-cc94-4c4c-bfba-a712b9a0b53d");
 
@@ -125,6 +125,8 @@ internal class ArcaneFighter : AbstractSubclass
 
     internal static void UpdateEnchantWeapon()
     {
-        EnchantWeapon.rechargeRate = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter ? RuleDefinitions.RechargeRate.ShortRest : RuleDefinitions.RechargeRate.LongRest;
+        EnchantWeapon.rechargeRate = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter
+            ? RuleDefinitions.RechargeRate.ShortRest
+            : RuleDefinitions.RechargeRate.LongRest;
     }
 }

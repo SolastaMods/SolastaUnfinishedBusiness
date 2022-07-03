@@ -57,6 +57,7 @@ internal static class FlexibleRacesContext
             }
         },
         {"DarkelfRace", new List<string> {"AttributeModifierDarkelfCharismaAbilityScoreIncrease"}},
+        {"HalfElfVariant", new List<string> {"FeatureSetHalfElfAbilityScoreIncrease"}},
         {
             "GnomeRace",
             new List<string>

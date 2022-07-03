@@ -290,29 +290,30 @@ public static class MulticlassGameUiContext
                 experience.ToString("N0"), num.ToString("N0"), (characterLevel + 1).ToString("N0")));
         }
 
-        if (hero.ClassesAndLevels.Count >
-            1) // cannot use InspectionPanelContext here as this method happens before that context is set
+        if (hero.ClassesAndLevels.Count <= 1)
         {
-            builder.Append('\n');
+            return builder.ToString();
+        }
 
-            for (var i = 0; i < hero.ClassesHistory.Count; i++)
+        builder.Append('\n');
+
+        for (var i = 0; i < hero.ClassesHistory.Count; i++)
+        {
+            var characterClassDefinition = hero.ClassesHistory[i];
+
+            hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition,
+                out var characterSubclassDefinition);
+
+            builder
+                .AppendFormat("\n{0:00} - ", i + 1)
+                .Append(characterClassDefinition.FormatTitle());
+
+            // NOTE: don't use characterSubclassDefinition?. which bypasses Unity object lifetime check
+            if (characterSubclassDefinition)
             {
-                var characterClassDefinition = hero.ClassesHistory[i];
-
-                hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition,
-                    out var characterSubclassDefinition);
-
                 builder
-                    .AppendFormat("\n{0:00} - ", i + 1)
-                    .Append(characterClassDefinition.FormatTitle());
-
-                // NOTE: don't use characterSubclassDefinition?. which bypasses Unity object lifetime check
-                if (characterSubclassDefinition)
-                {
-                    builder
-                        .Append(' ')
-                        .Append(characterSubclassDefinition.FormatTitle());
-                }
+                    .Append(' ')
+                    .Append(characterSubclassDefinition.FormatTitle());
             }
         }
 

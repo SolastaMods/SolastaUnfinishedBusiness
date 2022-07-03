@@ -12,7 +12,7 @@ internal static class GnomeRaceBuilder
 {
     internal static CharacterRaceDefinition GnomeRace { get; } = BuildGnome();
 
-    internal static CharacterRaceDefinition BuildGnome()
+    private static CharacterRaceDefinition BuildGnome()
     {
         var gnomeSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("Gnome", Resources.Gnome, 1024, 512);

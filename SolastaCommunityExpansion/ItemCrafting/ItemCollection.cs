@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 
-internal class ItemCollection
+internal sealed class ItemCollection
 {
     public Guid BaseGuid;
     public List<ItemDefinition> BaseWeapons;
@@ -13,9 +13,9 @@ internal class ItemCollection
 
     public struct MagicItemDataHolder
     {
-        public string Name;
-        public ItemDefinition Item;
-        public RecipeDefinition Recipe;
+        public readonly string Name;
+        public readonly ItemDefinition Item;
+        public readonly RecipeDefinition Recipe;
 
         public MagicItemDataHolder(string name, ItemDefinition item, RecipeDefinition recipe)
         {

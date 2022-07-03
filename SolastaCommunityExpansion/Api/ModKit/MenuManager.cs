@@ -4,11 +4,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using ModKit.Utility;
+using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 using UnityModManagerNet;
 
-namespace ModKit;
+namespace SolastaCommunityExpansion.Api.ModKit;
 
 public interface IMenuPage
 {
@@ -31,23 +32,39 @@ public interface IMenuBottomPage : IMenuPage
 {
 }
 
-public class MenuManager : INotifyPropertyChanged
+public sealed class MenuManager : INotifyPropertyChanged
 {
+    private static Exception _caughtException;
+    private readonly List<IMenuBottomPage> _bottomPages = new();
+    private readonly List<IMenuSelectablePage> _selectablePages = new();
+
+    private readonly List<IMenuTopPage> _topPages = new();
+
+    private int _tabIndex;
+
+    private int TabIndex
+    {
+        get => _tabIndex;
+        set
+        {
+            _tabIndex = value;
+            NotifyPropertyChanged();
+        }
+    }
+
     public event PropertyChangedEventHandler PropertyChanged;
 
-    // This method is called by the Set accessor of each property.  
-    // The CallerMemberName attribute that is applied to the optional propertyName  
-    // parameter causes the property name of the caller to be substituted as an argument.  
+    // This method is called by the Set accessor of each property.
+    // The CallerMemberName attribute that is applied to the optional propertyName
+    // parameter causes the property name of the caller to be substituted as an argument.
     private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    #region Toggle
-
-    public void Enable(UnityModManager.ModEntry modEntry, Assembly _assembly)
+    public void Enable(UnityModManager.ModEntry modEntry, Assembly assembly)
     {
-        foreach (var type in _assembly.GetTypes()
+        foreach (var type in assembly.GetTypes()
                      .Where(type =>
                          !type.IsInterface && !type.IsAbstract && typeof(IMenuPage).IsAssignableFrom(type)))
         {
@@ -67,48 +84,39 @@ public class MenuManager : INotifyPropertyChanged
             }
         }
 
-        static int comparison(IMenuPage x, IMenuPage y)
+        static int Comparison(IMenuPage x, IMenuPage y)
         {
             return x.Priority - y.Priority;
         }
 
-        _topPages.Sort(comparison);
-        _selectablePages.Sort(comparison);
-        _bottomPages.Sort(comparison);
+        _topPages.Sort(Comparison);
+        _selectablePages.Sort(Comparison);
+        _bottomPages.Sort(Comparison);
 
         modEntry.OnGUI += OnGUI;
     }
-
-    //public void Disable(UnityModManager.ModEntry modEntry) {
-    //    modEntry.OnGUI -= OnGUI;
-
-    //    _topPages.Clear();
-    //    _selectablePages.Clear();
-    //    _bottomPages.Clear();
-    //}
-
-    #endregion
 
     private void OnGUI(UnityModManager.ModEntry modEntry)
     {
         var hasPriorPage = false;
         try
         {
-            if (caughtException != null)
+            if (_caughtException != null)
             {
-                GUILayout.Label("ERROR".Red().Bold() + $": caught exception {caughtException}");
+                GUILayout.Label("ERROR".Red().Bold() + $": caught exception {_caughtException}");
+
                 if (GUILayout.Button("Reset".Orange().Bold(), GUILayout.ExpandWidth(false)))
                 {
-                    caughtException = null;
+                    _caughtException = null;
                 }
 
                 return;
             }
 
             var e = Event.current;
-            UI.userHasHitReturn = e.keyCode == KeyCode.Return;
-            UI.focusedControlName = GUI.GetNameOfFocusedControl();
 
+            UI.UserHasHitReturn = e.keyCode == KeyCode.Return;
+            UI.FocusedControlName = GUI.GetNameOfFocusedControl();
 
             if (_topPages.Count > 0)
             {
@@ -133,54 +141,34 @@ public class MenuManager : INotifyPropertyChanged
                         GUILayout.Space(10f);
                     }
 
-                    tabIndex = GUILayout.Toolbar(tabIndex, _selectablePages.Select(page => page.Name).ToArray());
+                    TabIndex = GUILayout.Toolbar(TabIndex, _selectablePages.Select(page => page.Name).ToArray());
 
                     GUILayout.Space(10f);
                 }
 
-                _selectablePages[tabIndex].OnGUI(modEntry);
+                _selectablePages[TabIndex].OnGUI(modEntry);
                 hasPriorPage = true;
             }
 
-            if (_bottomPages.Count > 0)
+            if (_bottomPages.Count <= 0)
             {
-                foreach (var page in _bottomPages)
-                {
-                    if (hasPriorPage)
-                    {
-                        GUILayout.Space(10f);
-                    }
+                return;
+            }
 
-                    page.OnGUI(modEntry);
-                    hasPriorPage = true;
+            foreach (var page in _bottomPages)
+            {
+                if (hasPriorPage)
+                {
+                    GUILayout.Space(10f);
                 }
+
+                page.OnGUI(modEntry);
+                hasPriorPage = true;
             }
         }
         catch (Exception e)
         {
-            Console.Write($"{e}");
-            caughtException = e;
+            _caughtException = e;
         }
     }
-
-    #region Fields
-
-    private int _tabIndex;
-
-    public int tabIndex
-    {
-        get => _tabIndex;
-        set
-        {
-            _tabIndex = value;
-            NotifyPropertyChanged();
-        }
-    }
-
-    private readonly List<IMenuTopPage> _topPages = new();
-    private readonly List<IMenuSelectablePage> _selectablePages = new();
-    private readonly List<IMenuBottomPage> _bottomPages = new();
-    private static Exception caughtException;
-
-    #endregion
 }

@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class CharacterExportContext
 {
-    internal const string INPUT_MODAL_MARK = "Message/&CharacterExportModalContentDescription";
+    internal const string InputModalMark = "Message/&CharacterExportModalContentDescription";
 
     internal static TMP_InputField InputField { get; private set; }
 
@@ -48,7 +48,7 @@ internal static class CharacterExportContext
         InputModalVisible = true;
 
         messageModal.Show(MessageModal.Severity.Informative1,
-            "Message/&CharacterExportModalTitleDescription", INPUT_MODAL_MARK,
+            "Message/&CharacterExportModalTitleDescription", InputModalMark,
             "Message/&MessageOkTitle", "Message/&MessageCancelTitle", MessageValidated, MessageCancelled);
 
         void MessageCancelled()

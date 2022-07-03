@@ -12,12 +12,14 @@ internal static class RulesetCharacter_UsePower_Getter
     {
         var originItem = __instance.OriginItem;
 
-        if (originItem != null && originItem.UsableDeviceDescription.SaveDC == -1)
+        if (originItem == null || originItem.UsableDeviceDescription.SaveDC != -1)
         {
-            var usablePower = __instance.UsablePower;
-
-            UsablePowersProvider.UpdateSaveDC(__instance.User, usablePower);
-            __result = usablePower.SaveDC;
+            return;
         }
+
+        var usablePower = __instance.UsablePower;
+
+        UsablePowersProvider.UpdateSaveDC(__instance.User, usablePower);
+        __result = usablePower.SaveDC;
     }
 }

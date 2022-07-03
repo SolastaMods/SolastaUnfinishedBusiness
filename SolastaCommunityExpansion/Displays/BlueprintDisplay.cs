@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using ModKit;
-using ModKit.Utility;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Api.ModKit;
 using SolastaCommunityExpansion.DataViewer;
 using UnityEngine;
 

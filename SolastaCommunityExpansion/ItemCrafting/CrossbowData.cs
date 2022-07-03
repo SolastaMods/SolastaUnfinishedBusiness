@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
 
@@ -7,11 +8,11 @@ namespace SolastaCommunityExpansion.ItemCrafting;
 
 internal static class CrossbowData
 {
-    private static ItemCollection crossbowItems;
+    private static ItemCollection _crossbowItems;
 
-    internal static ItemCollection CrossbowItems
-    {
-        get => crossbowItems ??= new ItemCollection
+    [NotNull]
+    internal static ItemCollection CrossbowItems =>
+        _crossbowItems ??= new ItemCollection
         {
             BaseGuid = new Guid("6eff8e23-1b2f-4e48-8cde-3abda9d4bc3b"),
             BaseWeapons =
@@ -39,6 +40,4 @@ internal static class CrossbowData
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_ShortbowMedusa)
             }
         };
-        set => crossbowItems = value;
-    }
 }

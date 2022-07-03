@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomInterfaces;
 
@@ -13,14 +14,12 @@ internal static class RulesetCharacter_Kill
 {
     internal static void Prefix(RulesetCharacter __instance)
     {
-        foreach (var keyValuePair in __instance.ConditionsByCategory)
+        foreach (var rulesetCondition in __instance.ConditionsByCategory
+                     .SelectMany(keyValuePair => keyValuePair.Value))
         {
-            foreach (var rulesetCondition in keyValuePair.Value)
+            if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
             {
-                if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
-                {
-                    notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
-                }
+                notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
             }
         }
     }

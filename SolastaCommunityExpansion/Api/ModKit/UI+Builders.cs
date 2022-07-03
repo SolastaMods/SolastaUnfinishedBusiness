@@ -2,6 +2,8 @@
 
 using System;
 using System.Linq;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Api.ModKit;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
@@ -9,17 +11,14 @@ namespace ModKit;
 
 public static partial class UI
 {
-    public static bool userHasHitReturn = false;
-    public static string focusedControlName = null;
+    private const float UmmWidth = 960f;
+    public static bool UserHasHitReturn = false;
+    public static string FocusedControlName = null;
 
-    public static Rect ummRect = new();
-    public static float ummWidth = 960f;
-    public static int ummTabID = 0;
+    public static Rect UmmRect = new();
 
-    public static Vector2[] ummScrollPosition;
-    public static bool IsNarrow => ummWidth < 1200;
+    private static bool IsNarrow => UmmWidth < 1200;
 
-    public static bool IsWide => ummWidth >= 1920;
     /*** UI Builders
      * 
      * This is a simple UI framework that simulates the style of SwiftUI.  
@@ -60,14 +59,6 @@ public static partial class UI
         }
     }
 
-    public static void Group(params Action[] actions)
-    {
-        foreach (var action in actions)
-        {
-            action();
-        }
-    }
-
     public static void HStack(string title = null, int stride = 0, params Action[] actions)
     {
         var length = actions.Length;
@@ -84,7 +75,7 @@ public static partial class UI
             BeginHorizontal();
             if (hasTitle)
             {
-                if (ii == 0) { Label(title.bold(), Width(150f)); }
+                if (ii == 0) { Label(title.Bold(), Width(150f)); }
                 else { Space(153); }
             }
 
@@ -98,25 +89,6 @@ public static partial class UI
         }
     }
 
-    public static void VStack(string title = null, params Action[] actions)
-    {
-        BeginVertical();
-        if (title != null) { Label(title); }
-
-        Group(actions);
-        EndVertical();
-    }
-
-    public static void Section(string title, params Action[] actions)
-    {
-        Space(25);
-        Label($"====== {title} ======".bold(), GL.ExpandWidth(true));
-        Space(25);
-        foreach (var action in actions) { action(); }
-
-        Space(10);
-    }
-
     public static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)
     {
         if (selected >= actions.Count())
@@ -125,11 +97,11 @@ public static partial class UI
         }
 
         var sel = selected;
-        var titles = actions.Select((a, i) => i == sel ? a.name.orange().bold() : a.name);
-        SelectionGrid(ref selected, titles.ToArray(), titles.Count(), ExpandWidth(true));
+        var titles = actions.Select((a, i) => i == sel ? a.Name.Orange().Bold() : a.Name);
+        SelectionGrid(ref selected, titles.ToArray(), titles.Count(), 6, ExpandWidth(true));
         GL.BeginVertical("box");
         header?.Invoke();
-        actions[selected].action();
+        actions[selected].Action();
         GL.EndVertical();
     }
 }

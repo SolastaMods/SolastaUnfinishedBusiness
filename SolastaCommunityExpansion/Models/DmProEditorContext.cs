@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModKit;
 using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Object = UnityEngine.Object;
@@ -117,7 +117,7 @@ internal static class DmProEditorContext
         flatRoomsCategory.name = "FlatRooms";
         flatRoomsCategory.guid = GuidHelper.Create(GUID, flatRoomsCategory.name).ToString();
         flatRoomsCategory.GuiPresentation.Title =
-            Gui.Localize($"BlueprintCategory/&{flatRoomsCategory.name}Title").yellow();
+            Gui.Localize($"BlueprintCategory/&{flatRoomsCategory.name}Title").Yellow();
         dbBlueprintCategory.Add(flatRoomsCategory);
 
         foreach (var blueprintCategory in dbBlueprintCategory)
@@ -133,7 +133,7 @@ internal static class DmProEditorContext
                     .ToString();
                 newBlueprintCategory.GuiPresentation.Title = Gui.Localize(blueprintCategory.GuiPresentation.Title) +
                                                              " " + Gui.Localize(environmentDefinition.GuiPresentation
-                                                                 .Title) + " [MODDED]".yellow();
+                                                                 .Title) + " [MODDED]".Yellow();
                 categories.Add(newBlueprintCategory);
             }
         }
@@ -164,7 +164,7 @@ internal static class DmProEditorContext
 
             flatRoom.name = $"Flat{multiplier:D2}Room";
             flatRoom.guid = GuidHelper.Create(GUID, flatRoom.name).ToString();
-            flatRoom.GuiPresentation.title = "Flat".yellow() + " Room";
+            flatRoom.GuiPresentation.title = "Flat".Yellow() + " Room";
             flatRoom.GuiPresentation.sortOrder = multiplier;
             flatRoom.GuiPresentation.hidden = true;
             flatRoom.category = "FlatRooms";
@@ -190,7 +190,7 @@ internal static class DmProEditorContext
 
         flatRoom.name = "Flat" + template;
         flatRoom.guid = GuidHelper.Create(GUID, flatRoom.name).ToString();
-        flatRoom.GuiPresentation.title = "Flat".yellow() + " " + Gui.Localize(flatRoom.GuiPresentation.Title);
+        flatRoom.GuiPresentation.title = "Flat".Yellow() + " " + Gui.Localize(flatRoom.GuiPresentation.Title);
         flatRoom.GuiPresentation.sortOrder = sortOrder;
         flatRoom.GuiPresentation.hidden = true;
         flatRoom.category = "FlatRooms";
@@ -226,7 +226,7 @@ internal static class DmProEditorContext
                 newGadgetBlueprint.guid = GuidHelper.Create(GUID, newGadgetBlueprint.name).ToString();
                 newGadgetBlueprint.GuiPresentation.Title = Gui.Localize(gadgetBlueprint.GuiPresentation.Title) + " " +
                                                            Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
-                                                               .Title).yellow();
+                                                               .Title).Yellow();
                 newGadgetBlueprint.category = categoryName;
                 newGadgetBlueprint.PrefabsByEnvironment.Clear();
 
@@ -267,7 +267,7 @@ internal static class DmProEditorContext
                 newPropBlueprint.guid = GuidHelper.Create(GUID, newPropBlueprint.name).ToString();
                 newPropBlueprint.GuiPresentation.Title = Gui.Localize(propBlueprint.GuiPresentation.Title) + " " +
                                                          Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
-                                                             .Title).yellow();
+                                                             .Title).Yellow();
                 newPropBlueprint.category = categoryName;
                 newPropBlueprint.PrefabsByEnvironment.Clear();
 
@@ -309,7 +309,7 @@ internal static class DmProEditorContext
                 newRoomBlueprint.guid = GuidHelper.Create(GUID, newRoomBlueprint.name).ToString();
                 newRoomBlueprint.GuiPresentation.Title = Gui.Localize(roomBlueprint.GuiPresentation.Title) + " " +
                                                          Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
-                                                             .Title).yellow();
+                                                             .Title).Yellow();
                 newRoomBlueprint.category = categoryName;
                 newRoomBlueprint.GuiPresentation.hidden = false;
                 newRoomBlueprint.PrefabsByEnvironment.Clear();
