@@ -1,4 +1,5 @@
 ﻿using ModKit;
+using SolastaCommunityExpansion.Api.ModKit;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Displays.BlueprintDisplay;
 using static SolastaCommunityExpansion.Displays.CharacterDisplay;

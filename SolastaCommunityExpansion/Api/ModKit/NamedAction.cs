@@ -2,16 +2,16 @@
 
 using System;
 
-namespace ModKit;
+namespace SolastaCommunityExpansion.Api.ModKit;
 
-public class NamedAction
+public sealed class NamedAction
 {
     public NamedAction(string name, Action action)
     {
-        this.name = name;
-        this.action = action;
+        Name = name;
+        Action = action;
     }
 
-    public string name { get; }
-    public Action action { get; }
+    public string Name { get; }
+    public Action Action { get; }
 }

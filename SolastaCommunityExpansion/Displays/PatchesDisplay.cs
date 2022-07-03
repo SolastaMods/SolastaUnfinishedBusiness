@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using ModKit;
+using SolastaCommunityExpansion.Api.ModKit;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Displays;
@@ -33,7 +34,7 @@ internal static class PatchesDisplay
 
         try
         {
-            var selectedPatchName = "All".bold();
+            var selectedPatchName = "All".Bold();
 
             using (new GUILayout.HorizontalScope())
             {
@@ -51,7 +52,7 @@ internal static class PatchesDisplay
                 {
                     using (new GUILayout.VerticalScope())
                     {
-                        if (GUILayout.Button("All".bold(), _buttonStyle))
+                        if (GUILayout.Button("All".Bold(), _buttonStyle))
                         {
                             _patches = null;
                             _modID = null;
@@ -60,7 +61,7 @@ internal static class PatchesDisplay
 
                         foreach (var pair in _modIdsToColor)
                         {
-                            if (GUILayout.Button(pair.Key.Color(pair.Value).bold(), _buttonStyle))
+                            if (GUILayout.Button(pair.Key.Color($"#{pair.Value}").Bold(), _buttonStyle))
                             {
                                 _patches = null;
                                 _modID = pair.Key;
@@ -73,8 +74,8 @@ internal static class PatchesDisplay
                     using (new GUILayout.VerticalScope())
                     {
                         selectedPatchName = string.IsNullOrEmpty(_modID)
-                            ? "All".bold()
-                            : _modID.Color(_modIdsToColor[_modID]).bold();
+                            ? "All".Bold()
+                            : _modID.Color($"#{_modIdsToColor[_modID]}").Bold();
                         if (GUILayout.Button($"Refresh Patch Info ({selectedPatchName})", _buttonStyle,
                                 UI.Width(200)))
                         {
@@ -110,7 +111,7 @@ internal static class PatchesDisplay
                 }
 
                 UI.Space(25);
-                UI.Label($"Patches Found: {methodBases.Count().ToString().cyan()}".orange());
+                UI.Label($"Patches Found: {methodBases.Count().ToString().Cyan()}".Orange());
                 var index = 1;
                 foreach (var method in methodBases)
                 {
@@ -156,7 +157,7 @@ internal static class PatchesDisplay
                                 foreach (var patch in patches)
                                 {
                                     var enabled = enabledPatches.Contains(patch);
-                                    if (ModKit.Private.UI.CheckBox("", enabled, false))
+                                    if (Api.ModKit.Private.UI.CheckBox("", enabled, false))
                                     {
                                         EnablePatchForMethod(!enabled, patch, method);
                                     }
@@ -176,7 +177,7 @@ internal static class PatchesDisplay
                             {
                                 foreach (var patch in patches)
                                 {
-                                    GUILayout.Label(patch.owner.Color(_modIdsToColor[patch.owner]).bold(),
+                                    GUILayout.Label(patch.owner.Color($"#{_modIdsToColor[patch.owner]}").Bold(),
                                         GUI.skin.label);
                                 }
                             }

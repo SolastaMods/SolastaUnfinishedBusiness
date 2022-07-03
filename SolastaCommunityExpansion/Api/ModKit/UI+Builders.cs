@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using SolastaCommunityExpansion.Api.ModKit;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
@@ -9,15 +10,13 @@ namespace ModKit;
 
 public static partial class UI
 {
-    public static bool userHasHitReturn = false;
-    public static string focusedControlName = null;
+    private const float UmmWidth = 960f;
+    public static bool UserHasHitReturn = false;
+    public static string FocusedControlName = null;
 
-    public static Rect ummRect = new();
-    public static float ummWidth = 960f;
-    public static int ummTabID = 0;
+    public static Rect UmmRect = new();
 
-    public static Vector2[] ummScrollPosition;
-    public static bool IsNarrow => ummWidth < 1200;
+    private static bool IsNarrow => UmmWidth < 1200;
 
     /*** UI Builders
      * 
@@ -83,7 +82,7 @@ public static partial class UI
             BeginHorizontal();
             if (hasTitle)
             {
-                if (ii == 0) { Label(title.bold(), Width(150f)); }
+                if (ii == 0) { Label(title.Bold(), Width(150f)); }
                 else { Space(153); }
             }
 
@@ -114,11 +113,11 @@ public static partial class UI
         }
 
         var sel = selected;
-        var titles = actions.Select((a, i) => i == sel ? a.name.orange().bold() : a.name);
+        var titles = actions.Select((a, i) => i == sel ? a.Name.Orange().Bold() : a.Name);
         SelectionGrid(ref selected, titles.ToArray(), titles.Count(), 6, ExpandWidth(true));
         GL.BeginVertical("box");
         header?.Invoke();
-        actions[selected].action();
+        actions[selected].Action();
         GL.EndVertical();
     }
 }

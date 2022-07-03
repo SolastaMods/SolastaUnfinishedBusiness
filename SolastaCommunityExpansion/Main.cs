@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using JetBrains.Annotations;
 using ModKit;
+using SolastaCommunityExpansion.Api.ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;

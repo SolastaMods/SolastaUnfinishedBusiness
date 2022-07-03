@@ -1,17 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ModKit.Utility;
+namespace SolastaCommunityExpansion.Api.ModKit;
 
 public static class GUIHelper
 {
-    public const string onMark = "<color=green><b>✔</b></color>";
-    public const string offMark = "<color=#A0A0A0E0>✖</color>";
-
-    private static string FormatOn = "▼".white().Bold() + " {0}";
-    private static string FormatOff = "▶".green().Bold() + " {0}";
-    private static string FormatNone = " ▪".white() + "   {0}";
-
     private static Texture2D fillTexture;
     private static readonly Color fillColor = new(1f, 1f, 1f, 0.65f);
 

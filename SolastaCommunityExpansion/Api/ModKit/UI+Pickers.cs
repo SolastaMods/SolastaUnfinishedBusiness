@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using SolastaCommunityExpansion.Api.ModKit;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
@@ -9,7 +10,11 @@ namespace ModKit;
 
 public static partial class UI
 {
-    public static bool SelectionGrid(ref int selected, string[] texts, int xCols, int maxColsIfNarrow = 4,
+    public static bool SelectionGrid(
+        ref int selected, 
+        string[] texts, 
+        int xCols, 
+        int maxColsIfNarrow = 4,
         params GUILayoutOption[] options)
     {
         if (xCols <= 0)
@@ -23,13 +28,15 @@ public static partial class UI
         }
 
         var sel = selected;
-        var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
+        var titles = texts.Select((a, i) => i == sel ? a.Orange().Bold() : a);
+        
         if (xCols <= 0)
         {
             xCols = texts.Count();
         }
 
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
+        
         return sel != selected;
     }
 }

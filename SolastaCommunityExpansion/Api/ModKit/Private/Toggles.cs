@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-namespace ModKit.Private;
+namespace SolastaCommunityExpansion.Api.ModKit.Private;
 
 public static class UI
 {
     private static readonly GUIContent _LabelContent = new();
-    public static readonly GUIContent CheckOn = new(ModKit.UI.CheckGlyphOn);
-    public static readonly GUIContent CheckOff = new(ModKit.UI.CheckGlyphOff);
-    public static readonly GUIContent DisclosureOn = new(ModKit.UI.DisclosureGlyphOn);
-    public static readonly GUIContent DisclosureOff = new(ModKit.UI.DisclosureGlyphOff);
-    public static readonly GUIContent DisclosureEmpty = new(ModKit.UI.DisclosureGlyphEmpty);
+    public static readonly GUIContent CheckOn = new(global::ModKit.UI.CheckGlyphOn);
+    public static readonly GUIContent CheckOff = new(global::ModKit.UI.CheckGlyphOff);
+    public static readonly GUIContent DisclosureOn = new(global::ModKit.UI.DisclosureGlyphOn);
+    public static readonly GUIContent DisclosureOff = new(global::ModKit.UI.DisclosureGlyphOff);
+    public static readonly GUIContent DisclosureEmpty = new(global::ModKit.UI.DisclosureGlyphEmpty);
 
     private static readonly int SButtonHint = "MyGUI.Button".GetHashCode();
 
@@ -26,6 +26,7 @@ public static class UI
     {
         var controlID = GUIUtility.GetControlID(SButtonHint, FocusType.Passive, rect);
         var result = false;
+
         switch (Event.current.GetTypeForControl(controlID))
         {
             case EventType.MouseDown:

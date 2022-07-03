@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using ModKit;
 using UnityEngine;
 using UnityModManagerNet;
 
-namespace ModKit;
+namespace SolastaCommunityExpansion.Api.ModKit;
 
 public interface IMenuPage
 {
@@ -30,7 +31,7 @@ public interface IMenuBottomPage : IMenuPage
 {
 }
 
-public class MenuManager : INotifyPropertyChanged
+public sealed class MenuManager : INotifyPropertyChanged
 {
     private static Exception _caughtException;
     private readonly List<IMenuBottomPage> _bottomPages = new();
@@ -40,7 +41,7 @@ public class MenuManager : INotifyPropertyChanged
 
     private int _tabIndex;
 
-    private int tabIndex
+    private int TabIndex
     {
         get => _tabIndex;
         set
@@ -60,9 +61,9 @@ public class MenuManager : INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    public void Enable(UnityModManager.ModEntry modEntry, Assembly _assembly)
+    public void Enable(UnityModManager.ModEntry modEntry, Assembly assembly)
     {
-        foreach (var type in _assembly.GetTypes()
+        foreach (var type in assembly.GetTypes()
                      .Where(type =>
                          !type.IsInterface && !type.IsAbstract && typeof(IMenuPage).IsAssignableFrom(type)))
         {
@@ -102,6 +103,7 @@ public class MenuManager : INotifyPropertyChanged
             if (_caughtException != null)
             {
                 GUILayout.Label("ERROR".Red().Bold() + $": caught exception {_caughtException}");
+
                 if (GUILayout.Button("Reset".Orange().Bold(), GUILayout.ExpandWidth(false)))
                 {
                     _caughtException = null;
@@ -112,8 +114,8 @@ public class MenuManager : INotifyPropertyChanged
 
             var e = Event.current;
 
-            UI.userHasHitReturn = e.keyCode == KeyCode.Return;
-            UI.focusedControlName = GUI.GetNameOfFocusedControl();
+            UI.UserHasHitReturn = e.keyCode == KeyCode.Return;
+            UI.FocusedControlName = GUI.GetNameOfFocusedControl();
 
             if (_topPages.Count > 0)
             {
@@ -138,12 +140,12 @@ public class MenuManager : INotifyPropertyChanged
                         GUILayout.Space(10f);
                     }
 
-                    tabIndex = GUILayout.Toolbar(tabIndex, _selectablePages.Select(page => page.Name).ToArray());
+                    TabIndex = GUILayout.Toolbar(TabIndex, _selectablePages.Select(page => page.Name).ToArray());
 
                     GUILayout.Space(10f);
                 }
 
-                _selectablePages[tabIndex].OnGUI(modEntry);
+                _selectablePages[TabIndex].OnGUI(modEntry);
                 hasPriorPage = true;
             }
 

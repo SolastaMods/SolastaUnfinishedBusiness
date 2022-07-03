@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.ModKit;
 using UnityEngine;
 
 namespace ModKit;
@@ -16,9 +17,6 @@ public enum ToggleState
 
 public static partial class UI
 {
-    public const string OnMark = "<color=green><b>✔</b></color>";
-    public const string OffMark = "<color=#A0A0A0E0>✖</color>";
-
     public static bool IsOn(this ToggleState state)
     {
         return state == ToggleState.On;
@@ -53,15 +51,16 @@ public static partial class UI
 
         if (width == 0 && !disclosureStyle)
         {
-            width = ToggleStyle.CalcSize(new GUIContent(title.bold())).x +
-                    GUI.skin.box.CalcSize(Private.UI.CheckOn).x + 10;
+            width = ToggleStyle.CalcSize(new GUIContent(title.Bold())).x +
+                    GUI.skin.box.CalcSize(SolastaCommunityExpansion.Api.ModKit.Private.UI.CheckOn).x + 10;
         }
 
         options = options.AddItem(width == 0 ? AutoWidth() : Width(width)).ToArray();
+
         if (!disclosureStyle)
         {
-            title = value ? title.bold() : title.medgrey().bold();
-            if (!Private.UI.CheckBox(title, value, isEmpty, ToggleStyle, options))
+            title = value ? title.Bold() : title.MedGrey().Bold();
+            if (!SolastaCommunityExpansion.Api.ModKit.Private.UI.CheckBox(title, value, isEmpty, ToggleStyle, options))
             {
                 return false;
             }
@@ -70,7 +69,7 @@ public static partial class UI
         }
         else
         {
-            if (!Private.UI.DisclosureToggle(title, value, isEmpty, options))
+            if (!SolastaCommunityExpansion.Api.ModKit.Private.UI.DisclosureToggle(title, value, isEmpty, options))
             {
                 return false;
             }
@@ -86,6 +85,7 @@ public static partial class UI
     {
         var isOn = toggle.IsOn();
         var isEmpty = toggle == ToggleState.None;
+
         if (TogglePrivate(title, ref isOn, isEmpty, true, 0, options))
         {
             toggle = toggle.Flip();
@@ -96,7 +96,7 @@ public static partial class UI
     {
         options = options.AddDefaults();
 
-        if (!Private.UI.CheckBox(title, value, false, ToggleStyle, options))
+        if (!SolastaCommunityExpansion.Api.ModKit.Private.UI.CheckBox(title, value, false, ToggleStyle, options))
         {
             return false;
         }
@@ -109,6 +109,7 @@ public static partial class UI
     public static bool DisclosureToggle(string title, ref bool value, float width = 175, params Action[] actions)
     {
         var changed = TogglePrivate(title, ref value, false, true, width);
+
         If(value, actions);
         return changed;
     }

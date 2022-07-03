@@ -14,6 +14,6 @@ public static partial class UI
     // Basic UI Elements (box, div, etc.)
     public static void Div(float indent = 0, float height = 0, float width = 0)
     {
-        Div(fillColor, indent, height, width);
+        Div(FillColor, indent, height, width);
     }
 }

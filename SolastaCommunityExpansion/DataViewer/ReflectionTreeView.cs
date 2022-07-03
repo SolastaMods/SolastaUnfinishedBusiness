@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using ModKit;
-using ModKit.Utility;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Api.ModKit;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.DataViewer;
@@ -141,7 +142,7 @@ public class ReflectionTreeView
                 GUILayout.Space(10f);
                 GUILayout.Label($"Scroll: {_startIndex} / {_totalNodeCount}", GUILayout.ExpandWidth(false));
                 GUILayout.Space(10f);
-                UI.ActionTextField(ref searchText, "searhText", _ => { }, () =>
+                UI.ActionTextField(ref searchText, "searchText", _ => { }, () =>
                 {
                     searchText = searchText.Trim();
                     ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
@@ -269,11 +270,11 @@ public class ReflectionTreeView
                 var name = node.Name;
                 name = name.MarkedSubstring(searchText);
                 UI.ToggleButton(ref expanded,
-                    $"[{node.NodeTypePrefix}] ".grey() +
+                    $"[{node.NodeTypePrefix}] ".Grey() +
                     name + " : " + (
-                        node.IsBaseType ? node.Type.Name.grey() :
-                        node.IsGameObject ? node.Type.Name.magenta() :
-                        node.IsEnumerable ? node.Type.Name.cyan() : node.Type.Name.orange()),
+                        node.IsBaseType ? node.Type.Name.Grey() :
+                        node.IsGameObject ? node.Type.Name.Magenta() :
+                        node.IsEnumerable ? node.Type.Name.Cyan() : node.Type.Name.Orange()),
                     _buttonStyle, GUILayout.ExpandWidth(false), GUILayout.MinWidth(TitleMinWidth));
 
                 // value
@@ -285,7 +286,7 @@ public class ReflectionTreeView
                 // instance type
                 if (node.InstType != null && node.InstType != node.Type)
                 {
-                    GUILayout.Label(node.InstType.Name.yellow(), _buttonStyle,
+                    GUILayout.Label(node.InstType.Name.Yellow(), _buttonStyle,
                         GUILayout.ExpandWidth(false));
                 }
             }
