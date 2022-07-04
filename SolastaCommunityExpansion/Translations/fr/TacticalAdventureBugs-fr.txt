@@ -1,0 +1,6 @@
+﻿Equipment/&ScrollConjureMinorElementalTitle=Parchemin d'invocation d'élémentaires mineurs
+Equipment/&ScrollConjureMinorElementalDescription=Lorsque vous utilisez ce parchemin, vous lancez le sort Conjuration d'élémentaires mineurs.
+Equipment/&ScrollDeathWardTitle=Parchemin de la mort
+Equipment/&ScrollDeathWardDescription=Lorsque vous utilisez ce parchemin, vous lancez le sort Deathward.
+Feature/&AttributeModifier{0}Description={0}
+Prop/&PrisonFenceDestroyedTitle=Clôture de la prison détruite

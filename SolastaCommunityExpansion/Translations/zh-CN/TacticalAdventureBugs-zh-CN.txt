@@ -1,0 +1,6 @@
+﻿Equipment/&ScrollConjureMinorElementalTitle=召唤小元素卷轴
+Equipment/&ScrollConjureMinorElementalDescription=当你使用这个卷轴时，你会施展咒语 Conjure Minor Elementals。
+Equipment/&ScrollDeathWardTitle=死亡卷轴
+Equipment/&ScrollDeathWardDescription=当你使用这个卷轴时，你施展了死亡之术。
+Feature/&AttributeModifier{0}Description={0}
+Prop/&PrisonFenceDestroyedTitle=监狱围栏被毁
