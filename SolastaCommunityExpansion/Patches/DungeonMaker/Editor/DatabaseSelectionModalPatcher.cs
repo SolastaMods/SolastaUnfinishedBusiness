@@ -8,11 +8,11 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class DatabaseSelectionModal_BuildMonsters
 {
-    internal static void Prefix(DatabaseSelectionModal __instance)
+    internal static bool Prefix(DatabaseSelectionModal __instance)
     {
         if (!Main.Settings.UnleashNpcAsEnemy)
         {
-            return;
+            return true;
         }
 
         __instance.allMonsters.Clear();
@@ -30,6 +30,8 @@ internal static class DatabaseSelectionModal_BuildMonsters
                 __instance.allMonsters.RemoveAt(index);
             }
         }
+
+        return false;
     }
 }
 
@@ -38,11 +40,11 @@ internal static class DatabaseSelectionModal_BuildMonsters
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class DatabaseSelectionModal_BuildNpcs
 {
-    internal static void Prefix(DatabaseSelectionModal __instance)
+    internal static bool Prefix(DatabaseSelectionModal __instance)
     {
         if (!Main.Settings.UnleashEnemyAsNpc)
         {
-            return;
+            return true;
         }
 
         __instance.allNpcs.Clear();
@@ -60,5 +62,7 @@ internal static class DatabaseSelectionModal_BuildNpcs
                 __instance.allNpcs.RemoveAt(index);
             }
         }
+
+        return false;
     }
 }
