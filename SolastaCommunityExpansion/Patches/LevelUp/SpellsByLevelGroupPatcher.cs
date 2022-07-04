@@ -169,11 +169,14 @@ internal static class SpellsByLevelGroup_BindLearning
             }
         }
 
-        CollectAllAutoPreparedSpells(__instance, characterBuildingService.CurrentLocalHeroCharacter, allSpells,
-            __instance.autoPreparedSpells);
+        if (!spellTag.Contains(AttributeDefinitions.TagRace)) // this is a patch over original TA code
+        {
+            CollectAllAutoPreparedSpells(__instance, characterBuildingService.CurrentLocalHeroCharacter, allSpells,
+                __instance.autoPreparedSpells);
 
-        FilterMulticlassBleeding(__instance, characterBuildingService.CurrentLocalHeroCharacter, allSpells,
-            __instance.autoPreparedSpells);
+            FilterMulticlassBleeding(__instance, characterBuildingService.CurrentLocalHeroCharacter, allSpells,
+                __instance.autoPreparedSpells);
+        }
 
         __instance.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
             allSpells, null, __instance.autoPreparedSpells, unlearnedSpells, autoPrepareTag);
