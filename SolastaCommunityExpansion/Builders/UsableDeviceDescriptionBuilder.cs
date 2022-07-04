@@ -27,13 +27,13 @@ public class UsableDeviceDescriptionBuilder
         };
     }
 
+#if false
     public UsableDeviceDescriptionBuilder SetUsage(ItemUsage usage)
     {
         description.usage = usage;
         return this;
     }
-
-#if false
+    
     public UsableDeviceDescriptionBuilder SetOutOfChargesConsequence(ItemOutOfCharges consequence)
     {
         description.outOfChargesConsequence = consequence;
@@ -74,6 +74,7 @@ public class UsableDeviceDescriptionBuilder
 
     #region Charge
 
+#if false
     public UsableDeviceDescriptionBuilder SetCharges(
         ItemChargesCapital capital = ItemChargesCapital.Fixed,
         int number = 1,
@@ -110,6 +111,7 @@ public class UsableDeviceDescriptionBuilder
         description.chargesCapitalBonus = bonus;
         return this;
     }
+#endif
 
     #endregion
 
@@ -128,6 +130,7 @@ public class UsableDeviceDescriptionBuilder
         return this;
     }
 
+#if false
     public UsableDeviceDescriptionBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         description.rechargeRate = rate;
@@ -151,6 +154,7 @@ public class UsableDeviceDescriptionBuilder
         description.rechargeBonus = bonus;
         return this;
     }
+#endif
 
     #endregion
 }

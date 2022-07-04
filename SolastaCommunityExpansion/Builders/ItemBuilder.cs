@@ -41,12 +41,14 @@ internal static class ItemBuilder
         }
 
         // If example enchated has multiple forms, copy over extra forms
-        if (magicalExample.WeaponDescription.EffectDescription.EffectForms.Count > 1)
+        if (magicalExample.WeaponDescription.EffectDescription.EffectForms.Count <= 1)
         {
-            for (var i = 1; i < magicalExample.WeaponDescription.EffectDescription.EffectForms.Count; i++)
-            {
-                builder.AddWeaponEffect(magicalExample.WeaponDescription.EffectDescription.EffectForms[i]);
-            }
+            return builder.AddToDB();
+        }
+
+        for (var i = 1; i < magicalExample.WeaponDescription.EffectDescription.EffectForms.Count; i++)
+        {
+            builder.AddWeaponEffect(magicalExample.WeaponDescription.EffectDescription.EffectForms[i]);
         }
 
         return builder.AddToDB();
