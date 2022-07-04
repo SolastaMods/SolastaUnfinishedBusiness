@@ -13,7 +13,7 @@ internal static class FaceUnlockContext
     {
         var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
 
-        if (Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos)
+        if (Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(
                          x => x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecorationColor &&
@@ -75,7 +75,7 @@ internal static class FaceUnlockContext
             }
         }
 
-        if (Main.Settings.UnlockMarkAndTatoosForAllCharacters)
+        if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
                          x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecoration))

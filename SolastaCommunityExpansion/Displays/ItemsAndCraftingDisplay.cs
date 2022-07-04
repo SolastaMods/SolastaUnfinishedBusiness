@@ -105,10 +105,10 @@ internal static class ItemsAndCraftingDisplay
             Main.Settings.RemoveAttunementRequirements = toggle;
         }
 
-        toggle = Main.Settings.RemoveIdentifcationRequirements;
+        toggle = Main.Settings.RemoveIdentificationRequirements;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveIdentifcationRequirements"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.RemoveIdentifcationRequirements = toggle;
+            Main.Settings.RemoveIdentificationRequirements = toggle;
         }
 
         UI.Label("");

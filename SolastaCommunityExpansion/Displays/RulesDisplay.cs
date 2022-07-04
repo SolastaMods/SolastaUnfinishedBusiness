@@ -172,10 +172,10 @@ internal static class RulesDisplay
 
         UI.Label("");
 
-        toggle = Main.Settings.AddPickpocketableLoot;
+        toggle = Main.Settings.AddPickPocketableLoot;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPickpocketableLoot"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddPickpocketableLoot = toggle;
+            Main.Settings.AddPickPocketableLoot = toggle;
             if (toggle)
             {
                 PickPocketContext.Load();
