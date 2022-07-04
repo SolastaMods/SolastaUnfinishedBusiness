@@ -6,9 +6,7 @@ public static class DiceByRankBuilder
 {
     public static DiceByRank BuildDiceByRank(int rank, int dice)
     {
-        var diceByRank = new DiceByRank();
-        diceByRank.rank = rank;
-        diceByRank.diceNumber = dice;
+        var diceByRank = new DiceByRank {rank = rank, diceNumber = dice};
         return diceByRank;
     }
 }

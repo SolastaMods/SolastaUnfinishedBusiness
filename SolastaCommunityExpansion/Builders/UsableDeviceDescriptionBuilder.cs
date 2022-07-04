@@ -9,32 +9,31 @@ public class UsableDeviceDescriptionBuilder
 
     public UsableDeviceDescriptionBuilder()
     {
-        description = new UsableDeviceDescription();
-
-        description.usage = ItemUsage.ByFunction;
-
-        description.chargesCapital = ItemChargesCapital.Fixed;
-        description.chargesCapitalNumber = 1;
-        description.chargesCapitalDie = RuleDefinitions.DieType.D1;
-        description.chargesCapitalBonus = 0;
-
-        description.rechargeRate = RuleDefinitions.RechargeRate.Dawn;
-        description.rechargeNumber = 1;
-        description.rechargeDie = RuleDefinitions.DieType.D1;
-        description.rechargeBonus = 0;
-
-        description.outOfChargesConsequence = ItemOutOfCharges.Persist;
-        description.magicAttackBonus = 0;
-        description.saveDC = 10;
-        description.onUseParticle = new AssetReference();
+        description = new UsableDeviceDescription
+        {
+            usage = ItemUsage.ByFunction,
+            chargesCapital = ItemChargesCapital.Fixed,
+            chargesCapitalNumber = 1,
+            chargesCapitalDie = RuleDefinitions.DieType.D1,
+            chargesCapitalBonus = 0,
+            rechargeRate = RuleDefinitions.RechargeRate.Dawn,
+            rechargeNumber = 1,
+            rechargeDie = RuleDefinitions.DieType.D1,
+            rechargeBonus = 0,
+            outOfChargesConsequence = ItemOutOfCharges.Persist,
+            magicAttackBonus = 0,
+            saveDC = 10,
+            onUseParticle = new AssetReference()
+        };
     }
 
+#if false
     public UsableDeviceDescriptionBuilder SetUsage(ItemUsage usage)
     {
         description.usage = usage;
         return this;
     }
-
+    
     public UsableDeviceDescriptionBuilder SetOutOfChargesConsequence(ItemOutOfCharges consequence)
     {
         description.outOfChargesConsequence = consequence;
@@ -46,6 +45,7 @@ public class UsableDeviceDescriptionBuilder
         description.magicAttackBonus = bonus;
         return this;
     }
+#endif
 
     public UsableDeviceDescriptionBuilder SetSaveDC(int DC)
     {
@@ -53,11 +53,13 @@ public class UsableDeviceDescriptionBuilder
         return this;
     }
 
+#if false
     public UsableDeviceDescriptionBuilder SetOnUseParticle(AssetReference asset)
     {
         description.onUseParticle = asset;
         return this;
     }
+#endif
 
     public UsableDeviceDescriptionBuilder AddFunctions(params DeviceFunctionDescription[] functions)
     {
@@ -72,6 +74,7 @@ public class UsableDeviceDescriptionBuilder
 
     #region Charge
 
+#if false
     public UsableDeviceDescriptionBuilder SetCharges(
         ItemChargesCapital capital = ItemChargesCapital.Fixed,
         int number = 1,
@@ -108,6 +111,7 @@ public class UsableDeviceDescriptionBuilder
         description.chargesCapitalBonus = bonus;
         return this;
     }
+#endif
 
     #endregion
 
@@ -126,6 +130,7 @@ public class UsableDeviceDescriptionBuilder
         return this;
     }
 
+#if false
     public UsableDeviceDescriptionBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         description.rechargeRate = rate;
@@ -149,6 +154,7 @@ public class UsableDeviceDescriptionBuilder
         description.rechargeBonus = bonus;
         return this;
     }
+#endif
 
     #endregion
 }

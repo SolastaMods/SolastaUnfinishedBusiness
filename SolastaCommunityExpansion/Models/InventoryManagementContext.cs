@@ -31,7 +31,7 @@ internal static class InventoryManagementContext
 
     private static GuiDropdown SortGuiDropdown { get; set; }
 
-    internal static Action SelectionChanged { get; set; }
+    internal static Action SelectionChanged { get; private set; }
 
     internal static void Load()
     {

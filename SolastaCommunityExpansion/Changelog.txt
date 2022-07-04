@@ -2,5 +2,7 @@
 
 CHANGES:
 
-- Fix replacement logic incorrectly removing attributes
-- Fix DM Pro NPCs / Monsters feature
+- Disable inventory sorting under MP
+- Fix ancestries cantrip offering
+- Fix wrong slot pre-selection on smites
+- Improve batch translations

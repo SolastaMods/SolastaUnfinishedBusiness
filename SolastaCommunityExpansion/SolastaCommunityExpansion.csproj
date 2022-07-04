@@ -242,10 +242,10 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-
-  <Target Name="ZipTranslations" BeforeTargets="Compile">
-    <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip" />
-  </Target>
+  
+<!--  <Target Name="ZipTranslations" BeforeTargets="Compile">-->
+<!--    <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip" />-->
+<!--  </Target>-->
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

@@ -11,18 +11,20 @@ internal class
     public CancelConditionPowerBuilder(string name, string guid, GuiPresentation presentation,
         ConditionDefinition condition) : base(name, guid)
     {
-        Definition.GuiPresentation = presentation;
-        Definition.fixedUsesPerRecharge = 1;
-        Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
-        Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
-        Definition.activationTime = RuleDefinitions.ActivationTime.NoCost;
         var effectDescriptionBuilder = new EffectDescriptionBuilder();
+
         effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
             RuleDefinitions.TargetType.Self);
         effectDescriptionBuilder.AddEffectForm(new EffectFormBuilder()
             .SetConditionForm(condition, ConditionForm.ConditionOperation.Remove, false, false,
                 new List<ConditionDefinition>()).Build());
+
         Definition.effectDescription = effectDescriptionBuilder.Build();
+        Definition.GuiPresentation = presentation;
+        Definition.fixedUsesPerRecharge = 1;
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
+        Definition.activationTime = RuleDefinitions.ActivationTime.NoCost;
     }
 
     #region Constructors

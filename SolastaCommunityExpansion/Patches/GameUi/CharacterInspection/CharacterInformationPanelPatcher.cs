@@ -23,24 +23,18 @@ internal static class CharacterInformationPanel_EnumerateFeatures
     {
         choiceFeature = null;
 
-        foreach (var featureUnlock in panel.InspectedCharacter.MainClassDefinition.FeatureUnlocks)
+        foreach (var featureDefinition in panel.InspectedCharacter.MainClassDefinition.FeatureUnlocks.Select(featureUnlock => featureUnlock.FeatureDefinition))
         {
-            var featureDefinition = featureUnlock.FeatureDefinition;
-
-            if (featureDefinition is FeatureDefinitionFeatureSetCustom set && set.AllFeatures.Contains(subFeature))
+            switch (featureDefinition)
             {
-                choiceFeature = featureDefinition;
+                case FeatureDefinitionFeatureSetCustom set when set.AllFeatures.Contains(subFeature):
+                    choiceFeature = featureDefinition;
 
-                return true;
-            }
+                    return true;
+                case FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion} definitionFeatureSet when definitionFeatureSet.FeatureSet.Contains(subFeature):
+                    choiceFeature = featureDefinition;
 
-            if (featureDefinition is FeatureDefinitionFeatureSet definitionFeatureSet
-                && definitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion
-                && definitionFeatureSet.FeatureSet.Contains(subFeature))
-            {
-                choiceFeature = featureDefinition;
-
-                return true;
+                    return true;
             }
         }
 

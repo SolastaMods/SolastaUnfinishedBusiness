@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Api.Infrastructure;
 using TA.AI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -67,22 +66,25 @@ public class EffectFormBuilder
 
     public EffectFormBuilder SetAlterationForm(AlterationForm.Type alterationType)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Alteration;
-        var alterationForm = new AlterationForm();
-        alterationForm.alterationType = alterationType;
+        var alterationForm = new AlterationForm {alterationType = alterationType};
+
         effectForm.alterationForm = alterationForm;
+        effectForm.FormType = EffectForm.EffectFormType.Alteration;
         return this;
     }
 
     public EffectFormBuilder SetAlterationAbilityScore(string abilityScore, int valueIncrease, int maximumIncrease)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Alteration;
-        var alterationForm = new AlterationForm();
-        alterationForm.alterationType = AlterationForm.Type.AbilityScoreIncrease;
-        alterationForm.abilityScore = abilityScore;
-        alterationForm.valueIncrease = valueIncrease;
-        alterationForm.maximumIncrease = maximumIncrease;
+        var alterationForm = new AlterationForm
+        {
+            alterationType = AlterationForm.Type.AbilityScoreIncrease,
+            abilityScore = abilityScore,
+            valueIncrease = valueIncrease,
+            maximumIncrease = maximumIncrease
+        };
+
         effectForm.alterationForm = alterationForm;
+        effectForm.FormType = EffectForm.EffectFormType.Alteration;
         return this;
     }
 
@@ -105,15 +107,20 @@ public class EffectFormBuilder
         IEnumerable<ConditionDefinition> detrimentalConditions)
     {
         effectForm.FormType = EffectForm.EffectFormType.Condition;
-        var conditionForm = new ConditionForm {Operation = operation, ConditionDefinition = condition};
+        var conditionForm = new ConditionForm
+        {
+            Operation = operation,
+            ConditionDefinition = condition,
+            applyToSelf = applyToSelf,
+            forceOnSelf = forceOnSelf,
+            conditionsList = detrimentalConditions.ToList()
+        };
+
         if (condition != null)
         {
             conditionForm.conditionDefinitionName = condition.Name;
         }
 
-        conditionForm.applyToSelf = applyToSelf;
-        conditionForm.forceOnSelf = forceOnSelf;
-        conditionForm.ConditionsList.SetRange(detrimentalConditions.ToList());
         effectForm.ConditionForm = conditionForm;
         return this;
     }
@@ -121,14 +128,16 @@ public class EffectFormBuilder
     public EffectFormBuilder SetCounterForm(CounterForm.CounterType type, int automaticSpellLevel, int checkBaseDC,
         bool addSpellCastingAbility, bool addProficiencyBonus)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Counter;
-        var counterForm = new CounterForm();
-        counterForm.type = type;
-        counterForm.automaticSpellLevel = automaticSpellLevel;
-        counterForm.checkBaseDC = checkBaseDC;
-        counterForm.addSpellCastingAbility = addSpellCastingAbility;
-        counterForm.addProficiencyBonus = addProficiencyBonus;
+        var counterForm = new CounterForm
+        {
+            type = type,
+            automaticSpellLevel = automaticSpellLevel,
+            checkBaseDC = checkBaseDC,
+            addSpellCastingAbility = addSpellCastingAbility,
+            addProficiencyBonus = addProficiencyBonus
+        };
         effectForm.counterForm = counterForm;
+        effectForm.FormType = EffectForm.EffectFormType.Counter;
         return this;
     }
 
@@ -147,28 +156,32 @@ public class EffectFormBuilder
         DieType dieType, int diceNumber, HealFromInflictedDamage healFromInflictedDamage,
         IEnumerable<TrendInfo> damageBonusTrends)
     {
+        var damageForm = new DamageForm
+        {
+            versatile = versatile,
+            VersatileDieType = versatileDieType,
+            BonusDamage = bonusDamage,
+            DamageType = damageType,
+            DiceNumber = diceNumber,
+            DieType = dieType,
+            healFromInflictedDamage = healFromInflictedDamage,
+            damageBonusTrends = damageBonusTrends.ToList()
+        };
+
         effectForm.FormType = EffectForm.EffectFormType.Damage;
-        var damageForm = new DamageForm();
-        damageForm.versatile = versatile;
-        damageForm.VersatileDieType = versatileDieType;
-        damageForm.BonusDamage = bonusDamage;
-        damageForm.DamageType = damageType;
-        damageForm.DiceNumber = diceNumber;
-        damageForm.DieType = dieType;
-        damageForm.healFromInflictedDamage = healFromInflictedDamage;
-        damageForm.DamageBonusTrends.SetRange(damageBonusTrends);
         effectForm.DamageForm = damageForm;
         return this;
     }
 
     public EffectFormBuilder SetKillForm(KillCondition condition, float challengeRating = 0, int hitPoints = 0)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Kill;
-        var killForm = new KillForm();
-        killForm.killCondition = condition;
-        killForm.challengeRating = challengeRating;
-        killForm.hitPoints = hitPoints;
+        var killForm = new KillForm
+        {
+            killCondition = condition, challengeRating = challengeRating, hitPoints = hitPoints
+        };
+
         effectForm.killForm = killForm;
+        effectForm.FormType = EffectForm.EffectFormType.Kill;
         return this;
     }
 
@@ -176,13 +189,16 @@ public class EffectFormBuilder
         IEnumerable<CharacterFamilyDefinition> creatureFamilies,
         IEnumerable<string> revealedTags, int rangeCells)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Divination;
-        var divinationForm = new DivinationForm();
-        divinationForm.divinationType = divinationType;
-        divinationForm.CreatureFamilies.SetRange(creatureFamilies);
-        divinationForm.RevealedTags.SetRange(revealedTags);
-        divinationForm.rangeCells = rangeCells;
+        var divinationForm = new DivinationForm
+        {
+            divinationType = divinationType,
+            creatureFamilies = creatureFamilies.ToList(),
+            revealedTags = revealedTags.ToList(),
+            rangeCells = rangeCells
+        };
+
         effectForm.divinationForm = divinationForm;
+        effectForm.FormType = EffectForm.EffectFormType.Divination;
         return this;
     }
 
@@ -190,8 +206,6 @@ public class EffectFormBuilder
         int bonusHitPoints, DieType dieType, int diceNumber, bool variablePool,
         HealingCap healingCap)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Healing;
-
         var healingForm = new HealingForm
         {
             HealingComputation = healingComputation,
@@ -201,7 +215,9 @@ public class EffectFormBuilder
             VariablePool = variablePool,
             HealingCap = healingCap
         };
+
         effectForm.healingForm = healingForm;
+        effectForm.FormType = EffectForm.EffectFormType.Healing;
         return this;
     }
 
@@ -214,12 +230,15 @@ public class EffectFormBuilder
     public EffectFormBuilder SetItemPropertyForm(IEnumerable<FeatureUnlockByLevel> featureBySlotLevel,
         ItemPropertyUsage usageLimitation, int useAmount)
     {
-        effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
-        var itemForm = new ItemPropertyForm();
-        itemForm.usageLimitation = usageLimitation;
-        itemForm.useAmount = useAmount;
-        itemForm.FeatureBySlotLevel.SetRange(featureBySlotLevel);
+        var itemForm = new ItemPropertyForm
+        {
+            usageLimitation = usageLimitation,
+            useAmount = useAmount,
+            featureBySlotLevel = featureBySlotLevel.ToList()
+        };
+
         effectForm.itemPropertyForm = itemForm;
+        effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
         return this;
     }
 
@@ -227,24 +246,26 @@ public class EffectFormBuilder
         int dimAdditionalRange,
         Color color, AssetReference graphicsPrefabReference)
     {
-        effectForm.FormType = EffectForm.EffectFormType.LightSource;
-        var lightSourceForm = new LightSourceForm();
-        lightSourceForm.lightSourceType = lightSourceType;
-        lightSourceForm.brightRange = brightRange;
-        lightSourceForm.dimAdditionalRange = dimAdditionalRange;
-        lightSourceForm.color = color;
-        lightSourceForm.graphicsPrefabReference = graphicsPrefabReference;
+        var lightSourceForm = new LightSourceForm
+        {
+            lightSourceType = lightSourceType,
+            brightRange = brightRange,
+            dimAdditionalRange = dimAdditionalRange,
+            color = color,
+            graphicsPrefabReference = graphicsPrefabReference
+        };
+
         effectForm.lightSourceForm = lightSourceForm;
+        effectForm.FormType = EffectForm.EffectFormType.LightSource;
         return this;
     }
 
     public EffectFormBuilder SetMotionForm(MotionForm.MotionType motionType, int motionDistance)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Motion;
-        var motionForm = new MotionForm();
-        motionForm.type = motionType;
-        motionForm.distance = motionDistance;
+        var motionForm = new MotionForm {type = motionType, distance = motionDistance};
+
         effectForm.motionForm = motionForm;
+        effectForm.FormType = EffectForm.EffectFormType.Motion;
         return this;
     }
 
@@ -257,23 +278,27 @@ public class EffectFormBuilder
     public EffectFormBuilder SetReviveForm(int secondsSinceDeath, ReviveHitPoints reviveHitPoints,
         IEnumerable<ConditionDefinition> removedConditions)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Revive;
-        var reviveForm = new ReviveForm();
-        reviveForm.maxSecondsSinceDeath = secondsSinceDeath;
-        reviveForm.reviveHitPoints = reviveHitPoints;
-        reviveForm.RemovedConditions.SetRange(removedConditions);
+        var reviveForm = new ReviveForm
+        {
+            maxSecondsSinceDeath = secondsSinceDeath,
+            reviveHitPoints = reviveHitPoints,
+            removedConditions = removedConditions.ToList()
+        };
 
         effectForm.reviveForm = reviveForm;
+        effectForm.FormType = EffectForm.EffectFormType.Revive;
         return this;
     }
 
     public EffectFormBuilder SetSpellForm(int maxSlotLevel)
     {
-        effectForm.FormType = EffectForm.EffectFormType.SpellSlots;
-        var spellSlotsForm = new SpellSlotsForm();
-        spellSlotsForm.type = SpellSlotsForm.EffectType.RecoverHalfLevelUp;
-        spellSlotsForm.maxSlotLevel = maxSlotLevel;
+        var spellSlotsForm = new SpellSlotsForm
+        {
+            type = SpellSlotsForm.EffectType.RecoverHalfLevelUp, maxSlotLevel = maxSlotLevel
+        };
+
         effectForm.spellSlotsForm = spellSlotsForm;
+        effectForm.FormType = EffectForm.EffectFormType.SpellSlots;
         return this;
     }
 
@@ -282,17 +307,20 @@ public class EffectFormBuilder
         bool persistOnConcentrationLoss, DecisionPackageDefinition decisionPackage,
         EffectProxyDefinition effectProxyDefinition)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Summon;
-        var summonForm = new SummonForm();
-        summonForm.summonType = summonType;
-        summonForm.itemDefinition = item;
-        summonForm.number = number;
-        summonForm.monsterDefinitionName = monsterDefinitionName;
-        summonForm.conditionDefinition = conditionDefinition;
-        summonForm.persistOnConcentrationLoss = persistOnConcentrationLoss;
-        summonForm.decisionPackage = decisionPackage;
-        summonForm.effectProxyDefinitionName = effectProxyDefinition.Name;
+        var summonForm = new SummonForm
+        {
+            summonType = summonType,
+            itemDefinition = item,
+            number = number,
+            monsterDefinitionName = monsterDefinitionName,
+            conditionDefinition = conditionDefinition,
+            persistOnConcentrationLoss = persistOnConcentrationLoss,
+            decisionPackage = decisionPackage,
+            effectProxyDefinitionName = effectProxyDefinition.Name
+        };
+
         effectForm.summonForm = summonForm;
+        effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
     }
 
@@ -300,54 +328,60 @@ public class EffectFormBuilder
         bool persistOnConcentrationLoss = false, ConditionDefinition condition = null,
         DecisionPackageDefinition decisionPackage = null)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Summon;
-        var summonForm = new SummonForm();
-        summonForm.summonType = SummonForm.Type.Creature;
-        summonForm.itemDefinition = null;
-        summonForm.number = number;
-        summonForm.monsterDefinitionName = monsterDefinitionName;
-        summonForm.conditionDefinition = condition;
-        summonForm.persistOnConcentrationLoss = persistOnConcentrationLoss;
-        summonForm.decisionPackage = decisionPackage;
-        summonForm.effectProxyDefinitionName = null;
+        var summonForm = new SummonForm
+        {
+            summonType = SummonForm.Type.Creature,
+            itemDefinition = null,
+            number = number,
+            monsterDefinitionName = monsterDefinitionName,
+            conditionDefinition = condition,
+            persistOnConcentrationLoss = persistOnConcentrationLoss,
+            decisionPackage = decisionPackage,
+            effectProxyDefinitionName = null
+        };
+
         effectForm.summonForm = summonForm;
+        effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
     }
 
     public EffectFormBuilder SetSummonItemForm(ItemDefinition item, int number)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Summon;
-        var summonForm = new SummonForm();
-        summonForm.summonType = SummonForm.Type.InventoryItem;
-        summonForm.itemDefinition = item;
-        summonForm.number = number;
-        summonForm.monsterDefinitionName = ""; //do we even need this?
-        summonForm.conditionDefinition = null;
-        summonForm.persistOnConcentrationLoss = true;
-        summonForm.decisionPackage = null;
-        summonForm.effectProxyDefinitionName = null;
+        var summonForm = new SummonForm
+        {
+            summonType = SummonForm.Type.InventoryItem,
+            itemDefinition = item,
+            number = number,
+            monsterDefinitionName = "", //do we even need this?
+            conditionDefinition = null,
+            persistOnConcentrationLoss = true,
+            decisionPackage = null,
+            effectProxyDefinitionName = null
+        };
+
         effectForm.summonForm = summonForm;
+        effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
     }
 
     public EffectFormBuilder SetTempHPForm(int bonusHitPoints, DieType dieType, int diceNumber)
     {
-        effectForm.FormType = EffectForm.EffectFormType.TemporaryHitPoints;
-        var tempHPForm = new TemporaryHitPointsForm
+        var tempHpForm = new TemporaryHitPointsForm
         {
             BonusHitPoints = bonusHitPoints, DieType = dieType, DiceNumber = diceNumber
         };
-        effectForm.temporaryHitPointsForm = tempHPForm;
+        effectForm.temporaryHitPointsForm = tempHpForm;
+        effectForm.FormType = EffectForm.EffectFormType.TemporaryHitPoints;
         return this;
     }
 
     public EffectFormBuilder SetTopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Topology;
-        var topologyForm = new TopologyForm();
-        topologyForm.changeType = changeType;
-        topologyForm.impactsFlyingCharacters = impactsFlyingCharacters;
+        var topologyForm =
+            new TopologyForm {changeType = changeType, impactsFlyingCharacters = impactsFlyingCharacters};
+
         effectForm.topologyForm = topologyForm;
+        effectForm.FormType = EffectForm.EffectFormType.Topology;
         return this;
     }
 

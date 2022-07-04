@@ -46,12 +46,6 @@ public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition,
         }
     }
 
-    public SpellListDefinitionBuilder ClearSpellsAtLevel(int level)
-    {
-        Definition.SpellsByLevel.SingleOrDefault(s => s.Level == level)?.Spells.Clear();
-        return this;
-    }
-
     public SpellListDefinitionBuilder SetSpellsAtLevel(int level, params SpellDefinition[] spellsByLevel)
     {
         return SetSpellsAtLevel(level, spellsByLevel.AsEnumerable());

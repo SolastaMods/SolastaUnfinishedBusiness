@@ -43,13 +43,6 @@ public class
         return this;
     }
 
-    public CharacterRaceDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
-    {
-        Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
-        Definition.FeatureUnlocks.Sort(Sorting.Compare);
-        return this;
-    }
-
     public CharacterRaceDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
