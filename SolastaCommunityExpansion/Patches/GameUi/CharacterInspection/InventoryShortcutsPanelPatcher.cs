@@ -33,12 +33,12 @@ internal static class InventoryShortcutsPanel_OnConfigurationSwitched
             return;
         }
 
-        var equipedItem0 = itemsConfigurations[rank].OffHandSlot.EquipedItem;
-        var equipedItem1 = itemsConfigurations[currentRank].OffHandSlot.EquipedItem;
+        var equippedItem0 = itemsConfigurations[rank].OffHandSlot.EquipedItem;
+        var equippedItem1 = itemsConfigurations[currentRank].OffHandSlot.EquipedItem;
 
         itemsConfigurations[rank].OffHandSlot.UnequipItem();
         itemsConfigurations[currentRank].OffHandSlot.UnequipItem();
-        itemsConfigurations[rank].OffHandSlot.EquipItem(equipedItem1);
-        itemsConfigurations[currentRank].OffHandSlot.EquipItem(equipedItem0);
+        itemsConfigurations[rank].OffHandSlot.EquipItem(equippedItem1);
+        itemsConfigurations[currentRank].OffHandSlot.EquipItem(equippedItem0);
     }
 }
