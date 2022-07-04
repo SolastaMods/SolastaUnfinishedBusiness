@@ -281,7 +281,7 @@ internal static class ItemOptionsContext
 
     private static void LoadRemoveIdentification()
     {
-        if (Main.Settings.RemoveIdentifcationRequirements)
+        if (Main.Settings.RemoveIdentificationRequirements)
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
             {

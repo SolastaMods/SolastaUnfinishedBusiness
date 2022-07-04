@@ -154,16 +154,16 @@ internal static class CharacterDisplay
             Main.Settings.AllowUnmarkedSorcerers = toggle;
         }
 
-        toggle = Main.Settings.UnlockMarkAndTatoosForAllCharacters;
+        toggle = Main.Settings.UnlockMarkAndTattoosForAllCharacters;
         if (UI.Toggle(Gui.Localize("ModUi/&UnlockMarkAndTatoosForAllCharacters"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.UnlockMarkAndTatoosForAllCharacters = toggle;
+            Main.Settings.UnlockMarkAndTattoosForAllCharacters = toggle;
         }
 
-        toggle = Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos;
+        toggle = Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos;
         if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingColorsForAllMarksAndTatoos"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos = toggle;
+            Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos = toggle;
         }
 
         UI.Label("");

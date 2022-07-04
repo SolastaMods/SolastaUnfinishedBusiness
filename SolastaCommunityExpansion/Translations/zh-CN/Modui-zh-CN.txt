@@ -17,13 +17,13 @@ ModUi/&AllowStackedMaterialComponent=允许材料成分叠加计算<i><color=yel
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施放<color=orange>连锁闪电</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers=允许<color=orange>术士</color>没有脸部印记
 ModUi/&AllRecipesInDm=所有配方加入地城制作
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件[仅限自定义地牢]
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<i><color=yellow>[仅限自定义地牢]</color></i>
 ModUi/&AutoPauseOnVictory=战斗胜利后暂停游戏
 ModUi/&Basic=<color=yellow>基础：</color>
 ModUi/&Battle=<color=yellow>战斗：</color>
 ModUi/&Bestiary=生物手册
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=orange>降咒</color>在以5环或更高法术位施放时无需专注
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=orange>目盲</color>状态禁止借机攻击 
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=orange>目盲</color>状态禁止借机攻击
 ModUi/&Blueprints=蓝图
 ModUi/&Campaigns=<color=yellow>战役：</color>
 ModUi/&CampaignsAndLocations=<color=yellow>战役和地点：</color>
@@ -142,7 +142,7 @@ ModUi/&Races=<color=yellow>种族&亚种</color>
 ModUi/&RacesClassesSubclasses=种族，职业与子职
 ModUi/&RecipeCost=<color=white>配方消耗</color>
 ModUi/&RecipesInDm=配方加入地城制作
-ModUi/&ReduceDarkelfLightPenalty=将黑暗精灵的强光敏感惩罚降低至-1d4减值而非劣势
+ModUi/&ReduceDarkelfLightPenalty=将<color=orange>黑暗精灵</color>的强光敏感惩罚改为-1d4减值而非劣势
 ModUi/&RelicForgeries=遗物赝品
 ModUi/&RemoveAttunementRequirements=移除同调的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RemoveBugVisualModels=将虫类模型以类似模型替代<i><color=#C04040E0>[需要重启游戏]</color></i>
@@ -178,8 +178,8 @@ ModUi/&Translate=翻译
 ModUi/&TranslateCancel=从{1}取消{0}
 ModUi/&TranslationEngine=翻译引擎
 ModUi/&Translations=翻译
-ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物
-ModUi/&UnleashNpcAsEnemy=允许在怪物互动物件上选择NPC
+ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物</color><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&UnleashNpcAsEnemy=允许在怪物互动物件上选择NPC</color><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&UnlockAllNpcFaces=解锁全部NPC脸型
 ModUi/&UnlockEyeStyles=解锁眼部样式
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=解锁所有标记和纹身的发光颜色
@@ -187,7 +187,7 @@ ModUi/&UnlockGlowingEyeColors=解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters=解锁全部角色的标记和纹身
 ModUi/&UseHeightOneCylinderEffect=施放<color=orange>艾伐黑触手、纠缠术、油腻术</color>(方形)和<color=orange>荆棘丛生</color>(圆形)时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
-ModUi/&Visuals=<color=yellow>视效：</color><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&Visuals=<color=yellow>视效：</color><i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&TotalCraftingTimeModifier=<color=white>制作耗时降低倍率</color>
 ModUi/&ChangeSleetStormToCube=将<color=orange>雪风暴</color>范围从圆柱体替换为立方体
 ModUi/&Category=类别

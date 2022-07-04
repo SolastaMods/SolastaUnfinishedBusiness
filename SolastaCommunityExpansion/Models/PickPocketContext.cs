@@ -53,7 +53,7 @@ public static class PickPocketContext
 
     internal static void Load()
     {
-        if (!Main.Settings.AddPickpocketableLoot || initialized)
+        if (!Main.Settings.AddPickPocketableLoot || initialized)
         {
             return;
         }

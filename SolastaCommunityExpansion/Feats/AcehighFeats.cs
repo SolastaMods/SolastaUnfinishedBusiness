@@ -278,33 +278,27 @@ internal static class AcehighFeats
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
         {
-            if (attackMode == null)
-            {
-                return;
-            }
-
-            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null)
             {
                 return;
             }
 
-            if (attackMode is not ({Reach: false, Ranged: true, Thrown: false} or
-                {Reach: false, Ranged: false, Thrown: true}))
+            if (attackMode is not ({Reach: false, Ranged: true}))
             {
                 return;
             }
 
-            const int toHit = -5;
-            const int toDamage = 10;
+            const int TO_HIT = -5;
+            const int TO_DAMAGE = 10;
 
-            attackMode.ToHitBonus += toHit;
-            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(toHit,
+            attackMode.ToHitBonus += TO_HIT;
+            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_HIT,
                 RuleDefinitions.FeatureSourceType.Power, "Deadeye", null));
 
-            damage.BonusDamage += toDamage;
-            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
+            damage.BonusDamage += TO_DAMAGE;
+            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_DAMAGE,
                 RuleDefinitions.FeatureSourceType.Power, "Deadeye", null));
         }
     }

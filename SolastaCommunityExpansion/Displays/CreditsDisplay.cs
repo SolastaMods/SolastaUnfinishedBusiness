@@ -21,12 +21,12 @@ internal static class CreditsDisplay
         {"Critical Hit", "<b>M. Miller</b>, <b>J. Cohen</b>, <b>L. Goldiner</b>"},
         {"D20", "D. Fenter, B. Lane, J. Loustaunau"},
         {"D12", "E. Antonio, C. Aardappel, M. Klepac"},
-        {"D8", "R. Baker, R. Maxim, D. Boggs"},
+        {"D8", "R. Baker, R. Maxim, D. Boggs, P. Marreck"},
         {
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
                   "M. Harck, D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
                   "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson\n" +
-                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker"
+                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker, N. Zhuxy"
         }
     };
 
@@ -57,7 +57,6 @@ internal static class CreditsDisplay
             "SilverGriffon",
             "pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, Dark Elf race, Divine Heart subclass"
         ),
-        ("Spacehamster", "dataminer"),
         (
             "TPABOBAP",
             "Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration"
@@ -75,12 +74,11 @@ internal static class CreditsDisplay
         ("", ""),
         ("Nyowwww", "Chinese translations"),
         ("Prioritizer", "Russian translations"),
-        ("Burtsev-Alexey", "deep copy algorithm"),
         ("Narria", "modKit creator, developer"),
         ("Sinai-dev", "Unity Explorer UI standalone")
     };
 
-    private static bool IsUnityExplorerInstalled { get; } =
+    private static readonly bool IsUnityExplorerInstalled =
         File.Exists(Path.Combine(Main.ModFolder, "UnityExplorer.STANDALONE.Mono.dll")) &&
         File.Exists(Path.Combine(Main.ModFolder, "UniverseLib.Mono.dll"));
 
@@ -133,36 +131,23 @@ internal static class CreditsDisplay
                     "https://github.com/SolastaMods/SolastaCommunityExpansion/wiki");
             }, UI.Width(150));
 
-            if (IsUnityExplorerInstalled)
+            if (!IsUnityExplorerEnabled && IsUnityExplorerInstalled)
             {
                 UI.ActionButton("Unity Explorer UI".Bold().Yellow(), () =>
                 {
-                    if (!IsUnityExplorerEnabled)
-                    {
-                        IsUnityExplorerEnabled = true;
+                    IsUnityExplorerEnabled = true;
 
-                        try
-                        {
-                            ExplorerStandalone.CreateInstance();
-                        }
-                        catch
-                        {
-                        }
+                    try
+                    {
+                        ExplorerStandalone.CreateInstance();
+                    }
+                    catch
+                    {
+                        // ignored
                     }
                 }, UI.Width(150));
             }
         }
-
-
-#if false
-            UI.Label("");
-
-            var toggle = Main.Settings.EnableBetaContent;
-            if (UI.Toggle(Gui.Localize("ModUI/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableBetaContent = toggle;
-            }
-#endif
 
         UI.Label("");
         UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref displayPatches, 200);
