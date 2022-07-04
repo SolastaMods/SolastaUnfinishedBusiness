@@ -10,17 +10,18 @@ public class DeviceFunctionDescriptionBuilder
     public DeviceFunctionDescriptionBuilder()
     {
         description = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.BeltOfRegeneration
-            .UsableDeviceDescription.DeviceFunctions[0]);
-
-        description.parentUsage = EquipmentDefinitions.ItemUsage.ByFunction;
-        description.useAffinity = DeviceFunctionDescription.FunctionUseAffinity.AtWill;
-        description.useAmount = 1;
-        description.rechargeRate = RuleDefinitions.RechargeRate.Dawn;
-        description.durationType = RuleDefinitions.DurationType.Instantaneous;
-        description.canOverchargeSpell = false;
-        description.type = DeviceFunctionDescription.FunctionType.Power;
-        description.spellDefinition = null;
-        description.featureDefinitionPower = null;
+            .UsableDeviceDescription.DeviceFunctions[0])
+        {
+            parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
+            useAffinity = DeviceFunctionDescription.FunctionUseAffinity.AtWill,
+            useAmount = 1,
+            rechargeRate = RuleDefinitions.RechargeRate.Dawn,
+            durationType = RuleDefinitions.DurationType.Instantaneous,
+            canOverchargeSpell = false,
+            type = DeviceFunctionDescription.FunctionType.Power,
+            spellDefinition = null,
+            featureDefinitionPower = null
+        };
     }
 
     public DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power)
@@ -40,16 +41,12 @@ public class DeviceFunctionDescriptionBuilder
 
     private void Validate()
     {
-        if (description.Type == DeviceFunctionDescription.FunctionType.Power
-            && description.FeatureDefinitionPower == null)
+        switch (description.Type)
         {
-            throw new ArgumentException("DeviceFunctionDescriptionBuilder empty FeatureDefinitionPower!");
-        }
-
-        if (description.Type == DeviceFunctionDescription.FunctionType.Spell
-            && description.SpellDefinition == null)
-        {
-            throw new ArgumentException("DeviceFunctionDescriptionBuilder empty SpellDefinition!");
+            case DeviceFunctionDescription.FunctionType.Power when description.FeatureDefinitionPower == null:
+                throw new ArgumentException("DeviceFunctionDescriptionBuilder empty FeatureDefinitionPower!");
+            case DeviceFunctionDescription.FunctionType.Spell when description.SpellDefinition == null:
+                throw new ArgumentException("DeviceFunctionDescriptionBuilder empty SpellDefinition!");
         }
     }
 

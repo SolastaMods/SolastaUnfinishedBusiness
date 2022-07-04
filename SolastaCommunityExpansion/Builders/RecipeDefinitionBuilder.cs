@@ -34,21 +34,20 @@ public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Recip
 
     public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient)
     {
-        var description = new IngredientOccurenceDescription();
-        description.itemDefinition = ingredient;
-        description.amount = 1;
+        var description = new IngredientOccurenceDescription {itemDefinition = ingredient, amount = 1};
         Definition.Ingredients.Add(description);
         return this;
     }
 
+#if false
     public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient, int amount)
     {
-        var description = new IngredientOccurenceDescription();
-        description.itemDefinition = ingredient;
-        description.amount = amount;
+        var description = new IngredientOccurenceDescription {itemDefinition = ingredient, amount = amount};
+
         Definition.Ingredients.Add(description);
         return this;
     }
+#endif
 
     public RecipeDefinitionBuilder AddIngredients(params ItemDefinition[] ingredients)
     {
@@ -60,11 +59,13 @@ public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Recip
         return this;
     }
 
+#if false
     public RecipeDefinitionBuilder SetSpellDefinition(SpellDefinition spellDefinition)
     {
         Definition.spellDefinition = spellDefinition;
         return this;
     }
+#endif
 
     #region Constructors
 
