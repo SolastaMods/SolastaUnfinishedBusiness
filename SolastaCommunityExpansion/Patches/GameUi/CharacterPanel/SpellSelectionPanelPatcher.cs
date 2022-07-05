@@ -29,7 +29,8 @@ internal static class SpellSelectionPanelPatcher
             var spellRepertoireSecondaryLine =
                 __instance.spellRepertoireSecondaryLine;
             var spellRepertoireLinesTable = __instance.spellRepertoireLinesTable;
-            var slotAdvancementPanel = __instance.slotAdvancementPanel;
+            //TODO: not sure this would actually work, need to test after game can be launched
+            var slotAdvancementPanel = __instance.GetComponentInChildren<SlotAdvancementPanel>();
 
             foreach (var spellRepertoireLine in spellRepertoireLines)
             {
