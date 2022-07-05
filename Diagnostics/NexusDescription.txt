@@ -19,8 +19,7 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
 [*][b]Nd[/b]: Marshal and Opportunist subclasses
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
-[*][b]SilverGriffon[/b]: pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race
-[*][b]Spacehamster[/b]: dataminer
+[*][b]SilverGriffon[/b]: pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, Dark Elf race, Divine Heart subclass
 [*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
@@ -32,7 +31,6 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b][/b]: 
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]Prioritizer[/b]: Russian translations
-[*][b]Burtsev-Alexey[/b]: deep copy algorithm
 [*][b]Narria[/b]: modKit creator, developer
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [/list]
@@ -144,10 +142,12 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Blaster[/b]: You specialize in hurling projectiles and causing explosions.
 [*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat.
 [*][b]Scout Sentinel[/b]: A Scout Sentinel Tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
+[*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 [*][b]Soulblade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]Moonlit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
+[*][b]None[/b]: 
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
@@ -435,3 +435,4 @@ The cloud moves 10 feet directly away from you in a direction that you choose at
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
 [line]
+

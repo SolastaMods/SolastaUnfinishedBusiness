@@ -1760,6 +1760,7 @@
     ],
     "name": "DLC1_Location"
   },
+  "namedPlacesPath": "Campaign/DLC1_Valley_NamedPlaces",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
