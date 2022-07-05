@@ -5,6 +5,7 @@ namespace SolastaCommunityExpansion.Displays;
 internal static class KeyboardAndMouseDisplay
 {
     private static bool SelectAll { get; set; } =
+        Main.Settings.EnableGamepad &&
         Main.Settings.EnableCancelEditOnRightMouseClick &&
         Main.Settings.EnableHotkeyToggleIndividualHud &&
         Main.Settings.EnableHotkeyToggleHud &&
@@ -20,6 +21,7 @@ internal static class KeyboardAndMouseDisplay
 
     private static void UpdateSettings(bool flag)
     {
+        Main.Settings.EnableGamepad = flag;
         Main.Settings.EnableCancelEditOnRightMouseClick = flag;
         Main.Settings.EnableHotkeyToggleIndividualHud = flag;
         Main.Settings.EnableHotkeyToggleHud = flag;
@@ -50,6 +52,15 @@ internal static class KeyboardAndMouseDisplay
         {
             SelectAll = toggle;
             UpdateSettings(SelectAll);
+        }
+
+        UI.Label("");
+
+        // NO NEED TO TRANSLATE THIS
+        toggle = Main.Settings.EnableGamepad;
+        if (UI.Toggle("Enable the gamepad <i><color=yellow>[beta support]</color></i>", ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableGamepad = toggle;
         }
 
         UI.Label("");

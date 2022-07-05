@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.Displays
                 new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&DungeonMakerMenu") : "Dungeon Maker",
                     DisplayDungeonMaker),
                 new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&GameUi") : "Game UI", DisplayGameUi),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&KeyboardMouse") : "Keyboard & Mouse",
+                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Input") : "Input",
                     DisplayKeyboardAndMouse),
                 new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Translations") : "Translations",
                     DisplayTranslations));

@@ -113,7 +113,7 @@ ModUi/&Items=<color=yellow>Articoli:</color>
 ModUi/&ItemsCraftingMerchants=Articoli, artigianato e mercanti
 ModUi/&ItemsHelp1=<color=#C04040E0>Devi avere la schermata di ispezione del personaggio aperta per aggiungere oggetti agli eroi...</color>
 ModUi/&ItemsHelp2=<b>Premi + per aggiungere oggetti al contenitore a terra</b>
-ModUi/&KeyboardMouse=Tastiera e mouse
+ModUi/&Input=Gamepad, Tastiera e Mouse
 ModUi/&MakeAllMagicStaveArcaneFoci=Rendi tutti i bastoni magici fuochi arcani <i><color=yellow>[tranne <color=orange>Bastone della guarigione</color> che è Universale]</color></i> <b><i><color= #C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Segna anche la posizione dei teletrasporti invisibili sulla mappa del livello dopo la scoperta</i>
 ModUi/&MaxAllowedClasses=<color=white>Numero massimo di classi consentite</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

@@ -113,7 +113,7 @@ ModUi/&Items=<color=yellow>Items:</color>
 ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>You must have the character inspection screen open to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
-ModUi/&KeyboardMouse=Keyboard & Mouse
+ModUi/&Input=Gamepad, Keyboard & Mouse
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=yellow>[except for <color=orange>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
