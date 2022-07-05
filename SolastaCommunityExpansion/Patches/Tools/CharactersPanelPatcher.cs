@@ -33,9 +33,9 @@ internal static class CharactersPanel_Refresh
             return;
         }
 
-        __instance.characterCheckerButton.GetComponentInChildren<TextMeshProUGUI>().text = "MainMenu/&LevelDownTitle";
+        __instance.characterCheckerButton.GetComponentInChildren<TextMeshProUGUI>().text = Gui.Localize("MainMenu/&LevelDownTitle");
         __instance.characterCheckerButton.GetComponentInChildren<GuiTooltip>().Content =
-            "MainMenu/&LevelDownDescription";
+           Gui.Localize("MainMenu/&LevelDownDescription");
         __instance.characterCheckerButton.onClick.RemoveAllListeners();
         __instance.characterCheckerButton.onClick.AddListener(() =>
         {
@@ -43,5 +43,15 @@ internal static class CharactersPanel_Refresh
         });
 
         HasInit = true;
+    }
+}
+
+[HarmonyPatch(typeof(CharactersPanel), "OnCharacterCheckerCb")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class CharactersPanel_OnCharacterCheckerCb
+{
+    private static bool Prefix()
+    {
+        return false;
     }
 }
