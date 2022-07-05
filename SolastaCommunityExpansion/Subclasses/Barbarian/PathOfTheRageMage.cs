@@ -24,7 +24,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var spellCasting = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellPathOfTheRageMage", SubclassNamespace)
-            .SetGuiPresentation("BarbarianPathOfTheRageMageSpellcasting", Category.Subclass)
+            .SetGuiPresentation("BarbarianPathOfTheRageMageSpellcasting", Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .SetSpellList(SpellListDefinitions.SpellListSorcerer)
@@ -37,13 +37,13 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var skillProf = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencySkillPathOfTheRageMage", SubclassNamespace)
-            .SetGuiPresentation("ProficiencySkillPathOfTheRageMage", Category.Subclass)
+            .SetGuiPresentation("ProficiencySkillPathOfTheRageMage", Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.Skill, SkillDefinitions.Arcana)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("BarbarianPathOfTheRageMage", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("BarbarianPathOfTheRageMage", Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
             .AddFeatureAtLevel(skillProf, 3).AddToDB();
 
