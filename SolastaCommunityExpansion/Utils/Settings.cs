@@ -294,6 +294,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCtrlClickBypassAttackReactionPanel { get; set; }
     public bool EnableIgnoreCtrlClickOnCriticalHit { get; set; }
     public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
+    public bool EnableGamepad { get; set; }
 
     //
     // Interface - Translations

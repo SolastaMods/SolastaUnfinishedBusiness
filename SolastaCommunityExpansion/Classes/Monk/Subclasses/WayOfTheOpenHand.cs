@@ -25,7 +25,7 @@ public static class WayOfTheOpenHand
     private static FeatureDefinition BuildOpenHandTechnique()
     {
         var technique = FeatureDefinitionPowerBuilder
-            .Create("ClassMonkOpenHandTechnique", Monk.GUID)
+            .Create("ClassMonkOpenHandTechnique", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetActivationTime(ActivationTime.OnAttackHit)
             .SetRechargeRate(RechargeRate.AtWill)
@@ -37,7 +37,7 @@ public static class WayOfTheOpenHand
             .AddToDB();
 
         var prone = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkOpenHandProne", Monk.GUID)
+            .Create("ClassMonkOpenHandProne", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetSharedPool(technique)
             .SetActivationTime(ActivationTime.NoCost)
@@ -62,7 +62,7 @@ public static class WayOfTheOpenHand
             .AddToDB();
 
         var push = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkOpenHandPush", Monk.GUID)
+            .Create("ClassMonkOpenHandPush", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetSharedPool(technique)
             .SetActivationTime(ActivationTime.NoCost)
@@ -87,7 +87,7 @@ public static class WayOfTheOpenHand
             .AddToDB();
 
         var distract = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkOpenHandDistract", Monk.GUID)
+            .Create("ClassMonkOpenHandDistract", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetSharedPool(technique)
             .SetActivationTime(ActivationTime.NoCost)
@@ -99,7 +99,7 @@ public static class WayOfTheOpenHand
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ClassMonkOpenHandDistractCondition", Monk.GUID)
+                        .Create("ClassMonkOpenHandDistractCondition", Monk.Guid)
                         .SetGuiPresentation(Category.Condition,
                             ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
                         .SetDuration(DurationType.Round, 1)
@@ -119,7 +119,7 @@ public static class WayOfTheOpenHand
     private static FeatureDefinition BuildWholenessOfBody()
     {
         return FeatureDefinitionPowerBuilder
-            .Create("ClassMonkWholenessOfBody", Monk.GUID)
+            .Create("ClassMonkWholenessOfBody", Monk.Guid)
             .SetGuiPresentation(Category.Power,
                 FeatureDefinitionPowers.PowerPaladinLayOnHands.GuiPresentation.SpriteReference)
             .SetRechargeRate(RechargeRate.LongRest)
@@ -142,7 +142,7 @@ public static class WayOfTheOpenHand
     private static FeatureDefinition BuildTanquility()
     {
         var tranquility = FeatureDefinitionPowerBuilder
-            .Create("ClassMonkTanquility", Monk.GUID)
+            .Create("ClassMonkTanquility", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetActivationTime(ActivationTime.NoCost)
             .SetCostPerUse(1)
@@ -153,7 +153,7 @@ public static class WayOfTheOpenHand
                 .SetDurationData(DurationType.UntilAnyRest)
                 .SetEffectForms(new EffectFormBuilder()
                     .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ClassMonkTanquilityCondition", Monk.GUID)
+                        .Create("ClassMonkTanquilityCondition", Monk.Guid)
                         .SetGuiPresentation(Category.Condition,
                             ConditionDefinitions.ConditionBlurred.GuiPresentation.SpriteReference)
                         .SetDuration(DurationType.UntilAnyRest)
@@ -172,7 +172,7 @@ public static class WayOfTheOpenHand
     private static FeatureDefinition BuildQuiveringPalm()
     {
         return FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkQuiveringPalm", Monk.GUID)
+            .Create("ClassMonkQuiveringPalm", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetActivationTime(ActivationTime.OnAttackHit)
             .SetSharedPool(Monk.KiPool)

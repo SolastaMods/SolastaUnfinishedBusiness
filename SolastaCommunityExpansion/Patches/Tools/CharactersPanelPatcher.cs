@@ -12,6 +12,7 @@ namespace SolastaCommunityExpansion.Patches.Tools;
 internal static class CharactersPanel_Refresh
 {
     private static bool HasInit { get; set; }
+    private static int SelectedPlate { get; set; }
 
     internal static void Postfix(CharactersPanel __instance)
     {
@@ -21,9 +22,10 @@ internal static class CharactersPanel_Refresh
             return;
         }
 
-        var selectedPlate = __instance.selectedPlate;
-        var characterLevel = selectedPlate >= 0
-            ? __instance.characterPlates[selectedPlate].GuiCharacter.CharacterLevel
+        SelectedPlate = __instance.selectedPlate;
+
+        var characterLevel = SelectedPlate >= 0
+            ? __instance.characterPlates[SelectedPlate].GuiCharacter.CharacterLevel
             : 1;
 
         __instance.characterCheckerButton.gameObject.SetActive(characterLevel > 1);
@@ -39,7 +41,7 @@ internal static class CharactersPanel_Refresh
         __instance.characterCheckerButton.onClick.RemoveAllListeners();
         __instance.characterCheckerButton.onClick.AddListener(() =>
         {
-            LevelDownContext.ConfirmAndExecute(__instance.characterPlates[selectedPlate].Filename);
+            LevelDownContext.ConfirmAndExecute(__instance.characterPlates[SelectedPlate].Filename);
         });
 
         HasInit = true;
@@ -52,6 +54,6 @@ internal static class CharactersPanel_OnCharacterCheckerCb
 {
     private static bool Prefix()
     {
-        return false;
+        return !Main.Settings.EnableRespec;
     }
 }
