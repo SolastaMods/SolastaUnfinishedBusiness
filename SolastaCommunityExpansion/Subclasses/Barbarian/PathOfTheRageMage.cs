@@ -21,6 +21,12 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
     private static readonly Guid SubclassNamespace = new("6a9ec115-29db-40b4-9b1d-ad55abede214");
     internal PathOfTheRageMage()
     {
+        var magicAffinity = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityFighterSpellShield", SubclassNamespace)
+            .SetHandsFullCastingModifiers(true, true, true)
+            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, 0,
+                RuleDefinitions.SpellParamsModifierType.FlatValue, true, false, false)
+            .AddToDB();
 
         var spellCasting = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellPathOfTheRageMage", SubclassNamespace)
