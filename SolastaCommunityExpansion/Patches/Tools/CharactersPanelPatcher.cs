@@ -34,7 +34,8 @@ internal static class CharactersPanel_Refresh
         }
 
         __instance.characterCheckerButton.GetComponentInChildren<TextMeshProUGUI>().text = "MainMenu/&LevelDownTitle";
-        __instance.characterCheckerButton.GetComponentInChildren<GuiTooltip>().Content =  "MainMenu/&LevelDownDescription";
+        __instance.characterCheckerButton.GetComponentInChildren<GuiTooltip>().Content =
+            "MainMenu/&LevelDownDescription";
         __instance.characterCheckerButton.onClick.RemoveAllListeners();
         __instance.characterCheckerButton.onClick.AddListener(() =>
         {
