@@ -220,7 +220,6 @@ internal static class MulticlassPatchingContext
     {
         var patches = new Dictionary<MethodInfo, HeroContext>
         {
-            {typeof(CharacterStageClassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
             {
                 typeof(CharacterStageClassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
                 HeroContext.StagePanel
@@ -251,8 +250,7 @@ internal static class MulticlassPatchingContext
             {typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding), HeroContext.StagePanel},
             {typeof(CharacterStageSubclassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
             {
-                typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures",
-                    PrivateBinding),
+                typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
                 HeroContext.StagePanel
             },
             {
