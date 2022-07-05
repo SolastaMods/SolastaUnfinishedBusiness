@@ -16,7 +16,7 @@ public static class RespecContext
 
     private static RestActivityDefinition RestActivityLevelDown { get; } = RestActivityDefinitionBuilder
         .Create(LevelDownName, "fdb4d86eaef942d1a22dbf1fb5a7299f")
-        .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
+        .SetGuiPresentation("MainMenu/&LevelDownTitle", "MainMenu/&LevelDownDescription")
         .SetRestData(
             RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
             RestActivityDefinition.ActivityCondition.None, LevelDownName, string.Empty)

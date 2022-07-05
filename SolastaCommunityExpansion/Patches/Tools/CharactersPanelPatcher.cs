@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using TMPro;
 
 namespace SolastaCommunityExpansion.Patches.Tools;
 // enables the character checker button
@@ -11,43 +12,35 @@ namespace SolastaCommunityExpansion.Patches.Tools;
 internal static class CharactersPanel_Refresh
 {
     private static bool HasInit { get; set; }
-    private static int SelectedPlate { get; set; }
 
     internal static void Postfix(CharactersPanel __instance)
     {
-        if (Main.Settings.EnableCharacterChecker)
+        // RESPEC setting controls both Respec and Level Down offerings
+        if (!Main.Settings.EnableRespec)
         {
-            __instance.characterCheckerButton.GetComponentInChildren<GuiTooltip>().Content = string.Empty;
-            __instance.characterCheckerButton.gameObject.SetActive(true);
-            ;
+            return;
         }
 
-        //Code below seems to be for exporting character, but respec flag is checked to run it
-        if (Main.Settings.EnableRespec)
+        var selectedPlate = __instance.selectedPlate;
+        var characterLevel = selectedPlate >= 0
+            ? __instance.characterPlates[selectedPlate].GuiCharacter.CharacterLevel
+            : 1;
+
+        __instance.characterCheckerButton.gameObject.SetActive(characterLevel > 1);
+
+        if (HasInit)
         {
-            //TODO: investigate how to get proper button now that `exportPdfButton` is gone
-#if false
-            
-            var characterLevel = __instance.selectedPlate >= 0
-                ? __instance.characterPlates[__instance.selectedPlate].GuiCharacter.CharacterLevel
-                : 1;
-
-            SelectedPlate = __instance.selectedPlate;
-            __instance.exportPdfButton.gameObject.SetActive(characterLevel > 1);
-
-            if (HasInit)
-            {
-                return;
-            }
-
-            __instance.exportPdfButton.onClick.RemoveAllListeners();
-            __instance.exportPdfButton.onClick.AddListener(() =>
-            {
-                LevelDownContext.ConfirmAndExecute(__instance.characterPlates[SelectedPlate].Filename);
-            });
-
-            HasInit = true;
-#endif
+            return;
         }
+
+        __instance.characterCheckerButton.GetComponentInChildren<TextMeshProUGUI>().text = "MainMenu/&LevelDownTitle";
+        __instance.characterCheckerButton.GetComponentInChildren<GuiTooltip>().Content =  "MainMenu/&LevelDownDescription";
+        __instance.characterCheckerButton.onClick.RemoveAllListeners();
+        __instance.characterCheckerButton.onClick.AddListener(() =>
+        {
+            LevelDownContext.ConfirmAndExecute(__instance.characterPlates[selectedPlate].Filename);
+        });
+
+        HasInit = true;
     }
 }
