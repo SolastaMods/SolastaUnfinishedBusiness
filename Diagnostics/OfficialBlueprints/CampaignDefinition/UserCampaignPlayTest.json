@@ -1699,6 +1699,7 @@
     ],
     "name": "Location"
   },
+  "namedPlacesPath": "Campaign/COTM_NamedPlaces",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

@@ -210,7 +210,6 @@ public class Settings : UnityModManager.ModSettings
 
     // General
     public bool EnableSaveByLocation { get; set; }
-    public bool EnableCharacterChecker { get; set; }
     public bool EnableRespec { get; set; }
     public bool EnableCheatMenu { get; set; }
     public bool OverrideMinMaxLevel { get; set; }
