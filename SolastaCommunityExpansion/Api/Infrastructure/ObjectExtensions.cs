@@ -48,6 +48,7 @@ public static class ObjectExtensions
         }
 
         var cloneObject = CloneMethod.Invoke(originalObject, null);
+
         if (typeToReflect.IsArray)
         {
             var arrayType = typeToReflect.GetElementType();
@@ -55,6 +56,7 @@ public static class ObjectExtensions
             if (arrayType != null && IsPrimitive(arrayType))
             {
                 var clonedArray = (Array)cloneObject;
+
                 clonedArray.ForEach((array, indices) =>
                     array.SetValue(InternalCopy(clonedArray.GetValue(indices), visited), indices));
             }
@@ -63,11 +65,15 @@ public static class ObjectExtensions
         visited.Add(originalObject, cloneObject);
         CopyFields(originalObject, visited, cloneObject, typeToReflect);
         RecursiveCopyBaseTypePrivateFields(originalObject, visited, cloneObject, typeToReflect);
+
         return cloneObject;
     }
 
-    private static void RecursiveCopyBaseTypePrivateFields(object originalObject,
-        IDictionary<object, object> visited, object cloneObject, [NotNull] Type typeToReflect)
+    private static void RecursiveCopyBaseTypePrivateFields(
+        object originalObject,
+        IDictionary<object, object> visited,
+        object cloneObject,
+        [NotNull] Type typeToReflect)
     {
         if (typeToReflect.BaseType == null)
         {
@@ -75,18 +81,16 @@ public static class ObjectExtensions
         }
 
         RecursiveCopyBaseTypePrivateFields(originalObject, visited, cloneObject, typeToReflect.BaseType);
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         CopyFields(originalObject, visited, cloneObject, typeToReflect.BaseType,
             BindingFlags.Instance | BindingFlags.NonPublic, info => info.IsPrivate);
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
 
-    private static void CopyFields(object originalObject, IDictionary<object, object> visited, object cloneObject,
-        [NotNull] Type typeToReflect,
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+    private static void CopyFields(
+        object originalObject, IDictionary<object, object> visited,
+        object cloneObject,
+        [NotNull] IReflect typeToReflect,
         BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public |
                                     BindingFlags.FlattenHierarchy, [CanBeNull] Func<FieldInfo, bool> filter = null)
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     {
         foreach (var fieldInfo in typeToReflect.GetFields(bindingFlags))
         {
@@ -102,6 +106,7 @@ public static class ObjectExtensions
 
             var originalFieldValue = fieldInfo.GetValue(originalObject);
             var clonedFieldValue = InternalCopy(originalFieldValue, visited);
+
             fieldInfo.SetValue(cloneObject, clonedFieldValue);
         }
     }

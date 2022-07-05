@@ -20,11 +20,13 @@ public class SetResetDisposable : Disposable
 
     protected override void Dispose(bool disposing)
     {
-        if (_reset != null)
+        if (_reset == null)
         {
-            _reset();
-            _reset = null;
+            return;
         }
+
+        _reset();
+        _reset = null;
     }
 }
 #endif

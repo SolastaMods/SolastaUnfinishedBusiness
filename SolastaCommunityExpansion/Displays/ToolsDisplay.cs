@@ -92,12 +92,6 @@ internal static class ToolsDisplay
             Main.Settings.EnableSaveByLocation = toggle;
         }
 
-        toggle = Main.Settings.EnableCharacterChecker;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharacterChecker"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCharacterChecker = toggle;
-        }
-
         toggle = Main.Settings.EnableCheatMenu;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
         {

@@ -17,7 +17,7 @@ internal static class LevelDownContext
 
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
-            "MainMenu/&ExportPdfTitle", "Message/&LevelDownConfirmationDescription",
+            "MainMenu/&LevelDownTitle", "Message/&LevelDownConfirmationDescription",
             "Message/&MessageYesTitle", "Message/&MessageNoTitle",
             () => LevelDown(rulesetCharacterHero), null);
     }
@@ -204,7 +204,7 @@ internal static class LevelDownContext
             {
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Informative1,
-                    "MainMenu/&ExportPdfTitle", "Message/&LevelDownMultiplayerAbortDescription",
+                    "MainMenu/&LevelDownTitle", "Message/&LevelDownMultiplayerAbortDescription",
                     "Message/&MessageOkTitle", string.Empty,
                     null, null);
 
@@ -215,7 +215,7 @@ internal static class LevelDownContext
 
             Gui.GuiService.ShowMessage(
                 MessageModal.Severity.Attention2,
-                "MainMenu/&ExportPdfTitle", "Message/&LevelDownConfirmationDescription",
+                "MainMenu/&LevelDownTitle", "Message/&LevelDownConfirmationDescription",
                 "Message/&MessageYesTitle", "Message/&MessageNoTitle",
                 () => state = 1,
                 () => state = 0);

@@ -2,7 +2,5 @@
 
 CHANGES:
 
-- Disable inventory sorting under MP
-- Fix ancestries cantrip offering
-- Fix wrong slot pre-selection on smites
-- Improve batch translations
+- Fix mod compatibility with latest 1.3.81 update
+- Fix TA point buy bug

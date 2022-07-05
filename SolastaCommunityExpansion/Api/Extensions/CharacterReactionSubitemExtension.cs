@@ -7,7 +7,8 @@ namespace SolastaCommunityExpansion.Api.Extensions;
 
 internal static class CharacterReactionSubitemExtension
 {
-    internal static void BindWarcaster([NotNull] this CharacterReactionSubitem instance,
+    internal static void BindWarcaster(
+        [NotNull] this CharacterReactionSubitem instance,
         [NotNull] ReactionRequestWarcaster reactionRequest,
         int slotLevel,
         bool interactable,
@@ -19,9 +20,11 @@ internal static class CharacterReactionSubitemExtension
         var tooltip = GetOrMakeBackgroundTooltip(toggle.transform);
 
         string title;
+
         if (slotLevel == 0)
         {
             title = "Reaction/&WarcasterAttackTitle";
+
             if (tooltip != null)
             {
                 tooltip.Disabled = false;
@@ -31,7 +34,9 @@ internal static class CharacterReactionSubitemExtension
         else
         {
             var spell = spellRepertoire.KnownSpells[slotLevel - 1];
+
             title = spell.GuiPresentation.Title;
+
             if (tooltip != null)
             {
                 tooltip.Disabled = false;
@@ -59,7 +64,8 @@ internal static class CharacterReactionSubitemExtension
         }
     }
 
-    internal static void BindPowerBundle([NotNull] this CharacterReactionSubitem instance,
+    internal static void BindPowerBundle(
+        [NotNull] this CharacterReactionSubitem instance,
         [NotNull] ReactionRequestSpendBundlePower reactionRequest,
         int slotLevel,
         bool interactable,
@@ -107,11 +113,13 @@ internal static class CharacterReactionSubitemExtension
             return null;
         }
 
-        if (!background.TryGetComponent<GuiTooltip>(out var tooltip))
+        if (background.TryGetComponent<GuiTooltip>(out var tooltip))
         {
-            tooltip = background.gameObject.AddComponent<GuiTooltip>();
-            tooltip.AnchorMode = TooltipDefinitions.AnchorMode.LEFT_CENTER;
+            return tooltip;
         }
+
+        tooltip = background.gameObject.AddComponent<GuiTooltip>();
+        tooltip.AnchorMode = TooltipDefinitions.AnchorMode.LEFT_CENTER;
 
         return tooltip;
     }

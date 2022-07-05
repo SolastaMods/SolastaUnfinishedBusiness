@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.BugFix;
 
@@ -18,11 +19,13 @@ internal static class WieldedConfigurationSelector_Bind
         RulesetInventorySlot rulesetInventorySlot,
         GuiCharacter guiCharacter,
         bool inMainHud,
-        bool forceRefresh,
+        RectTransform anchor,
+        TooltipDefinitions.AnchorMode anchorMode,
+        bool refreshDirectly,
         GuiCharacter wieldedConfigurationSelectorGuiCharacter) // OpCodes.Ldarg_1 below...
     {
         inventorySlotBox.Bind(rulesetInventorySlot, guiCharacter ?? wieldedConfigurationSelectorGuiCharacter,
-            inMainHud, forceRefresh);
+            inMainHud, anchor, anchorMode, refreshDirectly);
     }
 
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

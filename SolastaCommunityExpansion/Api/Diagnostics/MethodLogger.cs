@@ -43,7 +43,6 @@ namespace SolastaCommunityExpansion.Api.Diagnostics
             this.typeName = typeName;
         }
 
-        [Conditional("DEBUG")]
         public void Log(string message)
         {
             Main.Log($"{typeName}.{methodName}: {message}");

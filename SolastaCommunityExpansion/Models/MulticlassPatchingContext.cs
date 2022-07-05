@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Models.IntegrationContext;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPointPools;
@@ -220,7 +222,7 @@ internal static class MulticlassPatchingContext
     {
         var patches = new Dictionary<MethodInfo, HeroContext>
         {
-            {typeof(CharacterStageClassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
+            // CharacterStageClassSelectionPanel
             {
                 typeof(CharacterStageClassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
                 HeroContext.StagePanel
@@ -229,6 +231,8 @@ internal static class MulticlassPatchingContext
                 typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding),
                 HeroContext.StagePanel
             },
+
+            // CharacterStageDeitySelectionPanel
             {typeof(CharacterStageDeitySelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
             {
                 typeof(CharacterStageDeitySelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
@@ -239,6 +243,8 @@ internal static class MulticlassPatchingContext
                 HeroContext.StagePanel
             },
             {typeof(CharacterStageDeitySelectionPanel).GetMethod("EnterStage"), HeroContext.StagePanel},
+
+            // CharacterStageLevelGainsPanel
             {typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb"), HeroContext.StagePanel},
             {
                 typeof(CharacterStageLevelGainsPanel).GetMethod("EnumerateActiveClassFeatures", PrivateBinding),
@@ -249,10 +255,11 @@ internal static class MulticlassPatchingContext
                 HeroContext.StagePanel
             },
             {typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding), HeroContext.StagePanel},
+
+            // CharacterStageSubclassSelectionPanel
             {typeof(CharacterStageSubclassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
             {
-                typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures",
-                    PrivateBinding),
+                typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
                 HeroContext.StagePanel
             },
             {
@@ -260,11 +267,20 @@ internal static class MulticlassPatchingContext
                 HeroContext.StagePanel
             },
             {typeof(CharacterStageSubclassSelectionPanel).GetMethod("Refresh", PrivateBinding), HeroContext.StagePanel},
+
+            // CharacterBuildingManager
             {typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter"), HeroContext.BuildingManager},
+
+            // ArchetypesPreviewModal
+            // {typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), HeroContext.BuildingManager},
+
+            // CharacterInformationPanel
             {
                 typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding),
                 HeroContext.InformationPanel
             },
+
+            // RulesetCharacterHero
             {typeof(RulesetCharacterHero).GetMethod("FindClassHoldingFeature"), HeroContext.CharacterHero},
             {typeof(RulesetCharacterHero).GetMethod("LookForFeatureOrigin", PrivateBinding), HeroContext.CharacterHero}
         };
@@ -286,19 +302,26 @@ internal static class MulticlassPatchingContext
         {
             case HeroContext.StagePanel:
                 var classType = FeatureUnlocksContext.Key.DeclaringType;
-                var currentHeroField =
-                    classType.GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-                yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
+                if (classType != null)
+                {
+                    var currentHeroField =
+                        classType.GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
+
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
+                }
+
                 break;
 
             case HeroContext.BuildingManager:
                 yield return new CodeInstruction(OpCodes.Ldarg_1);
+
                 break;
 
             case HeroContext.CharacterHero:
                 yield return new CodeInstruction(OpCodes.Ldarg_0);
+
                 break;
 
             case HeroContext.InformationPanel:
@@ -309,7 +332,11 @@ internal static class MulticlassPatchingContext
                 yield return new CodeInstruction(OpCodes.Ldarg_0);
                 yield return new CodeInstruction(OpCodes.Call, inspectedCharacterMethod);
                 yield return new CodeInstruction(OpCodes.Call, rulesetCharacterHeroMethod);
+
                 break;
+
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -381,19 +408,19 @@ internal static class MulticlassPatchingContext
         if (attacksNumber > 1 && LevelUpContext.GetSelectedClassLevel(rulesetCharacterHero) < 11)
         {
             filteredFeatureUnlockByLevels.RemoveAll(x =>
-                x.FeatureDefinition is FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier
-                && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber);
+                x.FeatureDefinition is FeatureDefinitionAttributeModifier
+                {
+                    ModifiedAttribute: AttributeDefinitions.AttacksNumber
+                });
         }
 
-        foreach (var featureNameToReplace in FeaturesToReplace)
+        foreach (var featureNameToReplace in from featureNameToReplace in FeaturesToReplace
+                 let count = filteredFeatureUnlockByLevels.RemoveAll(
+                     x => x.FeatureDefinition == featureNameToReplace.Key)
+                 where count > 0
+                 select featureNameToReplace)
         {
-            var count = filteredFeatureUnlockByLevels.RemoveAll(
-                x => x.FeatureDefinition == featureNameToReplace.Key);
-
-            if (count > 0)
-            {
-                filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(featureNameToReplace.Value, 1));
-            }
+            filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(featureNameToReplace.Value, 1));
         }
 
         // exclude features per mc rules
@@ -422,7 +449,7 @@ internal static class MulticlassPatchingContext
 
     // support subclass filtered feature unlocks
     public static List<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(
-        CharacterSubclassDefinition characterSublassDefinition, RulesetCharacterHero rulesetCharacterHero)
+        [NotNull] CharacterSubclassDefinition characterSublassDefinition, RulesetCharacterHero rulesetCharacterHero)
     {
         if (!LevelUpContext.IsMulticlass(rulesetCharacterHero))
         {
@@ -431,14 +458,16 @@ internal static class MulticlassPatchingContext
 
         var filteredFeatureUnlockByLevels = characterSublassDefinition.FeatureUnlocks.ToList();
 
-        // remove any extra attacks except on classes that get them at 11 (fighter and swiftblade)
+        // remove any extra attacks except on classes that get them at 11 (fighter and swiftBlade)
         var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
 
         if (attacksNumber > 1 && LevelUpContext.GetSelectedClassLevel(rulesetCharacterHero) < 11)
         {
             filteredFeatureUnlockByLevels.RemoveAll(x =>
-                x.FeatureDefinition is FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier
-                && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber);
+                x.FeatureDefinition is FeatureDefinitionAttributeModifier
+                {
+                    ModifiedAttribute: AttributeDefinitions.AttacksNumber
+                });
         }
 
         return filteredFeatureUnlockByLevels;
