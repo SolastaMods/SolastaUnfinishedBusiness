@@ -43,11 +43,18 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetKnownSpells(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
             .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
 
+        var skillProf = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencySkillPathOfTheRageMage", SubclassNamespace)
+            .SetGuiPresentation("ProficiencySkillPathOfTheRageMage", Category.Subclass)
+            .SetProficiencies(RuleDefinitions.ProficiencyType.Skill, SkillDefinitions.Arcana)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("BarbarianPathOfTheRageMage", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(magicAffinity, 3)
-            .AddFeatureAtLevel(spellCasting.AddToDB(), 3).AddToDB();
+            .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
+            .AddFeatureAtLevel(skillProf, 3).AddToDB();
 
     }
 
