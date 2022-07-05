@@ -61,10 +61,10 @@ internal static class FeatSubPanel_SetState
 
     public static void ForceSameWidth(RectTransform table, bool active)
     {
-        const int COLUMNS = 4;
-        const int WIDTH = 224;
+        const int COLUMNS = 3;
+        const int WIDTH = 300;
         const int HEIGHT = 34;
-        const int SPACING = 6;
+        const int SPACING = 5;
 
         if (active && Main.Settings.EnableSameWidthFeatSelection)
         {
