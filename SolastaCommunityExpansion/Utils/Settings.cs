@@ -19,14 +19,12 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool DisplayWelcomeMessage { get; set; } = true;
-    public bool EnableBetaContent { get; set; }
     public int EnableDiagsDump { get; set; }
 
     //
     // Blueprints Viewer UI
     //
 
-    // must be set to zero or won't compile
     internal int SelectedRawDataType;
     internal int MaxRows = 20;
     internal int MaxSearchDepth = 3;
@@ -95,11 +93,11 @@ public class Settings : UnityModManager.ModSettings
     public bool OfferAdditionalLoreFriendlyNames { get; set; }
     public bool UnlockAllNpcFaces { get; set; }
     public bool AllowUnmarkedSorcerers { get; set; }
-    public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
+    public bool UnlockMarkAndTattoosForAllCharacters { get; set; }
     public bool UnlockEyeStyles { get; set; }
     public bool AddNewBrightEyeColors { get; set; }
     public bool UnlockGlowingEyeColors { get; set; }
-    public bool UnlockGlowingColorsForAllMarksAndTatoos { get; set; }
+    public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
 
     //
     // Characters - Races, Classes & Subclasses
@@ -109,7 +107,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
     public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
     public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
-    public bool ReduceDarkelfLightPenalty { get; set; }
+    public bool ReduceDarkElfLightPenalty { get; set; }
     public int RaceSliderPosition { get; set; } = 4;
     public List<string> RaceEnabled { get; } = new();
     public int ClassSliderPosition { get; set; } = 4;
@@ -169,7 +167,7 @@ public class Settings : UnityModManager.ModSettings
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
 
     // public bool UseHeightOneCylinderEffect { get; set; }
-    public bool AddPickpocketableLoot { get; set; }
+    public bool AddPickPocketableLoot { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool ScaleMerchantPricesCorrectly { get; set; }
 
@@ -186,7 +184,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
 #endif
     public bool RemoveAttunementRequirements { get; set; }
-    public bool RemoveIdentifcationRequirements { get; set; }
+    public bool RemoveIdentificationRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public int TotalCraftingTimeModifier { get; set; }
     public int RecipeCost { get; set; } = 200;

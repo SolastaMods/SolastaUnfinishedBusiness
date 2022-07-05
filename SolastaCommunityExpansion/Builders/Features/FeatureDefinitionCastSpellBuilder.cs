@@ -238,6 +238,7 @@ public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Featur
         return this;
     }
 
+#if false
     public FeatureDefinitionCastSpellBuilder SetStaticParameters(int dcValue, int toHitValue)
     {
         Definition.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation.Static;
@@ -245,6 +246,7 @@ public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Featur
         Definition.staticToHitValue = toHitValue;
         return this;
     }
+#endif
 
     public FeatureDefinitionCastSpellBuilder SetSpellList(SpellListDefinition spellList)
     {
@@ -413,6 +415,7 @@ public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Featur
         }
     }
 
+#if false
     public FeatureDefinitionCastSpellBuilder SetScribedSpells(int startingLevel, int initialAmount,
         int perLevelAfterFirst)
     {
@@ -432,6 +435,7 @@ public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Featur
 
         return this;
     }
+#endif
 
     private void SetKnownZero()
     {
@@ -498,6 +502,7 @@ public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Featur
         return this;
     }
 
+#if false
     public FeatureDefinitionCastSpellBuilder SetReplacedZero()
     {
         Definition.ReplacedSpells.Clear();
@@ -520,6 +525,7 @@ public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Featur
 
         return this;
     }
+#endif
 
     public FeatureDefinitionCastSpellBuilder SetReplacedSpells(params int[] spellsCount)
     {

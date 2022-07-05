@@ -16,10 +16,7 @@ public class StockUnitDescriptionBuilder
     private string _requiredFaction = string.Empty;
     private int _stackCount = 1;
 
-    public StockUnitDescriptionBuilder()
-    {
-    }
-
+#if false
     public StockUnitDescriptionBuilder(StockUnitDescription reference)
     {
         _itemDefinition = reference.ItemDefinition;
@@ -33,6 +30,7 @@ public class StockUnitDescriptionBuilder
         _requiredFaction = reference.RequiredFaction;
         _factionStatus = reference.Factionstatus;
     }
+#endif
 
     public StockUnitDescriptionBuilder SetItem(ItemDefinition itemDefinition)
     {
@@ -81,18 +79,21 @@ public class StockUnitDescriptionBuilder
             throw new ArgumentException("StockUnitDescriptionBuilder: trying to build with empty item!");
         }
 
-        var stock = new StockUnitDescription();
-        stock.Initialize();
-        stock.ItemDefinition = _itemDefinition;
-        stock.StackCount = _stackCount;
-        stock.InitialAmount = _initialAmount;
-        stock.MinAmount = _minAmount;
-        stock.MaxAmount = _maxAmount;
-        stock.ReassortAmount = _reassortAmount;
-        stock.ReassortRateType = _reassortRateType;
-        stock.ReassortRateValue = _reassortRateValue;
-        stock.RequiredFaction = _requiredFaction;
-        stock.factionStatus = _factionStatus;
+        var stock = new StockUnitDescription
+        {
+            initialized = true,
+            ItemDefinition = _itemDefinition,
+            StackCount = _stackCount,
+            InitialAmount = _initialAmount,
+            MinAmount = _minAmount,
+            MaxAmount = _maxAmount,
+            ReassortAmount = _reassortAmount,
+            ReassortRateType = _reassortRateType,
+            ReassortRateValue = _reassortRateValue,
+            RequiredFaction = _requiredFaction,
+            factionStatus = _factionStatus
+        };
+
         return stock;
     }
 }

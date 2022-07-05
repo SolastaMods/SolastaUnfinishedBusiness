@@ -26,7 +26,9 @@ internal static class CustomizedSubFeatureDefinitions
     }
 
     [NotNull]
-    internal static T SetCustomSubFeatures<T>([NotNull] this T definition, params object[] subFeatures)
+    internal static T SetCustomSubFeatures<T>(
+        [NotNull] this T definition,
+        [NotNull] params object[] subFeatures)
         where T : BaseDefinition
     {
         GetOrCreateForKey(definition).SetRange(subFeatures);

@@ -23,12 +23,6 @@ public abstract class SpellDefinitionWithDependentEffectsBuilder<TDefinition, TB
         return This();
     }
 
-    public TBuilder ClearFeatureEffects()
-    {
-        Definition.FeaturesEffectList.Clear();
-        return This();
-    }
-
     #region Constructors
 
     protected SpellDefinitionWithDependentEffectsBuilder(string name, string guid) : base(name, guid)

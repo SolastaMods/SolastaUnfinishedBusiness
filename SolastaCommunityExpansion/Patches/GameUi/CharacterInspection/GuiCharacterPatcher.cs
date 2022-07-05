@@ -18,6 +18,7 @@ internal static class GuiCharacter_MainClassDefinition_Getter
 
         // NOTE: don't use SelectedClass??. which bypasses Unity object lifetime check
         var selectedClass = InspectionPanelContext.SelectedClass;
+
         if (selectedClass)
         {
             __result = selectedClass;

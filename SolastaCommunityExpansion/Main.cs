@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion;
 
 internal static class Main
 {
-    internal static bool IsDebugBuild = Debug.isDebugBuild;
+    internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
 
     internal static string ModFolder { get; } =
         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -38,19 +38,18 @@ internal static class Main
         }
 
         var game = Gui.Game;
+
         if (game != null)
         {
             game.GameConsole?.LogSimpleLine(msg);
         }
     }
 
-    // need to be public for MC sidecar
     internal static void Error(Exception ex)
     {
         Logger?.Error(ex.ToString());
     }
 
-    // need to be public for MC sidecar
     internal static void Error(string msg)
     {
         Logger?.Error(msg);
@@ -69,9 +68,6 @@ internal static class Main
 
             Menu = new MenuManager();
             Menu.Enable(modEntry, assembly);
-
-            // side cars allow us to load any other DLL outside CE
-            // LoadSidecars(assembly.GetName().Name);
         }
         catch (Exception ex)
         {

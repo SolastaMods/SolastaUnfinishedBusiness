@@ -1,0 +1,6 @@
+﻿Equipment/&ScrollConjureMinorElementalTitle=Свиток призыва малых элементалей
+Equipment/&ScrollConjureMinorElementalDescription=Когда вы используете этот свиток, вы накладываете заклинание Сотворение второстепенных элементалей.
+Equipment/&ScrollDeathWardTitle=Свиток Стражей Смерти
+Equipment/&ScrollDeathWardDescription=Когда вы используете этот свиток, вы накладываете заклинание Страда смерти.
+Feature/&AttributeModifier{0}Description={0}
+Prop/&PrisonFenceDestroyedTitle=Тюремный забор разрушен

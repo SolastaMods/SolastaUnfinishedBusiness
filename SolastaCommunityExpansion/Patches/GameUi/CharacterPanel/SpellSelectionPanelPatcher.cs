@@ -29,7 +29,7 @@ internal static class SpellSelectionPanelPatcher
             var spellRepertoireSecondaryLine =
                 __instance.spellRepertoireSecondaryLine;
             var spellRepertoireLinesTable = __instance.spellRepertoireLinesTable;
-            var slotAdvancementPanel = __instance.slotAdvancementPanel;
+            var slotAdvancementPanel = __instance.SlotAdvancementPanel;
 
             foreach (var spellRepertoireLine in spellRepertoireLines)
             {

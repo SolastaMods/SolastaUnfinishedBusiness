@@ -1,0 +1,6 @@
+﻿Equipment/&ScrollConjureMinorElementalTitle=Pergamena di Evoca Elementali Minori
+Equipment/&ScrollConjureMinorElementalDescription=Quando usi questa pergamena, lanci l'incantesimo Evoca Elementali Minori.
+Equipment/&ScrollDeathWardTitle=Pergamena di Morte
+Equipment/&ScrollDeathWardDescription=Quando usi questa pergamena, lanci l'incantesimo Verso la morte.
+Feature/&AttributeModifier{0}Description={0}
+Prop/&PrisonFenceDestroyedTitle=Recinzione della prigione distrutta

@@ -18,11 +18,14 @@ public static class RulesetActorExtensions
     /// <param name="featuresOrigin"></param>
     [NotNull]
     public static ICollection<T> EnumerateFeaturesToBrowse<T>(
-        [NotNull] this RulesetActor actor, bool populateActorFeaturesToBrowse = false,
+        [NotNull] this RulesetActor actor,
+        bool populateActorFeaturesToBrowse = false,
         [CanBeNull] Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
     {
         var features = populateActorFeaturesToBrowse ? actor.FeaturesToBrowse : new List<FeatureDefinition>();
+
         actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
+
         return features.OfType<T>().ToList();
     }
 

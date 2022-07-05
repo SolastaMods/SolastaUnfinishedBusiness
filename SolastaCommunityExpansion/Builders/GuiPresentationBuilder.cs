@@ -1,6 +1,5 @@
 ﻿using System;
 using SolastaCommunityExpansion.Api.Infrastructure;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -66,6 +65,7 @@ public class GuiPresentationBuilder
         return this;
     }
 
+#if false
     public GuiPresentationBuilder SetColor(Color color)
     {
         guiPresentation.color = color;
@@ -83,6 +83,7 @@ public class GuiPresentationBuilder
         guiPresentation.sortOrder = sortOrder;
         return this;
     }
+#endif
 
     public GuiPresentationBuilder SetSpriteReference(AssetReferenceSprite sprite)
     {

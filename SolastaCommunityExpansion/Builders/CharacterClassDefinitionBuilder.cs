@@ -195,6 +195,7 @@ public class
 
     #region Expertise preference
 
+#if false
     public CharacterClassDefinitionBuilder AddExpertisePreference(SkillDefinition skillType)
     {
         Definition.ExpertiseAutolearnPreference.Add(skillType.Name);
@@ -234,6 +235,7 @@ public class
         Definition.ExpertiseAutolearnPreference.Sort();
         return this;
     }
+#endif
 
     #endregion
 
@@ -263,6 +265,7 @@ public class
 
     #region Metamagic preference
 
+#if false
     public CharacterClassDefinitionBuilder AddMetamagicPreference(MetamagicOptionDefinition option)
     {
         Definition.MetamagicAutolearnPreference.Add(option.Name);
@@ -282,6 +285,7 @@ public class
         Definition.MetamagicAutolearnPreference.Sort();
         return this;
     }
+#endif
 
     #endregion
 }

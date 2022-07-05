@@ -12,17 +12,15 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder()
     {
-        effect = new EffectDescription();
-
         var effectAdvancement = new EffectAdvancement {incrementMultiplier = 1};
-
-        effect.SetEffectAdvancement(effectAdvancement);
-
         var particleParams = new EffectParticleParameters();
 
         particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
 
-        effect.SetEffectParticleParameters(particleParams);
+        effect = new EffectDescription
+        {
+            effectAdvancement = effectAdvancement, effectParticleParameters = particleParams
+        };
     }
 
     public EffectDescriptionBuilder(EffectDescription effect)
@@ -87,18 +85,21 @@ public class EffectDescriptionBuilder
         int additionalTargetCellsPerIncrement = 0, int additionalItemBonus = 0,
         RuleDefinitions.AdvancementDuration alteredDuration = RuleDefinitions.AdvancementDuration.None)
     {
-        var effectAdvancement = new EffectAdvancement();
-        effectAdvancement.effectIncrementMethod = effectIncrementMethod;
-        effectAdvancement.incrementMultiplier = incrementMultiplier;
-        effectAdvancement.additionalTargetsPerIncrement = additionalTargetsPerIncrement;
-        effectAdvancement.additionalDicePerIncrement = additionalDicePerIncrement;
-        effectAdvancement.additionalSpellLevelPerIncrement = additionalSpellLevelPerIncrement;
-        effectAdvancement.additionalSummonsPerIncrement = additionalSummonsPerIncrement;
-        effectAdvancement.additionalHPPerIncrement = additionalHPPerIncrement;
-        effectAdvancement.additionalTempHPPerIncrement = additionalTempHPPerIncrement;
-        effectAdvancement.additionalTargetCellsPerIncrement = additionalTargetCellsPerIncrement;
-        effectAdvancement.additionalItemBonus = additionalItemBonus;
-        effectAdvancement.alteredDuration = alteredDuration;
+        var effectAdvancement = new EffectAdvancement
+        {
+            effectIncrementMethod = effectIncrementMethod,
+            incrementMultiplier = incrementMultiplier,
+            additionalTargetsPerIncrement = additionalTargetsPerIncrement,
+            additionalDicePerIncrement = additionalDicePerIncrement,
+            additionalSpellLevelPerIncrement = additionalSpellLevelPerIncrement,
+            additionalSummonsPerIncrement = additionalSummonsPerIncrement,
+            additionalHPPerIncrement = additionalHPPerIncrement,
+            additionalTempHPPerIncrement = additionalTempHPPerIncrement,
+            additionalTargetCellsPerIncrement = additionalTargetCellsPerIncrement,
+            additionalItemBonus = additionalItemBonus,
+            alteredDuration = alteredDuration
+        };
+
         effect.SetEffectAdvancement(effectAdvancement);
         return this;
     }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using SolastaCommunityExpansion.Api;
-using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -9,6 +7,7 @@ public class
     CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition,
         CharacterSubclassDefinitionBuilder>
 {
+#if false
     public CharacterSubclassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
     {
         Definition.PersonalityFlagOccurences.Add(
@@ -16,6 +15,7 @@ public class
                 .PersonalityFlagOccurences[0]) {weight = weight, personalityFlag = personalityType.Name});
         return this;
     }
+#endif
 
     public CharacterSubclassDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
     {
@@ -27,13 +27,6 @@ public class
     public CharacterSubclassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
-        Definition.FeatureUnlocks.Sort(Sorting.Compare);
-        return this;
-    }
-
-    public CharacterSubclassDefinitionBuilder SetFeaturesAtLevel(int level, params FeatureDefinition[] features)
-    {
-        Definition.FeatureUnlocks.SetRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
         Definition.FeatureUnlocks.Sort(Sorting.Compare);
         return this;
     }

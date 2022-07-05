@@ -172,10 +172,12 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
         // USER QUESTS
         foreach (var quest in userCampaign.UserQuests)
         {
+            quest.Title = Translations.Translate(quest.Title, languageCode);
             quest.Description = Translations.Translate(quest.Description, languageCode);
 
             foreach (var userQuestStep in quest.AllQuestStepDescriptions)
             {
+                userQuestStep.Title = Translations.Translate(userQuestStep.Title, languageCode);
                 userQuestStep.Description = Translations.Translate(userQuestStep.Description, languageCode);
 
                 foreach (var outcome in userQuestStep.OutcomesTable)

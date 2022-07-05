@@ -1,0 +1,6 @@
+﻿Equipment/&ScrollConjureMinorElementalTitle=Pergamino de conjurar elementales menores
+Equipment/&ScrollConjureMinorElementalDescription=Cuando usas este pergamino, lanzas el hechizo Conjurar elementales menores.
+Equipment/&ScrollDeathWardTitle=Pergamino de la muerte
+Equipment/&ScrollDeathWardDescription=Cuando usas este pergamino, lanzas el hechizo Deathward.
+Feature/&AttributeModifier{0}Description={0}
+Prop/&PrisonFenceDestroyedTitle=Valla de prisión destruida

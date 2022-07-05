@@ -1,6 +1,8 @@
-﻿CHANGES:
+﻿Freedom is never more than one generation away from extinction. We didn't pass it to our children in the bloodstream. It must be fought for, protected, and handed on for them to do the same.
 
-- Fix Divine Heart cantrips offering
-- Fix DM Pro NPCs / Monsters unreleased content offering
-- Improve Half-Elf variants and Flexible Races integration
+CHANGES:
+
+- Disable inventory sorting under MP
+- Fix ancestries cantrip offering
+- Fix wrong slot pre-selection on smites
 - Improve batch translations

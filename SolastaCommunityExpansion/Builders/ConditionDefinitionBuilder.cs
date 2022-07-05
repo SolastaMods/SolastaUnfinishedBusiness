@@ -28,25 +28,10 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     {
         var assetReference = new AssetReference();
 
-        if (definition.conditionStartParticleReference == null)
-        {
-            definition.conditionStartParticleReference = assetReference;
-        }
-
-        if (definition.conditionParticleReference == null)
-        {
-            definition.conditionParticleReference = assetReference;
-        }
-
-        if (definition.conditionEndParticleReference == null)
-        {
-            definition.conditionEndParticleReference = assetReference;
-        }
-
-        if (definition.characterShaderReference == null)
-        {
-            definition.characterShaderReference = assetReference;
-        }
+        definition.conditionStartParticleReference ??= assetReference;
+        definition.conditionParticleReference ??= assetReference;
+        definition.conditionEndParticleReference ??= assetReference;
+        definition.characterShaderReference ??= assetReference;
 
         return definition;
     }

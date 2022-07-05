@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
@@ -91,7 +92,9 @@ internal static class SpellsByLevelGroup_BindLearning
         List<SpellDefinition> unlearnedSpells,
         string spellTag,
         bool canAcquireSpells,
-        bool unlearn)
+        bool unlearn,
+        RectTransform tooltipAnchor,
+        TooltipDefinitions.AnchorMode anchorMode)
     {
         var heroBuildingData = characterBuildingService.CurrentLocalHeroCharacter?.GetHeroBuildingData();
 
@@ -169,14 +172,17 @@ internal static class SpellsByLevelGroup_BindLearning
             }
         }
 
-        CollectAllAutoPreparedSpells(__instance, characterBuildingService.CurrentLocalHeroCharacter, allSpells,
-            __instance.autoPreparedSpells);
+        if (!spellTag.Contains(AttributeDefinitions.TagRace)) // this is a patch over original TA code
+        {
+            CollectAllAutoPreparedSpells(__instance, characterBuildingService.CurrentLocalHeroCharacter, allSpells,
+                __instance.autoPreparedSpells);
 
-        FilterMulticlassBleeding(__instance, characterBuildingService.CurrentLocalHeroCharacter, allSpells,
-            __instance.autoPreparedSpells);
+            FilterMulticlassBleeding(__instance, characterBuildingService.CurrentLocalHeroCharacter, allSpells,
+                __instance.autoPreparedSpells);
+        }
 
         __instance.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
-            allSpells, null, __instance.autoPreparedSpells, unlearnedSpells, autoPrepareTag);
+            allSpells, null, __instance.autoPreparedSpells, unlearnedSpells, autoPrepareTag, tooltipAnchor, anchorMode);
 
         if (unlearn)
         {

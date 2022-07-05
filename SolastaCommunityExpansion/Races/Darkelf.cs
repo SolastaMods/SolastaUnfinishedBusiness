@@ -76,7 +76,7 @@ internal static class DarkelfSubraceBuilder
             .AddLightingEffectAndCondition(darkelfLightingEffectAndCondition)
             .AddToDB();
 
-        if (Main.Settings.ReduceDarkelfLightPenalty)
+        if (Main.Settings.ReduceDarkElfLightPenalty)
         {
             const string REDUCED_DESCRIPTION = "Feature/&LightAffinityDarkelfReducedLightSensitivityDescription";
 
