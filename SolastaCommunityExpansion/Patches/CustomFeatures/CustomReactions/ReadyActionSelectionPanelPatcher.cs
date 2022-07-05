@@ -48,7 +48,7 @@ internal static class ReadyActionSelectionPanel_Bind
             tooltip.Content = "UI/&ForcePreferredCantripDescription";
 
             toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
-            toggle.PersonalityFlagSelected = (_, state) =>
+            toggle.PersonalityFlagSelected = (_, _, state) =>
             {
                 CustomReactionsContext.ForcePreferredCantripUI = state;
                 tooltip.Content = "UI/&ForcePreferredCantripDescription";
