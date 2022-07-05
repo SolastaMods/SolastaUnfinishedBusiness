@@ -72,15 +72,7 @@ internal static class RulesetCharacterExension
     [CanBeNull]
     public static RulesetItem GetItemInSlot([CanBeNull] this RulesetCharacter instance, string slot)
     {
-        if (instance == null
-            || instance.CharacterInventory == null
-            || instance.CharacterInventory.InventorySlotsByName == null
-           )
-        {
-            return null;
-        }
-
-        var inventorySlot = instance.CharacterInventory.InventorySlotsByName[slot];
+        var inventorySlot = instance?.CharacterInventory?.InventorySlotsByName?[slot];
 
         return inventorySlot?.EquipedItem;
     }

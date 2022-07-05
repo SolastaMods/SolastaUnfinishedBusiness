@@ -6,8 +6,11 @@ public static class GameConsoleHelper
 {
     private const string DefaultUseText = "Feedback/&ActivatePowerLine";
 
-    public static void LogCharacterUsedPower(RulesetCharacter character, [NotNull] FeatureDefinitionPower power,
-        string text = DefaultUseText, bool indent = false)
+    public static void LogCharacterUsedPower(
+        [NotNull] RulesetCharacter character,
+        [NotNull] FeatureDefinitionPower power,
+        string text = DefaultUseText,
+        bool indent = false)
     {
         var abilityName = string.IsNullOrEmpty(power.ShortTitleOverride)
             ? power.GuiPresentation.Title
@@ -16,8 +19,11 @@ public static class GameConsoleHelper
         LogCharacterActivatesAbility(character, abilityName, text, indent);
     }
 
-    public static void LogCharacterActivatesAbility([NotNull] RulesetCharacter character, string abilityName,
-        string text = DefaultUseText, bool indent = false)
+    public static void LogCharacterActivatesAbility(
+        [NotNull] RulesetCharacter character,
+        string abilityName,
+        string text = DefaultUseText,
+        bool indent = false)
     {
         var console = Gui.Game.GameConsole;
         var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
@@ -28,8 +34,11 @@ public static class GameConsoleHelper
         console.AddEntry(entry);
     }
 
-    public static void LogCharacterAffectsTarget(RulesetCharacter character, RulesetCharacter target,
-        string notificationTag, bool indent = false)
+    public static void LogCharacterAffectsTarget(
+        [NotNull] RulesetCharacter character,
+        [NotNull] RulesetCharacter target,
+        string notificationTag,
+        bool indent = false)
     {
         var console = Gui.Game.GameConsole;
         var text = $"Feedback/&NotifyEffect{notificationTag}Line";

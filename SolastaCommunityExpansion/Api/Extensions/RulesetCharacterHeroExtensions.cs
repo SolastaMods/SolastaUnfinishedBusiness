@@ -37,20 +37,23 @@ public static class RulesetCharacterHeroExtensions
     }
 
     [NotNull]
-    private static IEnumerable<(string, T)> GetTaggedFeatures<T>(string tag,
+    private static IEnumerable<(string, T)> GetTaggedFeatures<T>(
+        string tag,
         [NotNull] IEnumerable<FeatureDefinition> features)
         where T : class
     {
         var list = new List<(string, T)>();
         foreach (var feature in features)
         {
-            if (feature is FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union} set)
+            switch (feature)
             {
-                list.AddRange(GetTaggedFeatures<T>(tag, set.FeatureSet));
-            }
-            else if (feature is T typedFeature)
-            {
-                list.Add((tag, typedFeature));
+                case FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union} set:
+                    list.AddRange(GetTaggedFeatures<T>(tag, set.FeatureSet));
+                    break;
+
+                case T typedFeature:
+                    list.Add((tag, typedFeature));
+                    break;
             }
         }
 

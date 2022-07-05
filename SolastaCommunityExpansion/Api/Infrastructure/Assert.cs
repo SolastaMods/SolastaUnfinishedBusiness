@@ -5,7 +5,9 @@ namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public static class Assert
 {
-    public static void IsNotNull<T>([NotNull] [NoEnumeration] T instance, [CanBeNull] string message = null)
+    public static void IsNotNull<T>(
+        [NotNull] [NoEnumeration] T instance,
+        [CanBeNull] string message = null)
         where T : class
     {
         if (instance == null)

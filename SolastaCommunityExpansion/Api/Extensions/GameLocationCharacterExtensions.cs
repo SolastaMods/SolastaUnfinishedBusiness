@@ -26,11 +26,7 @@ public static class GameLocationCharacterExtensions
     public static int GetSkipAttackModes(this GameLocationCharacter instance)
     {
         var key = Key(instance);
-        if (SkipAttackModes.ContainsKey(key))
-        {
-            return SkipAttackModes[key];
-        }
 
-        return 0;
+        return SkipAttackModes.ContainsKey(key) ? SkipAttackModes[key] : 0;
     }
 }

@@ -13,6 +13,7 @@ public static class ArrayExtensions
         }
 
         var walker = new ArrayTraverse(array);
+
         do
         {
             action(array, walker.Position);
@@ -27,6 +28,7 @@ internal sealed class ArrayTraverse
     public ArrayTraverse([NotNull] Array array)
     {
         maxLengths = new int[array.Rank];
+
         for (var i = 0; i < array.Rank; ++i)
         {
             maxLengths[i] = array.GetLength(i) - 1;
@@ -41,16 +43,19 @@ internal sealed class ArrayTraverse
     {
         for (var i = 0; i < Position.Length; ++i)
         {
-            if (Position[i] < maxLengths[i])
+            if (Position[i] >= maxLengths[i])
             {
-                Position[i]++;
-                for (var j = 0; j < i; j++)
-                {
-                    Position[j] = 0;
-                }
-
-                return true;
+                continue;
             }
+
+            Position[i]++;
+
+            for (var j = 0; j < i; j++)
+            {
+                Position[j] = 0;
+            }
+
+            return true;
         }
 
         return false;
