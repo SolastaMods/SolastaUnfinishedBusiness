@@ -22,8 +22,12 @@ internal static class CharactersPanel_Refresh
             ;
         }
 
+        //Code below seems to be for exporting character, but respec flag is checked to run it
         if (Main.Settings.EnableRespec)
         {
+            //TODO: investigate how to get proper button now that `exportPdfButton` is gone
+#if false
+            
             var characterLevel = __instance.selectedPlate >= 0
                 ? __instance.characterPlates[__instance.selectedPlate].GuiCharacter.CharacterLevel
                 : 1;
@@ -43,6 +47,7 @@ internal static class CharactersPanel_Refresh
             });
 
             HasInit = true;
+#endif
         }
     }
 }
