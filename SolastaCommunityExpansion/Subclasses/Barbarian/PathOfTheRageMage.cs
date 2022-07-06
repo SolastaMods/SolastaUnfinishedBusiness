@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.CustomInterfaces;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian;
 
@@ -50,6 +43,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
         var supernaturalExploitsDarkvision = FeatureDefinitionPowerBuilder
             .Create("supernaturalExploitsDarkvisionPathOfTheRagemage", SubclassNamespace)
             .SetGuiPresentation("supernaturalExploitsPathOfTheRagemage", Category.Feature)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
@@ -60,6 +54,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var supernaturalExploitsFeatherfall = FeatureDefinitionPowerBuilder
             .Create("supernaturalExploitsFeatherfallPathOfTheRagemage", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.FeatherFall.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.FeatherFall.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
@@ -70,6 +65,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var supernaturalExploitsJump = FeatureDefinitionPowerBuilder
             .Create("supernaturalExploitsJumpPathOfTheRagemage", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Jump.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.Jump.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
@@ -80,6 +76,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var supernaturalExploitsSeeInvisibility = FeatureDefinitionPowerBuilder
             .Create("supernaturalExploitsSeeInvisibilityPathOfTheRagemage", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.SeeInvisibility.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
