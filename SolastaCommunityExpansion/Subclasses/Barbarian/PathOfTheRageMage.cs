@@ -47,11 +47,57 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetProficiencies(RuleDefinitions.ProficiencyType.Skill, SkillDefinitions.Arcana)
             .AddToDB();
 
+        var supernaturalExploitsDarkvision = FeatureDefinitionPowerBuilder
+            .Create("supernaturalExploitsDarkvisionPathOfTheRagemage", SubclassNamespace)
+            .SetGuiPresentation("supernaturalExploitsPathOfTheRagemage", Category.Feature)
+            .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription.Copy())
+            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
+            .SetFixedUsesPerRecharge(1)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
+            .SetCostPerUse(1)
+            .SetShowCasting(true)
+            .AddToDB();
+
+        var supernaturalExploitsFeatherfall = FeatureDefinitionPowerBuilder
+            .Create("supernaturalExploitsFeatherfallPathOfTheRagemage", SubclassNamespace)
+            .SetEffectDescription(SpellDefinitions.FeatherFall.EffectDescription.Copy())
+            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
+            .SetFixedUsesPerRecharge(1)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
+            .SetCostPerUse(1)
+            .SetShowCasting(true)
+            .AddToDB();
+
+        var supernaturalExploitsJump = FeatureDefinitionPowerBuilder
+            .Create("supernaturalExploitsJumpPathOfTheRagemage", SubclassNamespace)
+            .SetEffectDescription(SpellDefinitions.Jump.EffectDescription.Copy())
+            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
+            .SetFixedUsesPerRecharge(1)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
+            .SetCostPerUse(1)
+            .SetShowCasting(true)
+            .AddToDB();
+
+        var supernaturalExploitsSeeInvisibility = FeatureDefinitionPowerBuilder
+            .Create("supernaturalExploitsSeeInvisibilityPathOfTheRagemage", SubclassNamespace)
+            .SetEffectDescription(SpellDefinitions.SeeInvisibility.EffectDescription.Copy())
+            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
+            .SetFixedUsesPerRecharge(1)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
+            .SetCostPerUse(1)
+            .SetShowCasting(true)
+            .AddToDB();
+
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("BarbarianPathOfTheRageMage", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheRageMage", Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
-            .AddFeatureAtLevel(skillProf, 3).AddToDB();
+            .AddFeatureAtLevel(skillProf, 3)
+            .AddFeatureAtLevel(supernaturalExploitsDarkvision, 10)
+            .AddFeatureAtLevel(supernaturalExploitsFeatherfall, 10)
+            .AddFeatureAtLevel(supernaturalExploitsJump, 10)
+            .AddFeatureAtLevel(supernaturalExploitsSeeInvisibility, 10).AddToDB();
 
     }
 
