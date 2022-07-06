@@ -113,7 +113,7 @@ ModUi/&Items=<color=yellow>物品：</color>
 ModUi/&ItemsCraftingMerchants=物品，制作和商人
 ModUi/&ItemsHelp1=<color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
 ModUi/&ItemsHelp2=<b>按+将物品添加至地面容器</b>
-ModUi/&KeyboardMouse=键盘与鼠标
+ModUi/&Input=键盘与鼠标
 ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
 ModUi/&MaxAllowedClasses=<color=white>最高职业数量</color> <i><color=#C04040E0>[需要重启游戏]</color></i>

@@ -23,7 +23,7 @@ internal static class LoadPanel_OnBeginShow
     public static bool Prefix(LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview,
         [HarmonyArgument("instant")] bool _ = false)
     {
-        if (!Main.Settings.EnableSaveByLocation)
+        if (!Main.Settings.EnableSaveByLocation || Main.Settings.EnableGamepad)
         {
             if (Dropdown != null)
             {

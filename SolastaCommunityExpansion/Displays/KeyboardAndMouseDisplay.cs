@@ -1,10 +1,12 @@
 ﻿using ModKit;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Displays;
 
 internal static class KeyboardAndMouseDisplay
 {
     private static bool SelectAll { get; set; } =
+        Main.Settings.EnableGamepad &&
         Main.Settings.EnableCancelEditOnRightMouseClick &&
         Main.Settings.EnableHotkeyToggleIndividualHud &&
         Main.Settings.EnableHotkeyToggleHud &&
@@ -20,6 +22,7 @@ internal static class KeyboardAndMouseDisplay
 
     private static void UpdateSettings(bool flag)
     {
+        Main.Settings.EnableGamepad = flag;
         Main.Settings.EnableCancelEditOnRightMouseClick = flag;
         Main.Settings.EnableHotkeyToggleIndividualHud = flag;
         Main.Settings.EnableHotkeyToggleHud = flag;
@@ -50,6 +53,18 @@ internal static class KeyboardAndMouseDisplay
         {
             SelectAll = toggle;
             UpdateSettings(SelectAll);
+        }
+
+        UI.Label("");
+
+        // NO NEED TO TRANSLATE THIS
+        toggle = Main.Settings.EnableGamepad;
+        if (UI.Toggle("Enable gamepad support <b><i><color=#C04040E0>[Requires Restart]</color></i></b>",
+                ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableGamepad = toggle;
+            SelectAll = false;
+            GameUiContext.SwitchControlScheme();
         }
 
         UI.Label("");

@@ -113,7 +113,7 @@ ModUi/&Items=<color=yellow>Articles :</color>
 ModUi/&ItemsCraftingMerchants=Objets, artisanat et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Vous devez avoir l'écran d'inspection des personnages ouvert pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des éléments au conteneur terrestre</b>
-ModUi/&KeyboardMouse=Clavier souris
+ModUi/&Input=Gamepad, Clavier & Souris
 ModUi/&MakeAllMagicStaveArcaneFoci=Faire de tous les bâtons magiques des foyers arcaniques <i><color=yellow>[sauf le <color=orange>Bâton de guérison</color> qui est universel]</color></i> <b><i><color= #C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

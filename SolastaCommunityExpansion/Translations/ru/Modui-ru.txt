@@ -113,7 +113,7 @@ ModUi/&Items=<color=yellow>Предметы:</color>
 ModUi/&ItemsCraftingMerchants=Предметы, изготовление и торговцы
 ModUi/&ItemsHelp1=<color=#C04040E0>У вас должен быть открыт экран проверки персонажей, чтобы добавлять предметы героям...</color>
 ModUi/&ItemsHelp2=. Нажмите +, чтобы добавить предметы в наземный контейнер на панели проверки.
-ModUi/&KeyboardMouse=Клавиатура и мышь
+ModUi/&Input=Клавиатура и мышь
 ModUi/&MakeAllMagicStaveArcaneFoci=Сделать все магические посохи магическими фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color= #C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Также отмечать местоположение невидимых телепортов на карте уровня после обнаружения</i>
 ModUi/&MaxAllowedClasses=<color=white>Максимум разрешённых классов</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>

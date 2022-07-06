@@ -11,7 +11,7 @@ internal static class GameSerializationManager_CanLoad
     public static bool Prefix(ref bool __result, bool ___saving, bool ___loading,
         HashSet<EPermissionToken> ___loadDisabledTokens)
     {
-        if (!Main.Settings.EnableSaveByLocation)
+        if (!Main.Settings.EnableSaveByLocation || Main.Settings.EnableGamepad)
         {
             return true;
         }

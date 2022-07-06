@@ -12,6 +12,7 @@ namespace SolastaCommunityExpansion.Patches.Tools;
 internal static class CharactersPanel_Refresh
 {
     private static bool HasInit { get; set; }
+    private static int SelectedPlate { get; set; }
 
     internal static void Postfix(CharactersPanel __instance)
     {
@@ -21,9 +22,10 @@ internal static class CharactersPanel_Refresh
             return;
         }
 
-        var selectedPlate = __instance.selectedPlate;
-        var characterLevel = selectedPlate >= 0
-            ? __instance.characterPlates[selectedPlate].GuiCharacter.CharacterLevel
+        SelectedPlate = __instance.selectedPlate;
+
+        var characterLevel = SelectedPlate >= 0
+            ? __instance.characterPlates[SelectedPlate].GuiCharacter.CharacterLevel
             : 1;
 
         __instance.characterCheckerButton.gameObject.SetActive(characterLevel > 1);
@@ -33,15 +35,25 @@ internal static class CharactersPanel_Refresh
             return;
         }
 
-        __instance.characterCheckerButton.GetComponentInChildren<TextMeshProUGUI>().text = "MainMenu/&LevelDownTitle";
+        __instance.characterCheckerButton.GetComponentInChildren<TextMeshProUGUI>().text = Gui.Localize("MainMenu/&LevelDownTitle");
         __instance.characterCheckerButton.GetComponentInChildren<GuiTooltip>().Content =
-            "MainMenu/&LevelDownDescription";
+           Gui.Localize("MainMenu/&LevelDownDescription");
         __instance.characterCheckerButton.onClick.RemoveAllListeners();
         __instance.characterCheckerButton.onClick.AddListener(() =>
         {
-            LevelDownContext.ConfirmAndExecute(__instance.characterPlates[selectedPlate].Filename);
+            LevelDownContext.ConfirmAndExecute(__instance.characterPlates[SelectedPlate].Filename);
         });
 
         HasInit = true;
+    }
+}
+
+[HarmonyPatch(typeof(CharactersPanel), "OnCharacterCheckerCb")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class CharactersPanel_OnCharacterCheckerCb
+{
+    private static bool Prefix()
+    {
+        return !Main.Settings.EnableRespec;
     }
 }
