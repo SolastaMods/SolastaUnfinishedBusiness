@@ -1,4 +1,5 @@
 ﻿using ModKit;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Displays;
 
@@ -58,9 +59,12 @@ internal static class KeyboardAndMouseDisplay
 
         // NO NEED TO TRANSLATE THIS
         toggle = Main.Settings.EnableGamepad;
-        if (UI.Toggle("Enable the gamepad <i><color=yellow>[beta support]</color></i>", ref toggle, UI.AutoWidth()))
+        if (UI.Toggle("Enable gamepad support <b><i><color=#C04040E0>[Requires Restart]</color></i></b>",
+                ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableGamepad = toggle;
+            SelectAll = false;
+            GameUiContext.SwitchControlScheme();
         }
 
         UI.Label("");
