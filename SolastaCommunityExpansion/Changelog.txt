@@ -2,4 +2,4 @@
 
 CHANGES:
 
-- Add gamepad beta support under Interface > Gamepad, Keyboard & Mouse
+- Improve gamepad support
