@@ -22,7 +22,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
     internal PathOfTheRageMage()
     {
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityFighterSpellShield", SubclassNamespace)
+            .Create("MagicAffinityBarbarianPathOfTheRageMage", SubclassNamespace)
             .SetHandsFullCastingModifiers(true, true, true)
             .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, 0,
                 RuleDefinitions.SpellParamsModifierType.FlatValue, true, false, false)
