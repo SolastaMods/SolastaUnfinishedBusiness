@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -12,9 +13,9 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class CasterFeats
 {
-    public static readonly Guid CasterFeatsNamespace = new("bf70984d-e7b9-446a-9ae3-0f2039de833d");
+    private static readonly Guid CasterFeatsNamespace = new("bf70984d-e7b9-446a-9ae3-0f2039de833d");
 
-    public static void CreateFeats(List<FeatDefinition> feats)
+    public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         FeatureDefinition intIncrement =
             BuildAdditiveAttributeModifier("FeatIntIncrement", AttributeDefinitions.Intelligence, 1);
@@ -23,13 +24,17 @@ internal static class CasterFeats
         FeatureDefinition wisIncrement =
             BuildAdditiveAttributeModifier("FeatWisIncrement", AttributeDefinitions.Wisdom, 1);
 
-        static FeatureDefinitionAttributeModifier BuildAdditiveAttributeModifier(string name, string attribute,
+        static FeatureDefinitionAttributeModifier BuildAdditiveAttributeModifier(
+            string name,
+            string attribute,
             int amount)
         {
             return FeatureDefinitionAttributeModifierBuilder
                 .Create(name, CasterFeatsNamespace)
                 .SetGuiPresentation(Category.Feat)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, attribute,
+                .SetModifier(
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    attribute,
                     amount)
                 .AddToDB();
         }
@@ -194,7 +199,67 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        // shadow touched: invisibility, false life, inflict wounds-- note inflict wounds is an attack that relies on casting stat, for the free cast power, tie it to the increment stat
+        // celestial touched
+
+        var celestialTouchedGroup =
+            BuildSpellGroup(0, Bless, CureWounds, LesserRestoration);
+
+        var learnCelestialTouchedPresentation =
+            GuiPresentationBuilder.Build("PowerCelestialTouchedFromFeat", Category.Feat);
+
+        var celestialTouchedClassesPreparedSpells = AutoPreparedClassLists(classes,
+            celestialTouchedGroup, learnCelestialTouchedPresentation, "CelestialTouchedAutoPrep", "CelestialTouched");
+
+        var blessBonusPresentation = GuiPresentationBuilder.Build("PowerBlessFromFeat", Category.Feat,
+            Invisibility.GuiPresentation.SpriteReference);
+
+        var blessPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            false, false, AttributeDefinitions.Intelligence,
+            Bless.EffectDescription, "PowerBlessFromFeat", blessBonusPresentation);
+
+        var cureWoundsBonusPresentation = GuiPresentationBuilder.Build("PowerCureWoundsFromFeat", Category.Feat,
+            FalseLife.GuiPresentation.SpriteReference);
+
+        var cureWoundsPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            false, false, AttributeDefinitions.Intelligence,
+            CureWounds.EffectDescription, "PowerCureWoundsFromFeat", cureWoundsBonusPresentation);
+
+        var lesserRestorationBonusPresentation = GuiPresentationBuilder.Build("PowerLesserRestorationFromFeat", Category.Feat,
+            FalseLife.GuiPresentation.SpriteReference);
+
+        var lesserRestorationPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            false, false, AttributeDefinitions.Intelligence,
+            CureWounds.EffectDescription, "PowerLesserRestorationFromFeat", lesserRestorationBonusPresentation);
+
+        feats.AddRange(
+            // celestial touched int
+            FeatDefinitionBuilder
+                .Create("FeatCelestialTouchedInt", CasterFeatsNamespace)
+                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower, intIncrement)
+                .AddFeatures(celestialTouchedClassesPreparedSpells)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB(),
+            // celestial touched wis
+            FeatDefinitionBuilder
+                .Create("FeatCelestialTouchedWis", CasterFeatsNamespace)
+                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower, wisIncrement)
+                .AddFeatures(celestialTouchedClassesPreparedSpells)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB(),
+            // celestial touched cha
+            FeatDefinitionBuilder
+                .Create("FeatCelestialTouchedCha", CasterFeatsNamespace)
+                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower, chaIncrement)
+                .AddFeatures(celestialTouchedClassesPreparedSpells)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB()
+        );
+
+        // shadow touched: invisibility, false life, inflict wounds
+        // note inflict wounds is an attack that relies on casting stat, for the free cast power, tie it to the increment stat
         // auto prepared spells- see list ^
         // power that mimics ^^ spells once per long rest
 
