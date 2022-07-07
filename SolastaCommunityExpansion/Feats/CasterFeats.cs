@@ -259,6 +259,15 @@ internal static class CasterFeats
         );
 
         // flame touched
+        var flameTouchedGroup =
+            BuildSpellGroup(0, BurningHands, FaerieFire, FlamingSphere);
+
+        var learnFlameTouchedPresentation =
+            GuiPresentationBuilder.Build("PowerFlameTouchedFromFeat", Category.Feat);
+
+        var flameTouchedClassesPreparedSpells = AutoPreparedClassLists(classes,
+            flameTouchedGroup, learnFlameTouchedPresentation, "FlameTouchedAutoPrep", "FlameTouched");
+        
         var burningHandsBonusPresentation = GuiPresentationBuilder.Build("PowerBurningHandsFromFeat",
             Category.Feat, BurningHands.GuiPresentation.SpriteReference);
 
@@ -314,25 +323,25 @@ internal static class CasterFeats
             FlamingSphere.EffectDescription, "PowerFlamingSphereChaFromFeat", flamingSphereBonusPresentation);
         
         feats.AddRange(
-            // celestial touched int
+            // flame touched int
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedInt", CasterFeatsNamespace)
                 .SetFeatures(burningHandsPowerInt, faerieFirePowerInt, flamingSpherePowerInt, intIncrement)
-                .AddFeatures(celestialTouchedClassesPreparedSpells)
+                .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
-            // celestial touched wis
+            // flame touched wis
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedWis", CasterFeatsNamespace)
                 .SetFeatures(burningHandsPowerWis, faerieFirePowerWis, flamingSpherePowerWis, wisIncrement)
-                .AddFeatures(celestialTouchedClassesPreparedSpells)
+                .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
-            // celestial touched cha
+            // flame touched cha
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedCha", CasterFeatsNamespace)
                 .SetFeatures(burningHandsPowerCha, faerieFirePowerCha, flamingSpherePowerCha, chaIncrement)
-                .AddFeatures(celestialTouchedClassesPreparedSpells)
+                .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB()
         );
