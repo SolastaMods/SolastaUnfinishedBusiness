@@ -31,7 +31,8 @@ internal static class FlexibleRacesContext
         {"HalfOrc", attributeChoiceThree},
         // unofficial races
         {"BolgrifRace", attributeChoiceThree},
-        {"GnomeRace", attributeChoiceThree}
+        {"GnomeRace", attributeChoiceThree},
+        {"HalfElfVariant", attributeChoiceFour}
     };
 
     private static readonly Dictionary<string, List<string>> removedFeatures = new()
