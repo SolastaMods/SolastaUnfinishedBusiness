@@ -28,7 +28,9 @@ internal static class CharacterInspectionScreen_Unbind
 {
     internal static void Prefix()
     {
-        if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer)
+        if (Main.Settings.EnableInventoryFilteringAndSorting
+            && !Main.Settings.EnableGamepad
+            && !Global.IsMultiplayer)
         {
             InventoryManagementContext.ResetControls();
         }

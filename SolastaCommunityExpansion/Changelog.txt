@@ -2,4 +2,6 @@
 
 CHANGES:
 
+- Fix save by campaign / location UI
 - Improve gamepad support
+- Weaponize Produce Flame spell

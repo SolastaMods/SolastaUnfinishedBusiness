@@ -57,7 +57,8 @@ internal static class CharactersPanel_EnumeratePlates
 
     internal static void Postfix(CharactersPanel __instance)
     {
-        if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
+        if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty
+            || Main.Settings.EnableGamepad)
         {
             Disable(__instance.charactersTable);
 
