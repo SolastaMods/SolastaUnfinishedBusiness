@@ -18,6 +18,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target select
 ModUi/&AllowUnmarkedSorcerers=Allow <color=orange>Sorcerers</color> without origin markings and tattoos
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view <i><color=yellow>[only in custom dungeons]</color></i>
+ModUi/&ApplySRDWeightToFoodRations=Reduce weight of food ration to 2 pounds per SRD
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=yellow>Basic:</color>
 ModUi/&Battle=<color=yellow>Battle:</color>

@@ -151,6 +151,7 @@ public class Settings : UnityModManager.ModSettings
     public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
     public bool FixSorcererTwinnedLogic { get; set; }
     public bool FullyControlConjurations { get; set; }
+    public bool ApplySRDWeightToFoodRations { get; set; }
 
     // House
     public bool ChangeSleetStormToCube { get; set; }
