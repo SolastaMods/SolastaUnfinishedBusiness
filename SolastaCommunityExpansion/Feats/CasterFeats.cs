@@ -258,6 +258,85 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
+        // flame touched
+        var burningHandsBonusPresentation = GuiPresentationBuilder.Build("PowerBurningHandsFromFeat",
+            Category.Feat, BurningHands.GuiPresentation.SpriteReference);
+
+        var burningHandsPowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            true, true, AttributeDefinitions.Intelligence,
+            BurningHands.EffectDescription, "PowerBurningHandsIntFromFeat", burningHandsBonusPresentation);
+
+        var burningHandsPowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            true, true, AttributeDefinitions.Wisdom,
+            BurningHands.EffectDescription, "PowerBurningHandsWisFromFeat", burningHandsBonusPresentation);
+
+        var burningHandsPowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            true, true, AttributeDefinitions.Charisma,
+            BurningHands.EffectDescription, "PowerBurningHandsChaFromFeat", burningHandsBonusPresentation);
+
+        var faerieFireBonusPresentation = GuiPresentationBuilder.Build("PowerFaerieFireFromFeat",
+            Category.Feat, FaerieFire.GuiPresentation.SpriteReference);
+
+        var faerieFirePowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            true, true, AttributeDefinitions.Intelligence,
+            FaerieFire.EffectDescription, "PowerFaerieFireIntFromFeat", faerieFireBonusPresentation);
+
+        var faerieFirePowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            true, true, AttributeDefinitions.Wisdom,
+            FaerieFire.EffectDescription, "PowerFaerieFireWisFromFeat", faerieFireBonusPresentation);
+
+        var faerieFirePowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            true, true, AttributeDefinitions.Charisma,
+            FaerieFire.EffectDescription, "PowerFaerieFireChaFromFeat", faerieFireBonusPresentation);
+
+        var flamingSphereBonusPresentation = GuiPresentationBuilder.Build("PowerFlamingSphereFromFeat",
+            Category.Feat, FlamingSphere.GuiPresentation.SpriteReference);
+
+        var flamingSpherePowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            true, true, AttributeDefinitions.Intelligence,
+            FlamingSphere.EffectDescription, "PowerFlamingSphereIntFromFeat", flamingSphereBonusPresentation);
+
+        var flamingSpherePowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            true, true, AttributeDefinitions.Wisdom,
+            FlamingSphere.EffectDescription, "PowerFlamingSphereWisFromFeat", flamingSphereBonusPresentation);
+
+        var flamingSpherePowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
+            true, true, AttributeDefinitions.Charisma,
+            FlamingSphere.EffectDescription, "PowerFlamingSphereChaFromFeat", flamingSphereBonusPresentation);
+        
+        feats.AddRange(
+            // celestial touched int
+            FeatDefinitionBuilder
+                .Create("FeatFlameTouchedInt", CasterFeatsNamespace)
+                .SetFeatures(burningHandsPowerInt, faerieFirePowerInt, flamingSpherePowerInt, intIncrement)
+                .AddFeatures(celestialTouchedClassesPreparedSpells)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB(),
+            // celestial touched wis
+            FeatDefinitionBuilder
+                .Create("FeatFlameTouchedWis", CasterFeatsNamespace)
+                .SetFeatures(burningHandsPowerWis, faerieFirePowerWis, flamingSpherePowerWis, wisIncrement)
+                .AddFeatures(celestialTouchedClassesPreparedSpells)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB(),
+            // celestial touched cha
+            FeatDefinitionBuilder
+                .Create("FeatFlameTouchedCha", CasterFeatsNamespace)
+                .SetFeatures(burningHandsPowerCha, faerieFirePowerCha, flamingSpherePowerCha, chaIncrement)
+                .AddFeatures(celestialTouchedClassesPreparedSpells)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB()
+        );
+        
         // shadow touched: invisibility, false life, inflict wounds
         // note inflict wounds is an attack that relies on casting stat, for the free cast power, tie it to the increment stat
         // auto prepared spells- see list ^
