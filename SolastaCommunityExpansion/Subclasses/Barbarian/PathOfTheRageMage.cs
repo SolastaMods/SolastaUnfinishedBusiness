@@ -120,6 +120,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetGuiPresentation("BarbarianPathOfTheRageMage", Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
             .AddFeatureAtLevel(skillProf, 3)
+            .AddFeatureAtLevel(supernaturalExploits, 10)
             .AddFeatureAtLevel(supernaturalExploitsDarkvision, 10)
             .AddFeatureAtLevel(supernaturalExploitsFeatherfall, 10)
             .AddFeatureAtLevel(supernaturalExploitsJump, 10)
