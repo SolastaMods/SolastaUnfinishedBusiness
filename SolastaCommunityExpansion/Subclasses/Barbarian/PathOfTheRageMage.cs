@@ -2,8 +2,13 @@
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian;
 
@@ -40,9 +45,14 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetProficiencies(RuleDefinitions.ProficiencyType.Skill, SkillDefinitions.Arcana)
             .AddToDB();
 
-        var supernaturalExploitsDarkvision = FeatureDefinitionPowerBuilder
-            .Create("supernaturalExploitsDarkvisionPathOfTheRagemage", SubclassNamespace)
+        var supernaturalExploits = FeatureDefinitionPowerBuilder
+            .Create("supernaturalExploitsPathOfTheRagemage", SubclassNamespace)
             .SetGuiPresentation("supernaturalExploitsPathOfTheRagemage", Category.Feature)
+            .AddToDB();
+
+    var supernaturalExploitsDarkvision = FeatureDefinitionPowerBuilder
+            .Create("supernaturalExploitsDarkvisionPathOfTheRagemage", SubclassNamespace)
+            .SetGuiPresentation("supernaturalExploitsDarkvisionPathOfTheRagemage", Category.Feature)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
@@ -83,6 +93,25 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
             .SetCostPerUse(1)
             .SetShowCasting(true)
+            .AddToDB();
+
+       /* var bonusAttack = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
+            .Create("ArcaneRampagePathOfTheRagemage", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatures(FeatureDefinitionAdditionalActionBuilder
+            .SetActionType(ActionDefinitions.ActionType.Bonus)
+            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+            .SetMaxAttacksNumber(-1)
+            .AddToDB())
+            .AddToDB(); */
+
+        var arcanExplosion = FeatureDefinitionAdditionalDamageBuilder
+            .Create("arcanExplosionPathOfTheRageMage", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature)
+            .SetDamageDice(RuleDefinitions.DieType.D6, 1)
+            .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
+            .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
+            .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
             .AddToDB();
 
 
