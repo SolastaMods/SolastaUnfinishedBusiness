@@ -21,7 +21,6 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
     {
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityBarbarianPathOfTheRageMage", SubclassNamespace)
-            .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
             .SetHandsFullCastingModifiers(true, true, true)
             .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, 0,
                 RuleDefinitions.SpellParamsModifierType.FlatValue, true, false, false)
@@ -120,6 +119,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .Create("BarbarianPathOfTheRageMage", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheRageMage", Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
+            .AddFeatureAtLevel(magicAffinity, 3)
             .AddFeatureAtLevel(skillProf, 3)
             .AddFeatureAtLevel(supernaturalExploits, 10)
             .AddFeatureAtLevel(supernaturalExploitsDarkvision, 10)
