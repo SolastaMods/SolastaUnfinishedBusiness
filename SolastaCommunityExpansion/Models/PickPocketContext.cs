@@ -6,6 +6,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using static FeatureDefinitionAbilityCheckAffinity;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.LootPackDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.TreasureTableDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -63,179 +64,129 @@ public static class PickPocketContext
         var sleightOfHand = DatabaseHelper.SkillDefinitions.SleightOfHand;
         sleightOfHand.GuiPresentation.unusedInSolastaCOTM = false;
 
-        var treasureCopper = new TreasureOption
-        {
-            odds = 30, itemDefinition = DatabaseHelper.ItemDefinitions._1D6_Copper_Coins, amount = 3
-        };
-
-        var treasure_silver = new TreasureOption();
-        treasure_silver.odds = 12;
-        treasure_silver.itemDefinition = DatabaseHelper.ItemDefinitions._1D6_Silver_Coins;
-        treasure_silver.amount = 2;
-
-        var treasure_gold = new TreasureOption();
-        treasure_gold.odds = 8;
-        treasure_gold.itemDefinition = DatabaseHelper.ItemDefinitions._1D6_Gold_Coins;
-        treasure_gold.amount = 1;
-
-        var treasure_abyss_moss = new TreasureOption();
-        treasure_abyss_moss.odds = 20;
-        treasure_abyss_moss.itemDefinition = DatabaseHelper.ItemDefinitions.Ingredient_AbyssMoss;
-        treasure_abyss_moss.amount = 1;
-
-        var treasure_deeproot_lichen = new TreasureOption();
-        treasure_deeproot_lichen.odds = 20;
-        treasure_deeproot_lichen.itemDefinition = DatabaseHelper.ItemDefinitions.Ingredient_DeepRootLichen;
-        treasure_deeproot_lichen.amount = 1;
-
-        var treasure_goblinhair_fungus = new TreasureOption();
-        treasure_goblinhair_fungus.odds = 20;
-        treasure_goblinhair_fungus.itemDefinition = DatabaseHelper.ItemDefinitions.Ingredient_GoblinHairFungus;
-        treasure_goblinhair_fungus.amount = 1;
-
-        var treasure_scrollbless = new TreasureOption();
-        treasure_scrollbless.odds = 1;
-        treasure_scrollbless.itemDefinition = DatabaseHelper.ItemDefinitions.ScrollBless;
-        treasure_scrollbless.amount = 1;
-
-        var treasure_scrollcurewounds = new TreasureOption();
-        treasure_scrollcurewounds.odds = 1;
-        treasure_scrollcurewounds.itemDefinition = DatabaseHelper.ItemDefinitions.ScrollCureWounds;
-        treasure_scrollcurewounds.amount = 1;
-
-        var treasure_scrolldetectmagic = new TreasureOption();
-        treasure_scrolldetectmagic.odds = 1;
-        treasure_scrolldetectmagic.itemDefinition = DatabaseHelper.ItemDefinitions.ScrollDetectMagic;
-        treasure_scrolldetectmagic.amount = 1;
-
-        var treasure_scrollidentify = new TreasureOption();
-        treasure_scrollidentify.odds = 1;
-        treasure_scrollidentify.itemDefinition = DatabaseHelper.ItemDefinitions.ScrollIdentify;
-        treasure_scrollidentify.amount = 1;
-
-        var treasure_poisonbasic = new TreasureOption();
-        treasure_poisonbasic.odds = 1;
-        treasure_poisonbasic.itemDefinition = DatabaseHelper.ItemDefinitions.Poison_Basic;
-        treasure_poisonbasic.amount = 1;
-
-        var treasure_potionremedy = new TreasureOption();
-        treasure_potionremedy.odds = 1;
-        treasure_potionremedy.itemDefinition = DatabaseHelper.ItemDefinitions.PotionRemedy;
-        treasure_potionremedy.amount = 1;
-
-        var treasure_dagger = new TreasureOption();
-        treasure_dagger.odds = 4;
-        treasure_dagger.itemDefinition = DatabaseHelper.ItemDefinitions.Dagger;
-        treasure_dagger.amount = 1;
-
-        var treasure_refinedoil = new TreasureOption();
-        treasure_refinedoil.odds = 1;
-        treasure_refinedoil.itemDefinition = DatabaseHelper.ItemDefinitions.Ingredient_RefinedOil;
-        treasure_refinedoil.amount = 1;
-
-        var treasure_acid = new TreasureOption();
-        treasure_acid.odds = 1;
-        treasure_acid.itemDefinition = DatabaseHelper.ItemDefinitions.Ingredient_Acid;
-        treasure_acid.amount = 1;
-
-        var treasure_amethyst = new TreasureOption();
-        treasure_amethyst.odds = 1;
-        treasure_amethyst.itemDefinition = DatabaseHelper.ItemDefinitions._20_GP_Amethyst;
-        treasure_amethyst.amount = 1;
-
-        var pick_pocket_table = TreasureTableDefinitionBuilder
-            .Create(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTable",
+        var pickpocket_table_low = TreasureTableDefinitionBuilder
+            .Create(RandomTreasureTableE2_Mundane_Ingredients, "PickPocketTableLow",
                 "79cac3e5-0f00-4062-b263-adbc854223d7")
             .SetGuiPresentationNoContent()
             .AddToDB();
+        pickpocket_table_low.TreasureOptions.AddRange(RandomTreasureTableB_Consumables.TreasureOptions);
 
-        pick_pocket_table.TreasureOptions.Add(treasureCopper);
-        pick_pocket_table.TreasureOptions.Add(treasure_silver);
-        pick_pocket_table.TreasureOptions.Add(treasure_gold);
-        pick_pocket_table.TreasureOptions.Add(treasure_scrollbless);
-        pick_pocket_table.TreasureOptions.Add(treasure_scrollcurewounds);
-        pick_pocket_table.TreasureOptions.Add(treasure_scrolldetectmagic);
-        pick_pocket_table.TreasureOptions.Add(treasure_scrollidentify);
-        pick_pocket_table.TreasureOptions.Add(treasure_poisonbasic);
-        pick_pocket_table.TreasureOptions.Add(treasure_potionremedy);
-        pick_pocket_table.TreasureOptions.Add(treasure_dagger);
-        pick_pocket_table.TreasureOptions.Add(treasure_refinedoil);
-        pick_pocket_table.TreasureOptions.Add(treasure_acid);
-        pick_pocket_table.TreasureOptions.Add(treasure_amethyst);
-
-        var pick_pocket_table_undead = TreasureTableDefinitionBuilder
-            .Create(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items,
-                "PickPocketTableC", "f1bbd8e5-3e05-48da-9c70-2db676a280b4")
-            .SetGuiPresentationNoContent()
-            .AddTreasureOptions(treasureCopper, treasure_abyss_moss, treasure_deeproot_lichen,
-                treasure_goblinhair_fungus)
-            .AddToDB();
-
-        var loot_pickpocket_table = new ItemOccurence(Zombie_loot_drop.ItemOccurencesList[0]);
-        loot_pickpocket_table.itemMode = ItemOccurence.SelectionMode.TreasureTable;
-        loot_pickpocket_table.treasureTableDefinition = pick_pocket_table;
-        loot_pickpocket_table.diceNumber = 1;
-
-        var loot_pickpocket_undead = new ItemOccurence(Zombie_loot_drop.ItemOccurencesList[0]);
-        loot_pickpocket_undead.itemMode = ItemOccurence.SelectionMode.TreasureTable;
-        loot_pickpocket_undead.treasureTableDefinition = pick_pocket_table_undead;
-        loot_pickpocket_undead.diceNumber = 1;
-
-        var pick_pocket_loot = LootPackDefinitionBuilder.CreateCopyFrom(Tutorial_04_Loot_Stealable,
-                "PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493")
+        var pickpocket_table_med = TreasureTableDefinitionBuilder
+            .Create(RandomTreasureTableE_Ingredients, "PickPocketTableMed",
+                "79cac3e5-0f00-4062-b263-adbc854223d8")
             .SetGuiPresentationNoContent()
             .AddToDB();
+        pickpocket_table_med.TreasureOptions.AddRange(RandomTreasureTableB_Consumables.TreasureOptions);
+        pickpocket_table_med.TreasureOptions.AddRange(RandomTreasureTableA_Gem.TreasureOptions);
 
-        pick_pocket_loot.lootChallengeMode = LootPackDefinition.LootChallenge.ByPartyLevel;
-        pick_pocket_loot.ItemOccurencesList.Clear();
-        pick_pocket_loot.ItemOccurencesList.Add(loot_pickpocket_table);
-
-        var pick_pocket_undead = LootPackDefinitionBuilder.CreateCopyFrom(Tutorial_04_Loot_Stealable,
-                "PickPocketUndead", "af2eb8e0-6a5a-40e2-8a62-160f80e2453e")
+        var pickpocket_table_undead = TreasureTableDefinitionBuilder
+            .Create("PickPocketTableUndead",
+                "79cac3e5-0f00-4062-b263-adbc854223d9")
             .SetGuiPresentationNoContent()
             .AddToDB();
+        pickpocket_table_undead.TreasureOptions.Add(RandomTreasureTableE_Ingredients.TreasureOptions[3]);
+        pickpocket_table_undead.TreasureOptions.Add(RandomTreasureTableE_Ingredients.TreasureOptions[9]);
+        pickpocket_table_undead.TreasureOptions.Add(RandomTreasureTableE_Ingredients.TreasureOptions[16]);
 
-        pick_pocket_undead.lootChallengeMode = LootPackDefinition.LootChallenge.ByPartyLevel;
-        pick_pocket_undead.ItemOccurencesList.Clear();
-        pick_pocket_undead.ItemOccurencesList.Add(loot_pickpocket_undead);
+        var loot_pickpocket_table_low = new ItemOccurence();
+        loot_pickpocket_table_low.itemMode = ItemOccurence.SelectionMode.TreasureTable;
+        loot_pickpocket_table_low.treasureTableDefinition = pickpocket_table_low;
+        loot_pickpocket_table_low.diceNumber = 1;
+        loot_pickpocket_table_low.diceType = DieType.D1;
+        loot_pickpocket_table_low.additiveModifier = 0;
+
+        var loot_pickpocket_table_med = new ItemOccurence();
+        loot_pickpocket_table_med.itemMode = ItemOccurence.SelectionMode.TreasureTable;
+        loot_pickpocket_table_med.treasureTableDefinition = pickpocket_table_med;
+        loot_pickpocket_table_med.diceNumber = 1;
+        loot_pickpocket_table_med.diceType = DieType.D1;
+        loot_pickpocket_table_med.additiveModifier = 0;
+
+        var loot_pickpocket_table_undead = new ItemOccurence();
+        loot_pickpocket_table_undead.itemMode = ItemOccurence.SelectionMode.TreasureTable;
+        loot_pickpocket_table_undead.treasureTableDefinition = pickpocket_table_undead;
+        loot_pickpocket_table_undead.diceNumber = 1;
+        loot_pickpocket_table_undead.diceType = DieType.D1;
+        loot_pickpocket_table_undead.additiveModifier = 0;
+
+        var pickpocketableLootA = LootPackDefinitionBuilder
+            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_A", "edb9b436-1d94-4d11-bd37-4027c4dc7640")
+            .SetGuiPresentationNoContent()
+            .AddToDB();
+        pickpocketableLootA.ItemOccurencesList.Add(loot_pickpocket_table_low);
+
+        var pickpocketableLootB = LootPackDefinitionBuilder
+            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_B", "edb9b436-1d94-4d11-bd37-4027c4dc7641")
+            .SetGuiPresentationNoContent()
+            .AddToDB();
+        pickpocketableLootB.ItemOccurencesList.Add(loot_pickpocket_table_low);
+
+        var pickpocketableLootC = LootPackDefinitionBuilder
+            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_C", "edb9b436-1d94-4d11-bd37-4027c4dc7642")
+            .SetGuiPresentationNoContent()
+            .AddToDB();
+        pickpocketableLootC.ItemOccurencesList.Add(loot_pickpocket_table_med);
+
+        var pickpocketableLootD = LootPackDefinitionBuilder
+            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_D", "edb9b436-1d94-4d11-bd37-4027c4dc7643")
+            .SetGuiPresentationNoContent()
+            .AddToDB();
+        pickpocketableLootD.ItemOccurencesList.Add(loot_pickpocket_table_low);
+        pickpocketableLootD.ItemOccurencesList.Add(loot_pickpocket_table_med);
+
+        var pickpocketableLootUndead = LootPackDefinitionBuilder
+            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_Undead", "edb9b436-1d94-4d11-bd37-4027c4dc7644")
+            .SetGuiPresentationNoContent()
+            .AddToDB();
+        pickpocketableLootUndead.ItemOccurencesList.Add(loot_pickpocket_table_undead);
 
         foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
         {
             if (monster.CharacterFamily == "Humanoid" &&
-                monster.DefaultFaction == "HostileMonsters")
+                monster.DefaultFaction == "HostileMonsters" &&
+                monster.StealableLootDefinition == null
+                )
             {
-                monster.stealableLootDefinition = pick_pocket_loot;
+                if (monster.ChallengeRating < 1.0)
+                {
+                    monster.stealableLootDefinition = Pickpocket_generic_loot_LowMoney;
+                }
+
+                if (monster.ChallengeRating > 0.9 &&
+                    monster.ChallengeRating < 2.0)
+                {
+                    monster.stealableLootDefinition = pickpocketableLootA;
+                }
+
+                if (monster.ChallengeRating > 1.9 &&
+                    monster.ChallengeRating < 3.0)
+                {
+                    monster.stealableLootDefinition = pickpocketableLootB;
+                }
+
+                if (monster.ChallengeRating > 2.9 &&
+                    monster.ChallengeRating < 5.0)
+                {
+                    monster.stealableLootDefinition = pickpocketableLootC;
+                }
+
+                if (monster.ChallengeRating > 4.9)
+                {
+                    monster.stealableLootDefinition = pickpocketableLootD;
+                }
+            }
+
+            if (monster.CharacterFamily == "Undead" &&
+                monster.DefaultFaction.Contains("HostileMonsters") &&
+                monster.StealableLootDefinition == null &&
+                !monster.Name.Contains("Ghost") &&
+                !monster.Name.Contains("Spectral") &&
+                !monster.Name.Contains("Servant")
+                )
+            { 
+                monster.stealableLootDefinition = pickpocketableLootUndead;
             }
         }
 
-        var adam_12 = DatabaseHelper.MonsterDefinitions.Adam_The_Twelth;
-        adam_12.stealableLootDefinition = pick_pocket_loot;
-
-        var brood_of_blood = DatabaseHelper.MonsterDefinitions.Brood_of_blood;
-        brood_of_blood.stealableLootDefinition = pick_pocket_loot;
-
-        var brood_of_dread = DatabaseHelper.MonsterDefinitions.Brood_of_dread;
-        brood_of_dread.stealableLootDefinition = pick_pocket_loot;
-
-        var brood_of_flesh = DatabaseHelper.MonsterDefinitions.Brood_of_flesh;
-        brood_of_flesh.stealableLootDefinition = pick_pocket_loot;
-
-        var skeleton_basic = DatabaseHelper.MonsterDefinitions.Skeleton;
-        skeleton_basic.stealableLootDefinition = pick_pocket_undead;
-
-        var skeleton_archer = DatabaseHelper.MonsterDefinitions.Skeleton_Archer;
-        skeleton_archer.stealableLootDefinition = pick_pocket_undead;
-
-        var skeleton_enforcer = DatabaseHelper.MonsterDefinitions.Skeleton_Enforcer;
-        skeleton_enforcer.stealableLootDefinition = pick_pocket_undead;
-
-        var skeleton_knight = DatabaseHelper.MonsterDefinitions.Skeleton_Knight;
-        skeleton_knight.stealableLootDefinition = pick_pocket_undead;
-
-        var skeleton_marksman = DatabaseHelper.MonsterDefinitions.Skeleton_Marksman;
-        skeleton_marksman.stealableLootDefinition = pick_pocket_undead;
-
-        var skeleton_sorcerer = DatabaseHelper.MonsterDefinitions.Skeleton_Sorcerer;
-        skeleton_sorcerer.stealableLootDefinition = pick_pocket_undead;
     }
 }
