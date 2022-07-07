@@ -26,10 +26,5 @@ internal static class RecipesByTooltypeLine_Refresh
     internal static void Prefix(ref List<RecipeDefinition> knownRecipes)
     {
         ItemCraftingContext.FilterRecipes(ref knownRecipes);
-
-        var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
-        var craftingPanel = characterInspectionScreen.craftingPanel;
-
-        LayoutRebuilder.ForceRebuildLayoutImmediate(craftingPanel.craftingOptionLinesTable);
     }
 }
