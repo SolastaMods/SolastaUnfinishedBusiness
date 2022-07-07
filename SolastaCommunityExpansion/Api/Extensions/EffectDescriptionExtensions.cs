@@ -114,6 +114,18 @@ public static class EffectDescriptionExtensions
         return entity;
     }
 
+    public static DamageForm FindLastDamageForm([NotNull] this EffectDescription entity)
+    {
+        DamageForm form = null;
+        foreach (var effectForm in entity.effectForms)
+        {
+            if (effectForm.FormType == EffectForm.EffectFormType.Damage)
+                form = effectForm.DamageForm;
+        }
+
+        return form;
+    }
+
     [NotNull]
     public static T ClearRestrictedCreatureFamilies<T>([NotNull] this T entity)
         where T : EffectDescription

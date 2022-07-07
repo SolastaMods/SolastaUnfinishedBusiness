@@ -23,7 +23,7 @@ internal static class LoadPanel_OnBeginShow
     public static bool Prefix(LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview,
         [HarmonyArgument("instant")] bool _ = false)
     {
-        if (!Main.Settings.EnableSaveByLocation)
+        if (!Main.Settings.EnableSaveByLocation || Main.Settings.EnableGamepad)
         {
             if (Dropdown != null)
             {
@@ -174,54 +174,26 @@ internal static class LoadPanel_OnBeginShow
 
         GuiDropdown CreateOrActivateDropdown()
         {
-            GuiDropdown dd;
-
-            // create a drop down singleton
             if (Dropdown == null)
             {
                 var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
 
-                Dropdown = Object.Instantiate(dropdownPrefab);
+                Dropdown = Object.Instantiate(dropdownPrefab, __instance.loadButton.transform.parent.parent);
                 Dropdown.name = "LoadMenuDropDown";
 
-                dd = Dropdown.GetComponent<GuiDropdown>();
-                dd.onValueChanged.AddListener(delegate { ValueChanged(dd); });
+                var dropdown = Dropdown.GetComponent<GuiDropdown>();
+                var dropDownRect = Dropdown.GetComponent<RectTransform>();
 
-                var buttonBar = __instance.gameObject
-                    .GetComponentsInChildren<RectTransform>()
-                    .SingleOrDefault(c => c.gameObject.name == "ButtonsBar")?.gameObject;
-
-                if (buttonBar == null)
-                {
-                    return dd;
-                }
-
-                var horizontalLayoutGroup = buttonBar.GetComponent<HorizontalLayoutGroup>();
-
-                if (horizontalLayoutGroup == null)
-                {
-                    return dd;
-                }
-
-                Dropdown.transform.SetParent(horizontalLayoutGroup.transform, false);
-
-                horizontalLayoutGroup.childForceExpandWidth = true;
-                horizontalLayoutGroup.childForceExpandHeight = true;
-                horizontalLayoutGroup.childControlWidth = true;
-                horizontalLayoutGroup.childControlHeight = true;
-                horizontalLayoutGroup.childAlignment = TextAnchor.MiddleLeft;
-
-                var dropDownLayout = dd.gameObject.AddComponent<LayoutElement>();
-                // any large flexible width will do
-                dropDownLayout.flexibleWidth = 3;
+                dropdown.onValueChanged.AddListener(delegate { ValueChanged(dropdown); });
+                dropDownRect.anchoredPosition = new Vector2(72f, 230f);
+                dropDownRect.sizeDelta = new Vector2(320f, 30f);
             }
             else
             {
                 Dropdown.SetActive(true);
-                dd = Dropdown.GetComponent<GuiDropdown>();
             }
 
-            return dd;
+            return Dropdown.GetComponent<GuiDropdown>();
         }
     }
 }

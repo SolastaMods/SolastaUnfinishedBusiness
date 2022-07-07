@@ -10,7 +10,7 @@ internal static class TacticalAdventuresApplication_SaveGameDirectory
 {
     public static bool Prefix(ref string __result)
     {
-        if (!Main.Settings.EnableSaveByLocation)
+        if (!Main.Settings.EnableSaveByLocation || Main.Settings.EnableGamepad)
         {
             return true;
         }

@@ -19,14 +19,14 @@ internal static class CreditsDisplay
         {"JetBrains", "one year Rider IDE subscription for 3 developers"},
         {"", ""},
         {"Critical Hit", "<b>M. Miller</b>, <b>J. Cohen</b>, <b>L. Goldiner</b>"},
-        {"D20", "D. Fenter, B. Lane, J. Loustaunau"},
+        {"D20", "D. Fenter, B. Amorsen, B. Lane, J. Loustaunau"},
         {"D12", "E. Antonio, C. Aardappel, M. Klepac"},
         {"D8", "R. Baker, R. Maxim, D. Boggs, P. Marreck"},
         {
-            "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
-                  "M. Harck, D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
-                  "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson\n" +
-                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker, N. Zhuxy"
+            "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, J. Bendoski, M. Oliveira, M. Harck\n" +
+                  "D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez, R. Garcia, \n" +
+                  "R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson, J. Batanero\n" +
+                  "J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker, N. Zhuxy, M. Arteaga"
         }
     };
 
