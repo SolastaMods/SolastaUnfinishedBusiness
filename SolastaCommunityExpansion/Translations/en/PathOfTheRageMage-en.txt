@@ -14,3 +14,7 @@ Feature/&supernaturalExploitsJumpPathOfTheRagemageDescription= You cast Jump usi
 Feature/&supernaturalExploitsJumpPathOfTheRagemageTitle=Jump
 Feature/&supernaturalExploitsSeeInvisibilityPathOfTheRagemageDescription= You cast See Invisibility using your Supernatural Exploits power. You can cast this once per long rest.
 Feature/&supernaturalExploitsSeeInvisibilityPathOfTheRagemageTitle=See Invisibility
+Feature/&arcaneExplosionPathOfTheMageRageDescription= Your arcane power now erupts out of you while raging. On your first hit while raging, you deal an extra 1d6 Force damage.
+Feature/&arcaneExplosionPathOfTheMageRageTitle=Arcane Explosion
+Feature/&enhancedArcaneExplosionPathOfTheMageRageDescription= Your arcane power now EXPLODES out of you while raging. On your first hit while raging, your Arcane Explosion feature deals 2d6 damage now.
+Feature/&enhancedArcaneExplosionPathOfTheMageRageTitle=Enahnced Arcane Explosion
