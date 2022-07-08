@@ -25,7 +25,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPower
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian;
 
-// creating subclass Class, don't forget to add subclass to SubclassesContext.cs and create a txt file in Translations
+// creating subclass Class, don't forget to add subclass to Models/SubclassesContext.cs and create a txt file in Translations
 internal sealed class PathOfTheRageMage : AbstractSubclass
 {
 
