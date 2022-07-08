@@ -39,3 +39,15 @@ python .\translate.py -c es .\TacticalAdventureBugs-en.txt .\TacticalAdventureBu
 python .\translate.py -c fr .\TacticalAdventureBugs-en.txt .\TacticalAdventureBugs-fr.txt
 python .\translate.py -c it .\TacticalAdventureBugs-en.txt .\TacticalAdventureBugs-it.txt
 python .\translate.py -c pt .\TacticalAdventureBugs-en.txt .\TacticalAdventureBugs-pt-BR.txt
+
+python .\translate.py -c de .\PathOfTheRageMage-en.txt .\PathOfTheRageMage-de.txt
+python .\translate.py -c es .\PathOfTheRageMage-en.txt .\PathOfTheRageMage-es.txt
+python .\translate.py -c fr .\PathOfTheRageMage-en.txt .\PathOfTheRageMage-fr.txt
+python .\translate.py -c it .\PathOfTheRageMage-en.txt .\PathOfTheRageMage-it.txt
+python .\translate.py -c pt .\PathOfTheRageMage-en.txt .\PathOfTheRageMage-pt-BR.txt
+
+python .\translate.py -c de .\ItemsCrafting-en.txt .\ItemsCrafting-de.txt
+python .\translate.py -c es .\ItemsCrafting-en.txt .\ItemsCrafting-es.txt
+python .\translate.py -c fr .\ItemsCrafting-en.txt .\ItemsCrafting-fr.txt
+python .\translate.py -c it .\ItemsCrafting-en.txt .\ItemsCrafting-it.txt
+python .\translate.py -c pt .\ItemsCrafting-en.txt .\ItemsCrafting-pt-BR.txt
