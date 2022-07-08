@@ -107,10 +107,10 @@ internal static class GameUiDisplay
             }
         }
 
-        toggle = Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered;
+        toggle = Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered;
         if (UI.Toggle(Gui.Localize("ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
+            Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered = toggle;
         }
 
         #endregion

@@ -7,17 +7,13 @@
 #
 
 import argparse
-import os
 import re
-import shutil
 import sys
 from deep_translator import GoogleTranslator
 
-
 OUTPUT_FOLDER = "Translations-"
-CHARS_MAX = 5000
+CHARS_MAX = 4500
 SEPARATOR = "\x0D"
-
 
 def parse_command_line():
     my_parser = argparse.ArgumentParser(description='Translates Solasta game terms')
@@ -35,29 +31,7 @@ def parse_command_line():
                         type=str,
                         help='dictionary file')
 
-
     return my_parser.parse_args()
-
-
-def load_dictionary(filename):
-    dictionary = {}
-    if not filename:
-       pass
-    elif not os.path.exists(filename):
-        print(f"WARNING: dictionary file doesn't exist. using an empty one")
-    else:
-        with open(filename, "rt", encoding="utf-8") as f:
-            record = "\n"
-            while record:
-                record = f.readline()
-                if record and record.split():
-                    try:
-                        (f, r) = record.split(" ", 1).strip()
-                        dictionary[f] = r
-                    except:
-                        print(f"ERROR: skipping dictionary line {record}")
-
-    return dictionary
 
 
 def display_progress(count, total, status=''):
@@ -100,10 +74,13 @@ def get_records(filename):
         print("ERROR")
 
 
-def translate_chunk(text, code):
-    text = text.replace("\\n", "\n")
-    translated = GoogleTranslator(source="auto", target=code).translate(text) if len(text) <= CHARS_MAX else text
-    translated = translated.replace("\n", "\\n")
+def translate_text(text, code):
+    text = text.replace("\\n", "{99}")
+    if len(text) <= CHARS_MAX:
+        translated = GoogleTranslator(source="auto", target=code).translate(text) 
+    else:
+        translated = text
+    translated = translated.replace("{99}", "\\n")
 
     return translated
 
@@ -123,23 +100,13 @@ def fix_translated_format(text):
     return text
 
 
-def apply_dictionary(dictionary, text):
-    # text = text.replace("</color> ", "</color>")
-
-    for key in dictionary:
-        text = text.replace(key, dictionary[key])
-
-    return text
-
-
-def translate_file(input_file, output_file, code, dictionary=None):
+def translate_file(input_file, output_file, code):
     with open(output_file, "wt", encoding="utf-8") as f:
 
         for term, text in get_records(input_file):
-            translated = translate_chunk(text, code)
+            translated = translate_text(text, code)
             fixed = fix_translated_format(translated)
-            replaced = apply_dictionary(dictionary, fixed)
-            f.write(f"{term}={replaced}\n")
+            f.write(f"{term}={fixed}\n")
 
 
 def main():
@@ -147,8 +114,7 @@ def main():
     translate_file(
         args.input_file,
         args.output_file,
-        args.code,
-        load_dictionary(args.dict))
+        args.code)
 
 if __name__ == "__main__":
     main()

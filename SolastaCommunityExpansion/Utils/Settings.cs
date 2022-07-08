@@ -151,6 +151,7 @@ public class Settings : UnityModManager.ModSettings
     public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
     public bool FixSorcererTwinnedLogic { get; set; }
     public bool FullyControlConjurations { get; set; }
+    public bool ApplySrdWeightToFoodRations { get; set; }
 
     // House
     public bool ChangeSleetStormToCube { get; set; }
@@ -192,8 +193,8 @@ public class Settings : UnityModManager.ModSettings
 
     // Crafting
     public List<string> CraftingInStore { get; } = new();
-    public List<string> CraftingItemsInDM { get; } = new();
-    public List<string> CraftingRecipesInDM { get; } = new();
+    public List<string> CraftingItemsInDm { get; } = new();
+    public List<string> CraftingRecipesInDm { get; } = new();
 
     // Merchants
     public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
@@ -262,7 +263,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
-    public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
+    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
 
     // Inventory and Items
     public bool EnableInventoryFilteringAndSorting { get; set; }

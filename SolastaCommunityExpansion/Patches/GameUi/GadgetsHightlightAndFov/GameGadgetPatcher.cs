@@ -15,7 +15,7 @@ internal static class GameGadget_ComputeIsRevealed
     internal static void Postfix(GameGadget __instance, ref bool __result)
     {
         if (!__instance.Revealed || Gui.GameLocation.UserLocation == null ||
-            !Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
+            !Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered)
         {
             return;
         }
@@ -75,7 +75,7 @@ internal static class GameGadget_SetCondition
 {
     internal static void Postfix(GameGadget __instance, int conditionIndex, bool state)
     {
-        if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
+        if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered)
         {
             return;
         }

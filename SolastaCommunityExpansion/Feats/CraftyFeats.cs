@@ -38,63 +38,63 @@ public static class CraftyFeats
 
         var crafty_arcana = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftyArcana", "44a54666-80ba-475c-90b1-774e86f1a69a")
-            .SetGuiPresentation("CraftyFeats/&CraftySkillsTitle", "CraftyFeats/&CraftyArcanaDescription")
+            .SetGuiPresentation("Feats/&CraftySkillsTitle", "Feats/&CraftyArcanaDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise,
                 DatabaseHelper.SkillDefinitions.Arcana.Name)
             .AddToDB();
 
         var crafty_medicine = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftyMedicine", "1ac54869-a8ce-4a51-a858-1f7e34680b96")
-            .SetGuiPresentation("CraftyFeats/&CraftySkillsTitle", "CraftyFeats/&CraftyMedicineDescription")
+            .SetGuiPresentation("Feats/&CraftySkillsTitle", "Feats/&CraftyMedicineDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise,
                 DatabaseHelper.SkillDefinitions.Medecine.Name)
             .AddToDB();
 
         var crafty_nature = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftyNature", "7399b06a-bfda-4e60-8366-17e0d6cec0d0")
-            .SetGuiPresentation("CraftyFeats/&CraftySkillsTitle", "CraftyFeats/&CraftyNatureDescription")
+            .SetGuiPresentation("Feats/&CraftySkillsTitle", "Feats/&CraftyNatureDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise,
                 DatabaseHelper.SkillDefinitions.Nature.Name)
             .AddToDB();
 
         var crafty_herbalism_kit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftyHerbalismKit", "9345e1fd-ec4c-4509-acb5-3f3257b25ec4")
-            .SetGuiPresentation("CraftyFeats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.HerbalismKitType.Name)
             .AddToDB();
 
         var crafty_manacalon_rosary = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftyManacalonRosary", "0685a944-76cd-423a-81a1-9ceec507d69a")
-            .SetGuiPresentation("CraftyFeats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.EnchantingToolType.Name)
             .AddToDB();
 
         var crafty_poisoners_kit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftyPoisonersKit", "32ddae84-66e7-4b56-b5ec-0ec91a713e2e")
-            .SetGuiPresentation("CraftyFeats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.PoisonersKitType.Name)
             .AddToDB();
 
         var crafty_scroll_kit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftyScrollKit", "5309bd7f-b533-40ff-ae95-d977e02d61fe")
-            .SetGuiPresentation("CraftyFeats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.ScrollKitType.Name)
             .AddToDB();
 
         var crafty_smiths_tools = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftySmithsTools", "48905450-4b35-480f-9868-f340c7902920")
-            .SetGuiPresentation("CraftyFeats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feats/&CraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
             .AddToDB();
 
         var crafty_bows = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftyBows", "62a71277-b62d-41e6-9546-19f6faa2b5a7")
-            .SetGuiPresentation("CraftyFeats/&CraftyBowsTitle", "CraftyFeats/&CraftyBowsDescription")
+            .SetGuiPresentation("Feats/&CraftyBowsTitle", "Feats/&CraftyBowsDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, ShortbowType.Name, LongbowType.Name,
                 LightCrossbowType.Name,
                 HeavyCrossbowType.Name)
@@ -114,35 +114,35 @@ public static class CraftyFeats
 
         var manacalonCrafter = FeatDefinitionBuilder
             .Create(MasterEnchanter, "ManacalonCrafter", "290f73c8-201c-489e-bdcb-7a39ab40915c")
-            .SetGuiPresentation("CraftyFeats/&ManacalonCrafterFeatTitle",
-                "CraftyFeats/&ManacalonCrafterFeatDescription")
+            .SetGuiPresentation("Feats/&ManacalonCrafterFeatTitle",
+                "Feats/&ManacalonCrafterFeatDescription")
             .SetFeatures(crafty_int, crafty_manacalon_rosary, crafty_arcana)
             .AddToDB();
 
         var toxicologistInt = FeatDefinitionBuilder
             .Create(ArmorMaster, "ToxicologistInt", "702d1b4d-953c-406d-a900-d5d376ed29d3")
-            .SetGuiPresentation("CraftyFeats/&ToxicologistIntFeatTitle",
-                "CraftyFeats/&ToxicologistIntFeatDescription")
+            .SetGuiPresentation("Feats/&ToxicologistIntFeatTitle",
+                "Feats/&ToxicologistIntFeatDescription")
             .SetFeatures(crafty_int, crafty_poisoners_kit, crafty_nature)
             .AddToDB();
 
         var toxicologistWis = FeatDefinitionBuilder
             .Create(ArmorMaster, "ToxicologistWis", "1bb4acbd-1890-48ae-9f86-46c2cb95cb79")
-            .SetGuiPresentation("CraftyFeats/&ToxicologistWisFeatTitle",
-                "CraftyFeats/&ToxicologistWisFeatDescription")
+            .SetGuiPresentation("Feats/&ToxicologistWisFeatTitle",
+                "Feats/&ToxicologistWisFeatDescription")
             .SetFeatures(crafty_wis, crafty_poisoners_kit, crafty_medicine)
             .AddToDB();
 
         var craftyScribe = FeatDefinitionBuilder
             .Create(MasterEnchanter, "CraftyScribe", "bd83e063-2751-4898-8070-f74ca925f8b5")
-            .SetGuiPresentation("CraftyFeats/&CraftyScribeFeatTitle", "CraftyFeats/&CraftyScribeFeatDescription")
+            .SetGuiPresentation("Feats/&CraftyScribeFeatTitle", "Feats/&CraftyScribeFeatDescription")
             .SetFeatures(crafty_int, crafty_scroll_kit, crafty_arcana)
             .AddToDB();
 
         var craftyFletcher = FeatDefinitionBuilder
             .Create(ArmorMaster, "CraftyFletcher", "67c5f2d2-a98c-49a1-a1ab-16cc8f4b4ba4")
-            .SetGuiPresentation("CraftyFeats/&CraftyFletcherFeatTitle",
-                "CraftyFeats/&CraftyFletcherFeatDescription")
+            .SetGuiPresentation("Feats/&CraftyFletcherFeatTitle",
+                "Feats/&CraftyFletcherFeatDescription")
             .SetFeatures(crafty_dex, crafty_smiths_tools, crafty_bows)
             .AddToDB();
 

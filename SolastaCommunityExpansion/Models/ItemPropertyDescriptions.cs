@@ -30,7 +30,7 @@ public static class ItemPropertyDescriptions
     public static readonly ItemPropertyDescription AcidImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.AcidSplash));
 
-    private static ItemPropertyDescription BuildFrom(
+    public static ItemPropertyDescription BuildFrom(
         FeatureDefinition feature,
         bool appliesOnItemOnly = true,
         KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.InactiveAndHidden)

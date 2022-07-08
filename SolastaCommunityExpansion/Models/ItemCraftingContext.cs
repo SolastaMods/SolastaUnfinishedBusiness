@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.ItemCrafting;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 #if DEBUG
 using System.Text;
 #endif
@@ -119,7 +120,7 @@ internal static class ItemCraftingContext
             return;
         }
 
-        var available = Main.Settings.CraftingItemsInDM.Contains(key);
+        var available = Main.Settings.CraftingItemsInDm.Contains(key);
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.inDungeonEditor = available;
@@ -128,7 +129,7 @@ internal static class ItemCraftingContext
 
     internal static void UpdateCraftingRecipesInDMState(string key)
     {
-        var available = Main.Settings.CraftingRecipesInDM.Contains(key);
+        var available = Main.Settings.CraftingRecipesInDm.Contains(key);
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             recipeBookDefinition.inDungeonEditor = available;
@@ -181,35 +182,47 @@ internal static class ItemCraftingContext
 
     internal static void FilterRecipes(ref List<RecipeDefinition> knownRecipes)
     {
+        if (Main.Settings.EnableGamepad)
+        {
+            FilterGuiDropdown.gameObject.SetActive(false);
+
+            return;
+        }
+
         switch (FilterGuiDropdown.value)
         {
             case 0: // all
-                return;
+                break;
 
             case 1: // ammunition
                 knownRecipes = knownRecipes
                     .Where(x => x.CraftedItem.IsAmmunition)
                     .ToList();
-                return;
+                break;
 
             case 2: // armor
                 knownRecipes = knownRecipes
                     .Where(x => x.CraftedItem.IsArmor)
                     .ToList();
-                return;
+                break;
 
             case 3: // usable devices
                 knownRecipes = knownRecipes
                     .Where(x => x.CraftedItem.IsUsableDevice)
                     .ToList();
-                return;
+                break;
 
             case 4: // weapons
                 knownRecipes = knownRecipes
                     .Where(x => x.CraftedItem.IsWeapon)
                     .ToList();
-                return;
+                break;
         }
+
+        var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+        var craftingPanel = characterInspectionScreen.craftingPanel;
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(craftingPanel.craftingOptionLinesTable);
     }
 
 #if DEBUG

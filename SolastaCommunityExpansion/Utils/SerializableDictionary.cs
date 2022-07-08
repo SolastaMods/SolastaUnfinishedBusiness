@@ -26,6 +26,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IX
         XmlSerializer valueSerializer = new(typeof(TValue));
 
         var wasEmpty = reader.IsEmptyElement;
+
         reader.Read();
 
         if (wasEmpty)
@@ -38,15 +39,18 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IX
             reader.ReadStartElement("item");
 
             reader.ReadStartElement("key");
+
             var key = (TKey)keySerializer.Deserialize(reader);
+
             reader.ReadEndElement();
 
             reader.ReadStartElement("value");
+
             var value = (TValue)valueSerializer.Deserialize(reader);
+
             reader.ReadEndElement();
 
             Add(key, value);
-
             reader.ReadEndElement();
             reader.MoveToContent();
         }
@@ -68,10 +72,11 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IX
             writer.WriteEndElement();
 
             writer.WriteStartElement("value");
+
             var value = this[key];
+
             valueSerializer.Serialize(writer, value);
             writer.WriteEndElement();
-
             writer.WriteEndElement();
         }
     }
