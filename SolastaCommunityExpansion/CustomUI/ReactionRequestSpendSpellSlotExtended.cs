@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomUI;
 
-public class ReactionRequestSpendSpellSlotExtended : ReactionRequest
+public sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 {
     private readonly GuiCharacter _guiCharacter;
 
