@@ -88,10 +88,10 @@ internal static class RulesDisplay
 
         UI.Label("");
 
-        toggle = Main.Settings.ApplySRDWeightToFoodRations;
+        toggle = Main.Settings.ApplySrdWeightToFoodRations;
         if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.ApplySRDWeightToFoodRations = toggle;
+            Main.Settings.ApplySrdWeightToFoodRations = toggle;
             SrdAndHouseRulesContext.ApplySRDWeightToFoodRations();
         }
 

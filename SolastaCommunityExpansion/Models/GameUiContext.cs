@@ -32,35 +32,35 @@ internal static class GameUiContext
         inputService.RegisterCommand(InputCommands.Id.EditorRotate, (int)KeyCode.R, (int)KeyCode.LeftShift);
 
         // HUD
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftC, (int)KeyCode.C, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftL, (int)KeyCode.L, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftM, (int)KeyCode.M, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftP, (int)KeyCode.P, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftH, (int)KeyCode.H, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Debug Overlay
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftD, (int)KeyCode.D, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Export Character
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftE, (int)KeyCode.E, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Spawn Encounter
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftS, (int)KeyCode.S, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Teleport
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftT, (int)KeyCode.T, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Zoom Camera
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_Z, (int)KeyCode.Z, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftZ, (int)KeyCode.Z, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         SwitchControlScheme();
@@ -82,41 +82,41 @@ internal static class GameUiContext
         {
             switch (command)
             {
-                case Hotkeys.CTRL_SHIFT_C:
+                case Hotkeys.CtrlShiftC:
                     GameHud.ShowCharacterControlPanel(gameLocationBaseScreen);
                     return;
 
-                case Hotkeys.CTRL_SHIFT_L:
+                case Hotkeys.CtrlShiftL:
                     GameHud.TogglePanelVisibility(Gui.GuiService.GetScreen<GuiConsoleScreen>());
                     return;
 
-                case Hotkeys.CTRL_SHIFT_M:
+                case Hotkeys.CtrlShiftM:
                     GameHud.TogglePanelVisibility(GetTimeAndNavigationPanel());
                     return;
 
-                case Hotkeys.CTRL_SHIFT_P:
+                case Hotkeys.CtrlShiftP:
                     GameHud.TogglePanelVisibility(GetInitiativeOrPartyPanel());
                     return;
             }
         }
 
-        if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CTRL_SHIFT_H)
+        if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CtrlShiftH)
         {
             GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
         }
-        else if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
+        else if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CtrlShiftD)
         {
             ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
         }
-        else if (Main.Settings.EnableTeleportParty && command == Hotkeys.CTRL_SHIFT_T)
+        else if (Main.Settings.EnableTeleportParty && command == Hotkeys.CtrlShiftT)
         {
             Teleporter.ConfirmTeleportParty();
         }
-        else if (Main.Settings.EnableHotkeyZoomCamera && command == Hotkeys.CTRL_SHIFT_Z)
+        else if (Main.Settings.EnableHotkeyZoomCamera && command == Hotkeys.CtrlShiftZ)
         {
             ToggleZoomCamera();
         }
-        else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
+        else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CtrlShiftS)
         {
             EncountersSpawnContext.ConfirmStageEncounter();
         }

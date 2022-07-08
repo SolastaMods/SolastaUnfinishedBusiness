@@ -120,7 +120,7 @@ internal static class ItemCraftingContext
             return;
         }
 
-        var available = Main.Settings.CraftingItemsInDM.Contains(key);
+        var available = Main.Settings.CraftingItemsInDm.Contains(key);
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.inDungeonEditor = available;
@@ -129,7 +129,7 @@ internal static class ItemCraftingContext
 
     internal static void UpdateCraftingRecipesInDMState(string key)
     {
-        var available = Main.Settings.CraftingRecipesInDM.Contains(key);
+        var available = Main.Settings.CraftingRecipesInDm.Contains(key);
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             recipeBookDefinition.inDungeonEditor = available;

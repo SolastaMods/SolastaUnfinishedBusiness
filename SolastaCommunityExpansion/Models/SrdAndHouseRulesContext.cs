@@ -71,7 +71,7 @@ internal static class SrdAndHouseRulesContext
         var foodSRDWeight = DatabaseHelper.ItemDefinitions.Food_Ration;
         var foodForagedSRDWeight = DatabaseHelper.ItemDefinitions.Food_Ration_Foraged;
 
-        if (Main.Settings.ApplySRDWeightToFoodRations)
+        if (Main.Settings.ApplySrdWeightToFoodRations)
         {
             foodSRDWeight.weight = 2.0f;
             foodForagedSRDWeight.weight = 2.0f;

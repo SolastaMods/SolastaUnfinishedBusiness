@@ -32,16 +32,16 @@ internal static class ItemsAndCraftingDisplay
                 ItemCraftingContext.AddToStore(key);
             }
 
-            toggle = Main.Settings.CraftingRecipesInDM.Contains(key);
+            toggle = Main.Settings.CraftingRecipesInDm.Contains(key);
             if (UI.Toggle(Gui.Localize("ModUi/&RecipesInDm"), ref toggle, UI.Width(125)))
             {
                 if (toggle)
                 {
-                    Main.Settings.CraftingRecipesInDM.Add(key);
+                    Main.Settings.CraftingRecipesInDm.Add(key);
                 }
                 else
                 {
-                    Main.Settings.CraftingRecipesInDM.Remove(key);
+                    Main.Settings.CraftingRecipesInDm.Remove(key);
                 }
 
                 ItemCraftingContext.UpdateCraftingRecipesInDMState(key);
@@ -49,16 +49,16 @@ internal static class ItemsAndCraftingDisplay
 
             if (!ItemCraftingContext.BASE_GAME_ITEMS_CATEGORIES.Contains(key))
             {
-                toggle = Main.Settings.CraftingItemsInDM.Contains(key);
+                toggle = Main.Settings.CraftingItemsInDm.Contains(key);
                 if (UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width(125)))
                 {
                     if (toggle)
                     {
-                        Main.Settings.CraftingItemsInDM.Add(key);
+                        Main.Settings.CraftingItemsInDm.Add(key);
                     }
                     else
                     {
-                        Main.Settings.CraftingItemsInDM.Remove(key);
+                        Main.Settings.CraftingItemsInDm.Remove(key);
                     }
 
                     ItemCraftingContext.UpdateCraftingItemsInDMState(key);
@@ -175,25 +175,25 @@ internal static class ItemsAndCraftingDisplay
                     }
                 }
 
-                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDM.Count;
+                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDm.Count;
                 if (UI.Toggle(Gui.Localize("ModUi/&AllRecipesInDm"), ref toggle, UI.Width(125)))
                 {
-                    Main.Settings.CraftingRecipesInDM.Clear();
+                    Main.Settings.CraftingRecipesInDm.Clear();
 
                     if (toggle)
                     {
-                        Main.Settings.CraftingRecipesInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                        Main.Settings.CraftingRecipesInDm.AddRange(ItemCraftingContext.RecipeBooks.Keys);
                     }
                 }
 
-                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDM.Count;
+                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDm.Count;
                 if (UI.Toggle(Gui.Localize("ModUi/&AllItemInDm"), ref toggle, UI.Width(125)))
                 {
-                    Main.Settings.CraftingItemsInDM.Clear();
+                    Main.Settings.CraftingItemsInDm.Clear();
 
                     if (toggle)
                     {
-                        Main.Settings.CraftingItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                        Main.Settings.CraftingItemsInDm.AddRange(ItemCraftingContext.RecipeBooks.Keys);
                     }
                 }
             }
