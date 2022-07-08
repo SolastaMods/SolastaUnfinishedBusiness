@@ -11,6 +11,7 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]Bazou[/b]: Witch class, fighting styles
 [*][b]Boofat[/b]: alwaysAlt
 [*][b]ChrisJohnDigital[/b]: Tinkerer class, crafting, faction relations, feats, fighting styles, items, subclasses, progression
+[*][b]DemonSlayer730[/b]: Path of the Rage Mage subclass
 [*][b]Dreadmaker[/b]: Forest Guardian subclass
 [*][b]DubhHerder[/b]: high level spells, feats, bug models replacement, high level monsters, Warlock class and subclasses
 [*][b]ElAntonious[/b]: Arcanist subclass, feats
@@ -24,11 +25,11 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration
-[*][b][/b]: 
+
 [*][b]Esker[/b]: ruleset support, classes design, quality assurance
 [*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance
-[*][b][/b]: 
+
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]Narria[/b]: modKit creator, developer
@@ -147,7 +148,6 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]Moonlit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
-[*][b]None[/b]: 
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
@@ -164,6 +164,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Oath of Retribution[/b]: Paladins who swear the Oath of Retribution fully commit themselves to terminate the unholiness and injustice with extreme prejudice. For these paladins, the duty of avenging sins and corruptions weighs greater than their own values.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
+[*][b]Path Of The Rage Mage[/b]: Path Of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
 [*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Master[/b]: Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
@@ -229,12 +230,6 @@ If you have a free hand, you can shove as a bonus action.
 On your turn, you can take one additional action on top of your regular action. Once you use this feature, you must finish a long rest before you can use it again.
 [*][b]Fighting Surge (Strength)[/b]: Increase your Strength by 1, to a maximum of 20.
 On your turn, you can take one additional action on top of your regular action. Once you use this feature, you must finish a long rest before you can use it again.
-[*][b]Flame Touched (Charisma)[/b]: Increase your Charisma attribute by 1, to a maximum of 20.
-You gain the ability to cast the burning hands, faerie fire and flaming sphere spells once per long rest and you can cast these spells with your spell slots.
-[*][b]Flame Touched (Intelligence)[/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
-You gain the ability to cast the burning hands, faerie fire and flaming sphere spells once per long rest and you can cast these spells with your spell slots.
-[*][b]Flame Touched (Wisdom)[/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
-You gain the ability to cast the burning hands, faerie fire and flaming sphere spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Fletcher[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with smith's tools, or expertise if you are already proficient.
  You gain proficiency with all bows and crossbows.
