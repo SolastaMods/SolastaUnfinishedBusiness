@@ -4,13 +4,38 @@ python .\translate.py -c fr .\Modui-en.txt .\Modui-fr.txt
 python .\translate.py -c it .\Modui-en.txt .\Modui-it.txt
 python .\translate.py -c pt .\Modui-en.txt .\Modui-pt-BR.txt
 
-python .\translate.py -c de .\Translations-en.txt .\Translations-de.txt
-python .\translate.py -c fr .\Translations-en.txt .\Translations-fr.txt
+python .\translate.py -c de .\CasterFeats-en.txt .\CasterFeats-de.txt
+python .\translate.py -c es .\CasterFeats-en.txt .\CasterFeats-es.txt
+python .\translate.py -c fr .\CasterFeats-en.txt .\CasterFeats-fr.txt
+python .\translate.py -c it .\CasterFeats-en.txt .\CasterFeats-it.txt
+python .\translate.py -c pt .\CasterFeats-en.txt .\CasterFeats-pt-BR.txt
 
-python .\translate.py -c pt .\Translations-en.txt .\Translations-pt-BR.txt
-python .\translate.py -c ru .\Translations-en.txt .\Translations-ru.txt
+python .\translate.py -c de .\Caster-en.txt .\Caster-de.txt
+python .\translate.py -c es .\Caster-en.txt .\Caster-es.txt
+python .\translate.py -c fr .\Caster-en.txt .\Caster-fr.txt
+python .\translate.py -c it .\Caster-en.txt .\Caster-it.txt
+python .\translate.py -c pt .\Caster-en.txt .\Caster-pt-BR.txt
 
-python .\translate.py -c de .\Monsters-en.txt .\Monsters-de.txt
-python .\translate.py -c fr .\Monsters-en.txt .\Monsters-fr.txt
-python .\translate.py -c pt .\Monsters-en.txt .\Monsters-pt-BR.txt
-python .\translate.py -c ru .\Monsters-en.txt .\Monsters-ru.txt
+python .\translate.py -c de .\Spell-en.txt .\Spell-de.txt
+python .\translate.py -c es .\Spell-en.txt .\Spell-es.txt
+python .\translate.py -c fr .\Spell-en.txt .\Spell-fr.txt
+python .\translate.py -c it .\Spell-en.txt .\Spell-it.txt
+python .\translate.py -c pt .\Spell-en.txt .\Spell-pt-BR.txt
+
+python .\translate.py -c de .\Tinkerer-en.txt .\Tinkerer-de.txt
+python .\translate.py -c es .\Tinkerer-en.txt .\Tinkerer-es.txt
+python .\translate.py -c fr .\Tinkerer-en.txt .\Tinkerer-fr.txt
+python .\translate.py -c it .\Tinkerer-en.txt .\Tinkerer-it.txt
+python .\translate.py -c pt .\Tinkerer-en.txt .\Tinkerer-pt-BR.txt
+
+python .\translate.py -c de .\Feat-en.txt .\Feat-de.txt
+python .\translate.py -c es .\Feat-en.txt .\Feat-es.txt
+python .\translate.py -c fr .\Feat-en.txt .\Feat-fr.txt
+python .\translate.py -c it .\Feat-en.txt .\Feat-it.txt
+python .\translate.py -c pt .\Feat-en.txt .\Feat-pt-BR.txt
+
+python .\translate.py -c de .\TacticalAdventureBugs-en.txt .\TacticalAdventureBugs-de.txt
+python .\translate.py -c es .\TacticalAdventureBugs-en.txt .\TacticalAdventureBugs-es.txt
+python .\translate.py -c fr .\TacticalAdventureBugs-en.txt .\TacticalAdventureBugs-fr.txt
+python .\translate.py -c it .\TacticalAdventureBugs-en.txt .\TacticalAdventureBugs-it.txt
+python .\translate.py -c pt .\TacticalAdventureBugs-en.txt .\TacticalAdventureBugs-pt-BR.txt
