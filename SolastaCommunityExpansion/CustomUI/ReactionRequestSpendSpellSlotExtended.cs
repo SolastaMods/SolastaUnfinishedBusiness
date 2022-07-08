@@ -74,6 +74,7 @@ public class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 
     public override void SelectSubOption(int option)
     {
+        Main.Logger.Log($"SelectSubOption: character: '{ReactionParams.ActingCharacter?.Name}', option: {option}, items: [{string.Join(", ", SubOptionsAvailability.Select(e=> $"{e.Key}:{e.Value}"))}]");
         ReactionParams.IntParameter = SubOptionsAvailability.Keys.ToList()[option];
     }
 }
