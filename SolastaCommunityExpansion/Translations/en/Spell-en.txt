@@ -57,12 +57,9 @@ Reaction/&CastSpellInRetributionReactTitle=Cast Spell
 Reaction/&CastSpellInRetributionTitle=Cast Reaction Spell
 Reaction/&SpendSpellSlot{0}Description=Spend Spell {0}
 Reaction/&SpendSpellSlot{0}Title=Spend Spell {0}
-Screen/&FeyTeleportSpellDescription=This Fey spell is always prepared.
-Screen/&FeyTeleportSpellTitle=Fey
+
 Screen/&MulticlassSpellDescription=You know this spell from other repertoire.
 Screen/&MulticlassSpellTitle=Multiclass
-Screen/&ShadowTouchedSpellDescription=This Shadow spell is always prepared.
-Screen/&ShadowTouchedSpellTitle=Shadow
 Screen/&SpellSlotsUsedLongDescription=You have expended {0} spell slot(s) at this level.
 Screen/&SpellSlotsUsedShortDescription=You have expended {0} pact magic slot(s).
 Screen/&SpellSlotsUsedShortLongDescription=You have expended {0} pact magic slot(s) and {1} spell slot(s) at this level.

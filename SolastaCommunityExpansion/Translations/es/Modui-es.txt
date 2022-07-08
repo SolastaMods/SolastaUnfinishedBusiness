@@ -12,12 +12,13 @@ ModUi/&AllItemInDm=Todos los artículos en DM
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use armadura selvática o ropa de portador de la luz.
 ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=orange>Druid</color> use una armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con un nivel máximo de 20 <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Permitir que los gadgets y accesorios se coloquen en cualquier parte del mapa <i><color=yellow>[presione <color=#1E81B0>CTRL</color> durante la colocación para omitir cualquier control]</color></i>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Permitir que los gadgets y accesorios se coloquen en cualquier parte del mapa <i><color=yellow>[presione <color=#1E81B0>CTRL</color> durante la colocación para omitir cualquier verificación]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material apilado <i><color=yellow>[p. ej. 2x500gp diamante es equivalente a 1000gp diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=orange>Cadena de relámpagos</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=orange>Hechiceros</color> sin marcas de origen ni tatuajes
 ModUi/&AllRecipesInDm=Todas las recetas en DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo [solo en mazmorras personalizadas]
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=yellow>[solo en mazmorras personalizadas]</color></i>
+ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la ración de alimentos a 2 libras por SRD
 ModUi/&AutoPauseOnVictory=Pausa la interfaz de usuario cuando salgas victorioso en la batalla.
 ModUi/&Basic=<color=yellow>Básico:</color>
 ModUi/&Battle=<color=yellow>Batalla:</color>
@@ -47,7 +48,7 @@ ModUi/&EmpressGarbAppearance=Apariencia <color=orange>Atuendo de emperatriz</col
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campamentos, salidas y teletransportadores en el mapa de nivel
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=yellow>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
-ModUI/&EnableBetaContent=Habilita el contenido beta <i><color=yellow>[ten en cuenta que tus partidas guardadas o tus héroes podrían romperse en el futuro]</color></i> <b><i><color=#C04040E0>[Requiere reiniciar]< /color></i></b>
+ModUI/&EnableBetaContent=Habilita el contenido beta <i><color=yellow>[ten en cuenta que tus partidas guardadas o tus héroes podrían romperse en el futuro]</color></i> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite la acción de cancelar con el botón derecho del mouse
 ModUi/&EnableCharacterChecker=Habilitar la pantalla del verificador de caracteres
 ModUi/&EnableCharacterExport=Habilitar <color=#1E81B0>CTRL-MAYÚS-(E)</color>exportar carácter <i><color=yellow>[solo en la pantalla de inspección de caracteres]</color></i>
@@ -78,7 +79,7 @@ ModUi/&EnableRespec=Habilite las acciones RESPEC y Level Down después del desca
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=yellow>[en lugar de una opción exclusiva]</color></i>
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Habilita la recarga de descanso breve de <color=orange>Arcane Weapon</color> en <color=orange>Wizard</color> Arcane Fighter
-ModUi/&EnableTeleportParty=Activar <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=yellow>[podrías interrumpir misiones o mapas si te teletransportas a un lugar desconocido]</color></i>
+ModUi/&EnableTeleportParty=Activar <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=yellow>[podrías interrumpir misiones o mapas si te teletransportas a un lugar desconocido]</color></i >
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Activa la <color=orange>Recuperación Arcana</color> ilimitada en <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Debe habilitarse cuando la habilidad tiene usos disponibles o antes de la creación del personaje</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=orange>Conjurar Elemental</color>, <color=orange>Conjurar Fey</color>
@@ -102,7 +103,7 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Oculte las salidas y los efect
 ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25 %/50 %/75 %/100 % en lugar de puntos de vida exactos
 ModUi/&HiderArmor=Ocultar armadura
 ModUi/&House=<color=yellow>Casa:</color>
-ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta el alcance de <color=orange>Sense Normal Vision</color> para permitir ataques de largo alcance</color> <i><color=yellow>[40 es ideal para evitar que los enemigos se unan desde muy lejos]< /color></i>
+ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta el alcance de <color=orange>Sense Normal Vision</color> para permitir ataques de largo alcance</color> <i><color=yellow>[40 es ideal para evitar que los enemigos se unan desde muy lejos]</color></i>
 ModUi/&IncreaseSenseNormalVisionHelp=<b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&InitialChoices=<color=yellow>Opciones iniciales:</color>
 ModUi/&Interface=Interfaz
@@ -113,7 +114,7 @@ ModUi/&Items=<color=yellow>Objetos:</color>
 ModUi/&ItemsCraftingMerchants=Objetos, Fabricación y Comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Debes tener abierta la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presiona + para agregar artículos al contenedor de tierra</b>
-ModUi/&Input=Gamepad, Teclado y Ratón
+ModUi/&Input=Mando, teclado y ratón
 ModUi/&MakeAllMagicStaveArcaneFoci=Haz que todos los bastones mágicos sean focos arcanos <i><color=yellow>[excepto el <color=orange>Bastón de Curación</color> que es Universal]</color></i> <b><i><color= #C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marque la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Máximo de clases permitidas</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -142,14 +143,14 @@ ModUi/&Races=<color=yellow>Razas y subrazas</color>
 ModUi/&RacesClassesSubclasses=Razas, Clases y Subclases
 ModUi/&RecipeCost=<color=white>Coste de la receta</color>
 ModUi/&RecipesInDm=Recetas en DM
-ModUi/&ReduceDarkelfLightPenalty=Reducir la penalización de luz de Darkelf a -1d4 en los ataques en lugar de Desventaja
+ModUi/&ReduceDarkelfLightPenalty=Cambia la penalización ligera de <color=orange>Dark Elf</color> a -1d4 en los ataques en lugar de a la desventaja.
 ModUi/&RelicForgeries=falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar los requisitos de sintonización <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&RemoveBugVisualModels=Reemplace los modelos similares a errores con imágenes alternativas en el juego <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=Elimina el requisito de concentración de cualquier hechizo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar el filtro humanoide en <color=orange>Hideous Risa</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements=Quitar los requisitos de identificación <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
-ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=orange>Enredar</color> en el momento del lanzamiento <i><color=yellow>[es decir, sin efecto recurrente]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=orange>Enredar</color> en el momento del lanzamiento <i><color=yellow>[es decir, sin efecto recurrente]</color></i> <b><i><color=#C04040E0 >[Requiere reinicio]</color></i></b>
 ModUi/&RestockAntiquarians=Reponer anticuarios <i><color=yellow>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Reponer Arcaneum <i><color=yellow>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Reabastecer Círculo de Danantar <i><color=yellow>[Joriel Foxeye]</color></i>
@@ -169,7 +170,7 @@ ModUi/&Spells=<color=yellow>Hechizos:</color>
 ModUi/&SpellsMenu=Hechizos
 ModUi/&SRD=<color=yellow>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Almacena la tienda de Gorim con toda la ropa no mágica <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Almacena la tienda de Hugo con <color=orange>Varita de identificación</color>, <color=orange>Bastón arcano</color>, <color=orange>Cuello de druida</color>, <color=orange>Bastón</color> y <color=orange>Club</color> establecidos como elementos de enfoque
+ModUi/&StockHugoStoreWithAdditionalFoci=Almacena la tienda de Hugo con <color=orange>Varita de identificación</color>, <color=orange>Bastón arcano</color>, <color=orange>Cuello de druida</color>, <color=orange>Bastón</color > y <color=orange>Club</color> establecidos como elementos de enfoque
 ModUi/&Subclasses=<color=yellow>Subclases</color>
 ModUi/&TargetLanguage=Lengua de llegada
 ModUi/&Tools=Instrumentos
@@ -178,7 +179,7 @@ ModUi/&Translate=Traducir
 ModUi/&TranslateCancel=Cancelar {0} a las {1}
 ModUi/&TranslationEngine=Motor de traducción
 ModUi/&Translations=Traducciones
-ModUi/&UnleashEnemyAsNpc=Permitir que los monstruos se seleccionen en los dispositivos NPC <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUi/&UnleashEnemyAsNpc=Permitir que los monstruos se seleccionen en dispositivos NPC <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&UnleashNpcAsEnemy=Permitir que los NPC se seleccionen en dispositivos de monstruos <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Desbloquea todas las caras de NPC
 ModUi/&UnlockEyeStyles=Desbloquear estilos de ojos
@@ -187,7 +188,7 @@ ModUi/&UnlockGlowingEyeColors=Agregue colores de ojos brillantes <b><i><color=#C
 ModUi/&UnlockMarkAndTatoosForAllCharacters=Desbloquea marcas de origen y tatuajes de <color=Orange>Sorcerer</color> para todos los personajes.
 ModUi/&UseHeightOneCylinderEffect=Muestra un efecto de cilindro de altura 1 al lanzar <color=orange>Black Tentacles, Entangle, Grease</color> (cuadrado) y <color=orange>Spike Growth</color> (redondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/desventaja
-ModUi/&Visuals=<color=yellow>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUi/&Visuals=<color=yellow>Visuales:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&TotalCraftingTimeModifier=<color=white>Reducir el tiempo de elaboración</color>
 ModUi/&ChangeSleetStormToCube=Cambia <color=orange>Sleet Storm</color> para usar un cubo en lugar de un cilindro
 ModUi/&Category=Categoría
