@@ -55,6 +55,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
         var supernaturalExploits = FeatureDefinitionPowerBuilder
             .Create("supernaturalExploitsPathOfTheRagemage", SubclassNamespace)
             .SetGuiPresentation("supernaturalExploitsPathOfTheRagemage", Category.Feature)
+            .SetFixedUsesPerRecharge(0)
             .AddToDB();
 
         var supernaturalExploitsDarkvision = FeatureDefinitionPowerBuilder
