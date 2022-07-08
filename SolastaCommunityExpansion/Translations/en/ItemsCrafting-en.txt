@@ -1,3 +1,11 @@
+Equipment/&Armor_Noble_ClothesTitle_Cherry=Cherry Noble's Clothes
+Equipment/&Armor_Noble_ClothesTitle_Green=Green Noble's Clothes
+Equipment/&Armor_Noble_ClothesTitle_Orange=Orange Noble's Clothes
+Equipment/&Armor_Noble_ClothesTitle_Pink=Pink Noble's Clothes
+Equipment/&Armor_Noble_ClothesTitle_Purple=Purple Noble's Clothes
+Equipment/&Armor_Noble_ClothesTitle_Red=Red Noble's Clothes
+Equipment/&Armor_Noble_ClothesTitle_Silver=Silver Noble's Clothes
+Equipment/&Armor_Noble_ClothesTitle_Valley=Valley Noble's Clothes
 Equipment/&CEHalberdTypeTitle=Halberds
 Equipment/&CEHandXbowTypeTitle=Hand Crossbows
 Equipment/&CELongMaceTypeTitle=Long Maces
