@@ -236,6 +236,10 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
+        //
+        // Disabling for now until we get time to fix the concentration issue
+        //
+#if false
         // flame touched
 
         var flameTouchedGroup =
@@ -315,6 +319,7 @@ internal static class CasterFeats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB()
         );
+#endif
 
         // shadow touched
 
@@ -466,8 +471,8 @@ internal static class CasterFeats
     }
 
     private static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(
-        IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
-        CharacterClassDefinition characterclass,
+        IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autoSpellLists,
+        CharacterClassDefinition characterClass,
         string name,
         string tag,
         GuiPresentation guiPresentation)
@@ -475,8 +480,8 @@ internal static class CasterFeats
         return FeatureDefinitionAutoPreparedSpellsBuilder
             .Create(name, CasterFeatsNamespace)
             .SetGuiPresentation(guiPresentation)
-            .SetPreparedSpellGroups(autospelllists)
-            .SetCastingClass(characterclass)
+            .SetPreparedSpellGroups(autoSpellLists)
+            .SetCastingClass(characterClass)
             .SetAutoTag(tag)
             .AddToDB();
     }

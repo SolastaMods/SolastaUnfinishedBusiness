@@ -2,8 +2,6 @@
 
 CHANGES:
 
-- Add Celestial Touched feat set
-- Add Flame Touched feat set
-- Add SRD Rule to reduce food ration weight to 2 lbs
+- Add the Celestial Touched feat
+- Add a SRD Rule to reduce food ration weight to 2 lbs
 - Fix Half-Elf integration with flexible races
-- Improve stealable loot with scaling by target CR
