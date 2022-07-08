@@ -7,5 +7,5 @@ CHANGES:
 - Add hand crossbow proficiency to rogues
 - Add Path of the Rage Mage subclass
 - Improve noble clothes colors and descriptions
-- Fix DMPRO issues reported by HiddenFax
+- Fix DMPRO loosing monsters assignment on editor
 - Fix Half-Elf integration with flexible races

@@ -1,6 +1,8 @@
 
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
 
+[url=https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion]DONATE[/url]
+
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 [size=4][b]Credits[/b][/size]
