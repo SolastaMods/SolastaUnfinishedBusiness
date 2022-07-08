@@ -1,0 +1,59 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:CelestialTouchedAutoPrepBarbarian:db233f23-db9d-556c-9ac6-067b2b778e1b",
+    "Definition:CelestialTouchedAutoPrepClassMonk:aaa6fc46-9554-54b1-9d04-7154c17b63e8",
+    "Definition:CelestialTouchedAutoPrepClassTinkerer:e8ea834a-6a25-5ac4-bca8-be8b5e796eea",
+    "Definition:CelestialTouchedAutoPrepClassWarlock:0e548990-8883-5042-9cbd-f96e04578fca",
+    "Definition:CelestialTouchedAutoPrepClassWitch:6c0074a9-e768-5cd2-bcbb-bd26ecb43658",
+    "Definition:CelestialTouchedAutoPrepCleric:b5de6e49-cf7b-5854-ab18-281d1f27a280",
+    "Definition:CelestialTouchedAutoPrepDruid:c117b8df-1e9c-5317-8c70-4a23e770c683",
+    "Definition:CelestialTouchedAutoPrepDummyClass:7e70cb7b-f30a-53b4-af40-b2f32a371090",
+    "Definition:CelestialTouchedAutoPrepFighter:b066c19b-3898-540d-859e-3f2d64bf71fa",
+    "Definition:CelestialTouchedAutoPrepPaladin:6ec036e4-b32d-5604-b1cd-3de08df8afaf",
+    "Definition:CelestialTouchedAutoPrepRanger:aa6bc6b2-1758-551b-bd28-3b94b0018511",
+    "Definition:CelestialTouchedAutoPrepRogue:9b97f469-8e03-563d-92cf-52baed0f0fd4",
+    "Definition:CelestialTouchedAutoPrepSorcerer:deb0f4c9-5c7b-5263-86ef-6399dc2d76d0",
+    "Definition:CelestialTouchedAutoPrepWizard:22624bb6-0e90-53ff-88b7-99d36159076d",
+    "Definition:FeatChaIncrement:e34d5fec-6431-5d65-b40b-25944621de35",
+    "Definition:PowerBlessFromFeat:7b2618f1-1b74-5e5d-b6c9-0d16a41cc5d3",
+    "Definition:PowerCureWoundsFromFeat:ddfc4f71-83be-599a-8943-7758b353b861",
+    "Definition:PowerLesserRestorationFromFeat:3332c262-4295-54b6-8325-a47dfd5d8155"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatCelestialTouchedChaTitle",
+    "description": "Feat/&FeatCelestialTouchedChaDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "820bf307-93bb-570e-8030-d6a74eaae896",
+  "contentPack": 9999,
+  "name": "FeatCelestialTouchedCha"
+}

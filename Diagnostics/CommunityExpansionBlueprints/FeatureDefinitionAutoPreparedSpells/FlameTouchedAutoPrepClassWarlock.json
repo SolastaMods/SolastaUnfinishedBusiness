@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "FlameTouched",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 0,
+      "spellsList": [
+        "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+        "Definition:FaerieFire:72b2d8c811efbb04e8d70c0a41f5d963",
+        "Definition:FlamingSphere:3b54dc222148dc8499eb981f7383c71f"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:ClassWarlock:22677dd9-ffe8-58ad-8dd2-bacb9dd9da2e",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&PowerFlameTouchedFromFeatTitle",
+    "description": "Feat/&PowerFlameTouchedFromFeatDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "fcbc8832-480b-56e6-a3ad-8a63aea216c6",
+  "contentPack": 9999,
+  "name": "FlameTouchedAutoPrepClassWarlock"
+}

@@ -306,8 +306,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&PowerInflictWoundsFromFeatTitle",
-    "description": "Feat/&PowerInflictWoundsFromFeatDescription",
+    "title": "Spell/&InflictWoundsTitle",
+    "description": "Spell/&InflictWoundsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "edf772fde799a874d88cae71a06867c8",

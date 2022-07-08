@@ -132,7 +132,12 @@ public static class Translations
     }
 
     [ItemCanBeNull]
-    private static IEnumerable<string> GetTranslations(string languageCode)
+    #if DEBUG
+    internal
+    #else
+    private
+    #endif
+    static IEnumerable<string> GetTranslations(string languageCode)
     {
         using var zipStream = new MemoryStream(Resources.Translations);
         using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
