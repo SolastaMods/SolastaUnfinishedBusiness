@@ -18,7 +18,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Zielauswahl beim Wi
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=orange>Zauberer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Geräte im Sichtfeld der Gruppe hervor <i><color=yellow>[nur in benutzerdefinierten Dungeons]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund pro SRD
+ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
 ModUi/&AutoPauseOnVictory=Pausiere die Benutzeroberfläche, wenn du im Kampf siegst
 ModUi/&Basic=<color=yellow>Einfach:</color>
 ModUi/&Battle=<color=yellow>Kampf:</color>

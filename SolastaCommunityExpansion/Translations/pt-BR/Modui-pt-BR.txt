@@ -18,7 +18,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir a seleçã
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=orange>Feiticeiros</color> sem marcações de origem e tatuagens
 ModUi/&AllRecipesInDm=Todas as receitas em DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca os gadgets no campo de visão do grupo <i><color=yellow>[somente em masmorras personalizadas]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduza o peso da ração alimentar para 2 libras por SRD
+ModUi/&ApplySRDWeightToFoodRations=Reduza o peso da ração alimentar para 2 libras
 ModUi/&AutoPauseOnVictory=Pause a interface do usuário quando for vitorioso na batalha
 ModUi/&Basic=<color=yellow>Básico:</color>
 ModUi/&Battle=<color=yellow>Batalha:</color>

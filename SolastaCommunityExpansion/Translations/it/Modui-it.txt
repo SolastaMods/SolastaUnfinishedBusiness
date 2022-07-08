@@ -18,7 +18,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezio
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=orange>stregoni</color> senza segni di origine e tatuaggi
 ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=yellow>[solo nei dungeon personalizzati]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Ridurre il peso della razione alimentare a 2 libbre per SRD
+ModUi/&ApplySRDWeightToFoodRations=Ridurre il peso della razione alimentare a 2 libbre
 ModUi/&AutoPauseOnVictory=Metti in pausa l'interfaccia utente quando vinci in battaglia
 ModUi/&Basic=<color=yellow>Base:</color>
 ModUi/&Battle=<color=yellow>Battaglia:</color>
