@@ -1,6 +1,6 @@
 ﻿Subclass/&BarbarianPathOfTheRageMageTitle=Chemin du mage de rage
 Subclass/&BarbarianPathOfTheRageMageDescription=Path Of The Rage Mage Barbarians sont des barbares qui possèdent l'étincelle du talent arcanique. Ils apprennent à canaliser leur férocité brute par la magie.
-Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Votre rage se manifeste par une poussée de puissance arcanique, vous permettant de lancer des sorts. Le charisme est votre modificateur d'incantation. Vous avez accès aux sorts de la liste des sorts du Sorcier. Vous utilisez votre arme comme un focus arcanique. Vous ne pouvez pas lancer de sorts lorsque vous êtes en rage. (Remarque : si vous tentez de lancer un sort alors que vous êtes en rage, l'action et l'emplacement de sort seront tous les deux gaspillés.)
+Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Votre rage se manifeste par une poussée de puissance arcanique, vous permettant de lancer des sorts. Le charisme est votre modificateur d'incantation. Vous avez accès aux sorts de la liste des sorts du Sorcier. Vous utilisez votre arme comme un focus arcanique. Vous ne pouvez pas lancer de sorts lorsque vous êtes en rage.
 Feature/&BarbarianPathOfTheRageMageSpellcastingTitle=Lancer des sorts
 Feature/&ProficiencySkillPathOfTheRageMageDescription=Vous gagnez la maîtrise de la compétence Arcana.
 Feature/&ProficiencySkillPathOfTheRageMageTitle=Intuition arcanique

@@ -1,6 +1,6 @@
 ﻿Subclass/&BarbarianPathOfTheRageMageTitle=Pfad des Zornmagiers
 Subclass/&BarbarianPathOfTheRageMageDescription=Path Of The Rage Mage Barbarians sind Barbaren, die den Funken arkanen Talents besitzen. Sie lernen, ihre rohe Wildheit durch Magie zu kanalisieren.
-Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Deine Wut manifestiert sich als Woge arkaner Macht, die es dir ermöglicht, Zauber zu wirken. Charisma ist dein Zaubermodifikator. Du hast Zugriff auf Zauber auf der Zauberliste des Zauberers. Sie verwenden Ihre Waffe als arkanen Fokus. Du kannst keine Zauber wirken, während du tobst. (Hinweis: Wenn Sie versuchen, einen Zauber zu wirken, während Sie toben, werden sowohl die Aktion als auch der Zauberplatz verschwendet.)
+Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Deine Wut manifestiert sich als Woge arkaner Macht, die es dir ermöglicht, Zauber zu wirken. Charisma ist dein Zaubermodifikator. Du hast Zugriff auf Zauber auf der Zauberliste des Zauberers. Sie verwenden Ihre Waffe als arkanen Fokus. Du kannst keine Zauber wirken, während du tobst.
 Feature/&BarbarianPathOfTheRageMageSpellcastingTitle=Zaubern
 Feature/&ProficiencySkillPathOfTheRageMageDescription=Du erlangst Kenntnisse in der Arcana-Fertigkeit.
 Feature/&ProficiencySkillPathOfTheRageMageTitle=Arkane Intuition

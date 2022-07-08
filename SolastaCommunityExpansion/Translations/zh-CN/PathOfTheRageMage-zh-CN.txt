@@ -1,6 +1,6 @@
 ﻿Subclass/&BarbarianPathOfTheRageMageTitle=愤怒之路法师
 Subclass/&BarbarianPathOfTheRageMageDescription=狂暴法师野蛮人是拥有奥术天赋火花的野蛮人。他们学会通过魔法引导他们的野蛮凶猛。
-Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=你的愤怒表现为一股奥术能量的涌动，让你可以施法。魅力是你的施法修正。你可以使用巫师法术列表中的法术。你使用你的武器作为奥术焦点。你不能在狂暴时施法。 （注意：如果你在狂暴时尝试施法，动作和法术位都将被浪费。）
+Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=你的愤怒表现为一股奥术能量的涌动，让你可以施法。魅力是你的施法修正。你可以使用巫师法术列表中的法术。你使用你的武器作为奥术焦点。你不能在狂暴时施法。
 Feature/&BarbarianPathOfTheRageMageSpellcastingTitle=施法
 Feature/&ProficiencySkillPathOfTheRageMageDescription=你获得了奥秘技能的熟练度。
 Feature/&ProficiencySkillPathOfTheRageMageTitle=奥术直觉

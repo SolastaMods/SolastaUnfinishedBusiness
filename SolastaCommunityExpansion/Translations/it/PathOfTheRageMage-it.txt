@@ -1,6 +1,6 @@
 ﻿Subclass/&BarbarianPathOfTheRageMageTitle=Percorso del mago della rabbia
 Subclass/&BarbarianPathOfTheRageMageDescription=Path Of The Rage Mage I barbari sono barbari che possiedono la scintilla del talento arcano. Imparano a incanalare la loro brutale ferocia attraverso la magia.
-Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=La tua rabbia si manifesta come un'ondata di potere arcano, che ti consente di lanciare incantesimi. Carisma è il tuo modificatore di incantesimi. Hai accesso agli incantesimi nell'elenco degli incantesimi dello Stregone. Usi la tua arma come focus arcano. Non puoi lanciare incantesimi mentre sei in preda all'ira. (Nota: se tenti di lanciare un incantesimo mentre sei in preda all'ira, l'azione e lo slot dell'incantesimo andranno entrambi sprecati.)
+Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=La tua rabbia si manifesta come un'ondata di potere arcano, che ti consente di lanciare incantesimi. Carisma è il tuo modificatore di incantesimi. Hai accesso agli incantesimi nell'elenco degli incantesimi dello Stregone. Usi la tua arma come focus arcano. Non puoi lanciare incantesimi mentre sei in preda all'ira.
 Feature/&BarbarianPathOfTheRageMageSpellcastingTitle=Incantesimi
 Feature/&ProficiencySkillPathOfTheRageMageDescription=Acquisisci competenza nell'abilità Arcana.
 Feature/&ProficiencySkillPathOfTheRageMageTitle=Intuizione Arcana

@@ -1,6 +1,6 @@
 ﻿Subclass/&BarbarianPathOfTheRageMageTitle=Camino del mago de la ira
 Subclass/&BarbarianPathOfTheRageMageDescription=Path Of The Rage Mage Barbarians son bárbaros que poseen la chispa del talento arcano. Aprenden a canalizar su ferocidad bruta a través de la magia.
-Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Tu ira se manifiesta como una oleada de poder arcano que te permite lanzar hechizos. Carisma es tu modificador de lanzamiento de hechizos. Tienes acceso a los hechizos de la lista de hechizos del hechicero. Usas tu arma como un foco arcano. No puedes lanzar hechizos mientras estás en furia. (Nota: si intentas lanzar un hechizo mientras estás en furia, la acción y el espacio del hechizo se desperdiciarán).
+Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Tu ira se manifiesta como una oleada de poder arcano que te permite lanzar hechizos. Carisma es tu modificador de lanzamiento de hechizos. Tienes acceso a los hechizos de la lista de hechizos del hechicero. Usas tu arma como un foco arcano. No puedes lanzar hechizos mientras estás en furia.
 Feature/&BarbarianPathOfTheRageMageSpellcastingTitle=Lanzamiento de hechizos
 Feature/&ProficiencySkillPathOfTheRageMageDescription=Obtienes competencia en la habilidad Arcana.
 Feature/&ProficiencySkillPathOfTheRageMageTitle=Intuición Arcana

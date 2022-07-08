@@ -1,6 +1,6 @@
 ﻿Subclass/&BarbarianPathOfTheRageMageTitle=Path Of The Rage Mage
 Subclass/&BarbarianPathOfTheRageMageDescription=Path Of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
-Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Your rage manifests as a surge of arcane power, allowing you to cast spells. Charisma is your spellcasting modifier. You have access to spells on the Sorcerer spell list. You use your weapon as an arcane focus. You cannot cast spells while raging. (Note: If you attempt to cast a spell while raging, the action and spell slot will both be wasted.)
+Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Your rage manifests as a surge of arcane power, allowing you to cast spells. Charisma is your spellcasting modifier. You have access to spells on the Sorcerer spell list. You use your weapon as an arcane focus. You cannot cast spells while raging.
 Feature/&BarbarianPathOfTheRageMageSpellcastingTitle=Spellcasting
 Feature/&ProficiencySkillPathOfTheRageMageDescription= You gain proficiency in the Arcana skill. 
 Feature/&ProficiencySkillPathOfTheRageMageTitle=Arcane Intuition
