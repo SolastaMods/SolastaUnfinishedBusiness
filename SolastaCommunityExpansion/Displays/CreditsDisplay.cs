@@ -39,6 +39,7 @@ internal static class CreditsDisplay
             "ChrisJohnDigital",
             "Tinkerer class, crafting, faction relations, feats, fighting styles, items, subclasses, progression"
         ),
+        ("DemonSlayer730", "Path of the Rage Mage subclass"),
         ("Dreadmaker", "Forest Guardian subclass"),
         (
             "DubhHerder",

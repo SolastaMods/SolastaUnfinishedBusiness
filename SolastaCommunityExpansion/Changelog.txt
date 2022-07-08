@@ -2,6 +2,10 @@
 
 CHANGES:
 
-- Fix save by campaign / location UI
-- Improve gamepad support
-- Weaponize Produce Flame spell
+- Add the Celestial Touched feat
+- Add a SRD rule to reduce food ration weight to 2 lbs
+- Add hand crossbow proficiency to rogues
+- Add Path of the Rage Mage subclass
+- Improve noble clothes colors and descriptions
+- Fix DMPRO loosing monsters assignment on editor
+- Fix Half-Elf integration with flexible races

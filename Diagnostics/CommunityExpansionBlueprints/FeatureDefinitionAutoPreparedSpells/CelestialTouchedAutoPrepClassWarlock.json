@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "CelestialTouched",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 0,
+      "spellsList": [
+        "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+        "Definition:LesserRestoration:5da149e59ebb042419041382af919aea"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:ClassWarlock:22677dd9-ffe8-58ad-8dd2-bacb9dd9da2e",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&PowerCelestialTouchedFromFeatTitle",
+    "description": "Feat/&PowerCelestialTouchedFromFeatDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0e548990-8883-5042-9cbd-f96e04578fca",
+  "contentPack": 9999,
+  "name": "CelestialTouchedAutoPrepClassWarlock"
+}

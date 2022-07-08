@@ -477,6 +477,10 @@ public static class CustomWeaponsContext
         damageForm.dieType = RuleDefinitions.DieType.D6;
         damageForm.diceNumber = 1;
 
+        //add hand xbow proficiency to rogues
+        var rogueHandXbowProficiency = FeatureDefinitionProficiencys.ProficiencyRogueWeapon;
+        rogueHandXbowProficiency.Proficiencies.Add(HandXbowWeaponType.Name);
+
         HandXbow = BuildWeapon("CEHandXbow", baseItem,
             20, true, Common, basePresentation, baseDescription, HandXbowIcon,
             twoHanded: false);

@@ -17,8 +17,8 @@ internal static class SessionState_Setup_Begin
         string filename,
         bool notify)
     {
-        if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty &&
-            slotIndex < Main.Settings.defaultPartyHeroes.Count)
+        if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty
+            && slotIndex < Main.Settings.defaultPartyHeroes.Count)
         {
             var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
 

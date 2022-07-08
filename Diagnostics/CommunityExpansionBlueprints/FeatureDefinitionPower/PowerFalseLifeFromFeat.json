@@ -298,8 +298,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&PowerFalseLifeFromFeatTitle",
-    "description": "Feat/&PowerFalseLifeFromFeatDescription",
+    "title": "Spell/&FalseLifeTitle",
+    "description": "Spell/&FalseLifeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9c9f5cea8cbef734cad03574eec0f8d4",

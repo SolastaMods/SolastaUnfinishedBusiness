@@ -65,4 +65,21 @@ internal static class SrdAndHouseRulesContext
         DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
             .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER);
     }
+
+    internal static void ApplySRDWeightToFoodRations()
+    {
+        var foodSRDWeight = DatabaseHelper.ItemDefinitions.Food_Ration;
+        var foodForagedSRDWeight = DatabaseHelper.ItemDefinitions.Food_Ration_Foraged;
+
+        if (Main.Settings.ApplySrdWeightToFoodRations)
+        {
+            foodSRDWeight.weight = 2.0f;
+            foodForagedSRDWeight.weight = 2.0f;
+        }
+        else
+        {
+            foodSRDWeight.weight = 3.0f;
+            foodForagedSRDWeight.weight = 3.0f;
+        }
+    }
 }

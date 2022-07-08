@@ -6,7 +6,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><c
 ModUi/&AddPickpocketableLoot=Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore=Add to store
 ModUi/&Advanced=<color=yellow>Advanced:</color>
-ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> This setting will require the player to have this mod installed
+ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
 ModUi/&Adventure=<color=yellow>Adventure:</color>
 ModUi/&AllItemInDm=All items in DM
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear sylvan armor or lightbringer clothes
@@ -18,6 +18,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target select
 ModUi/&AllowUnmarkedSorcerers=Allow <color=orange>Sorcerers</color> without origin markings and tattoos
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view <i><color=yellow>[only in custom dungeons]</color></i>
+ModUi/&ApplySRDWeightToFoodRations=Reduce weight of food ration to 2 pounds
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=yellow>Basic:</color>
 ModUi/&Battle=<color=yellow>Battle:</color>

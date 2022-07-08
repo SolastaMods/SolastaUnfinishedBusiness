@@ -17,7 +17,8 @@ ModUi/&AllowStackedMaterialComponent=Consenti componente materiale impilato <i><
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezione del bersaglio quando lanci l'incantesimo <color=orange>Catena di fulmini</color>
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=orange>stregoni</color> senza segni di origine e tatuaggi
 ModUi/&AllRecipesInDm=Tutte le ricette in DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo [solo nei dungeon personalizzati]
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=yellow>[solo nei dungeon personalizzati]</color></i>
+ModUi/&ApplySRDWeightToFoodRations=Ridurre il peso della razione alimentare a 2 libbre
 ModUi/&AutoPauseOnVictory=Metti in pausa l'interfaccia utente quando vinci in battaglia
 ModUi/&Basic=<color=yellow>Base:</color>
 ModUi/&Battle=<color=yellow>Battaglia:</color>
@@ -47,7 +48,7 @@ ModUi/&EmpressGarbAppearance=Aspetto di <color=orange>Abito dell'Imperatrice</co
 ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti, uscite e teletrasporti sulla mappa del livello
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi oggetti a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=yellow>[+1 talento / +2 scelte attributi / +1 abilità]</color></i>
-ModUI/&EnableBetaContent=Attiva i contenuti beta <i><color=yellow>[tieni presente che i tuoi salvataggi o eroi potrebbero non funzionare in futuro]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]< /colore></i></b>
+ModUI/&EnableBetaContent=Attiva i contenuti beta <i><color=yellow>[tieni presente che i tuoi salvataggi o eroi potrebbero non funzionare in futuro]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</Color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita l'azione di annullamento con il clic destro del mouse
 ModUi/&EnableCharacterChecker=Abilita la schermata di verifica del carattere
 ModUi/&EnableCharacterExport=Abilita <color=#1E81B0>CTRL-SHIFT-(E)</color>xport carattere <i><color=yellow>[solo nella schermata di ispezione dei caratteri]</color></i>
@@ -78,7 +79,7 @@ ModUi/&EnableRespec=Abilita le azioni RESpec e Level Down dopo il riposo
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=yellow>[invece di una scelta esclusiva]</color></i>
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Abilita la ricarica a riposo breve di <color=orange>Arma arcana</color> su <color=orange>Mago</color> Guerriero arcano
-ModUi/&EnableTeleportParty=Abilita <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=yellow>[potresti interrompere missioni o mappe se ti teletrasporti in un luogo sconosciuto]</color></i>
+ModUi/&EnableTeleportParty=Abilita <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=yellow>[potresti interrompere missioni o mappe se ti teletrasporti in un luogo sconosciuto]</color></i >
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Abilita gli interruttori sul pool di personaggi per impostare il tuo gioco predefinito e il gruppo di prova
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Abilita <color=orange>Recupero Arcano</color> illimitato su <color=orange>Mago</color> Maestro degli incantesimi\n<i><color=yellow>Deve essere abilitato quando l'abilità ha usi disponibili o prima della creazione del personaggio</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=orange>Evoca Elementale</color>, <color=orange>Evoca Folletto</color>
@@ -98,11 +99,11 @@ ModUi/&Gameplay=Gioco
 ModUi/&GameUi=Interfaccia di gioco
 ModUi/&General=<color=yellow>Generale:</color>
 ModUi/&GeneralMenu=Generale
-ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi uscite e teletrasporti effetti visivi se non ancora scoperti
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi uscite e teletrasporto effetti visivi se non ancora scoperti
 ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri a incrementi del 25%/50%/75%/100% invece dei punti ferita esatti
 ModUi/&HiderArmor=Nascondi l'armatura
 ModUi/&House=<color=yellow>Casa:</color>
-ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta il raggio di <color=orange>Sense visione normale</color> per abilitare gli attacchi a lungo raggio</color> <i><color=yellow>[40 è l'ideale per evitare che i nemici si uniscano da troppo lontano]< /colore></i>
+ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta il raggio di <color=orange>Sense visione normale</color> per abilitare gli attacchi a lungo raggio</color> <i><color=yellow>[40 è l'ideale per evitare che i nemici si uniscano da troppo lontano]</Color></i>
 ModUi/&IncreaseSenseNormalVisionHelp=<b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&InitialChoices=<color=yellow>Scelte iniziali:</color>
 ModUi/&Interface=Interfaccia
@@ -113,7 +114,7 @@ ModUi/&Items=<color=yellow>Articoli:</color>
 ModUi/&ItemsCraftingMerchants=Articoli, artigianato e mercanti
 ModUi/&ItemsHelp1=<color=#C04040E0>Devi avere la schermata di ispezione del personaggio aperta per aggiungere oggetti agli eroi...</color>
 ModUi/&ItemsHelp2=<b>Premi + per aggiungere oggetti al contenitore a terra</b>
-ModUi/&Input=Gamepad, Tastiera e Mouse
+ModUi/&Input=Gamepad, tastiera e mouse
 ModUi/&MakeAllMagicStaveArcaneFoci=Rendi tutti i bastoni magici fuochi arcani <i><color=yellow>[tranne <color=orange>Bastone della guarigione</color> che è Universale]</color></i> <b><i><color= #C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Segna anche la posizione dei teletrasporti invisibili sulla mappa del livello dopo la scoperta</i>
 ModUi/&MaxAllowedClasses=<color=white>Numero massimo di classi consentite</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -142,14 +143,14 @@ ModUi/&Races=<color=yellow>Razze e sottorazze</color>
 ModUi/&RacesClassesSubclasses=Razze, classi e sottoclassi
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM
-ModUi/&ReduceDarkelfLightPenalty=Riduce la Penalità Luce degli Elfi Oscuri a -1d4 sugli attacchi invece che su Svantaggio
+ModUi/&ReduceDarkelfLightPenalty=Scambia la penalità leggera di <color=orange>Elfo oscuro</color> a -1d4 sugli attacchi invece di Svantaggio
 ModUi/&RelicForgeries=Falsi di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a bug con elementi visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=Rimuovi il requisito di concentrazione da qualsiasi incantesimo <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi il filtro umanoide su <color=orange>Risate orribili</color> <b><i><color=#C04040E0>[Richiede un riavvio]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements=Rimuovi i requisiti di identificazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=orange>Intrappola</color> solo al momento del lancio <i><color=yellow>[i.e.: nessun effetto ricorrente]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=orange>Intrappola</color> solo al momento del lancio <i><color=yellow>[i.e.: nessun effetto ricorrente]</color></i> <b><i><color=#C04040E0 >[Richiede il riavvio]</color></i></b>
 ModUi/&RestockAntiquarians=Rifornisci Antiquari <i><color=yellow>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Rifornisci Arcaneum <i><color=yellow>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Rifornisci il Cerchio di Danantar <i><color=yellow>[Joriel Foxeye]</color></i>
@@ -169,7 +170,7 @@ ModUi/&Spells=<color=yellow>Incantesimi:</color>
 ModUi/&SpellsMenu=Incantesimi
 ModUi/&SRD=<color=yellow>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Rifornisce il negozio di Gorim con tutti gli indumenti non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Rifornisce il negozio di Hugo con <color=orange>Bacchetta dell'Identificazione</color>, <color=orange>Bastone Arcano</color>, <color=orange>Collo Druido</color>, <color=orange>Bastone</color> e <color=orange>Club</color> impostati come elementi focali
+ModUi/&StockHugoStoreWithAdditionalFoci=Rifornisce il negozio di Hugo con <color=orange>Bacchetta dell'Identificazione</color>, <color=orange>Bastone Arcano</color>, <color=orange>Collo Druido</color>, <color=orange>Bastone</color > e <color=orange>Club</color> impostati come elementi focali
 ModUi/&Subclasses=<color=yellow>Sottoclassi</color>
 ModUi/&TargetLanguage=Lingua di destinazione
 ModUi/&Tools=Strumenti
@@ -187,7 +188,7 @@ ModUi/&UnlockGlowingEyeColors=Aggiungi colori degli occhi luminosi <b><i><color=
 ModUi/&UnlockMarkAndTatoosForAllCharacters=Sblocca i segni di origine e i tatuaggi di <color=Orange>Stregone</color> per tutti i personaggi
 ModUi/&UseHeightOneCylinderEffect=Mostra un effetto cilindro di altezza 1 quando lanci <color=orange>Black Tentacles, Entangle, Grease</color> (quadrato) e <color=orange>Spike Growth</color> (tondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
-ModUi/&Visuals=<color=yellow>Visuali:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&Visuals=<color=yellow>Visuals:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>
 ModUi/&ChangeSleetStormToCube=Cambia <color=orange>Sleet Storm</color> per usare un cubo invece di un cilindro
 ModUi/&Category=Categoria

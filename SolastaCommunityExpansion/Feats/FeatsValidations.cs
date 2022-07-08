@@ -37,12 +37,9 @@ internal static class FeatsValidations
         {
             var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
 
-            if (isNotClass)
-            {
-                return (true, Gui.Localize($"Tooltip/&FeatPrerequisiteIsNot{className}"));
-            }
-
-            return (false, Gui.Colorize(Gui.Localize($"Tooltip/&FeatPrerequisiteIsNot{className}"), "EA7171"));
+            return isNotClass
+                ? (true, Gui.Localize($"Tooltip/&FeatPrerequisiteIsNot{className}"))
+                : (false, Gui.Colorize(Gui.Localize($"Tooltip/&FeatPrerequisiteIsNot{className}"), "EA7171"));
         };
     }
 
@@ -54,11 +51,8 @@ internal static class FeatsValidations
 
         var hasStealthAttack = features.Any(x => x.Name.Contains(TagsDefinitions.AdditionalDamageSneakAttackTag));
 
-        if (hasStealthAttack)
-        {
-            return (true, Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"));
-        }
-
-        return (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171"));
+        return hasStealthAttack
+            ? (true, Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"))
+            : (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171"));
     }
 }

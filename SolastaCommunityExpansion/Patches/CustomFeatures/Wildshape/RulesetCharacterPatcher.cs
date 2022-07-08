@@ -1,18 +1,28 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape;
 
-// ensures that the wildshape hero cannot cast any spells
+// ensures that the wildshape hero cannot cast any spells or anyone under Rage
 [HarmonyPatch(typeof(RulesetCharacter), "CanCastSpells")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacter_CanCastSpells
 {
     internal static void Postfix(RulesetCharacter __instance, ref bool __result)
     {
+        // wildshape
         if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+        {
+            __result = false;
+        }
+
+        // raging
+        if (__instance.AllConditions
+            .Any(x => x.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionRaging))
         {
             __result = false;
         }

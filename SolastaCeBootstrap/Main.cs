@@ -7,12 +7,9 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using HarmonyLib;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using I2.Loc;
 using UnityEngine;
 using UnityModManagerNet;
-using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace SolastaCeBootstrap
 {
@@ -100,13 +97,51 @@ namespace SolastaCeBootstrap
             else
             {
                 if (GUILayout.Button("dump database helpers"))
-                {
                     DatabaseHelpersExporter.Dump();
-                    //ExtensionsExporter.Dump();
-                }
+
+                if (GUILayout.Button("dump translations"))
+                    ExportTerms();
+                //ExtensionsExporter.Dump();
             }
 
             GUILayout.Label("");
+        }
+
+        internal static string FixCategory(string category)
+        {
+            switch (category)
+            {
+                case "MonsterAttack":
+                    return "MonsterAttacks";
+                case "Environment Effect":
+                    return "EnvironmentEffect";
+                case "Equipement":
+                    return "Equipment";
+                default:
+                    return category;
+            }
+        }
+
+        internal static void ExportTerms()
+        {
+            var languageSourceData = LocalizationManager.Sources[0];
+            var outputFilename = $@"{UnityModManager.modsPath}/../OfficialTranslations-en.txt";
+            using (var sw = new StreamWriter(outputFilename, true, Encoding.UTF8))
+            {
+                foreach (var category in languageSourceData.GetCategories())
+                {
+                    if (!category.Contains(":"))
+                    {
+                        var fixedCategory = FixCategory(category);
+
+                        foreach (var termName in languageSourceData.GetTermsList(category))
+                        {
+                            var term = languageSourceData.GetTermData(termName);
+                            sw.WriteLine($"{term.Term}={term.Languages[0].Replace("\n", @"\n")}");
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -124,7 +159,7 @@ namespace SolastaCeBootstrap
 
         internal static Dictionary<string, List<Asset>> GetAssets()
         {
-            var ignore = new HashSet<string>()
+            var ignore = new HashSet<string>
             {
                 "Action",
                 "ActionType",
@@ -182,7 +217,6 @@ namespace SolastaCeBootstrap
                 "TutorialSubsection",
                 "TutorialTable",
                 "TutorialToc",
-                
                 "VisualMood",
                 "Voice"
             };
@@ -193,10 +227,7 @@ namespace SolastaCeBootstrap
             {
                 var dbName = db.Key.Name;
 
-                if (ignore.Any(x => dbName.StartsWith(x)))
-                {
-                    continue;
-                }
+                if (ignore.Any(x => dbName.StartsWith(x))) continue;
 
                 foreach (var baseDefinition in ((IEnumerable) db.Value).Cast<BaseDefinition>())
                 {
