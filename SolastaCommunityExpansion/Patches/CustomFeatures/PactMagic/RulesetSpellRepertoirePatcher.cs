@@ -237,7 +237,7 @@ internal static class RulesetSpellRepertoirePatcher
             sharedMaxSlots -= pactMaxSlots;
             sharedRemainingSlots -= pactRemainingSlots;
 
-            var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            var isShiftPressed = !Global.IsMultiplayer && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
 
             var canConsumePactSlot = pactRemainingSlots > 0 && slotLevel <= warlockSpellLevel;
             var canConsumeSpellSlot = sharedRemainingSlots > 0 && slotLevel <= sharedSpellLevel;
