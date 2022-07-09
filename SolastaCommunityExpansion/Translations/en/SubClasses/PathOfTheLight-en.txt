@@ -1,3 +1,5 @@
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat=Illuminating Strike!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine=Illuminating Strike deals extra damage to the target!
 Subclass/&BarbarianPathOfTheLightDescription=Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription=You are always under the effects of a See Invisibility spell.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle=Eyes of Truth
@@ -20,5 +22,3 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle=Pierce the Darkness
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription=Can perceive invisible creatures.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle=Invisibility Sight
 Subclass/&BarbarianPathOfTheLightTitle=Path of the Light
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat=Illuminating Strike!
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine=Illuminating Strike deals extra damage to the target!

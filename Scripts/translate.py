@@ -12,7 +12,6 @@ import re
 import sys
 from deep_translator import GoogleTranslator
 
-OUTPUT_FOLDER = "Translations-"
 CHARS_MAX = 4500
 SEPARATOR = "\x0D"
 
@@ -81,17 +80,16 @@ def translate_text(text, code):
 
 
 # kiddos: this is ugly ;-)
-r0 = re.compile(r"<# ([A-F0-9]*?)>")
-r1 = re.compile(r"<#([A-F0-9]*?)> (.*?) </color>")
 r2 = re.compile(r"<i> (.*?) </i>")
 r3 = re.compile(r"<b> (.*?) </b>")
+r4 = re.compile(r"< (.*?)>")
+r5 = re.compile(r"<(.*?) >")
 
 def fix_translated_format(text):
-    text = r0.sub(r"<#\1>", text)
-    text = r1.sub(r"<#\1>\2</color>", text)
     text = r2.sub(r"<i>\1</i>", text)
     text = r3.sub(r"<b>\1</b>", text) 
-
+    text = r4.sub(r"<\1>", text)
+    text = r5.sub(r"<\1>", text) 
     return text
 
 
@@ -106,19 +104,20 @@ def translate_file(input_file, output_file, code):
             f.write(f"{term}={fixed}\n")
 
 
-def translate_folder(folder_name, code):
-    os.mkdir(folder_name.replace("en", code))
+def translate_folder(root_folder_name, folder_name, code):
+    root_output_name = code if code != "pt" else "pt-BR"
+    os.mkdir(folder_name.replace(root_folder_name, root_output_name))
     for filename in os.listdir(folder_name):
         input_file = os.path.join(folder_name, filename)
         if os.path.isfile(input_file):
-            output_file = f"{code}\\{input_file[3:-7]}-{code}.txt"
+            output_file = f"{root_output_name}\\{input_file[3:-7]}-{root_output_name}.txt"
             translate_file(input_file, output_file, code)
         else:
-            translate_folder(input_file, code)
+            translate_folder(root_folder_name, input_file, code)
 
 def main():
     args = parse_command_line()
-    translate_folder(args.input_folder, args.code)
+    translate_folder(args.input_folder, args.input_folder, args.code)
 
 if __name__ == "__main__":
     main()

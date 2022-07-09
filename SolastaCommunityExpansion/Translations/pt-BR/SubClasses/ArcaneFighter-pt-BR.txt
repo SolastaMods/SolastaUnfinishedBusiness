@@ -1,0 +1,16 @@
+Feature/&ArcaneFighterAdditionalActionDescription=Você pode lançar um feitiço depois de derrotar um inimigo com seus ataques de arma.
+Feature/&ArcaneFighterAdditionalActionTitle=Combate a Feitiços
+Feature/&ArcaneFighterBonusWeaponDamageDescription=Uma vez por turno, seus ataques com arma causam 1d8 de dano extra.
+Feature/&ArcaneFighterBonusWeaponDamageTitle=Ataques com poderes mágicos
+Feature/&AttackModifierMeleeWizardArcaneWeaponDescription=Quando ativo em uma arma, seus ataques contam como mágicos e você usa sua Inteligência para suas jogadas de ataque e dano.
+Feature/&AttackModifierMeleeWizardArcaneWeaponTitle=Arma Arcana
+Feature/&AttributeModifierMeleeWizardExtraAttackDescription=Você ganha um ataque extra.
+Feature/&AttributeModifierMeleeWizardExtraAttackTitle=Ataque Extra
+Feature/&MagicAffinityMeleeWizardConcentrationDescription=Devido à experiência no caos do combate, ganhe vantagem em testes de concentração.
+Feature/&MagicAffinityMeleeWizardConcentrationTitle=Concentração Aprimorada
+Feature/&ProficiencyWeaponArcaneFighterDescription=A experiência em combate deu ao Guerreiro Arcano treinamento em Armas Simples e Marciais.
+Feature/&ProficiencyWeaponArcaneFighterTitle=Treinamento de Armas
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Dano Adicional de Ataques com Poder Mágico
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Dano Adicional de Ataques com Poder Mágico
+Subclass/&TraditionArcaneFighterDescription=Canalize sua magia em ataques com armas.
+Subclass/&TraditionArcaneFighterTitle=Lutador Arcano
