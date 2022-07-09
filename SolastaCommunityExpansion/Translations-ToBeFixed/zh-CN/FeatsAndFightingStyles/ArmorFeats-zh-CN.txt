@@ -1,0 +1,12 @@
+Feat/&FeatMediumArmorDexDescription=敏捷+1，最高20点\n你获得中甲和盾牌的熟练项
+Feat/&FeatMediumArmorDexTitle=中甲熟练（敏捷）
+Feat/&FeatMediumArmorProficiencyDescription=你获得中甲和盾牌的熟练项
+Feat/&FeatMediumArmorProficiencyTitle=中甲
+Feat/&FeatMediumArmorStrengthDescription=力量+1，最高20点\n你获得中甲和盾牌的熟练项
+Feat/&FeatMediumArmorStrengthTitle=中甲熟练（力量）
+Feat/&FeatLightArmorDescription=力量+1，最高20点\n你获得轻甲的熟练项
+Feat/&FeatLightArmorProficiencyDescription=你获得轻甲熟练项
+Feat/&FeatLightArmorProficiencyTitle=轻甲
+Feat/&FeatLightArmorTitle=轻甲
+Feat/&FeatHeavyArmorMasterClassDescription=你获得钝击、穿刺和挥砍伤害的抗力
+Feat/&FeatHeavyArmorMasterClassTitle=重甲防御大师

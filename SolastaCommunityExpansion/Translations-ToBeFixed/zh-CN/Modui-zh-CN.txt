@@ -1,7 +1,7 @@
 ﻿ModUi/&AddAllToStore=全部加入商店
 ModUi/&AddBleedingToLesserRestoration=添加<color=orange>流血</color>状态至<color=orange>次级/高等复原术</color>的移除效果范围
-ModUi/&AddNewBrightEyeColors=添加新的明亮眼睛颜色<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
 ModUi/&AddHelpActionToAllRaces=添加<color=orange>协助</color>至全部种族
+ModUi/&AddNewBrightEyeColors=添加新的明亮眼睛颜色<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=添加新的武器和配方至商店<i><color=yellow>[裹手，戟，长矛，长钉头锤，手弩]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&AddPickpocketableLoot=添加可扒窃的战利品 <i><color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color></i>
 ModUi/&AddToStore=加入商店
@@ -18,6 +18,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施放<col
 ModUi/&AllowUnmarkedSorcerers=允许<color=orange>术士</color>没有脸部印记
 ModUi/&AllRecipesInDm=所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<i><color=yellow>[仅限自定义地牢]</color></i>
+ModUi/&ApplySRDWeightToFoodRations=将口粮的重量减少至2磅
 ModUi/&AutoPauseOnVictory=战斗胜利后暂停游戏
 ModUi/&Basic=<color=yellow>基础：</color>
 ModUi/&Battle=<color=yellow>战斗：</color>
@@ -27,6 +28,8 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=orange>目盲</color>
 ModUi/&Blueprints=蓝图
 ModUi/&Campaigns=<color=yellow>战役：</color>
 ModUi/&CampaignsAndLocations=<color=yellow>战役和地点：</color>
+ModUi/&Category=类别
+ModUi/&ChangeSleetStormToCube=将<color=orange>雪风暴</color>范围从圆柱体替换为立方体
 ModUi/&Character=角色
 ModUi/&CharactersPool=角色池
 ModUi/&Classes=<color=yellow>职业</color>
@@ -44,6 +47,7 @@ ModUi/&DungeonMaker=<color=yellow>地城制作：</color>
 ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod\n. 你能在你的对话、描述等内嵌入任何战役变量\n. 社区Mod将在游戏过程中进行替换<i><color=yellow>[例如：你好英雄{Salute}！]</color></i>
 ModUi/&DungeonMakerMenu=地城制作
 ModUi/&EmpressGarbAppearance=<color=orange>女帝装束链甲衫</color>外形
+ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额外的背景故事
 ModUi/&EnableAdditionalIconsOnLevelMap=在地图上给营地、出口和传送点添加额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ 添加新的法器至地城制作</i>
 ModUi/&EnableAlternateHuman=启用变种人类<i><color=yellow>[+1专长/+2属性值选择/+1技能]</color></i>
@@ -78,9 +82,10 @@ ModUi/&EnableRespec=启用在休息后重置角色和降级的功能
 ModUi/&EnablesAsiAndFeat=启用属性和专长的同时选择<i><color=yellow>[而非二选一]</color></i>
 ModUi/&EnableSaveByLocation=启用分战役/地点存档
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=启用<color=orange>法师</color>奥法战士子职的<color=orange>奥法武器</color>能力在短休时恢复
+ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=yellow>[例如：致命成功、致命失败等]</color></i>
 ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-T</color>传送队伍<i><color=yellow>[如果你传送到一个未发现的地点，你可能会破坏任务或地图]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池切换键设置你的默认的游戏/测试队伍
-ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=启用<color=orange>法师</color>法术大师子职的<color=orange>深层奥术</color>能力可无限恢复\n<i><color=yellow>必须在该能力有可用次数时或在创建角色前启用</color></i>
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=启用<color=orange>法师</color>法术大师子职的<color=orange>奥术深研</color>能力可无限回复\n<i><color=yellow>必须在该能力有可用次数时或在创建角色前启用</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=orange>召唤元素</color>，<color=orange>召唤精类生物</color>的升环施法
 ModUi/&Encounters=遭遇战
 ModUi/&ExecuteBatchTranslations=. 批量翻译并创建以目标语言前缀的新战役文件
@@ -114,6 +119,7 @@ ModUi/&ItemsCraftingMerchants=物品，制作和商人
 ModUi/&ItemsHelp1=<color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
 ModUi/&ItemsHelp2=<b>按+将物品添加至地面容器</b>
 ModUi/&Input=键盘与鼠标
+ModUi/&ItemTag=物品标签
 ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
 ModUi/&MaxAllowedClasses=<color=white>最高职业数量</color> <i><color=#C04040E0>[需要重启游戏]</color></i>
@@ -189,9 +195,5 @@ ModUi/&UseHeightOneCylinderEffect=施放<color=orange>艾伐黑触手、纠缠�
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=yellow>视效：</color><i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&TotalCraftingTimeModifier=<color=white>制作耗时降低倍率</color>
-ModUi/&ChangeSleetStormToCube=将<color=orange>雪风暴</color>范围从圆柱体替换为立方体
-ModUi/&Category=类别
 ModUi/&WeaponTag=武器标签
-ModUi/&ItemTag=物品标签
-ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额外的背景故事
-ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=yellow>[即：暴击、暴击等]</color></i>
+ModUi/&ScaleGameFontSizeBy=<color=white>以<color=#C04040E0>[%]</color>比例缩放游戏字体大小</color>\n<i><color=#C04040E0>[需要重启游戏]</color></i>
