@@ -89,6 +89,11 @@ public static class Translations
 
     internal static string Translate([NotNull] string sourceText, string targetCode)
     {
+        if (sourceText == string.Empty)
+        {
+            return string.Empty;
+        }
+
         var md5 = GetMd5Hash(sourceText);
 
         if (TranslationsCache.TryGetValue(md5, out var cachedTranslation))

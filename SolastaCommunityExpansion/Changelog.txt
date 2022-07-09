@@ -1,3 +1,5 @@
 ﻿CHANGES:
 
 - Add a setting to scale the game font
+- Fix missing translations
+- Improve batch translations
