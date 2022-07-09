@@ -1,0 +1,14 @@
+Feature/&AbilityAffinityRogueConArtistDescription=在游说、欺瞒、表演和巧手的检定上具有优势
+Feature/&AbilityAffinityRogueConArtistTitle=操纵
+Feature/&CastSpellConArtistDescription=施展法师的法术和戏法，它们来源于咒法、附魔、幻术和变化系。诡徒使用魅力施展他们的法术
+Feature/&CastSpellConArtistTitle=施法能力
+Feature/&MagicAffinityRoguishConArtistDCDescription=你的法术DC提高了{0}点
+Feature/&MagicAffinityRoguishConArtistDCTitle=精通操纵
+Feature/&RogueConArtistFeintConditionDescription=诡计得逞后会在下一次攻击中获得优势
+Feature/&RogueConArtistFeintConditionTitle=诡计得逞
+Feature/&RoguishConArtistFeintDescription=获得在战斗中以附赠动作进行佯攻的能力。若目标未能通过豁免，将使他们在下一次对目标的攻击中获得优势
+Feature/&RoguishConArtistFeintTitle=佯攻
+Feature/&RoguishConArtistMentalSavingThrowsDescription=你获得感知和魅力豁免的熟练项
+Feature/&RoguishConArtistMentalSavingThrowsTitle=心智之力
+Subclass/&RoguishConArtistDescription=诡徒是专门从事欺骗和玩弄他人的游荡者。他们使用魔法协助他们的操纵能力
+Subclass/&RoguishConArtistTitle=诡徒
