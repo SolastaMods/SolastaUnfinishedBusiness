@@ -22,108 +22,112 @@ RestActivity/&ZSSorcerousRestorationTitle=Sorcerous	Restoration
 Sorceror/&ZSSorcerousRestorationDescription=Regain	4 sorcery points during a short rest.
 Sorceror/&ZSSorcerousRestorationTitle=Sorcerous	Restoration
 ModUi/&AddAllToStore=Add	all to store
-ModUi/&AddBleedingToLesserRestoration=Add	the <color=orange>Bleeding</color> condition to the conditions removed by <color=orange>Greater and Lesser Restoration</color>
+ModUi/&AddBleedingToLesserRestoration=Add	the <color=#D89555>Bleeding</color> condition to the conditions removed by <color=#D89555>Greater and Lesser Restoration</color>
+ModUi/&AddHelpActionToAllRaces=Add	the <color=#D89555>Help</color> action to all races
 ModUi/&AddNewBrightEyeColors=Add	new bright eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AddHelpActionToAllRaces=Add	the <color=orange>Help</color> action to all races
-ModUi/&AddNewWeaponsAndRecipesToShops=Add	new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AddPickpocketableLoot=Add	pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
+ModUi/&AddNewWeaponsAndRecipesToShops=Add	new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddPickpocketableLoot=Add	pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore=Add	to store
 ModUi/&AdvancedHelp=.	<b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
 ModUi/&AllItemInDm=All	items in DM
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow	any class to wear sylvan armor or lightbringer clothes
-ModUi/&AllowDruidToWearMetalArmor=Allow	<color=orange>Druid</color> to wear metal armor
+ModUi/&AllowDruidToWearMetalArmor=Allow	<color=#D89555>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20=Allow	dungeons with max level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Allow	gadgets and props to be placed anywhere on the map <i><color=yellow>[press <color=#1E81B0>CTRL</color> during placement to bypass any check]</color></i>
-ModUi/&AllowStackedMaterialComponent=Allow	stacked material component <i><color=yellow>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow	target selection when casting the <color=orange>Chain Lightning</color> spell
-ModUi/&AllowUnmarkedSorcerers=Allow	<color=orange>Sorcerers</color> without origin markings and tattoos
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Allow	gadgets and props to be placed anywhere on the map <i><color=#F0DAA0>[press <color=#1E81B0>CTRL</color> during placement to bypass any check]</color></i>
+ModUi/&AllowStackedMaterialComponent=Allow	stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow	target selection when casting the <color=#D89555>Chain Lightning</color> spell
+ModUi/&AllowUnmarkedSorcerers=Allow	<color=#D89555>Sorcerers</color> without origin markings and tattoos
 ModUi/&AllRecipesInDm=All	recipes in DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>	key only highlight gadgets in party field of view <i><color=yellow>[only in custom dungeons]</color></i>
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>	key only highlight gadgets in party field of view <i><color=#F0DAA0>[only in custom dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce	weight of food ration to 2 pounds
 ModUi/&AutoPauseOnVictory=Pause	the UI when victorious in battle
-ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=orange>Bestow	Curse</color> does not require concentration when cast with L5+ spell slot
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=orange>Blinded</color>	condition doesn't allow attack of opportunity
-ModUi/&CampaignsAndLocations=<color=yellow>Campaigns	and locations:</color>
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow	Curse</color> does not require concentration when cast with L5+ spell slot
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>Blinded</color>	condition doesn't allow attack of opportunity
+ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns	and locations:</color>
+ModUi/&ChangeSleetStormToCube=Change	<color=#D89555>Sleet Storm</color> to use a cube instead of a cylinder
 ModUi/&CharactersPool=Characters	Pool
 ModUi/&CraftingHelp=.	Press the button to learn recipes instantly on the active party\n. Items added to stores might need the party to travel away from the location and come back
 ModUi/&CreditsAndDiagnostics=Credits	& Diagnostics
 ModUi/&DisableAutoEquip=Disable	auto-equip of items in inventory
-ModUi/&DisableSenseDarkVisionFromAllRaces=Disable	<color=orange>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable	<color=orange>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Disable	<color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable	<color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=Display	all known spells from other classes during level up
 ModUi/&DontFollowCharacterInBattle=Battle	camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+	Unless hero is off or within % of screen edge</color></i>
-ModUi/&DungeonMaker=<color=yellow>Dungeon	Maker:</color>
-ModUi/&DungeonMakerBasicHelp=.	These settings won't require the player to have this mod installed\n. You can embed any campaign variable in your dialogs, descriptions, etc.\n. CE will replace them with their value during gameplay <i><color=yellow>[i.e: Hello {Salute} Hero!]</color></i>
+ModUi/&DungeonMaker=<color=#F0DAA0>Dungeon	Maker:</color>
+ModUi/&DungeonMakerBasicHelp=.	These settings won't require the player to have this mod installed\n. You can embed any campaign variable in your dialogs, descriptions, etc.\n. CE will replace them with their value during gameplay <i><color=#F0DAA0>[i.e: Hello {Salute} Hero!]</color></i>
 ModUi/&DungeonMakerMenu=Dungeon	Maker
-ModUi/&EmpressGarbAppearance=<color=orange>Empress	Garb</color> appearance
+ModUi/&EmpressGarbAppearance=<color=#D89555>Empress	Garb</color> appearance
+ModUi/&EnableAdditionalBackstoryDisplay=Enable	additional backstory display on background inspection
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable	additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+	Add new items to Dungeon Maker</i>
-ModUi/&EnableAlternateHuman=Enable	the alternate human <i><color=yellow>[+1 feat / +2 attribute choices / +1 skill]</color></i>
-ModUI/&EnableBetaContent=Enable	beta content <i><color=yellow>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&EnableAlternateHuman=Enable	the alternate human <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
+ModUI/&EnableBetaContent=Enable	beta content <i><color=#F0DAA0>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable	cancel action with right-mouse click
 ModUi/&EnableCharacterChecker=Enable	the character checker screen
-ModUi/&EnableCharacterExport=Enable	<color=#1E81B0>CTRL-SHIFT-(E)</color>xport character <i><color=yellow>[on character inspection screen only]</color></i>
+ModUi/&EnableCharacterExport=Enable	<color=#1E81B0>CTRL-SHIFT-(E)</color>xport character <i><color=#F0DAA0>[on character inspection screen only]</color></i>
 ModUi/&EnableCheatMenu=Enable	the cheats menu
 ModUi/&EnableCtrlClickBypassAttackReactionPanel=Enable	<color=#1E81B0>CTRL</color> click on attacks to ignore any reaction panel
-ModUi/&EnableCtrlClickBypassMetamagicPanel=Enable	<color=#1E81B0>CTRL</color> click on spells to ignore the <color=orange>Sorcerer</color> metamagic panel
+ModUi/&EnableCtrlClickBypassMetamagicPanel=Enable	<color=#1E81B0>CTRL</color> click on spells to ignore the <color=#D89555>Sorcerer</color> metamagic panel
 ModUi/&EnableCtrlClickOnlySwapsMainHand=Enable	<color=#1E81B0>CTRL</color> click to keep off hand items when swapping wielded configurations
 ModUi/&EnableDungeonMakerModdedContent=Enable	Dungeon Maker Pro <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments\nyou must have at least one outdoor room if you pick an outdoor environment
-ModUi/&EnableEpicPointsAndArray=Enable	an epic 35 points buy system and array <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&EnableEpicPointsAndArray=Enable	an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableExtraHighLevelMonsters=Enable	additional high level monsters (+20 CR) for tier 3 and 4 campaigns <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable	feats selection at class levels 2, 6, 10 and 14
-ModUi/&EnableFlexibleBackgrounds=Enable	flexible backgrounds <i><color=yellow>[select skill and tool proficiencies from backgrounds]</color></i>
-ModUi/&EnableFlexibleRaces=Enable	flexible races <i><color=yellow>[assign ability score points instead of the racial defaults]</color></i>
+ModUi/&EnableFlexibleBackgrounds=Enable	flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
+ModUi/&EnableFlexibleRaces=Enable	flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Enable	<color=#1E81B0>CTRL-SHIFT-(D)</color>ebug overlay
 ModUi/&EnableHotkeyToggleHud=Enable	<color=#1E81B0>CTRL-SHIFT-(H)</color>ud to toggle all UI panels visibility
 ModUi/&EnableHotkeyToggleIndividualHud=Enable	<color=#1E81B0>CTRL-SHIFT-(C)</color>ontrol Panel, <color=#1E81B0>CTRL-SHIFT-(L)</color>og, <color=#1E81B0>CTRL-SHIFT-(M)</color>ap and <color=#1E81B0>CTRL-SHIFT-(P)</color>arty to toggle each UI panels visibility
-ModUi/&EnableHotkeyZoomCamera=Enable	<color=#1E81B0>CTRL-SHIFT-(Z)</color>oom camera <i><color=yellow>[useful when taking dungeon screenshots for publishing]</color></i>
+ModUi/&EnableHotkeyZoomCamera=Enable	<color=#1E81B0>CTRL-SHIFT-(Z)</color>oom camera <i><color=#F0DAA0>[useful when taking dungeon screenshots for publishing]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit=<i>+	only bypass if not a critical hit</i>
 ModUi/&EnableInventoryFilteringAndSorting=Enable	inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+	Taint in red any item the hero isn't proficient with</i>
-ModUi/&EnableInvisibleCrownOfTheMagister=Hide	the <color=orange>Crown of the Magister</color> on game UI
+ModUi/&EnableInvisibleCrownOfTheMagister=Hide	the <color=#D89555>Crown of the Magister</color> on game UI
 ModUi/&EnableLevel20=Enable	level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable	log dialogues to game console during narrative sequences
 ModUi/&EnableMinInOutAttributes=Enforce	ability scores minimum in & out pre-requisites
 ModUi/&EnableOnTheFlyTranslations=Enable	real time custom content translations
 ModUi/&EnableRelearnSpells=Can	select cantrips or spells already learned from other classes
 ModUi/&EnableRespec=Enable	the RESPEC and Level Down after rest actions
-ModUi/&EnablesAsiAndFeat=Enable	both attribute scores increase and feat selection <i><color=yellow>[instead of an exclusive choice]</color></i>
+ModUi/&EnablesAsiAndFeat=Enable	both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EnableSaveByLocation=Enable	save by campaigns / locations
-ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable	short rest recharge of <color=orange>Arcane Weapon</color> on <color=orange>Wizard</color> Arcane Fighter
-ModUi/&EnableTeleportParty=Enable	<color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=yellow>[you might break quests or maps if you teleport to an undiscovered place]</color></i>
+ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable	short rest recharge of <color=#D89555>Arcane Weapon</color> on <color=#D89555>Wizard</color> Arcane Fighter
+ModUi/&EnableStatsOnHeroTooltip=Display	stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
+ModUi/&EnableTeleportParty=Enable	<color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=#F0DAA0>[you might break quests or maps if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable	toggles on character pool to set your default play and test party
-ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable	unlimited <color=orange>Arcane Recovery</color> on <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Must be enabled when the ability has available uses or before character creation</color></i>
-ModUi/&EnableUpcastConjureElementalAndFey=Enable	upcast of <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable	unlimited <color=#D89555>Arcane Recovery</color> on <color=#D89555>Wizard</color> Spell Master\n<i><color=#F0DAA0>Must be enabled when the ability has available uses or before character creation</color></i>
+ModUi/&EnableUpcastConjureElementalAndFey=Enable	upcast of <color=#D89555>Conjure Elemental</color>, <color=#D89555>Conjure Fey</color>
 ModUi/&ExecuteBatchTranslations=.	Batch translate instead to create a new campaign prefixed by the target language
 ModUi/&ExpandAll=Expand	All
 ModUi/&FactionHelp=<color=#C04040E0>Load	an official campaign game to modify faction relations...</color>
-ModUi/&FactionRelations=<color=yellow>Faction	Relations:</color>
+ModUi/&FactionRelations=<color=#F0DAA0>Faction	Relations:</color>
 ModUi/&FasterTimeModifier=<color=white>Game	time modifier when pressing space bar</color>
 ModUi/&FeatsFightingStyles=Feats	& Fighting Styles
-ModUi/&FightingStyles=<color=yellow>Fighting	Styles</color>
-ModUi/&FixSorcererTwinnedLogic=Fix	<color=orange>Sorcerer</color> twinned metamagic use <i><color=yellow>[a spell must be incapable of targeting more than one creature at the spell's current level]</color></i>
+ModUi/&FightingStyles=<color=#F0DAA0>Fighting	Styles</color>
+ModUi/&FixSorcererTwinnedLogic=Fix	<color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[a spell must be incapable of targeting more than one creature at the spell's current level]</color></i>
 ModUi/&FollowCharactersOnTeleport=Camera	follows teleported character(s)
-ModUi/&FullyControlConjurations=Fully	control conjurations <i><color=yellow>[animals, elementals, etc]</color></i>
+ModUi/&FullyControlConjurations=Fully	control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
 ModUi/&GameUi=Game	UI
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide	exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display	Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&HiderArmor=Hide	Armor
-ModUi/&IncreaseSenseNormalVision=<color=white>Increase	<color=orange>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=yellow>[40 is ideal to avoid enemies joining from too far away]</color></i>
+ModUi/&IncreaseSenseNormalVision=<color=white>Increase	<color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far away]</color></i>
 ModUi/&IncreaseSenseNormalVisionHelp=<b><i><color=#C04040E0>[Requires	Restart]</color></i></b>
-ModUi/&InitialChoices=<color=yellow>Initial	choices:</color>
-ModUi/&InventoryAndItems=<color=yellow>Inventory	and items:</color>
+ModUi/&InitialChoices=<color=#F0DAA0>Initial	choices:</color>
+ModUi/&Input=Gamepad,	Keyboard & Mouse
+ModUi/&InventoryAndItems=<color=#F0DAA0>Inventory	and items:</color>
 ModUi/&InvertAltBehaviorOnTooltips=Invert	<color=#1E81B0>ALT</color> key behavior on tooltips
 ModUi/&ItemInDm=Items	in DM
 ModUi/&ItemsCraftingMerchants=Items,	Crafting & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>You	must have the character inspection screen open to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press	+ to add items to the ground container</b>
-ModUi/&Input=Gamepad,	Keyboard & Mouse
-ModUi/&MakeAllMagicStaveArcaneFoci=Make	all magic staves arcane foci <i><color=yellow>[except for <color=orange>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&ItemTag=Item	Tag
+ModUi/&MakeAllMagicStaveArcaneFoci=Make	all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+	Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Max	allowed classes</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign=<color=white>Max.	backup files per location or campaign</color>
-ModUi/&MaxBackupHelp=.	Backup files are saved under <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
+ModUi/&MaxBackupHelp=.	Backup files are saved under <i><color=#F0DAA0>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine=<color=white>Max	levels per line on Spell Panel</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>	click on a spell consumes a spell slot instead of the default pact magic one
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply	the experience gained by</color> <color=#C04040E0>[%]</color>
@@ -133,39 +137,40 @@ ModUi/&OfferAdditionalLoreFriendlyNames=Offer	additional lore friendly names on 
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+	Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OverrideMinMaxLevel=Override	the required min and max levels when starting new adventures
 ModUi/&OverridePartySize=<color=white>Override	the party size in custom adventures</color>
-ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override	<color=orange>Rogue</color> Con Artist <color=orange>Improved Manipulation</color> Spell DC</color>
-ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override	<color=orange>Wizard</color> Master Manipulator <color=orange>Arcane Manipulation</color> Spell DC</color>
-ModUi/&OverwriteGameLanguage=<color=yellow>Unofficial	language support:</color>
+ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override	<color=#D89555>Rogue</color> Con Artist <color=#D89555>Improved Manipulation</color> Spell DC</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override	<color=#D89555>Wizard</color> Master Manipulator <color=#D89555>Arcane Manipulation</color> Spell DC</color>
+ModUi/&OverwriteGameLanguage=<color=#F0DAA0>Unofficial	language support:</color>
 ModUi/&PrimedItems=Primed	Items
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Quick	cast light cantrip uses head or torso worn items first
-ModUi/&Races=<color=yellow>Races	& Subraces</color>
+ModUi/&Races=<color=#F0DAA0>Races	& Subraces</color>
 ModUi/&RacesClassesSubclasses=Races,	Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's	Cost</color>
 ModUi/&RecipesInDm=Recipes	in DM
-ModUi/&ReduceDarkelfLightPenalty=Swap	<color=orange>Dark Elf</color> Light Penalty to -1d4 on attacks instead of Disadvantage
+ModUi/&ReduceDarkelfLightPenalty=Swap	<color=#D89555>Dark Elf</color> Light Penalty to -1d4 on attacks instead of Disadvantage
 ModUi/&RelicForgeries=Relic	Forgeries
 ModUi/&RemoveAttunementRequirements=Remove	attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels=Replace	bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=Remove	concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove	humanoid filter on <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove	humanoid filter on <color=#D89555>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements=Remove	identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveRecurringEffectOnEntangle=Only	apply <color=orange>Entangle</color> effect at casting time <i><color=yellow>[i.e.: no recurring effect]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RestockAntiquarians=Restock	Antiquarians <i><color=yellow>[Halman Summer]</color></i>
-ModUi/&RestockArcaneum=Restock	Arcaneum <i><color=yellow>[Heddlon Surespell]</color></i>
-ModUi/&RestockCircleOfDanantar=Restock	Circle of Danantar <i><color=yellow>[Joriel Foxeye]</color></i>
+ModUi/&RemoveRecurringEffectOnEntangle=Only	apply <color=#D89555>Entangle</color> effect at casting time <i><color=#F0DAA0>[i.e.: no recurring effect]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RestockAntiquarians=Restock	Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
+ModUi/&RestockArcaneum=Restock	Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
+ModUi/&RestockCircleOfDanantar=Restock	Circle of Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=.	Override defaults to force all of a merchant's stock to restock over time (excluding Manuals and Tomes)\n. Note that some items can take up to 7 game days to restock
-ModUi/&RestockTowerOfKnowledge=Restock	Tower of Knowledge <i><color=yellow>[Maddy Greenisle]</color></i>
+ModUi/&RestockTowerOfKnowledge=Restock	Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&ScaleMerchantPricesCorrectly=Scale	merchant prices correctly / exactly
 ModUi/&SelectAll=Select	All
 ModUi/&SelectSuggested=Select	Suggested
-ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>Set	the chances of a beard appearing while using the</color> <color=orange>Belt of Dwarvenkind</color>
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>Set	the chances of a beard appearing while using the</color> <color=#D89555>Belt of Dwarvenkind</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show	crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show	Descriptions
 ModUi/&SpellInstructions=.	You can individually assign each spell to any spell list or simply select the suggested set
-ModUi/&SpellLevelFilter=<b><i><color=white>spell	level filter</color> <color=yellow>[-1 to display all spells]</color></i></b>
+ModUi/&SpellLevelFilter=<b><i><color=white>spell	level filter</color> <color=#F0DAA0>[-1 to display all spells]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stocks	Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Stocks	Hugo's store with <color=orange>Wand of Identify</color>, <color=orange>Arcane Staff</color>, <color=orange>Druid Neck</color>, <color=orange>Staff</color> and <color=orange>Club</color> set as foci items
+ModUi/&StockHugoStoreWithAdditionalFoci=Stocks	Hugo's store with <color=#D89555>Wand of Identify</color>, <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
 ModUi/&TargetLanguage=Target	Language
+ModUi/&TotalCraftingTimeModifier=<color=white>Reduce	crafting time by</color>
 ModUi/&TotalFeatsGrantedFistLevel=<color=white>Total	feats granted at first level</color>
 ModUi/&TranslateCancel=Cancel	{0} at {1}
 ModUi/&TranslationEngine=Translation	engine
@@ -175,219 +180,12 @@ ModUi/&UnlockAllNpcFaces=Unlock	all NPC faces
 ModUi/&UnlockEyeStyles=Unlock	eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Unlock	glowing colors for all markings and tattoos
 ModUi/&UnlockGlowingEyeColors=Add	glowing eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&UnlockMarkAndTatoosForAllCharacters=Unlock	<color=Orange>Sorcerer</color> origin markings and tattoos for all characters
-ModUi/&UseHeightOneCylinderEffect=Display	a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square) and <color=orange>Spike Growth</color> (round)
+ModUi/&UnlockMarkAndTatoosForAllCharacters=Unlock	<color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
+ModUi/&UseHeightOneCylinderEffect=Display	a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> (square) and <color=#D89555>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use	official advantage / disadvantage rules
-ModUi/&Visuals=<color=yellow>Visuals:</color>	<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&TotalCraftingTimeModifier=<color=white>Reduce	crafting time by</color>
-ModUi/&ChangeSleetStormToCube=Change	<color=orange>Sleet Storm</color> to use a cube instead of a cylinder
+ModUi/&Visuals=<color=#F0DAA0>Visuals:</color>	<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&WeaponTag=Weapon	Tag
-ModUi/&ItemTag=Item	Tag
-ModUi/&EnableAdditionalBackstoryDisplay=Enable	additional backstory display on background inspection
-ModUi/&EnableStatsOnHeroTooltip=Display	stats on hero's tooltip <i><color=yellow>[i.e.: critical hits, critical failures, etc.]</color></i>
-Condition/&DH_ReverseGravity_Spell_Description=Reverse	Gravity
-Condition/&DH_ReverseGravity_Spell_Title=Reverse	Gravity
-Condition/&DH_TimeStop_Spell_Description=Frozen	by Time Stop
-Condition/&DH_TimeStop_Spell_Title=Frozen	by Time Stop
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description=Lightning	Storm
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title=Lightning	Storm
-Feature/&DH_AtWill_Fireball_Power_Description=At-will	Fireball
-Feature/&DH_AtWill_HoldMonster_Power_Description=3	Uses per Day
-Feature/&DH_AtWill_HoldMonster_Power_Title=Hold	Monster
-Feature/&DH_AtWill_Invisibility_Power_Description=At-will	Invisibility
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description=Lightning	Attack
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title=Lightning	Attack
-Monster/&DH_Custom_AirTitan_Description=When	summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
-Monster/&DH_Custom_AirTitan_Title=<color=#ff0000ff>Primordial	Air Titan</color>
-Monster/&DH_Custom_AncientBlackDragon_Description=The	most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of humanoid kingdoms. They make their homes in fetid swamps and crumbling ruins where kingdoms once stood.
-Monster/&DH_Custom_AncientBlackDragon_Title=<color=#ff0000ff>Ancient	Black Dragon</color>
-Monster/&DH_Custom_AncientBlueDragon_Description=Vain	and territorial, blue dragons soar through the skies over deserts, preying on caravans and plundering herds and settlements in the verdant lands beyond the desert's reach. These dragons can also be found in dry steppes, searing badlands, and rocky coasts. They guard their territories against all potential competitors, especially brass dragons.
-Monster/&DH_Custom_AncientBlueDragon_Title=<color=#ff0000ff>Ancient	Blue Dragon</color>
-Monster/&DH_Custom_AncientGreenDragon_Description=The	most cunning and treacherous of true dragons, green dragons use misdirection and trickery to get the upper hand against their enemies. Nasty tempered and thoroughly evil, they take special pleasure in subverting and corrupting the good-hearted. In the ancient forests they roam, green dragons demonstrate an aggression that is often less about territory than it is about gaining power and wealth with as little effort as possible.
-Monster/&DH_Custom_AncientGreenDragon_Title=<color=#ff0000ff>Ancient	Green Dragon</color>
-Monster/&DH_Custom_AncientRedDragon_Description=The	most covetous of the true dragons, red dragons tirelessly seek to increase their treasure hoards. They are exceptionally vain, even for dragons, and their conceit is reflected in their proud bearing and their disdain for other creatures.
-Monster/&DH_Custom_AncientRedDragon_Title=<color=#ff0000ff>Ancient	Red Dragon</color>
-Monster/&DH_Custom_AncientWhiteDragon_Description=The	smallest, least intelligent, and most animalistic of the chromatic dragons, white dragons dwell in frigid climes, favoring arctic areas or icy mountains. They are vicious, cruel reptiles driven by hunger and greed.
-Monster/&DH_Custom_AncientWhiteDragon_Title=<color=#ff0000ff>Ancient	White Dragon</color>
-Monster/&DH_Custom_Archmage_Description=Archmages	are powerful (and usually quite old) spellcasters dedicated to the study of the arcane arts. Benevolent ones counsel kings and queens, while evil ones rule as tyrants and pursue lichdom. Those who are neither good nor evil sequester themselves in remote towers to practice their magic without interruption.
-Monster/&DH_Custom_Balor_Description=Figures	of ancient and terrible evil, balors rule as generals over demonic armies, yearning to seize power while destroying any creatures that oppose them
-Monster/&DH_Custom_ConstructTitan_Description=Massive	constructs built for war and wrought of heavy metal. An unstoppable juggernaut, it exists to follow its creator's orders, and it protects or attacks as that creator demands.
-Monster/&DH_Custom_ConstructTitan_Title=<color=#ff0000ff>Mechanical	Construct Titan</color>
-Monster/&DH_Custom_Deva_Description=Devas	are angels that act as divine messengers or agents to the Material Plane,
-Monster/&DH_Custom_Djinni_Description=Proud	genies from the Elemental Plane of Air, Masters of the air, the djinn ride powerful whirlwinds that they create and direct on a whim, and which can even carry passengers.
-Monster/&DH_Custom_EarthTitan_Description=When	summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
-Monster/&DH_Custom_EarthTitan_Title=<color=#ff0000ff>Primordial	Earth Titan</color>
-Monster/&DH_Custom_Efreeti_Description=Hulking	genies of the Elemental Plane of Fire, the efreet are masters of flame, immune to fire and able to create it on a whim.
-Monster/&DH_Custom_Erinyes_Description=the	erinyes are fierce and disciplined warriors. Sweeping down from the skies, they bring swift death to creatures that have wronged their masters
-Monster/&DH_Custom_FireTitan_Description=When	summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
-Monster/&DH_Custom_FireTitan_Title=<color=#ff0000ff>Primordial	Fire Titan</color>
-Monster/&DH_Custom_GuardianNaga_Description=Wise	and good, the beautiful guardian nagas protect sacred places and items of magical power from falling into evil hands. In their hidden redoubts, they research spells and hatch convoluted plots to thwart the evil designs of their enemies.
-Monster/&DH_Custom_GuardianNaga_Title=<color=#ff0000ff>Guardian	Naga</color>
-Monster/&DH_Custom_HornedDevil_Description=	The flying infantry of the hellish legions, horned devils follow orders to the letter.
-Monster/&DH_Custom_HornedDevil_Title=<color=#ff0000ff>Horned	Devil</color>
-Monster/&DH_Custom_IceDevil_Description=Coveting	the power of their pit fiend superiors, ice devils work ceaselessly toward promotion, slaughtering the enemies of the Nine Hells and claiming as many souls as they can for their archdevil masters.
-Monster/&DH_Custom_IceDevil_Title=<color=#ff0000ff>Ice	Devil</color>
-Monster/&DH_Custom_Lich_Description=Liches	are the remains of great wizards who embrace undeath as a means of preserving themselves. They further their own power at any cost, having no interest in the affairs of the living except where those affairs interfere with their own. Scheming and insane, they hunger for long-forgotten knowledge and the most terrible secrets.
-Monster/&DH_Custom_Nalfeshnee_Description=The	nalfeshnee is one of the most grotesque demons-a corpulent mockery of ape and boar standing twice the height of a human, with feathered wings that seem too small for its bloated body. These brutish features conceal a remarkable intelligence and cunning.
-Monster/&DH_Custom_PitFiend_Description=The	undisputed lords of most other devils, pit fiends attend the archdukes and archduchesses of the Nine Hells and carry out their wishes. These mighty devils are the generals of the Nine Hells, leading its infernal legions into battle.
-Monster/&DH_Custom_PitFiend_Title=<color=#ff0000ff>Pit	Fiend</color>
-Monster/&DH_Custom_Planetar_Description=	Planetars act as the weapons of the gods they serve, presenting a tangible representation of their deities' might.
-Monster/&DH_Custom_Roc_Description=Rocs	are solitary creatures that can live for centuries. They lair in nests made from trees, tents, broken ships, and the remains of caravans they carry off, placing these massive tangles in mountain clefts out of the reach of lesser creatures.
-Monster/&DH_Custom_Solar_Description=On	the battlefield, the solar's sword flies into the fray on its own, and a single arrow from a solar's bow can strike a target dead on contact. So great is a solar's celestial might that even demon princes shrink at its resonant commands.
-Monster/&DH_Custom_StormGiant_Description=Storm	giants are contemplative seers that live in places far removed from mortal civilization. Most have pale purple-gray skin and hair, and glittering emerald eyes.
-Monster/&DH_Custom_StormGiant_Title=<color=#ff0000ff>Storm	Giant</color>
-Monster/&DH_Custom_Tarrasque_Description=The	legendary tarrasque is possibly the most dreaded monster of the Material Plane. It is widely believed that only one of these creatures exists, though no one can predict where and when it will strike. A scaly biped, the tarrasque is fifty feet tall and seventy feet long, weighing hundreds of tons
-Monster/&DH_Custom_Vampire_Description=Awakened	to an endless night, vampires hunger for the life they have lost and sate that hunger by drinking the blood of the living. Vampires abhor sunlight, for its touch burns them. They never cast shadows or reflections, and any vampire wishing to move unnoticed among the living keeps to the darkness and far from reflective surfaces.
-MonsterAttack/&DH_AirBlast_Attack_Description=5d6	thunder and pushes 2 cells
-MonsterAttack/&DH_AirBlast_Attack_Title=Air	Blast
-MonsterAttack/&DH_AirTitan_Slam_Attack_Description=4d6+6	Bludgeoning & 4d6 Thunder
-MonsterAttack/&DH_AirTitan_Slam_Attack_Title=Thunderous	Slam
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Description=2D8+8	Bludgeoning
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Title=Tail	Attack
-MonsterAttack/&DH_Balor_Longsword_Attack_Description=3D8+8	Slashing & 3D8 Lightning
-MonsterAttack/&DH_Balor_Longsword_Attack_Title=Longsword	Attack
-MonsterAttack/&DH_Balor_Whip_Attack_Description=2D6+8	Slashing & 3D6 Fire
-MonsterAttack/&DH_Balor_Whip_Attack_Title=Whip	Attack
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description=4D8	Force damage and target is knocked prone
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title=Force	Cannon
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description=3D12+8	bludgeoning Damage and target is pushed 20 ft
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description=Cannot	act and takes 16d6 acid damage each turn.  60 damage in a single attack can force the swallower to regurgitate.
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description=	60 damage in a single attack can force it to regurgitate.
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title=Swallowing	creature
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Description=2D10+9	Piercing & 2D8 Acid Damage
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Title=Acid	Bite Attack
-MonsterAttack/&DH_DamageCold_Bite_Attack_Description=2D10+9	Piercing & 2D8 Cold Damage
-MonsterAttack/&DH_DamageCold_Bite_Attack_Title=Ice	Bite Attack
-MonsterAttack/&DH_DamageFire_Bite_Attack_Description=2D10+9	Piercing & 4D6 Fire Damage
-MonsterAttack/&DH_DamageFire_Bite_Attack_Title=Fire	Bite Attack
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Description=2D10+9	Piercing & 2D10 Lightning Damage
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Title=Lightning	Bite Attack
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Description=2D10+9	Piercing & 3D6 Poison Damage
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Title=Poison	Bite Attack
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description=7D10+8	Bludgeoning
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Description=4D10+8	Bludgeoning
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Title=Ground	Slam
-MonsterAttack/&DH_FireScimatar_Attack_Description=2d6+6	slashing & 2d6 Fire
-MonsterAttack/&DH_FireTitan_Slam_Attack_Description=3d6+5	Bludgeoning + 10d6 Fire
-MonsterAttack/&DH_FireTitan_Slam_Attack_Title=Searing	Slam
-MonsterAttack/&DH_Fork_Attack_Description=2D8	+6 Piercing
-MonsterAttack/&DH_Fork_Attack_Title=Fork	Attack
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description=2d10	+ 6 Piercing Damage
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title=Bite	Attack
-MonsterAttack/&DH_Generic_Claw_Attack_Description=2D6	+ 9 Slashing Damage
-MonsterAttack/&DH_Generic_Claw_Attack_Title=Claw	attack
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description=2D10	+ 9
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title=Bite	Attack
-MonsterAttack/&DH_HornedDevilTail_Attack_Description=1D8	+6 Piercing , inflicts Bleeding Wound condition
-MonsterAttack/&DH_HornedDevilTail_Attack_Title=Tail	Attack
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description=3D6	Necrotic, save to cancel
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title=Bleeding	Wound
-MonsterAttack/&DH_HurlFlame_Attack_Description=5d6	Fire
-MonsterAttack/&DH_HurlFlame_Attack_Title=Hurl	Flame
-MonsterAttack/&DH_Ice_Bite_Attack_Description=2d6+5	Piercing & 3d6 Cold
-MonsterAttack/&DH_Ice_Bite_Attack_Title=Ice	Bite
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description=3D6	Cold and inflicts Paralyzed condition
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title=Paralyzing	Touch
-MonsterAttack/&DH_LightningScimatar_Attack_Description=2d6+5	slashing & 2d6 lightning
-MonsterAttack/&DH_NagaBite_Attack_Description=1d8+4	Piercing &  15 DC Con Save to half 10d8 Poison
-MonsterAttack/&DH_NagaBite_Attack_Title=Poison	Bite
-MonsterAttack/&DH_NagaSpit_Attack_Description=15	DC Con Save to half 10d8 Poison
-MonsterAttack/&DH_NagaSpit_Attack_Title=Spit	Poison
-MonsterAttack/&DH_PitFiend_Bite_Attack_Description=2d6+7	Poison, Inflicts poison condition
-MonsterAttack/&DH_PitFiend_Bite_Attack_Title=Bite	Attack
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description=6D6	Posion recurring
-MonsterAttack/&DH_PitFiend_Mace_Attack_Description=2D6+8	Bludgeoning & 6D6 Fire
-MonsterAttack/&DH_PitFiend_Mace_Attack_Title=Mace	Attack
-MonsterAttack/&DH_PoisonLongbow_Attack_Description=Longbow	with poison arrows
-MonsterAttack/&DH_PoisonLongbow_Attack_Title=Poison	Longbow
-MonsterAttack/&DH_PoisonLongsword_Attack_Description=1d10+4	Slashing & 3d8 Poison
-MonsterAttack/&DH_PoisonLongsword_Attack_Title=Poison	Longsword
-MonsterAttack/&DH_RadiantLongbow_Attack_Description=2D6+8	Piercing & 6D8 Radiant
-MonsterAttack/&DH_RadiantLongbow_Attack_Title=Slaying	Longbow.
-MonsterAttack/&DH_RadiantLongsword_Attack_Description=4D6+8	Slashing & 6D8 Radiant
-MonsterAttack/&DH_RadiantLongsword_Attack_Title=Radiant	Greatsword
-MonsterAttack/&DH_Roc_Beak_Attack_Description=4d8+9	Piercing
-MonsterAttack/&DH_Roc_Talons_Attack_Description=4d6+9	Slashing and target is grappled and restrained by Roc
-MonsterAttack/&DH_Tarrasque_Bite_Description=4d12	+ 10 piercing damage and the target must succeed a Dexterity check or be grappled (escape DC 20).
-MonsterAttack/&DH_Tarrasque_BiteCondition_Description=Until	this grapple ends, the target is restrained.
-MonsterAttack/&DH_Tarrasque_BiteCondition_Title=Caught	by Tarrasque
-MonsterAttack/&DH_Tarrasque_Claw_Description=4d8	+ 10 slashing damage
-MonsterAttack/&DH_Tarrasque_Horn_Description=4d10	+ 10) piercing damage
-MonsterAttack/&DH_Tarrasque_Tail_Description=4d6	+ 10 bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be knocked prone
-MonsterAttack/&DHCouatlBiteAttackDescription=Piercing	damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
-MonsterPower/&DH_AirTitan_Gale_Power_Description=4D10	Thunder and pushed on failed save
-MonsterPower/&DH_AirTitan_Gale_Power_Title=Screaming	Gale
-MonsterPower/&DH_AirTitan_Lightning_Power_Description=3D10	Lightning in area
-MonsterPower/&DH_AirTitan_Lightning_Power_Title=Lightning	Strike
-MonsterPower/&DH_AncientDragon_Wing_Power_Description=Dragons	can flap their wings to produce enough wind to propel most humanoids away and knock them prone.
-MonsterPower/&DH_AncientDragon_Wing_Power_Title=Wing	Attack
-MonsterPower/&DH_Balor_FireAura_Power_Description=3D6	Fire
-MonsterPower/&DH_Balor_FireAura_Power_Title=Fire	Aura
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description=Balor	Retaliate
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title=Balor	Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Description=Balor	Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Title=Balor	Retaliate
-MonsterPower/&DH_BlindingGaze_Power_Description=DC15	Constitution Save or be Blinded until lesser restoration is used
-MonsterPower/&DH_BlindingGaze_Power_Title=Blinding	Gaze
-MonsterPower/&DH_DamageAcid_Breath_Power_Description=15D8	Acid
-MonsterPower/&DH_DamageAcid_Breath_Power_Title=Acid	Breath
-MonsterPower/&DH_DamageCold_Breath_Power_Description=16D8	Cold
-MonsterPower/&DH_DamageCold_Breath_Power_Title=Ice	Breath
-MonsterPower/&DH_DamageFire_Breath_Power_Description=26D6	Fire
-MonsterPower/&DH_DamageFire_Breath_Power_Title=Fire	Breath
-MonsterPower/&DH_DamageLightning_Breath_Power_Description=16D10	Lightning
-MonsterPower/&DH_DamageLightning_Breath_Power_Title=Lightning	Breath
-MonsterPower/&DH_DamagePoison_Breath_Power_Description=22D6	Poison
-MonsterPower/&DH_DamagePoison_Breath_Power_Title=Poison	Breath
-MonsterPower/&DH_DisintegratingBeam_Power_Description=6D10	Radiant Damage and target is disintegrated on 0 HP
-MonsterPower/&DH_DisintegratingBeam_Power_Title=	Disintegrating Beam
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Description=4D10	Bludgeoning
-MonsterPower/&DH_ErinyesParry_Power_Description=+3	AC
-MonsterPower/&DH_FireTitan_Aura_Power_Description=each	creature within 30 feet of it takes 35 (10d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite.
-MonsterPower/&DH_FireTitan_Aura_Power_Title=Fire	Titan Aura
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description=A	creature  takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title=Fire	Titan Retaliate
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description=A	creature  takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
-MonsterPower/&DH_FireTitan_Retaliate_Power_Title=Fire	Titan Retaliate
-MonsterPower/&DH_IlluminatingCrystals_Power_Description=Any	creature in the area when the spell is cast is also outlined in light. For the duration, objects and affected creatures shed dim light in a 10-foot radius.
-MonsterPower/&DH_IlluminatingCrystals_Power_Title=Illuminating	Crystals
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description=	The Titan focuses zone within 20 feet of it. Any creature in a 20-foot-radius, 20-foot-high cylinder centered on this point must succeed on a DC 26 Dexterity saving throw or take 33 (6d10) bludgeoning damage and fall prone and be restrained for one round.
-MonsterPower/&DH_IncreasedGravityZone_Attack_Title=Increased	Gravity Zone
-MonsterPower/&DH_Lich_DisruptLife_Power_Description=6D6	Necrotic
-MonsterPower/&DH_Lich_DisruptLife_Power_Title=Disrupt	Life
-MonsterPower/&DH_SearingBurst_Power_Description=4D6	Fire & 4D6 Radiant
-MonsterPower/&DH_SearingBurst_Power_Title=Searing	Burst
-MonsterPower/&DH_SleetStorm_Immunity_Description=Sleet	Storm Immunity
-MonsterPower/&DH_SleetStorm_Immunity_Title=Sleet	Storm Immunity
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description=Summons	1 Air Elemental
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title=Summon	Greater Elemental
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description=Summons	1 Earth Elemental
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title=Summon	Greater Elemental
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Description=An	Erinyes is called forth to fight
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Title=Summons	Minion: Erinyes
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description=Summons	1 Fire Elemental
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title=Summon	Greater Elemental
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description=Summons	2 Fire Jesters
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title=Summon	Lesser Elementals
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description=Summon	Lesser Construct
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title=Summon	Lesser Construct
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description=A	Nalfeshnee is called forth to fight
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title=Summons	Minion: Nalfeshnee
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description=Summons	1 Skarn Ghoul
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title=Summon	Lesser Elemental
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Description=Summons	4 Wind Snakes
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Title=	Summon Lesser Elementals
-MonsterPower/&DH_SummonCreature_Wolves_Power_Description=The	vampire magically calls 3d6 wolves
-MonsterPower/&DH_SummonCreature_Wolves_Power_Title=Children	of the Night
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description=Any	time the tarrasque is targeted by a magic missile spell, a line spell, or a spell that requires a ranged attack roll, the tarrasque is unaffected
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title=Reflective	Carapace
-MonsterPower/&DH_TarrasqueSwallowPower_Description=The	tarrasque makes one bite attack against a Large or smaller creature it is grappling. If the attack hits, the target is swallowed, and the grapple ends.
-MonsterPower/&DH_VampireCharmPower_Description=The	vampire targets one humanoid it can see within 30 feet of it. The target must succeed on a DC 17 Wisdom saving throw against this magic or be charmed by the vampire.
-MonsterPower/&DHAirTitanLightningStormPowerDescription=6d8	Lightning in wide area
-MonsterPower/&DHAirTitanLightningStormPowerTitle=Lightning	Storm
-MonsterPower/&DHGenericLightningAttackPowerTitle=Lightning	Strike
-Spell/&DHTimeStop_SpellDescription=You	briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
-Spell/&DHTimeStop_SpellTitle=Time	Stop
+ModUi/&ScaleGameFontSizeBy=<color=white>Scale	the game font size by</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 BlueprintCategory/&FlatRoomsTitle=Flat	Rooms
 ContentPack/&CommunityExpansionPackDescription=The	Community Expansion pack adds new classes, sub-classes, feats and spells. There's a higher level cap, multi-class, QOL features, bug fixes and more. It's a veritable Horn of Plenty (TM)...
 ContentPack/&CommunityExpansionPackTitle=Community	Expansion Pack
@@ -404,7 +202,7 @@ Message/&CharacterExportModalContentDescription=Enter	the hero name to export:
 Message/&CharacterExportModalTitleDescription=Character	Export.
 Message/&LevelDownConfirmationDescription=Level	down this Hero?
 Message/&LevelDownMultiplayerAbortDescription=Cannot	Level Down during a multiplayer session.
-Message/&MessageModWelcomeDescription=The	Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
+Message/&MessageModWelcomeDescription=The	Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=#F0DAA0>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
 Message/&MessageModWelcomeTitle=Community	Expansion Mod
 Message/&RespecMultiplayerAbortDescription=Cannot	Respec during a multiplayer session or on exploration map.
 Message/&SpawnCustomEncounterDescription=Spawn	encounter at coordinates ({0}, {1})?
@@ -434,10 +232,10 @@ UI/&CustomFeatureSelectionStageNotDone=You	must select all available features be
 UI/&CustomFeatureSelectionStageTitle=Feature	Selection
 UI/&ForcePreferredCantripDescription=If	this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle=Force	Preferred Cantrip
-Equipment/&ScrollConjureMinorElementalTitle=Scroll	of Conjure Minor Elementals
 Equipment/&ScrollConjureMinorElementalDescription=When	you use this scroll, you cast the spell Conjure Minor Elementals.
-Equipment/&ScrollDeathWardTitle=Scroll	of Deathward
+Equipment/&ScrollConjureMinorElementalTitle=Scroll	of Conjure Minor Elementals
 Equipment/&ScrollDeathWardDescription=When	you use this scroll, you cast the spell Deathward.
+Equipment/&ScrollDeathWardTitle=Scroll	of Deathward
 Prop/&PrisonFenceDestroyedTitle=Prison	Fence Destroyed
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription=Strength	+1
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle=Attribute	Increase
@@ -2043,22 +1841,22 @@ Spell/&ThunderStrikeDescription=Create	a burst of thundering sound, forcing crea
 Spell/&ThunderStrikeTitle=Sound	Burst
 Spell/&WinterBreathDescription=Create	a blast of cold wind to chill your enemies and knock them prone.
 Spell/&WinterBreathTitle=Winter's	Breath
-Subclass/&TraditionArcaneFighterDescription=Channel	your magic into weapon attacks.
-Subclass/&TraditionArcaneFighterTitle=Arcane	Fighter
-Feature/&ProficiencyWeaponArcaneFighterDescription=Experience	in combat has given the Arcane Fighter training in Simple and Martial Weapons.
-Feature/&ProficiencyWeaponArcaneFighterTitle=Weapon	Training
-Feature/&MagicAffinityMeleeWizardConcentrationDescription=Due	to experience in the chaos of combat, gain advantage on concentration checks.
-Feature/&MagicAffinityMeleeWizardConcentrationTitle=Improved	Concentration
-Feature/&AttributeModifierMeleeWizardExtraAttackDescription=You	gain an extra attack.
-Feature/&AttributeModifierMeleeWizardExtraAttackTitle=Extra	Attack
 Feature/&ArcaneFighterAdditionalActionDescription=You	can cast a spell after defeating an enemy with your weapon attacks.
 Feature/&ArcaneFighterAdditionalActionTitle=Spell	Fighting
 Feature/&ArcaneFighterBonusWeaponDamageDescription=Once	per turn, your weapon attacks deal an extra 1d8 damage.
 Feature/&ArcaneFighterBonusWeaponDamageTitle=Magically	Powered Attacks
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Additional	Damage from Magically Powered Attacks
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Additional	Damage from Magically Powered Attacks
 Feature/&AttackModifierMeleeWizardArcaneWeaponDescription=When	active on a weapon, its attacks count as magical and you use your Intelligence for your attack and damage rolls.
 Feature/&AttackModifierMeleeWizardArcaneWeaponTitle=Arcane	Weapon
+Feature/&AttributeModifierMeleeWizardExtraAttackDescription=You	gain an extra attack.
+Feature/&AttributeModifierMeleeWizardExtraAttackTitle=Extra	Attack
+Feature/&MagicAffinityMeleeWizardConcentrationDescription=Due	to experience in the chaos of combat, gain advantage on concentration checks.
+Feature/&MagicAffinityMeleeWizardConcentrationTitle=Improved	Concentration
+Feature/&ProficiencyWeaponArcaneFighterDescription=Experience	in combat has given the Arcane Fighter training in Simple and Martial Weapons.
+Feature/&ProficiencyWeaponArcaneFighterTitle=Weapon	Training
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Additional	Damage from Magically Powered Attacks
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Additional	Damage from Magically Powered Attacks
+Subclass/&TraditionArcaneFighterDescription=Channel	your magic into weapon attacks.
+Subclass/&TraditionArcaneFighterTitle=Arcane	Fighter
 Condition/&ConditionMarkedByArcanistDescription=Afflicted	by Arcanist's Mark. When hit by the caster with a weapon attack, the mark detonates, dealing 1d6 force damage to the afflicted and destroying the mark.
 Condition/&ConditionMarkedByArcanistTitle=Arcanist's	Mark
 Feature/&ArcaneDetonationDescription=When	you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
@@ -2078,17 +1876,17 @@ Feedback/&AdditionalDamageArcanistMarkLine=Arcanist's	Mark detonates and deals e
 Subclass/&RangerArcanistRangerSubclassDescription=The	Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 Subclass/&RangerArcanistRangerSubclassTitle=Ranger	Arcanist
 Feature/&AbilityAffinityRogueConArtistDescription=Advantage	on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
+Feature/&CastSpellConArtistDescription=Cast	Wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
 Feature/&MagicAffinityRoguishConArtistDCDescription=Your	spell save DC increases by {0}.
 Feature/&MagicAffinityRoguishConArtistDCTitle=Improved	Manipulation
-Subclass/&RoguishConArtistDescription=Con	Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
 Feature/&RogueConArtistFeintConditionDescription=Being	tricked grants advantage on the next attack.
 Feature/&RoguishConArtistFeintDescription=Gain	the ability to feint in combat as a bonus action. If the target fails their saving throw, this grants advantage on the next attack against the target.
 Feature/&RoguishConArtistMentalSavingThrowsDescription=You	gain proficiency in Wisdom and Charisma saving throws.
 Feature/&RoguishConArtistMentalSavingThrowsTitle=Mental	Strength
-Feature/&CastSpellConArtistDescription=Cast	Wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
+Subclass/&RoguishConArtistDescription=Con	Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
 Subclass/&RoguishConArtistTitle=Con	Artist
-Condition/&ConditionDivineHeartEmpoweredHealingTitle=Empowered	Healing
 Condition/&ConditionDivineHeartEmpoweredHealingDescription=If	you cast a Healing spell this turn, you reroll a result of 1 or 2.
+Condition/&ConditionDivineHeartEmpoweredHealingTitle=Empowered	Healing
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1	Hit Point per level
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Divine	Fortitude
 Feature/&AutoPreparedSpellsSorcererDivineHeartArunDescription=Protection	From Evil and Good is always known and prepared.
@@ -2105,11 +1903,11 @@ Feature/&FeatureSetDivineHeartDeityChoiceDescription=Select	the Divine source of
 Feature/&FeatureSetDivineHeartDeityChoiceTitle=Deity	Choice
 Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Your	connection to the divine allows you to learn and cast Cleric spells as Sorcerer spells.
 Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Divine	Magic
-Feature/&PowerDivineHeartDivineRecoveryTitle=Divine	Recovery
 Feature/&PowerDivineHeartDivineRecoveryDescription=As	a Bonus Action, you can restore 70 hit points to yourself and remove blindness and diseases. Usable once per long rest. 
-Feature/&PowerDivineHeartEmpoweredHealingTitle=Empowered	Healing
+Feature/&PowerDivineHeartDivineRecoveryTitle=Divine	Recovery
 Feature/&PowerDivineHeartEmpoweredHealingDescription=Until	the start of your next turn, when casting a healing spell you reroll healing dice rolls of 1 or 2, keeping the new result. Activate this power as a Bonus Action expending 1 sorcerer point. 
 Feature/&PowerDivineHeartEmpoweredHealingRerollDescription={0}	uses Empowered Healing to reroll a {1} damage die from {2} to {3}.
+Feature/&PowerDivineHeartEmpoweredHealingTitle=Empowered	Healing
 Feature/&PowerDivineHeartPlanarPortalDescription=Opens	a portal that can carry a friendly creature and yourself to a specified destination.
 Feature/&PowerDivineHeartPlanarPortalTitle=Planar	Portal
 Subclass/&SorcerousDivineHeartDescription=Your	innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
@@ -2136,29 +1934,29 @@ Feature/&DruidForestGuardianSylvanWarMagicDescription=You	are used to wielding d
 Feature/&DruidForestGuardianSylvanWarMagicTitle=Sylvan	War Magic
 Subclass/&DruidForestGuardianDruidSubclassDescription=Circle	of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 Subclass/&DruidForestGuardianDruidSubclassTitle=Circle	of the Forest Guardian
+Condition/&ConditionPowerTransmuteConstitutionDescription=Temporary	Constitution save proficiency granted by the Transmute Force power.
+Condition/&ConditionPowerTransmuteConstitutionTitle=Constitution	Saves
 Condition/&ConditionPowerTransmutePoisonDescription=Temporary	acid, cold, fire, lightning, necrotic, poison and thunder resistance granted by the Transmute Force power.
 Condition/&ConditionPowerTransmutePoisonTitle=Elemental	Resistance
-Subclass/&TraditionLifeTransmuterDescription=Masters	of manipulating both matter and life energy.
-Subclass/&TraditionLifeTransmuterTitle=Life	Transmuter
+Feature/&AttributeModiferTransmuterHealingPoolBonusDescription=You	can enforce your will on reality an 4 additional times per day.
+Feature/&AttributeModiferTransmuterHealingPoolBonusTitle=Additional	Transmute Force
+Feature/&AttributeModiferTransmuterHealingPoolDescription=You	can enact your will on reality with special powers 2 times per day.
+Feature/&AttributeModiferTransmuterHealingPoolExtraDescription=You	can enforce your will on reality an 2 additional times per day.
+Feature/&AttributeModiferTransmuterHealingPoolExtraTitle=Additional	Transmute Force
+Feature/&AttributeModiferTransmuterHealingPoolTitle=Transmute	Force
 Feature/&MagicAffinityLifeTransmuterHeightenedDescription=When	casting some Transmutation and Necromancy spells they are cast at a spell slot 2 levels higher than the one used. Improved spells include: False Life, Blindness, Fly, Bestow Curse, Vampiric Touch, Blight, and Cloud Kill. \n--Note: The intention is to have Magic Weapon benefit as well, but currently increasing the spell level this way on Magic Weapon has no effect.
 Feature/&MagicAffinityLifeTransmuterHeightenedTitle=Reality	Bending
-Feature/&AttributeModiferTransmuterHealingPoolDescription=You	can enact your will on reality with special powers 2 times per day.
-Feature/&AttributeModiferTransmuterHealingPoolTitle=Transmute	Force
-Power/&PowerTransmuteDarkvisionDescription=Use	your Transmute Force to grant Superior Darkvision until the next long rest.
-Power/&PowerTransmuteDarkvisionTitle=Superior	Darkvision
 Power/&PowerTransmuteConstitutionDescription=Use	your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
 Power/&PowerTransmuteConstitutionTitle=Constitution	Saves
+Power/&PowerTransmuteDarkvisionDescription=Use	your Transmute Force to grant Superior Darkvision until the next long rest.
+Power/&PowerTransmuteDarkvisionTitle=Superior	Darkvision
 Power/&PowerTransmuteElementalResistanceDescription=Use	your Transmute Force to grant resistance to acid, cold, fire, lightning, necrotic, poison and thunder damage until the end of your next long rest.
 Power/&PowerTransmuteElementalResistanceTitle=Elemental	Resistance
 Power/&PowerTransmuteFlyDescription=Use	your Transmute Force to grant the ability of flight.
 Power/&PowerTransmuteHealDescription=Use	your Transmute Force to heal up to 6 targets.
 Power/&PowerTransmuteReviveDescription=Use	your Transmute Force to revive a character (within 1 minute of them dying).
-Condition/&ConditionPowerTransmuteConstitutionDescription=Temporary	Constitution save proficiency granted by the Transmute Force power.
-Condition/&ConditionPowerTransmuteConstitutionTitle=Constitution	Saves
-Feature/&AttributeModiferTransmuterHealingPoolExtraDescription=You	can enforce your will on reality an 2 additional times per day.
-Feature/&AttributeModiferTransmuterHealingPoolBonusDescription=You	can enforce your will on reality an 4 additional times per day.
-Feature/&AttributeModiferTransmuterHealingPoolBonusTitle=Additional	Transmute Force
-Feature/&AttributeModiferTransmuterHealingPoolExtraTitle=Additional	Transmute Force
+Subclass/&TraditionLifeTransmuterDescription=Masters	of manipulating both matter and life energy.
+Subclass/&TraditionLifeTransmuterTitle=Life	Transmuter
 Reaction/&CoordinatedAttackDescription={0}	was attacked by coordinating attack, some characters can use their reaction to join this attack.
 Reaction/&CoordinatedAttackReactDescription=Use	reaction to attack target.
 Reaction/&CoordinatedAttackTitle=Coordinated	Attack
@@ -2179,16 +1977,19 @@ Subclass/&FighterMarshalSummonEternalComradePowerDescription=Summon	1 spirit of 
 Subclass/&FighterMarshalSummonEternalComradePowerTitle=Summon	Eternal Comrade
 Subclass/&MarshalEternalComradeDescription=Fallen	Comrade
 Subclass/&MarshalEternalComradeTitle=Fallen	Comrade
-Feature/&MagicAffinityMasterManipulatorDCDescription=It	is harder for opponents to resist your spells. The save DC increases by {0}.
-Feature/&MagicAffinityMasterManipulatorDCTitle=Arcane	Force
-Subclass/&TraditionMasterManipulatorDescription=Master	Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
-Subclass/&TraditionMasterManipulatorTitle=Master	Manipulator
 Feature/&MagicAffinityControlHeightenedDescription=When	casting some Enchantment, Abjuration, and Illusion spells they are cast at a spell slot 1 level higher than the one used. Improved spells include: Charm Person, Sleep, Color Spray, Hold Person, Invisibility, Counterspell, Dispel Magic, Banishment, Confusion, Phantasmal Killer, Dominate Person, and Hold Monster.
 Feature/&MagicAffinityControlHeightenedTitle=Arcane	Manipulation
+Feature/&MagicAffinityMasterManipulatorDCDescription=It	is harder for opponents to resist your spells. The save DC increases by {0}.
+Feature/&MagicAffinityMasterManipulatorDCTitle=Arcane	Force
 Feature/&ManipulatorMentalSavingThrowsDescription=Gain	proficiency in saving throws with Constitution and Charisma.
 Feature/&ManipulatorMentalSavingThrowsTitle=Mental	Resistance
 Power/&PowerManipulatorDominatePersonDescription=You	can use Dominate Person a number of times per long rest equal to your Intelligence modifier.
 Power/&PowerManipulatorDominatePersonTitle=Dominate	Person
+Subclass/&TraditionMasterManipulatorDescription=Master	Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+Subclass/&TraditionMasterManipulatorTitle=Master	Manipulator
+Condition/&ConditionBonusRushTenaciousPursuitDescription=The	blessing grants you a power to chase and avenge the enemy. \nBonus dash is enabled for a single turn. This movement doesn't provoke opportunity attacks.
+Condition/&ConditionFrightenedZealousAccusationDescription=Absolutely	overwhelmed by the power of holiness. \nCannot move and frighted for 1 minute or until take any damage.
+Condition/&ConditionTrueStrikeZealousCondemnationDescription=Marked	by glorious determination. \nAttacks to this target will receive an advantage for 1 minute or until the target is dead or unconscious.
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle=Oath	of Retribution Spells
 Power/&PowerOathOfRetributionTenaciousPursuitDescription=When	you successfully hit the melee attack, this power will grants you a dash move as a bonus action for a single turn, 5 times per long rest. This movement doesn't provoke opportunity attacks.
 Power/&PowerOathOfRetributionTenaciousPursuitTitle=Tenacious	Pursuit
@@ -2197,11 +1998,8 @@ Power/&PowerOathOfRetributionZealousAccusationTitle=Channel	Divinity: Zealous Ac
 Power/&PowerOathOfRetributionZealousCondemnationDescription=Channel	Divinity to gain an advantage on your attack against the designated target within 2 tiles as a bonus action. The power lasts 1 minute or until the target is dead or unconscious.
 Power/&PowerOathOfRetributionZealousCondemnationTitle=Channel	Divinity: Zealous Condemnation
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription={0}	can earn dash bonus action move by striking this enemy using this power.
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=Tenacious	Pursuit
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription=Activate	dash bonus action.
-Condition/&ConditionBonusRushTenaciousPursuitDescription=The	blessing grants you a power to chase and avenge the enemy. \nBonus dash is enabled for a single turn. This movement doesn't provoke opportunity attacks.
-Condition/&ConditionFrightenedZealousAccusationDescription=Absolutely	overwhelmed by the power of holiness. \nCannot move and frighted for 1 minute or until take any damage.
-Condition/&ConditionTrueStrikeZealousCondemnationDescription=Marked	by glorious determination. \nAttacks to this target will receive an advantage for 1 minute or until the target is dead or unconscious.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=Tenacious	Pursuit
 Subclass/&PaladinOathOfRetributionDescription=Paladins	who swear the Oath of Retribution fully commit themselves to terminate the unholiness and injustice with extreme prejudice. For these paladins, the duty of avenging sins and corruptions weighs greater than their own values.
 Subclass/&PaladinOathOfRetributionTitle=Oath	of Retribution
 Feature/&OpportunistDebilitatingStrikeDescription=Your	sneak attack causes the target to make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or suffer one of following conditions: blinded, bane, bleeding or stunned.
@@ -2209,6 +2007,8 @@ Feature/&OpportunistDebilitatingStrikeTitle=Debilitating	Strike
 Feature/&OpportunistQuickStrikeDescription=You	have advantage when attack an enemies whose initiative is lower than yours. In addition, you also have advantage when perform an attack of opportunity.
 Feature/&OpportunistQuickStrikeTitle=Quick	Strike
 Subclass/&OpportunistDescription=Opportunist	are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat=Illuminating	Strike!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine=Illuminating	Strike deals extra damage to the target!
 Subclass/&BarbarianPathOfTheLightDescription=Barbarians	who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription=You	are always under the effects of a See Invisibility spell.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle=Eyes	of Truth
@@ -2230,25 +2030,23 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle=Pierce	the Darkness
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription=Can	perceive invisible creatures.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle=Invisibility	Sight
 Subclass/&BarbarianPathOfTheLightTitle=Path	of the Light
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat=Illuminating	Strike!
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine=Illuminating	Strike deals extra damage to the target!
-Subclass/&BarbarianPathOfTheRageMageTitle=Path	Of The Rage Mage
-Subclass/&BarbarianPathOfTheRageMageDescription=Path	Of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
+Feature/&arcaneExplosionPathOfTheMageRageDescription=	Your arcane power now erupts out of you while raging. On your first hit while raging, you deal an extra 1d6 Force damage.
+Feature/&arcaneExplosionPathOfTheMageRageTitle=Arcane	Explosion
 Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Your	rage manifests as a surge of arcane power, allowing you to cast spells. Charisma is your spellcasting modifier. You have access to spells on the Sorcerer spell list. You use your weapon as an arcane focus. You cannot cast spells while raging.
+Feature/&enhancedArcaneExplosionPathOfTheMageRageDescription=	Your arcane power now EXPLODES out of you while raging. On your first hit while raging, your Arcane Explosion feature deals 2d6 damage now.
+Feature/&enhancedArcaneExplosionPathOfTheMageRageTitle=Enahnced	Arcane Explosion
 Feature/&ProficiencySkillPathOfTheRageMageDescription=	You gain proficiency in the Arcana skill. 
 Feature/&ProficiencySkillPathOfTheRageMageTitle=Arcane	Intuition
-Feature/&supernaturalExploitsPathOfTheRagemageDescription=	You can channel your latent magic to perform spectacular feats of daring. You can cast Darkvision, Featherfall, Jump, and See Invisibility once each per long rest without using a spell slot. You can cast these spells even while raging.
-Feature/&supernaturalExploitsPathOfTheRagemageTitle=Supernatural	Exploits
 Feature/&supernaturalExploitsDarkvisionPathOfTheRagemageDescription=	You cast Dark Vision using your Supernatural Exploits power. You can cast this once per long rest.
 Feature/&supernaturalExploitsDarkvisionPathOfTheRagemageTitle=Dark	Vision
 Feature/&supernaturalExploitsFeatherfallPathOfTheRagemageDescription=	You cast Featherfall using your Supernatural Exploits power. You can cast this once per long rest.
 Feature/&supernaturalExploitsJumpPathOfTheRagemageDescription=	You cast Jump using your Supernatural Exploits power. You can cast this once per long rest.
+Feature/&supernaturalExploitsPathOfTheRagemageDescription=	You can channel your latent magic to perform spectacular feats of daring. You can cast Darkvision, Featherfall, Jump, and See Invisibility once each per long rest without using a spell slot. You can cast these spells even while raging.
+Feature/&supernaturalExploitsPathOfTheRagemageTitle=Supernatural	Exploits
 Feature/&supernaturalExploitsSeeInvisibilityPathOfTheRagemageDescription=	You cast See Invisibility using your Supernatural Exploits power. You can cast this once per long rest.
 Feature/&supernaturalExploitsSeeInvisibilityPathOfTheRagemageTitle=See	Invisibility
-Feature/&arcaneExplosionPathOfTheMageRageDescription=	Your arcane power now erupts out of you while raging. On your first hit while raging, you deal an extra 1d6 Force damage.
-Feature/&arcaneExplosionPathOfTheMageRageTitle=Arcane	Explosion
-Feature/&enhancedArcaneExplosionPathOfTheMageRageDescription=	Your arcane power now EXPLODES out of you while raging. On your first hit while raging, your Arcane Explosion feature deals 2d6 damage now.
-Feature/&enhancedArcaneExplosionPathOfTheMageRageTitle=Enahnced	Arcane Explosion
+Subclass/&BarbarianPathOfTheRageMageDescription=Path	Of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
+Subclass/&BarbarianPathOfTheRageMageTitle=Path	Of The Rage Mage
 Feature/&InspiringSurgePowerDescription=Grant	an ally an additional main action for 1 round. Does not stack with Action Surge.
 Feature/&InspiringSurgePowerTitle=Inspiring	Surge
 Feature/&InspiringSurgePowerTitleShort=Inspiring	Surge
@@ -2259,8 +2057,12 @@ Feature/&RoyalEnvoyFeatureDescription=Add	half of your proficiency bonus (round 
 Feature/&RoyalEnvoyFeatureTitle=Royal	Envoy
 Subclass/&FighterRoyalKnightDescription=A	knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 Subclass/&FighterRoyalKnightTitle=Royal	Knight
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepare	Intelligence modifier additional spells so you always have what you need.
+Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra	Prepared
 Feature/&MagicAffinitySpellMasterKnowledgeDescription=Scribe	an additional spell at each level up.
 Feature/&MagicAffinitySpellMasterKnowledgeTitle=Breadth	of Knowledge
+Feature/&MagicAffinitySpellMasterPreparedDescription=Prepare	proficiency bonus additional spells so you always have what you need.
+Feature/&MagicAffinitySpellMasterPreparedTitle=Be	Prepared
 Feature/&MagicAffinitySpellMasterRecoveryDescription=Once	per long rest, you can recover spell slots (in addition to Arcane Recovery).
 Feature/&MagicAffinitySpellMasterRecoveryTitle=Arcane	Depth
 Feature/&MagicAffinitySpellMasterRecoveryUnlimitedDescription=You	can recover spell slots unlimited times (in addition to Arcane Recovery).
@@ -2269,13 +2071,9 @@ Feature/&MagicAffinitySpellMasterScriberDescription=Scribing	spells takes 1/4 th
 Feature/&MagicAffinitySpellMasterScriberTitle=Master	Scriber
 Feature/&TraditionSpellMasterBonusCantripsDescription=Gain	2 extra cantrips known.
 Feature/&TraditionSpellMasterBonusCantripsTitle=Bonus	Cantrips
-Subclass/&TraditionSpellMasterDescription=Spell	masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
-Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepare	Intelligence modifier additional spells so you always have what you need.
-Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra	Prepared
-Feature/&MagicAffinitySpellMasterPreparedDescription=Prepare	proficiency bonus additional spells so you always have what you need.
-Feature/&MagicAffinitySpellMasterPreparedTitle=Be	Prepared
 Feature/&TraditionSpellMasterSpellResistanceDescription=Your	training with magic gives you advantage on saving throws against spells.
 Feature/&TraditionSpellMasterSpellResistanceTitle=Spell	Resistance
+Subclass/&TraditionSpellMasterDescription=Spell	masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 Subclass/&TraditionSpellMasterTitle=Spell	Master
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription=You	can use your arcane powers to shield yourself as a reaction.
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle=Spell	Shield

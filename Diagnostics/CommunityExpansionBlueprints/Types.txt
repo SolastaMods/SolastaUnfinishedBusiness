@@ -71,6 +71,4 @@ SolastaCommunityExpansion.Subclasses.Barbarian.PathOfTheLight+FeatureDefinitionA
 SolastaCommunityExpansion.Subclasses.Barbarian.PathOfTheLight+PowerIlluminatingBurst
 SpellDefinition
 SpellListDefinition
-TA.AI.DecisionDefinition
-TA.AI.DecisionPackageDefinition
 WeaponTypeDefinition
