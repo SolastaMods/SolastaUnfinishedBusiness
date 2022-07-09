@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
@@ -170,6 +171,11 @@ internal static class StudyYourEnemyBuilder
                 manager.MonsterKnowledgeChanged?.Invoke(creature.MonsterDefinition, entry.KnowledgeLevelDefinition);
             }
 
+            if (entry == null)
+            {
+                return;
+            }
+
             var checkModifier = new ActionModifier();
             var roller = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
 
@@ -208,7 +214,7 @@ internal static class CoordinatedAttackBuilder
         ActionModifier attackModifier)
     {
         // melee only
-        if (attackMode.ranged || outcome == RollOutcome.CriticalFailure || outcome == RollOutcome.Failure ||
+        if (attackMode.ranged || outcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
             actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
         {
             yield break;
@@ -217,8 +223,8 @@ internal static class CoordinatedAttackBuilder
         var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
         var battleManager = gameLocationBattleService as GameLocationBattleManager;
-
         var allies = new List<GameLocationCharacter>();
+
         foreach (var guestCharacter in characterService.GuestCharacters)
         {
             if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
@@ -239,28 +245,24 @@ internal static class CoordinatedAttackBuilder
             allies.Add(gameLocationMonster);
         }
 
-        foreach (var partyCharacter in characterService.PartyCharacters)
-        {
-            if (partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) != 0)
-            {
-                continue;
-            }
-
-            if (partyCharacter == attacker)
-            {
-                continue;
-            }
-
-            allies.Add(partyCharacter);
-        }
+        allies.AddRange(characterService.PartyCharacters
+            .Where(partyCharacter => partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == 0)
+            .Where(partyCharacter => partyCharacter != attacker));
 
         var reactions = new List<CharacterActionParams>();
+
         foreach (var partyCharacter in allies)
         {
             var allAttackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
             var attackParams = default(BattleDefinitions.AttackEvaluationParams);
             var actionModifierBefore = new ActionModifier();
             var canAttack = true;
+
+            if (allAttackMode == null)
+            {
+                continue;
+            }
+
             if (allAttackMode.Ranged)
             {
                 attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition, allAttackMode,
@@ -287,6 +289,7 @@ internal static class CoordinatedAttackBuilder
             {
                 StringParameter2 = "CoordinatedAttack", BoolParameter4 = !canAttack
             };
+
             reactions.Add(reactionParams);
         }
 

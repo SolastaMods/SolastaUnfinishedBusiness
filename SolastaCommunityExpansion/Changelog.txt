@@ -1,5 +1,6 @@
 ﻿CHANGES:
 
 - Add a setting to scale the game font
+- Fix Marshal Know Your Enemy power
 - Fix missing translations
 - Improve batch translations
