@@ -217,8 +217,9 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
     public List<string> defaultPartyHeroes = new();
     public bool NoExperienceOnLevelUp { get; set; }
-    public int OverridePartySize { get; set; } = DungeonMakerContext.GAME_PARTY_SIZE;
+    public int ScaleGameFontSizeBy { get; set; } = 100;
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
+    public int OverridePartySize { get; set; } = DungeonMakerContext.GAME_PARTY_SIZE;
     public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
     // Debug

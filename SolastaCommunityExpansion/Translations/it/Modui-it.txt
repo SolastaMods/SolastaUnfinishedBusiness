@@ -196,3 +196,4 @@ ModUi/&UseHeightOneCylinderEffect=Mostra un effetto cilindro di altezza 1 quando
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&WeaponTag=Etichetta arma
+ModUi/&ScaleGameFontSizeBy=<color=white>Scale the game font size by</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
