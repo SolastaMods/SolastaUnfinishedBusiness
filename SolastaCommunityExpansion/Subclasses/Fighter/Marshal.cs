@@ -505,7 +505,7 @@ internal static class FearlessCommanderBuilder
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetGuiPresentation(
                 "FighterMarshalFearlessCommanderFeatureSet",
-                Category.Subclass)
+                Category.Feature)
             .AddToDB();
     }
 }

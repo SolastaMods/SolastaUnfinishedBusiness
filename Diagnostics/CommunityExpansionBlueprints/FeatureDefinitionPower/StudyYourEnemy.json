@@ -291,8 +291,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&FighterMarshalStudyYourEnemyPowerTitle",
-    "description": "Subclass/&FighterMarshalStudyYourEnemyPowerDescription",
+    "title": "Power/&FighterMarshalStudyYourEnemyPowerTitle",
+    "description": "Power/&FighterMarshalStudyYourEnemyPowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "68cc6e098b2ce1642b598cc06aeb6532",
