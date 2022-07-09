@@ -16,7 +16,6 @@ public class PowerUseValidity : IPowerUseValidity
 
     public bool CanUsePower(RulesetCharacter character)
     {
-        Main.Log($"{character.Name} CanUserPower", true);
         return character.IsValid(validators);
     }
 }
