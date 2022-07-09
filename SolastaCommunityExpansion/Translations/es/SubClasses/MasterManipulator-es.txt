@@ -1,0 +1,10 @@
+Feature/&MagicAffinityControlHeightenedDescription=Al lanzar algunos hechizos de Encantamiento, Abjuración e Ilusión, se lanzan en un espacio de hechizo 1 nivel más alto que el utilizado. Los hechizos mejorados incluyen: Encantar persona, Dormir, Rociar color, Retener persona, Invisibilidad, Contrahechizo, Disipar magia, Destierro, Confusión, Asesino fantasmal, Dominar persona y Retener monstruo.
+Feature/&MagicAffinityControlHeightenedTitle=Manipulación Arcana
+Feature/&MagicAffinityMasterManipulatorDCDescription=Es más difícil para los oponentes resistir tus hechizos. La CD de ahorro aumenta en {0}.
+Feature/&MagicAffinityMasterManipulatorDCTitle=Fuerza Arcana
+Feature/&ManipulatorMentalSavingThrowsDescription=Gana competencia en tiradas de salvación con Constitución y Carisma.
+Feature/&ManipulatorMentalSavingThrowsTitle=Resistencia Mental
+Power/&PowerManipulatorDominatePersonDescription=Puedes usar Dominar persona un número de veces por descanso prolongado igual a tu modificador de Inteligencia.
+Power/&PowerManipulatorDominatePersonTitle=dominar persona
+Subclass/&TraditionMasterManipulatorDescription=Los maestros manipuladores sobresalen en el control del campo de batalla y evitan que sus enemigos puedan atacarlos.
+Subclass/&TraditionMasterManipulatorTitle=Manipulador maestro

@@ -1,6 +1,5 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -23,6 +22,8 @@ internal sealed class Arcanist : AbstractSubclass
     private static readonly Guid RaBaseGuid = new(RangerArcanistRangerSubclassGuid);
 
     private static ConditionDefinition _markedByArcanist;
+
+    // ReSharper disable once InconsistentNaming
     private CharacterSubclassDefinition Subclass;
 
     private static ConditionDefinition MarkedByArcanist => _markedByArcanist ??= ConditionDefinitionBuilder
@@ -86,16 +87,6 @@ internal sealed class Arcanist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        //Not actually used anywhere, but leaving this just in case some old character would need it
-        FeatureDefinitionFeatureSetBuilder
-            .Create("RangerArcanistMagic",
-                GuidHelper.Create(RaBaseGuid, "RangerArcanistManaTouchedGuardian")
-                    .ToString()) // Oops, will have to live with this name being off)
-            .SetGuiPresentationNoContent(true)
-            .SetFeatureSet(preparedSpells, arcanistAffinity)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .AddToDB();
-
         return new FeatureDefinition[] {preparedSpells, arcanistAffinity};
     }
 
@@ -104,7 +95,7 @@ internal sealed class Arcanist : AbstractSubclass
         return FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark", RaBaseGuid)
             .SetGuiPresentation("ArcanistMark", Category.Feature)
-            .SetSpecificDamageType("DamageForce")
+            .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 0)
             .SetNotificationTag("ArcanistMark")
             .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
@@ -123,12 +114,13 @@ internal sealed class Arcanist : AbstractSubclass
     private static FeatureDefinitionAdditionalDamage CreateArcaneDetonation()
     {
         var assetReference = new AssetReference();
+
         assetReference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
         return FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcaneDetonation", RaBaseGuid)
             .SetGuiPresentation("ArcaneDetonation", Category.Feature)
-            .SetSpecificDamageType("DamageForce")
+            .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 1)
             .SetNotificationTag("ArcanistMark")
             .SetTargetCondition(MarkedByArcanist,
@@ -190,7 +182,7 @@ internal sealed class Arcanist : AbstractSubclass
         {
             DamageForm = new DamageForm
             {
-                DamageType = "DamageForce",
+                DamageType = RuleDefinitions.DamageTypeForce,
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 4,
                 healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Never
@@ -202,7 +194,7 @@ internal sealed class Arcanist : AbstractSubclass
         {
             DamageForm = new DamageForm
             {
-                DamageType = "DamageForce",
+                DamageType = RuleDefinitions.DamageTypeForce,
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 8,
                 healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Never
@@ -210,20 +202,24 @@ internal sealed class Arcanist : AbstractSubclass
             SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
         };
 
-        var arcanePulseAction = CreateArcanePulse("ArcanePulse", "Feature/&ArcanePulseTitle",
-            "Feature/&ArcanePulseDescription", markedEffect, damageEffect);
+        var arcanePulseAction = CreateArcanePulse("ArcanePulse", "ArcanePulse",
+            markedEffect, damageEffect);
 
-        var arcanePulseUpgradeAction = CreateArcanePulse("ArcanePulseUpgrade", "Feature/&ArcanePulseTitle",
-            "Feature/&ArcanePulseDescription", markedEffect, damageUpgradeEffect);
+        var arcanePulseUpgradeAction = CreateArcanePulse("ArcanePulseUpgrade", "ArcanePulse",
+            markedEffect, damageUpgradeEffect);
         arcanePulseUpgradeAction.overriddenPower = arcanePulseAction;
 
         return (arcanePulseAction, arcanePulseUpgradeAction);
     }
 
-    private static FeatureDefinitionPower CreateArcanePulse(string name, string title, string description,
-        EffectForm markedEffect, EffectForm damageEffect)
+    private static FeatureDefinitionPower CreateArcanePulse(
+        string name,
+        string term,
+        EffectForm markedEffect,
+        EffectForm damageEffect)
     {
         var pulseDescription = new EffectDescription();
+
         pulseDescription.Copy(MagicMissile.EffectDescription);
         pulseDescription.SetCreatedByCharacter(true);
         pulseDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
@@ -235,7 +231,7 @@ internal sealed class Arcanist : AbstractSubclass
 
         return FeatureDefinitionPowerBuilder
             .Create(name, RaBaseGuid)
-            .SetGuiPresentation(title, description,
+            .SetGuiPresentation($"Feature/&{term}Title", $"Feature/&{term}Description",
                 PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
             .SetUsesAbility(0, AttributeDefinitions.Wisdom)
             .SetShowCasting(true)

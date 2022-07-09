@@ -296,7 +296,7 @@
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "Feature/&RallyingCryPowerTitleShort",
+  "shortTitleOverride": "Feature/&RallyingCryPowerTitle",
   "overriddenPower": "Definition:PowerFighterSecondWind:a15c3261b8fda3c44b002c5ee2165469",
   "includeBaseDescription": false,
   "magical": true,

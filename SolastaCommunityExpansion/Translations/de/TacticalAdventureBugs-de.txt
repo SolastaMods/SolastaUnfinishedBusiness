@@ -1,6 +1,6 @@
-﻿Equipment/&ScrollConjureMinorElementalTitle=Schriftrolle der Beschwörung kleinerer Elementare
-Equipment/&ScrollConjureMinorElementalDescription=Wenn Sie diese Schriftrolle verwenden, wirken Sie den Zauber Kleinere Elementare beschwören.
-Equipment/&ScrollDeathWardTitle=Schriftrolle von Deathward
+﻿Equipment/&ScrollConjureMinorElementalDescription=Wenn Sie diese Schriftrolle verwenden, wirken Sie den Zauber Kleinere Elementare beschwören.
+Equipment/&ScrollConjureMinorElementalTitle=Schriftrolle der Beschwörung kleinerer Elementare
 Equipment/&ScrollDeathWardDescription=Wenn Sie diese Schriftrolle verwenden, wirken Sie den Zauber Deathward.
+Equipment/&ScrollDeathWardTitle=Schriftrolle von Deathward
 Feature/&AttributeModifier{0}Description={0}
 Prop/&PrisonFenceDestroyedTitle=Gefängniszaun zerstört

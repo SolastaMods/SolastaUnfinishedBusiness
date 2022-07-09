@@ -1,11 +1,6 @@
-﻿Freedom is never more than one generation away from extinction. We didn't pass it to our children in the bloodstream. It must be fought for, protected, and handed on for them to do the same.
+﻿CHANGES:
 
-CHANGES:
-
-- Add the Celestial Touched feat
-- Add a SRD rule to reduce food ration weight to 2 lbs
-- Add hand crossbow proficiency to rogues
-- Add Path of the Rage Mage subclass
-- Improve noble clothes colors and descriptions
-- Fix DMPRO loosing monsters assignment on editor
-- Fix Half-Elf integration with flexible races
+- Add a setting to scale the game font
+- Fix Marshal Know Your Enemy power
+- Fix missing translations
+- Improve batch translations

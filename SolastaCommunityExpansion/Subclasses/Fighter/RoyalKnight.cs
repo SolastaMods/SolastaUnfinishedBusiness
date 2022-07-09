@@ -13,12 +13,16 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter;
 internal sealed class RoyalKnight : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("f5efd735-ff95-4256-ad17-dde585aeb4e2");
+
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal RoyalKnight()
     {
         var royalEnvoyAbilityCheckAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create(AbilityCheckAffinityChampionRemarkableAthlete, "RoyalEnvoyAbilityCheckAffinity",
+            .Create(
+                AbilityCheckAffinityChampionRemarkableAthlete,
+                "RoyalEnvoyAbilityCheckAffinity",
                 "b16f8b68-0dab-49e5-b1a2-6fdfd8836849")
             .SetAffinityGroups(new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
             {
@@ -28,7 +32,9 @@ internal sealed class RoyalKnight : AbstractSubclass
             .AddToDB();
 
         var royalEnvoyFeatureSet = FeatureDefinitionFeatureSetBuilder
-            .Create("RoyalEnvoyFeature", "c8299685-d806-4e20-aff0-ca3dd4000e05")
+            .Create(
+                "RoyalEnvoyFeature",
+                "c8299685-d806-4e20-aff0-ca3dd4000e05")
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(royalEnvoyAbilityCheckAffinity,
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
@@ -36,15 +42,18 @@ internal sealed class RoyalKnight : AbstractSubclass
 
         // TODO: use EffectDescriptionBuilder
         var effectDescription = FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription.Copy();
+
         effectDescription.EffectForms[0].HealingForm.HealingCap = RuleDefinitions.HealingCap.MaximumHitPoints;
         effectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
         effectDescription.targetFilteringTag = RuleDefinitions.TargetFilteringTag.No;
 
         var rallyingCryPower = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "RallyingCryPower",
+            .Create(
+                FeatureDefinitionPowers.PowerDomainLifePreserveLife,
+                "RallyingCryPower",
                 "cabe94a7-7e51-4231-ae6d-e8e6e3954611")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
-            .SetShortTitle("Feature/&RallyingCryPowerTitleShort")
+            .SetShortTitle("Feature/&RallyingCryPowerTitle")
             .SetOverriddenPower(FeatureDefinitionPowers.PowerFighterSecondWind)
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
             .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
@@ -80,17 +89,21 @@ internal sealed class RoyalKnight : AbstractSubclass
                 }));
 
         var inspiringSurgePower = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "InspiringSurgePower",
+            .Create(
+                FeatureDefinitionPowers.PowerDomainLifePreserveLife,
+                "InspiringSurgePower",
                 "c2930ad2-dd02-4ff3-bad8-46d93e328fbd")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism.GuiPresentation.SpriteReference)
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
             .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
             .SetEffectDescription(inspiringSurgeEffectDescription)
-            .SetShortTitle("Feature/&InspiringSurgePowerTitleShort")
+            .SetShortTitle("Feature/&InspiringSurgePowerTitle")
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("FighterRoyalKnight", SubclassNamespace)
+            .Create(
+                "FighterRoyalKnight",
+                SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, Protection.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(rallyingCryPower, 3)
             .AddFeatureAtLevel(royalEnvoyFeatureSet, 7)

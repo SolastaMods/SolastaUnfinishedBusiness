@@ -10,6 +10,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter;
 internal sealed class SpellShield : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("d4732dc2-c4f9-4a35-a12a-ae2d7858ff74");
+
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal SpellShield()

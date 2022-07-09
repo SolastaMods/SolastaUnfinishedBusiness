@@ -158,8 +158,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&HealingPoolLifeTransmuterBonusExtraTitle",
-    "description": "Subclass/&HealingPoolLifeTransmuterBonusExtraDescription",
+    "title": "Feature/&AttributeModiferTransmuterHealingPoolBonusTitle",
+    "description": "Feature/&AttributeModiferTransmuterHealingPoolBonusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

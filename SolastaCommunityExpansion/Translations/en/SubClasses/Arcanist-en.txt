@@ -1,7 +1,5 @@
 Condition/&ConditionMarkedByArcanistDescription=Afflicted by Arcanist's Mark. When hit by the caster with a weapon attack, the mark detonates, dealing 1d6 force damage to the afflicted and destroying the mark.
 Condition/&ConditionMarkedByArcanistTitle=Arcanist's Mark
-Equipment/&ArcaneStaffDescription=This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
-Equipment/&ArcaneStaffTitle=Arcane Staff
 Feature/&ArcaneDetonationDescription=When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
 Feature/&ArcaneDetonationTitle=Arcane Detonation
 Feature/&ArcaneDetonationUpgradeDescription=Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.

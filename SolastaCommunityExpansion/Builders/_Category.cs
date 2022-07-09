@@ -11,7 +11,6 @@ public enum Category
     Class,
     Condition,
     ContentPack,
-    CraftyFeats,
     Equipment,
     Feat,
     Feature,

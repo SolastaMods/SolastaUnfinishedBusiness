@@ -349,6 +349,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         }
     }
 
+    // ReSharper disable once ClassNeverInstantiated.Local
     private sealed class ConditionDefinitionIlluminatedBuilder
         : ConditionDefinitionBuilder<ConditionDefinitionIlluminated, ConditionDefinitionIlluminatedBuilder>
     {
@@ -370,6 +371,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         }
     }
 
+    // ReSharper disable once ClassNeverInstantiated.Local
     private sealed class ConditionDefinitionIlluminatedByBurstBuilder
         : ConditionDefinitionBuilder<ConditionDefinitionIlluminatedByBurst,
             ConditionDefinitionIlluminatedByBurstBuilder>

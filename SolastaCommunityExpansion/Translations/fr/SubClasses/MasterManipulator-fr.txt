@@ -1,0 +1,10 @@
+Feature/&MagicAffinityControlHeightenedDescription=Lorsque vous lancez des sorts d'enchantement, d'abjuration et d'illusion, ils sont lancés à un niveau d'emplacement de sort supérieur de 1 à celui utilisé. Les sorts améliorés incluent : Charme de personne, Sommeil, Spray de couleur, Maintien de personne, Invisibilité, Contresort, Dissipation de la magie, Bannissement, Confusion, Tueur fantomatique, Domination de personne et Maintien de monstre.
+Feature/&MagicAffinityControlHeightenedTitle=Manipulation des Arcanes
+Feature/&MagicAffinityMasterManipulatorDCDescription=Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de {0}.
+Feature/&MagicAffinityMasterManipulatorDCTitle=Force arcanique
+Feature/&ManipulatorMentalSavingThrowsDescription=Maîtrisez les jets de sauvegarde avec Constitution et Charisme.
+Feature/&ManipulatorMentalSavingThrowsTitle=Résistance mentale
+Power/&PowerManipulatorDominatePersonDescription=Vous pouvez utiliser Dominer une personne un nombre de fois par repos long égal à votre modificateur d'Intelligence.
+Power/&PowerManipulatorDominatePersonTitle=Dominer la personne
+Subclass/&TraditionMasterManipulatorDescription=Les maîtres manipulateurs excellent dans le contrôle du champ de bataille et empêchent leurs ennemis de les attaquer.
+Subclass/&TraditionMasterManipulatorTitle=Maître manipulateur

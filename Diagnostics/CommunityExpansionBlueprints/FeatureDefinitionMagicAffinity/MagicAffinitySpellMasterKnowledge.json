@@ -43,8 +43,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&MagicAffinitySpellMasterBonusScribingTitle",
-    "description": "Subclass/&MagicAffinitySpellMasterBonusScribingDescription",
+    "title": "Feature/&MagicAffinitySpellMasterKnowledgeTitle",
+    "description": "Feature/&MagicAffinitySpellMasterKnowledgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

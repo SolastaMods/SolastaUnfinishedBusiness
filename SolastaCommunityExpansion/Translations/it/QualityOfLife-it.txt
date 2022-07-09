@@ -1,22 +1,22 @@
 BlueprintCategory/&FlatRoomsTitle=Camere piatte
-Caption/&GadgetParametersCustomRemoveDescription=Rimuovere:\n{0}.
+Caption/&GadgetParametersCustomRemoveDescription=Rimuovi:\n{0}.
 ContentPack/&CommunityExpansionPackDescription=Il pacchetto di espansione della comunità aggiunge nuove classi, sottoclassi, talenti e incantesimi. C'è un limite di livello superiore, multi-classe, funzionalità QOL, correzioni di bug e altro ancora. È un vero e proprio Horn of Plenty (TM)...
 ContentPack/&CommunityExpansionPackTitle=Pacchetto di espansione della comunità
 Failure/&FailureFlagTargetMeleeWeaponError=Non è possibile eseguire attacchi in mischia su questo bersaglio con l'arma attuale
 Feature/&AlwaysBeardDescription={0}% di possibilità di farsi crescere una barba gloriosa!
 Feature/&BardSkillsTitle=Abilità da bardo
-Feature/&EmptyString=
+Feature/&EmptyString=VUOTO
 Format/&LevelAndExperienceFormat=Livello: {0}\nEsperienza: {1}\n{2} punti richiesti per raggiungere il livello {3}
 Format/&LevelAndExperienceMaxedFormat=Livello: {0}\nEsperienza: {1}\nlivello massimo raggiunto
 MainMenu/&LevelDownDescription=Abbassa di livello questo eroe.
 MainMenu/&LevelDownTitle=Livello giù
-Message/&CharacterExportDuplicateNameErrorDescription=Esportazione annullata:\n\nUn eroe con questo nome esiste già nella piscina.\nProva con un nome diverso.
-Message/&CharacterExportEmptyNameErrorDescription=Esportazione annullata:\n\nProva con un nome non vuoto.
+Message/&CharacterExportDuplicateNameErrorDescription=Esportazione annullata:\n\nun eroe con questo nome esiste già nel pool.\nProva con un nome diverso.
+Message/&CharacterExportEmptyNameErrorDescription=Esportazione annullata:\n\nprova con un nome non vuoto.
 Message/&CharacterExportModalContentDescription=Inserisci il nome dell'eroe da esportare:
 Message/&CharacterExportModalTitleDescription=Esportazione caratteri.
 Message/&LevelDownConfirmationDescription=Abbassare di livello questo eroe?
 Message/&LevelDownMultiplayerAbortDescription=Impossibile scendere di livello durante una sessione multiplayer.
-Message/&MessageModWelcomeDescription=La Community Expansion Mod è ricca di interessanti funzionalità, ma per impostazione predefinita nessuna è abilitata. Premi <color=yellow>Ctrl-F10</color> per aprire l'interfaccia utente di Unity Mod Manager [UMM], quindi fai clic sull'icona delle impostazioni accanto a "Espansione della community" per aprire le pagine delle impostazioni.\n\n Esplora le opzioni e seleziona quelle che ti piacciono. L'interfaccia utente di UMM si aprirà ora.
+Message/&MessageModWelcomeDescription=La Community Expansion Mod è ricca di interessanti funzionalità, ma per impostazione predefinita nessuna è abilitata. Premi <color=#F0DAA0>Ctrl-F10</color> per aprire l'interfaccia utente di Unity Mod Manager [UMM], quindi fai clic sull'icona delle impostazioni accanto a "Espansione della community" per aprire le pagine delle impostazioni.\n\n Esplora le opzioni e seleziona quelle che ti piacciono. L'interfaccia utente di UMM si aprirà ora.
 Message/&MessageModWelcomeTitle=Espansione della Comunità Mod
 Message/&RespecMultiplayerAbortDescription=Impossibile rispettare durante una sessione multiplayer o su una mappa di esplorazione.
 Message/&SpawnCustomEncounterDescription=Genera l'incontro alle coordinate ({0}, {1})?

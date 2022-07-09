@@ -1,5 +1,4 @@
 ﻿#if DEBUG
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;

@@ -1,0 +1,14 @@
+Feature/&AbilityAffinityRogueConArtistDescription=Ventaja en pruebas de habilidad usando Persuasión, Engaño, Interpretación y Prestidigitación.
+Feature/&AbilityAffinityRogueConArtistTitle=Manipulativo
+Feature/&CastSpellConArtistDescription=Lanza hechizos de mago y cantrips de las escuelas de Conjuración, Encantamiento, Ilusión y Transmutación. El Estafador usa Carisma para lanzar sus hechizos.
+Feature/&CastSpellConArtistTitle=Lanzamiento de hechizos
+Feature/&MagicAffinityRoguishConArtistDCDescription=Tu CD de salvación de hechizos aumenta en {0}.
+Feature/&MagicAffinityRoguishConArtistDCTitle=Manipulación mejorada
+Feature/&RogueConArtistFeintConditionDescription=Ser engañado otorga ventaja en el siguiente ataque.
+Feature/&RogueConArtistFeintConditionTitle=Bureado
+Feature/&RoguishConArtistFeintDescription=Obtén la capacidad de fintar en combate como acción adicional. Si el objetivo falla su tirada de salvación, esto otorga ventaja en el próximo ataque contra el objetivo.
+Feature/&RoguishConArtistFeintTitle=Finta
+Feature/&RoguishConArtistMentalSavingThrowsDescription=Obtienes competencia en las tiradas de salvación de Sabiduría y Carisma.
+Feature/&RoguishConArtistMentalSavingThrowsTitle=Fuerza mental
+Subclass/&RoguishConArtistDescription=Los estafadores son pícaros que se especializan en engañar y engañar a otros. Usan magia para ayudar a sus habilidades de manipulación naturales.
+Subclass/&RoguishConArtistTitle=Con artista

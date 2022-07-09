@@ -1,0 +1,10 @@
+Feature/&MagicAffinityControlHeightenedDescription=Quando si lanciano alcuni incantesimi Incantesimo, Abiura e Illusione, vengono lanciati a uno slot incantesimo di livello 1 superiore a quello utilizzato. Gli incantesimi migliorati includono: Charme persona, Sonno, Spray colorato, Trattieni persona, Invisibilità, Controincantesimo, Dissolvi Magia, Esilio, Confusione, Killer Fantasma, Domina persona e Trattieni Mostro.
+Feature/&MagicAffinityControlHeightenedTitle=Manipolazione Arcana
+Feature/&MagicAffinityMasterManipulatorDCDescription=È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del salvataggio aumenta di {0}.
+Feature/&MagicAffinityMasterManipulatorDCTitle=Forza Arcana
+Feature/&ManipulatorMentalSavingThrowsDescription=Ottieni competenza nei tiri salvezza con Costituzione e Carisma.
+Feature/&ManipulatorMentalSavingThrowsTitle=Resistenza mentale
+Power/&PowerManipulatorDominatePersonDescription=Puoi usare Dominare Persona un numero di volte per riposo lungo pari al tuo modificatore di Intelligenza.
+Power/&PowerManipulatorDominatePersonTitle=Persona dominante
+Subclass/&TraditionMasterManipulatorDescription=I maestri manipolatori eccellono nel controllare il campo di battaglia e impedire ai loro nemici di attaccarli.
+Subclass/&TraditionMasterManipulatorTitle=Maestro manipolatore

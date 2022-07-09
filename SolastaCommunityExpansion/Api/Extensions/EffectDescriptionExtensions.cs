@@ -120,7 +120,9 @@ public static class EffectDescriptionExtensions
         foreach (var effectForm in entity.effectForms)
         {
             if (effectForm.FormType == EffectForm.EffectFormType.Damage)
+            {
                 form = effectForm.DamageForm;
+            }
         }
 
         return form;

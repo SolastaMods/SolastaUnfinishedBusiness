@@ -540,7 +540,7 @@ public static class CustomWeaponsContext
             .Build();
 
         ProducedFlameDart = BuildWeapon("CEProducedFlameDart", ItemDefinitions.Dart, 0, true, Common,
-            basePresentation: flame.ItemPresentation, icon: ProducedFlameThrow);
+            flame.ItemPresentation, icon: ProducedFlameThrow);
 
         var damageForm = ProducedFlameDart.WeaponDescription.EffectDescription.FindFirstDamageForm();
         damageForm.damageType = RuleDefinitions.DamageTypeFire;
@@ -689,6 +689,34 @@ public static class CustomWeaponsContext
         return BuildPrimingManual(item, primed, DefinitionBuilder.CENamespaceGuid);
     }
 
+    public static void ProcessProducedFlameAttack(RulesetCharacterHero hero, RulesetAttackMode mode)
+    {
+        var num = hero.characterInventory.CurrentConfiguration;
+        var configurations = hero.characterInventory.WieldedItemsConfigurations;
+        if (num == configurations.Count - 1)
+        {
+            num = configurations[num].MainHandSlot.ShadowedSlot != configurations[0].MainHandSlot ? 1 : 0;
+        }
+
+        var itemsConfiguration = configurations[num];
+        RulesetItem item = null;
+        if (mode.SlotName == EquipmentDefinitions.SlotTypeMainHand)
+        {
+            item = itemsConfiguration.MainHandSlot.EquipedItem;
+        }
+        else if (mode.SlotName == EquipmentDefinitions.SlotTypeOffHand)
+        {
+            item = itemsConfiguration.OffHandSlot.EquipedItem;
+        }
+
+        if (item == null || item.ItemDefinition != ItemDefinitions.ProducedFlame)
+        {
+            return;
+        }
+
+        hero.CharacterInventory.DefineWieldedItemsConfiguration(num, null, mode.SlotName);
+    }
+
     #region Halberd Icons
 
     private static AssetReferenceSprite _halberdIcon,
@@ -789,34 +817,6 @@ public static class CustomWeaponsContext
 
     #endregion
 
-    public static void ProcessProducedFlameAttack(RulesetCharacterHero hero, RulesetAttackMode mode)
-    {
-        var num = hero.characterInventory.CurrentConfiguration;
-        var configurations = hero.characterInventory.WieldedItemsConfigurations;
-        if (num == configurations.Count - 1)
-        {
-            num = configurations[num].MainHandSlot.ShadowedSlot != configurations[0].MainHandSlot ? 1 : 0;
-        }
-
-        var itemsConfiguration = configurations[num];
-        RulesetItem item = null;
-        if (mode.SlotName == EquipmentDefinitions.SlotTypeMainHand)
-        {
-            item = itemsConfiguration.MainHandSlot.EquipedItem;
-        }
-        else if (mode.SlotName == EquipmentDefinitions.SlotTypeOffHand)
-        {
-            item = itemsConfiguration.OffHandSlot.EquipedItem;
-        }
-
-        if (item == null || item.ItemDefinition != ItemDefinitions.ProducedFlame)
-        {
-            return;
-        }
-
-        hero.CharacterInventory.DefineWieldedItemsConfiguration(num, null, mode.SlotName);
-    }
-    
     #region Produced Flame Icons
 
     private static AssetReferenceSprite _producedFlameThrow;
@@ -932,7 +932,7 @@ public class AddThrowProducedFlameAttack : AddExtraAttackBase
             hero.FeaturesOrigin,
             item
         );
-        
+
         attackMode.closeRange = attackMode.maxRange = 6;
         attackMode.Reach = false;
         attackMode.Ranged = true;

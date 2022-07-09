@@ -135,7 +135,8 @@ public static class PickPocketContext
         pickpocketableLootD.ItemOccurencesList.Add(loot_pickpocket_table_med);
 
         var pickpocketableLootUndead = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_Undead", "edb9b436-1d94-4d11-bd37-4027c4dc7644")
+            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_Undead",
+                "edb9b436-1d94-4d11-bd37-4027c4dc7644")
             .SetGuiPresentationNoContent()
             .AddToDB();
         pickpocketableLootUndead.ItemOccurencesList.Add(loot_pickpocket_table_undead);
@@ -145,7 +146,7 @@ public static class PickPocketContext
             if (monster.CharacterFamily == "Humanoid" &&
                 monster.DefaultFaction == "HostileMonsters" &&
                 monster.StealableLootDefinition == null
-                )
+               )
             {
                 if (monster.ChallengeRating < 1.0)
                 {
@@ -182,11 +183,10 @@ public static class PickPocketContext
                 !monster.Name.Contains("Ghost") &&
                 !monster.Name.Contains("Spectral") &&
                 !monster.Name.Contains("Servant")
-                )
-            { 
+               )
+            {
                 monster.stealableLootDefinition = pickpocketableLootUndead;
             }
         }
-
     }
 }

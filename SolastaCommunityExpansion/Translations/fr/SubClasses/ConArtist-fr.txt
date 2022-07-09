@@ -1,0 +1,14 @@
+Feature/&AbilityAffinityRogueConArtistDescription=Avantage aux tests de capacité utilisant Persuasion, Tromperie, Performance et Tour de passe-passe.
+Feature/&AbilityAffinityRogueConArtistTitle=Manipulateur
+Feature/&CastSpellConArtistDescription=Lancez des sorts de magicien et des sorts mineurs des écoles de conjuration, d'enchantement, d'illusion et de transmutation. L'escroc utilise le charisme pour lancer ses sorts.
+Feature/&CastSpellConArtistTitle=Lancer des sorts
+Feature/&MagicAffinityRoguishConArtistDCDescription=Votre DD de sauvegarde de sorts augmente de {0}.
+Feature/&MagicAffinityRoguishConArtistDCTitle=Manipulation améliorée
+Feature/&RogueConArtistFeintConditionDescription=Être trompé confère un avantage à la prochaine attaque.
+Feature/&RogueConArtistFeintConditionTitle=dupé
+Feature/&RoguishConArtistFeintDescription=Gagnez la capacité de feinter au combat en tant qu'action bonus. Si la cible échoue à son jet de sauvegarde, cela confère un avantage lors de la prochaine attaque contre la cible.
+Feature/&RoguishConArtistFeintTitle=Feinte
+Feature/&RoguishConArtistMentalSavingThrowsDescription=Vous maîtrisez les jets de sauvegarde de Sagesse et de Charisme.
+Feature/&RoguishConArtistMentalSavingThrowsTitle=Force mentale
+Subclass/&RoguishConArtistDescription=Les escrocs sont des voleurs qui se spécialisent dans la tromperie et la tromperie des autres. Ils utilisent la magie pour aider leurs capacités de manipulation naturelles.
+Subclass/&RoguishConArtistTitle=escroc

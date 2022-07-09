@@ -7,29 +7,23 @@
 #
 
 import argparse
+import os
 import re
 import sys
 from deep_translator import GoogleTranslator
 
-OUTPUT_FOLDER = "Translations-"
 CHARS_MAX = 4500
 SEPARATOR = "\x0D"
 
 def parse_command_line():
     my_parser = argparse.ArgumentParser(description='Translates Solasta game terms')
-    my_parser.add_argument('input_file',
+    my_parser.add_argument('input_folder',
                         type=str,
-                        help='input file')
-    my_parser.add_argument('output_file',
-                        type=str,
-                        help='output file')
+                        help='input folder')
     my_parser.add_argument('-c', '--code',
                         type=str,
                         required=True,
                         help='language code')
-    my_parser.add_argument('-d', '--dict',
-                        type=str,
-                        help='dictionary file')
 
     return my_parser.parse_args()
 
@@ -86,17 +80,16 @@ def translate_text(text, code):
 
 
 # kiddos: this is ugly ;-)
-r0 = re.compile(r"<# ([A-F0-9]*?)>")
-r1 = re.compile(r"<#([A-F0-9]*?)> (.*?) </color>")
 r2 = re.compile(r"<i> (.*?) </i>")
 r3 = re.compile(r"<b> (.*?) </b>")
+r4 = re.compile(r"< (.*?)>")
+r5 = re.compile(r"<(.*?) >")
 
 def fix_translated_format(text):
-    text = r0.sub(r"<#\1>", text)
-    text = r1.sub(r"<#\1>\2</color>", text)
     text = r2.sub(r"<i>\1</i>", text)
     text = r3.sub(r"<b>\1</b>", text) 
-
+    text = r4.sub(r"<\1>", text)
+    text = r5.sub(r"<\1>", text) 
     return text
 
 
@@ -104,17 +97,27 @@ def translate_file(input_file, output_file, code):
     with open(output_file, "wt", encoding="utf-8") as f:
 
         for term, text in get_records(input_file):
+            if len(text) > 4500:
+                continue
             translated = translate_text(text, code)
             fixed = fix_translated_format(translated)
             f.write(f"{term}={fixed}\n")
 
 
+def translate_folder(root_folder_name, folder_name, code):
+    root_output_name = code if code != "pt" else "pt-BR"
+    os.mkdir(folder_name.replace(root_folder_name, root_output_name))
+    for filename in os.listdir(folder_name):
+        input_file = os.path.join(folder_name, filename)
+        if os.path.isfile(input_file):
+            output_file = f"{root_output_name}\\{input_file[3:-7]}-{root_output_name}.txt"
+            translate_file(input_file, output_file, code)
+        else:
+            translate_folder(root_folder_name, input_file, code)
+
 def main():
     args = parse_command_line()
-    translate_file(
-        args.input_file,
-        args.output_file,
-        args.code)
+    translate_folder(args.input_folder, args.input_folder, args.code)
 
 if __name__ == "__main__":
     main()

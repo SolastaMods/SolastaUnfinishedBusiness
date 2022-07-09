@@ -89,6 +89,11 @@ public static class Translations
 
     internal static string Translate([NotNull] string sourceText, string targetCode)
     {
+        if (sourceText == string.Empty)
+        {
+            return string.Empty;
+        }
+
         var md5 = GetMd5Hash(sourceText);
 
         if (TranslationsCache.TryGetValue(md5, out var cachedTranslation))
@@ -132,18 +137,17 @@ public static class Translations
     }
 
     [ItemCanBeNull]
-    #if DEBUG
+#if DEBUG
     internal
-    #else
+#else
     private
-    #endif
-    static IEnumerable<string> GetTranslations(string languageCode)
+#endif
+        static IEnumerable<string> GetTranslations(string languageCode)
     {
         using var zipStream = new MemoryStream(Resources.Translations);
         using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
         foreach (var entry in zip.Entries
-                     .Where(x => x.FullName.StartsWith(languageCode))
                      .Where(x => x.FullName.EndsWith($"{languageCode}.txt")))
         {
             using var dataStream = entry.Open();

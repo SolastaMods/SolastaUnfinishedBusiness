@@ -9,8 +9,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&RoguishConArtistMentalSavingThrowsTitle",
-    "description": "Subclass/&RoguishConArtistMentalSavingThrowsDescription",
+    "title": "Feature/&RoguishConArtistMentalSavingThrowsTitle",
+    "description": "Feature/&RoguishConArtistMentalSavingThrowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

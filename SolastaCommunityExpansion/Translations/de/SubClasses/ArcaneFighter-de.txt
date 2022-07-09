@@ -1,0 +1,16 @@
+Feature/&ArcaneFighterAdditionalActionDescription=Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
+Feature/&ArcaneFighterAdditionalActionTitle=Zauberkampf
+Feature/&ArcaneFighterBonusWeaponDamageDescription=Einmal pro Runde verursachen deine Waffenangriffe 1W8 zusätzlichen Schaden.
+Feature/&ArcaneFighterBonusWeaponDamageTitle=Magisch angetriebene Angriffe
+Feature/&AttackModifierMeleeWizardArcaneWeaponDescription=Wenn eine Waffe aktiv ist, zählen ihre Angriffe als magisch und Sie verwenden Ihre Intelligenz für Ihre Angriffs- und Schadenswürfe.
+Feature/&AttackModifierMeleeWizardArcaneWeaponTitle=Arkane Waffe
+Feature/&AttributeModifierMeleeWizardExtraAttackDescription=Du erhältst einen zusätzlichen Angriff.
+Feature/&AttributeModifierMeleeWizardExtraAttackTitle=Extra-Angriff
+Feature/&MagicAffinityMeleeWizardConcentrationDescription=Verschaffen Sie sich aufgrund der Erfahrung im Chaos des Kampfes einen Vorteil bei Konzentrationswürfen.
+Feature/&MagicAffinityMeleeWizardConcentrationTitle=Verbesserte Konzentration
+Feature/&ProficiencyWeaponArcaneFighterDescription=Die Erfahrung im Kampf hat dem Arcane Fighter eine Ausbildung in einfachen und Kampfwaffen gegeben.
+Feature/&ProficiencyWeaponArcaneFighterTitle=Waffentraining
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Zusätzlicher Schaden durch magisch angetriebene Angriffe
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Zusätzlicher Schaden durch magisch angetriebene Angriffe
+Subclass/&TraditionArcaneFighterDescription=Kanalisieren Sie Ihre Magie in Waffenangriffe.
+Subclass/&TraditionArcaneFighterTitle=Arkaner Kämpfer

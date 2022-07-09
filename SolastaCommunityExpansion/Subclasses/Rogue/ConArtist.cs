@@ -13,6 +13,8 @@ internal sealed class ConArtist : AbstractSubclass
     private static readonly Guid SubclassNamespace = new("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
 
     private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
+
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal ConArtist()
@@ -20,7 +22,7 @@ internal sealed class ConArtist : AbstractSubclass
         // Make Con Artist subclass
         var abilityAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityAffinityRogueConArtist", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
                 RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, RuleDefinitions.DieType.D8, 0,
                 (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
@@ -31,7 +33,7 @@ internal sealed class ConArtist : AbstractSubclass
 
         var spellCasting = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellConArtist", SubclassNamespace)
-            .SetGuiPresentation("RoguishConArtistSpellcasting", Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .SetSpellList(SpellListDefinitions.SpellListWizard)
@@ -56,7 +58,7 @@ internal sealed class ConArtist : AbstractSubclass
 
         var condition = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "RogueConArtistFeintCondition", SubclassNamespace)
-            .SetGuiPresentation("RoguishConArtistFeintCondition", Category.Subclass,
+            .SetGuiPresentation(Category.Feature,
                 ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
             .SetAdditionalDamageData(RuleDefinitions.DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
@@ -72,7 +74,7 @@ internal sealed class ConArtist : AbstractSubclass
 
         var feint = FeatureDefinitionPowerBuilder
             .Create("RoguishConArtistFeint", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .Configure(
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
@@ -81,7 +83,7 @@ internal sealed class ConArtist : AbstractSubclass
 
         var proficiency = FeatureDefinitionProficiencyBuilder
             .Create("RoguishConArtistMentalSavingThrows", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Wisdom)
             .AddToDB();
@@ -119,9 +121,10 @@ internal sealed class ConArtist : AbstractSubclass
     [NotNull]
     private static GuiPresentationBuilder GetSpellDcPresentation()
     {
-        return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDCTitle",
-            "Subclass/&MagicAffinityRoguishConArtistDC" +
-            Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description");
+        return new GuiPresentationBuilder(
+            "Feature/&MagicAffinityRoguishConArtistDCTitle",
+            Gui.Format("Feature/&MagicAffinityRoguishConArtistDCDescription",
+                Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc.ToString()));
     }
 
     internal static void UpdateSpellDcBoost()

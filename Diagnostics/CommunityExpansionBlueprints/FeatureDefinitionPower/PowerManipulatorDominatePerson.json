@@ -302,8 +302,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&PowerManipulatorDominatePersonTitle",
-    "description": "Subclass/&PowerManipulatorDominatePersonDescription",
+    "title": "Power/&PowerManipulatorDominatePersonTitle",
+    "description": "Power/&PowerManipulatorDominatePersonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "99a1671811467f54fb597e307e6d0a47",

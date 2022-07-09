@@ -1,0 +1,12 @@
+Feat/&FeatMediumArmorDexDescription=Augmentez votre dextérité de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise de l'armure moyenne et des boucliers.
+Feat/&FeatMediumArmorDexTitle=Armure moyenne (Dextérité)
+Feat/&FeatMediumArmorProficiencyDescription=Vous maîtrisez les armures et les boucliers moyens.
+Feat/&FeatMediumArmorProficiencyTitle=Armure moyenne
+Feat/&FeatMediumArmorStrengthDescription=Augmentez votre Force de 1, jusqu'à un maximum de 20.\nVous maîtrisez les armures et les boucliers moyens.
+Feat/&FeatMediumArmorStrengthTitle=Armure moyenne (Force)
+Feat/&FeatLightArmorDescription=Augmentez votre Force de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise des armures légères.
+Feat/&FeatLightArmorProficiencyDescription=Maîtriser l'armure légère.
+Feat/&FeatLightArmorProficiencyTitle=Armure légère
+Feat/&FeatLightArmorTitle=Armure légère
+Feat/&FeatHeavyArmorMasterClassDescription=Vous gagnez en résistance aux dégâts contondants, tranchants et perforants.
+Feat/&FeatHeavyArmorMasterClassTitle=Maîtrise de la défense lourde

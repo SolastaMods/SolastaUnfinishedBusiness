@@ -106,6 +106,15 @@ internal static class ToolsDisplay
         }
 
         UI.Label("");
+
+        intValue = Main.Settings.ScaleGameFontSizeBy;
+        if (UI.Slider(Gui.Localize("ModUi/&ScaleGameFontSizeBy"), ref intValue, 80, 120, 100, "",
+                UI.Width(100)))
+        {
+            Main.Settings.ScaleGameFontSizeBy = intValue;
+        }
+
+        UI.Label("");
         UI.Label(Gui.Localize("ModUi/&Adventure"));
         UI.Label("");
 
@@ -190,14 +199,7 @@ internal static class ToolsDisplay
 
                 var title = faction.FormatTitle();
 
-                if (flip)
-                {
-                    title = title.Yellow();
-                }
-                else
-                {
-                    title = title.White();
-                }
+                title = flip ? title.Yellow() : title.White();
 
                 intValue = gameFactionService.FactionRelations[faction.Name];
 

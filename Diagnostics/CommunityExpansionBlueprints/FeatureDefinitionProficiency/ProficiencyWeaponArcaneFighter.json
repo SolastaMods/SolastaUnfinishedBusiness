@@ -9,8 +9,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&WeaponProfArcaneFighterTitle",
-    "description": "Subclass/&WeaponProfArcaneFighterDescription",
+    "title": "Feature/&ProficiencyWeaponArcaneFighterTitle",
+    "description": "Feature/&ProficiencyWeaponArcaneFighterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

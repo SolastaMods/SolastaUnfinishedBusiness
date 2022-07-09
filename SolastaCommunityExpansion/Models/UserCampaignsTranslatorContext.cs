@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Utils;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models;
 
-internal class UserCampaignsTranslatorContext : MonoBehaviour
+internal sealed class UserCampaignsTranslatorContext : MonoBehaviour
 {
-    internal static string CE2_TRANSLATION_TAG = "CE2 auto translation\n";
+    internal const string Ce2TranslationTag = "CE2 auto translation\n";
 
     private static UserCampaignsTranslatorContext _exporter;
 
     internal static readonly Dictionary<string, ExportStatus> CurrentExports = new();
 
+    [NotNull]
     private static UserCampaignsTranslatorContext Exporter
     {
         get
@@ -32,7 +34,7 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
         }
     }
 
-    internal static void Cancel(string exportName)
+    internal static void Cancel([NotNull] string exportName)
     {
         if (!CurrentExports.ContainsKey(exportName) || CurrentExports[exportName].Coroutine == null)
         {
@@ -43,7 +45,8 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
         CurrentExports.Remove(exportName);
     }
 
-    internal static void TranslateUserCampaign(string languageCode, string exportName, UserCampaign userCampaign)
+    internal static void TranslateUserCampaign(string languageCode, [NotNull] string exportName,
+        [NotNull] UserCampaign userCampaign)
     {
         var newUserCampaign = userCampaign.DeepCopy();
 
@@ -61,7 +64,7 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
             });
     }
 
-    private static IEnumerator TranslateUserCampaignRoutine(string languageCode, string exportName,
+    private static IEnumerator TranslateUserCampaignRoutine(string languageCode, [NotNull] string exportName,
         UserCampaign userCampaign)
     {
         yield return null;
@@ -94,12 +97,13 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
         }
 
         userCampaign.Description = Translations.Translate(userCampaign.Description, languageCode);
-        userCampaign.TechnicalInfo = CE2_TRANSLATION_TAG
+        userCampaign.TechnicalInfo = Ce2TranslationTag
                                      + Translations.Translate(userCampaign.TechnicalInfo, languageCode);
 
         // USER DIALOGS
         foreach (var dialog in userCampaign.UserDialogs)
         {
+            dialog.Title = Translations.Translate(dialog.Title, languageCode);
             dialog.Description = Translations.Translate(dialog.Description, languageCode);
 
             foreach (var userDialogState in dialog.AllDialogStates
@@ -128,10 +132,8 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
                 continue;
             }
 
-            var newDocumentFragment = item.DocumentFragments
+            item.DocumentFragments = item.DocumentFragments
                 .Select(documentFragment => Translations.Translate(documentFragment, languageCode)).ToList();
-
-            item.DocumentFragments = newDocumentFragment;
         }
 
         // USER LOCATIONS
@@ -146,24 +148,29 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
 
                 foreach (var parameterValue in gadget.ParameterValues)
                 {
-                    if (parameterValue.GadgetParameterDescription.Type != GadgetBlueprintDefinitions.Type.Npc &&
-                        parameterValue.GadgetParameterDescription.Type != GadgetBlueprintDefinitions.Type.Quest &&
-                        parameterValue.GadgetParameterDescription.Type != GadgetBlueprintDefinitions.Type.Speech &&
-                        parameterValue.GadgetParameterDescription.Type != GadgetBlueprintDefinitions.Type.SpeechList &&
-                        parameterValue.GadgetParameterDescription.Type != GadgetBlueprintDefinitions.Type.LoreFormat)
+                    switch (parameterValue.GadgetParameterDescription.Name)
                     {
-                        continue;
-                    }
+                        case "Speech":
+                        case "Banter":
+                        case "BanterLines":
+                        case "DestinationLocation":
+                        case "ExitLore":
+                        case "WaypointTitle":
+                            parameterValue.StringValue =
+                                Translations.Translate(parameterValue.StringValue, languageCode);
+                            parameterValue.StringsList = parameterValue.StringsList
+                                .Select(stringValue => Translations.Translate(stringValue, languageCode)).ToList();
 
-                    var newStringsList = parameterValue.StringsList
-                        .Select(stringValue => Translations.Translate(stringValue, languageCode)).ToList();
+                            break;
 
-                    parameterValue.StringsList = newStringsList;
+                        case "LocationsList":
+                            foreach (var destination in parameterValue.DestinationsList)
+                            {
+                                destination.DisplayedTitle =
+                                    Translations.Translate(destination.UserLocationName, languageCode);
+                            }
 
-                    if (parameterValue.StringValue != string.Empty)
-                    {
-                        parameterValue.StringValue =
-                            Translations.Translate(parameterValue.StringValue, languageCode);
+                            break;
                     }
                 }
             }

@@ -3,7 +3,6 @@ using HarmonyLib;
 using I2.Loc;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
-using SolastaMonsters.Models;
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -120,9 +119,6 @@ internal static class GameManager_BindPostDatabase
 
             // Classes Features Sorting
             ClassesContext.LateLoad();
-
-            // Load Monsters last to ensure it leverages all mod blueprints
-            MonsterContext.LateLoad();
 
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();

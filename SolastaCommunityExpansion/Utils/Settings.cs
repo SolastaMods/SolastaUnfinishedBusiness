@@ -217,8 +217,9 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
     public List<string> defaultPartyHeroes = new();
     public bool NoExperienceOnLevelUp { get; set; }
-    public int OverridePartySize { get; set; } = DungeonMakerContext.GAME_PARTY_SIZE;
+    public int ScaleGameFontSizeBy { get; set; } = 100;
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
+    public int OverridePartySize { get; set; } = DungeonMakerContext.GAME_PARTY_SIZE;
     public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
     // Debug
@@ -240,11 +241,6 @@ public class Settings : UnityModManager.ModSettings
     public bool UnleashNpcAsEnemy { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }
     public bool EnableDungeonMakerModdedContent { get; set; }
-#if DEBUG
-    public bool EnableExtraHighLevelMonsters { get; set; } = true; // simplifies diags. creation (one less boot)
-#else
-    public bool EnableExtraHighLevelMonsters { get; set; }
-#endif
 
     //
     // Interface - Game UI

@@ -1,0 +1,6 @@
+﻿Race/&HalfElfDarkElfRaceDescription=Los elfos medio oscuros son descendientes de elfos que han cambiado con el tiempo al vivir en las inhóspitas Badlands. Su herencia humana los hizo adaptables a la luz brillante.
+Race/&HalfElfDarkElfRaceTitle=Elfo semioscuro
+Race/&HalfElfHighElfRaceDescription=Los elfos medio-altos están entrenados para usar la magia desde muy temprano.
+Race/&HalfElfHighElfRaceTitle=Elfo medio alto
+Race/&HalfElfSylvanElfRaceDescription=Los elfos medio silvanos están entrenados para sobrevivir en la naturaleza y son particularmente aptos para sobrevivir. Como herencia de los elfos silvanos, están entrenados para luchar con espadas y arcos desde la infancia.
+Race/&HalfElfSylvanElfRaceTitle=Elfo medio selvático

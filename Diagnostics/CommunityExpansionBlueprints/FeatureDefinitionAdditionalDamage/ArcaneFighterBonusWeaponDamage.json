@@ -38,8 +38,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ArcaneFighterBonusWeaponDamageTitle",
-    "description": "Subclass/&ArcaneFighterBonusWeaponDamageDescription",
+    "title": "Feature/&ArcaneFighterBonusWeaponDamageTitle",
+    "description": "Feature/&ArcaneFighterBonusWeaponDamageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

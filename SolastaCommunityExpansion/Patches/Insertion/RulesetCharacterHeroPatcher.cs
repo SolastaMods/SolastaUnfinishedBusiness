@@ -11,7 +11,7 @@ internal static class RulesetCharacterHeroPatcher
     internal static class AcknowledgeAttackUse
     {
         // ReSharper disable once RedundantAssignment
-        internal static void Prefix(RulesetCharacterHero __instance, 
+        internal static void Prefix(RulesetCharacterHero __instance,
             RulesetAttackMode mode)
         {
             CustomWeaponsContext.ProcessProducedFlameAttack(__instance, mode);

@@ -121,8 +121,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&FighterMarshalEncouragementPowerTitle",
-    "description": "Subclass/&FighterMarshalEncouragementPowerDescription",
+    "title": "Power/&FighterMarshalEncouragementPowerTitle",
+    "description": "Power/&FighterMarshalEncouragementPowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",

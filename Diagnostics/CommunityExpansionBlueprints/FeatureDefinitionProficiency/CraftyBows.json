@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feats/&CraftyBowsTitle",
-    "description": "Feats/&CraftyBowsDescription",
+    "title": "Feat/&CraftyBowsTitle",
+    "description": "Feat/&CraftyBowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
