@@ -1,7 +1,5 @@
 Condition/&ConditionMarkedByArcanistDescription=受到奥能印记影响。当施法者用武器攻击击中拥有奥能印记的生物时，印记会被引爆，造成1d6点力场伤害并摧毁印记
 Condition/&ConditionMarkedByArcanistTitle=奥能印记
-Equipment/&ArcaneStaffDescription=此杖刻有魔法文字，可作为奥术施法的媒触
-Equipment/&ArcaneStaffTitle=奥术法杖
 Feature/&ArcaneDetonationDescription=当你用武器攻击击中拥有你奥能印记的生物时，印记会被引爆，造成1d6点力场伤害并摧毁印记
 Feature/&ArcaneDetonationTitle=奥能引爆
 Feature/&ArcaneDetonationUpgradeDescription=从11级开始，你的奥能引爆的伤害增加到2d6

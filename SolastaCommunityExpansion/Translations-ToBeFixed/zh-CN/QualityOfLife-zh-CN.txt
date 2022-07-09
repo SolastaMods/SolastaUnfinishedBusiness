@@ -16,7 +16,7 @@ Message/&CharacterExportModalContentDescription=输入要导出的角色名称�
 Message/&CharacterExportModalTitleDescription=角色导出
 Message/&LevelDownConfirmationDescription=是否降级此角色？
 Message/&LevelDownMultiplayerAbortDescription=无法在多人游戏中降级角色
-Message/&MessageModWelcomeDescription=社区扩展包引入了大量令人惊喜的功能，但是默认未启用。点击<color=yellow>Ctrl-F10</color>打开Unity Mod=Manager的操作界面[UMM]，然后点击“社区扩展包”旁边的设置图标，打开设置页面\n\n探索这些选项并选择你喜欢的。UMM操作界面将开启
+Message/&MessageModWelcomeDescription=社区扩展包引入了大量令人惊喜的功能，但是默认未启用。点击<color=#F0DAA0>Ctrl-F10</color>打开Unity Mod=Manager的操作界面[UMM]，然后点击“社区扩展包”旁边的设置图标，打开设置页面\n\n探索这些选项并选择你喜欢的。UMM操作界面将开启
 Message/&MessageModWelcomeTitle=社区扩展包
 Message/&RespecMultiplayerAbortDescription=无法在多人游戏或冒险地图中重置角色
 Message/&SpawnCustomEncounterDescription=在坐标({0},={1})处制造一场遭遇战？
