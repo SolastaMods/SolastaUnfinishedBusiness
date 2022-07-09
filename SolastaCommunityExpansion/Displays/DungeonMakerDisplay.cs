@@ -70,12 +70,12 @@ internal static class DungeonMakerDisplay
         UI.Label("");
         UI.Label("");
 
-        toggle = Main.Settings.EnableExtraHighLevelMonsters;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableExtraHighLevelMonsters"), ref toggle))
-        {
-            Main.Settings.EnableExtraHighLevelMonsters = toggle;
-        }
+        // toggle = Main.Settings.EnableExtraHighLevelMonsters;
+        // if (UI.Toggle(Gui.Localize("ModUi/&EnableExtraHighLevelMonsters"), ref toggle))
+        // {
+        //     Main.Settings.EnableExtraHighLevelMonsters = toggle;
+        // }
 
-        UI.Label("");
+        // UI.Label("");
     }
 }
