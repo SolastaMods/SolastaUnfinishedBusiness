@@ -1012,7 +1012,7 @@ public static class Monk
         public void OnChracterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var character = locationCharacter.RulesetCharacter;
-            
+
             ForbidClimbing(character);
             LoseClimbing(character);
         }
@@ -1020,7 +1020,7 @@ public static class Monk
         public void OnChracterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var character = locationCharacter.RulesetCharacter;
-            
+
             AllowClimbing(character);
             TryBecomeClimbing(character);
         }
@@ -1033,7 +1033,7 @@ public static class Monk
             }
 
             var character = characterAction.ActingCharacter.RulesetCharacter;
-            
+
             ForbidClimbing(character);
             LoseClimbing(character);
         }
@@ -1041,7 +1041,7 @@ public static class Monk
         public void OnAfterAction(CharacterAction characterAction)
         {
             var character = characterAction.ActingCharacter.RulesetCharacter;
-            
+
             AllowClimbing(character);
             TryBecomeClimbing(character);
         }
@@ -1065,7 +1065,6 @@ public static class Monk
 
             LoseClimbing(character);
             return false;
-
         }
 
         private static void TryBecomeClimbing(RulesetCharacter character)
@@ -1152,7 +1151,7 @@ public static class Monk
             RulesetAttackMode attackerAttackMode)
         {
             var character = attacker.RulesetCharacter;
-            
+
             if (character == null)
             {
                 return;

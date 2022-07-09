@@ -13,6 +13,7 @@ internal sealed class ConArtist : AbstractSubclass
     private static readonly Guid SubclassNamespace = new("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
 
     private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
+
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
@@ -57,7 +58,8 @@ internal sealed class ConArtist : AbstractSubclass
 
         var condition = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "RogueConArtistFeintCondition", SubclassNamespace)
-            .SetGuiPresentation(Category.Feature, ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature,
+                ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
             .SetAdditionalDamageData(RuleDefinitions.DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
             .AddToDB();

@@ -1,6 +1,5 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -23,6 +22,7 @@ internal sealed class Arcanist : AbstractSubclass
     private static readonly Guid RaBaseGuid = new(RangerArcanistRangerSubclassGuid);
 
     private static ConditionDefinition _markedByArcanist;
+
     // ReSharper disable once InconsistentNaming
     private CharacterSubclassDefinition Subclass;
 
