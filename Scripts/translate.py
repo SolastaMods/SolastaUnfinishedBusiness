@@ -99,6 +99,8 @@ def translate_file(input_file, output_file, code):
     with open(output_file, "wt", encoding="utf-8") as f:
 
         for term, text in get_records(input_file):
+            if len(text) > 4500:
+                continue
             translated = translate_text(text, code)
             fixed = fix_translated_format(translated)
             f.write(f"{term}={fixed}\n")

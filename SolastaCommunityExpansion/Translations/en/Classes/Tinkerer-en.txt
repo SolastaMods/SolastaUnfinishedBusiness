@@ -335,3 +335,5 @@ Subclass/&TinkererMagicalTinkeringTitle=Magical Tinkering
 Subclass/&WeaponProfArtificerBattleSmithDescription=Experience in combat has given the Weapon Smith training in Martial Weapons.
 Subclass/&WeaponProfArtificerBattleSmithTitle=Weapon Training
 Tooltip/&TagScoutSentinelWeaponTitle=Scout Sentinel
+Feat/&IncreaseConstructSelectingDescription=You can now summon two Artillery Constructs. The constructs can be of the same or different modes.
+Feat/&IncreaseConstructSelectingTitle=Reinforcements
