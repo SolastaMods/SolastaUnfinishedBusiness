@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feats/&ToxicologistWisFeatTitle",
-    "description": "Feats/&ToxicologistWisFeatDescription",
+    "title": "Feat/&ToxicologistWisTitle",
+    "description": "Feat/&ToxicologistWisDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

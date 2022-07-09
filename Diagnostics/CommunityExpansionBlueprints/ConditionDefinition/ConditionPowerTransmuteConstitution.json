@@ -118,8 +118,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ConditionTransmuteConstitutionSaveTitle",
-    "description": "Subclass/&ConditionTransmuteConstitutionSaveDescription",
+    "title": "Condition/&ConditionPowerTransmuteConstitutionTitle",
+    "description": "Condition/&ConditionPowerTransmuteConstitutionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e058de2206b3f74881faf121820130b",

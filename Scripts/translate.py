@@ -7,6 +7,7 @@
 #
 
 import argparse
+import os
 import re
 import sys
 from deep_translator import GoogleTranslator
@@ -17,19 +18,13 @@ SEPARATOR = "\x0D"
 
 def parse_command_line():
     my_parser = argparse.ArgumentParser(description='Translates Solasta game terms')
-    my_parser.add_argument('input_file',
+    my_parser.add_argument('input_folder',
                         type=str,
-                        help='input file')
-    my_parser.add_argument('output_file',
-                        type=str,
-                        help='output file')
+                        help='input folder')
     my_parser.add_argument('-c', '--code',
                         type=str,
                         required=True,
                         help='language code')
-    my_parser.add_argument('-d', '--dict',
-                        type=str,
-                        help='dictionary file')
 
     return my_parser.parse_args()
 
@@ -109,12 +104,19 @@ def translate_file(input_file, output_file, code):
             f.write(f"{term}={fixed}\n")
 
 
+def translate_folder(folder_name, code):
+    os.mkdir(folder_name.replace("en", code))
+    for filename in os.listdir(folder_name):
+        input_file = os.path.join(folder_name, filename)
+        if os.path.isfile(input_file):
+            output_file = f"{code}\\{input_file[3:-7]}-{code}.txt"
+            translate_file(input_file, output_file, code)
+        else:
+            translate_folder(input_file, code)
+
 def main():
     args = parse_command_line()
-    translate_file(
-        args.input_file,
-        args.output_file,
-        args.code)
+    translate_folder(args.input_folder, args.code)
 
 if __name__ == "__main__":
     main()

@@ -1,11 +1,1 @@
-ApothecaryInt	Title='CraftyFeats/&ApothecaryIntFeatTitle'.
-ApothecaryInt	Description='CraftyFeats/&ApothecaryIntFeatDescription'.
-ApothecaryWis	Title='CraftyFeats/&ApothecaryWisFeatTitle'.
-ApothecaryWis	Description='CraftyFeats/&ApothecaryWisFeatDescription'.
-AttributeModifierFeatCraftyDex	Title='CraftyFeats/&AttributeDexTitle'.
-AttributeModifierFeatCraftyDex	Description='CraftyFeats/&AttributeDexDescription'.
-AttributeModifierFeatCraftyInt	Title='CraftyFeats/&AttributeIntTitle'.
-AttributeModifierFeatCraftyInt	Description='CraftyFeats/&AttributeIntDescription'.
-AttributeModifierFeatCraftyWis	Title='CraftyFeats/&AttributeWisTitle'.
-AttributeModifierFeatCraftyWis	Description='CraftyFeats/&AttributeWisDescription'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.

@@ -11,6 +11,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard;
 internal sealed class MasterManipulator : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("af7255d2-8ce2-4398-8999-f1ef536001f6");
+
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal MasterManipulator()
@@ -31,19 +33,19 @@ internal sealed class MasterManipulator : AbstractSubclass
                 PhantasmalKiller, // illusion
                 DominatePerson, // Enchantment
                 HoldMonster) // Enchantment
-            .SetGuiPresentation("MagicAffinityMasterManipulatorList", Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder
             .Create("ManipulatorMentalSavingThrows", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();
 
         var powerDominate = FeatureDefinitionPowerBuilder
             .Create("PowerManipulatorDominatePerson", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass, DominatePerson.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Power, DominatePerson.GuiPresentation.SpriteReference)
             .Configure(0,
                 RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
                 AttributeDefinitions.Intelligence,
@@ -76,9 +78,9 @@ internal sealed class MasterManipulator : AbstractSubclass
     [NotNull]
     private static GuiPresentationBuilder GetSpellDcPresentation()
     {
-        return new GuiPresentationBuilder("Subclass/&MagicAffinityMasterManipulatorDCTitle",
-            "Subclass/&MagicAffinityMasterManipulatorDC" +
-            Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc + "Description");
+        return new GuiPresentationBuilder("Feature/&MagicAffinityMasterManipulatorDCTitle",
+            Gui.Format("Feature/&MagicAffinityMasterManipulatorDCDescription",
+                Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc.ToString()));
     }
 
     internal static void UpdateSpellDcBoost()

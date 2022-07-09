@@ -13,6 +13,8 @@ internal sealed class ArcaneFighter : AbstractSubclass
     private static readonly Guid SubclassNamespace = new("cab151dd-cc94-4c4c-bfba-a712b9a0b53d");
 
     private static FeatureDefinitionPower _enchantWeapon;
+
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal ArcaneFighter()
@@ -21,27 +23,27 @@ internal sealed class ArcaneFighter : AbstractSubclass
 
         var weaponProf = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyWeaponArcaneFighter", SubclassNamespace)
-            .SetGuiPresentation("WeaponProfArcaneFighter", Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory,
                 EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
         var concentrationAffinity = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityMeleeWizardConcentration", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, -1)
             .AddToDB();
 
         var extraAttack = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierMeleeWizardExtraAttack", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.AttacksNumber, 1)
             .AddToDB();
 
         var bonusSpell = FeatureDefinitionAdditionalActionBuilder
             .Create("ArcaneFighterAdditionalAction", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.CastMain)
             .SetMaxAttacksNumber(-1)
@@ -59,7 +61,7 @@ internal sealed class ArcaneFighter : AbstractSubclass
                 true /* attack only */, RuleDefinitions.DieType.D8, 1 /* dice number */,
                 RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "",
                 RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -90,7 +92,7 @@ internal sealed class ArcaneFighter : AbstractSubclass
     {
         var weaponUseIntModifier = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierMeleeWizard", SubclassNamespace)
-            .SetGuiPresentation("AttackModifierMeleeWizardArcaneWeapon", Category.Subclass,
+            .SetGuiPresentation("AttackModifierMeleeWizardArcaneWeapon", Category.Feature,
                 FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
             .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
@@ -114,7 +116,7 @@ internal sealed class ArcaneFighter : AbstractSubclass
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerMeleeWizardArcaneWeapon", SubclassNamespace)
-            .SetGuiPresentation("AttackModifierMeleeWizardArcaneWeapon", Category.Subclass,
+            .SetGuiPresentation("AttackModifierMeleeWizardArcaneWeapon", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,

@@ -300,8 +300,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&PowerTransmuteElementalResistanceTitle",
-    "description": "Subclass/&PowerTransmuteElementalResistanceDescription",
+    "title": "Power/&PowerTransmuteElementalResistanceTitle",
+    "description": "Power/&PowerTransmuteElementalResistanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
