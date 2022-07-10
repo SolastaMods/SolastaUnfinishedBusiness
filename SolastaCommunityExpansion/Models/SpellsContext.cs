@@ -113,9 +113,9 @@ internal static class SpellsContext
         BazouSpells.Register();
         HolicSpells.Register();
         SrdSpells.Register();
-        EWSpells.Register();
+        EwSpells.Register();
         HouseSpellTweaks.Register();
-        SGSpells.Register();
+        SgSpells.Register();
 
         // caches which spells are toggleable per spell list
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
@@ -131,7 +131,7 @@ internal static class SpellsContext
         //BazouSpells.AddToDB();
         HolicSpells.AddToDB();
         SrdSpells.AddToDB();
-        SGSpells.AddToDB();
+        SgSpells.AddToDB();
     }
 
     internal static void RegisterSpell(

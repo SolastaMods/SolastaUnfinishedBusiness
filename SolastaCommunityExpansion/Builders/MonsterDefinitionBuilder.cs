@@ -488,13 +488,11 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
-#if false
     public MonsterDefinitionBuilder SetLegendaryActionOptions(
         params LegendaryActionDescription[] legendaryActionDescriptions)
     {
         return SetLegendaryActionOptions(legendaryActionDescriptions.AsEnumerable());
     }
-#endif
 
     public MonsterDefinitionBuilder SetLegendaryActionOptions(
         IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)

@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Spells;
 
 internal static class HolicSpells
 {
-    internal static readonly Guid HOLIC_SPELLS_BASE_GUID = new("9e55f5f8-4c71-47c2-8a55-2a2cf06d8ce5");
+    private static readonly Guid HolicSpellsBaseGuid = new("9e55f5f8-4c71-47c2-8a55-2a2cf06d8ce5");
 
     private static readonly SpellDefinition AcidClaw = BuildAcidClaw();
     private static readonly SpellDefinition AirBlast = BuildAirBlast();
@@ -46,10 +46,10 @@ internal static class HolicSpells
 
     private static SpellDefinition BuildAcidClaw()
     {
-        const string name = "AcidClaws";
+        const string NAME = "AcidClaws";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(name, Resources.AcidClaws, 128, 128);
+            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.AcidClaws, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -65,7 +65,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(name, HOLIC_SPELLS_BASE_GUID)
+            .Create(NAME, HolicSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -79,12 +79,12 @@ internal static class HolicSpells
         return spell;
     }
 
-    internal static SpellDefinition BuildAirBlast()
+    private static SpellDefinition BuildAirBlast()
     {
-        const string name = "AirBlast";
+        const string NAME = "AirBlast";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(name, Resources.AirBlast, 128, 128);
+            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.AirBlast, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -106,7 +106,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(name, HOLIC_SPELLS_BASE_GUID)
+            .Create(NAME, HolicSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -121,12 +121,12 @@ internal static class HolicSpells
         return spell;
     }
 
-    internal static SpellDefinition BuildBurstOfRadiance()
+    private static SpellDefinition BuildBurstOfRadiance()
     {
-        const string name = "BurstOfRadiance";
+        const string NAME = "BurstOfRadiance";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(name, Resources.BurstOfRadiance, 128, 128);
+            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.BurstOfRadiance, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -144,7 +144,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(name, HOLIC_SPELLS_BASE_GUID)
+            .Create(NAME, HolicSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -161,7 +161,7 @@ internal static class HolicSpells
 
     private static SpellDefinition BuildThunderStrike()
     {
-        const string name = "ThunderStrike";
+        const string NAME = "ThunderStrike";
 
         var spriteReference = Shield.GuiPresentation.SpriteReference;
 
@@ -183,7 +183,7 @@ internal static class HolicSpells
         effectDescription.SetTargetExcludeCaster(true);
 
         var spell = SpellDefinitionBuilder
-            .Create(name, HOLIC_SPELLS_BASE_GUID)
+            .Create(NAME, HolicSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -199,10 +199,10 @@ internal static class HolicSpells
 
     private static SpellDefinition BuildEarthTremor()
     {
-        const string name = "EarthTremor";
+        const string NAME = "EarthTremor";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(name, Resources.EarthTremor, 128, 128);
+            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.EarthTremor, 128, 128);
 
         //var rubbleProxy = EffectProxyDefinitionBuilder
         //    .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy", "")
@@ -236,7 +236,7 @@ internal static class HolicSpells
                 e.formType == EffectFormType.Topology));
 
         var spell = SpellDefinitionBuilder
-            .Create(name, HOLIC_SPELLS_BASE_GUID)
+            .Create(NAME, HolicSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -252,10 +252,10 @@ internal static class HolicSpells
 
     private static SpellDefinition BuildWinterBreath()
     {
-        const string name = "WinterBreath";
+        const string NAME = "WinterBreath";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(name, Resources.WinterBreath, 128, 128);
+            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.WinterBreath, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -278,7 +278,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(name, HOLIC_SPELLS_BASE_GUID)
+            .Create(NAME, HolicSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)

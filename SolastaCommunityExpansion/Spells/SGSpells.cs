@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -10,13 +11,13 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Spells;
 
-public static class SGSpells
+public static class SgSpells
 {
-    internal static readonly Guid MORWENNA_BASE_GUID = new("56f97707-9af1-4761-987a-63b84ba18d46");
+    private static readonly Guid SgBaseGuid = new("56f97707-9af1-4761-987a-63b84ba18d46");
 
-    public static readonly SpellDefinition IlluminatingSphere = BuildIlluminatingSphere();
-    public static readonly SpellDefinition RadiantMotes = BuildRadiantMotes();
-    public static readonly SpellDefinition Mule = BuildMule();
+    private static readonly SpellDefinition IlluminatingSphere = BuildIlluminatingSphere();
+    private static readonly SpellDefinition RadiantMotes = BuildRadiantMotes();
+    private static readonly SpellDefinition Mule = BuildMule();
 
     internal static void AddToDB()
     {
@@ -35,12 +36,13 @@ public static class SGSpells
         RegisterSpell(Mule, 0, SpellListWizard);
     }
 
+    [NotNull]
     private static SpellDefinition BuildIlluminatingSphere()
     {
-        const string name = "IlluminatingSphere";
+        const string NAME = "IlluminatingSphere";
 
         var spell = SpellDefinitionBuilder
-            .Create(Sparkle, name, MORWENNA_BASE_GUID)
+            .Create(Sparkle, NAME, SgBaseGuid)
             .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
             .AddToDB();
 
@@ -54,9 +56,10 @@ public static class SGSpells
         return spell;
     }
 
+    [NotNull]
     private static SpellDefinition BuildRadiantMotes()
     {
-        const string name = "RadiantMotes";
+        const string NAME = "RadiantMotes";
 
         var effectDescription = EffectDescriptionBuilder
             .Create(MagicMissile.EffectDescription)
@@ -75,7 +78,7 @@ public static class SGSpells
             .Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(MagicMissile, name, MORWENNA_BASE_GUID)
+            .Create(MagicMissile, NAME, SgBaseGuid)
             .SetGuiPresentation(Category.Spell, Sparkle.GuiPresentation.SpriteReference)
             .SetEffectDescription(effectDescription)
             .AddToDB();
@@ -88,16 +91,16 @@ public static class SGSpells
 
     private static SpellDefinition BuildMule()
     {
-        const string name = "Mule";
+        const string NAME = "Mule";
 
         var movementAffinity = FeatureDefinitionMovementAffinityBuilder
-            .Create("MovementAffinityConditionMule", MORWENNA_BASE_GUID)
+            .Create("MovementAffinityConditionMule", SgBaseGuid)
             .AddToDB();
         movementAffinity.heavyArmorImmunity = true;
         movementAffinity.encumbranceImmunity = true;
 
         var equipmentAffinity = FeatureDefinitionEquipmentAffinityBuilder
-            .Create("EquipmentAffinityConditionMule", MORWENNA_BASE_GUID)
+            .Create("EquipmentAffinityConditionMule", SgBaseGuid)
             .AddToDB();
         equipmentAffinity.additionalCarryingCapacity = 20;
 
@@ -120,7 +123,7 @@ public static class SGSpells
                     .Create()
                     .SetConditionForm(
                         ConditionDefinitionBuilder
-                            .Create("ConditionMule", MORWENNA_BASE_GUID)
+                            .Create("ConditionMule", SgBaseGuid)
                             .SetGuiPresentation(Category.Condition, Longstrider.GuiPresentation.SpriteReference)
                             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
                             .SetFeatures(movementAffinity, equipmentAffinity)
@@ -133,7 +136,7 @@ public static class SGSpells
             .Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(name, MORWENNA_BASE_GUID)
+            .Create(NAME, SgBaseGuid)
             .SetGuiPresentation(Category.Spell, Longstrider.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)

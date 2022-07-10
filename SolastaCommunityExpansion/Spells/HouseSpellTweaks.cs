@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Patches.Bugfix;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
@@ -79,7 +80,7 @@ internal static class HouseSpellTweaks
         ClearAlteredDuration(ProtectionFromEnergyThunder);
         ClearAlteredDuration(ProtectionFromPoison);
 
-        static void ClearAlteredDuration(SpellDefinition spell)
+        static void ClearAlteredDuration([NotNull] IMagicEffect spell)
         {
             spell.EffectDescription.EffectAdvancement.alteredDuration = RuleDefinitions.AdvancementDuration.None;
         }
@@ -157,9 +158,9 @@ internal static class HouseSpellTweaks
             SetHeight(Grease, 0);
         }
 
-        static void SetHeight(SpellDefinition sd, int height)
+        static void SetHeight([NotNull] IMagicEffect spellDefinition, int height)
         {
-            sd.EffectDescription.targetParameter2 = height;
+            spellDefinition.EffectDescription.targetParameter2 = height;
         }
 
         static void ClearTargetParameter2ForTargetTypeCube()
