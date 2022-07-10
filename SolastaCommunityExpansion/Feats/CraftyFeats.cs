@@ -16,27 +16,6 @@ public static class CraftyFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        var craftyInt = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierCreed_Of_Pakri, "AttributeModifierFeatCraftyInt",
-                "b23c3b73-7690-42ba-aa49-7ca3451daa05")
-            .SetGuiPresentation("AttributeInt", Category.Feat,
-                AttributeModifierCreed_Of_Pakri.GuiPresentation.SpriteReference)
-            .AddToDB();
-
-        var craftyWis = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierCreed_Of_Maraike, "AttributeModifierFeatCraftyWis",
-                "23f944c7-2359-43cc-8bdc-71833bf35302")
-            .SetGuiPresentation("AttributeWis", Category.Feat,
-                AttributeModifierCreed_Of_Maraike.GuiPresentation.SpriteReference)
-            .AddToDB();
-
-        var craftyDex = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierCreed_Of_Misaye, "AttributeModifierFeatCraftyDex",
-                "4db12466-67da-47a4-8d96-a9bf9cf3a251")
-            .SetGuiPresentation("AttributeDex", Category.Feat,
-                AttributeModifierCreed_Of_Misaye.GuiPresentation.SpriteReference)
-            .AddToDB();
-
         var craftyArcana = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "CraftyArcana", "44a54666-80ba-475c-90b1-774e86f1a69a")
             .SetGuiPresentation("Feat/&CraftySkillsTitle", "Feat/&CraftyArcanaDescription")
@@ -104,43 +83,43 @@ public static class CraftyFeats
         var apothecaryIntFeat = FeatDefinitionBuilder
             .Create(ArmorMaster, "ApothecaryInt", "ef387249-45e0-4899-aadd-44810f8aeb6d")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(craftyInt, craftyHerbalismKit, craftyArcana)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, craftyHerbalismKit, craftyArcana)
             .AddToDB();
 
         var apothecaryWisFeat = FeatDefinitionBuilder
             .Create(ArmorMaster, "ApothecaryWis", "4fd80bf9-7749-4c01-9d95-6eb56c644fe2")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(craftyWis, craftyHerbalismKit, craftyMedicine)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, craftyHerbalismKit, craftyMedicine)
             .AddToDB();
 
         var manacalonCrafter = FeatDefinitionBuilder
             .Create(MasterEnchanter, "ManacalonCrafter", "290f73c8-201c-489e-bdcb-7a39ab40915c")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(craftyInt, craftyManacalonRosary, craftyArcana)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, craftyManacalonRosary, craftyArcana)
             .AddToDB();
 
         var toxicologistInt = FeatDefinitionBuilder
             .Create(ArmorMaster, "ToxicologistInt", "702d1b4d-953c-406d-a900-d5d376ed29d3")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(craftyInt, craftyPoisonersKit, craftyNature)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, craftyPoisonersKit, craftyNature)
             .AddToDB();
 
         var toxicologistWis = FeatDefinitionBuilder
             .Create(ArmorMaster, "ToxicologistWis", "1bb4acbd-1890-48ae-9f86-46c2cb95cb79")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(craftyWis, craftyPoisonersKit, craftyMedicine)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, craftyPoisonersKit, craftyMedicine)
             .AddToDB();
 
         var craftyScribe = FeatDefinitionBuilder
             .Create(MasterEnchanter, "CraftyScribe", "bd83e063-2751-4898-8070-f74ca925f8b5")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(craftyInt, craftyScrollKit, craftyArcana)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, craftyScrollKit, craftyArcana)
             .AddToDB();
 
         var craftyFletcher = FeatDefinitionBuilder
             .Create(ArmorMaster, "CraftyFletcher", "67c5f2d2-a98c-49a1-a1ab-16cc8f4b4ba4")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(craftyDex, craftySmithsTools, craftyBows)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, craftySmithsTools, craftyBows)
             .AddToDB();
 
         feats.AddRange(apothecaryIntFeat, apothecaryWisFeat, manacalonCrafter, toxicologistInt, toxicologistWis,

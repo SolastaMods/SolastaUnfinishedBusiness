@@ -2,12 +2,6 @@
 Feat/&ApothecaryIntTitle=Boticário (Inteligência)
 Feat/&ApothecaryWisDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de herbalismo e Arcana, ou perícia se já for proficiente.
 Feat/&ApothecaryWisTitle=Boticário (Sabedoria)
-Feat/&AttributeDexDescription=+1 DES até um máximo de 20
-Feat/&AttributeDexTitle=Destreza
-Feat/&AttributeIntDescription=+1 INT até um máximo de 20
-Feat/&AttributeIntTitle=Inteligência
-Feat/&AttributeWisDescription=+1 WIS até um máximo de 20
-Feat/&AttributeWisTitle=Sabedoria
 Feat/&CraftyArcanaDescription=Você ganha proficiência/experiência em Arcana.
 Feat/&CraftyBowsDescription=Você ganha proficiência com todos os arcos e bestas.
 Feat/&CraftyBowsTitle=Proficiência em Arco
