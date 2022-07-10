@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
+using JetBrains.Annotations;
 using ModKit;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
@@ -13,23 +14,20 @@ internal static class PatchesDisplay
     private static Dictionary<string, string> _modIdsToColor;
     private static string _modID;
     private static Dictionary<MethodBase, List<Patch>> _patches;
-    private static readonly Dictionary<MethodBase, List<Patch>> _disabled = new();
+    private static readonly Dictionary<MethodBase, List<Patch>> Disabled = new();
     private static GUIStyle _buttonStyle;
-    private static bool firstTime = true;
-    private static string searchText = "";
+    private static bool _firstTime = true;
+    private static string _searchText = "";
 
     internal static void DisplayPatches()
     {
-        if (_buttonStyle == null)
-        {
-            _buttonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
-        }
+        _buttonStyle ??= new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
 
-        if (firstTime)
+        if (_firstTime)
         {
             RefreshListOfPatchOwners();
             RefreshPatchInfoOfAllMods();
-            firstTime = false;
+            _firstTime = false;
         }
 
         try
@@ -59,14 +57,12 @@ internal static class PatchesDisplay
                             RefreshPatchInfoOfAllMods();
                         }
 
-                        foreach (var pair in _modIdsToColor)
+                        foreach (var pair in _modIdsToColor.Where(pair =>
+                                     GUILayout.Button(pair.Key.Color($"#{pair.Value}").Bold(), _buttonStyle)))
                         {
-                            if (GUILayout.Button(pair.Key.Color($"#{pair.Value}").Bold(), _buttonStyle))
-                            {
-                                _patches = null;
-                                _modID = pair.Key;
-                                RefreshPatchInfoOfSelected();
-                            }
+                            _patches = null;
+                            _modID = pair.Key;
+                            RefreshPatchInfoOfSelected();
                         }
                     }
 
@@ -94,9 +90,9 @@ internal static class PatchesDisplay
             }
 
             UI.Space(25);
-            var searchTextLower = searchText.ToLower();
-            var methodBases = _patches?.Keys.Concat(_disabled.Keys).Distinct().OrderBy(m => m.Name).Where(m =>
-                searchText.Length == 0
+            var searchTextLower = _searchText.ToLower();
+            var methodBases = _patches?.Keys.Concat(Disabled.Keys).Distinct().OrderBy(m => m.Name).Where(m =>
+                _searchText.Length == 0
                 || m.DeclaringType.FullName.ToLower().Contains(searchTextLower)
                 || m.ToString().ToLower().Contains(searchTextLower)
             );
@@ -107,13 +103,14 @@ internal static class PatchesDisplay
                 {
                     GUILayout.Label($"Selected Patch Owner: {selectedPatchName}", UI.AutoWidth());
                     UI.Space(25);
-                    UI.TextField(ref searchText, "Search", UI.Width(400));
+                    UI.TextField(ref _searchText, "Search", UI.Width(400));
                 }
 
                 UI.Space(25);
-                UI.Label($"Patches Found: {methodBases.Count().ToString().Cyan()}".Orange());
+                var enumerable = methodBases as MethodBase[] ?? methodBases.ToArray();
+                UI.Label($"Patches Found: {enumerable.Length.ToString().Cyan()}".Orange());
                 var index = 1;
-                foreach (var method in methodBases)
+                foreach (var method in enumerable)
                 {
                     var typeStr = method.DeclaringType.FullName;
                     var methodComponents = method.ToString().Split();
@@ -143,7 +140,7 @@ internal static class PatchesDisplay
                             foreach (var dupe in intersection)
                             {
                                 disabledPatches.Remove(dupe);
-                                _disabled[method] = disabledPatches;
+                                Disabled[method] = disabledPatches;
                             }
                         }
 
@@ -226,17 +223,17 @@ internal static class PatchesDisplay
         UI.Label("");
     }
 
-    private static List<Patch> EnabledPatchesForMethod(MethodBase method)
+    private static List<Patch> EnabledPatchesForMethod([NotNull] MethodBase method)
     {
         return _patches.TryGetValue(method, out var result) ? result : new List<Patch>();
     }
 
-    private static List<Patch> DisabledPatchesForMethod(MethodBase method)
+    private static List<Patch> DisabledPatchesForMethod([NotNull] MethodBase method)
     {
-        return _disabled.TryGetValue(method, out var result) ? result : new List<Patch>();
+        return Disabled.TryGetValue(method, out var result) ? result : new List<Patch>();
     }
 
-    private static void EnablePatchForMethod(bool enabled, Patch patch, MethodBase method)
+    private static void EnablePatchForMethod(bool enabled, Patch patch, [NotNull] MethodBase method)
     {
         var enabledPatches = EnabledPatchesForMethod(method);
         var disabledPatches = DisabledPatchesForMethod(method);
@@ -252,7 +249,7 @@ internal static class PatchesDisplay
         }
 
         _patches[method] = enabledPatches;
-        _disabled[method] = disabledPatches;
+        Disabled[method] = disabledPatches;
     }
 
     private static void RefreshListOfPatchOwners(bool reset = true)
@@ -300,9 +297,10 @@ internal static class PatchesDisplay
         {
             var patches =
                 GetSortedPatches(method).Where(patch => patch.owner == _modID);
-            if (patches.Any())
+            var enumerable = patches as Patch[] ?? patches.ToArray();
+            if (enumerable.Any())
             {
-                _patches.Add(method, patches.ToList());
+                _patches.Add(method, enumerable.ToList());
             }
         }
     }
@@ -313,14 +311,16 @@ internal static class PatchesDisplay
         foreach (var method in Harmony.GetAllPatchedMethods())
         {
             var patches = GetSortedPatches(method);
-            var owners = patches.Select(patch => patch.owner).Distinct().ToHashSet();
+            var enumerable = patches as Patch[] ?? patches.ToArray();
+            var owners = enumerable.Select(patch => patch.owner).Distinct().ToHashSet();
             if (owners.Count > 1 && (_modID == null || owners.Contains(_modID)))
             {
-                _patches.Add(method, patches.ToList());
+                _patches.Add(method, enumerable.ToList());
             }
         }
     }
 
+    [NotNull]
     private static IEnumerable<Patch> GetSortedPatches(MethodBase method)
     {
         var patches = Harmony.GetPatchInfo(method);

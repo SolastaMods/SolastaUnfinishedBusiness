@@ -33,7 +33,7 @@ internal static class GuiWrapperContext
     {
         var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>() as GuiWrapperManager;
 
-        if (guiWrapperService is not GuiWrapperManager guiWrapperManager)
+        if (guiWrapperService is not { } guiWrapperManager)
         {
             return;
         }

@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Models.RespecContext;
 
 namespace SolastaCommunityExpansion.Models;
 
 internal static class LevelDownContext
 {
-    public static bool IsLevelDown { get; set; }
+    public static bool IsLevelDown { get; private set; }
 
     internal static void ConfirmAndExecute(string filename)
     {
@@ -22,8 +23,9 @@ internal static class LevelDownContext
             () => LevelDown(rulesetCharacterHero), null);
     }
 
-    private static void RemoveFeaturesByTag(RulesetCharacterHero hero, CharacterClassDefinition classDefinition,
-        string tag)
+    private static void RemoveFeaturesByTag([NotNull] RulesetCharacterHero hero,
+        CharacterClassDefinition classDefinition,
+        [NotNull] string tag)
     {
         if (!hero.ActiveFeatures.ContainsKey(tag))
         {
@@ -36,7 +38,7 @@ internal static class LevelDownContext
         hero.ActiveFeatures.Remove(tag);
     }
 
-    private static void LevelDown(RulesetCharacterHero hero)
+    private static void LevelDown([NotNull] RulesetCharacterHero hero)
     {
         var indexLevel = hero.ClassesHistory.Count - 1;
         var characterClassDefinition = hero.ClassesHistory.Last();
@@ -121,7 +123,7 @@ internal static class LevelDownContext
         IsLevelDown = false;
     }
 
-    private static void UnlearnSpells(RulesetCharacterHero hero, int indexLevel)
+    private static void UnlearnSpells([NotNull] RulesetCharacterHero hero, int indexLevel)
     {
         var heroRepertoire =
             hero.SpellRepertoires.FirstOrDefault(x =>
@@ -132,7 +134,6 @@ internal static class LevelDownContext
             return;
         }
 
-        int spellsToRemove;
         var cantripsToRemove = heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel] -
                                heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel - 1];
 
@@ -179,8 +180,8 @@ internal static class LevelDownContext
                 break;
 
             case RuleDefinitions.SpellKnowledge.Selection:
-                spellsToRemove = heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel] -
-                                 heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel - 1];
+                var spellsToRemove = heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel] -
+                                     heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel - 1];
 
                 while (spellsToRemove-- > 0)
                 {
@@ -194,7 +195,7 @@ internal static class LevelDownContext
         }
     }
 
-    internal class FunctorLevelDown : Functor
+    internal sealed class FunctorLevelDown : Functor
     {
         public override IEnumerator Execute(
             FunctorParametersDescription functorParameters,

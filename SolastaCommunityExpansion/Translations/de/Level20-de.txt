@@ -21,5 +21,5 @@ Feature/&ZSPowerPaladinCleansingTouchDescription=Entferne Zaubereffekte, indem d
 Feature/&ZSPowerPaladinCleansingTouchTitle=Reinigende Berührung
 RestActivity/&ZSSorcerousRestorationDescription=Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
 RestActivity/&ZSSorcerousRestorationTitle=Zauberhafte Wiederherstellung
-Sorceror/&ZSSorcerousRestorationDescription=Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
-Sorceror/&ZSSorcerousRestorationTitle=Zauberhafte Wiederherstellung
+RestActivity/&ZSSorcerousRestorationDescription=Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
+RestActivity/&ZSSorcerousRestorationTitle=Zauberhafte Wiederherstellung

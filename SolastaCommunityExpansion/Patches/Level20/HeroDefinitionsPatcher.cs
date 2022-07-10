@@ -16,7 +16,7 @@ internal static class HeroDefinitions_MaxHeroExperience
             return true;
         }
 
-        __result = MOD_MAX_EXPERIENCE;
+        __result = ModMaxExperience;
 
         return false;
     }

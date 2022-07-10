@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Models;
 
+// ReSharper disable once ClassNeverInstantiated.Global
 public class GlobalUniqueEffects
 {
     public enum Group { Familiar, Tinkerer }
 
     private static readonly Dictionary<Group, (List<FeatureDefinitionPower>, List<SpellDefinition>)>
-        _groups = new();
+        Groups = new();
 
     private static (List<FeatureDefinitionPower>, List<SpellDefinition>) GetGroup(Group group)
     {
-        if (_groups.ContainsKey(group))
+        if (Groups.ContainsKey(group))
         {
-            return _groups[group];
+            return Groups[group];
         }
 
         var newGroup = new ValueTuple<List<FeatureDefinitionPower>, List<SpellDefinition>>
@@ -23,7 +25,7 @@ public class GlobalUniqueEffects
             Item1 = new List<FeatureDefinitionPower>(), Item2 = new List<SpellDefinition>()
         };
 
-        _groups.Add(group, newGroup);
+        Groups.Add(group, newGroup);
 
         return newGroup;
     }
@@ -35,7 +37,7 @@ public class GlobalUniqueEffects
         var powers = new HashSet<FeatureDefinitionPower>();
         var spells = new HashSet<SpellDefinition>();
 
-        foreach (var group in _groups.Where(e => e.Value.Item1.Contains(power)))
+        foreach (var group in Groups.Where(e => e.Value.Item1.Contains(power)))
         {
             foreach (var p in group.Value.Item1)
             {
@@ -56,7 +58,7 @@ public class GlobalUniqueEffects
     {
         var powers = new HashSet<FeatureDefinitionPower>();
         var spells = new HashSet<SpellDefinition>();
-        foreach (var group in _groups.Where(e => e.Value.Item2.Contains(spell)))
+        foreach (var group in Groups.Where(e => e.Value.Item2.Contains(spell)))
         {
             foreach (var p in group.Value.Item1)
             {
@@ -72,12 +74,12 @@ public class GlobalUniqueEffects
         return (powers, spells);
     }
 
-    public static void AddToGroup(Group group, params FeatureDefinitionPower[] powers)
+    public static void AddToGroup(Group group, [NotNull] params FeatureDefinitionPower[] powers)
     {
         GetGroup(group).Item1.AddRange(powers);
     }
 
-    public static void AddToGroup(Group group, params SpellDefinition[] spells)
+    public static void AddToGroup(Group group, [NotNull] params SpellDefinition[] spells)
     {
         GetGroup(group).Item2.AddRange(spells);
     }

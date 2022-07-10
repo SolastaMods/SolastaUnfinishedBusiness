@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static EquipmentDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
@@ -47,12 +48,12 @@ public static class ItemPropertyDescriptions
     }
 
 
-    private static FeatureDefinition BuildAttackVFXFromSpell(SpellDefinition spell)
+    private static FeatureDefinition BuildAttackVFXFromSpell([NotNull] SpellDefinition spell)
     {
         return BuildAttackVFXFromEffect($"AttackImpact{spell.Name}SpellVFX", spell.EffectDescription);
     }
 
-    private static FeatureDefinition BuildAttackVFXFromEffect(string name, EffectDescription effect)
+    private static FeatureDefinition BuildAttackVFXFromEffect(string name, [NotNull] EffectDescription effect)
     {
         return FeatureDefinitionAttackModifierBuilder
             .Create(name, DefinitionBuilder.CENamespaceGuid)

@@ -20,23 +20,25 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
         Definition.activationTime = RuleDefinitions.ActivationTime.Rest;
         Definition.costPerUse = 1;
         Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
+
         var restoration = new EffectDescriptionBuilder();
+
         restoration.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
             RuleDefinitions.TargetType.Self);
         restoration.SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery
             .EffectDescription.EffectParticleParameters);
 
         var restoreForm = new EffectFormBuilder().CreatedByCharacter().SetSpellForm(9).Build();
+
         restoreForm.SpellSlotsForm.type = SpellSlotsForm.EffectType.GainSorceryPoints;
         restoreForm.SpellSlotsForm.sorceryPointsGain = 4;
         restoration.AddEffectForm(restoreForm);
         Definition.effectDescription = restoration.Build();
 
         var gui = new GuiPresentationBuilder(
-            "Sorceror/&ZSSorcerousRestorationTitle",
-            "Sorceror/&ZSSorcerousRestorationDescription");
-        gui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation
-            .SpriteReference);
+            "RestActivity/&ZSSorcerousRestorationTitle", "RestActivity/&ZSSorcerousRestorationDescription",
+            DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation
+                .SpriteReference);
         Definition.guiPresentation = gui.Build();
 
         _ = RestActivityBuilder.RestActivityRestoration;

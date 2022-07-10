@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using TA;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FactionDefinitions;
@@ -9,7 +11,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class EncountersSpawnContext
 {
-    internal const int MAX_ENCOUNTER_CHARACTERS = 16;
+    internal const int MaxEncounterCharacters = 16;
 
     private static readonly List<RulesetCharacterHero> Heroes = new();
 
@@ -21,7 +23,7 @@ internal static class EncountersSpawnContext
 
     internal static void AddToEncounter(RulesetCharacterHero hero)
     {
-        if (EncounterCharacters.Count < MAX_ENCOUNTER_CHARACTERS)
+        if (EncounterCharacters.Count < MaxEncounterCharacters)
         {
             EncounterCharacters.Add(hero);
         }
@@ -29,7 +31,7 @@ internal static class EncountersSpawnContext
 
     internal static void AddToEncounter(MonsterDefinition monsterDefinition)
     {
-        if (EncounterCharacters.Count < MAX_ENCOUNTER_CHARACTERS)
+        if (EncounterCharacters.Count < MaxEncounterCharacters)
         {
             EncounterCharacters.Add(new RulesetCharacterMonster(monsterDefinition, 0,
                 new RuleDefinitions.SpawnOverrides(), GadgetDefinitions.CreatureSex.Male));
@@ -44,6 +46,7 @@ internal static class EncountersSpawnContext
         }
     }
 
+    [NotNull]
     internal static List<MonsterDefinition> GetMonsters()
     {
         if (Monsters.Count != 0)
@@ -60,13 +63,14 @@ internal static class EncountersSpawnContext
 
         Monsters.AddRange(monsterDefinitionDatabase.Where(x =>
             x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
-        Monsters.Sort((a, b) => a.ChallengeRating == b.ChallengeRating
+        Monsters.Sort((a, b) => Math.Abs(a.ChallengeRating - b.ChallengeRating) < 0.001f
             ? a.FormatTitle().CompareTo(b.FormatTitle())
             : a.ChallengeRating.CompareTo(b.ChallengeRating));
 
         return Monsters;
     }
 
+    [NotNull]
     internal static List<RulesetCharacterHero> GetHeroes()
     {
         if (Heroes.Count != 0)

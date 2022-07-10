@@ -2,12 +2,6 @@
 Feat/&ApothecaryIntTitle=Boticario (Inteligencia)
 Feat/&ApothecaryWisDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
 Feat/&ApothecaryWisTitle=Boticario (Sabiduría)
-Feat/&AttributeDexDescription=+1 DEX hasta un máximo de 20
-Feat/&AttributeDexTitle=Destreza
-Feat/&AttributeIntDescription=+1 INT hasta un máximo de 20
-Feat/&AttributeIntTitle=Inteligencia
-Feat/&AttributeWisDescription=+1 SAB hasta un máximo de 20
-Feat/&AttributeWisTitle=Sabiduría
 Feat/&CraftyArcanaDescription=Obtienes competencia/pericia en Arcana.
 Feat/&CraftyBowsDescription=Obtienes competencia con todos los arcos y ballestas.
 Feat/&CraftyBowsTitle=Dominio del arco

@@ -3,7 +3,7 @@ ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangr
 ModUi/&AddHelpActionToAllRaces=Agregue la acción <color=#D89555>Ayuda</color> a todas las carreras
 ModUi/&AddNewBrightEyeColors=Agregue nuevos colores de ojos brillantes <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Agregue nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[atados de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0> [Requiere reiniciar]</color></i></b>
-ModUi/&AddPickpocketableLoot=Agregar botín de carterista <i><color=#F0DAA0>[sugerido si la característica <color=#D89555>Carterista</color> está habilitada]</color></i>
+ModUi/&AddPickPocketableLoot=Agregar botín de carterista <i><color=#F0DAA0>[sugerido si la característica <color=#D89555>Carterista</color> está habilitada]</color></i>
 ModUi/&AddToStore=Añadir a la tienda
 ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el jugador tenga este mod instalado
@@ -154,7 +154,7 @@ ModUi/&RemoveAttunementRequirements=Eliminar los requisitos de sintonización <b
 ModUi/&RemoveBugVisualModels=Reemplace los modelos similares a errores con imágenes alternativas en el juego <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=Elimina el requisito de concentración de cualquier hechizo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar el filtro humanoide en <color=#D89555>Risas espantosas</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&RemoveIdentifcationRequirements=Quitar los requisitos de identificación <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUi/&RemoveIdentificationRequirements=Quitar los requisitos de identificación <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=#D89555>Enredar</color> en el momento del lanzamiento <i><color=#F0DAA0>[es decir, sin efecto recurrente]</color></i> <b><i><color= #C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RestockAntiquarians=Reponer anticuarios <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Reponer Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
@@ -189,9 +189,9 @@ ModUi/&UnleashEnemyAsNpc=Permitir que los monstruos se seleccionen en dispositiv
 ModUi/&UnleashNpcAsEnemy=Permitir que los NPC se seleccionen en dispositivos de monstruos <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Desbloquea todas las caras de NPC
 ModUi/&UnlockEyeStyles=Desbloquear estilos de ojos
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Desbloquea colores brillantes para todas las marcas y tatuajes.
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Desbloquea colores brillantes para todas las marcas y tatuajes.
 ModUi/&UnlockGlowingEyeColors=Agregue colores de ojos brillantes <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
-ModUi/&UnlockMarkAndTatoosForAllCharacters=Desbloquea marcas de origen y tatuajes de <color=#D89555>Hechicero</color> para todos los personajes.
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloquea marcas de origen y tatuajes de <color=#D89555>Hechicero</color> para todos los personajes.
 ModUi/&UseHeightOneCylinderEffect=Muestra un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> (cuadrado) y <color=#D89555>Crecimiento de púas</color> (redondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/desventaja
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>

@@ -25,7 +25,7 @@ internal static class NewAdventurePanel_OnBeginShow
         DatabaseHelper.CampaignDefinitions.UserCampaign.partySize = Main.Settings.OverridePartySize;
 
         // adds new character plates if required
-        for (var i = DungeonMakerContext.GAME_PARTY_SIZE; i < Main.Settings.OverridePartySize; i++)
+        for (var i = DungeonMakerContext.GamePartySize; i < Main.Settings.OverridePartySize; i++)
         {
             var firstChild = __instance.characterSessionPlatesTable.GetChild(0);
 
@@ -33,10 +33,10 @@ internal static class NewAdventurePanel_OnBeginShow
         }
 
         // scales down the plates table if required
-        if (Main.Settings.OverridePartySize > DungeonMakerContext.GAME_PARTY_SIZE)
+        if (Main.Settings.OverridePartySize > DungeonMakerContext.GamePartySize)
         {
-            var scale = (float)Math.Pow(DungeonMakerContext.ADVENTURE_PANEL_DEFAULT_SCALE,
-                Main.Settings.OverridePartySize - DungeonMakerContext.GAME_PARTY_SIZE);
+            var scale = (float)Math.Pow(DungeonMakerContext.AdventurePanelDefaultScale,
+                Main.Settings.OverridePartySize - DungeonMakerContext.GamePartySize);
 
             __instance.characterSessionPlatesTable.localScale = new Vector3(scale, scale, scale);
         }

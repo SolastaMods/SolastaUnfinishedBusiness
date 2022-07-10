@@ -106,15 +106,6 @@ internal static class ToolsDisplay
         }
 
         UI.Label("");
-
-        intValue = Main.Settings.ScaleGameFontSizeBy;
-        if (UI.Slider(Gui.Localize("ModUi/&ScaleGameFontSizeBy"), ref intValue, 80, 120, 100, "",
-                UI.Width(100)))
-        {
-            Main.Settings.ScaleGameFontSizeBy = intValue;
-        }
-
-        UI.Label("");
         UI.Label(Gui.Localize("ModUi/&Adventure"));
         UI.Label("");
 
@@ -147,8 +138,8 @@ internal static class ToolsDisplay
 
         intValue = Main.Settings.OverridePartySize;
         if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
-                DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE,
-                DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+                DungeonMakerContext.MinPartySize, DungeonMakerContext.MaxPartySize,
+                DungeonMakerContext.GamePartySize, "", UI.AutoWidth()))
         {
             Main.Settings.OverridePartySize = intValue;
         }
@@ -199,7 +190,7 @@ internal static class ToolsDisplay
 
                 var title = faction.FormatTitle();
 
-                title = flip ? title.Yellow() : title.White();
+                title = flip ? title.Khaki() : title.White();
 
                 intValue = gameFactionService.FactionRelations[faction.Name];
 

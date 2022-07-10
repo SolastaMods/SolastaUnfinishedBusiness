@@ -163,7 +163,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
-    public int IncreaseSenseNormalVision { get; set; } = HouseFeatureContext.DEFAULT_VISION_RANGE;
+    public int IncreaseSenseNormalVision { get; set; } = HouseFeatureContext.DefaultVisionRange;
 
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
 
@@ -217,9 +217,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
     public List<string> defaultPartyHeroes = new();
     public bool NoExperienceOnLevelUp { get; set; }
-    public int ScaleGameFontSizeBy { get; set; } = 100;
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
-    public int OverridePartySize { get; set; } = DungeonMakerContext.GAME_PARTY_SIZE;
+    public int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
     public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
     // Debug

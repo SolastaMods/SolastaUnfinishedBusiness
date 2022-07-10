@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterDefinitions;
@@ -19,7 +20,7 @@ internal static class ConjurationsContext
         ConjuredFourBeast_BadlandsSpider,
         ConjuredEightBeast_Wolf,
 
-        // Conjure minor elementals (4)
+        // Conjure minor elemental (4)
         SkarnGhoul, // CR 2
         WindSnake, // CR 2
         Fire_Jester, // CR 1
@@ -96,7 +97,7 @@ internal static class ConjurationsContext
         ConfigureAdvancement(ConjureMinorElementals);
 
         // Set advancement at spell level, not sub-spell
-        static void ConfigureAdvancement(SpellDefinition spell)
+        static void ConfigureAdvancement([NotNull] SpellDefinition spell)
         {
             var advancement = spell.EffectDescription.EffectAdvancement;
 

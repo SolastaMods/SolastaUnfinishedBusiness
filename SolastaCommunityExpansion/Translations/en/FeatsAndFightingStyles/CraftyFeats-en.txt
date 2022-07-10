@@ -2,11 +2,6 @@
 Feat/&ApothecaryIntTitle=Apothecary (Intelligence)
 Feat/&ApothecaryWisDescription=Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 Feat/&ApothecaryWisTitle=Apothecary (Wisdom)
-Feat/&AttributeDexDescription=+1 DEX to a maximum of 20
-Feat/&AttributeDexTitle=Dexterity
-Feat/&AttributeIntDescription=+1 INT to a maximum of 20
-Feat/&AttributeIntTitle=Intelligence
-Feat/&AttributeWisDescription=+1 WIS to a maximum of 20
 Feat/&AttributeWisTitle=Wisdom
 Feat/&CraftyArcanaDescription=You gain proficiency/expertise in Arcana.
 Feat/&CraftyBowsDescription=You gain proficiency with all bows and crossbows.

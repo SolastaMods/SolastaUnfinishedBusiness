@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 
 namespace SolastaCommunityExpansion.Models;
@@ -46,6 +47,7 @@ public static class CharacterValidators
     public static readonly CharacterValidator InBattle = _ =>
         ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
 
+    [NotNull]
     public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)
     {
         return character => conditions.Any(c => character.HasConditionOfType(c.Name));

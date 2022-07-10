@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -17,14 +18,14 @@ public static class PowerBundleContext
     private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();
     private static readonly Dictionary<FeatureDefinitionPower, Bundle> Bundles = new();
 
-    public static void RegisterPowerBundle(FeatureDefinitionPower masterPower, bool terminateAll,
-        params FeatureDefinitionPower[] subPowers)
+    public static void RegisterPowerBundle([NotNull] FeatureDefinitionPower masterPower, bool terminateAll,
+        [NotNull] params FeatureDefinitionPower[] subPowers)
     {
         RegisterPowerBundle(masterPower, terminateAll, subPowers.ToList());
     }
 
-    public static void RegisterPowerBundle(FeatureDefinitionPower masterPower, bool terminateAll,
-        IEnumerable<FeatureDefinitionPower> subPowers)
+    public static void RegisterPowerBundle([NotNull] FeatureDefinitionPower masterPower, bool terminateAll,
+        [NotNull] IEnumerable<FeatureDefinitionPower> subPowers)
     {
         if (Bundles.ContainsKey(masterPower))
         {
@@ -49,7 +50,8 @@ public static class PowerBundleContext
     }
 
 
-    public static Bundle GetBundle(FeatureDefinitionPower master)
+    [CanBeNull]
+    public static Bundle GetBundle([CanBeNull] FeatureDefinitionPower master)
     {
         if (master == null)
         {
@@ -59,27 +61,30 @@ public static class PowerBundleContext
         return Bundles.TryGetValue(master, out var result) ? result : null;
     }
 
-    public static Bundle GetBundle(SpellDefinition master)
+    [CanBeNull]
+    public static Bundle GetBundle([NotNull] SpellDefinition master)
     {
         return GetBundle(GetPower(master));
     }
 
-    public static bool IsBundlePower(this FeatureDefinitionPower power)
+    public static bool IsBundlePower([NotNull] this FeatureDefinitionPower power)
     {
         return Bundles.ContainsKey(power);
     }
 
+    [CanBeNull]
     public static List<FeatureDefinitionPower> GetBundleSubPowers(this FeatureDefinitionPower master)
     {
         return GetBundle(master)?.SubPowers;
     }
 
-    public static List<FeatureDefinitionPower> GetBundleSubPowers(SpellDefinition master)
+    [CanBeNull]
+    public static List<FeatureDefinitionPower> GetBundleSubPowers([NotNull] SpellDefinition master)
     {
         return GetBundleSubPowers(GetPower(master));
     }
 
-    private static SpellDefinition RegisterPower(FeatureDefinitionPower power)
+    private static SpellDefinition RegisterPower([NotNull] FeatureDefinitionPower power)
     {
         if (Powers2Spells.ContainsKey(power))
         {
@@ -94,16 +99,19 @@ public static class PowerBundleContext
         return spell;
     }
 
-    public static FeatureDefinitionPower GetPower(SpellDefinition spell)
+    [CanBeNull]
+    public static FeatureDefinitionPower GetPower([NotNull] SpellDefinition spell)
     {
         return Spells2Powers.TryGetValue(spell, out var result) ? result : null;
     }
 
+    [CanBeNull]
     public static FeatureDefinitionPower GetPower(string name)
     {
         return Powers2Spells.Keys.FirstOrDefault(p => p.Name == name);
     }
 
+    [NotNull]
     public static List<FeatureDefinitionPower> GetMasterPowersBySubPower(FeatureDefinitionPower subPower)
     {
         return Bundles
@@ -112,12 +120,14 @@ public static class PowerBundleContext
             .ToList();
     }
 
-    public static SpellDefinition GetSpell(FeatureDefinitionPower power)
+    [CanBeNull]
+    public static SpellDefinition GetSpell([NotNull] FeatureDefinitionPower power)
     {
         return Powers2Spells.TryGetValue(power, out var result) ? result : null;
     }
 
-    public static List<SpellDefinition> GetSubSpells(FeatureDefinitionPower masterPower)
+    [CanBeNull]
+    public static List<SpellDefinition> GetSubSpells([CanBeNull] FeatureDefinitionPower masterPower)
     {
         if (masterPower == null)
         {
@@ -132,7 +142,7 @@ public static class PowerBundleContext
     // Bundled sub-powers usually are not added to the character, so their UsblePower lacks class or race oringin
     // This means that CharacterActionSpendPower will not call `UsePower` on them
     // This method fixes that
-    public static void SpendBundledPowerIfNeeded(CharacterActionSpendPower action)
+    public static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)
     {
         var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
         if (activePower is not {OriginItem: null})
@@ -180,7 +190,7 @@ internal sealed class FunctorUseCustomRestPower : Functor
     private bool powerUsed;
 
     public override IEnumerator Execute(
-        FunctorParametersDescription functorParameters,
+        [NotNull] FunctorParametersDescription functorParameters,
         FunctorExecutionContext context)
     {
         var functor = this;
@@ -222,11 +232,14 @@ internal sealed class FunctorUseCustomRestPower : Functor
                 formsParams.FillFromActiveEffect(rules.InstantiateEffectPower(ruleChar, usablePower, false));
                 formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
 
-                rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
-                ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
+                if (power != null)
+                {
+                    rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
+                    ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
 
-                GameConsoleHelper.LogCharacterUsedPower(ruleChar, power,
-                    $"Feedback/&{power.Name}UsedWhileTravellingFormat");
+                    GameConsoleHelper.LogCharacterUsedPower(ruleChar, power,
+                        $"Feedback/&{power.Name}UsedWhileTravellingFormat");
+                }
             }
         }
 

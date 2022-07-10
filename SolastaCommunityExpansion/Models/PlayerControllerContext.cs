@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Models;
 
 public static class PlayerControllerContext
 {
-    private const int PLAYER_CONTROLLER_ID = 1;
+    private const int PlayerControllerID = 1;
 
-    private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new();
+    private static readonly Dictionary<GameLocationCharacter, int> ControllersChoices = new();
 
     internal static readonly string[] Controllers = {"Human", "AI"};
 
+    // ReSharper disable once InconsistentNaming
     private static int[] playerCharactersChoices { get; set; }
 
     internal static List<GameLocationCharacter> PlayerCharacters { get; } = new();
@@ -27,7 +29,7 @@ public static class PlayerControllerContext
             {
                 var playerCharacter = PlayerCharacters[i];
 
-                controllersChoices[playerCharacter] = value[i];
+                ControllersChoices[playerCharacter] = value[i];
             }
         }
     }
@@ -36,10 +38,10 @@ public static class PlayerControllerContext
 
     internal static void RefreshGuiState()
     {
-        var controllersChoicesCopy = controllersChoices.ToDictionary(x => x.Key, x => x.Value);
+        var controllersChoicesCopy = ControllersChoices.ToDictionary(x => x.Key, x => x.Value);
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-        controllersChoices.Clear();
+        ControllersChoices.Clear();
         PlayerCharacters.Clear();
 
         if (gameLocationCharacterService != null)
@@ -49,8 +51,8 @@ public static class PlayerControllerContext
         }
 
         PlayerCharacters.ForEach(x =>
-            controllersChoices.Add(x, controllersChoicesCopy.TryGetValue(x, out var choice) ? choice : 0));
-        playerCharactersChoices = controllersChoices.Values.ToArray();
+            ControllersChoices.Add(x, controllersChoicesCopy.TryGetValue(x, out var choice) ? choice : 0));
+        playerCharactersChoices = ControllersChoices.Values.ToArray();
     }
 
     private static void UpdatePartyControllerIds(bool reset = false)
@@ -59,8 +61,8 @@ public static class PlayerControllerContext
 
         foreach (var playerCharacter in PlayerCharacters)
         {
-            var controllerId = reset || controllersChoices[playerCharacter] == 0
-                ? PLAYER_CONTROLLER_ID
+            var controllerId = reset || ControllersChoices[playerCharacter] == 0
+                ? PlayerControllerID
                 : PlayerControllerManager.DmControllerId;
 
             playerCharacter.ControllerId = controllerId;
@@ -69,7 +71,7 @@ public static class PlayerControllerContext
         activePlayerController.DirtyControlledCharacters();
     }
 
-    internal static void Start(GameLocationBattle battle)
+    internal static void Start([NotNull] GameLocationBattle battle)
     {
         var activeContender = battle.ActiveContender;
         var enemies = battle.EnemyContenders;

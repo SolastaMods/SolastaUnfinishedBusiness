@@ -183,16 +183,16 @@ All settings start disabled by default. On first start the mod will display an w
         {
             UI.Label("");
             UI.Label(". You can set the environment variable " +
-                     DiagnosticsContext.ProjectEnvironmentVariable.Italic().Yellow() +
+                     DiagnosticsContext.ProjectEnvironmentVariable.Italic().Khaki() +
                      " to customize the output folder");
 
             if (DiagnosticsContext.ProjectFolder == null)
             {
-                UI.Label(". The output folder is set to " + "your game folder".Yellow().Bold());
+                UI.Label(". The output folder is set to " + "your game folder".Khaki().Bold());
             }
             else
             {
-                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.Yellow().Bold());
+                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.Khaki().Bold());
             }
 
             UI.Label("");
@@ -200,9 +200,9 @@ All settings start disabled by default. On first start the mod will display an w
             string exportTaLabel;
             string exportTaLabel2;
             string exportCeLabel;
-            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.TA].percentageComplete;
-            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.TA2].percentageComplete;
-            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.CE].percentageComplete;
+            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta].percentageComplete;
+            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta2].percentageComplete;
+            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.Ce].percentageComplete;
 
             if (percentageCompleteTa == 0)
             {
@@ -210,7 +210,7 @@ All settings start disabled by default. On first start the mod will display an w
             }
             else
             {
-                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".Bold().Yellow();
+                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".Bold().Khaki();
             }
 
             if (percentageCompleteTa2 == 0)
@@ -219,7 +219,7 @@ All settings start disabled by default. On first start the mod will display an w
             }
             else
             {
-                exportTaLabel2 = "Cancel TA export at " + $"{percentageCompleteTa2:00.0%}".Bold().Yellow();
+                exportTaLabel2 = "Cancel TA export at " + $"{percentageCompleteTa2:00.0%}".Bold().Khaki();
             }
 
             if (percentageCompleteCe == 0)
@@ -228,7 +228,7 @@ All settings start disabled by default. On first start the mod will display an w
             }
             else
             {
-                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".Bold().Yellow();
+                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".Bold().Khaki();
             }
 
             using (UI.HorizontalScope())
@@ -241,7 +241,7 @@ All settings start disabled by default. On first start the mod will display an w
                     }
                     else
                     {
-                        BlueprintExporter.Cancel(DiagnosticsContext.TA);
+                        BlueprintExporter.Cancel(DiagnosticsContext.Ta);
                     }
                 }, UI.Width(200));
 
@@ -253,7 +253,7 @@ All settings start disabled by default. On first start the mod will display an w
                     }
                     else
                     {
-                        BlueprintExporter.Cancel(DiagnosticsContext.CE);
+                        BlueprintExporter.Cancel(DiagnosticsContext.Ce);
                     }
                 }, UI.Width(200));
 
@@ -265,7 +265,7 @@ All settings start disabled by default. On first start the mod will display an w
                     }
                     else
                     {
-                        BlueprintExporter.Cancel(DiagnosticsContext.TA2);
+                        BlueprintExporter.Cancel(DiagnosticsContext.Ta2);
                     }
                 }, UI.Width(200));
             }

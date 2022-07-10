@@ -21,5 +21,5 @@ Feature/&ZSPowerPaladinCleansingTouchDescription=Снимите эффекты �
 Feature/&ZSPowerPaladinCleansingTouchTitle=Очищающее прикосновение
 RestActivity/&ZSSorcerousRestorationDescription=Восстановите 4 очка волшебства во время короткого отдыха.
 RestActivity/&ZSSorcerousRestorationTitle=Волшебное восстановление
-Sorceror/&ZSSorcerousRestorationDescription=Восстановите 4 очка волшебства во время короткого отдыха.
-Sorceror/&ZSSorcerousRestorationTitle=Волшебное восстановление
+RestActivity/&ZSSorcerousRestorationDescription=Восстановите 4 очка волшебства во время короткого отдыха.
+RestActivity/&ZSSorcerousRestorationTitle=Волшебное восстановление

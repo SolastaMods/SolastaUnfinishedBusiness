@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class MulticlassContext
 {
-    internal const int MAX_CLASSES = 6;
+    internal const int MaxClasses = 6;
 
     internal static void Load()
     {
@@ -28,7 +29,7 @@ internal static class MulticlassContext
         {
             var spellsByLevel = spellListDefinition.SpellsByLevel;
 
-            while (spellsByLevel.Count < Level20Context.MAX_SPELL_LEVEL + (spellListDefinition.HasCantrips ? 1 : 0))
+            while (spellsByLevel.Count < Level20Context.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
             {
                 spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
                 {
@@ -42,22 +43,22 @@ internal static class MulticlassContext
 
         foreach (var castSpellDefinition in castSpellDefinitions)
         {
-            while (castSpellDefinition.KnownCantrips.Count < Level20Context.MOD_MAX_LEVEL + 1)
+            while (castSpellDefinition.KnownCantrips.Count < Level20Context.ModMaxLevel + 1)
             {
                 castSpellDefinition.KnownCantrips.Add(0);
             }
 
-            while (castSpellDefinition.KnownSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+            while (castSpellDefinition.KnownSpells.Count < Level20Context.ModMaxLevel + 1)
             {
                 castSpellDefinition.KnownSpells.Add(0);
             }
 
-            while (castSpellDefinition.ReplacedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+            while (castSpellDefinition.ReplacedSpells.Count < Level20Context.ModMaxLevel + 1)
             {
                 castSpellDefinition.ReplacedSpells.Add(0);
             }
 
-            while (castSpellDefinition.ScribedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+            while (castSpellDefinition.ScribedSpells.Count < Level20Context.ModMaxLevel + 1)
             {
                 castSpellDefinition.ScribedSpells.Add(0);
             }
@@ -116,14 +117,14 @@ public sealed class ArmorProficiencyMulticlassBuilder : FeatureDefinitionProfici
         );
 
     private ArmorProficiencyMulticlassBuilder(string name, string guid, string title,
-        params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
+        [NotNull] params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
     {
         Definition.Proficiencies.SetRange(proficienciesToReplace);
         Definition.GuiPresentation.Title = title;
     }
 
     private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid, string title,
-        params string[] proficienciesToReplace)
+        [NotNull] params string[] proficienciesToReplace)
     {
         return new ArmorProficiencyMulticlassBuilder(name, guid, title, proficienciesToReplace).AddToDB();
     }

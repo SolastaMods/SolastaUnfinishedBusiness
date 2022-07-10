@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Subclasses;
 using SolastaCommunityExpansion.Subclasses.Barbarian;
 using SolastaCommunityExpansion.Subclasses.Druid;
@@ -73,7 +74,7 @@ internal static class SubclassesContext
         SpellMaster.UpdateBonusRecovery();
     }
 
-    private static void LoadSubclass(AbstractSubclass subclassBuilder)
+    private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)
     {
         var subclass = subclassBuilder.GetSubclass();
 
@@ -86,7 +87,7 @@ internal static class SubclassesContext
         UpdateSubclassVisibility(subclass);
     }
 
-    private static void UpdateSubclassVisibility(CharacterSubclassDefinition characterSubclassDefinition)
+    private static void UpdateSubclassVisibility([NotNull] CharacterSubclassDefinition characterSubclassDefinition)
     {
         var name = characterSubclassDefinition.Name;
         var choiceList = SubclassesChoiceList[characterSubclassDefinition];

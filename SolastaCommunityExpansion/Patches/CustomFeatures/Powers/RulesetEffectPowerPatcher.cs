@@ -19,7 +19,7 @@ internal static class RulesetCharacter_UsePower_Getter
 
         var usablePower = __instance.UsablePower;
 
-        UsablePowersProvider.UpdateSaveDC(__instance.User, usablePower);
+        UsablePowersProvider.UpdateSaveDc(__instance.User, usablePower);
         __result = usablePower.SaveDC;
     }
 }

@@ -18,10 +18,10 @@ internal static class VictoryModal_OnBeginShow
     {
         var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-        if (partyCount > DungeonMakerContext.GAME_PARTY_SIZE)
+        if (partyCount > DungeonMakerContext.GamePartySize)
         {
-            var scale = (float)Math.Pow(DungeonMakerContext.VICTORY_MODAL_DEFAULT_SCALE,
-                partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
+            var scale = (float)Math.Pow(DungeonMakerContext.VictoryModalDefaultScale,
+                partyCount - DungeonMakerContext.GamePartySize);
 
             __instance.heroStatsGroup.localScale = new Vector3(scale, 1, scale);
         }

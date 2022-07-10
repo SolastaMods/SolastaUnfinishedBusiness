@@ -12,7 +12,7 @@ internal static class CharacterActionReadyPatcher
     {
         internal static void Prefix(CharacterActionReady __instance)
         {
-            CustomReactionsContext.ReadReadyActionPreferedCantripPatch(__instance.actionParams);
+            CustomReactionsContext.ReadReadyActionPreferredCantripPatch(__instance.actionParams);
         }
     }
 }

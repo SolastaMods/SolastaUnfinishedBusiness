@@ -15,14 +15,14 @@ internal static class HideMonsterHitPointsContext
             BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
-        var retval = false;
+        var retVal = false;
 
         if (rb != null)
         {
-            retval = (bool)rb.Invoke(__instance, null);
+            retVal = (bool)rb.Invoke(__instance, null);
         }
 
-        return retval;
+        return retVal;
     }
 
     /// <summary>

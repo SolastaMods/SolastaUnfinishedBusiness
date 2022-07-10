@@ -10,7 +10,7 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatIntIncrement:d2209a77-7ae2-5e9f-a7b1-5c7eab76e9cf",
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
     "Definition:PowerFalseLifeFromFeat:83c00463-e193-5b37-8983-2dafeb789772",
     "Definition:PowerInflictWoundsIntFromFeat:941b6863-b1f6-5cea-8fe3-3bf8eedf3451",
     "Definition:PowerInvisibilityFromFeat:b0baf5f2-42f4-554a-b807-3cf4be82af25",

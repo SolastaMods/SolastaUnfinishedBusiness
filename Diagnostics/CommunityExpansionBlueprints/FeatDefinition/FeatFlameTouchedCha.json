@@ -1,0 +1,58 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
+    "Definition:FlameTouchedAutoPrepBarbarian:1198f33b-0ad2-5056-a195-a3b3554ac288",
+    "Definition:FlameTouchedAutoPrepClassMonk:a4901b31-f9dc-58e5-941e-d9ea65bb3028",
+    "Definition:FlameTouchedAutoPrepClassTinkerer:456fe6be-b46a-563e-baa4-dc2dffb72adb",
+    "Definition:FlameTouchedAutoPrepClassWarlock:fcbc8832-480b-56e6-a3ad-8a63aea216c6",
+    "Definition:FlameTouchedAutoPrepClassWitch:faf67700-b157-5d15-9352-9156d5ceee83",
+    "Definition:FlameTouchedAutoPrepCleric:08dd9981-83b6-5870-8f92-3f255f282ecc",
+    "Definition:FlameTouchedAutoPrepDruid:bf86ede6-2ec0-5a89-8bbd-835a2bb455a1",
+    "Definition:FlameTouchedAutoPrepDummyClass:88050a9d-c684-56da-ba96-7bfff24e84ec",
+    "Definition:FlameTouchedAutoPrepFighter:7558759f-102b-5d99-b648-6ee90723d0e6",
+    "Definition:FlameTouchedAutoPrepPaladin:a9776b70-9297-5446-b93f-dff3a432219a",
+    "Definition:FlameTouchedAutoPrepRanger:3e9f2e6b-7237-5bdd-8878-df14499c3ace",
+    "Definition:FlameTouchedAutoPrepRogue:aa5dc38b-a34c-5a48-b0a5-a71b4308bfd3",
+    "Definition:FlameTouchedAutoPrepSorcerer:dce8b8cf-e3c3-577b-b3d9-4af7c0fe9989",
+    "Definition:FlameTouchedAutoPrepWizard:99556dcb-d2d9-511c-a920-dbeaee82f2a2",
+    "Definition:PowerBurningHandsChaFromFeat:48e43dc6-482c-5d0e-aabe-ddc4fb8a6d5e",
+    "Definition:PowerScorchingRayChaFromFeat:3641312c-76c5-5e13-afee-ba8de36f840f"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatFlameTouchedChaTitle",
+    "description": "Feat/&FeatFlameTouchedChaDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6cc16135-c5b7-5ef2-ade7-22129937e2e7",
+  "contentPack": 9999,
+  "name": "FeatFlameTouchedCha"
+}

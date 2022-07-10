@@ -5,6 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using static GuiDropdown;
@@ -131,7 +132,7 @@ internal static class LoadPanel_OnBeginShow
                 case LocationType.StandardCampaign:
                     return title;
                 case LocationType.CustomCampaign:
-                    return title.Yellow();
+                    return title.Khaki();
                 case LocationType.UserLocation:
                     return title.Orange();
             }
@@ -156,7 +157,8 @@ internal static class LoadPanel_OnBeginShow
                     selectedCampaignService.SetStandardCampaignLocation();
                     break;
                 case LocationType.UserLocation: // location (campaign=USER_CAMPAIGN + location)
-                    selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, selected.CampaignOrLocation);
+                    selectedCampaignService.SetCampaignLocation(SaveByLocationContext.UserCampaign,
+                        selected.CampaignOrLocation);
                     break;
                 case LocationType.CustomCampaign: // campaign
                     selectedCampaignService.SetCampaignLocation(selected.CampaignOrLocation, string.Empty);

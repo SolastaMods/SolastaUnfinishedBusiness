@@ -3,7 +3,7 @@ ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555>Sang
 ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze
 ModUi/&AddNewBrightEyeColors=Aggiungi nuovi colori brillanti per gli occhi <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, mazze lunghe, balestre a mano]</color></i> <b><i><color=#C04040E0> [Richiede il riavvio]</color></i></b>
-ModUi/&AddPickpocketableLoot=Aggiungi bottino borseggiabile <i><color=#F0DAA0> [suggerito se il talento <color=#D89555> Borseggiatore</color> è abilitato]</color></i>
+ModUi/&AddPickPocketableLoot=Aggiungi bottino borseggiabile <i><color=#F0DAA0> [suggerito se il talento <color=#D89555> Borseggiatore</color> è abilitato]</color></i>
 ModUi/&AddToStore=Aggiungi al negozio
 ModUi/&Advanced=<color=#F0DAA0>Avanzate:</color>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENZIONE:</color></b> queste impostazioni richiederanno al giocatore di avere questa mod installata
@@ -154,7 +154,7 @@ ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a bug con elementi visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=Rimuovi il requisito di concentrazione da qualsiasi incantesimo <b><i><color=#C04040E0>[Richiede Riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi il filtro umanoide su <color=#D89555>Risate orribili</color> <b><i><color=#C04040E0>[Richiede un riavvio]</color></i></b>
-ModUi/&RemoveIdentifcationRequirements=Rimuovi i requisiti di identificazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&RemoveIdentificationRequirements=Rimuovi i requisiti di identificazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intrappola</color> solo al momento del lancio <i><color=#F0DAA0>[i.e.: nessun effetto ricorrente]</color></i> <b><i><color= #C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RestockAntiquarians=Rifornisci Antiquari <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Rifornisci Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
@@ -189,9 +189,9 @@ ModUi/&UnleashEnemyAsNpc=Consenti ai mostri di essere selezionati sui gadget NPC
 ModUi/&UnleashNpcAsEnemy=Consenti agli NPC di essere selezionati sui gadget dei mostri <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Sblocca tutte le facce degli NPC
 ModUi/&UnlockEyeStyles=Sblocca gli stili degli occhi
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Sblocca colori luminosi per tutti i segni e i tatuaggi
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Sblocca colori luminosi per tutti i segni e i tatuaggi
 ModUi/&UnlockGlowingEyeColors=Aggiungi colori degli occhi luminosi <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&UnlockMarkAndTatoosForAllCharacters=Sblocca i segni di origine e i tatuaggi di <color=#D89555>Stregone</color> per tutti i personaggi
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Sblocca i segni di origine e i tatuaggi di <color=#D89555>Stregone</color> per tutti i personaggi
 ModUi/&UseHeightOneCylinderEffect=Mostra un effetto cilindro di altezza 1 quando lanci <color=#D89555> Tentacoli neri, Entangle, Unge</color> (quadrato) e <color=#D89555> Crescita aculeo</color> (rotondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

@@ -286,7 +286,7 @@ public class ReflectionTreeView
                 // instance type
                 if (node.InstType != null && node.InstType != node.Type)
                 {
-                    GUILayout.Label(node.InstType.Name.Yellow(), _buttonStyle,
+                    GUILayout.Label(node.InstType.Name.Khaki(), _buttonStyle,
                         GUILayout.ExpandWidth(false));
                 }
             }

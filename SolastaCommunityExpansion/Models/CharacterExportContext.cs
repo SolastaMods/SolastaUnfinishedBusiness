@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -14,7 +15,7 @@ internal static class CharacterExportContext
 
     internal static TMP_InputField InputField { get; private set; }
 
-    internal static bool InputModalVisible { get; set; }
+    internal static bool InputModalVisible { get; private set; }
 
     internal static void Load()
     {
@@ -36,12 +37,13 @@ internal static class CharacterExportContext
             contentTextParent.localPosition.y - contentText.fontSize, 0);
     }
 
+    [NotNull]
     private static string ParseText(string text)
     {
         return Gui.TrimInvalidCharacterNameSymbols(text).Trim();
     }
 
-    internal static void ExportInspectedCharacter(RulesetCharacterHero hero)
+    internal static void ExportInspectedCharacter([NotNull] RulesetCharacterHero hero)
     {
         var messageModal = Gui.GuiService.GetScreen<MessageModal>();
 
@@ -80,7 +82,7 @@ internal static class CharacterExportContext
                     var a = newFirstName.Split(new[] {' '}, 2);
 
                     newFirstName = ParseText(a[0]);
-                    newSurname = hasSurname ? ParseText(a[1]) ?? string.Empty : string.Empty;
+                    newSurname = hasSurname ? ParseText(a[1]) : string.Empty;
                 }
                 else
                 {
@@ -101,7 +103,8 @@ internal static class CharacterExportContext
         }
     }
 
-    private static void ExportCharacter(RulesetCharacterHero heroCharacter, string newFirstName, string newSurname)
+    private static void ExportCharacter([NotNull] RulesetCharacterHero heroCharacter, string newFirstName,
+        string newSurname)
     {
         // record current name, etc..
         var guid = heroCharacter.Guid;

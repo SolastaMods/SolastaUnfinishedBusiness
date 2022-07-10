@@ -1,4 +1,5 @@
 ﻿CHANGES:
 
-- Fix Arcane Explosion notification tag
-- Improve translations loader
+- Add Flame Touched feats
+- Allow Con Artist, Spell Shield and Rage Mage to replace spells
+- Refactor to be more resilient on game updates

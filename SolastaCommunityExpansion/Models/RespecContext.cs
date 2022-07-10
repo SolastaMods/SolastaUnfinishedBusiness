@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using TA;
 
@@ -56,9 +57,9 @@ public static class RespecContext
         }
     }
 
-    public class FunctorRespec : Functor
+    public sealed class FunctorRespec : Functor
     {
-        internal static bool IsRespecing { get; set; }
+        internal static bool IsRespecing { get; private set; }
 
         public override IEnumerator Execute(FunctorParametersDescription functorParameters,
             FunctorExecutionContext context)
@@ -118,7 +119,8 @@ public static class RespecContext
             IsRespecing = !hero.TryGetHeroBuildingData(out var _);
         }
 
-        private static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
+        private static void FinalizeRespec([NotNull] RulesetCharacterHero oldHero,
+            [NotNull] RulesetCharacterHero newHero)
         {
             var guid = oldHero.Guid;
             var tags = oldHero.Tags;
@@ -128,34 +130,38 @@ public static class RespecContext
                 ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
             var worldLocationEntityFactoryService =
                 ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
-            var gameLocationCharacter =
-                gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
 
-            newHero.guid = guid;
-            newHero.Tags.AddRange(tags);
-            newHero.Attributes[AttributeDefinitions.Experience] = experience;
-
-            CopyInventoryOver(oldHero, newHero, gameLocationCharacter.LocationPosition);
-
-            gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
-
-            UpdateRestPanelUi(gameCampaignCharacters);
-
-            gameLocationCharacter.SetRuleset(newHero);
-
-            if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter,
-                    out var worldLocationCharacter))
+            if (gameLocationCharacterService != null)
             {
-                worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
-            }
+                var gameLocationCharacter =
+                    gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
 
-            gameLocationCharacterService.dirtyParty = true;
-            gameLocationCharacterService.RefreshAllCharacters();
+                newHero.guid = guid;
+                newHero.Tags.AddRange(tags);
+                newHero.Attributes[AttributeDefinitions.Experience] = experience;
+
+                CopyInventoryOver(oldHero, gameLocationCharacter.LocationPosition);
+
+                gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
+
+                UpdateRestPanelUi(gameCampaignCharacters);
+
+                gameLocationCharacter.SetRuleset(newHero);
+
+                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter,
+                        out var worldLocationCharacter))
+                {
+                    worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
+                }
+
+                gameLocationCharacterService.dirtyParty = true;
+                gameLocationCharacterService.RefreshAllCharacters();
+            }
 
             IsRespecing = false;
         }
 
-        private static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero,
+        private static void CopyInventoryOver([NotNull] RulesetCharacterHero oldHero,
             int3 position)
         {
             var inventoryCommandService = ServiceRepository.GetService<IInventoryCommandService>();

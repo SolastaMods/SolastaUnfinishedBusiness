@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.FightingStyles;
 
 namespace SolastaCommunityExpansion.Models;
@@ -20,7 +21,7 @@ internal static class FightingStyleContext
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
     }
 
-    private static void LoadStyle(AbstractFightingStyle styleBuilder)
+    private static void LoadStyle([NotNull] AbstractFightingStyle styleBuilder)
     {
         var style = styleBuilder.GetStyle();
 
@@ -33,7 +34,7 @@ internal static class FightingStyleContext
         UpdateStyleVisibility(style);
     }
 
-    private static void UpdateStyleVisibility(FightingStyleDefinition fightingStyleDefinition)
+    private static void UpdateStyleVisibility([NotNull] FightingStyleDefinition fightingStyleDefinition)
     {
         var name = fightingStyleDefinition.Name;
         var choiceLists = FightingStylesChoiceList[fightingStyleDefinition];

@@ -13,15 +13,15 @@ internal static class RemoveBugVisualModelsContext
         }
 
         // Spiderlings, fire spider, kindred spirit spider, BadlandsSpider(normal, conjured and wildshaped versions)
-        const string assetReference_spider_1 = "362fc51df586d254ab182ef854396f82";
+        const string ASSET_REFERENCE_SPIDER_1 = "362fc51df586d254ab182ef854396f82";
         //CrimsonSpiderling, PhaseSpider, SpectralSpider, CrimsonSpider, deep spider(normal, conjured and wildshaped versions)
-        const string assetReference_spider_2 = "40b5fe532a9a0814097acdb16c74e967";
+        const string ASSET_REFERENCE_SPIDER_2 = "40b5fe532a9a0814097acdb16c74e967";
         // spider queen
-        const string assetReference_spider_3 = "8fc96b2a8c5fcc243b124d31c63df5d9";
+        const string ASSET_REFERENCE_SPIDER_3 = "8fc96b2a8c5fcc243b124d31c63df5d9";
         //Giant_Beetle, Small_Beetle, Redeemer_Zealot, Redeemer_Pilgrim
-        const string assetReference_beetle = "04dfcec8c8afb8642a80c1116de218d4";
+        const string ASSET_REFERENCE_BEETLE = "04dfcec8c8afb8642a80c1116de218d4";
         //Young_Remorhaz, Remorhaz
-        const string assetReference_Remorhaz = "ded896e0c4ef46144904375ecadb1bb1";
+        const string ASSET_REFERENCE_REMORHAZ = "ded896e0c4ef46144904375ecadb1bb1";
 
         var brownBear = DatabaseHelper.MonsterDefinitions.BrownBear;
         var bearPrefab = new AssetReference("cc36634f504fa7049a4499a91749d7d5");
@@ -43,9 +43,9 @@ internal static class RemoveBugVisualModelsContext
             switch (value.AssetGUID)
             {
                 // swap bears for spiders
-                case assetReference_spider_1:
-                case assetReference_spider_2:
-                case assetReference_spider_3:
+                case ASSET_REFERENCE_SPIDER_1:
+                case ASSET_REFERENCE_SPIDER_2:
+                case ASSET_REFERENCE_SPIDER_3:
                     monster.MonsterPresentation.malePrefabReference = bearPrefab;
                     monster.MonsterPresentation.femalePrefabReference = bearPrefab;
                     monster.GuiPresentation.spriteReference = brownBear.GuiPresentation.SpriteReference;
@@ -54,7 +54,7 @@ internal static class RemoveBugVisualModelsContext
                         .MonsterPresentationDefinitions;
                     break;
                 // swap apes for remorhaz
-                case assetReference_Remorhaz:
+                case ASSET_REFERENCE_REMORHAZ:
                     monster.MonsterPresentation.malePrefabReference = apePrefab;
                     monster.MonsterPresentation.femalePrefabReference = apePrefab;
                     monster.GuiPresentation.spriteReference = ape.GuiPresentation.SpriteReference;
@@ -63,7 +63,7 @@ internal static class RemoveBugVisualModelsContext
                         .MonsterPresentationDefinitions;
                     break;
                 // swap wolves for beetles
-                case assetReference_beetle:
+                case ASSET_REFERENCE_BEETLE:
                     monster.MonsterPresentation.malePrefabReference = wolfPrefab;
                     monster.MonsterPresentation.femalePrefabReference = wolfPrefab;
                     monster.GuiPresentation.spriteReference = wolf.GuiPresentation.SpriteReference;

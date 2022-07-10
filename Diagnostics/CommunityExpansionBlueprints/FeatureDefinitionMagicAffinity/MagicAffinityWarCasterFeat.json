@@ -43,8 +43,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&MagicAffinityWarCasterFeatTitle",
-    "description": "Feat/&MagicAffinityWarCasterFeatDescription",
+    "title": "Feat/&FeatWarCasterTitle",
+    "description": "Feat/&FeatWarCasterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -21,5 +21,5 @@ Feature/&ZSPowerPaladinCleansingTouchDescription=Remova os efeitos da magia toca
 Feature/&ZSPowerPaladinCleansingTouchTitle=Toque de limpeza
 RestActivity/&ZSSorcerousRestorationDescription=Recupere 4 pontos de feitiçaria durante um descanso curto.
 RestActivity/&ZSSorcerousRestorationTitle=Restauração Feiticeira
-Sorceror/&ZSSorcerousRestorationDescription=Recupere 4 pontos de feitiçaria durante um descanso curto.
-Sorceror/&ZSSorcerousRestorationTitle=Restauração Feiticeira
+RestActivity/&ZSSorcerousRestorationDescription=Recupere 4 pontos de feitiçaria durante um descanso curto.
+RestActivity/&ZSSorcerousRestorationTitle=Restauração Feiticeira

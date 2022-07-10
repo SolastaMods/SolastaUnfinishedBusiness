@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Feats;
 
 namespace SolastaCommunityExpansion.Models;
@@ -30,7 +31,7 @@ internal static class FeatsContext
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
     }
 
-    private static void LoadFeat(FeatDefinition featDefinition)
+    private static void LoadFeat([NotNull] FeatDefinition featDefinition)
     {
         if (!Feats.Contains(featDefinition))
         {
@@ -40,7 +41,7 @@ internal static class FeatsContext
         UpdateFeatsVisibility(featDefinition);
     }
 
-    private static void UpdateFeatsVisibility(FeatDefinition featDefinition)
+    private static void UpdateFeatsVisibility([NotNull] FeatDefinition featDefinition)
     {
         featDefinition.GuiPresentation.hidden = !Main.Settings.FeatEnabled.Contains(featDefinition.Name);
     }

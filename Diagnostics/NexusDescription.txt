@@ -1,6 +1,8 @@
 
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
 
+[url=https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion]DONATE[/url]
+
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 [size=4][b]Credits[/b][/size]
@@ -25,9 +27,11 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration
+
 [*][b]Esker[/b]: ruleset support, classes design, quality assurance
 [*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance
+
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]Narria[/b]: modKit creator, developer
@@ -79,8 +83,10 @@ This is a collection of work from the Solasta modding community. It includes mul
 
 [b]STEP 2:[/b] Install Community Expansion (CE):
 
+[list]
 [*] Create the folder [b]/Applications/Mods[/b]
 [*] Download CE from the files section, unzip and copy it under above folder
+[/list]
 
 [size=4][b]Multiplayer[/b][/size]
 
@@ -230,6 +236,12 @@ If you have a free hand, you can shove as a bonus action.
 On your turn, you can take one additional action on top of your regular action. Once you use this feature, you must finish a long rest before you can use it again.
 [*][b]Fighting Surge (Strength)[/b]: Increase your Strength by 1, to a maximum of 20.
 On your turn, you can take one additional action on top of your regular action. Once you use this feature, you must finish a long rest before you can use it again.
+[*][b]Flame Touched (Charisma)[/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
+[*][b]Flame Touched (Intelligence)[/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
+[*][b]Flame Touched (Wisdom)[/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
 [*][b]Fletcher[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with smith's tools, or expertise if you are already proficient.
  You gain proficiency with all bows and crossbows.
@@ -298,7 +310,7 @@ As a bonus action, you can telekinetically push or pull one creature you can see
 [*][b]Telekinetic (Intelligence)[/b]: Increase your Intelligence by 1, to a maximum of 20.
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet.
 [*][b]Telekinetic (Wisdom)[/b]: Increase your Wisdom by 1, to a maximum of 20.
-As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
+As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
 [*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 [*][b]Toxicologist (Intelligence)[/b]: Increase your Intelligence by 1, to a maximum of 20.

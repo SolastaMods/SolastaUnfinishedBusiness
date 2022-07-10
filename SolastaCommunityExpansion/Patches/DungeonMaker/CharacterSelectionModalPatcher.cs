@@ -16,7 +16,7 @@ internal static class CharacterSelectionModal_SelectFromPool
             return;
         }
 
-        __instance.MinLevel = DungeonMakerContext.DUNGEON_MIN_LEVEL;
-        __instance.MaxLevel = DungeonMakerContext.DUNGEON_MAX_LEVEL;
+        __instance.MinLevel = DungeonMakerContext.DungeonMinLevel;
+        __instance.MaxLevel = DungeonMakerContext.DungeonMaxLevel;
     }
 }

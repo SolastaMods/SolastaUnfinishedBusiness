@@ -17,9 +17,9 @@ internal static class GameLocationCharacterManager_UnlockCharactersForLoading
     {
         var partyCharacters = __instance.PartyCharacters;
 
-        for (var idx = DungeonMakerContext.GAME_PARTY_SIZE; idx < partyCharacters.Count; idx++)
+        for (var idx = DungeonMakerContext.GamePartySize; idx < partyCharacters.Count; idx++)
         {
-            var position = partyCharacters[idx % DungeonMakerContext.GAME_PARTY_SIZE].LocationPosition;
+            var position = partyCharacters[idx % DungeonMakerContext.GamePartySize].LocationPosition;
 
             partyCharacters[idx].LocationPosition = new int3(position.x, position.y, position.z);
         }

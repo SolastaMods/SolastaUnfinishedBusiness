@@ -10,7 +10,7 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatWisIncrement:1794c14b-322c-560a-a025-d3e34d2cd58b",
+    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
     "Definition:FeyTeleportationAutoPrepMistyBarbarian:8a5682f7-8563-52f3-936b-138645322366",
     "Definition:FeyTeleportationAutoPrepMistyClassMonk:061e2ddc-5378-5ef5-8af4-6e33e5cd7454",
     "Definition:FeyTeleportationAutoPrepMistyClassTinkerer:5902baac-de33-5c7d-ac6d-0c07a57b56f2",

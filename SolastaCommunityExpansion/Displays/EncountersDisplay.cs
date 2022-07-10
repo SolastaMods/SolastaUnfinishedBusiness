@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using JetBrains.Annotations;
 using ModKit;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
@@ -9,24 +10,25 @@ namespace SolastaCommunityExpansion.Displays;
 
 public static class EncountersDisplay
 {
-    private static bool showStats;
+    private static bool _showStats;
 
-    private static bool showAttributes;
+    private static bool _showAttributes;
 
-    private static readonly Dictionary<MonsterDefinition, bool> currentFeaturesMonster = new();
+    private static readonly Dictionary<MonsterDefinition, bool> CurrentFeaturesMonster = new();
 
-    private static readonly Dictionary<MonsterDefinition, bool> currentAttacksMonster = new();
+    private static readonly Dictionary<MonsterDefinition, bool> CurrentAttacksMonster = new();
 
-    private static readonly Dictionary<RulesetCharacterHero, bool> currentItemsHeroes = new();
+    private static readonly Dictionary<RulesetCharacterHero, bool> CurrentItemsHeroes = new();
 
-    private static string SplitCamelCase(string str)
+    [NotNull]
+    private static string SplitCamelCase([NotNull] string str)
     {
         return Regex.Replace(Regex.Replace(str, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
     }
 
-    private static void DisplayHeroStats(RulesetCharacterHero hero, string actionText, Action action)
+    private static void DisplayHeroStats([NotNull] RulesetCharacterHero hero, string actionText, Action action)
     {
-        var flip = false;
+        bool flip;
         var inventory = hero.CharacterInventory.EnumerateAllSlots(false, true);
 
         using (UI.HorizontalScope())
@@ -36,50 +38,50 @@ public static class EncountersDisplay
             UI.Label($"{hero.RaceDefinition.FormatTitle()} {hero.ClassesHistory[0].FormatTitle()}".White(),
                 UI.Width(120));
 
-            var attributesLabel = showAttributes ? "" : "Attributes";
+            var attributesLabel = _showAttributes ? "" : "Attributes";
 
-            UI.DisclosureToggle(attributesLabel, ref showAttributes, attributesLabel.Length * 12);
+            UI.DisclosureToggle(attributesLabel, ref _showAttributes, attributesLabel.Length * 12);
 
-            if (showAttributes)
+            if (_showAttributes)
             {
                 UI.Label($"Str: {hero.GetAttribute(AttributeDefinitions.Strength).CurrentValue:0#}".White(),
                     UI.Width(48));
                 UI.Label($"Dex: {hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue:0#}".White(),
                     UI.Width(48));
-                UI.Label($"Con: {hero.GetAttribute(AttributeDefinitions.Constitution).CurrentValue:0#}".Yellow(),
+                UI.Label($"Con: {hero.GetAttribute(AttributeDefinitions.Constitution).CurrentValue:0#}".Khaki(),
                     UI.Width(48));
-                UI.Label($"Int: {hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue:0#}".Yellow(),
+                UI.Label($"Int: {hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue:0#}".Khaki(),
                     UI.Width(48));
                 UI.Label($"Wis: {hero.GetAttribute(AttributeDefinitions.Wisdom).CurrentValue:0#}".White(),
                     UI.Width(48));
-                UI.Label($"Cha: {hero.GetAttribute(AttributeDefinitions.Charisma).CurrentValue:0#}".Yellow(),
+                UI.Label($"Cha: {hero.GetAttribute(AttributeDefinitions.Charisma).CurrentValue:0#}".Khaki(),
                     UI.Width(48));
             }
 
-            var statsLabel = showStats ? "" : "Stats";
+            var statsLabel = _showStats ? "" : "Stats";
 
-            UI.DisclosureToggle(statsLabel, ref showStats, statsLabel.Length * 12);
+            UI.DisclosureToggle(statsLabel, ref _showStats, statsLabel.Length * 12);
 
-            if (showStats)
+            if (_showStats)
             {
                 UI.Label($"AC: {hero.GetAttribute(AttributeDefinitions.ArmorClass).CurrentValue:0#}".White(),
                     UI.Width(48));
-                UI.Label($"HD: {hero.MaxHitDiceCount():0#}{hero.MainHitDie}".Yellow(), UI.Width(72));
+                UI.Label($"HD: {hero.MaxHitDiceCount():0#}{hero.MainHitDie}".Khaki(), UI.Width(72));
                 UI.Label($"XP: {hero.GetAttribute(AttributeDefinitions.Experience).CurrentValue}".White(),
                     UI.Width(72));
                 UI.Label($"LV: {hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue:0#}".White(),
                     UI.Width(48));
             }
 
-            currentItemsHeroes.TryGetValue(hero, out flip);
+            CurrentItemsHeroes.TryGetValue(hero, out flip);
 
             if (UI.DisclosureToggle("Inventory", ref flip, 132))
             {
-                currentItemsHeroes.AddOrReplace(hero, flip);
+                CurrentItemsHeroes.AddOrReplace(hero, flip);
             }
         }
 
-        currentItemsHeroes.TryGetValue(hero, out flip);
+        CurrentItemsHeroes.TryGetValue(hero, out flip);
 
         if (flip)
         {
@@ -106,10 +108,10 @@ public static class EncountersDisplay
         }
     }
 
-    private static void DisplayMonsterStats(MonsterDefinition monsterDefinition, string actionText,
+    private static void DisplayMonsterStats([NotNull] MonsterDefinition monsterDefinition, string actionText,
         Action action)
     {
-        var flip = false;
+        bool flip;
 
         using (UI.HorizontalScope())
         {
@@ -117,48 +119,48 @@ public static class EncountersDisplay
             UI.Label($"{monsterDefinition.FormatTitle()}".Orange().Bold(), UI.Width(240));
             UI.Label($"{SplitCamelCase(monsterDefinition.Alignment)}".White(), UI.Width(120));
 
-            var attributesLabel = showAttributes ? "" : "Attributes";
+            var attributesLabel = _showAttributes ? "" : "Attributes";
 
-            UI.DisclosureToggle(attributesLabel, ref showAttributes, attributesLabel.Length * 12);
+            UI.DisclosureToggle(attributesLabel, ref _showAttributes, attributesLabel.Length * 12);
 
-            if (showAttributes)
+            if (_showAttributes)
             {
                 UI.Label($"Str: {monsterDefinition.AbilityScores[0]:0#}".White(), UI.Width(48));
-                UI.Label($"Dex: {monsterDefinition.AbilityScores[1]:0#}".Yellow(), UI.Width(48));
+                UI.Label($"Dex: {monsterDefinition.AbilityScores[1]:0#}".Khaki(), UI.Width(48));
                 UI.Label($"Con: {monsterDefinition.AbilityScores[2]:0#}".White(), UI.Width(48));
-                UI.Label($"Int: {monsterDefinition.AbilityScores[3]:0#}".Yellow(), UI.Width(48));
+                UI.Label($"Int: {monsterDefinition.AbilityScores[3]:0#}".Khaki(), UI.Width(48));
                 UI.Label($"Wis: {monsterDefinition.AbilityScores[4]:0#}".White(), UI.Width(48));
-                UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".Yellow(), UI.Width(48));
+                UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".Khaki(), UI.Width(48));
             }
 
-            var statsLabel = showStats ? "" : "Stats";
+            var statsLabel = _showStats ? "" : "Stats";
 
-            UI.DisclosureToggle(statsLabel, ref showStats, statsLabel.Length * 12);
+            UI.DisclosureToggle(statsLabel, ref _showStats, statsLabel.Length * 12);
 
-            if (showStats)
+            if (_showStats)
             {
                 UI.Label($"AC: {monsterDefinition.ArmorClass}".White(), UI.Width(48));
-                UI.Label($"HD: {monsterDefinition.HitDice:0#}{monsterDefinition.HitDiceType}".Yellow(),
+                UI.Label($"HD: {monsterDefinition.HitDice:0#}{monsterDefinition.HitDiceType}".Khaki(),
                     UI.Width(72));
-                UI.Label($"CR: {monsterDefinition.ChallengeRating}".Yellow(), UI.Width(72));
+                UI.Label($"CR: {monsterDefinition.ChallengeRating}".Khaki(), UI.Width(72));
             }
 
-            currentAttacksMonster.TryGetValue(monsterDefinition, out flip);
+            CurrentAttacksMonster.TryGetValue(monsterDefinition, out flip);
 
             if (UI.DisclosureToggle($"Attacks ({monsterDefinition.AttackIterations.Count:0#})", ref flip, 132))
             {
-                currentAttacksMonster.AddOrReplace(monsterDefinition, flip);
+                CurrentAttacksMonster.AddOrReplace(monsterDefinition, flip);
             }
 
-            currentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
+            CurrentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
 
             if (UI.DisclosureToggle($"Features ({monsterDefinition.Features.Count:0#})", ref flip, 144))
             {
-                currentFeaturesMonster.AddOrReplace(monsterDefinition, flip);
+                CurrentFeaturesMonster.AddOrReplace(monsterDefinition, flip);
             }
         }
 
-        currentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
+        CurrentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
         if (flip)
         {
             using (UI.VerticalScope())
@@ -187,7 +189,7 @@ public static class EncountersDisplay
             }
         }
 
-        currentAttacksMonster.TryGetValue(monsterDefinition, out flip);
+        CurrentAttacksMonster.TryGetValue(monsterDefinition, out flip);
         if (flip)
         {
             using (UI.VerticalScope())
@@ -217,15 +219,11 @@ public static class EncountersDisplay
                             UI.Width(108));
                         UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus}".Green(),
                             UI.Width(108));
-                        if (attackIteration.MonsterAttackDefinition.MaxUses < 0)
-                        {
-                            UI.Label("max uses: inf".Green(), UI.Width(108));
-                        }
-                        else
-                        {
-                            UI.Label($"max uses: {attackIteration.MonsterAttackDefinition.MaxUses}".Green(),
-                                UI.Width(108));
-                        }
+                        UI.Label(
+                            attackIteration.MonsterAttackDefinition.MaxUses < 0
+                                ? "max uses: inf".Green()
+                                : $"max uses: {attackIteration.MonsterAttackDefinition.MaxUses}".Green(),
+                            UI.Width(108));
 
                         if (attackIteration.MonsterAttackDefinition.Magical)
                         {
@@ -239,16 +237,14 @@ public static class EncountersDisplay
 
     internal static void DisplayEncountersGeneral()
     {
-        bool toggle;
-
         UI.Label("");
-        UI.Label("Controllers:".Yellow());
+        UI.Label("Controllers:".Khaki());
         UI.Label("");
 
         UI.Label(". Note the encounters feature won't work in a Multiplayer session. Yet...");
         UI.Label("");
 
-        toggle = Main.Settings.EnableEnemiesControlledByPlayer;
+        var toggle = Main.Settings.EnableEnemiesControlledByPlayer;
         if (UI.Toggle("Enable enemies controlled by players", ref toggle))
         {
             Main.Settings.EnableEnemiesControlledByPlayer = toggle;
@@ -301,7 +297,7 @@ public static class EncountersDisplay
         }
 
         UI.Label("");
-        UI.Label("Encounters:".Yellow());
+        UI.Label("Encounters:".Khaki());
         UI.Label("");
 
         UI.Label(". encounters only work in custom campaigns or locations");
@@ -321,7 +317,7 @@ public static class EncountersDisplay
         {
             for (var index = 0; index < EncountersSpawnContext.EncounterCharacters.Count; index++)
             {
-                // Prevent captured closure 
+                // Prevent captured closure
                 var index2 = index;
 
                 if (EncountersSpawnContext.EncounterCharacters[index2] is RulesetCharacterMonster
@@ -346,7 +342,7 @@ public static class EncountersDisplay
     {
         UI.Label("");
         UI.Label(
-            $". Click + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list");
+            $". Click + to add up to {EncountersSpawnContext.MaxEncounterCharacters} characters to the encounter list");
         UI.Label("");
 
         foreach (var monsterDefinition in EncountersSpawnContext.GetMonsters())
@@ -356,13 +352,13 @@ public static class EncountersDisplay
         }
     }
 
-    internal static void DisplayNPCs()
+    internal static void DisplayNpcs()
     {
         using (UI.VerticalScope(UI.AutoWidth(), UI.AutoHeight()))
         {
             UI.Label("");
             UI.Label(
-                $". Click + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list");
+                $". Click + to add up to {EncountersSpawnContext.MaxEncounterCharacters} characters to the encounter list");
             UI.Label("");
 
             foreach (var hero in EncountersSpawnContext.GetHeroes())

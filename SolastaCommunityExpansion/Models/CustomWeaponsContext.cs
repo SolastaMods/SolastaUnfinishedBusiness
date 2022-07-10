@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -67,7 +68,9 @@ public static class CustomWeaponsContext
         PolearmWeaponTypes.AddRange(new[] {HalberdWeaponType.Name, PikeWeaponType.Name, LongMaceWeaponType.Name});
     }
 
-    public static ItemPresentation BuildPresentation(string unIdentifiedName, ItemPresentation basePresentation,
+    [NotNull]
+    public static ItemPresentation BuildPresentation(string unIdentifiedName,
+        [NotNull] ItemPresentation basePresentation,
         float scale = 1.0f, bool hasUnidDescription = false)
     {
         var presentation = new ItemPresentation(basePresentation);
@@ -82,6 +85,7 @@ public static class CustomWeaponsContext
         return presentation;
     }
 
+    [NotNull]
     public static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
         RuleDefinitions.ItemRarity rarity,
         ItemPresentation basePresentation = null,
@@ -208,6 +212,7 @@ public static class CustomWeaponsContext
             ItemDefinitions.Ingredient_Enchant_Slavestone), Monk.Guid), ShopCrafting));
     }
 
+    [NotNull]
     private static ItemDefinition BuildHandwrapsCommon(string name, int goldCost, bool noDescription, bool needId,
         RuleDefinitions.ItemRarity rarity,
         params ItemPropertyDescription[] properties)
@@ -593,7 +598,7 @@ public static class CustomWeaponsContext
 
     //TODO: move this to the separate shop context file
     private static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items,
-        ICollection<(MerchantDefinition, MerchantTypeContext.MerchantType)> merchants)
+        [NotNull] ICollection<(MerchantDefinition, MerchantTypeContext.MerchantType)> merchants)
     {
         foreach (var (merchant, type) in merchants)
         {
@@ -601,19 +606,21 @@ public static class CustomWeaponsContext
         }
     }
 
-    private static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items, MerchantDefinition merchant,
+    private static void GiveAssortment([NotNull] List<(ItemDefinition, ShopItemType)> items,
+        MerchantDefinition merchant,
         MerchantTypeContext.MerchantType type)
     {
         foreach (var (item, itemType) in items)
         {
-            if (itemType.filter.Matches(type))
+            if (itemType.Filter.Matches(type))
             {
-                StockItem(merchant, item, itemType.status);
+                StockItem(merchant, item, itemType.Status);
             }
         }
     }
 
-    private static void StockItem(MerchantDefinition merchant, ItemDefinition item, FactionStatusDefinition status)
+    private static void StockItem([NotNull] MerchantDefinition merchant, ItemDefinition item,
+        [NotNull] FactionStatusDefinition status)
     {
         merchant.StockUnitDescriptions.Add(StockBuilder
             .SetItem(item)
@@ -629,13 +636,13 @@ public static class CustomWeaponsContext
             .SetRestock(1);
     }
 
-    public static RecipeDefinition BuildRecipe(ItemDefinition item, int hours, int difficulty,
+    public static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
         params ItemDefinition[] ingredients)
     {
         return BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients);
     }
 
-    public static RecipeDefinition BuildRecipe(ItemDefinition item, int hours, int difficulty, Guid guid,
+    public static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty, Guid guid,
         params ItemDefinition[] ingredients)
     {
         return RecipeDefinitionBuilder
@@ -647,19 +654,22 @@ public static class CustomWeaponsContext
             .AddToDB();
     }
 
-    public static ItemDefinition BuildRecipeManual(ItemDefinition item, int hours, int difficulty,
+    [NotNull]
+    public static ItemDefinition BuildRecipeManual([NotNull] ItemDefinition item, int hours, int difficulty,
         params ItemDefinition[] ingredients)
     {
         return BuildManual(BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients),
             DefinitionBuilder.CENamespaceGuid);
     }
 
-    public static ItemDefinition BuildManual(RecipeDefinition recipe)
+    [NotNull]
+    public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
     {
         return BuildManual(recipe, DefinitionBuilder.CENamespaceGuid);
     }
 
-    public static ItemDefinition BuildManual(RecipeDefinition recipe, Guid guid)
+    [NotNull]
+    public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe, Guid guid)
     {
         var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
         var manual = ItemDefinitionBuilder
@@ -679,17 +689,19 @@ public static class CustomWeaponsContext
         return manual;
     }
 
+    [NotNull]
     public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed, Guid guid)
     {
         return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(guid, item, primed), guid);
     }
 
+    [NotNull]
     public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
     {
         return BuildPrimingManual(item, primed, DefinitionBuilder.CENamespaceGuid);
     }
 
-    public static void ProcessProducedFlameAttack(RulesetCharacterHero hero, RulesetAttackMode mode)
+    public static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero, [NotNull] RulesetAttackMode mode)
     {
         var num = hero.characterInventory.CurrentConfiguration;
         var configurations = hero.characterInventory.WieldedItemsConfigurations;
@@ -725,18 +737,23 @@ public static class CustomWeaponsContext
         _halberdP2Icon,
         _halberdLightningIcon;
 
+    [NotNull]
     private static AssetReferenceSprite HalberdIcon =>
         _halberdIcon ??= CustomIcons.CreateAssetReferenceSprite("Halberd", Resources.Halberd, 128);
 
+    [NotNull]
     private static AssetReferenceSprite HalberdPrimedIcon => _halberdPrimedIcon ??=
         CustomIcons.CreateAssetReferenceSprite("HalberdPrimed", Resources.HalberdPrimed, 128);
 
+    [NotNull]
     private static AssetReferenceSprite HalberdP1Icon => _halberdP1Icon ??=
         CustomIcons.CreateAssetReferenceSprite("Halberd_1", Resources.Halberd_1, 128);
 
+    [NotNull]
     private static AssetReferenceSprite HalberdP2Icon => _halberdP2Icon ??=
         CustomIcons.CreateAssetReferenceSprite("Halberd_2", Resources.Halberd_2, 128);
 
+    [NotNull]
     private static AssetReferenceSprite HalberdLightningIcon => _halberdLightningIcon ??=
         CustomIcons.CreateAssetReferenceSprite("HalberdLightning", Resources.HalberdLightning, 128);
 
@@ -750,18 +767,23 @@ public static class CustomWeaponsContext
         _pikeP2Icon,
         _pikeLightningIcon;
 
+    [NotNull]
     private static AssetReferenceSprite PikeIcon =>
         _pikeIcon ??= CustomIcons.CreateAssetReferenceSprite("Pike", Resources.Pike, 128);
 
+    [NotNull]
     private static AssetReferenceSprite PikePrimedIcon => _pikePrimedIcon ??=
         CustomIcons.CreateAssetReferenceSprite("PikePrimed", Resources.PikePrimed, 128);
 
+    [NotNull]
     private static AssetReferenceSprite PikeP1Icon => _pikeP1Icon ??=
         CustomIcons.CreateAssetReferenceSprite("Pike_1", Resources.Pike_1, 128);
 
+    [NotNull]
     private static AssetReferenceSprite PikeP2Icon => _pikeP2Icon ??=
         CustomIcons.CreateAssetReferenceSprite("Pike_2", Resources.Pike_2, 128);
 
+    [NotNull]
     private static AssetReferenceSprite PikePsychicIcon => _pikeLightningIcon ??=
         CustomIcons.CreateAssetReferenceSprite("PikePsychic", Resources.PikePsychic, 128);
 
@@ -775,18 +797,23 @@ public static class CustomWeaponsContext
         _longMaceP2Icon,
         _longMaceLightningIcon;
 
+    [NotNull]
     private static AssetReferenceSprite LongMaceIcon =>
         _longMaceIcon ??= CustomIcons.CreateAssetReferenceSprite("LongMace", Resources.LongMace, 128);
 
+    [NotNull]
     private static AssetReferenceSprite LongMacePrimedIcon => _longMacePrimedIcon ??=
         CustomIcons.CreateAssetReferenceSprite("LongMacePrimed", Resources.LongMacePrimed, 128);
 
+    [NotNull]
     private static AssetReferenceSprite LongMaceP1Icon => _longMaceP1Icon ??=
         CustomIcons.CreateAssetReferenceSprite("LongMace_1", Resources.LongMace_1, 128);
 
+    [NotNull]
     private static AssetReferenceSprite LongMaceP2Icon => _longMaceP2Icon ??=
         CustomIcons.CreateAssetReferenceSprite("LongMace_2", Resources.LongMace_2, 128);
 
+    [NotNull]
     private static AssetReferenceSprite LongMaceThunderIcon => _longMaceLightningIcon ??=
         CustomIcons.CreateAssetReferenceSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
 
@@ -800,18 +827,23 @@ public static class CustomWeaponsContext
         _handXbowP2Icon,
         _handXbowAcidIcon;
 
+    [NotNull]
     private static AssetReferenceSprite HandXbowIcon =>
         _handXbowIcon ??= CustomIcons.CreateAssetReferenceSprite("HandXbow", Resources.HandXbow, 128);
 
+    [NotNull]
     private static AssetReferenceSprite HandXbowPrimedIcon => _handXbowPrimedIcon ??=
         CustomIcons.CreateAssetReferenceSprite("HandXbowPrimed", Resources.HandXbowPrimed, 128);
 
+    [NotNull]
     private static AssetReferenceSprite HandXbowP1Icon => _handXbowP1Icon ??=
         CustomIcons.CreateAssetReferenceSprite("HandXbow_1", Resources.HandXbow_1, 128);
 
+    [NotNull]
     private static AssetReferenceSprite HandXbowP2Icon => _handXbowP2Icon ??=
         CustomIcons.CreateAssetReferenceSprite("HandXbow_2", Resources.HandXbow_2, 128);
 
+    [NotNull]
     private static AssetReferenceSprite HandXbowAcidIcon => _handXbowAcidIcon ??=
         CustomIcons.CreateAssetReferenceSprite("HandXbowAcid", Resources.HandXbowAcid, 128);
 
@@ -821,6 +853,7 @@ public static class CustomWeaponsContext
 
     private static AssetReferenceSprite _producedFlameThrow;
 
+    [NotNull]
     private static AssetReferenceSprite ProducedFlameThrow => _producedFlameThrow ??=
         CustomIcons.CreateAssetReferenceSprite("ProducedFlameThrow", Resources.ProducedFlameThrow, 128);
 
@@ -828,19 +861,19 @@ public static class CustomWeaponsContext
 }
 
 //TODO: move this to the separate shop context file
-public class ShopItemType
+public sealed class ShopItemType
 {
-    public readonly MerchantFilter filter;
-    public readonly FactionStatusDefinition status;
+    public readonly MerchantFilter Filter;
+    public readonly FactionStatusDefinition Status;
 
     public ShopItemType(FactionStatusDefinition status, MerchantFilter filter)
     {
-        this.status = status;
-        this.filter = filter;
+        Status = status;
+        Filter = filter;
     }
 }
 
-public class MerchantFilter
+public sealed class MerchantFilter
 {
     public bool? IsAmmunition = null;
     public bool? IsArmor = null;
@@ -874,14 +907,14 @@ public class MerchantFilter
     }
 }
 
-public class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
+public sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
 {
     public ModifyProducedFlameDice() : base((_, weapon, _) =>
         weapon != null && weapon.ItemDefinition == ItemDefinitions.ProducedFlame)
     {
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         var damage = attackMode.EffectDescription.FindLastDamageForm();
@@ -893,13 +926,14 @@ public class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
     }
 }
 
-public class AddThrowProducedFlameAttack : AddExtraAttackBase
+public sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
 {
     public AddThrowProducedFlameAttack() : base(ActionDefinitions.ActionType.Main, false)
     {
     }
 
-    protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+    [NotNull]
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
     {
         var result = new List<RulesetAttackMode>();
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
@@ -907,7 +941,8 @@ public class AddThrowProducedFlameAttack : AddExtraAttackBase
         return result;
     }
 
-    private void AddItemAttack(List<RulesetAttackMode> attackModes, string slot, RulesetCharacterHero hero)
+    private void AddItemAttack(List<RulesetAttackMode> attackModes, [NotNull] string slot,
+        [NotNull] RulesetCharacterHero hero)
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
         if (item == null || item.ItemDefinition != ItemDefinitions.ProducedFlame)
@@ -943,7 +978,7 @@ public class AddThrowProducedFlameAttack : AddExtraAttackBase
     }
 }
 
-public class CustomScale
+public sealed class CustomScale
 {
     public readonly float X, Y, Z;
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,15 +17,15 @@ public static class MulticlassGameUiContext
 
     public static float GetFontSize(int classesCount)
     {
-        return fontSizes[classesCount % (MulticlassContext.MAX_CLASSES + 1)];
+        return fontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
     }
 
     public static void PaintPactSlots(
-        RulesetCharacterHero heroWithSpellRepertoire,
+        [NotNull] RulesetCharacterHero heroWithSpellRepertoire,
         int totalSlotsCount,
         int totalSlotsRemainingCount,
         int slotLevel,
-        RectTransform rectTransform,
+        [NotNull] RectTransform rectTransform,
         bool hasTooltip = false)
     {
         var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
@@ -112,7 +113,7 @@ public static class MulticlassGameUiContext
         rectTransform.GetComponent<GuiTooltip>().Content = str;
     }
 
-    public static void PaintSlotsWhite(RectTransform rectTransform)
+    public static void PaintSlotsWhite([NotNull] RectTransform rectTransform)
     {
         for (var index = 0; index < rectTransform.childCount; ++index)
         {
@@ -125,7 +126,7 @@ public static class MulticlassGameUiContext
 
     /**Adds available slot level options to optionsAvailability and returns index of pre-picked option, or -1*/
     public static int AddAvailableSubLevels(Dictionary<int, bool> optionsAvailability, RulesetCharacterHero hero,
-        RulesetSpellRepertoire spellRepertoire, int minSpellLevel = 1, int maxSpellLevel = 0)
+        [NotNull] RulesetSpellRepertoire spellRepertoire, int minSpellLevel = 1, int maxSpellLevel = 0)
     {
         var selectedSlot = -1;
 
@@ -169,7 +170,8 @@ public static class MulticlassGameUiContext
         return selectedSlot;
     }
 
-    public static string GetAllClassesLabel(GuiCharacter character, char separator)
+    [CanBeNull]
+    public static string GetAllClassesLabel([CanBeNull] GuiCharacter character, char separator)
     {
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var builder = new StringBuilder();
@@ -231,7 +233,8 @@ public static class MulticlassGameUiContext
         return builder.ToString().Remove(builder.Length - 1, 1);
     }
 
-    public static string GetAllClassesHitDiceLabel(GuiCharacter character, out int dieTypeCount)
+    [NotNull]
+    public static string GetAllClassesHitDiceLabel([NotNull] GuiCharacter character, out int dieTypeCount)
     {
         Assert.IsNotNull(character, nameof(character));
 
@@ -263,7 +266,8 @@ public static class MulticlassGameUiContext
         return builder.Remove(builder.Length - 1, 1).ToString();
     }
 
-    public static string GetLevelAndExperienceTooltip(GuiCharacter character)
+    [CanBeNull]
+    public static string GetLevelAndExperienceTooltip([NotNull] GuiCharacter character)
     {
         var builder = new StringBuilder();
         var hero = character.RulesetCharacterHero;

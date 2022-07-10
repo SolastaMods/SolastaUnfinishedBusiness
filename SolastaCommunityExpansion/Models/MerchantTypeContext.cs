@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Models;
 
 public class MerchantTypeContext
 {
-    internal static List<(MerchantDefinition, MerchantType)> MerchantTypes = new();
+    internal static readonly List<(MerchantDefinition, MerchantType)> MerchantTypes = new();
 
     private static readonly string[] RangedWeaponTypes =
     {
@@ -107,7 +107,7 @@ public class MerchantTypeContext
         };
     }
 
-    public class MerchantType
+    public sealed class MerchantType
     {
         public bool IsAmmunition;
         public bool IsArmor;

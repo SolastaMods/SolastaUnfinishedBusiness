@@ -4,18 +4,19 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class IntegrationContext
 {
-    internal const string CLASS_MONK = "ClassMonk";
+    internal const string ClassMonk = "ClassMonk";
 
-    internal const string CLASS_TINKERER = "ClassTinkerer";
+    internal const string ClassTinkerer = "ClassTinkerer";
 
     //internal const string CLASS_WARDEN = "ClassWarden";
-    internal const string CLASS_WARLOCK = "ClassWarlock";
+    internal const string ClassWarlock = "ClassWarlock";
 
-    internal const string CLASS_WITCH = "ClassWitch";
+    internal const string ClassWitch = "ClassWitch";
 
     //internal const string CLASS_MAGUS = "ClassMagus";
-    private const string SUBCLASS_CONARTIST = "RoguishConArtist";
-    private const string SUBCLASS_SPELLSHIELD = "FighterSpellShield";
+    private const string SubclassConartist = "RoguishConArtist";
+    private const string SubclassSpellshield = "FighterSpellShield";
+    private const string SubclassPathOfTheRageMage = "BarbarianPathOfTheRageMage";
 
     // Sentinel blueprints to avoid a bunch of null check in code
 
@@ -41,20 +42,22 @@ internal static class IntegrationContext
     //internal static CharacterClassDefinition MagusClass { get; private set; } = DummyClass;
     internal static CharacterSubclassDefinition ConArtistSubclass { get; private set; } = DummySubclass;
     internal static CharacterSubclassDefinition SpellShieldSubclass { get; private set; } = DummySubclass;
+    internal static CharacterSubclassDefinition PathOfTheRageMageSubclass { get; private set; } = DummySubclass;
 
     internal static void LateLoad()
     {
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
 
-        dbCharacterClassDefinition.TryGetElement(CLASS_MONK, out var unofficialMonk);
-        dbCharacterClassDefinition.TryGetElement(CLASS_TINKERER, out var unofficialTinkerer);
+        dbCharacterClassDefinition.TryGetElement(ClassMonk, out var unofficialMonk);
+        dbCharacterClassDefinition.TryGetElement(ClassTinkerer, out var unofficialTinkerer);
         //dbCharacterClassDefinition.TryGetElement(CLASS_WARDEN, out var unofficialWarden);
-        dbCharacterClassDefinition.TryGetElement(CLASS_WARLOCK, out var unofficialWarlock);
-        dbCharacterClassDefinition.TryGetElement(CLASS_WITCH, out var unofficialWitch);
+        dbCharacterClassDefinition.TryGetElement(ClassWarlock, out var unofficialWarlock);
+        dbCharacterClassDefinition.TryGetElement(ClassWitch, out var unofficialWitch);
         //dbCharacterClassDefinition.TryGetElement(CLASS_MAGUS, out var unofficialMagus);
-        dbCharacterSubclassDefinition.TryGetElement(SUBCLASS_CONARTIST, out var unofficialConArtist);
-        dbCharacterSubclassDefinition.TryGetElement(SUBCLASS_SPELLSHIELD, out var unofficialSpellShield);
+        dbCharacterSubclassDefinition.TryGetElement(SubclassConartist, out var unofficialConArtist);
+        dbCharacterSubclassDefinition.TryGetElement(SubclassSpellshield, out var unofficialSpellShield);
+        dbCharacterSubclassDefinition.TryGetElement(SubclassPathOfTheRageMage, out var unofficialPathOfTheRageMage);
 
         // NOTE: don't use ?? here which bypasses Unity object lifetime check
 
@@ -66,5 +69,6 @@ internal static class IntegrationContext
         //MagusClass = unofficialMagus ? unofficialMagus : DummyClass;
         ConArtistSubclass = unofficialConArtist ? unofficialConArtist : DummySubclass;
         SpellShieldSubclass = unofficialSpellShield ? unofficialSpellShield : DummySubclass;
+        PathOfTheRageMageSubclass = unofficialPathOfTheRageMage ? unofficialPathOfTheRageMage : DummySubclass;
     }
 }

@@ -18,10 +18,10 @@ internal static class RevivePartyControlPanel_OnBeginShow
     {
         var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-        if (partyCount > DungeonMakerContext.GAME_PARTY_SIZE)
+        if (partyCount > DungeonMakerContext.GamePartySize)
         {
-            var scale = (float)Math.Pow(DungeonMakerContext.REVIVE_PARTY_CONTROL_PANEL_DEFAULT_SCALE,
-                partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
+            var scale = (float)Math.Pow(DungeonMakerContext.RevivePartyControlPanelDefaultScale,
+                partyCount - DungeonMakerContext.GamePartySize);
 
             __instance.partyPlatesTable.localScale = new Vector3(scale, 1, scale);
         }
