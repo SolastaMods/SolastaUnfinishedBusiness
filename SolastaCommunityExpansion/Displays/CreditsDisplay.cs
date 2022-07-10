@@ -27,7 +27,7 @@ internal static class CreditsDisplay
                   "D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez, R. Garcia, \n" +
                   "R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson, J. Batanero\n" +
                   "J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker, N. Zhuxy, M. Arteaga, J. Boyd, C. Badgley\n" +
-                  "D. Faires, E. Smith"
+                  "D. Faires, E. Smith, G. Kinch"
         }
     };
 
