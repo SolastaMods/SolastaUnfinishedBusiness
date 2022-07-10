@@ -57,7 +57,7 @@ internal static class IntegrationContext
         //dbCharacterClassDefinition.TryGetElement(CLASS_MAGUS, out var unofficialMagus);
         dbCharacterSubclassDefinition.TryGetElement(SubclassConartist, out var unofficialConArtist);
         dbCharacterSubclassDefinition.TryGetElement(SubclassSpellshield, out var unofficialSpellShield);
-        dbCharacterSubclassDefinition.TryGetElement(SubclassSpellshield, out var unofficialPathOfTheRageMage);
+        dbCharacterSubclassDefinition.TryGetElement(SubclassPathOfTheRageMage, out var unofficialPathOfTheRageMage);
 
         // NOTE: don't use ?? here which bypasses Unity object lifetime check
 
