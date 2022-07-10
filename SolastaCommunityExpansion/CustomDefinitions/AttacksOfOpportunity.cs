@@ -68,7 +68,7 @@ public static class AttacksOfOpportunity
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
-            RequestReactionAttack(EWFeats.SentinelFeat, new CharacterActionParams(
+            RequestReactionAttack(EwFeats.SentinelFeat, new CharacterActionParams(
                 unit,
                 ActionDefinitions.Id.AttackOpportunity,
                 opportunityAttackMode,

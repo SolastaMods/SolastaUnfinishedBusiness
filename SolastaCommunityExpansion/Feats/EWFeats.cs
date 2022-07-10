@@ -10,7 +10,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Feats;
 
-public static class EWFeats
+public static class EwFeats
 {
     public const string SentinelFeat = "FeatSentinel";
     private const string PolearmExpertFeat = "FeatPolearmExpert";

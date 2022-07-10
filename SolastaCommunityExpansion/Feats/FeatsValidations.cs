@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Feats;
 
@@ -10,6 +11,7 @@ internal static class FeatsValidations
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(
         int minCharLevel)
     {
@@ -28,8 +30,9 @@ internal static class FeatsValidations
         };
     }
 
+    [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(
-        CharacterClassDefinition characterClassDefinition)
+        [NotNull] CharacterClassDefinition characterClassDefinition)
     {
         var className = characterClassDefinition.Name;
 
@@ -43,7 +46,7 @@ internal static class FeatsValidations
         };
     }
 
-    internal static (bool, string) ValidateHasStealthAttack(FeatDefinition _, RulesetCharacterHero hero)
+    internal static (bool, string) ValidateHasStealthAttack(FeatDefinition _, [NotNull] RulesetCharacterHero hero)
     {
         var features = new List<FeatureDefinition>();
 

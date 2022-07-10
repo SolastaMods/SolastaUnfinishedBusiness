@@ -24,7 +24,7 @@ public static class CustomReactionsContext
     {
         MakeReactDefinition(ReactionRequestWarcaster.Name);
         MakeReactDefinition(ReactionRequestSpendBundlePower.Name);
-        MakeReactDefinition(ReactionRequestReactionAttack.Name(EWFeats.SentinelFeat));
+        MakeReactDefinition(ReactionRequestReactionAttack.Name(EwFeats.SentinelFeat));
     }
 
     private static void MakeReactDefinition(string name)

@@ -23,7 +23,7 @@ internal static class FeatsContext
         CraftyFeats.CreateFeats(feats);
         ElAntoniousFeats.CreateFeats(feats);
         ZappaFeats.CreateFeats(feats);
-        EWFeats.CreateFeats(feats);
+        EwFeats.CreateFeats(feats);
 
         feats.ForEach(LoadFeat);
 
