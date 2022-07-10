@@ -148,7 +148,7 @@ internal static class CasterFeats
                 .SetFeatures(AttributeModifierCreed_Of_Pakri,
                     feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
-                .SetGuiPresentation("Feat/&FeatFeyTeleportationIntTitle", "Feat/&FeatFeyTeleportationDescription")
+                .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
             // fey teleportation cha
             FeatDefinitionBuilder
