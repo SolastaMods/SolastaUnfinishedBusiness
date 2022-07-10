@@ -38,7 +38,7 @@ internal static class BazouSpells
     [NotNull] internal static SpellDefinition Frenzy => _frenzy ??= BuildFrenzy();
     [NotNull] internal static SpellDefinition MinorLifesteal => _minorLifesteal ??= BuildMinorLifesteal();
     [NotNull] internal static SpellDefinition PetalStorm => _petalStorm ??= BuildPetalStorm();
-    internal static SpellDefinition ProtectThreshold => _protectThreshold ??= BuildProtectThreshold();
+    [NotNull] internal static SpellDefinition ProtectThreshold => _protectThreshold ??= BuildProtectThreshold();
 
     // don't need since spells are created when first referenced/used
     /*        internal static void AddToDB()
@@ -191,9 +191,9 @@ internal static class BazouSpells
         var summonForm = new SummonForm {monsterDefinitionName = familiarMonster.name, decisionPackage = null};
 
         var effectForm = new EffectForm
-            {
-                formType = EffectForm.EffectFormType.Summon, createdByCharacter = true, summonForm = summonForm
-            };
+        {
+            formType = EffectForm.EffectFormType.Summon, createdByCharacter = true, summonForm = summonForm
+        };
 
         spell.EffectDescription.EffectForms.Add(effectForm);
 
@@ -240,12 +240,14 @@ internal static class BazouSpells
         actionAffinity.RandomBehaviourOptions.Clear();
 
         var behaviorMode = new BehaviorModeDescription
-            {
-                behaviour = RuleDefinitions.RandomBehaviour.ConditionDuringTurn, // It will not make the affected creature move towards another creature... :(
-                // This condition seems to only attack a creature adjacent to where it is.
-                condition = ConditionConfusedAttack,
-                weight = 10
-            };
+        {
+            behaviour =
+                RuleDefinitions.RandomBehaviour
+                    .ConditionDuringTurn, // It will not make the affected creature move towards another creature... :(
+            // This condition seems to only attack a creature adjacent to where it is.
+            condition = ConditionConfusedAttack,
+            weight = 10
+        };
 
         actionAffinity.RandomBehaviourOptions.Add(behaviorMode);
         conditionDefinition.Features.SetRange(actionAffinity);

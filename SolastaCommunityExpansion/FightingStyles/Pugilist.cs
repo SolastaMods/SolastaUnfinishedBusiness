@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -10,10 +11,11 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefin
 
 namespace SolastaCommunityExpansion.FightingStyles;
 
-internal class Pugilist : AbstractFightingStyle
+internal sealed class Pugilist : AbstractFightingStyle
 {
     private FightingStyleDefinitionCustomizable instance;
 
+    [NotNull]
     internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
     {
         return new List<FeatureDefinitionFightingStyleChoice>
@@ -44,18 +46,6 @@ internal class Pugilist : AbstractFightingStyle
         var gui = GuiPresentationBuilder.Build("PugilistFighting", Category.FightingStyle,
             PathBerserker.GuiPresentation.SpriteReference);
 
-        //Leaving this so characters that might already have it won't become corrupted
-        var offhandAttack = FeatureDefinitionPowerBuilder
-            .Create("PowerPugilistOffhandAttack", "a97a1c9c-232b-42ae-8003-30d244e958b3")
-            .SetGuiPresentation(gui)
-            .Configure(
-                1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Strength,
-                RuleDefinitions.ActivationTime.BonusAction,
-                0, RuleDefinitions.RechargeRate.AtWill, true, true, AttributeDefinitions.Strength,
-                offhandEffect.Build(), false /* unique */)
-            .SetShowCasting(false)
-            .AddToDB();
-
         var pugilistAdditionalDamage = FeatureDefinitionActionAffinityBuilder
             .Create("AdditionalDamagePugilist", "36d24b2e-8ef4-4037-a82f-05e63d56f3d2")
             .SetGuiPresentation(gui)
@@ -79,7 +69,7 @@ internal class Pugilist : AbstractFightingStyle
         return instance;
     }
 
-    private class AdditionalUnarmedDice : IModifyAttackModeForWeapon
+    private sealed class AdditionalUnarmedDice : IModifyAttackModeForWeapon
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
         {

@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Api.Infrastructure;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Properties;
@@ -12,6 +13,7 @@ internal static class BolgrifRaceBuilder
 {
     internal static CharacterRaceDefinition BolgrifRace { get; } = BuildBolgrif();
 
+    [NotNull]
     private static CharacterRaceDefinition BuildBolgrif()
     {
         var bolgrifSpriteReference =

@@ -104,8 +104,7 @@ internal static class AceHighSpells
                 FormType = EffectForm.EffectFormType.Condition,
                 ConditionForm = new ConditionForm
                 {
-                    ConditionDefinition = PactMarkPactMarkConditionBuilder.PactMarkCondition,
-                    applyToSelf = true
+                    ConditionDefinition = PactMarkPactMarkConditionBuilder.PactMarkCondition, applyToSelf = true
                 },
                 createdByCharacter = true
             };

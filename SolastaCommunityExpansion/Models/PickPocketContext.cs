@@ -91,28 +91,31 @@ public static class PickPocketContext
             .AddToDB();
 
         var lootPickpocketTableLow = new ItemOccurence
-            {
-                itemMode = ItemOccurence.SelectionMode.TreasureTable, treasureTableDefinition = pickpocketTableLow,
-                diceNumber = 1,
-                diceType = DieType.D1,
-                additiveModifier = 0
-            };
+        {
+            itemMode = ItemOccurence.SelectionMode.TreasureTable,
+            treasureTableDefinition = pickpocketTableLow,
+            diceNumber = 1,
+            diceType = DieType.D1,
+            additiveModifier = 0
+        };
 
         var lootPickpocketTableMed = new ItemOccurence
-            {
-                itemMode = ItemOccurence.SelectionMode.TreasureTable, treasureTableDefinition = pickpocketTableMed,
-                diceNumber = 1,
-                diceType = DieType.D1,
-                additiveModifier = 0
-            };
+        {
+            itemMode = ItemOccurence.SelectionMode.TreasureTable,
+            treasureTableDefinition = pickpocketTableMed,
+            diceNumber = 1,
+            diceType = DieType.D1,
+            additiveModifier = 0
+        };
 
         var lootPickpocketTableUndead = new ItemOccurence
-            {
-                itemMode = ItemOccurence.SelectionMode.TreasureTable, treasureTableDefinition = pickpocketTableUndead,
-                diceNumber = 1,
-                diceType = DieType.D1,
-                additiveModifier = 0
-            };
+        {
+            itemMode = ItemOccurence.SelectionMode.TreasureTable,
+            treasureTableDefinition = pickpocketTableUndead,
+            diceNumber = 1,
+            diceType = DieType.D1,
+            additiveModifier = 0
+        };
 
         var pickPocketableLootA = LootPackDefinitionBuilder
             .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_A", "edb9b436-1d94-4d11-bd37-4027c4dc7640")
@@ -149,7 +152,8 @@ public static class PickPocketContext
         {
             switch (monster.CharacterFamily)
             {
-                case "Humanoid" when monster.DefaultFaction == "HostileMonsters" && monster.StealableLootDefinition == null:
+                case "Humanoid" when monster.DefaultFaction == "HostileMonsters" &&
+                                     monster.StealableLootDefinition == null:
                 {
                     if (monster.ChallengeRating < 1.0)
                     {
@@ -181,7 +185,9 @@ public static class PickPocketContext
 
                     break;
                 }
-                case "Undead" when monster.DefaultFaction.Contains("HostileMonsters") && monster.StealableLootDefinition == null && !monster.Name.Contains("Ghost") && !monster.Name.Contains("Spectral") && !monster.Name.Contains("Servant"):
+                case "Undead" when monster.DefaultFaction.Contains("HostileMonsters") &&
+                                   monster.StealableLootDefinition == null && !monster.Name.Contains("Ghost") &&
+                                   !monster.Name.Contains("Spectral") && !monster.Name.Contains("Servant"):
                     monster.stealableLootDefinition = pickPocketableLootUndead;
                     break;
             }

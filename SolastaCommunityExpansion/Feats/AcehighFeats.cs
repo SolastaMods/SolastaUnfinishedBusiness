@@ -276,7 +276,8 @@ internal static class AcehighFeats
 
     private sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
     {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode, RulesetItem weapon)
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+            RulesetItem weapon)
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
@@ -366,7 +367,8 @@ internal static class AcehighFeats
 
     private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
     {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode, RulesetItem weapon)
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+            RulesetItem weapon)
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 

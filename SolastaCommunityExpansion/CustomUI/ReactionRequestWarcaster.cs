@@ -98,7 +98,7 @@ public class ReactionRequestWarcaster : ReactionRequest
 
         //TODO: find better way to detect warcaster
         var affinities = rulesetCharacter.GetFeaturesByType<FeatureDefinitionMagicAffinity>();
-        
+
         if (affinities.All(a => a.Name != "MagicAffinityWarCasterFeat"))
         {
             return null;
@@ -174,7 +174,7 @@ public class ReactionRequestWarcaster : ReactionRequest
             ReactionParams.RulesetEffect = spellEffect;
 
             var spelltargets = spellEffect.ComputeTargetParameter();
-            
+
             if (!reactionParams.RulesetEffect.EffectDescription.IsSingleTarget || spelltargets <= 0)
             {
                 return;
