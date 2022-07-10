@@ -57,7 +57,6 @@ Reaction/&CastSpellInRetributionReactTitle=施放法术
 Reaction/&CastSpellInRetributionTitle=以反应施放法术
 Reaction/&SpendSpellSlot{0}Description=消耗法术{0}
 Reaction/&SpendSpellSlot{0}Title=消耗法术{0}
-+
 Screen/&MulticlassSpellDescription=你从其它职业中获得这个法术
 Screen/&MulticlassSpellTitle=兼职
 Screen/&SpellSlotsUsedLongDescription=你已消耗这个等级的{0}法术位
