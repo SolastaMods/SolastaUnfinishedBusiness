@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders;
 
 public class LootPackDefinitionBuilder : DefinitionBuilder<LootPackDefinition, LootPackDefinitionBuilder>
 {
-    public static LootPackDefinitionBuilder CreateCopyFrom(LootPackDefinition original, string name, string guid)
+    public LootPackDefinitionBuilder SetItemOccurrencesList([NotNull] params ItemOccurence[] occurrences)
     {
-        return new LootPackDefinitionBuilder(original, name, guid);
+        Definition.ItemOccurencesList.SetRange(occurrences);
+        return this;
     }
 
     #region Constructors

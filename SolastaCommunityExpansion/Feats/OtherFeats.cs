@@ -90,7 +90,7 @@ internal static class OtherFeats
             .SetFeatures(
                 FeatureDefinitionMagicAffinityBuilder
                     .Create("MagicAffinityWarCasterFeat", OtherFeatNamespace)
-                    .SetGuiPresentation("FeatWarCaster", Category.Feat)
+                    .SetGuiPresentation(Category.Feat)
                     .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
                         RuleDefinitions.SpellParamsModifierType.None, false, false, false)
                     .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
