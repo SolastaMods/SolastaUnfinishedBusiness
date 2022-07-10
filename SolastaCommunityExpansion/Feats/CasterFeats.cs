@@ -247,24 +247,6 @@ internal static class CasterFeats
             true, true, AttributeDefinitions.Charisma,
             BurningHands.EffectDescription, "PowerBurningHandsChaFromFeat", BurningHands.GuiPresentation);
 
-        var hellishRebukePowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Intelligence,
-            AceHighSpells.HellishRebukeSpell.EffectDescription, "PowerHellishRebukeIntFromFeat",
-            AceHighSpells.HellishRebukeSpell.GuiPresentation);
-
-        var hellishRebukePowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Wisdom,
-            AceHighSpells.HellishRebukeSpell.EffectDescription, "PowerHellishRebukeWisFromFeat",
-            AceHighSpells.HellishRebukeSpell.GuiPresentation);
-
-        var hellishRebukePowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Charisma,
-            AceHighSpells.HellishRebukeSpell.EffectDescription, "PowerHellishRebukeChaFromFeat",
-            AceHighSpells.HellishRebukeSpell.GuiPresentation);
-
         var scorchingRayPowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
             true, true, AttributeDefinitions.Intelligence,
@@ -284,7 +266,7 @@ internal static class CasterFeats
             // flame touched int
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedInt", CasterFeatsNamespace)
-                .SetFeatures(burningHandsPowerInt, hellishRebukePowerInt, scorchingRayPowerInt,
+                .SetFeatures(burningHandsPowerInt, scorchingRayPowerInt,
                     AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
@@ -292,7 +274,7 @@ internal static class CasterFeats
             // flame touched wis
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedWis", CasterFeatsNamespace)
-                .SetFeatures(burningHandsPowerWis, hellishRebukePowerWis, scorchingRayPowerWis,
+                .SetFeatures(burningHandsPowerWis, scorchingRayPowerWis,
                     AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
@@ -300,7 +282,7 @@ internal static class CasterFeats
             // flame touched cha
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedCha", CasterFeatsNamespace)
-                .SetFeatures(burningHandsPowerCha, hellishRebukePowerCha, scorchingRayPowerCha,
+                .SetFeatures(burningHandsPowerCha, scorchingRayPowerCha,
                     AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
