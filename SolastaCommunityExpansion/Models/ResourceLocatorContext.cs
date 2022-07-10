@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Utils;
 using UnityEngine;
@@ -25,9 +26,9 @@ internal static class ResourceLocatorContext
 }
 
 // ResourceProvider provides the resource given the resource location
-internal class SpriteResourceProvider : ResourceProviderBase
+internal sealed class SpriteResourceProvider : ResourceProviderBase
 {
-    protected SpriteResourceProvider() { }
+    private SpriteResourceProvider() { }
     public static SpriteResourceProvider Instance { get; } = new();
 
     public override void Provide(ProvideHandle provideHandle)
@@ -50,6 +51,7 @@ internal class SpriteResourceProvider : ResourceProviderBase
         return canProvide;
     }
 
+    [NotNull]
     public override Type GetDefaultType(IResourceLocation location)
     {
         return typeof(Sprite);
@@ -57,20 +59,20 @@ internal class SpriteResourceProvider : ResourceProviderBase
 }
 
 // ResourceLocator returns location of resource
-internal class SpriteResourceLocator : IResourceLocator
+internal sealed class SpriteResourceLocator : IResourceLocator
 {
-    private static readonly Dictionary<string, SpriteResourceLocation> locationsCache = new();
-    private static readonly List<IResourceLocation> emptyList = new();
+    private static readonly Dictionary<string, SpriteResourceLocation> LocationsCache = new();
+    private static readonly List<IResourceLocation> EmptyList = new();
 
-    protected SpriteResourceLocator() { }
+    private SpriteResourceLocator() { }
 
     public static SpriteResourceLocator Instance { get; } = new();
 
     // These two properties don't seem to be used
-    public string LocatorId => GetType().FullName;
-    public IEnumerable<object> Keys => locationsCache.Keys;
+    [CanBeNull] public string LocatorId => GetType().FullName;
+    [NotNull] public IEnumerable<object> Keys => LocationsCache.Keys;
 
-    public bool Locate(object key, Type type, out IList<IResourceLocation> locations)
+    public bool Locate([NotNull] object key, Type type, out IList<IResourceLocation> locations)
     {
         var id = key.ToString();
         var sprite = CustomIcons.GetSpriteByGuid(id);
@@ -79,23 +81,23 @@ internal class SpriteResourceLocator : IResourceLocator
         {
             Main.Log($"SpriteResourceLocator.Locate: key={key}, type={type}, sprite={sprite.name}");
 
-            if (!locationsCache.TryGetValue(id, out var location))
+            if (!LocationsCache.TryGetValue(id, out var location))
             {
                 location = new SpriteResourceLocation(sprite, sprite.name, id);
-                locationsCache.Add(id, location);
+                LocationsCache.Add(id, location);
             }
 
             locations = new List<IResourceLocation> {location};
             return true;
         }
 
-        locations = emptyList;
+        locations = EmptyList;
         return false;
     }
 }
 
 // ResourceLocation of sprite used by ResourceProvider.  We're using it to directly hold the sprite.
-internal class SpriteResourceLocation : ResourceLocationBase
+internal sealed class SpriteResourceLocation : ResourceLocationBase
 {
     private Sprite sprite;
 

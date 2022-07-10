@@ -28,7 +28,7 @@ internal static class RulesetItem_FillTags
 
         if (DiagnosticsContext.IsCeDefinition(__instance.ItemDefinition))
         {
-            tagsMap.TryAdd(CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);
+            tagsMap.TryAdd(CeContentPackContext.CeTag, TagsDefinitions.Criticity.Normal);
         }
     }
 }

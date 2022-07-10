@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class PowersContext
 {
-    private static readonly Guid BAZOU_POWERS_BASE_GUID = new("99cee84d-6187-4d7f-a36e-1bd96d3f2deb");
+    private static readonly Guid BazouPowersBaseGuid = new("99cee84d-6187-4d7f-a36e-1bd96d3f2deb");
 
     private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
@@ -66,7 +66,7 @@ internal static class PowersContext
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = helpPowerCondition;
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
-            .Create("HelpAction", BAZOU_POWERS_BASE_GUID)
+            .Create("HelpAction", BazouPowersBaseGuid)
             .SetGuiPresentation(Category.Power, Aid.GuiPresentation.SpriteReference)
             .Configure(
                 1,

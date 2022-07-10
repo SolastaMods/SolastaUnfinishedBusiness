@@ -342,7 +342,7 @@ public static class EncountersDisplay
     {
         UI.Label("");
         UI.Label(
-            $". Click + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list");
+            $". Click + to add up to {EncountersSpawnContext.MaxEncounterCharacters} characters to the encounter list");
         UI.Label("");
 
         foreach (var monsterDefinition in EncountersSpawnContext.GetMonsters())
@@ -358,7 +358,7 @@ public static class EncountersDisplay
         {
             UI.Label("");
             UI.Label(
-                $". Click + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list");
+                $". Click + to add up to {EncountersSpawnContext.MaxEncounterCharacters} characters to the encounter list");
             UI.Label("");
 
             foreach (var hero in EncountersSpawnContext.GetHeroes())

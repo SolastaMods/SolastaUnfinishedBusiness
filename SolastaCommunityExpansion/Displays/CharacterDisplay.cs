@@ -97,7 +97,7 @@ internal static class CharacterDisplay
 
         intValue = Main.Settings.MaxAllowedClasses;
         if (UI.Slider(Gui.Localize("ModUi/&MaxAllowedClasses"), ref intValue, 1,
-                MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "",
+                MulticlassContext.MaxClasses, MulticlassContext.MaxClasses, "",
                 UI.AutoWidth()))
         {
             Main.Settings.MaxAllowedClasses = intValue;

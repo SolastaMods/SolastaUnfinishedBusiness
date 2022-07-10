@@ -2,6 +2,7 @@
 using System.IO.Compression;
 using System.Net;
 using System.Text;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityModManagerNet;
@@ -29,10 +30,11 @@ internal static class BootContext
         var infoPayload = File.ReadAllText(Path.Combine(Main.ModFolder, "Info.json"));
         var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
+        // ReSharper disable once AssignNullToNotNullAttribute
         return infoJson["Version"].Value<string>();
     }
 
-    private static bool ShouldUpdate(out string version, out string changeLog)
+    private static bool ShouldUpdate(out string version, [NotNull] out string changeLog)
     {
         const string BASE_URL =
             "https://raw.githubusercontent.com/SolastaMods/SolastaCommunityExpansion/master/SolastaCommunityExpansion";
@@ -51,6 +53,7 @@ internal static class BootContext
             var infoPayload = wc.DownloadString($"{BASE_URL}/Info.json");
             var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
+            // ReSharper disable once AssignNullToNotNullAttribute
             version = infoJson["Version"].Value<string>();
             hasUpdate = version.CompareTo(GetInstalledVersion()) > 0;
 

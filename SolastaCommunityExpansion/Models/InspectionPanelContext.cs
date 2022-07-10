@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
@@ -8,9 +9,11 @@ public static class InspectionPanelContext
 {
     internal static int SelectedClassIndex { get; set; }
 
+    [CanBeNull]
     public static CharacterClassDefinition SelectedClass =>
         Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
 
+    [NotNull]
     public static string GetSelectedClassSearchTerm(string original)
     {
         var selectedClass = SelectedClass;
@@ -20,7 +23,7 @@ public static class InspectionPanelContext
                    : selectedClass.Name);
     }
 
-    public static void EnumerateClassBadges(CharacterInformationPanel __instance)
+    public static void EnumerateClassBadges([NotNull] CharacterInformationPanel __instance)
     {
         var badgeDefinitions =
             __instance.badgeDefinitions;
@@ -64,7 +67,8 @@ public static class InspectionPanelContext
         }
     }
 
-    private static HashSet<FightingStyleDefinition> GetTrainedFightingStyles()
+    [NotNull]
+    private static IEnumerable<FightingStyleDefinition> GetTrainedFightingStyles()
     {
         var fightingStyleIdx = 0;
         var classBadges = new HashSet<FightingStyleDefinition>();
@@ -74,10 +78,10 @@ public static class InspectionPanelContext
                     Global.InspectedHero.ActiveFeatures.Where(x => x.Key.Contains(AttributeDefinitions.TagClass))
                 from featureDefinition in activeFeature.Value.OfType<FeatureDefinitionFightingStyleChoice>()
                 select activeFeature).ToDictionary(activeFeature => activeFeature.Key,
-                activeFeature => Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
+                _ => Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
 
         foreach (var kvp in classLevelFightingStyle
-                     .Where(x => x.Key.Contains(SelectedClass.Name)))
+                     .Where(x => SelectedClass != null && x.Key.Contains(SelectedClass.Name)))
         {
             classBadges.Add(kvp.Value);
         }

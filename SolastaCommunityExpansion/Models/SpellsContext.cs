@@ -9,6 +9,7 @@ internal static class SpellsContext
 {
     internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = new();
 
+    // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
 
@@ -192,8 +193,10 @@ internal static class SpellsContext
         public HashSet<SpellDefinition> MinimumSpells { get; }
         public HashSet<SpellDefinition> SuggestedSpells { get; }
 
+        // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool IsAllSetSelected => SelectedSpells.Count == AllSpells.Count;
 
+        // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
                                               && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
 

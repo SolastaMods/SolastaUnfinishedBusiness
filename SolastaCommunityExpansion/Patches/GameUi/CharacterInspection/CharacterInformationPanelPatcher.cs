@@ -230,7 +230,7 @@ internal static class CharacterInformationPanel_Bind
 
             var firstButton = labelsGroup.GetChild(0);
 
-            for (var i = labelsGroup.childCount; i < MulticlassContext.MAX_CLASSES; i++)
+            for (var i = labelsGroup.childCount; i < MulticlassContext.MaxClasses; i++)
             {
                 Object.Instantiate(firstButton, firstButton.parent);
             }
@@ -275,7 +275,7 @@ internal static class CharacterInformationPanel_Bind
 
         labelsGroup.GetChild(0).GetComponent<Toggle>().isOn = true;
 
-        for (var i = classesCount; i < MulticlassContext.MAX_CLASSES; i++)
+        for (var i = classesCount; i < MulticlassContext.MaxClasses; i++)
         {
             labelsGroup.GetChild(i).gameObject.SetActive(false);
         }

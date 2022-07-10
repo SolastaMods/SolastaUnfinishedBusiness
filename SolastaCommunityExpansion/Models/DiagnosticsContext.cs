@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using Object = UnityEngine.Object;
 #if DEBUG
 using I2.Loc;
@@ -16,10 +17,10 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class DiagnosticsContext
 {
-    internal const string GAME_FOLDER = ".";
-    internal const int TA = 0;
-    internal const int CE = 1;
-    internal const int TA2 = 2;
+    private const string GameFolder = ".";
+    internal const int Ta = 0;
+    internal const int Ce = 1;
+    internal const int Ta2 = 2;
 
     internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
@@ -53,16 +54,17 @@ internal static class DiagnosticsContext
 
     internal static List<string> KnownDuplicateDefinitionNames { get; } = new() {"SummonProtectorConstruct"};
 
+    [NotNull]
     private static string GetDiagnosticsFolder()
     {
-        var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, "Diagnostics");
+        var path = Path.Combine(ProjectFolder ?? GameFolder, "Diagnostics");
 
         EnsureFolderExists(path);
 
         return path;
     }
 
-    private static void EnsureFolderExists(string path)
+    private static void EnsureFolderExists([NotNull] string path)
     {
         if (!Directory.Exists(path))
         {
@@ -166,7 +168,7 @@ internal static class DiagnosticsContext
     {
         var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
 
-        BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy,
+        BlueprintExporter.ExportBlueprints(Ta, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy,
             true, path);
     }
 
@@ -177,7 +179,7 @@ internal static class DiagnosticsContext
     {
         var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
 
-        BlueprintExporter.ExportBlueprints(TA2, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy,
+        BlueprintExporter.ExportBlueprints(Ta2, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy,
             false, path);
     }
 
@@ -185,7 +187,7 @@ internal static class DiagnosticsContext
     {
         var path = Path.Combine(DiagnosticsFolder, COMMUNITY_EXPANSION_BP_FOLDER);
 
-        BlueprintExporter.ExportBlueprints(CE, CEBaseDefinitions, CEBaseDefinitionsMap, null, false, path);
+        BlueprintExporter.ExportBlueprints(Ce, CEBaseDefinitions, CEBaseDefinitionsMap, null, false, path);
     }
 
     internal static void CreateTADefinitionDiagnostics()
@@ -202,7 +204,7 @@ internal static class DiagnosticsContext
         CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{baseFilename}-Translations-OrphanedTerms-en.txt"));
     }
 
-    internal static void CheckOrphanedTerms(string outputFile)
+    private static void CheckOrphanedTerms([NotNull] string outputFile)
     {
         var terms = new Dictionary<string, string>();
 
@@ -210,12 +212,18 @@ internal static class DiagnosticsContext
         {
             try
             {
-                var splitted = line.Split(new[] {'\t', ' '}, 2);
+                if (line == null)
+                {
+                    continue;
+                }
 
-                terms.Add(splitted[0], splitted[1]);
+                var columns = line.Split(new[] {'\t', ' '}, 2);
+
+                terms.Add(columns[0], columns[1]);
             }
             catch
             {
+                // ignored
             }
         }
 
@@ -244,7 +252,7 @@ internal static class DiagnosticsContext
     }
 
 
-    private static void CreateDefinitionDiagnostics(BaseDefinition[] baseDefinitions, string baseFilename)
+    private static void CreateDefinitionDiagnostics([CanBeNull] BaseDefinition[] baseDefinitions, string baseFilename)
     {
         if (baseDefinitions == null)
         {

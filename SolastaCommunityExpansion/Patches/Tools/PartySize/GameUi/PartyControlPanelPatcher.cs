@@ -17,7 +17,7 @@ internal static class PartyControlPanel_OnBeginShow
     {
         var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-        if (partyCount > DungeonMakerContext.GAME_PARTY_SIZE)
+        if (partyCount > DungeonMakerContext.GamePartySize)
         {
             var scale = DungeonMakerContext.GetPartyControlScale();
             __instance.partyPlatesTable.localScale = new Vector3(scale, scale, scale);
@@ -37,7 +37,7 @@ internal static class PartyControlPanel_Refresh
     {
         var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-        if (partyCount <= DungeonMakerContext.GAME_PARTY_SIZE)
+        if (partyCount <= DungeonMakerContext.GamePartySize)
         {
             return;
         }

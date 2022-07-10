@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Models;
@@ -10,7 +11,8 @@ internal static class Level20PatchingContext
 {
     private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
-    public static IEnumerable<CodeInstruction> Level20Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    public static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var code = new List<CodeInstruction>(instructions);
 

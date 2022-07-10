@@ -44,10 +44,10 @@ internal static class ItemsAndCraftingDisplay
                     Main.Settings.CraftingRecipesInDm.Remove(key);
                 }
 
-                ItemCraftingContext.UpdateCraftingRecipesInDMState(key);
+                ItemCraftingContext.UpdateCraftingRecipesInDmState(key);
             }
 
-            if (!ItemCraftingContext.BASE_GAME_ITEMS_CATEGORIES.Contains(key))
+            if (!ItemCraftingContext.BaseGameItemsCategories.Contains(key))
             {
                 toggle = Main.Settings.CraftingItemsInDm.Contains(key);
                 if (UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width(125)))
@@ -61,7 +61,7 @@ internal static class ItemsAndCraftingDisplay
                         Main.Settings.CraftingItemsInDm.Remove(key);
                     }
 
-                    ItemCraftingContext.UpdateCraftingItemsInDMState(key);
+                    ItemCraftingContext.UpdateCraftingItemsInDmState(key);
                 }
             }
             else

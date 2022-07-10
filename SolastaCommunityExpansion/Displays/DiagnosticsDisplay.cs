@@ -200,9 +200,9 @@ All settings start disabled by default. On first start the mod will display an w
             string exportTaLabel;
             string exportTaLabel2;
             string exportCeLabel;
-            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.TA].percentageComplete;
-            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.TA2].percentageComplete;
-            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.CE].percentageComplete;
+            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta].percentageComplete;
+            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta2].percentageComplete;
+            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.Ce].percentageComplete;
 
             if (percentageCompleteTa == 0)
             {
@@ -241,7 +241,7 @@ All settings start disabled by default. On first start the mod will display an w
                     }
                     else
                     {
-                        BlueprintExporter.Cancel(DiagnosticsContext.TA);
+                        BlueprintExporter.Cancel(DiagnosticsContext.Ta);
                     }
                 }, UI.Width(200));
 
@@ -253,7 +253,7 @@ All settings start disabled by default. On first start the mod will display an w
                     }
                     else
                     {
-                        BlueprintExporter.Cancel(DiagnosticsContext.CE);
+                        BlueprintExporter.Cancel(DiagnosticsContext.Ce);
                     }
                 }, UI.Width(200));
 
@@ -265,7 +265,7 @@ All settings start disabled by default. On first start the mod will display an w
                     }
                     else
                     {
-                        BlueprintExporter.Cancel(DiagnosticsContext.TA2);
+                        BlueprintExporter.Cancel(DiagnosticsContext.Ta2);
                     }
                 }, UI.Width(200));
             }

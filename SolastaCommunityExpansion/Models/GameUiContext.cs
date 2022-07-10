@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Utils;
 using TA;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class GameUiContext
 {
-    private const int EXITS_WITH_GIZMOS = 2;
+    private const int ExitsWithGizmos = 2;
 
     private static readonly GadgetBlueprint[] GadgetExits =
     {
@@ -21,7 +22,7 @@ internal static class GameUiContext
 
     internal static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
     {
-        return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? EXITS_WITH_GIZMOS : 0);
+        return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? ExitsWithGizmos : 0);
     }
 
     internal static void Load()
@@ -133,6 +134,7 @@ internal static class GameUiContext
         }
 
         [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
+        [CanBeNull]
         GuiPanel GetInitiativeOrPartyPanel()
         {
             return gameLocationBaseScreen switch
@@ -145,6 +147,7 @@ internal static class GameUiContext
         }
 
         [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
+        [CanBeNull]
         TimeAndNavigationPanel GetTimeAndNavigationPanel()
         {
             return gameLocationBaseScreen switch
@@ -159,7 +162,8 @@ internal static class GameUiContext
 
     internal static class GameHud
     {
-        internal static void ShowAll(GameLocationBaseScreen gameLocationBaseScreen, GuiPanel initiativeOrPartyPanel,
+        internal static void ShowAll([NotNull] GameLocationBaseScreen gameLocationBaseScreen,
+            GuiPanel initiativeOrPartyPanel,
             TimeAndNavigationPanel timeAndNavigationPanel)
         {
             var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
@@ -172,7 +176,7 @@ internal static class GameUiContext
             TogglePanelVisibility(timeAndNavigationPanel, anyVisible);
         }
 
-        internal static void ShowCharacterControlPanel(GameLocationBaseScreen gameLocationBaseScreen,
+        internal static void ShowCharacterControlPanel([NotNull] GameLocationBaseScreen gameLocationBaseScreen,
             bool forceHide = false)
         {
             var characterControlPanel = gameLocationBaseScreen.CharacterControlPanel;

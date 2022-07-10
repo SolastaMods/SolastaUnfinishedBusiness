@@ -7,15 +7,15 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class HouseFeatureContext
 {
-    internal const int DEFAULT_VISION_RANGE = 16;
-    internal const int MAX_VISION_RANGE = 120;
+    internal const int DefaultVisionRange = 16;
+    internal const int MaxVisionRange = 120;
 
     public static void LateLoad()
     {
         FixDivineSmiteRestrictions();
         FixDivineSmiteDiceNumberWhenUsingHighLevelSlots();
         FixMountaineerBonusShoveRestrictions();
-        FixRecklessAttckForReachWeapons();
+        FixRecklessAttackForReachWeapons();
     }
 
     /**
@@ -53,7 +53,7 @@ public static class HouseFeatureContext
      * Makes `Reckless` context check if main hand weapon is melee, instead of if character is next to target.
      * Required for it to work on reach weapons.
      */
-    private static void FixRecklessAttckForReachWeapons()
+    private static void FixRecklessAttackForReachWeapons()
     {
         DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityReckless
             .situationalContext = (RuleDefinitions.SituationalContext)ExtendedSituationalContext.MainWeaponIsMelee;

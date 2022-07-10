@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Classes.Tinkerer;
 using SolastaCommunityExpansion.Classes.Warlock;
@@ -49,7 +50,7 @@ internal static class ClassesContext
         }
     }
 
-    private static void LoadClass(CharacterClassDefinition characterClassDefinition)
+    private static void LoadClass([NotNull] CharacterClassDefinition characterClassDefinition)
     {
         if (!Classes.Contains(characterClassDefinition))
         {
@@ -59,7 +60,7 @@ internal static class ClassesContext
         UpdateClassVisibility(characterClassDefinition);
     }
 
-    private static void UpdateClassVisibility(CharacterClassDefinition characterClassDefinition)
+    private static void UpdateClassVisibility([NotNull] CharacterClassDefinition characterClassDefinition)
     {
         characterClassDefinition.GuiPresentation.hidden =
             !Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name);

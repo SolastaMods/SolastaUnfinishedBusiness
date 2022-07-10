@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.ItemCrafting;
 using TMPro;
@@ -13,7 +14,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class ItemCraftingContext
 {
-    public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new()
+    public static readonly List<string> BaseGameItemsCategories = new()
     {
         "PrimedItems", "EnchantingIngredients", "RelicForgeries"
     };
@@ -80,8 +81,8 @@ internal static class ItemCraftingContext
 
         foreach (var key in RecipeBooks.Keys)
         {
-            UpdateCraftingItemsInDMState(key);
-            UpdateCraftingRecipesInDMState(key);
+            UpdateCraftingItemsInDmState(key);
+            UpdateCraftingRecipesInDmState(key);
         }
 
         LoadFilteringAndSorting();
@@ -112,9 +113,9 @@ internal static class ItemCraftingContext
         }
     }
 
-    internal static void UpdateCraftingItemsInDMState(string key)
+    internal static void UpdateCraftingItemsInDmState(string key)
     {
-        if (BASE_GAME_ITEMS_CATEGORIES.Contains(key))
+        if (BaseGameItemsCategories.Contains(key))
         {
             // Don't touch the in dungeon state of base game items.
             return;
@@ -127,7 +128,7 @@ internal static class ItemCraftingContext
         }
     }
 
-    internal static void UpdateCraftingRecipesInDMState(string key)
+    internal static void UpdateCraftingRecipesInDmState([NotNull] string key)
     {
         var available = Main.Settings.CraftingRecipesInDm.Contains(key);
         foreach (var recipeBookDefinition in RecipeBooks[key])

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
@@ -53,7 +54,8 @@ public static class SharedSpellsContext
         //{ SpellShieldSubclass, CasterType.OneThird } // ChrisJohnDigital
     };
 
-    private static CasterType GetCasterTypeForClassOrSubclass(CharacterClassDefinition characterClassDefinition,
+    private static CasterType GetCasterTypeForClassOrSubclass(
+        [CanBeNull] CharacterClassDefinition characterClassDefinition,
         CharacterSubclassDefinition characterSubclassDefinition)
     {
         if (characterClassDefinition != null && ClassCasterType.ContainsKey(characterClassDefinition))
@@ -79,8 +81,7 @@ public static class SharedSpellsContext
             var gameCampaignCharacter =
                 gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
 
-            if (gameCampaignCharacter != null
-                && gameCampaignCharacter.RulesetCharacter is RulesetCharacterHero rulesetCharacterHero)
+            if (gameCampaignCharacter is {RulesetCharacter: RulesetCharacterHero rulesetCharacterHero})
             {
                 return rulesetCharacterHero;
             }
@@ -100,7 +101,7 @@ public static class SharedSpellsContext
     }
 
     // need the null check for companions who don't have repertoires
-    public static bool IsMulticaster(RulesetCharacterHero rulesetCharacterHero)
+    public static bool IsMulticaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return rulesetCharacterHero != null
                && rulesetCharacterHero.SpellRepertoires
@@ -108,7 +109,7 @@ public static class SharedSpellsContext
     }
 
     // need the null check for companions who don't have repertoires
-    public static bool IsSharedcaster(RulesetCharacterHero rulesetCharacterHero)
+    public static bool IsSharedcaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return rulesetCharacterHero != null
                && rulesetCharacterHero.SpellRepertoires
@@ -117,7 +118,7 @@ public static class SharedSpellsContext
     }
 
     // need the null check for companions who don't have repertoires
-    private static int GetWarlockLevel(RulesetCharacterHero rulesetCharacterHero)
+    private static int GetWarlockLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (rulesetCharacterHero == null)
         {
@@ -149,7 +150,7 @@ public static class SharedSpellsContext
         return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
     }
 
-    public static int GetWarlockUsedSlots(RulesetCharacterHero rulesetCharacterHero)
+    public static int GetWarlockUsedSlots([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var repertoire = GetWarlockSpellRepertoire(rulesetCharacterHero);
 
@@ -164,12 +165,13 @@ public static class SharedSpellsContext
         return warlockUsedSlots;
     }
 
-    public static RulesetSpellRepertoire GetWarlockSpellRepertoire(RulesetCharacterHero rulesetCharacterHero)
+    [CanBeNull]
+    public static RulesetSpellRepertoire GetWarlockSpellRepertoire([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => IsWarlock(x.SpellCastingClass));
     }
 
-    public static int GetSharedCasterLevel(RulesetCharacterHero rulesetCharacterHero)
+    public static int GetSharedCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (rulesetCharacterHero?.ClassesAndLevels == null)
         {
@@ -210,7 +212,7 @@ public static class SharedSpellsContext
         return sharedCasterLevel > 0 ? FullCastingSlots[sharedCasterLevel - 1].Slots.IndexOf(0) : 0;
     }
 
-    public static int GetClassSpellLevel(RulesetSpellRepertoire spellRepertoire)
+    public static int GetClassSpellLevel([CanBeNull] RulesetSpellRepertoire spellRepertoire)
     {
         if (spellRepertoire?.SpellCastingFeature.SlotsPerLevels == null)
         {
@@ -230,12 +232,13 @@ public static class SharedSpellsContext
         //ClassCasterType.Add(MagusClass, CasterType.Half);
         SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
         SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
+        SubclassCasterType.Add(PathOfTheRageMageSubclass, CasterType.OneThird);
         RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);
         RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
         RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
     }
 
-    private class CasterLevelContext
+    private sealed class CasterLevelContext
     {
         private readonly Dictionary<CasterType, int> levels;
 

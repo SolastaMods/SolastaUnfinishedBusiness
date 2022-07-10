@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 
 namespace SolastaCommunityExpansion.Models;
@@ -17,6 +18,7 @@ public static class Global
     public static string LastLevelUpHeroName { get; set; }
 
     // level up hero
+    [CanBeNull]
     public static RulesetCharacterHero ActiveLevelUpHero =>
         ServiceRepository.GetService<ICharacterBuildingService>()?.CurrentLocalHeroCharacter;
 

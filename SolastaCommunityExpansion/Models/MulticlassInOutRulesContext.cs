@@ -111,8 +111,8 @@ public static class MulticlassInOutRulesContext
 
             case RuleDefinitions.SorcererClass:
             case RuleDefinitions.WarlockClass:
-            case IntegrationContext.CLASS_WARLOCK:
-            case IntegrationContext.CLASS_WITCH:
+            case IntegrationContext.ClassWarlock:
+            case IntegrationContext.ClassWitch:
                 return charisma >= 13;
 
             case RuleDefinitions.ClericClass:
@@ -123,7 +123,7 @@ public static class MulticlassInOutRulesContext
                 return strength >= 13 || dexterity >= 13;
 
             case RuleDefinitions.MonkClass:
-            case IntegrationContext.CLASS_MONK:
+            case IntegrationContext.ClassMonk:
                 return wisdom >= 13 && dexterity >= 13;
 
             case RuleDefinitions.RangerClass:
@@ -136,7 +136,7 @@ public static class MulticlassInOutRulesContext
                 return dexterity >= 13;
 
             case RuleDefinitions.WizardClass:
-            case IntegrationContext.CLASS_TINKERER:
+            case IntegrationContext.ClassTinkerer:
                 return intelligence >= 13;
 
             // case IntegrationContext.CLASS_MAGUS:

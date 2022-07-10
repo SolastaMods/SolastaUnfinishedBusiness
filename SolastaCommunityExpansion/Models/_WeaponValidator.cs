@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 
 namespace SolastaCommunityExpansion.Models;
@@ -17,26 +18,26 @@ public static class WeaponValidators
     // public static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
     //     HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
 
-    public static bool IsPolearm(RulesetItem weapon)
+    public static bool IsPolearm([CanBeNull] RulesetItem weapon)
     {
         return weapon != null
                && IsPolearm(weapon.ItemDefinition);
     }
 
-    public static bool IsPolearm(ItemDefinition weapon)
+    public static bool IsPolearm([CanBeNull] ItemDefinition weapon)
     {
         return weapon != null
                && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
     }
 
-    public static bool IsMelee(RulesetItem weapon)
+    public static bool IsMelee([CanBeNull] RulesetItem weapon)
     {
         return weapon == null //for unarmed
                || IsMelee(weapon.ItemDefinition)
                || weapon.ItemDefinition.IsArmor;
     }
 
-    public static bool IsMelee(ItemDefinition weapon)
+    public static bool IsMelee([CanBeNull] ItemDefinition weapon)
     {
         return weapon != null &&
                weapon.WeaponDescription?.WeaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Melee;
@@ -52,7 +53,8 @@ public static class WeaponValidators
         return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
     }
 
-    public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
+    public static bool IsUnarmedWeapon([CanBeNull] RulesetAttackMode attackMode, RulesetItem weapon,
+        RulesetCharacter character)
     {
         var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
         if (item != null)
@@ -74,7 +76,7 @@ public static class WeaponValidators
         return IsUnarmedWeapon(null, weapon, null);
     }
 
-    public static bool IsThrownWeapon(RulesetItem weapon)
+    public static bool IsThrownWeapon([CanBeNull] RulesetItem weapon)
     {
         var weaponDescription = weapon?.ItemDefinition.WeaponDescription;
 
@@ -94,12 +96,12 @@ public static class WeaponValidators
     //     return tagsMap.Keys.Any(tags.Contains);
     // }
 
-    private static bool HasAnyWeaponTag(RulesetItem item, params string[] tags)
+    private static bool HasAnyWeaponTag([CanBeNull] RulesetItem item, [NotNull] params string[] tags)
     {
         return HasAnyWeaponTag(item?.ItemDefinition, tags);
     }
 
-    private static bool HasAnyWeaponTag(ItemDefinition item, params string[] tags)
+    private static bool HasAnyWeaponTag(ItemDefinition item, [NotNull] params string[] tags)
     {
         var weaponTags = GetWeaponTags(item);
 
@@ -136,7 +138,7 @@ public static class WeaponValidators
     //     return hasTag;
     // }
 
-    private static List<string> GetWeaponTags(ItemDefinition item)
+    private static List<string> GetWeaponTags([CanBeNull] ItemDefinition item)
     {
         if (item != null && item.IsWeapon)
         {

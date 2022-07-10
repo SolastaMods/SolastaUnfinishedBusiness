@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Models;
 public static class CustomFeaturesContext
 {
     internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, string tag,
-        List<FeatureDefinition> features, bool handleCustomCode = true)
+        [NotNull] List<FeatureDefinition> features, bool handleCustomCode = true)
     {
         foreach (var grantedFeature in features)
         {
@@ -18,8 +19,10 @@ public static class CustomFeaturesContext
                 customFeature.ApplyFeature(hero, tag);
             }
 
-            if (grantedFeature is FeatureDefinitionFeatureSet set &&
-                set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            if (grantedFeature is FeatureDefinitionFeatureSet
+                {
+                    Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
+                } set)
             {
                 RecursiveGrantCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
             }
@@ -60,8 +63,10 @@ public static class CustomFeaturesContext
                 customFeature.RemoveFeature(hero, tag);
             }
 
-            if (grantedFeature is FeatureDefinitionFeatureSet set &&
-                set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            if (grantedFeature is FeatureDefinitionFeatureSet
+                {
+                    Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
+                } set)
             {
                 RecursiveRemoveCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
             }
@@ -86,8 +91,11 @@ public static class CustomFeaturesContext
         hero.UpdateFeatureModifiers(tag);
     }
 
-    private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero,
-        RulesetSpellRepertoire heroRepertoire, string tag, FeatureDefinitionPointPool featureDefinitionPointPool)
+    private static void RemoveFeatureDefinitionPointPool(
+        RulesetCharacterHero hero,
+        [CanBeNull] RulesetSpellRepertoire heroRepertoire,
+        string tag,
+        [NotNull] FeatureDefinitionPointPool featureDefinitionPointPool)
     {
         var poolAmount = featureDefinitionPointPool.PoolAmount;
 
@@ -144,8 +152,11 @@ public static class CustomFeaturesContext
         }
     }
 
-    internal static void RemoveFeatures(RulesetCharacterHero hero,
-        CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
+    internal static void RemoveFeatures(
+        [NotNull] RulesetCharacterHero hero,
+        CharacterClassDefinition characterClassDefinition,
+        string tag,
+        List<FeatureDefinition> featuresToRemove)
     {
         var classLevel = hero.ClassesAndLevels[characterClassDefinition];
         var heroRepertoire =
@@ -201,18 +212,19 @@ public static class CustomFeaturesContext
             {
                 RemoveFeatureDefinitionPointPool(hero, heroRepertoire, tag, featureDefinitionPointPool);
             }
-            else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet &&
-                     featureDefinitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            else if (featureDefinition is FeatureDefinitionFeatureSet
+                     {
+                         Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
+                     } featureDefinitionFeatureSet)
             {
                 RemoveFeatures(hero, characterClassDefinition, tag, featureDefinitionFeatureSet.FeatureSet);
             }
         }
     }
 
-    public static void ActuallyRemoveCharacterFeature(RulesetCharacterHero hero, FeatureDefinition feature)
+    public static void ActuallyRemoveCharacterFeature([NotNull] RulesetCharacterHero hero, FeatureDefinition feature)
     {
-        if (feature is FeatureDefinitionFeatureSet set &&
-            set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+        if (feature is FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union} set)
         {
             foreach (var f in set.FeatureSet)
             {
@@ -243,7 +255,9 @@ public static class CustomFeaturesContext
         }
     }
 
-    internal static void RechargeLinkedPowers(RulesetCharacter character, RuleDefinitions.RestType restType)
+    internal static void RechargeLinkedPowers(
+        [NotNull] RulesetCharacter character,
+        RuleDefinitions.RestType restType)
     {
         var pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
 
@@ -285,8 +299,11 @@ public static class CustomFeaturesContext
         }
     }
 
-    private static void AssignUsesToSharedPowersForPool(RulesetCharacter character, RulesetUsablePower poolPower,
-        int remainingUses, int totalUses)
+    private static void AssignUsesToSharedPowersForPool(
+        [NotNull] RulesetCharacter character,
+        RulesetUsablePower poolPower,
+        int remainingUses,
+        int totalUses)
     {
         // Find powers that rely on this pool
         foreach (var usablePower in character.UsablePowers)
@@ -308,7 +325,8 @@ public static class CustomFeaturesContext
         }
     }
 
-    public static RulesetUsablePower GetPoolPower(RulesetUsablePower power, RulesetCharacter character)
+    [CanBeNull]
+    public static RulesetUsablePower GetPoolPower([NotNull] RulesetUsablePower power, RulesetCharacter character)
     {
         if (power.PowerDefinition is not IPowerSharedPool pool)
         {
@@ -320,7 +338,7 @@ public static class CustomFeaturesContext
         return character.UsablePowers.FirstOrDefault(usablePower => usablePower.PowerDefinition == poolPower);
     }
 
-    internal static int GetMaxUsesForPool(RulesetUsablePower poolPower, RulesetCharacter character)
+    internal static int GetMaxUsesForPool([NotNull] RulesetUsablePower poolPower, [NotNull] RulesetCharacter character)
     {
         var totalPoolSize = poolPower.MaxUses;
 
@@ -336,7 +354,7 @@ public static class CustomFeaturesContext
         return totalPoolSize;
     }
 
-    internal static void UpdateUsageForPower(this RulesetCharacter character, FeatureDefinitionPower power,
+    internal static void UpdateUsageForPower([NotNull] this RulesetCharacter character, FeatureDefinitionPower power,
         int poolUsage)
     {
         foreach (var poolPower in character.UsablePowers)
@@ -356,7 +374,8 @@ public static class CustomFeaturesContext
         }
     }
 
-    internal static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower,
+    internal static void UpdateUsageForPowerPool(this RulesetCharacter character,
+        [NotNull] RulesetUsablePower modifiedPower,
         int poolUsage)
     {
         if (modifiedPower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
@@ -386,7 +405,7 @@ public static class CustomFeaturesContext
         }
     }
 
-    internal static int GetRemainingPowerUses(this RulesetCharacter character, RulesetUsablePower usablePower)
+    internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] RulesetUsablePower usablePower)
     {
         if (usablePower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
         {
@@ -398,7 +417,7 @@ public static class CustomFeaturesContext
         return GetRemainingPowerPoolUses(character, sharedPoolPower);
     }
 
-    internal static int GetRemainingPowerUses(this RulesetCharacter character, FeatureDefinitionPower power)
+    internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)
     {
         if (power.CostPerUse == 0)
         {
@@ -419,35 +438,33 @@ public static class CustomFeaturesContext
         return usablePower.RemainingUses / power.CostPerUse;
     }
 
-    private static int GetRemainingPowerPoolUses(this RulesetCharacter character, IPowerSharedPool sharedPoolPower)
+    private static int GetRemainingPowerPoolUses(
+        [NotNull] this RulesetCharacter character,
+        [NotNull] IPowerSharedPool sharedPoolPower)
     {
         var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 
-        foreach (var poolPower in character.UsablePowers)
-        {
-            if (poolPower.PowerDefinition == pointPoolPower)
-            {
-                return poolPower.RemainingUses;
-            }
-        }
-
-        return 0;
+        return (from poolPower in character.UsablePowers
+            where poolPower.PowerDefinition == pointPoolPower
+            select poolPower.RemainingUses).FirstOrDefault();
     }
 
-    public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
+    public static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)
     {
         return ModifySpellEffect(original, spell.SpellDefinition, spell.Caster);
     }
 
-    public static EffectDescription ModifySpellEffect(SpellDefinition spell, RulesetCharacter caster)
+    public static EffectDescription ModifySpellEffect([NotNull] SpellDefinition spell, RulesetCharacter caster)
     {
         return ModifySpellEffect(spell.EffectDescription, spell, caster);
     }
 
-    private static EffectDescription ModifySpellEffect(EffectDescription original, SpellDefinition spell,
-        RulesetCharacter caster)
+    private static EffectDescription ModifySpellEffect(
+        EffectDescription original,
+        SpellDefinition spell,
+        [CanBeNull] RulesetCharacter caster)
     {
-        //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
+        //TODO: find a way to cache result, so it works faster - this method is called several times per spell cast
         var result = original;
 
         var baseDefinition = spell.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
@@ -467,7 +484,7 @@ public static class CustomFeaturesContext
     }
 
     /**Modifies spell description for GUI purposes. Uses only modifiers based on ICustomMagicEffectBasedOnCaster*/
-    public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
+    public static EffectDescription ModifySpellEffectGui(EffectDescription original, [NotNull] GuiSpellDefinition spell)
     {
         var result = original;
         var caster = Global.InspectedHero
@@ -483,7 +500,9 @@ public static class CustomFeaturesContext
         return result;
     }
 
-    public static EffectDescription AddEffectForms(EffectDescription baseEffect, params EffectForm[] effectForms)
+    [NotNull]
+    public static EffectDescription AddEffectForms(EffectDescription baseEffect,
+        [NotNull] params EffectForm[] effectForms)
     {
         var newEffect = baseEffect.Copy();
 
@@ -493,7 +512,8 @@ public static class CustomFeaturesContext
     }
 
     public static bool GetValidationErrors(
-        IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators, out List<string> errors)
+        [NotNull] IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators,
+        [NotNull] out List<string> errors)
     {
         errors = validators
             .Select(v => v())
@@ -502,22 +522,24 @@ public static class CustomFeaturesContext
         return errors.Empty();
     }
 
-    public static string UnCustomizeTag(string tag)
+    [NotNull]
+    public static string UnCustomizeTag([NotNull] string tag)
     {
         return tag.Replace("[Custom]", "");
     }
 
-    public static string CustomizeTag(string tag)
+    [NotNull]
+    public static string CustomizeTag([NotNull] string tag)
     {
         return UnCustomizeTag(tag) + "[Custom]";
     }
 
-    public static bool IsCustomTag(string tag)
+    public static bool IsCustomTag([CanBeNull] string tag)
     {
         return tag != null && tag.Contains("[Custom]");
     }
 
-    public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
+    public static string GetSpellLearningTag(RulesetCharacterHero hero, [CanBeNull] string tag)
     {
         if (tag == null)
         {

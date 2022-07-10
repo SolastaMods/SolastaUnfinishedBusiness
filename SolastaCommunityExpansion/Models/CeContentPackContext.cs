@@ -12,7 +12,7 @@ internal static class CeContentPackContext
     internal const GamingPlatformDefinitions.ContentPack
         CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
 
-    public const string CETag = "CommunityExpansion";
+    public const string CeTag = "CommunityExpansion";
 
     private static readonly ContentPackDefinition ContentPackDefinition = CreateContentPackDefinition();
 
@@ -37,6 +37,7 @@ internal static class CeContentPackContext
     }
 
     private sealed class
+        // ReSharper disable once ClassNeverInstantiated.Local
         ContentPackDefinitionBuilder : DefinitionBuilder<ContentPackDefinition, ContentPackDefinitionBuilder>
     {
         #region Constructors

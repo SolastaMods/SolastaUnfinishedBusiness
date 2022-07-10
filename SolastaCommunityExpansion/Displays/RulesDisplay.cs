@@ -89,7 +89,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ApplySrdWeightToFoodRations = toggle;
-            SrdAndHouseRulesContext.ApplySRDWeightToFoodRations();
+            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
         }
 
         UI.Label("");
@@ -162,8 +162,8 @@ internal static class RulesDisplay
         var intValue = Main.Settings.IncreaseSenseNormalVision;
         UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
         if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"), ref intValue,
-                HouseFeatureContext.DEFAULT_VISION_RANGE, HouseFeatureContext.MAX_VISION_RANGE,
-                HouseFeatureContext.DEFAULT_VISION_RANGE, "", UI.AutoWidth()))
+                HouseFeatureContext.DefaultVisionRange, HouseFeatureContext.MaxVisionRange,
+                HouseFeatureContext.DefaultVisionRange, "", UI.AutoWidth()))
         {
             Main.Settings.IncreaseSenseNormalVision = intValue;
         }

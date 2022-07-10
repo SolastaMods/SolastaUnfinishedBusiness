@@ -15,6 +15,7 @@ namespace SolastaCommunityExpansion.Models;
 internal static class MulticlassPatchingContext
 {
     private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
+    private static readonly MethodInfo NullMethod = null;
 
     // these features will be replaced to comply to SRD multiclass rules
     private static readonly Dictionary<FeatureDefinition, FeatureDefinition> FeaturesToReplace = new()
@@ -78,7 +79,7 @@ internal static class MulticlassPatchingContext
         //
 
         //FeaturesToReplace.Add(
-        //    dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"), 
+        //    dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"),
         //    ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass);
 
         FeaturesToExclude.Add(MonkClass,
@@ -134,7 +135,7 @@ internal static class MulticlassPatchingContext
     // ClassLevel patching support
     //
 
-    public static IEnumerable<CodeInstruction> ClassLevelTranspiler(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> ClassLevelTranspiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
         var classesHistoryMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesHistory");
@@ -151,11 +152,13 @@ internal static class MulticlassPatchingContext
             else if (instruction.Calls(classesAndLevelsMethod))
             {
                 yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
+
                 instructionsToBypass = 2; // bypasses the [] and the classDefinition index
             }
             else if (instruction.Calls(classesHistoryMethod))
             {
                 yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
+
                 instructionsToBypass = 1; // bypasses the count
             }
             else
@@ -190,7 +193,7 @@ internal static class MulticlassPatchingContext
     // Equipment patching support
     //
 
-    public static bool ShouldEquipmentBeAssigned(CharacterHeroBuildingData heroBuildingData)
+    public static bool ShouldEquipmentBeAssigned([NotNull] CharacterHeroBuildingData heroBuildingData)
     {
         var hero = heroBuildingData.HeroCharacter;
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
@@ -220,69 +223,100 @@ internal static class MulticlassPatchingContext
 
     private static void PatchFeatureUnlocks()
     {
-        var patches = new Dictionary<MethodInfo, HeroContext>
+        var patches = new SortedList<MethodInfo, HeroContext>
         {
             // CharacterStageClassSelectionPanel
             {
-                typeof(CharacterStageClassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
+                typeof(CharacterStageClassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding) ??
+                NullMethod,
                 HeroContext.StagePanel
             },
             {
-                typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding),
+                typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding) ?? NullMethod,
                 HeroContext.StagePanel
             },
 
             // CharacterStageDeitySelectionPanel
-            {typeof(CharacterStageDeitySelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
             {
-                typeof(CharacterStageDeitySelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
+                typeof(CharacterStageDeitySelectionPanel).GetMethod("OnHigherLevelCb") ?? NullMethod,
                 HeroContext.StagePanel
             },
             {
-                typeof(CharacterStageDeitySelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding),
+                typeof(CharacterStageDeitySelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding) ??
+                NullMethod,
                 HeroContext.StagePanel
             },
-            {typeof(CharacterStageDeitySelectionPanel).GetMethod("EnterStage"), HeroContext.StagePanel},
+            {
+                typeof(CharacterStageDeitySelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding) ??
+                NullMethod,
+                HeroContext.StagePanel
+            },
+            {typeof(CharacterStageDeitySelectionPanel).GetMethod("EnterStage") ?? NullMethod, HeroContext.StagePanel},
 
             // CharacterStageLevelGainsPanel
-            {typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb"), HeroContext.StagePanel},
             {
-                typeof(CharacterStageLevelGainsPanel).GetMethod("EnumerateActiveClassFeatures", PrivateBinding),
+                typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb") ?? NullMethod,
                 HeroContext.StagePanel
             },
             {
-                typeof(CharacterStageLevelGainsPanel).GetMethod("FillUnlockedClassFeatures", PrivateBinding),
+                typeof(CharacterStageLevelGainsPanel).GetMethod("EnumerateActiveClassFeatures", PrivateBinding) ??
+                NullMethod,
                 HeroContext.StagePanel
             },
-            {typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding), HeroContext.StagePanel},
+            {
+                typeof(CharacterStageLevelGainsPanel).GetMethod("FillUnlockedClassFeatures", PrivateBinding) ??
+                NullMethod,
+                HeroContext.StagePanel
+            },
+            {
+                typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding) ?? NullMethod,
+                HeroContext.StagePanel
+            },
 
             // CharacterStageSubclassSelectionPanel
-            {typeof(CharacterStageSubclassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
             {
-                typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
+                typeof(CharacterStageSubclassSelectionPanel).GetMethod("OnHigherLevelCb") ?? NullMethod,
                 HeroContext.StagePanel
             },
             {
-                typeof(CharacterStageSubclassSelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding),
+                typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding) ??
+                NullMethod,
                 HeroContext.StagePanel
             },
-            {typeof(CharacterStageSubclassSelectionPanel).GetMethod("Refresh", PrivateBinding), HeroContext.StagePanel},
+            {
+                typeof(CharacterStageSubclassSelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding) ??
+                NullMethod,
+                HeroContext.StagePanel
+            },
+            {
+                typeof(CharacterStageSubclassSelectionPanel).GetMethod("Refresh", PrivateBinding) ?? NullMethod,
+                HeroContext.StagePanel
+            },
 
             // CharacterBuildingManager
-            {typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter"), HeroContext.BuildingManager},
+            {
+                typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter") ?? NullMethod,
+                HeroContext.BuildingManager
+            },
 
             // ArchetypesPreviewModal
             // {typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), HeroContext.BuildingManager},
 
             // CharacterInformationPanel
             {
-                typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding),
+                typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding) ?? NullMethod,
                 HeroContext.InformationPanel
             },
 
             // RulesetCharacterHero
-            {typeof(RulesetCharacterHero).GetMethod("FindClassHoldingFeature"), HeroContext.CharacterHero},
-            {typeof(RulesetCharacterHero).GetMethod("LookForFeatureOrigin", PrivateBinding), HeroContext.CharacterHero}
+            {
+                typeof(RulesetCharacterHero).GetMethod("FindClassHoldingFeature") ?? NullMethod,
+                HeroContext.CharacterHero
+            },
+            {
+                typeof(RulesetCharacterHero).GetMethod("LookForFeatureOrigin", PrivateBinding) ?? NullMethod,
+                HeroContext.CharacterHero
+            }
         };
 
         var harmony = new Harmony("SolastaCommunityExpansion");
@@ -296,6 +330,7 @@ internal static class MulticlassPatchingContext
         }
     }
 
+    [ItemNotNull]
     private static IEnumerable<CodeInstruction> YieldHero()
     {
         switch (FeatureUnlocksContext.Value)
@@ -340,7 +375,8 @@ internal static class MulticlassPatchingContext
         }
     }
 
-    public static IEnumerable<CodeInstruction> FeatureUnlocksTranspiler(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> FeatureUnlocksTranspiler(
+        [NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
         var classFilteredFeatureUnlocksMethod =
@@ -378,8 +414,8 @@ internal static class MulticlassPatchingContext
     }
 
     // support class filtered feature unlocks
-    public static List<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(
-        CharacterClassDefinition characterClassDefinition, RulesetCharacterHero rulesetCharacterHero)
+    public static IEnumerable<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(
+        CharacterClassDefinition characterClassDefinition, [NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var firstClass = rulesetCharacterHero.ClassesHistory[0];
         var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero) ?? characterClassDefinition;
@@ -448,7 +484,8 @@ internal static class MulticlassPatchingContext
     }
 
     // support subclass filtered feature unlocks
-    public static List<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(
+    // ReSharper disable once MemberCanBePrivate.Global
+    public static IEnumerable<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(
         [NotNull] CharacterSubclassDefinition characterSublassDefinition, RulesetCharacterHero rulesetCharacterHero)
     {
         if (!LevelUpContext.IsMulticlass(rulesetCharacterHero))

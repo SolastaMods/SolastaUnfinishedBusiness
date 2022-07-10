@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -51,18 +52,19 @@ internal static class ItemOptionsContext
                           !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo &&
                           x != ClothesWizard_B))
         {
-            var stockClothing = new StockUnitDescription();
-
-            stockClothing.itemDefinition = item;
-            stockClothing.initialAmount = 2;
-            stockClothing.initialized = true;
-            stockClothing.factionStatus = "Indifference";
-            stockClothing.maxAmount = 4;
-            stockClothing.minAmount = 2;
-            stockClothing.stackCount = 1;
-            stockClothing.reassortAmount = 1;
-            stockClothing.reassortRateValue = 1;
-            stockClothing.reassortRateType = RuleDefinitions.DurationType.Day;
+            var stockClothing = new StockUnitDescription
+            {
+                itemDefinition = item,
+                initialAmount = 2,
+                initialized = true,
+                factionStatus = "Indifference",
+                maxAmount = 4,
+                minAmount = 2,
+                stackCount = 1,
+                reassortAmount = 1,
+                reassortRateValue = 1,
+                reassortRateType = RuleDefinitions.DurationType.Day
+            };
 
             Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore.StockUnitDescriptions.Add(stockClothing);
         }
@@ -434,8 +436,8 @@ internal static class ItemOptionsContext
             string description,
             ItemDefinition original,
             EquipmentDefinitions.FocusType type,
-            AssetReferenceSprite assetReferenceSprite,
-            params string[] slotTypes) : base(original, name, guid)
+            [CanBeNull] AssetReferenceSprite assetReferenceSprite,
+            [NotNull] params string[] slotTypes) : base(original, name, guid)
         {
             // Use IsXXXItem = true/SetIsXXXItem(true) before using the XXXItemDescription
             Definition.IsFocusItem = true;
@@ -457,18 +459,19 @@ internal static class ItemOptionsContext
                 Definition.SlotsWhereActive.SetRange(slotTypes);
             }
 
-            var stockFocus = new StockUnitDescription();
-
-            stockFocus.itemDefinition = Definition;
-            stockFocus.initialAmount = 1;
-            stockFocus.initialized = true;
-            stockFocus.factionStatus = "Indifference";
-            stockFocus.maxAmount = 2;
-            stockFocus.minAmount = 1;
-            stockFocus.stackCount = 1;
-            stockFocus.reassortAmount = 1;
-            stockFocus.reassortRateValue = 1;
-            stockFocus.reassortRateType = RuleDefinitions.DurationType.Day;
+            var stockFocus = new StockUnitDescription
+            {
+                itemDefinition = Definition,
+                initialAmount = 1,
+                initialized = true,
+                factionStatus = "Indifference",
+                maxAmount = 2,
+                minAmount = 1,
+                stackCount = 1,
+                reassortAmount = 1,
+                reassortRateValue = 1,
+                reassortRateType = RuleDefinitions.DurationType.Day
+            };
 
             StockFocus.Add(stockFocus);
         }
@@ -481,7 +484,7 @@ internal static class ItemOptionsContext
             ItemDefinition original,
             EquipmentDefinitions.FocusType type,
             AssetReferenceSprite assetReferenceSprite,
-            params string[] slotTypes)
+            [NotNull] params string[] slotTypes)
         {
             return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite,
                 slotTypes).AddToDB();

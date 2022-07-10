@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class MulticlassContext
 {
-    internal const int MAX_CLASSES = 6;
+    internal const int MaxClasses = 6;
 
     internal static void Load()
     {
@@ -116,14 +117,14 @@ public sealed class ArmorProficiencyMulticlassBuilder : FeatureDefinitionProfici
         );
 
     private ArmorProficiencyMulticlassBuilder(string name, string guid, string title,
-        params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
+        [NotNull] params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
     {
         Definition.Proficiencies.SetRange(proficienciesToReplace);
         Definition.GuiPresentation.Title = title;
     }
 
     private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid, string title,
-        params string[] proficienciesToReplace)
+        [NotNull] params string[] proficienciesToReplace)
     {
         return new ArmorProficiencyMulticlassBuilder(name, guid, title, proficienciesToReplace).AddToDB();
     }

@@ -27,7 +27,7 @@ internal static class GuiItemDefinition_EnumerateTags
 
         if (DiagnosticsContext.IsCeDefinition(__instance.BaseDefinition))
         {
-            tags.TryAdd(CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);
+            tags.TryAdd(CeContentPackContext.CeTag, TagsDefinitions.Criticity.Normal);
         }
     }
 }

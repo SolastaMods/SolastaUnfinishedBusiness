@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -188,7 +189,7 @@ internal static class InventoryManagementContext
     {
         var sortOrder = BySortGroup.Inverted ? -1 : 1;
 
-        int SortByName(RulesetItem a, RulesetItem b)
+        int SortByName([NotNull] RulesetItem a, [NotNull] RulesetItem b)
         {
             var at = Gui.Localize(a.ItemDefinition.GuiPresentation.Title);
             var bt = Gui.Localize(b.ItemDefinition.GuiPresentation.Title);
@@ -280,7 +281,7 @@ internal static class InventoryManagementContext
         }
     }
 
-    internal static void SortAndFilter(RulesetContainer container)
+    internal static void SortAndFilter([CanBeNull] RulesetContainer container)
     {
         if (container == null)
         {
@@ -309,7 +310,7 @@ internal static class InventoryManagementContext
         });
     }
 
-    internal static void Flush(RulesetContainer container)
+    internal static void Flush([CanBeNull] RulesetContainer container)
     {
         if (container == null)
         {
