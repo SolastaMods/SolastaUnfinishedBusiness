@@ -18,5 +18,3 @@ Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle=Buscar
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=Persecución tenaz
 Subclass/&PaladinOathOfRetributionDescription=Los paladines que hacen el Juramento de Retribución se comprometen por completo a acabar con la impiedad y la injusticia con prejuicios extremos. Para estos paladines, el deber de vengar los pecados y las corrupciones pesa más que sus propios valores.
 Subclass/&PaladinOathOfRetributionTitle=Juramento de Retribución
-Feat/&RetributionDescription=Construct hace 1d4 + tu modificador de Inteligencia de daño por fuerza al atacante cuando es golpeado por un ataque.
-Feat/&RetributionTitle=Venganza

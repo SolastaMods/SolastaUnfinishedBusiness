@@ -18,5 +18,3 @@ Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle=追寻
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=执着追寻
 Subclass/&PaladinOathOfRetributionDescription=立下“复仇之誓”的圣武士承诺以极端的偏执终结不洁与不义之举。对这些圣武士而言，即使牺牲自我也要向罪孽与腐败复仇
 Subclass/&PaladinOathOfRetributionTitle=复仇之誓
-Feat/&RetributionDescription=被攻击击中时，防御者对攻击者造成1d4+智力调整值点力场伤害
-Feat/&RetributionTitle=报偿

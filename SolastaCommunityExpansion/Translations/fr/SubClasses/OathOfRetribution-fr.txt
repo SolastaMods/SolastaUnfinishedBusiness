@@ -18,5 +18,3 @@ Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle=Poursuivre
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=Poursuite tenace
 Subclass/&PaladinOathOfRetributionDescription=Les paladins qui prêtent le serment de châtiment s'engagent pleinement à mettre fin à l'impiété et à l'injustice avec des préjugés extrêmes. Pour ces paladins, le devoir de venger les péchés et les corruptions pèse plus que leurs propres valeurs.
 Subclass/&PaladinOathOfRetributionTitle=Serment de châtiment
-Feat/&RetributionDescription=La construction inflige 1d4 + votre modificateur d'Intelligence de dégâts de force à l'attaquant lorsqu'il est touché par une attaque.
-Feat/&RetributionTitle=Châtiment
