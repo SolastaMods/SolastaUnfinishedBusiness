@@ -1,0 +1,12 @@
+﻿Feat/&DualFlurryDescription=Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, kannst du einen zusätzlichen Nebenhandangriff ausführen, wenn du mit deiner Bonusaktion angreifst.
+Feat/&DualFlurryTitle=Zweifacher Flurry
+Feat/&TorchbearerDescription=Du bist geübt im Umgang mit einer Fackel im Kampf. Einmal pro Runde kannst du dich als Bonusaktion dafür entscheiden, eine von dir ausgerüstete Lichtquelle zu verwenden, um zu versuchen, einen Feind, den du berühren kannst, in Brand zu setzen. Dein Ziel muss einen Geschicklichkeitsrettungswurf bestehen (SG 8 + dein Kompetenzbonus + dein Geschicklichkeitsmodifikator) oder 1W4 Feuerschaden pro Runde für 1 Minute erleiden oder bis es erlischt.
+Feat/&TorchbearerTitle=Fackelträger
+Condition/&ConditionDualFlurryApplyDescription=Du baust Schwung auf...
+Condition/&ConditionDualFlurryApplyTitle=Doppelte Flut!
+Condition/&ConditionDualFlurryGrantDescription=Deine Feinde taumeln!
+Condition/&ConditionDualFlurryGrantTitle=Doppelte Flut!
+Feature/&AdditionalActionDualFlurryDescription=Du darfst einen zusätzlichen Nebenhandangriff ausführen.
+Feature/&AdditionalActionDualFlurryTitle=Doppelte Flut!
+Feature/&PowerTorchbearerDescription=Versuchen Sie, ein Nahkampfziel in Brand zu setzen!
+Feature/&PowerTorchbearerTitle=Fackelträger

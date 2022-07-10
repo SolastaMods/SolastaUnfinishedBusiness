@@ -10,3 +10,7 @@ Feat/&FeatLightArmorProficiencyTitle=Leichte Rüstung
 Feat/&FeatLightArmorTitle=Leichte Rüstung
 Feat/&FeatHeavyArmorMasterClassDescription=Du erhältst Resistenz gegen Knüppel-, Hieb- und Stichschaden.
 Feat/&FeatHeavyArmorMasterClassTitle=Beherrschung der schweren Verteidigung
+Feat/&FeatDexIncrementDescription=Erhöhe deine Geschicklichkeit um 1 bis maximal 20.
+Feat/&FeatDexIncrementTitle=Attributerhöhung
+Feat/&FeatStrengthIncrementDescription=Erhöhe deine Stärke um 1 bis maximal 20.
+Feat/&FeatStrengthIncrementTitle=Attributerhöhung

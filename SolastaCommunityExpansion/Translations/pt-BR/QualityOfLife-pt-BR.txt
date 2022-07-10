@@ -1,6 +1,6 @@
 BlueprintCategory/&FlatRoomsTitle=Apartamentos
 Caption/&GadgetParametersCustomRemoveDescription=Remover:\n{0}.
-ContentPack/&CommunityExpansionPackDescription=O pacote de expansão da comunidade adiciona novas classes, subclasses, talentos e feitiços. Há um limite de nível mais alto, várias classes, recursos de QOL, correções de bugs e muito mais. É um verdadeiro Horn of Plenty (TM)...
+ContentPack/&CommunityExpansionPackDescription=O pacote de expansão da comunidade adiciona novas classes, subclasses, talentos e feitiços. Há um limite de nível mais alto, multiclasse, recursos de QOL, correções de bugs e muito mais. É um verdadeiro Horn of Plenty (TM)...
 ContentPack/&CommunityExpansionPackTitle=Pacote de Expansão da Comunidade
 Failure/&FailureFlagTargetMeleeWeaponError=Não é possível realizar ataques corpo a corpo neste alvo com a arma atual
 Feature/&AlwaysBeardDescription={0}% de chances de crescer uma barba gloriosa!

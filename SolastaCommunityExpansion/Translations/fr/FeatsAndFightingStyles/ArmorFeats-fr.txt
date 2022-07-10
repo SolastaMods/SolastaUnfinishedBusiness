@@ -10,3 +10,7 @@ Feat/&FeatLightArmorProficiencyTitle=Armure légère
 Feat/&FeatLightArmorTitle=Armure légère
 Feat/&FeatHeavyArmorMasterClassDescription=Vous gagnez en résistance aux dégâts contondants, tranchants et perforants.
 Feat/&FeatHeavyArmorMasterClassTitle=Maîtrise de la défense lourde
+Feat/&FeatDexIncrementDescription=Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.
+Feat/&FeatDexIncrementTitle=Augmentation d'attribut
+Feat/&FeatStrengthIncrementDescription=Augmentez votre Force de 1, jusqu'à un maximum de 20.
+Feat/&FeatStrengthIncrementTitle=Augmentation d'attribut
