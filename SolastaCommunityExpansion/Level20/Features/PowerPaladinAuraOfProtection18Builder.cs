@@ -10,7 +10,7 @@ internal sealed class PowerPaladinAuraOfProtection18Builder : FeatureDefinitionP
     private const string PowerPaladinAuraOfProtection18Guid = "1574c379dfb74cfeb3488209bd3b6d33";
     private static FeatureDefinitionPower _instance;
 
-    public PowerPaladinAuraOfProtection18Builder() : base(PowerPaladinAuraOfProtection,
+    private PowerPaladinAuraOfProtection18Builder() : base(PowerPaladinAuraOfProtection,
         PowerPaladinAuraOfProtection18Name, PowerPaladinAuraOfProtection18Guid)
     {
         var ed = Definition.EffectDescription;

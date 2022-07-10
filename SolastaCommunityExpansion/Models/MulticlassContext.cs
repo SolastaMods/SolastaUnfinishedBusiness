@@ -28,7 +28,7 @@ internal static class MulticlassContext
         {
             var spellsByLevel = spellListDefinition.SpellsByLevel;
 
-            while (spellsByLevel.Count < Level20Context.MAX_SPELL_LEVEL + (spellListDefinition.HasCantrips ? 1 : 0))
+            while (spellsByLevel.Count < Level20Context.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
             {
                 spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
                 {
@@ -42,22 +42,22 @@ internal static class MulticlassContext
 
         foreach (var castSpellDefinition in castSpellDefinitions)
         {
-            while (castSpellDefinition.KnownCantrips.Count < Level20Context.MOD_MAX_LEVEL + 1)
+            while (castSpellDefinition.KnownCantrips.Count < Level20Context.ModMaxLevel + 1)
             {
                 castSpellDefinition.KnownCantrips.Add(0);
             }
 
-            while (castSpellDefinition.KnownSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+            while (castSpellDefinition.KnownSpells.Count < Level20Context.ModMaxLevel + 1)
             {
                 castSpellDefinition.KnownSpells.Add(0);
             }
 
-            while (castSpellDefinition.ReplacedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+            while (castSpellDefinition.ReplacedSpells.Count < Level20Context.ModMaxLevel + 1)
             {
                 castSpellDefinition.ReplacedSpells.Add(0);
             }
 
-            while (castSpellDefinition.ScribedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+            while (castSpellDefinition.ScribedSpells.Count < Level20Context.ModMaxLevel + 1)
             {
                 castSpellDefinition.ScribedSpells.Add(0);
             }

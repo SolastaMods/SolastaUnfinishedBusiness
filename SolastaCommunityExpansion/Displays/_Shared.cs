@@ -15,7 +15,7 @@ internal static class Shared
     internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
     {
         UI.Label("Bem-vindo / Benarrivato / Bienvenido / Bienvenue / Welcome / Wilkommen / добро пожаловать / 欢迎".Bold()
-            .Color("#F0DAA0"));
+            .Khaki());
         UI.Div();
 
         if (Main.Enabled)
@@ -103,7 +103,7 @@ internal static class Shared
 
                         if (flip)
                         {
-                            title = title.Yellow();
+                            title = title.Khaki();
                         }
 
                         toggle = selectedDefinitions.Contains(definition.Name);
@@ -118,7 +118,7 @@ internal static class Shared
 
                             if (flip)
                             {
-                                description = description.Yellow();
+                                description = description.Khaki();
                             }
 
                             UI.Label(description, UI.Width(PixelsPerColumn * 3));

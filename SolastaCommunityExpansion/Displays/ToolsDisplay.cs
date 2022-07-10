@@ -199,7 +199,7 @@ internal static class ToolsDisplay
 
                 var title = faction.FormatTitle();
 
-                title = flip ? title.Yellow() : title.White();
+                title = flip ? title.Khaki() : title.White();
 
                 intValue = gameFactionService.FactionRelations[faction.Name];
 

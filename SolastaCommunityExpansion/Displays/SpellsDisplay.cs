@@ -84,7 +84,7 @@ internal static class SpellsDisplay
             }
 
             DisplayDefinitions(
-                kvp.Key.Yellow(),
+                kvp.Key.Khaki(),
                 spellListContext.Switch,
                 allowedSpells,
                 spellEnabled,

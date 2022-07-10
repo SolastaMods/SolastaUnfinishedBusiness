@@ -48,13 +48,13 @@ public static class EncountersDisplay
                     UI.Width(48));
                 UI.Label($"Dex: {hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue:0#}".White(),
                     UI.Width(48));
-                UI.Label($"Con: {hero.GetAttribute(AttributeDefinitions.Constitution).CurrentValue:0#}".Yellow(),
+                UI.Label($"Con: {hero.GetAttribute(AttributeDefinitions.Constitution).CurrentValue:0#}".Khaki(),
                     UI.Width(48));
-                UI.Label($"Int: {hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue:0#}".Yellow(),
+                UI.Label($"Int: {hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue:0#}".Khaki(),
                     UI.Width(48));
                 UI.Label($"Wis: {hero.GetAttribute(AttributeDefinitions.Wisdom).CurrentValue:0#}".White(),
                     UI.Width(48));
-                UI.Label($"Cha: {hero.GetAttribute(AttributeDefinitions.Charisma).CurrentValue:0#}".Yellow(),
+                UI.Label($"Cha: {hero.GetAttribute(AttributeDefinitions.Charisma).CurrentValue:0#}".Khaki(),
                     UI.Width(48));
             }
 
@@ -66,7 +66,7 @@ public static class EncountersDisplay
             {
                 UI.Label($"AC: {hero.GetAttribute(AttributeDefinitions.ArmorClass).CurrentValue:0#}".White(),
                     UI.Width(48));
-                UI.Label($"HD: {hero.MaxHitDiceCount():0#}{hero.MainHitDie}".Yellow(), UI.Width(72));
+                UI.Label($"HD: {hero.MaxHitDiceCount():0#}{hero.MainHitDie}".Khaki(), UI.Width(72));
                 UI.Label($"XP: {hero.GetAttribute(AttributeDefinitions.Experience).CurrentValue}".White(),
                     UI.Width(72));
                 UI.Label($"LV: {hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue:0#}".White(),
@@ -126,11 +126,11 @@ public static class EncountersDisplay
             if (_showAttributes)
             {
                 UI.Label($"Str: {monsterDefinition.AbilityScores[0]:0#}".White(), UI.Width(48));
-                UI.Label($"Dex: {monsterDefinition.AbilityScores[1]:0#}".Yellow(), UI.Width(48));
+                UI.Label($"Dex: {monsterDefinition.AbilityScores[1]:0#}".Khaki(), UI.Width(48));
                 UI.Label($"Con: {monsterDefinition.AbilityScores[2]:0#}".White(), UI.Width(48));
-                UI.Label($"Int: {monsterDefinition.AbilityScores[3]:0#}".Yellow(), UI.Width(48));
+                UI.Label($"Int: {monsterDefinition.AbilityScores[3]:0#}".Khaki(), UI.Width(48));
                 UI.Label($"Wis: {monsterDefinition.AbilityScores[4]:0#}".White(), UI.Width(48));
-                UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".Yellow(), UI.Width(48));
+                UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".Khaki(), UI.Width(48));
             }
 
             var statsLabel = _showStats ? "" : "Stats";
@@ -140,9 +140,9 @@ public static class EncountersDisplay
             if (_showStats)
             {
                 UI.Label($"AC: {monsterDefinition.ArmorClass}".White(), UI.Width(48));
-                UI.Label($"HD: {monsterDefinition.HitDice:0#}{monsterDefinition.HitDiceType}".Yellow(),
+                UI.Label($"HD: {monsterDefinition.HitDice:0#}{monsterDefinition.HitDiceType}".Khaki(),
                     UI.Width(72));
-                UI.Label($"CR: {monsterDefinition.ChallengeRating}".Yellow(), UI.Width(72));
+                UI.Label($"CR: {monsterDefinition.ChallengeRating}".Khaki(), UI.Width(72));
             }
 
             CurrentAttacksMonster.TryGetValue(monsterDefinition, out flip);
@@ -238,7 +238,7 @@ public static class EncountersDisplay
     internal static void DisplayEncountersGeneral()
     {
         UI.Label("");
-        UI.Label("Controllers:".Yellow());
+        UI.Label("Controllers:".Khaki());
         UI.Label("");
 
         UI.Label(". Note the encounters feature won't work in a Multiplayer session. Yet...");
@@ -297,7 +297,7 @@ public static class EncountersDisplay
         }
 
         UI.Label("");
-        UI.Label("Encounters:".Yellow());
+        UI.Label("Encounters:".Khaki());
         UI.Label("");
 
         UI.Label(". encounters only work in custom campaigns or locations");

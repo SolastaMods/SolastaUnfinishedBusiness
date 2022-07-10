@@ -31,7 +31,8 @@ internal static class CreditsDisplay
         }
     };
 
-    private static readonly List<(string, string)> CreditsTable = new()
+    // used in DEBUG mode (don't make private)
+    internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"),
         ("Bazou", "Witch class, fighting styles"),
@@ -121,13 +122,13 @@ internal static class CreditsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Donations".Bold().Yellow(), () =>
+            UI.ActionButton("Donations".Bold().Khaki(), () =>
             {
                 OpenUrl(
                     "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion");
             }, UI.Width(150));
 
-            UI.ActionButton("Wiki".Bold().Yellow(), () =>
+            UI.ActionButton("Wiki".Bold().Khaki(), () =>
             {
                 OpenUrl(
                     "https://github.com/SolastaMods/SolastaCommunityExpansion/wiki");
@@ -135,7 +136,7 @@ internal static class CreditsDisplay
 
             if (!IsUnityExplorerEnabled && IsUnityExplorerInstalled)
             {
-                UI.ActionButton("Unity Explorer UI".Bold().Yellow(), () =>
+                UI.ActionButton("Unity Explorer UI".Bold().Khaki(), () =>
                 {
                     IsUnityExplorerEnabled = true;
 

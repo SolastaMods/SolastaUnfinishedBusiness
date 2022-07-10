@@ -131,7 +131,7 @@ internal static class LoadPanel_OnBeginShow
                 case LocationType.StandardCampaign:
                     return title;
                 case LocationType.CustomCampaign:
-                    return title.Yellow();
+                    return title.Khaki();
                 case LocationType.UserLocation:
                     return title.Orange();
             }

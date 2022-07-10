@@ -53,7 +53,7 @@ internal static class UserLocationSettingsModal_RuntimeLoaded
 
             __instance.optionsListSize.Add(new GuiDropdown.OptionDataAdvanced
             {
-                text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).Yellow() + " " +
+                text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).Khaki() + " " +
                        Gui.Format("{0} x {1}", sizeString, sizeString),
                 TooltipContent = string.Empty
             });

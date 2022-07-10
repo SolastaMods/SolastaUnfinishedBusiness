@@ -17,8 +17,8 @@ internal static class Level20PatchingContext
         if (Main.Settings.EnableLevel20)
         {
             code
-                .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
-                .ForEach(x => x.operand = MOD_MAX_LEVEL);
+                .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GameMaxLevel)
+                .ForEach(x => x.operand = ModMaxLevel);
         }
 
         return code;

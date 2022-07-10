@@ -99,7 +99,7 @@ public static class TranslationsDisplay
                 if (UserCampaignsTranslatorContext.CurrentExports.TryGetValue(exportName, out var status))
                 {
                     buttonLabel = Gui.Format("ModUi/&TranslateCancel", status.LanguageCode.ToUpper(),
-                        $"{status.PercentageComplete:00.0%}").Bold().Yellow();
+                        $"{status.PercentageComplete:00.0%}").Bold().Khaki();
                 }
                 else
                 {

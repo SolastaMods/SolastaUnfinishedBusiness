@@ -57,7 +57,8 @@ internal static class PatchesDisplay
                             RefreshPatchInfoOfAllMods();
                         }
 
-                        foreach (var pair in _modIdsToColor.Where(pair => GUILayout.Button(pair.Key.Color($"#{pair.Value}").Bold(), _buttonStyle)))
+                        foreach (var pair in _modIdsToColor.Where(pair =>
+                                     GUILayout.Button(pair.Key.Color($"#{pair.Value}").Bold(), _buttonStyle)))
                         {
                             _patches = null;
                             _modID = pair.Key;
