@@ -3,7 +3,7 @@ ModUi/&AddBleedingToLesserRestoration=添加<color=orange>流血</color>状态�
 ModUi/&AddHelpActionToAllRaces=添加<color=orange>协助</color>至全部种族
 ModUi/&AddNewBrightEyeColors=添加额外明亮眼睛颜色<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=添加新的武器和配方至商店<color=yellow>[裹手，戟，长矛，长钉头锤，手弩]</color> <color=#C04040E0>[需要重启游戏]</color>
-ModUi/&AddPickpocketableLoot=添加可扒窃的战利品<color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color>
+ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color>
 ModUi/&AddToStore=加入商店
 ModUi/&Advanced=<color=yellow>进阶选项：</color>
 ModUi/&AdvancedHelp=. <color=#C04040E0>注意：</color>此项设置将要求玩家安装此Mod
@@ -154,7 +154,7 @@ ModUi/&RemoveAttunementRequirements=移除同调的先决条件<color=#C04040E0>
 ModUi/&RemoveBugVisualModels=将虫类模型以类似模型替代<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=移除任何法术的专注要求<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=移除<color=orange>塔莎狂笑术</color>的类人生物的要求<color=#C04040E0>[需要重启游戏]</color>
-ModUi/&RemoveIdentifcationRequirements=移除检定的先决条件<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&RemoveIdentificationRequirements=移除检定的先决条件<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=orange>纠缠术</color>法术效果<color=yellow>[不会反复生效]</color><color=#C04040E0>[需要重启游戏]</color>
 ModUi/&RestockAntiquarians=古文物研究者补货<color=yellow>[哈尔曼·夏日]</color>
 ModUi/&RestockArcaneum=奥术协会补货<color=yellow>[赫德伦·确法]</color>
@@ -188,9 +188,9 @@ ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物<color=#C04040E0
 ModUi/&UnleashNpcAsEnemy=允许在怪物互动物件上选择NPC<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&UnlockAllNpcFaces=解锁全部NPC脸型
 ModUi/&UnlockEyeStyles=解锁眼部样式
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=解锁所有标记和纹身的发光颜色
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=解锁所有标记和纹身的发光颜色
 ModUi/&UnlockGlowingEyeColors=解锁眼睛发光颜色
-ModUi/&UnlockMarkAndTatoosForAllCharacters=解锁全部角色的标记和纹身
+ModUi/&UnlockMarkAndTattoosForAllCharacters=解锁全部角色的标记和纹身
 ModUi/&UseHeightOneCylinderEffect=施放<color=orange>艾伐黑触手、纠缠术、油腻术</color>(方形)和<color=orange>荆棘丛生</color>(圆形)时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=yellow>视效：</color><color=#C04040E0>[需要重启游戏]</color>

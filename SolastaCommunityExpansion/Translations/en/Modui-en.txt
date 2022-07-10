@@ -3,7 +3,7 @@ ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> co
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all races
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AddPickpocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
+ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore=Add to store
 ModUi/&Advanced=<color=#F0DAA0>Advanced:</color>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
@@ -15,7 +15,7 @@ ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20 <b><i><color=#C0
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Allow gadgets and props to be placed anywhere on the map <i><color=#F0DAA0>[press <color=#1E81B0>CTRL</color> during placement to bypass any check]</color></i>
 ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
-ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerers</color> without origin markings and tattoos
+ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view <i><color=#F0DAA0>[only in custom dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce weight of food ration to 2 pounds
@@ -154,7 +154,7 @@ ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=
 ModUi/&RemoveBugVisualModels=Replace bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=Remove concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveIdentifcationRequirements=Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveIdentificationRequirements=Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time <i><color=#F0DAA0>[i.e.: no recurring effect]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Restock Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
@@ -189,9 +189,9 @@ ModUi/&UnleashEnemyAsNpc=Allow Monsters to be selected on NPC gadgets <b><i><col
 ModUi/&UnleashNpcAsEnemy=Allow NPCs to be selected on monster gadgets <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Unlock all NPC faces
 ModUi/&UnlockEyeStyles=Unlock eye styles
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Unlock glowing colors for all markings and tattoos
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all markings and tattoos
 ModUi/&UnlockGlowingEyeColors=Add glowing eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&UnlockMarkAndTatoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UseHeightOneCylinderEffect=Display a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> (square) and <color=#D89555>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

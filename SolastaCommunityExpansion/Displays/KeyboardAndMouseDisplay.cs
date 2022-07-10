@@ -40,15 +40,13 @@ internal static class KeyboardAndMouseDisplay
 
     internal static void DisplayKeyboardAndMouse()
     {
-        bool toggle;
-
         #region Hotkeys
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label("");
 
-        toggle = SelectAll;
+        var toggle = SelectAll;
         if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.AutoWidth()))
         {
             SelectAll = toggle;

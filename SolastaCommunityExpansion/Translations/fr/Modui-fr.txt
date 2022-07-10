@@ -3,7 +3,7 @@ ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saigne
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les courses
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Ajouter de nouvelles armes et recettes aux boutiques <i><color=#F0DAA0>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
-ModUi/&AddPickpocketableLoot=Ajouter un butin pickpocketable <i><color=#F0DAA0>[suggéré si la fonctionnalité <color=#D89555>Pickpocket</color> est activée]</color></i>
+ModUi/&AddPickPocketableLoot=Ajouter un butin pickpocketable <i><color=#F0DAA0>[suggéré si la fonctionnalité <color=#D89555>Pickpocket</color> est activée]</color></i>
 ModUi/&AddToStore=Ajouter au magasin
 ModUi/&Advanced=<color=#F0DAA0>Avancé :</color>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION :</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod
@@ -154,7 +154,7 @@ ModUi/&RemoveAttunementRequirements=Supprimer les exigences d'harmonisation <b><
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des bugs par des visuels alternatifs dans le jeu <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=Supprimer l'exigence de concentration de n'importe quel sort <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Supprimer le filtre humanoïde sur <color=#D89555>Hideous Laughter</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&RemoveIdentifcationRequirements=Supprimer les exigences d'identification <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&RemoveIdentificationRequirements=Supprimer les exigences d'identification <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle=N'applique l'effet <color=#D89555>Enchevêtrement</color> qu'au moment de l'incantation <i><color=#F0DAA0>[c'est-à-dire : aucun effet récurrent]</color></i> <b><i><color= #C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RestockAntiquarians=Réapprovisionner les antiquaires <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Réapprovisionner Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
@@ -189,9 +189,9 @@ ModUi/&UnleashEnemyAsNpc=Autoriser la sélection de monstres sur les gadgets des
 ModUi/&UnleashNpcAsEnemy=Autoriser la sélection de PNJ sur les gadgets monstres <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Déverrouiller tous les visages de PNJ
 ModUi/&UnlockEyeStyles=Déverrouiller les styles d'yeux
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
 ModUi/&UnlockGlowingEyeColors=Ajouter des couleurs d'yeux éclatantes <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&UnlockMarkAndTatoosForAllCharacters=Déverrouillez les marquages ​​et tatouages ​​d'origine <color=#D89555>Sorcier</color> pour tous les personnages
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages ​​et tatouages ​​d'origine <color=#D89555>Sorcier</color> pour tous les personnages
 ModUi/&UseHeightOneCylinderEffect=Affiche un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacles noirs, Enchevêtrement, Graisse</color> (carré) et <color=#D89555>Croissance épineuse</color> (rond)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

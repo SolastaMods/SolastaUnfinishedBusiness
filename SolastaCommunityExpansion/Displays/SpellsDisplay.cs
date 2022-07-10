@@ -32,19 +32,19 @@ internal static class SpellsDisplay
         using (UI.HorizontalScope())
         {
             toggle = SpellsContext.IsAllSetSelected();
-            if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PixelsPerColumn)))
             {
                 SpellsContext.SelectAllSet(toggle);
             }
 
             toggle = SpellsContext.IsSuggestedSetSelected();
-            if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PixelsPerColumn)))
             {
                 SpellsContext.SelectSuggestedSet(toggle);
             }
 
             toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
-            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(PixelsPerColumn)))
             {
                 var keys = Main.Settings.DisplaySpellListsToggle.Keys.ToHashSet();
 
@@ -71,13 +71,13 @@ internal static class SpellsDisplay
             void AdditionalRendering()
             {
                 toggle = spellListContext.IsAllSetSelected;
-                if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PixelsPerColumn)))
                 {
                     spellListContext.SelectAllSetInternal(toggle);
                 }
 
                 toggle = spellListContext.IsSuggestedSetSelected;
-                if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PixelsPerColumn)))
                 {
                     spellListContext.SelectSuggestedSetInternal(toggle);
                 }

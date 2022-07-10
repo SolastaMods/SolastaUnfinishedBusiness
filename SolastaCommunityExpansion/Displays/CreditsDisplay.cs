@@ -11,9 +11,9 @@ namespace SolastaCommunityExpansion.Displays;
 
 internal static class CreditsDisplay
 {
-    private static bool displayPatches;
+    private static bool _displayPatches;
 
-    internal static readonly Dictionary<string, string> ThanksTable = new()
+    private static readonly Dictionary<string, string> ThanksTable = new()
     {
         {"Tactical Adventures", "early access to DLC builds and community support"},
         {"JetBrains", "one year Rider IDE subscription for 3 developers"},
@@ -26,11 +26,12 @@ internal static class CreditsDisplay
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, J. Bendoski, M. Oliveira, M. Harck\n" +
                   "D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez, R. Garcia, \n" +
                   "R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson, J. Batanero\n" +
-                  "J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker, N. Zhuxy, M. Arteaga"
+                  "J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker, N. Zhuxy, M. Arteaga, J. Boyd, C. Badgley\n" +
+                  "D. Faires, E. Smith"
         }
     };
 
-    internal static readonly List<(string, string)> CreditsTable = new()
+    private static readonly List<(string, string)> CreditsTable = new()
     {
         ("AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"),
         ("Bazou", "Witch class, fighting styles"),
@@ -151,11 +152,11 @@ internal static class CreditsDisplay
         }
 
         UI.Label("");
-        UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref displayPatches, 200);
+        UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref _displayPatches, 200);
 
         UI.Label("");
 
-        if (displayPatches)
+        if (_displayPatches)
         {
             DisplayPatches();
         }

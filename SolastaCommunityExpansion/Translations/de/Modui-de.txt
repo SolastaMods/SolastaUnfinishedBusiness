@@ -3,7 +3,7 @@ ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blut
 ModUi/&AddHelpActionToAllRaces=Füge allen Rassen die Aktion <color=#D89555>Hilfe</color> hinzu
 ModUi/&AddNewBrightEyeColors=Fügen Sie neue leuchtende Augenfarben hinzu <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
-ModUi/&AddPickpocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA0>[empfohlen, wenn <color=#D89555>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
+ModUi/&AddPickPocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA0>[empfohlen, wenn <color=#D89555>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
 ModUi/&AddToStore=Zum Shop hinzufügen
 ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellungen erfordern, dass der Spieler diesen Mod installiert hat
@@ -154,7 +154,7 @@ ModUi/&RemoveAttunementRequirements=Einstimmungsanforderungen entfernen <b><i><c
 ModUi/&RemoveBugVisualModels=Ersetzen Sie fehlerähnliche Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=Konzentrationsanforderung von allen Zaubern entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Entfernen Sie den Humanoidenfilter von <color=#D89555>Schreckliches Gelächter</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&RemoveIdentifcationRequirements=Identifizierungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&RemoveIdentificationRequirements=Identifizierungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle=Wende den Effekt <color=#D89555>Verstricken</color> nur zum Wirkzeitpunkt an <i><color=#F0DAA0>[d. h.: kein wiederkehrender Effekt]</color></i> <b><i><color= #C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RestockAntiquarians=Antiquare <i><color=#F0DAA0>[Halman Summer]</color></i> auffüllen
 ModUi/&RestockArcaneum=Arkaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i> auffüllen
@@ -189,9 +189,9 @@ ModUi/&UnleashEnemyAsNpc=Ermöglicht die Auswahl von Monstern auf NPC-Gadgets <b
 ModUi/&UnleashNpcAsEnemy=Auswahl von NPCs auf Monstergeräten zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Schalte alle NPC-Gesichter frei
 ModUi/&UnlockEyeStyles=Schalte Augenstile frei
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=Schalten Sie leuchtende Farben für alle Markierungen und Tätowierungen frei
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Schalten Sie leuchtende Farben für alle Markierungen und Tätowierungen frei
 ModUi/&UnlockGlowingEyeColors=Fügen Sie leuchtende Augenfarben hinzu <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&UnlockMarkAndTatoosForAllCharacters=Schalte <color=#D89555>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Schalte <color=#D89555>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
 ModUi/&UseHeightOneCylinderEffect=Zeigen Sie einen Zylindereffekt der Höhe 1 an, wenn Sie <color=#D89555>Schwarze Tentakel, Verstricken, Schmieren</color> (quadratisch) und <color=#D89555>Stachelwachstum</color> (rund) wirken.
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

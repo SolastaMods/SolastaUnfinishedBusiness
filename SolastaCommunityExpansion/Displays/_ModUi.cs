@@ -93,7 +93,7 @@ namespace SolastaCommunityExpansion.Displays
                 new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&GeneralMenu") : "General",
                     DisplayEncountersGeneral),
                 new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Bestiary") : "Bestiary", DisplayBestiary),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&CharactersPool") : "Characters Pool", DisplayNPCs));
+                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&CharactersPool") : "Characters Pool", DisplayNpcs));
         }
     }
 

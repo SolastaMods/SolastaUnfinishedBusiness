@@ -8,9 +8,7 @@ internal static class GameUiDisplay
 {
     internal static void DisplayGameUi()
     {
-        bool toggle;
         int intValue;
-        float floatValue;
 
         #region Battle
 
@@ -18,7 +16,7 @@ internal static class GameUiDisplay
         UI.Label(Gui.Localize("ModUi/&Battle"));
         UI.Label("");
 
-        toggle = Main.Settings.DontFollowCharacterInBattle;
+        var toggle = Main.Settings.DontFollowCharacterInBattle;
         if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DontFollowCharacterInBattle = toggle;
@@ -44,7 +42,7 @@ internal static class GameUiDisplay
 
         UI.Label("");
 
-        floatValue = Main.Settings.FasterTimeModifier;
+        var floatValue = Main.Settings.FasterTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue, 1.5f, 10f, 1.5f,
                 1, "X", UI.AutoWidth()))
         {

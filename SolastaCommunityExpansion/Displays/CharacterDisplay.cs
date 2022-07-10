@@ -7,14 +7,11 @@ internal static class CharacterDisplay
 {
     internal static void DisplayCharacter()
     {
-        int intValue;
-        bool toggle;
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&InitialChoices"));
         UI.Label("");
 
-        toggle = Main.Settings.AddHelpActionToAllRaces;
+        var toggle = Main.Settings.AddHelpActionToAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddHelpActionToAllRaces = toggle;
@@ -65,7 +62,7 @@ internal static class CharacterDisplay
 
         UI.Label("");
 
-        intValue = Main.Settings.TotalFeatsGrantedFistLevel;
+        var intValue = Main.Settings.TotalFeatsGrantedFistLevel;
         if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFistLevel"), ref intValue,
                 InitialChoicesContext.MIN_INITIAL_FEATS, InitialChoicesContext.MAX_INITIAL_FEATS, 0, "",
                 UI.AutoWidth()))
@@ -155,13 +152,13 @@ internal static class CharacterDisplay
         }
 
         toggle = Main.Settings.UnlockMarkAndTattoosForAllCharacters;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockMarkAndTatoosForAllCharacters"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&UnlockMarkAndTattoosForAllCharacters"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UnlockMarkAndTattoosForAllCharacters = toggle;
         }
 
         toggle = Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingColorsForAllMarksAndTatoos"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingColorsForAllMarksAndTattoos"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos = toggle;
         }

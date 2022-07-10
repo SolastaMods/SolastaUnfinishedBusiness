@@ -101,7 +101,7 @@ public static class Translations
             return cachedTranslation;
         }
 
-        var translation = TranslateGoogle(sourceText, targetCode);
+        var translation = TranslateGoogle(sourceText.Replace("_", " "), targetCode);
 
         TranslationsCache.Add(md5, translation);
 

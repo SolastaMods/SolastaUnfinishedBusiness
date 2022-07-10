@@ -6,8 +6,6 @@ internal static class DungeonMakerDisplay
 {
     internal static void DisplayDungeonMaker()
     {
-        bool toggle;
-
         #region DungeonMaker
 
         UI.Label("");
@@ -17,7 +15,7 @@ internal static class DungeonMakerDisplay
         UI.Label(Gui.Localize("ModUi/&DungeonMakerBasicHelp"));
         UI.Label("");
 
-        toggle = Main.Settings.AllowDungeonsMaxLevel20;
+        var toggle = Main.Settings.AllowDungeonsMaxLevel20;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDungeonsMaxLevel20"), ref toggle))
         {
             Main.Settings.AllowDungeonsMaxLevel20 = toggle;

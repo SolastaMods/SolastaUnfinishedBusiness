@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using ModKit;
 using SolastaCommunityExpansion.Models;
 
@@ -6,18 +7,17 @@ namespace SolastaCommunityExpansion.Displays;
 
 internal static class ItemsAndCraftingDisplay
 {
-    private const int MAX_COLUMNS = 1;
+    private const int MaxColumns = 1;
 
-    private static void AddUIForWeaponKey(string key)
+    private static void AddUIForWeaponKey([NotNull] string key)
     {
-        bool toggle;
         using (UI.HorizontalScope(UI.AutoWidth()))
         {
             UI.ActionButton(ItemCraftingContext.RecipeTitles[key], () => ItemCraftingContext.LearnRecipes(key),
                 UI.Width(180));
             UI.Space(20);
 
-            toggle = Main.Settings.CraftingInStore.Contains(key);
+            var toggle = Main.Settings.CraftingInStore.Contains(key);
             if (UI.Toggle(Gui.Localize("ModUi/&AddToStore"), ref toggle, UI.Width(125)))
             {
                 if (toggle)
@@ -73,14 +73,11 @@ internal static class ItemsAndCraftingDisplay
 
     internal static void DisplayItemsAndCrafting()
     {
-        bool toggle;
-        int intValue;
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label("");
 
-        toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
+        var toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
         if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
@@ -106,14 +103,14 @@ internal static class ItemsAndCraftingDisplay
         }
 
         toggle = Main.Settings.RemoveIdentificationRequirements;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveIdentifcationRequirements"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveIdentificationRequirements"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveIdentificationRequirements = toggle;
         }
 
         UI.Label("");
 
-        intValue = Main.Settings.TotalCraftingTimeModifier;
+        var intValue = Main.Settings.TotalCraftingTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
         {
             Main.Settings.TotalCraftingTimeModifier = intValue;
@@ -203,15 +200,14 @@ internal static class ItemsAndCraftingDisplay
             var keys = ItemCraftingContext.RecipeBooks.Keys;
             var current = 0;
             var count = keys.Count;
-            int cols;
 
             while (current < count)
             {
-                cols = 0;
+                var cols = 0;
 
                 using (UI.HorizontalScope())
                 {
-                    while (current < count && cols < MAX_COLUMNS)
+                    while (current < count && cols < MaxColumns)
                     {
                         AddUIForWeaponKey(keys.ElementAt(current));
 
