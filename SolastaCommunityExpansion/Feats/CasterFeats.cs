@@ -6,9 +6,11 @@ using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Spells;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaCommunityExpansion.Feats;
 
@@ -16,35 +18,9 @@ internal static class CasterFeats
 {
     private static readonly Guid CasterFeatsNamespace = new("bf70984d-e7b9-446a-9ae3-0f2039de833d");
 
-    private static FeatureDefinitionAttributeModifier BuildAdditiveAttributeModifier(
-        string name,
-        string attribute,
-        int amount)
-    {
-        return FeatureDefinitionAttributeModifierBuilder
-            .Create(name, CasterFeatsNamespace)
-            .SetGuiPresentation(Category.Feat)
-            .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                attribute,
-                amount)
-            .AddToDB();
-    }
-
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-
-        // attribute increase general
-
-        var intIncrement =
-            BuildAdditiveAttributeModifier("FeatIntIncrement", AttributeDefinitions.Intelligence, 1);
-
-        var chaIncrement =
-            BuildAdditiveAttributeModifier("FeatChaIncrement", AttributeDefinitions.Charisma, 1);
-
-        var wisIncrement =
-            BuildAdditiveAttributeModifier("FeatWisIncrement", AttributeDefinitions.Wisdom, 1);
 
         // Telekinetic general
 
@@ -79,7 +55,8 @@ internal static class CasterFeats
         var intTelekineticFeat = FeatDefinitionBuilder
             .Create("FeatTelekineticInt", CasterFeatsNamespace)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(intPush, intPull, intIncrement)
+            .SetFeatures(intPush, intPull,
+                AttributeModifierCreed_Of_Pakri)
             .AddToDB();
 
         feats.Add(intTelekineticFeat);
@@ -107,7 +84,8 @@ internal static class CasterFeats
         var chaTelekineticFeat = FeatDefinitionBuilder
             .Create("FeatTelekineticCha", CasterFeatsNamespace)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(chaPush, chaPull, chaIncrement)
+            .SetFeatures(chaPush, chaPull,
+                AttributeModifierCreed_Of_Solasta)
             .AddToDB();
 
         feats.Add(chaTelekineticFeat);
@@ -135,7 +113,8 @@ internal static class CasterFeats
         var wisTelekineticFeat = FeatDefinitionBuilder
             .Create("FeatTelekineticWis", CasterFeatsNamespace)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(wisPush, wisPull, wisIncrement)
+            .SetFeatures(wisPush, wisPull,
+                AttributeModifierCreed_Of_Maraike)
             .AddToDB();
 
         feats.Add(wisTelekineticFeat);
@@ -166,21 +145,24 @@ internal static class CasterFeats
             // fey teleportation int
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationInt", CasterFeatsNamespace)
-                .SetFeatures(intIncrement, feyTeleportationLanguage, mistyStepPower)
+                .SetFeatures(AttributeModifierCreed_Of_Pakri,
+                    feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
-                .SetGuiPresentation(Category.Feat)
+                .SetGuiPresentation("Feat/&FeatFeyTeleportationIntTitle", "Feat/&FeatFeyTeleportationDescription")
                 .AddToDB(),
             // fey teleportation cha
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationCha", CasterFeatsNamespace)
-                .SetFeatures(chaIncrement, feyTeleportationLanguage, mistyStepPower)
+                .SetFeatures(AttributeModifierCreed_Of_Solasta,
+                    feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
             // fey teleportation wis
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationWis", CasterFeatsNamespace)
-                .SetFeatures(wisIncrement, feyTeleportationLanguage, mistyStepPower)
+                .SetFeatures(AttributeModifierCreed_Of_Maraike,
+                    feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB()
@@ -216,34 +198,33 @@ internal static class CasterFeats
             // celestial touched int
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedInt", CasterFeatsNamespace)
-                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower, intIncrement)
+                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower,
+                    AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
             // celestial touched wis
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedWis", CasterFeatsNamespace)
-                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower, wisIncrement)
+                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower,
+                    AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
             // celestial touched cha
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedCha", CasterFeatsNamespace)
-                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower, chaIncrement)
+                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower,
+                    AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB()
         );
 
-        //
-        // Disabling for now until we get time to fix the concentration issue
-        //
-#if false
         // flame touched
 
         var flameTouchedGroup =
-            BuildSpellGroup(0, BurningHands, FaerieFire, FlamingSphere);
+            BuildSpellGroup(0, BurningHands, AceHighSpells.HellishRebukeSpell, ScorchingRay);
 
         var learnFlameTouchedPresentation =
             GuiPresentationBuilder.Build("PowerFlameTouchedFromFeat", Category.Feat);
@@ -266,60 +247,65 @@ internal static class CasterFeats
             true, true, AttributeDefinitions.Charisma,
             BurningHands.EffectDescription, "PowerBurningHandsChaFromFeat", BurningHands.GuiPresentation);
 
-        var faerieFirePowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+        var hellishRebukePowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
             true, true, AttributeDefinitions.Intelligence,
-            FaerieFire.EffectDescription, "PowerFaerieFireIntFromFeat", FaerieFire.GuiPresentation);
+            AceHighSpells.HellishRebukeSpell.EffectDescription, "PowerHellishRebukeIntFromFeat",
+            AceHighSpells.HellishRebukeSpell.GuiPresentation);
 
-        var faerieFirePowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+        var hellishRebukePowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
             true, true, AttributeDefinitions.Wisdom,
-            FaerieFire.EffectDescription, "PowerFaerieFireWisFromFeat", FaerieFire.GuiPresentation);
+            AceHighSpells.HellishRebukeSpell.EffectDescription, "PowerHellishRebukeWisFromFeat",
+            AceHighSpells.HellishRebukeSpell.GuiPresentation);
 
-        var faerieFirePowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+        var hellishRebukePowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
             true, true, AttributeDefinitions.Charisma,
-            FaerieFire.EffectDescription, "PowerFaerieFireChaFromFeat", FaerieFire.GuiPresentation);
+            AceHighSpells.HellishRebukeSpell.EffectDescription, "PowerHellishRebukeChaFromFeat",
+            AceHighSpells.HellishRebukeSpell.GuiPresentation);
 
-        var flamingSpherePowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+        var scorchingRayPowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
             true, true, AttributeDefinitions.Intelligence,
-            FlamingSphere.EffectDescription, "PowerFlamingSphereIntFromFeat", FlamingSphere.GuiPresentation);
+            ScorchingRay.EffectDescription, "PowerScorchingRayIntFromFeat", ScorchingRay.GuiPresentation);
 
-        var flamingSpherePowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+        var scorchingRayPowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
             true, true, AttributeDefinitions.Wisdom,
-            FlamingSphere.EffectDescription, "PowerFlamingSphereWisFromFeat", FlamingSphere.GuiPresentation);
+            ScorchingRay.EffectDescription, "PowerScorchingRayWisFromFeat", ScorchingRay.GuiPresentation);
 
-        var flamingSpherePowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+        var scorchingRayPowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
             true, true, AttributeDefinitions.Charisma,
-            FlamingSphere.EffectDescription, "PowerFlamingSphereChaFromFeat", FlamingSphere.GuiPresentation);
+            ScorchingRay.EffectDescription, "PowerScorchingRayChaFromFeat", ScorchingRay.GuiPresentation);
 
         feats.AddRange(
             // flame touched int
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedInt", CasterFeatsNamespace)
-                .SetFeatures(burningHandsPowerInt, faerieFirePowerInt, flamingSpherePowerInt, intIncrement)
+                .SetFeatures(burningHandsPowerInt, hellishRebukePowerInt, scorchingRayPowerInt,
+                    AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
             // flame touched wis
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedWis", CasterFeatsNamespace)
-                .SetFeatures(burningHandsPowerWis, faerieFirePowerWis, flamingSpherePowerWis, wisIncrement)
+                .SetFeatures(burningHandsPowerWis, hellishRebukePowerWis, scorchingRayPowerWis,
+                    AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
             // flame touched cha
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedCha", CasterFeatsNamespace)
-                .SetFeatures(burningHandsPowerCha, faerieFirePowerCha, flamingSpherePowerCha, chaIncrement)
+                .SetFeatures(burningHandsPowerCha, hellishRebukePowerCha, scorchingRayPowerCha,
+                    AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB()
         );
-#endif
 
         // shadow touched
 
@@ -361,21 +347,24 @@ internal static class CasterFeats
             // shadow touched int
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedInt", CasterFeatsNamespace)
-                .SetFeatures(invisibilityPower, inflictWoundsPowerInt, falseLifePower, intIncrement)
+                .SetFeatures(invisibilityPower, inflictWoundsPowerInt, falseLifePower,
+                    AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(shadowTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
             // shadow touched wis
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedWis", CasterFeatsNamespace)
-                .SetFeatures(invisibilityPower, inflictWoundsPowerWis, falseLifePower, wisIncrement)
+                .SetFeatures(invisibilityPower, inflictWoundsPowerWis, falseLifePower,
+                    AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(shadowTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB(),
             // shadow touched cha
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedCha", CasterFeatsNamespace)
-                .SetFeatures(invisibilityPower, inflictWoundsPowerCha, falseLifePower, chaIncrement)
+                .SetFeatures(invisibilityPower, inflictWoundsPowerCha, falseLifePower,
+                    AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(shadowTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB()
