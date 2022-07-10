@@ -1,7 +1,5 @@
 Class/&TinkererDescription=奇械师是不仅仅是发明家和炼金术士。他们在魔法和技术之间架起桥梁
 Class/&TinkererTitle=奇械师
-Condition/&SentinelStopMovementConditionDescription=无法移动。速度设为0
-Condition/&SentinelStopMovementConditionTitle=停止
 Equipment/&ImprovedLightningSpearDescription=造成1d6点闪电伤害，每回合额外造成1次1d6点闪电伤害\n能用一次攻击为盟友创造优势，给敌人带来劣势
 Equipment/&ImprovedLightningSpearTitle=精通电光之矛
 Equipment/&LightningSpearDescription=造成1d6点闪电伤害，每回合额外造成1次1d6点闪电伤害
@@ -79,8 +77,6 @@ Feat/&DismissConstructDescription=解散你的构装体
 Feat/&DismissConstructTitle=解散构装体
 Feat/&ExtraInfusionSlotsDescription=你获得额外注法槽，须应用于盔甲/武器
 Feat/&ExtraInfusionSlotsTitle=额外注法
-Feat/&FeatSentinelDescription=你掌握的技术使你在击破敌人防御时占尽优势，获得以下增益：\n• 当你借机攻击命中一个生物时，其在本回合剩余时间内移动速度降至0\n• 生物即使执行撤离动作离开你的触及范围也会引发你的借机攻击\n•=处于你触及范围内的生物（其无本专长）对除你外的目标发动攻击后，你能以反应对此攻击者发动一次近战攻击
-Feat/&FeatSentinelTitle=哨兵
 Feat/&FlameArtillery_2Description=3d8点火焰伤害（锥形）
 Feat/&FlameArtillery_2Title=火焰魔炮（精通）
 Feat/&FlameArtilleryConstructDescription_3=喷射锥形火焰，若豁免失败则造成3d8点火焰伤害
@@ -337,3 +333,9 @@ Subclass/&WeaponProfArtificerBattleSmithTitle=武器训练
 Tooltip/&TagScoutSentinelWeaponTitle=侦察哨兵
 Feat/&IncreaseConstructSelectingDescription=你现在能召唤两个魔炮。它们能是相同或不同的模式
 Feat/&IncreaseConstructSelectingTitle=增援
+Feat/&UseArmorWeaponsAsFocusDescription=你能使用装甲的武器作为你的法术法器
+Feat/&UseArmorWeaponsAsFocusTitle=施法法器
+Feat/&UsingitemPowerDescription=允许以附赠动作使用武器能力
+Feat/&UsingitemPowerTitle=使用武器能力
+Feat/&IntToAttackAndDamageDescription=你能将智力而非敏捷或力量调整值应用到你的装甲武器上
+Feat/&IntToAttackAndDamageTitle=装甲武器

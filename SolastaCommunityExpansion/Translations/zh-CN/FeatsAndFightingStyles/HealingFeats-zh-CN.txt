@@ -24,3 +24,5 @@ Feat/&HealerUseMedicineDescription=你能使用一个动作恢复1d6+4+人物等
 Feat/&HealerUseMedicineTitle=使用药剂
 Feat/&ProfHealerMedicineDescription=你获得医药的熟练项/专精
 Feat/&ProfHealerMedicineTitle=药物知识
+Feat/&InspiringLeaderDescription=你能消耗10分钟激励你周围30英尺内最多6名友好生物（能包括你自己）。每个生物获得等同于你的等级+魅力调整值的临时生命值。每短休1次
+Feat/&InspiringLeaderTitle=振奋领袖
