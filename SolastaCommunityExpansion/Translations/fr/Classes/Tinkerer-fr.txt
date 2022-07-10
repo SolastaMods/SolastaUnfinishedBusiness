@@ -1,7 +1,5 @@
 Class/&TinkererDescription=Les bricoleurs sont des inventeurs, des alchimistes, etc. Ils comblent l'espace entre la magie et la technologie.
 Class/&TinkererTitle=En pensant
-
-=VIDE
 Equipment/&ImprovedLightningSpearDescription=Inflige 1d6 dégâts de foudre et 1d6 dégâts de foudre supplémentaires une fois par tour.\nPeut créer un avantage pour les alliés et un désavantage pour les ennemis avec une seule attaque.
 Equipment/&ImprovedLightningSpearTitle=Lance éclair améliorée
 Equipment/&LightningSpearDescription=Inflige 1d6 dégâts de foudre avec 1d6 dégâts de foudre supplémentaires une fois par tour.

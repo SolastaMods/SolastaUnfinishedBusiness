@@ -1,6 +1,5 @@
 Class/&TinkererDescription=Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.
 Class/&TinkererTitle=Tinkerer
-
 Equipment/&ImprovedLightningSpearDescription=Deal 1d6 lightning damage with an additional 1d6 lightning damage once per turn.\nCan create advantage for allies and disadvantage for enemies with a single attack.
 Equipment/&ImprovedLightningSpearTitle=Improved Lightning Spear
 Equipment/&LightningSpearDescription=Deal 1d6 lightning damage with an additional 1d6 lightning damage once per turn.

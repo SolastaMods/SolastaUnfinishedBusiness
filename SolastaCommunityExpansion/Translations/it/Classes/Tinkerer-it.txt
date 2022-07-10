@@ -1,7 +1,5 @@
 Class/&TinkererDescription=I riparatori sono inventori, alchimisti e altro ancora. Colmano lo spazio tra magia e tecnologia.
 Class/&TinkererTitle=Pensiero
-
-=VUOTO
 Equipment/&ImprovedLightningSpearDescription=Infligge 1d6 danni da fulmine con 1d6 danni da fulmine aggiuntivi una volta per turno.\nPuò creare vantaggio per gli alleati e svantaggio per i nemici con un singolo attacco.
 Equipment/&ImprovedLightningSpearTitle=Lancia fulmine migliorata
 Equipment/&LightningSpearDescription=Infligge 1d6 danni da fulmine con 1d6 danni da fulmine aggiuntivi una volta per turno.

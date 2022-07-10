@@ -1,7 +1,5 @@
 Class/&TinkererDescription=Los tinkerers son inventores, alquimistas y más. Ellos unen el espacio entre la magia y la tecnología.
 Class/&TinkererTitle=Pensamiento
-
-=VACÍO
 Equipment/&ImprovedLightningSpearDescription=Inflige 1d6 de daño de rayo con 1d6 de daño de rayo adicional una vez por turno.\nPuede crear ventajas para los aliados y desventajas para los enemigos con un solo ataque.
 Equipment/&ImprovedLightningSpearTitle=Lanza relámpago mejorada
 Equipment/&LightningSpearDescription=Inflige 1d6 de daño de rayo con 1d6 de daño de rayo adicional una vez por turno.

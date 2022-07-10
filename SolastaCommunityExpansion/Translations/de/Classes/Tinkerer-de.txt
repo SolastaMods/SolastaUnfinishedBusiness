@@ -1,7 +1,5 @@
 Class/&TinkererDescription=Tüftler sind Erfinder, Alchemisten und mehr. Sie überbrücken den Raum zwischen Magie und Technologie.
 Class/&TinkererTitle=Denken
-
-=LEER
 Equipment/&ImprovedLightningSpearDescription=Verursache 1W6 Blitzschaden mit zusätzlichen 1W6 Blitzschaden einmal pro Zug.\nKann mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen.
 Equipment/&ImprovedLightningSpearTitle=Verbesserter Blitzspeer
 Equipment/&LightningSpearDescription=Füge 1W6 Blitzschaden mit zusätzlich 1W6 Blitzschaden einmal pro Zug zu.

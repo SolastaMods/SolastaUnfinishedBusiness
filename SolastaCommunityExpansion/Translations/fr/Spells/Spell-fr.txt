@@ -57,8 +57,6 @@ Reaction/&CastSpellInRetributionReactTitle=Lancer un sort
 Reaction/&CastSpellInRetributionTitle=Lancer un sort de réaction
 Reaction/&SpendSpellSlot{0}Description=Dépensez le sort {0}
 Reaction/&SpendSpellSlot{0}Title=Dépensez le sort {0}
-
-=VIDE
 Screen/&MulticlassSpellDescription=Vous connaissez ce sort d'un autre répertoire.
 Screen/&MulticlassSpellTitle=Multiclasse
 Screen/&SpellSlotsUsedLongDescription=Vous avez dépensé {0} emplacement(s) de sort(s) à ce niveau.

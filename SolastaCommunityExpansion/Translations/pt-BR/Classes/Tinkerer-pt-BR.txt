@@ -1,7 +1,5 @@
 Class/&TinkererDescription=Tinkerers são inventores, alquimistas e muito mais. Eles preenchem o espaço entre magia e tecnologia.
 Class/&TinkererTitle=Pensamento
-
-=VAZIO
 Equipment/&ImprovedLightningSpearDescription=Cause 1d6 de dano de raio com 1d6 de dano de raio adicional uma vez por turno.\nPode criar vantagem para aliados e desvantagem para inimigos com um único ataque.
 Equipment/&ImprovedLightningSpearTitle=Lança Relâmpago Aprimorada
 Equipment/&LightningSpearDescription=Cause 1d6 de dano de raio com 1d6 de dano de raio adicional uma vez por turno.

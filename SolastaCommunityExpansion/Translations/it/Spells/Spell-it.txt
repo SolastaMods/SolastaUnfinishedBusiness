@@ -57,8 +57,6 @@ Reaction/&CastSpellInRetributionReactTitle=Lanciare un incantesimo
 Reaction/&CastSpellInRetributionTitle=Lancia l'incantesimo di reazione
 Reaction/&SpendSpellSlot{0}Description=Spendi incantesimi {0}
 Reaction/&SpendSpellSlot{0}Title=Spendi incantesimi {0}
-
-=VUOTO
 Screen/&MulticlassSpellDescription=Conosci questo incantesimo da un altro repertorio.
 Screen/&MulticlassSpellTitle=Multiclasse
 Screen/&SpellSlotsUsedLongDescription=Hai speso {0} slot incantesimo a questo livello.

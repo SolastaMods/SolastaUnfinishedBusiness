@@ -57,8 +57,6 @@ Reaction/&CastSpellInRetributionReactTitle=Feitiço lançado
 Reaction/&CastSpellInRetributionTitle=Feitiço de Reação de Conjuração
 Reaction/&SpendSpellSlot{0}Description=Gastar feitiço {0}
 Reaction/&SpendSpellSlot{0}Title=Gastar feitiço {0}
-
-=VAZIO
 Screen/&MulticlassSpellDescription=Você conhece esse feitiço de outro repertório.
 Screen/&MulticlassSpellTitle=Multiclasse
 Screen/&SpellSlotsUsedLongDescription=Você gastou {0} espaço(s) de magia neste nível.

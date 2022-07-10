@@ -1,3 +1,4 @@
 ﻿CHANGES:
 
-- Fix Path of the Rage Mage arcane explosion notification tag
+- Fix Arcane Explosion notification tag
+- Improve translations loader
