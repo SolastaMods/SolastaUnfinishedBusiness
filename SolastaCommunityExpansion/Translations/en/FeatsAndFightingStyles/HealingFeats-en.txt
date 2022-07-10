@@ -24,3 +24,5 @@ Feat/&HealerUseMedicineDescription=You can use an action to restore 1d6 + 4 + ch
 Feat/&HealerUseMedicineTitle=Use Medicine
 Feat/&ProfHealerMedicineDescription=You gain proficiency in Medicine, or expertise if you are already proficient.
 Feat/&ProfHealerMedicineTitle=Medicine Knowledge
+Feat/&InspiringLeaderDescription=Once per short rest, you can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+Feat/&InspiringLeaderTitle=Inspiring Leader

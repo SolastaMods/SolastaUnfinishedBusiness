@@ -10,3 +10,7 @@ Feat/&FeatLightArmorProficiencyTitle=Light Armor
 Feat/&FeatLightArmorTitle=Light Armor
 Feat/&FeatHeavyArmorMasterClassDescription=You gain resistance to bludgeoning, slashing, and piercing damage.
 Feat/&FeatHeavyArmorMasterClassTitle=Heavy Defense Mastery
+Feat/&FeatDexIncrementDescription=Increase your Dexterity by 1, to a maximum of 20.
+Feat/&FeatDexIncrementTitle=Attribute Increase
+Feat/&FeatStrengthIncrementDescription=Increase your Strength by 1, to a maximum of 20.
+Feat/&FeatStrengthIncrementTitle=Attribute Increase
