@@ -59,7 +59,7 @@ internal static class MulticlassPatchingContext
         }
     };
 
-    private static KeyValuePair<MethodInfo, HeroContext> FeatureUnlocksContext { get; set; }
+    private static (MethodInfo, HeroContext) FeatureUnlocksContext { get; set; }
 
     internal static void Load()
     {
@@ -223,100 +223,100 @@ internal static class MulticlassPatchingContext
 
     private static void PatchFeatureUnlocks()
     {
-        var patches = new SortedList<MethodInfo, HeroContext>
+        var patches = new List<(MethodInfo, HeroContext)>
         {
             // CharacterStageClassSelectionPanel
-            {
+            (
                 typeof(CharacterStageClassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding) ??
                 NullMethod,
                 HeroContext.StagePanel
-            },
-            {
+            ),
+            (
                 typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding) ?? NullMethod,
                 HeroContext.StagePanel
-            },
+            ),
 
             // CharacterStageDeitySelectionPanel
-            {
+            (
                 typeof(CharacterStageDeitySelectionPanel).GetMethod("OnHigherLevelCb") ?? NullMethod,
                 HeroContext.StagePanel
-            },
-            {
+            ),
+            (
                 typeof(CharacterStageDeitySelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding) ??
                 NullMethod,
                 HeroContext.StagePanel
-            },
-            {
+            ),
+            (
                 typeof(CharacterStageDeitySelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding) ??
                 NullMethod,
                 HeroContext.StagePanel
-            },
-            {typeof(CharacterStageDeitySelectionPanel).GetMethod("EnterStage") ?? NullMethod, HeroContext.StagePanel},
+            ),
+            (typeof(CharacterStageDeitySelectionPanel).GetMethod("EnterStage") ?? NullMethod, HeroContext.StagePanel),
 
             // CharacterStageLevelGainsPanel
-            {
+            (
                 typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb") ?? NullMethod,
                 HeroContext.StagePanel
-            },
-            {
+            ),
+            (
                 typeof(CharacterStageLevelGainsPanel).GetMethod("EnumerateActiveClassFeatures", PrivateBinding) ??
                 NullMethod,
                 HeroContext.StagePanel
-            },
-            {
+            ),
+            (
                 typeof(CharacterStageLevelGainsPanel).GetMethod("FillUnlockedClassFeatures", PrivateBinding) ??
                 NullMethod,
                 HeroContext.StagePanel
-            },
-            {
+            ),
+            (
                 typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding) ?? NullMethod,
                 HeroContext.StagePanel
-            },
+            ),
 
             // CharacterStageSubclassSelectionPanel
-            {
+            (
                 typeof(CharacterStageSubclassSelectionPanel).GetMethod("OnHigherLevelCb") ?? NullMethod,
                 HeroContext.StagePanel
-            },
-            {
+            ),
+            (
                 typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding) ??
                 NullMethod,
                 HeroContext.StagePanel
-            },
-            {
+            ),
+            (
                 typeof(CharacterStageSubclassSelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding) ??
                 NullMethod,
                 HeroContext.StagePanel
-            },
-            {
+            ),
+            (
                 typeof(CharacterStageSubclassSelectionPanel).GetMethod("Refresh", PrivateBinding) ?? NullMethod,
                 HeroContext.StagePanel
-            },
+            ),
 
             // CharacterBuildingManager
-            {
+            (
                 typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter") ?? NullMethod,
                 HeroContext.BuildingManager
-            },
+            ),
 
             // ArchetypesPreviewModal
-            // {typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), HeroContext.BuildingManager},
+            // (typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), HeroContext.BuildingManager),
 
             // CharacterInformationPanel
-            {
+            (
                 typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding) ?? NullMethod,
                 HeroContext.InformationPanel
-            },
+            ),
 
             // RulesetCharacterHero
-            {
+            (
                 typeof(RulesetCharacterHero).GetMethod("FindClassHoldingFeature") ?? NullMethod,
                 HeroContext.CharacterHero
-            },
-            {
+            ),
+            (
                 typeof(RulesetCharacterHero).GetMethod("LookForFeatureOrigin", PrivateBinding) ?? NullMethod,
                 HeroContext.CharacterHero
-            }
+            )
         };
 
         var harmony = new Harmony("SolastaCommunityExpansion");
@@ -326,17 +326,17 @@ internal static class MulticlassPatchingContext
         {
             FeatureUnlocksContext = patch;
 
-            harmony.Patch(patch.Key, transpiler: new HarmonyMethod(transpiler));
+            harmony.Patch(patch.Item1, transpiler: new HarmonyMethod(transpiler));
         }
     }
 
     [ItemNotNull]
     private static IEnumerable<CodeInstruction> YieldHero()
     {
-        switch (FeatureUnlocksContext.Value)
+        switch (FeatureUnlocksContext.Item2)
         {
             case HeroContext.StagePanel:
-                var classType = FeatureUnlocksContext.Key.DeclaringType;
+                var classType = FeatureUnlocksContext.Item1.DeclaringType;
 
                 if (classType != null)
                 {

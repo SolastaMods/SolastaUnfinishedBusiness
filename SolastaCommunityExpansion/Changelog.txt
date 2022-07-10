@@ -1,3 +1,4 @@
 ﻿CHANGES:
 
 - Add Flame Touched feats
+- Refactor to be more resilient on game updates
