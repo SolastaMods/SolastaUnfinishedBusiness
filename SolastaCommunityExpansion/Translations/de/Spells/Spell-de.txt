@@ -57,8 +57,6 @@ Reaction/&CastSpellInRetributionReactTitle=Zauber wirken
 Reaction/&CastSpellInRetributionTitle=Wirke Reaktionszauber
 Reaction/&SpendSpellSlot{0}Description=Zauber {0} ausgeben
 Reaction/&SpendSpellSlot{0}Title=Zauber {0} ausgeben
-
-=LEER
 Screen/&MulticlassSpellDescription=Sie kennen diesen Zauber aus anderem Repertoire.
 Screen/&MulticlassSpellTitle=Mehrklasse
 Screen/&SpellSlotsUsedLongDescription=Du hast {0} Zauberplatz(e) auf dieser Stufe verbraucht.

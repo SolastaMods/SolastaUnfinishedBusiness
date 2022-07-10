@@ -1,0 +1,12 @@
+﻿Feat/&DualFlurryDescription=Você é um mestre da luta com armas emparelhadas. Em qualquer turno em que você acertar duas vezes com ataques corpo a corpo enquanto empunha uma arma em cada mão, você pode fazer um ataque adicional com a mão inábil ao atacar com sua ação bônus.
+Feat/&DualFlurryTitle=Dupla rajada
+Feat/&TorchbearerDescription=Você é hábil no uso de uma tocha em batalha. Uma vez por turno, como uma ação bônus, você pode optar por usar uma fonte de luz que você equipou para tentar incendiar um inimigo que você pode tocar. Seu alvo deve ser bem sucedido em um teste de resistência de Destreza (CD 8 + seu bônus de proficiência + seu modificador de Destreza) ou sofrerá 1d4 de dano de fogo por turno por 1 minuto ou até ser extinto.
+Feat/&TorchbearerTitle=Portador da tocha
+Condition/&ConditionDualFlurryApplyDescription=Você está ganhando impulso...
+Condition/&ConditionDualFlurryApplyTitle=Turbilhão duplo!
+Condition/&ConditionDualFlurryGrantDescription=Seus inimigos estão cambaleando!
+Condition/&ConditionDualFlurryGrantTitle=Turbilhão duplo!
+Feature/&AdditionalActionDualFlurryDescription=Você pode fazer um ataque adicional com a mão inábil.
+Feature/&AdditionalActionDualFlurryTitle=Turbilhão duplo!
+Feature/&PowerTorchbearerDescription=Tente incendiar um alvo corpo a corpo!
+Feature/&PowerTorchbearerTitle=Portador da tocha

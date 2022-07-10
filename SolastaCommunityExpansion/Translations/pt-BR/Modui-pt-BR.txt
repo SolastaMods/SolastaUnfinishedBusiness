@@ -52,7 +52,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampame
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Ative o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 escolhas de atributo / +1 habilidade]</color></i>
 ModUI/&EnableBetaContent=Ative o conteúdo beta <i><color=#F0DAA0>[lembre-se de que seus salvamentos ou heróis podem quebrar no futuro]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
-ModUi/&EnableCancelEditOnRightMouseClick=Habilite a ação de cancelamento com o botão direito do mouse
+ModUi/&EnableCancelEditOnRightMouseClick=Ative a ação de cancelamento com o botão direito do mouse
 ModUi/&EnableCharacterChecker=Ative a tela do verificador de caracteres
 ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color>exportar caractere <i><color=#F0DAA0>[somente na tela de inspeção de caractere]</color></i>
 ModUi/&EnableCheatMenu=Habilite o menu de cheats
@@ -196,4 +196,4 @@ ModUi/&UseHeightOneCylinderEffect=Exibe um efeito de cilindro de altura 1 ao lan
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&WeaponTag=Marca de Arma
-ModUi/&ScaleGameFontSizeBy=<color=white>Scale the game font size by</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&ScaleGameFontSizeBy=<color=white>Redimensionar o tamanho da fonte do jogo em</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

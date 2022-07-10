@@ -1,6 +1,6 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaCommunityExpansion.Spells.EWSpells;
+using static SolastaCommunityExpansion.Spells.EwSpells;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer;
 

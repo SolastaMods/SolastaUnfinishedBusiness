@@ -140,7 +140,8 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var arcaneExplosion = FeatureDefinitionAdditionalDamageBuilder // deal additional damage while raging
             .Create("arcaneExplosionPathOfTheMageRage", SubclassNamespace)
-            .SetGuiPresentation("arcaneExplosionPathOfTheMageRage", Category.Feature)
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("arcaneExplosionPathOfTheMageRage")
             .SetDamageDice(DieType.D6, 1) // deal 1d6 force damage while raging
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, // damage increases to 2d6 at 14th level
                 (6, 1),

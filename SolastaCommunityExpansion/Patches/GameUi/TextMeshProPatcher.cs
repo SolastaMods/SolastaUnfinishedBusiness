@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi;
 
-[HarmonyPatch(typeof(GameTime), "SetTimeScale")]
 [HarmonyPatch(typeof(TextMeshProUGUI), "Awake")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class TextMeshProUGUI_Awake

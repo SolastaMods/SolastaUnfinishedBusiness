@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -9,11 +10,12 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFight
 
 namespace SolastaCommunityExpansion.FightingStyles;
 
-internal class Crippling : AbstractFightingStyle
+internal sealed class Crippling : AbstractFightingStyle
 {
-    private readonly Guid Namespace = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
+    private readonly Guid guidNamespace = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
     private FightingStyleDefinitionCustomizable instance;
 
+    [NotNull]
     internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
     {
         return new List<FeatureDefinitionFightingStyleChoice>
@@ -34,7 +36,7 @@ internal class Crippling : AbstractFightingStyle
         //+ Must be a successful melee attack
         //+ NO LIMIT per round (wow!)
         var conditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionHindered_By_Frost, "CripplingConditionDefinition", Namespace)
+            .Create(ConditionHindered_By_Frost, "CripplingConditionDefinition", guidNamespace)
             .AddToDB();
 
         conditionDefinition.allowMultipleInstances = true;
@@ -51,7 +53,7 @@ internal class Crippling : AbstractFightingStyle
 
         var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageCircleBalanceColdEmbrace,
-                "CripplingAdditionalDamage", Namespace)
+                "CripplingAdditionalDamage", guidNamespace)
             .SetGuiPresentation(Category.Modifier)
             .SetDamageDice(RuleDefinitions.DieType.D1, 0)
             .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)

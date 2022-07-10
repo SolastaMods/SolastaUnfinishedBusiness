@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "SneakAttack",
+  "notificationTag": "arcaneExplosionPathOfTheMageRage",
   "limitedUsage": "OncePerTurn",
   "triggerCondition": "Raging",
   "requiredProperty": "None",

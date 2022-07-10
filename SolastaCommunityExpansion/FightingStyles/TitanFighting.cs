@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -9,11 +10,12 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFight
 
 namespace SolastaCommunityExpansion.FightingStyles;
 
-internal class TitanFighting : AbstractFightingStyle
+internal sealed class TitanFighting : AbstractFightingStyle
 {
-    private readonly Guid TITAN_FIGHTING_BASE_GUID = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
+    private readonly Guid titanFightingBaseGuid = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
     private FightingStyleDefinitionCustomizable instance;
 
+    [NotNull]
     internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
     {
         return new List<FeatureDefinitionFightingStyleChoice>
@@ -24,7 +26,8 @@ internal class TitanFighting : AbstractFightingStyle
 
     internal override FightingStyleDefinition GetStyle()
     {
-        void TitanFightingOnAttackDelegate(GameLocationCharacter attacker, GameLocationCharacter defender,
+        void TitanFightingOnAttackDelegate([CanBeNull] GameLocationCharacter attacker,
+            [CanBeNull] GameLocationCharacter defender,
             ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
         {
             // melee attack only
@@ -52,7 +55,7 @@ internal class TitanFighting : AbstractFightingStyle
         }
 
         var titanFightingAttackModifier = FeatureDefinitionOnAttackEffectBuilder
-            .Create("TitanFightingAttackModifier", TITAN_FIGHTING_BASE_GUID)
+            .Create("TitanFightingAttackModifier", titanFightingBaseGuid)
             .SetGuiPresentationNoContent()
             .SetOnAttackDelegates(TitanFightingOnAttackDelegate, null)
             .AddToDB();

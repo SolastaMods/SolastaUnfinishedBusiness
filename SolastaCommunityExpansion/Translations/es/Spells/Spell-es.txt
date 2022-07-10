@@ -57,8 +57,6 @@ Reaction/&CastSpellInRetributionReactTitle=Lanzar hechizo
 Reaction/&CastSpellInRetributionTitle=Lanzar hechizo de reacción
 Reaction/&SpendSpellSlot{0}Description=Gastar hechizo {0}
 Reaction/&SpendSpellSlot{0}Title=Gastar hechizo {0}
-
-=VACÍO
 Screen/&MulticlassSpellDescription=Conoces este hechizo de otro repertorio.
 Screen/&MulticlassSpellTitle=multiclase
 Screen/&SpellSlotsUsedLongDescription=Has gastado {0} espacio(s) de hechizo en este nivel.

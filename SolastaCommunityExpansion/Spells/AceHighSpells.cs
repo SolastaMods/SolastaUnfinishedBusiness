@@ -73,11 +73,11 @@ internal static class AceHighSpells
             .AddToDB();
     }
 
-    internal class PactMarkSpellBuilder : SpellDefinitionBuilder
+    private sealed class PactMarkSpellBuilder : SpellDefinitionBuilder
     {
         private const string PactMarkSpellName = "AHPactMarkSpell";
 
-        protected PactMarkSpellBuilder(string name) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name,
+        private PactMarkSpellBuilder(string name) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name,
             CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Spell/&AHPactMarkSpellTitle";
@@ -95,20 +95,19 @@ internal static class AceHighSpells
                 ConditionForm = new ConditionForm
                 {
                     ConditionDefinition = PactMarkMarkedByPactConditionBuilder.MarkedByPactCondition
-                }
+                },
+                createdByCharacter = true
             };
-            markedByPactEffectForm.createdByCharacter = true;
 
             var pactMarkEffectForm = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Condition,
                 ConditionForm = new ConditionForm
                 {
-                    ConditionDefinition = PactMarkPactMarkConditionBuilder.PactMarkCondition
-                }
+                    ConditionDefinition = PactMarkPactMarkConditionBuilder.PactMarkCondition, applyToSelf = true
+                },
+                createdByCharacter = true
             };
-            pactMarkEffectForm.ConditionForm.applyToSelf = true;
-            pactMarkEffectForm.createdByCharacter = true;
 
             var effectDescription = Definition.EffectDescription;
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
@@ -127,14 +126,14 @@ internal static class AceHighSpells
         }
     }
 
-    internal class PactMarkPactMarkConditionBuilder : ConditionDefinitionBuilder
+    private sealed class PactMarkPactMarkConditionBuilder : ConditionDefinitionBuilder
     {
         private const string PactMarkPactMarkConditionName = "AHPactMarkPactMarkCondition";
 
         public static readonly ConditionDefinition PactMarkCondition =
             CreateAndAddToDB(PactMarkPactMarkConditionName);
 
-        protected PactMarkPactMarkConditionBuilder(string name) : base(
+        private PactMarkPactMarkConditionBuilder(string name) : base(
             DatabaseHelper.ConditionDefinitions.ConditionHuntersMark, name, CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Spell/&AHPactMarkPactMarkConditionTitle";
@@ -143,40 +142,40 @@ internal static class AceHighSpells
             Definition.Features.Add(PactMarkAdditionalDamageBuilder.PactMarkAdditionalDamage);
         }
 
-        public static ConditionDefinition CreateAndAddToDB(string name)
+        private static ConditionDefinition CreateAndAddToDB(string name)
         {
             return new PactMarkPactMarkConditionBuilder(name).AddToDB();
         }
     }
 
-    internal class PactMarkMarkedByPactConditionBuilder : ConditionDefinitionBuilder
+    private sealed class PactMarkMarkedByPactConditionBuilder : ConditionDefinitionBuilder
     {
         private const string PactMarkMarkedByPactConditionName = "AHPactMarkMarkedByPactCondition";
 
         public static readonly ConditionDefinition MarkedByPactCondition =
             CreateAndAddToDB(PactMarkMarkedByPactConditionName);
 
-        protected PactMarkMarkedByPactConditionBuilder(string name) : base(
+        private PactMarkMarkedByPactConditionBuilder(string name) : base(
             DatabaseHelper.ConditionDefinitions.ConditionMarkedByHunter, name, CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Spell/&AHPactMarkMarkedByPactConditionTitle";
             Definition.GuiPresentation.Description = "Spell/&AHPactMarkMarkedByPactConditionDescription";
         }
 
-        public static ConditionDefinition CreateAndAddToDB(string name)
+        private static ConditionDefinition CreateAndAddToDB(string name)
         {
             return new PactMarkMarkedByPactConditionBuilder(name).AddToDB();
         }
     }
 
-    internal class PactMarkAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
+    private sealed class PactMarkAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
     {
         private const string PactMarkAdditionalDamageBuilderName = "AHPactMarkAdditionalDamage";
 
         public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage =
             CreateAndAddToDB(PactMarkAdditionalDamageBuilderName);
 
-        protected PactMarkAdditionalDamageBuilder(string name) : base(
+        private PactMarkAdditionalDamageBuilder(string name) : base(
             DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark, name, CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Spell/&AHPactMarkAdditionalDamageTitle";
@@ -186,7 +185,7 @@ internal static class AceHighSpells
             Definition.notificationTag = "PactMarked";
         }
 
-        public static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name)
+        private static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name)
         {
             return new PactMarkAdditionalDamageBuilder(name).AddToDB();
         }

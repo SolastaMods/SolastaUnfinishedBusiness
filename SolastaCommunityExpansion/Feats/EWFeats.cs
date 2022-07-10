@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -9,15 +10,15 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Feats;
 
-public static class EWFeats
+public static class EwFeats
 {
     public const string SentinelFeat = "FeatSentinel";
-    public const string PolearmExpertFeat = "FeatPolearmExpert";
-    public const string RangedExpertFeat = "FeatRangedExpert";
-    public const string RecklessAttackFeat = "FeatRecklessAttack";
-    private static readonly Guid GUID = new("B4ED480F-2D06-4EB1-8732-9A721D80DD1A");
+    private const string PolearmExpertFeat = "FeatPolearmExpert";
+    private const string RangedExpertFeat = "FeatRangedExpert";
+    private const string RecklessAttackFeat = "FeatRecklessAttack";
+    private static readonly Guid Guid = new("B4ED480F-2D06-4EB1-8732-9A721D80DD1A");
 
-    public static void CreateFeats(List<FeatDefinition> feats)
+    public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildSentinel());
         feats.Add(BuildPolearmExpert());
@@ -30,7 +31,7 @@ public static class EWFeats
         var restrained = ConditionDefinitions.ConditionRestrained;
 
         var stopMovementCondition = ConditionDefinitionBuilder
-            .Create("SentinelStopMovementCondition", GUID)
+            .Create("SentinelStopMovementCondition", Guid)
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization, restrained.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
@@ -40,10 +41,10 @@ public static class EWFeats
             .AddToDB();
 
         return FeatDefinitionBuilder
-            .Create(SentinelFeat, GUID)
+            .Create(SentinelFeat, Guid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionOnAttackHitEffectBuilder
-                .Create("FeatSentinelFeature", GUID)
+                .Create("FeatSentinelFeature", Guid)
                 .SetGuiPresentationNoContent(true)
                 .SetOnAttackHitDelegates(null, (attacker, defender, outcome, _, mode, _) =>
                 {
@@ -85,10 +86,10 @@ public static class EWFeats
     private static FeatDefinition BuildPolearmExpert()
     {
         return FeatDefinitionBuilder
-            .Create(PolearmExpertFeat, GUID)
+            .Create(PolearmExpertFeat, Guid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create("PolearmFeatFeature", GUID)
+                .Create("PolearmFeatFeature", Guid)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new CanmakeAoOOnReachEntered(CharacterValidators.HasPolearm),
@@ -101,10 +102,10 @@ public static class EWFeats
     private static FeatDefinition BuildRangedExpert()
     {
         return FeatDefinitionBuilder
-            .Create(RangedExpertFeat, GUID)
+            .Create(RangedExpertFeat, Guid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatRangedExpertFeature", GUID)
+                .Create("FeatRangedExpertFeature", Guid)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
@@ -118,7 +119,7 @@ public static class EWFeats
     private static FeatDefinition BuildRecklessAttack()
     {
         return FeatDefinitionWithPrerequisitesBuilder
-            .Create(RecklessAttackFeat, GUID)
+            .Create(RecklessAttackFeat, Guid)
             .SetGuiPresentation("RecklessAttack", Category.Action)
             .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityBarbarianRecklessAttack)
             .SetValidators(FeatsValidations.ValidateNotClass(CharacterClassDefinitions.Barbarian))

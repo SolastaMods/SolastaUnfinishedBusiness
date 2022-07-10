@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -12,9 +13,9 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class ArmorFeats
 {
-    public static readonly Guid ArmorNamespace = new("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
+    private static readonly Guid ArmorNamespace = new("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
 
-    public static void CreateArmorFeats(List<FeatDefinition> feats)
+    public static void CreateArmorFeats([NotNull] List<FeatDefinition> feats)
     {
         var lightArmorProficiency = BuildProficiency("FeatLightArmorProficiency",
             ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory);
@@ -44,7 +45,7 @@ internal static class ArmorFeats
         feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrengthArmorFeat, heavyArmorMasterFeat);
     }
 
-    public static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite,
+    private static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite,
         params FeatureDefinition[] features)
     {
         return FeatDefinitionBuilder
@@ -55,7 +56,7 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    public static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
+    private static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
     {
         return FeatDefinitionBuilder
             .Create(name, ArmorNamespace)
@@ -64,7 +65,7 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    public static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type,
+    private static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type,
         params string[] proficiencies)
     {
         return FeatureDefinitionProficiencyBuilder
@@ -74,7 +75,7 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name,
+    private static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name,
         AttributeModifierOperation modifierType, string attribute, int amount)
     {
         return FeatureDefinitionAttributeModifierBuilder

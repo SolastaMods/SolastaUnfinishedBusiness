@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -16,6 +17,7 @@ internal static class DarkelfSubraceBuilder
 {
     internal static CharacterRaceDefinition DarkelfSubrace { get; } = BuildDarkelf();
 
+    [NotNull]
     private static CharacterRaceDefinition BuildDarkelf()
     {
         var darkelfSpriteReference =

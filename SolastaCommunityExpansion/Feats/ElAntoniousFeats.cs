@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class ElAntoniousFeats
 {
-    public static void CreateFeats(List<FeatDefinition> feats)
+    public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(DualFlurryFeatBuilder.DualFlurryFeat);
         feats.Add(TorchbearerFeatBuilder.TorchbearerFeat);
@@ -49,13 +50,13 @@ internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
     {
         return FeatureDefinitionOnAttackDamageEffectBuilder
             .Create("FeatureDualFlurry", DualFlurryGuid)
-            .SetGuiPresentation("DualFlurry", Category.Feature)
+            .SetGuiPresentation("DualFlurry", Category.Feat)
             .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
             .AddToDB();
     }
 
     private static void AfterOnAttackDamage(GameLocationCharacter attacker,
-        GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
+        GameLocationCharacter defender, ActionModifier attackModifier, [CanBeNull] RulesetAttackMode attackMode,
         bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
         RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
     {
@@ -71,12 +72,14 @@ internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
                 ? ConditionDualFlurryGrantBuilder.GetOrAdd()
                 : ConditionDualFlurryApplyBuilder.GetOrAdd();
 
-        var active_condition = RulesetCondition.CreateActiveCondition(attacker.RulesetCharacter.Guid,
+        var activeCondition = RulesetCondition.CreateActiveCondition(
+            attacker.RulesetCharacter.Guid,
             condition, RuleDefinitions.DurationType.Round, 0,
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
             attacker.RulesetCharacter.Guid,
             attacker.RulesetCharacter.CurrentFaction.Name);
-        attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, active_condition);
+
+        attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, activeCondition);
     }
 }
 
@@ -196,55 +199,57 @@ internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
 
     private static FeatureDefinition BuildFeatureTorchbearer()
     {
-        var burn_effect = new EffectForm();
-        burn_effect.formType = EffectForm.EffectFormType.Condition;
-        burn_effect.ConditionForm = new ConditionForm
+        var burnEffect = new EffectForm
         {
-            Operation = ConditionForm.ConditionOperation.Add,
-            ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
+            formType = EffectForm.EffectFormType.Condition,
+            ConditionForm = new ConditionForm
+            {
+                Operation = ConditionForm.ConditionOperation.Add,
+                ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
+            }
         };
 
-        var burn_description = new EffectDescription();
-        burn_description.Copy(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription);
-        burn_description.SetCreatedByCharacter(true);
-        burn_description.SetTargetSide(RuleDefinitions.Side.Enemy);
-        burn_description.SetTargetType(RuleDefinitions.TargetType.Individuals);
-        burn_description.SetTargetParameter(1);
-        burn_description.SetRangeType(RuleDefinitions.RangeType.Touch);
-        burn_description.SetDurationType(RuleDefinitions.DurationType.Round);
-        burn_description.SetDurationParameter(3);
-        burn_description.SetCanBePlacedOnCharacter(false);
-        burn_description.SetHasSavingThrow(true);
-        burn_description.SetSavingThrowAbility(AttributeDefinitions.Dexterity);
-        burn_description.SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity);
-        burn_description.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation
-            .AbilityScoreAndProficiency);
-        burn_description.SetSpeedType(RuleDefinitions.SpeedType.Instant);
+        var burnDescription = new EffectDescription();
 
-        burn_description.EffectForms.Clear();
-        burn_description.EffectForms.Add(burn_effect);
+        burnDescription.Copy(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription);
+        burnDescription.SetCreatedByCharacter(true);
+        burnDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
+        burnDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+        burnDescription.SetTargetParameter(1);
+        burnDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
+        burnDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+        burnDescription.SetDurationParameter(3);
+        burnDescription.SetCanBePlacedOnCharacter(false);
+        burnDescription.SetHasSavingThrow(true);
+        burnDescription.SetSavingThrowAbility(AttributeDefinitions.Dexterity);
+        burnDescription.SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity);
+        burnDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation
+            .AbilityScoreAndProficiency);
+        burnDescription.SetSpeedType(RuleDefinitions.SpeedType.Instant);
+        burnDescription.EffectForms.Clear();
+        burnDescription.EffectForms.Add(burnEffect);
 
         return FeatureDefinitionConditionalPowerBuilder
             .Create("PowerTorchbearer", TorchbearerGuid)
             .SetGuiPresentation(Category.Feature)
             .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
-            .SetEffectDescription(burn_description)
+            .SetEffectDescription(burnDescription)
             .SetUsesFixed(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
             .SetShowCasting(false)
             .SetIsActive(IsActive).AddToDB();
     }
 
-    private static bool IsActive(RulesetCharacterHero hero)
+    private static bool IsActive([CanBeNull] RulesetCharacterHero hero)
     {
         if (hero == null)
         {
             return false;
         }
 
-        var off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
+        var offItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
             .EquipedItem;
 
-        return off_item != null && off_item.ItemDefinition != null && off_item.ItemDefinition.IsLightSourceItem;
+        return offItem != null && offItem.ItemDefinition != null && offItem.ItemDefinition.IsLightSourceItem;
     }
 }

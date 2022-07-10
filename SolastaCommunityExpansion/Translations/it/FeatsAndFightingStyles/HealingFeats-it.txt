@@ -24,3 +24,5 @@ Feat/&HealerUseMedicineDescription=Puoi usare un'azione per ripristinare 1d6 + 4
 Feat/&HealerUseMedicineTitle=Usa la medicina
 Feat/&ProfHealerMedicineDescription=Acquisisci competenza in Medicina o competenza se sei già esperto.
 Feat/&ProfHealerMedicineTitle=Conoscenza della medicina
+Feat/&InspiringLeaderDescription=Una volta per riposo breve, puoi spendere 10 minuti per ispirare fino a 6 creature amiche (che possono includere te stesso) entro 9 metri da te. Ogni creatura guadagna punti ferita temporanei pari al tuo livello + il tuo modificatore di Carisma.
+Feat/&InspiringLeaderTitle=Leader ispiratore

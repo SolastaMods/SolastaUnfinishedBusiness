@@ -1,8 +1,6 @@
 
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
 
-[url=https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion]DONATE[/url]
-
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 [size=4][b]Credits[/b][/size]
@@ -27,11 +25,9 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration
-
 [*][b]Esker[/b]: ruleset support, classes design, quality assurance
 [*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance
-
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]Narria[/b]: modKit creator, developer
@@ -178,6 +174,10 @@ All settings start disabled by default. On first start the mod will display an w
 
 [list=1]
 
+[*][b]Apothecary (Intelligence)[/b]: Increase your Intelligence by 1, to a maximum of 20.
+You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+[*][b]Apothecary (Wisdom)[/b]: Increase your Wisdom by 1, to a maximum of 20.
+You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 [*][b]Arcane Defense[/b]: Increase your Intelligence by 1, to a maximum of 20.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
 [*][b]Arcane Precision[/b]: You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used twice per long rest.
@@ -199,8 +199,6 @@ Once a day, you may spend an hour to cook treats that provide temporary HP when 
 [*][b]Chef (Wisdom)[/b]: Increase your Wisdom by 1, to a maximum of 20.
 You can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.
 Once a day, you may spend an hour to cook treats that provide temporary HP when eaten.
-[*][b]CraftyFeats/&ApothecaryIntFeatTitle[/b]: CraftyFeats/&ApothecaryIntFeatDescription
-[*][b]CraftyFeats/&ApothecaryWisFeatTitle[/b]: CraftyFeats/&ApothecaryWisFeatDescription
 [*][b]Deadeye[/b]: You have mastered ranged weapons and can make shots that others find impossible.
 • Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.
 • Your ranged weapon attacks ignore half cover and three-quarters cover.
@@ -242,7 +240,7 @@ You gain proficiency with smith's tools, or expertise if you are already profici
 [*][b]Light Armor[/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with light armor.
 [*][b]Manacalon Crafter[/b]: Increase your Intelligence by 1, to a maximum of 20.
-You gain proficiency with manacolon rosary and Arcana, or expertise if already proficient.
+You gain proficiency with manacalon rosary and Arcana, or expertise if already proficient.
 Requires the ability to cast spells.
 [*][b]Marksman[/b]: When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
 [*][b]Medium Armor (Dexterity)[/b]: Increase your Dexterity by 1, to a maximum of 20.

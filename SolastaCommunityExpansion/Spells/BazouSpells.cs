@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
@@ -19,7 +20,7 @@ namespace SolastaCommunityExpansion.Spells;
 
 internal static class BazouSpells
 {
-    internal static readonly Guid BAZOU_SPELLS_BASE_GUID = new("91384db5-6659-4384-bf2c-3a41160343f4");
+    private static readonly Guid BazouSpellsBaseGuid = new("91384db5-6659-4384-bf2c-3a41160343f4");
 
     private static SpellDefinition _eldritchOrb;
 
@@ -32,12 +33,12 @@ internal static class BazouSpells
     private static SpellDefinition _petalStorm;
 
     private static SpellDefinition _protectThreshold;
-    internal static SpellDefinition EldritchOrb => _eldritchOrb ??= BuildEldritchOrb();
-    internal static SpellDefinition FindFamiliar => _findFamiliar ??= BuildFindFamiliar();
-    internal static SpellDefinition Frenzy => _frenzy ??= BuildFrenzy();
-    internal static SpellDefinition MinorLifesteal => _minorLifesteal ??= BuildMinorLifesteal();
-    internal static SpellDefinition PetalStorm => _petalStorm ??= BuildPetalStorm();
-    internal static SpellDefinition ProtectThreshold => _protectThreshold ??= BuildProtectThreshold();
+    [NotNull] internal static SpellDefinition EldritchOrb => _eldritchOrb ??= BuildEldritchOrb();
+    [NotNull] internal static SpellDefinition FindFamiliar => _findFamiliar ??= BuildFindFamiliar();
+    [NotNull] internal static SpellDefinition Frenzy => _frenzy ??= BuildFrenzy();
+    [NotNull] internal static SpellDefinition MinorLifesteal => _minorLifesteal ??= BuildMinorLifesteal();
+    [NotNull] internal static SpellDefinition PetalStorm => _petalStorm ??= BuildPetalStorm();
+    [NotNull] internal static SpellDefinition ProtectThreshold => _protectThreshold ??= BuildProtectThreshold();
 
     // don't need since spells are created when first referenced/used
     /*        internal static void AddToDB()
@@ -60,10 +61,11 @@ internal static class BazouSpells
         RegisterSpell(ProtectThreshold, 1, WitchSpellList, SpellListCleric, SpellListDruid, SpellListPaladin);
     }
 
+    [NotNull]
     private static SpellDefinition BuildEldritchOrb()
     {
         var spell = SpellDefinitionBuilder
-            .Create(MagicMissile, "EldritchOrb", BAZOU_SPELLS_BASE_GUID)
+            .Create(MagicMissile, "EldritchOrb", BazouSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
@@ -119,10 +121,11 @@ internal static class BazouSpells
         return spell;
     }
 
+    [NotNull]
     private static SpellDefinition BuildFindFamiliar()
     {
         var familiarMonsterBuilder = MonsterDefinitionBuilder
-            .Create(Eagle_Matriarch, "Owl", BAZOU_SPELLS_BASE_GUID)
+            .Create(Eagle_Matriarch, "Owl", BazouSpellsBaseGuid)
             .SetGuiPresentation("OwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
             .SetFeatures(
                 FeatureDefinitionSenses.SenseNormalVision,
@@ -164,7 +167,7 @@ internal static class BazouSpells
 
         var familiarMonster = familiarMonsterBuilder.AddToDB();
 
-        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar", BAZOU_SPELLS_BASE_GUID)
+        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar", BazouSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
@@ -185,14 +188,12 @@ internal static class BazouSpells
         spell.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
         spell.EffectDescription.EffectForms.Clear();
 
-        var summonForm = new SummonForm();
-        summonForm.monsterDefinitionName = familiarMonster.name;
-        summonForm.decisionPackage = null;
+        var summonForm = new SummonForm {monsterDefinitionName = familiarMonster.name, decisionPackage = null};
 
-        var effectForm = new EffectForm();
-        effectForm.formType = EffectForm.EffectFormType.Summon;
-        effectForm.createdByCharacter = true;
-        effectForm.summonForm = summonForm;
+        var effectForm = new EffectForm
+        {
+            formType = EffectForm.EffectFormType.Summon, createdByCharacter = true, summonForm = summonForm
+        };
 
         spell.EffectDescription.EffectForms.Add(effectForm);
 
@@ -201,10 +202,11 @@ internal static class BazouSpells
         return spell;
     }
 
+    [NotNull]
     private static SpellDefinition BuildFrenzy()
     {
         var spell = SpellDefinitionBuilder
-            .Create(Confusion, "Frenzy", BAZOU_SPELLS_BASE_GUID)
+            .Create(Confusion, "Frenzy", BazouSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, Confusion.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
@@ -226,23 +228,26 @@ internal static class BazouSpells
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
         var conditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionConfused, "ConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
+            .Create(ConditionConfused, "ConditionFrenzied", BazouSpellsBaseGuid)
             .SetOrUpdateGuiPresentation("Frenzied", Category.Condition)
             .AddToDB();
 
         // Some methods are missing like SetField or Copy
         var actionAffinity = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
+            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied", BazouSpellsBaseGuid)
             .AddToDB();
 
         actionAffinity.RandomBehaviourOptions.Clear();
 
-        var behaviorMode = new BehaviorModeDescription();
-        behaviorMode.behaviour = RuleDefinitions.RandomBehaviour.ConditionDuringTurn;
-        // This condition seems to only attack a creature adjacent to where it is. 
-        // It will not make the affected creature move towards another creature... :(
-        behaviorMode.condition = ConditionConfusedAttack;
-        behaviorMode.weight = 10;
+        var behaviorMode = new BehaviorModeDescription
+        {
+            behaviour =
+                RuleDefinitions.RandomBehaviour
+                    .ConditionDuringTurn, // It will not make the affected creature move towards another creature... :(
+            // This condition seems to only attack a creature adjacent to where it is.
+            condition = ConditionConfusedAttack,
+            weight = 10
+        };
 
         actionAffinity.RandomBehaviourOptions.Add(behaviorMode);
         conditionDefinition.Features.SetRange(actionAffinity);
@@ -252,10 +257,11 @@ internal static class BazouSpells
         return spell;
     }
 
+    [NotNull]
     private static SpellDefinition BuildMinorLifesteal()
     {
         var spell = SpellDefinitionBuilder
-            .Create(VampiricTouch, "MinorLifesteal", BAZOU_SPELLS_BASE_GUID)
+            .Create(VampiricTouch, "MinorLifesteal", BazouSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
@@ -293,10 +299,11 @@ internal static class BazouSpells
         return spell;
     }
 
+    [NotNull]
     private static SpellDefinition BuildPetalStorm()
     {
         var spell = SpellDefinitionBuilder
-            .Create(InsectPlague, "PetalStorm", BAZOU_SPELLS_BASE_GUID)
+            .Create(InsectPlague, "PetalStorm", BazouSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
@@ -334,7 +341,7 @@ internal static class BazouSpells
         //spell.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
 
         var effectProxyDefinition = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm", BAZOU_SPELLS_BASE_GUID)
+            .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm", BazouSpellsBaseGuid)
             .SetGuiPresentation("PetalStorm", Category.Spell, WindWall.GuiPresentation.SpriteReference)
             .SetCanMove()
             .SetPortrait(WindWall.GuiPresentation.SpriteReference)
@@ -351,10 +358,11 @@ internal static class BazouSpells
         return spell;
     }
 
+    [NotNull]
     private static SpellDefinition BuildProtectThreshold()
     {
         var spell = SpellDefinitionBuilder
-            .Create(SpikeGrowth, "ProtectThreshold", BAZOU_SPELLS_BASE_GUID)
+            .Create(SpikeGrowth, "ProtectThreshold", BazouSpellsBaseGuid)
             .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
@@ -394,14 +402,14 @@ internal static class BazouSpells
         //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
         //spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
 
-        const string proxyProtectThreshold = "ProxyProtectThreshold";
+        const string PROXY_PROTECT_THRESHOLD = "ProxyProtectThreshold";
 
         EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxySpikeGrowth, proxyProtectThreshold, BAZOU_SPELLS_BASE_GUID)
+            .Create(EffectProxyDefinitions.ProxySpikeGrowth, PROXY_PROTECT_THRESHOLD, BazouSpellsBaseGuid)
             .SetOrUpdateGuiPresentation("ProtectThreshold", Category.Spell)
             .AddToDB();
 
-        spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = proxyProtectThreshold;
+        spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = PROXY_PROTECT_THRESHOLD;
 
         return spell;
     }

@@ -24,3 +24,5 @@ Feat/&HealerUseMedicineDescription=Du kannst eine Aktion verwenden, um 1W6 + 4 +
 Feat/&HealerUseMedicineTitle=Verwenden Sie Medizin
 Feat/&ProfHealerMedicineDescription=Sie erwerben Kenntnisse in Medizin oder Fachwissen, wenn Sie bereits Kenntnisse haben.
 Feat/&ProfHealerMedicineTitle=Medizinisches Wissen
+Feat/&InspiringLeaderDescription=Einmal pro kurzer Pause kannst du 10 Minuten damit verbringen, bis zu 6 freundliche Kreaturen (darunter auch du selbst) innerhalb von 30 Fuß von dir zu inspirieren. Jede Kreatur erhält temporäre Trefferpunkte in Höhe deiner Stufe + deines Charisma-Modifikators.
+Feat/&InspiringLeaderTitle=Inspirierende Führungskraft

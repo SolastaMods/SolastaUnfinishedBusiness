@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Api;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -14,10 +15,10 @@ using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Spells;
 
-internal static class EWSpells
+internal static class EwSpells
 {
     private static SpellDefinition _sunlightBlade, _resonatingStrike;
-    internal static SpellDefinition SunlightBlade => _sunlightBlade ??= BuildSunlightBlade();
+    private static SpellDefinition SunlightBlade => _sunlightBlade ??= BuildSunlightBlade();
     internal static SpellDefinition ResonatingStrike => _resonatingStrike ??= BuildResonatingStrike();
 
 
@@ -268,19 +269,20 @@ internal static class EWSpells
     }
 }
 
-internal class ChainSpellEffectOnAttackHit : IChainMagicEffect
+internal sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect
 {
     private readonly string _notificationTag;
     private readonly SpellDefinition _spell;
 
 
-    public ChainSpellEffectOnAttackHit(SpellDefinition spell, string notificationTag = null)
+    public ChainSpellEffectOnAttackHit(SpellDefinition spell, [CanBeNull] string notificationTag = null)
     {
         _spell = spell;
         _notificationTag = notificationTag;
     }
 
-    public CharacterActionMagicEffect GetNextMagicEffect(CharacterActionMagicEffect baseEffect,
+    [CanBeNull]
+    public CharacterActionMagicEffect GetNextMagicEffect([CanBeNull] CharacterActionMagicEffect baseEffect,
         CharacterActionAttack triggeredAttack, RuleDefinitions.RollOutcome attackOutcome)
     {
         if (baseEffect == null) { return null; }
@@ -341,9 +343,9 @@ internal interface IBonusSlotLevels
     public int GetBonusSlotLevels(RulesetCharacter caster);
 }
 
-internal class BonusSlotLevelsByClassLevel : IBonusSlotLevels
+internal sealed class BonusSlotLevelsByClassLevel : IBonusSlotLevels
 {
-    public int GetBonusSlotLevels(RulesetCharacter caster)
+    public int GetBonusSlotLevels([NotNull] RulesetCharacter caster)
     {
         return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
     }

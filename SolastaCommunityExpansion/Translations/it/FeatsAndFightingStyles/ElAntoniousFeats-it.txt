@@ -1,0 +1,12 @@
+﻿Feat/&DualFlurryDescription=Sei un maestro nel combattere con armi accoppiate. In qualsiasi turno in cui colpisci due volte con attacchi in mischia mentre impugna un'arma in ciascuna mano, puoi effettuare un attacco secondario aggiuntivo quando attacchi con la tua azione bonus.
+Feat/&DualFlurryTitle=Doppia raffica
+Feat/&TorchbearerDescription=Sei abile nell'uso di una torcia in battaglia. Una volta per turno, come azione bonus, puoi scegliere di usare una fonte di luce che hai equipaggiato per tentare di dare fuoco a un nemico che puoi toccare. Il tuo bersaglio deve superare un tiro salvezza di Destrezza (CD 8 + il tuo bonus di competenza + il tuo modificatore di Destrezza) o subire 1d4 danni da fuoco per turno per 1 minuto o fino all'estinzione.
+Feat/&TorchbearerTitle=tedoforo
+Condition/&ConditionDualFlurryApplyDescription=Stai prendendo slancio...
+Condition/&ConditionDualFlurryApplyTitle=Doppio colpo!
+Condition/&ConditionDualFlurryGrantDescription=I tuoi nemici stanno vacillando!
+Condition/&ConditionDualFlurryGrantTitle=Doppio colpo!
+Feature/&AdditionalActionDualFlurryDescription=Puoi effettuare un ulteriore attacco con la mano secondaria.
+Feature/&AdditionalActionDualFlurryTitle=Doppio colpo!
+Feature/&PowerTorchbearerDescription=Tenta di dare fuoco a un bersaglio in mischia!
+Feature/&PowerTorchbearerTitle=tedoforo

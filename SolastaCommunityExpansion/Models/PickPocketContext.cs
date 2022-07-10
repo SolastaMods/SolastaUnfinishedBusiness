@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -12,11 +13,11 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class PickPocketContext
 {
-    private static bool initialized;
+    private static bool _initialized;
 
-    internal static void CreateFeats(ICollection<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] ICollection<FeatDefinition> feats)
     {
-        var pickpocket_check_affinity = FeatureDefinitionAbilityCheckAffinityBuilder
+        var pickpocketCheckAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker,
                 "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038")
             .SetGuiPresentation("PickPocketFeat", Category.Feat)
@@ -29,17 +30,17 @@ public static class PickPocketContext
             affinity = CharacterAbilityCheckAffinity.Advantage
         };
 
-        pickpocket_check_affinity.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
+        pickpocketCheckAffinity.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
 
-        var pickpocket_proficiency = FeatureDefinitionProficiencyBuilder
+        var pickpocketProficiency = FeatureDefinitionProficiencyBuilder
             .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
                 "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848")
             .SetGuiPresentation("PickPocketFeat", Category.Feat)
             .AddToDB();
 
-        pickpocket_proficiency.proficiencyType = ProficiencyType.SkillOrExpertise;
-        pickpocket_proficiency.Proficiencies.Clear();
-        pickpocket_proficiency.Proficiencies.Add(SkillDefinitions.SleightOfHand);
+        pickpocketProficiency.proficiencyType = ProficiencyType.SkillOrExpertise;
+        pickpocketProficiency.Proficiencies.Clear();
+        pickpocketProficiency.Proficiencies.Add(SkillDefinitions.SleightOfHand);
 
         var pickPocketFeat = FeatDefinitionBuilder
             .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "PickPocketFeat",
@@ -47,145 +48,148 @@ public static class PickPocketContext
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
-        pickPocketFeat.Features.SetRange(pickpocket_check_affinity, pickpocket_proficiency);
+        pickPocketFeat.Features.SetRange(pickpocketCheckAffinity, pickpocketProficiency);
 
         feats.Add(pickPocketFeat);
     }
 
     internal static void Load()
     {
-        if (!Main.Settings.AddPickPocketableLoot || initialized)
+        if (!Main.Settings.AddPickPocketableLoot || _initialized)
         {
             return;
         }
 
-        initialized = true;
+        _initialized = true;
 
         var sleightOfHand = DatabaseHelper.SkillDefinitions.SleightOfHand;
         sleightOfHand.GuiPresentation.unusedInSolastaCOTM = false;
 
-        var pickpocket_table_low = TreasureTableDefinitionBuilder
+        var pickpocketTableLow = TreasureTableDefinitionBuilder
             .Create(RandomTreasureTableE2_Mundane_Ingredients, "PickPocketTableLow",
                 "79cac3e5-0f00-4062-b263-adbc854223d7")
             .SetGuiPresentationNoContent()
+            .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
             .AddToDB();
-        pickpocket_table_low.TreasureOptions.AddRange(RandomTreasureTableB_Consumables.TreasureOptions);
 
-        var pickpocket_table_med = TreasureTableDefinitionBuilder
+        var pickpocketTableMed = TreasureTableDefinitionBuilder
             .Create(RandomTreasureTableE_Ingredients, "PickPocketTableMed",
                 "79cac3e5-0f00-4062-b263-adbc854223d8")
             .SetGuiPresentationNoContent()
+            .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
+            .AddTreasureOptions(RandomTreasureTableA_Gem.TreasureOptions)
+            .SetGuiPresentationNoContent()
             .AddToDB();
-        pickpocket_table_med.TreasureOptions.AddRange(RandomTreasureTableB_Consumables.TreasureOptions);
-        pickpocket_table_med.TreasureOptions.AddRange(RandomTreasureTableA_Gem.TreasureOptions);
 
-        var pickpocket_table_undead = TreasureTableDefinitionBuilder
+        var pickpocketTableUndead = TreasureTableDefinitionBuilder
             .Create("PickPocketTableUndead",
                 "79cac3e5-0f00-4062-b263-adbc854223d9")
             .SetGuiPresentationNoContent()
+            .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[3])
+            .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[9])
+            .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[16])
             .AddToDB();
-        pickpocket_table_undead.TreasureOptions.Add(RandomTreasureTableE_Ingredients.TreasureOptions[3]);
-        pickpocket_table_undead.TreasureOptions.Add(RandomTreasureTableE_Ingredients.TreasureOptions[9]);
-        pickpocket_table_undead.TreasureOptions.Add(RandomTreasureTableE_Ingredients.TreasureOptions[16]);
 
-        var loot_pickpocket_table_low = new ItemOccurence();
-        loot_pickpocket_table_low.itemMode = ItemOccurence.SelectionMode.TreasureTable;
-        loot_pickpocket_table_low.treasureTableDefinition = pickpocket_table_low;
-        loot_pickpocket_table_low.diceNumber = 1;
-        loot_pickpocket_table_low.diceType = DieType.D1;
-        loot_pickpocket_table_low.additiveModifier = 0;
+        var lootPickpocketTableLow = new ItemOccurence
+        {
+            itemMode = ItemOccurence.SelectionMode.TreasureTable,
+            treasureTableDefinition = pickpocketTableLow,
+            diceNumber = 1,
+            diceType = DieType.D1,
+            additiveModifier = 0
+        };
 
-        var loot_pickpocket_table_med = new ItemOccurence();
-        loot_pickpocket_table_med.itemMode = ItemOccurence.SelectionMode.TreasureTable;
-        loot_pickpocket_table_med.treasureTableDefinition = pickpocket_table_med;
-        loot_pickpocket_table_med.diceNumber = 1;
-        loot_pickpocket_table_med.diceType = DieType.D1;
-        loot_pickpocket_table_med.additiveModifier = 0;
+        var lootPickpocketTableMed = new ItemOccurence
+        {
+            itemMode = ItemOccurence.SelectionMode.TreasureTable,
+            treasureTableDefinition = pickpocketTableMed,
+            diceNumber = 1,
+            diceType = DieType.D1,
+            additiveModifier = 0
+        };
 
-        var loot_pickpocket_table_undead = new ItemOccurence();
-        loot_pickpocket_table_undead.itemMode = ItemOccurence.SelectionMode.TreasureTable;
-        loot_pickpocket_table_undead.treasureTableDefinition = pickpocket_table_undead;
-        loot_pickpocket_table_undead.diceNumber = 1;
-        loot_pickpocket_table_undead.diceType = DieType.D1;
-        loot_pickpocket_table_undead.additiveModifier = 0;
+        var lootPickpocketTableUndead = new ItemOccurence
+        {
+            itemMode = ItemOccurence.SelectionMode.TreasureTable,
+            treasureTableDefinition = pickpocketTableUndead,
+            diceNumber = 1,
+            diceType = DieType.D1,
+            additiveModifier = 0
+        };
 
-        var pickpocketableLootA = LootPackDefinitionBuilder
+        var pickPocketableLootA = LootPackDefinitionBuilder
             .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_A", "edb9b436-1d94-4d11-bd37-4027c4dc7640")
             .SetGuiPresentationNoContent()
+            .SetItemOccurrencesList(lootPickpocketTableLow)
             .AddToDB();
-        pickpocketableLootA.ItemOccurencesList.Add(loot_pickpocket_table_low);
 
-        var pickpocketableLootB = LootPackDefinitionBuilder
+        var pickPocketableLootB = LootPackDefinitionBuilder
             .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_B", "edb9b436-1d94-4d11-bd37-4027c4dc7641")
             .SetGuiPresentationNoContent()
+            .SetItemOccurrencesList(lootPickpocketTableLow)
             .AddToDB();
-        pickpocketableLootB.ItemOccurencesList.Add(loot_pickpocket_table_low);
 
-        var pickpocketableLootC = LootPackDefinitionBuilder
+        var pickPocketableLootC = LootPackDefinitionBuilder
             .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_C", "edb9b436-1d94-4d11-bd37-4027c4dc7642")
             .SetGuiPresentationNoContent()
+            .SetItemOccurrencesList(lootPickpocketTableMed)
             .AddToDB();
-        pickpocketableLootC.ItemOccurencesList.Add(loot_pickpocket_table_med);
 
-        var pickpocketableLootD = LootPackDefinitionBuilder
+        var pickPocketableLootD = LootPackDefinitionBuilder
             .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_D", "edb9b436-1d94-4d11-bd37-4027c4dc7643")
             .SetGuiPresentationNoContent()
+            .SetItemOccurrencesList(lootPickpocketTableLow, lootPickpocketTableMed)
             .AddToDB();
-        pickpocketableLootD.ItemOccurencesList.Add(loot_pickpocket_table_low);
-        pickpocketableLootD.ItemOccurencesList.Add(loot_pickpocket_table_med);
 
-        var pickpocketableLootUndead = LootPackDefinitionBuilder
+        var pickPocketableLootUndead = LootPackDefinitionBuilder
             .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_Undead",
                 "edb9b436-1d94-4d11-bd37-4027c4dc7644")
             .SetGuiPresentationNoContent()
+            .SetItemOccurrencesList(lootPickpocketTableUndead)
             .AddToDB();
-        pickpocketableLootUndead.ItemOccurencesList.Add(loot_pickpocket_table_undead);
 
         foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
         {
-            if (monster.CharacterFamily == "Humanoid" &&
-                monster.DefaultFaction == "HostileMonsters" &&
-                monster.StealableLootDefinition == null
-               )
+            switch (monster.CharacterFamily)
             {
-                if (monster.ChallengeRating < 1.0)
+                case "Humanoid" when monster.DefaultFaction == "HostileMonsters" &&
+                                     monster.StealableLootDefinition == null:
                 {
-                    monster.stealableLootDefinition = Pickpocket_generic_loot_LowMoney;
-                }
+                    if (monster.ChallengeRating < 1.0)
+                    {
+                        monster.stealableLootDefinition = Pickpocket_generic_loot_LowMoney;
+                    }
 
-                if (monster.ChallengeRating > 0.9 &&
-                    monster.ChallengeRating < 2.0)
-                {
-                    monster.stealableLootDefinition = pickpocketableLootA;
-                }
+                    if (monster.ChallengeRating > 0.9 &&
+                        monster.ChallengeRating < 2.0)
+                    {
+                        monster.stealableLootDefinition = pickPocketableLootA;
+                    }
 
-                if (monster.ChallengeRating > 1.9 &&
-                    monster.ChallengeRating < 3.0)
-                {
-                    monster.stealableLootDefinition = pickpocketableLootB;
-                }
+                    if (monster.ChallengeRating > 1.9 &&
+                        monster.ChallengeRating < 3.0)
+                    {
+                        monster.stealableLootDefinition = pickPocketableLootB;
+                    }
 
-                if (monster.ChallengeRating > 2.9 &&
-                    monster.ChallengeRating < 5.0)
-                {
-                    monster.stealableLootDefinition = pickpocketableLootC;
-                }
+                    if (monster.ChallengeRating > 2.9 &&
+                        monster.ChallengeRating < 5.0)
+                    {
+                        monster.stealableLootDefinition = pickPocketableLootC;
+                    }
 
-                if (monster.ChallengeRating > 4.9)
-                {
-                    monster.stealableLootDefinition = pickpocketableLootD;
-                }
-            }
+                    if (monster.ChallengeRating > 4.9)
+                    {
+                        monster.stealableLootDefinition = pickPocketableLootD;
+                    }
 
-            if (monster.CharacterFamily == "Undead" &&
-                monster.DefaultFaction.Contains("HostileMonsters") &&
-                monster.StealableLootDefinition == null &&
-                !monster.Name.Contains("Ghost") &&
-                !monster.Name.Contains("Spectral") &&
-                !monster.Name.Contains("Servant")
-               )
-            {
-                monster.stealableLootDefinition = pickpocketableLootUndead;
+                    break;
+                }
+                case "Undead" when monster.DefaultFaction.Contains("HostileMonsters") &&
+                                   monster.StealableLootDefinition == null && !monster.Name.Contains("Ghost") &&
+                                   !monster.Name.Contains("Spectral") && !monster.Name.Contains("Servant"):
+                    monster.stealableLootDefinition = pickPocketableLootUndead;
+                    break;
             }
         }
     }

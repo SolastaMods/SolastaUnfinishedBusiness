@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using UnityEngine;
@@ -111,7 +112,7 @@ internal static class Morphotypes
         */
     }
 
-    internal static void CreateBrightEyes(List<MorphotypeElementDefinition> brightEyes)
+    internal static void CreateBrightEyes([NotNull] List<MorphotypeElementDefinition> brightEyes)
     {
         var brightEyes00 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CE_BrightEyeColor_00",
@@ -260,7 +261,7 @@ internal static class Morphotypes
             brightEyes15);
     }
 
-    internal static void CreateGlowingEyes(List<MorphotypeElementDefinition> glowingEyes)
+    internal static void CreateGlowingEyes([NotNull] List<MorphotypeElementDefinition> glowingEyes)
     {
         var glowingEyes00 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CE_GlowingEyeColor_00",

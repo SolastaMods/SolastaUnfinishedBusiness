@@ -1,0 +1,8 @@
+﻿Feat/&FeatPolearmExpertDescription=Your expert training with polearms grants you these benefits:\n• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
+Feat/&FeatPolearmExpertTitle=Polearm Expert
+Feat/&FeatSentinelDescription=You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n• When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n• Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n• When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
+Feat/&FeatSentinelTitle=Sentinel
+Feat/&FeatRangedExpertDescription=Your expert training with ranged weapons grants you these benefits:\n• You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.\n• If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
+Feat/&FeatRangedExpertTitle=Ranged Expert
+Condition/&SentinelStopMovementConditionDescription=Unable to move. Speed set to 0.
+Condition/&SentinelStopMovementConditionTitle=Stopped

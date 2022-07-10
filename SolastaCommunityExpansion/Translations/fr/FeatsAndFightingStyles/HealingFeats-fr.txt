@@ -24,3 +24,5 @@ Feat/&HealerUseMedicineDescription=Vous pouvez utiliser une action pour restaure
 Feat/&HealerUseMedicineTitle=Utiliser des médicaments
 Feat/&ProfHealerMedicineDescription=Vous acquérez des compétences en médecine, ou une expertise si vous êtes déjà compétent.
 Feat/&ProfHealerMedicineTitle=Connaissance de la médecine
+Feat/&InspiringLeaderDescription=Une fois par repos court, vous pouvez passer 10 minutes à inspirer jusqu'à 6 créatures alliées (dont vous-même) à moins de 9 mètres de vous. Chaque créature gagne des points de vie temporaires égaux à votre niveau + votre modificateur de Charisme.
+Feat/&InspiringLeaderTitle=Chef inspirant

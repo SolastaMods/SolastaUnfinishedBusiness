@@ -1,0 +1,12 @@
+﻿Feat/&DualFlurryDescription=Eres un maestro de la lucha con armas combinadas. En cualquier turno en el que golpees dos veces con ataques cuerpo a cuerpo mientras empuñas un arma en cada mano, puedes realizar un ataque adicional con la mano secundaria cuando atacas con tu acción de bonificación.
+Feat/&DualFlurryTitle=ráfaga dual
+Feat/&TorchbearerDescription=Eres hábil en el uso de una antorcha en la batalla. Una vez por turno, como acción adicional, puedes elegir usar una fuente de luz que hayas equipado para intentar prender fuego a un enemigo que puedas tocar. Tu objetivo debe tener éxito en una tirada de salvación de Destreza (CD 8 + tu bonificador de competencia + tu modificador de Destreza) o sufrir 1d4 de daño por fuego por turno durante 1 minuto o hasta que se extinga.
+Feat/&TorchbearerTitle=portador de la antorcha
+Condition/&ConditionDualFlurryApplyDescription=Estás ganando impulso...
+Condition/&ConditionDualFlurryApplyTitle=¡Ráfaga dual!
+Condition/&ConditionDualFlurryGrantDescription=¡Tus enemigos están tambaleándose!
+Condition/&ConditionDualFlurryGrantTitle=¡Ráfaga dual!
+Feature/&AdditionalActionDualFlurryDescription=Puedes realizar un ataque adicional con la mano torpe.
+Feature/&AdditionalActionDualFlurryTitle=¡Ráfaga dual!
+Feature/&PowerTorchbearerDescription=¡Intenta prender fuego a un objetivo cuerpo a cuerpo!
+Feature/&PowerTorchbearerTitle=portador de la antorcha

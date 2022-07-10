@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -23,7 +24,7 @@ namespace SolastaCommunityExpansion.Spells;
 
 public static class SrdSpells
 {
-    internal static readonly Guid DhBaseGuid = new("05c1b1dbae144731b4505c1232fdc37e");
+    private static readonly Guid DhBaseGuid = new("05c1b1dbae144731b4505c1232fdc37e");
 
     public static readonly SpellDefinition DivineWord = BuildDivineWord();
     public static readonly SpellDefinition FingerOfDeath = BuildFingerOfDeath();
@@ -102,10 +103,6 @@ public static class SrdSpells
         RegisterSpell(Weird, 1, WarlockSpellList, SpellListWizard, WitchSpellList);
     }
 
-    //
-    // ChrisJohnDigital Spells
-    //
-
     private static SpellDefinition BuildDivineWord()
     {
         return SpellDefinitionBuilder
@@ -142,13 +139,9 @@ public static class SrdSpells
             .AddToDB();
     }
 
-    //
-    // DubbHerder SRD Spells
-    //
-
     private static SpellDefinition BuildFingerOfDeath()
     {
-        const string text = "DHFingerOfDeathSpell";
+        const string TEXT = "DHFingerOfDeathSpell";
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -184,7 +177,7 @@ public static class SrdSpells
                 new List<SaveAffinityBySenseDescription>());
 
         return SpellDefinitionBuilder
-            .Create(text, DhBaseGuid)
+            .Create(TEXT, DhBaseGuid)
             .SetGuiPresentation(Category.Spell, RayOfEnfeeblement.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
@@ -196,57 +189,9 @@ public static class SrdSpells
             .AddToDB();
     }
 
-    //   internal class SummonZombieConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
-    //   {
-    //       const string Name = "DHSummonZombieSpellcondition";
-    //       const string Guid = "a4d94551-efd3-4987-918c-a35b24d607a6";
-    //       const string TitleString = "Condition/&DHSummonZombieSpellTitle";
-    //       const string DescriptionString = "Condition/&DHSummonZombieSpellDescription";
-    //       protected SummonZombieConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionDummy, name, guid)
-    //       {
-    //           Definition.GuiPresentation.Title = TitleString;
-    //           Definition.GuiPresentation.Description = DescriptionString;
-    //
-    //           Definition.silentWhenAdded = false;
-    //           Definition.silentWhenRemoved = false;
-    //
-    //           Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;
-    //           Definition.specialDuration = true;
-    //           Definition.durationType = RuleDefinitions.DurationType.Round;
-    //           Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
-    //
-    //
-    //           Definition.Features.Clear();
-    //           Definition.Features.Empty();
-    //           //  Definition.Features.AddRange();
-    //
-    //
-    //
-    //           Definition.RecurrentEffectForms.Add
-    //               (
-    //                   new EffectFormBuilder()
-    //                     .SetSummonForm
-    //                     (
-    //                     SummonForm.Type.Creature,
-    //                     new ItemDefinition(),
-    //                     1,
-    //                    MonsterDefinitions.Zombie.name,
-    //                    ConditionDefinitions.ConditionMindDominatedByCaster,
-    //                     true,
-    //                    DecisionPackageDefinitions.IdleGuard_Default,
-    //                     new EffectProxyDefinition()).Build()
-    //               );
-    //
-    //
-    //       }
-    //       internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-    //           => new SummonZombieConditionBuilder(name, guid).AddToDB();
-    //       internal static ConditionDefinition SummonZombieCondition = CreateAndAddToDB(Name, Guid);
-    //   }
-
     private static SpellDefinition BuildReverseGravity()
     {
-        const string text = "DHReverseGravitySpell";
+        const string TEXT = "DHReverseGravitySpell";
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -288,7 +233,7 @@ public static class SrdSpells
             .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect);
 
         return SpellDefinitionBuilder
-            .Create(text, DhBaseGuid)
+            .Create(TEXT, DhBaseGuid)
             .SetGuiPresentation(Category.Spell, Thunderwave.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
@@ -685,7 +630,7 @@ public static class SrdSpells
         });
 
         const string CustomCouatlName = "CustomCouatl";
-        var Size = CharacterSizeDefinitions.Medium;
+        var size = CharacterSizeDefinitions.Medium;
         const string Alignment = "LawfulGood";
         const int ArmorClass = 19;
         const int HitDice = 13;
@@ -708,72 +653,76 @@ public static class SrdSpells
         const bool LegendaryCreature = false;
         const string Type = "Celestial";
 
-        var SkillScores = new List<MonsterSkillProficiency>();
-
-        var CouatlBite_Attack = MonsterAttackDefinitionBuilder
+        var couatlBiteAttack = MonsterAttackDefinitionBuilder
             .Create(MonsterAttackDefinitions.Attack_TigerDrake_Bite, "DH_Custom_CouatlBite_Attack", DhBaseGuid)
             .SetGuiPresentation(Category.MonsterAttack)
             .AddToDB();
 
-        CouatlBite_Attack.toHitBonus = 7;
-        CouatlBite_Attack.EffectDescription.SetRangeParameter(1);
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 1;
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 5;
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm
+        couatlBiteAttack.toHitBonus = 7;
+        couatlBiteAttack.EffectDescription.SetRangeParameter(1);
+        couatlBiteAttack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 1;
+        couatlBiteAttack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        couatlBiteAttack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 5;
+        couatlBiteAttack.EffectDescription.EffectForms[0].DamageForm
             .damageType = RuleDefinitions.DamageTypePiercing;
 
-        var conditionForm = new ConditionForm();
-        conditionForm.conditionDefinition = ConditionPoisoned;
-        conditionForm.conditionDefinitionName = ConditionPoisoned.name;
-        conditionForm.operation = ConditionForm.ConditionOperation.Add;
-
-        var extraPoisonEffect = new EffectForm();
-        extraPoisonEffect.applyLevel = EffectForm.LevelApplianceType.No;
-        extraPoisonEffect.levelMultiplier = 1;
-        extraPoisonEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
-        extraPoisonEffect.createdByCharacter = true;
-        extraPoisonEffect.FormType = EffectForm.EffectFormType.Condition;
-        extraPoisonEffect.conditionForm = conditionForm;
-        extraPoisonEffect.hasSavingThrow = true;
-        extraPoisonEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
-
-        var sleepForm = new ConditionForm();
-        sleepForm.conditionDefinition = ConditionMagicallyAsleep;
-        sleepForm.conditionDefinitionName = ConditionAsleep.name;
-        sleepForm.operation = ConditionForm.ConditionOperation.Add;
-
-        var extraSleepEffect = new EffectForm();
-        extraSleepEffect.applyLevel = EffectForm.LevelApplianceType.No;
-        extraSleepEffect.levelMultiplier = 1;
-        extraSleepEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
-        extraSleepEffect.createdByCharacter = true;
-        extraSleepEffect.FormType = EffectForm.EffectFormType.Condition;
-        extraSleepEffect.conditionForm = sleepForm;
-        extraSleepEffect.hasSavingThrow = true;
-        extraSleepEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
-
-        CouatlBite_Attack.EffectDescription.EffectForms.Add(extraSleepEffect);
-        CouatlBite_Attack.EffectDescription.EffectForms.Add(extraPoisonEffect);
-        CouatlBite_Attack.EffectDescription.SetSavingThrowAbility(SmartAttributeDefinitions.Constitution.Name);
-        CouatlBite_Attack.EffectDescription.SetSavingThrowDifficultyAbility(SmartAttributeDefinitions.Constitution
-            .Name);
-        CouatlBite_Attack.EffectDescription.hasSavingThrow = true;
-        CouatlBite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(13);
-        CouatlBite_Attack.EffectDescription.SetDurationParameter(24);
-        CouatlBite_Attack.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
-
-        var AttackIterations = new List<MonsterAttackIteration>
+        var conditionForm = new ConditionForm
         {
-            Tiger_Drake.AttackIterations[0], new(CouatlBite_Attack, 1)
+            conditionDefinition = ConditionPoisoned,
+            conditionDefinitionName = ConditionPoisoned.name,
+            operation = ConditionForm.ConditionOperation.Add
         };
 
-        var LegendaryActionOptions = new List<LegendaryActionDescription>();
+        var extraPoisonEffect = new EffectForm
+        {
+            applyLevel = EffectForm.LevelApplianceType.No,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.ClassLevel,
+            createdByCharacter = true,
+            FormType = EffectForm.EffectFormType.Condition,
+            conditionForm = conditionForm,
+            hasSavingThrow = true,
+            savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
+        };
+
+        var sleepForm = new ConditionForm
+        {
+            conditionDefinition = ConditionMagicallyAsleep,
+            conditionDefinitionName = ConditionAsleep.name,
+            operation = ConditionForm.ConditionOperation.Add
+        };
+
+        var extraSleepEffect = new EffectForm
+        {
+            applyLevel = EffectForm.LevelApplianceType.No,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.ClassLevel,
+            createdByCharacter = true,
+            FormType = EffectForm.EffectFormType.Condition,
+            conditionForm = sleepForm,
+            hasSavingThrow = true,
+            savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
+        };
+
+        couatlBiteAttack.EffectDescription.EffectForms.Add(extraSleepEffect);
+        couatlBiteAttack.EffectDescription.EffectForms.Add(extraPoisonEffect);
+        couatlBiteAttack.EffectDescription.SetSavingThrowAbility(SmartAttributeDefinitions.Constitution.Name);
+        couatlBiteAttack.EffectDescription.SetSavingThrowDifficultyAbility(SmartAttributeDefinitions.Constitution
+            .Name);
+        couatlBiteAttack.EffectDescription.hasSavingThrow = true;
+        couatlBiteAttack.EffectDescription.SetFixedSavingThrowDifficultyClass(13);
+        couatlBiteAttack.EffectDescription.SetDurationParameter(24);
+        couatlBiteAttack.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
+
+        var attackIterations = new List<MonsterAttackIteration>
+        {
+            Tiger_Drake.AttackIterations[0], new(couatlBiteAttack, 1)
+        };
 
         const bool GroupAttacks = false;
 
         const bool PhantomDistortion = true;
-        // AttachedParticlesReference = "0286006526f6f9c4fa61ed8ead4f72cc"
+
         var attachedParticlesReference =
             FeyBear.MonsterPresentation.attachedParticlesReference;
         var spriteReference = KindredSpiritViper.GuiPresentation.SpriteReference;
@@ -783,7 +732,7 @@ public static class SrdSpells
             .SetGuiPresentation("DH" + CustomCouatlName, Category.Monster, spriteReference)
             .SetInDungeonEditor(false)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-            .SetSizeDefinition(Size)
+            .SetSizeDefinition(size)
             .SetChallengeRating(CR)
             .SetAlignment(Alignment)
             .SetCharacterFamily(Type)
@@ -798,9 +747,6 @@ public static class SrdSpells
                 FeatureDefinitionSenses.SenseNormalVision,
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
                 FeatureDefinitionSenses.SenseTruesight16,
-                // wildshape was meant to be a substitute for the couatl's shapechanging but the game didnt like it
-                // (gave the couatl a second position in the intiative order)
-                //FeatureDefinitionPowers.PowerDruidWildShape,
                 FeatureDefinitionAttackModifiers.AttackModifierKindredSpiritMagicSpiritMagicAttack,
                 FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity,
@@ -824,11 +770,11 @@ public static class SrdSpells
                 (AttributeDefinitions.Intelligence, SavingThrowIntelligence),
                 (AttributeDefinitions.Wisdom, SavingThrowWisdom),
                 (AttributeDefinitions.Charisma, SavingThrowCharisma))
-            .SetSkillScores(SkillScores)
-            .SetAttackIterations(AttackIterations)
+            .SetSkillScores()
+            .SetAttackIterations(attackIterations)
             //  couatlBuilder.SetDefaultBattleDecisionPackage(DefaultBattleDecisionPackage);
             .SetGroupAttacks(GroupAttacks)
-            .SetLegendaryActionOptions(LegendaryActionOptions)
+            .SetLegendaryActionOptions()
             .SetHasPhantomDistortion(PhantomDistortion)
             .SetAttachedParticlesReference(attachedParticlesReference)
             .SetNoExperienceGain(false)
@@ -870,86 +816,6 @@ public static class SrdSpells
             .AddToDB();
     }
 
-    /*
-            private static SpellDefinition AnimalShapes()
-            {
-
-                string text = "AnimalShapesSpell";
-
-                ShapeChangeForm shapeChangeForm = new ShapeChangeForm();
-                shapeChangeForm.SetKeepMentalAbilityScores(true);
-                shapeChangeForm.SetShapeChangeType(ShapeChangeForm.Type.FreeListSelection);
-                shapeChangeForm.SetSpecialSubstituteCondition(DatabaseHelper.ConditionDefinitions.ConditionWildShapeSubstituteForm);
-                shapeChangeForm.ShapeOptions.AddRange(
-                   new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.BadlandsBear),
-                    new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.DeepSpider),
-                    new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Direwolf),
-                    new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Giant_Beetle),
-                    new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Giant_Eagle),
-                    new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Tiger_Drake),
-                    new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Ape_MonsterDefinition)
-
-                    // no room on ui, monsters too strong or are weaker versions of above monsters
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.BadlandsSpider),
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.BlackBear),
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.BrownBear),
-                    //       new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Eagle_Matriarch),
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Flying_Snake),
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Giant_Ape),
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Giant_Crow),
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Poisonous_Snake),
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Small_Beetle),
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Wolf),
-                    //        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Ape_Range_MonsterDefinition)
-                    );
-
-                EffectForm effectForm = new EffectForm();
-                effectForm.SetAddBonusMode(RuleDefinitions.AddBonusMode.None);
-                effectForm.applyLevel =(EffectForm.LevelApplianceType.No);
-                effectForm.SetCanSaveToCancel(false);
-                effectForm.createdByCharacter =(true);
-                effectForm.SetFormType(EffectForm.EffectFormType.ShapeChange);
-                effectForm.SetShapeChangeForm(shapeChangeForm);
-
-                EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-                effectDescription.SetDurationData(
-                    RuleDefinitions.DurationType.Hour,
-                    24,
-                    RuleDefinitions.TurnOccurenceType.EndOfTurn);
-                effectDescription.SetTargetingData(
-                    RuleDefinitions.Side.Ally,
-                    RuleDefinitions.RangeType.Distance,
-                    12,
-                    RuleDefinitions.TargetType.Individuals,
-                    12,
-                    1,
-                    ActionDefinitions.ItemSelectionType.None);
-                effectDescription.AddEffectForm(effectForm);
-                effectDescription.SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.EffectDescription.EffectParticleParameters);
-                effectDescription.Build();
-
-
-                GuiPresentation guiPresentationSpell = new GuiPresentation();
-                guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-                guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-                guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureFey.GuiPresentation.SpriteReference);
-
-                SpellBuilder AnimalShapesSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString());
-                AnimalShapesSpell.SetGuiPresentation(guiPresentationSpell);
-                AnimalShapesSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-                AnimalShapesSpell.SetSpellLevel(8);
-                AnimalShapesSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-                AnimalShapesSpell.SetVerboseComponent(true);
-                AnimalShapesSpell.SetSomaticComponent(false);
-                AnimalShapesSpell.SetEffectDescription(effectDescription.Build());
-                AnimalShapesSpell.SetAiParameters(new SpellAIParameters());
-                AnimalShapesSpell.SetConcentration();
-                //  AnimalShapesSpell
-                SpellDefinition AnimalShapes = AnimalShapesSpell.AddToDB();
-
-                return AnimalShapes;
-            }
-    */
     private static SpellDefinition BuildDominateMonster()
     {
         var effectDescription = new EffectDescription();
@@ -1075,66 +941,11 @@ public static class SrdSpells
 
     private static SpellDefinition BuildIncendiaryCloud()
     {
-        //
-        // TODO: Why this effect description isn't used?
-        //
+        var newEffectDescription = new EffectDescription();
 
-        /*            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
-                        .SetDurationData(
-                            RuleDefinitions.DurationType.Minute,
-                            1,
-                            RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                        .SetTargetingData(
-                            RuleDefinitions.Side.All,
-                            RuleDefinitions.RangeType.Distance,
-                            30,
-                            RuleDefinitions.TargetType.Sphere,
-                            4,
-                            4,
-                            ActionDefinitions.ItemSelectionType.None)
-                        .AddEffectForm(new EffectFormBuilder()
-                            .SetSummonForm(
-                                SummonForm.Type.EffectProxy,
-                                ItemDefinitions.Dart,
-                                1,
-                                Adam_The_Twelth.name,
-                                null,
-                                false,
-                                DecisionPackageDefinitions.IdleGuard_Default,
-                                EffectProxyDefinitions.ProxyFogCloud)
-                            .Build())
-                        .AddEffectForm(new EffectFormBuilder()
-                            .SetDamageForm(
-                                false,
-                                RuleDefinitions.DieType.D8,
-                                RuleDefinitions.DamageTypeFire,
-                                0,
-                                RuleDefinitions.DieType.D8,
-                                10,
-                                RuleDefinitions.HealFromInflictedDamage.Never,
-                                new List<RuleDefinitions.TrendInfo>())
-                            .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                            .Build())
-                        .SetRecurrentEffect(WallOfFireLine.EffectDescription.RecurrentEffect)
-                        .SetVelocity(2, RuleDefinitions.VelocityType.AwayFromSourceOriginalPosition)
-                        .SetSavingThrowData(
-                                true,
-                                false,
-                                SmartAttributeDefinitions.Dexterity.name,
-                                false,
-                                RuleDefinitions.EffectDifficultyClassComputation.FixedValue,
-                                SmartAttributeDefinitions.Dexterity.name,
-                                20,
-                                false,
-                                new List<SaveAffinityBySenseDescription>());
+        newEffectDescription.Copy(FogCloud.EffectDescription);
 
-                    effectDescription.Build();
-        */
-        var neweffectDescription = new EffectDescription();
-
-        neweffectDescription.Copy(FogCloud.EffectDescription);
-
-        neweffectDescription.EffectForms.Add(new EffectFormBuilder()
+        newEffectDescription.EffectForms.Add(new EffectFormBuilder()
             .SetDamageForm(
                 false,
                 RuleDefinitions.DieType.D8,
@@ -1148,8 +959,8 @@ public static class SrdSpells
             .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
             .Build());
 
-        neweffectDescription.hasSavingThrow = true;
-        neweffectDescription.SetSavingThrowAbility(SmartAttributeDefinitions.Dexterity.name);
+        newEffectDescription.hasSavingThrow = true;
+        newEffectDescription.SetSavingThrowAbility(SmartAttributeDefinitions.Dexterity.name);
 
         return SpellDefinitionBuilder
             .Create("DHIncendiaryCloudSpell", DhBaseGuid)
@@ -1159,7 +970,7 @@ public static class SrdSpells
             .SetCastingTime(RuleDefinitions.ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetEffectDescription(neweffectDescription)
+            .SetEffectDescription(newEffectDescription)
             .SetAiParameters(new SpellAIParameters())
             .SetRequiresConcentration(true)
             .AddToDB();
@@ -1263,16 +1074,17 @@ public static class SrdSpells
             conditionDefinition = ConditionStunned
         };
 
-        var effectForm = new EffectForm();
-
-        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
-        effectForm.levelMultiplier = 1;
-        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
-        effectForm.createdByCharacter = true;
-        effectForm.formType = EffectForm.EffectFormType.Condition;
-        effectForm.conditionForm = conditionForm;
-        effectForm.canSaveToCancel = true;
-        effectForm.saveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
+        var effectForm = new EffectForm
+        {
+            applyLevel = EffectForm.LevelApplianceType.No,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.ClassLevel,
+            createdByCharacter = true,
+            formType = EffectForm.EffectFormType.Condition,
+            conditionForm = conditionForm,
+            canSaveToCancel = true,
+            saveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn
+        };
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1364,16 +1176,20 @@ public static class SrdSpells
         effect.EffectParticleParameters.impactParticleReference =
             new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91");
 
-        var SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription();
-        SaveAffinityByFamilyDescription.advantageType = RuleDefinitions.AdvantageType.Disadvantage;
-        SaveAffinityByFamilyDescription.family = CharacterFamilyDefinitions.Ooze.name;
+        var saveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription
+        {
+            advantageType = RuleDefinitions.AdvantageType.Disadvantage,
+            family = CharacterFamilyDefinitions.Ooze.name
+        };
 
-        var SaveAffinityByFamilyDescriptionUndead = new SaveAffinityByFamilyDescription();
-        SaveAffinityByFamilyDescriptionUndead.advantageType = RuleDefinitions.AdvantageType.Disadvantage;
-        SaveAffinityByFamilyDescriptionUndead.family = CharacterFamilyDefinitions.Undead.name;
+        var saveAffinityByFamilyDescriptionUndead = new SaveAffinityByFamilyDescription
+        {
+            advantageType = RuleDefinitions.AdvantageType.Disadvantage,
+            family = CharacterFamilyDefinitions.Undead.name
+        };
 
-        effect.SavingThrowAffinitiesByFamily.AddRange(SaveAffinityByFamilyDescription,
-            SaveAffinityByFamilyDescriptionUndead);
+        effect.SavingThrowAffinitiesByFamily.AddRange(saveAffinityByFamilyDescription,
+            saveAffinityByFamilyDescriptionUndead);
 
         return SpellDefinitionBuilder
             .Create("DHSunBurstSpell", DhBaseGuid)
@@ -1579,19 +1395,17 @@ public static class SrdSpells
 
     private static SpellDefinition BuildPowerWordKill()
     {
-        var killForm = new KillForm();
-        killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
-        killForm.hitPoints = 100;
+        var killForm = new KillForm {killCondition = RuleDefinitions.KillCondition.UnderHitPoints, hitPoints = 100};
 
-        var effectForm = new EffectForm();
-
-        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
-        effectForm.levelMultiplier = 1;
-        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
-        effectForm.createdByCharacter = true;
-        effectForm.formType = EffectForm.EffectFormType.Kill;
-        effectForm.killForm = killForm;
-        ;
+        var effectForm = new EffectForm
+        {
+            applyLevel = EffectForm.LevelApplianceType.No,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.ClassLevel,
+            createdByCharacter = true,
+            formType = EffectForm.EffectFormType.Kill,
+            killForm = killForm
+        };
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1620,11 +1434,12 @@ public static class SrdSpells
 
     private static SpellDefinition BuildShapechange()
     {
-        var shapeChangeForm = new ShapeChangeForm();
-
-        shapeChangeForm.keepMentalAbilityScores = true;
-        shapeChangeForm.shapeChangeType = ShapeChangeForm.Type.FreeListSelection;
-        shapeChangeForm.specialSubstituteCondition = ConditionWildShapeSubstituteForm;
+        var shapeChangeForm = new ShapeChangeForm
+        {
+            keepMentalAbilityScores = true,
+            shapeChangeType = ShapeChangeForm.Type.FreeListSelection,
+            specialSubstituteCondition = ConditionWildShapeSubstituteForm
+        };
 
         shapeChangeForm.ShapeOptions.AddRange
         (
@@ -1640,15 +1455,16 @@ public static class SrdSpells
             new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Sorr_Akkath_Shikkath)
         );
 
-        var effectForm = new EffectForm();
+        var effectForm = new EffectForm
+        {
+            addBonusMode = RuleDefinitions.AddBonusMode.None,
+            applyLevel = EffectForm.LevelApplianceType.No,
+            canSaveToCancel = false,
+            createdByCharacter = true,
+            formType = EffectForm.EffectFormType.ShapeChange,
+            shapeChangeForm = shapeChangeForm
+        };
 
-
-        effectForm.addBonusMode = RuleDefinitions.AddBonusMode.None;
-        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
-        effectForm.canSaveToCancel = false;
-        effectForm.createdByCharacter = true;
-        effectForm.formType = EffectForm.EffectFormType.ShapeChange;
-        effectForm.shapeChangeForm = shapeChangeForm;
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1765,7 +1581,7 @@ public static class SrdSpells
 
     private sealed class DivineWordEffectForm : CustomEffectForm
     {
-        private readonly List<string> monsterFamilyPlaneshiftList = new() {"Celestial", "Elemental", "Fey", "Fiend"};
+        private readonly List<string> monsterFamilyPlaneShiftList = new() {"Celestial", "Elemental", "Fey", "Fiend"};
 
         public override void ApplyForm(
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
@@ -1773,7 +1589,7 @@ public static class SrdSpells
             bool proxyOnly,
             bool forceSelfConditionOnly,
             RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
-            List<EffectFormFilter> filters = null)
+            [CanBeNull] List<EffectFormFilter> filters = null)
         {
             if (formsParams.saveOutcome == RuleDefinitions.RollOutcome.CriticalSuccess ||
                 formsParams.saveOutcome == RuleDefinitions.RollOutcome.Success)
@@ -1783,42 +1599,38 @@ public static class SrdSpells
 
             // If the target is in one of the special families, banish it.
             if (formsParams.targetCharacter is RulesetCharacterMonster monster &&
-                monsterFamilyPlaneshiftList.Contains(monster.CharacterFamily))
+                monsterFamilyPlaneShiftList.Contains(monster.CharacterFamily))
             {
                 ApplyCondition(formsParams, ConditionBanished, RuleDefinitions.DurationType.Day, 1);
 
                 return;
             }
 
-            var curHP = formsParams.targetCharacter.CurrentHitPoints;
+            var curHp = formsParams.targetCharacter.CurrentHitPoints;
 
-            if (curHP <= 20)
+            switch (curHp)
             {
-                if (formsParams.targetCharacter.IsDead)
-                {
+                case <= 20 when formsParams.targetCharacter.IsDead:
                     return;
-                }
-
-                ServiceRepository.GetService<IGameLocationActionService>()
-                    .InstantKillCharacter(formsParams.targetCharacter as RulesetCharacter);
-            }
-            else if (curHP <= 30)
-            {
-                // blind, deafened, stunned 1 hour
-                ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Hour, 1);
-                ApplyCondition(formsParams, ConditionBlinded, RuleDefinitions.DurationType.Hour, 1);
-                ApplyCondition(formsParams, ConditionStunned, RuleDefinitions.DurationType.Hour, 1);
-            }
-            else if (curHP <= 40)
-            {
-                // deafened, blinded 10 minutes
-                ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Minute, 10);
-                ApplyCondition(formsParams, ConditionBlinded, RuleDefinitions.DurationType.Minute, 10);
-            }
-            else if (curHP <= 50)
-            {
-                // deafened 1 minute
-                ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Minute, 1);
+                case <= 20:
+                    ServiceRepository.GetService<IGameLocationActionService>()
+                        .InstantKillCharacter(formsParams.targetCharacter as RulesetCharacter);
+                    break;
+                case <= 30:
+                    // blind, deafened, stunned 1 hour
+                    ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Hour, 1);
+                    ApplyCondition(formsParams, ConditionBlinded, RuleDefinitions.DurationType.Hour, 1);
+                    ApplyCondition(formsParams, ConditionStunned, RuleDefinitions.DurationType.Hour, 1);
+                    break;
+                case <= 40:
+                    // deafened, blinded 10 minutes
+                    ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Minute, 10);
+                    ApplyCondition(formsParams, ConditionBlinded, RuleDefinitions.DurationType.Minute, 10);
+                    break;
+                case <= 50:
+                    // deafened 1 minute
+                    ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Minute, 1);
+                    break;
             }
         }
 
@@ -1831,10 +1643,10 @@ public static class SrdSpells
         }
 
         private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-            ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            [NotNull] ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
         {
             // Prepare params for inflicting conditions
-            var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+            var sourceGuid = formsParams.sourceCharacter?.Guid ?? 0L;
             var sourceFaction = formsParams.sourceCharacter != null
                 ? formsParams.sourceCharacter.CurrentFaction.Name
                 : string.Empty;
@@ -1858,14 +1670,14 @@ public static class SrdSpells
         }
     }
 
-    internal class ReverseGravityConditionBuilder : ConditionDefinitionBuilder
+    private sealed class ReverseGravityConditionBuilder : ConditionDefinitionBuilder
     {
         private const string Name = "DHReverseGravitySpellcondition";
         private const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
 
         internal static readonly ConditionDefinition ReverseGravityCondition = CreateAndAddToDB(Name, Guid);
 
-        protected ReverseGravityConditionBuilder(string name, string guid) : base(ConditionLevitate, name, guid)
+        private ReverseGravityConditionBuilder(string name, string guid) : base(ConditionLevitate, name, guid)
         {
             Definition.conditionType = RuleDefinitions.ConditionType.Neutral;
             Definition.Features.SetRange
@@ -1883,7 +1695,7 @@ public static class SrdSpells
         }
     }
 
-    internal class FeeblemindConditionBuilder : ConditionDefinitionBuilder
+    private sealed class FeeblemindConditionBuilder : ConditionDefinitionBuilder
     {
         private const string Name = "DHFeeblemindSpellcondition";
         private const string Guid = "965a09b2-cb22-452b-b93c-2bccdcda4871";
@@ -1892,7 +1704,7 @@ public static class SrdSpells
 
         internal static readonly ConditionDefinition FeeblemindCondition = CreateAndAddToDB(Name, Guid);
 
-        protected FeeblemindConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
+        private FeeblemindConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
@@ -1901,17 +1713,17 @@ public static class SrdSpells
                 FeatureDefinitionMagicAffinitys.MagicAffinitySilenced,
                 FeatureDefinitionMagicAffinitys.MagicAffinityConditionRaging,
                 FeeblemindIntAttributeModifierBuilder.FeeblemindIntAttributeModifier,
-                FeeblemindChaAttributeModifierBuilder.FeeblemindCha_AttributeModifier,
+                FeeblemindChaAttributeModifierBuilder.FeeblemindChaAttributeModifier,
                 FeeblemindActionAffinityBuilder.FeeblemindActionAffinity);
         }
 
-        internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
+        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
             return new FeeblemindConditionBuilder(name, guid).AddToDB();
         }
     }
 
-    internal class FeeblemindIntAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
+    private sealed class FeeblemindIntAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
     {
         private const string Name = "DHFeeblemindIntSpellAttributeModifier";
         private const string Guid = "a2a16bda-e7b1-4a87-9f0e-3e4c21870fd8";
@@ -1921,7 +1733,7 @@ public static class SrdSpells
         internal static readonly FeatureDefinitionAttributeModifier FeeblemindIntAttributeModifier =
             CreateAndAddToDB(Name, Guid);
 
-        protected FeeblemindIntAttributeModifierBuilder(string name, string guid) : base(
+        private FeeblemindIntAttributeModifierBuilder(string name, string guid) : base(
             FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
@@ -1939,17 +1751,17 @@ public static class SrdSpells
         }
     }
 
-    internal class FeeblemindChaAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
+    private sealed class FeeblemindChaAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
     {
         private const string Name = "DHFeeblemindChaSpellAttributeModifier";
         private const string Guid = "6721abe1-19eb-4a8c-9702-2fdea2070464";
         private const string TitleString = "AttributeModifier/&DHFeeblemindChaSpellTitle";
         private const string DescriptionString = "AttributeModifier/&DHFeeblemindChaSpellDescription";
 
-        internal static readonly FeatureDefinitionAttributeModifier FeeblemindCha_AttributeModifier =
+        internal static readonly FeatureDefinitionAttributeModifier FeeblemindChaAttributeModifier =
             CreateAndAddToDB(Name, Guid);
 
-        protected FeeblemindChaAttributeModifierBuilder(string name, string guid) : base(
+        private FeeblemindChaAttributeModifierBuilder(string name, string guid) : base(
             FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
@@ -1967,7 +1779,7 @@ public static class SrdSpells
         }
     }
 
-    internal class FeeblemindActionAffinityBuilder : FeatureDefinitionActionAffinityBuilder
+    private sealed class FeeblemindActionAffinityBuilder : FeatureDefinitionActionAffinityBuilder
     {
         private const string Name = "DHFeeblemindSpellActionAffinity";
         private const string Guid = "749a9572-07f6-4678-9458-904c04b9ab22";
@@ -1977,7 +1789,7 @@ public static class SrdSpells
         internal static readonly FeatureDefinitionActionAffinity FeeblemindActionAffinity =
             CreateAndAddToDB(Name, Guid);
 
-        protected FeeblemindActionAffinityBuilder(string name, string guid) : base(
+        private FeeblemindActionAffinityBuilder(string name, string guid) : base(
             FeatureDefinitionActionAffinitys.ActionAffinityConditionRaging, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
@@ -2001,7 +1813,7 @@ public static class SrdSpells
         }
     }
 
-    internal class HolyAuraConditionBuilder : ConditionDefinitionBuilder
+    private sealed class HolyAuraConditionBuilder : ConditionDefinitionBuilder
     {
         private const string Name = "DHHolyAuraSpellcondition";
         private const string Guid = "1808ca4b-8f46-41bf-a59c-0bcbd4f60248";
@@ -2010,7 +1822,7 @@ public static class SrdSpells
 
         internal static readonly ConditionDefinition HolyAuraCondition = CreateAndAddToDB(Name, Guid);
 
-        protected HolyAuraConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
+        private HolyAuraConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
@@ -2029,7 +1841,7 @@ public static class SrdSpells
         }
     }
 
-    internal class HolyAuraDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder
+    private sealed class HolyAuraDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder
     {
         private const string Name = "DHHolyAuraSpellDamageAffinity";
         private const string Guid = "c83aceae-e4c4-4a9c-a83d-58ffebe92007";
@@ -2039,7 +1851,7 @@ public static class SrdSpells
         internal static readonly FeatureDefinitionDamageAffinity HolyAuraDamageAffinity =
             CreateAndAddToDB(Name, Guid);
 
-        protected HolyAuraDamageAffinityBuilder(string name, string guid) : base(
+        private HolyAuraDamageAffinityBuilder(string name, string guid) : base(
             FeatureDefinitionDamageAffinitys.DamageAffinityPoisonAdvantage, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
@@ -2053,13 +1865,13 @@ public static class SrdSpells
             Definition.retaliatePower = HolyAuraBlindingPowerBuilder.HolyAuraBlindingPower;
         }
 
-        internal static FeatureDefinitionDamageAffinity CreateAndAddToDB(string name, string guid)
+        private static FeatureDefinitionDamageAffinity CreateAndAddToDB(string name, string guid)
         {
             return new HolyAuraDamageAffinityBuilder(name, guid).AddToDB();
         }
     }
 
-    internal class HolyAuraBlindingPowerBuilder : FeatureDefinitionPowerBuilder
+    private sealed class HolyAuraBlindingPowerBuilder : FeatureDefinitionPowerBuilder
     {
         private const string Name = "DHHolyAuraSpellBlindingPower";
         private const string Guid = "40366ca2-00a0-471a-b370-8c81f6283ce1";
@@ -2068,7 +1880,7 @@ public static class SrdSpells
 
         internal static readonly FeatureDefinitionPower HolyAuraBlindingPower = CreateAndAddToDB(Name, Guid);
 
-        protected HolyAuraBlindingPowerBuilder(string name, string guid) : base(PowerOathOfMotherlandFieryPresence,
+        private HolyAuraBlindingPowerBuilder(string name, string guid) : base(PowerOathOfMotherlandFieryPresence,
             name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
@@ -2104,7 +1916,7 @@ public static class SrdSpells
         }
     }
 
-    internal class MindBlankConditionBuilder : ConditionDefinitionBuilder
+    private sealed class MindBlankConditionBuilder : ConditionDefinitionBuilder
     {
         private const string Name = "DHMindBlankSpellcondition";
         private const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
@@ -2113,7 +1925,7 @@ public static class SrdSpells
 
         internal static readonly ConditionDefinition MindBlankCondition = CreateAndAddToDB(Name, Guid);
 
-        protected MindBlankConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
+        private MindBlankConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
@@ -2130,7 +1942,7 @@ public static class SrdSpells
         }
     }
 
-    internal class ForesightConditionBuilder : ConditionDefinitionBuilder
+    private sealed class ForesightConditionBuilder : ConditionDefinitionBuilder
     {
         private const string Name = "DHForesightSpellcondition";
         private const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
@@ -2139,7 +1951,7 @@ public static class SrdSpells
 
         internal static readonly ConditionDefinition ForesightCondition = CreateAndAddToDB(Name, Guid);
 
-        protected ForesightConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
+        private ForesightConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
@@ -2162,7 +1974,7 @@ public static class SrdSpells
         }
     }
 
-    internal class TimeStopConditionBuilder : ConditionDefinitionBuilder
+    private sealed class TimeStopConditionBuilder : ConditionDefinitionBuilder
     {
         private const string Name = "DHTimeStopSpellCondition";
         private const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
@@ -2171,7 +1983,7 @@ public static class SrdSpells
 
         internal static readonly ConditionDefinition TimeStopCondition = CreateAndAddToDB(Name, Guid);
 
-        protected TimeStopConditionBuilder(string name, string guid) : base(ConditionIncapacitated, name, guid)
+        private TimeStopConditionBuilder(string name, string guid) : base(ConditionIncapacitated, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
@@ -2189,7 +2001,7 @@ public static class SrdSpells
         }
     }
 
-    internal class WeirdConditionBuilder : ConditionDefinitionBuilder
+    private sealed class WeirdConditionBuilder : ConditionDefinitionBuilder
     {
         private const string Name = "DHWeirdSpellCondition";
         private const string Guid = "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08";
@@ -2198,7 +2010,7 @@ public static class SrdSpells
 
         internal static readonly ConditionDefinition WeirdCondition = CreateAndAddToDB(Name, Guid);
 
-        protected WeirdConditionBuilder(string name, string guid) : base(ConditionFrightenedPhantasmalKiller, name,
+        private WeirdConditionBuilder(string name, string guid) : base(ConditionFrightenedPhantasmalKiller, name,
             guid)
         {
             Definition.GuiPresentation.Title = TitleString;

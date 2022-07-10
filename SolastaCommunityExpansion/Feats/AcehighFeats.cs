@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
@@ -10,13 +11,12 @@ using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using UnityEngine.AddressableAssets;
-using static FeatureDefinitionSavingThrowAffinity;
 
 namespace SolastaCommunityExpansion.Feats;
 
 internal static class AcehighFeats
 {
-    public static void CreateFeats(List<FeatDefinition> feats)
+    public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(DeadeyeFeatBuilder.DeadeyeFeat);
         feats.Add(BuildPowerAttackFeat());
@@ -95,7 +95,7 @@ internal static class AcehighFeats
                 .Build())
             .AddToDB();
 
-        concentrationProvider.stopPower = turnOffPowerAttackPower;
+        concentrationProvider.StopPower = turnOffPowerAttackPower;
 
         return FeatDefinitionBuilder
             .Create("PowerAttackFeat", "88f1fb27-66af-49c6-b038-a38142b1083e")
@@ -256,7 +256,7 @@ internal static class AcehighFeats
                     .Build())
                 .AddToDB();
 
-            concentrationProvider.stopPower = turnOffPower;
+            concentrationProvider.StopPower = turnOffPower;
 
             Definition.GuiPresentation.Title = "Feat/&DeadeyeFeatTitle";
             Definition.GuiPresentation.Description = "Feat/&DeadeyeFeatDescription";
@@ -274,9 +274,10 @@ internal static class AcehighFeats
         }
     }
 
-    private class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
+    private sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+            RulesetItem weapon)
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
@@ -327,7 +328,7 @@ internal static class AcehighFeats
 
     private sealed class StopPowerConcentrationProvider : ICusomConcentrationProvider
     {
-        public FeatureDefinitionPower stopPower;
+        public FeatureDefinitionPower StopPower;
 
         public StopPowerConcentrationProvider(string name, string tooltip, AssetReferenceSprite icon)
         {
@@ -342,13 +343,13 @@ internal static class AcehighFeats
 
         public void Stop(RulesetCharacter character)
         {
-            if (stopPower == null)
+            if (StopPower == null)
             {
                 return;
             }
 
             var rules = ServiceRepository.GetService<IRulesetImplementationService>();
-            var usable = UsablePowersProvider.Get(stopPower, character);
+            var usable = UsablePowersProvider.Get(StopPower, character);
             var locationCharacter = GameLocationCharacter.GetFromActor(character);
             var actionParams = new CharacterActionParams(locationCharacter,
                 ActionDefinitions.Id.PowerNoCost)
@@ -366,7 +367,8 @@ internal static class AcehighFeats
 
     private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+            RulesetItem weapon)
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
@@ -391,177 +393,6 @@ internal static class AcehighFeats
             damage.BonusDamage += toDamage;
             damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
                 RuleDefinitions.FeatureSourceType.Power, "PowerAttack", null));
-        }
-    }
-
-    // Leaving this to not break existing characters
-    private sealed class RecklessFuryFeatBuilder : FeatDefinitionBuilder
-    {
-        private const string RecklessFuryFeatName = "RecklessFuryFeat";
-        private const string RecklessFuryFeatNameGuid = "78c5fd76-e25b-499d-896f-3eaf84c711d8";
-
-        public static readonly FeatDefinition RecklessFuryFeat =
-            CreateAndAddToDB(RecklessFuryFeatName, RecklessFuryFeatNameGuid);
-
-        private RecklessFuryFeatBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatDefinitions.FollowUpStrike, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&RecklessFuryFeatTitle";
-            Definition.GuiPresentation.Description = "Feat/&RecklessFuryFeatDescription";
-
-            Definition.Features.Clear();
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionPowers.PowerReckless);
-            Definition.Features.Add(RagePowerBuilder.RagePower);
-            Definition.minimalAbilityScorePrerequisite = false;
-        }
-
-        private static FeatDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new RecklessFuryFeatBuilder(name, guid).AddToDB();
-        }
-    }
-
-    private sealed class RagePowerBuilder : FeatureDefinitionPowerBuilder
-    {
-        private const string RagePowerName = "AHRagePower";
-        private const string RagePowerNameGuid = "a46c1722-7825-4a81-bca1-392b51cd7d97";
-
-        public static readonly FeatureDefinitionPower
-            RagePower = CreateAndAddToDB(RagePowerName, RagePowerNameGuid);
-
-        private RagePowerBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalFireBurst, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feature/&RagePowerTitle";
-            Definition.GuiPresentation.Description = "Feature/&RagePowerDescription";
-
-            Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
-            Definition.activationTime = RuleDefinitions.ActivationTime.BonusAction;
-            Definition.costPerUse = 1;
-            Definition.fixedUsesPerRecharge = 1;
-            Definition.shortTitleOverride = "Feature/&RagePowerTitle";
-
-            //Create the power attack effect
-            var rageEffect = new EffectForm
-            {
-                ConditionForm = new ConditionForm
-                {
-                    Operation = ConditionForm.ConditionOperation.Add,
-                    ConditionDefinition = RageFeatConditionBuilder.RageFeatCondition
-                },
-                FormType = EffectForm.EffectFormType.Condition
-            };
-
-            //Add to our new effect
-            var newEffectDescription = new EffectDescription();
-            newEffectDescription.Copy(Definition.EffectDescription);
-            newEffectDescription.EffectForms.Clear();
-            newEffectDescription.EffectForms.Add(rageEffect);
-            newEffectDescription.HasSavingThrow = false;
-            newEffectDescription.DurationType = RuleDefinitions.DurationType.Minute;
-            newEffectDescription.DurationParameter = 1;
-            newEffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
-            newEffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
-            newEffectDescription.SetCanBePlacedOnCharacter(true);
-
-            Definition.effectDescription = newEffectDescription;
-        }
-
-        private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-        {
-            return new RagePowerBuilder(name, guid).AddToDB();
-        }
-    }
-
-    private sealed class RageFeatConditionBuilder : ConditionDefinitionBuilder
-    {
-        private const string RageFeatConditionName = "AHRageFeatCondition";
-        private const string RageFeatConditionNameGuid = "2f34fb85-6a5d-4a4e-871b-026872bc24b8";
-
-        public static readonly ConditionDefinition RageFeatCondition =
-            CreateAndAddToDB(RageFeatConditionName, RageFeatConditionNameGuid);
-
-        private RageFeatConditionBuilder(string name, string guid) : base(
-            DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feature/&RageFeatConditionTitle";
-            Definition.GuiPresentation.Description = "Feature/&RageFeatConditionDescription";
-
-            Definition.allowMultipleInstances = false;
-            Definition.Features.Clear();
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionDamageAffinitys
-                .DamageAffinityBludgeoningResistance);
-            Definition.Features.Add(
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance);
-            Definition.Features.Add(
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance);
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys
-                .AbilityCheckAffinityConditionBullsStrength);
-            Definition.Features.Add(RageStrengthSavingThrowAffinityBuilder.RageStrengthSavingThrowAffinity);
-            Definition.Features.Add(RageDamageBonusAttackModifierBuilder.RageDamageBonusAttackModifier);
-            Definition.durationType = RuleDefinitions.DurationType.Minute;
-            Definition.durationParameter = 1;
-        }
-
-        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new RageFeatConditionBuilder(name, guid).AddToDB();
-        }
-    }
-
-    private sealed class RageStrengthSavingThrowAffinityBuilder : FeatureDefinitionSavingThrowAffinityBuilder
-    {
-        private const string RageStrengthSavingThrowAffinityName = "AHRageStrengthSavingThrowAffinity";
-        private const string RageStrengthSavingThrowAffinityNameGuid = "17d26173-7353-4087-a295-96e1ec2e6cd4";
-
-        public static readonly FeatureDefinitionSavingThrowAffinity RageStrengthSavingThrowAffinity =
-            CreateAndAddToDB(RageStrengthSavingThrowAffinityName, RageStrengthSavingThrowAffinityNameGuid);
-
-        private RageStrengthSavingThrowAffinityBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feature/&RageStrengthSavingThrowAffinityTitle";
-            Definition.GuiPresentation.Description = "Feature/&RageStrengthSavingThrowAffinityDescription";
-
-            Definition.AffinityGroups.Clear();
-
-            Definition.AffinityGroups.Add(
-                new SavingThrowAffinityGroup
-                {
-                    affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage,
-                    abilityScoreName = AttributeDefinitions.Strength
-                });
-        }
-
-        private static FeatureDefinitionSavingThrowAffinity CreateAndAddToDB(string name, string guid)
-        {
-            return new RageStrengthSavingThrowAffinityBuilder(name, guid).AddToDB();
-        }
-    }
-
-    private sealed class RageDamageBonusAttackModifierBuilder : FeatureDefinitionAttackModifierBuilder
-    {
-        private const string RageDamageBonusAttackModifierName = "AHRageDamageBonusAttackModifier";
-        private const string RageDamageBonusAttackModifierNameGuid = "7bc1a47e-9519-4a37-a89a-10bcfa83e48a";
-
-        public static readonly FeatureDefinitionAttackModifier RageDamageBonusAttackModifier =
-            CreateAndAddToDB(RageDamageBonusAttackModifierName, RageDamageBonusAttackModifierNameGuid);
-
-        private RageDamageBonusAttackModifierBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feature/&RageDamageBonusAttackModifierTitle";
-            Definition.GuiPresentation.Description = "Feature/&RageDamageBonusAttackModifierDescription";
-
-            //Currently works with ranged weapons, in the end it's fine.
-            Definition.attackRollModifier = 0;
-            Definition.damageRollModifier =
-                2; //Could find a way to up this at level 9 to match barb but that seems like a lot of work right now :)
-        }
-
-        private static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
-        {
-            return new RageDamageBonusAttackModifierBuilder(name, guid).AddToDB();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Properties;
@@ -17,6 +18,7 @@ internal static class HalfElfVariantRaceBuilder
 
     internal static CharacterRaceDefinition HalfElfVariantRace { get; } = BuildHalfElfVariant();
 
+    [NotNull]
     private static CharacterRaceDefinition BuildHalfElfVariant()
     {
         var darkelfDarkMagic = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
