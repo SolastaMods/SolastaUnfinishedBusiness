@@ -1,23 +1,23 @@
 ﻿ModUi/&AddAllToStore=全部加入商店
 ModUi/&AddBleedingToLesserRestoration=添加<color=orange>流血</color>状态至<color=orange>次级/高等复原术</color>的移除效果范围
 ModUi/&AddHelpActionToAllRaces=添加<color=orange>协助</color>至全部种族
-ModUi/&AddNewBrightEyeColors=添加新的明亮眼睛颜色<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
-ModUi/&AddNewWeaponsAndRecipesToShops=添加新的武器和配方至商店<i><color=yellow>[裹手，戟，长矛，长钉头锤，手弩]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&AddPickpocketableLoot=添加可扒窃的战利品 <i><color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color></i>
+ModUi/&AddNewBrightEyeColors=添加额外明亮眼睛颜色<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&AddNewWeaponsAndRecipesToShops=添加新的武器和配方至商店<color=yellow>[裹手，戟，长矛，长钉头锤，手弩]</color> <color=#C04040E0>[需要重启游戏]</color>
+ModUi/&AddPickpocketableLoot=添加可扒窃的战利品<color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color>
 ModUi/&AddToStore=加入商店
 ModUi/&Advanced=<color=yellow>进阶选项：</color>
-ModUi/&AdvancedHelp=. <color=#C04040E0>注意：</color> 此项设置将要求玩家安装此Mod
+ModUi/&AdvancedHelp=. <color=#C04040E0>注意：</color>此项设置将要求玩家安装此Mod
 ModUi/&Adventure=<color=yellow>冒险：</color>
 ModUi/&AllItemInDm=全部物品加入地城制作
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业装备木族护甲或光明使者服饰
 ModUi/&AllowDruidToWearMetalArmor=允许<color=orange>德鲁伊</color>装备金属护甲
-ModUi/&AllowDungeonsMaxLevel20=允许自定义地城最大等级达到20级<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=允许在地图上任何地方放置互动物件和装饰物<i><color=yellow>[在放置时按<color=#1E81B0>CTRL</color>跳过任何检定]</color></i>
-ModUi/&AllowStackedMaterialComponent=允许材料成分叠加计算<i><color=yellow>[e.g. 2个500gp的钻石等同于1000gp的钻石]</color></i>
+ModUi/&AllowDungeonsMaxLevel20=允许自定义地城最大等级达到20级<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=允许在地图上任何地方放置互动物件和装饰物<color=yellow>[在放置时按<color=#1E81B0>CTRL</color>跳过任何检定]</color>
+ModUi/&AllowStackedMaterialComponent=允许材料成分叠加计算<color=yellow>[e.g. 2个500gp的钻石等同于1000gp的钻石]</color>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施放<color=orange>连锁闪电</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers=允许<color=orange>术士</color>没有脸部印记
 ModUi/&AllRecipesInDm=所有配方加入地城制作
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<i><color=yellow>[仅限自定义地牢]</color></i>
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<color=yellow>[仅限自定义地牢]</color>
 ModUi/&ApplySRDWeightToFoodRations=将口粮的重量减少至2磅
 ModUi/&AutoPauseOnVictory=战斗胜利后暂停游戏
 ModUi/&Basic=<color=yellow>基础：</color>
@@ -38,54 +38,54 @@ ModUi/&CraftingHelp=. 点击按钮立即学习可活动队伍的配方\n. 添加
 ModUi/&Credits=致敬
 ModUi/&CreditsAndDiagnostics=致敬与诊断
 ModUi/&DisableAutoEquip=禁止自动装备物品栏的物品
-ModUi/&DisableSenseDarkVisionFromAllRaces=将<color=orange>黑暗视觉</color>从所有种族中移除<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=将<color=orange>增强黑暗视觉</color>从所有种族中移除<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&DisableSenseDarkVisionFromAllRaces=将<color=orange>黑暗视觉</color>从所有种族中移除<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=将<color=orange>增强黑暗视觉</color>从所有种族中移除<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=在升级时显示所有从其它职业上习得的法术
 ModUi/&DontFollowCharacterInBattle=摄像机不再跟随已出现在屏幕上的角色
-ModUi/&DontFollowMargin=<i><color=white>+ 除非角色靠近于%的屏幕边缘</color></i>
+ModUi/&DontFollowMargin=<color=white>+ 除非角色靠近于%的屏幕边缘</color>
 ModUi/&DungeonMaker=<color=yellow>地城制作：</color>
-ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod\n. 你能在你的对话、描述等内嵌入任何战役变量\n. 社区Mod将在游戏过程中进行替换<i><color=yellow>[例如：你好英雄{Salute}！]</color></i>
+ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod\n. 你能在你的对话、描述等内嵌入任何战役变量\n. 社区Mod将在游戏过程中进行替换<color=yellow>[例如：你好英雄{敬礼}！]</color>
 ModUi/&DungeonMakerMenu=地城制作
 ModUi/&EmpressGarbAppearance=<color=orange>女帝装束链甲衫</color>外形
 ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额外的背景故事
 ModUi/&EnableAdditionalIconsOnLevelMap=在地图上给营地、出口和传送点添加额外的图标
-ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ 添加新的法器至地城制作</i>
-ModUi/&EnableAlternateHuman=启用变种人类<i><color=yellow>[+1专长/+2属性值选择/+1技能]</color></i>
-ModUI/&EnableBetaContent=启用Beta内容<i><color=yellow>[牢记你的存档或英雄在未来有崩溃风险]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&EnableAdditionalItemsInDungeonMaker=+ 添加新的法器至地城制作
+ModUi/&EnableAlternateHuman=启用变种人类<color=yellow>[+1专长/+2属性值选择/+1技能]</color>
+ModUI/&EnableBetaContent=启用Beta内容<color=yellow>[牢记你的存档或英雄在未来有崩溃风险]</color><color=#C04040E0>[需要重启游戏]</color>
 ModUi/&EnableCancelEditOnRightMouseClick=启用右键取消动作
 ModUi/&EnableCharacterChecker=启用角色验证界面
-ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-E</color>导出角色<i><color=yellow>[仅限角色检查界面]</color></i>
+ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-E</color>导出角色<color=yellow>[仅限角色检查界面]</color>
 ModUi/&EnableCheatMenu=启用作弊菜单
 ModUi/&EnableCtrlClickBypassAttackReactionPanel=启用点击<color=#1E81B0>CTRL</color>在攻击时忽略任何反应面板
 ModUi/&EnableCtrlClickBypassMetamagicPanel=启用点击<color=#1E81B0>CTRL</color>在施法时忽略<color=orange>术士</color>超魔面板
 ModUi/&EnableCtrlClickOnlySwapsMainHand=启用点击<color=#1E81B0>CTRL</color>在替换所持武器配置时保留副手武器
-ModUi/&EnableDungeonMakerModdedContent=启用地城制作Pro<i><color=#C04040E0>[需要重启游戏]</color></i>\n\n包括平房，150x150和200x200的地牢尺寸和没有任何装饰的各种环境\n若你选择一个户外环境，你必须有至少一个户外房间
-ModUi/&EnableEpicPointsAndArray=启用35点的传奇构点和默认排列<i><color=yellow>[17,15,13,12,10,8]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&EnableExtraHighLevelMonsters=为11-20级的战役启用额外的高等级怪物（+20CR）<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=启用地城制作Pro<color=#C04040E0>[需要重启游戏]</color>\n\n包括平房，150x150和200x200的地牢尺寸和没有任何装饰的各种环境\n若你选择一个户外环境，你必须有至少一个户外房间
+ModUi/&EnableEpicPointsAndArray=启用35点的传奇构点和默认排列<color=yellow>[17,15,13,12,10,8]</color><color=#C04040E0>[需要重启游戏]</color>
+ModUi/&EnableExtraHighLevelMonsters=为11-20级的战役启用额外的高等级怪物（+20CR）<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&EnableFeatsAtEvenLevels=启用在第2、6、10、14级时获得专长
-ModUi/&EnableFlexibleBackgrounds=启用灵活背景<i><color=yellow>[从背景中自由选择技能和工具熟练项]</color></i>
-ModUi/&EnableFlexibleRaces=启用灵活种族<i><color=yellow>[自由配置属性值而非使用种族的默认加值]</color></i>
+ModUi/&EnableFlexibleBackgrounds=启用灵活背景<color=yellow>[从背景中自由选择技能和工具熟练项]</color>
+ModUi/&EnableFlexibleRaces=启用灵活种族<color=yellow>[自由配置属性值而非使用种族的默认加值]</color>
 ModUi/&EnableHotkeyDebugOverlay=启用<color=#1E81B0>CTRL-SHIFT-D</color>开启Debug界面
 ModUi/&EnableHotkeyToggleHud=启用<color=#1E81B0>CTRL-SHIFT-H</color>控制所有UI界面的显示
 ModUi/&EnableHotkeyToggleIndividualHud=启用<color=#1E81B0>CTRL-SHIFT-C</color>控制面板，<color=#1E81B0>CTRL-SHIFT-L</color>日志，<color=#1E81B0>CTRL-SHIFT-M</color>地图，<color=#1E81B0>CTRL-SHIFT-P</color>队伍控制面板的开关显示
-ModUi/&EnableHotkeyZoomCamera=启用<color=#1E81B0>CTRL-SHIFT-Z</color>拉伸镜头<i><color=yellow>[在拍摄地城截图用以发布时很有用]</color></i>
-ModUi/&EnableIgnoreCtrlClickOnCriticalHit=<i>+ 仅在非重击时才略过</i>
+ModUi/&EnableHotkeyZoomCamera=启用<color=#1E81B0>CTRL-SHIFT-Z</color>拉伸镜头<color=yellow>[在拍摄地城截图用以发布时很有用]</color>
+ModUi/&EnableIgnoreCtrlClickOnCriticalHit=+ 仅在非重击时才略过
 ModUi/&EnableInventoryFilteringAndSorting=启用物品栏筛选和排序功能
-ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ 将角色不熟练的物品染为红色</i>
+ModUi/&EnableInventoryTaintNonProficientItemsRed=+ 将角色不熟练的物品染为红色
 ModUi/&EnableInvisibleCrownOfTheMagister=将<color=orange>大法师之冠</color>于游戏UI隐藏
-ModUi/&EnableLevel20=启用20级<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&EnableLevel20=启用20级<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&EnableLogDialoguesToConsole=在对话日志中启用记录对话到游戏控制台的功能
 ModUi/&EnableMinInOutAttributes=强制兼职时的属性前置要求
 ModUi/&EnableOnTheFlyTranslations=启用实时自定义内容翻译
 ModUi/&EnableRelearnSpells=能学习已从其它职业习得的戏法和法术
 ModUi/&EnableRespec=启用在休息后重置角色和降级的功能
-ModUi/&EnablesAsiAndFeat=启用属性和专长的同时选择<i><color=yellow>[而非二选一]</color></i>
+ModUi/&EnablesAsiAndFeat=启用属性和专长的同时选择<color=yellow>[而非二选一]</color>
 ModUi/&EnableSaveByLocation=启用分战役/地点存档
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=启用<color=orange>法师</color>奥法战士子职的<color=orange>奥法武器</color>能力在短休时恢复
-ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=yellow>[例如：致命成功、致命失败等]</color></i>
-ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-T</color>传送队伍<i><color=yellow>[如果你传送到一个未发现的地点，你可能会破坏任务或地图]</color></i>
+ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<color=yellow>[例如：致命成功、致命失败等]</color>
+ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-T</color>传送队伍<color=yellow>[如果你传送到一个未发现的地点，你可能会破坏任务或地图]</color>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池切换键设置你的默认的游戏/测试队伍
-ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=启用<color=orange>法师</color>法术大师子职的<color=orange>奥术深研</color>能力可无限回复\n<i><color=yellow>必须在该能力有可用次数时或在创建角色前启用</color></i>
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=启用<color=orange>法师</color>法术大师子职的<color=orange>奥术深研</color>能力可无限回复\n<color=yellow>必须在该能力有可用次数时或在创建角色前启用</color>
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=orange>召唤元素</color>，<color=orange>召唤精类生物</color>的升环施法
 ModUi/&Encounters=遭遇战
 ModUi/&ExecuteBatchTranslations=. 批量翻译并创建以目标语言前缀的新战役文件
@@ -96,9 +96,9 @@ ModUi/&FasterTimeModifier=<color=white>按空格键时可调整游戏速度</col
 ModUi/&Feats=<color=yellow>专长</color>
 ModUi/&FeatsFightingStyles=专长与战斗风格
 ModUi/&FightingStyles=<color=yellow>战斗风格</color>
-ModUi/&FixSorcererTwinnedLogic=修复<color=orange>术士</color>孪生法术<i><color=yellow>[该法术在其当前环阶时不能同时指定多个生物为目标]</color></i>
+ModUi/&FixSorcererTwinnedLogic=修复<color=orange>术士</color>孪生法术<color=yellow>[该法术在其当前环阶时不能同时指定多个生物为目标]</color>
 ModUi/&FollowCharactersOnTeleport=摄像机跟随传送的角色
-ModUi/&FullyControlConjurations=完全控制召唤生物<i><color=yellow>[动物，元素等]</color></i>
+ModUi/&FullyControlConjurations=完全控制召唤生物<color=yellow>[动物，元素等]</color>
 ModUi/&Gameplay=游戏内容
 ModUi/&GameUi=游戏界面
 ModUi/&General=<color=yellow>通常：</color>
@@ -107,8 +107,8 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=在未发现前隐藏出口和
 ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%为单位显示怪物的生命值状态，而非精确的生命值
 ModUi/&HiderArmor=兽皮甲
 ModUi/&House=<color=yellow>房屋：</color>
-ModUi/&IncreaseSenseNormalVision=<color=white>提高<color=orange>正常视觉</color>距离以允许长距离攻击</color> <i><color=yellow>[40是一个相对理想的距离，以避免敌人从过远的距离加入战斗]</color></i>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&IncreaseSenseNormalVision=<color=white>提高<color=orange>正常视觉</color>距离以允许长距离攻击</color><color=yellow>[40是一个相对理想的距离，以避免敌人从过远的距离加入战斗]</color>
+ModUi/&IncreaseSenseNormalVisionHelp=<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&InitialChoices=<color=yellow>初始选择：</color>
 ModUi/&Interface=界面
 ModUi/&InventoryAndItems=<color=yellow>物品栏和物品：</color>
@@ -117,14 +117,14 @@ ModUi/&ItemInDm=物品加入地城制作
 ModUi/&Items=<color=yellow>物品：</color>
 ModUi/&ItemsCraftingMerchants=物品，制作和商人
 ModUi/&ItemsHelp1=<color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
-ModUi/&ItemsHelp2=<b>按+将物品添加至地面容器</b>
+ModUi/&ItemsHelp2=按+将物品添加至地面容器
 ModUi/&Input=键盘与鼠标
 ModUi/&ItemTag=物品标签
-ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
-ModUi/&MaxAllowedClasses=<color=white>最高职业数量</color> <i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔杖视为奥术法器<color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color><color=#C04040E0>[需要重启游戏]</color>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=+ 在关卡地图上标记已发现的隐形传送点的位置
+ModUi/&MaxAllowedClasses=<color=white>最高职业数量</color><color=#C04040E0>[需要重启游戏]</color>
 ModUi/&MaxBackupFilesPerLocationCampaign=<color=white>最高依地点/战役分类的备份存档数量</color>
-ModUi/&MaxBackupHelp=. 备份存档被保存在<i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
+ModUi/&MaxBackupHelp=. 备份存档被保存在<color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color>
 ModUi/&MaxSpellLevelsPerLine=<color=white>法术面版上每行最高环阶数</color>
 ModUi/&Merchants=<color=yellow>商人：</color>
 ModUi/&Monsters=<color=yellow>怪物：</color>
@@ -134,7 +134,7 @@ ModUi/&MultiplyTheExperienceGainedBy=<color=white>获得的经验倍率</color> 
 ModUi/&NoExperienceOnLevelUp=无需经验即可升级
 ModUi/&NotAvailable=在Mod上还没有可用的{0}……
 ModUi/&OfferAdditionalLoreFriendlyNames=在创建角色时提供更多有利于传闻的名字
-ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 只显示召唤列表中最强大的生物</i>
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=+ 只显示召唤列表中最强大的生物
 ModUi/&OverrideMinMaxLevel=在开启新的冒险时覆盖其最低/最高等级
 ModUi/&OverridePartySize=<color=white>覆盖自定义冒险的队伍大小</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>覆盖<color=orange>游荡者</color>诡徒子职的<color=orange>精通操纵</color>能力的法术DC</color>
@@ -150,17 +150,17 @@ ModUi/&RecipeCost=<color=white>配方消耗</color>
 ModUi/&RecipesInDm=配方加入地城制作
 ModUi/&ReduceDarkelfLightPenalty=将<color=orange>黑暗精灵</color>的强光敏感惩罚改为-1d4减值而非劣势
 ModUi/&RelicForgeries=遗物赝品
-ModUi/&RemoveAttunementRequirements=移除同调的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&RemoveBugVisualModels=将虫类模型以类似模型替代<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&RemoveConcentrationRequirementsFromAnySpell=移除任何法术的专注要求<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&RemoveHumanoidFilterOnHideousLaughter=移除<color=orange>塔莎狂笑术</color>的类人生物的要求 <i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&RemoveIdentifcationRequirements=移除检定的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=orange>纠缠术</color>法术效果 <i><color=yellow>[不会反复生效]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&RestockAntiquarians=古文物研究者补货<i><color=yellow>[哈尔曼·夏日]</color></i>
-ModUi/&RestockArcaneum=奥术协会补货<i><color=yellow>[赫德伦·确法]</color></i>
-ModUi/&RestockCircleOfDanantar=丹南塔尔之环补货<i><color=yellow>[乔瑞尔·狐眼]</color></i>
+ModUi/&RemoveAttunementRequirements=移除同调的先决条件<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&RemoveBugVisualModels=将虫类模型以类似模型替代<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell=移除任何法术的专注要求<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter=移除<color=orange>塔莎狂笑术</color>的类人生物的要求<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&RemoveIdentifcationRequirements=移除检定的先决条件<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=orange>纠缠术</color>法术效果<color=yellow>[不会反复生效]</color><color=#C04040E0>[需要重启游戏]</color>
+ModUi/&RestockAntiquarians=古文物研究者补货<color=yellow>[哈尔曼·夏日]</color>
+ModUi/&RestockArcaneum=奥术协会补货<color=yellow>[赫德伦·确法]</color>
+ModUi/&RestockCircleOfDanantar=丹南塔尔之环补货<color=yellow>[乔瑞尔·狐眼]</color>
 ModUi/&RestockHelp=. 覆盖默认，强制所有商人的库存在一段时间内重新补货（不包括手册和书卷）\n. 注意，一些商品可能需要长达7个游戏日的时间来补货
-ModUi/&RestockTowerOfKnowledge=知识之塔补货<i><color=yellow>[麦迪·绿岛]</color></i>
+ModUi/&RestockTowerOfKnowledge=知识之塔补货<color=yellow>[麦迪·绿岛]</color>
 ModUi/&Rules=规则
 ModUi/&ScaleMerchantPricesCorrectly=正确排列商人的价格
 ModUi/&SelectAll=选择全部
@@ -170,11 +170,11 @@ ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>设置使用<color=orange>�
 ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细工具提示中显示制作配方
 ModUi/&ShowDescriptions=显示说明
 ModUi/&SpellInstructions=. 你能将每个法术单独分配到任何法术列表中，或者简单地选择建议的配置
-ModUi/&SpellLevelFilter=<i><color=white>以法术等级筛选</color> <color=yellow>[设为-1以显示所有法术]</color></i>
+ModUi/&SpellLevelFilter=<color=white>以法术等级筛选</color><color=yellow>[设为-1以显示所有法术]</color>
 ModUi/&Spells=<color=yellow>法术：</color>
 ModUi/&SpellsMenu=法术
 ModUi/&SRD=<color=yellow>SRD：</color>
-ModUi/&StockGorimStoreWithAllNonMagicalClothing=在格里姆的商店里销售所有非魔法服装<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing=在格里姆的商店里销售所有非魔法服装<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店里销售<color=orange>鉴定魔杖</color>，<color=orange>奥术法杖</color>，<color=orange>德鲁伊项链</color>，<color=orange>法杖</color>和<color=orange>短棒</color>，并且设置为法器
 ModUi/&Subclasses=<color=yellow>子职</color>
 ModUi/&TargetLanguage=目标语言
@@ -184,8 +184,8 @@ ModUi/&Translate=翻译
 ModUi/&TranslateCancel=从{1}取消{0}
 ModUi/&TranslationEngine=翻译引擎
 ModUi/&Translations=翻译
-ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物</color><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&UnleashNpcAsEnemy=允许在怪物互动物件上选择NPC</color><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&UnleashNpcAsEnemy=允许在怪物互动物件上选择NPC<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&UnlockAllNpcFaces=解锁全部NPC脸型
 ModUi/&UnlockEyeStyles=解锁眼部样式
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos=解锁所有标记和纹身的发光颜色
@@ -193,7 +193,7 @@ ModUi/&UnlockGlowingEyeColors=解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters=解锁全部角色的标记和纹身
 ModUi/&UseHeightOneCylinderEffect=施放<color=orange>艾伐黑触手、纠缠术、油腻术</color>(方形)和<color=orange>荆棘丛生</color>(圆形)时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
-ModUi/&Visuals=<color=yellow>视效：</color><i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&Visuals=<color=yellow>视效：</color><color=#C04040E0>[需要重启游戏]</color>
 ModUi/&TotalCraftingTimeModifier=<color=white>制作耗时降低倍率</color>
 ModUi/&WeaponTag=武器标签
-ModUi/&ScaleGameFontSizeBy=<color=white>以<color=#C04040E0>[%]</color>比例缩放游戏字体大小</color>\n<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&ScaleGameFontSizeBy=<color=white>以<color=#C04040E0>[%]</color>比例缩放游戏字体大小</color>\n<color=#C04040E0>[需要重启游戏]</color>
