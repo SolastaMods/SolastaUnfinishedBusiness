@@ -21,6 +21,11 @@ internal static class ItemOptionsContext
         "Studded Leather", "Sylvan Armor", "Wizard Clothes"
     };
 
+    internal static readonly string[] ArcaneShieldstaffOptions =
+    {
+        "Default Classes", "Add Druid and Sorcerer", "Add All Classes"
+    };
+
     private static readonly List<ItemDefinition> Crowns = new()
     {
         CrownOfTheMagister,
@@ -238,6 +243,24 @@ internal static class ItemOptionsContext
         }
     }
 
+    internal static void SwitchAttuneArcaneShieldstaff()
+    {
+        switch (Main.Settings.ArcaneShieldstaffOptions)
+        {
+            case "Default Classes":
+                break;
+
+            case "Add Druid and Sorcerer":
+                ArcaneShieldstaff.RequiredAttunementClasses.Clear();
+                ArcaneShieldstaff.RequiredAttunementClasses.AddRange(WandOfLightningBolts.RequiredAttunementClasses);
+                break;
+
+            case "Add All Classes":
+                ArcaneShieldstaff.RequiredAttunementClasses.Clear();
+                break;
+        }
+    }
+
     internal static void SwitchRestockAntiquarian()
     {
         if (!Main.Settings.RestockAntiquarians)
@@ -345,6 +368,7 @@ internal static class ItemOptionsContext
         SwitchRestockCircleOfDanantar();
         SwitchRestockTowerOfKnowledge();
         SwitchUniversalSylvanArmorAndLightbringer();
+        SwitchAttuneArcaneShieldstaff();
     }
 
     private sealed class WandIdentifyBuilder : ItemDefinitionBuilder
