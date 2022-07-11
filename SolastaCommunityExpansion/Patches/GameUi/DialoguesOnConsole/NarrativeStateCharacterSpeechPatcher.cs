@@ -14,8 +14,6 @@ internal static class NarrativeStateCharacterSpeech_RecordSpeechLine_Getter
             return;
         }
 
-        var screen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
-
-        screen.Game.GameConsole.LogSimpleLine($"<b><color=yellow>{speakerName}:</color></b> {textLine}");
+        Gui.Game.GameConsole.LogSimpleLine($"<b><color=yellow>{speakerName}:</color></b> {textLine}");
     }
 }
