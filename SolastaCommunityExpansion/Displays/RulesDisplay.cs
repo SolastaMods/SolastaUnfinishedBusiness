@@ -162,8 +162,6 @@ internal static class RulesDisplay
 
         UI.Label("");
 
-        UI.Label("");
-
         using (UI.HorizontalScope())
         {
             UI.Label(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), UI.AutoWidth());
@@ -177,6 +175,8 @@ internal static class RulesDisplay
                 ItemOptionsContext.SwitchAttuneArcaneShieldstaff();
             }
         }
+
+        UI.Label("");
 
         var intValue = Main.Settings.IncreaseSenseNormalVision;
         UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
