@@ -19,6 +19,7 @@ ModUi/&AllowUnmarkedSorcerers=允许<color=orange>术士</color>没有脸部印�
 ModUi/&AllRecipesInDm=所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<color=yellow>[仅限自定义地牢]</color>
 ModUi/&ApplySRDWeightToFoodRations=将口粮的重量减少至2磅
+ModUi/&ArcaneShieldstaffOptions=<color=#D89555>奥术盾杖</color>同调选项：\n<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&AutoPauseOnVictory=战斗胜利后暂停游戏
 ModUi/&Basic=<color=yellow>基础：</color>
 ModUi/&Battle=<color=yellow>战斗：</color>
