@@ -21,8 +21,8 @@ internal static class ItemOptionsContext
         "Studded Leather", "Sylvan Armor", "Wizard Clothes"
     };
 
-    internal const string ArcaneShieldDefault = "Default";
-    private const string ArcaneShieldAddDruidAndSorcerer = "Add Druid and Sorcerer";
+    internal const string ArcaneShieldDefault = "None(Default)";
+    private const string ArcaneShieldAddDruidAndSorcerer = "Druid & Sorcerer";
     private const string ArcaneShieldAll = "All";
 
     internal static readonly string[] ArcaneShieldstaffOptions =
@@ -252,11 +252,25 @@ internal static class ItemOptionsContext
         switch (Main.Settings.ArcaneShieldstaffOptions)
         {
             case ArcaneShieldDefault:
-                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger);
+                if (!Main.Settings.ClassEnabled.Contains(Classes.Warlock.Warlock.ClassWarlock.Name))
+                {
+                    ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger);
+                }
+                else
+                {
+                    ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Classes.Warlock.Warlock.ClassWarlock);
+                }                
                 break;
 
             case ArcaneShieldAddDruidAndSorcerer:
-                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Druid, Sorcerer);
+                if (!Main.Settings.ClassEnabled.Contains(Classes.Warlock.Warlock.ClassWarlock.Name))
+                {
+                    ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Druid, Sorcerer);
+                }
+                else
+                {
+                    ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Druid, Sorcerer, Classes.Warlock.Warlock.ClassWarlock);
+                }             
                 break;
 
             case ArcaneShieldAll:

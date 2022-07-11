@@ -19,7 +19,7 @@ ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without orig
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view <i><color=#F0DAA0>[only in custom dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce weight of food ration to 2 pounds
-ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arcane Shieldstaff</color> attunement options:\n<b><i><color=#C04040E0>[Default Requires Restart]</color></i></b>
+ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arcane Shieldstaff</color> Add classes:
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Battle=<color=#F0DAA0>Battle:</color>
