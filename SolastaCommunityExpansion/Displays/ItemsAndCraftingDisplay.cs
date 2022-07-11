@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using ModKit;
 using SolastaCommunityExpansion.Models;
@@ -91,6 +92,23 @@ internal static class ItemsAndCraftingDisplay
                     UI.AutoWidth()))
             {
                 Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
+            }
+        }
+
+        UI.Label("");
+
+        using (UI.HorizontalScope())
+        {
+            UI.Label(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), UI.Width(325));
+
+            var intValue2 = Array.IndexOf(ItemOptionsContext.ArcaneShieldstaffOptions,
+                Main.Settings.ArcaneShieldstaffOptions);
+
+            if (UI.SelectionGrid(ref intValue2, ItemOptionsContext.ArcaneShieldstaffOptions,
+                    ItemOptionsContext.ArcaneShieldstaffOptions.Length, 3, UI.Width(440)))
+            {
+                Main.Settings.ArcaneShieldstaffOptions = ItemOptionsContext.ArcaneShieldstaffOptions[intValue2];
+                ItemOptionsContext.SwitchAttuneArcaneShieldstaff();
             }
         }
 

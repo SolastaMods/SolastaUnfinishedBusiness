@@ -9,8 +9,6 @@ internal static class RulesDisplay
 {
     internal static void DisplayRules()
     {
-        int intValue2;
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label("");
@@ -158,22 +156,6 @@ internal static class RulesDisplay
         {
             Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
             ItemOptionsContext.SwitchMagicStaffFoci();
-        }
-
-        UI.Label("");
-
-        using (UI.HorizontalScope())
-        {
-            UI.Label(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), UI.AutoWidth());
-
-            intValue2 = Array.IndexOf(ItemOptionsContext.ArcaneShieldstaffOptions,
-                Main.Settings.ArcaneShieldstaffOptions);
-            if (UI.SelectionGrid(ref intValue2, ItemOptionsContext.ArcaneShieldstaffOptions,
-                    ItemOptionsContext.ArcaneShieldstaffOptions.Length, 3, UI.AutoWidth()))
-            {
-                Main.Settings.ArcaneShieldstaffOptions = ItemOptionsContext.ArcaneShieldstaffOptions[intValue2];
-                ItemOptionsContext.SwitchAttuneArcaneShieldstaff();
-            }
         }
 
         UI.Label("");

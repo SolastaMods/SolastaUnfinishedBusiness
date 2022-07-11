@@ -21,9 +21,13 @@ internal static class ItemOptionsContext
         "Studded Leather", "Sylvan Armor", "Wizard Clothes"
     };
 
+    internal const string ArcaneShieldDefault = "Default";
+    private const string ArcaneShieldAddDruidAndSorcerer = "Add Druid and Sorcerer";
+    private const string ArcaneShieldAll = "All";
+
     internal static readonly string[] ArcaneShieldstaffOptions =
     {
-        "Default Classes", "Add Druid and Sorcerer", "Add All Classes"
+        ArcaneShieldDefault, ArcaneShieldAddDruidAndSorcerer, ArcaneShieldAll
     };
 
     private static readonly List<ItemDefinition> Crowns = new()
@@ -247,15 +251,15 @@ internal static class ItemOptionsContext
     {
         switch (Main.Settings.ArcaneShieldstaffOptions)
         {
-            case "Default Classes":
+            case ArcaneShieldDefault:
+                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger);
                 break;
 
-            case "Add Druid and Sorcerer":
-                ArcaneShieldstaff.RequiredAttunementClasses.Clear();
-                ArcaneShieldstaff.RequiredAttunementClasses.AddRange(WandOfLightningBolts.RequiredAttunementClasses);
+            case ArcaneShieldAddDruidAndSorcerer:
+                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Druid, Sorcerer);
                 break;
 
-            case "Add All Classes":
+            case ArcaneShieldAll:
                 ArcaneShieldstaff.RequiredAttunementClasses.Clear();
                 break;
         }

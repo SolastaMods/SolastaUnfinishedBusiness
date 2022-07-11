@@ -163,7 +163,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
-    public string ArcaneShieldstaffOptions { get; set; } = "Add Druid and Sorcerer";
+    public string ArcaneShieldstaffOptions { get; set; } = ItemOptionsContext.ArcaneShieldDefault;
     public int IncreaseSenseNormalVision { get; set; } = HouseFeatureContext.DefaultVisionRange;
 
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
