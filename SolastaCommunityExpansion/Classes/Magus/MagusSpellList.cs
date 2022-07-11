@@ -1,9 +1,6 @@
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaCommunityExpansion.Spells.AceHighSpells;
-using static SolastaCommunityExpansion.Spells.EWSpells;
 
 namespace SolastaCommunityExpansion.Classes.Magus;
 
@@ -358,10 +355,10 @@ public static class MagusSpells
         .Create("ClassMagusSpellList", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation("ClassMagusSpellList", Category.Class)
         .ClearSpells()
-        .SetSpellsAtLevel(0, SunlightBlade, ResonatingStrike, TrueStrike, Sparkle, Light, FireBolt, ChillTouch, RayOfFrost, ShockingGrasp)
-        .SetSpellsAtLevel(1, Shield, MageArmor, ExpeditiousRetreat, ProtectionFromEvilGood, FeatherFall, InflictWounds, Sleep, Bane)
-        .SetSpellsAtLevel(2, SeeInvisibility, HoldPerson, Invisibility, MistyStep, RayOfEnfeeblement, Shatter, SpiderClimb, ScorchingRay, Blur, Silence)
-        .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, Slow, Haste, BestowCurse, StinkingCloud, Fireball, LightningBolt)
+        .SetSpellsAtLevel(0, Sparkle, Light, FireBolt, ChillTouch, RayOfFrost, ShockingGrasp, TrueStrike, ShadowDagger)
+        .SetSpellsAtLevel(1, Shield, MageArmor, ExpeditiousRetreat, ProtectionFromEvilGood, FeatherFall, InflictWounds, Sleep, BurningHands, Jump, Longstrider, GuidingBolt)
+        .SetSpellsAtLevel(2, SeeInvisibility, HoldPerson, MistyStep, FlameBlade, Shatter, SpiderClimb, ScorchingRay, Blur, FlamingSphere, AcidArrow, MagicWeapon, Blindness, RayOfEnfeeblement)
+        .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, Slow, Haste, BestowCurse, StinkingCloud, Fireball, LightningBolt, ProtectionFromEnergy, SleetStorm)
         .SetSpellsAtLevel(4, Banishment, Blight, DimensionDoor, GreaterInvisibility, PhantasmalKiller)
         .SetSpellsAtLevel(5, HoldMonster, MindTwist, ConjureElemental, Contagion)
         .SetSpellsAtLevel(6, Sunbeam, Disintegrate, GlobeOfInvulnerability, Eyebite)

@@ -64,4 +64,6 @@ public static class CharacterValidators
             return character is RulesetCharacterHero hero && hero.activeFeatures.Any(item => item.Value.Contains(feature));
         };
     }
+
+    public static readonly CharacterValidator UseSpellStrike = _ => Global.IsSpellStrike;
 }

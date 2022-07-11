@@ -89,6 +89,10 @@ public static class PlayerControllerContext
             Gui.ActivePlayerController.ControlledCharacters.Clear();
             Gui.ActivePlayerController.ControlledCharacters.AddRange(enemies);
         }
+
+        Global.IsSpellStrike = false;
+        Global.SpellStrikeRollOutcome = RuleDefinitions.RollOutcome.Neutral;
+        Global.SpellStrikeDieRoll = -1;
     }
 
     internal static void Stop(GameLocationBattle battle)
