@@ -13,6 +13,7 @@ internal static class CeContentPackContext
         CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
 
     public const string CeTag = "CommunityExpansion";
+    public const string DmTag = "ExtendedByCE";
 
     private static readonly ContentPackDefinition ContentPackDefinition = CreateContentPackDefinition();
 

@@ -1,5 +1,4 @@
-﻿using System;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Spells;
 

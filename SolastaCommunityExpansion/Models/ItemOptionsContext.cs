@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Classes.Warlock;
 using UnityEngine.AddressableAssets;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
@@ -15,22 +16,16 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class ItemOptionsContext
 {
+    internal const string ArcaneShieldDefault = "None(Default)";
+    private const string ArcaneShieldAddDruidAndSorcerer = "Druid & Sorcerer";
+
+    private const string ArcaneShieldAll = "All";
+
     // TODO: Add proper translations to these
     internal static readonly string[] EmpressGarbAppearances =
     {
         "Normal", "Barbarian Clothes", "Druid Leather", "Elven Chain", "Plain Shirt", "Sorcerer's Armor",
         "Studded Leather", "Sylvan Armor", "Wizard Clothes"
-    };
-
-    internal const string ArcaneShieldDefault = "None(Default)";
-    private const string ArcaneShieldAddDruidAndSorcerer = "Druid & Sorcerer";
-    private const string ArcaneShieldAll = "All";
-
-    internal static string[] ArcaneShieldstaffOptions { get; private set; } =
-    {
-        Gui.Localize("ModUI/&ArcaneShieldDefault"),
-        Gui.Localize("ModUI/&ArcaneShieldAddDruidAndSorcerer"),
-        Gui.Localize("ModUI/&ArcaneShieldAll")
     };
 
     private static readonly List<ItemDefinition> Crowns = new()
@@ -48,6 +43,12 @@ internal static class ItemOptionsContext
         CrownOfTheMagister10,
         CrownOfTheMagister11,
         CrownOfTheMagister12
+    };
+
+    internal static string[] ArcaneShieldstaffOptions { get; } =
+    {
+        Gui.Localize("ModUI/&ArcaneShieldDefault"), Gui.Localize("ModUI/&ArcaneShieldAddDruidAndSorcerer"),
+        Gui.Localize("ModUI/&ArcaneShieldAll")
     };
 
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
@@ -259,7 +260,7 @@ internal static class ItemOptionsContext
 
                 if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
                 {
-                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Classes.Warlock.Warlock.ClassWarlock);
+                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
                 }
 
                 break;
@@ -269,7 +270,7 @@ internal static class ItemOptionsContext
 
                 if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
                 {
-                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Classes.Warlock.Warlock.ClassWarlock);
+                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
                 }
 
                 break;

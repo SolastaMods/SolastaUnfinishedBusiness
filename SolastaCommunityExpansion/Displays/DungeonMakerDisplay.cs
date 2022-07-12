@@ -21,12 +21,16 @@ internal static class DungeonMakerDisplay
             Main.Settings.AllowDungeonsMaxLevel20 = toggle;
         }
 
-        UI.Label("");
-
         toggle = Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere"), ref toggle))
         {
             Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere = toggle;
+        }
+
+        toggle = Main.Settings.UnleashEnemyAsNpc;
+        if (UI.Toggle(Gui.Localize("ModUi/&UnleashEnemyAsNpc"), ref toggle))
+        {
+            Main.Settings.UnleashEnemyAsNpc = toggle;
         }
 
         #endregion
@@ -50,14 +54,6 @@ internal static class DungeonMakerDisplay
             Main.Settings.UnleashNpcAsEnemy = toggle;
         }
 
-        toggle = Main.Settings.UnleashEnemyAsNpc;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnleashEnemyAsNpc"), ref toggle))
-        {
-            Main.Settings.UnleashEnemyAsNpc = toggle;
-        }
-
-        UI.Label("");
-
         toggle = Main.Settings.EnableDungeonMakerModdedContent;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableDungeonMakerModdedContent"), ref toggle))
         {
@@ -67,13 +63,5 @@ internal static class DungeonMakerDisplay
         UI.Label("");
         UI.Label("");
         UI.Label("");
-
-        // toggle = Main.Settings.EnableExtraHighLevelMonsters;
-        // if (UI.Toggle(Gui.Localize("ModUi/&EnableExtraHighLevelMonsters"), ref toggle))
-        // {
-        //     Main.Settings.EnableExtraHighLevelMonsters = toggle;
-        // }
-
-        // UI.Label("");
     }
 }
