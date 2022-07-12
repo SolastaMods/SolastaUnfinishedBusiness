@@ -1,6 +1,6 @@
-﻿Equipment/&ScrollConjureMinorElementalDescription=当你使用此卷轴时，你施放“召唤小型元素”法术
 Equipment/&ScrollConjureMinorElementalTitle=召唤小型元素卷轴
 Equipment/&ScrollDeathWardDescription=当你使用此卷轴时，你施放“防死结界”法术
 Equipment/&ScrollDeathWardTitle=防死结界卷轴
 Feature/&AttributeModifier{0}Description={0}
 Prop/&PrisonFenceDestroyedTitle=监狱护栏被摧毁
+Equipment/&ScrollConjureMinorElementalDescription=当你使用此卷轴时，你施放“召唤小型元素”法术

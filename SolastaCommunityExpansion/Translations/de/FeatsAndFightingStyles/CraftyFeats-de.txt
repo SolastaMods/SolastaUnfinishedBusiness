@@ -1,4 +1,3 @@
-﻿Feat/&ApothecaryIntDescription=Erhöhe deine Intelligenz um 1 bis zu einem Maximum von 20.\n Du erlangst Kenntnisse im Umgang mit dem Kräuterkunde-Kit und Arcana oder Fachwissen, wenn du bereits geübt bist.
 Feat/&ApothecaryIntTitle=Apotheker (Geheimdienst)
 Feat/&ApothecaryWisDescription=Erhöhe deine Weisheit um 1 bis zu einem Maximum von 20.\nDu erlangst Kenntnisse im Umgang mit dem Kräuterkunde-Kit und Arcana oder Fachwissen, wenn du bereits geübt bist.
 Feat/&ApothecaryWisTitle=Apotheker (Weisheit)
@@ -20,3 +19,4 @@ Feat/&ToxicologistIntDescription=Erhöhe deine Intelligenz um 1 bis zu einem Max
 Feat/&ToxicologistIntTitle=Toxikologe (Geheimdienst)
 Feat/&ToxicologistWisDescription=Erhöhe deine Weisheit um 1 bis zu einem Maximum von 20.\nDu erlangst Kenntnisse im Umgang mit Giftausrüstung und Medizin oder Fachwissen, falls du bereits geübt bist.
 Feat/&ToxicologistWisTitle=Toxikologe (Weisheit)
+Feat/&ApothecaryIntDescription=Erhöhe deine Intelligenz um 1 bis zu einem Maximum von 20.\n Du erlangst Kenntnisse im Umgang mit dem Kräuterkunde-Kit und Arcana oder Fachwissen, wenn du bereits geübt bist.

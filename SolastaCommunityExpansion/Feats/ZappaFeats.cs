@@ -24,7 +24,7 @@ internal static class ZappaFeats
     internal const string ElvenAccuracyTag = "ElvenAccuracy";
     private static readonly Guid ZappaFeatNamespace = new("514f14e3-db8e-47b3-950a-350e8cae37d6");
 
-    internal static void CreateFeats(List<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         // Arcane Defense
         var arcaneDefense = FeatDefinitionBuilder

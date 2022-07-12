@@ -1,4 +1,7 @@
-﻿ModUi/&AddAllToStore=Adicionar tudo à loja
+ModUI/&ArcaneShieldAddDruidAndSorcerer=Druida e Feiticeiro
+ModUI/&ArcaneShieldAll=Todas as classes
+ModUI/&ArcaneShieldDefault=Nenhum [Padrão]
+ModUI/&EnableBetaContent=Ative o conteúdo beta <i><color=#F0DAA0>[lembre-se de que seus salvamentos ou heróis podem quebrar no futuro]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> às condições removidas pela <color=#D89555>Restauração maior e menor</color>
 ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as corridas
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -9,6 +12,7 @@ ModUi/&Advanced=<color=#F0DAA0>Avançado:</color>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENÇÃO:</color></b> Essas configurações exigirão que o jogador tenha este mod instalado
 ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos os itens em DM
+ModUi/&AllRecipesInDm=Todas as receitas em DM
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que qualquer classe use armaduras silvestres ou roupas de luz
 ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20 <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -16,7 +20,6 @@ ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Permitir que gadgets e adereços s
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <i><color=#F0DAA0>[ex. 2x500gp diamante é equivalente a 1000gp diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir a seleção de alvo ao lançar o feitiço <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Feiticeiro</color> sem marcas de origem e tatuagens
-ModUi/&AllRecipesInDm=Todas as receitas em DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca os gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente em masmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduza o peso da ração alimentar para 2 libras
 ModUi/&ArcaneShieldstaffOptions=Estenda as classes permitidas em <color=#D89555>Arcane Shieldstaff</color>:
@@ -52,7 +55,6 @@ ModUi/&EnableAdditionalBackstoryDisplay=Ativar exibição de história de fundo 
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de nível
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Ative o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 escolhas de atributo / +1 habilidade]</color></i>
-ModUI/&EnableBetaContent=Ative o conteúdo beta <i><color=#F0DAA0>[lembre-se de que seus salvamentos ou heróis podem quebrar no futuro]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Ative a ação de cancelamento com o botão direito do mouse
 ModUi/&EnableCharacterChecker=Ative a tela do verificador de caracteres
 ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color>exportar caractere <i><color=#F0DAA0>[somente na tela de inspeção de caractere]</color></i>
@@ -79,7 +81,6 @@ ModUi/&EnableMinInOutAttributes=Aplicar os pré-requisitos mínimos de entrada e
 ModUi/&EnableOnTheFlyTranslations=Habilite traduções de conteúdo personalizado em tempo real
 ModUi/&EnableRelearnSpells=Pode selecionar truques ou feitiços já aprendidos de outras classes
 ModUi/&EnableRespec=Ative as ações RESPEC e Level Down após descanso
-ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributo e a seleção de talentos <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas/locais
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Ative a recarga de descanso curto da <color=#D89555>Arma Arcana</color> no <color=#D89555>Assistente</color> Lutador Arcano
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas etc.]</color></i>
@@ -87,6 +88,7 @@ ModUi/&EnableTeleportParty=Ative <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport pa
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Ative a <color=#D89555>Recuperação Arcana</color> ilimitada no <color=#D89555>Assistente</color> Mestre de Feitiços\n<i><color=#F0DAA0>Deve ser ativado quando a habilidade tiver usos disponíveis ou antes da criação do personagem</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Ative o upcast de <color=#D89555>Conjure Elemental</color>, <color=#D89555>Conjure Fey</color>
+ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributo e a seleção de talentos <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
 ModUi/&Encounters=Encontros
 ModUi/&ExecuteBatchTranslations=. Traduzir em lote para criar uma nova campanha prefixada pelo idioma de destino
 ModUi/&ExpandAll=Expandir todos
@@ -99,8 +101,8 @@ ModUi/&FightingStyles=<color=#F0DAA0>Estilos de luta</color>
 ModUi/&FixSorcererTwinnedLogic=Correção de <color=#D89555>Feiticeiro</color> uso metamágico geminado <i><color=#F0DAA0>[um feitiço deve ser incapaz de atingir mais de uma criatura no nível atual do feitiço]</color></i>
 ModUi/&FollowCharactersOnTeleport=A câmera segue os personagens teletransportados
 ModUi/&FullyControlConjurations=Controle totalmente as conjurações <i><color=#F0DAA0>[animais, elementais, etc]</color></i>
-ModUi/&Gameplay=Jogabilidade
 ModUi/&GameUi=IU do jogo
+ModUi/&Gameplay=Jogabilidade
 ModUi/&General=<color=#F0DAA0>Geral:</color>
 ModUi/&GeneralMenu=Em geral
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar efeitos visuais de saídas e teletransportadores se ainda não foram descobertos
@@ -115,11 +117,11 @@ ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventário e itens:</color>
 ModUi/&InvertAltBehaviorOnTooltips=Inverter o comportamento da tecla <color=#1E81B0>ALT</color> nas dicas de ferramentas
 ModUi/&ItemInDm=Itens no DM
+ModUi/&ItemTag=Etiqueta do item
 ModUi/&Items=<color=#F0DAA0>Itens:</color>
 ModUi/&ItemsCraftingMerchants=Itens, artesanato e comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Você deve ter a tela de inspeção de personagem aberta para adicionar itens aos heróis...</color>
 ModUi/&ItemsHelp2=<b>Pressione + para adicionar itens ao contêiner de solo</b>
-ModUi/&ItemTag=Etiqueta do item
 ModUi/&MakeAllMagicStaveArcaneFoci=Faça todas as pautas mágicas focos arcanos <i><color=#F0DAA0>[exceto <color=#D89555>Cajado de Cura</color> que é Universal]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização de teletransportadores invisíveis no mapa de nível após a descoberta</i>
 ModUi/&MaxAllowedClasses=<color=white>Máximo de aulas permitidas</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -162,6 +164,8 @@ ModUi/&RestockCircleOfDanantar=Reabastecer Círculo de Danantar <i><color=#F0DAA
 ModUi/&RestockHelp=. Substitua os padrões para forçar todo o estoque de um comerciante a reabastecer ao longo do tempo (excluindo Manuais e Tomos)\n. Observe que alguns itens podem levar até 7 dias de jogo para serem reabastecidos
 ModUi/&RestockTowerOfKnowledge=Reabastecer a Torre do Conhecimento <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Regras
+ModUi/&SRD=<color=#F0DAA0>SRD:</color>
+ModUi/&ScaleGameFontSizeBy=<color=white>Redimensionar o tamanho da fonte do jogo em</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&ScaleMerchantPricesCorrectly=Dimensione os preços do comerciante corretamente/exatamente
 ModUi/&SelectAll=Selecionar tudo
 ModUi/&SelectSuggested=Selecionar sugerido
@@ -173,7 +177,6 @@ ModUi/&SpellInstructions=. Você pode atribuir individualmente cada feitiço a q
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> <color=#F0DAA0>[-1 para exibir todos os feitiços]</color></i></b>
 ModUi/&Spells=<color=#F0DAA0>Feitiços:</color>
 ModUi/&SpellsMenu=Feitiços
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Abastece a loja de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Estoque a loja de Hugo com <color=#D89555>Varinha de Identificação</color>, <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555> Staff</color> e <color=#D89555>Clube</color> definidos como itens de foco
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
@@ -196,7 +199,4 @@ ModUi/&UseHeightOneCylinderEffect=Exibe um efeito de cilindro de altura 1 ao lan
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&WeaponTag=Marca de Arma
-ModUi/&ScaleGameFontSizeBy=<color=white>Redimensionar o tamanho da fonte do jogo em</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUI/&ArcaneShieldDefault=Nenhum [Padrão]
-ModUI/&ArcaneShieldAddDruidAndSorcerer=Druida e Feiticeiro
-ModUI/&ArcaneShieldAll=Todas as classes
+ModUi/&AddAllToStore=Adicionar tudo à loja

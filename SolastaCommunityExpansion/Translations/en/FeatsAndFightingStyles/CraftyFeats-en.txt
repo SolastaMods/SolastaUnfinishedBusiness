@@ -1,4 +1,3 @@
-﻿Feat/&ApothecaryIntDescription=Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 Feat/&ApothecaryIntTitle=Apothecary [Int]
 Feat/&ApothecaryWisDescription=Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 Feat/&ApothecaryWisTitle=Apothecary [Wis]
@@ -20,3 +19,4 @@ Feat/&ToxicologistIntDescription=Increase your Intelligence by 1, to a maximum o
 Feat/&ToxicologistIntTitle=Toxicologist [Int]
 Feat/&ToxicologistWisDescription=Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
 Feat/&ToxicologistWisTitle=Toxicologist [Wis]
+Feat/&ApothecaryIntDescription=Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.

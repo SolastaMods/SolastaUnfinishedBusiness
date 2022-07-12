@@ -1,6 +1,8 @@
-﻿Feat/&FeatCripplingDescription=When you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.
 Feat/&FeatCripplingTitle=Fighting Style: Crippling
-Feat/&FightingStyleArcheryDescription=You gain a +2 bonus to attack rolls with ranged weapons.
+Feat/&FeatPugilistFightingStlyeDescription=Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have a free hand, you can shove as a bonus action.
+Feat/&FeatPugilistFightingStlyeTitle=Fighting Style: Pugilist
+Feat/&FeatTitanFightingDescription=You gain a +2 to hit against creatures of Large size or bigger.
+Feat/&FeatTitanFightingTitle=Fighting Style: Titan FightingFeat/&FightingStyleArcheryDescription=You gain a +2 bonus to attack rolls with ranged weapons.
 Feat/&FightingStyleArcheryTitle=Fighting Style: Archery
 Feat/&FightingStyleDefenseDescription=While you are wearing armor, you gain a +1 bonus to AC.
 Feat/&FightingStyleDefenseTitle=Fighting Style: Defense
@@ -12,7 +14,4 @@ Feat/&FightingStyleProtectionDescription=When a creature you can see attacks a t
 Feat/&FightingStyleProtectionTitle=Fighting Style: Protection
 Feat/&FightingStyleTwoWeaponDescription=When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 Feat/&FightingStyleTwoWeaponTitle=Fighting Style: Two Weapon
-Feat/&FeatPugilistFightingStlyeDescription=Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have a free hand, you can shove as a bonus action.
-Feat/&FeatPugilistFightingStlyeTitle=Fighting Style: Pugilist
-Feat/&FeatTitanFightingDescription=You gain a +2 to hit against creatures of Large size or bigger.
-Feat/&FeatTitanFightingTitle=Fighting Style: Titan Fighting
+Feat/&FeatCripplingDescription=When you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.

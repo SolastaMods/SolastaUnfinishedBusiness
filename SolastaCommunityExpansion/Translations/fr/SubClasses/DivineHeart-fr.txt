@@ -1,4 +1,3 @@
-﻿Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si vous lancez un sort de soin ce tour-ci, vous relancez un résultat de 1 ou 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Guérison renforcée
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 point de vie par niveau
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Courage divin
@@ -25,3 +24,4 @@ Feature/&PowerDivineHeartPlanarPortalDescription=Ouvre un portail qui peut trans
 Feature/&PowerDivineHeartPlanarPortalTitle=Portail planaire
 Subclass/&SorcerousDivineHeartDescription=Votre magie innée vous a été transmise par une divinité dans un but que vous ne comprenez peut-être pas.
 Subclass/&SorcerousDivineHeartTitle=Cœur Divin
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si vous lancez un sort de soin ce tour-ci, vous relancez un résultat de 1 ou 2.

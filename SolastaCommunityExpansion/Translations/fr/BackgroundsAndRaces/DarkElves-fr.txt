@@ -1,4 +1,3 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Vous avez un désavantage sur la perception.
 Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Inconvénient sur la perception
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisme +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Augmentation du score de capacité
@@ -20,3 +19,4 @@ Race/&DarkelfSurName2Title=DhalNeridthas
 Race/&DarkelfSurName3Title=DhalNerwenys
 Race/&DarkelfSurName4Title=Zo'Sonta
 Race/&DarkelfSurName5Title=Zo'Remon
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Vous avez un désavantage sur la perception.

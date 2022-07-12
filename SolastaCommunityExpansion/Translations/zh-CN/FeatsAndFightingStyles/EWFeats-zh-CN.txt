@@ -1,8 +1,7 @@
-﻿Feat/&FeatPolearmExpertDescription=你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n• 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
-Feat/&FeatPolearmExpertTitle=长柄武器大师
-Feat/&FeatSentinelDescription=你掌握的技术使你在击破敌人防御时占尽优势，获得以下增益：\n• 当你借机攻击命中一个生物时，其在本回合剩余时间内移动速度降至0\n• 生物即使执行撤离动作离开你的触及范围也会引发你的借机攻击\n•=处于你触及范围内的生物（其无本专长）对除你外的目标发动攻击后，你能以反应对此攻击者发动一次近战攻击
-Feat/&FeatSentinelTitle=哨兵
+Condition/&SentinelStopMovementConditionDescription=无法移动。速度设为0
+Condition/&SentinelStopMovementConditionTitle=停止Feat/&FeatPolearmExpertTitle=长柄武器大师
 Feat/&FeatRangedExpertDescription=你擅于使用远程武器，获得以下增益：\n• 当有敌人在你5英尺内时，你的远程攻击不再具有劣势\n• 若你在回合内执行攻击动作，你能使用附赠动作以单持的远程或投掷武器进行一次攻击
 Feat/&FeatRangedExpertTitle=远程武器大师
-Condition/&SentinelStopMovementConditionDescription=无法移动。速度设为0
-Condition/&SentinelStopMovementConditionTitle=停止
+Feat/&FeatSentinelDescription=你掌握的技术使你在击破敌人防御时占尽优势，获得以下增益：\n• 当你借机攻击命中一个生物时，其在本回合剩余时间内移动速度降至0\n• 生物即使执行撤离动作离开你的触及范围也会引发你的借机攻击\n•=处于你触及范围内的生物（其无本专长）对除你外的目标发动攻击后，你能以反应对此攻击者发动一次近战攻击
+Feat/&FeatSentinelTitle=哨兵
+Feat/&FeatPolearmExpertDescription=你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n• 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击

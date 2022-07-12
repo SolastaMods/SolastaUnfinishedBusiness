@@ -20,6 +20,6 @@ Feature/&RangerVanishActionTitle=Disparaître
 Feature/&ZSPowerPaladinCleansingTouchDescription=Supprimez les effets des sorts en touchant un allié. Vous pouvez le faire un nombre de fois par jour égal à votre modificateur de Charisme.
 Feature/&ZSPowerPaladinCleansingTouchTitle=Toucher nettoyant
 RestActivity/&ZSSorcerousRestorationDescription=Récupérez 4 points de sorcellerie pendant un repos court.
-RestActivity/&ZSSorcerousRestorationTitle=Restauration Sorcière
 RestActivity/&ZSSorcerousRestorationDescription=Récupérez 4 points de sorcellerie pendant un repos court.
+RestActivity/&ZSSorcerousRestorationTitle=Restauration Sorcière
 RestActivity/&ZSSorcerousRestorationTitle=Restauration Sorcière

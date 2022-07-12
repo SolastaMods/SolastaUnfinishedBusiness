@@ -1,4 +1,3 @@
-﻿Feat/&ApothecaryIntDescription=Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de ervas e Arcana, ou perícia se já for proficiente.
 Feat/&ApothecaryIntTitle=Boticário (Inteligência)
 Feat/&ApothecaryWisDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de ervas e Arcana, ou perícia se já for proficiente.
 Feat/&ApothecaryWisTitle=Boticário (Sabedoria)
@@ -20,3 +19,4 @@ Feat/&ToxicologistIntDescription=Aumente sua Inteligência em 1, até um máximo
 Feat/&ToxicologistIntTitle=Toxicologista (Inteligência)
 Feat/&ToxicologistWisDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de envenenador e Medicina, ou perícia se já for proficiente.
 Feat/&ToxicologistWisTitle=Toxicologista (Sabedoria)
+Feat/&ApothecaryIntDescription=Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de ervas e Arcana, ou perícia se já for proficiente.

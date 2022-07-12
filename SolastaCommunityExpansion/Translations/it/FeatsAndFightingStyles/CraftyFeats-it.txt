@@ -1,4 +1,3 @@
-﻿Feat/&ApothecaryIntDescription=Aumenta la tua intelligenza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit di erboristeria e Arcana, o competenza se già abile.
 Feat/&ApothecaryIntTitle=Speziale (Intelligence)
 Feat/&ApothecaryWisDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit di erboristeria e Arcana, o competenza se già abile.
 Feat/&ApothecaryWisTitle=Speziale (Saggezza)
@@ -20,3 +19,4 @@ Feat/&ToxicologistIntDescription=Aumenta la tua Intelligenza di 1, fino a un mas
 Feat/&ToxicologistIntTitle=Tossicologo (Intelligence)
 Feat/&ToxicologistWisDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit dell'avvelenatore e la Medicina, o competenza se già abile.
 Feat/&ToxicologistWisTitle=Tossicologo (Saggezza)
+Feat/&ApothecaryIntDescription=Aumenta la tua intelligenza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit di erboristeria e Arcana, o competenza se già abile.

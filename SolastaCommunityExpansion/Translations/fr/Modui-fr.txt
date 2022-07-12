@@ -1,4 +1,7 @@
-﻿ModUi/&AddAllToStore=Ajouter tout au magasin
+ModUI/&ArcaneShieldAddDruidAndSorcerer=Druide & Sorcier
+ModUI/&ArcaneShieldAll=Tous les cours
+ModUI/&ArcaneShieldDefault=Aucun [par défaut]
+ModUI/&EnableBetaContent=Activer le contenu bêta <i><color=#F0DAA0>[gardez à l'esprit que vos sauvegardes ou vos héros pourraient se casser à l'avenir]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> aux conditions supprimées par <color=#D89555>Grande et Petite Restauration</color>
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les courses
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -9,6 +12,7 @@ ModUi/&Advanced=<color=#F0DAA0>Avancé :</color>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION :</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod
 ModUi/&Adventure=<color=#F0DAA0>Aventure :</color>
 ModUi/&AllItemInDm=Tous les articles en DM
+ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une armure sylvestre ou des vêtements de porteur de lumière
 ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons de niveau 20 maximum <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -16,7 +20,6 @@ ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Autoriser le placement de gadgets 
 ModUi/&AllowStackedMaterialComponent=Autoriser le composant de matériau empilé <i><color=#F0DAA0>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection de cible lors du lancement du sort <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Autoriser <color=#D89555>Sorcier</color> sans marques d'origine ni tatouages
-ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[uniquement dans les donjons personnalisés]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Réduire le poids de la ration alimentaire à 2 livres
 ModUi/&ArcaneShieldstaffOptions=Étendez les classes autorisées sur <color=#D89555>Arcane Shieldstaff</color> :
@@ -52,7 +55,6 @@ ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage de l'arrière-plan s
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte de niveau
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter de nouveaux éléments à Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Activer l'humain alternatif <i><color=#F0DAA0>[+1 feat / +2 choix d'attributs / +1 skill]</color></i>
-ModUI/&EnableBetaContent=Activer le contenu bêta <i><color=#F0DAA0>[gardez à l'esprit que vos sauvegardes ou vos héros pourraient se casser à l'avenir]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer l'action d'annulation avec un clic droit de la souris
 ModUi/&EnableCharacterChecker=Activer l'écran de vérification des personnages
 ModUi/&EnableCharacterExport=Activer <color=#1E81B0>CTRL-SHIFT-(E)</color>exporter le caractère <i><color=#F0DAA0>[sur l'écran d'inspection des caractères uniquement]</color></i>
@@ -79,7 +81,6 @@ ModUi/&EnableMinInOutAttributes=Appliquer les scores de capacité minimum in & o
 ModUi/&EnableOnTheFlyTranslations=Activer les traductions de contenu personnalisé en temps réel
 ModUi/&EnableRelearnSpells=Peut sélectionner des tours mineurs ou des sorts déjà appris d'autres classes
 ModUi/&EnableRespec=Activer les actions RESPEC et Level Down après repos
-ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attribut et la sélection des exploits <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
 ModUi/&EnableSaveByLocation=Activer l'enregistrement par campagnes/emplacements
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Activer la recharge de repos court de <color=#D89555>Arcane Weapon</color> sur <color=#D89555>Wizard</color> Arcane Fighter
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
@@ -87,6 +88,7 @@ ModUi/&EnableTeleportParty=Activez <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport 
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activez les bascules sur le groupe de personnages pour définir votre partie de jeu et de test par défaut
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Activer la <color=#D89555>Arcane Recovery</color> illimitée sur <color=#D89555>Wizard</color> Spell Master\n<i><color=#F0DAA0>Doit être activé lorsque la capacité a des utilisations disponibles ou avant la création du personnage</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Activer l'upcast de <color=#D89555>Conjure Elemental</color>, <color=#D89555>Conjure Fey</color>
+ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attribut et la sélection des exploits <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
 ModUi/&Encounters=Rencontres
 ModUi/&ExecuteBatchTranslations=. Traduire par lots à la place pour créer une nouvelle campagne préfixée par la langue cible
 ModUi/&ExpandAll=Développer tout
@@ -99,8 +101,8 @@ ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixSorcererTwinnedLogic=Correction de l'utilisation de la métamagie jumelée <color=#D89555>Sorcier</color> <i><color=#F0DAA0>[un sort doit être incapable de cibler plus d'une créature au niveau actuel du sort]</color></i>
 ModUi/&FollowCharactersOnTeleport=La caméra suit le(s) personnage(s) téléporté(s)
 ModUi/&FullyControlConjurations=Contrôlez entièrement les conjurations <i><color=#F0DAA0>[animaux, élémentaux, etc]</color></i>
-ModUi/&Gameplay=Jouabilité
 ModUi/&GameUi=Interface utilisateur du jeu
+ModUi/&Gameplay=Jouabilité
 ModUi/&General=<color=#F0DAA0>Général :</color>
 ModUi/&GeneralMenu=Général
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
@@ -115,11 +117,11 @@ ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventaire et articles :</color>
 ModUi/&InvertAltBehaviorOnTooltips=Inverser le comportement de la touche <color=#1E81B0>ALT</color> dans les info-bulles
 ModUi/&ItemInDm=Articles en DM
+ModUi/&ItemTag=Étiquette d'article
 ModUi/&Items=<color=#F0DAA0>Articles :</color>
 ModUi/&ItemsCraftingMerchants=Objets, artisanat et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Vous devez avoir l'écran d'inspection des personnages ouvert pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des éléments au conteneur terrestre</b>
-ModUi/&ItemTag=Étiquette d'article
 ModUi/&MakeAllMagicStaveArcaneFoci=Faire de tous les bâtons magiques des foyers arcaniques <i><color=#F0DAA0>[sauf le <color=#D89555>Bâton de guérison</color> qui est universel]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -162,6 +164,8 @@ ModUi/&RestockCircleOfDanantar=Réapprovisionner le Cercle de Danantar <i><color
 ModUi/&RestockHelp=. Remplacez les valeurs par défaut pour obliger tout le stock d'un marchand à se réapprovisionner au fil du temps (à l'exception des manuels et des tomes)\n. Notez que certains articles peuvent prendre jusqu'à 7 jours de jeu pour se réapprovisionner
 ModUi/&RestockTowerOfKnowledge=Réapprovisionner la tour du savoir <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Règles
+ModUi/&SRD=<color=#F0DAA0>SRD :</color>
+ModUi/&ScaleGameFontSizeBy=<color=white>Ajuster la taille de la police du jeu de</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&ScaleMerchantPricesCorrectly=Mettre à l'échelle les prix marchands correctement/exactement
 ModUi/&SelectAll=Tout sélectionner
 ModUi/&SelectSuggested=Sélectionnez Suggéré
@@ -173,7 +177,6 @@ ModUi/&SpellInstructions=. Vous pouvez attribuer individuellement chaque sort à
 ModUi/&SpellLevelFilter=<b><i><color=white>filtre de niveau de sorts</color> <color=#F0DAA0>[-1 pour afficher tous les sorts]</color></i></b>
 ModUi/&Spells=<color=#F0DAA0>Sorts :</color>
 ModUi/&SpellsMenu=Sorts
-ModUi/&SRD=<color=#F0DAA0>SRD :</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stocke le magasin de Gorim avec tous les vêtements non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stocke la boutique Hugo avec <color=#D89555>Baguette d'identification</color>, <color=#D89555>Bâton arcanique</color>, <color=#D89555>Cou de druide</color>, <color=#D89555> Personnel</color> et <color=#D89555>Club</color> définis comme éléments prioritaires
 ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
@@ -196,7 +199,4 @@ ModUi/&UseHeightOneCylinderEffect=Affiche un effet de cylindre de hauteur 1 lors
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&WeaponTag=Étiquette d'arme
-ModUi/&ScaleGameFontSizeBy=<color=white>Ajuster la taille de la police du jeu de</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUI/&ArcaneShieldDefault=Aucun [par défaut]
-ModUI/&ArcaneShieldAddDruidAndSorcerer=Druide & Sorcier
-ModUI/&ArcaneShieldAll=Tous les cours
+ModUi/&AddAllToStore=Ajouter tout au magasin

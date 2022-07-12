@@ -1,4 +1,7 @@
-﻿ModUi/&AddAllToStore=Agregar todo a la tienda
+ModUI/&ArcaneShieldAddDruidAndSorcerer=druida y hechicero
+ModUI/&ArcaneShieldAll=Todas las clases
+ModUI/&ArcaneShieldDefault=Ninguno [Predeterminado]
+ModUI/&EnableBetaContent=Habilita el contenido beta <i><color=#F0DAA0>[ten en cuenta que tus partidas guardadas o tus héroes podrían romperse en el futuro]</color></i> <b><i><color=#C04040E0>[Requiere reiniciar] </color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangrado</color> a las condiciones eliminadas por <color=#D89555>Restauración mayor y menor</color>
 ModUi/&AddHelpActionToAllRaces=Agregue la acción <color=#D89555>Ayuda</color> a todas las carreras
 ModUi/&AddNewBrightEyeColors=Agregue nuevos colores de ojos brillantes <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
@@ -9,6 +12,7 @@ ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el jugador tenga este mod instalado
 ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos los artículos en DM
+ModUi/&AllRecipesInDm=Todas las recetas en DM
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use armadura selvática o ropa de portador de la luz.
 ModUi/&AllowDruidToWearMetalArmor=Permitir que el <color=#D89555>druida</color> use una armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con un nivel máximo de 20 <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
@@ -16,7 +20,6 @@ ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Permitir que los gadgets y accesor
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material apilado <i><color=#F0DAA0>[p. ej. 2x500gp diamante es equivalente a 1000gp diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=#D89555>Cadena de relámpagos</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
-ModUi/&AllRecipesInDm=Todas las recetas en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo en mazmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la ración de alimentos a 2 libras
 ModUi/&ArcaneShieldstaffOptions=Ampliar las clases permitidas en <color=#D89555>Bastón de escudo arcano</color>:
@@ -52,7 +55,6 @@ ModUi/&EnableAdditionalBackstoryDisplay=Habilite la visualización de antecedent
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campamentos, salidas y teletransportadores en el mapa de nivel
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
-ModUI/&EnableBetaContent=Habilita el contenido beta <i><color=#F0DAA0>[ten en cuenta que tus partidas guardadas o tus héroes podrían romperse en el futuro]</color></i> <b><i><color=#C04040E0>[Requiere reiniciar] </color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite la acción de cancelar con el botón derecho del mouse
 ModUi/&EnableCharacterChecker=Habilitar la pantalla del verificador de caracteres
 ModUi/&EnableCharacterExport=Habilitar <color=#1E81B0>CTRL-SHIFT-(E)</color>exportar carácter <i><color=#F0DAA0>[solo en la pantalla de inspección de caracteres]</color></i>
@@ -79,7 +81,6 @@ ModUi/&EnableMinInOutAttributes=Hacer cumplir los requisitos previos mínimos de
 ModUi/&EnableOnTheFlyTranslations=Habilite traducciones de contenido personalizado en tiempo real
 ModUi/&EnableRelearnSpells=Puede seleccionar cantrips o hechizos ya aprendidos de otras clases
 ModUi/&EnableRespec=Habilite las acciones RESPEC y Level Down después del descanso
-ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Habilita la recarga de descanso corto de <color=#D89555>Arma Arcana</color> en <color=#D89555>Mago</color> Luchador Arcano
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
@@ -87,6 +88,7 @@ ModUi/&EnableTeleportParty=Activar <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport 
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Habilitar <color=#D89555>Recuperación arcana</color> ilimitada en <color=#D89555>Mago</color> Maestro de hechizos\n<i><color=#F0DAA0>Debe habilitarse cuando la habilidad tiene usos disponibles o antes de la creación del personaje</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar transmisión de <color=#D89555>Conjurar Elemental</color>, <color=#D89555>Conjurar Fey</color>
+ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>
 ModUi/&Encounters=Encuentros
 ModUi/&ExecuteBatchTranslations=. Traduzca por lotes en su lugar para crear una nueva campaña con el prefijo del idioma de destino
 ModUi/&ExpandAll=Expandir todo
@@ -99,8 +101,8 @@ ModUi/&FightingStyles=<color=#F0DAA0>Estilos de lucha</color>
 ModUi/&FixSorcererTwinnedLogic=Se corrigió el uso metamágico gemelo de <color=#D89555>Sorcerer</color> <i><color=#F0DAA0>[un hechizo debe ser incapaz de apuntar a más de una criatura en el nivel actual del hechizo]</color></i>
 ModUi/&FollowCharactersOnTeleport=La cámara sigue a los personajes teletransportados
 ModUi/&FullyControlConjurations=Controla por completo las conjuraciones <i><color=#F0DAA0>[animales, elementales, etc.]</color></i>
-ModUi/&Gameplay=Como se Juega
 ModUi/&GameUi=Interfaz de usuario del juego
+ModUi/&Gameplay=Como se Juega
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Oculte las salidas y los efectos visuales de los teletransportadores si aún no los ha descubierto
@@ -115,11 +117,11 @@ ModUi/&Interface=Interfaz
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventario y artículos:</color>
 ModUi/&InvertAltBehaviorOnTooltips=Invertir el comportamiento de la tecla <color=#1E81B0>ALT</color> en la información sobre herramientas
 ModUi/&ItemInDm=Artículos en DM
+ModUi/&ItemTag=Etiqueta de artículo
 ModUi/&Items=<color=#F0DAA0>Objetos:</color>
 ModUi/&ItemsCraftingMerchants=Objetos, Fabricación y Comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Debes tener abierta la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presiona + para agregar artículos al contenedor de tierra</b>
-ModUi/&ItemTag=Etiqueta de artículo
 ModUi/&MakeAllMagicStaveArcaneFoci=Haz que todos los bastones mágicos sean focos arcanos <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de Curación</color> que es Universal]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marque la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Máximo de clases permitidas</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -162,6 +164,8 @@ ModUi/&RestockCircleOfDanantar=Reponer Círculo de Danantar <i><color=#F0DAA0>[J
 ModUi/&RestockHelp=. Anule los valores predeterminados para forzar que todas las existencias de un comerciante se reabastezcan con el tiempo (excepto manuales y tomos)\n. Tenga en cuenta que algunos artículos pueden tardar hasta 7 días de juego en reabastecerse
 ModUi/&RestockTowerOfKnowledge=Reponer Torre del Conocimiento <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Normas
+ModUi/&SRD=<color=#F0DAA0>SRD:</color>
+ModUi/&ScaleGameFontSizeBy=<color=white>Escale el tamaño de fuente del juego en</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&ScaleMerchantPricesCorrectly=Escale los precios de los comerciantes correctamente/exactamente
 ModUi/&SelectAll=Seleccionar todo
 ModUi/&SelectSuggested=Seleccionar sugerido
@@ -173,7 +177,6 @@ ModUi/&SpellInstructions=. Puede asignar individualmente cada hechizo a cualquie
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 para mostrar todos los hechizos]</color></i></b>
 ModUi/&Spells=<color=#F0DAA0>Hechizos:</color>
 ModUi/&SpellsMenu=Hechizos
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Almacena la tienda de Gorim con toda la ropa no mágica <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Almacena la tienda de Hugo con <color=#D89555>Varita de identificación</color>, <color=#D89555>Bastón arcano</color>, <color=#D89555>Cuello de druida</color>, <color=#D89555> Personal</color> y <color=#D89555>Club</color> establecidos como elementos de enfoque
 ModUi/&Subclasses=<color=#F0DAA0>Subclases</color>
@@ -196,7 +199,4 @@ ModUi/&UseHeightOneCylinderEffect=Muestra un efecto de cilindro de altura 1 al l
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/desventaja
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&WeaponTag=Etiqueta de arma
-ModUi/&ScaleGameFontSizeBy=<color=white>Escale el tamaño de fuente del juego en</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
-ModUI/&ArcaneShieldDefault=Ninguno [Predeterminado]
-ModUI/&ArcaneShieldAddDruidAndSorcerer=druida y hechicero
-ModUI/&ArcaneShieldAll=Todas las clases
+ModUi/&AddAllToStore=Agregar todo a la tienda

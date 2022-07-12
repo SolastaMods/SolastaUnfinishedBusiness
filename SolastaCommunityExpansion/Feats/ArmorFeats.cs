@@ -7,6 +7,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ArmorCategoryDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaCommunityExpansion.Feats;
@@ -23,19 +24,13 @@ internal static class ArmorFeats
         var mediumArmorProficiency = BuildProficiency("FeatMediumArmorProficiency",
             ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
 
-        var dexterityModifier = BuildAttributeModifier("FeatDexIncrement",
-            AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 1);
-
-        var strengthModifier = BuildAttributeModifier("FeatStrengthIncrement",
-            AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1);
-
-        var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, dexterityModifier);
+        var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, AttributeModifierCreed_Of_Misaye);
 
         // Note: medium armor feats have pre-req of light armor
         var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory, mediumArmorProficiency,
-            dexterityModifier);
+            AttributeModifierCreed_Of_Misaye);
         var mediumStrengthArmorFeat = BuildFeat("FeatMediumArmorStrength", LightArmorCategory,
-            mediumArmorProficiency, strengthModifier);
+            mediumArmorProficiency, AttributeModifierCreed_Of_Einar);
 
         // Note: heavy armor master has pre-req of heavy armor
         var heavyArmorMasterFeat = BuildFeat("FeatHeavyArmorMasterClass", HeavyArmorCategory,

@@ -20,6 +20,5 @@ Feature/&RangerVanishActionTitle=Vanish
 Feature/&ZSPowerPaladinCleansingTouchDescription=Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
 Feature/&ZSPowerPaladinCleansingTouchTitle=Cleansing Touch
 RestActivity/&ZSSorcerousRestorationDescription=Regain 4 sorcery points during a short rest.
-RestActivity/&ZSSorcerousRestorationTitle=Sorcerous Restoration
 RestActivity/&ZSSorcerousRestorationDescription=Regain 4 sorcery points during a short rest.
-RestActivity/&ZSSorcerousRestorationTitle=Sorcerous Restoration
+RestActivity/&ZSSorcerousRestorationTitle=Sorcerous RestorationRestActivity/&ZSSorcerousRestorationTitle=Sorcerous Restoration

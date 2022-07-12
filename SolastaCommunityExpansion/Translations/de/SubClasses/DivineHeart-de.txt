@@ -1,4 +1,3 @@
-﻿Condition/&ConditionDivineHeartEmpoweredHealingDescription=Wenn du in diesem Zug einen Heilzauber wirkst, würfelst du ein Ergebnis von 1 oder 2 neu.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Ermächtigte Heilung
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Trefferpunkt pro Level
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Göttliche Stärke
@@ -25,3 +24,4 @@ Feature/&PowerDivineHeartPlanarPortalDescription=Öffnet ein Portal, das eine ve
 Feature/&PowerDivineHeartPlanarPortalTitle=Planares Portal
 Subclass/&SorcerousDivineHeartDescription=Ihre angeborene Magie wurde Ihnen von einer Gottheit zu einem Zweck verliehen, den Sie vielleicht verstehen oder auch nicht.
 Subclass/&SorcerousDivineHeartTitle=Göttliches Herz
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Wenn du in diesem Zug einen Heilzauber wirkst, würfelst du ein Ergebnis von 1 oder 2 neu.

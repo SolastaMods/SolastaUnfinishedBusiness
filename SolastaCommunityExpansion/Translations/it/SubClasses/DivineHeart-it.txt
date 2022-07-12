@@ -1,4 +1,3 @@
-﻿Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se lanci una magia di Guarigione in questo turno, ritiri il risultato di 1 o 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Guarigione potenziata
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Punto Ferita per livello
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Fortezza Divina
@@ -25,3 +24,4 @@ Feature/&PowerDivineHeartPlanarPortalDescription=Apre un portale che può traspo
 Feature/&PowerDivineHeartPlanarPortalTitle=Portale Planare
 Subclass/&SorcerousDivineHeartDescription=La tua innata magia ti è stata impartita da una Divinità per uno scopo che potresti capire o meno.
 Subclass/&SorcerousDivineHeartTitle=Cuore Divino
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se lanci una magia di Guarigione in questo turno, ritiri il risultato di 1 o 2.
