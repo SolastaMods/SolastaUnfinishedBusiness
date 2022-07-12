@@ -105,26 +105,24 @@ internal static class GrayDwarfSubraceBuilder
         var grayDwarfConditionAffinityGrayDwarfCharm = FeatureDefinitionConditionAffinityBuilder
             .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharm,
                 "ConditionAffinityGrayDwarfCharm", GrayDwarfNamespace)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent()
             .AddToDB();
 
         var grayDwarfConditionAffinityGrayDwarfCharmedByHypnoticPattern = FeatureDefinitionConditionAffinityBuilder
             .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern,
                 "ConditionAffinityGrayDwarfCharmedByHypnoticPattern", GrayDwarfNamespace)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent()
             .AddToDB();
 
         var grayDwarfConditionAffinityGrayDwarfParalyzedAdvantage = FeatureDefinitionConditionAffinityBuilder
             .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityHalflingBrave,
                 "ConditionAffinityGrayDwarfParalyzedAdvantage", GrayDwarfNamespace)
-            .SetGuiPresentation(Category.Feature)
             .SetConditionType(ConditionDefinitions.ConditionParalyzed)
             .AddToDB();
 
         var grayDwarfSavingThrowAffinityGrayDwarfIllusion = FeatureDefinitionSavingThrowAffinityBuilder
             .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityGemIllusion,
                 "SavingThrowAffinityGrayDwarfIllusion", GrayDwarfNamespace)
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[0].affinity =
@@ -160,18 +158,16 @@ internal static class GrayDwarfSubraceBuilder
         var grayDwarfAbilityCheckAffinityConditionStoneStrength = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength,
                 "AbilityCheckAffinityConditionStoneStrength", GrayDwarfNamespace)
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var grayDwarfSavingThrowAffinityConditionStoneStrength = FeatureDefinitionSavingThrowAffinityBuilder
             .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging,
                 "SavingThrowAffinityConditionStoneStrength", GrayDwarfNamespace)
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var grayDwarfAdditionalDamageConditionStoneStrength = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageConditionStoneStrength", GrayDwarfNamespace)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent()
             .SetNotificationTag("StoneStrength")
             .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
             .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeStrengthWeapon)

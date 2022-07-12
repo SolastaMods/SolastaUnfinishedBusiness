@@ -1,10 +1,10 @@
-Condition/&ConditionStoneStrengthDescription=Advantage on Strength checks and saving throws\n+1d4 damage with melee Strength weapons
+Condition/&ConditionStoneStrengthDescription=Advantage on Strength checks and saving throws. +1d4 damage with melee Strength weapons
 Condition/&ConditionStoneStrengthTitle=Stone Strength
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityDescription=You have Disadvantage on Perception.
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityTitle=Disadvantage on Perception
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Strength +1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Ability Score Increase
-Feature/&FeatureSetGrayDwarfAncestryDescription=Saving throw advantage agains Charm, Paralyze and Illusions
+Feature/&FeatureSetGrayDwarfAncestryDescription=Saving throw advantage against Charm, Paralyze and Illusions
 Feature/&FeatureSetGrayDwarfAncestryTitle=Gray Dwarf Ancestry
 Feature/&LightAffinityGrayDwarfLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks and attack rolls in bright light.
 Feature/&LightAffinityGrayDwarfLightSensitivityTitle=Bright Light Sensitivity
