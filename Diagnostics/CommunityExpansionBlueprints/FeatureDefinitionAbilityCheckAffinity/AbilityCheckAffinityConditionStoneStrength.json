@@ -1,0 +1,45 @@
+{
+  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
+  "useControllerAbilityChecks": false,
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "proficiencyName": "",
+      "affinity": "Advantage",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AbilityCheckAffinityConditionStoneStrengthTitle",
+    "description": "Feature/&AbilityCheckAffinityConditionStoneStrengthDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "92027003-8978-5dfc-b2f2-2c399f711eee",
+  "contentPack": 9999,
+  "name": "AbilityCheckAffinityConditionStoneStrength"
+}
