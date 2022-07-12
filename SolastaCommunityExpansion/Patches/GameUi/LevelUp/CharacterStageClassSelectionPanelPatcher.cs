@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp;
@@ -14,6 +15,6 @@ internal static class CharacterStageClassSelectionPanel_Compare
             return;
         }
 
-        __result = left.FormatTitle().CompareTo(right.FormatTitle());
+        __result = String.Compare(left.FormatTitle(), right.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
     }
 }
