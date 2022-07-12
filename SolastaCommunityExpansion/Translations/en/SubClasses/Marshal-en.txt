@@ -7,7 +7,8 @@ Feature/&FighterMarshalFearlessCommanderFeatureSetTitle=Fearless Commander
 Feature/&FighterMarshalKnowYourEnemyFeatureSetDescription=You add your knowledge level of your current target to your attack and damage rolls.
 Feature/&FighterMarshalKnowYourEnemyFeatureSetTitle=Know Your Enemy
 Feature/&MarshalEternalComradeDescription=Fallen Comrade
-Feature/&MarshalEternalComradeTitle=Fallen ComradePower/&FighterMarshalEncouragementPowerDescription=The courage of the marshal inspires his party member. Allies within 10 feet of him add 1d4 to attack roll and saving throw. 
+Feature/&MarshalEternalComradeTitle=Fallen Comrade
+Power/&FighterMarshalEncouragementPowerDescription=The courage of the marshal inspires his party member. Allies within 10 feet of him add 1d4 to attack roll and saving throw. 
 Power/&FighterMarshalEncouragementPowerTitle=Encouragement
 Power/&FighterMarshalStudyYourEnemyPowerDescription=As a bonus action, you can attempt to increase your knowledge about your target by rolling a Survival check. You can do this twice per short rest.
 Power/&FighterMarshalStudyYourEnemyPowerTitle=Study Your Enemy

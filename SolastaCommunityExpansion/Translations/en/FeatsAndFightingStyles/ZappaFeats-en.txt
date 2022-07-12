@@ -52,7 +52,8 @@ Feat/&FeatWisePrecisionDescription=You can use a bonus action to select a weapon
 Feat/&FeatWisePrecisionTitle=Wise Precision
 Feature/&AdditionalDamageFeatShadySneakAttackDescription=Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
 Feature/&AdditionalDamageFeatShadySneakAttackTitle=Shady Sneak Attack
-Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Doesn't know {0}
+Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Doesn't know {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack=Has stealth attack
 Tooltip/&FeatPrerequisiteIs=Is {0}
 Tooltip/&FeatPrerequisiteIsNot=Isn't {0}

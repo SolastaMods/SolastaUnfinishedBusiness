@@ -17,7 +17,8 @@ Feat/&HealerTitle=Healer
 Feat/&HealerUseMedicineDescription=You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerUseMedicineTitle=Use Medicine
 Feat/&InspiringLeaderDescription=Once per short rest, you can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
-Feat/&InspiringLeaderTitle=Inspiring LeaderFeat/&ProfChefTreatActionDescription=Eat a treat as a bonus action and gain 5 temporary hit points.
+Feat/&InspiringLeaderTitle=Inspiring Leader
+Feat/&ProfChefTreatActionDescription=Eat a treat as a bonus action and gain 5 temporary hit points.
 Feat/&ProfChefTreatActionTitle=Eat Chef's Treat
 Feat/&ProfChefTreatCookDescription=Spend one hour to cook treats that when eaten provide 5 temporary hit points.
 Feat/&ProfChefTreatCookTitle=Cook Chef's Treat

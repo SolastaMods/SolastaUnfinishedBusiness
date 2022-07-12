@@ -151,7 +151,7 @@ internal static class GameUiDisplay
 
             intValue = Main.Settings.EmpressGarbAppearanceIndex;
             if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbAppearances,
-                    ItemOptionsContext.EmpressGarbAppearances.Length, 3, UI.Width(440)))
+                    ItemOptionsContext.EmpressGarbAppearances.Length, 2, UI.Width(440)))
             {
                 Main.Settings.EmpressGarbAppearanceIndex = intValue;
                 ItemOptionsContext.SwitchEmpressGarb();

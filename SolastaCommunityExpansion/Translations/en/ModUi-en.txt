@@ -1,5 +1,6 @@
 ModUI/&ArcaneShieldAddDruidAndSorcerer=Druid & Sorcerer
-ModUI/&ArcaneShieldAll=All ClassesModUI/&ArcaneShieldDefault=None [Default]
+ModUI/&ArcaneShieldAll=All Classes
+ModUI/&ArcaneShieldDefault=None [Default]
 ModUI/&EnableBetaContent=Enable beta content <i><color=#F0DAA0>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the conditions removed by <color=#D89555>Greater and Lesser Restoration</color>
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all races
