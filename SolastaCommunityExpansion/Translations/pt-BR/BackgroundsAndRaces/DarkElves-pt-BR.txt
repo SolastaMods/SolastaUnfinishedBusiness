@@ -1,4 +1,3 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Você tem Desvantagem em Percepção.
 Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=Desvantagem na Percepção
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento de pontuação de habilidade
@@ -20,3 +19,4 @@ Race/&DarkelfSurName2Title=Dhal Neridthas
 Race/&DarkelfSurName3Title=Dhal Nerwenys
 Race/&DarkelfSurName4Title=Zo'Sonta
 Race/&DarkelfSurName5Title=Zo'Remon
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=Você tem Desvantagem em Percepção.

@@ -1,4 +1,3 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=你的察觉检定具有劣势
 Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=察觉具有劣势
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=魅力+1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=属性提升
@@ -20,3 +19,4 @@ Race/&DarkelfSurName2Title=DhalNeridthas
 Race/&DarkelfSurName3Title=DhalNerwenys
 Race/&DarkelfSurName4Title=Zo'Sonta
 Race/&DarkelfSurName5Title=Zo'Remon
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=你的察觉检定具有劣势

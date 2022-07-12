@@ -21,5 +21,3 @@ Feature/&ZSPowerPaladinCleansingTouchDescription=Remove spell effects by touchin
 Feature/&ZSPowerPaladinCleansingTouchTitle=Cleansing Touch
 RestActivity/&ZSSorcerousRestorationDescription=Regain 4 sorcery points during a short rest.
 RestActivity/&ZSSorcerousRestorationTitle=Sorcerous Restoration
-RestActivity/&ZSSorcerousRestorationDescription=Regain 4 sorcery points during a short rest.
-RestActivity/&ZSSorcerousRestorationTitle=Sorcerous Restoration

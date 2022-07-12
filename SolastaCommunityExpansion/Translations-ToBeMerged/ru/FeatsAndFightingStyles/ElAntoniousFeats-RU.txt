@@ -1,0 +1,12 @@
+Feat/&DualFlurryDescription=Вы мастер боя парным оружием. В любой ход, когда вы дважды наносите удары рукопашными атаками, держа по оружию в каждой руке, вы можете совершить дополнительную атаку левой рукой при атаке бонусным действием.
+Feat/&DualFlurryTitle=Двойной шквал
+Feat/&TorchbearerDescription=Вы умеете пользоваться факелом в бою. Один раз за ход в качестве бонусного действия вы можете использовать источник света, которым вы экипированы, чтобы попытаться поджечь врага, которого вы можете коснуться. Ваша цель должна преуспеть в спасброске Ловкости (Сл 8 + ваш бонус мастерства + ваш модификатор Ловкости) или получить 1d4 урона огнём за ход в течение 1 минуты или до тех пор, пока не будет погашена.
+Feat/&TorchbearerTitle=Факелоносец
+Condition/&ConditionDualFlurryApplyDescription=Вы набираете обороты...
+Condition/&ConditionDualFlurryApplyTitle=Двойной шквал!
+Condition/&ConditionDualFlurryGrantDescription=Твои враги шатаются!
+Condition/&ConditionDualFlurryGrantTitle=Двойной шквал!
+Feature/&AdditionalActionDualFlurryDescription=Вы можете совершить дополнительную атаку неосновной рукой.
+Feature/&AdditionalActionDualFlurryTitle=Двойной шквал!
+Feature/&PowerTorchbearerDescription=Попытаться поджечь цель в ближнем бою!
+Feature/&PowerTorchbearerTitle=Факелоносец

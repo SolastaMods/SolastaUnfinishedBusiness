@@ -13,6 +13,6 @@ Feature/&ArcanistMarkTitle=Marca del arcanista
 Feature/&MagicAffinityRangerArcanistDescription=Eres competente lanzando hechizos en batalla y puedes lanzar hechizos que requieran un componente somático incluso si ambas manos sostienen un arma o un escudo.
 Feature/&MagicAffinityRangerArcanistTitle=Entrenamiento de combate arcano
 Feedback/&AdditionalDamageArcanistMarkFormat=¡Marca del arcanista!
-Feedback/&AdditionalDamageArcanistMarkLine=¡La marca del arcanista detona e inflige daño extra al objetivo!
+Feedback/&AdditionalDamageArcanistMarkLine=¡La marca del arcanista detona e inflige daño adicional al objetivo!
 Subclass/&RangerArcanistRangerSubclassDescription=El Guardabosques Arcanista combina sus habilidades de Guardabosques con habilidades arcanas. Sus armas pueden afectar a sus oponentes con la Marca del arcanista y han aprendido a lanzar algunos hechizos de mago como parte de su repertorio de hechizos de guardabosques.
 Subclass/&RangerArcanistRangerSubclassTitle=guardabosques arcanista

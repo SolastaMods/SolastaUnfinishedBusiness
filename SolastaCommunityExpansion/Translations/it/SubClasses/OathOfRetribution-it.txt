@@ -18,5 +18,3 @@ Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle=Perseguire
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=Tenace inseguimento
 Subclass/&PaladinOathOfRetributionDescription=I paladini che prestano giuramento di punizione si impegnano pienamente a porre fine all'empietà e all'ingiustizia con estremo pregiudizio. Per questi paladini, il dovere di vendicare i peccati e le corruzioni pesa più dei loro stessi valori.
 Subclass/&PaladinOathOfRetributionTitle=Giuramento di retribuzione
-Feat/&RetributionDescription=Il costrutto infligge 1d4 + il tuo modificatore di Intelligenza danni da forza all'attaccante quando viene colpito da un attacco.
-Feat/&RetributionTitle=Retribuzione

@@ -37,6 +37,7 @@ public static class WeaponValidators
                || weapon.ItemDefinition.IsArmor;
     }
 
+    // ReSharper disable once MemberCanBePrivate.Global
     public static bool IsMelee([CanBeNull] ItemDefinition weapon)
     {
         return weapon != null &&

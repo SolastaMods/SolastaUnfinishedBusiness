@@ -13,11 +13,11 @@ public static class MulticlassGameUiContext
 {
     private static readonly Color LightGreenSlot = new(0f, 1f, 0f, 1f);
     private static readonly Color WhiteSlot = new(1f, 1f, 1f, 1f);
-    private static readonly float[] fontSizes = {17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f};
+    private static readonly float[] FontSizes = {17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f};
 
     public static float GetFontSize(int classesCount)
     {
-        return fontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
+        return FontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
     }
 
     public static void PaintPactSlots(
@@ -241,7 +241,7 @@ public static class MulticlassGameUiContext
         var builder = new StringBuilder();
         var hero = character.RulesetCharacterHero;
         var dieTypesCount = new Dictionary<RuleDefinitions.DieType, int>();
-        const char separator = ' ';
+        const char SEPARATOR = ' ';
 
         foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
         {
@@ -258,7 +258,7 @@ public static class MulticlassGameUiContext
             builder
                 .Append(dieTypesCount[dieType])
                 .Append(Gui.GetDieSymbol(dieType))
-                .Append(separator);
+                .Append(SEPARATOR);
         }
 
         dieTypeCount = dieTypesCount.Count;

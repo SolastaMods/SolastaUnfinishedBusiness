@@ -29,9 +29,9 @@ public static class DungeonMakerContext
     internal static string ReplaceVariable(string line)
     {
         var service = ServiceRepository.GetService<IGameVariableService>();
-        const string pattern = @"\{[a-zA-Z_][a-zA-Z0-9_]*\}";
+        const string PATTERN = @"\{[a-zA-Z_][a-zA-Z0-9_]*\}";
 
-        foreach (Match match in Regex.Matches(line, pattern))
+        foreach (Match match in Regex.Matches(line, PATTERN))
         {
             var variableName = match.Value.Substring(1, match.Value.Length - 2);
 

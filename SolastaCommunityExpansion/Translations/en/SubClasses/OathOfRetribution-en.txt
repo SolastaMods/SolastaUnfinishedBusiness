@@ -18,5 +18,3 @@ Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle=Pursue
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=Tenacious Pursuit
 Subclass/&PaladinOathOfRetributionDescription=Paladins who swear the Oath of Retribution fully commit themselves to terminate the unholiness and injustice with extreme prejudice. For these paladins, the duty of avenging sins and corruptions weighs greater than their own values.
 Subclass/&PaladinOathOfRetributionTitle=Oath of Retribution
-Feat/&RetributionDescription=Construct does 1d4 + your Intelligence modifier force damage to the attacker when it is hit by an attack.
-Feat/&RetributionTitle=Retribution

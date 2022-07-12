@@ -1,7 +1,7 @@
-﻿Feat/&ApothecaryIntDescription=Aumenta tu inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
 Feat/&ApothecaryIntTitle=Boticario (Inteligencia)
 Feat/&ApothecaryWisDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
 Feat/&ApothecaryWisTitle=Boticario (Sabiduría)
+Feat/&AttributeWisTitle=Sabiduría
 Feat/&CraftyArcanaDescription=Obtienes competencia/pericia en Arcana.
 Feat/&CraftyBowsDescription=Obtienes competencia con todos los arcos y ballestas.
 Feat/&CraftyBowsTitle=Dominio del arco
@@ -19,3 +19,4 @@ Feat/&ToxicologistIntDescription=Aumenta tu inteligencia en 1, hasta un máximo 
 Feat/&ToxicologistIntTitle=Toxicólogo (Inteligencia)
 Feat/&ToxicologistWisDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el equipo de envenenador y Medicina, o experiencia si ya eres competente.
 Feat/&ToxicologistWisTitle=Toxicólogo (Sabiduría)
+Feat/&ApothecaryIntDescription=Aumenta tu inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.

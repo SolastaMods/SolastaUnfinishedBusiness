@@ -1,6 +1,6 @@
 Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepara incantesimi aggiuntivi con modificatore di intelligenza in modo da avere sempre ciò di cui hai bisogno.
 Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra preparato
-Feature/&MagicAffinitySpellMasterKnowledgeDescription=Scrivi un incantesimo aggiuntivo a ogni livello.
+Feature/&MagicAffinitySpellMasterKnowledgeDescription=Scrivi un incantesimo aggiuntivo ad ogni livello.
 Feature/&MagicAffinitySpellMasterKnowledgeTitle=Ampiezza della conoscenza
 Feature/&MagicAffinitySpellMasterPreparedDescription=Prepara incantesimi aggiuntivi bonus di competenza in modo da avere sempre ciò di cui hai bisogno.
 Feature/&MagicAffinitySpellMasterPreparedTitle=Essere preparato

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers;
@@ -10,15 +11,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetActor_RefreshAttributes
 {
-    private static readonly Dictionary<string, CharacterClassDefinition> rules = new()
+    private static readonly Dictionary<string, CharacterClassDefinition> Rules = new()
     {
         {AttributeDefinitions.HealingPool, Paladin}, {AttributeDefinitions.SorceryPoints, Sorcerer}
     };
 
-    public static int GetClassOrCharacterLevel(int characterLevel, RulesetCharacter rulesetCharacter,
-        string attribute)
+    private static int GetClassOrCharacterLevel(int characterLevel, RulesetCharacter rulesetCharacter,
+        [NotNull] string attribute)
     {
-        if (!rules.TryGetValue(attribute, out var characterClass))
+        if (!Rules.TryGetValue(attribute, out var characterClass))
         {
             return characterLevel;
         }
@@ -54,17 +55,14 @@ internal static class RulesetActor_RefreshAttributes
         {
             foreach (var activeModifier in attribute.Value.ActiveModifiers)
             {
-                if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation
-                        .MultiplyByCharacterLevel)
+                activeModifier.Value = activeModifier.Operation switch
                 {
-                    activeModifier.Value = characterLevel;
-                }
-                else if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation
-                             .MultiplyByClassLevel)
-                {
-                    activeModifier.Value =
-                        GetClassOrCharacterLevel(characterLevel, rulesetCharacter, attribute.Key);
-                }
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel =>
+                        characterLevel,
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel =>
+                        GetClassOrCharacterLevel(characterLevel, rulesetCharacter, attribute.Key),
+                    _ => activeModifier.Value
+                };
             }
 
             attribute.Value.Refresh();

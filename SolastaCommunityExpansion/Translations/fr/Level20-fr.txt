@@ -21,5 +21,3 @@ Feature/&ZSPowerPaladinCleansingTouchDescription=Supprimez les effets des sorts 
 Feature/&ZSPowerPaladinCleansingTouchTitle=Toucher nettoyant
 RestActivity/&ZSSorcerousRestorationDescription=Récupérez 4 points de sorcellerie pendant un repos court.
 RestActivity/&ZSSorcerousRestorationTitle=Restauration Sorcière
-RestActivity/&ZSSorcerousRestorationDescription=Récupérez 4 points de sorcellerie pendant un repos court.
-RestActivity/&ZSSorcerousRestorationTitle=Restauration Sorcière

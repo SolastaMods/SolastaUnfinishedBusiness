@@ -1,5 +1,7 @@
 ﻿CHANGES:
 
-- Add Flame Touched feats
-- Allow Con Artist, Spell Shield and Rage Mage to replace spells
-- Refactor to be more resilient on game updates
+- Add Elven Precision feat
+- Extend allowed classes on Arcane Shield Staff
+- Fix deadeye and power attack interaction with invisibility
+- Fix sub class on higher level button features display
+- Fix (m)ap hotkey causing an exception on 2nd usage

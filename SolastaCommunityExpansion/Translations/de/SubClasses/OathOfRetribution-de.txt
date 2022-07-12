@@ -18,5 +18,3 @@ Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle=Verfolgen
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle=Hartnäckige Verfolgung
 Subclass/&PaladinOathOfRetributionDescription=Paladine, die den Eid der Vergeltung schwören, verpflichten sich, die Unheiligkeit und Ungerechtigkeit mit extremen Vorurteilen zu beenden. Für diese Paladine wiegt die Pflicht, Sünden und Korruption zu rächen, mehr als ihre eigenen Werte.
 Subclass/&PaladinOathOfRetributionTitle=Eid der Vergeltung
-Feat/&RetributionDescription=Das Konstrukt fügt dem Angreifer 1W4 + dein Intelligenzmodifikator Kraftschaden zu, wenn es von einem Angriff getroffen wird.
-Feat/&RetributionTitle=Vergeltung

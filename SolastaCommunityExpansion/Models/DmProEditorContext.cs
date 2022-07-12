@@ -74,14 +74,15 @@ internal static class DmProEditorContext
     {
         var leftCategory = DatabaseRepository.GetDatabase<BlueprintCategory>().GetElement(left.Category);
         var rightCategory = DatabaseRepository.GetDatabase<BlueprintCategory>().GetElement(right.Category);
-        var result = leftCategory.FormatTitle().CompareTo(rightCategory.FormatTitle());
+        var result = String.Compare(leftCategory.FormatTitle(), rightCategory.FormatTitle(),
+            StringComparison.CurrentCultureIgnoreCase);
 
         if (result != 0)
         {
             return result;
         }
 
-        result = left.name.CompareTo(right.name);
+        result = String.Compare(left.name, right.name, StringComparison.CurrentCultureIgnoreCase);
 
         if (result == 0)
         {

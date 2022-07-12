@@ -52,7 +52,7 @@ public static class FlexibleBackgroundsContext
         .SetGuiPresentation("AristocratBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
         .AddToDB();
 
-    private static readonly FeatureDefinition lawkeeperSuggestedSkills = FeatureDefinitionBuilder
+    private static readonly FeatureDefinition LawkeeperSuggestedSkills = FeatureDefinitionBuilder
         .Create("LawkeeperBackgroundSuggestedSkills", FlexBackBaseGuid)
         .SetGuiPresentation("LawkeeperBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
         .AddToDB();
@@ -67,7 +67,7 @@ public static class FlexibleBackgroundsContext
         .SetGuiPresentation("PhilosopherBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
         .AddToDB();
 
-    private static readonly FeatureDefinition sellswordSuggestedSkills = FeatureDefinitionBuilder
+    private static readonly FeatureDefinition SellswordSuggestedSkills = FeatureDefinitionBuilder
         .Create("SellswordBackgroundSuggestedSkills", FlexBackBaseGuid)
         .SetGuiPresentation("SellswordBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
         .AddToDB();
@@ -87,10 +87,10 @@ public static class FlexibleBackgroundsContext
         {Academic, new List<FeatureDefinition> {SkillThree, AcademicSuggestedSkills, ToolChoice}},
         {Acolyte, new List<FeatureDefinition> {SkillThree, AcolyteSuggestedSkills, ToolChoice}},
         {Aristocrat, new List<FeatureDefinition> {SkillThree, AristocratSuggestedSkills}},
-        {Lawkeeper, new List<FeatureDefinition> {SkillTwo, lawkeeperSuggestedSkills}},
+        {Lawkeeper, new List<FeatureDefinition> {SkillTwo, LawkeeperSuggestedSkills}},
         {Lowlife, new List<FeatureDefinition> {SkillThree, LowlifeSuggestedSkills, ToolChoice}},
         {Philosopher, new List<FeatureDefinition> {SkillTwo, PhilosopherSuggestedSkills, ToolChoice}},
-        {SellSword, new List<FeatureDefinition> {SkillTwo, sellswordSuggestedSkills, ToolChoice}},
+        {SellSword, new List<FeatureDefinition> {SkillTwo, SellswordSuggestedSkills, ToolChoice}},
         {Spy, new List<FeatureDefinition> {SkillThree, SpySuggestedSkills, ToolChoice}},
         {Wanderer, new List<FeatureDefinition> {SkillTwo, WandererSuggestedSkills, ToolChoiceTwo}}
     };
