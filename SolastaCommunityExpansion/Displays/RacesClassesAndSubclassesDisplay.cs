@@ -65,6 +65,13 @@ internal static class RacesClassesAndSubclassesDisplay
         {
             Main.Settings.ReduceDarkElfLightPenalty = toggle;
         }
+
+        UI.Label("");
+        toggle = Main.Settings.ReduceGrayDwarfLightPenalty;
+        if (UI.Toggle(Gui.Localize("ModUi/&ReduceGrayDwarfLightPenalty"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ReduceGrayDwarfLightPenalty = toggle;
+        }
     }
 
     internal static void DisplayClassesAndSubclasses()
