@@ -78,6 +78,7 @@ internal static class MulticlassPatchingContext
         // add these later as need to wait for these blueprints to be instantiated and not willing to publicise CE
         //
 
+        // TODO: Uncomment this when class is ready
         //FeaturesToReplace.Add(
         //    dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"),
         //    ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass);
@@ -135,6 +136,7 @@ internal static class MulticlassPatchingContext
     // ClassLevel patching support
     //
 
+    // ReSharper disable once UnusedMember.Global
     public static IEnumerable<CodeInstruction> ClassLevelTranspiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
@@ -183,9 +185,16 @@ internal static class MulticlassPatchingContext
         var harmony = new Harmony("SolastaCommunityExpansion");
         var transpiler = typeof(MulticlassPatchingContext).GetMethod("ClassLevelTranspiler");
 
-        foreach (var method in methods)
+        try
         {
-            harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+            foreach (var method in methods)
+            {
+                harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+            }
+        }
+        catch
+        {
+            Main.Error("cannot fully patch Multiclass selected class levels");
         }
     }
 
@@ -193,6 +202,7 @@ internal static class MulticlassPatchingContext
     // Equipment patching support
     //
 
+    // ReSharper disable once UnusedMember.Global
     public static bool ShouldEquipmentBeAssigned([NotNull] CharacterHeroBuildingData heroBuildingData)
     {
         var hero = heroBuildingData.HeroCharacter;
@@ -215,9 +225,16 @@ internal static class MulticlassPatchingContext
         var harmony = new Harmony("SolastaCommunityExpansion");
         var prefix = typeof(MulticlassPatchingContext).GetMethod("ShouldEquipmentBeAssigned");
 
-        foreach (var method in methods)
+        try
         {
-            harmony.Patch(method, new HarmonyMethod(prefix));
+            foreach (var method in methods)
+            {
+                harmony.Patch(method, new HarmonyMethod(prefix));
+            }
+        }
+        catch
+        {
+            Main.Error("cannot fully patch Multiclass equipment");
         }
     }
 
@@ -322,11 +339,18 @@ internal static class MulticlassPatchingContext
         var harmony = new Harmony("SolastaCommunityExpansion");
         var transpiler = typeof(MulticlassPatchingContext).GetMethod("FeatureUnlocksTranspiler");
 
-        foreach (var patch in patches)
+        try
         {
-            FeatureUnlocksContext = patch;
+            foreach (var patch in patches)
+            {
+                FeatureUnlocksContext = patch;
 
-            harmony.Patch(patch.Item1, transpiler: new HarmonyMethod(transpiler));
+                harmony.Patch(patch.Item1, transpiler: new HarmonyMethod(transpiler));
+            }
+        }
+        catch
+        {
+            Main.Error("cannot fully patch Multiclass feature unlocks");
         }
     }
 
@@ -375,6 +399,7 @@ internal static class MulticlassPatchingContext
         }
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static IEnumerable<CodeInstruction> FeatureUnlocksTranspiler(
         [NotNull] IEnumerable<CodeInstruction> instructions)
     {
@@ -414,6 +439,7 @@ internal static class MulticlassPatchingContext
     }
 
     // support class filtered feature unlocks
+    // ReSharper disable once UnusedMember.Global
     public static IEnumerable<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(
         CharacterClassDefinition characterClassDefinition, [NotNull] RulesetCharacterHero rulesetCharacterHero)
     {

@@ -21,5 +21,3 @@ Feature/&ZSPowerPaladinCleansingTouchDescription=触碰一个盟友移除其法�
 Feature/&ZSPowerPaladinCleansingTouchTitle=净化之触
 RestActivity/&ZSSorcerousRestorationDescription=完成一次短休能恢复4术法点
 RestActivity/&ZSSorcerousRestorationTitle=术法复苏
-RestActivity/&ZSSorcerousRestorationDescription=完成一次短休能恢复4术法点
-RestActivity/&ZSSorcerousRestorationTitle=术法复苏

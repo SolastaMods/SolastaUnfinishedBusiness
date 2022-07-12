@@ -1,4 +1,3 @@
-﻿Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si lanzas un hechizo de curación este turno, vuelves a tirar un resultado de 1 o 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Sanación empoderada
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 punto de golpe por nivel
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Fortaleza Divina
@@ -25,3 +24,4 @@ Feature/&PowerDivineHeartPlanarPortalDescription=Abre un portal que puede transp
 Feature/&PowerDivineHeartPlanarPortalTitle=Portal plano
 Subclass/&SorcerousDivineHeartDescription=Tu magia innata te ha sido impartida por una Deidad con un propósito que puedes entender o no.
 Subclass/&SorcerousDivineHeartTitle=Corazón divino
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si lanzas un hechizo de curación este turno, vuelves a tirar un resultado de 1 o 2.

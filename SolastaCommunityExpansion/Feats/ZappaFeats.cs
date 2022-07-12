@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -9,7 +10,6 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using static SolastaCommunityExpansion.Feats.FeatsValidations;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -21,11 +21,10 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class ZappaFeats
 {
+    internal const string ElvenAccuracyTag = "ElvenAccuracy";
     private static readonly Guid ZappaFeatNamespace = new("514f14e3-db8e-47b3-950a-350e8cae37d6");
 
-    internal const string ElvenAccuracyTag = "ElvenAccuracy";
-
-    internal static void CreateFeats(List<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         // Arcane Defense
         var arcaneDefense = FeatDefinitionBuilder
@@ -175,33 +174,58 @@ internal static class ZappaFeats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+        //
+        //
+        //
+
+        static (bool, string) ValidateElvenAccuracy(FeatDefinitionWithPrerequisites _,
+            [NotNull] RulesetCharacterHero hero)
+        {
+            var isElf = hero.RaceDefinition.Name.Contains(CharacterRaceDefinitions.Elf.Name);
+            var elfTitle = CharacterRaceDefinitions.Elf.FormatTitle();
+            var halfElfTitle = CharacterRaceDefinitions.HalfElf.FormatTitle();
+            var param = $"{elfTitle}, {halfElfTitle}";
+
+            return isElf
+                ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", param))
+                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), "EA7171"));
+        }
+
         // Elven Accuracy (Dexterity)
-        var elvenAccuracyDexterity = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-            .Create("FeatElvenAccuracyDexterity", ZappaFeatNamespace)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
+        var elvenAccuracyDexterity =
+            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatElvenAccuracyDexterity", ZappaFeatNamespace)
+                .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
+                .AddToDB();
 
         // Elven Accuracy (Intelligence)
-        var elvenAccuracyIntelligence = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-            .Create("FeatElvenAccuracyIntelligence", ZappaFeatNamespace)
-            .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
+        var elvenAccuracyIntelligence =
+            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatElvenAccuracyIntelligence", ZappaFeatNamespace)
+                .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
+                .AddToDB();
 
         // Elven Accuracy (Wisdom)
-        var elvenAccuracyWisdom = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-            .Create("FeatElvenAccuracyWisdom", ZappaFeatNamespace)
-            .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
+        var elvenAccuracyWisdom =
+            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatElvenAccuracyWisdom", ZappaFeatNamespace)
+                .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
+                .AddToDB();
 
         // Elven Accuracy (Charisma)
-        var elvenAccuracyCharisma = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-            .Create("FeatElvenAccuracyCharisma", ZappaFeatNamespace)
-            .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
+        var elvenAccuracyCharisma =
+            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatElvenAccuracyCharisma", ZappaFeatNamespace)
+                .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
+                .AddToDB();
 
         // Fast Hands
         var fastHands =

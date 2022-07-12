@@ -1,4 +1,3 @@
-﻿Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se lanci una magia di Guarigione in questo turno, ritiri il risultato di 1 o 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Guarigione potenziata
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Punto Ferita per livello
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Fortezza Divina
@@ -18,10 +17,11 @@ Feature/&MagicAffinityDivineHeartClericSpellsListDescription=La tua connessione 
 Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Magia Divina
 Feature/&PowerDivineHeartDivineRecoveryDescription=Come Azione Bonus, puoi ripristinare 70 punti ferita e rimuovere cecità e malattie. Utilizzabile una volta per riposo lungo.
 Feature/&PowerDivineHeartDivineRecoveryTitle=Recupero Divino
-Feature/&PowerDivineHeartEmpoweredHealingDescription=Fino all'inizio del tuo prossimo turno, quando lanci un incantesimo di guarigione rilancia i tiri dei dadi di guarigione di 1 o 2, mantenendo il nuovo risultato. Attiva questo potere come Azione Bonus spendendo 1 punto stregone.
+Feature/&PowerDivineHeartEmpoweredHealingDescription=Fino all'inizio del tuo prossimo turno, quando lanci un incantesimo di guarigione ritiri nuovamente i tiri di dado di guarigione di 1 o 2, mantenendo il nuovo risultato. Attiva questo potere come Azione Bonus spendendo 1 punto stregone.
 Feature/&PowerDivineHeartEmpoweredHealingRerollDescription={0} usa la Guarigione Potenziata per tirare un {1} dado di danno da {2} a {3}.
 Feature/&PowerDivineHeartEmpoweredHealingTitle=Guarigione potenziata
 Feature/&PowerDivineHeartPlanarPortalDescription=Apre un portale che può trasportare una creatura amica e te stesso verso una destinazione specificata.
 Feature/&PowerDivineHeartPlanarPortalTitle=Portale Planare
 Subclass/&SorcerousDivineHeartDescription=La tua innata magia ti è stata impartita da una Divinità per uno scopo che potresti capire o meno.
 Subclass/&SorcerousDivineHeartTitle=Cuore Divino
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se lanci una magia di Guarigione in questo turno, ritiri il risultato di 1 o 2.

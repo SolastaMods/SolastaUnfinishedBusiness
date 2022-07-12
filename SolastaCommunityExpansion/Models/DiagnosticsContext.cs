@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using Object = UnityEngine.Object;
 #if DEBUG
 using I2.Loc;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Utils;
+using Object = UnityEngine.Object;
 #endif
 
 namespace SolastaCommunityExpansion.Models;
@@ -22,6 +22,7 @@ internal static class DiagnosticsContext
     internal const int Ce = 1;
     internal const int Ta2 = 2;
 
+    // ReSharper disable once MemberCanBePrivate.Global
     internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
     // very large or not very useful definitions
@@ -35,18 +36,21 @@ internal static class DiagnosticsContext
         "QuestTreeDefinition"
     };
 
-    private static readonly string[] ExcludeFromCEExport =
+    private static readonly string[] ExcludeFromCeExport =
     {
         "BlueprintCategory", "GadgetBlueprint", "RoomBlueprint", "PropBlueprint"
     };
 
-    private static Dictionary<BaseDefinition, BaseDefinition> TABaseDefinitionAndCopy;
-    private static BaseDefinition[] TABaseDefinitions;
-    private static Dictionary<Type, BaseDefinition[]> TABaseDefinitionsMap;
-    private static BaseDefinition[] CEBaseDefinitions;
-    private static HashSet<BaseDefinition> CEBaseDefinitions2;
-    private static Dictionary<Type, BaseDefinition[]> CEBaseDefinitionsMap;
+#if DEBUG
+    private static Dictionary<BaseDefinition, BaseDefinition> _taBaseDefinitionAndCopy;
+#endif
+    private static BaseDefinition[] _taBaseDefinitions;
+    private static Dictionary<Type, BaseDefinition[]> _taBaseDefinitionsMap;
+    private static BaseDefinition[] _ceBaseDefinitions;
+    private static HashSet<BaseDefinition> _ceBaseDefinitions2;
+    private static Dictionary<Type, BaseDefinition[]> _ceBaseDefinitionsMap;
 
+    // ReSharper disable once MemberCanBePrivate.Global
     internal static readonly string ProjectFolder =
         Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
@@ -72,9 +76,9 @@ internal static class DiagnosticsContext
         }
     }
 
-    internal static void CacheTADefinitions()
+    internal static void CacheTaDefinitions()
     {
-        if (TABaseDefinitionsMap != null)
+        if (_taBaseDefinitionsMap != null)
         {
             return;
         }
@@ -89,11 +93,11 @@ internal static class DiagnosticsContext
             definitions.Add(db.Key, arr);
         }
 
-        TABaseDefinitionsMap = definitions
+        _taBaseDefinitionsMap = definitions
             .OrderBy(db => db.Key.FullName)
             .ToDictionary(v => v.Key, v => v.Value);
 
-        TABaseDefinitions = TABaseDefinitionsMap.Values
+        _taBaseDefinitions = _taBaseDefinitionsMap.Values
             .SelectMany(v => v)
             .Where(x => Array.IndexOf(ExcludeFromExport, x.GetType().Name) < 0)
             .Distinct()
@@ -101,27 +105,29 @@ internal static class DiagnosticsContext
             .ThenBy(x => x.GetType().Name)
             .ToArray();
 
+#if DEBUG
         // Get a copy of definitions so we can export the originals.
         // Note not copying the excluded definitions to save memory.
-        TABaseDefinitionAndCopy = TABaseDefinitions
+        _taBaseDefinitionAndCopy = _taBaseDefinitions
             .ToDictionary(x => x, x =>
             {
                 var copy = Object.Instantiate(x);
                 copy.name = x.Name;
                 return copy;
             });
+#endif
 
-        Main.Log($"Cached {TABaseDefinitions.Length} TA definitions");
+        Main.Log($"Cached {_taBaseDefinitions.Length} TA definitions");
     }
 
-    internal static void CacheCEDefinitions()
+    internal static void CacheCeDefinitions()
     {
-        if (TABaseDefinitionsMap == null)
+        if (_taBaseDefinitionsMap == null)
         {
             return;
         }
 
-        if (CEBaseDefinitionsMap != null)
+        if (_ceBaseDefinitionsMap != null)
         {
             return;
         }
@@ -133,7 +139,7 @@ internal static class DiagnosticsContext
         {
             var arr = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToArray();
 
-            if (TABaseDefinitionsMap.TryGetValue(db.Key, out var taDefinitions))
+            if (_taBaseDefinitionsMap.TryGetValue(db.Key, out var taDefinitions))
             {
                 arr = arr.Except(taDefinitions).ToArray();
             }
@@ -141,65 +147,65 @@ internal static class DiagnosticsContext
             definitions.Add(db.Key, arr);
         }
 
-        CEBaseDefinitionsMap = definitions.OrderBy(db => db.Key.FullName).ToDictionary(v => v.Key, v => v.Value);
-        CEBaseDefinitions = CEBaseDefinitionsMap.Values
+        _ceBaseDefinitionsMap = definitions.OrderBy(db => db.Key.FullName).ToDictionary(v => v.Key, v => v.Value);
+        _ceBaseDefinitions = _ceBaseDefinitionsMap.Values
             .SelectMany(v => v)
             .Where(x => Array.IndexOf(ExcludeFromExport, x.GetType().Name) < 0)
-            .Where(x => Array.IndexOf(ExcludeFromCEExport, x.GetType().Name) < 0)
+            .Where(x => Array.IndexOf(ExcludeFromCeExport, x.GetType().Name) < 0)
             .Distinct()
             .OrderBy(x => x.Name)
             .ThenBy(x => x.GetType().Name)
             .ToArray();
-        CEBaseDefinitions2 = CEBaseDefinitions.ToHashSet();
+        _ceBaseDefinitions2 = _ceBaseDefinitions.ToHashSet();
 
-        Main.Log($"Cached {CEBaseDefinitions.Length} CE definitions");
+        Main.Log($"Cached {_ceBaseDefinitions.Length} CE definitions");
     }
 
     internal static bool IsCeDefinition(BaseDefinition definition)
     {
-        return CEBaseDefinitions2.Contains(definition);
+        return _ceBaseDefinitions2.Contains(definition);
     }
 
 #if DEBUG
-    private const string OFFICIAL_BP_FOLDER = "OfficialBlueprints";
-    private const string COMMUNITY_EXPANSION_BP_FOLDER = "CommunityExpansionBlueprints";
+    private const string OfficialBpFolder = "OfficialBlueprints";
+    private const string CommunityExpansionBpFolder = "CommunityExpansionBlueprints";
 
-    internal static void ExportTADefinitions()
+    internal static void ExportTaDefinitions()
     {
-        var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
+        var path = Path.Combine(DiagnosticsFolder, OfficialBpFolder);
 
-        BlueprintExporter.ExportBlueprints(Ta, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy,
+        BlueprintExporter.ExportBlueprints(Ta, _taBaseDefinitions, _taBaseDefinitionsMap, _taBaseDefinitionAndCopy,
             true, path);
     }
 
     /// <summary>
     /// Export all TA definitions with any modifications made by CE.
     /// </summary>
-    internal static void ExportTADefinitionsAfterCELoaded()
+    internal static void ExportTaDefinitionsAfterCeLoaded()
     {
-        var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
+        var path = Path.Combine(DiagnosticsFolder, OfficialBpFolder);
 
-        BlueprintExporter.ExportBlueprints(Ta2, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy,
+        BlueprintExporter.ExportBlueprints(Ta2, _taBaseDefinitions, _taBaseDefinitionsMap, _taBaseDefinitionAndCopy,
             false, path);
     }
 
-    internal static void ExportCEDefinitions()
+    internal static void ExportCeDefinitions()
     {
-        var path = Path.Combine(DiagnosticsFolder, COMMUNITY_EXPANSION_BP_FOLDER);
+        var path = Path.Combine(DiagnosticsFolder, CommunityExpansionBpFolder);
 
-        BlueprintExporter.ExportBlueprints(Ce, CEBaseDefinitions, CEBaseDefinitionsMap, null, false, path);
+        BlueprintExporter.ExportBlueprints(Ce, _ceBaseDefinitions, _ceBaseDefinitionsMap, null, false, path);
     }
 
-    internal static void CreateTADefinitionDiagnostics()
+    internal static void CreateTaDefinitionDiagnostics()
     {
-        CreateDefinitionDiagnostics(TABaseDefinitions, "TA-Definitions");
+        CreateDefinitionDiagnostics(_taBaseDefinitions, "TA-Definitions");
     }
 
-    internal static void CreateCEDefinitionDiagnostics()
+    internal static void CreateCeDefinitionDiagnostics()
     {
         var baseFilename = "CE-Definitions";
 
-        CreateDefinitionDiagnostics(CEBaseDefinitions, baseFilename);
+        CreateDefinitionDiagnostics(_ceBaseDefinitions, baseFilename);
 
         CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{baseFilename}-Translations-OrphanedTerms-en.txt"));
     }
@@ -227,7 +233,7 @@ internal static class DiagnosticsContext
             }
         }
 
-        foreach (var definition in CEBaseDefinitions)
+        foreach (var definition in _ceBaseDefinitions)
         {
             var title = definition.GuiPresentation.Title;
             var description = definition.GuiPresentation.Description;

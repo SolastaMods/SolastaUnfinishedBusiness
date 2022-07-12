@@ -4,10 +4,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Xml;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Feats;
 using TA;
 using UnityEngine;
 
@@ -29,7 +27,7 @@ internal static class RulesetCharacter_RollAttackMode
         ElvenAccuracyHero = null;
 
         if (ignoreAdvantage
-            || testMode
+            || !testMode
             || attackMode.abilityScore is AttributeDefinitions.Strength or AttributeDefinitions.Constitution)
         {
             return;
@@ -44,7 +42,7 @@ internal static class RulesetCharacter_RollAttackMode
 
         var hero = __instance as RulesetCharacterHero ?? __instance.OriginalFormCharacter as RulesetCharacterHero;
 
-        if (hero != null && hero.TrainedFeats.Any(x => x.Name.Contains(Feats.ZappaFeats.ElvenAccuracyTag)))
+        if (hero != null && hero.TrainedFeats.Any(x => x.Name.Contains(ZappaFeats.ElvenAccuracyTag)))
         {
             ElvenAccuracyHero = hero;
         }
@@ -90,21 +88,27 @@ internal static class RulesetActor_RollDie
         var flag = rollAlterationScore != 0.0;
         var rolls = new int[3];
 
-        rolls[0] = flag ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore) : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);
-        rolls[1] = flag ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore) : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);
-        rolls[2] = flag ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore) : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);
+        rolls[0] = flag
+            ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
+            : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
+        rolls[1] = flag
+            ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
+            : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
+        rolls[2] = flag
+            ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
+            : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
 
         Array.Sort(rolls);
 
-        //
-        // TODO: find a better way to add this message to game console
-        //
+        var line = Gui.Format("Feedback/&ElvenAccuracyTriggered",
+            hero.name, rolls[0].ToString(), rolls[1].ToString(),
+            rolls[2].ToString());
 
-        Gui.Game.GameConsole.LogSimpleLine($"Elven Accuracy triggered. Roll {rolls[0]} discarded.");
+        Gui.Game.GameConsole.LogSimpleLine(line);
 
         firstRoll = rolls[1];
         secondRoll = rolls[2];
 
-        return Mathf.Max(firstRoll,secondRoll);
+        return Mathf.Max(firstRoll, secondRoll);
     }
 }

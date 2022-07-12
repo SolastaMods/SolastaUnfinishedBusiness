@@ -164,7 +164,6 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
-    public string ArcaneShieldstaffOptions { get; set; } = ItemOptionsContext.ArcaneShieldDefault;
     public int IncreaseSenseNormalVision { get; set; } = HouseFeatureContext.DefaultVisionRange;
 
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
@@ -186,6 +185,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
 #endif
+    public int ArcaneShieldstaffOptions { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentificationRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
@@ -266,7 +266,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public string EmpressGarbAppearance { get; set; } = "Normal";
+    public int EmpressGarbAppearanceIndex { get; set; }
 
     // Monsters
     public bool HideMonsterHitPoints { get; set; }

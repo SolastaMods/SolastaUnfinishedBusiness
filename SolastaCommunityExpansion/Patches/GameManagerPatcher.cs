@@ -34,7 +34,7 @@ internal static class GameManager_BindPostDatabase
         ResourceLocatorContext.Load();
 
         // Cache TA definitions for diagnostics and export
-        DiagnosticsContext.CacheTADefinitions();
+        DiagnosticsContext.CacheTaDefinitions();
 
         // Needs to be after CacheTADefinitions
         CeContentPackContext.Load();
@@ -127,7 +127,7 @@ internal static class GameManager_BindPostDatabase
             GuiWrapperContext.Recache();
 
             // Cache CE definitions for diagnostics and export
-            DiagnosticsContext.CacheCEDefinitions();
+            DiagnosticsContext.CacheCeDefinitions();
 
             Main.Enabled = true;
             Main.Logger.Log("Enabled.");

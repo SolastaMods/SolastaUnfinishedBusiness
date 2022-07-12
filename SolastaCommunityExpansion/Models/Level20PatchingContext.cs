@@ -51,8 +51,14 @@ internal static class Level20PatchingContext
 
         foreach (var method in methods)
         {
-            Main.Log(method.Name);
-            harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+            try
+            {
+                harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+            }
+            catch
+            {
+                Main.Error("cannot fully patch Level 20");
+            }
         }
     }
 }

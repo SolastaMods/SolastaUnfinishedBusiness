@@ -190,7 +190,7 @@ public static class LevelUpContext
                && levelUpData.RequiresDeity;
     }
 
-    // also referenced by 4 transpilers in PatchingContext
+    // also referenced by 4 transpiler in PatchingContext
     public static int GetSelectedClassLevel([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var selectedClass = GetSelectedClass(rulesetCharacterHero);

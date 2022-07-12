@@ -274,7 +274,6 @@ public static class Warlock
         {
             ItemDefinitions.WandOfLightningBolts,
             ItemDefinitions.StaffOfFire,
-            ItemDefinitions.ArcaneShieldstaff,
             ItemDefinitions.WizardClothes_Alternate
         };
 

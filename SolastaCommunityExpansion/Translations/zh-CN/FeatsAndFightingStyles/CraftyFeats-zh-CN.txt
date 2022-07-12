@@ -1,9 +1,8 @@
-﻿Feat/&ApothecaryIntDescription=智力+1，最高20点\n你获得草药工具和奥秘的熟练项/专精
 Feat/&ApothecaryIntTitle=炼金师(智力)
 Feat/&ApothecaryWisDescription=感知+1，最高20点\n你获得草药工具和奥秘的熟练项/专精
 Feat/&ApothecaryWisTitle=炼金师(感知)
-Feat/&CraftyArcanaDescription=你获得奥秘的熟练项/专精
 Feat/&AttributeWisTitle=感知
+Feat/&CraftyArcanaDescription=你获得奥秘的熟练项/专精
 Feat/&CraftyBowsDescription=你获得所有弓和弩的熟练项
 Feat/&CraftyBowsTitle=弓箭武器熟练
 Feat/&CraftyFletcherDescription=敏捷+1，最高20点\n你获得盗贼工具的熟练项/专精\n你获得所有弓和弩的熟练项
@@ -20,3 +19,4 @@ Feat/&ToxicologistIntDescription=智力+1，最高20点\n你获得制毒工具�
 Feat/&ToxicologistIntTitle=毒药学家（智力）
 Feat/&ToxicologistWisDescription=感知+1，最高20点\n你获得制毒工具和医学的熟练项/专精
 Feat/&ToxicologistWisTitle=毒药学家（感知）
+Feat/&ApothecaryIntDescription=智力+1，最高20点\n你获得草药工具和奥秘的熟练项/专精

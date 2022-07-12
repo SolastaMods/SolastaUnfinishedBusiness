@@ -4,7 +4,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.ItemFlagDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 
-public class MerchantTypeContext
+public static class MerchantTypeContext
 {
     internal static readonly List<(MerchantDefinition, MerchantType)> MerchantTypes = new();
 

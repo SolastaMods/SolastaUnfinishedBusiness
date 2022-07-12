@@ -1,4 +1,6 @@
-﻿ModUi/&AddAllToStore=Add all to store
+ModUI/&ArcaneShieldAddDruidAndSorcerer=Druid & Sorcerer
+ModUI/&ArcaneShieldAll=All Classes
+ModUI/&EnableBetaContent=Enable beta content <i><color=#F0DAA0>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the conditions removed by <color=#D89555>Greater and Lesser Restoration</color>
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all races
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -9,6 +11,7 @@ ModUi/&Advanced=<color=#F0DAA0>Advanced:</color>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
 ModUi/&Adventure=<color=#F0DAA0>Adventure:</color>
 ModUi/&AllItemInDm=All items in DM
+ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear sylvan armor or lightbringer clothes
 ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -16,10 +19,9 @@ ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Allow gadgets and props to be plac
 ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
-ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view <i><color=#F0DAA0>[only in custom dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce weight of food ration to 2 pounds
-ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arcane Shieldstaff</color> attunement options:\n<b><i><color=#C04040E0>[Default Requires Restart]</color></i></b>
+ModUi/&ArcaneShieldstaffOptions=Extend attunement on <color=#D89555>Arcane Shieldstaff</color>:
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Battle=<color=#F0DAA0>Battle:</color>
@@ -52,7 +54,6 @@ ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on b
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Enable the alternate human <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
-ModUI/&EnableBetaContent=Enable beta content <i><color=#F0DAA0>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel action with right-mouse click
 ModUi/&EnableCharacterChecker=Enable the character checker screen
 ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color>xport character <i><color=#F0DAA0>[on character inspection screen only]</color></i>
@@ -62,7 +63,6 @@ ModUi/&EnableCtrlClickBypassMetamagicPanel=Enable <color=#1E81B0>CTRL</color> cl
 ModUi/&EnableCtrlClickOnlySwapsMainHand=Enable <color=#1E81B0>CTRL</color> click to keep off hand items when swapping wielded configurations
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments\nyou must have at least one outdoor room if you pick an outdoor environment
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableExtraHighLevelMonsters=Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 6, 10 and 14
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
@@ -80,7 +80,6 @@ ModUi/&EnableMinInOutAttributes=Enforce ability scores minimum in & out pre-requ
 ModUi/&EnableOnTheFlyTranslations=Enable real time custom content translations
 ModUi/&EnableRelearnSpells=Can select cantrips or spells already learned from other classes
 ModUi/&EnableRespec=Enable the RESPEC and Level Down after rest actions
-ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable short rest recharge of <color=#D89555>Arcane Weapon</color> on <color=#D89555>Wizard</color> Arcane Fighter
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
@@ -88,6 +87,7 @@ ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport p
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable unlimited <color=#D89555>Arcane Recovery</color> on <color=#D89555>Wizard</color> Spell Master\n<i><color=#F0DAA0>Must be enabled when the ability has available uses or before character creation</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color>, <color=#D89555>Conjure Fey</color>
+ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&Encounters=Encounters
 ModUi/&ExecuteBatchTranslations=. Batch translate instead to create a new campaign prefixed by the target language
 ModUi/&ExpandAll=Expand All
@@ -100,8 +100,8 @@ ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[a spell must be incapable of targeting more than one creature at the spell's current level]</color></i>
 ModUi/&FollowCharactersOnTeleport=Camera follows teleported character(s)
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
-ModUi/&Gameplay=Gameplay
 ModUi/&GameUi=Game UI
+ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
@@ -116,11 +116,11 @@ ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventory and items:</color>
 ModUi/&InvertAltBehaviorOnTooltips=Invert <color=#1E81B0>ALT</color> key behavior on tooltips
 ModUi/&ItemInDm=Items in DM
+ModUi/&ItemTag=Item Tag
 ModUi/&Items=<color=#F0DAA0>Items:</color>
 ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>You must have the character inspection screen open to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
-ModUi/&ItemTag=Item Tag
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -163,6 +163,8 @@ ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Jor
 ModUi/&RestockHelp=. Override defaults to force all of a merchant's stock to restock over time (excluding Manuals and Tomes)\n. Note that some items can take up to 7 game days to restock
 ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Rules
+ModUi/&SRD=<color=#F0DAA0>SRD:</color>
+ModUi/&ScaleGameFontSizeBy=<color=white>Scale the game font size by</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly
 ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested
@@ -174,7 +176,6 @@ ModUi/&SpellInstructions=. You can individually assign each spell to any spell l
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 to display all spells]</color></i></b>
 ModUi/&Spells=<color=#F0DAA0>Spells:</color>
 ModUi/&SpellsMenu=Spells
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stocks Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stocks Hugo's store with <color=#D89555>Wand of Identify</color>, <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
@@ -186,8 +187,8 @@ ModUi/&Translate=Translate
 ModUi/&TranslateCancel=Cancel {0} at {1}
 ModUi/&TranslationEngine=Translation engine
 ModUi/&Translations=Translations
-ModUi/&UnleashEnemyAsNpc=Allow Monsters to be selected on NPC gadgets <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&UnleashNpcAsEnemy=Allow NPCs to be selected on monster gadgets <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&UnleashNpcAsEnemy=Unleash monsters selection <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Unlock all NPC faces
 ModUi/&UnlockEyeStyles=Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all markings and tattoos
@@ -197,4 +198,4 @@ ModUi/&UseHeightOneCylinderEffect=Display a height 1 cylinder effect when castin
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&WeaponTag=Weapon Tag
-ModUi/&ScaleGameFontSizeBy=<color=white>Scale the game font size by</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddAllToStore=Add all to store

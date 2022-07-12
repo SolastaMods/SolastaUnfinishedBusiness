@@ -55,6 +55,7 @@ internal static class BootContext
 
             // ReSharper disable once AssignNullToNotNullAttribute
             version = infoJson["Version"].Value<string>();
+            // ReSharper disable once StringCompareToIsCultureSpecific
             hasUpdate = version.CompareTo(GetInstalledVersion()) > 0;
 
             changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");

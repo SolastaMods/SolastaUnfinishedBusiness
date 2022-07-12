@@ -237,7 +237,7 @@ All settings start disabled by default. On first start the mod will display an w
                 {
                     if (percentageCompleteTa == 0)
                     {
-                        DiagnosticsContext.ExportTADefinitions();
+                        DiagnosticsContext.ExportTaDefinitions();
                     }
                     else
                     {
@@ -249,7 +249,7 @@ All settings start disabled by default. On first start the mod will display an w
                 {
                     if (percentageCompleteCe == 0)
                     {
-                        DiagnosticsContext.ExportCEDefinitions();
+                        DiagnosticsContext.ExportCeDefinitions();
                     }
                     else
                     {
@@ -261,7 +261,7 @@ All settings start disabled by default. On first start the mod will display an w
                 {
                     if (percentageCompleteTa2 == 0)
                     {
-                        DiagnosticsContext.ExportTADefinitionsAfterCELoaded();
+                        DiagnosticsContext.ExportTaDefinitionsAfterCeLoaded();
                     }
                     else
                     {
@@ -272,9 +272,9 @@ All settings start disabled by default. On first start the mod will display an w
 
             using (UI.HorizontalScope())
             {
-                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(),
+                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTaDefinitionDiagnostics(),
                     UI.Width(200));
-                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(),
+                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCeDefinitionDiagnostics(),
                     UI.Width(200));
                 UI.ActionButton("Dump Descriptions", () => DisplayDumpDescription(), UI.Width(200));
             }

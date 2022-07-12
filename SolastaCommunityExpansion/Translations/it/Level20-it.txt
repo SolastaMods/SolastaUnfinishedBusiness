@@ -21,5 +21,3 @@ Feature/&ZSPowerPaladinCleansingTouchDescription=Rimuovi gli effetti degli incan
 Feature/&ZSPowerPaladinCleansingTouchTitle=Tocco detergente
 RestActivity/&ZSSorcerousRestorationDescription=Recupera 4 punti stregoneria durante un breve riposo.
 RestActivity/&ZSSorcerousRestorationTitle=Stregoneria Restauro
-RestActivity/&ZSSorcerousRestorationDescription=Recupera 4 punti stregoneria durante un breve riposo.
-RestActivity/&ZSSorcerousRestorationTitle=Stregoneria Restauro

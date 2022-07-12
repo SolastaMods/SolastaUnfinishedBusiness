@@ -1,7 +1,7 @@
-﻿Feat/&ApothecaryIntDescription=Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous gagnez en maîtrise du kit d'herboristerie et des Arcanes, ou en expertise si vous êtes déjà compétent.
 Feat/&ApothecaryIntTitle=Apothicaire (Renseignement)
 Feat/&ApothecaryWisDescription=Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise du kit d'herboristerie et des Arcanes, ou l'expertise si vous êtes déjà compétent.
 Feat/&ApothecaryWisTitle=Apothicaire (Sagesse)
+Feat/&AttributeWisTitle=Sagesse
 Feat/&CraftyArcanaDescription=Vous acquérez des compétences/expertises en Arcana.
 Feat/&CraftyBowsDescription=Vous gagnez la maîtrise de tous les arcs et arbalètes.
 Feat/&CraftyBowsTitle=Maîtrise de l'arc
@@ -19,3 +19,4 @@ Feat/&ToxicologistIntDescription=Augmentez votre Intelligence de 1, jusqu'à un 
 Feat/&ToxicologistIntTitle=Toxicologue (Renseignement)
 Feat/&ToxicologistWisDescription=Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise du kit d'empoisonneur et de la Médecine, ou l'expertise si vous la maîtrisez déjà.
 Feat/&ToxicologistWisTitle=Toxicologue (Sagesse)
+Feat/&ApothecaryIntDescription=Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous gagnez en maîtrise du kit d'herboristerie et des Arcanes, ou en expertise si vous êtes déjà compétent.

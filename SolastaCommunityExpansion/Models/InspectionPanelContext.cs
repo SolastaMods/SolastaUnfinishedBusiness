@@ -14,6 +14,7 @@ public static class InspectionPanelContext
         Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
 
     [NotNull]
+    // ReSharper disable once UnusedMember.Global
     public static string GetSelectedClassSearchTerm(string original)
     {
         var selectedClass = SelectedClass;
@@ -23,6 +24,7 @@ public static class InspectionPanelContext
                    : selectedClass.Name);
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static void EnumerateClassBadges([NotNull] CharacterInformationPanel __instance)
     {
         var badgeDefinitions =

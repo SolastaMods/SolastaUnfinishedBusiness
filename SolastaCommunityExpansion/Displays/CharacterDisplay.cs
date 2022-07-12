@@ -64,7 +64,7 @@ internal static class CharacterDisplay
 
         var intValue = Main.Settings.TotalFeatsGrantedFistLevel;
         if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFistLevel"), ref intValue,
-                InitialChoicesContext.MIN_INITIAL_FEATS, InitialChoicesContext.MAX_INITIAL_FEATS, 0, "",
+                InitialChoicesContext.MinInitialFeats, InitialChoicesContext.MaxInitialFeats, 0, "",
                 UI.AutoWidth()))
         {
             Main.Settings.TotalFeatsGrantedFistLevel = intValue;

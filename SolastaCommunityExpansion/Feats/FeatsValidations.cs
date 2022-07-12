@@ -32,7 +32,7 @@ internal static class FeatsValidations
 
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateRace(
-         CharacterRaceDefinition characterRaceDefinition)
+        CharacterRaceDefinition characterRaceDefinition)
     {
         var raceName = characterRaceDefinition.FormatTitle();
 

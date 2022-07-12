@@ -40,11 +40,11 @@ public static class ItemPropertyDescriptions
     }
 
     public static ItemPropertyDescription BuildFrom(
-        ConditionDefinition conditione,
+        ConditionDefinition condition,
         bool appliesOnItemOnly = true,
         KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
     {
-        return ItemPropertyDescriptionBuilder.From(conditione, appliesOnItemOnly, knowledgeAffinity).Build();
+        return ItemPropertyDescriptionBuilder.From(condition, appliesOnItemOnly, knowledgeAffinity).Build();
     }
 
 

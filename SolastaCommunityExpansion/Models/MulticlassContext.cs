@@ -38,7 +38,7 @@ internal static class MulticlassContext
             }
         }
 
-        // required to avoid some trace error messages that might desync multiplayer sessions and prevent level up from 19 to 20
+        // required to avoid some trace error messages that might affect multiplayer sessions and prevent level up from 19 to 20
         var castSpellDefinitions = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
 
         foreach (var castSpellDefinition in castSpellDefinitions)

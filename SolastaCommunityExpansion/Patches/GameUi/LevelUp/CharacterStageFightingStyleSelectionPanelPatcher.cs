@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,8 @@ internal static class CharacterStageFightingStyleSelectionPanel_OnBeginShow
         if (Main.Settings.EnableSortingFightingStyles)
         {
             __instance.compatibleFightingStyles
-                .Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
+                .Sort((a, b) =>
+                    String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
         }
 
         var gridLayoutGroup = __instance.fightingStylesTable.GetComponent<GridLayoutGroup>();

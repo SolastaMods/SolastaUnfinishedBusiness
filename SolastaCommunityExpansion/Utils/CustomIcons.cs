@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
-using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaCommunityExpansion.Builders;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -37,8 +36,7 @@ internal static class CustomIcons
 
         if (SpritesByGuid.TryGetValue(guid, out var sprite))
         {
-            throw new SolastaCommunityExpansionException(
-                $"A sprite with name {name} and size [{sizeX},{sizeY}] already exists.");
+            return sprite;
         }
 
         var texture = new Texture2D(sizeX, sizeY, TextureFormat.DXT5, false);
