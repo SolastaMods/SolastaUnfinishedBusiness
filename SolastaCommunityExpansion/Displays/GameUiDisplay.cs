@@ -1,5 +1,4 @@
-﻿using System;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Displays;
@@ -150,12 +149,11 @@ internal static class GameUiDisplay
         {
             UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325));
 
-            intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbAppearances,
-                Main.Settings.EmpressGarbAppearance);
+            intValue = Main.Settings.EmpressGarbAppearanceIndex;
             if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbAppearances,
                     ItemOptionsContext.EmpressGarbAppearances.Length, 3, UI.Width(440)))
             {
-                Main.Settings.EmpressGarbAppearance = ItemOptionsContext.EmpressGarbAppearances[intValue];
+                Main.Settings.EmpressGarbAppearanceIndex = intValue;
                 ItemOptionsContext.SwitchEmpressGarb();
             }
         }

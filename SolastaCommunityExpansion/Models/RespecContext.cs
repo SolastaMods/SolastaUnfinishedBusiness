@@ -65,10 +65,10 @@ public static class RespecContext
             FunctorExecutionContext context)
         {
             var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
-            var gameLocationscreenExplorationVisible =
+            var gameLocationScreenExplorationVisible =
                 gameLocationScreenExploration && gameLocationScreenExploration.Visible;
 
-            if (Global.IsMultiplayer || !gameLocationscreenExplorationVisible)
+            if (Global.IsMultiplayer || !gameLocationScreenExplorationVisible)
             {
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Informative1,

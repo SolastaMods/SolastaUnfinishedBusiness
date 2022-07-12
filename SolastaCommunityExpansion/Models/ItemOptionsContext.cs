@@ -16,18 +16,6 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class ItemOptionsContext
 {
-    internal const string ArcaneShieldDefault = "None(Default)";
-    private const string ArcaneShieldAddDruidAndSorcerer = "Druid & Sorcerer";
-
-    private const string ArcaneShieldAll = "All";
-
-    // TODO: Add proper translations to these
-    internal static readonly string[] EmpressGarbAppearances =
-    {
-        "Normal", "Barbarian Clothes", "Druid Leather", "Elven Chain", "Plain Shirt", "Sorcerer's Armor",
-        "Studded Leather", "Sylvan Armor", "Wizard Clothes"
-    };
-
     private static readonly List<ItemDefinition> Crowns = new()
     {
         CrownOfTheMagister,
@@ -43,6 +31,16 @@ internal static class ItemOptionsContext
         CrownOfTheMagister10,
         CrownOfTheMagister11,
         CrownOfTheMagister12
+    };
+
+    internal static string[] EmpressGarbAppearances { get; } =
+    {
+        Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("Equipment/&Barbarian_Clothes_Title"),
+        Gui.Localize("Equipment/&Druid_Leather_Title"), Gui.Localize("Equipment/&ElvenChain_Unidentified_Title"),
+        Gui.Localize("Equipment/&Armor_Commoner_ClothesTitle"),
+        Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title"),
+        Gui.Localize("Equipment/&Armor_StuddedLeatherTitle"), Gui.Localize("Equipment/&GreenmageArmor_Title"),
+        Gui.Localize("Equipment/&Armor_Adventuring_Wizard_OutfitTitle")
     };
 
     internal static string[] ArcaneShieldstaffOptions { get; } =
@@ -152,43 +150,43 @@ internal static class ItemOptionsContext
     {
         EmpressGarbOriginalItemPresentation ??= Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
 
-        switch (Main.Settings.EmpressGarbAppearance)
+        switch (Main.Settings.EmpressGarbAppearanceIndex)
         {
-            case "Normal":
+            case 0: //"Normal":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 break;
 
-            case "Barbarian Clothes":
+            case 1: // Barbarian Clothes
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = BarbarianClothes.ItemPresentation;
                 break;
 
-            case "Druid Leather":
+            case 2: // Druid Leather
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = LeatherDruid.ItemPresentation;
                 break;
 
-            case "Elven Chain":
+            case 3: // Elven Chain
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ElvenChain.ItemPresentation;
                 break;
 
-            case "Plain Shirt":
+            case 4: // Plain Shirt
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useCustomArmorMaterial = false;
                 break;
 
-            case "Studded Leather":
+            case 5: // Sorcerer's Armor
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
+                break;
+
+            case 6: // Studded Leather
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = StuddedLeather.ItemPresentation;
                 break;
 
-            case "Sylvan Armor":
+            case 7: // Sylvan Armor
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = GreenmageArmor.ItemPresentation;
                 break;
 
-            case "Wizard Clothes":
+            case 8: // Wizard Clothes
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = WizardClothes_Alternate.ItemPresentation;
-                break;
-
-            case "Sorcerer's Armor":
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
                 break;
         }
     }

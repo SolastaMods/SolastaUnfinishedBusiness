@@ -18,9 +18,9 @@ internal static class CharacterStageAbilityScoresPanel_Reset
             if (Main.Settings.EnableEpicPointsAndArray)
             {
                 if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
-                    InitialChoicesContext.GAME_BUY_POINTS.ToString())
+                    InitialChoicesContext.GameBuyPoints.ToString())
                 {
-                    yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.MOD_BUY_POINTS);
+                    yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.ModBuyPoints);
                 }
                 else
                 {
@@ -47,19 +47,19 @@ internal static class CharacterStageAbilityScoresPanel_Refresh
             if (Main.Settings.EnableEpicPointsAndArray)
             {
                 if (instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() ==
-                    InitialChoicesContext.GAME_BUY_POINTS.ToString())
+                    InitialChoicesContext.GameBuyPoints.ToString())
                 {
-                    yield return new CodeInstruction(OpCodes.Ldc_R4, 1f * InitialChoicesContext.MOD_BUY_POINTS);
+                    yield return new CodeInstruction(OpCodes.Ldc_R4, 1f * InitialChoicesContext.ModBuyPoints);
                 }
                 else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
-                         InitialChoicesContext.GAME_BUY_POINTS.ToString())
+                         InitialChoicesContext.GameBuyPoints.ToString())
                 {
-                    yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.MOD_BUY_POINTS);
+                    yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.ModBuyPoints);
                 }
                 else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
-                         InitialChoicesContext.GAME_MAX_ATTRIBUTE.ToString())
+                         InitialChoicesContext.GameMaxAttribute.ToString())
                 {
-                    yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.MOD_MAX_ATTRIBUTE);
+                    yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.ModMaxAttribute);
                 }
                 else
                 {

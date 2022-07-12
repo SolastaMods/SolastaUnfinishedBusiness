@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -10,14 +11,14 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class InitialChoicesContext
 {
-    internal const int MIN_INITIAL_FEATS = 0;
-    internal const int MAX_INITIAL_FEATS = 10;
+    internal const int MinInitialFeats = 0;
+    internal const int MaxInitialFeats = 10;
 
-    internal const int GAME_MAX_ATTRIBUTE = 15;
-    internal const int GAME_BUY_POINTS = 27;
+    internal const int GameMaxAttribute = 15;
+    internal const int GameBuyPoints = 27;
 
-    internal const int MOD_MAX_ATTRIBUTE = 17;
-    internal const int MOD_BUY_POINTS = 35;
+    internal const int ModMaxAttribute = 17;
+    internal const int ModBuyPoints = 35;
 
     private static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
@@ -54,14 +55,9 @@ internal static class InitialChoicesContext
 
     private static void LoadEpicArray()
     {
-        if (Main.Settings.EnableEpicPointsAndArray)
-        {
-            AttributeDefinitions.PredeterminedRollScores = new[] {17, 15, 13, 12, 10, 8};
-        }
-        else
-        {
-            AttributeDefinitions.PredeterminedRollScores = new[] {15, 14, 13, 12, 10, 8};
-        }
+        AttributeDefinitions.PredeterminedRollScores = Main.Settings.EnableEpicPointsAndArray
+            ? new[] {17, 15, 13, 12, 10, 8}
+            : new[] {15, 14, 13, 12, 10, 8};
     }
 
     private static void LoadVision()
@@ -153,7 +149,8 @@ internal static class InitialChoicesContext
     }
 
     private static void BuildFeatureUnlocks(int initialFeats, bool alternateHuman,
-        out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman)
+        [CanBeNull] out FeatureUnlockByLevel featureUnlockByLevelNonHuman,
+        [CanBeNull] out FeatureUnlockByLevel featureUnlockByLevelHuman)
     {
         var featureDefinitionPointPoolDb = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
         string name;
@@ -286,7 +283,7 @@ internal static class InitialChoicesContext
         }
     }
 
-    private static void Remove(CharacterRaceDefinition characterRaceDefinition, FeatureDefinition toRemove)
+    private static void Remove([NotNull] CharacterRaceDefinition characterRaceDefinition, FeatureDefinition toRemove)
     {
         var ndx = -1;
 
@@ -305,8 +302,8 @@ internal static class InitialChoicesContext
         }
     }
 
-    private static void Remove(CharacterRaceDefinition characterRaceDefinition,
-        FeatureUnlockByLevel featureUnlockByLevel)
+    private static void Remove([NotNull] CharacterRaceDefinition characterRaceDefinition,
+        [NotNull] FeatureUnlockByLevel featureUnlockByLevel)
     {
         Remove(characterRaceDefinition, featureUnlockByLevel.FeatureDefinition);
     }

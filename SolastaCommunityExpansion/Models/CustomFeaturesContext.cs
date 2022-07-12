@@ -45,7 +45,7 @@ public static class CustomFeaturesContext
         }
     }
 
-    internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, string tag,
+    internal static void RecursiveRemoveCustomFeatures([NotNull] RulesetCharacterHero hero, string tag,
         List<FeatureDefinition> features, bool handleCustomCode = true)
     {
         var selectedClass = LevelUpContext.GetSelectedClass(hero);
@@ -400,7 +400,7 @@ public static class CustomFeaturesContext
 
             // refresh character control panel after power pool usage is updated
             // needed for custom point pools on portrait to update properly in some cases
-            GameUiContext.GameHud.RefreshCharactrControlPanel();
+            GameUiContext.GameHud.RefreshCharacterControlPanel();
             return;
         }
     }

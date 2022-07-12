@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Classes.Monk;
@@ -24,7 +25,8 @@ internal static class ClassesContext
 
                 if (result == 0)
                 {
-                    result = a.FeatureDefinition.FormatTitle().CompareTo(b.FeatureDefinition.FormatTitle());
+                    result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
+                        StringComparison.CurrentCulture);
                 }
 
                 return result;

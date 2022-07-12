@@ -199,7 +199,7 @@ internal static class InventoryManagementContext
                 return sortOrder * (a.StackCount - b.StackCount);
             }
 
-            return sortOrder * at.CompareTo(bt);
+            return sortOrder * String.Compare(at, bt, StringComparison.CurrentCultureIgnoreCase);
         }
 
         switch (SortGuiDropdown.value)
@@ -224,7 +224,7 @@ internal static class InventoryManagementContext
                         return SortByName(a, b);
                     }
 
-                    return sortOrder * bmct.CompareTo(bmct);
+                    return sortOrder * String.Compare(bmct, bmct, StringComparison.CurrentCultureIgnoreCase);
                 });
 
                 break;

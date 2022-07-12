@@ -139,7 +139,7 @@ public static class PowerBundleContext
         return subPowers?.Select(GetSpell).ToList();
     }
 
-    // Bundled sub-powers usually are not added to the character, so their UsblePower lacks class or race oringin
+    // Bundled sub-powers usually are not added to the character, so their UsablePower lacks class or race origin
     // This means that CharacterActionSpendPower will not call `UsePower` on them
     // This method fixes that
     public static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)

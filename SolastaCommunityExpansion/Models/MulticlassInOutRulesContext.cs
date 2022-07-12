@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models;
 
 public static class MulticlassInOutRulesContext
 {
-    public static void EnumerateHeroAllowedClassDefinitions(RulesetCharacterHero hero,
-        List<CharacterClassDefinition> allowedClasses, ref int selectedClass)
+    public static void EnumerateHeroAllowedClassDefinitions([NotNull] RulesetCharacterHero hero,
+        [NotNull] List<CharacterClassDefinition> allowedClasses, out int selectedClass)
     {
         var currentClass = hero.ClassesHistory[hero.ClassesHistory.Count - 1];
 
@@ -41,13 +43,15 @@ public static class MulticlassInOutRulesContext
             hero.ClassesAndLevels.TryGetValue(a, out var aLevels);
             hero.ClassesAndLevels.TryGetValue(b, out var bLevels);
 
-            return aLevels == bLevels ? a.FormatTitle().CompareTo(b.FormatTitle()) : bLevels.CompareTo(aLevels);
+            return aLevels == bLevels
+                ? String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase)
+                : bLevels.CompareTo(aLevels);
         });
 
         selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
     }
 
-    private static int MyGetAttribute(RulesetCharacterHero hero, string attributeName)
+    private static int MyGetAttribute([NotNull] RulesetCharacterHero hero, string attributeName)
     {
         var attribute = hero.GetAttribute(attributeName);
         var activeModifiers = attribute.ActiveModifiers;
@@ -59,14 +63,15 @@ public static class MulticlassInOutRulesContext
             attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
     }
 
-    private static Dictionary<string, int> GetItemsAttributeModifiers(RulesetCharacterHero hero)
+    [NotNull]
+    private static Dictionary<string, int> GetItemsAttributeModifiers([NotNull] RulesetCharacter hero)
     {
         var items = new List<RulesetItem>();
 
         hero.CharacterInventory.EnumerateAllItems(items, false);
 
         var attributeModifiers =
-            AttributeDefinitions.AbilityScoreNames.ToDictionary(attributeName => attributeName, attributeName => 0);
+            AttributeDefinitions.AbilityScoreNames.ToDictionary(attributeName => attributeName, _ => 0);
 
         foreach (var featureDefinitionAttributeModifier in items
                      .SelectMany(x => x.ItemDefinition.StaticProperties
@@ -84,7 +89,8 @@ public static class MulticlassInOutRulesContext
     }
 
     [SuppressMessage("Convert switch statement to expression", "IDE0066")]
-    private static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+    private static bool ApproveMultiClassInOut(RulesetCharacterHero hero,
+        [NotNull] CharacterClassDefinition classDefinition)
     {
         if (classDefinition.GuiPresentation.Hidden)
         {
@@ -147,7 +153,7 @@ public static class MulticlassInOutRulesContext
         }
     }
 
-    private static bool IsSupported(CharacterClassDefinition classDefinition)
+    private static bool IsSupported([NotNull] BaseDefinition classDefinition)
     {
         return !classDefinition.GuiPresentation.Hidden;
     }

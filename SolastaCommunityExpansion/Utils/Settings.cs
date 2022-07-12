@@ -265,7 +265,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public string EmpressGarbAppearance { get; set; } = "Normal";
+    public int EmpressGarbAppearanceIndex { get; set; }
 
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
