@@ -74,6 +74,8 @@ internal static class ItemsAndCraftingDisplay
 
     internal static void DisplayItemsAndCrafting()
     {
+        int intValue;
+
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label("");
@@ -101,13 +103,12 @@ internal static class ItemsAndCraftingDisplay
         {
             UI.Label(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), UI.Width(325));
 
-            var intValue2 = Array.IndexOf(ItemOptionsContext.ArcaneShieldstaffOptions,
-                Main.Settings.ArcaneShieldstaffOptions);
+            intValue = Main.Settings.ArcaneShieldstaffOptions;
 
-            if (UI.SelectionGrid(ref intValue2, ItemOptionsContext.ArcaneShieldstaffOptions,
+            if (UI.SelectionGrid(ref intValue, ItemOptionsContext.ArcaneShieldstaffOptions,
                     ItemOptionsContext.ArcaneShieldstaffOptions.Length, 3, UI.Width(440)))
             {
-                Main.Settings.ArcaneShieldstaffOptions = ItemOptionsContext.ArcaneShieldstaffOptions[intValue2];
+                Main.Settings.ArcaneShieldstaffOptions = intValue;
                 ItemOptionsContext.SwitchAttuneArcaneShieldstaff();
             }
         }
@@ -128,7 +129,7 @@ internal static class ItemsAndCraftingDisplay
 
         UI.Label("");
 
-        var intValue = Main.Settings.TotalCraftingTimeModifier;
+        intValue = Main.Settings.TotalCraftingTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
         {
             Main.Settings.TotalCraftingTimeModifier = intValue;

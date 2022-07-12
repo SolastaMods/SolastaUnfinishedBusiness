@@ -15,6 +15,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class ItemOptionsContext
 {
+    // TODO: Add proper translations to these
     internal static readonly string[] EmpressGarbAppearances =
     {
         "Normal", "Barbarian Clothes", "Druid Leather", "Elven Chain", "Plain Shirt", "Sorcerer's Armor",
@@ -25,9 +26,11 @@ internal static class ItemOptionsContext
     private const string ArcaneShieldAddDruidAndSorcerer = "Druid & Sorcerer";
     private const string ArcaneShieldAll = "All";
 
-    internal static readonly string[] ArcaneShieldstaffOptions =
+    internal static string[] ArcaneShieldstaffOptions { get; private set; } =
     {
-        ArcaneShieldDefault, ArcaneShieldAddDruidAndSorcerer, ArcaneShieldAll
+        Gui.Localize("ModUI/&ArcaneShieldDefault"),
+        Gui.Localize("ModUI/&ArcaneShieldAddDruidAndSorcerer"),
+        Gui.Localize("ModUI/&ArcaneShieldAll")
     };
 
     private static readonly List<ItemDefinition> Crowns = new()
@@ -251,29 +254,27 @@ internal static class ItemOptionsContext
     {
         switch (Main.Settings.ArcaneShieldstaffOptions)
         {
-            case ArcaneShieldDefault:
-                if (!Main.Settings.ClassEnabled.Contains(Classes.Warlock.Warlock.ClassWarlock.Name))
+            case 0:
+                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger);
+
+                if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
                 {
-                    ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger);
+                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Classes.Warlock.Warlock.ClassWarlock);
                 }
-                else
-                {
-                    ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Classes.Warlock.Warlock.ClassWarlock);
-                }                
+
                 break;
 
-            case ArcaneShieldAddDruidAndSorcerer:
-                if (!Main.Settings.ClassEnabled.Contains(Classes.Warlock.Warlock.ClassWarlock.Name))
+            case 1:
+                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Druid, Sorcerer);
+
+                if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
                 {
-                    ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Druid, Sorcerer);
+                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Classes.Warlock.Warlock.ClassWarlock);
                 }
-                else
-                {
-                    ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Druid, Sorcerer, Classes.Warlock.Warlock.ClassWarlock);
-                }             
+
                 break;
 
-            case ArcaneShieldAll:
+            case 2:
                 ArcaneShieldstaff.RequiredAttunementClasses.Clear();
                 break;
         }
