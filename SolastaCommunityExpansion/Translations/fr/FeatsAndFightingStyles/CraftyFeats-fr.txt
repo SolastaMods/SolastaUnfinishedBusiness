@@ -2,6 +2,7 @@
 Feat/&ApothecaryIntTitle=Apothicaire (Renseignement)
 Feat/&ApothecaryWisDescription=Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise du kit d'herboristerie et des Arcanes, ou l'expertise si vous êtes déjà compétent.
 Feat/&ApothecaryWisTitle=Apothicaire (Sagesse)
+Feat/&AttributeWisTitle=Sagesse
 Feat/&CraftyArcanaDescription=Vous acquérez des compétences/expertises en Arcana.
 Feat/&CraftyBowsDescription=Vous gagnez la maîtrise de tous les arcs et arbalètes.
 Feat/&CraftyBowsTitle=Maîtrise de l'arc

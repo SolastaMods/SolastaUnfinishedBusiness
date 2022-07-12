@@ -2,6 +2,7 @@
 Feat/&ApothecaryIntTitle=Speziale (Intelligence)
 Feat/&ApothecaryWisDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit di erboristeria e Arcana, o competenza se già abile.
 Feat/&ApothecaryWisTitle=Speziale (Saggezza)
+Feat/&AttributeWisTitle=Saggezza
 Feat/&CraftyArcanaDescription=Ottieni competenza/competenza in Arcana.
 Feat/&CraftyBowsDescription=Acquisisci competenza con tutti gli archi e le balestre.
 Feat/&CraftyBowsTitle=Competenza con l'arco
@@ -17,5 +18,5 @@ Feat/&ManacalonCrafterDescription=Aumenta la tua Intelligenza di 1, fino a un ma
 Feat/&ManacalonCrafterTitle=Artigiano di Manacalon
 Feat/&ToxicologistIntDescription=Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit dell'avvelenatore e la Natura, o competenza se già abile.
 Feat/&ToxicologistIntTitle=Tossicologo (Intelligence)
-Feat/&ToxicologistWisDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nAcquisisci competenza con kit da avvelenatore e Medicina, o competenza se già abile.
+Feat/&ToxicologistWisDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit dell'avvelenatore e la Medicina, o competenza se già abile.
 Feat/&ToxicologistWisTitle=Tossicologo (Saggezza)

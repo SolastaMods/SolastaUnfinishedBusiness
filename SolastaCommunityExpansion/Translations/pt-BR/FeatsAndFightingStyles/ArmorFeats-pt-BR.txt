@@ -1,4 +1,4 @@
-Feat/&FeatMediumArmorDexDescription=Aumente sua Destreza em 1, até um máximo de 20.\nVocê ganha proficiência com Armadura Média e escudos.
+Feat/&FeatMediumArmorDexDescription=Aumente sua Destreza em 1, até um máximo de 20.\nVocê ganha proficiência com armaduras médias e escudos.
 Feat/&FeatMediumArmorDexTitle=Armadura Média (Destreza)
 Feat/&FeatMediumArmorProficiencyDescription=Você ganha proficiência com armaduras e escudos médios.
 Feat/&FeatMediumArmorProficiencyTitle=Armadura Média

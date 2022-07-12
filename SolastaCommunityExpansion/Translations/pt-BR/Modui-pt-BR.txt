@@ -15,10 +15,11 @@ ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20 <b><i><c
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Permitir que gadgets e adereços sejam colocados em qualquer lugar no mapa <i><color=#F0DAA0>[pressione <color=#1E81B0>CTRL</color> durante o posicionamento para ignorar qualquer verificação]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <i><color=#F0DAA0>[ex. 2x500gp diamante é equivalente a 1000gp diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir a seleção de alvo ao lançar o feitiço <color=#D89555>Chain Lightning</color>
-ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Feiticeiros</color> sem marcações de origem e tatuagens
+ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Feiticeiro</color> sem marcas de origem e tatuagens
 ModUi/&AllRecipesInDm=Todas as receitas em DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca os gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente em masmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduza o peso da ração alimentar para 2 libras
+ModUi/&ArcaneShieldstaffOptions=Estenda as classes permitidas em <color=#D89555>Arcane Shieldstaff</color>:
 ModUi/&AutoPauseOnVictory=Pause a interface do usuário quando for vitorioso na batalha
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Battle=<color=#F0DAA0>Batalha:</color>
@@ -61,7 +62,6 @@ ModUi/&EnableCtrlClickBypassMetamagicPanel=Ative <color=#1E81B0>CTRL</color> cli
 ModUi/&EnableCtrlClickOnlySwapsMainHand=Ative <color=#1E81B0>CTRL</color> clique para evitar itens de mão ao trocar configurações de empunhadura
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n\ninclui salas planas, tamanhos de masmorra de 150 x 150 e 200 x 200 e sem frescuras misturando ativos de todos os ambientes\nvocê deve ter pelo menos uma sala externa se escolher um ambiente externo
 ModUi/&EnableEpicPointsAndArray=Ative um sistema épico de compra de 35 pontos e uma matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&EnableExtraHighLevelMonsters=Ative monstros adicionais de alto nível (+20 CR) para campanhas de nível 3 e 4 <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilite a seleção de talentos nos níveis de classe 2, 6, 10 e 14
 ModUi/&EnableFlexibleBackgrounds=Ative planos de fundo flexíveis <i><color=#F0DAA0>[selecione proficiências em habilidades e ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Ative corridas flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
@@ -185,8 +185,8 @@ ModUi/&Translate=Traduzir
 ModUi/&TranslateCancel=Cancelar {0} em {1}
 ModUi/&TranslationEngine=Motor de tradução
 ModUi/&Translations=Traduções
-ModUi/&UnleashEnemyAsNpc=Permitir que Monstros sejam selecionados em dispositivos NPC <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&UnleashNpcAsEnemy=Permitir que NPCs sejam selecionados em gadgets de monstros <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&UnleashEnemyAsNpc=Permitir que monstros sejam selecionados em gadgets de NPC <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&UnleashNpcAsEnemy=Libere a seleção de monstros <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Desbloqueie todos os rostos de NPCs
 ModUi/&UnlockEyeStyles=Desbloqueie estilos de olhos
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Desbloqueie cores brilhantes para todas as marcações e tatuagens
@@ -197,3 +197,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Use regras oficiais de vantagem/des
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&WeaponTag=Marca de Arma
 ModUi/&ScaleGameFontSizeBy=<color=white>Redimensionar o tamanho da fonte do jogo em</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUI/&ArcaneShieldDefault=Nenhum [Padrão]
+ModUI/&ArcaneShieldAddDruidAndSorcerer=Druida e Feiticeiro
+ModUI/&ArcaneShieldAll=Todas as classes

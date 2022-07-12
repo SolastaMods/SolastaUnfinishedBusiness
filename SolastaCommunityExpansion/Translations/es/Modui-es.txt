@@ -15,10 +15,11 @@ ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con un nivel máximo de 20 <b>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Permitir que los gadgets y accesorios se coloquen en cualquier lugar del mapa <i><color=#F0DAA0>[presione <color=#1E81B0>CTRL</color> durante la colocación para omitir cualquier control]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material apilado <i><color=#F0DAA0>[p. ej. 2x500gp diamante es equivalente a 1000gp diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=#D89555>Cadena de relámpagos</color>
-ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechiceros</color> sin marcas de origen ni tatuajes
+ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
 ModUi/&AllRecipesInDm=Todas las recetas en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo en mazmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la ración de alimentos a 2 libras
+ModUi/&ArcaneShieldstaffOptions=Ampliar las clases permitidas en <color=#D89555>Bastón de escudo arcano</color>:
 ModUi/&AutoPauseOnVictory=Pausa la interfaz de usuario cuando salgas victorioso en la batalla.
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Battle=<color=#F0DAA0>Batalla:</color>
@@ -61,7 +62,6 @@ ModUi/&EnableCtrlClickBypassMetamagicPanel=Activa <color=#1E81B0>CTRL</color> y 
 ModUi/&EnableCtrlClickOnlySwapsMainHand=Habilite el clic <color=#1E81B0>CTRL</color> para mantener los elementos fuera de la mano al intercambiar configuraciones empuñadas
 ModUi/&EnableDungeonMakerModdedContent=Habilitar Dungeon Maker Pro <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>\n\nincluye habitaciones planas, mazmorras de 150x150 y 200x200 y sin lujos mezclar activos de todos los entornos\ndebes tener al menos una habitación al aire libre si eliges un entorno al aire libre
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&EnableExtraHighLevelMonsters=Habilita monstruos de alto nivel adicionales (+20 CR) para campañas de nivel 3 y 4 <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 6, 10 y 14
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione competencias de habilidades y herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntaje de habilidad en lugar de los valores raciales predeterminados]</color></i>
@@ -186,7 +186,7 @@ ModUi/&TranslateCancel=Cancelar {0} a las {1}
 ModUi/&TranslationEngine=Motor de traducción
 ModUi/&Translations=Traducciones
 ModUi/&UnleashEnemyAsNpc=Permitir que los monstruos se seleccionen en dispositivos NPC <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
-ModUi/&UnleashNpcAsEnemy=Permitir que los NPC se seleccionen en dispositivos de monstruos <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUi/&UnleashNpcAsEnemy=Desata la selección de monstruos <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Desbloquea todas las caras de NPC
 ModUi/&UnlockEyeStyles=Desbloquear estilos de ojos
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Desbloquea colores brillantes para todas las marcas y tatuajes.
@@ -197,3 +197,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/de
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&WeaponTag=Etiqueta de arma
 ModUi/&ScaleGameFontSizeBy=<color=white>Escale el tamaño de fuente del juego en</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUI/&ArcaneShieldDefault=Ninguno [Predeterminado]
+ModUI/&ArcaneShieldAddDruidAndSorcerer=druida y hechicero
+ModUI/&ArcaneShieldAll=Todas las clases

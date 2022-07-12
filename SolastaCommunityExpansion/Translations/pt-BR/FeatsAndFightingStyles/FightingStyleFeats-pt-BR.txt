@@ -2,7 +2,7 @@
 Feat/&FeatCripplingTitle=Estilo de luta: Aleijado
 Feat/&FightingStyleArcheryDescription=Você ganha um bônus de +2 nas jogadas de ataque com armas de longo alcance.
 Feat/&FightingStyleArcheryTitle=Estilo de luta: Tiro com arco
-Feat/&FightingStyleDefenseDescription=Enquanto estiver usando armadura, você ganha +1 de bônus na CA.
+Feat/&FightingStyleDefenseDescription=Enquanto estiver usando armadura, você ganha um bônus de +1 na CA.
 Feat/&FightingStyleDefenseTitle=Estilo de luta: Defesa
 Feat/&FightingStyleDuelingDescription=Quando você está empunhando uma arma corpo a corpo em uma mão e nenhuma outra arma, você ganha um bônus de +2 nas jogadas de dano com aquela arma.
 Feat/&FightingStyleDuelingTitle=Estilo de luta: Duelo

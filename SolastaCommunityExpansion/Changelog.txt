@@ -1,6 +1,6 @@
 ﻿CHANGES:
 
-- Add Elven Precision feat [still need a better combat log]
+- Add Elven Precision feat [still needs a better combat log]
 - Extend allowed classes on Arcane Shield Staff
-- Fix subclass on higher level features display
+- Fix sub class on higher level features display
 - Fix (M)ap causing an exception on 2nd usage

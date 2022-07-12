@@ -19,6 +19,7 @@ ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Zauberer</color> ohne Urspr
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur in benutzerdefinierten Dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
+ModUi/&ArcaneShieldstaffOptions=Zulässige Klassen auf <color=#D89555>Arkaner Schildstab</color> erweitern:
 ModUi/&AutoPauseOnVictory=Pausiere die Benutzeroberfläche, wenn du im Kampf siegst
 ModUi/&Basic=<color=#F0DAA0>Basis:</color>
 ModUi/&Battle=<color=#F0DAA0>Kampf:</color>
@@ -38,7 +39,7 @@ ModUi/&CraftingHelp=. Drücken Sie die Taste, um Rezepte sofort auf der aktiven 
 ModUi/&Credits=Kredite
 ModUi/&CreditsAndDiagnostics=Kredite & Diagnostik
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
-ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=Zeigen Sie während des Levelaufstiegs alle bekannten Zaubersprüche aus anderen Klassen an
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
@@ -56,22 +57,21 @@ ModUi/&EnableCancelEditOnRightMouseClick=Aktivieren Sie die Abbruchaktion mit ei
 ModUi/&EnableCharacterChecker=Aktivieren Sie den Zeichenprüfbildschirm
 ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(E)</color>Zeichen exportieren <i><color=#F0DAA0>[nur auf dem Zeichenprüfbildschirm]</color></i>
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheat-Menü
-ModUi/&EnableCtrlClickBypassAttackReactionPanel=Aktivieren Sie <color=#1E81B0>STRG</color>, klicken Sie auf Angriffe, um alle Reaktionsfenster zu ignorieren
+ModUi/&EnableCtrlClickBypassAttackReactionPanel=Aktivieren Sie <color=#1E81B0>STRG</color>, klicken Sie auf Angriffe, um alle Reaktionsfelder zu ignorieren
 ModUi/&EnableCtrlClickBypassMetamagicPanel=Aktivieren Sie <color=#1E81B0>STRG</color>, klicken Sie auf Zaubersprüche, um das metamagische Bedienfeld <color=#D89555>Zauberer</color> zu ignorieren
 ModUi/&EnableCtrlClickOnlySwapsMainHand=Aktivieren Sie <color=#1E81B0>CTRL</color>-Klick, um Gegenstände beim Wechseln von getragenen Konfigurationen aus der Hand zu halten
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n\nschließen Sie flache Räume, Dungeongrößen von 150 x 150 und 200 x 200 und keinen Schnickschnack ein Mischen von Assets aus allen Umgebungen\nmüssen Sie mindestens einen Raum im Freien haben, wenn Sie sich für eine Umgebung im Freien entscheiden
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableExtraHighLevelMonsters=Aktiviere zusätzliche hochstufige Monster (+20 CR) für Kampagnen der Stufen 3 und 4 <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 6, 10 und 14
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[Fähigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
-ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardeinstellungen zu]</color></i>
+ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der Rassenvorgaben zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D)</color>ebug-Overlay
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(H)</color>ud, um die Sichtbarkeit aller UI-Felder umzuschalten
 ModUi/&EnableHotkeyToggleIndividualHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(C)</color>Systemsteuerung, <color=#1E81B0>CTRL-SHIFT-(L)</color>og, <color=#1E81B0>CTRL-SHIFT- (M)</color>ap und <color=#1E81B0>CTRL-SHIFT-(P)</color>arty, um die Sichtbarkeit der einzelnen UI-Felder umzuschalten
 ModUi/&EnableHotkeyZoomCamera=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(Z)</color>Raumkamera <i><color=#F0DAA0>[nützlich beim Aufnehmen von Dungeon-Screenshots zum Veröffentlichen]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit=<i>+ nur umgehen, wenn kein kritischer Treffer vorliegt</i>
 ModUi/&EnableInventoryFilteringAndSorting=Inventarfilterung und -sortierung aktivieren
-ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Färbe alle Gegenstände, mit denen der Held nicht vertraut ist, rot ein</i>
+ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Beflecke alle Gegenstände, mit denen der Held nicht vertraut ist, rot</i>
 ModUi/&EnableInvisibleCrownOfTheMagister=Blenden Sie die <color=#D89555>Krone des Magisters</color> auf der Spieloberfläche aus
 ModUi/&EnableLevel20=Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie Protokolldialoge zur Spielkonsole während narrativer Sequenzen
@@ -185,8 +185,8 @@ ModUi/&Translate=Übersetzen
 ModUi/&TranslateCancel=Stornieren Sie {0} um {1}
 ModUi/&TranslationEngine=Übersetzungsmaschine
 ModUi/&Translations=Übersetzungen
-ModUi/&UnleashEnemyAsNpc=Ermöglicht die Auswahl von Monstern auf NPC-Gadgets <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&UnleashNpcAsEnemy=Auswahl von NPCs auf Monstergeräten zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&UnleashEnemyAsNpc=Erlaube die Auswahl von Monstern auf NPC-Gadgets <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&UnleashNpcAsEnemy=Entfessle die Monsterauswahl <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Schalte alle NPC-Gesichter frei
 ModUi/&UnlockEyeStyles=Schalte Augenstile frei
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Schalten Sie leuchtende Farben für alle Markierungen und Tätowierungen frei
@@ -197,3 +197,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorte
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&WeaponTag=Waffen-Tag
 ModUi/&ScaleGameFontSizeBy=<color=white>Skalieren Sie die Schriftgröße des Spiels um</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUI/&ArcaneShieldDefault=Keine [Standard]
+ModUI/&ArcaneShieldAddDruidAndSorcerer=Druide & Zauberer
+ModUI/&ArcaneShieldAll=Alle Klassen

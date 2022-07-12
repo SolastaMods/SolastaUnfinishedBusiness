@@ -15,10 +15,11 @@ ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons de niveau 20 maximum <b><i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Autoriser le placement de gadgets et d'accessoires n'importe où sur la carte <i><color=#F0DAA0>[appuyez sur <color=#1E81B0>CTRL</color> lors du placement pour ignorer toute vérification]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser le composant de matériau empilé <i><color=#F0DAA0>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection de cible lors du lancement du sort <color=#D89555>Chain Lightning</color>
-ModUi/&AllowUnmarkedSorcerers=Autoriser les <color=#D89555>sorciers</color> sans marques d'origine ni tatouages
+ModUi/&AllowUnmarkedSorcerers=Autoriser <color=#D89555>Sorcier</color> sans marques d'origine ni tatouages
 ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[uniquement dans les donjons personnalisés]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Réduire le poids de la ration alimentaire à 2 livres
+ModUi/&ArcaneShieldstaffOptions=Étendez les classes autorisées sur <color=#D89555>Arcane Shieldstaff</color> :
 ModUi/&AutoPauseOnVictory=Pause de l'interface utilisateur en cas de victoire au combat
 ModUi/&Basic=<color=#F0DAA0>De base :</color>
 ModUi/&Battle=<color=#F0DAA0>Bataille :</color>
@@ -61,7 +62,6 @@ ModUi/&EnableCtrlClickBypassMetamagicPanel=Activez le <color=#1E81B0>CTRL</color
 ModUi/&EnableCtrlClickOnlySwapsMainHand=Activez le clic <color=#1E81B0>CTRL</color> pour ne pas toucher aux objets lorsque vous changez de configuration.
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n\ninclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et sans fioritures mélanger des éléments de tous les environnements\nvous devez disposer d'au moins une pièce extérieure si vous choisissez un environnement extérieur
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points et un tableau <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableExtraHighLevelMonsters=Activer des monstres supplémentaires de haut niveau (+20 CR) pour les campagnes de niveau 3 et 4 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des exploits aux niveaux de classe 2, 6, 10 et 14
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionner les compétences et les outils parmi les arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs raciales par défaut]</color></i>
@@ -186,7 +186,7 @@ ModUi/&TranslateCancel=Annuler {0} à {1}
 ModUi/&TranslationEngine=Moteur de traduction
 ModUi/&Translations=Traductions
 ModUi/&UnleashEnemyAsNpc=Autoriser la sélection de monstres sur les gadgets des PNJ <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&UnleashNpcAsEnemy=Autoriser la sélection de PNJ sur les gadgets monstres <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&UnleashNpcAsEnemy=Libérez la sélection des monstres <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Déverrouiller tous les visages de PNJ
 ModUi/&UnlockEyeStyles=Déverrouiller les styles d'yeux
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
@@ -197,3 +197,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&WeaponTag=Étiquette d'arme
 ModUi/&ScaleGameFontSizeBy=<color=white>Ajuster la taille de la police du jeu de</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUI/&ArcaneShieldDefault=Aucun [par défaut]
+ModUI/&ArcaneShieldAddDruidAndSorcerer=Druide & Sorcier
+ModUI/&ArcaneShieldAll=Tous les cours

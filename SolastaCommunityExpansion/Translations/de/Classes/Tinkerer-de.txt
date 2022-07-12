@@ -142,7 +142,7 @@ Feat/&SummonArtificialServantTitle=Beschwöre einen künstlichen Diener
 Feat/&SummonArtilleryConstructDescription=Der Blaster erstellt und befehligt ein Artilleriekonstrukt in einem von mehreren Modi. Die HP des Konstrukts steigen mit der Stufe seines Beschwörers und können einmal pro Tag für 1 Stunde kostenlos beschworen werden. Das Konstrukt kann mit einem Zauber der 1. Stufe wiederbeschworen werden. Die drei Modi sind: \n<color=#add8e6ff>Schutzkuppelkonstruktion:</color>\nGewährt Verbündeten innerhalb von 3 m 1W8 + 4 temporäre HP \n<color=#add8e6ff>Flammenartilleriekonstruktion:</ color>\nErzeugt einen Feuerkegel. Kreaturen müssen einen Geschicklichkeitsrettungswurf machen oder 2W8 Schaden erleiden.\n<color=#add8e6ff>Force Artillery Construct:</color>\nVerursacht 2W8 Force-Schaden und stößt den Feind 1,50 m weit weg.
 Feat/&SummonArtilleryConstructlevel09Description=Eine neue Funktion wurde hinzugefügt. Das Artilleriekonstrukt kann sich selbst zerstören, indem es einen Geschicklichkeitswurf erzwingt oder bei einem Fehlschlag 3W8 Machtschaden verursacht. \nAußerdem erhöhen sich sowohl die Flammen- als auch die Machtartillerie-Schadenswürfe um 1W8 auf insgesamt 3W8.
 Feat/&SummonArtilleryConstructlevel09Title=Artillerie-Konstrukt-Upgrade: Selbstzerstörung
-Feat/&SummonArtilleryConstructlevel15Description=Eine neue Funktion wurde hinzugefügt. Das Artilleriekonstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung. \n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben.
+Feat/&SummonArtilleryConstructlevel15Description=Eine neue Funktion wurde hinzugefügt. Das Artilleriekonstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung. \n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi aufweisen.
 Feat/&SummonArtilleryConstructlevel15Title=Upgrade des Artilleriekonstrukts: Halbe Deckungskuppel
 Feat/&SummonArtilleryConstructTitle=Artilleriekonstrukt beschwören
 Feat/&SummonProtectorConstructDescription_2=Beschützerkonstrukt-Upgrade beschwören.
@@ -282,7 +282,7 @@ Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription=Du erhält
 Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle=Extra-Angriff
 Subclass/&CancelCancelElixirFlyDescription=Beende die Fliegen-Bedingung durch das Trankmacher-Elixier.
 Subclass/&CancelCancelElixirFlyTitle=Fliegen abbrechen
-Subclass/&CancelCancelElixirResilienceDescription=Beenden Sie die Resilienz-Bedingung des Trankmacher-Elixiers.
+Subclass/&CancelCancelElixirResilienceDescription=Beende die Resilienz-Bedingung aus dem Potion Maker Elixir.
 Subclass/&CancelCancelElixirResilienceTitle=Resilienz abbrechen
 Subclass/&CancelCancelElixirSwiftnessDescription=Beende den Schnelligkeits-Zustand des Trankmacher-Elixiers.
 Subclass/&CancelCancelElixirSwiftnessTitle=Schnelligkeit abbrechen
@@ -328,12 +328,12 @@ Subclass/&TinkererFlashOfGeniusConditionDescription=Inspiriert von einem Geistes
 Subclass/&TinkererFlashOfGeniusConditionTitle=Blitz des Genies
 Subclass/&TinkererFlashOfGeniusPowerDescription=Du kannst dein Genie einsetzen, um dich und andere bei Fähigkeitsprüfungen und Rettungswürfen zu inspirieren.
 Subclass/&TinkererFlashOfGeniusPowerTitle=Blitz des Genies
-Subclass/&TinkererMagicalTinkeringDescription=Erhalten Sie die Fähigkeit, mehrere kleinere Effekte auszuführen (Dazzle, Sparkle, Shine).
+Subclass/&TinkererMagicalTinkeringDescription=Erhalte die Fähigkeit, mehrere kleinere Effekte auszuführen (Dazzle, Sparkle, Shine).
 Subclass/&TinkererMagicalTinkeringTitle=Magisches Basteln
 Subclass/&WeaponProfArtificerBattleSmithDescription=Die Erfahrung im Kampf hat dem Waffenschmied eine Ausbildung in Kampfwaffen gegeben.
 Subclass/&WeaponProfArtificerBattleSmithTitle=Waffentraining
 Tooltip/&TagScoutSentinelWeaponTitle=Scout-Wächter
-Feat/&IncreaseConstructSelectingDescription=Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben.
+Feat/&IncreaseConstructSelectingDescription=Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi aufweisen.
 Feat/&IncreaseConstructSelectingTitle=Verstärkung
 Feat/&UseArmorWeaponsAsFocusDescription=Du kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden.
 Feat/&UseArmorWeaponsAsFocusTitle=Fokus auf Zauberei

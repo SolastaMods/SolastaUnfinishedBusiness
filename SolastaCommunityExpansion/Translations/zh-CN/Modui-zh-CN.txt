@@ -62,7 +62,6 @@ ModUi/&EnableCtrlClickBypassMetamagicPanel=启用点击<color=#1E81B0>CTRL</colo
 ModUi/&EnableCtrlClickOnlySwapsMainHand=启用点击<color=#1E81B0>CTRL</color>在替换所持武器配置时保留副手武器
 ModUi/&EnableDungeonMakerModdedContent=启用地城制作Pro<color=#C04040E0>[需要重启游戏]</color>\n\n包括平房，150x150和200x200的地牢尺寸和没有任何装饰的各种环境\n若你选择一个户外环境，你必须有至少一个户外房间
 ModUi/&EnableEpicPointsAndArray=启用35点的传奇构点和默认排列<color=yellow>[17,15,13,12,10,8]</color><color=#C04040E0>[需要重启游戏]</color>
-ModUi/&EnableExtraHighLevelMonsters=为11-20级的战役启用额外的高等级怪物（+20CR）<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&EnableFeatsAtEvenLevels=启用在第2、6、10、14级时获得专长
 ModUi/&EnableFlexibleBackgrounds=启用灵活背景<color=yellow>[从背景中自由选择技能和工具熟练项]</color>
 ModUi/&EnableFlexibleRaces=启用灵活种族<color=yellow>[自由配置属性值而非使用种族的默认加值]</color>
