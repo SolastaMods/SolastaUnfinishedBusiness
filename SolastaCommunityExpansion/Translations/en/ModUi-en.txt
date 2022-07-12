@@ -150,6 +150,7 @@ ModUi/&RacesClassesSubclasses=Races, Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's Cost</color>
 ModUi/&RecipesInDm=Recipes in DM
 ModUi/&ReduceDarkelfLightPenalty=Swap <color=#D89555>Dark Elf</color> Light Penalty to -1d4 on attacks instead of Disadvantage
+ModUi/&ReduceGrayDwarfLightPenalty=Swap <color=#D89555>Dark Elf</color> Light Penalty to -1d4 on attacks instead of Disadvantage
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels=Replace bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

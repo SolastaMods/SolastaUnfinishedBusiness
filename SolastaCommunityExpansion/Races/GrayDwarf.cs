@@ -16,16 +16,16 @@ namespace SolastaCommunityExpansion.Races;
 
 internal static class GrayDwarfSubraceBuilder
 {
+    private static readonly Guid GrayDwarfNamespace = new("6dcf3e31-8c94-44e4-9dda-8eee0edf21d5");
+
     internal static CharacterRaceDefinition GrayDwarfSubrace { get; } = BuildGrayDwarf();
 	
-	private static readonly Guid GrayDwarfNamespace = new("6dcf3e31-8c94-44e4-9dda-8eee0edf21d5");
-
     [NotNull]
     private static CharacterRaceDefinition BuildGrayDwarf()
     {
         var grayDwarfSpriteReference =
-            //CustomIcons.CreateAssetReferenceSprite("GrayDwarf", Resources.GrayDwarf, 1024, 512);
-			Dwarf.GuiPresentation.SpriteReference;
+            CustomIcons.CreateAssetReferenceSprite("GrayDwarf", Resources.GrayDwarf, 1024, 512);
+			//Dwarf.GuiPresentation.SpriteReference;
 
         var grayDwarfAbilityScoreModifierStrength = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierGrayDwarfStrengthAbilityScoreIncrease", GrayDwarfNamespace)
@@ -68,7 +68,6 @@ internal static class GrayDwarfSubraceBuilder
             .SetFeatures(grayDwarfPerceptionLightSensitivity, grayDwarfCombatAffinityLightSensitivity)
             .AddToDB();
 
-        // this allows the condition to still display as a label on character panel
         Global.CharacterLabelEnabledConditions.Add(grayDwarfConditionLightSensitive);
 
         var grayDwarfLightingEffectAndCondition = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
@@ -173,30 +172,52 @@ internal static class GrayDwarfSubraceBuilder
 
         var grayDwarfConditionStoneStrength = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBullsStrength, "ConditionStoneStrength", GrayDwarfNamespace)
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(
+                Category.Condition,
+                ConditionDefinitions.ConditionStoneResilience.GuiPresentation.SpriteReference)
             .SetFeatures(
                 grayDwarfAbilityCheckAffinityConditionStoneStrength,
                 grayDwarfSavingThrowAffinityConditionStoneStrength,
                 grayDwarfAdditionalDamageConditionStoneStrength)
             .AddToDB();
 
+        Global.CharacterLabelEnabledConditions.Add(grayDwarfConditionStoneStrength);
+
+        var grayDwarfStoneStrengthEffect = EffectDescriptionBuilder            
+            .Create(SpellDefinitions.EnhanceAbilityBullsStrength.EffectDescription)
+            .SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+            .SetTargetingData(
+                RuleDefinitions.Side.Ally,
+                RuleDefinitions.RangeType.Self, 1,
+                RuleDefinitions.TargetType.Self)
+            .Build();
+
+        grayDwarfStoneStrengthEffect.EffectForms[0].ConditionForm.conditionDefinition = grayDwarfConditionStoneStrength;
+
         var grayDwarfStoneStrengthPower = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfStoneStrength", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Stoneskin.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpellDefinitions.EnhanceAbilityBullsStrength.EffectDescription.Copy())
-            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
+            .SetEffectDescription(grayDwarfStoneStrengthEffect)
+            .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 
-        grayDwarfStoneStrengthPower.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition = grayDwarfConditionStoneStrength;
+        var grayDwarfInvisibilityEffect = EffectDescriptionBuilder
+            .Create(SpellDefinitions.Invisibility.EffectDescription)
+            .SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+            .SetTargetingData(
+                RuleDefinitions.Side.Ally,
+                RuleDefinitions.RangeType.Self, 1,
+                RuleDefinitions.TargetType.Self)
+            .Build();
 
         var grayDwarfInvisibilityPower = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfInvisibility", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpellDefinitions.Invisibility.EffectDescription.Copy())
+            .SetEffectDescription(grayDwarfInvisibilityEffect)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
@@ -206,16 +227,15 @@ internal static class GrayDwarfSubraceBuilder
 
         var grayDwarfRacePresentation = Dwarf.RacePresentation.DeepCopy();
 
-        grayDwarfRacePresentation.hasSurName = false;
         grayDwarfRacePresentation.femaleNameOptions = DwarfHill.RacePresentation.FemaleNameOptions;
         grayDwarfRacePresentation.maleNameOptions = DwarfHill.RacePresentation.MaleNameOptions;
 		grayDwarfRacePresentation.needBeard = false;
-		grayDwarfRacePresentation.MaleBeardShapeOptions.Clear();
-        grayDwarfRacePresentation.preferedSkinColors = new RangedInt(49, 52);
-        grayDwarfRacePresentation.preferedHairColors = new RangedInt(48, 53);
+		grayDwarfRacePresentation.MaleBeardShapeOptions.SetRange(MorphotypeElementDefinitions.BeardShape_None.Name);
+        grayDwarfRacePresentation.preferedSkinColors = new RangedInt(48, 53);
+        grayDwarfRacePresentation.preferedHairColors = new RangedInt(35, 41);
 
         var grayDwarf = CharacterRaceDefinitionBuilder
-            .Create(DwarfHill, "GrayDwarfRace", "7f44816c-d076-4513-bf8f-22dc6582f7d5")
+            .Create(DwarfHill, "GrayDwarfRace", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Race, grayDwarfSpriteReference)
             .SetRacePresentation(grayDwarfRacePresentation)
             .SetFeaturesAtLevel(1,
