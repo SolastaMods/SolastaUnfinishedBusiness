@@ -162,7 +162,8 @@ ModUi/&RestockHelp=. 覆盖默认，强制所有商人的库存在一段时间�
 ModUi/&RestockTowerOfKnowledge=知识之塔补货<color=yellow>[麦迪·绿岛]</color>
 ModUi/&Rules=规则
 ModUi/&SRD=<color=yellow>SRD：</color>
-ModUi/&ScaleGameFontSizeBy=<color=white>以<color=#C04040E0>[%]</color>比例缩放游戏字体大小</color>\n<color=#C04040E0>[需要重启游戏]</color>ModUi/&ScaleMerchantPricesCorrectly=正确排列商人的价格
+ModUi/&ScaleGameFontSizeBy=<color=white>以<color=#C04040E0>[%]</color>比例缩放游戏字体大小</color>\n<color=#C04040E0>[需要重启游戏]</color>
+ModUi/&ScaleMerchantPricesCorrectly=正确排列商人的价格
 ModUi/&SelectAll=选择全部
 ModUi/&SelectSuggested=选择推荐
 ModUi/&Services=服务

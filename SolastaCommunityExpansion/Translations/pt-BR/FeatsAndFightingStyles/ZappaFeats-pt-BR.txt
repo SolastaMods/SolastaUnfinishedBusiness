@@ -52,7 +52,8 @@ Feat/&FeatWisePrecisionDescription=Você pode usar uma ação bônus para seleci
 Feat/&FeatWisePrecisionTitle=Sábia Precisão
 Feature/&AdditionalDamageFeatShadySneakAttackDescription=Uma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 7º nível este dano aumenta para 2d6 e no 14º nível para 3d6. Isso pode acumular com o ataque furtivo de Rogue.
 Feature/&AdditionalDamageFeatShadySneakAttackTitle=Ataque sorrateiro
-Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Não sabe {0}
+Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Não sabe {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack=Tem ataque furtivo
 Tooltip/&FeatPrerequisiteIs=é {0}
 Tooltip/&FeatPrerequisiteIsNot=Não é {0}

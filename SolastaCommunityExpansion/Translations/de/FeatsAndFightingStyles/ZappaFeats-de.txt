@@ -52,7 +52,8 @@ Feat/&FeatWisePrecisionDescription=Sie können eine Bonusaktion verwenden, um ei
 Feat/&FeatWisePrecisionTitle=Weise Präzision
 Feature/&AdditionalDamageFeatShadySneakAttackDescription=Einmal pro Zug kannst du einer Kreatur, die du mit einem Angriff triffst, der einem Hinterhältigen Angriff des Schurken entspricht, 1W6 zusätzlichen Schaden zufügen. Auf der 7. Stufe erhöht sich dieser Schaden auf 2W6 und auf der 14. Stufe auf 3W6. Dies kann mit Rogue's Sneak Attack gestapelt werden.
 Feature/&AdditionalDamageFeatShadySneakAttackTitle=Zwielichtiger Sneak-Angriff
-Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Weiß nicht {0}
+Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Weiß nicht {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack=Hat Stealth-Angriff
 Tooltip/&FeatPrerequisiteIs=Ist {0}
 Tooltip/&FeatPrerequisiteIsNot=Ist nicht {0}

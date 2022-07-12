@@ -52,7 +52,8 @@ Feat/&FeatWisePrecisionDescription=你能以附赠动作在武器上激活。其
 Feat/&FeatWisePrecisionTitle=直觉精准
 Feature/&AdditionalDamageFeatShadySneakAttackDescription=每回合一次，你能对一名符合游荡者偷袭目标的生物造成额外1d6点伤害。在12级时，这个伤害骰增至2d6，20级时增至4d6。其能与游荡者的偷袭叠加
 Feature/&AdditionalDamageFeatShadySneakAttackTitle=背刺攻击
-Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=未学习{0}
+Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=未学习{0}
 Tooltip/&FeatPrerequisiteHasStealthAttack=具有偷袭
 Tooltip/&FeatPrerequisiteIs=为{0}
 Tooltip/&FeatPrerequisiteIsNot=非{0}

@@ -52,7 +52,8 @@ Feat/&FeatWisePrecisionDescription=Puedes usar una acción adicional para selecc
 Feat/&FeatWisePrecisionTitle=Precisión sabia
 Feature/&AdditionalDamageFeatShadySneakAttackDescription=Una vez por turno, puedes infligir 1d6 de daño adicional a una criatura que golpees con un ataque que se encuentre con el Ataque furtivo de Rogue. En el nivel 7 este daño aumenta a 2d6 y en el nivel 14 a 3d6. Esto puede acumularse con el ataque furtivo de Rogue.
 Feature/&AdditionalDamageFeatShadySneakAttackTitle=Ataque furtivo sombrío
-Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=no sabe {0}
+Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=no sabe {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack=Tiene ataque sigiloso
 Tooltip/&FeatPrerequisiteIs=es {0}
 Tooltip/&FeatPrerequisiteIsNot=no es {0}

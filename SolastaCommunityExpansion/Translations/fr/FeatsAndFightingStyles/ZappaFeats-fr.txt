@@ -52,7 +52,8 @@ Feat/&FeatWisePrecisionDescription=Vous pouvez utiliser une action bonus pour s�
 Feat/&FeatWisePrecisionTitle=Précision sage
 Feature/&AdditionalDamageFeatShadySneakAttackDescription=Une fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature que vous touchez avec une attaque qui répond à l'attaque sournoise de Rogue. Au niveau 7, ces dégâts passent à 2d6 et au niveau 14 à 3d6. Cela peut se cumuler avec l'attaque sournoise de Rogue.
 Feature/&AdditionalDamageFeatShadySneakAttackTitle=Attaque sournoise ombragée
-Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Ne sait pas {0}
+Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Ne sait pas {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack=A une attaque furtive
 Tooltip/&FeatPrerequisiteIs=Est {0}
 Tooltip/&FeatPrerequisiteIsNot=N'est-ce pas {0}

@@ -100,7 +100,8 @@ Feat/&HalfCoverShieldTitle=半遮蔽罩
 Feat/&IncreaseConstructSelectingDescription=你现在能召唤两个魔炮。它们能是相同或不同的模式
 Feat/&IncreaseConstructSelectingTitle=增援
 Feat/&IntToAttackAndDamageDescription=你能将智力而非敏捷或力量调整值应用到你的装甲武器上
-Feat/&IntToAttackAndDamageTitle=装甲武器Feat/&MendingConstructDescription=在1分钟内修复你的构装体2d6点生命值
+Feat/&IntToAttackAndDamageTitle=装甲武器
+Feat/&MendingConstructDescription=在1分钟内修复你的构装体2d6点生命值
 Feat/&MendingConstructTitle=修复构装体
 Feat/&ModeSwitchingPoolDescription=你能通过创建和使用临时武器切换装甲模式，每短休1次
 Feat/&ModeSwitchingPoolTitle=装甲模式
