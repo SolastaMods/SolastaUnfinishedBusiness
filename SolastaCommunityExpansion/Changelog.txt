@@ -1,7 +1,5 @@
 ﻿CHANGES:
 
-- Add Elven Precision feat
-- Extend allowed classes on Arcane Shield Staff
-- Fix deadeye and power attack interaction with invisibility
-- Fix sub class on higher level button features display
-- Fix (m)ap hotkey causing an exception on 2nd usage
+- Add Gray Dwarf sub race
+- Replace bless with Healing Word on Celestial Touched feat
+- Shorten some feats titles
