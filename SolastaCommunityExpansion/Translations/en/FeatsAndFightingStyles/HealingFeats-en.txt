@@ -1,9 +1,9 @@
 Feat/&ChefConDescription=Increase your Constitution by 1, to a maximum of 20.\nYou can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.\nOnce a day, you may spend an hour to cook treats that provide temporary HP when eaten.
-Feat/&ChefConTitle=Chef (Constitution)
+Feat/&ChefConTitle=Chef [Con]
 Feat/&ChefShortRestFeastDescription=You can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.
 Feat/&ChefShortRestFeastTitle=Short Rest Meal
 Feat/&ChefWisDescription=Increase your Wisdom by 1, to a maximum of 20.\nYou can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.\nOnce a day, you may spend an hour to cook treats that provide temporary HP when eaten.
-Feat/&ChefWisTitle=Chef (Wisdom)
+Feat/&ChefWisTitle=Chef [Wis]
 Feat/&FeatChefConIncrementDescription=Increase your Constitution by 1, to a maximum of 20.
 Feat/&FeatChefConIncrementTitle=Attribute Increase
 Feat/&FeatChefWisIncrementDescription=Increase your Wisdom by 1, to a maximum of 20.
