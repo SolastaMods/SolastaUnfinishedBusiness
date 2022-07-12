@@ -101,13 +101,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&SavingThrowAffinityGrayDwarfIllusionTitle",
-    "description": "Feature/&SavingThrowAffinityGrayDwarfIllusionDescription",
+    "title": "Feature/&SavingThrowAffinityGemIllusionTitle",
+    "description": "Feature/&SavingThrowAffinityGemIllusionTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
