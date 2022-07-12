@@ -1,6 +1,5 @@
 ModUI/&ArcaneShieldAddDruidAndSorcerer=druida y hechicero
 ModUI/&ArcaneShieldAll=Todas las clases
-ModUI/&ArcaneShieldDefault=Ninguno [Predeterminado]
 ModUI/&EnableBetaContent=Habilita el contenido beta <i><color=#F0DAA0>[ten en cuenta que tus partidas guardadas o tus héroes podrían romperse en el futuro]</color></i> <b><i><color=#C04040E0>[Requiere reiniciar] </color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangrado</color> a las condiciones eliminadas por <color=#D89555>Restauración mayor y menor</color>
 ModUi/&AddHelpActionToAllRaces=Agregue la acción <color=#D89555>Ayuda</color> a todas las carreras

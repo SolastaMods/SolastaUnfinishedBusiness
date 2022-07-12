@@ -1,3 +1,5 @@
+ModUI/&ArcaneShieldAddDruidAndSorcerer=Druid & Sorcerer
+ModUI/&ArcaneShieldAll=All Classes
 ModUI/&EnableBetaContent=启用Beta内容<color=yellow>[牢记你的存档或英雄在未来有崩溃风险]</color><color=#C04040E0>[需要重启游戏]</color>
 ModUi/&AddBleedingToLesserRestoration=添加<color=orange>流血</color>状态至<color=orange>次级/高等复原术</color>的移除效果范围
 ModUi/&AddHelpActionToAllRaces=添加<color=orange>协助</color>至全部种族

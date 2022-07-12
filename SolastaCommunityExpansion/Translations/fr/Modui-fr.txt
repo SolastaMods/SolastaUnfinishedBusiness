@@ -1,6 +1,5 @@
 ModUI/&ArcaneShieldAddDruidAndSorcerer=Druide & Sorcier
 ModUI/&ArcaneShieldAll=Tous les cours
-ModUI/&ArcaneShieldDefault=Aucun [par défaut]
 ModUI/&EnableBetaContent=Activer le contenu bêta <i><color=#F0DAA0>[gardez à l'esprit que vos sauvegardes ou vos héros pourraient se casser à l'avenir]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> aux conditions supprimées par <color=#D89555>Grande et Petite Restauration</color>
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les courses

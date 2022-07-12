@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
@@ -38,14 +39,14 @@ internal static class ItemOptionsContext
         Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("Equipment/&Barbarian_Clothes_Title"),
         Gui.Localize("Equipment/&Druid_Leather_Title"), Gui.Localize("Equipment/&ElvenChain_Unidentified_Title"),
         Gui.Localize("Equipment/&Armor_Commoner_ClothesTitle"),
-        Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title"),
+        CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title")),
         Gui.Localize("Equipment/&Armor_StuddedLeatherTitle"), Gui.Localize("Equipment/&GreenmageArmor_Title"),
         Gui.Localize("Equipment/&Armor_Adventuring_Wizard_OutfitTitle")
     };
 
     internal static string[] ArcaneShieldstaffOptions { get; } =
     {
-        Gui.Localize("ModUI/&ArcaneShieldDefault"), Gui.Localize("ModUI/&ArcaneShieldAddDruidAndSorcerer"),
+        Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("ModUI/&ArcaneShieldAddDruidAndSorcerer"),
         Gui.Localize("ModUI/&ArcaneShieldAll")
     };
 

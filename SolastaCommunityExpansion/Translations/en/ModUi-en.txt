@@ -1,6 +1,5 @@
 ModUI/&ArcaneShieldAddDruidAndSorcerer=Druid & Sorcerer
 ModUI/&ArcaneShieldAll=All Classes
-ModUI/&ArcaneShieldDefault=None [Default]
 ModUI/&EnableBetaContent=Enable beta content <i><color=#F0DAA0>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the conditions removed by <color=#D89555>Greater and Lesser Restoration</color>
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all races
@@ -22,7 +21,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target select
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view <i><color=#F0DAA0>[only in custom dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce weight of food ration to 2 pounds
-ModUi/&ArcaneShieldstaffOptions=Extend allowed classes on <color=#D89555>Arcane Shieldstaff</color>:
+ModUi/&ArcaneShieldstaffOptions=Extend attunement on <color=#D89555>Arcane Shieldstaff</color>:
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Battle=<color=#F0DAA0>Battle:</color>

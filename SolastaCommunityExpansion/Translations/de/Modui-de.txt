@@ -1,6 +1,5 @@
 ModUI/&ArcaneShieldAddDruidAndSorcerer=Druide & Zauberer
 ModUI/&ArcaneShieldAll=Alle Klassen
-ModUI/&ArcaneShieldDefault=Keine [Standard]
 ModUI/&EnableBetaContent=Beta-Inhalte aktivieren <i><color=#F0DAA0>[denke daran, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Bluten</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere und kleinere Wiederherstellung</color> entfernt wurden
 ModUi/&AddHelpActionToAllRaces=Füge allen Rassen die Aktion <color=#D89555>Hilfe</color> hinzu
