@@ -3,12 +3,12 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
     "itemSelectionType": "Equiped",
-    "targetParameter": 3,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -16,7 +16,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -30,12 +30,12 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Minute",
+    "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Charisma",
+    "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
@@ -51,7 +51,10 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [],
-    "immuneCreatureFamilies": [],
+    "immuneCreatureFamilies": [
+      "Construct",
+      "Undead"
+    ],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
@@ -60,8 +63,8 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
+        "formType": "Healing",
+        "addBonusMode": "AbilityBonus",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
@@ -72,14 +75,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBlessed",
-          "conditionDefinition": "Definition:ConditionBlessed:a457d0834bc354d4680f2c01fb650bf7",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "healingForm": {
+          "$type": "HealingForm, Assembly-CSharp",
+          "healingComputation": "Dice",
+          "diceNumber": 1,
+          "dieType": "D4",
+          "bonusHealing": 0,
+          "variablePool": false,
+          "healingCap": "MaximumHitPoints"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -90,9 +93,9 @@
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 1,
+      "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -106,18 +109,18 @@
     "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
-    "offsetImpactTimePerTarget": 0.1,
+    "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c61bb30a4b6e80642a36538c6ff1d675",
+        "m_AssetGUID": "ffbd91a19da42df498cb2d6792ed88a7",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "34f0dc03c444b7d4b9cda7f2fedb34e6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -135,7 +138,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "ed804b962d30d5d4594418ac573ccc5e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -233,7 +236,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f4489c0ea1762ec4dbe7fedbbcf0d4a8",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -245,7 +248,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3b107035e3bdbc6418aedb674221f5e3",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -263,8 +266,8 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 2,
-      "cooldownForBattle": 1,
+      "cooldownForCaster": 0,
+      "cooldownForBattle": 0,
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0"
@@ -300,12 +303,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&BlessTitle",
-    "description": "Spell/&BlessDescription",
+    "title": "Spell/&HealingWordTitle",
+    "description": "Spell/&HealingWordDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a09b3bfa05921d743a1bbe2126c87a68",
-      "m_SubObjectName": "Bless",
+      "m_AssetGUID": "1b13c9ff1006ea1489bdbcb09ca7a31d",
+      "m_SubObjectName": "HealingWord",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -321,7 +324,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7b2618f1-1b74-5e5d-b6c9-0d16a41cc5d3",
+  "guid": "7699582f-87b6-5ee8-963b-19ea52652bf2",
   "contentPack": 9999,
-  "name": "PowerBlessFromFeat"
+  "name": "PowerHealingWordFromFeat"
 }

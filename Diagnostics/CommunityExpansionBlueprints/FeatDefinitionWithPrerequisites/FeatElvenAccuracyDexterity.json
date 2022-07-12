@@ -1,23 +1,22 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
   "minimalAbilityScoreName": "Strength",
-  "armorProficiencyPrerequisite": true,
-  "armorProficiencyCategory": "LightArmorCategory",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
-    "Definition:FeatMediumArmorProficiency:db8a30f1-72a3-55ae-b8dd-ff9aa8a21f1c"
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatMediumArmorStrengthTitle",
-    "description": "Feat/&FeatMediumArmorStrengthDescription",
+    "title": "Feat/&FeatElvenAccuracyDexterityTitle",
+    "description": "Feat/&FeatElvenAccuracyDexterityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -37,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "11ec0d6f-bcbb-5fca-9d8b-c9450ea756f1",
+  "guid": "3c82a2e0-99a3-5c4d-9b04-999c9877e40b",
   "contentPack": 9999,
-  "name": "FeatMediumArmorStrength"
+  "name": "FeatElvenAccuracyDexterity"
 }

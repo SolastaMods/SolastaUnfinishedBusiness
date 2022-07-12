@@ -25,8 +25,8 @@
     "Definition:CelestialTouchedAutoPrepRogue:9b97f469-8e03-563d-92cf-52baed0f0fd4",
     "Definition:CelestialTouchedAutoPrepSorcerer:deb0f4c9-5c7b-5263-86ef-6399dc2d76d0",
     "Definition:CelestialTouchedAutoPrepWizard:22624bb6-0e90-53ff-88b7-99d36159076d",
-    "Definition:PowerBlessFromFeat:7b2618f1-1b74-5e5d-b6c9-0d16a41cc5d3",
     "Definition:PowerCureWoundsFromFeat:ddfc4f71-83be-599a-8943-7758b353b861",
+    "Definition:PowerHealingWordFromFeat:7699582f-87b6-5ee8-963b-19ea52652bf2",
     "Definition:PowerLesserRestorationFromFeat:3332c262-4295-54b6-8325-a47dfd5d8155"
   ],
   "guiPresentation": {
