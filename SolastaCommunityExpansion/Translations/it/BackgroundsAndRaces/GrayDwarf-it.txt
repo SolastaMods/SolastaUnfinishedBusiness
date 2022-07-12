@@ -1,4 +1,4 @@
-Condition/&ConditionStoneStrengthDescription=Vantaggio alle prove di Forza e ai tiri salvezza\n+1d4 danni con armi da mischia a Forza
+Condition/&ConditionStoneStrengthDescription=Vantaggio alle prove di Forza e ai tiri salvezza. +1d4 danni con armi da mischia a Forza
 Condition/&ConditionStoneStrengthTitle=Forza di pietra
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityDescription=Hai uno svantaggio sulla percezione.
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityTitle=Svantaggio sulla percezione

@@ -150,6 +150,7 @@ ModUi/&RacesClassesSubclasses=Rassen, Klassen und Unterklassen
 ModUi/&RecipeCost=<color=white>Rezeptkosten</color>
 ModUi/&RecipesInDm=Rezepte in DM
 ModUi/&ReduceDarkelfLightPenalty=Ändere den <color=#D89555>Dunkelelfen</color>-Lichtmalus auf -1W4 auf Angriffe statt auf den Nachteil
+ModUi/&ReduceGrayDwarfLightPenalty=Ändere den <color=#D89555>Gray Dwarf</color>-Lichtmalus auf -1W4 auf Angriffe statt auf den Nachteil
 ModUi/&RelicForgeries=Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements=Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBugVisualModels=Ersetzen Sie fehlerähnliche Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

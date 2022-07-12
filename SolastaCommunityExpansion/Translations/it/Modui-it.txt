@@ -1,6 +1,5 @@
 ModUI/&ArcaneShieldAddDruidAndSorcerer=Druido e Stregone
 ModUI/&ArcaneShieldAll=Tutte le classi
-ModUI/&ArcaneShieldDefault=Nessuno [Predefinito]
 ModUI/&EnableBetaContent=Abilita contenuto beta <i><color=#F0DAA0>[tieni presente che i tuoi salvataggi o eroi potrebbero rompersi in futuro]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio] </color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555>Sanguinamento</color> alle condizioni rimosse da <color=#D89555>Restauro maggiore e minore</color>
 ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze
@@ -22,7 +21,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezio
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=#D89555>Stregone</color> senza segni di origine e tatuaggi
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo nei dungeon personalizzati]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Ridurre il peso della razione alimentare a 2 libbre
-ModUi/&ArcaneShieldstaffOptions=Estendi le classi consentite su <color=#D89555> Bastone dello Scudo Arcano</color>:
+ModUi/&ArcaneShieldstaffOptions=Estendi la sintonia su <color=#D89555> Bastone dello Scudo Arcano</color>:
 ModUi/&AutoPauseOnVictory=Metti in pausa l'interfaccia utente quando vinci in battaglia
 ModUi/&Basic=<color=#F0DAA0>Base:</color>
 ModUi/&Battle=<color=#F0DAA0>Battaglia:</color>
@@ -151,6 +150,7 @@ ModUi/&RacesClassesSubclasses=Razze, classi e sottoclassi
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM
 ModUi/&ReduceDarkelfLightPenalty=Scambia <color=#D89555>Elfo Oscuro</color> Penalità Leggera a -1d4 sugli attacchi invece di Svantaggio
+ModUi/&ReduceGrayDwarfLightPenalty=Scambia la penalità leggera di <color=#D89555>nano grigio</color> a -1d4 agli attacchi invece di Svantaggio
 ModUi/&RelicForgeries=Falsi di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a bug con elementi visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
