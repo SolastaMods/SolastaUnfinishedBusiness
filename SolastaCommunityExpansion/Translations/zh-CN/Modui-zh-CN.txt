@@ -150,6 +150,7 @@ ModUi/&RacesClassesSubclasses=种族，职业与子职
 ModUi/&RecipeCost=<color=white>配方消耗</color>
 ModUi/&RecipesInDm=配方加入地城制作
 ModUi/&ReduceDarkelfLightPenalty=将<color=orange>黑暗精灵</color>的强光敏感惩罚改为-1d4减值而非劣势
+ModUi/&ReduceGrayDwarfLightPenalty=Swap <color=#D89555>Gray Dwarf</color> Light Penalty to -1d4 on attacks instead of Disadvantage
 ModUi/&RelicForgeries=遗物赝品
 ModUi/&RemoveAttunementRequirements=移除同调的先决条件<color=#C04040E0>[需要重启游戏]</color>
 ModUi/&RemoveBugVisualModels=将虫类模型以类似模型替代<color=#C04040E0>[需要重启游戏]</color>
