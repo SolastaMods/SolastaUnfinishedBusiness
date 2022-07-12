@@ -17,7 +17,7 @@ internal static class HigherLevelFeaturesModal_Bind
         var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
         var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-        featureUnlocks = MulticlassPatchingContext.ClassFilteredFeatureUnlocks(selectedClass, hero).ToList();
+        //featureUnlocks = MulticlassPatchingContext.ClassFilteredFeatureUnlocks(selectedClass, hero).ToList();
 
         if (isLevelingUp
             && isClassSelectionStage
