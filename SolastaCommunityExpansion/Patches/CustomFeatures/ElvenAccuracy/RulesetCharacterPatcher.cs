@@ -27,7 +27,7 @@ internal static class RulesetCharacter_RollAttackMode
         ElvenAccuracyHero = null;
 
         if (ignoreAdvantage
-            || testMode
+            || !testMode
             || attackMode.abilityScore is AttributeDefinitions.Strength or AttributeDefinitions.Constitution)
         {
             return;
@@ -100,11 +100,11 @@ internal static class RulesetActor_RollDie
 
         Array.Sort(rolls);
 
-        //
-        // TODO: find a better way to add this message to game console
-        //
+        var line = Gui.Format("Feedback/&ElvenAccuracyTriggered",
+            hero.name, rolls[0].ToString(), rolls[1].ToString(),
+            rolls[2].ToString());
 
-        Gui.Game.GameConsole.LogSimpleLine($"Elven Accuracy triggered. Roll {rolls[0]} discarded.");
+        Gui.Game.GameConsole.LogSimpleLine(line);
 
         firstRoll = rolls[1];
         secondRoll = rolls[2];

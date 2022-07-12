@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -173,12 +174,30 @@ internal static class ZappaFeats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+        //
+        //
+        //
+
+        static (bool, string) ValidateElvenAccuracy(FeatDefinitionWithPrerequisites _,
+            [NotNull] RulesetCharacterHero hero)
+        {
+            var isElf = hero.RaceDefinition.Name.Contains(CharacterRaceDefinitions.Elf.Name);
+            var elfTitle = CharacterRaceDefinitions.Elf.FormatTitle();
+            var halfElfTitle = CharacterRaceDefinitions.HalfElf.FormatTitle();
+            var param = $"{elfTitle}, {halfElfTitle}";
+
+            return isElf
+                ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", param))
+                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), "EA7171"));
+        }
+
         // Elven Accuracy (Dexterity)
         var elvenAccuracyDexterity =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatElvenAccuracyDexterity", ZappaFeatNamespace)
                 .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
                 .AddToDB();
 
         // Elven Accuracy (Intelligence)
@@ -187,6 +206,7 @@ internal static class ZappaFeats
                 .Create("FeatElvenAccuracyIntelligence", ZappaFeatNamespace)
                 .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
                 .AddToDB();
 
         // Elven Accuracy (Wisdom)
@@ -195,6 +215,7 @@ internal static class ZappaFeats
                 .Create("FeatElvenAccuracyWisdom", ZappaFeatNamespace)
                 .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
                 .AddToDB();
 
         // Elven Accuracy (Charisma)
@@ -203,6 +224,7 @@ internal static class ZappaFeats
                 .Create("FeatElvenAccuracyCharisma", ZappaFeatNamespace)
                 .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
                 .AddToDB();
 
         // Fast Hands
