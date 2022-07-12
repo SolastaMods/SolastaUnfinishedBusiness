@@ -20,6 +20,4 @@ Feature/&RangerVanishActionTitle=Svanire
 Feature/&ZSPowerPaladinCleansingTouchDescription=Rimuovi gli effetti degli incantesimi toccando un alleato. Puoi farlo un numero di volte al giorno pari al tuo modificatore di Carisma.
 Feature/&ZSPowerPaladinCleansingTouchTitle=Tocco detergente
 RestActivity/&ZSSorcerousRestorationDescription=Recupera 4 punti stregoneria durante un breve riposo.
-RestActivity/&ZSSorcerousRestorationDescription=Recupera 4 punti stregoneria durante un breve riposo.
-RestActivity/&ZSSorcerousRestorationTitle=Stregoneria Restauro
 RestActivity/&ZSSorcerousRestorationTitle=Stregoneria Restauro

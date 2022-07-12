@@ -20,6 +20,4 @@ Feature/&RangerVanishActionTitle=Verschwinden
 Feature/&ZSPowerPaladinCleansingTouchDescription=Entferne Zaubereffekte, indem du einen Verbündeten berührst. Du kannst dies so oft am Tag tun, wie es deinem Charisma-Modifikator entspricht.
 Feature/&ZSPowerPaladinCleansingTouchTitle=Reinigende Berührung
 RestActivity/&ZSSorcerousRestorationDescription=Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
-RestActivity/&ZSSorcerousRestorationDescription=Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
-RestActivity/&ZSSorcerousRestorationTitle=Zauberhafte Wiederherstellung
 RestActivity/&ZSSorcerousRestorationTitle=Zauberhafte Wiederherstellung

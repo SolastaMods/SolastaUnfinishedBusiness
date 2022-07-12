@@ -20,6 +20,4 @@ Feature/&RangerVanishActionTitle=Desaparecer
 Feature/&ZSPowerPaladinCleansingTouchDescription=Remova os efeitos da magia tocando em um aliado. Você pode fazer isso um número de vezes por dia igual ao seu modificador de Carisma.
 Feature/&ZSPowerPaladinCleansingTouchTitle=Toque de limpeza
 RestActivity/&ZSSorcerousRestorationDescription=Recupere 4 pontos de feitiçaria durante um descanso curto.
-RestActivity/&ZSSorcerousRestorationDescription=Recupere 4 pontos de feitiçaria durante um descanso curto.
-RestActivity/&ZSSorcerousRestorationTitle=Restauração Feiticeira
 RestActivity/&ZSSorcerousRestorationTitle=Restauração Feiticeira
