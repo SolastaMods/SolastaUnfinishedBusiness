@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -19,13 +17,13 @@ internal static class GrayDwarfSubraceBuilder
     private static readonly Guid GrayDwarfNamespace = new("6dcf3e31-8c94-44e4-9dda-8eee0edf21d5");
 
     internal static CharacterRaceDefinition GrayDwarfSubrace { get; } = BuildGrayDwarf();
-	
+
     [NotNull]
     private static CharacterRaceDefinition BuildGrayDwarf()
     {
         var grayDwarfSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("GrayDwarf", Resources.GrayDwarf, 1024, 512);
-			//Dwarf.GuiPresentation.SpriteReference;
+        //Dwarf.GuiPresentation.SpriteReference;
 
         var grayDwarfAbilityScoreModifierStrength = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierGrayDwarfStrengthAbilityScoreIncrease", GrayDwarfNamespace)
@@ -105,41 +103,52 @@ internal static class GrayDwarfSubraceBuilder
         }
 
         var grayDwarfConditionAffinityGrayDwarfCharm = FeatureDefinitionConditionAffinityBuilder
-            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharm, "ConditionAffinityGrayDwarfCharm", GrayDwarfNamespace)
+            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharm,
+                "ConditionAffinityGrayDwarfCharm", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var grayDwarfConditionAffinityGrayDwarfCharmedByHypnoticPattern = FeatureDefinitionConditionAffinityBuilder
-            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern, "ConditionAffinityGrayDwarfCharmedByHypnoticPattern", GrayDwarfNamespace)
+            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern,
+                "ConditionAffinityGrayDwarfCharmedByHypnoticPattern", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var grayDwarfConditionAffinityGrayDwarfParalyzedAdvantage = FeatureDefinitionConditionAffinityBuilder
-            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityHalflingBrave, "ConditionAffinityGrayDwarfParalyzedAdvantage", GrayDwarfNamespace)
+            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityHalflingBrave,
+                "ConditionAffinityGrayDwarfParalyzedAdvantage", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Feature)
-            .SetConditionType(ConditionDefinitions.ConditionParalyzed)            
+            .SetConditionType(ConditionDefinitions.ConditionParalyzed)
             .AddToDB();
 
         var grayDwarfSavingThrowAffinityGrayDwarfIllusion = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityGemIllusion, "SavingThrowAffinityGrayDwarfIllusion", GrayDwarfNamespace)
+            .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityGemIllusion,
+                "SavingThrowAffinityGrayDwarfIllusion", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[0].affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
+        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[0].affinity =
+            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
         grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[0].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[1].affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
+        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[1].affinity =
+            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
         grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[1].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[2].affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
+        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[2].affinity =
+            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
         grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[2].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[3].affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
+        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[3].affinity =
+            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
         grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[3].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[4].affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
+        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[4].affinity =
+            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
         grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[4].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[5].affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
+        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[5].affinity =
+            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
         grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[5].savingThrowModifierDiceNumber = 0;
 
         var grayDwarfAncestryFeatureSetGrayDwarfAncestry = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry, "FeatureSetGrayDwarfAncestry", GrayDwarfNamespace)
+            .Create(FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry, "FeatureSetGrayDwarfAncestry",
+                GrayDwarfNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
                 grayDwarfConditionAffinityGrayDwarfCharm,
@@ -149,12 +158,14 @@ internal static class GrayDwarfSubraceBuilder
             .AddToDB();
 
         var grayDwarfAbilityCheckAffinityConditionStoneStrength = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength, "AbilityCheckAffinityConditionStoneStrength", GrayDwarfNamespace)
+            .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength,
+                "AbilityCheckAffinityConditionStoneStrength", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var grayDwarfSavingThrowAffinityConditionStoneStrength = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging, "SavingThrowAffinityConditionStoneStrength", GrayDwarfNamespace)
+            .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging,
+                "SavingThrowAffinityConditionStoneStrength", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -183,7 +194,7 @@ internal static class GrayDwarfSubraceBuilder
 
         Global.CharacterLabelEnabledConditions.Add(grayDwarfConditionStoneStrength);
 
-        var grayDwarfStoneStrengthEffect = EffectDescriptionBuilder            
+        var grayDwarfStoneStrengthEffect = EffectDescriptionBuilder
             .Create(SpellDefinitions.EnhanceAbilityBullsStrength.EffectDescription)
             .SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
             .SetTargetingData(
@@ -229,8 +240,8 @@ internal static class GrayDwarfSubraceBuilder
 
         grayDwarfRacePresentation.femaleNameOptions = DwarfHill.RacePresentation.FemaleNameOptions;
         grayDwarfRacePresentation.maleNameOptions = DwarfHill.RacePresentation.MaleNameOptions;
-		grayDwarfRacePresentation.needBeard = false;
-		grayDwarfRacePresentation.MaleBeardShapeOptions.SetRange(MorphotypeElementDefinitions.BeardShape_None.Name);
+        grayDwarfRacePresentation.needBeard = false;
+        grayDwarfRacePresentation.MaleBeardShapeOptions.SetRange(MorphotypeElementDefinitions.BeardShape_None.Name);
         grayDwarfRacePresentation.preferedSkinColors = new RangedInt(48, 53);
         grayDwarfRacePresentation.preferedHairColors = new RangedInt(35, 41);
 
