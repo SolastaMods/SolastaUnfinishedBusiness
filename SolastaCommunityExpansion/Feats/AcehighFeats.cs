@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class AcehighFeats
 {
-    public static void CreateFeats([NotNull] List<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(DeadeyeFeatBuilder.DeadeyeFeat);
         feats.Add(BuildPowerAttackFeat());
@@ -72,6 +72,8 @@ internal static class AcehighFeats
                 .Build())
             .AddToDB();
 
+        PowersContext.PowersThatIgnoreInterruptions.Add(powerAttackPower);
+
         var turnOffPowerAttackPower = FeatureDefinitionPowerBuilder
             // Reusing old two-handed power id - we need to keep this id anyway, so old characters won't crash
             .Create("PowerAttackTwoHanded", "b45b8467-7caa-428e-b4b5-ba3c4a153f07")
@@ -95,6 +97,7 @@ internal static class AcehighFeats
                 .Build())
             .AddToDB();
 
+        PowersContext.PowersThatIgnoreInterruptions.Add(turnOffPowerAttackPower);
         concentrationProvider.StopPower = turnOffPowerAttackPower;
 
         return FeatDefinitionBuilder
@@ -234,6 +237,8 @@ internal static class AcehighFeats
                     .Build())
                 .AddToDB();
 
+            PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
+
             var turnOffPower = FeatureDefinitionPowerBuilder
                 .Create("TurnOffDeadeyePower", CENamespaceGuid)
                 .SetGuiPresentationNoContent(true)
@@ -256,6 +261,7 @@ internal static class AcehighFeats
                     .Build())
                 .AddToDB();
 
+            PowersContext.PowersThatIgnoreInterruptions.Add(turnOffPower);
             concentrationProvider.StopPower = turnOffPower;
 
             Definition.GuiPresentation.Title = "Feat/&DeadeyeFeatTitle";

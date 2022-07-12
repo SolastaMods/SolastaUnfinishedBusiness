@@ -1,6 +1,7 @@
 ﻿CHANGES:
 
-- Add Elven Precision feat [still needs a better combat log]
+- Add Elven Precision feat
 - Extend allowed classes on Arcane Shield Staff
-- Fix sub class on higher level features display
-- Fix (M)ap causing an exception on 2nd usage
+- Fix deadeye and power attack interaction with invisibility
+- Fix sub class on higher level button features display
+- Fix (m)ap hotkey causing an exception on 2nd usage
