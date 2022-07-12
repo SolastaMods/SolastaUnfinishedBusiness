@@ -171,7 +171,7 @@ internal static class CasterFeats
         // celestial touched
 
         var celestialTouchedGroup =
-            BuildSpellGroup(0, Bless, CureWounds, LesserRestoration);
+            BuildSpellGroup(0, HealingWord, CureWounds, LesserRestoration);
 
         var learnCelestialTouchedPresentation =
             GuiPresentationBuilder.Build("PowerCelestialTouchedFromFeat", Category.Feat);
@@ -179,10 +179,10 @@ internal static class CasterFeats
         var celestialTouchedClassesPreparedSpells = AutoPreparedClassLists(classes,
             celestialTouchedGroup, learnCelestialTouchedPresentation, "CelestialTouchedAutoPrep", "CelestialTouched");
 
-        var blessPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+        var healingWordPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
             false, false, AttributeDefinitions.Intelligence,
-            Bless.EffectDescription, "PowerBlessFromFeat", Bless.GuiPresentation);
+            HealingWord.EffectDescription, "PowerHealingWordFromFeat", HealingWord.GuiPresentation);
 
         var cureWoundsPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
@@ -192,13 +192,13 @@ internal static class CasterFeats
         var lesserRestorationPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
             false, false, AttributeDefinitions.Intelligence,
-            CureWounds.EffectDescription, "PowerLesserRestorationFromFeat", LesserRestoration.GuiPresentation);
+            LesserRestoration.EffectDescription, "PowerLesserRestorationFromFeat", LesserRestoration.GuiPresentation);
 
         feats.AddRange(
             // celestial touched int
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedInt", CasterFeatsNamespace)
-                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower,
+                .SetFeatures(healingWordPower, cureWoundsPower, lesserRestorationPower,
                     AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
@@ -206,7 +206,7 @@ internal static class CasterFeats
             // celestial touched wis
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedWis", CasterFeatsNamespace)
-                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower,
+                .SetFeatures(healingWordPower, cureWoundsPower, lesserRestorationPower,
                     AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
@@ -214,7 +214,7 @@ internal static class CasterFeats
             // celestial touched cha
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedCha", CasterFeatsNamespace)
-                .SetFeatures(blessPower, cureWoundsPower, lesserRestorationPower,
+                .SetFeatures(healingWordPower, cureWoundsPower, lesserRestorationPower,
                     AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
