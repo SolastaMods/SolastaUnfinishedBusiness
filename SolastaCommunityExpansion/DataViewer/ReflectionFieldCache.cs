@@ -84,9 +84,9 @@ public static partial class ReflectionCache
 
     private abstract class CachedField<TField>
     {
-        public readonly FieldInfo Info;
+        protected readonly FieldInfo Info;
 
-        public CachedField(Type type, string name)
+        protected CachedField(Type type, string name)
         {
             Info = type.GetFields(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
 

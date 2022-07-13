@@ -555,7 +555,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     ///     Override this in a derived builder (and set to true) to disable the standard set of Create methods.
     ///     You must then provide your own specialized constructor and/or Create method.
     /// </summary>
-    protected virtual bool DisableStandardCreateMethods => false;
+    protected bool DisableStandardCreateMethods => false;
 
     private static TBuilder CreateImpl(params object[] parameters)
     {

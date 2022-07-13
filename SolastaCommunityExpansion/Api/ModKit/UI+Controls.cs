@@ -139,9 +139,11 @@ public static partial class UI
             }
         }
 
-        var changed = value != newValue;
+        var changed = Math.Abs(value - newValue) > 0.001f;
+
         value = Math.Min(max, Math.Max(min, newValue));
         value = newValue;
+
         return changed;
     }
 

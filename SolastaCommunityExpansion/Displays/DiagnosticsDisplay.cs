@@ -275,11 +275,11 @@ All settings start disabled by default. On first start the mod will display an w
 
             using (UI.HorizontalScope())
             {
-                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTaDefinitionDiagnostics(),
+                UI.ActionButton("Create TA diagnostics", DiagnosticsContext.CreateTaDefinitionDiagnostics,
                     UI.Width(200));
-                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCeDefinitionDiagnostics(),
+                UI.ActionButton("Create CE diagnostics", DiagnosticsContext.CreateCeDefinitionDiagnostics,
                     UI.Width(200));
-                UI.ActionButton("Dump Descriptions", () => DisplayDumpDescription(), UI.Width(200));
+                UI.ActionButton("Dump Descriptions", DisplayDumpDescription, UI.Width(200));
             }
 
             UI.Label("");

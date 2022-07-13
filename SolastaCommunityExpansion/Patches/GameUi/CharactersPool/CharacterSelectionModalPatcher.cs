@@ -35,6 +35,7 @@ internal static class CharacterSelectionModal_EnumeratePlates
             }
 
             yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
+
             bypass = 2;
         }
     }

@@ -129,6 +129,7 @@ public class ReflectionSearch : MonoBehaviour
         SearchProgress updator, ReflectionSearchResult resultRoot)
     {
         yield return null;
+
         if (sequenceNumber != SequenceNumber)
         {
             yield return null;

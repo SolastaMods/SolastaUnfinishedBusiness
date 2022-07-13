@@ -33,15 +33,15 @@ public class ReflectionTreeView
         SetRoot(root);
     }
 
-    public float DepthDelta { get; set; } = 30f;
+    private static float DepthDelta => 30f;
 
-    public static int MaxRows => Main.Settings.MaxRows;
+    private static int MaxRows => Main.Settings.MaxRows;
 
     public object Root => _tree.Root;
 
-    public float TitleMinWidth { get; set; } = 300f;
+    private float TitleMinWidth { get; } = 300f;
 
-    private void updateCounts(int visitCount, int depth, int breadth)
+    private void UpdateCounts(int visitCount, int depth, int breadth)
     {
         this.visitCount = visitCount;
         searchDepth = depth;
@@ -69,7 +69,7 @@ public class ReflectionTreeView
 #pragma warning disable CS0618 // Type or member is obsolete
         _tree.RootNode.Expanded = ToggleState.On;
 #pragma warning restore CS0618 // Type or member is obsolete
-        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
+        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
     }
 
     public void OnGUI(bool drawRoot = true, bool collapse = false)
@@ -139,7 +139,7 @@ public class ReflectionTreeView
                 UI.ActionTextField(ref searchText, "searchText", _ => { }, () =>
                 {
                     searchText = searchText.Trim();
-                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
+                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
                 }, UI.Width(250));
                 GUILayout.Space(10f);
                 var isSearching = ReflectionSearch.Shared.IsSearching;
@@ -152,14 +152,14 @@ public class ReflectionTreeView
                     else
                     {
                         searchText = searchText.Trim();
-                        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts,
+                        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts,
                             _searchResults);
                     }
                 }, UI.AutoWidth());
                 GUILayout.Space(10f);
                 if (GUIHelper.AdjusterButton(ref Main.Settings.MaxSearchDepth, "Max Depth:", 0))
                 {
-                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
+                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
                 }
 
                 GUILayout.Space(10f);

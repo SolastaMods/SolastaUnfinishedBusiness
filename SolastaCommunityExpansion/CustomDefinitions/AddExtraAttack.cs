@@ -15,7 +15,7 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
     private readonly bool clearSameType;
     private readonly CharacterValidator[] validators;
 
-    public AddExtraAttackBase(ActionDefinitions.ActionType actionType, bool clearSameType,
+    protected AddExtraAttackBase(ActionDefinitions.ActionType actionType, bool clearSameType,
         params CharacterValidator[] validators)
     {
         this.actionType = actionType;
@@ -23,7 +23,7 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
         this.validators = validators;
     }
 
-    public AddExtraAttackBase(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+    protected AddExtraAttackBase(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
         this(actionType, false, validators)
     {
     }

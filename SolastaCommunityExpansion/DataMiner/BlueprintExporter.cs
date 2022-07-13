@@ -173,15 +173,10 @@ namespace SolastaCommunityExpansion.DataMiner
                     return definition;
                 }
 
-                if (baseDefinitionAndCopy.TryGetValue(definition, out var copy))
-                {
-                    return copy;
-                }
+                return baseDefinitionAndCopy.TryGetValue(definition, out var copy) ? copy : definition;
 
                 // NOTE: some definitions won't be found when creating Assets.txt because they're explicitly excluded from export.
                 // Assuming we won't have modified the excluded ones.
-
-                return definition;
             }
         }
 
