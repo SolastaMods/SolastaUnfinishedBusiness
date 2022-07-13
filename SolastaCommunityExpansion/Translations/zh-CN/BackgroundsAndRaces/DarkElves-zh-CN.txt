@@ -1,11 +1,11 @@
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=察觉具有劣势
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=察觉劣势
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=魅力+1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=属性提升
 Feature/&DarkelfMagicDescription=你学会舞光术戏法。在3级时你学会妖火，在5级时你学会黑暗术，均为每长休1次
 Feature/&DarkelfMagicTitle=黑暗精灵魔法
 Feature/&DarkelfWeaponTrainingDescription=你获得刺剑、短剑和手弩的熟练项
 Feature/&DarkelfWeaponTrainingTitle=黑暗精灵武器训练
-Feature/&LightAffinityDarkelfLightSensitivityDescription=在明亮光照下，你的感知（察觉）检定受到-2减值。此外，明亮光照下，你的速度受到-1减值
+Feature/&LightAffinityDarkelfLightSensitivityDescription=在明亮光照下，你的感知（察觉）检定和攻击骰具有劣势
 Feature/&LightAffinityDarkelfLightSensitivityTitle=强光敏感
 Feature/&LightAffinityDarkelfReducedLightSensitivityDescription=在明亮光照下，你的感知（察觉）检定具有劣势。此外，在明亮光照下，你的攻击骰受到-1d4减值
 Feature/&PowerDarkelfDarknessDescription=创造一片魔法的黑暗区域。每长休1次
