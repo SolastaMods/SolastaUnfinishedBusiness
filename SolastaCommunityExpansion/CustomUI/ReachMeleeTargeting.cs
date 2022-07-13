@@ -15,18 +15,21 @@ public static class ReachMeleeTargeting
         var insertionIndex = instructions.FindIndex(x =>
             x.opcode == OpCodes.Call && x.operand.ToString().Contains("FindBestActionDestination"));
 
-        if (insertionIndex > 0)
+        if (insertionIndex <= 0)
         {
-            var method = typeof(ReachMeleeTargeting)
-                .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.NonPublic);
-
-            instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
-            instructions.InsertRange(insertionIndex,
-                new[] {new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Ldloc_1)});
+            return;
         }
+
+        var method = typeof(ReachMeleeTargeting)
+            .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.Public);
+
+        instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
+        instructions.InsertRange(insertionIndex,
+            new[] {new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Ldloc_1)});
     }
 
     // Used in `ApplyCursorLocationIsValidAttackTranspile`
+    // ReSharper disable once UnusedMember.Global
     public static bool FindBestActionDestination(
         GameLocationCharacter actor,
         GameLocationCharacter target,
