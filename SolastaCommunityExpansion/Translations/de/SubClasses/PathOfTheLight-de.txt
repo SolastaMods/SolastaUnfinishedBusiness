@@ -21,4 +21,4 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription=Du erhältst über
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle=Durchdringe die Dunkelheit
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription=Kann unsichtbare Kreaturen wahrnehmen.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle=Unsichtbarkeit
-Subclass/&BarbarianPathOfTheLightTitle=Weg des Lichts
+Subclass/&BarbarianPathOfTheLightTitle=Pfad des Lichts

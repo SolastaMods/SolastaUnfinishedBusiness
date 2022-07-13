@@ -1,4 +1,4 @@
-Condition/&ConditionStoneStrengthDescription=Avantage aux tests de Force et aux jets de sauvegarde\n+1d4 dégâts avec les armes de Force de mêlée
+Condition/&ConditionStoneStrengthDescription=Avantage aux tests de Force et aux jets de sauvegarde. +1d4 dégâts avec les armes de force de mêlée
 Condition/&ConditionStoneStrengthTitle=Force de la pierre
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityDescription=Vous avez un désavantage sur la perception.
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityTitle=Inconvénient sur la perception

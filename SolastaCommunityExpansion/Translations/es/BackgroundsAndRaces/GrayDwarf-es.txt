@@ -1,4 +1,4 @@
-Condition/&ConditionStoneStrengthDescription=Ventaja en pruebas de Fuerza y ​​tiradas de salvación\n+1d4 de daño con armas cuerpo a cuerpo de Fuerza
+Condition/&ConditionStoneStrengthDescription=Ventaja en pruebas de Fuerza y ​​tiradas de salvación. +1d4 de daño con armas cuerpo a cuerpo de Fuerza
 Condition/&ConditionStoneStrengthTitle=Fuerza de piedra
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityDescription=Tienes Desventaja en la Percepción.
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityTitle=Desventaja en la percepción

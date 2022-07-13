@@ -19,6 +19,6 @@ Subclass/&BarbarianPathOfTheLightLightsProtectionDescription=Vous regagnez des p
 Subclass/&BarbarianPathOfTheLightLightsProtectionTitle=Protection de la lumière
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription=Vous bénéficiez d'une vision dans le noir supérieure.
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle=Percer les ténèbres
-Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription=Peut percevoir des créatures invisibles.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription=Peut percevoir les créatures invisibles.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle=Vue d'invisibilité
 Subclass/&BarbarianPathOfTheLightTitle=Chemin de la Lumière

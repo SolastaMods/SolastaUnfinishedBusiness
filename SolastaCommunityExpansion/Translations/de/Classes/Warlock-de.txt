@@ -34,7 +34,7 @@ Feature/&AHWarlockClassPactBoonSetTitle=Paktbohne
 Feature/&AHWarlockClassPactOfTheBladeSetDescription=Sie beherrschen alle Waffen und Ihre Waffenangriffe gelten als magisch.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle=Pakt der Klinge
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription=Einmal pro langer Rast kannst du eine Waffe mit Seelenkraft stärken. Diese Waffe verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe und zählt bis zu einer langen Pause als magisch.
-Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle=Seelenkraft
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle=Seelenstärke
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription=Mit der Seelenklinge können Sie aus einer erweiterten Liste von Zaubersprüchen wählen, wenn Sie einen Warlock-Zauber lernen. Die folgenden Zauber werden der Warlock-Zauberliste für Sie hinzugefügt: {0}\n\n
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle=Seelenklingenzauber
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription=Einmal pro kurzer Rast nutzt du die Kraft der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre HP in Höhe deines Levels + Charisma-Modifikator.
@@ -114,7 +114,7 @@ Feature/&EldritchBlastGraspingHandBonusCantripDescription=Wenn Sie eine Kreatur 
 Feature/&EldritchBlastGraspingHandBonusCantripTitle=Greifende Explosion
 Feature/&EldritchBlastRepellingBlastBonusCantripDescription=Wenn Sie eine Kreatur mit einer unheimlichen Explosion treffen, können Sie die Kreatur in einer geraden Linie bis zu 3 m von sich wegschieben.
 Feature/&EldritchBlastRepellingBlastBonusCantripTitle=Abstoßende Explosion
-Feature/&EldritchMindDescription=Du hast einen Vorteil bei Konstitutionsrettungswürfen, die du machst, um deine Konzentration auf einen Zauber aufrechtzuerhalten.
+Feature/&EldritchMindDescription=Du hast einen Vorteil bei Konstitutionswürfen, die du machst, um deine Konzentration auf einen Zauber aufrechtzuerhalten.
 Feature/&EldritchMindTitle=Eldritch-Geist
 Feature/&EldritchSightTitle=Unheimlicher Anblick
 Feature/&EldritchSmiteDescription=Einmal pro Zug, wenn du eine Kreatur mit deiner Paktwaffe triffst, kannst du einen Hexenmeister-Zauberplatz aufwenden, um dem Ziel 1W8 zusätzlichen Machtschaden zuzufügen, plus weitere 1W8 pro Stufe des Zauberplatzes.
@@ -145,7 +145,7 @@ Feature/&GiftoftheEverLivingOnesTitle=Gabe der Immerlebenden
 Feature/&GiftoftheProtectorsDescription=Wenn Sie auf 0 Trefferpunkte reduziert, aber nicht direkt getötet werden, fällt die Kreatur stattdessen magisch auf 1 Trefferpunkt. Sobald diese Magie ausgelöst wird, können Sie nicht davon profitieren, bis Sie eine lange Pause beendet haben.
 Feature/&GiftoftheProtectorsTitle=Geschenk der Beschützer
 Feature/&HerbalBrewDescription=Wenn Sie eine lange Pause beendet haben, können Sie Kräutersud herstellen, die jeweils bis zur nächsten langen Pause reichen. Du braust insgesamt Gebräue in Höhe deines Kompetenzbonus. Wähle für jedes Gebräu einen der folgenden Effekte: \n<color=#add8e6ff>Stärkendes Gebräu</color>: gewährt 1 Stunde lang Resistenz gegen verschiedene Schadensarten.\n<color=#add8e6ff>Beschleunigendes Gebräu</color> color>: Bietet 2W4 Trefferpunkte.\n<color=#add8e6ff>Vergiftendes Gebräu</color>: wirkt als Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Wenn der Treffer landet, erleidet das Ziel bei jedem Treffer 1W4 Giftschaden.
-Feature/&HerbalBrewFeatureSetDescription=Sie werden entweder mit dem Vergifter-Kit oder den Kräuterkunde-Kits vertraut, wenn Sie sie noch nicht haben. \nWenn du eine lange Pause beendest, kannst du Kräutersud herstellen, die jeweils bis zur nächsten langen Pause reichen. Du braust insgesamt Gebräue in Höhe deines Kompetenzbonus. Wähle für jedes Gebräu einen der folgenden Effekte: \n<color=#add8e6ff>Stärkendes Gebräu</color>: gewährt 1 Stunde lang Resistenz gegen verschiedene Schadensarten.\n<color=#add8e6ff>Beschleunigendes Gebräu</color> color>: Bietet 2W4 Trefferpunkte.\n<color=#add8e6ff>Vergiftendes Gebräu</color>: wirkt als Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Wenn der Treffer landet, erleidet das Ziel bei jedem Treffer 1W4 Giftschaden.
+Feature/&HerbalBrewFeatureSetDescription=Sie werden entweder mit dem Vergifter-Kit oder mit Kräuterkunde-Kits vertraut, wenn Sie es noch nicht haben. \nWenn du eine lange Pause beendest, kannst du Kräutersud herstellen, die jeweils bis zur nächsten langen Pause reichen. Du braust insgesamt Gebräue in Höhe deines Kompetenzbonus. Wähle für jedes Gebräu einen der folgenden Effekte: \n<color=#add8e6ff>Stärkendes Gebräu</color>: gewährt 1 Stunde lang Resistenz gegen verschiedene Schadensarten.\n<color=#add8e6ff>Beschleunigendes Gebräu</color> color>: Bietet 2W4 Trefferpunkte.\n<color=#add8e6ff>Vergiftendes Gebräu</color>: wirkt als Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Wenn der Treffer landet, erleidet das Ziel bei jedem Treffer 1W4 Giftschaden.
 Feature/&HerbalBrewFeatureSetTitle=Kräuterbrauen
 Feature/&HinderingBlastDescription=Wenn du eine Kreatur mit deiner unheimlichen Explosion triffst, kannst du die Geschwindigkeit dieser Kreatur bis zum Ende deines nächsten Zuges um 3 m reduzieren.
 Feature/&HinderingBlastMagicAffinityDescription=Wenn du eine Kreatur mit deiner unheimlichen Explosion triffst, kannst du die Geschwindigkeit dieser Kreatur bis zum Ende deines nächsten Zuges um 3 m reduzieren.
@@ -153,7 +153,7 @@ Feature/&HinderingBlastMagicAffinityTitle=Hinderliche Explosion
 Feature/&HinderingBlastTitle=Hinderliche Explosion
 Feature/&ImprovedPactWeaponDescription=Du kannst jede Waffe als Zauberfokus für deine Warlock-Zauber verwenden. Außerdem erhält die Waffe einen Bonus von +1 auf ihre Angriffs- und Schadenswürfe.
 Feature/&ImprovedPactWeaponTitle=Verbesserte Paktwaffe
-Feature/&MiretheMindTitle=Beschmutze den Geist
+Feature/&MiretheMindTitle=Beschmutze den Verstand
 Feature/&MoonLitDarknessImmunityDescription=Du bist immun gegen den Dunkelheitszustand.
 Feature/&MoonLitDarknessImmunityTitle=Mondhelle Dunkelheit
 Feature/&MoonLitExpandedSpelllistAfinityDescription=Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden der Warlock-Zauberliste für Sie hinzugefügt: {0}\n\n

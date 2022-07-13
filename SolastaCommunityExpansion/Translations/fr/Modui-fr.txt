@@ -21,7 +21,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélec
 ModUi/&AllowUnmarkedSorcerers=Autoriser <color=#D89555>Sorcier</color> sans marques d'origine ni tatouages
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[uniquement dans les donjons personnalisés]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Réduire le poids de la ration alimentaire à 2 livres
-ModUi/&ArcaneShieldstaffOptions=Étendez les classes autorisées sur <color=#D89555>Arcane Shieldstaff</color> :
+ModUi/&ArcaneShieldstaffOptions=Étendre l'harmonisation sur <color=#D89555>Arcane Shieldstaff</color> :
 ModUi/&AutoPauseOnVictory=Pause de l'interface utilisateur en cas de victoire au combat
 ModUi/&Basic=<color=#F0DAA0>De base :</color>
 ModUi/&Battle=<color=#F0DAA0>Bataille :</color>
@@ -150,7 +150,7 @@ ModUi/&RacesClassesSubclasses=Races, classes et sous-classes
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
 ModUi/&RecipesInDm=Recettes en DM
 ModUi/&ReduceDarkelfLightPenalty=Remplacez la pénalité de lumière <color=#D89555>Elfe noir</color> par -1d4 sur les attaques au lieu de Désavantage
-ModUi/&ReduceGrayDwarfLightPenalty=Remplacez la pénalité de lumière <color=#D89555>Gray Dwarf</color> par -1d4 sur les attaques au lieu de Désavantage
+ModUi/&ReduceGrayDwarfLightPenalty=Échangez la pénalité légère <color=#D89555>Gray Dwarf</color> à -1d4 sur les attaques au lieu de Désavantage
 ModUi/&RelicForgeries=Contrefaçons de reliques
 ModUi/&RemoveAttunementRequirements=Supprimer les exigences d'harmonisation <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des bugs par des visuels alternatifs dans le jeu <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

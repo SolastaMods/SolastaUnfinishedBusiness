@@ -1,4 +1,4 @@
-Condition/&ConditionStoneStrengthDescription=Vorteil bei Stärkewürfen und Rettungswürfen\n+1W4 Schaden mit Stärkewaffen im Nahkampf
+Condition/&ConditionStoneStrengthDescription=Vorteil bei Stärkechecks und Rettungswürfen. +1W4 Schaden mit Nahkampfwaffen mit Stärke
 Condition/&ConditionStoneStrengthTitle=Steinstärke
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityDescription=Sie haben einen Wahrnehmungsnachteil.
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityTitle=Nachteil bei der Wahrnehmung

@@ -1,12 +1,12 @@
 Feat/&FeatHeavyArmorMasterClassDescription=Du erhältst Resistenz gegen Knüppel-, Hieb- und Stichschaden.
 Feat/&FeatHeavyArmorMasterClassTitle=Beherrschung der schweren Verteidigung
-Feat/&FeatLightArmorDescription=Erhöhe deine Stärke um 1 bis zu einem Maximum von 20.\nDu erlangst Fertigkeiten im Umgang mit leichter Rüstung.
+Feat/&FeatLightArmorDescription=Erhöhe deine Stärke um 1 bis zu einem Maximum von 20.\nDu erlangst Erfahrung im Umgang mit leichter Rüstung.
 Feat/&FeatLightArmorProficiencyDescription=Erwerben Sie Kenntnisse im Umgang mit Leichter Rüstung.
 Feat/&FeatLightArmorProficiencyTitle=Leichte Rüstung
 Feat/&FeatLightArmorTitle=Leichte Rüstung
 Feat/&FeatMediumArmorDexDescription=Erhöhe deine Geschicklichkeit um 1 bis zu einem Maximum von 20.\n Du erlangst Erfahrung im Umgang mit mittlerer Rüstung und Schilden.
-Feat/&FeatMediumArmorDexTitle=Mittlere Rüstung (Geschicklichkeit)
+Feat/&FeatMediumArmorDexTitle=Mittlere Rüstung [Ges]
 Feat/&FeatMediumArmorProficiencyDescription=Du erlangst Kenntnisse im Umgang mit mittlerer Rüstung und Schilden.
 Feat/&FeatMediumArmorProficiencyTitle=Mittlere Rüstung
 Feat/&FeatMediumArmorStrengthDescription=Erhöhe deine Stärke um 1 bis zu einem Maximum von 20.\nDu wirst geübter im Umgang mit mittlerer Rüstung und Schilden.
-Feat/&FeatMediumArmorStrengthTitle=Mittlere Rüstung (Stärke)
+Feat/&FeatMediumArmorStrengthTitle=Mittlere Rüstung [Str]

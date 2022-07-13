@@ -1,6 +1,6 @@
 Feature/&ArcaneFighterAdditionalActionDescription=Puedes lanzar un hechizo después de derrotar a un enemigo con tus ataques con armas.
 Feature/&ArcaneFighterAdditionalActionTitle=Lucha de hechizos
-Feature/&ArcaneFighterBonusWeaponDamageDescription=Una vez por turno, tus ataques con armas infligen 1d8 de daño adicional.
+Feature/&ArcaneFighterBonusWeaponDamageDescription=Una vez por turno, tus ataques con armas infligen 1d8 de daño extra.
 Feature/&ArcaneFighterBonusWeaponDamageTitle=Ataques con poder mágico
 Feature/&AttackModifierMeleeWizardArcaneWeaponDescription=Cuando está activo en un arma, sus ataques cuentan como mágicos y usas tu Inteligencia para tus tiradas de ataque y daño.
 Feature/&AttackModifierMeleeWizardArcaneWeaponTitle=Arma arcana

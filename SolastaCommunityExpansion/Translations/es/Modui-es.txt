@@ -21,7 +21,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selecci
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo en mazmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la ración de alimentos a 2 libras
-ModUi/&ArcaneShieldstaffOptions=Ampliar las clases permitidas en <color=#D89555>Bastón de escudo arcano</color>:
+ModUi/&ArcaneShieldstaffOptions=Ampliar sintonía en <color=#D89555>Bastón de escudo arcano</color>:
 ModUi/&AutoPauseOnVictory=Pausa la interfaz de usuario cuando salgas victorioso en la batalla.
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Battle=<color=#F0DAA0>Batalla:</color>
@@ -150,7 +150,7 @@ ModUi/&RacesClassesSubclasses=Razas, Clases y Subclases
 ModUi/&RecipeCost=<color=white>Coste de la receta</color>
 ModUi/&RecipesInDm=Recetas en DM
 ModUi/&ReduceDarkelfLightPenalty=Cambia la penalización ligera de <color=#D89555>Dark Elf</color> a -1d4 en los ataques en lugar de a la desventaja.
-ModUi/&ReduceGrayDwarfLightPenalty=Cambia la penalización ligera de <color=#D89555>Gray Dwarf</color> a -1d4 en los ataques en lugar de a la desventaja.
+ModUi/&ReduceGrayDwarfLightPenalty=Cambia la penalización leve de la <color=#D89555>enana gris</color> a -1d4 en los ataques en lugar de a la desventaja.
 ModUi/&RelicForgeries=falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar los requisitos de sintonización <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&RemoveBugVisualModels=Reemplace los modelos similares a errores con imágenes alternativas en el juego <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>

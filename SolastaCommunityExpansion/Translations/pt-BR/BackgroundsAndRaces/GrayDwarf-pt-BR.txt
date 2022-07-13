@@ -1,4 +1,4 @@
-Condition/&ConditionStoneStrengthDescription=Vantagem em testes de Força e testes de resistência\n+1d4 de dano com armas de Força corpo a corpo
+Condition/&ConditionStoneStrengthDescription=Vantagem em testes de Força e testes de resistência. +1d4 de dano com armas de Força corpo a corpo
 Condition/&ConditionStoneStrengthTitle=Força da Pedra
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityDescription=Você tem Desvantagem em Percepção.
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityTitle=Desvantagem na Percepção

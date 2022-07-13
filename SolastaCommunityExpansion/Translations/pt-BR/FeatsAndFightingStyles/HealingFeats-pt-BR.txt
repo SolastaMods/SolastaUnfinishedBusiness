@@ -1,9 +1,9 @@
 Feat/&ChefConDescription=Aumente sua Constituição em 1, até um máximo de 20.\nVocê pode gastar 1 hora para cozinhar uma refeição para curar você e seus companheiros em 1d8 HP.\nUma vez por dia, você pode gastar uma hora para cozinhar guloseimas que fornecer HP temporário quando comido.
-Feat/&ChefConTitle=Cozinheiro (Constituição)
+Feat/&ChefConTitle=Cozinheiro [Com]
 Feat/&ChefShortRestFeastDescription=Você pode gastar 1 hora para cozinhar uma refeição para curar você e seus companheiros em 1d8 HP.
 Feat/&ChefShortRestFeastTitle=Refeição de Descanso Curto
 Feat/&ChefWisDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê pode gastar 1 hora para cozinhar uma refeição para curar você e seus companheiros em 1d8 HP.\nUma vez por dia, você pode gastar uma hora para cozinhar guloseimas que fornecer HP temporário quando comido.
-Feat/&ChefWisTitle=Chef (Sabedoria)
+Feat/&ChefWisTitle=Cozinheiro [Wis]
 Feat/&FeatChefConIncrementDescription=Aumente sua Constituição em 1, até um máximo de 20.
 Feat/&FeatChefConIncrementTitle=Aumento de atributo
 Feat/&FeatChefWisIncrementDescription=Aumente sua Sabedoria em 1, até um máximo de 20.
