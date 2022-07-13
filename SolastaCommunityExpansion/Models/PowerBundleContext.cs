@@ -39,12 +39,7 @@ public static class PowerBundleContext
         Bundles.Add(masterPower, bundle);
 
         var masterSpell = RegisterPower(masterPower);
-        List<SpellDefinition> subSpells = new();
-
-        foreach (var subPower in bundle.SubPowers)
-        {
-            subSpells.Add(RegisterPower(subPower));
-        }
+        var subSpells = bundle.SubPowers.Select(RegisterPower).ToList();
 
         masterSpell.SubspellsList.AddRange(subSpells);
     }
@@ -61,11 +56,11 @@ public static class PowerBundleContext
         return Bundles.TryGetValue(master, out var result) ? result : null;
     }
 
-    [CanBeNull]
-    public static Bundle GetBundle([NotNull] SpellDefinition master)
-    {
-        return GetBundle(GetPower(master));
-    }
+    // [CanBeNull]
+    // public static Bundle GetBundle([NotNull] SpellDefinition master)
+    // {
+    //     return GetBundle(GetPower(master));
+    // }
 
     public static bool IsBundlePower([NotNull] this FeatureDefinitionPower power)
     {
@@ -78,11 +73,11 @@ public static class PowerBundleContext
         return GetBundle(master)?.SubPowers;
     }
 
-    [CanBeNull]
-    public static List<FeatureDefinitionPower> GetBundleSubPowers([NotNull] SpellDefinition master)
-    {
-        return GetBundleSubPowers(GetPower(master));
-    }
+    // [CanBeNull]
+    // public static List<FeatureDefinitionPower> GetBundleSubPowers([NotNull] SpellDefinition master)
+    // {
+    //     return GetBundleSubPowers(GetPower(master));
+    // }
 
     private static SpellDefinition RegisterPower([NotNull] FeatureDefinitionPower power)
     {
@@ -126,18 +121,18 @@ public static class PowerBundleContext
         return Powers2Spells.TryGetValue(power, out var result) ? result : null;
     }
 
-    [CanBeNull]
-    public static List<SpellDefinition> GetSubSpells([CanBeNull] FeatureDefinitionPower masterPower)
-    {
-        if (masterPower == null)
-        {
-            return null;
-        }
-
-        var subPowers = GetBundleSubPowers(masterPower);
-
-        return subPowers?.Select(GetSpell).ToList();
-    }
+    // [CanBeNull]
+    // public static List<SpellDefinition> GetSubSpells([CanBeNull] FeatureDefinitionPower masterPower)
+    // {
+    //     if (masterPower == null)
+    //     {
+    //         return null;
+    //     }
+    //
+    //     var subPowers = GetBundleSubPowers(masterPower);
+    //
+    //     return subPowers?.Select(GetSpell).ToList();
+    // }
 
     // Bundled sub-powers usually are not added to the character, so their UsablePower lacks class or race origin
     // This means that CharacterActionSpendPower will not call `UsePower` on them

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -22,8 +21,6 @@ public static class DungeonMakerContext
     internal const int DungeonMaxLevel = 20;
 
     private const string BackupFolder = "DungeonMakerBackups";
-
-    public static readonly List<MonsterDefinition> ModdedMonsters = new();
 
     [NotNull]
     internal static string ReplaceVariable(string line)
@@ -50,6 +47,7 @@ public static class DungeonMakerContext
     }
 
     // must be public because of transpiler
+    // ReSharper disable once UnusedMember.Global
     public static void BackupAndDelete([NotNull] string path, [NotNull] UserContent userContent)
     {
         var backupDirectory = Path.Combine(Main.ModFolder, BackupFolder);

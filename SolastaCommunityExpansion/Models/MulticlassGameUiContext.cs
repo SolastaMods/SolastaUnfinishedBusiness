@@ -152,19 +152,21 @@ public static class MulticlassGameUiContext
                 max -= pactMagicSlotsCount;
             }
 
-            if (max > 0 && (
-                    (level <= maxRepertoireLevel
-                     && (isMulticaster || !hasPactMagic))
-                    || level == warlockSpellLevel
-                ))
+            if (max <= 0 || ((level > maxRepertoireLevel || (!isMulticaster && hasPactMagic)) &&
+                             level != warlockSpellLevel))
             {
-                optionsAvailability.Add(level, remaining > 0);
-                if (!selected && remaining > 0)
-                {
-                    selected = true;
-                    selectedSlot = level - minSpellLevel;
-                }
+                continue;
             }
+
+            optionsAvailability.Add(level, remaining > 0);
+
+            if (selected || remaining <= 0)
+            {
+                continue;
+            }
+
+            selected = true;
+            selectedSlot = level - minSpellLevel;
         }
 
         return selectedSlot;

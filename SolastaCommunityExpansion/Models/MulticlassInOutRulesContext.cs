@@ -51,7 +51,7 @@ public static class MulticlassInOutRulesContext
         selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
     }
 
-    private static int MyGetAttribute([NotNull] RulesetCharacterHero hero, string attributeName)
+    private static int MyGetAttribute([NotNull] RulesetEntity hero, string attributeName)
     {
         var attribute = hero.GetAttribute(attributeName);
         var activeModifiers = attribute.ActiveModifiers;
@@ -89,8 +89,8 @@ public static class MulticlassInOutRulesContext
     }
 
     [SuppressMessage("Convert switch statement to expression", "IDE0066")]
-    private static bool ApproveMultiClassInOut(RulesetCharacterHero hero,
-        [NotNull] CharacterClassDefinition classDefinition)
+    private static bool ApproveMultiClassInOut(RulesetCharacter hero,
+        [NotNull] BaseDefinition classDefinition)
     {
         if (classDefinition.GuiPresentation.Hidden)
         {

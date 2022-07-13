@@ -12,6 +12,7 @@ internal static class Level20PatchingContext
     private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
     [NotNull]
+    // ReSharper disable once UnusedMember.Global
     public static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var code = new List<CodeInstruction>(instructions);

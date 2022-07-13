@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using JetBrains.Annotations;
 using ModKit;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.DataMiner;
@@ -16,6 +17,8 @@ namespace SolastaCommunityExpansion.Displays
     {
         private const string ModDescription = @"
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
+
+[url=https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion]DONATE[/url]
 
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
@@ -300,7 +303,8 @@ All settings start disabled by default. On first start the mod will display an w
             UI.Label("");
         }
 
-        private static string GenerateDescription<T>(IEnumerable<T> definitions) where T : BaseDefinition
+        [NotNull]
+        private static string GenerateDescription<T>([NotNull] IEnumerable<T> definitions) where T : BaseDefinition
         {
             var outString = new StringBuilder();
 
@@ -315,7 +319,7 @@ All settings start disabled by default. On first start the mod will display an w
             return outString.ToString();
         }
 
-        internal static void DisplayDumpDescription()
+        private static void DisplayDumpDescription()
         {
             var collectedCredits = new StringBuilder();
 
@@ -348,13 +352,12 @@ All settings start disabled by default. On first start the mod will display an w
                 GenerateDescription(ClassesContext.Classes),
                 GenerateDescription(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
                     .Where(x => !SubclassesContext.Subclasses.Contains(x))
-                    .Where(x => DiagnosticsContext.IsCeDefinition(x))),
+                    .Where(DiagnosticsContext.IsCeDefinition)),
                 GenerateDescription(SubclassesContext.Subclasses),
                 GenerateDescription(FeatsContext.Feats),
                 GenerateDescription(FightingStyleContext.FightingStyles),
                 GenerateDescription(SpellsContext.Spells),
-                ItemCraftingContext.GenerateItemsDescription(),
-                GenerateDescription(DungeonMakerContext.ModdedMonsters));
+                ItemCraftingContext.GenerateItemsDescription());
 
             using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
             sw.WriteLine(descriptionData);

@@ -116,11 +116,11 @@ public static class RespecContext
                 yield return null;
             }
 
-            IsRespecing = !hero.TryGetHeroBuildingData(out var _);
+            IsRespecing = !hero.TryGetHeroBuildingData(out _);
         }
 
-        private static void FinalizeRespec([NotNull] RulesetCharacterHero oldHero,
-            [NotNull] RulesetCharacterHero newHero)
+        private static void FinalizeRespec([NotNull] RulesetCharacter oldHero,
+            [NotNull] RulesetCharacter newHero)
         {
             var guid = oldHero.Guid;
             var tags = oldHero.Tags;
@@ -161,7 +161,7 @@ public static class RespecContext
             IsRespecing = false;
         }
 
-        private static void CopyInventoryOver([NotNull] RulesetCharacterHero oldHero,
+        private static void CopyInventoryOver([NotNull] RulesetCharacter oldHero,
             int3 position)
         {
             var inventoryCommandService = ServiceRepository.GetService<IInventoryCommandService>();
@@ -181,7 +181,7 @@ public static class RespecContext
             }
         }
 
-        private static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
+        private static void UpdateRestPanelUi(IReadOnlyList<GameCampaignCharacter> gameCampaignCharacters)
         {
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
             var restAfterPanel = restModalScreen.restAfterPanel;

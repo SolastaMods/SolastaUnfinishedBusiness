@@ -35,18 +35,12 @@ internal sealed class SpriteResourceProvider : ResourceProviderBase
     {
         var location = (SpriteResourceLocation)provideHandle.Location;
 
-        Main.Log(
-            $"SpriteResourceProvider.Provide: InternalId='{location.InternalId}', ProviderId='{location.ProviderId}', PrimaryKey='{location.PrimaryKey}', SpriteName='{location.Sprite.name}'.");
-
         provideHandle.Complete(location.Sprite, true, null);
     }
 
     public override bool CanProvide(Type t, IResourceLocation location)
     {
         var canProvide = base.CanProvide(t, location);
-
-        Main.Log(
-            $"SpriteResourceProvider.CanProvide: TypeName='{t.Name}', InternalId='{location.InternalId}', CanProvide={canProvide}");
 
         return canProvide;
     }
@@ -99,22 +93,11 @@ internal sealed class SpriteResourceLocator : IResourceLocator
 // ResourceLocation of sprite used by ResourceProvider.  We're using it to directly hold the sprite.
 internal sealed class SpriteResourceLocation : ResourceLocationBase
 {
-    private Sprite sprite;
-
     public SpriteResourceLocation(Sprite sprite, string name, string id)
         : base(name, id, typeof(SpriteResourceProvider).FullName, typeof(Sprite))
     {
         Sprite = sprite;
     }
 
-    public Sprite Sprite
-    {
-        get
-        {
-            Main.Log($"SpriteResourceLocation.GetSprite: {sprite.name}");
-
-            return sprite;
-        }
-        private set => sprite = value;
-    }
+    public Sprite Sprite { get; }
 }

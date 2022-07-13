@@ -301,7 +301,7 @@ internal static class DmProEditorContext
         var newRooms = new List<RoomBlueprint>();
 
         foreach (var roomBlueprint in dbRoomBlueprint
-                     .Where(x => x.Category == "EmptyRooms" || x.Category == "FlatRooms"))
+                     .Where(x => x.Category is "EmptyRooms" or "FlatRooms"))
         {
             foreach (var prefabByEnvironment in roomBlueprint.PrefabsByEnvironment
                          .Where(x => x.Environment != string.Empty))
@@ -334,14 +334,16 @@ internal static class DmProEditorContext
 
                 newRooms.Add(newRoomBlueprint);
 
-                if (prefabEnvironmentDefinition.Outdoor)
+                if (!prefabEnvironmentDefinition.Outdoor)
                 {
-                    OutdoorRooms.Add(newRoomBlueprint.Name);
+                    continue;
+                }
 
-                    if (!OutdoorRooms.Contains(roomBlueprint.Name))
-                    {
-                        OutdoorRooms.Add(roomBlueprint.Name);
-                    }
+                OutdoorRooms.Add(newRoomBlueprint.Name);
+
+                if (!OutdoorRooms.Contains(roomBlueprint.Name))
+                {
+                    OutdoorRooms.Add(roomBlueprint.Name);
                 }
             }
         }

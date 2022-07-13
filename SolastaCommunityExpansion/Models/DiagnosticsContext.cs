@@ -203,11 +203,11 @@ internal static class DiagnosticsContext
 
     internal static void CreateCeDefinitionDiagnostics()
     {
-        var baseFilename = "CE-Definitions";
+        const string BASE_FILENAME = "CE-Definitions";
 
-        CreateDefinitionDiagnostics(_ceBaseDefinitions, baseFilename);
+        CreateDefinitionDiagnostics(_ceBaseDefinitions, BASE_FILENAME);
 
-        CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{baseFilename}-Translations-OrphanedTerms-en.txt"));
+        CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{BASE_FILENAME}-Translations-OrphanedTerms-en.txt"));
     }
 
     private static void CheckOrphanedTerms([NotNull] string outputFile)

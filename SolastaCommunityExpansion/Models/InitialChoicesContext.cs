@@ -283,7 +283,7 @@ internal static class InitialChoicesContext
         }
     }
 
-    private static void Remove([NotNull] CharacterRaceDefinition characterRaceDefinition, FeatureDefinition toRemove)
+    private static void Remove([NotNull] CharacterRaceDefinition characterRaceDefinition, BaseDefinition toRemove)
     {
         var ndx = -1;
 

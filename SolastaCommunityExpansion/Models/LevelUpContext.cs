@@ -12,10 +12,10 @@ public static class LevelUpContext
     // keeps a tab on all heroes leveling up
     private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
 
-    public static RulesetCharacterHero GetHero(string name)
-    {
-        return LevelUpTab.FirstOrDefault(x => x.Key.Name == name).Key;
-    }
+    // public static RulesetCharacterHero GetHero(string name)
+    // {
+    //     return LevelUpTab.FirstOrDefault(x => x.Key.Name == name).Key;
+    // }
 
     public static void RegisterHero(
         [NotNull] RulesetCharacterHero rulesetCharacterHero,

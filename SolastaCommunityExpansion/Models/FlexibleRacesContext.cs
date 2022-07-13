@@ -70,7 +70,7 @@ internal static class FlexibleRacesContext
         {"GrayDwarfRace", new List<string> {"AttributeModifierGrayDwarfStrengthAbilityScoreIncrease"}}
     };
 
-    private static void RemoveMatchingFeature([NotNull] List<FeatureUnlockByLevel> unlocks, FeatureDefinition toRemove)
+    private static void RemoveMatchingFeature([NotNull] List<FeatureUnlockByLevel> unlocks, BaseDefinition toRemove)
     {
         unlocks.RemoveAll(u => u.FeatureDefinition.GUID == toRemove.GUID);
     }

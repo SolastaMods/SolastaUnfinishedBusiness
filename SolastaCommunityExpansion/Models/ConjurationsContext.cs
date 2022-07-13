@@ -66,7 +66,7 @@ internal static class ConjurationsContext
     {
         // Invisible Stalker
         if (!DatabaseRepository.GetDatabase<SpellDefinition>()
-                .TryGetElement(InvisibleStalkerSubspellName, out var _))
+                .TryGetElement(InvisibleStalkerSubspellName, out _))
         {
             var definition = SpellDefinitionBuilder
                 .Create(ConjureElementalFire, InvisibleStalkerSubspellName, Namespace)
@@ -97,7 +97,7 @@ internal static class ConjurationsContext
         ConfigureAdvancement(ConjureMinorElementals);
 
         // Set advancement at spell level, not sub-spell
-        static void ConfigureAdvancement([NotNull] SpellDefinition spell)
+        static void ConfigureAdvancement([NotNull] IMagicEffect spell)
         {
             var advancement = spell.EffectDescription.EffectAdvancement;
 

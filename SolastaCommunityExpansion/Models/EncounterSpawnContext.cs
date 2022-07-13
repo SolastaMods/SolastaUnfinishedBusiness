@@ -88,7 +88,7 @@ internal static class EncountersSpawnContext
         foreach (var filename in characterPoolService.Pool.Keys.Select(name =>
                      characterPoolService.BuildCharacterFilename(name.Substring(0, name.Length - 4))))
         {
-            characterPoolService.LoadCharacter(filename, out var hero, out var _);
+            characterPoolService.LoadCharacter(filename, out var hero, out _);
             Heroes.Add(hero);
         }
 

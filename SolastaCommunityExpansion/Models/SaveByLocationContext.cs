@@ -144,10 +144,10 @@ internal static class SaveByLocationContext
 
     private interface ISelectedCampaignService : IService
     {
-        string CampaignOrLocationName { get; }
+        // string CampaignOrLocationName { get; }
         LocationType LocationType { get; }
-        string SaveGameDirectory { get; }
-        void SetCampaignLocation(string campaign, string location);
+        // string SaveGameDirectory { get; }
+        // void SetCampaignLocation(string campaign, string location);
     }
 
     internal enum LocationType
@@ -160,8 +160,8 @@ internal static class SaveByLocationContext
     internal sealed class SelectedCampaignService : ISelectedCampaignService
     {
         public string CampaignOrLocationName { get; private set; }
-        public LocationType LocationType { get; private set; }
         public string SaveGameDirectory { get; private set; }
+        public LocationType LocationType { get; private set; }
 
         public void SetCampaignLocation([CanBeNull] string campaign, [CanBeNull] string location)
         {
