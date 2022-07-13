@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -31,7 +30,7 @@ internal static class RulesetCharacter_IsComponentSomaticValid
         mainHand?.FillTags(tagsMap, __instance, true);
         offHand?.FillTags(tagsMap, __instance, true);
 
-        if (!tagsMap.Keys.Contains(materialTag))
+        if (!tagsMap.ContainsKey(materialTag))
         {
             return;
         }
@@ -66,11 +65,14 @@ internal static class RulesetCharacter_IsComponentMaterialValid
             rulesetItem.FillTags(tagsMap, __instance, true);
             var itemItemDefinition = rulesetItem.ItemDefinition;
             var costInGold = EquipmentDefinitions.GetApproximateCostInGold(itemItemDefinition.Costs);
-            if (tagsMap.Keys.Contains(materialTag) && costInGold >= requiredCost)
+
+            if (!tagsMap.ContainsKey(materialTag) || costInGold < requiredCost)
             {
-                __result = true;
-                failure = String.Empty;
+                continue;
             }
+
+            __result = true;
+            failure = String.Empty;
         }
     }
 }

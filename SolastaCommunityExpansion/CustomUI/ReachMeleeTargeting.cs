@@ -27,7 +27,7 @@ public static class ReachMeleeTargeting
     }
 
     // Used in `ApplyCursorLocationIsValidAttackTranspile`
-    private static bool FindBestActionDestination(
+    public static bool FindBestActionDestination(
         GameLocationCharacter actor,
         GameLocationCharacter target,
         ref int3 actorPosition,
@@ -52,16 +52,18 @@ public static class ReachMeleeTargeting
 
         foreach (var destination in validDestinations)
         {
-            if (battleBoundingBox.Contains(destination.position)
-                && (!foundDestination // haven't found yet
-                    || destination.moveCost < current.moveCost // or path is shorter
-                    || (destination.moveCost == current.moveCost // or same length
-                        && (destination.position - actorPosition).magnitudeSqr < distance))) // but closer to start
+            if (!battleBoundingBox.Contains(destination.position) || (foundDestination &&
+                                                                      destination.moveCost >= current.moveCost &&
+                                                                      (destination.moveCost != current.moveCost ||
+                                                                       !((destination.position - actorPosition)
+                                                                           .magnitudeSqr < distance))))
             {
-                current = destination;
-                distance = (current.position - actorPosition).magnitudeSqr;
-                foundDestination = true;
+                continue;
             }
+
+            current = destination;
+            distance = (current.position - actorPosition).magnitudeSqr;
+            foundDestination = true;
         }
 
         if (foundDestination)

@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix;
@@ -12,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix;
 internal static class Functor_SelectCharacters
 {
     internal static void Postfix(
-        FunctorParametersDescription functorParameters,
+        [NotNull] FunctorParametersDescription functorParameters,
         List<GameLocationCharacter> selectedCharacters)
     {
         //

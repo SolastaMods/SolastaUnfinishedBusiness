@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix;
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class EffectDescription_ComputeRoundsDuration
 {
-    public static bool Prefix(EffectDescription __instance, int slotLevel, ref int __result)
+    public static bool Prefix([NotNull] EffectDescription __instance, int slotLevel, ref int __result)
     {
         //
         // BUGFIX: dominate spells

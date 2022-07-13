@@ -86,12 +86,12 @@ internal static class EquipmentDefinitions_ScaleAndRoundCosts
 internal static class Precision
 {
     // 2^-24
-    private const float FLOAT_EPSILON = 0.0000000596046448f;
+    private const float FloatEpsilon = 0.0000000596046448f;
 
     // 2^-53
-    private const double DOUBLE_EPSILON = 0.00000000000000011102230246251565d;
+    private const double DoubleEpsilon = 0.00000000000000011102230246251565d;
 
-    public static bool AlmostEquals(this double a, double b, double epsilon = DOUBLE_EPSILON)
+    public static bool AlmostEquals(this double a, double b, double epsilon = DoubleEpsilon)
     {
         // ReSharper disable CompareOfFloatsByEqualityOperator
         if (a == b)
@@ -103,7 +103,7 @@ internal static class Precision
         return Math.Abs(a - b) < epsilon;
     }
 
-    public static bool AlmostEquals(this float a, float b, float epsilon = FLOAT_EPSILON)
+    public static bool AlmostEquals(this float a, float b, float epsilon = FloatEpsilon)
     {
         // ReSharper disable CompareOfFloatsByEqualityOperator
         if (a == b)

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix;
 
@@ -11,7 +12,7 @@ internal static class GameCampaignCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameCampaignCharacter_EngageRest
     {
-        internal static bool Prefix(GameCampaignCharacter __instance, RuleDefinitions.RestType restType)
+        internal static bool Prefix([NotNull] GameCampaignCharacter __instance, RuleDefinitions.RestType restType)
         {
             //
             // BUGFIX: correctly terminate effects on world travelS

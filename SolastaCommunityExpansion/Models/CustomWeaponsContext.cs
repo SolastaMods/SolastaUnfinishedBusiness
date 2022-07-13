@@ -941,7 +941,7 @@ public sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
         return result;
     }
 
-    private void AddItemAttack(List<RulesetAttackMode> attackModes, [NotNull] string slot,
+    private static void AddItemAttack(List<RulesetAttackMode> attackModes, [NotNull] string slot,
         [NotNull] RulesetCharacterHero hero)
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;

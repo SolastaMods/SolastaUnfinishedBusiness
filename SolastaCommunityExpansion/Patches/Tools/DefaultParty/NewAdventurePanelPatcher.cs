@@ -35,9 +35,9 @@ internal static class NewAdventurePanel_Refresh
                 continue;
             }
 
-            var heroname = Main.Settings.defaultPartyHeroes[i];
+            var heroName = Main.Settings.defaultPartyHeroes[i];
 
-            __instance.AutotestSelectCharacter(i, heroname);
+            __instance.AutotestSelectCharacter(i, heroName);
         }
 
         ShouldAssignDefaultParty = false;

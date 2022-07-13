@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,8 @@ internal static class CharactersPanel_EnumeratePlates
         }
     }
 
-    private static Transform CreateHeroCheckbox(Transform character)
+    [NotNull]
+    private static Transform CreateHeroCheckbox([NotNull] Transform character)
     {
         var settingCheckboxItem = Resources.Load<GameObject>("Gui/Prefabs/Modal/Setting/SettingCheckboxItem");
         var smallToggleNoFrame = settingCheckboxItem.transform.Find("SmallToggleNoFrame");
@@ -41,7 +43,7 @@ internal static class CharactersPanel_EnumeratePlates
         return checkBox;
     }
 
-    internal static void Disable(RectTransform charactersTable)
+    internal static void Disable([NotNull] RectTransform charactersTable)
     {
         for (var i = 0; i < charactersTable.childCount; i++)
         {
@@ -55,7 +57,7 @@ internal static class CharactersPanel_EnumeratePlates
         }
     }
 
-    internal static void Postfix(CharactersPanel __instance)
+    internal static void Postfix([NotNull] CharactersPanel __instance)
     {
         if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty
             || Main.Settings.EnableGamepad)

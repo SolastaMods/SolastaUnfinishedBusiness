@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ArmorCategoryDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -67,16 +66,6 @@ internal static class ArmorFeats
             .Create(name, ArmorNamespace)
             .SetGuiPresentation(Category.Feat)
             .SetProficiencies(type, proficiencies)
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name,
-        AttributeModifierOperation modifierType, string attribute, int amount)
-    {
-        return FeatureDefinitionAttributeModifierBuilder
-            .Create(name, ArmorNamespace)
-            .SetGuiPresentation(Category.Feat)
-            .SetModifier(modifierType, attribute, amount)
             .AddToDB();
     }
 }

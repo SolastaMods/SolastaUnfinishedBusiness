@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Patches.Tools.DefaultParty;
@@ -17,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class NewAdventurePanel_OnBeginShow
 {
-    internal static void Prefix(NewAdventurePanel __instance)
+    internal static void Prefix([NotNull] NewAdventurePanel __instance)
     {
         NewAdventurePanel_Refresh.ShouldAssignDefaultParty = true;
 

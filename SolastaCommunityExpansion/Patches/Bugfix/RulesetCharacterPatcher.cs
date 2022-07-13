@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix;
 
@@ -11,18 +12,17 @@ namespace SolastaCommunityExpansion.Patches.Bugfix;
 [HarmonyPatch(typeof(RulesetCharacter), "CanCastAttackOutcomeAlterationSpell")]
 internal static class RulesetCharacter_CanCastAttackOutcomeAlterationSpell
 {
-    private static void EnumarateReactionSpells(RulesetCharacter caster)
+    private static void EnumerateReactionSpells([NotNull] RulesetCharacter caster)
     {
         caster.EnumerateUsableSpells();
         caster.UsableSpells.RemoveAll(s => s.ActivationTime != RuleDefinitions.ActivationTime.Reaction);
     }
 
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var codes = instructions.ToList();
-
-        var customMethod = new Action<RulesetCharacter>(EnumarateReactionSpells).Method;
-
+        var customMethod = new Action<RulesetCharacter>(EnumerateReactionSpells).Method;
         var enumerateIndex = codes.FindIndex(x =>
             x.opcode == OpCodes.Call && x.operand.ToString().Contains("EnumerateUsableSpells")
         );

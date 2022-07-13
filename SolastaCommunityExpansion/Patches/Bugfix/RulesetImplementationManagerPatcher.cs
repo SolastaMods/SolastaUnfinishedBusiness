@@ -28,41 +28,44 @@ internal static class RulesetImplementationManager_TerminateEffect
             {
                 var rulesetLightSource = (RulesetLightSource)null;
                 ref var local = ref rulesetLightSource;
-                if (RulesetEntity.TryGetEntity(trackedLightSourceGuid, out local) && rulesetLightSource != null)
-                {
-                    rulesetLightSource.LightSourceExtinguished -= activeEffect.LightSourceExtinguished;
-                    RulesetCharacter bearer;
-                    if (rulesetLightSource.TargetItemGuid != 0UL &&
-                        RulesetEntity.TryGetEntity(rulesetLightSource.TargetItemGuid, out RulesetItem rulesetItem))
-                    {
-                        if (RulesetEntity.TryGetEntity(rulesetItem.BearerGuid, out bearer) &&
-                            bearer is {CharacterInventory: { }})
-                        {
-                            bearer.CharacterInventory.ItemAltered?.Invoke(bearer.CharacterInventory,
-                                bearer.CharacterInventory.FindSlotHoldingItem(rulesetItem), rulesetItem);
-                        }
 
-                        var fromActor = GameLocationCharacter.GetFromActor(bearer);
-                        service?.RemoveCharacterLightSource(fromActor, rulesetItem.RulesetLightSource);
-                        rulesetItem.RulesetLightSource?.Unregister();
-                        rulesetItem.RulesetLightSource = null;
-                    }
-                    else if (rulesetLightSource.TargetGuid != 0UL &&
-                             RulesetEntity.TryGetEntity(rulesetLightSource.TargetGuid, out bearer))
+                if (!RulesetEntity.TryGetEntity(trackedLightSourceGuid, out local) || rulesetLightSource == null)
+                {
+                    continue;
+                }
+
+                rulesetLightSource.LightSourceExtinguished -= activeEffect.LightSourceExtinguished;
+                RulesetCharacter bearer;
+                if (rulesetLightSource.TargetItemGuid != 0UL &&
+                    RulesetEntity.TryGetEntity(rulesetLightSource.TargetItemGuid, out RulesetItem rulesetItem))
+                {
+                    if (RulesetEntity.TryGetEntity(rulesetItem.BearerGuid, out bearer) &&
+                        bearer is {CharacterInventory: { }})
                     {
-                        var fromActor = GameLocationCharacter.GetFromActor(bearer);
-                        service?.RemoveCharacterLightSource(fromActor, rulesetLightSource);
-                        if (rulesetLightSource.UseSpecificLocationPosition)
+                        bearer.CharacterInventory.ItemAltered?.Invoke(bearer.CharacterInventory,
+                            bearer.CharacterInventory.FindSlotHoldingItem(rulesetItem), rulesetItem);
+                    }
+
+                    var fromActor = GameLocationCharacter.GetFromActor(bearer);
+                    service?.RemoveCharacterLightSource(fromActor, rulesetItem.RulesetLightSource);
+                    rulesetItem.RulesetLightSource?.Unregister();
+                    rulesetItem.RulesetLightSource = null;
+                }
+                else if (rulesetLightSource.TargetGuid != 0UL &&
+                         RulesetEntity.TryGetEntity(rulesetLightSource.TargetGuid, out bearer))
+                {
+                    var fromActor = GameLocationCharacter.GetFromActor(bearer);
+                    service?.RemoveCharacterLightSource(fromActor, rulesetLightSource);
+                    if (rulesetLightSource.UseSpecificLocationPosition)
+                    {
+                        if (bearer is RulesetCharacterEffectProxy proxy)
                         {
-                            if (bearer is RulesetCharacterEffectProxy proxy)
-                            {
-                                proxy.RemoveAdditionalPersonalLightSource(rulesetLightSource);
-                            }
+                            proxy.RemoveAdditionalPersonalLightSource(rulesetLightSource);
                         }
-                        else if (bearer != null)
-                        {
-                            bearer.PersonalLightSource = null;
-                        }
+                    }
+                    else if (bearer != null)
+                    {
+                        bearer.PersonalLightSource = null;
                     }
                 }
             }
@@ -70,36 +73,42 @@ internal static class RulesetImplementationManager_TerminateEffect
             activeEffect.TrackedLightSourceGuids.Clear();
         }
 
-        if (activeEffect is {TrackedItemPropertyGuids.Count: > 0})
+        if (activeEffect is not {TrackedItemPropertyGuids.Count: > 0})
         {
-            foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids)
-            {
-                var rulesetItemProperty = (RulesetItemProperty)null;
-                ref var local = ref rulesetItemProperty;
-                if (RulesetEntity.TryGetEntity(itemPropertyGuid, out local) && rulesetItemProperty != null)
-                {
-                    if (RulesetEntity.TryGetEntity(rulesetItemProperty.TargetItemGuid,
-                            out RulesetItem rulesetItem) &&
-                        rulesetItem != null)
-                    {
-                        rulesetItem.ItemPropertyRemoved -= activeEffect.ItemPropertyRemoved;
-                        rulesetItem.RemoveDynamicProperty(rulesetItemProperty);
-                        if (RulesetEntity.TryGetEntity(rulesetItem.BearerGuid,
-                                out RulesetCharacter rulesetItemBearer) && rulesetItemBearer != null)
-                        {
-                            var characterInventory = rulesetItemBearer.CharacterInventory;
-                            if (characterInventory != null)
-                            {
-                                characterInventory.ItemAltered?.Invoke(characterInventory,
-                                    characterInventory.FindSlotHoldingItem(rulesetItem),
-                                    rulesetItem);
-                            }
+            return;
+        }
 
-                            rulesetItemBearer.RefreshAll();
-                        }
-                    }
-                }
+        foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids)
+        {
+            var rulesetItemProperty = (RulesetItemProperty)null;
+            ref var local = ref rulesetItemProperty;
+            if (!RulesetEntity.TryGetEntity(itemPropertyGuid, out local) || rulesetItemProperty == null)
+            {
+                continue;
             }
+
+            if (!RulesetEntity.TryGetEntity(rulesetItemProperty.TargetItemGuid,
+                    out RulesetItem rulesetItem) || rulesetItem == null)
+            {
+                continue;
+            }
+
+            rulesetItem.ItemPropertyRemoved -= activeEffect.ItemPropertyRemoved;
+            rulesetItem.RemoveDynamicProperty(rulesetItemProperty);
+
+            if (!RulesetEntity.TryGetEntity(rulesetItem.BearerGuid,
+                    out RulesetCharacter rulesetItemBearer) || rulesetItemBearer == null)
+            {
+                continue;
+            }
+
+            var characterInventory = rulesetItemBearer.CharacterInventory;
+
+            characterInventory?.ItemAltered?.Invoke(characterInventory,
+                characterInventory.FindSlotHoldingItem(rulesetItem),
+                rulesetItem);
+
+            rulesetItemBearer.RefreshAll();
         }
     }
 }

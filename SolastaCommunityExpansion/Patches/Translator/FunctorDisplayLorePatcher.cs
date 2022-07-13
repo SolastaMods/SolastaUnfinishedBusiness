@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.Translator;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FunctorDisplayLore_Execute
 {
-    internal static void Prefix(FunctorParametersDescription functorParameters)
+    internal static void Prefix([NotNull] FunctorParametersDescription functorParameters)
     {
         functorParameters.stringParameter = DungeonMakerContext.ReplaceVariable(functorParameters.stringParameter);
 

@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder;
@@ -12,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder;
 internal static class CursorLocationGeometricShape_UpdateGeometricShape
 {
     public static void MyUpdateCubePosition_Regular(
-        GeometricShape __instance,
+        [NotNull] GeometricShape __instance,
         Vector3 origin,
         float edgeSize,
         bool adaptToGroundLevel,

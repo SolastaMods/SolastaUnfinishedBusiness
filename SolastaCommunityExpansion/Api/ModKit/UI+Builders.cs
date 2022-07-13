@@ -91,14 +91,16 @@ public static partial class UI
 
     public static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)
     {
-        if (selected >= actions.Count())
+        if (selected >= actions.Length)
         {
             selected = 0;
         }
 
         var sel = selected;
         var titles = actions.Select((a, i) => i == sel ? a.Name.Orange().Bold() : a.Name);
-        SelectionGrid(ref selected, titles.ToArray(), titles.Count(), 6, ExpandWidth(true));
+        var enumerable = titles as string[] ?? titles.ToArray();
+
+        SelectionGrid(ref selected, enumerable.ToArray(), enumerable.Length, 6, ExpandWidth(true));
         GL.BeginVertical("box");
         header?.Invoke();
         actions[selected].Action();

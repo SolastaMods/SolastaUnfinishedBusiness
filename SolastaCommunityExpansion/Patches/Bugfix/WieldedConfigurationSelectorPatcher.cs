@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.BugFix;
@@ -15,9 +16,9 @@ namespace SolastaCommunityExpansion.Patches.BugFix;
 internal static class WieldedConfigurationSelector_Bind
 {
     public static void MyBind(
-        InventorySlotBox inventorySlotBox,
+        [NotNull] InventorySlotBox inventorySlotBox,
         RulesetInventorySlot rulesetInventorySlot,
-        GuiCharacter guiCharacter,
+        [CanBeNull] GuiCharacter guiCharacter,
         bool inMainHud,
         RectTransform anchor,
         TooltipDefinitions.AnchorMode anchorMode,
@@ -28,7 +29,7 @@ internal static class WieldedConfigurationSelector_Bind
             inMainHud, anchor, anchorMode, refreshDirectly);
     }
 
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         //
         // BUGFIX: wielded configuration selection
