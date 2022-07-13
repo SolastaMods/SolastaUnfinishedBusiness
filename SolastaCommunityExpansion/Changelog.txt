@@ -5,3 +5,4 @@ CHANGES:
 
 - Add Gray Dwarf sub race
 - Replace bless with Healing Word on Celestial Touched
+- Remove point buy patch now fixed by TA
