@@ -268,16 +268,18 @@ internal static class PatchesDisplay
         var hue = 0.0f;
         foreach (var owner in owners)
         {
-            if (!_modIdsToColor.ContainsKey(owner))
+            if (_modIdsToColor.ContainsKey(owner))
             {
-                var color = Random.ColorHSV(
-                    hue, hue,
-                    0.25f, .75f,
-                    0.75f, 1f
-                );
-                _modIdsToColor[owner] = ColorUtility.ToHtmlStringRGBA(color);
-                hue = (hue + 0.1f) % 1.0f;
+                continue;
             }
+
+            var color = Random.ColorHSV(
+                hue, hue,
+                0.25f, .75f,
+                0.75f, 1f
+            );
+            _modIdsToColor[owner] = ColorUtility.ToHtmlStringRGBA(color);
+            hue = (hue + 0.1f) % 1.0f;
         }
     }
 

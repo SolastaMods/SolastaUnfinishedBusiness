@@ -50,19 +50,22 @@ internal static class ItemsAndCraftingDisplay
             if (!ItemCraftingContext.BaseGameItemsCategories.Contains(key))
             {
                 toggle = Main.Settings.CraftingItemsInDm.Contains(key);
-                if (UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width(125)))
-                {
-                    if (toggle)
-                    {
-                        Main.Settings.CraftingItemsInDm.Add(key);
-                    }
-                    else
-                    {
-                        Main.Settings.CraftingItemsInDm.Remove(key);
-                    }
 
-                    ItemCraftingContext.UpdateCraftingItemsInDmState(key);
+                if (!UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width(125)))
+                {
+                    return;
                 }
+
+                if (toggle)
+                {
+                    Main.Settings.CraftingItemsInDm.Add(key);
+                }
+                else
+                {
+                    Main.Settings.CraftingItemsInDm.Remove(key);
+                }
+
+                ItemCraftingContext.UpdateCraftingItemsInDmState(key);
             }
             else
             {

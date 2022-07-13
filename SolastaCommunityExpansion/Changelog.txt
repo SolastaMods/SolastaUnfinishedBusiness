@@ -1,4 +1,7 @@
-﻿CHANGES:
+﻿You can contribute to this work with any financial amount
+The donation button is under Mod UI > Credits & Diagnostics
+
+CHANGES:
 
 - Add Gray Dwarf sub race
 - Replace bless with Healing Word on Celestial Touched feat

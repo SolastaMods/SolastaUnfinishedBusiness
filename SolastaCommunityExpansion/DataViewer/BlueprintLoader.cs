@@ -21,11 +21,13 @@ public class BlueprintLoader : MonoBehaviour
     {
         get
         {
-            if (_shared == null)
+            if (_shared != null)
             {
-                _shared = new GameObject().AddComponent<BlueprintLoader>();
-                DontDestroyOnLoad(_shared.gameObject);
+                return _shared;
             }
+
+            _shared = new GameObject().AddComponent<BlueprintLoader>();
+            DontDestroyOnLoad(_shared.gameObject);
 
             return _shared;
         }

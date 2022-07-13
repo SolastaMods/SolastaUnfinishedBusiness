@@ -1591,8 +1591,8 @@ public static class SrdSpells
             RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
             [CanBeNull] List<EffectFormFilter> filters = null)
         {
-            if (formsParams.saveOutcome == RuleDefinitions.RollOutcome.CriticalSuccess ||
-                formsParams.saveOutcome == RuleDefinitions.RollOutcome.Success)
+            if (formsParams.saveOutcome is RuleDefinitions.RollOutcome.CriticalSuccess
+                or RuleDefinitions.RollOutcome.Success)
             {
                 return;
             }
@@ -1643,7 +1643,7 @@ public static class SrdSpells
         }
 
         private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-            [NotNull] ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            [NotNull] BaseDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
         {
             // Prepare params for inflicting conditions
             var sourceGuid = formsParams.sourceCharacter?.Guid ?? 0L;

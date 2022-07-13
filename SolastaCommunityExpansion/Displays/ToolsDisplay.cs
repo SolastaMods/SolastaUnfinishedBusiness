@@ -160,8 +160,6 @@ internal static class ToolsDisplay
 
     private static void DisplayFactionRelations()
     {
-        int intValue;
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&FactionRelations"));
         UI.Label("");
@@ -192,7 +190,7 @@ internal static class ToolsDisplay
 
                 title = flip ? title.Khaki() : title.White();
 
-                intValue = gameFactionService.FactionRelations[faction.Name];
+                var intValue = gameFactionService.FactionRelations[faction.Name];
 
                 if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap,
                         faction.MaxRelationCap, 0, "", UI.AutoWidth()))
@@ -244,11 +242,9 @@ internal static class ToolsDisplay
             UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
         }
 
-        int intValue;
-
         using (UI.HorizontalScope(UI.Width(800), UI.Height(400)))
         {
-            intValue = CurrentItemsFilterIndex;
+            var intValue = CurrentItemsFilterIndex;
             if (UI.SelectionGrid(
                     ref intValue,
                     ItemsFiltersLabels,

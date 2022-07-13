@@ -199,10 +199,10 @@ internal static class GambitResourcePoolAddBuilder
             .AddToDB();
     }
 
-    internal static FeatureDefinitionPower GambitResourcePoolAdd()
-    {
-        return CreateAndAddToDB(GambitResourcePoolAddName, GambitResourcePoolAddNameGuid);
-    }
+    // internal static FeatureDefinitionPower GambitResourcePoolAdd()
+    // {
+    //     return CreateAndAddToDB(GambitResourcePoolAddName, GambitResourcePoolAddNameGuid);
+    // }
 
     internal static FeatureDefinitionPower GambitResourcePoolAdd10()
     {

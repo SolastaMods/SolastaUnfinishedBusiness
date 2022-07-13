@@ -83,26 +83,30 @@ public static class EncountersDisplay
 
         CurrentItemsHeroes.TryGetValue(hero, out flip);
 
-        if (flip)
+        if (!flip)
         {
-            using (UI.VerticalScope())
+            return;
+        }
+
+        using (UI.VerticalScope())
+        {
+            using (UI.HorizontalScope())
             {
-                using (UI.HorizontalScope())
+                UI.Space(30);
+                UI.Label("Inventory".Bold().Cyan());
+            }
+
+            foreach (var slot in inventory)
+            {
+                if (slot.EquipedItem == null)
                 {
-                    UI.Space(30);
-                    UI.Label("Inventory".Bold().Cyan());
+                    continue;
                 }
 
-                foreach (var slot in inventory)
+                using (UI.HorizontalScope())
                 {
-                    if (slot.EquipedItem != null)
-                    {
-                        using (UI.HorizontalScope())
-                        {
-                            UI.Space(60);
-                            UI.Label(slot.EquipedItem.ItemDefinition.FormatTitle(), UI.Width(192));
-                        }
-                    }
+                    UI.Space(60);
+                    UI.Label(slot.EquipedItem.ItemDefinition.FormatTitle(), UI.Width(192));
                 }
             }
         }
@@ -190,7 +194,12 @@ public static class EncountersDisplay
         }
 
         CurrentAttacksMonster.TryGetValue(monsterDefinition, out flip);
-        if (flip)
+
+        if (!flip)
+        {
+            return;
+        }
+
         {
             using (UI.VerticalScope())
             {
@@ -320,17 +329,18 @@ public static class EncountersDisplay
                 // Prevent captured closure
                 var index2 = index;
 
-                if (EncountersSpawnContext.EncounterCharacters[index2] is RulesetCharacterMonster
-                    rulesetCharacterMonster)
+                switch (EncountersSpawnContext.EncounterCharacters[index2])
                 {
-                    DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-",
-                        () => EncountersSpawnContext.RemoveFromEncounter(index2));
-                }
-                else if (EncountersSpawnContext.EncounterCharacters[index2] is RulesetCharacterHero
-                         rulesetCharacterHero)
-                {
-                    DisplayHeroStats(rulesetCharacterHero, "-",
-                        () => EncountersSpawnContext.RemoveFromEncounter(index2));
+                    case RulesetCharacterMonster
+                        rulesetCharacterMonster:
+                        DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-",
+                            () => EncountersSpawnContext.RemoveFromEncounter(index2));
+                        break;
+                    case RulesetCharacterHero
+                        rulesetCharacterHero:
+                        DisplayHeroStats(rulesetCharacterHero, "-",
+                            () => EncountersSpawnContext.RemoveFromEncounter(index2));
+                        break;
                 }
             }
         }

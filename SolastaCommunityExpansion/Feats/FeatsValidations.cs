@@ -30,21 +30,21 @@ internal static class FeatsValidations
         };
     }
 
-    [NotNull]
-    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateRace(
-        CharacterRaceDefinition characterRaceDefinition)
-    {
-        var raceName = characterRaceDefinition.FormatTitle();
-
-        return (_, hero) =>
-        {
-            var isRace = characterRaceDefinition == hero.RaceDefinition;
-
-            return isRace
-                ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName))
-                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName), "EA7171"));
-        };
-    }
+    // [NotNull]
+    // internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateRace(
+    //     CharacterRaceDefinition characterRaceDefinition)
+    // {
+    //     var raceName = characterRaceDefinition.FormatTitle();
+    //
+    //     return (_, hero) =>
+    //     {
+    //         var isRace = characterRaceDefinition == hero.RaceDefinition;
+    //
+    //         return isRace
+    //             ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName))
+    //             : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName), "EA7171"));
+    //     };
+    // }
 
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(

@@ -28,7 +28,6 @@ internal static class SpellsContext
 
             foreach (var characterClass in dbCharacterClassDefinition)
             {
-                Main.Log($"{characterClass.Name}");
                 var title = characterClass.FormatTitle();
 
                 var featureDefinitionCastSpell = characterClass.FeatureUnlocks

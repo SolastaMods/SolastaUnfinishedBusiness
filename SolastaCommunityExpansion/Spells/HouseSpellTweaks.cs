@@ -168,8 +168,8 @@ internal static class HouseSpellTweaks
             foreach (var sd in DatabaseRepository
                          .GetDatabase<SpellDefinition>()
                          .Where(sd =>
-                             sd.EffectDescription.TargetType == RuleDefinitions.TargetType.Cube
-                             || sd.EffectDescription.TargetType == RuleDefinitions.TargetType.CubeWithOffset))
+                             sd.EffectDescription.TargetType is RuleDefinitions.TargetType.Cube
+                                 or RuleDefinitions.TargetType.CubeWithOffset))
             {
                 // TargetParameter2 is not used by TargetType.Cube but has random values assigned.
                 // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.

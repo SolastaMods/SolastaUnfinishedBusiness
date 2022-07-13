@@ -116,8 +116,6 @@ internal static class DiagnosticsContext
                 return copy;
             });
 #endif
-
-        Main.Log($"Cached {_taBaseDefinitions.Length} TA definitions");
     }
 
     internal static void CacheCeDefinitions()
@@ -157,8 +155,6 @@ internal static class DiagnosticsContext
             .ThenBy(x => x.GetType().Name)
             .ToArray();
         _ceBaseDefinitions2 = _ceBaseDefinitions.ToHashSet();
-
-        Main.Log($"Cached {_ceBaseDefinitions.Length} CE definitions");
     }
 
     internal static bool IsCeDefinition(BaseDefinition definition)

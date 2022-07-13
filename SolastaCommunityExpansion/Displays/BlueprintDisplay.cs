@@ -43,15 +43,17 @@ public static class BlueprintDisplay
 
     private static IEnumerable<BaseDefinition> GetBlueprints()
     {
-        if (_allBlueprints == null)
+        if (_allBlueprints != null)
         {
-            if (BlueprintLoader.Shared.LoadInProgress())
-            {
-                return _allBlueprints;
-            }
-
-            BlueprintLoader.Shared.Load(bps => _allBlueprints = bps);
+            return _allBlueprints;
         }
+
+        if (BlueprintLoader.Shared.LoadInProgress())
+        {
+            return _allBlueprints;
+        }
+
+        BlueprintLoader.Shared.Load(bps => _allBlueprints = bps);
 
         return _allBlueprints;
     }
@@ -158,8 +160,6 @@ public static class BlueprintDisplay
 
                 RefreshTypeNames();
                 RefreshBpSearchData();
-
-                return;
             }
 
             using (new GUILayout.HorizontalScope())

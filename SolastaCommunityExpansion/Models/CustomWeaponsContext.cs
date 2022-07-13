@@ -69,7 +69,7 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    public static ItemPresentation BuildPresentation(string unIdentifiedName,
+    private static ItemPresentation BuildPresentation(string unIdentifiedName,
         [NotNull] ItemPresentation basePresentation,
         float scale = 1.0f, bool hasUnidDescription = false)
     {
@@ -86,7 +86,7 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    public static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
+    private static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
         RuleDefinitions.ItemRarity rarity,
         ItemPresentation basePresentation = null,
         WeaponDescription baseDescription = null,
@@ -657,7 +657,7 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    public static ItemDefinition BuildRecipeManual([NotNull] ItemDefinition item, int hours, int difficulty,
+    private static ItemDefinition BuildRecipeManual([NotNull] ItemDefinition item, int hours, int difficulty,
         params ItemDefinition[] ingredients)
     {
         return BuildManual(BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients),
@@ -692,13 +692,13 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed, Guid guid)
+    private static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed, Guid guid)
     {
         return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(guid, item, primed), guid);
     }
 
     [NotNull]
-    public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
+    private static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
     {
         return BuildPrimingManual(item, primed, DefinitionBuilder.CENamespaceGuid);
     }
