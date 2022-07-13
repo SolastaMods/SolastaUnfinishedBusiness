@@ -98,7 +98,7 @@ public sealed class BlueprintLoader : MonoBehaviour
             coroutine = null;
         }
 
-        this.callback = myCallback;
+        callback = myCallback;
         coroutine = LoadBlueprints();
         StartCoroutine(coroutine);
     }

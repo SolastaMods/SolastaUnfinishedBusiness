@@ -90,7 +90,7 @@ public static partial class ReflectionCache
 
         protected CachedField(Type type, string name)
         {
-            Info = type.GetFields(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
+            Info = type.GetFields(AllFlags).FirstOrDefault(item => item.Name == name);
 
             if (Info == null || Info.FieldType != typeof(TField))
             {

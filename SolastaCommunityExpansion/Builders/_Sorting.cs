@@ -27,14 +27,19 @@ internal static class Sorting
     {
         var result = String.Compare(x.abilityScoreName, y.abilityScoreName, StringComparison.CurrentCultureIgnoreCase);
 
-        return result == 0 ? String.Compare(x.proficiencyName, y.proficiencyName, StringComparison.CurrentCultureIgnoreCase) : result;
+        return result == 0
+            ? String.Compare(x.proficiencyName, y.proficiencyName, StringComparison.CurrentCultureIgnoreCase)
+            : result;
     }
 
     internal static int Compare(FeatureUnlockByLevel x, FeatureUnlockByLevel y)
     {
         var result = x.Level.CompareTo(y.Level);
 
-        return result == 0 ? String.Compare(x.FeatureDefinition.Name, y.FeatureDefinition.Name, StringComparison.CurrentCultureIgnoreCase) : result;
+        return result == 0
+            ? String.Compare(x.FeatureDefinition.Name, y.FeatureDefinition.Name,
+                StringComparison.CurrentCultureIgnoreCase)
+            : result;
     }
 
     internal static int Compare(EffectForm x, EffectForm y)
@@ -44,7 +49,8 @@ internal static class Sorting
 
     internal static int Compare(MonsterSavingThrowProficiency x, MonsterSavingThrowProficiency y)
     {
-        return String.Compare(x.AbilityScoreName, y.AbilityScoreName, StringComparison.CurrentCultureIgnoreCase); // then by bonus?
+        return String.Compare(x.AbilityScoreName, y.AbilityScoreName,
+            StringComparison.CurrentCultureIgnoreCase); // then by bonus?
     }
 
     internal static int Compare(MonsterSkillProficiency x, MonsterSkillProficiency y)
@@ -54,7 +60,8 @@ internal static class Sorting
 
     internal static int Compare(MonsterAttackIteration x, MonsterAttackIteration y)
     {
-        return String.Compare(x.MonsterAttackDefinition.Name, y.MonsterAttackDefinition.Name, StringComparison.CurrentCultureIgnoreCase);
+        return String.Compare(x.MonsterAttackDefinition.Name, y.MonsterAttackDefinition.Name,
+            StringComparison.CurrentCultureIgnoreCase);
     }
 
 #pragma warning disable IDE0060 // Remove unused parameter

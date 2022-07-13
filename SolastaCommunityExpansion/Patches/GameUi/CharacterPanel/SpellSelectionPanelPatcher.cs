@@ -180,7 +180,8 @@ internal static class SpellSelectionPanelPatcher
             if (level == 0)
             {
                 // changed to support game v1.3.44 and allow ancestry cantrips to display off battle
-                return actionType == ActionDefinitions.ActionType.None || spellRepertoire.KnownCantrips.Any(cantrip => cantrip.ActivationTime == spellActivationTime);
+                return actionType == ActionDefinitions.ActionType.None ||
+                       spellRepertoire.KnownCantrips.Any(cantrip => cantrip.ActivationTime == spellActivationTime);
             }
 
             switch (spellRepertoire.SpellCastingFeature.SpellReadyness)

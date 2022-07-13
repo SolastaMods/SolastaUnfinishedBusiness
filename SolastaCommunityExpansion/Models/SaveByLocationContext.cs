@@ -145,7 +145,7 @@ internal static class SaveByLocationContext
     private interface ISelectedCampaignService : IService
     {
         // string CampaignOrLocationName { get; }
-        LocationType LocationType { get; }
+        // LocationType LocationType { get; }
         // string SaveGameDirectory { get; }
         // void SetCampaignLocation(string campaign, string location);
     }

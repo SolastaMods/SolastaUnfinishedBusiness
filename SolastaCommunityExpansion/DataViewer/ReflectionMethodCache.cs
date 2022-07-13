@@ -95,7 +95,7 @@ public static partial class ReflectionCache
         protected CachedMethod(Type type, string name, bool hasThis)
         {
             var delType = typeof(TMethod);
-            var delSign = delType.GetMethod("Invoke", ALL_FLAGS);
+            var delSign = delType.GetMethod("Invoke", AllFlags);
             var delParams = delSign.GetParameters();
 
             if (hasThis)
@@ -118,7 +118,7 @@ public static partial class ReflectionCache
                 }
             }
 
-            IEnumerable<MethodInfo> methods = type.GetMethods(ALL_FLAGS);
+            IEnumerable<MethodInfo> methods = type.GetMethods(AllFlags);
             if (delType.IsGenericType && !ACTION_AND_FUNC_TYPES.Contains(delType.GetGenericTypeDefinition()))
             {
                 if (hasThis)

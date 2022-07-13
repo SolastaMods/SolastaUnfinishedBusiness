@@ -97,7 +97,7 @@ public static partial class ReflectionCache
 
         protected CachedProperty(Type type, string name)
         {
-            Info = type.GetProperties(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
+            Info = type.GetProperties(AllFlags).FirstOrDefault(item => item.Name == name);
 
             if (Info == null || Info.PropertyType != typeof(TProperty))
             {
@@ -106,7 +106,7 @@ public static partial class ReflectionCache
 
             if (Info.DeclaringType != type)
             {
-                Info = Info.DeclaringType.GetProperties(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
+                Info = Info.DeclaringType.GetProperties(AllFlags).FirstOrDefault(item => item.Name == name);
             }
         }
 

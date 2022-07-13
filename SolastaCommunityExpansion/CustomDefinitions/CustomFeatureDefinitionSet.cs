@@ -112,7 +112,7 @@ public class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder
         return this;
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level, List<FeatureDefinition> features)
+    public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
     {
         Definition.AddLevelFeatures(level, features);
         return this;
@@ -124,7 +124,7 @@ public class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder
         return this;
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level, List<FeatureDefinition> features)
+    public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
     {
         Definition.SetLevelFeatures(level, features);
         return this;

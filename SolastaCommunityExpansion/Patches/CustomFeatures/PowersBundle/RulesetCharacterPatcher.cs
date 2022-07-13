@@ -20,7 +20,8 @@ internal static class Helper
 
             var bundles = PowerBundleContext.GetMasterPowersBySubPower(power);
 
-            foreach (var subPower in bundles.Select(PowerBundleContext.GetBundle).Where(bundle => bundle.TerminateAll).SelectMany(bundle => bundle.SubPowers))
+            foreach (var subPower in bundles.Select(PowerBundleContext.GetBundle).Where(bundle => bundle.TerminateAll)
+                         .SelectMany(bundle => bundle.SubPowers))
             {
                 allSubPowers.Add(subPower);
             }

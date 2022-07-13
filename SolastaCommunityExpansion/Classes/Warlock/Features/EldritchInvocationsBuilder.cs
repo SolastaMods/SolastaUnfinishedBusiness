@@ -288,8 +288,9 @@ internal static class EldritchInvocationsBuilder
                 cantripEffect.SetHasSavingThrow(false);
             }
 
-            var effectAdvancement = new EffectAdvancement {effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None};
-            
+            var effectAdvancement =
+                new EffectAdvancement {effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None};
+
             cantripEffect.SetEffectAdvancement(effectAdvancement);
 
             EldritchInvocations.Add(invocationName, EIPower);

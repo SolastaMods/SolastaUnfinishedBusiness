@@ -89,7 +89,6 @@ internal static class CharacterStageClassSelectionPanel_FillClassFeatures
         }
 
         return featureUnlockByLevel.Level - 1;
-
     }
 
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

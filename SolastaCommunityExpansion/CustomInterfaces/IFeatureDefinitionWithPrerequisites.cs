@@ -8,5 +8,5 @@ public interface IFeatureDefinitionWithPrerequisites
     [CanBeNull]
     public delegate string Validate();
 
-    public List<Validate> Validators { get; set; }
+    public List<Validate> Validators { get; }
 }

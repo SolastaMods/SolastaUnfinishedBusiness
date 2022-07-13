@@ -82,7 +82,7 @@ internal static class CharacterReactionSubitemExtension
         {
             return;
         }
-        
+
         if (tooltip != null)
         {
             tooltip.Disabled = false;

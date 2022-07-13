@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -79,8 +80,9 @@ internal static class ItemBuilder
         return builder.AddToDB();
     }
 
-    private static List<ItemPropertyDescription> FilterItemProperty(
-        IEnumerable<ItemPropertyDescription> listToFilter, FeatureDefinition toFilter)
+    [NotNull]
+    private static IEnumerable<ItemPropertyDescription> FilterItemProperty(
+        [NotNull] IEnumerable<ItemPropertyDescription> listToFilter, BaseDefinition toFilter)
     {
         return listToFilter.Where(ip => !ip.FeatureDefinition.GUID.Equals(toFilter.GUID)).ToList();
     }
