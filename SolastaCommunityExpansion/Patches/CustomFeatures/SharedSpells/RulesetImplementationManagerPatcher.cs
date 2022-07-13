@@ -72,8 +72,7 @@ internal static class RulesetImplementationManager_ApplySpellSlotsForm
         // handles Sorcerer and Wildshape scenarios slots / points scenarios
         //
 
-        else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot ||
-                 spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSorceryPoints)
+        else if (spellSlotsForm.Type is SpellSlotsForm.EffectType.CreateSpellSlot or SpellSlotsForm.EffectType.CreateSorceryPoints)
         {
             var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
@@ -82,13 +81,10 @@ internal static class RulesetImplementationManager_ApplySpellSlotsForm
         }
         else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.GainSorceryPoints)
         {
-            var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
-
             formsParams.sourceCharacter.GainSorceryPoints(spellSlotsForm.SorceryPointsGain);
         }
         else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecovererSorceryHalfLevelUp)
         {
-            var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
             var currentValue = substituteHero.ClassesAndLevels[Sorcerer];
             var sorceryPointsGain = (currentValue % 2) + (currentValue / 2);
 
@@ -97,12 +93,9 @@ internal static class RulesetImplementationManager_ApplySpellSlotsForm
         else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RechargePower &&
                  formsParams.targetCharacter is RulesetCharacter)
         {
-            foreach (var usablePower in substituteHero.UsablePowers)
+            foreach (var usablePower in substituteHero.UsablePowers.Where(usablePower => usablePower.PowerDefinition == spellSlotsForm.PowerDefinition))
             {
-                if (usablePower.PowerDefinition == spellSlotsForm.PowerDefinition)
-                {
-                    usablePower.Recharge();
-                }
+                usablePower.Recharge();
             }
         }
 

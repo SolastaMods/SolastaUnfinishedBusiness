@@ -41,7 +41,7 @@ internal static class CharacterReactionItem_Bind
     internal static void Postfix(CharacterReactionItem __instance)
     {
         var request = __instance.ReactionRequest;
-        var size = request is ReactionRequestWarcaster || request is ReactionRequestSpendBundlePower
+        var size = request is ReactionRequestWarcaster or ReactionRequestSpendBundlePower
             ? 400
             : 290;
 

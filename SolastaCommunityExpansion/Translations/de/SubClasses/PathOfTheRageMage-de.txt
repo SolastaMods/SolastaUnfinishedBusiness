@@ -1,6 +1,6 @@
 Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Deine Wut manifestiert sich als Woge arkaner Macht, die es dir ermöglicht, Zauber zu wirken. Charisma ist dein Zaubermodifikator. Du hast Zugriff auf Zauber auf der Zauberliste des Zauberers. Sie verwenden Ihre Waffe als arkanen Fokus. Du kannst keine Zauber wirken, während du tobst.
 Feature/&BarbarianPathOfTheRageMageSpellcastingTitle=Zaubern
-Feature/&ProficiencySkillPathOfTheRageMageDescription=Du erlangst Kenntnisse in der Arcana-Fertigkeit.
+Feature/&ProficiencySkillPathOfTheRageMageDescription=Du erlangst Kenntnisse in der Arcana-Fähigkeit.
 Feature/&ProficiencySkillPathOfTheRageMageTitle=Arkane Intuition
 Feature/&arcaneExplosionPathOfTheMageRageTitle=Arkane Explosion
 Feature/&enhancedArcaneExplosionPathOfTheMageRageDescription=Deine arkane Macht EXPLODIERT jetzt aus dir heraus, während du tobst. Bei deinem ersten Treffer während des Kampfes verursacht deine Funktion „Arkane Explosion“ jetzt 2W6 Schaden.

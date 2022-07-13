@@ -1,9 +1,9 @@
 Feat/&ChefConDescription=Aumenta la tua Costituzione di 1, fino a un massimo di 20.\nPuoi spendere 1 ora per cucinare un pasto per curare te e i tuoi compagni di 1d8 HP.\nUna volta al giorno, puoi dedicare un'ora a cucinare prelibatezze che fornisce HP temporanei quando viene mangiato.
-Feat/&ChefConTitle=Chef (Costituzione)
+Feat/&ChefConTitle=Chef [con]
 Feat/&ChefShortRestFeastDescription=Puoi spendere 1 ora per cucinare un pasto per curare te e i tuoi compagni di 1d8 HP.
 Feat/&ChefShortRestFeastTitle=Pasto di riposo breve
 Feat/&ChefWisDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nPuoi spendere 1 ora per cucinare un pasto per curare te e i tuoi compagni di 1d8 HP.\nUna volta al giorno, puoi dedicare un'ora a cucinare prelibatezze che fornisce HP temporanei quando viene mangiato.
-Feat/&ChefWisTitle=Chef (Saggezza)
+Feat/&ChefWisTitle=Chef [Wis]
 Feat/&FeatChefConIncrementDescription=Aumenta la tua Costituzione di 1, fino a un massimo di 20.
 Feat/&FeatChefConIncrementTitle=Attributo Aumento
 Feat/&FeatChefWisIncrementDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.

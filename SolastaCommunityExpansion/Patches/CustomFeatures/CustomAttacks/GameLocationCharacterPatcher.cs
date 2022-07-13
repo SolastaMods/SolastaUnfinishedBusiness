@@ -139,10 +139,7 @@ internal static class GameLocationCharacter_FindActionAttackMode
         foreach (var attackMode in __instance.RulesetCharacter.AttackModes
                      .Where(attackMode => !attackMode.AfterChargeOnly &&
                                           ((attackMode.ActionType == ActionDefinitions.ActionType.Main &&
-                                            (actionId == ActionDefinitions.Id.AttackMain ||
-                                             actionId == ActionDefinitions.Id.AttackReadied ||
-                                             actionId == ActionDefinitions.Id.Volley ||
-                                             actionId == ActionDefinitions.Id.WhirlwindAttack)) ||
+                                            actionId is ActionDefinitions.Id.AttackMain or ActionDefinitions.Id.AttackReadied or ActionDefinitions.Id.Volley or ActionDefinitions.Id.WhirlwindAttack) ||
                                            (attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
                                             actionId == ActionDefinitions.Id.AttackOff) ||
                                            (attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&

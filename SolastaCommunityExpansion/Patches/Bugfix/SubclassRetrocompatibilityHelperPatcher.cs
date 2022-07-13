@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix;
 
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class SubclassRetrocompatibilityHelper_RetrocompatibilityCheckMissingSubclasses
 {
-    internal static bool Prefix(RulesetCharacterHero hero)
+    internal static bool Prefix([NotNull] RulesetCharacterHero hero)
     {
         //
         // BUGFIX: deity offering on MC heroes

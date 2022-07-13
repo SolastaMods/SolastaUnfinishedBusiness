@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.DataViewer;
 
-public class BlueprintLoader : MonoBehaviour
+public sealed class BlueprintLoader : MonoBehaviour
 {
     public delegate void LoadBlueprintsCallback(IEnumerable<BaseDefinition> blueprints);
 
@@ -17,15 +18,18 @@ public class BlueprintLoader : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    [NotNull]
     public static BlueprintLoader Shared
     {
         get
         {
-            if (_shared == null)
+            if (_shared != null)
             {
-                _shared = new GameObject().AddComponent<BlueprintLoader>();
-                DontDestroyOnLoad(_shared.gameObject);
+                return _shared;
             }
+
+            _shared = new GameObject().AddComponent<BlueprintLoader>();
+            DontDestroyOnLoad(_shared.gameObject);
 
             return _shared;
         }
@@ -58,8 +62,11 @@ public class BlueprintLoader : MonoBehaviour
                      db.GetType().GetGenericArguments()[0].Name))
         {
             yield return null;
+
             loaded++;
+
             var items = 0;
+
             foreach (var baseDefinition in db.OrderBy(def => def.Name))
             {
                 blueprints.Add(baseDefinition);
@@ -75,12 +82,15 @@ public class BlueprintLoader : MonoBehaviour
         // clean up
         Main.Log($"loaded {blueprints.Count} blueprints");
         callback(blueprints);
+
         yield return null;
+
         StopCoroutine(coroutine);
+
         coroutine = null;
     }
 
-    public void Load(LoadBlueprintsCallback callback)
+    public void Load(LoadBlueprintsCallback myCallback)
     {
         if (coroutine != null)
         {
@@ -88,7 +98,7 @@ public class BlueprintLoader : MonoBehaviour
             coroutine = null;
         }
 
-        this.callback = callback;
+        this.callback = myCallback;
         coroutine = LoadBlueprints();
         StartCoroutine(coroutine);
     }

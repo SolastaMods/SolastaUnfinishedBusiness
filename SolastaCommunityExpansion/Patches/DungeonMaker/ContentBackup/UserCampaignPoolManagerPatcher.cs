@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.ContentBackup;
@@ -15,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.ContentBackup;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class UserCampaignPoolManager_SaveUserCampaign
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var deleteMethod = typeof(File).GetMethod("Delete");
         var backupAndDeleteMethod = typeof(DungeonMakerContext).GetMethod("BackupAndDelete");

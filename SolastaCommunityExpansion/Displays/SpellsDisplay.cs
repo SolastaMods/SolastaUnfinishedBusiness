@@ -8,9 +8,9 @@ namespace SolastaCommunityExpansion.Displays;
 
 internal static class SpellsDisplay
 {
-    private const int SHOW_ALL = -1;
+    private const int ShowAll = -1;
 
-    private static int SpellLevelFilter { get; set; } = SHOW_ALL;
+    private static int SpellLevelFilter { get; set; } = ShowAll;
 
     internal static void DisplaySpells()
     {
@@ -22,7 +22,7 @@ internal static class SpellsDisplay
         UI.Label("");
 
         intValue = SpellLevelFilter;
-        if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, SHOW_ALL, 9, SHOW_ALL))
+        if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
         {
             SpellLevelFilter = intValue;
         }
@@ -66,7 +66,7 @@ internal static class SpellsDisplay
             var sliderPos = Main.Settings.SpellListSliderPosition[name];
             var spellEnabled = Main.Settings.SpellListSpellEnabled[name];
             var allowedSpells = spellListContext.AllSpells
-                .Where(x => SpellLevelFilter == SHOW_ALL || x.SpellLevel == SpellLevelFilter).ToHashSet();
+                .Where(x => SpellLevelFilter == ShowAll || x.SpellLevel == SpellLevelFilter).ToHashSet();
 
             void AdditionalRendering()
             {

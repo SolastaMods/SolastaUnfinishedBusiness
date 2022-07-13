@@ -28,7 +28,7 @@ public static class EffectDescriptionExtensions
                 if (duration == null)
                 {
                     throw new ArgumentNullException(nameof(duration),
-                        $"A duration value is required for duration type {type}.");
+                        $@"A duration value is required for duration type {type}.");
                 }
 
                 entity.SetDurationParameter(duration.Value);
@@ -70,7 +70,7 @@ public static class EffectDescriptionExtensions
                 if (range == null)
                 {
                     throw new ArgumentNullException(nameof(range),
-                        $"A range value is required for range type {type}.");
+                        $@"A range value is required for range type {type}.");
                 }
 
                 entity.SetRangeParameter(range.Value);
@@ -114,15 +114,14 @@ public static class EffectDescriptionExtensions
         return entity;
     }
 
+    [CanBeNull]
     public static DamageForm FindLastDamageForm([NotNull] this EffectDescription entity)
     {
         DamageForm form = null;
-        foreach (var effectForm in entity.effectForms)
+
+        foreach (var effectForm in entity.effectForms.Where(effectForm => effectForm.FormType == EffectForm.EffectFormType.Damage))
         {
-            if (effectForm.FormType == EffectForm.EffectFormType.Damage)
-            {
-                form = effectForm.DamageForm;
-            }
+            form = effectForm.DamageForm;
         }
 
         return form;

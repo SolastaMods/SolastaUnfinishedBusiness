@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix;
 
@@ -12,7 +13,8 @@ namespace SolastaCommunityExpansion.Patches.Bugfix;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class PowerSelectionPanel_Bind
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         //
         // BUGFIX: power activation time
@@ -35,7 +37,7 @@ internal static class PowerSelectionPanel_Bind
     }
 
     //Replaces 'overridenPowers.Contains(power)' check by adding check to see if this power's activation time is present in ActionDefinitions.CastingTimeToActionDefinition
-    private static bool CustomCheck(List<FeatureDefinition> overridenPowers, FeatureDefinitionPower power)
+    private static bool CustomCheck([NotNull] List<FeatureDefinition> overridenPowers, FeatureDefinitionPower power)
     {
         return overridenPowers.Contains(power)
                || !ActionDefinitions.CastingTimeToActionDefinition.ContainsKey(power.ActivationTime);

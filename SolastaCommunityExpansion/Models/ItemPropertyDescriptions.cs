@@ -14,7 +14,7 @@ public static class ItemPropertyDescriptions
 
     public static readonly ItemPropertyDescription WeaponPlus2 = BuildFrom(AttackModifierWeaponPlus2);
 
-    public static readonly ItemPropertyDescription WeaponPlus3 = BuildFrom(AttackModifierWeaponPlus3);
+    // public static readonly ItemPropertyDescription WeaponPlus3 = BuildFrom(AttackModifierWeaponPlus3);
 
     public static readonly ItemPropertyDescription ForceImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.MagicMissile));
@@ -39,14 +39,13 @@ public static class ItemPropertyDescriptions
         return ItemPropertyDescriptionBuilder.From(feature, appliesOnItemOnly, knowledgeAffinity).Build();
     }
 
-    public static ItemPropertyDescription BuildFrom(
-        ConditionDefinition condition,
-        bool appliesOnItemOnly = true,
-        KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
-    {
-        return ItemPropertyDescriptionBuilder.From(condition, appliesOnItemOnly, knowledgeAffinity).Build();
-    }
-
+    // public static ItemPropertyDescription BuildFrom(
+    //     ConditionDefinition condition,
+    //     bool appliesOnItemOnly = true,
+    //     KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
+    // {
+    //     return ItemPropertyDescriptionBuilder.From(condition, appliesOnItemOnly, knowledgeAffinity).Build();
+    // }
 
     private static FeatureDefinition BuildAttackVFXFromSpell([NotNull] SpellDefinition spell)
     {

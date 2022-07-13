@@ -205,7 +205,7 @@ internal static class CharacterInformationPanel_Bind
         var hero = Global.InspectedHero;
 
         // abort on a SC hero
-        if (hero == null || hero.ClassesAndLevels == null || hero.ClassesAndLevels.Count == 1)
+        if (hero?.ClassesAndLevels == null || hero.ClassesAndLevels.Count == 1)
         {
             if (ClassSelector != null)
             {
@@ -255,19 +255,19 @@ internal static class CharacterInformationPanel_Bind
 
             labelChoiceToggle.Bind(i, classesTitles[i], x =>
             {
-                var screen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
-
-                if (uiToggle.isOn)
+                if (!uiToggle.isOn)
                 {
-                    InspectionPanelContext.SelectedClassIndex = x;
-                    __instance.RefreshNow();
+                    return;
+                }
 
-                    for (var i = 0; i < classesCount; ++i)
+                InspectionPanelContext.SelectedClassIndex = x;
+                __instance.RefreshNow();
+
+                for (var i = 0; i < classesCount; ++i)
+                {
+                    if (i != x)
                     {
-                        if (i != x)
-                        {
-                            labelsGroup.GetChild(i).GetComponent<LabelChoiceToggle>().Refresh(false, true);
-                        }
+                        labelsGroup.GetChild(i).GetComponent<LabelChoiceToggle>().Refresh(false, true);
                     }
                 }
             });
@@ -312,7 +312,7 @@ internal static class CharacterInformationPanelRefresh
             {
                 found++;
 
-                if (found == 2 || found == 3)
+                if (found is 2 or 3)
                 {
                     yield return new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod);
                 }

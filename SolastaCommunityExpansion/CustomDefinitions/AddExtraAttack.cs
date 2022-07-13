@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
@@ -14,7 +15,7 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
     private readonly bool clearSameType;
     private readonly CharacterValidator[] validators;
 
-    public AddExtraAttackBase(ActionDefinitions.ActionType actionType, bool clearSameType,
+    protected AddExtraAttackBase(ActionDefinitions.ActionType actionType, bool clearSameType,
         params CharacterValidator[] validators)
     {
         this.actionType = actionType;
@@ -22,7 +23,7 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
         this.validators = validators;
     }
 
-    public AddExtraAttackBase(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+    protected AddExtraAttackBase(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
         this(actionType, false, validators)
     {
     }
@@ -80,13 +81,13 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
 
     protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero);
 
-    protected virtual bool ModesEqual(RulesetAttackMode a, RulesetAttackMode b)
+    private static bool ModesEqual([NotNull] RulesetAttackMode a, RulesetAttackMode b)
     {
         return a.IsComparableForNetwork(b);
     }
 }
 
-public class AddExtraUnarmedAttack : AddExtraAttackBase
+public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
 {
     public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, bool clearSameType,
         params CharacterValidator[] validators) : base(actionType, clearSameType, validators)
@@ -98,7 +99,8 @@ public class AddExtraUnarmedAttack : AddExtraAttackBase
     {
     }
 
-    protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+    [NotNull]
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
     {
         var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
             .EquipedItem;
@@ -127,7 +129,7 @@ public class AddExtraUnarmedAttack : AddExtraAttackBase
     }
 }
 
-public class AddExtraMainHandAttack : AddExtraAttackBase
+public sealed class AddExtraMainHandAttack : AddExtraAttackBase
 {
     public AddExtraMainHandAttack(ActionDefinitions.ActionType actionType, bool clearSameType,
         params CharacterValidator[] validators) : base(actionType, clearSameType, validators)
@@ -164,7 +166,7 @@ public class AddExtraMainHandAttack : AddExtraAttackBase
     }
 }
 
-public class AddExtraRangedAttack : AddExtraAttackBase
+public sealed class AddExtraRangedAttack : AddExtraAttackBase
 {
     private readonly IsWeaponValidHandler weaponValidator;
 
@@ -214,13 +216,14 @@ public class AddExtraRangedAttack : AddExtraAttackBase
     }
 }
 
-public class AddPolearmFollowupAttack : AddExtraAttackBase
+public sealed class AddPolearmFollowupAttack : AddExtraAttackBase
 {
     public AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, false,
         CharacterValidators.HasAttacked, CharacterValidators.HasPolearm)
     {
     }
 
+    [NotNull]
     protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
     {
         var result = new List<RulesetAttackMode>();
@@ -229,7 +232,7 @@ public class AddPolearmFollowupAttack : AddExtraAttackBase
         return result;
     }
 
-    private void AddItemAttack(List<RulesetAttackMode> attackModes, string slot, RulesetCharacterHero hero)
+    private void AddItemAttack(List<RulesetAttackMode> attackModes, [NotNull] string slot, RulesetCharacterHero hero)
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
         if (item == null || !WeaponValidators.IsPolearm(item))

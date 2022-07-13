@@ -30,13 +30,15 @@ internal static class CharacterStageRaceSelectionPanel_OnBeginShow
     {
         var visibleRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
             .Where(x => !x.GuiPresentation.Hidden);
-        var visibleSubRaces = visibleRaces.SelectMany(x => x.SubRaces);
-        var visibleMainRaces = visibleRaces.Where(x => !visibleSubRaces.Contains(x));
+        var characterRaceDefinitions = visibleRaces as CharacterRaceDefinition[] ?? visibleRaces.ToArray();
+        var visibleSubRaces = characterRaceDefinitions.SelectMany(x => x.SubRaces);
+        var visibleMainRaces = characterRaceDefinitions.Where(x => !visibleSubRaces.Contains(x));
 
-        __instance.eligibleRaces.SetRange(visibleMainRaces.OrderBy(x => x.FormatTitle()));
+        var raceDefinitions = visibleMainRaces as CharacterRaceDefinition[] ?? visibleMainRaces.ToArray();
+        __instance.eligibleRaces.SetRange(raceDefinitions.OrderBy(x => x.FormatTitle()));
         __instance.selectedSubRace.Clear();
 
-        for (var key = 0; key < visibleMainRaces.Count(); ++key)
+        for (var key = 0; key < raceDefinitions.Length; ++key)
         {
             __instance.selectedSubRace[key] = 0;
         }

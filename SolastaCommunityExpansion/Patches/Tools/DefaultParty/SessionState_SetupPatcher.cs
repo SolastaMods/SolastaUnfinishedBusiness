@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty;
 
@@ -11,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty;
 internal static class SessionState_Setup_Begin
 {
     public static void AssignCharacterToPlayer(
-        Session session,
+        [NotNull] Session session,
         int playerIndex,
         int slotIndex,
         string filename,
@@ -29,7 +30,8 @@ internal static class SessionState_Setup_Begin
         session.AssignCharacterToPlayer(playerIndex, slotIndex, filename, notify);
     }
 
-    public static List<string> PredefinedParty(CampaignDefinition campaignDefinition)
+    [CanBeNull]
+    public static List<string> PredefinedParty([NotNull] CampaignDefinition campaignDefinition)
     {
         if (campaignDefinition.PredefinedParty == null || campaignDefinition.PredefinedParty.Count == 0)
         {

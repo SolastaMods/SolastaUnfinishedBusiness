@@ -19,14 +19,14 @@ internal static class EldritchInvocationsBuilder
 {
     private const string EldritchBlastName = "EldritchBlast";
 
-    public static AssetReferenceSprite EldritchBLastIcon =
+    private static readonly AssetReferenceSprite EldritchBLastIcon =
         CustomIcons.CreateAssetReferenceSprite("EldritchBlast", Resources.EldritchBlast, 128, 128);
 
-    public static AssetReferenceSprite EldritchBLastIconGrasp =
+    private static readonly AssetReferenceSprite EldritchBLastIconGrasp =
         CustomIcons.CreateAssetReferenceSprite("EldritchBlastGrasp", Resources.EldritchBlastGrasp, 128,
             128);
 
-    public static AssetReferenceSprite EldritchBLastIconRepell =
+    private static readonly AssetReferenceSprite EldritchBLastIconRepell =
         CustomIcons.CreateAssetReferenceSprite("EldritchBlastRepell", Resources.EldritchBlastRepell, 128,
             128);
 
@@ -281,18 +281,15 @@ internal static class EldritchInvocationsBuilder
                 .AddToDB();
 
             var cantripEffect = EICantrip.EffectDescription;
-            if (invocationName == "ArmorofShadows"
-                || invocationName == "FiendishVigor"
-                || invocationName == "AscendantStep"
-                || invocationName == "OtherworldlyLeap")
+            if (invocationName is "ArmorofShadows" or "FiendishVigor" or "AscendantStep" or "OtherworldlyLeap")
             {
                 cantripEffect.SetRangeType(RuleDefinitions.RangeType.Self);
                 cantripEffect.TargetType = RuleDefinitions.TargetType.Self;
                 cantripEffect.SetHasSavingThrow(false);
             }
 
-            var effectAdvancement = new EffectAdvancement();
-            effectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
+            var effectAdvancement = new EffectAdvancement {effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None};
+            
             cantripEffect.SetEffectAdvancement(effectAdvancement);
 
             EldritchInvocations.Add(invocationName, EIPower);

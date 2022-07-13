@@ -28,7 +28,6 @@ internal static class SpellsContext
 
             foreach (var characterClass in dbCharacterClassDefinition)
             {
-                Main.Log($"{characterClass.Name}");
                 var title = characterClass.FormatTitle();
 
                 var featureDefinitionCastSpell = characterClass.FeatureUnlocks
@@ -51,7 +50,7 @@ internal static class SpellsContext
 
                 var featureDefinition = characterSubclass.FeatureUnlocks
                     .Select(x => x.FeatureDefinition)
-                    .FirstOrDefault(x => x is FeatureDefinitionCastSpell || x is FeatureDefinitionMagicAffinity);
+                    .FirstOrDefault(x => x is FeatureDefinitionCastSpell or FeatureDefinitionMagicAffinity);
 
                 switch (featureDefinition)
                 {
@@ -167,15 +166,6 @@ internal static class SpellsContext
             }
         }
     }
-
-
-#if DEBUG
-    public static string GenerateSpellsDescription()
-    {
-        // TODO: remove this later after the other request gets merged otherwise won't compile in DEBUG
-        return string.Empty;
-    }
-#endif
 
     internal sealed class SpellListContext
     {

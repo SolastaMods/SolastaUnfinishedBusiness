@@ -34,7 +34,7 @@ public class
                 weight = weight, personalityFlag = personalityType.Name
             });
 
-        Definition.PersonalityFlagOccurences.Sort((x, y) => x.PersonalityFlag.CompareTo(y.PersonalityFlag));
+        Definition.PersonalityFlagOccurences.Sort((x, y) => String.Compare(x.PersonalityFlag, y.PersonalityFlag, StringComparison.CurrentCultureIgnoreCase));
 
         return this;
     }

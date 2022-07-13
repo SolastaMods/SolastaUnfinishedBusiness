@@ -69,7 +69,7 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    public static ItemPresentation BuildPresentation(string unIdentifiedName,
+    private static ItemPresentation BuildPresentation(string unIdentifiedName,
         [NotNull] ItemPresentation basePresentation,
         float scale = 1.0f, bool hasUnidDescription = false)
     {
@@ -86,7 +86,7 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    public static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
+    private static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
         RuleDefinitions.ItemRarity rarity,
         ItemPresentation basePresentation = null,
         WeaponDescription baseDescription = null,
@@ -587,18 +587,20 @@ public static class CustomWeaponsContext
 
     private static void AddToEditor()
     {
-        if (Main.Settings.AddNewWeaponsAndRecipesToEditor)
+        if (!Main.Settings.AddNewWeaponsAndRecipesToEditor)
         {
-            foreach (var (item, _) in ShopItems)
-            {
-                item.inDungeonEditor = true;
-            }
+            return;
+        }
+
+        foreach (var (item, _) in ShopItems)
+        {
+            item.inDungeonEditor = true;
         }
     }
 
     //TODO: move this to the separate shop context file
     private static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items,
-        [NotNull] ICollection<(MerchantDefinition, MerchantTypeContext.MerchantType)> merchants)
+        [NotNull] IEnumerable<(MerchantDefinition, MerchantTypeContext.MerchantType)> merchants)
     {
         foreach (var (merchant, type) in merchants)
         {
@@ -620,7 +622,7 @@ public static class CustomWeaponsContext
     }
 
     private static void StockItem([NotNull] MerchantDefinition merchant, ItemDefinition item,
-        [NotNull] FactionStatusDefinition status)
+        [NotNull] BaseDefinition status)
     {
         merchant.StockUnitDescriptions.Add(StockBuilder
             .SetItem(item)
@@ -636,13 +638,13 @@ public static class CustomWeaponsContext
             .SetRestock(1);
     }
 
-    public static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
-        params ItemDefinition[] ingredients)
-    {
-        return BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients);
-    }
+    // public static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
+    //     params ItemDefinition[] ingredients)
+    // {
+    //     return BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients);
+    // }
 
-    public static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty, Guid guid,
+    private static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty, Guid guid,
         params ItemDefinition[] ingredients)
     {
         return RecipeDefinitionBuilder
@@ -655,18 +657,18 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    public static ItemDefinition BuildRecipeManual([NotNull] ItemDefinition item, int hours, int difficulty,
+    private static ItemDefinition BuildRecipeManual([NotNull] ItemDefinition item, int hours, int difficulty,
         params ItemDefinition[] ingredients)
     {
         return BuildManual(BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients),
             DefinitionBuilder.CENamespaceGuid);
     }
 
-    [NotNull]
-    public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
-    {
-        return BuildManual(recipe, DefinitionBuilder.CENamespaceGuid);
-    }
+    // [NotNull]
+    // public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
+    // {
+    //     return BuildManual(recipe, DefinitionBuilder.CENamespaceGuid);
+    // }
 
     [NotNull]
     public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe, Guid guid)
@@ -690,13 +692,13 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed, Guid guid)
+    private static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed, Guid guid)
     {
         return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(guid, item, primed), guid);
     }
 
     [NotNull]
-    public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
+    private static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
     {
         return BuildPrimingManual(item, primed, DefinitionBuilder.CENamespaceGuid);
     }
@@ -918,11 +920,15 @@ public sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
         RulesetItem weapon)
     {
         var damage = attackMode.EffectDescription.FindLastDamageForm();
-        if (damage != null)
+
+        if (damage == null)
         {
-            var casterLevel = character.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            damage.diceNumber = 1 + RuleDefinitions.SpellAdvancementByCasterLevel[casterLevel - 1];
+            return;
         }
+
+        var casterLevel = character.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+
+        damage.diceNumber = 1 + RuleDefinitions.SpellAdvancementByCasterLevel[casterLevel - 1];
     }
 }
 
@@ -941,7 +947,7 @@ public sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
         return result;
     }
 
-    private void AddItemAttack(List<RulesetAttackMode> attackModes, [NotNull] string slot,
+    private static void AddItemAttack(ICollection<RulesetAttackMode> attackModes, [NotNull] string slot,
         [NotNull] RulesetCharacterHero hero)
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;

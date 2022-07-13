@@ -129,6 +129,7 @@ public class ReflectionSearch : MonoBehaviour
         SearchProgress updator, ReflectionSearchResult resultRoot)
     {
         yield return null;
+
         if (sequenceNumber != SequenceNumber)
         {
             yield return null;
@@ -141,7 +142,7 @@ public class ReflectionSearch : MonoBehaviour
             var foundMatch = false;
             var instanceID = node.InstanceID;
             var alreadyVisted = false;
-            if (instanceID is int instID)
+            if (instanceID is { } instID)
             {
                 if (VisitedInstanceIDs.Contains(instID))
                 {
@@ -180,7 +181,7 @@ public class ReflectionSearch : MonoBehaviour
 
             if (node.hasChildren && !alreadyVisted)
             {
-                if (node.InstanceID is int instID2 && instID2 == GetInstanceID())
+                if (node.InstanceID is { } instID2 && instID2 == GetInstanceID())
                 {
                     break;
                 }

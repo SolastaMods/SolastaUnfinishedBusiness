@@ -133,12 +133,13 @@ public static partial class ReflectionCache
                     m.ReturnType == delSign.ReturnType &&
                     m.GetGenericArguments().Length == delGenericArgs.Length &&
                     CheckParamsOfGenericMethod(m.GetParameters(), delParams, delGenericArgs));
-                if (methods.Count() > 1)
+                var methodInfos = methods as MethodInfo[] ?? methods.ToArray();
+                if (methodInfos.Length > 1)
                 {
                     throw new AmbiguousMatchException();
                 }
 
-                Info = methods.FirstOrDefault()?.MakeGenericMethod(delGenericArgs);
+                Info = methodInfos.FirstOrDefault()?.MakeGenericMethod(delGenericArgs);
             }
             else
             {
@@ -150,12 +151,13 @@ public static partial class ReflectionCache
                     m.Name == name &&
                     m.ReturnType == delSign.ReturnType &&
                     m.GetParameters().Select(p => p.ParameterType).SequenceEqual(delParamTypes));
-                if (methods.Count() > 1)
+                var methodInfos = methods as MethodInfo[] ?? methods.ToArray();
+                if (methodInfos.Length > 1)
                 {
                     throw new AmbiguousMatchException();
                 }
 
-                Info = methods.FirstOrDefault();
+                Info = methodInfos.FirstOrDefault();
             }
 
             if (Info == null)
@@ -268,14 +270,7 @@ public static partial class ReflectionCache
                     il.Emit(OpCodes.Ldarg, i);
                 }
 
-                if (Info.IsVirtual)
-                {
-                    il.Emit(OpCodes.Callvirt, Info);
-                }
-                else
-                {
-                    il.Emit(OpCodes.Call, Info);
-                }
+                il.Emit(Info.IsVirtual ? OpCodes.Callvirt : OpCodes.Call, Info);
             }
 
             il.Emit(OpCodes.Ret);

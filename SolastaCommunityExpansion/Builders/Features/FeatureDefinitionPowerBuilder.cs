@@ -39,11 +39,7 @@ public abstract class
     {
         base.Initialise();
 
-        if (Definition.effectDescription == null)
-        {
-            // The game throws an exception if there is no effect description.
-            Definition.effectDescription = new EffectDescription();
-        }
+        Definition.effectDescription ??= new EffectDescription();
     }
 
     public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,

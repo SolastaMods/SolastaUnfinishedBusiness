@@ -6,5 +6,5 @@ Feature/&ManipulatorMentalSavingThrowsDescription=Ottieni competenza nei tiri sa
 Feature/&ManipulatorMentalSavingThrowsTitle=Resistenza mentale
 Power/&PowerManipulatorDominatePersonDescription=Puoi usare Dominare Persona un numero di volte per riposo lungo pari al tuo modificatore di Intelligenza.
 Power/&PowerManipulatorDominatePersonTitle=Persona dominante
-Subclass/&TraditionMasterManipulatorDescription=I Maestri Manipolatori eccellono nel controllare il campo di battaglia e impedire ai loro nemici di attaccarli.
+Subclass/&TraditionMasterManipulatorDescription=I maestri manipolatori eccellono nel controllare il campo di battaglia e impedire ai loro nemici di attaccarli.
 Subclass/&TraditionMasterManipulatorTitle=Maestro manipolatore

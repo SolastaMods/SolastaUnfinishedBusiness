@@ -9,8 +9,7 @@ public static class UnityImageExtensions
 {
     public static void SetupSprite(
         [NotNull] this Image imageComponent,
-        [NotNull] GuiPresentation presentation,
-        bool _ = false)
+        [NotNull] GuiPresentation presentation)
     {
         SetupSprite(imageComponent, presentation.SpriteReference);
     }

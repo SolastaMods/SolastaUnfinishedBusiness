@@ -269,6 +269,16 @@ namespace SolastaCommunityExpansion.Properties {
                 return ((byte[])(obj));
             }
         }
+		
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GrayDwarf {
+            get {
+                object obj = ResourceManager.GetObject("GrayDwarf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }		
         
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].

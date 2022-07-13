@@ -10,7 +10,7 @@ internal static class RulesetCharacterHero_GrantExperience
 {
     internal static void Prefix(ref int experiencePoints)
     {
-        if (Main.Settings.MultiplyTheExperienceGainedBy == 100 || Main.Settings.MultiplyTheExperienceGainedBy <= 0)
+        if (Main.Settings.MultiplyTheExperienceGainedBy is 100 or <= 0)
         {
             return;
         }

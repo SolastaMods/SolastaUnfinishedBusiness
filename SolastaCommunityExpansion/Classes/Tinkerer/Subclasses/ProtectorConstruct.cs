@@ -51,15 +51,6 @@ public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : FeatureD
     {
         Definition.GuiPresentation.Title = "Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle";
         Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription";
-
-#pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-        var autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-        {
-            ClassLevel = 1,
-            SpellsList =
-                new List<SpellDefinition> {SummonProtectorSpellConstructBuilder.SummonProtectorConstruct}
-        };
-#pragma warning restore S1481, IDE0059 // Unused local variables should be removed
     }
 
     private static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)

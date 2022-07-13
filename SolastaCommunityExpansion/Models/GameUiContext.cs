@@ -126,11 +126,13 @@ internal static class GameUiContext
         {
             var cameraService = ServiceRepository.GetService<ICameraService>();
 
-            if (cameraService != null)
+            if (cameraService == null)
             {
-                EnableDebugCamera = !EnableDebugCamera;
-                cameraService.DebugCameraEnabled = EnableDebugCamera;
+                return;
             }
+
+            EnableDebugCamera = !EnableDebugCamera;
+            cameraService.DebugCameraEnabled = EnableDebugCamera;
         }
 
         [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]

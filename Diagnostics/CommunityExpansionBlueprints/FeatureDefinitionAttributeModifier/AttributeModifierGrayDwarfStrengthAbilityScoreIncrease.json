@@ -1,15 +1,15 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifierType2": "Additive",
-  "modifiedAttribute": "Dexterity",
+  "modifiedAttribute": "Strength",
   "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatDexIncrementTitle",
-    "description": "Feat/&FeatDexIncrementDescription",
+    "title": "Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle",
+    "description": "Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "820204d3-28c7-5073-b88e-cb1bead386b0",
+  "guid": "975c77f4-45be-57ad-91be-1aa37ca4f628",
   "contentPack": 9999,
-  "name": "FeatDexIncrement"
+  "name": "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease"
 }

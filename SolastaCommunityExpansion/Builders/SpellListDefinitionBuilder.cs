@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using static SpellListDefinition;
 
@@ -8,6 +9,7 @@ namespace SolastaCommunityExpansion.Builders;
 
 public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition, SpellListDefinitionBuilder>
 {
+    [NotNull]
     public SpellListDefinitionBuilder ClearSpells()
     {
         // Clear everything
@@ -46,14 +48,16 @@ public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition,
         }
     }
 
+    [NotNull]
     public SpellListDefinitionBuilder SetSpellsAtLevel(int level, params SpellDefinition[] spellsByLevel)
     {
         return SetSpellsAtLevel(level, spellsByLevel.AsEnumerable());
     }
 
-    public SpellListDefinitionBuilder SetSpellsAtLevel(int level, IEnumerable<SpellDefinition> spells)
+    [NotNull]
+    public SpellListDefinitionBuilder SetSpellsAtLevel(int level, [NotNull] IEnumerable<SpellDefinition> spells)
     {
-        if (level > 9 || level < 0)
+        if (level is > 9 or < 0)
         {
             throw new ArgumentException($"Spell level {level} is not supported.");
         }
@@ -61,17 +65,19 @@ public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition,
         // Ensure all levels set up
         EnsureSpellListsConfigured();
 
+        var spellDefinitions = spells as SpellDefinition[] ?? spells.ToArray();
+
 #if DEBUG
-        if (spells.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
+        if (spellDefinitions.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
         {
             throw new ArgumentException(
                 $"{Definition.Name}. There are duplicate spells in the supplied level {level} spell list.");
         }
 #endif
 
-        // Set the spells - remove duplicates - sort to add to list in determistic order
+        // Set the spells - remove duplicates - sort to add to list in deterministic order
         Definition.SpellsByLevel[level].Spells
-            .SetRange(spells.Where(s => s.Implemented).OrderBy(s => s.Name).Distinct());
+            .SetRange(spellDefinitions.Where(s => s.Implemented).OrderBy(s => s.Name).Distinct());
 
         return this;
     }
@@ -81,6 +87,7 @@ public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition,
     ///     calculated from the spells currently in the list.
     /// </summary>
     /// <returns></returns>
+    [NotNull]
     public SpellListDefinitionBuilder FinalizeSpells()
     {
         // Will throw if anything incorrect
@@ -103,6 +110,7 @@ public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition,
     /// <param name="maxLevel"></param>
     /// <param name="hasCantrips"></param>
     /// <returns></returns>
+    [NotNull]
     public SpellListDefinitionBuilder SetMaxSpellLevel(int maxLevel, bool hasCantrips)
     {
         Definition.maxSpellLevel = maxLevel;

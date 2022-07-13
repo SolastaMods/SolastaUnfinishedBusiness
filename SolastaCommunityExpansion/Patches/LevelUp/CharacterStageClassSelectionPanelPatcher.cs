@@ -72,23 +72,24 @@ internal static class CharacterStageClassSelectionPanel_FillClassFeatures
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-        if (isLevelingUp)
+        if (!isLevelingUp)
         {
-            if (hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
-                && featureUnlockByLevel.Level != levels + 1)
-            {
-                return int.MaxValue;
-            }
-
-            if (levels == 0)
-            {
-                return featureUnlockByLevel.Level;
-            }
-
-            return featureUnlockByLevel.Level - 1;
+            return featureUnlockByLevel.Level;
         }
 
-        return featureUnlockByLevel.Level;
+        if (hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
+            && featureUnlockByLevel.Level != levels + 1)
+        {
+            return int.MaxValue;
+        }
+
+        if (levels == 0)
+        {
+            return featureUnlockByLevel.Level;
+        }
+
+        return featureUnlockByLevel.Level - 1;
+
     }
 
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

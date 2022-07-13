@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Level20;
@@ -11,7 +12,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Level20;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 public static class UserCampaignEditorScreen_OnMinLevelEndEdit
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var code = new List<CodeInstruction>(instructions);
 
@@ -30,7 +32,8 @@ public static class UserCampaignEditorScreen_OnMinLevelEndEdit
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 public static class UserCampaignEditorScreen_OnMaxLevelEndEdit
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var code = new List<CodeInstruction>(instructions);
 

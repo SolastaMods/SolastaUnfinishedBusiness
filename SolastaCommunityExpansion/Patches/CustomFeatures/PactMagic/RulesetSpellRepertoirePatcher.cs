@@ -232,9 +232,8 @@ internal static class RulesetSpellRepertoirePatcher
             var usedPactSlots = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
             var pactRemainingSlots = pactMaxSlots - usedPactSlots;
 
-            warlockSpellRepertoire.GetSlotsNumber(slotLevel, out var sharedRemainingSlots, out var sharedMaxSlots);
-
-            sharedMaxSlots -= pactMaxSlots;
+            warlockSpellRepertoire.GetSlotsNumber(slotLevel, out var sharedRemainingSlots, out _);
+            
             sharedRemainingSlots -= pactRemainingSlots;
 
             var isShiftPressed = !Global.IsMultiplayer &&

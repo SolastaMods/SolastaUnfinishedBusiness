@@ -6,8 +6,8 @@ namespace SolastaCommunityExpansion.Builders;
 
 public class GuiPresentationBuilder
 {
-    public static readonly string NoContentTitle = "Feature/&NoContentTitle";
-    public static readonly string EmptyString = "Feature/&Emptystring";
+    public const string NoContentTitle = "Feature/&NoContentTitle";
+    public const string EmptyString = "Feature/&Emptystring";
     public static readonly AssetReferenceSprite EmptySprite = new(string.Empty);
     private readonly GuiPresentation guiPresentation;
 
@@ -41,7 +41,7 @@ public class GuiPresentationBuilder
 
         if (category == Category.None)
         {
-            throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            throw new ArgumentException(@"The parameter must not be Category.None.", nameof(category));
         }
 
         return $"{category}/&{name}Title";
@@ -53,7 +53,7 @@ public class GuiPresentationBuilder
 
         if (category == Category.None)
         {
-            throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            throw new ArgumentException(@"The parameter must not be Category.None.", nameof(category));
         }
 
         return $"{category}/&{description}Description";

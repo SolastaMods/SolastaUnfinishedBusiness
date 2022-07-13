@@ -167,57 +167,66 @@ public static class CustomFeaturesContext
 
         foreach (var featureDefinition in featuresToRemove)
         {
-            if (featureDefinition is FeatureDefinitionCastSpell && heroRepertoire != null)
+            switch (featureDefinition)
             {
-                hero.SpellRepertoires.Remove(heroRepertoire);
-            }
+                case FeatureDefinitionCastSpell when heroRepertoire != null:
+                    hero.SpellRepertoires.Remove(heroRepertoire);
 
-            if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells &&
-                heroRepertoire != null)
-            {
-                var spellsToRemove = featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups
-                    .FirstOrDefault(x => x.ClassLevel == classLevel)?.SpellsList.Count ?? 0;
+                    break;
 
-                while (spellsToRemove-- > 0)
+                case FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells
+                    when heroRepertoire != null:
                 {
-                    heroRepertoire.AutoPreparedSpells.RemoveAt(heroRepertoire.AutoPreparedSpells.Count - 1);
-                }
-            }
-            else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips &&
-                     heroRepertoire != null)
-            {
-                //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
-                heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+                    var spellsToRemove = featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups
+                        .FirstOrDefault(x => x.ClassLevel == classLevel)?.SpellsList.Count ?? 0;
 
-                if (buildingData == null)
-                {
-                    continue;
-                }
+                    while (spellsToRemove-- > 0)
+                    {
+                        heroRepertoire.AutoPreparedSpells.RemoveAt(heroRepertoire.AutoPreparedSpells.Count - 1);
+                    }
 
-                if (buildingData.BonusCantrips.ContainsKey(spellTag))
-                {
-                    buildingData.BonusCantrips[spellTag]
-                        .RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+                    break;
                 }
-            }
-            else if (featureDefinition is FeatureDefinitionFightingStyleChoice)
-            {
-                hero.TrainedFightingStyles.RemoveAt(hero.TrainedFightingStyles.Count - 1);
-            }
-            else if (featureDefinition is FeatureDefinitionSubclassChoice)
-            {
-                hero.ClassesAndSubclasses.Remove(characterClassDefinition);
-            }
-            else if (featureDefinition is FeatureDefinitionPointPool featureDefinitionPointPool)
-            {
-                RemoveFeatureDefinitionPointPool(hero, heroRepertoire, tag, featureDefinitionPointPool);
-            }
-            else if (featureDefinition is FeatureDefinitionFeatureSet
-                     {
-                         Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
-                     } featureDefinitionFeatureSet)
-            {
-                RemoveFeatures(hero, characterClassDefinition, tag, featureDefinitionFeatureSet.FeatureSet);
+                case FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips when heroRepertoire != null:
+                {
+                    //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
+                    heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+
+                    if (buildingData == null)
+                    {
+                        continue;
+                    }
+
+                    if (buildingData.BonusCantrips.ContainsKey(spellTag))
+                    {
+                        buildingData.BonusCantrips[spellTag]
+                            .RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+                    }
+
+                    break;
+                }
+                case FeatureDefinitionFightingStyleChoice:
+                    hero.TrainedFightingStyles.RemoveAt(hero.TrainedFightingStyles.Count - 1);
+
+                    break;
+
+                case FeatureDefinitionSubclassChoice:
+                    hero.ClassesAndSubclasses.Remove(characterClassDefinition);
+
+                    break;
+
+                case FeatureDefinitionPointPool featureDefinitionPointPool:
+                    RemoveFeatureDefinitionPointPool(hero, heroRepertoire, tag, featureDefinitionPointPool);
+
+                    break;
+
+                case FeatureDefinitionFeatureSet
+                {
+                    Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
+                } featureDefinitionFeatureSet:
+                    RemoveFeatures(hero, characterClassDefinition, tag, featureDefinitionFeatureSet.FeatureSet);
+
+                    break;
             }
         }
     }
@@ -274,8 +283,7 @@ public static class CustomFeaturesContext
             // it recharges on a long rest and this is a long rest.
             if (!pointPoolPowerDefinitions.Contains(pointPoolPower)
                 && ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
-                     (restType == RuleDefinitions.RestType.ShortRest ||
-                      restType == RuleDefinitions.RestType.LongRest)) ||
+                     restType is RuleDefinitions.RestType.ShortRest or RuleDefinitions.RestType.LongRest) ||
                     (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest &&
                      restType == RuleDefinitions.RestType.LongRest)))
             {
@@ -405,17 +413,17 @@ public static class CustomFeaturesContext
         }
     }
 
-    internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] RulesetUsablePower usablePower)
-    {
-        if (usablePower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
-        {
-            return usablePower.PowerDefinition.CostPerUse == 0
-                ? int.MaxValue
-                : usablePower.RemainingUses / usablePower.PowerDefinition.CostPerUse;
-        }
-
-        return GetRemainingPowerPoolUses(character, sharedPoolPower);
-    }
+    // internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] RulesetUsablePower usablePower)
+    // {
+    //     if (usablePower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
+    //     {
+    //         return usablePower.PowerDefinition.CostPerUse == 0
+    //             ? int.MaxValue
+    //             : usablePower.RemainingUses / usablePower.PowerDefinition.CostPerUse;
+    //     }
+    //
+    //     return GetRemainingPowerPoolUses(character, sharedPoolPower);
+    // }
 
     internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)
     {

@@ -160,7 +160,7 @@ public class FeatureDefinitionRemover : FeatureDefinition, IFeatureDefinitionCus
 public class FeatureDefinitionRemoverBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionRemover, FeatureDefinitionRemoverBuilder>
 {
-    private static string WrapName(string name) { return $"{$"{name}Remover"}"; }
+    private static string WrapName(string name) { return $"{name}Remover"; }
 
     public static FeatureDefinitionRemoverBuilder CreateFrom(FeatureDefinition feature)
     {
@@ -179,7 +179,7 @@ public class FeatureDefinitionRemoverBuilder
         try
         {
             var result = DatabaseHelper.GetDefinition<FeatureDefinition>(name, null);
-            if (result != null && result is FeatureDefinitionRemover remover)
+            if (result is FeatureDefinitionRemover remover)
             {
                 return remover;
             }

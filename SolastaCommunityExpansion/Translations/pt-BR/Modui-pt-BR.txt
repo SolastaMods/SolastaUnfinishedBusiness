@@ -21,7 +21,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir a seleçã
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Feiticeiro</color> sem marcas de origem e tatuagens
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca os gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente em masmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduza o peso da ração alimentar para 2 libras
-ModUi/&ArcaneShieldstaffOptions=Estenda as classes permitidas em <color=#D89555>Arcane Shieldstaff</color>:
+ModUi/&ArcaneShieldstaffOptions=Estenda a sintonização em <color=#D89555>Cajado de Escudo Arcano</color>:
 ModUi/&AutoPauseOnVictory=Pause a interface do usuário quando for vitorioso na batalha
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Battle=<color=#F0DAA0>Batalha:</color>
@@ -150,6 +150,7 @@ ModUi/&RacesClassesSubclasses=Raças, Classes e Subclasses
 ModUi/&RecipeCost=<color=white>Custo da Receita</color>
 ModUi/&RecipesInDm=Receitas no DM
 ModUi/&ReduceDarkelfLightPenalty=Troque a Penalidade de Luz de <color=#D89555>Elfo Negro</color> para -1d4 em ataques em vez de Desvantagem
+ModUi/&ReduceGrayDwarfLightPenalty=Troque a penalidade de luz de <color=#D89555>Anão Cinza</color> para -1d4 em ataques em vez de Desvantagem
 ModUi/&RelicForgeries=Falsificações de relíquias
 ModUi/&RemoveAttunementRequirements=Remova os requisitos de sintonização <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a bugs por visuais alternativos no jogo <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

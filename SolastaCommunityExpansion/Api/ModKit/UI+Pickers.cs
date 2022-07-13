@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
@@ -12,14 +13,14 @@ public static partial class UI
 {
     public static bool SelectionGrid(
         ref int selected,
-        string[] texts,
+        [NotNull] string[] texts,
         int xCols,
         int maxColsIfNarrow = 4,
         params GUILayoutOption[] options)
     {
         if (xCols <= 0)
         {
-            xCols = texts.Count();
+            xCols = texts.Length;
         }
 
         if (IsNarrow)
@@ -32,7 +33,7 @@ public static partial class UI
 
         if (xCols <= 0)
         {
-            xCols = texts.Count();
+            xCols = texts.Length;
         }
 
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);

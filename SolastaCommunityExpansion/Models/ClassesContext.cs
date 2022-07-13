@@ -62,7 +62,7 @@ internal static class ClassesContext
         UpdateClassVisibility(characterClassDefinition);
     }
 
-    private static void UpdateClassVisibility([NotNull] CharacterClassDefinition characterClassDefinition)
+    private static void UpdateClassVisibility([NotNull] BaseDefinition characterClassDefinition)
     {
         characterClassDefinition.GuiPresentation.hidden =
             !Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name);

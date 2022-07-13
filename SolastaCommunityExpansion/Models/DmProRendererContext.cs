@@ -26,9 +26,10 @@ internal static class DmProRendererContext
     private static bool IsDynamicFlatRoom([NotNull] UserRoom userRoom)
     {
         return IsFlatRoom(userRoom) &&
-               int.TryParse(userRoom.RoomBlueprint.name.Substring(FlatRoomTag.Length, 2), out var _);
+               int.TryParse(userRoom.RoomBlueprint.name.Substring(FlatRoomTag.Length, 2), out _);
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static void GetTemplateVegetationMaskArea([NotNull] WorldLocation worldLocation)
     {
         var prefabByReference =
@@ -45,6 +46,7 @@ internal static class DmProRendererContext
         }
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static void SetupLocationTerrain([NotNull] WorldLocation worldLocation, UserLocation userLocation)
     {
         var masterTerrain = worldLocation.gameObject.GetComponentInChildren<Terrain>();
@@ -130,6 +132,7 @@ internal static class DmProRendererContext
         worldLocation.gameObject.GetComponentInChildren<VegetationSystemPro>()?.CalculateVegetationSystemBounds();
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static void SetupFlatRooms(Transform roomTransform, [NotNull] UserRoom userRoom)
     {
         static void DisableWalls([NotNull] Transform transform)
@@ -202,6 +205,7 @@ internal static class DmProRendererContext
         roomTransform.name = FlatRoomTag + roomTransform.name;
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)
     {
         if (TemplateVegetationMaskArea == null ||
@@ -237,6 +241,7 @@ internal static class DmProRendererContext
         vegetationMaskArea.UpdateVegetationMask();
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static void FixFlatRoomReflectionProbe([NotNull] WorldLocation worldLocation)
     {
         var reflectionProbes = worldLocation.GetComponentsInChildren<ReflectionProbe>();

@@ -1,10 +1,9 @@
 ModUI/&ArcaneShieldAddDruidAndSorcerer=Druido e Stregone
 ModUI/&ArcaneShieldAll=Tutte le classi
-ModUI/&ArcaneShieldDefault=Nessuno [Predefinito]
 ModUI/&EnableBetaContent=Abilita contenuto beta <i><color=#F0DAA0>[tieni presente che i tuoi salvataggi o eroi potrebbero rompersi in futuro]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio] </color></i></b>
 ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555>Sanguinamento</color> alle condizioni rimosse da <color=#D89555>Restauro maggiore e minore</color>
 ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze
-ModUi/&AddNewBrightEyeColors=Aggiungi nuovi colori per gli occhi luminosi <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&AddNewBrightEyeColors=Aggiungi nuovi colori brillanti per gli occhi <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, mazze lunghe, balestre a mano]</color></i> <b><i><color=#C04040E0> [Richiede il riavvio]</color></i></b>
 ModUi/&AddPickPocketableLoot=Aggiungi bottino borseggiabile <i><color=#F0DAA0>[suggerito se il talento <color=#D89555>Borse</color> è abilitato]</color></i>
 ModUi/&AddToStore=Aggiungi al negozio
@@ -22,12 +21,12 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezio
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=#D89555>Stregone</color> senza segni di origine e tatuaggi
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo nei dungeon personalizzati]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Ridurre il peso della razione alimentare a 2 libbre
-ModUi/&ArcaneShieldstaffOptions=Estendi le classi consentite su <color=#D89555> Bastone dello Scudo Arcano</color>:
+ModUi/&ArcaneShieldstaffOptions=Estendi la sintonia su <color=#D89555> Bastone dello Scudo Arcano</color>:
 ModUi/&AutoPauseOnVictory=Metti in pausa l'interfaccia utente quando vinci in battaglia
 ModUi/&Basic=<color=#F0DAA0>Base:</color>
 ModUi/&Battle=<color=#F0DAA0>Battaglia:</color>
 ModUi/&Bestiary=Bestiario
-ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Concedi maledizione</color> non richiede concentrazione se lanciato con slot incantesimo L5+
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Concedi maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condizione <color=#D89555>Ceco</color> non consente l'attacco di opportunità
 ModUi/&Blueprints=Progetti
 ModUi/&Campaigns=<color=#F0DAA0>Campagne:</color>
@@ -105,8 +104,8 @@ ModUi/&GameUi=Interfaccia di gioco
 ModUi/&Gameplay=Gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
-ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi uscite e teletrasporti effetti visivi se non ancora scoperti
-ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri a intervalli del 25% / 50% / 75% / 100% invece dei punti ferita esatti
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi uscite e teletrasporto effetti visivi se non ancora scoperti
+ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri a incrementi del 25%/50%/75%/100% invece dei punti ferita esatti
 ModUi/&HiderArmor=Nascondi l'armatura
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta il raggio di <color=#D89555>Sense visione normale</color> per abilitare attacchi a lungo raggio</color> <i><color=#F0DAA0>[40 è l'ideale per evitare che i nemici si uniscano da troppo lontano ]</color></i>
@@ -144,13 +143,14 @@ ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Sos
 ModUi/&OverwriteGameLanguage=<color=#F0DAA0>Supporto lingua non ufficiale:</color>
 ModUi/&Patches=<color=#F0DAA0>Toppe:</color>
 ModUi/&PrimedItems=Articoli preparati
-ModUi/&Progression=<color=#F0DAA0> Progressione:</color>
+ModUi/&Progression=<color=#F0DAA0>Avanzamento:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Il trucchetto a luce rapida utilizza prima gli oggetti indossati sulla testa o sul busto
 ModUi/&Races=<color=#F0DAA0>Razze e sottorazze</color>
 ModUi/&RacesClassesSubclasses=Razze, classi e sottoclassi
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM
 ModUi/&ReduceDarkelfLightPenalty=Scambia <color=#D89555>Elfo Oscuro</color> Penalità Leggera a -1d4 sugli attacchi invece di Svantaggio
+ModUi/&ReduceGrayDwarfLightPenalty=Scambia la penalità leggera di <color=#D89555>nano grigio</color> a -1d4 agli attacchi invece di Svantaggio
 ModUi/&RelicForgeries=Falsi di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a bug con elementi visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -166,9 +166,9 @@ ModUi/&RestockTowerOfKnowledge=Rifornisci la Torre della Conoscenza <i><color=#F
 ModUi/&Rules=Regole
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleGameFontSizeBy=<color=white>Ridimensiona la dimensione del carattere del gioco di</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&ScaleMerchantPricesCorrectly=Scala i prezzi del commerciante in modo corretto/esatto
+ModUi/&ScaleMerchantPricesCorrectly=Ridimensiona i prezzi del commerciante in modo corretto/esatto
 ModUi/&SelectAll=Seleziona tutto
-ModUi/&SelectSuggested=Seleziona Consigliato
+ModUi/&SelectSuggested=Seleziona Suggerito
 ModUi/&Services=Servizi
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>Imposta le possibilità che appaia la barba mentre usi</color> <color=#D89555>Cintura dei Nani</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di fabbricazione nei suggerimenti dettagliati
@@ -188,7 +188,7 @@ ModUi/&Translate=Tradurre
 ModUi/&TranslateCancel=Annulla {0} alle {1}
 ModUi/&TranslationEngine=Motore di traduzione
 ModUi/&Translations=Traduzioni
-ModUi/&UnleashEnemyAsNpc=Consenti la selezione dei mostri sui gadget NPC <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&UnleashEnemyAsNpc=Consenti ai mostri di essere selezionati sui gadget NPC <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&UnleashNpcAsEnemy=Scatena la selezione dei mostri <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Sblocca tutte le facce degli NPC
 ModUi/&UnlockEyeStyles=Sblocca gli stili degli occhi

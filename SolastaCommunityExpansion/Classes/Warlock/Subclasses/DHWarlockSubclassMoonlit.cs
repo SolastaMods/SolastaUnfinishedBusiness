@@ -267,8 +267,8 @@ public static class WarlockSubclassMoonLitPatron
 internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustomOnActionFeature,
     ICustomConditionFeature
 {
-    private static readonly string CATEGORY_REVEALED = "MoonlitRevealed";
-    private static readonly string CATEGORY_HIDDEN = "MoonlitHidden";
+    private const string CategoryRevealed = "MoonlitRevealed";
+    private const string CategoryHidden = "MoonlitHidden";
     private static ConditionDefinition RevealedCondition { get; set; }
     private static ConditionDefinition InvisibilityCondition { get; set; }
 
@@ -282,7 +282,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
 
     public void RemoveFeature(RulesetCharacter hero)
     {
-        hero.RemoveAllConditionsOfCategory(CATEGORY_HIDDEN, false);
+        hero.RemoveAllConditionsOfCategory(CategoryHidden, false);
     }
 
     public void OnBeforeAction(CharacterAction characterAction)
@@ -389,7 +389,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
 
     private static void BecomeRevealed(RulesetCharacter hero)
     {
-        hero.AddConditionOfCategory(CATEGORY_REVEALED, RulesetCondition.CreateActiveCondition(hero.Guid,
+        hero.AddConditionOfCategory(CategoryRevealed, RulesetCondition.CreateActiveCondition(hero.Guid,
             RevealedCondition, DurationType.Round,
             1,
             TurnOccurenceType.StartOfTurn,
@@ -400,7 +400,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
 
     private static void BecomeInvisible(RulesetCharacter hero)
     {
-        hero.AddConditionOfCategory(CATEGORY_HIDDEN, RulesetCondition.CreateActiveCondition(hero.Guid,
+        hero.AddConditionOfCategory(CategoryHidden, RulesetCondition.CreateActiveCondition(hero.Guid,
             InvisibilityCondition,
             DurationType.Permanent,
             0,

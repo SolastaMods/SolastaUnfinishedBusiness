@@ -95,15 +95,14 @@ internal static class RulesetCharacterHero_RefreshAll
                 rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.SorceryPoints);
                 break;
             default:
-                if (featureDefinitionPower.UsesDetermination ==
-                    RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed)
+                rulesetUsablePower.UsesAttribute = featureDefinitionPower.UsesDetermination switch
                 {
-                    rulesetUsablePower.UsesAttribute = hero.GetAttribute(featureDefinitionPower.UsesAbilityScoreName);
-                }
-                else if (featureDefinitionPower.UsesDetermination == RuleDefinitions.UsesDetermination.ProficiencyBonus)
-                {
-                    rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.ProficiencyBonus);
-                }
+                    RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed => hero.GetAttribute(featureDefinitionPower
+                        .UsesAbilityScoreName),
+                    RuleDefinitions.UsesDetermination.ProficiencyBonus => hero.GetAttribute(AttributeDefinitions
+                        .ProficiencyBonus),
+                    _ => rulesetUsablePower.UsesAttribute
+                };
 
                 break;
         }

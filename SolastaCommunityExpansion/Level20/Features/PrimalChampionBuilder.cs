@@ -43,9 +43,10 @@ internal sealed class FeatureDefinitionPrimalChampion : FeatureDefinition, IFeat
         hero.RefreshAll();
     }
 
-    private static void ModifyAttributeAndMax([NotNull] RulesetCharacterHero hero, string attributeName, int amount)
+    private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
     {
         var attribute = hero.GetAttribute(attributeName);
+
         attribute.BaseValue += amount;
         attribute.MaxValue += amount;
         attribute.MaxEditableValue += amount;

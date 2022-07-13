@@ -1,15 +1,18 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifierType2": "Additive",
-  "modifiedAttribute": "Strength",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
+  "$type": "FeatureDefinitionConditionAffinity, Assembly-CSharp",
+  "conditionType": "ConditionCharmed",
+  "savingThrowAdvantageType": "Advantage",
+  "savingThrowModifier": 0,
+  "conditionAffinityType": "None",
+  "rerollSaveWhenGained": false,
+  "rerollAdvantageType": "None",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatStrengthIncrementTitle",
-    "description": "Feat/&FeatStrengthIncrementDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "90578516-004f-5fed-be23-24a2b8656621",
+  "guid": "b019f203-8413-5756-ba73-a78590d75527",
   "contentPack": 9999,
-  "name": "FeatStrengthIncrement"
+  "name": "ConditionAffinityGrayDwarfCharm"
 }

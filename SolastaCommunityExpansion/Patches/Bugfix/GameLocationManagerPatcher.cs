@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 
@@ -12,7 +13,8 @@ namespace SolastaCommunityExpansion.Patches.Bugfix;
 [HarmonyPatch(typeof(GameLocationManager), "StopCharacterEffectsIfRelevant")]
 internal static class GameLocationManager_StopCharacterEffectsIfRelevant
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         //
         // BUGFIX: hero keep conditions across locations
@@ -30,7 +32,7 @@ internal static class GameLocationManager_StopCharacterEffectsIfRelevant
         return code;
     }
 
-    private static void MaybeTerminate(RulesetEffect effect, bool self, bool willEnterChainedLocation)
+    private static void MaybeTerminate([NotNull] RulesetEffect effect, bool self, bool willEnterChainedLocation)
     {
         var baseDefinition = effect.SourceDefinition;
 

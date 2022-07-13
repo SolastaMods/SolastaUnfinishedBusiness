@@ -38,32 +38,29 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
         CharacterActionAttack attackAction = null;
         var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
 
-        if (getAttackAfterUse != null)
+        var attackParams = getAttackAfterUse?.Invoke(__instance);
+        if (attackParams != null)
         {
-            var attackParams = getAttackAfterUse(__instance);
-            if (attackParams != null)
+            void AttackImpactStartHandler(
+                GameLocationCharacter attacker,
+                GameLocationCharacter defender,
+                RuleDefinitions.RollOutcome outcome,
+                CharacterActionParams actionParams,
+                RulesetAttackMode attackMode,
+                ActionModifier attackModifier)
             {
-                void AttackImpactStartHandler(
-                    GameLocationCharacter attacker,
-                    GameLocationCharacter defender,
-                    RuleDefinitions.RollOutcome outcome,
-                    CharacterActionParams actionParams,
-                    RulesetAttackMode attackMode,
-                    ActionModifier attackModifier)
-                {
-                    attackOutcome = outcome;
-                }
-
-                attackParams.ActingCharacter.AttackImpactStart += AttackImpactStartHandler;
-                attackAction = new CharacterActionAttack(attackParams);
-                var enums = attackAction.Execute();
-                while (enums.MoveNext())
-                {
-                    yield return enums.Current;
-                }
-
-                attackParams.ActingCharacter.AttackImpactStart -= AttackImpactStartHandler;
+                attackOutcome = outcome;
             }
+
+            attackParams.ActingCharacter.AttackImpactStart += AttackImpactStartHandler;
+            attackAction = new CharacterActionAttack(attackParams);
+            var enums = attackAction.Execute();
+            while (enums.MoveNext())
+            {
+                yield return enums.Current;
+            }
+
+            attackParams.ActingCharacter.AttackImpactStart -= AttackImpactStartHandler;
         }
 
         //chained effects would be useful for EOrb

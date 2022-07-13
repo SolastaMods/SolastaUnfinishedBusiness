@@ -35,6 +35,7 @@ internal static class CharacterFilteringGroup_Compare
             }
 
             yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
+
             bypass = 2;
         }
     }

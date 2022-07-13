@@ -1,14 +1,14 @@
 Feat/&ChefConDescription=Erhöhe deine Konstitution um 1 bis zu einem Maximum von 20.\nDu kannst 1 Stunde damit verbringen, eine Mahlzeit zu kochen, um dich und deine Gefährten für 1W8 HP zu heilen.\nEinmal am Tag kannst du eine Stunde damit verbringen, Leckereien zu kochen bieten beim Essen vorübergehend HP.
-Feat/&ChefConTitle=Koch (Verfassung)
+Feat/&ChefConTitle=Koch [mit]
 Feat/&ChefShortRestFeastDescription=Du kannst 1 Stunde damit verbringen, eine Mahlzeit zu kochen, um dich und deine Gefährten für 1W8 HP zu heilen.
 Feat/&ChefShortRestFeastTitle=Kurze Pausenmahlzeit
 Feat/&ChefWisDescription=Erhöhe deine Weisheit um 1 bis zu einem Maximum von 20.\nDu kannst 1 Stunde damit verbringen, eine Mahlzeit zu kochen, um dich und deine Gefährten für 1W8 HP zu heilen.\nEinmal am Tag kannst du eine Stunde damit verbringen, Leckereien zu kochen bieten beim Essen vorübergehend HP.
-Feat/&ChefWisTitle=Koch (Weisheit)
+Feat/&ChefWisTitle=Koch [Wis]
 Feat/&FeatChefConIncrementDescription=Erhöhe deine Konstitution um 1 bis maximal 20.
 Feat/&FeatChefConIncrementTitle=Attributerhöhung
 Feat/&FeatChefWisIncrementDescription=Erhöhe deine Weisheit um 1 bis maximal 20.
 Feat/&FeatChefWisIncrementTitle=Attributerhöhung
-Feat/&HealerDescription=Sie erwerben Kenntnisse oder Fachkenntnisse in Medizinprüfungen. Du erhältst die Fähigkeit, eine sterbende Kreatur zu stabilisieren sowie eine Kreatur, die in den letzten 12 Sekunden gestorben ist, einmal pro langer Pause wiederzubeleben. Du kannst eine Aktion verwenden, um 1W6 + 4 + Trefferpunkte auf Charakterstufe so oft pro kurzer Pause wiederherzustellen, wie es deinem WE-Modifikator entspricht.
+Feat/&HealerDescription=Sie erwerben Kenntnisse oder Fachkenntnisse in Medizinprüfungen. Du erhältst die Fähigkeit, eine sterbende Kreatur zu stabilisieren und eine Kreatur, die in den letzten 12 Sekunden gestorben ist, einmal pro langer Pause wiederzubeleben. Du kannst eine Aktion verwenden, um 1W6 + 4 + Trefferpunkte auf Charakterstufe so oft pro kurzer Pause wiederherzustellen, wie es deinem WE-Modifikator entspricht.
 Feat/&HealerResuscitateDescription=Verwenden Sie eine Aktion, um eine Kreatur wiederzubeleben, die innerhalb der letzten 15 Sekunden gestorben ist.
 Feat/&HealerResuscitateTitle=Reanimieren
 Feat/&HealerStabilizeDescription=Verwenden Sie eine Aktion, um eine sterbende Kreatur zu stabilisieren.

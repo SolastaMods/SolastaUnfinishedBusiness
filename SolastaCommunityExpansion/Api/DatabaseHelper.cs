@@ -20281,6 +20281,9 @@ public static partial class DatabaseHelper
         public static SpellDefinition Resistance { get; } =
             GetDefinition<SpellDefinition>("Resistance", "384dce9da39ad4e4b82106fa7829c17c");
 
+        public static SpellDefinition Resurrection { get; } =
+            GetDefinition<SpellDefinition>("Resurrection", "f796a243f664c73409cca137f137f5f3");
+
         public static SpellDefinition Revivify { get; } =
             GetDefinition<SpellDefinition>("Revivify", "16e7fb95186cf9b41806d15fbacd81af");
 

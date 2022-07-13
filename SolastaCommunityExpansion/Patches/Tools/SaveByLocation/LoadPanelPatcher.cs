@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
@@ -19,9 +20,9 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class LoadPanel_OnBeginShow
 {
-    internal static GameObject Dropdown { get; private set; }
+    private static GameObject Dropdown { get; set; }
 
-    public static bool Prefix(LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview,
+    public static bool Prefix([NotNull] LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview,
         [HarmonyArgument("instant")] bool _ = false)
     {
         if (!Main.Settings.EnableSaveByLocation || Main.Settings.EnableGamepad)
@@ -138,7 +139,7 @@ internal static class LoadPanel_OnBeginShow
             }
         }
 
-        void ValueChanged(GuiDropdown dropdown)
+        void ValueChanged([NotNull] GuiDropdown dropdown)
         {
             // update selected campaign
             var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
@@ -148,21 +149,24 @@ internal static class LoadPanel_OnBeginShow
             Main.Log(
                 $"ValueChanged: {dropdown.value}, selected={selected.LocationType}, {selected.text}, {selected.CampaignOrLocation}");
 
-            switch (selected.LocationType)
+            if (selected != null)
             {
-                default:
-                    Main.Error($"Unknown LocationType: {selected.LocationType}");
-                    break;
-                case LocationType.StandardCampaign:
-                    selectedCampaignService.SetStandardCampaignLocation();
-                    break;
-                case LocationType.UserLocation: // location (campaign=USER_CAMPAIGN + location)
-                    selectedCampaignService.SetCampaignLocation(SaveByLocationContext.UserCampaign,
-                        selected.CampaignOrLocation);
-                    break;
-                case LocationType.CustomCampaign: // campaign
-                    selectedCampaignService.SetCampaignLocation(selected.CampaignOrLocation, string.Empty);
-                    break;
+                switch (selected.LocationType)
+                {
+                    default:
+                        Main.Error($"Unknown LocationType: {selected.LocationType}");
+                        break;
+                    case LocationType.StandardCampaign:
+                        selectedCampaignService.SetStandardCampaignLocation();
+                        break;
+                    case LocationType.UserLocation: // location (campaign=USER_CAMPAIGN + location)
+                        selectedCampaignService.SetCampaignLocation(SaveByLocationContext.UserCampaign,
+                            selected.CampaignOrLocation);
+                        break;
+                    case LocationType.CustomCampaign: // campaign
+                        selectedCampaignService.SetCampaignLocation(selected.CampaignOrLocation, string.Empty);
+                        break;
+                }
             }
 
             dropdown.UpdateTooltip();
@@ -200,7 +204,7 @@ internal static class LoadPanel_OnBeginShow
     }
 }
 
-internal class LocationOptionData : OptionDataAdvanced
+internal sealed class LocationOptionData : OptionDataAdvanced
 {
     public string CampaignOrLocation { get; set; }
     public LocationType LocationType { get; set; }

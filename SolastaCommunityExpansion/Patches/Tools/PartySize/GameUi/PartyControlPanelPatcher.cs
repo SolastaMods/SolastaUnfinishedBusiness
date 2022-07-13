@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class PartyControlPanel_OnBeginShow
 {
-    internal static void Prefix(PartyControlPanel __instance)
+    internal static void Prefix([NotNull] PartyControlPanel __instance)
     {
         var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 

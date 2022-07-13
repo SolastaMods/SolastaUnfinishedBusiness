@@ -1,6 +1,6 @@
 Condition/&ConditionMarkedByArcanistDescription=Afflitto dal Marchio dell'Arcanista. Quando viene colpito dall'incantatore con un attacco con un'arma, il marchio esplode, infliggendo 1d6 danni da forza agli afflitti e distruggendo il marchio.
 Condition/&ConditionMarkedByArcanistTitle=Marchio dell'arcanista
-Feature/&ArcaneDetonationDescription=Quando colpisci una creatura che ha il tuo Marchio dell'Arcanista con un attacco con un'arma, il marchio esplode, infliggendo 1d6 danni da forza e distruggendo il marchio.
+Feature/&ArcaneDetonationDescription=Quando colpisci una creatura che ha il tuo Marchio dell'Arcanist con un attacco con un'arma, il marchio esplode, infliggendo 1d6 danni da forza e distruggendo il marchio.
 Feature/&ArcaneDetonationTitle=Detonazione Arcana
 Feature/&ArcaneDetonationUpgradeDescription=A partire dall'11° livello, il danno della tua Detonazione Arcana aumenta a 2d6.
 Feature/&ArcaneDetonationUpgradeTitle=Detonazione Arcana Maggiore
@@ -14,5 +14,5 @@ Feature/&MagicAffinityRangerArcanistDescription=Sei abile nel lanciare incantesi
 Feature/&MagicAffinityRangerArcanistTitle=Addestramento al combattimento arcano
 Feedback/&AdditionalDamageArcanistMarkFormat=Marchio dell'arcanista!
 Feedback/&AdditionalDamageArcanistMarkLine=Il Marchio dell'Arcanista esplode e infligge danni extra al bersaglio!
-Subclass/&RangerArcanistRangerSubclassDescription=L'Arcanista Ranger combina le sue abilità da Ranger con abilità arcane. Le loro armi possono affliggere i loro avversari con il Marchio dell'Arcanista e hanno imparato a lanciare alcuni incantesimi da Mago come parte del loro repertorio di incantesimi da Ranger.
+Subclass/&RangerArcanistRangerSubclassDescription=Il Ranger Arcanista unisce le sue abilità da Ranger con abilità arcane. Le loro armi possono affliggere i loro avversari con il Marchio dell'Arcanista e hanno imparato a lanciare alcuni incantesimi da Mago come parte del loro repertorio di incantesimi da Ranger.
 Subclass/&RangerArcanistRangerSubclassTitle=Arcanista Ranger

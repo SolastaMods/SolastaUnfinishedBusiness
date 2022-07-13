@@ -21,7 +21,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Zielauswahl zulasse
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Zauberer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur in benutzerdefinierten Dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
-ModUi/&ArcaneShieldstaffOptions=Zulässige Klassen auf <color=#D89555>Arkaner Schildstab</color> erweitern:
+ModUi/&ArcaneShieldstaffOptions=Erweitern Sie die Einstimmung auf <color=#D89555>Arkaner Schildstab</color>:
 ModUi/&AutoPauseOnVictory=Pausiere die Benutzeroberfläche, wenn du im Kampf siegst
 ModUi/&Basic=<color=#F0DAA0>Basis:</color>
 ModUi/&Battle=<color=#F0DAA0>Kampf:</color>
@@ -65,7 +65,7 @@ ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro <b><i><c
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 6, 10 und 14
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[Fähigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
-ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der Rassenvorgaben zu]</color></i>
+ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardwerte zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D)</color>ebug-Overlay
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(H)</color>ud, um die Sichtbarkeit aller UI-Felder umzuschalten
 ModUi/&EnableHotkeyToggleIndividualHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(C)</color>Systemsteuerung, <color=#1E81B0>CTRL-SHIFT-(L)</color>og, <color=#1E81B0>CTRL-SHIFT- (M)</color>ap und <color=#1E81B0>CTRL-SHIFT-(P)</color>arty, um die Sichtbarkeit der einzelnen UI-Felder umzuschalten
@@ -150,6 +150,7 @@ ModUi/&RacesClassesSubclasses=Rassen, Klassen und Unterklassen
 ModUi/&RecipeCost=<color=white>Rezeptkosten</color>
 ModUi/&RecipesInDm=Rezepte in DM
 ModUi/&ReduceDarkelfLightPenalty=Ändere den <color=#D89555>Dunkelelfen</color>-Lichtmalus auf -1W4 auf Angriffe statt auf den Nachteil
+ModUi/&ReduceGrayDwarfLightPenalty=Ändere den <color=#D89555>Grauen Zwerg</color> Lichtmalus auf -1W4 auf Angriffe statt auf Nachteil
 ModUi/&RelicForgeries=Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements=Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBugVisualModels=Ersetzen Sie fehlerähnliche Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

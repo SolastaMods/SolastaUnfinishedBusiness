@@ -633,21 +633,25 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 
     public void ApplyFeature(RulesetCharacterHero hero, string tag)
     {
-        if (!hero.MetamagicFeatures.ContainsKey(MetamagicOption))
+        if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
         {
-            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> {MetamagicOption});
-
-            MetamagicTrained = true;
+            return;
         }
+
+        hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> {MetamagicOption});
+
+        MetamagicTrained = true;
     }
 
     public void RemoveFeature(RulesetCharacterHero hero, string tag)
     {
-        if (MetamagicTrained)
+        if (!MetamagicTrained)
         {
-            hero.MetamagicFeatures.Remove(MetamagicOption);
-
-            MetamagicTrained = false;
+            return;
         }
+
+        hero.MetamagicFeatures.Remove(MetamagicOption);
+
+        MetamagicTrained = false;
     }
 }

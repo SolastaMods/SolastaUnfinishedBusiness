@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ internal static class GameTime_SetTimeScale
 {
     internal static bool Prefix(GameTime __instance)
     {
-        Time.timeScale = __instance.networkTimeScale != 1.0
+        Time.timeScale = Math.Abs(__instance.networkTimeScale - 1.0) > 0.001f
             ? __instance.networkTimeScale
             : __instance.timeScale * (__instance.fasterTimeMode ? Main.Settings.FasterTimeModifier : 1f);
 

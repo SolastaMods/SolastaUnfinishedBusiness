@@ -115,16 +115,18 @@ internal static class ItemRecipeGenerationHelper
 
     public static void StockItem(MerchantDefinition merchant, ItemDefinition item)
     {
-        var stockUnit = new StockUnitDescription();
-        stockUnit.itemDefinition = item;
-        stockUnit.initialAmount = 1;
-        stockUnit.initialized = true;
-        stockUnit.maxAmount = 2;
-        stockUnit.minAmount = 1;
-        stockUnit.stackCount = 1;
-        stockUnit.reassortAmount = 1;
-        stockUnit.reassortRateValue = 1;
-        stockUnit.reassortRateType = RuleDefinitions.DurationType.Hour;
+        var stockUnit = new StockUnitDescription
+        {
+            itemDefinition = item,
+            initialAmount = 1,
+            initialized = true,
+            maxAmount = 2,
+            minAmount = 1,
+            stackCount = 1,
+            reassortAmount = 1,
+            reassortRateValue = 1,
+            reassortRateType = RuleDefinitions.DurationType.Hour
+        };
         merchant.StockUnitDescriptions.Add(stockUnit);
     }
 
@@ -283,13 +285,15 @@ internal static class ItemRecipeGenerationHelper
 
             ItemCraftingContext.RecipeBooks[GROUP_KEY].Add(craftingManual);
 
-            if (Main.Settings.CraftingInStore.Contains(GROUP_KEY))
+            if (!Main.Settings.CraftingInStore.Contains(GROUP_KEY))
             {
-                foreach (var merchant in MerchantTypeContext.MerchantTypes
-                             .Where(x => x.Item2.IsDocument))
-                {
-                    StockItem(merchant.Item1, craftingManual);
-                }
+                continue;
+            }
+
+            foreach (var merchant in MerchantTypeContext.MerchantTypes
+                         .Where(x => x.Item2.IsDocument))
+            {
+                StockItem(merchant.Item1, craftingManual);
             }
         }
     }

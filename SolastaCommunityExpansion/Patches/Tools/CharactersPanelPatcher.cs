@@ -53,7 +53,7 @@ internal static class CharactersPanel_Refresh
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharactersPanel_OnCharacterCheckerCb
 {
-    private static bool Prefix()
+    internal static bool Prefix()
     {
         return !Main.Settings.EnableRespec;
     }

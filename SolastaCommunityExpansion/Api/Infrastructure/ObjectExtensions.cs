@@ -121,7 +121,7 @@ public static class ObjectExtensions
         if (original is Object)
         {
             throw new ArgumentException(
-                "The object being copied is a UnityEngine.Object. Use Object.Instantiate to copy Unity objects.",
+                @"The object being copied is a UnityEngine.Object. Use Object.Instantiate to copy Unity objects.",
                 nameof(original));
         }
 

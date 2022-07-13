@@ -60,7 +60,7 @@ internal static class CharacterActionCastSpell_ApplyMagicEffect
         formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Spell;
         formsParams.targetSubstitute = __instance.ActionParams.TargetSubstitute;
         var rangeType = activeSpell.EffectDescription.RangeType;
-        if (rangeType == RuleDefinitions.RangeType.MeleeHit || rangeType == RuleDefinitions.RangeType.RangeHit)
+        if (rangeType is RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit)
         {
             formsParams.attackOutcome = outcome;
         }

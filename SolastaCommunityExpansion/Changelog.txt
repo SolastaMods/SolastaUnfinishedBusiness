@@ -1,7 +1,9 @@
-﻿CHANGES:
+﻿You can contribute to this work with any financial amount
+The donation button is under Mod UI > Credits & Diagnostics
 
-- Add Elven Precision feat
-- Extend allowed classes on Arcane Shield Staff
-- Fix deadeye and power attack interaction with invisibility
-- Fix sub class on higher level button features display
-- Fix (m)ap hotkey causing an exception on 2nd usage
+CHANGES:
+
+- Add Gray Dwarf sub race
+- Replace bless with Healing Word on Celestial Touched
+- Remove point buy patch now fixed by TA
+- Tweak feat titles for better UI fit

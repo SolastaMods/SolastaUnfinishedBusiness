@@ -41,7 +41,7 @@ internal static class FeatsContext
         UpdateFeatsVisibility(featDefinition);
     }
 
-    private static void UpdateFeatsVisibility([NotNull] FeatDefinition featDefinition)
+    private static void UpdateFeatsVisibility([NotNull] BaseDefinition featDefinition)
     {
         featDefinition.GuiPresentation.hidden = !Main.Settings.FeatEnabled.Contains(featDefinition.Name);
     }

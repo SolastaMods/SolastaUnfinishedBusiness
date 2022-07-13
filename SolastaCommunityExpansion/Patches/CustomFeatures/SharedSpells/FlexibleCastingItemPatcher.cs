@@ -16,10 +16,8 @@ internal static class FlexibleCastingItem_Bind
         int maxSlots)
     {
         var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
-        var caster =
-            flexibleCastingModal.caster as RulesetCharacterHero;
 
-        if (caster is null)
+        if (flexibleCastingModal.caster is not RulesetCharacterHero caster)
         {
             return;
         }

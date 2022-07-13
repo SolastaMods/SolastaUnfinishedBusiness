@@ -41,8 +41,7 @@ internal static class GuiCharacter_FormatHealthGauge
             return; // health wasn't dirty so healthGauge hasn't been updated
         }
 
-        if (__instance.RulesetCharacterMonster == null ||
-            __instance.RulesetCharacterMonster.Side != RuleDefinitions.Side.Enemy)
+        if (__instance.RulesetCharacterMonster is not {Side: RuleDefinitions.Side.Enemy})
         {
             return;
         }
@@ -139,13 +138,7 @@ internal static class GuiCharacter_FormatHealthLabel
                 return false;
             }
 
-            if (__instance.RulesetCharacter.Side != RuleDefinitions.Side.Enemy)
-            {
-                // It's a companion
-                return false;
-            }
-
-            return true;
+            return __instance.RulesetCharacter.Side == RuleDefinitions.Side.Enemy;
         }
     }
 }
