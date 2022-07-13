@@ -139,13 +139,7 @@ internal static class GuiCharacter_FormatHealthLabel
                 return false;
             }
 
-            if (__instance.RulesetCharacter.Side != RuleDefinitions.Side.Enemy)
-            {
-                // It's a companion
-                return false;
-            }
-
-            return true;
+            return __instance.RulesetCharacter.Side == RuleDefinitions.Side.Enemy;
         }
     }
 }

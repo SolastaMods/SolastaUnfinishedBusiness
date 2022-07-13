@@ -499,7 +499,7 @@ internal abstract class GenericNode<TNode> : Node
                 FindOrCreateChildForValue(nodeType.MakeGenericType(Type, InstType, child.FieldType), this,
                     child.Name))
             .ToList();
-        _fieldNodes.Sort((x, y) => x.Name.CompareTo(y.Name));
+        _fieldNodes.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     private void UpdatePropertyNodes()
@@ -529,36 +529,38 @@ internal abstract class GenericNode<TNode> : Node
             FindOrCreateChildForValue(nodeType.MakeGenericType(Type, InstType, child.PropertyType), this,
                 child.Name)).ToList();
 
-        _propertyNodes.Sort((x, y) => x.Name.CompareTo(y.Name));
+        _propertyNodes.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     protected override void UpdateValue()
     {
-        if (_valueIsDirty)
+        if (!_valueIsDirty)
         {
-            _valueIsDirty = false;
-
-            _componentIsDirty = true;
-            _itemIsDirty = true;
-
-            if (_fieldNodes != null)
-            {
-                foreach (var child in _fieldNodes)
-                {
-                    child.SetDirty();
-                }
-            }
-
-            if (_propertyNodes != null)
-            {
-                foreach (var child in _propertyNodes)
-                {
-                    child.SetDirty();
-                }
-            }
-
-            UpdateValueImpl();
+            return;
         }
+
+        _valueIsDirty = false;
+
+        _componentIsDirty = true;
+        _itemIsDirty = true;
+
+        if (_fieldNodes != null)
+        {
+            foreach (var child in _fieldNodes)
+            {
+                child.SetDirty();
+            }
+        }
+
+        if (_propertyNodes != null)
+        {
+            foreach (var child in _propertyNodes)
+            {
+                child.SetDirty();
+            }
+        }
+
+        UpdateValueImpl();
     }
 
     protected abstract void UpdateValueImpl();
@@ -605,12 +607,7 @@ internal class ComponentNode : PassiveNode<Component>
 
     public override Node GetParent()
     {
-        if (_parentNode.TryGetTarget(out var parent))
-        {
-            return parent;
-        }
-
-        return null;
+        return _parentNode.TryGetTarget(out var parent) ? parent : null;
     }
 }
 
@@ -625,12 +622,7 @@ internal class ItemNode<TNode> : PassiveNode<TNode>
 
     public override Node GetParent()
     {
-        if (_parentNode.TryGetTarget(out var parent))
-        {
-            return parent;
-        }
-
-        return null;
+        return _parentNode.TryGetTarget(out var parent) ? parent : null;
     }
 }
 
@@ -661,12 +653,7 @@ internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
 
     public override Node GetParent()
     {
-        if (_parentNode.TryGetTarget(out var parent))
-        {
-            return parent;
-        }
-
-        return null;
+        return _parentNode.TryGetTarget(out var parent) ? parent : null;
     }
 }
 

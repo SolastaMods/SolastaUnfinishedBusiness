@@ -41,13 +41,13 @@ internal static class RulesetCharacterExension
         [CanBeNull] out RulesetSpellRepertoire spellRepertoire)
     {
         spellRepertoire = null;
-        foreach (var reperoire in from reperoire in character.spellRepertoires
-                 from knownCantrip in reperoire.KnownCantrips
+        foreach (var repertoire in from repertoire in character.spellRepertoires
+                 from knownCantrip in repertoire.KnownCantrips
                  where knownCantrip == cantrip
                        || (knownCantrip.SpellsBundle && knownCantrip.SubspellsList.Contains(cantrip))
-                 select reperoire)
+                 select repertoire)
         {
-            spellRepertoire = reperoire;
+            spellRepertoire = repertoire;
             return true;
         }
 

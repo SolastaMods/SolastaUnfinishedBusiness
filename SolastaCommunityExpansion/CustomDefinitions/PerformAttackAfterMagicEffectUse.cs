@@ -61,9 +61,7 @@ public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUs
 
     private CharacterActionParams DefaultAttackHandler(CharacterActionMagicEffect effect)
     {
-        if (effect == null) { return null; }
-
-        var actionParams = effect.ActionParams;
+        var actionParams = effect?.ActionParams;
         if (actionParams == null) { return null; }
 
         //Spell got countered or it failed

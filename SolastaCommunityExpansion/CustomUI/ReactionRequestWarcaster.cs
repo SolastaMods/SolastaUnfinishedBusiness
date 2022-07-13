@@ -173,9 +173,9 @@ public class ReactionRequestWarcaster : ReactionRequest
                 spell, spell.SpellLevel, false);
             ReactionParams.RulesetEffect = spellEffect;
 
-            var spelltargets = spellEffect.ComputeTargetParameter();
+            var spellTargets = spellEffect.ComputeTargetParameter();
 
-            if (!reactionParams.RulesetEffect.EffectDescription.IsSingleTarget || spelltargets <= 0)
+            if (!reactionParams.RulesetEffect.EffectDescription.IsSingleTarget || spellTargets <= 0)
             {
                 return;
             }
@@ -183,7 +183,7 @@ public class ReactionRequestWarcaster : ReactionRequest
             var target = reactionParams.TargetCharacters.FirstOrDefault();
             var mod = reactionParams.ActionModifiers.FirstOrDefault();
 
-            while (target != null && mod != null && reactionParams.TargetCharacters.Count < spelltargets)
+            while (target != null && mod != null && reactionParams.TargetCharacters.Count < spellTargets)
             {
                 reactionParams.TargetCharacters.Add(target);
                 // Technically casts after first might need to have different mods, but not by much since we attacking same target.

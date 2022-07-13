@@ -44,23 +44,22 @@ internal static class GameLocationCharacter_CanUseAtLeastOnPower
         }
 
         {
-            foreach (var rulesetUsablePower in rulesetCharacter.UsablePowers)
-            {
-                if (rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
+            if (!rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
+                    rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
                     CanUsePower(rulesetCharacter, rulesetUsablePower) &&
-                    !(!accountDelegatedPowers && rulesetUsablePower.PowerDefinition.DelegatedToAction) &&
+                    (accountDelegatedPowers || !rulesetUsablePower.PowerDefinition.DelegatedToAction) &&
                     !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
                     actionType == ActionDefinitions.ActionType.Main &&
-                    (rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute1 ||
-                     rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute10 ||
-                     rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours1 ||
-                     rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours24))
-                {
-                    __result = true;
-
-                    return;
-                }
+                    rulesetUsablePower.PowerDefinition.ActivationTime is RuleDefinitions.ActivationTime.Minute1
+                        or RuleDefinitions.ActivationTime.Minute10 or RuleDefinitions.ActivationTime.Hours1
+                        or RuleDefinitions.ActivationTime.Hours24))
+            {
+                return;
             }
+
+            __result = true;
+
+            return;
         }
     }
 

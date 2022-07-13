@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
@@ -47,9 +48,8 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                 case FeatureDefinitionProficiency proficiency:
                     if (proficiency.ProficiencyType == RuleDefinitions.ProficiencyType.FightingStyle)
                     {
-                        foreach (var name in proficiency.Proficiencies)
+                        foreach (var style in proficiency.Proficiencies.Select(name => DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(name)))
                         {
-                            var style = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(name);
                             __instance.AcquireBonusFightingStyle(heroBuildingData, style, tag);
                         }
                     }
@@ -167,7 +167,7 @@ internal static class CharacterBuildingManager_FinalizeCharacter
                 ? b.SpellCastingClass.FormatTitle()
                 : b.SpellCastingSubclass.FormatTitle();
 
-            return title1.CompareTo(title2);
+            return String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase);
         });
 
         //

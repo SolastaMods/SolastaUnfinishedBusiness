@@ -160,7 +160,7 @@ public class FeatureDefinitionRemover : FeatureDefinition, IFeatureDefinitionCus
 public class FeatureDefinitionRemoverBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionRemover, FeatureDefinitionRemoverBuilder>
 {
-    private static string WrapName(string name) { return $"{$"{name}Remover"}"; }
+    private static string WrapName(string name) { return $"{name}Remover"; }
 
     public static FeatureDefinitionRemoverBuilder CreateFrom(FeatureDefinition feature)
     {

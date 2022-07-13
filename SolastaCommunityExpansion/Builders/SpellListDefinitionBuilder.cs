@@ -53,7 +53,7 @@ public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition,
 
     public SpellListDefinitionBuilder SetSpellsAtLevel(int level, IEnumerable<SpellDefinition> spells)
     {
-        if (level > 9 || level < 0)
+        if (level is > 9 or < 0)
         {
             throw new ArgumentException($"Spell level {level} is not supported.");
         }

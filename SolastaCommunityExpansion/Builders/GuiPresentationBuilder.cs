@@ -41,7 +41,7 @@ public class GuiPresentationBuilder
 
         if (category == Category.None)
         {
-            throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            throw new ArgumentException(@"The parameter must not be Category.None.", nameof(category));
         }
 
         return $"{category}/&{name}Title";
@@ -53,7 +53,7 @@ public class GuiPresentationBuilder
 
         if (category == Category.None)
         {
-            throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            throw new ArgumentException(@"The parameter must not be Category.None.", nameof(category));
         }
 
         return $"{category}/&{description}Description";

@@ -86,13 +86,8 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
         else if
             ((attacker.RulesetCharacter is RulesetCharacterHero ||
               attacker.RulesetCharacter.OriginalFormCharacter is RulesetCharacterHero) &&
-             (provider.DamageValueDetermination ==
-              RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus ||
-              provider.DamageValueDetermination ==
-              RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus ||
-              provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
-                  .ProficiencyBonusAndSpellcastingBonus || provider.DamageValueDetermination ==
-              RuleDefinitions.AdditionalDamageValueDetermination.RageDamage))
+             provider.DamageValueDetermination is RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus or RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus or RuleDefinitions.AdditionalDamageValueDetermination
+                 .ProficiencyBonusAndSpellcastingBonus or RuleDefinitions.AdditionalDamageValueDetermination.RageDamage)
         {
             damageForm.DieType = RuleDefinitions.DieType.D1;
             damageForm.DiceNumber = 0;
@@ -109,48 +104,49 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
                     .CurrentValue;
             }
 
-            if (provider.DamageValueDetermination ==
-                RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus ||
-                provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
-                    .ProficiencyBonusAndSpellcastingBonus)
+            switch (provider.DamageValueDetermination)
             {
-                var num = 0;
+                case RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus:
+                case RuleDefinitions.AdditionalDamageValueDetermination
+                    .ProficiencyBonusAndSpellcastingBonus:
+                {
+                    var num = 0;
 
-                // use the correct spell repertoire for calculating spell bonus (MC scenario)
-                //
-                //foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
-                //{
-                //    num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
-                //    if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
-                //        break;
-                //}
-                if (Global.CastedSpellRepertoire != null)
-                {
-                    num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                        .GetAttribute(Global.CastedSpellRepertoire.SpellCastingAbility).CurrentValue);
-                }
-                // this scenario should not happen but who knows under MP ;-)
-                else
-                {
-                    foreach (var spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                    // use the correct spell repertoire for calculating spell bonus (MC scenario)
+                    //
+                    //foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                    //{
+                    //    num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
+                    //    if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
+                    //        break;
+                    //}
+                    if (Global.CastedSpellRepertoire != null)
                     {
                         num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                            .GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
-                        if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                            FeatureDefinitionCastSpell.CastingOrigin.Class)
+                            .GetAttribute(Global.CastedSpellRepertoire.SpellCastingAbility).CurrentValue);
+                    }
+                    // this scenario should not happen but who knows under MP ;-)
+                    else
+                    {
+                        foreach (var spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
                         {
-                            break;
+                            num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
+                                .GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
+                            if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
+                                FeatureDefinitionCastSpell.CastingOrigin.Class)
+                            {
+                                break;
+                            }
                         }
                     }
+
+                    damageForm.BonusDamage += num;
+                    break;
                 }
-
-                damageForm.BonusDamage += num;
-            }
-
-            if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.RageDamage)
-            {
-                damageForm.BonusDamage =
-                    attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.RageDamage);
+                case RuleDefinitions.AdditionalDamageValueDetermination.RageDamage:
+                    damageForm.BonusDamage =
+                        attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.RageDamage);
+                    break;
             }
         }
         else if (provider.DamageValueDetermination ==
@@ -183,7 +179,7 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
         else if (provider.DamageValueDetermination ==
                  RuleDefinitions.AdditionalDamageValueDetermination.BrutalCriticalDice)
         {
-            var flag = attackMode != null && attackMode.UseVersatileDamage;
+            var flag = attackMode is {UseVersatileDamage: true};
             var firstDamageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
             damageForm.DieType = flag ? firstDamageForm.VersatileDieType : firstDamageForm.DieType;
             damageForm.DiceNumber =
@@ -193,7 +189,7 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
         else if (provider.DamageValueDetermination ==
                  RuleDefinitions.AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
         {
-            var flag = attackMode != null && attackMode.UseVersatileDamage;
+            var flag = attackMode is {UseVersatileDamage: true};
             var firstDamageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
             damageForm.DieType = flag ? firstDamageForm.VersatileDieType : firstDamageForm.DieType;
             damageForm.DiceNumber = 1;
@@ -266,14 +262,15 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
             {
                 var effectForm = new EffectForm
                 {
-                    FormType = EffectForm.EffectFormType.Condition, ConditionForm = new ConditionForm()
+                    FormType = EffectForm.EffectFormType.Condition, ConditionForm = new ConditionForm
+                    {
+                        ConditionDefinition = conditionOperation.ConditionDefinition,
+                        Operation = conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add
+                            ? ConditionForm.ConditionOperation.Add
+                            : ConditionForm.ConditionOperation.Remove
+                    }
                 };
 
-                effectForm.ConditionForm.ConditionDefinition = conditionOperation.ConditionDefinition;
-                effectForm.ConditionForm.Operation =
-                    conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add
-                        ? ConditionForm.ConditionOperation.Add
-                        : ConditionForm.ConditionOperation.Remove;
                 effectForm.CanSaveToCancel = conditionOperation.CanSaveToCancel;
                 effectForm.SaveOccurence = conditionOperation.SaveOccurence;
 
@@ -291,8 +288,7 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
             }
         }
 
-        if (provider.AddLightSource && defender.RulesetCharacter != null &&
-            defender.RulesetCharacter.PersonalLightSource == null)
+        if (provider.AddLightSource && defender.RulesetCharacter is {PersonalLightSource: null})
         {
             var lightSourceForm = provider.LightSourceForm;
             var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
@@ -302,9 +298,8 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
                 brightRange, dimRangeCells, lightSourceForm.GraphicsPrefabAssetGUID,
                 lightSourceForm.LightSourceType, featureDefinition.Name, defender.RulesetCharacter.Guid);
             defender.RulesetCharacter.PersonalLightSource.Register(true);
-            var character = defender;
             var personalLightSource = defender.RulesetCharacter.PersonalLightSource;
-            service.AddCharacterLightSource(character, personalLightSource);
+            service.AddCharacterLightSource(defender, personalLightSource);
             var conditionHoldingFeature =
                 attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
             if (conditionHoldingFeature != null)
@@ -429,8 +424,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
         //
 
         // Process this only when targeting a hero or monster
-        if (defender != null && defender.RulesetActor != null &&
-            (defender.RulesetActor is RulesetCharacterMonster || defender.RulesetActor is RulesetCharacterHero))
+        if (defender is {RulesetActor: { }} && (defender.RulesetActor is RulesetCharacterMonster || defender.RulesetActor is RulesetCharacterHero))
         {
             // Can I add additional damage?
             __instance.triggeredAdditionalDamageTags.Clear();
@@ -440,8 +434,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
             // Add item properties?
             if (attacker.RulesetCharacter.CharacterInventory != null)
             {
-                if (attackMode != null && attackMode.SourceObject != null &&
-                    attackMode.SourceObject is RulesetItem weapon)
+                if (attackMode is {SourceObject: RulesetItem weapon})
                 {
                     weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(__instance.featuresToBrowseItem);
                     __instance.featuresToBrowseReaction.AddRange(__instance.featuresToBrowseItem);
@@ -549,9 +542,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                                     //
                                     // patch here
                                     //
-                                    if (featureDefinition is FeatureDefinitionAdditionalDamage
-                                            featureDefinitionAdditionalDamage
-                                        && featureDefinitionAdditionalDamage.NotificationTag == "EldritchSmite")
+                                    if (featureDefinition is FeatureDefinitionAdditionalDamage {NotificationTag: "EldritchSmite"})
                                     {
                                         var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
                                         var pactMagicUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
@@ -571,10 +562,12 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                                 if (atLeastOneSpellSlotAvailable)
                                 {
                                     reactionParams = new CharacterActionParams(attacker,
-                                        ActionDefinitions.Id.SpendSpellSlot);
-                                    reactionParams.IntParameter = 1;
-                                    reactionParams.StringParameter = provider.NotificationTag;
-                                    reactionParams.SpellRepertoire = selectedSpellRepertoire;
+                                        ActionDefinitions.Id.SpendSpellSlot)
+                                        {
+                                            IntParameter = 1,
+                                            StringParameter = provider.NotificationTag,
+                                            SpellRepertoire = selectedSpellRepertoire
+                                        };
                                     var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
                                     var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
@@ -842,8 +835,10 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                                 RuleDefinitions.ActivationTime.OnAttackHitWithBow && attackMode != null &&
                                 attacker.RulesetCharacter.IsWieldingBow())))
                     {
-                        var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower);
-                        reactionParams.StringParameter = usablePower.PowerDefinition.Name;
+                        var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+                        {
+                            StringParameter = usablePower.PowerDefinition.Name
+                        };
 
                         // Remove trailing numbers for advanced powers
                         if (usablePower.PowerDefinition.OverriddenPower != null)
@@ -876,8 +871,10 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                                          .AdditionalDamageSneakAttackTag))))
                     {
                         // This case is for the Rogue Hoodlum
-                        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower);
-                        actionParams.StringParameter = usablePower.PowerDefinition.Name;
+                        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+                        {
+                            StringParameter = usablePower.PowerDefinition.Name
+                        };
 
                         var rulesetImplementationService =
                             ServiceRepository.GetService<IRulesetImplementationService>();
@@ -893,8 +890,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
             }
 
             // Can I reduce the damage quantity of this attackMode?
-            if (attackMode != null && attackMode.Ranged &&
-                defender.GetActionStatus(ActionDefinitions.Id.DeflectMissile, ActionDefinitions.ActionScope.Battle,
+            if (attackMode is {Ranged: true} && defender.GetActionStatus(ActionDefinitions.Id.DeflectMissile, ActionDefinitions.ActionScope.Battle,
                     ActionDefinitions.ActionStatus.Available) == ActionDefinitions.ActionStatus.Available)
             {
                 var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.DeflectMissile);

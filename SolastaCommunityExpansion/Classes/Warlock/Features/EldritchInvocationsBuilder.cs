@@ -281,18 +281,15 @@ internal static class EldritchInvocationsBuilder
                 .AddToDB();
 
             var cantripEffect = EICantrip.EffectDescription;
-            if (invocationName == "ArmorofShadows"
-                || invocationName == "FiendishVigor"
-                || invocationName == "AscendantStep"
-                || invocationName == "OtherworldlyLeap")
+            if (invocationName is "ArmorofShadows" or "FiendishVigor" or "AscendantStep" or "OtherworldlyLeap")
             {
                 cantripEffect.SetRangeType(RuleDefinitions.RangeType.Self);
                 cantripEffect.TargetType = RuleDefinitions.TargetType.Self;
                 cantripEffect.SetHasSavingThrow(false);
             }
 
-            var effectAdvancement = new EffectAdvancement();
-            effectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
+            var effectAdvancement = new EffectAdvancement {effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None};
+            
             cantripEffect.SetEffectAdvancement(effectAdvancement);
 
             EldritchInvocations.Add(invocationName, EIPower);

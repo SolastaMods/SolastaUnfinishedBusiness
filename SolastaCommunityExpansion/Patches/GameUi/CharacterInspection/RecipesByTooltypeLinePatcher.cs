@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
@@ -13,7 +14,7 @@ internal static class RecipesByTooltypeLine_Load
     internal static void Prefix(List<RecipeDefinition> recipes)
     {
         recipes.Sort((a, b) =>
-            a.CraftedItem.FormatTitle().CompareTo(b.CraftedItem.FormatTitle()));
+            String.Compare(a.CraftedItem.FormatTitle(), b.CraftedItem.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
     }
 }
 

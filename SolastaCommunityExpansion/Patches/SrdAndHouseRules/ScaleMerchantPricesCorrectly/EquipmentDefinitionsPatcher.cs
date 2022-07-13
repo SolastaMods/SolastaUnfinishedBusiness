@@ -45,16 +45,7 @@ internal static class EquipmentDefinitions_ScaleAndRoundCosts
         // scaled as gold
         var scaledGold = scaledCopper / 100.0;
 
-        if (scaledGold > 10)
-        {
-            // if more than 10 gp round to nearest gp
-            scaledGold = Math.Round(scaledGold, MidpointRounding.AwayFromZero);
-        }
-        else
-        {
-            // else keep 2 sig fig
-            scaledGold = scaledGold.Round(2);
-        }
+        scaledGold = scaledGold > 10 ? Math.Round(scaledGold, MidpointRounding.AwayFromZero) : scaledGold.Round(2);
 
         // convert back to cp
         var scaledAndRoundedCopper = (int)(scaledGold * 100);
@@ -151,7 +142,7 @@ internal static class SignificantDigits
             return double.NegativeInfinity;
         }
 
-        if (significantDigits < 1 || significantDigits > 15)
+        if (significantDigits is < 1 or > 15)
         {
             throw new ArgumentOutOfRangeException(nameof(significantDigits), value,
                 "The significantDigits argument must be between 1 and 15.");

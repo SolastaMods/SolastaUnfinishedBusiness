@@ -1,4 +1,5 @@
-﻿using static FeatureDefinitionAbilityCheckAffinity;
+﻿using System;
+using static FeatureDefinitionAbilityCheckAffinity;
 using static FeatureDefinitionSavingThrowAffinity;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -7,36 +8,33 @@ internal static class Sorting
 {
     internal static int Compare(BaseDefinition x, BaseDefinition y)
     {
-        return x.Name.CompareTo(y.Name);
+        return String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase);
     }
 
     internal static int CompareTitle(BaseDefinition x, BaseDefinition y)
     {
-        return x.FormatTitle().CompareTo(y.FormatTitle());
+        return String.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
     }
 
     internal static int Compare(SavingThrowAffinityGroup x, SavingThrowAffinityGroup y)
     {
-        var result = x.abilityScoreName.CompareTo(y.abilityScoreName);
-        if (result == 0) { return x.affinity.CompareTo(y.affinity); }
+        var result = String.Compare(x.abilityScoreName, y.abilityScoreName, StringComparison.CurrentCultureIgnoreCase);
 
-        return result;
+        return result == 0 ? x.affinity.CompareTo(y.affinity) : result;
     }
 
     internal static int Compare(AbilityCheckAffinityGroup x, AbilityCheckAffinityGroup y)
     {
-        var result = x.abilityScoreName.CompareTo(y.abilityScoreName);
-        if (result == 0) { return x.proficiencyName.CompareTo(y.proficiencyName); }
+        var result = String.Compare(x.abilityScoreName, y.abilityScoreName, StringComparison.CurrentCultureIgnoreCase);
 
-        return result;
+        return result == 0 ? String.Compare(x.proficiencyName, y.proficiencyName, StringComparison.CurrentCultureIgnoreCase) : result;
     }
 
     internal static int Compare(FeatureUnlockByLevel x, FeatureUnlockByLevel y)
     {
         var result = x.Level.CompareTo(y.Level);
-        if (result == 0) { return x.FeatureDefinition.Name.CompareTo(y.FeatureDefinition.Name); }
 
-        return result;
+        return result == 0 ? String.Compare(x.FeatureDefinition.Name, y.FeatureDefinition.Name, StringComparison.CurrentCultureIgnoreCase) : result;
     }
 
     internal static int Compare(EffectForm x, EffectForm y)
@@ -46,17 +44,17 @@ internal static class Sorting
 
     internal static int Compare(MonsterSavingThrowProficiency x, MonsterSavingThrowProficiency y)
     {
-        return x.AbilityScoreName.CompareTo(y.AbilityScoreName); // then by bonus?
+        return String.Compare(x.AbilityScoreName, y.AbilityScoreName, StringComparison.CurrentCultureIgnoreCase); // then by bonus?
     }
 
     internal static int Compare(MonsterSkillProficiency x, MonsterSkillProficiency y)
     {
-        return x.SkillName.CompareTo(y.SkillName); // then by bonus?
+        return String.Compare(x.SkillName, y.SkillName, StringComparison.CurrentCultureIgnoreCase); // then by bonus?
     }
 
     internal static int Compare(MonsterAttackIteration x, MonsterAttackIteration y)
     {
-        return x.MonsterAttackDefinition.Name.CompareTo(y.MonsterAttackDefinition.Name);
+        return String.Compare(x.MonsterAttackDefinition.Name, y.MonsterAttackDefinition.Name, StringComparison.CurrentCultureIgnoreCase);
     }
 
 #pragma warning disable IDE0060 // Remove unused parameter

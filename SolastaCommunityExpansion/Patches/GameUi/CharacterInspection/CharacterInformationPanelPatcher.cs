@@ -312,7 +312,7 @@ internal static class CharacterInformationPanelRefresh
             {
                 found++;
 
-                if (found == 2 || found == 3)
+                if (found is 2 or 3)
                 {
                     yield return new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod);
                 }

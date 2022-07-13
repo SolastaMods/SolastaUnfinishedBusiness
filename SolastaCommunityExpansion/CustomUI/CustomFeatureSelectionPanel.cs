@@ -590,12 +590,7 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
 
     private string GetCustomSubClassTag()
     {
-        if (gainedSubclass == null)
-        {
-            return null;
-        }
-
-        return CustomFeaturesContext.CustomizeTag(GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass));
+        return gainedSubclass == null ? null : CustomFeaturesContext.CustomizeTag(GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass));
     }
 
     private void UpdateGrantedFeatures()
@@ -688,32 +683,34 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
     private void BuildLearnSteps()
     {
         // Register all steps
-        if (allPools != null && allPools.Count > 0)
+        if (allPools is not {Count: > 0})
         {
-            while (learnStepsTable.childCount < allPools.Count)
+            return;
+        }
+
+        while (learnStepsTable.childCount < allPools.Count)
+        {
+            Gui.GetPrefabFromPool(learnStepPrefab, learnStepsTable);
+        }
+
+        for (var i = 0; i < learnStepsTable.childCount; i++)
+        {
+            var child = learnStepsTable.GetChild(i);
+
+            if (i < allPools.Count)
             {
-                Gui.GetPrefabFromPool(learnStepPrefab, learnStepsTable);
+                var learnStepItem = child.GetComponent<LearnStepItem>();
+
+                child.gameObject.SetActive(true);
+                learnStepItem.CustomBind(i, allPools[i],
+                    OnLearnBack,
+                    OnLearnReset,
+                    OnSkipRemaining
+                );
             }
-
-            for (var i = 0; i < learnStepsTable.childCount; i++)
+            else
             {
-                var child = learnStepsTable.GetChild(i);
-
-                if (i < allPools.Count)
-                {
-                    var learnStepItem = child.GetComponent<LearnStepItem>();
-
-                    child.gameObject.SetActive(true);
-                    learnStepItem.CustomBind(i, allPools[i],
-                        OnLearnBack,
-                        OnLearnReset,
-                        OnSkipRemaining
-                    );
-                }
-                else
-                {
-                    child.gameObject.SetActive(false);
-                }
+                child.gameObject.SetActive(false);
             }
         }
     }
@@ -1253,7 +1250,8 @@ internal static class SpellBoxExtensions
         }
 
         title.Text = gui.Title;
-        image.SetupSprite(gui, true);
+
+        image.SetupSprite(gui);
     }
 
     public static void CustomUnbind(this SpellBox instance)

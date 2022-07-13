@@ -268,14 +268,7 @@ public static partial class ReflectionCache
                     il.Emit(OpCodes.Ldarg, i);
                 }
 
-                if (Info.IsVirtual)
-                {
-                    il.Emit(OpCodes.Callvirt, Info);
-                }
-                else
-                {
-                    il.Emit(OpCodes.Call, Info);
-                }
+                il.Emit(Info.IsVirtual ? OpCodes.Callvirt : OpCodes.Call, Info);
             }
 
             il.Emit(OpCodes.Ret);
