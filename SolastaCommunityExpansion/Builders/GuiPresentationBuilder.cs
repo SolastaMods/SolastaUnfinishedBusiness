@@ -6,8 +6,8 @@ namespace SolastaCommunityExpansion.Builders;
 
 public class GuiPresentationBuilder
 {
-    public static readonly string NoContentTitle = "Feature/&NoContentTitle";
-    public static readonly string EmptyString = "Feature/&Emptystring";
+    public const string NoContentTitle = "Feature/&NoContentTitle";
+    public const string EmptyString = "Feature/&Emptystring";
     public static readonly AssetReferenceSprite EmptySprite = new(string.Empty);
     private readonly GuiPresentation guiPresentation;
 

@@ -145,7 +145,7 @@ internal static class SignificantDigits
         if (significantDigits is < 1 or > 15)
         {
             throw new ArgumentOutOfRangeException(nameof(significantDigits), value,
-                "The significantDigits argument must be between 1 and 15.");
+                @"The significantDigits argument must be between 1 and 15.");
         }
 
         // The resulting rounding position will be negative for rounding at whole numbers, and positive for decimal places.
@@ -154,7 +154,7 @@ internal static class SignificantDigits
         // try to use a rounding position directly, if no scale is needed.
         // this is because the scale mutliplication after the rounding can introduce error, although 
         // this only happens when you're dealing with really tiny numbers, i.e 9.9e-14.
-        if (roundingPosition > 0 && roundingPosition < 16)
+        if (roundingPosition is > 0 and < 16)
         {
             return Math.Round(value, roundingPosition, MidpointRounding.AwayFromZero);
         }

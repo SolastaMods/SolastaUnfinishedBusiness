@@ -440,7 +440,6 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
     {
         var command = ServiceRepository.GetService<IHeroBuildingCommandService>();
         var acquiredFeatures = CollectAcquiredFeatures();
-        var classFeatures = GetNormalActiveFeatures(); //TODO: remove custom feture sets from acitve features
 
         command.ClearPrevious(currentHero, GetCustomClassTag());
         command.ClearPrevious(currentHero, GetCustomSubClassTag()); // skips cleaning if tag in null or empty
@@ -472,9 +471,8 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
 
             for (var i = 0; i < learned.Count;)
             {
-                List<string> q = new();
                 if (learned[i] is IFeatureDefinitionWithPrerequisites feature
-                    && !CustomFeaturesContext.GetValidationErrors(feature.Validators, out q))
+                    && !CustomFeaturesContext.GetValidationErrors(feature.Validators, out _))
                 {
                     dirty = true;
                     learned.RemoveAt(i);

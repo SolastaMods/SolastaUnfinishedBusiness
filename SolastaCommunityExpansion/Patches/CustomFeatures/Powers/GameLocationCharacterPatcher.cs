@@ -58,8 +58,6 @@ internal static class GameLocationCharacter_CanUseAtLeastOnPower
             }
 
             __result = true;
-
-            return;
         }
     }
 

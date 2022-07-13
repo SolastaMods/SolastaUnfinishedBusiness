@@ -1216,15 +1216,15 @@ internal sealed class ImprovedScoutSuitWeaponBuilder : ItemDefinitionBuilder
         var lightSourceForm = new LightSourceForm();
         lightSourceForm.Copy(Shine.EffectDescription.EffectForms[0].LightSourceForm);
 
-        var MagicalLightSourceEffect = new EffectForm
-        {
-            levelMultiplier = 1,
-            levelType = RuleDefinitions.LevelSourceType.CharacterLevel,
-            HasSavingThrow = false,
-            createdByCharacter = true,
-            FormType = EffectForm.EffectFormType.LightSource,
-            lightSourceForm = lightSourceForm
-        };
+        // var MagicalLightSourceEffect = new EffectForm
+        // {
+        //     levelMultiplier = 1,
+        //     levelType = RuleDefinitions.LevelSourceType.CharacterLevel,
+        //     HasSavingThrow = false,
+        //     createdByCharacter = true,
+        //     FormType = EffectForm.EffectFormType.LightSource,
+        //     lightSourceForm = lightSourceForm
+        // };
 
         Definition.WeaponDescription.EffectDescription.EffectForms.Add(EnemyAttackDisadvantageEffect);
         Definition.WeaponDescription.EffectDescription.EffectForms.Add(ExtraAttackEffect);

@@ -179,7 +179,7 @@ public class FeatureDefinitionRemoverBuilder
         try
         {
             var result = DatabaseHelper.GetDefinition<FeatureDefinition>(name, null);
-            if (result != null && result is FeatureDefinitionRemover remover)
+            if (result is FeatureDefinitionRemover remover)
             {
                 return remover;
             }

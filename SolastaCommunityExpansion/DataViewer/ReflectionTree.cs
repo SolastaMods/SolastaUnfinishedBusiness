@@ -462,10 +462,11 @@ internal abstract class GenericNode<TNode> : Node
         var itemTypes = InstType.GetInterfaces()
             .Where(item => item.IsGenericType && item.GetGenericTypeDefinition() == typeof(IEnumerable<>))
             .Select(item => item.GetGenericArguments()[0]);
-        var itemType = itemTypes.Count() == 1 ? itemTypes.First() : typeof(object);
+        var enumerable = itemTypes as Type[] ?? itemTypes.ToArray();
+        var itemType = enumerable.Length == 1 ? enumerable.First() : typeof(object);
         var nodeType = typeof(ItemNode<>).MakeGenericType(itemType);
         var i = 0;
-        foreach (var item in Value as IEnumerable)
+        foreach (var item in (IEnumerable) Value)
         {
             _itemNodes.Add(FindOrCreateChildForValue(nodeType, this, "<item_" + i + ">", item));
             i++;

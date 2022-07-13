@@ -81,13 +81,10 @@ internal static class RulesetImplementationManager_ApplySpellSlotsForm
         }
         else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.GainSorceryPoints)
         {
-            var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
-
             formsParams.sourceCharacter.GainSorceryPoints(spellSlotsForm.SorceryPointsGain);
         }
         else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecovererSorceryHalfLevelUp)
         {
-            var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
             var currentValue = substituteHero.ClassesAndLevels[Sorcerer];
             var sorceryPointsGain = (currentValue % 2) + (currentValue / 2);
 

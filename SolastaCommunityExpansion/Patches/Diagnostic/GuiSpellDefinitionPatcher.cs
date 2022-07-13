@@ -10,7 +10,7 @@ internal static class GuiSpellDefinition_EnumerateTags
 {
     public static void Postfix(GuiSpellDefinition __instance)
     {
-        if (SpellsContext.Spells.TryGetValue(__instance.SpellDefinition, out var record))
+        if (SpellsContext.Spells.TryGetValue(__instance.SpellDefinition, out _))
         {
             TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
                 CeContentPackContext.CeTag, TagsDefinitions.Criticity.Normal);

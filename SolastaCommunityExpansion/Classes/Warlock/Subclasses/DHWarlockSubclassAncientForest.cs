@@ -79,7 +79,7 @@ Different Archfey, e.g. Winter-themed
          * 
          * */
 
-        var lifeSapId = "AncientForestLifeSap";
+        const string lifeSapId = "AncientForestLifeSap";
 
         var lifeSapFeature = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
             .Create(lifeSapId, DefinitionBuilder.CENamespaceGuid)

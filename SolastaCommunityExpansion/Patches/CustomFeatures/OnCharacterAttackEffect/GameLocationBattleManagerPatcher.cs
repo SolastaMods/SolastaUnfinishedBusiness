@@ -93,9 +93,7 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
             damageForm.DiceNumber = 0;
             damageForm.BonusDamage = 0;
 
-            if (provider.DamageValueDetermination ==
-                RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus ||
-                provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
+            if (provider.DamageValueDetermination is RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus or RuleDefinitions.AdditionalDamageValueDetermination
                     .ProficiencyBonusAndSpellcastingBonus)
             {
                 // game code doesn't consider heroes in wildshape form
@@ -268,11 +266,10 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
                         Operation = conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add
                             ? ConditionForm.ConditionOperation.Add
                             : ConditionForm.ConditionOperation.Remove
-                    }
+                    },
+                    CanSaveToCancel = conditionOperation.CanSaveToCancel,
+                    SaveOccurence = conditionOperation.SaveOccurence
                 };
-
-                effectForm.CanSaveToCancel = conditionOperation.CanSaveToCancel;
-                effectForm.SaveOccurence = conditionOperation.SaveOccurence;
 
                 if (conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add &&
                     provider.HasSavingThrow)
@@ -424,7 +421,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
         //
 
         // Process this only when targeting a hero or monster
-        if (defender is {RulesetActor: { }} && (defender.RulesetActor is RulesetCharacterMonster || defender.RulesetActor is RulesetCharacterHero))
+        if (defender is {RulesetActor: RulesetCharacterMonster or RulesetCharacterHero})
         {
             // Can I add additional damage?
             __instance.triggeredAdditionalDamageTags.Clear();
@@ -537,7 +534,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                                      spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
                                      spellLevel++)
                                 {
-                                    spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out var max);
+                                    spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out _);
                                     // handle EldritchSmite case that can only consume pact slots
                                     //
                                     // patch here
@@ -670,8 +667,8 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                     else if (provider.TriggerCondition ==
                              RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage
                              && firstTarget
-                             && rulesetEffect is RulesetEffectSpell
-                             && (rulesetEffect as RulesetEffectSpell).SpellDefinition.SchoolOfMagic ==
+                             && rulesetEffect is RulesetEffectSpell spell
+                             && spell.SpellDefinition.SchoolOfMagic ==
                              RuleDefinitions.SchoolEvocation)
                     {
                         validTrigger = true;
@@ -679,9 +676,9 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                     else if (provider.TriggerCondition ==
                              RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage
                              && firstTarget
-                             && rulesetEffect is RulesetEffectPower
-                             && (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell != null
-                             && (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell
+                             && rulesetEffect is RulesetEffectPower power
+                             && power.PowerDefinition.SurrogateToSpell != null
+                             && power.PowerDefinition.SurrogateToSpell
                              .SchoolOfMagic == RuleDefinitions.SchoolEvocation)
                     {
                         validTrigger = true;

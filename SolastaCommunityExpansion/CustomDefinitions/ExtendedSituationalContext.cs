@@ -12,12 +12,12 @@ public static class CustomSituationalContext
     public static bool IsContextValid(RulesetImplementationDefinitions.SituationalContextParams contextParams, bool def)
     {
         var context = contextParams.situationalContext;
-        switch ((ExtendedSituationalContext)context)
+        
+        return (ExtendedSituationalContext)context switch
         {
-            case ExtendedSituationalContext.MainWeaponIsMelee:
-                return CharacterValidators.MainHandIsMeleeWeapon(contextParams.source);
-        }
-
-        return def;
+            ExtendedSituationalContext.MainWeaponIsMelee => CharacterValidators.MainHandIsMeleeWeapon(contextParams
+                .source),
+            _ => def
+        };
     }
 }

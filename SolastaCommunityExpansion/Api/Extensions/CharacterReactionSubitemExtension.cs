@@ -78,6 +78,11 @@ internal static class CharacterReactionSubitemExtension
         var spell = spellRepertoire.KnownSpells[slotLevel];
         var power = PowerBundleContext.GetPower(spell);
 
+        if (power == null)
+        {
+            return;
+        }
+        
         if (tooltip != null)
         {
             tooltip.Disabled = false;

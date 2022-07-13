@@ -51,14 +51,17 @@ internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
 
         // fix in DEBUG build to avoid the annoying assert statement about Feats acquired at level 1
         // it replaces the Trace comparision ClassesHistory.Count > 1 with ClassesHistory.Count > 0
-        if (Main.IsDebugBuild)
+        if (!Main.IsDebugBuild)
         {
-            var assertCheckIndex = codes.FindIndex(c => c.opcode == OpCodes.Ldc_I4_1);
+            return codes;
+        }
 
-            if (assertCheckIndex != -1)
-            {
-                codes[assertCheckIndex] = new CodeInstruction(OpCodes.Ldc_I4_0);
-            }
+
+        var assertCheckIndex = codes.FindIndex(c => c.opcode == OpCodes.Ldc_I4_1);
+
+        if (assertCheckIndex != -1)
+        {
+            codes[assertCheckIndex] = new CodeInstruction(OpCodes.Ldc_I4_0);
         }
 
         return codes;

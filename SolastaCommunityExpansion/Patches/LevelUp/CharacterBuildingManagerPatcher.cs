@@ -354,14 +354,14 @@ internal static class CharacterBuildingManager_UnassignRace
     internal static void Prefix(CharacterHeroBuildingData heroBuildingData)
     {
         var hero = heroBuildingData.HeroCharacter;
-        var tag = AttributeDefinitions.TagRace;
+        const string TAG = AttributeDefinitions.TagRace;
 
-        if (!hero.ActiveFeatures.ContainsKey(tag))
+        if (!hero.ActiveFeatures.ContainsKey(TAG))
         {
             return;
         }
 
-        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, TAG, hero.ActiveFeatures[TAG]);
     }
 }
 
@@ -372,14 +372,14 @@ internal static class CharacterBuildingManager_UnassignBackground
     internal static void Prefix(CharacterHeroBuildingData heroBuildingData)
     {
         var hero = heroBuildingData.HeroCharacter;
-        var tag = AttributeDefinitions.TagBackground;
+        const string TAG = AttributeDefinitions.TagBackground;
 
-        if (!hero.ActiveFeatures.ContainsKey(tag))
+        if (!hero.ActiveFeatures.ContainsKey(TAG))
         {
             return;
         }
 
-        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, TAG, hero.ActiveFeatures[TAG]);
     }
 }
 
@@ -505,7 +505,11 @@ internal static class CharacterBuildingManager_GetSpellFeature
         }
 
         var selectedClass = LevelUpContext.GetSelectedClass(hero);
-        var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+
+        if (selectedClass == null)
+        {
+            return true;
+        }
 
         var localTag = tag;
 
@@ -658,14 +662,6 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
         var subclassTag = hasSubclass && subclassDefinition != null
             ? AttributeDefinitions.GetSubclassTag(lastClassDefinition, level, subclassDefinition)
             : string.Empty;
-
-        var tag = spellCasting.SpellCastingOrigin switch
-        {
-            CastingOrigin.Class => classTag,
-            CastingOrigin.Subclass => subclassTag,
-            CastingOrigin.Race => AttributeDefinitions.TagRace,
-            _ => string.Empty
-        };
 
         //
         // BUGFIX: correctly apply bonus cantrips

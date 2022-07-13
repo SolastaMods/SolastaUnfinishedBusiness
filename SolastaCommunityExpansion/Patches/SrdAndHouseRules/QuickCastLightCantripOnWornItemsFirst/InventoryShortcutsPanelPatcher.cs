@@ -39,16 +39,19 @@ internal static class InventoryShortcutsPanel_OnCastLightCb
 
         // Torso
         var rulesetInventorySlote = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso];
-        if (rulesetInventorySlot2.EquipedItem != null)
+
+        if (rulesetInventorySlot2.EquipedItem == null)
         {
-            targetItem = rulesetInventorySlote.EquipedItem;
-            return true;
+            return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
         }
+
+        targetItem = rulesetInventorySlote.EquipedItem;
+        
+        return true;
 
         // Other...
 
         // Else default MainHand, OffHand
-        return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
     }
 
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

@@ -302,7 +302,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
         {
             if (namespaceGuid == Guid.Empty)
             {
-                throw new ArgumentException("Please supply a non-empty Guid", nameof(namespaceGuid));
+                throw new ArgumentException(@"Please supply a non-empty Guid", nameof(namespaceGuid));
             }
 
             // create guid from namespace+name
@@ -363,7 +363,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
         Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
         Preconditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
 
-        if (!Guid.TryParse(Definition.GUID, out var _))
+        if (!Guid.TryParse(Definition.GUID, out _))
         {
             throw new SolastaCommunityExpansionException(
                 $"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");

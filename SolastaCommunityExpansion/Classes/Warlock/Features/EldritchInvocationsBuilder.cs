@@ -19,14 +19,14 @@ internal static class EldritchInvocationsBuilder
 {
     private const string EldritchBlastName = "EldritchBlast";
 
-    public static AssetReferenceSprite EldritchBLastIcon =
+    private static readonly AssetReferenceSprite EldritchBLastIcon =
         CustomIcons.CreateAssetReferenceSprite("EldritchBlast", Resources.EldritchBlast, 128, 128);
 
-    public static AssetReferenceSprite EldritchBLastIconGrasp =
+    private static readonly AssetReferenceSprite EldritchBLastIconGrasp =
         CustomIcons.CreateAssetReferenceSprite("EldritchBlastGrasp", Resources.EldritchBlastGrasp, 128,
             128);
 
-    public static AssetReferenceSprite EldritchBLastIconRepell =
+    private static readonly AssetReferenceSprite EldritchBLastIconRepell =
         CustomIcons.CreateAssetReferenceSprite("EldritchBlastRepell", Resources.EldritchBlastRepell, 128,
             128);
 

@@ -34,7 +34,7 @@ public static class GuidHelper
 
         if (version != 3 && version != 5)
         {
-            throw new ArgumentOutOfRangeException(nameof(version), "version must be either 3 or 5.");
+            throw new ArgumentOutOfRangeException(nameof(version), @"version must be either 3 or 5.");
         }
 
         // convert the name to a sequence of octets (as defined by the standard or conventions of its namespace) (step 3)

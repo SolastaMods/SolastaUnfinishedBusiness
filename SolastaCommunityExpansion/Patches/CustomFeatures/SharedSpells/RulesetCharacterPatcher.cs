@@ -178,7 +178,6 @@ internal static class RulesetCharacter_RefreshSpellRepertoires
         }
 
         {
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
             var warlockSlotsCapacities =
                 warlockRepertoire.spellsSlotCapacities;
             var anySharedSlotsCapacities =
