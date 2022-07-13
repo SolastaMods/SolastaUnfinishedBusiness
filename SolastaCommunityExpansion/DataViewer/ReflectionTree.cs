@@ -116,35 +116,25 @@ public abstract class Node
         get
         {
             var count = 1;
+
             if (IsBaseType)
             {
                 return count;
             }
 
 #pragma warning disable CS0618 // Type or member is obsolete
-            if (Expanded == ToggleState.On)
-#pragma warning restore CS0618 // Type or member is obsolete
+            if (Expanded != ToggleState.On)
             {
-                foreach (var child in GetItemNodes())
-                {
-                    count += child.ExpandedNodeCount;
-                }
-
-                foreach (var child in GetComponentNodes())
-                {
-                    count += child.ExpandedNodeCount;
-                }
-
-                foreach (var child in GetPropertyNodes())
-                {
-                    count += child.ExpandedNodeCount;
-                }
-
-                foreach (var child in GetFieldNodes())
-                {
-                    count += child.ExpandedNodeCount;
-                }
+                return count;
             }
+
+            count += GetItemNodes().Sum(child => child.ExpandedNodeCount);
+
+            count += GetComponentNodes().Sum(child => child.ExpandedNodeCount);
+
+            count += GetPropertyNodes().Sum(child => child.ExpandedNodeCount);
+
+            count += GetFieldNodes().Sum(child => child.ExpandedNodeCount);
 
             return count;
         }
@@ -283,23 +273,32 @@ internal abstract class GenericNode<TNode> : Node
         }
         protected set
         {
-            if (!value?.Equals(_value) ?? _value != null)
+            if (!(!value?.Equals(_value) ?? _value != null))
             {
-                _value = value;
-                if (!Type.IsValueType || IsNullable)
-                {
-                    var oldType = _instType;
-                    _instType = value?.GetType();
-                    if (_instType != oldType)
-                    {
-                        _isBaseType = null;
-                        _isEnumerable = null;
-                        _isGameObject = null;
-                        _fieldIsDirty = true;
-                        _propertyIsDirty = true;
-                    }
-                }
+                return;
             }
+
+            _value = value;
+
+            if (Type.IsValueType && !IsNullable)
+            {
+                return;
+            }
+
+            var oldType = _instType;
+
+            _instType = value?.GetType();
+
+            if (_instType == oldType)
+            {
+                return;
+            }
+
+            _isBaseType = null;
+            _isEnumerable = null;
+            _isGameObject = null;
+            _fieldIsDirty = true;
+            _propertyIsDirty = true;
         }
     }
 
@@ -466,7 +465,7 @@ internal abstract class GenericNode<TNode> : Node
         var itemType = enumerable.Length == 1 ? enumerable.First() : typeof(object);
         var nodeType = typeof(ItemNode<>).MakeGenericType(itemType);
         var i = 0;
-        foreach (var item in (IEnumerable) Value)
+        foreach (var item in (IEnumerable)Value)
         {
             _itemNodes.Add(FindOrCreateChildForValue(nodeType, this, "<item_" + i + ">", item));
             i++;

@@ -36,16 +36,17 @@ internal static class RulesetCharacter_IsComponentMaterialValid
 
         __instance.CharacterInventory.EnumerateAllItems(items);
 
-        foreach (var item in from item in items
-                 let approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs)
-                 where item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) &&
-                       approximateCostInGold * item.StackCount >= spellDefinition.SpecificMaterialComponentCostGp
-                 select item)
+        if (!(from item in items
+                let approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs)
+                where item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) &&
+                      approximateCostInGold * item.StackCount >= spellDefinition.SpecificMaterialComponentCostGp
+                select item).Any())
         {
-            __result = true;
-
-            failure = string.Empty;
+            return;
         }
+
+        __result = true;
+        failure = string.Empty;
     }
 }
 

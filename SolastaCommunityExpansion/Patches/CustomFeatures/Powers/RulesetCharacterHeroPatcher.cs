@@ -83,29 +83,21 @@ internal static class RulesetCharacterHero_RefreshAll
         (originRace, originClass, _) = LookForFeatureOrigin(hero, featureDefinitionPower);
         var rulesetUsablePower = new RulesetUsablePower(featureDefinitionPower, originRace, originClass);
 
-        switch (featureDefinitionPower.RechargeRate)
+        rulesetUsablePower.UsesAttribute = featureDefinitionPower.RechargeRate switch
         {
-            case RuleDefinitions.RechargeRate.ChannelDivinity:
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.ChannelDivinityNumber);
-                break;
-            case RuleDefinitions.RechargeRate.HealingPool:
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.HealingPool);
-                break;
-            case RuleDefinitions.RechargeRate.SorceryPoints:
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.SorceryPoints);
-                break;
-            default:
-                rulesetUsablePower.UsesAttribute = featureDefinitionPower.UsesDetermination switch
-                {
-                    RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed => hero.GetAttribute(featureDefinitionPower
-                        .UsesAbilityScoreName),
-                    RuleDefinitions.UsesDetermination.ProficiencyBonus => hero.GetAttribute(AttributeDefinitions
-                        .ProficiencyBonus),
-                    _ => rulesetUsablePower.UsesAttribute
-                };
-
-                break;
-        }
+            RuleDefinitions.RechargeRate.ChannelDivinity => hero.GetAttribute(
+                AttributeDefinitions.ChannelDivinityNumber),
+            RuleDefinitions.RechargeRate.HealingPool => hero.GetAttribute(AttributeDefinitions.HealingPool),
+            RuleDefinitions.RechargeRate.SorceryPoints => hero.GetAttribute(AttributeDefinitions.SorceryPoints),
+            _ => featureDefinitionPower.UsesDetermination switch
+            {
+                RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed => hero.GetAttribute(featureDefinitionPower
+                    .UsesAbilityScoreName),
+                RuleDefinitions.UsesDetermination.ProficiencyBonus => hero.GetAttribute(AttributeDefinitions
+                    .ProficiencyBonus),
+                _ => rulesetUsablePower.UsesAttribute
+            }
+        };
 
         rulesetUsablePower.Recharge();
         return rulesetUsablePower;

@@ -70,13 +70,10 @@ public class ReactionRequestWarcaster : ReactionRequest
             }
         }
 
-        foreach (var pair in SubOptionsAvailability)
+        foreach (var pair in SubOptionsAvailability.Where(pair => pair.Value))
         {
-            if (pair.Value)
-            {
-                SelectSubOption(pair.Key);
-                break;
-            }
+            SelectSubOption(pair.Key);
+            break;
         }
     }
 

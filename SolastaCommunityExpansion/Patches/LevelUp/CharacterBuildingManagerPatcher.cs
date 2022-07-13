@@ -48,7 +48,8 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                 case FeatureDefinitionProficiency proficiency:
                     if (proficiency.ProficiencyType == RuleDefinitions.ProficiencyType.FightingStyle)
                     {
-                        foreach (var style in proficiency.Proficiencies.Select(name => DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(name)))
+                        foreach (var style in proficiency.Proficiencies.Select(name =>
+                                     DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(name)))
                         {
                             __instance.AcquireBonusFightingStyle(heroBuildingData, style, tag);
                         }
@@ -585,32 +586,23 @@ internal static class CharacterBuildingManager_UpgradeSpellPointPools
             var poolName = string.Empty;
             var maxPoints = 0;
 
-            if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                CastingOrigin.Class)
+            switch (spellRepertoire.SpellCastingFeature.SpellCastingOrigin)
             {
                 // PATCH: short circuit if the feature is for another class (change from native code)
-                if (spellRepertoire.SpellCastingClass != selectedClass)
-                {
+                case CastingOrigin.Class when spellRepertoire.SpellCastingClass != selectedClass:
                     continue;
-                }
-
-                poolName = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
-            }
-            else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                     CastingOrigin.Subclass)
-            {
+                case CastingOrigin.Class:
+                    poolName = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
+                    break;
                 // PATCH: short circuit if the feature is for another subclass (change from native code)
-                if (spellRepertoire.SpellCastingSubclass != selectedSubclass)
-                {
+                case CastingOrigin.Subclass when spellRepertoire.SpellCastingSubclass != selectedSubclass:
                     continue;
-                }
-
-                poolName = AttributeDefinitions.GetSubclassTag(selectedClass, selectedClassLevel, selectedSubclass);
-            }
-            else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                     CastingOrigin.Race)
-            {
-                poolName = AttributeDefinitions.TagRace;
+                case CastingOrigin.Subclass:
+                    poolName = AttributeDefinitions.GetSubclassTag(selectedClass, selectedClassLevel, selectedSubclass);
+                    break;
+                case CastingOrigin.Race:
+                    poolName = AttributeDefinitions.TagRace;
+                    break;
             }
 
             if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip)

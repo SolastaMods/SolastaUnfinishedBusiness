@@ -26,11 +26,13 @@ public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
     {
         get
         {
-            if (_fullSetIsDirty)
+            if (!_fullSetIsDirty)
             {
-                _allFeatureSet.SetRange(FeaturesByLevel.SelectMany(e => e.Value));
-                _fullSetIsDirty = false;
+                return _allFeatureSet;
             }
+
+            _allFeatureSet.SetRange(FeaturesByLevel.SelectMany(e => e.Value));
+            _fullSetIsDirty = false;
 
             return _allFeatureSet;
         }

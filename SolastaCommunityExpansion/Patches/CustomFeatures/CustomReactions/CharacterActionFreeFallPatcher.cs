@@ -60,15 +60,12 @@ internal static class CharacterActionFreeFall_HandleCharacterFall
                     continue;
                 }
 
-                if (effect.TargetType == RuleDefinitions.TargetType.Self && character == target)
+                switch (effect.TargetType)
                 {
-                    return true;
-                }
-
-                if (effect.TargetType == RuleDefinitions.TargetType.Individuals)
-                {
+                    case RuleDefinitions.TargetType.Self when character == target:
                     //TODO: check targeting side and range
-                    return true;
+                    case RuleDefinitions.TargetType.Individuals:
+                        return true;
                 }
             }
 
