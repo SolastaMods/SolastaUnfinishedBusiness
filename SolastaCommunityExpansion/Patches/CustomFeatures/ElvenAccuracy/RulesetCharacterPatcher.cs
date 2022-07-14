@@ -101,8 +101,8 @@ internal static class RulesetActor_RollDie
         Array.Sort(rolls);
 
         var line = Gui.Format("Feedback/&ElvenAccuracyTriggered",
-            hero.name, rolls[0].ToString(), rolls[1].ToString(),
-            rolls[2].ToString());
+            hero.name, rolls[2].ToString(), rolls[1].ToString(),
+            rolls[0].ToString());
 
         Gui.Game.GameConsole.LogSimpleLine(line);
 
