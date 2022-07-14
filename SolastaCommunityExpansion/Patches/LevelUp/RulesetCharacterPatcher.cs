@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacter_ComputeAutopreparedSpells
 {
-    internal static bool Prefix(RulesetCharacter __instance, RulesetSpellRepertoire spellRepertoire)
+    internal static bool Prefix([NotNull] RulesetCharacter __instance, [NotNull] RulesetSpellRepertoire spellRepertoire)
     {
         var spellcastingClass = spellRepertoire.SpellCastingClass;
         if (spellRepertoire.SpellCastingSubclass != null)
@@ -18,10 +19,12 @@ internal static class RulesetCharacter_ComputeAutopreparedSpells
 
         spellRepertoire.AutoPreparedSpells.Clear();
         __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(__instance.FeaturesToBrowse);
+
         foreach (var featureDefinition in __instance.FeaturesToBrowse)
         {
             var autoPreparedSpells = featureDefinition as FeatureDefinitionAutoPreparedSpells;
-            if (autoPreparedSpells.SpellcastingClass != spellcastingClass)
+
+            if (autoPreparedSpells!.SpellcastingClass != spellcastingClass)
             {
                 continue;
             }
@@ -39,7 +42,8 @@ internal static class RulesetCharacter_ComputeAutopreparedSpells
         return false;
     }
 
-    private static int GetSpellcastingLevel(RulesetCharacter character, RulesetSpellRepertoire spellRepertoire)
+    private static int GetSpellcastingLevel([NotNull] RulesetCharacter character,
+        RulesetSpellRepertoire spellRepertoire)
     {
         if (character is not RulesetCharacterHero hero)
         {
@@ -56,7 +60,8 @@ internal static class RulesetCharacter_ComputeAutopreparedSpells
             : character.GetAttribute(AttributeDefinitions.CharacterLevel).BaseValue;
     }
 
-    private static CharacterClassDefinition GetClassForSubclass(CharacterSubclassDefinition subclass)
+    [CanBeNull]
+    private static CharacterClassDefinition GetClassForSubclass(BaseDefinition subclass)
     {
         return DatabaseRepository.GetDatabase<CharacterClassDefinition>().FirstOrDefault(klass =>
         {

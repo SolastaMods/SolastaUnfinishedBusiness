@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FeatSubPanel_Bind
 {
-    internal static void Prefix(FeatSubPanel __instance)
+    internal static void Prefix([NotNull] FeatSubPanel __instance)
     {
         var dbFeatDefinition = DatabaseRepository.GetDatabase<FeatDefinition>();
 
@@ -41,16 +42,17 @@ internal static class FeatSubPanel_Bind
     }
 }
 
-// enforce feat selection panel to always display 4 columns for easy selection
+// enforce feat selection panel to always display same-width columns for easy selection
 [HarmonyPatch(typeof(FeatSubPanel), "SetState")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FeatSubPanel_SetState
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
-        var forceRebuildLayoutImmediateMethod = typeof(LayoutRebuilder).GetMethod("ForceRebuildLayoutImmediate",
-            BindingFlags.Static | BindingFlags.Public);
-        var forceSameWidthMethod = typeof(FeatSubPanel_SetState).GetMethod("ForceSameWidth");
+        var forceRebuildLayoutImmediateMethod = typeof(LayoutRebuilder)
+            .GetMethod("ForceRebuildLayoutImmediate", BindingFlags.Static | BindingFlags.Public);
+        var forceSameWidthMethod = new Action<RectTransform, bool>(ForceSameWidth).Method;
 
         var code = instructions.ToList();
         var index = code.FindIndex(x => x.Calls(forceRebuildLayoutImmediateMethod));
@@ -61,58 +63,53 @@ internal static class FeatSubPanel_SetState
         return code;
     }
 
-    // ReSharper disable once UnusedMember.Global
-    public static void ForceSameWidth(RectTransform table, bool active)
+    private static void ForceSameWidth(RectTransform table, bool active)
     {
         const int COLUMNS = 3;
         const int WIDTH = 300;
-        const int HEIGHT = 34;
+        const int HEIGHT = 44;
         const int SPACING = 5;
 
         if (active && Main.Settings.EnableSameWidthFeatSelection)
         {
             var hero = Global.ActiveLevelUpHero;
 
-            if (hero != null)
+            var buildingData = hero?.GetHeroBuildingData();
+
+            if (buildingData == null)
             {
-                var buildingData = hero.GetHeroBuildingData();
+                return;
+            }
 
-                if (buildingData == null)
+            var trainedFeats = buildingData.LevelupTrainedFeats.SelectMany(x => x.Value).ToList();
+
+            trainedFeats.AddRange(hero.TrainedFeats);
+
+            var j = 0;
+            var rect = table.GetComponent<RectTransform>();
+
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, ((table.childCount / COLUMNS) + 1) * (HEIGHT + SPACING));
+
+            for (var i = 0; i < table.childCount; i++)
+            {
+                var child = table.GetChild(i);
+                var featItem = child.GetComponent<FeatItem>();
+
+                if (trainedFeats.Contains(featItem.GuiFeatDefinition.FeatDefinition))
                 {
-                    return;
+                    continue;
                 }
 
-                var trainedFeats = buildingData.LevelupTrainedFeats.SelectMany(x => x.Value).ToList();
+                var x = j % COLUMNS;
+                var y = j / COLUMNS;
+                var posX = x * (WIDTH + (SPACING * 2));
+                var posY = -y * (HEIGHT + SPACING);
 
-                trainedFeats.AddRange(hero.TrainedFeats);
+                rect = child.GetComponent<RectTransform>();
+                rect.anchoredPosition = new Vector2(posX, posY);
+                rect.sizeDelta = new Vector2(WIDTH, HEIGHT);
 
-                var j = 0;
-                var rect = table.GetComponent<RectTransform>();
-
-                rect.sizeDelta = new Vector2(rect.sizeDelta.x, ((table.childCount / COLUMNS) + 1) * (HEIGHT + SPACING));
-
-                for (var i = 0; i < table.childCount; i++)
-                {
-                    var child = table.GetChild(i);
-
-                    var featItem = child.GetComponent<FeatItem>();
-
-                    if (trainedFeats.Contains(featItem.GuiFeatDefinition.FeatDefinition))
-                    {
-                        continue;
-                    }
-
-                    var x = j % COLUMNS;
-                    var y = j / COLUMNS;
-                    var posX = x * (WIDTH + (SPACING * 2));
-                    var posY = -y * (HEIGHT + SPACING);
-
-                    rect = child.GetComponent<RectTransform>();
-                    rect.anchoredPosition = new Vector2(posX, posY);
-                    rect.sizeDelta = new Vector2(WIDTH, HEIGHT);
-
-                    j++;
-                }
+                j++;
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FeatureDescriptionItem_Bind
 {
-    public static void Postfix(FeatureDescriptionItem __instance)
+    public static void Postfix([NotNull] FeatureDescriptionItem __instance)
     {
         var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
         var currentLocalHeroCharacter = characterBuildingService.CurrentLocalHeroCharacter;
@@ -19,7 +20,6 @@ internal static class FeatureDescriptionItem_Bind
             return;
         }
 
-        //__instance.choiceDropdown.enabled = false;
         __instance.choiceDropdown.gameObject.SetActive(false);
     }
 }

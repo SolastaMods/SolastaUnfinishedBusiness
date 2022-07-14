@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
 
@@ -12,7 +13,8 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterEditionScreen_LoadStagePanels
 {
-    private static CustomFeatureSelectionPanel GetPanel(CharacterEditionScreen __instance)
+    [NotNull]
+    private static CustomFeatureSelectionPanel GetPanel([NotNull] CharacterEditionScreen __instance)
     {
         var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
         var stagePanelPrefabs =
@@ -87,7 +89,7 @@ internal static class CharacterEditionScreen_LoadStagePanels
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterEditionScreen_DoAbort
 {
-    internal static void Prefix(CharacterEditionScreen __instance)
+    internal static void Prefix([NotNull] CharacterEditionScreen __instance)
     {
         LevelUpContext.UnregisterHero(__instance.currentHero);
     }

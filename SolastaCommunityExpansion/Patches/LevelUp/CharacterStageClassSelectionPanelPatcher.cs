@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageClassSelectionPanel_OnBeginShow
 {
-    internal static void Prefix(CharacterStageClassSelectionPanel __instance)
+    internal static void Prefix([NotNull] CharacterStageClassSelectionPanel __instance)
     {
         // avoids a restart when enabling / disabling classes on the Mod UI panel
         if (!LevelUpContext.IsLevelingUp(__instance.currentHero))
@@ -53,7 +54,7 @@ internal static class CharacterStageClassSelectionPanel_OnBeginShow
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageClassSelectionPanel_OnEndHide
 {
-    internal static void Prefix(CharacterStageClassSelectionPanel __instance)
+    internal static void Prefix([NotNull] CharacterStageClassSelectionPanel __instance)
     {
         if (__instance.currentHero != null && LevelUpContext.IsLevelingUp(__instance.currentHero))
         {
@@ -67,7 +68,7 @@ internal static class CharacterStageClassSelectionPanel_OnEndHide
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageClassSelectionPanel_FillClassFeatures
 {
-    public static int Level(FeatureUnlockByLevel featureUnlockByLevel, RulesetCharacterHero hero)
+    public static int Level([NotNull] FeatureUnlockByLevel featureUnlockByLevel, [NotNull] RulesetCharacterHero hero)
     {
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var selectedClass = LevelUpContext.GetSelectedClass(hero);
@@ -77,7 +78,10 @@ internal static class CharacterStageClassSelectionPanel_FillClassFeatures
             return featureUnlockByLevel.Level;
         }
 
-        if (hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
+        var levels = 0;
+
+        if (selectedClass != null
+            && hero.ClassesAndLevels.TryGetValue(selectedClass, out levels)
             && featureUnlockByLevel.Level != levels + 1)
         {
             return int.MaxValue;
@@ -91,7 +95,8 @@ internal static class CharacterStageClassSelectionPanel_FillClassFeatures
         return featureUnlockByLevel.Level - 1;
     }
 
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
         var myLevelMethod = typeof(CharacterStageClassSelectionPanel_FillClassFeatures).GetMethod("Level");
@@ -120,12 +125,13 @@ internal static class CharacterStageClassSelectionPanel_FillClassFeatures
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageClassSelectionPanel_Refresh
 {
-    public static bool SetActive(RulesetCharacterHero currentHero)
+    public static bool SetActive([NotNull] RulesetCharacterHero currentHero)
     {
         return !LevelUpContext.IsLevelingUp(currentHero);
     }
 
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var setActiveFound = 0;
         var setActiveMethod = typeof(GameObject).GetMethod("SetActive");
