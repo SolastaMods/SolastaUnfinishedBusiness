@@ -169,7 +169,8 @@ internal static class RulesetCharacter_RefreshSpellRepertoires
         var warlockRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
         var anySharedRepertoire = heroWithSpellRepertoire.SpellRepertoires.Find(sr =>
             !SharedSpellsContext.IsWarlock(sr.SpellCastingClass) &&
-            sr.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Class or FeatureDefinitionCastSpell.CastingOrigin.Subclass);
+            sr.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Class
+                or FeatureDefinitionCastSpell.CastingOrigin.Subclass);
 
         // combines the Shared Slot System and Warlock Pact Magic
         if (warlockRepertoire == null || anySharedRepertoire == null)

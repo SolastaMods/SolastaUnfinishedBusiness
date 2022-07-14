@@ -52,16 +52,19 @@ public static class GUIHelper
     {
         var old = value;
         TextField(ref value, style, options);
-        if (value != old)
+
+        if (value == old)
         {
-            if (onClear != null && string.IsNullOrEmpty(value))
-            {
-                onClear();
-            }
-            else
-            {
-                onChanged();
-            }
+            return;
+        }
+
+        if (onClear != null && string.IsNullOrEmpty(value))
+        {
+            onClear();
+        }
+        else
+        {
+            onChanged();
         }
     }
 

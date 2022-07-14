@@ -72,59 +72,64 @@ internal static class RitualSelectionPanel_Bind
 
             var maxSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
 
-            if (featureDefinitionMagicAffinity.RitualCasting == RuleDefinitions.RitualCasting.Prepared
-                && spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared
-                && spellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.WholeList)
+            switch (featureDefinitionMagicAffinity.RitualCasting)
             {
-                var spells = spellRepertoire.PreparedSpells
-                    .Where(s => s.Ritual)
-                    .Where(s => maxSpellLevel >= s.SpellLevel)
-                    .ToList();
-
-                ritualSpells.AddRange(spells);
-            }
-            else if (featureDefinitionMagicAffinity.RitualCasting == RuleDefinitions.RitualCasting.Spellbook
-                     && spellRepertoire.SpellCastingFeature.SpellKnowledge ==
-                     RuleDefinitions.SpellKnowledge.Spellbook)
-            {
-                rulesetCharacter.CharacterInventory.EnumerateAllItems(rulesetCharacter.Items);
-
-                var spells = rulesetCharacter.Items
-                    .OfType<RulesetItemSpellbook>()
-                    .SelectMany(x => x.ScribedSpells)
-                    .ToList();
-
-                spells = spells
-                    .Where(s => s.Ritual)
-                    .Where(s => maxSpellLevel >= s.SpellLevel)
-                    .ToList();
-
-                rulesetCharacter.Items.Clear();
-
-                ritualSpells.AddRange(spells);
-            }
-            //
-            // Special case for Witch
-            //
-            else if (featureDefinitionMagicAffinity.RitualCasting ==
-                     (RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
-            {
-                var spells = spellRepertoire.KnownSpells
-                    .Where(s => s.Ritual)
-                    .Where(s => maxSpellLevel >= s.SpellLevel);
-
-                ritualSpells.AddRange(spells);
-
-                if (spellRepertoire.AutoPreparedSpells == null)
+                case RuleDefinitions.RitualCasting.Prepared
+                    when spellRepertoire.SpellCastingFeature.SpellReadyness ==
+                    RuleDefinitions.SpellReadyness.Prepared && spellRepertoire.SpellCastingFeature.SpellKnowledge ==
+                    RuleDefinitions.SpellKnowledge.WholeList:
                 {
-                    return;
+                    var spells = spellRepertoire.PreparedSpells
+                        .Where(s => s.Ritual)
+                        .Where(s => maxSpellLevel >= s.SpellLevel)
+                        .ToList();
+
+                    ritualSpells.AddRange(spells);
+                    break;
                 }
+                case RuleDefinitions.RitualCasting.Spellbook when spellRepertoire.SpellCastingFeature.SpellKnowledge ==
+                                                                  RuleDefinitions.SpellKnowledge.Spellbook:
+                {
+                    rulesetCharacter.CharacterInventory.EnumerateAllItems(rulesetCharacter.Items);
 
-                spells = spellRepertoire.AutoPreparedSpells
-                    .Where(s => s.Ritual)
-                    .Where(s => maxSpellLevel >= s.SpellLevel);
+                    var spells = rulesetCharacter.Items
+                        .OfType<RulesetItemSpellbook>()
+                        .SelectMany(x => x.ScribedSpells)
+                        .ToList();
 
-                ritualSpells.AddRange(spells);
+                    spells = spells
+                        .Where(s => s.Ritual)
+                        .Where(s => maxSpellLevel >= s.SpellLevel)
+                        .ToList();
+
+                    rulesetCharacter.Items.Clear();
+
+                    ritualSpells.AddRange(spells);
+                    break;
+                }
+                //
+                // Special case for Witch
+                //
+                case (RuleDefinitions.RitualCasting)ExtraRitualCasting.Known:
+                {
+                    var spells = spellRepertoire.KnownSpells
+                        .Where(s => s.Ritual)
+                        .Where(s => maxSpellLevel >= s.SpellLevel);
+
+                    ritualSpells.AddRange(spells);
+
+                    if (spellRepertoire.AutoPreparedSpells == null)
+                    {
+                        return;
+                    }
+
+                    spells = spellRepertoire.AutoPreparedSpells
+                        .Where(s => s.Ritual)
+                        .Where(s => maxSpellLevel >= s.SpellLevel);
+
+                    ritualSpells.AddRange(spells);
+                    break;
+                }
             }
         }
 

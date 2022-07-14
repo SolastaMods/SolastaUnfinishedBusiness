@@ -510,13 +510,15 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
                     Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
                 }
 
-                if (string.IsNullOrEmpty(Definition.GuiPresentation.Description))
+                if (!string.IsNullOrEmpty(Definition.GuiPresentation.Description))
                 {
-                    Main.Log(
-                        $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
-
-                    Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
+                    return;
                 }
+
+                Main.Log(
+                    $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
+
+                Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
             }
         }
     }

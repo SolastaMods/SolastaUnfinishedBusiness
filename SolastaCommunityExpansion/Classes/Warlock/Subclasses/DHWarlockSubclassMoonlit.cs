@@ -300,14 +300,16 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
         var hero = characterAction.ActingCharacter.RulesetCharacter;
         var action = characterAction.ActionDefinition;
 
-        if (action.Name.StartsWith("Attack") || action.Name.StartsWith("Cast") ||
-            action.Name.StartsWith(TagsDefinitions.Power))
+        if (!action.Name.StartsWith("Attack") && !action.Name.StartsWith("Cast") &&
+            !action.Name.StartsWith(TagsDefinitions.Power))
         {
-            var ruleEffect = characterAction.ActionParams.RulesetEffect;
-            if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
-            {
-                BecomeRevealed(hero);
-            }
+            return;
+        }
+
+        var ruleEffect = characterAction.ActionParams.RulesetEffect;
+        if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
+        {
+            BecomeRevealed(hero);
         }
     }
 
@@ -353,35 +355,39 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
     /**Returns true if effect is self teleport or any self targeting spell that is self-buff*/
     private static bool IsAllowedEffect(EffectDescription effect)
     {
-        if (effect.TargetType == TargetType.Position)
+        switch (effect.TargetType)
         {
-            foreach (var form in effect.EffectForms)
+            case TargetType.Position:
             {
-                if (form.FormType != EffectForm.EffectFormType.Motion) { return false; }
+                foreach (var form in effect.EffectForms)
+                {
+                    if (form.FormType != EffectForm.EffectFormType.Motion) { return false; }
 
-                if (form.MotionForm.Type != MotionForm.MotionType.TeleportToDestination) { return false; }
+                    if (form.MotionForm.Type != MotionForm.MotionType.TeleportToDestination) { return false; }
+                }
+
+                break;
             }
-        }
-        else if (effect.TargetType == TargetType.Self)
-        {
-            foreach (var form in effect.EffectForms)
+            case TargetType.Self:
             {
-                if (form.FormType == EffectForm.EffectFormType.Damage) { return false; }
+                foreach (var form in effect.EffectForms)
+                {
+                    switch (form.FormType)
+                    {
+                        case EffectForm.EffectFormType.Damage:
+                        case EffectForm.EffectFormType.Healing:
+                        case EffectForm.EffectFormType.ShapeChange:
+                        case EffectForm.EffectFormType.Summon:
+                        case EffectForm.EffectFormType.Counter:
+                        case EffectForm.EffectFormType.Motion:
+                            return false;
+                    }
+                }
 
-                if (form.FormType == EffectForm.EffectFormType.Healing) { return false; }
-
-                if (form.FormType == EffectForm.EffectFormType.ShapeChange) { return false; }
-
-                if (form.FormType == EffectForm.EffectFormType.Summon) { return false; }
-
-                if (form.FormType == EffectForm.EffectFormType.Counter) { return false; }
-
-                if (form.FormType == EffectForm.EffectFormType.Motion) { return false; }
+                break;
             }
-        }
-        else
-        {
-            return false;
+            default:
+                return false;
         }
 
         return true;

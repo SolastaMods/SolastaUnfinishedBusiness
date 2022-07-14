@@ -16,18 +16,20 @@ public static class ExtraAttacksOnActionPanel
     {
         var insertionIndex = instructions.FindIndex(x => x.opcode == OpCodes.Ldloc_2);
 
-        if (insertionIndex > 0)
+        if (insertionIndex <= 0)
         {
-            var method = new Func<RulesetAttackMode, CursorLocationSelectTarget, RulesetAttackMode>(
-                GetAttackModeFromCursorActionParams).Method;
-
-            instructions.InsertRange(insertionIndex + 1,
-                new[]
-                {
-                    new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Call, method),
-                    new CodeInstruction(OpCodes.Stloc_2), new CodeInstruction(OpCodes.Ldloc_2)
-                });
+            return;
         }
+
+        var method = new Func<RulesetAttackMode, CursorLocationSelectTarget, RulesetAttackMode>(
+            GetAttackModeFromCursorActionParams).Method;
+
+        instructions.InsertRange(insertionIndex + 1,
+            new[]
+            {
+                new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Call, method),
+                new CodeInstruction(OpCodes.Stloc_2), new CodeInstruction(OpCodes.Ldloc_2)
+            });
     }
 
     private static RulesetAttackMode GetAttackModeFromCursorActionParams(RulesetAttackMode def,
@@ -93,11 +95,14 @@ public static class ExtraAttacksOnActionPanel
             }
 
             var component = child.GetComponent<CharacterActionItem>();
-            if (component.CurrentItemForm.GuiCharacterAction.ActionId == actionId)
+
+            if (component.CurrentItemForm.GuiCharacterAction.ActionId != actionId)
             {
-                index = i + 1;
-                break;
+                continue;
             }
+
+            index = i + 1;
+            break;
         }
 
         while (tableRectTransform.childCount < startIndex + newItems)

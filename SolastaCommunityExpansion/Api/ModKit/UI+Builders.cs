@@ -50,12 +50,14 @@ public static partial class UI
 
     public static void If(bool value, params Action[] actions)
     {
-        if (value)
+        if (!value)
         {
-            foreach (var action in actions)
-            {
-                action();
-            }
+            return;
+        }
+
+        foreach (var action in actions)
+        {
+            action();
         }
     }
 

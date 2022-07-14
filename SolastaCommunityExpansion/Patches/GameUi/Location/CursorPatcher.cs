@@ -19,7 +19,8 @@ internal static class Cursor_OnClickSecondaryPointer
 
         Main.Log($"{__instance.GetType().Name}: Right-click");
 
-        if (__instance is CursorCampaignDefault or CursorEditableGraphDefault or CursorLocationBattleDefault or CursorLocationEditorDefault or CursorLocationExplorationDefault)
+        if (__instance is CursorCampaignDefault or CursorEditableGraphDefault or CursorLocationBattleDefault
+            or CursorLocationEditorDefault or CursorLocationExplorationDefault)
         {
             return;
         }

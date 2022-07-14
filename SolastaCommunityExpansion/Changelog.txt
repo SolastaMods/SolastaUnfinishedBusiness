@@ -3,7 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Add Gray Dwarf sub race
-- Replace bless with Healing Word on Celestial Touched
-- Remove point buy patch now fixed by TA
-- Tweak feat titles for better UI fit
+- Allow gamepass users to boot [TA not using same code base there]

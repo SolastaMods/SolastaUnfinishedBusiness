@@ -125,12 +125,14 @@ internal static class RulesetSpellRepertoirePatcher
             max = 0;
             remaining = 0;
 
-            if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
+            if (spellLevel > __instance.MaxSpellLevelOfSpellCastingLevel)
             {
-                __instance.spellsSlotCapacities.TryGetValue(1, out max);
-                __instance.usedSpellsSlots.TryGetValue(1, out var used);
-                remaining = max - used;
+                return false;
             }
+
+            __instance.spellsSlotCapacities.TryGetValue(1, out max);
+            __instance.usedSpellsSlots.TryGetValue(1, out var used);
+            remaining = max - used;
 
             return false;
         }
@@ -233,7 +235,7 @@ internal static class RulesetSpellRepertoirePatcher
             var pactRemainingSlots = pactMaxSlots - usedPactSlots;
 
             warlockSpellRepertoire.GetSlotsNumber(slotLevel, out var sharedRemainingSlots, out _);
-            
+
             sharedRemainingSlots -= pactRemainingSlots;
 
             var isShiftPressed = !Global.IsMultiplayer &&

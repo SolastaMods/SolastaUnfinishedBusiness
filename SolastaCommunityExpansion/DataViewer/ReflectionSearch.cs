@@ -75,11 +75,13 @@ public class ReflectionSearch : MonoBehaviour
     {
         get
         {
-            if (_shared == null)
+            if (_shared != null)
             {
-                _shared = new GameObject().AddComponent<ReflectionSearch>();
-                DontDestroyOnLoad(_shared.gameObject);
+                return _shared;
             }
+
+            _shared = new GameObject().AddComponent<ReflectionSearch>();
+            DontDestroyOnLoad(_shared.gameObject);
 
             return _shared;
         }
@@ -105,13 +107,15 @@ public class ReflectionSearch : MonoBehaviour
 
         SequenceNumber++;
         Main.Log($"seq: {SequenceNumber} - search for: {searchText}");
-        if (searchText.Length != 0)
+        if (searchText.Length == 0)
         {
-            var todo = new List<Node> {node};
-
-            searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updator, resultRoot);
-            StartCoroutine(searchCoroutine);
+            return;
         }
+
+        var todo = new List<Node> {node};
+
+        searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updator, resultRoot);
+        StartCoroutine(searchCoroutine);
     }
 
     public void Stop()
@@ -193,10 +197,7 @@ public class ReflectionSearch : MonoBehaviour
 
                 try
                 {
-                    foreach (var child in node.GetItemNodes())
-                    {
-                        newTodo.Add(child);
-                    }
+                    newTodo.AddRange(node.GetItemNodes());
                 }
                 catch (Exception e)
                 {
@@ -205,10 +206,7 @@ public class ReflectionSearch : MonoBehaviour
 
                 try
                 {
-                    foreach (var child in node.GetComponentNodes())
-                    {
-                        newTodo.Add(child);
-                    }
+                    newTodo.AddRange(node.GetComponentNodes());
                 }
                 catch (Exception e)
                 {
@@ -217,10 +215,7 @@ public class ReflectionSearch : MonoBehaviour
 
                 try
                 {
-                    foreach (var child in node.GetPropertyNodes())
-                    {
-                        newTodo.Add(child);
-                    }
+                    newTodo.AddRange(node.GetPropertyNodes());
                 }
                 catch (Exception e)
                 {
@@ -229,10 +224,7 @@ public class ReflectionSearch : MonoBehaviour
 
                 try
                 {
-                    foreach (var child in node.GetFieldNodes())
-                    {
-                        newTodo.Add(child);
-                    }
+                    newTodo.AddRange(node.GetFieldNodes());
                 }
                 catch (Exception e)
                 {

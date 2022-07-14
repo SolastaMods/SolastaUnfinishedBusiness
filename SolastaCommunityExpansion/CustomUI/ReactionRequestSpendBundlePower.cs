@@ -130,13 +130,16 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
             modifiers.Add(modifier);
 
             var targets = powerEffect.ComputeTargetParameter();
-            if (effectDescription.IsSingleTarget && targets > 1)
+
+            if (!effectDescription.IsSingleTarget || targets <= 1)
             {
-                while (target != null && modifier != null && targetCharacters.Count < targets)
-                {
-                    targetCharacters.Add(target);
-                    modifiers.Add(modifier);
-                }
+                return;
+            }
+
+            while (target != null && modifier != null && targetCharacters.Count < targets)
+            {
+                targetCharacters.Add(target);
+                modifiers.Add(modifier);
             }
         }
     }

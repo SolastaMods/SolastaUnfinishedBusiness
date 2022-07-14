@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
@@ -13,11 +14,11 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class SpellsByLevelGroup_BindLearning
 {
-    internal static void FilterMulticlassBleeding(
-        SpellsByLevelGroup __instance,
-        RulesetCharacterHero caster,
-        List<SpellDefinition> allSpells,
-        List<SpellDefinition> auToPreparedSpells)
+    private static void FilterMulticlassBleeding(
+        [NotNull] SpellsByLevelGroup __instance,
+        [NotNull] RulesetCharacterHero caster,
+        [NotNull] List<SpellDefinition> allSpells,
+        [NotNull] List<SpellDefinition> auToPreparedSpells)
     {
         // avoids auto prepared spells from other classes to bleed in
         var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(caster)
@@ -55,10 +56,10 @@ internal static class SpellsByLevelGroup_BindLearning
     }
 
     private static void CollectAllAutoPreparedSpells(
-        SpellsByLevelGroup __instance,
-        RulesetCharacterHero hero,
-        List<SpellDefinition> allSpells,
-        List<SpellDefinition> auToPreparedSpells)
+        [NotNull] SpellsByLevelGroup __instance,
+        [NotNull] RulesetActor hero,
+        [NotNull] List<SpellDefinition> allSpells,
+        [NotNull] ICollection<SpellDefinition> auToPreparedSpells)
     {
         // Collect all the auto prepared spells.
         // Also filter the prepped spells by level this group is displaying.
@@ -82,15 +83,15 @@ internal static class SpellsByLevelGroup_BindLearning
     }
 
     public static bool Prefix(
-        SpellsByLevelGroup __instance,
-        ICharacterBuildingService characterBuildingService,
-        SpellListDefinition spellListDefinition,
+        [NotNull] SpellsByLevelGroup __instance,
+        [NotNull] ICharacterBuildingService characterBuildingService,
+        [NotNull] SpellListDefinition spellListDefinition,
         List<string> restrictedSchools,
         int spellLevel,
         SpellBox.SpellBoxChangedHandler spellBoxChanged,
         List<SpellDefinition> knownSpells,
         List<SpellDefinition> unlearnedSpells,
-        string spellTag,
+        [NotNull] string spellTag,
         bool canAcquireSpells,
         bool unlearn,
         RectTransform tooltipAnchor,

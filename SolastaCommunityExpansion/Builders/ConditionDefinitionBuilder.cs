@@ -237,11 +237,14 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         Definition.allowMultipleInstances = false;
         Definition.durationType = durationType;
         Definition.durationParameter = durationParameter;
-        if (silent)
+
+        if (!silent)
         {
-            Definition.silentWhenAdded = true;
-            Definition.silentWhenRemoved = true;
+            return This();
         }
+
+        Definition.silentWhenAdded = true;
+        Definition.silentWhenRemoved = true;
 
         return This();
     }

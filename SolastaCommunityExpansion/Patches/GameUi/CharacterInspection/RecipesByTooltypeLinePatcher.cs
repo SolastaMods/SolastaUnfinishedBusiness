@@ -14,7 +14,8 @@ internal static class RecipesByTooltypeLine_Load
     internal static void Prefix(List<RecipeDefinition> recipes)
     {
         recipes.Sort((a, b) =>
-            String.Compare(a.CraftedItem.FormatTitle(), b.CraftedItem.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
+            String.Compare(a.CraftedItem.FormatTitle(), b.CraftedItem.FormatTitle(),
+                StringComparison.CurrentCultureIgnoreCase));
     }
 }
 

@@ -305,37 +305,31 @@ public class AddBonusShieldAttack : AddExtraAttackBase
 
         var features = new List<FeatureDefinition>();
 
-        var bonus = 0;
         offHandItem.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
-        foreach (var modifier in features.OfType<FeatureDefinitionAttributeModifier>())
+
+        var bonus = (from modifier in features.OfType<FeatureDefinitionAttributeModifier>()
+            where modifier.ModifiedAttribute == AttributeDefinitions.ArmorClass
+            where modifier.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive
+            select modifier.ModifierValue).Sum();
+
+        if (bonus == 0)
         {
-            if (modifier.ModifiedAttribute != AttributeDefinitions.ArmorClass)
-            {
-                continue;
-            }
-
-            if (modifier.ModifierType != FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
-            {
-                continue;
-            }
-
-            bonus += modifier.ModifierValue;
+            return new List<RulesetAttackMode> {attackMode};
         }
 
-        if (bonus != 0)
+        var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+        var trendInfo = new TrendInfo(bonus, FeatureSourceType.Equipment, offHandItem.Name, null);
+
+        attackMode.ToHitBonus += bonus;
+        attackMode.ToHitBonusTrends.Add(trendInfo);
+
+        if (damage == null)
         {
-            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
-            var trendInfo = new TrendInfo(bonus, FeatureSourceType.Equipment, offHandItem.Name, null);
-
-            attackMode.ToHitBonus += bonus;
-            attackMode.ToHitBonusTrends.Add(trendInfo);
-
-            if (damage != null)
-            {
-                damage.BonusDamage += bonus;
-                damage.DamageBonusTrends.Add(trendInfo);
-            }
+            return new List<RulesetAttackMode> {attackMode};
         }
+
+        damage.BonusDamage += bonus;
+        damage.DamageBonusTrends.Add(trendInfo);
 
         return new List<RulesetAttackMode> {attackMode};
     }

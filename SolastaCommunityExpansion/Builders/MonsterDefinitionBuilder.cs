@@ -196,7 +196,8 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder SetInDungeonEditor(bool value)
     {
-        Definition.dungeonMakerPresence = value ? MonsterDefinition.DungeonMaker.Monster : MonsterDefinition.DungeonMaker.None;
+        Definition.dungeonMakerPresence =
+            value ? MonsterDefinition.DungeonMaker.Monster : MonsterDefinition.DungeonMaker.None;
 
         return this;
     }

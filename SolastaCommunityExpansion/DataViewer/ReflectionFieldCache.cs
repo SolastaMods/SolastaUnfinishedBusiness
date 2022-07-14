@@ -17,20 +17,22 @@ public static partial class ReflectionCache
             cache = weakRef.Target;
         }
 
-        if (cache == null)
+        if (cache != null)
         {
-            if (typeof(T).IsValueType)
-            {
-                cache = new CachedFieldOfStruct<T, TField>(name);
-            }
-            else
-            {
-                cache = new CachedFieldOfClass<T, TField>(name);
-            }
-
-            _fieldCache[typeof(T), name] = new WeakReference(cache);
-            EnqueueCache(cache);
+            return cache as CachedField<TField>;
         }
+
+        if (typeof(T).IsValueType)
+        {
+            cache = new CachedFieldOfStruct<T, TField>(name);
+        }
+        else
+        {
+            cache = new CachedFieldOfClass<T, TField>(name);
+        }
+
+        _fieldCache[typeof(T), name] = new WeakReference(cache);
+        EnqueueCache(cache);
 
         return cache as CachedField<TField>;
     }
@@ -88,7 +90,7 @@ public static partial class ReflectionCache
 
         protected CachedField(Type type, string name)
         {
-            Info = type.GetFields(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
+            Info = type.GetFields(AllFlags).FirstOrDefault(item => item.Name == name);
 
             if (Info == null || Info.FieldType != typeof(TField))
             {

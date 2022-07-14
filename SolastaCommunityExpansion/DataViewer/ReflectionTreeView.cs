@@ -39,7 +39,7 @@ public class ReflectionTreeView
 
     public object Root => _tree.Root;
 
-    private float TitleMinWidth { get; } = 300f;
+    private static float TitleMinWidth => 300f;
 
     private void UpdateCounts(int visitCount, int depth, int breadth)
     {
@@ -94,13 +94,15 @@ public class ReflectionTreeView
                 if (_mouseOver)
                 {
                     var delta = Input.mouseScrollDelta;
-                    if (delta.y > 0 && _startIndex > 0)
+
+                    switch (delta.y)
                     {
-                        _startIndex--;
-                    }
-                    else if (delta.y < 0 && _startIndex < startIndexUBound)
-                    {
-                        _startIndex++;
+                        case > 0 when _startIndex > 0:
+                            _startIndex--;
+                            break;
+                        case < 0 when _startIndex < startIndexUBound:
+                            _startIndex++;
+                            break;
                     }
                 }
 
@@ -240,12 +242,14 @@ public class ReflectionTreeView
                     }
 
                     // cache height
-                    if (Event.current.type == EventType.Repaint)
+                    if (Event.current.type != EventType.Repaint)
                     {
-                        _mouseOver = _viewerRect.Contains(Event.current.mousePosition);
-                        _viewerRect = GUILayoutUtility.GetLastRect();
-                        _height = _viewerRect.height + 5f;
+                        return;
                     }
+
+                    _mouseOver = _viewerRect.Contains(Event.current.mousePosition);
+                    _viewerRect = GUILayoutUtility.GetLastRect();
+                    _height = _viewerRect.height + 5f;
                 }
             }
         }
@@ -255,34 +259,36 @@ public class ReflectionTreeView
     {
         _nodesCount++;
 
-        if (_nodesCount > _startIndex && _nodesCount <= _startIndex + MaxRows)
+        if (_nodesCount <= _startIndex || _nodesCount > _startIndex + MaxRows)
         {
-            using (new GUILayout.HorizontalScope())
+            return;
+        }
+
+        using (new GUILayout.HorizontalScope())
+        {
+            // title
+            GUILayout.Space(DepthDelta * (depth - _skipLevels));
+            var name = node.Name;
+            name = name.MarkedSubstring(searchText);
+            UI.ToggleButton(ref expanded,
+                $"[{node.NodeTypePrefix}] ".Grey() +
+                name + " : " + (
+                    node.IsBaseType ? node.Type.Name.Grey() :
+                    node.IsGameObject ? node.Type.Name.Magenta() :
+                    node.IsEnumerable ? node.Type.Name.Cyan() : node.Type.Name.Orange()),
+                _buttonStyle, GUILayout.ExpandWidth(false), GUILayout.MinWidth(TitleMinWidth));
+
+            // value
+            var originalColor = GUI.contentColor;
+            GUI.contentColor = node.IsException ? Color.red : node.IsNull ? Color.grey : originalColor;
+            GUILayout.TextArea(node.ValueText.MarkedSubstring(searchText));
+            GUI.contentColor = originalColor;
+
+            // instance type
+            if (node.InstType != null && node.InstType != node.Type)
             {
-                // title
-                GUILayout.Space(DepthDelta * (depth - _skipLevels));
-                var name = node.Name;
-                name = name.MarkedSubstring(searchText);
-                UI.ToggleButton(ref expanded,
-                    $"[{node.NodeTypePrefix}] ".Grey() +
-                    name + " : " + (
-                        node.IsBaseType ? node.Type.Name.Grey() :
-                        node.IsGameObject ? node.Type.Name.Magenta() :
-                        node.IsEnumerable ? node.Type.Name.Cyan() : node.Type.Name.Orange()),
-                    _buttonStyle, GUILayout.ExpandWidth(false), GUILayout.MinWidth(TitleMinWidth));
-
-                // value
-                var originalColor = GUI.contentColor;
-                GUI.contentColor = node.IsException ? Color.red : node.IsNull ? Color.grey : originalColor;
-                GUILayout.TextArea(node.ValueText.MarkedSubstring(searchText));
-                GUI.contentColor = originalColor;
-
-                // instance type
-                if (node.InstType != null && node.InstType != node.Type)
-                {
-                    GUILayout.Label(node.InstType.Name.Khaki(), _buttonStyle,
-                        GUILayout.ExpandWidth(false));
-                }
+                GUILayout.Label(node.InstType.Name.Khaki(), _buttonStyle,
+                    GUILayout.ExpandWidth(false));
             }
         }
     }

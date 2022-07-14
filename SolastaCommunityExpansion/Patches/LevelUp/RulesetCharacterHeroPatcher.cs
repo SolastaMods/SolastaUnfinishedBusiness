@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacterHero_AddClassLevel
 {
-    internal static bool Prefix(RulesetCharacterHero __instance, CharacterClassDefinition classDefinition)
+    internal static bool Prefix([NotNull] RulesetCharacterHero __instance, CharacterClassDefinition classDefinition)
     {
         if (!LevelUpContext.IsLevelingUp(__instance))
         {
@@ -18,12 +19,9 @@ internal static class RulesetCharacterHero_AddClassLevel
         }
 
         __instance.ClassesHistory.Add(classDefinition);
-
         __instance.ClassesAndLevels.TryAdd(classDefinition, 0);
         __instance.ClassesAndLevels[classDefinition]++;
-
         __instance.hitPointsGainHistory.Add(HeroDefinitions.RollHitPoints(classDefinition.HitDice));
-
         __instance.ComputeCharacterLevel();
         __instance.ComputeProficiencyBonus();
 
@@ -35,7 +33,7 @@ internal static class RulesetCharacterHero_AddClassLevel
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacterHero_TrainFeats
 {
-    internal static void Postfix(RulesetCharacterHero __instance, List<FeatDefinition> feats)
+    internal static void Postfix([NotNull] RulesetCharacterHero __instance, [NotNull] List<FeatDefinition> feats)
     {
         foreach (var feat in feats)
         {

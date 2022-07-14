@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class SpellBox_Refresh
 {
-    public static void Postfix(SpellBox __instance)
+    public static void Postfix([NotNull] SpellBox __instance)
     {
         if (__instance.GuiSpellDefinition == null
             || __instance.bindMode is SpellBox.BindMode.Preparation or SpellBox.BindMode.Inspection)

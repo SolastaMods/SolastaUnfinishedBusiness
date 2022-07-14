@@ -131,11 +131,14 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
         for (var i = 0; i < spellsByLevelTable.childCount; i++)
         {
             var child = spellsByLevelTable.GetChild(i);
-            if (child.gameObject.activeSelf)
+
+            if (!child.gameObject.activeSelf)
             {
-                var group = child.GetComponent<SpellsByLevelGroup>();
-                group.CustomUnbind();
+                continue;
             }
+
+            var group = child.GetComponent<SpellsByLevelGroup>();
+            group.CustomUnbind();
         }
 
         Gui.ReleaseChildrenToPool(spellsByLevelTable);
@@ -144,11 +147,13 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
 
         base.OnEndHide();
 
-        if (backdrop.sprite != null)
+        if (backdrop.sprite == null)
         {
-            Gui.ReleaseAddressableAsset(backdrop.sprite);
-            backdrop.sprite = null;
+            return;
         }
+
+        Gui.ReleaseAddressableAsset(backdrop.sprite);
+        backdrop.sprite = null;
     }
 
     public override void Refresh()
@@ -215,48 +220,51 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
         for (var i = 0; i < spellsByLevelTable.childCount; i++)
         {
             var child = spellsByLevelTable.GetChild(i);
+
             child.gameObject.SetActive(i < requiredGroups);
 
-            if (i < requiredGroups)
+            if (i >= requiredGroups)
             {
-                var group = child.GetComponent<SpellsByLevelGroup>();
-                var featureLevel = allLevels[i];
-
-                var lowLevel = !isUnlearnStep && featureLevel > (featurePool.FeatureSet.RequireClassLevels
-                    ? gainedClassLevel
-                    : gainedCharacterLevel);
-
-                group.Selected = !IsFinalStep && !lowLevel;
-
-                var levelError = string.Empty;
-                if (lowLevel)
-                {
-                    levelError = featurePool.FeatureSet.RequireClassLevels
-                        ? Gui.Format("Requirement/&FeatureSelectionRequireClassLevel", $"{featureLevel}",
-                            gainedClass.GuiPresentation.Title)
-                        : Gui.Format("Requirement/&FeatureSelectionRequireCharacterLevel", $"{featureLevel}");
-                }
-
-                var unlearnedFeatures = isUnlearnStep
-                    ? GetOrMakeLearnedList(featurePool.Id)
-                    // .Select(f => f is FeatureDefinitionRemover r ? r.FeatureToRemove : f)
-                    // .ToList()
-                    : GetOrMakeUnlearnedList(featurePool.Id);
-
-                group.CustomFeatureBind(
-                    featurePool,
-                    GetOrMakeLearnedList(featurePool.Id),
-                    featureLevel,
-                    levelError,
-                    unlearnedFeatures,
-                    group.Selected,
-                    isUnlearnStep,
-                    OnFeatureSelected
-                );
-
-                lastWidth = group.RectTransform.rect.width + layout.spacing;
-                totalWidth += lastWidth;
+                continue;
             }
+
+            var group = child.GetComponent<SpellsByLevelGroup>();
+            var featureLevel = allLevels[i];
+            var lowLevel = !isUnlearnStep && featureLevel > (featurePool.FeatureSet.RequireClassLevels
+                ? gainedClassLevel
+                : gainedCharacterLevel);
+
+            group.Selected = !IsFinalStep && !lowLevel;
+
+            var levelError = string.Empty;
+
+            if (lowLevel)
+            {
+                levelError = featurePool.FeatureSet.RequireClassLevels
+                    ? Gui.Format("Requirement/&FeatureSelectionRequireClassLevel", $"{featureLevel}",
+                        gainedClass.GuiPresentation.Title)
+                    : Gui.Format("Requirement/&FeatureSelectionRequireCharacterLevel", $"{featureLevel}");
+            }
+
+            var unlearnedFeatures = isUnlearnStep
+                ? GetOrMakeLearnedList(featurePool.Id)
+                // .Select(f => f is FeatureDefinitionRemover r ? r.FeatureToRemove : f)
+                // .ToList()
+                : GetOrMakeUnlearnedList(featurePool.Id);
+
+            group.CustomFeatureBind(
+                featurePool,
+                GetOrMakeLearnedList(featurePool.Id),
+                featureLevel,
+                levelError,
+                unlearnedFeatures,
+                group.Selected,
+                isUnlearnStep,
+                OnFeatureSelected
+            );
+
+            lastWidth = group.RectTransform.rect.width + layout.spacing;
+            totalWidth += lastWidth;
         }
 
         // Compute manually the table width, adding a reserve of fluff for the scrollview
@@ -588,7 +596,9 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
 
     private string GetCustomSubClassTag()
     {
-        return gainedSubclass == null ? null : CustomFeaturesContext.CustomizeTag(GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass));
+        return gainedSubclass == null
+            ? null
+            : CustomFeaturesContext.CustomizeTag(GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass));
     }
 
     private void UpdateGrantedFeatures()
@@ -667,13 +677,15 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
     {
         var pool = GetPoolById(id);
 
-        if (pool == null)
+        if (pool != null)
         {
-            pool = new FeaturePool(id) {FeatureSet = set, Max = 0, Used = 0};
-            allPools.Add(pool);
-            allPools.Sort(poolCompare);
-            BuildLearnSteps();
+            return pool;
         }
+
+        pool = new FeaturePool(id) {FeatureSet = set, Max = 0, Used = 0};
+        allPools.Add(pool);
+        allPools.Sort(poolCompare);
+        BuildLearnSteps();
 
         return pool;
     }
@@ -1070,37 +1082,39 @@ internal static class SpellsByLevelGroupExtensions
     {
         foreach (Transform transform in instance.GetSpellsTable())
         {
-            if (transform.gameObject.activeSelf)
+            if (!transform.gameObject.activeSelf)
             {
-                var box = transform.GetComponent<SpellBox>();
-                var boxFeature = box.GetFeature();
-                var alreadyHas = Global.ActiveLevelUpHeroHasFeature(boxFeature);
-                var selected = learned.Contains(boxFeature);
-                var isUnlearned = unlearnedFetures != null && unlearnedFetures.Contains(boxFeature);
-                var errors = new List<string>();
-                var canLearn =
-                    !selected
-                    && !alreadyHas
-                    && (boxFeature is not IFeatureDefinitionWithPrerequisites prerequisites
-                        || CustomFeaturesContext.GetValidationErrors(prerequisites.Validators, out errors));
+                continue;
+            }
+
+            var box = transform.GetComponent<SpellBox>();
+            var boxFeature = box.GetFeature();
+            var alreadyHas = Global.ActiveLevelUpHeroHasFeature(boxFeature);
+            var selected = learned.Contains(boxFeature);
+            var isUnlearned = unlearnedFetures != null && unlearnedFetures.Contains(boxFeature);
+            var errors = new List<string>();
+            var canLearn =
+                !selected
+                && !alreadyHas
+                && (boxFeature is not IFeatureDefinitionWithPrerequisites prerequisites
+                    || CustomFeaturesContext.GetValidationErrors(prerequisites.Validators, out errors));
 
 
-                if (!string.IsNullOrEmpty(lowLevelError))
-                {
-                    errors.Add(lowLevelError);
-                }
+            if (!string.IsNullOrEmpty(lowLevelError))
+            {
+                errors.Add(lowLevelError);
+            }
 
-                box.SetupUI(pool.FeatureSet.GuiPresentation, errors);
+            box.SetupUI(pool.FeatureSet.GuiPresentation, errors);
 
-                if (canAcquireFeatures)
-                {
-                    box.CustomRefreshLearningInProgress((canLearn || selected) && !isUnlearned, selected,
-                        alreadyHas);
-                }
-                else
-                {
-                    box.RefreshLearningInactive((selected || alreadyHas) && !isUnlearned);
-                }
+            if (canAcquireFeatures)
+            {
+                box.CustomRefreshLearningInProgress((canLearn || selected) && !isUnlearned, selected,
+                    alreadyHas);
+            }
+            else
+            {
+                box.RefreshLearningInactive((selected || alreadyHas) && !isUnlearned);
             }
         }
     }
@@ -1113,28 +1127,30 @@ internal static class SpellsByLevelGroupExtensions
     {
         foreach (Transform transform in instance.GetSpellsTable())
         {
-            if (transform.gameObject.activeSelf)
+            if (!transform.gameObject.activeSelf)
             {
-                var box = transform.GetComponent<SpellBox>();
-                var boxFeature = box.GetFeature();
-                var removerFeature = boxFeature as FeatureDefinitionRemover;
-                var isUnlearned = unlearnedSpells != null && unlearnedSpells.Contains(boxFeature);
-                var canUnlearn =
-                    Global.ActiveLevelUpHeroHasFeature(removerFeature != null
-                        ? removerFeature.FeatureToRemove
-                        : boxFeature)
-                    && !isUnlearned;
+                continue;
+            }
 
-                box.SetupUI(pool.FeatureSet.GuiPresentation, null);
+            var box = transform.GetComponent<SpellBox>();
+            var boxFeature = box.GetFeature();
+            var removerFeature = boxFeature as FeatureDefinitionRemover;
+            var isUnlearned = unlearnedSpells != null && unlearnedSpells.Contains(boxFeature);
+            var canUnlearn =
+                Global.ActiveLevelUpHeroHasFeature(removerFeature != null
+                    ? removerFeature.FeatureToRemove
+                    : boxFeature)
+                && !isUnlearned;
 
-                if (canUnlearnSpells)
-                {
-                    box.RefreshUnlearnInProgress(canUnlearn || isUnlearned, isUnlearned);
-                }
-                else
-                {
-                    box.RefreshUnlearnInactive(isUnlearned);
-                }
+            box.SetupUI(pool.FeatureSet.GuiPresentation, null);
+
+            if (canUnlearnSpells)
+            {
+                box.RefreshUnlearnInProgress(canUnlearn || isUnlearned, isUnlearned);
+            }
+            else
+            {
+                box.RefreshUnlearnInactive(isUnlearned);
             }
         }
     }
@@ -1218,28 +1234,29 @@ internal static class SpellBoxExtensions
         var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
         var hasErrors = errors != null && !errors.Empty();
 
-        if (!hasErrors && feature is FeatureDefinitionPower power)
+        switch (hasErrors)
         {
-            ServiceRepository.GetService<IGuiWrapperService>()
-                .GetGuiPowerDefinition(power.Name)
-                .SetupTooltip(tooltip);
-        }
-        else if (!hasErrors && feature is FeatureDefinitionBonusCantrips cantrips &&
-                 cantrips.BonusCantrips.Count == 1)
-        {
-            ServiceRepository.GetService<IGuiWrapperService>()
-                .GetGuiSpellDefinition(cantrips.BonusCantrips[0].Name)
-                .SetupTooltip(tooltip, Global.ActiveLevelUpHero);
-        }
-        else
-        {
-            var dataProvider = new CustomTooltipProvider(feature, gui);
+            case false when feature is FeatureDefinitionPower power:
+                ServiceRepository.GetService<IGuiWrapperService>()
+                    .GetGuiPowerDefinition(power.Name)
+                    .SetupTooltip(tooltip);
+                break;
+            case false when feature is FeatureDefinitionBonusCantrips cantrips && cantrips.BonusCantrips.Count == 1:
+                ServiceRepository.GetService<IGuiWrapperService>()
+                    .GetGuiSpellDefinition(cantrips.BonusCantrips[0].Name)
+                    .SetupTooltip(tooltip, Global.ActiveLevelUpHero);
+                break;
+            default:
+            {
+                var dataProvider = new CustomTooltipProvider(feature, gui);
 
-            dataProvider.SetPrerequisites(errors);
-            tooltip.TooltipClass = "FeatDefinition";
-            tooltip.Content = feature.GuiPresentation.Description;
-            tooltip.Context = Global.ActiveLevelUpHero;
-            tooltip.DataProvider = dataProvider;
+                dataProvider.SetPrerequisites(errors);
+                tooltip.TooltipClass = "FeatDefinition";
+                tooltip.Content = feature.GuiPresentation.Description;
+                tooltip.Context = Global.ActiveLevelUpHero;
+                tooltip.DataProvider = dataProvider;
+                break;
+            }
         }
 
         if (gui.SpriteReference == null || gui.SpriteReference == GuiPresentationBuilder.EmptySprite)

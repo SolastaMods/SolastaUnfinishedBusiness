@@ -119,7 +119,8 @@ public static class EffectDescriptionExtensions
     {
         DamageForm form = null;
 
-        foreach (var effectForm in entity.effectForms.Where(effectForm => effectForm.FormType == EffectForm.EffectFormType.Damage))
+        foreach (var effectForm in entity.effectForms.Where(effectForm =>
+                     effectForm.FormType == EffectForm.EffectFormType.Damage))
         {
             form = effectForm.DamageForm;
         }

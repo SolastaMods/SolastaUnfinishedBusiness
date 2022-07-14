@@ -87,29 +87,31 @@ Different Archfey, e.g. Winter-themed
             .SetOnMagicalAttackDamageDelegates(null, (attacker, _, _, effect, _, _, _) =>
             {
                 var caster = attacker.RulesetCharacter;
-                if (caster.MissingHitPoints > 0
-                    && effect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage)
-                   )
+
+                if (caster.MissingHitPoints <= 0 ||
+                    !effect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
                 {
-                    var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
-
-                    attacker.UsedSpecialFeatures.TryGetValue(lifeSapId, out var used);
-
-                    if (!belowHalfHealth && used != 0)
-                    {
-                        return;
-                    }
-
-                    attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
-
-                    var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-                    var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
-                    var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
-
-                    var ability = GuiPresentationBuilder.CreateTitleKey(lifeSapId, Category.Power);
-                    GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
-                    RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
+                    return;
                 }
+
+                var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
+
+                attacker.UsedSpecialFeatures.TryGetValue(lifeSapId, out var used);
+
+                if (!belowHalfHealth && used != 0)
+                {
+                    return;
+                }
+
+                attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
+
+                var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
+                var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
+
+                var ability = GuiPresentationBuilder.CreateTitleKey(lifeSapId, Category.Power);
+                GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
+                RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
             })
             .AddToDB();
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.CustomDefinitions.IPerformAttackAfterMagicEffectUse;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
@@ -13,16 +14,16 @@ public interface IPerformAttackAfterMagicEffectUse
 
     delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
-    CanUseHandler CanBeUsedToAttack { get; set; }
-    GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
-    CanAttackHandler CanAttack { get; set; }
+    CanUseHandler CanBeUsedToAttack { get; }
+    GetAttackAfterUseHandler PerformAttackAfterUse { get; }
+    CanAttackHandler CanAttack { get; }
 }
 
-public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
+public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
 {
+    private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
+    private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
     public static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse();
-    private const RuleDefinitions.RollOutcome minOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
-    private const RuleDefinitions.RollOutcome minSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
 
     private PerformAttackAfterMagicEffectUse()
     {
@@ -36,7 +37,7 @@ public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUs
     public GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
     public CanAttackHandler CanAttack { get; set; }
 
-    private static bool CanMeleeAttack(GameLocationCharacter caster, GameLocationCharacter target)
+    private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
     {
         var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
         if (attackMode == null)
@@ -59,7 +60,8 @@ public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUs
         return battleService.CanAttack(evalParams);
     }
 
-    private static CharacterActionParams DefaultAttackHandler(CharacterActionMagicEffect effect)
+    [CanBeNull]
+    private static CharacterActionParams DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
     {
         var actionParams = effect?.ActionParams;
         if (actionParams == null) { return null; }
@@ -71,10 +73,10 @@ public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUs
         }
 
         //Attack outcome is worse that required
-        if (effect.Outcome > minOutcomeToAttack) { return null; }
+        if (effect.Outcome > MinOutcomeToAttack) { return null; }
 
         //Target rolled saving throw and got better result
-        if (effect.RolledSaveThrow && effect.SaveOutcome < minSaveOutcomeToAttack) { return null; }
+        if (effect.RolledSaveThrow && effect.SaveOutcome < MinSaveOutcomeToAttack) { return null; }
 
         var caster = actionParams.ActingCharacter;
         var targets = actionParams.TargetCharacters;
@@ -102,11 +104,11 @@ public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUs
         attackActionParams.ActionModifiers.Add(attackModifier);
 
         return attackActionParams;
-
     }
 
-    private static bool DefaultCanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
-        GameLocationCharacter target, out string failure)
+    private static bool DefaultCanUseHandler([NotNull] CursorLocationSelectTarget targeting,
+        GameLocationCharacter caster,
+        GameLocationCharacter target, [NotNull] out string failure)
     {
         failure = String.Empty;
         //TODO: implement setting to tell how many targets must meet weapon attack requirements

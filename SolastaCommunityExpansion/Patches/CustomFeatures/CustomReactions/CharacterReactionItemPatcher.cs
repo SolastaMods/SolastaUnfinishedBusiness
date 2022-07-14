@@ -56,17 +56,17 @@ internal static class CharacterReactionItem_Bind
         bool interactable,
         CharacterReactionSubitem.SubitemSelectedHandler subitemSelected, ReactionRequest reactionRequest)
     {
-        if (reactionRequest is ReactionRequestWarcaster warcasterRequest)
+        switch (reactionRequest)
         {
-            instance.BindWarcaster(warcasterRequest, slotLevel, interactable, subitemSelected);
-        }
-        else if (reactionRequest is ReactionRequestSpendBundlePower bundlePoweRequest)
-        {
-            instance.BindPowerBundle(bundlePoweRequest, slotLevel, interactable, subitemSelected);
-        }
-        else
-        {
-            instance.Bind(spellRepertoire, slotLevel, text, interactable, subitemSelected);
+            case ReactionRequestWarcaster warcasterRequest:
+                instance.BindWarcaster(warcasterRequest, slotLevel, interactable, subitemSelected);
+                break;
+            case ReactionRequestSpendBundlePower bundlePoweRequest:
+                instance.BindPowerBundle(bundlePoweRequest, slotLevel, interactable, subitemSelected);
+                break;
+            default:
+                instance.Bind(spellRepertoire, slotLevel, text, interactable, subitemSelected);
+                break;
         }
     }
 }

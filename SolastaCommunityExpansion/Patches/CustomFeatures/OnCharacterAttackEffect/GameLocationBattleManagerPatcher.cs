@@ -86,14 +86,18 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
         else if
             ((attacker.RulesetCharacter is RulesetCharacterHero ||
               attacker.RulesetCharacter.OriginalFormCharacter is RulesetCharacterHero) &&
-             provider.DamageValueDetermination is RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus or RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus or RuleDefinitions.AdditionalDamageValueDetermination
-                 .ProficiencyBonusAndSpellcastingBonus or RuleDefinitions.AdditionalDamageValueDetermination.RageDamage)
+             provider.DamageValueDetermination is RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus
+                 or RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus or RuleDefinitions
+                     .AdditionalDamageValueDetermination
+                     .ProficiencyBonusAndSpellcastingBonus
+                 or RuleDefinitions.AdditionalDamageValueDetermination.RageDamage)
         {
             damageForm.DieType = RuleDefinitions.DieType.D1;
             damageForm.DiceNumber = 0;
             damageForm.BonusDamage = 0;
 
-            if (provider.DamageValueDetermination is RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus or RuleDefinitions.AdditionalDamageValueDetermination
+            if (provider.DamageValueDetermination is RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus
+                or RuleDefinitions.AdditionalDamageValueDetermination
                     .ProficiencyBonusAndSpellcastingBonus)
             {
                 // game code doesn't consider heroes in wildshape form
@@ -260,7 +264,8 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
             {
                 var effectForm = new EffectForm
                 {
-                    FormType = EffectForm.EffectFormType.Condition, ConditionForm = new ConditionForm
+                    FormType = EffectForm.EffectFormType.Condition,
+                    ConditionForm = new ConditionForm
                     {
                         ConditionDefinition = conditionOperation.ConditionDefinition,
                         Operation = conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add
@@ -539,7 +544,10 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                                     //
                                     // patch here
                                     //
-                                    if (featureDefinition is FeatureDefinitionAdditionalDamage {NotificationTag: "EldritchSmite"})
+                                    if (featureDefinition is FeatureDefinitionAdditionalDamage
+                                        {
+                                            NotificationTag: "EldritchSmite"
+                                        })
                                     {
                                         var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
                                         var pactMagicUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
@@ -560,11 +568,11 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                                 {
                                     reactionParams = new CharacterActionParams(attacker,
                                         ActionDefinitions.Id.SpendSpellSlot)
-                                        {
-                                            IntParameter = 1,
-                                            StringParameter = provider.NotificationTag,
-                                            SpellRepertoire = selectedSpellRepertoire
-                                        };
+                                    {
+                                        IntParameter = 1,
+                                        StringParameter = provider.NotificationTag,
+                                        SpellRepertoire = selectedSpellRepertoire
+                                    };
                                     var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
                                     var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
@@ -679,7 +687,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                              && rulesetEffect is RulesetEffectPower power
                              && power.PowerDefinition.SurrogateToSpell != null
                              && power.PowerDefinition.SurrogateToSpell
-                             .SchoolOfMagic == RuleDefinitions.SchoolEvocation)
+                                 .SchoolOfMagic == RuleDefinitions.SchoolEvocation)
                     {
                         validTrigger = true;
                     }
@@ -887,7 +895,8 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
             }
 
             // Can I reduce the damage quantity of this attackMode?
-            if (attackMode is {Ranged: true} && defender.GetActionStatus(ActionDefinitions.Id.DeflectMissile, ActionDefinitions.ActionScope.Battle,
+            if (attackMode is {Ranged: true} && defender.GetActionStatus(ActionDefinitions.Id.DeflectMissile,
+                    ActionDefinitions.ActionScope.Battle,
                     ActionDefinitions.ActionStatus.Available) == ActionDefinitions.ActionStatus.Available)
             {
                 var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.DeflectMissile);

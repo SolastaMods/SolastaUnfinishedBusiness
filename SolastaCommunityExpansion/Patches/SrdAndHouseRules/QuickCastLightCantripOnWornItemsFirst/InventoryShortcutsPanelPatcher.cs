@@ -46,7 +46,7 @@ internal static class InventoryShortcutsPanel_OnCastLightCb
         }
 
         targetItem = rulesetInventorySlote.EquipedItem;
-        
+
         return true;
 
         // Other...
