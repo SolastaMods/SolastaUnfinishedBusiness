@@ -45,7 +45,7 @@ internal sealed class Merciless : AbstractFightingStyle
             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
             .SetGuiPresentation(Category.Condition)
             .SetPossessive(true)
-            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
+            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
             .SetAllowMultipleInstances(false)
             .SetFeatures(additionalActionMerciless)
             .AddToDB();
@@ -58,6 +58,11 @@ internal sealed class Merciless : AbstractFightingStyle
             bool considerDead,
             bool becomesDying)
         {
+            if (Global.CurrentAction is not CharacterActionAttack)
+            {
+                return;
+            }
+
             var activePlayerCharacter = Global.ActivePlayerCharacter;
             var activeMercilessCondition = RulesetCondition.CreateActiveCondition(
                 activePlayerCharacter.RulesetCharacter.Guid,
@@ -66,8 +71,7 @@ internal sealed class Merciless : AbstractFightingStyle
                 activePlayerCharacter.RulesetCharacter.Guid,
                 activePlayerCharacter.RulesetCharacter.CurrentFaction.Name);
 
-            activePlayerCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat,
-                activeMercilessCondition);
+            activePlayerCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, activeMercilessCondition);
 
             var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
 
@@ -78,7 +82,7 @@ internal sealed class Merciless : AbstractFightingStyle
 
             foreach (var enemy in battle.EnemyContenders)
             {
-                if (!enemy.PerceivedFoes.Contains(activePlayerCharacter))
+                if (TA.int3.Distance(character.LocationPosition, enemy.LocationPosition) > 2 * (Global.CriticalHit ? 2 : 1))
                 {
                     continue;
                 }
@@ -87,7 +91,7 @@ internal sealed class Merciless : AbstractFightingStyle
                     enemy.Guid,
                     DatabaseHelper.ConditionDefinitions.ConditionFrightened,
                     RuleDefinitions.DurationType.Round,
-                    0,
+                    1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurnNoPerceptionOfSource,
                     activePlayerCharacter.Guid,
                     activePlayerCharacter.RulesetCharacter.CurrentFaction.Name);
