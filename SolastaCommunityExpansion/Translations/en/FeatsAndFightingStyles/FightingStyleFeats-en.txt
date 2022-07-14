@@ -1,4 +1,7 @@
+Feat/&FeatCripplingDescription=When you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.
 Feat/&FeatCripplingTitle=Crippling [FS]
+Feat/&FeatMercilessDescription=You get an extra attack whenever you down an enemy. Enemies that witness your merciless finish get frightened until the end of your turn.
+Feat/&FeatMercilessTitle=Merciless [FS]
 Feat/&FeatPugilistFightingStlyeDescription=Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have a free hand, you can shove as a bonus action.
 Feat/&FeatPugilistFightingStlyeTitle=Pugilist [FS]
 Feat/&FeatTitanFightingDescription=You gain a +2 to hit against creatures of Large size or bigger.
@@ -15,4 +18,3 @@ Feat/&FightingStyleProtectionDescription=When a creature you can see attacks a t
 Feat/&FightingStyleProtectionTitle=Protection [FS]
 Feat/&FightingStyleTwoWeaponDescription=When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 Feat/&FightingStyleTwoWeaponTitle=Two Weapon [FS]
-Feat/&FeatCripplingDescription=When you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.

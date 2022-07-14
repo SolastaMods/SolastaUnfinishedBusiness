@@ -17,6 +17,7 @@ internal static class FightingStyleContext
         LoadStyle(new Crippling());
         LoadStyle(new Pugilist());
         LoadStyle(new TitanFighting());
+        LoadStyle(new Merciless());
 
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
     }

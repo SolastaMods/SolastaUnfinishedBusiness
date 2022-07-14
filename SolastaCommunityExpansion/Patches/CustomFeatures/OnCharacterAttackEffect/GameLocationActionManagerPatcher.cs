@@ -2,9 +2,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffect;
 
@@ -16,17 +16,19 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
 internal static class GameLocationActionManager_ExecuteActionAsync
 {
     internal static IEnumerator Postfix(
-        IEnumerator values,
-        CharacterAction action)
+        [NotNull] IEnumerator values,
+        [NotNull] CharacterAction action)
     {
         Main.Logger.Log(action.ActionDefinition.Name);
-        Global.CurrentAction = action;
 
-        if (action is CharacterActionCastSpell actionCastSpell)
-        {
-            Global.CastedSpellRepertoire = actionCastSpell.ActiveSpell.SpellRepertoire;
-            Global.CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
-        }
+        // Global.ActivePlayerCharacter = action.ActingCharacter;
+        // Global.CurrentAction = action;
+        //
+        // if (action is CharacterActionCastSpell actionCastSpell)
+        // {
+        //     Global.CastedSpellRepertoire = actionCastSpell.ActiveSpell.SpellRepertoire;
+        //     Global.CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
+        // }
 
         var features = action.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<ICustomOnActionFeature>();
 
@@ -45,9 +47,10 @@ internal static class GameLocationActionManager_ExecuteActionAsync
             feature.OnAfterAction(action);
         }
 
-        Global.CurrentAction = null;
-        Global.CastedSpell = null;
-        Global.CastedSpellRepertoire = null;
+        // Global.ActivePlayerCharacter = null;
+        // Global.CurrentAction = null;
+        // Global.CastedSpell = null;
+        // Global.CastedSpellRepertoire = null;
     }
 }
 

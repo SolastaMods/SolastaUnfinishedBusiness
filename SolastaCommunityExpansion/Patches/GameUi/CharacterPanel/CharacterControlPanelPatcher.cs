@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel;
 
@@ -134,22 +133,22 @@ internal static class CharacterControlPanel_OnConfigurationSwitchedHandler
     }
 }
 
-[HarmonyPatch(typeof(CharacterControlPanel), "Bind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterControlPanel_Bind
-{
-    internal static void Prefix(GameLocationCharacter gameCharacter)
-    {
-        Global.ActivePlayerCharacter = gameCharacter;
-    }
-}
-
-[HarmonyPatch(typeof(CharacterControlPanel), "Unbind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterControlPanel_Unbind
-{
-    internal static void Prefix()
-    {
-        Global.ActivePlayerCharacter = null;
-    }
-}
+// [HarmonyPatch(typeof(CharacterControlPanel), "Bind")]
+// [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+// internal static class CharacterControlPanel_Bind
+// {
+//     internal static void Prefix(GameLocationCharacter gameCharacter)
+//     {
+//         Global.ActivePlayerCharacter = gameCharacter;
+//     }
+// }
+//
+// [HarmonyPatch(typeof(CharacterControlPanel), "Unbind")]
+// [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+// internal static class CharacterControlPanel_Unbind
+// {
+//     internal static void Prefix()
+//     {
+//         Global.ActivePlayerCharacter = null;
+//     }
+// }
