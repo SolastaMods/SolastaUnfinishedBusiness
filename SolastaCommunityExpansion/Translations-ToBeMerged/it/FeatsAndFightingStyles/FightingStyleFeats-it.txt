@@ -1,4 +1,7 @@
+Feat/&FeatCripplingDescription=Quando colpisci con un attacco in mischia, puoi ridurre la velocità del tuo avversario di 3 metri fino all'inizio del tuo prossimo turno.
 Feat/&FeatCripplingTitle=Paralizzante [FS]
+Feat/&FeatMercilessDescription=Quando riduci un bersaglio a 0 HP usando un attacco con un'arma da mischia nel tuo turno, puoi effettuare un attacco aggiuntivo con un'arma da mischia come parte della stessa azione. I nemici entro un raggio dal bersaglio abbattuto pari alla metà del tuo bonus di competenza (arrotondato per eccesso) che possono vedere il bersaglio devono effettuare un tiro salvezza su Saggezza (CD pari a 8 + PB + il tuo modificatore di FOR) o si spaventano di te fino alla fine del il loro prossimo turno. Se l'attacco innescante è un colpo critico, il raggio è invece uguale al tuo bonus di competenza.
+Feat/&FeatMercilessTitle=Spietato [FS]
 Feat/&FeatPugilistFightingStlyeDescription=I tuoi colpi senz'armi infliggono 1d4 danni contundenti aggiuntivi e puoi dare un pugno con la mano secondaria come azione bonus.\nSe hai la mano libera, puoi spingere come azione bonus.
 Feat/&FeatPugilistFightingStlyeTitle=Pugile [FS]
 Feat/&FeatTitanFightingDescription=Guadagni un +2 per colpire contro creature di taglia Grande o superiore.
@@ -15,4 +18,3 @@ Feat/&FightingStyleProtectionDescription=Quando una creatura che puoi vedere att
 Feat/&FightingStyleProtectionTitle=Protezione [FS]
 Feat/&FightingStyleTwoWeaponDescription=Quando ti impegni in un combattimento con due armi, puoi aggiungere il tuo modificatore di abilità al danno del secondo attacco.
 Feat/&FightingStyleTwoWeaponTitle=Due armi [FS]
-Feat/&FeatCripplingDescription=Quando colpisci con un attacco in mischia, puoi ridurre la velocità del tuo avversario di 3 metri fino all'inizio del tuo prossimo turno.

@@ -1,4 +1,5 @@
-﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=察觉劣势
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=你的察觉检定具有劣势
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle=察觉劣势
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=魅力+1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=属性提升
 Feature/&DarkelfMagicDescription=你学会舞光术戏法。在3级时你学会妖火，在5级时你学会黑暗术，均为每长休1次
@@ -19,4 +20,3 @@ Race/&DarkelfSurName2Title=DhalNeridthas
 Race/&DarkelfSurName3Title=DhalNerwenys
 Race/&DarkelfSurName4Title=Zo'Sonta
 Race/&DarkelfSurName5Title=Zo'Remon
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription=你的察觉检定具有劣势

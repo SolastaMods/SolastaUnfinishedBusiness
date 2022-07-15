@@ -1,6 +1,4 @@
-ModUI/&ArcaneShieldAddDruidAndSorcerer=德鲁伊&术士
-ModUI/&ArcaneShieldAll=所有职业
-ModUI/&EnableBetaContent=启用Beta内容<color=#F0DAA0>【牢记你的存档或英雄在未来有崩溃风险】</color><color=#C04040E0>【需要重启游戏】</color>
+ModUi/&AddAllToStore=全部加入商店
 ModUi/&AddBleedingToLesserRestoration=添加<color=#D89555>流血</color>状态至<color=#D89555>次级/高等复原术</color>的移除效果范围
 ModUi/&AddHelpActionToAllRaces=添加<color=#D89555>协助</color>至全部种族
 ModUi/&AddNewBrightEyeColors=添加额外明亮眼睛颜色<color=#C04040E0>【需要重启游戏】</color>
@@ -11,7 +9,6 @@ ModUi/&Advanced=<color=#F0DAA0>进阶选项：</color>
 ModUi/&AdvancedHelp=. <color=#C04040E0>注意：</color>此项设置将要求玩家安装此Mod
 ModUi/&Adventure=<color=#F0DAA0>冒险：</color>
 ModUi/&AllItemInDm=全部物品加入地城制作
-ModUi/&AllRecipesInDm=所有配方加入地城制作
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业装备木族护甲或光明使者服饰
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>装备金属护甲
 ModUi/&AllowDungeonsMaxLevel20=允许自定义地城最大等级达到20级<color=#C04040E0>【需要重启游戏】</color>
@@ -19,8 +16,11 @@ ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=允许在地图上任何地方放�
 ModUi/&AllowStackedMaterialComponent=允许材料成分叠加计算<color=#F0DAA0>【e.g. 2个500gp的钻石等同于1000gp的钻石】</color>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施放<color=#D89555>连锁闪电</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有脸部印记
+ModUi/&AllRecipesInDm=所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<color=#F0DAA0>【仅限自定义地牢】</color>
 ModUi/&ApplySRDWeightToFoodRations=将口粮的重量减少至2磅
+ModUI/&ArcaneShieldAddDruidAndSorcerer=德鲁伊&术士
+ModUI/&ArcaneShieldAll=所有职业
 ModUi/&ArcaneShieldstaffOptions=拓展<color=#D89555>奥术盾杖</color>的同调至：
 ModUi/&AutoPauseOnVictory=战斗胜利后暂停游戏
 ModUi/&Basic=<color=#F0DAA0>基础：</color>
@@ -54,6 +54,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额�
 ModUi/&EnableAdditionalIconsOnLevelMap=在地图上给营地、出口和传送点添加额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=+ 添加新的法器至地城制作
 ModUi/&EnableAlternateHuman=启用变种人类<color=#F0DAA0>【+1专长/+2属性值选择/+1技能】</color>
+ModUI/&EnableBetaContent=启用Beta内容<color=#F0DAA0>【牢记你的存档或英雄在未来有崩溃风险】</color><color=#C04040E0>【需要重启游戏】</color>
 ModUi/&EnableCancelEditOnRightMouseClick=启用右键取消动作
 ModUi/&EnableCharacterChecker=启用角色验证界面
 ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-E</color>导出角色<color=#F0DAA0>【仅限角色检查界面】</color>
@@ -80,6 +81,7 @@ ModUi/&EnableMinInOutAttributes=强制兼职时的属性前置要求
 ModUi/&EnableOnTheFlyTranslations=启用实时自定义内容翻译
 ModUi/&EnableRelearnSpells=能学习已从其它职业习得的戏法和法术
 ModUi/&EnableRespec=启用在休息后重置角色和降级的功能
+ModUi/&EnablesAsiAndFeat=启用属性和专长的同时选择<color=#F0DAA0>【而非二选一】</color>
 ModUi/&EnableSaveByLocation=启用分战役/地点存档
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=启用<color=#D89555>法师</color>奥法战士子职的<color=#D89555>奥法武器</color>能力在短休时恢复
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<color=#F0DAA0>【例如：致命成功、致命失败等】</color>
@@ -87,7 +89,6 @@ ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-T</color>传送队伍
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池切换键设置你的默认的游戏/测试队伍
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=启用<color=#D89555>法师</color>法术大师子职的<color=#D89555>奥术深研</color>能力可无限回复\n<color=#F0DAA0>必须在该能力有可用次数时或在创建角色前启用</color>
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>召唤元素</color>，<color=#D89555>召唤精类生物</color>的升环施法
-ModUi/&EnablesAsiAndFeat=启用属性和专长的同时选择<color=#F0DAA0>【而非二选一】</color>
 ModUi/&Encounters=遭遇战
 ModUi/&ExecuteBatchTranslations=. 批量翻译并创建以目标语言前缀的新战役文件
 ModUi/&ExpandAll=全部展开
@@ -100,8 +101,8 @@ ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
 ModUi/&FixSorcererTwinnedLogic=修复<color=#D89555>术士</color>孪生法术<color=#F0DAA0>【该法术在其当前环阶时不能同时指定多个生物为目标】</color>
 ModUi/&FollowCharactersOnTeleport=摄像机跟随传送的角色
 ModUi/&FullyControlConjurations=完全控制召唤生物<color=#F0DAA0>【动物，元素等】</color>
-ModUi/&GameUi=游戏界面
 ModUi/&Gameplay=游戏内容
+ModUi/&GameUi=游戏界面
 ModUi/&General=<color=#F0DAA0>通常：</color>
 ModUi/&GeneralMenu=通常
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=在未发现前隐藏出口和传送点的视觉效果
@@ -116,11 +117,11 @@ ModUi/&Interface=界面
 ModUi/&InventoryAndItems=<color=#F0DAA0>物品栏和物品：</color>
 ModUi/&InvertAltBehaviorOnTooltips=颠倒<color=#1E81B0>ALT</color>键在工具提示时的效果
 ModUi/&ItemInDm=物品加入地城制作
-ModUi/&ItemTag=物品标签
 ModUi/&Items=<color=#F0DAA0>物品：</color>
 ModUi/&ItemsCraftingMerchants=物品，制作和商人
 ModUi/&ItemsHelp1=<color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
 ModUi/&ItemsHelp2=按+将物品添加至地面容器
+ModUi/&ItemTag=物品标签
 ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔杖视为奥术法器<color=#F0DAA0>【全职业通用的<color=#D89555>治疗法杖</color>除外】</color><color=#C04040E0>【需要重启游戏】</color>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=+ 在关卡地图上标记已发现的隐形传送点的位置
 ModUi/&MaxAllowedClasses=<color=white>最高职业数量</color><color=#C04040E0>【需要重启游戏】</color>
@@ -140,7 +141,6 @@ ModUi/&OverrideMinMaxLevel=在开启新的冒险时覆盖其最低/最高等级
 ModUi/&OverridePartySize=<color=white>覆盖自定义冒险的队伍大小</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>覆盖<color=#D89555>游荡者</color>诡徒子职的<color=#D89555>精通操纵</color>能力的法术DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>覆盖<color=#D89555>法师</color>控心大师子职的<color=#D89555>奥术之力</color>能力的法术DC</color>
-ModUi/&OverwriteGameLanguage=<color=#F0DAA0>非官方语言支持：</color>
 ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进展：</color>
@@ -164,7 +164,6 @@ ModUi/&RestockCircleOfDanantar=丹南塔尔之环补货<color=#F0DAA0>【乔瑞�
 ModUi/&RestockHelp=. 覆盖默认，强制所有商人的库存在一段时间内重新补货（不包括手册和书卷）\n. 注意，一些商品可能需要长达7个游戏日的时间来补货
 ModUi/&RestockTowerOfKnowledge=知识之塔补货<color=#F0DAA0>【麦迪·绿岛】</color>
 ModUi/&Rules=规则
-ModUi/&SRD=<color=#F0DAA0>系统参考文件：</color>
 ModUi/&ScaleGameFontSizeBy=<color=white>以<color=#C04040E0>【%】</color>比例缩放游戏字体大小</color>\n<color=#C04040E0>【需要重启游戏】</color>
 ModUi/&ScaleMerchantPricesCorrectly=正确排列商人的价格
 ModUi/&SelectAll=选择全部
@@ -177,6 +176,7 @@ ModUi/&SpellInstructions=. 你能将每个法术单独分配到任何法术列�
 ModUi/&SpellLevelFilter=<color=white>以法术等级筛选</color><color=#F0DAA0>【设为-1以显示所有法术】</color>
 ModUi/&Spells=<color=#F0DAA0>法术：</color>
 ModUi/&SpellsMenu=法术
+ModUi/&SRD=<color=#F0DAA0>系统参考文件：</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=在格里姆的商店里销售所有非魔法服装<color=#C04040E0>【需要重启游戏】</color>
 ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店里销售<color=#D89555>鉴定魔杖</color>，<color=#D89555>奥术法杖</color>，<color=#D89555>德鲁伊项链</color>，<color=#D89555>法杖</color>和<color=#D89555>短棒</color>，并且设置为法器
 ModUi/&Subclasses=<color=#F0DAA0>子职</color>
@@ -186,7 +186,6 @@ ModUi/&TotalCraftingTimeModifier=<color=white>制作耗时降低倍率</color>
 ModUi/&TotalFeatsGrantedFistLevel=<color=white>在第1级时赋予额外专长数量</color>
 ModUi/&Translate=翻译
 ModUi/&TranslateCancel=从{1}取消{0}
-ModUi/&TranslationEngine=翻译引擎
 ModUi/&Translations=翻译
 ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物<color=#C04040E0>【需要重启游戏】</color>
 ModUi/&UnleashNpcAsEnemy=开放怪物的选择<color=#C04040E0>【需要重启游戏】</color>
@@ -199,4 +198,3 @@ ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠�
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color><color=#C04040E0>【需要重启游戏】</color>
 ModUi/&WeaponTag=武器标签
-ModUi/&AddAllToStore=全部加入商店

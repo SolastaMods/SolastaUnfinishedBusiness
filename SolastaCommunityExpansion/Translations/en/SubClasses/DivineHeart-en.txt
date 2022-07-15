@@ -1,3 +1,4 @@
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=If you cast a Healing spell this turn, you reroll a result of 1 or 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Empowered Healing
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Hit Point per level
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Divine Fortitude
@@ -24,4 +25,3 @@ Feature/&PowerDivineHeartPlanarPortalDescription=Opens a portal that can carry a
 Feature/&PowerDivineHeartPlanarPortalTitle=Planar Portal
 Subclass/&SorcerousDivineHeartDescription=Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
 Subclass/&SorcerousDivineHeartTitle=Divine Heart
-Condition/&ConditionDivineHeartEmpoweredHealingDescription=If you cast a Healing spell this turn, you reroll a result of 1 or 2.

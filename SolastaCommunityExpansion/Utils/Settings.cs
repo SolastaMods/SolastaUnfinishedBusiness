@@ -299,9 +299,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnableOnTheFlyTranslations { get; set; }
-    public string SelectedLanguageCode { get; set; } = "en";
-    public string SelectedOverwriteLanguageCode { get; set; } = "off";
-    public Translations.Engine TranslationEngine { get; set; } = Translations.Engine.Google;
+    public string SelectedLanguageCode { get; set; } = Translations.English;
 
     //
     // Encounters - General

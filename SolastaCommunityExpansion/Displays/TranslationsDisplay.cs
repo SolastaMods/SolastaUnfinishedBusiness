@@ -13,23 +13,6 @@ public static class TranslationsDisplay
 
     internal static void DisplayTranslations()
     {
-        int intValue;
-
-        UI.Label("");
-        UI.Label(Gui.Format("ModUi/&OverwriteGameLanguage"));
-        UI.Label("");
-
-        intValue = Array.IndexOf(UnofficialLanguages, Main.Settings.SelectedOverwriteLanguageCode);
-
-        if (UI.SelectionGrid(
-                ref intValue,
-                UnofficialLanguages,
-                UnofficialLanguages.Length,
-                3, UI.Width(300)))
-        {
-            Main.Settings.SelectedOverwriteLanguageCode = UnofficialLanguages[intValue];
-        }
-
         UI.Label("");
         UI.Label(Gui.Format("ModUi/&Campaigns"));
         UI.Label("");
@@ -46,7 +29,7 @@ public static class TranslationsDisplay
         {
             UI.Label(Gui.Localize("ModUi/&TargetLanguage"), UI.Width(120));
 
-            intValue = Array.IndexOf(Translations.AvailableLanguages, Main.Settings.SelectedLanguageCode);
+            var intValue = Array.IndexOf(Translations.AvailableLanguages, Main.Settings.SelectedLanguageCode);
 
             if (UI.SelectionGrid(
                     ref intValue,
@@ -55,24 +38,6 @@ public static class TranslationsDisplay
                     3, UI.Width(300)))
             {
                 Main.Settings.SelectedLanguageCode = Translations.AvailableLanguages[intValue];
-            }
-        }
-
-        UI.Label("");
-
-        using (UI.HorizontalScope())
-        {
-            UI.Label(Gui.Localize("ModUi/&TranslationEngine"), UI.Width(120));
-
-            intValue = (int)Main.Settings.TranslationEngine;
-
-            if (UI.SelectionGrid(
-                    ref intValue,
-                    Translations.AvailableEngines,
-                    Translations.AvailableEngines.Length,
-                    3, UI.Width(300)))
-            {
-                Main.Settings.TranslationEngine = (Translations.Engine)intValue;
             }
         }
 

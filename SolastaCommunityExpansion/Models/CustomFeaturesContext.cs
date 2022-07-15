@@ -253,13 +253,16 @@ public static class CustomFeaturesContext
             }
 
             var featuresToRemove = new List<FeatureDefinition> {feature};
+
             RecursiveRemoveCustomFeatures(hero, tag, featuresToRemove, false);
+
             if (selectedClass != null)
             {
                 RemoveFeatures(hero, selectedClass, tag, featuresToRemove);
             }
 
             features.Remove(feature);
+
             break;
         }
     }
@@ -500,6 +503,7 @@ public static class CustomFeaturesContext
                      ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
         var baseDefinition = spell.SpellDefinition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+
         if (baseDefinition != null && caster != null)
         {
             result = baseDefinition.GetCustomEffect(caster) ?? original;
@@ -527,6 +531,7 @@ public static class CustomFeaturesContext
             .Select(v => v())
             .Where(v => v != null)
             .ToList();
+
         return errors.Empty();
     }
 

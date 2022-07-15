@@ -140,7 +140,6 @@ ModUi/&OverrideMinMaxLevel=Remplacer les niveaux minimum et maximum requis lors 
 ModUi/&OverridePartySize=<color=white>Remplacer la taille du groupe dans les aventures personnalisées</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Remplacer <color=#D89555>Rogue</color> Con Artist <color=#D89555>Manipulation améliorée</color> Spell DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Remplacer <color=#D89555>Magicien</color> Maître Manipulateur <color=#D89555>Manipulation des Arcanes</color> Spell DC</color>
-ModUi/&OverwriteGameLanguage=<color=#F0DAA0>Prise en charge des langues non officielles :</color>
 ModUi/&Patches=<color=#F0DAA0>Correctifs :</color>
 ModUi/&PrimedItems=Articles apprêtés
 ModUi/&Progression=<color=#F0DAA0>Progression :</color>
@@ -186,7 +185,6 @@ ModUi/&TotalCraftingTimeModifier=<color=white>Réduire le temps de fabrication d
 ModUi/&TotalFeatsGrantedFistLevel=<color=white>Total des dons accordés au premier niveau</color>
 ModUi/&Translate=Traduire
 ModUi/&TranslateCancel=Annuler {0} à {1}
-ModUi/&TranslationEngine=Moteur de traduction
 ModUi/&Translations=Traductions
 ModUi/&UnleashEnemyAsNpc=Autoriser la sélection de monstres sur les gadgets des PNJ <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&UnleashNpcAsEnemy=Libérez la sélection des monstres <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

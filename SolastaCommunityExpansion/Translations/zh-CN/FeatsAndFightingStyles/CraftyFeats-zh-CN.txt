@@ -1,3 +1,4 @@
+Feat/&ApothecaryIntDescription=智力+1，最高20点\n你获得草药工具和奥秘的熟练项/专精
 Feat/&ApothecaryIntTitle=炼金师【智力】
 Feat/&ApothecaryWisDescription=感知+1，最高20点\n你获得草药工具和奥秘的熟练项/专精
 Feat/&ApothecaryWisTitle=炼金师【感知】
@@ -19,4 +20,3 @@ Feat/&ToxicologistIntDescription=智力+1，最高20点\n你获得制毒工具�
 Feat/&ToxicologistIntTitle=毒药学家【智力】
 Feat/&ToxicologistWisDescription=感知+1，最高20点\n你获得制毒工具和医学的熟练项/专精
 Feat/&ToxicologistWisTitle=毒药学家【感知】
-Feat/&ApothecaryIntDescription=智力+1，最高20点\n你获得草药工具和奥秘的熟练项/专精
