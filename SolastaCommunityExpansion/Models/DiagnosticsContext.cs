@@ -210,7 +210,7 @@ internal static class DiagnosticsContext
     {
         var terms = new Dictionary<string, string>();
 
-        foreach (var line in Translations.GetTranslations("en"))
+        foreach (var line in Translations.GetTranslations(Translations.English))
         {
             try
             {

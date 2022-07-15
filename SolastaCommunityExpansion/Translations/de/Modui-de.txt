@@ -140,7 +140,6 @@ ModUi/&OverrideMinMaxLevel=Überschreiben Sie die erforderlichen Mindest- und H�
 ModUi/&OverridePartySize=<color=white>Gruppengröße in benutzerdefinierten Abenteuern überschreiben</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Überschreibe <color=#D89555>Schurke</color> Betrüger <color=#D89555>Verbesserte Manipulation</color> Zauber-SG</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Überschreibe <color=#D89555>Magier</color>-Meistermanipulator <color=#D89555>Arkane Manipulation</color>-Zauber-SG</color>
-ModUi/&OverwriteGameLanguage=<color=#F0DAA0>Inoffizielle Sprachunterstützung:</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Geprimte Gegenstände
 ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
@@ -186,7 +185,6 @@ ModUi/&TotalCraftingTimeModifier=<color=white>Herstellungszeit verkürzen um</co
 ModUi/&TotalFeatsGrantedFistLevel=<color=white>Auf der ersten Stufe gewährte Talente insgesamt</color>
 ModUi/&Translate=Übersetzen
 ModUi/&TranslateCancel=Stornieren Sie {0} um {1}
-ModUi/&TranslationEngine=Übersetzungsmaschine
 ModUi/&Translations=Übersetzungen
 ModUi/&UnleashEnemyAsNpc=Erlaube die Auswahl von Monstern auf NPC-Gadgets <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&UnleashNpcAsEnemy=Entfessle die Monsterauswahl <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
