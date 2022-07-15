@@ -70,3 +70,28 @@ internal static class CharacterReactionItem_Bind
         }
     }
 }
+
+// Replace `GetSelectedSubItem` to fix reaction selection crashes.
+// Default one selects last item thatr is Selected, regardless if it is active or not, leading to wrong spell slots for smites being selected
+// This implementation returns first item that is both Selected and active 
+[HarmonyPatch(typeof(CharacterReactionItem), "GetSelectedSubItem")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class CharacterReactionItem_GetSelectedSubItem
+{
+    internal static bool Prefix(CharacterReactionItem __instance, out int __result)
+    {
+        __result = 0;
+        var itemsTable = __instance.subItemsTable;
+        for (var index = 0; index < itemsTable.childCount; ++index)
+        {
+            var item = itemsTable.GetChild(index).GetComponent<CharacterReactionSubitem>();
+            if (item.gameObject.activeSelf && item.Selected)
+            {
+                __result = index;
+                break;
+            }
+        }
+
+        return false;
+    }
+}
