@@ -26,7 +26,7 @@ public static class Global
     [CanBeNull] public static RulesetCharacterHero InspectedHero { get; set; }
 
     // holds the active player character
-    public static GameLocationCharacter ActivePlayerCharacter { get; private set; }
+    public static GameLocationCharacter ActivePlayerCharacter { get; set; }
 
     // holds the current action from any character on the map
     public static CharacterAction CurrentAction { get; private set; }
