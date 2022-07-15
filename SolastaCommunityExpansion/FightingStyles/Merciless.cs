@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
+using TA;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
@@ -15,6 +18,7 @@ internal sealed class Merciless : AbstractFightingStyle
 {
     private readonly Guid guidNamespace = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a401fc");
     private FightingStyleDefinitionCustomizable instance;
+    private static FeatureDefinitionPower _powerMerciless;
 
     [NotNull]
     internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
@@ -32,88 +36,92 @@ internal sealed class Merciless : AbstractFightingStyle
             return instance;
         }
 
+        _powerMerciless = FeatureDefinitionPowerBuilder
+            .Create("PowerMerciless", guidNamespace)
+            .Configure(
+                1,
+                RuleDefinitions.UsesDetermination.Fixed,
+                AttributeDefinitions.Strength,
+                RuleDefinitions.ActivationTime.NoCost,
+                0,
+                RuleDefinitions.RechargeRate.AtWill,
+                false,
+                false,
+                AttributeDefinitions.Strength,
+                DatabaseHelper.SpellDefinitions.Fear.EffectDescription.Copy())
+            .SetUsesProficiency()
+            .AddToDB();
+
+       // _powerMerciless.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.Explicit;
+        _powerMerciless.effectDescription.TargetType = RuleDefinitions.TargetType.IndividualsUnique;
+        _powerMerciless.effectDescription.durationType = RuleDefinitions.DurationType.Round;
+        _powerMerciless.effectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        _powerMerciless.effectDescription.fixedSavingThrowDifficultyClass = 15;
+        _powerMerciless.effectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Strength;
+
         var additionalActionMerciless = FeatureDefinitionAdditionalActionBuilder
-            .Create(AdditionalActionSurgedMain, "AdditionalActionMerciless", guidNamespace)
-            .SetGuiPresentationNoContent(AdditionalActionSurgedMain.GuiPresentation.SpriteReference)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+            .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionMerciless", guidNamespace)
+            .SetGuiPresentationNoContent()
             .AddToDB();
 
-        var conditionMerciless = ConditionDefinitionBuilder
-            .Create("ConditionMerciless", guidNamespace)
-            .Configure(RuleDefinitions.DurationType.Round, 0, false, additionalActionMerciless)
-            .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-            .SetGuiPresentation(Category.Condition)
-            .SetPossessive(true)
-            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .SetAllowMultipleInstances(false)
-            .SetFeatures(additionalActionMerciless)
-            .AddToDB();
-
-        void OnCharacterKill(
-            GameLocationCharacter character,
-            bool dropLoot,
-            bool removeBody,
-            bool forceRemove,
-            bool considerDead,
-            bool becomesDying)
-        {
-            if (Global.CurrentAction is not CharacterActionAttack)
-            {
-                return;
-            }
-
-            var activePlayerCharacter = Global.ActivePlayerCharacter;
-            var activeMercilessCondition = RulesetCondition.CreateActiveCondition(
-                activePlayerCharacter.RulesetCharacter.Guid,
-                conditionMerciless, RuleDefinitions.DurationType.Round, 0,
-                RuleDefinitions.TurnOccurenceType.StartOfTurn,
-                activePlayerCharacter.RulesetCharacter.Guid,
-                activePlayerCharacter.RulesetCharacter.CurrentFaction.Name);
-
-            activePlayerCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, activeMercilessCondition);
-
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
-
-            if (battle == null)
-            {
-                return;
-            }
-
-            foreach (var enemy in battle.EnemyContenders)
-            {
-                if (TA.int3.Distance(character.LocationPosition, enemy.LocationPosition) > 2 * (Global.CriticalHit ? 2 : 1))
-                {
-                    continue;
-                }
-
-                var activeFrightenedCondition = RulesetCondition.CreateActiveCondition(
-                    enemy.Guid,
-                    DatabaseHelper.ConditionDefinitions.ConditionFrightened,
-                    RuleDefinitions.DurationType.Round,
-                    1,
-                    RuleDefinitions.TurnOccurenceType.EndOfTurnNoPerceptionOfSource,
-                    activePlayerCharacter.Guid,
-                    activePlayerCharacter.RulesetCharacter.CurrentFaction.Name);
-
-                enemy.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat,
-                    activeFrightenedCondition);
-            }
-        }
-
-        var featureMerciless = FeatureDefinitionOnCharacterKillBuilder
+        var onCharacterKillMerciless = FeatureDefinitionOnCharacterKillBuilder
             .Create("FeatureMerciless", guidNamespace)
             .SetGuiPresentationNoContent()
-            .SetOnCharacterKill(OnCharacterKill)
+            .SetOnCharacterKill(OnMercilessKill)
             .AddToDB();
 
         instance = CustomizableFightingStyleBuilder
             .Create("Merciless", "f570d166-c65c-4a68-ab78-aeb16d491fce")
             .SetGuiPresentation(Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
-            .SetFeatures(featureMerciless)
+            .SetFeatures(additionalActionMerciless, onCharacterKillMerciless)
             .AddToDB();
 
         return instance;
+    }
+
+    private static void OnMercilessKill(
+        GameLocationCharacter character,
+        bool dropLoot,
+        bool removeBody,
+        bool forceRemove,
+        bool considerDead,
+        bool becomesDying)
+    {
+        if (!considerDead || Global.CurrentAction is not CharacterActionAttack actionAttack)
+        {
+            return;
+        }
+
+        var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
+
+        if (battle == null)
+        {
+            return;
+        }
+
+        var attacker = actionAttack.ActingCharacter.RulesetCharacter as RulesetCharacterHero
+                       ?? actionAttack.ActingCharacter.RulesetCharacter.OriginalFormCharacter as
+                           RulesetCharacterHero;
+
+        if (attacker == null || attacker.IsWieldingRangedWeapon())
+        {
+            return;
+        }
+
+        var proficiencyBonus = attacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+        var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
+        var usablePower = new RulesetUsablePower(_powerMerciless, attacker.RaceDefinition, attacker.ClassesHistory[0]);
+        var effectPower = new RulesetEffectPower(attacker, usablePower);
+
+        foreach (var enemy in battle.EnemyContenders
+                     .Where(enemy =>
+                         enemy != character
+                         && enemy.PerceivedAllies.Contains(character)
+                         && int3.Distance(character.LocationPosition, enemy.LocationPosition) <= distance))
+        {
+            effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
+        }
     }
 }

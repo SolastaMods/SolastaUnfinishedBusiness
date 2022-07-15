@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.Insertion;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationCharacterManager_KillCharacter
 {
-    internal static void Postfix(
+    internal static void Prefix(
         GameLocationCharacter character,
         bool dropLoot,
         bool removeBody,
