@@ -138,7 +138,6 @@ ModUi/&OverrideMinMaxLevel=Override	the required min and max levels when startin
 ModUi/&OverridePartySize=<color=white>Override	the party size in custom adventures</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override	<color=#D89555>Rogue</color> Con Artist <color=#D89555>Improved Manipulation</color> Spell DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override	<color=#D89555>Wizard</color> Master Manipulator <color=#D89555>Arcane Manipulation</color> Spell DC</color>
-ModUi/&OverwriteGameLanguage=<color=#F0DAA0>Unofficial	language support:</color>
 ModUi/&PrimedItems=Primed	Items
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Quick	cast light cantrip uses head or torso worn items first
 ModUi/&Races=<color=#F0DAA0>Races	& Subraces</color>
@@ -174,7 +173,6 @@ ModUi/&TargetLanguage=Target	Language
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce	crafting time by</color>
 ModUi/&TotalFeatsGrantedFistLevel=<color=white>Total	feats granted at first level</color>
 ModUi/&TranslateCancel=Cancel	{0} at {1}
-ModUi/&TranslationEngine=Translation	engine
 ModUi/&UnleashEnemyAsNpc=Allow	monsters to be selected on NPC gadgets <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&UnleashNpcAsEnemy=Unleash	monsters selection <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&UnlockAllNpcFaces=Unlock	all NPC faces
@@ -1291,11 +1289,15 @@ Tooltip/&PowerAttackConcentration=Disable	Power Attack.
 FightingStyle/&BlindFightingDescription=You	have blindsight with a range of 10 feet.
 FightingStyle/&BlindFightingTitle=Blind	Fighting
 FightingStyle/&CripplingDescription=Upon	hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
+FightingStyle/&MercilessDescription=When	you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 FightingStyle/&PugilistFightingDescription=Your	unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have free hand, you can shove as a bonus action.
 FightingStyle/&TitanFightingDescription=You	gain a +2 hit against creatures of size Large or bigger.
 FightingStyle/&TitanFightingTitle=Titan	Fighting
 Modifier/&CripplingAdditionalDamageDescription=Crippling	Damage.
+Feat/&FeatCripplingDescription=When	you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.
 Feat/&FeatCripplingTitle=Crippling	[FS]
+Feat/&FeatMercilessDescription=When	you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
+Feat/&FeatMercilessTitle=Merciless	[FS]
 Feat/&FeatPugilistFightingStlyeDescription=Your	unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have a free hand, you can shove as a bonus action.
 Feat/&FeatPugilistFightingStlyeTitle=Pugilist	[FS]
 Feat/&FeatTitanFightingDescription=You	gain a +2 to hit against creatures of Large size or bigger.
@@ -1312,7 +1314,6 @@ Feat/&FightingStyleProtectionDescription=When	a creature you can see attacks a t
 Feat/&FightingStyleProtectionTitle=Protection	[FS]
 Feat/&FightingStyleTwoWeaponDescription=When	you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 Feat/&FightingStyleTwoWeaponTitle=Two	Weapon [FS]
-Feat/&FeatCripplingDescription=When	you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.
 Feat/&ChefConDescription=Increase	your Constitution by 1, to a maximum of 20.\nYou can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.\nOnce a day, you may spend an hour to cook treats that provide temporary HP when eaten.
 Feat/&ChefConTitle=Chef	[Con]
 Feat/&ChefShortRestFeastDescription=You	can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.
