@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameManager_BindPostDatabase
 {
-    private static readonly HashSet<string> UnsupportedLanguages = new() {"pt-BR", "ru"};
+    private static readonly HashSet<string> SupportedLanguages = new() {"zh-CN"};
 
     internal static void Postfix()
     {
@@ -24,7 +24,7 @@ internal static class GameManager_BindPostDatabase
 #endif
 
         // Translations must load first
-        var currentLanguageCode = UnsupportedLanguages.Contains(LocalizationManager.CurrentLanguageCode)
+        var currentLanguageCode = !SupportedLanguages.Contains(LocalizationManager.CurrentLanguageCode)
             ? Translations.English
             : LocalizationManager.CurrentLanguageCode;
 
