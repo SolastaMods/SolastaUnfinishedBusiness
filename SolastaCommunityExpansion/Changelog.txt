@@ -4,10 +4,12 @@ The donation button is under Mod UI > Credits & Diagnostics
 CHANGES:
 
 - Add Merciless fighting style and feat
-- Fix a TA issue with desyncs under certain smites scenarios
-- Remove support for it, es, pt and ru
+- Fix a TA issue with desyncs under certain smite scenarios
+- Remove translation support for de, es, fr, it, pt and ru
 
 TRANSLATIONS:
 
-- It's a heavy toll to maintain languages with a subpar auto translation. This is a collaborative work. If you are Italian, Spaniard or Latino, Brazilian, Russian please drop us a message on official Discord. We need a commitment, about 1 hr a day to fix these translations and keep them up to date.
-- DE and FR to be dropped on next release for the very same reasons
+- It's a heavy toll to maintain languages with a subpar auto translation
+- Please drop us a message on official Discord if you believe you can help 
+- We need a solid commitment, about 1 hr a day to keep translations up to date
+- Basic github knowledge is required to properly push changes
