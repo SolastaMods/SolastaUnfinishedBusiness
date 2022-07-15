@@ -4,3 +4,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 CHANGES:
 
 - Add Merciless fighting style and feat
+- Fix a TA issue with desyncs under certain smites scenarios
