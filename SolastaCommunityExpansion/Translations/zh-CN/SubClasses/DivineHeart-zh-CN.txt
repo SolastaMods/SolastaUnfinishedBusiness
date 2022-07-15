@@ -1,3 +1,4 @@
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=若你在本回合施放了一个治疗法术，你能重掷结果为1或2的治疗骰
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=强效治疗
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=每等级生命值+1
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=神圣刚毅
@@ -24,4 +25,3 @@ Feature/&PowerDivineHeartPlanarPortalDescription=打开一个传送门，能将�
 Feature/&PowerDivineHeartPlanarPortalTitle=界面传送
 Subclass/&SorcerousDivineHeartDescription=你的天生魔法是由一位神灵传授的，其目的你也许并非了解
 Subclass/&SorcerousDivineHeartTitle=神圣之心
-Condition/&ConditionDivineHeartEmpoweredHealingDescription=若你在本回合施放了一个治疗法术，你能重掷结果为1或2的治疗骰
