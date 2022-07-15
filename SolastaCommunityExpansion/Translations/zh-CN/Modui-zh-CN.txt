@@ -140,7 +140,6 @@ ModUi/&OverrideMinMaxLevel=在开启新的冒险时覆盖其最低/最高等级
 ModUi/&OverridePartySize=<color=white>覆盖自定义冒险的队伍大小</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>覆盖<color=#D89555>游荡者</color>诡徒子职的<color=#D89555>精通操纵</color>能力的法术DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>覆盖<color=#D89555>法师</color>控心大师子职的<color=#D89555>奥术之力</color>能力的法术DC</color>
-ModUi/&OverwriteGameLanguage=<color=#F0DAA0>非官方语言支持：</color>
 ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进展：</color>
@@ -186,7 +185,6 @@ ModUi/&TotalCraftingTimeModifier=<color=white>制作耗时降低倍率</color>
 ModUi/&TotalFeatsGrantedFistLevel=<color=white>在第1级时赋予额外专长数量</color>
 ModUi/&Translate=翻译
 ModUi/&TranslateCancel=从{1}取消{0}
-ModUi/&TranslationEngine=翻译引擎
 ModUi/&Translations=翻译
 ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物<color=#C04040E0>【需要重启游戏】</color>
 ModUi/&UnleashNpcAsEnemy=开放怪物的选择<color=#C04040E0>【需要重启游戏】</color>

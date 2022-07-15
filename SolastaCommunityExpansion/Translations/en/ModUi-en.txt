@@ -140,7 +140,6 @@ ModUi/&OverrideMinMaxLevel=Override the required min and max levels when startin
 ModUi/&OverridePartySize=<color=white>Override the party size in custom adventures</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override <color=#D89555>Rogue</color> Con Artist <color=#D89555>Improved Manipulation</color> Spell DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override <color=#D89555>Wizard</color> Master Manipulator <color=#D89555>Arcane Manipulation</color> Spell DC</color>
-ModUi/&OverwriteGameLanguage=<color=#F0DAA0>Unofficial language support:</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
@@ -186,7 +185,6 @@ ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>
 ModUi/&TotalFeatsGrantedFistLevel=<color=white>Total feats granted at first level</color>
 ModUi/&Translate=Translate
 ModUi/&TranslateCancel=Cancel {0} at {1}
-ModUi/&TranslationEngine=Translation engine
 ModUi/&Translations=Translations
 ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&UnleashNpcAsEnemy=Unleash monsters selection <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

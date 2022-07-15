@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -17,17 +16,11 @@ namespace SolastaCommunityExpansion.Utils;
 
 public static class Translations
 {
-    public enum Engine
-    {
-        Baidu,
-        Google
-    }
+    internal const string English = "en";
 
     private static readonly Dictionary<string, string> TranslationsCache = new();
 
-    internal static readonly string[] AvailableLanguages = {"de", "en", "es", "fr", "it", "pt", "ru", "zh-CN"};
-
-    internal static readonly string[] AvailableEngines = Enum.GetNames(typeof(Engine));
+    internal static readonly string[] AvailableLanguages = {"de", "en", "fr", "pt", "ru", "zh-CN"};
 
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 

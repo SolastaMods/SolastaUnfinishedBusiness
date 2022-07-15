@@ -5,3 +5,9 @@ CHANGES:
 
 - Add Merciless fighting style and feat
 - Fix a TA issue with desyncs under certain smites scenarios
+- Remove support for it, es, pt and ru
+
+TRANSLATIONS:
+
+- It's a heavy toll to maintain languages with a subpar auto translation. This is a collaborative work. If you are Italian, Spaniard or Latino, Brazilian, Russian please drop us a message on official Discord. We need a commitment, about 1 hr a day to fix these translations and keep them up to date.
+- DE and FR to be dropped on next release for the very same reasons
