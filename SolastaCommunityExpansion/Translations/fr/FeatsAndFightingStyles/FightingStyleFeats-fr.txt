@@ -1,4 +1,7 @@
+Feat/&FeatCripplingDescription=Lorsque vous touchez avec une attaque au corps à corps, vous pouvez réduire la vitesse de votre adversaire de 3 mètres jusqu'au début de votre prochain tour.
 Feat/&FeatCripplingTitle=Paralysant [FS]
+Feat/&FeatMercilessDescription=Lorsque vous réduisez une cible à 0 PV en utilisant une attaque au corps à corps avec une arme à votre tour, vous pouvez effectuer une attaque supplémentaire avec une arme au corps à corps dans le cadre de la même action. Les ennemis dans un rayon de la cible abattue égal à la moitié de votre bonus de maîtrise (arrondi au supérieur) qui peuvent voir la cible doivent faire un jet de Sagesse (DD égal à 8 + PB + votre modificateur de FOR) ou avoir peur de vous jusqu'à la fin de leur prochain tour. Si l'attaque déclenchante est un coup critique, le rayon est à la place égal à votre bonus de maîtrise.
+Feat/&FeatMercilessTitle=Impitoyable [FS]
 Feat/&FeatPugilistFightingStlyeDescription=Vos frappes à mains nues infligent 1d4 dégâts contondants supplémentaires et vous pouvez frapper avec votre main désinvolte en tant qu'action bonus.\nSi vous avez une main libre, vous pouvez bousculer en tant qu'action bonus.
 Feat/&FeatPugilistFightingStlyeTitle=Pugiliste [FS]
 Feat/&FeatTitanFightingDescription=Vous gagnez un +2 pour toucher contre les créatures de taille G ou plus.
@@ -15,4 +18,3 @@ Feat/&FightingStyleProtectionDescription=Lorsqu'une créature que vous pouvez vo
 Feat/&FightingStyleProtectionTitle=Protection [FS]
 Feat/&FightingStyleTwoWeaponDescription=Lorsque vous vous engagez dans un combat à deux armes, vous pouvez ajouter votre modificateur de capacité aux dégâts de la deuxième attaque.
 Feat/&FightingStyleTwoWeaponTitle=Deux armes [FS]
-Feat/&FeatCripplingDescription=Lorsque vous touchez avec une attaque au corps à corps, vous pouvez réduire la vitesse de votre adversaire de 3 mètres jusqu'au début de votre prochain tour.

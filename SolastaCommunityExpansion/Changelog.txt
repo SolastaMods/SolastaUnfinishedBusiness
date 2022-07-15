@@ -3,4 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Allow gamepass users to boot [TA not using same code base there]
+- Add Merciless fighting style and feat

@@ -1,4 +1,7 @@
+Feat/&FeatCripplingDescription=Quando você acerta com um ataque corpo a corpo, você pode reduzir a velocidade do seu oponente em 3 metros até o início do seu próximo turno.
 Feat/&FeatCripplingTitle=Aleijado [FS]
+Feat/&FeatMercilessDescription=Quando você reduz um alvo a 0 HP usando um ataque corpo a corpo com arma em seu turno, você pode fazer um ataque corpo a corpo adicional com arma como parte da mesma ação. Inimigos dentro de um raio do alvo abatido igual à metade do seu bônus de proficiência (arredondado para cima) que puder ver o alvo devem fazer um teste de Sabedoria (CD igual a 8 + PB + seu modificador de FOR) ou ficarão com medo de você até o final do seu próximo turno. Se o ataque desencadeante for um acerto crítico, o raio será igual ao seu bônus de proficiência.
+Feat/&FeatMercilessTitle=Impiedoso [FS]
 Feat/&FeatPugilistFightingStlyeDescription=Seus golpes desarmados causam um dano de concussão adicional de 1d4 e você pode socar com sua mão secundária como uma ação bônus.\nSe você tiver uma mão livre, você pode empurrar como uma ação bônus.
 Feat/&FeatPugilistFightingStlyeTitle=Pugilista [FS]
 Feat/&FeatTitanFightingDescription=Você ganha +2 para acertar contra criaturas de tamanho Grande ou maior.
@@ -15,4 +18,3 @@ Feat/&FightingStyleProtectionDescription=Quando uma criatura que você pode ver 
 Feat/&FightingStyleProtectionTitle=Proteção [FS]
 Feat/&FightingStyleTwoWeaponDescription=Quando você luta com duas armas, você pode adicionar seu modificador de habilidade ao dano do segundo ataque.
 Feat/&FightingStyleTwoWeaponTitle=Duas Armas [FS]
-Feat/&FeatCripplingDescription=Quando você acerta com um ataque corpo a corpo, você pode reduzir a velocidade do seu oponente em 3 metros até o início do seu próximo turno.

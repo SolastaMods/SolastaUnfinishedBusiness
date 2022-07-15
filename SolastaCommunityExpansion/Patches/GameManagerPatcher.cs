@@ -24,8 +24,11 @@ internal static class GameManager_BindPostDatabase
 #endif
 
         // Translations must load first
+        var currentLanguageCode = LocalizationManager.CurrentLanguageCode == "ru"
+            ? "en"
+            : LocalizationManager.CurrentLanguageCode;
         var languageCode = Main.Settings.SelectedOverwriteLanguageCode == "off"
-            ? LocalizationManager.CurrentLanguageCode
+            ? currentLanguageCode
             : Main.Settings.SelectedOverwriteLanguageCode;
 
         Translations.LoadTranslations(languageCode);

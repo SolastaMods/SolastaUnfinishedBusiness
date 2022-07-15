@@ -1,4 +1,7 @@
+Feat/&FeatCripplingDescription=Cuando golpeas con un ataque cuerpo a cuerpo, puedes reducir la velocidad de tu oponente en 10 pies hasta el comienzo de tu próximo turno.
 Feat/&FeatCripplingTitle=paralizante [FS]
+Feat/&FeatMercilessDescription=Cuando reduce un objetivo a 0 HP usando un ataque con arma cuerpo a cuerpo en su turno, puede realizar un ataque con arma cuerpo a cuerpo adicional como parte de la misma acción. Los enemigos dentro de un radio del objetivo derribado igual a la mitad de tu bonificador de competencia (redondeado hacia arriba) que puedan ver al objetivo deben hacer una salvación de Sabiduría (CD igual a 8 + PB + tu modificador de FUE) o te asustarán hasta el final de su próximo turno. Si el ataque desencadenante es un golpe crítico, el radio es igual a tu bonificación de competencia.
+Feat/&FeatMercilessTitle=Despiadado [FS]
 Feat/&FeatPugilistFightingStlyeDescription=Tus golpes sin armas infligen 1d4 de daño contundente adicional y puedes golpear con tu mano izquierda como acción adicional.\nSi tienes una mano libre, puedes empujar como acción adicional.
 Feat/&FeatPugilistFightingStlyeTitle=Pugilista [FS]
 Feat/&FeatTitanFightingDescription=Obtienes un +2 para impactar contra criaturas de tamaño Grande o mayor.
@@ -15,4 +18,3 @@ Feat/&FightingStyleProtectionDescription=Cuando una criatura que puedes ver atac
 Feat/&FightingStyleProtectionTitle=Protección [FS]
 Feat/&FightingStyleTwoWeaponDescription=Cuando participas en una pelea con dos armas, puedes agregar tu modificador de habilidad al daño del segundo ataque.
 Feat/&FightingStyleTwoWeaponTitle=Dos armas [FS]
-Feat/&FeatCripplingDescription=Cuando golpeas con un ataque cuerpo a cuerpo, puedes reducir la velocidad de tu oponente en 10 pies hasta el comienzo de tu próximo turno.
