@@ -129,8 +129,7 @@ internal static class GameManager_BindPostDatabase
             // Cache CE definitions for diagnostics and export
             DiagnosticsContext.CacheCeDefinitions();
 
-            Main.Enabled = true;
-            Main.Logger.Log("Enabled.");
+            Main.Enable();
 
             // Manages update or welcome messages
             BootContext.Load();

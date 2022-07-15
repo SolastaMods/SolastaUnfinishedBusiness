@@ -14,16 +14,18 @@ namespace SolastaCommunityExpansion;
 internal static class Main
 {
     internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
+    private static ModManager<Core, Settings> Mod { get; set; }
+
+    private static MenuManager Menu { get; set; }
 
     internal static string ModFolder { get; } =
         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-    internal static bool Enabled { get; set; }
+    internal static bool Enabled { get; private set; }
+
+    internal static Action Enable { get; private set; }
 
     internal static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
-
-    private static ModManager<Core, Settings> Mod { get; set; }
-    private static MenuManager Menu { get; set; }
 
     internal static Settings Settings => Mod.Settings;
 
@@ -55,19 +57,33 @@ internal static class Main
         Logger?.Error(msg);
     }
 
-    internal static bool Load([NotNull] UnityModManager.ModEntry modEntry)
+    // ReSharper disable once UnusedMember.Global
+    public static bool Load([NotNull] UnityModManager.ModEntry modEntry)
     {
         try
         {
             var assembly = Assembly.GetExecutingAssembly();
 
             Logger = modEntry.Logger;
+
             Mod = new ModManager<Core, Settings>();
             Mod.Enable(modEntry, assembly);
-            modEntry.OnShowGUI = OnShowGui;
 
             Menu = new MenuManager();
-            Menu.Enable(modEntry, assembly);
+            modEntry.OnShowGUI = _ =>
+            {
+                if (Settings.EnableHeroesControlledByComputer)
+                {
+                    PlayerControllerContext.RefreshGuiState();
+                }
+            };
+
+            Enable = () =>
+            {
+                Enabled = true;
+                Menu.Enable(modEntry, assembly);
+                Logger.Log("Enabled.");
+            };
         }
         catch (Exception ex)
         {
@@ -76,14 +92,6 @@ internal static class Main
         }
 
         return true;
-    }
-
-    private static void OnShowGui(UnityModManager.ModEntry modEntry)
-    {
-        if (Settings.EnableHeroesControlledByComputer)
-        {
-            PlayerControllerContext.RefreshGuiState();
-        }
     }
 
     // private static void LoadSidecars(string currentAssemblyName)
