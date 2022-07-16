@@ -174,7 +174,6 @@ internal sealed class DeadMaster : AbstractSubclass
 
                 monster.fullyControlledWhenAllied = true;
                 subSpell.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = monster.name;
-
                 subSpell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;
                 // subSpell.EffectDescription.EffectAdvancement.additionalSummonsPerIncrement = 1;
                 // subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod =
@@ -193,6 +192,7 @@ internal sealed class DeadMaster : AbstractSubclass
                 .SetSubSpells(spells)
                 .AddToDB();
 
+            spell.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = string.Empty;
             spell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;
             // spell.EffectDescription.EffectAdvancement.additionalSummonsPerIncrement = 1;
             // spell.EffectDescription.EffectAdvancement.effectIncrementMethod =
