@@ -132,7 +132,7 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
 [HarmonyPatch(typeof(RulesetCharacter), "RollAttackMode")]
 internal static class RulesetCharacter_RollAttackMode
 {
-    internal static void Postfix(int __result)
+    internal static void Postfix(RulesetCharacter __instance,  ref int __result, RulesetAttackMode attackMode, RulesetActor target)
     {
         if (Global.IsSpellStrike)
         {

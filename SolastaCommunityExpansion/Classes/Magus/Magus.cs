@@ -48,9 +48,7 @@ public static class Magus
         .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
         .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
         .AddToDB();
-
-    private static FeatureDefinitionFeatureSetCustom ArcaneArt { get; set; }
-
+    
     private static void BuildEquipment(CharacterClassDefinitionBuilder classMagusBuilder)
     {
         classMagusBuilder
@@ -210,7 +208,7 @@ public static class Magus
             .SetSubclassSuffix("Coven")
             .SetFilterByDeity(false)
             .SetSubclasses(
-                PrimordialMagic.Build())
+                ArcaneGladiator.Build())
             .AddToDB();
         
         var extraAttack =  FeatureDefinitionAttributeModifierBuilder
@@ -1002,13 +1000,13 @@ public static class Magus
     
     #region spell_strike
 
-    public static FeatureDefinitionPower SpellStrikePower = FeatureDefinitionPowerBuilder
+    public static readonly FeatureDefinitionPower SpellStrikePower = FeatureDefinitionPowerBuilder
         .Create("ClassMagusSpellStrikePower", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Class, "ClassMagusSpellStrikePower")
         .SetRechargeRate(RechargeRate.AtWill)
         .AddToDB();
 
-    public static FeatureDefinitionAdditionalDamage SpellStrikeAdditionalDamage =
+    public static readonly FeatureDefinitionAdditionalDamage SpellStrikeAdditionalDamage =
         FeatureDefinitionAdditionalDamageBuilder
             .Create("ClassMagusSpellStrikeAdditionalDamage", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
@@ -1016,7 +1014,7 @@ public static class Magus
             .SetDamageDice(DieType.D1,0)
             .AddToDB();
     
-    public static FeatureDefinition SpellStrike = FeatureDefinitionBuilder
+    public static readonly FeatureDefinition SpellStrike = FeatureDefinitionBuilder
         .Create("ClassMagusSpellStrike", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Class, "ClassMagusSpellStrike")
         .SetCustomSubFeatures(PerformAttackAfterMagicEffectUse.MeleeAttack,
@@ -1027,6 +1025,16 @@ public static class Magus
     {
         var actionParams = instance.actionParams;
         if (!actionParams.actingCharacter.RulesetCharacter.HasAnyFeature(SpellStrike))
+        {
+            return false;
+        }
+
+        if (instance.actionParams.RulesetEffect is not RulesetEffectSpell effect)
+        {
+            return false;
+        }
+
+        if (effect.spellDefinition == null || effect.spellDefinition.spellLevel > 0)
         {
             return false;
         }
@@ -1071,55 +1079,37 @@ public static class Magus
         };
 
         var damageForm = magicEffect.actionParams.activeEffect.EffectDescription.FindFirstDamageForm();
-        if (damageForm != null)
+        if (damageForm == null)
         {
-            if (SpellStrikePower.effectDescription.effectParticleParameters.impactParticleReference.Asset == null)
-            {
-                SpellStrikeAdditionalDamage.impactParticleReference = damageForm.damageType switch
-                {
-                    DamageTypeCold => DatabaseHelper.SpellDefinitions.RayOfFrost.effectDescription
-                        .effectParticleParameters.impactParticleReference,
-                    DamageTypeAcid => DatabaseHelper.SpellDefinitions.AcidArrow.effectDescription
-                        .effectParticleParameters.impactParticleReference,
-                    DamageTypeForce => DatabaseHelper.SpellDefinitions.MagicMissile
-                        .effectDescription.effectParticleParameters.impactParticleReference,
-                    DamageTypeFire => DatabaseHelper.SpellDefinitions.FireBolt.effectDescription
-                        .effectParticleParameters.impactParticleReference,
-                    DamageTypeLightning => DatabaseHelper.SpellDefinitions.LightningBolt.effectDescription
-                        .effectParticleParameters.impactParticleReference,
-                    DamageTypeNecrotic => DatabaseHelper.MonsterAttackDefinitions
-                        .Attack_Defiler_Bite_Aksha.effectDescription.effectParticleParameters
-                        .impactParticleReference,
-                    DamageTypeRadiant => DatabaseHelper.SpellDefinitions.GuidingBolt
-                        .effectDescription.effectParticleParameters.impactParticleReference,
-                    DamageTypePsychic => DatabaseHelper.SpellDefinitions.MindTwist.effectDescription
-                        .effectParticleParameters.impactParticleReference,
-                    DamageTypePoison => DatabaseHelper.SpellDefinitions.VenomousSpike.effectDescription
-                        .effectParticleParameters.impactParticleReference,
-                    _ => SpellStrikeAdditionalDamage.impactParticleReference,
-                };
-            }
-        }
-        
-        /*magicEffect.GetAdvancementData();
-
-        foreach (var copy in magicEffect.actionParams.activeEffect.EffectDescription.effectForms.Select(form => form.DeepCopy()))
-        {
-            if (copy.formType == EffectForm.EffectFormType.Damage)
-            {
-                copy.damageForm.diceNumber += magicEffect.AddDice;
-                for (int i = 0; i < magicEffect.actionParams.TargetCharacters.Count; i++)
-                {
-                    attackParams.attackMode.EffectDescription.effectForms.Add(copy);
-                }
-            }
-            else if (copy.formType != EffectForm.EffectFormType.LightSource)
-            {
-                attackParams.attackMode.EffectDescription.effectForms.Add(copy);
-            }
+            return;
         }
 
-        attackParams.activeEffect = magicEffect.actionParams.activeEffect;*/
+        if (SpellStrikePower.effectDescription.effectParticleParameters.impactParticleReference.Asset == null)
+        {
+            SpellStrikeAdditionalDamage.impactParticleReference = damageForm.damageType switch
+            {
+                DamageTypeCold => DatabaseHelper.SpellDefinitions.RayOfFrost.effectDescription
+                    .effectParticleParameters.impactParticleReference,
+                DamageTypeAcid => DatabaseHelper.SpellDefinitions.AcidArrow.effectDescription
+                    .effectParticleParameters.impactParticleReference,
+                DamageTypeForce => DatabaseHelper.SpellDefinitions.MagicMissile
+                    .effectDescription.effectParticleParameters.impactParticleReference,
+                DamageTypeFire => DatabaseHelper.SpellDefinitions.FireBolt.effectDescription
+                    .effectParticleParameters.impactParticleReference,
+                DamageTypeLightning => DatabaseHelper.SpellDefinitions.LightningBolt.effectDescription
+                    .effectParticleParameters.impactParticleReference,
+                DamageTypeNecrotic => DatabaseHelper.MonsterAttackDefinitions
+                    .Attack_Defiler_Bite_Aksha.effectDescription.effectParticleParameters
+                    .impactParticleReference,
+                DamageTypeRadiant => DatabaseHelper.SpellDefinitions.GuidingBolt
+                    .effectDescription.effectParticleParameters.impactParticleReference,
+                DamageTypePsychic => DatabaseHelper.SpellDefinitions.MindTwist.effectDescription
+                    .effectParticleParameters.impactParticleReference,
+                DamageTypePoison => DatabaseHelper.SpellDefinitions.VenomousSpike.effectDescription
+                    .effectParticleParameters.impactParticleReference,
+                _ => SpellStrikeAdditionalDamage.impactParticleReference,
+            };
+        }
     }
     #endregion
 }

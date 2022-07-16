@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Classes.Magus;
@@ -86,44 +87,14 @@ internal static class GameLocationCharacterPatcher
             {
                 return;
             }
-
-            var actionType = ActionDefinitions.ActionType.Main;
-            var t1 = __instance.actionPerformancesByType[actionType];
-            var t2 = __instance.currentActionRankByType[actionType];
-            var maxAttacksNumber = -1;
-            if (t1.Count > t2)
-            {
-                maxAttacksNumber = t1[t2].maxAttacksNumber;
-            }
-            int num = 0;
-            if (actionParams.AttackMode != null)
-            {
-                num = actionParams.AttackMode.AttacksNumber;
-            }
-            else
-            {
-                foreach (RulesetAttackMode attackMode in actionParams.ActingCharacter.RulesetCharacter.AttackModes)
-                {
-                    if (attackMode.ActionType == actionType)
-                    {
-                        num = Mathf.Max(num, attackMode.AttacksNumber);
-                    }
-                }
-            }
+            
             __instance.UsedMainAttacks++;
             if (rulesetCharacter != null)
             {
                 rulesetCharacter.ExecutedAttacks++;
                 rulesetCharacter.RefreshAttackModes();
             }
-            int num2 = ((maxAttacksNumber >= 0 && maxAttacksNumber < num) ? maxAttacksNumber : num);
-            if (__instance.UsedMainAttacks >= num2)
-            {
-                __instance.currentActionRankByType[actionType]++;
-                __instance.UsedMainAttacks = 0;
-            }
-
-            __instance.currentActionRankByType[actionType]--;
+            __instance.currentActionRankByType[ ActionDefinitions.ActionType.Main]--;
             __instance.RefreshActionPerformances();
         }
     }
