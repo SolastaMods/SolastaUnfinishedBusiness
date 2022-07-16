@@ -1,19 +1,33 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SpellDefinition, Assembly-CSharp",
+  "spellsBundle": true,
+  "subspellsList": [
+    "Definition:CreateDeadZombie:dd2d89bf-9845-5b20-a769-cbf6adbd368b",
+    "Definition:CreateDeadSkeleton:33d2d737-a52c-5d59-8172-059b328ebed9",
+    "Definition:CreateDeadSkeleton_Archer:a547f0d0-263c-5720-9cbc-d8eb972faffb"
+  ],
+  "implemented": true,
+  "schoolOfMagic": "SchoolNecromancy",
+  "spellLevel": 3,
+  "ritual": false,
+  "uniqueInstance": false,
+  "castingTime": "Minute1",
+  "ritualCastingTime": "Action",
+  "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 12,
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Cube",
+    "targetType": "Position",
     "itemSelectionType": "Equiped",
-    "targetParameter": 4,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -29,20 +43,20 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "All",
-    "durationType": "Minute",
+    "targetSide": "Enemy",
+    "durationType": "UntilAnyRest",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": true,
+    "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
     "createdByCharacter": true,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Charisma",
-    "fixedSavingThrowDifficultyClass": 8,
+    "difficultyClassComputation": "SpellCastingFeature",
+    "savingThrowDifficultyAbility": "Wisdom",
+    "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -57,71 +71,7 @@
     "effectPoolAmount": 60,
     "effectApplication": "All",
     "effectFormFilters": [],
-    "effectForms": [
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionHighlighted",
-          "conditionDefinition": "Definition:ConditionHighlighted:e656433f63f7c1e499a77c59ebc7ac84",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "LightSource",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
-        "lightSourceForm": {
-          "$type": "LightSourceForm, Assembly-CSharp",
-          "lightSourceType": "Basic",
-          "brightRange": 0,
-          "dimAdditionalRange": 2,
-          "color": {
-            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-            "r": 1.0,
-            "g": 0.9778601,
-            "b": 0.78039217,
-            "a": 1.0
-          },
-          "graphicsPrefabReference": {
-            "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-            "m_AssetGUID": "3e4cdebecc6e0db469720619529e3dc2",
-            "m_SubObjectName": "",
-            "m_SubObjectType": ""
-          },
-          "applyToSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      }
-    ],
+    "effectForms": [],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
@@ -148,7 +98,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3cff2b6f11a2cd649b3fb3fb2c402351",
+        "m_AssetGUID": "113cf0e1f91aeed4e89e3cb2865186b9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -166,7 +116,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "3b7614daad256bc4ea01a5585a71b460",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -184,14 +134,14 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6937e1207989e6644ad591240a0bb88c",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "beforeImpactParticleReference": null,
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "dc52f8444fa49f24ca22b361d63dbb15",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -276,13 +226,13 @@
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "13002582a0306fe44915c63f57e4ea59",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "0c47cc2ece484284eb5eec49a38a2cae",
+        "m_AssetGUID": "b15977f376d55ad44b93d01fa254df7b",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -299,51 +249,38 @@
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
-      "aoeScoreMultiplier": 1.5,
+      "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
-      "cooldownForBattle": 2,
-      "dynamicCooldown": true
+      "cooldownForBattle": 0,
+      "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0"
   },
-  "delegatedToAction": false,
-  "surrogateToSpell": null,
-  "triggeredBySpecialMove": false,
-  "activationTime": "Action",
-  "reactionContext": "None",
-  "reactionName": "",
-  "hasCastingFailure": false,
-  "castingSuccessComputation": "CasterLevel",
-  "canUseInDialog": false,
-  "disableIfConditionIsOwned": null,
-  "rechargeRate": "LongRest",
-  "costPerUse": 1,
-  "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
-  "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
-  "attackHitComputation": "AbilityScore",
-  "fixedAttackHit": 0,
-  "abilityScoreBonusToAttack": false,
-  "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
-  "showCasting": true,
-  "shortTitleOverride": "",
-  "overriddenPower": null,
-  "includeBaseDescription": false,
-  "magical": true,
+  "aiParameters": {
+    "$type": "SpellAIParameters, Assembly-CSharp",
+    "learnPriority": "Low",
+    "preparePriority": "Low"
+  },
+  "concentrationAction": "None",
+  "verboseComponent": true,
+  "somaticComponent": true,
+  "materialComponentType": "None",
+  "specificMaterialComponentTag": "Diamond",
+  "specificMaterialComponentCostGp": 100,
+  "specificMaterialComponentConsumed": true,
+  "terminateOnItemUnequip": false,
+  "displayConditionDuration": false,
+  "vocalSpellSemeType": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerDarkelfFaerieFireTitle",
-    "description": "Feature/&PowerDarkelfFaerieFireDescription",
+    "title": "Spell/&CreateDead3Title",
+    "description": "Spell/&CreateDead3Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9ca4f4b1dea3dbe41a40bf189c91bbd3",
-      "m_SubObjectName": "FaerieFire",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "1058000d8fe55a80a4b972601a92769a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -358,7 +295,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a",
+  "guid": "6a232ca3-77d5-5eb3-b819-61bdbed06eb6",
   "contentPack": 9999,
-  "name": "PowerDarkelfFaerieFire"
+  "name": "CreateDead3"
 }

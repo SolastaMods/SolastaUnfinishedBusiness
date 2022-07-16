@@ -198,6 +198,13 @@ public abstract class
         return This();
     }
 
+    public TBuilder SetAbilityScoreDetermination(
+        RuleDefinitions.AbilityScoreDetermination abilityScoreNameDetermination)
+    {
+        Definition.abilityScoreDetermination = abilityScoreNameDetermination;
+        return This();
+    }
+
     public TBuilder SetUsesAbilityScoreName(string abilityScoreName)
     {
         Definition.usesAbilityScoreName = abilityScoreName;

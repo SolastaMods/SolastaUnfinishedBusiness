@@ -1,0 +1,59 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsWizardDeadMaster:c50445c6-6b99-5d98-a6a5-9db7f74088bf",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureStarkHarvest:79c04946-20f2-5ec3-8ca6-ffadaee0aeb7",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureUndeadChains:5655e52b-594c-54ab-8c48-47f0b7190ca1",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureHardenToNecrotic:3a80c34a-50b9-5a71-8551-d8035e58a420",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCommandUndead:edea18b3-b5ce-53af-a379-3ac82c49abae",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&WizardDeadMasterTitle",
+    "description": "Subclass/&WizardDeadMasterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4218d50fb51e07940a335e58e07e4e68",
+      "m_SubObjectName": "DomainMischief",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d014b7eb-5eb3-5d0f-bace-d9982fbf5adc",
+  "contentPack": 9999,
+  "name": "WizardDeadMaster"
+}

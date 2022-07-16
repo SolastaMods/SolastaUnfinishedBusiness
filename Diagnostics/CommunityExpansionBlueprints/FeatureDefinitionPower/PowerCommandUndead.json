@@ -6,9 +6,9 @@
     "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Cube",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "Equiped",
-    "targetParameter": 4,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -29,19 +29,19 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "All",
+    "targetSide": "Enemy",
     "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
+    "savingThrowAbility": "Charisma",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Charisma",
+    "savingThrowDifficultyAbility": "Intelligence",
     "fixedSavingThrowDifficultyClass": 8,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
@@ -50,7 +50,9 @@
     "hasVelocity": false,
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
-    "restrictedCreatureFamilies": [],
+    "restrictedCreatureFamilies": [
+      "Undead"
+    ],
     "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
@@ -64,7 +66,7 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 1,
+        "levelMultiplier": 0,
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -74,49 +76,12 @@
         "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionHighlighted",
-          "conditionDefinition": "Definition:ConditionHighlighted:e656433f63f7c1e499a77c59ebc7ac84",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionMindDominatedByCaster:913de2c4edaa29949a2981ffd5de2072",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "LightSource",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
-        "lightSourceForm": {
-          "$type": "LightSourceForm, Assembly-CSharp",
-          "lightSourceType": "Basic",
-          "brightRange": 0,
-          "dimAdditionalRange": 2,
-          "color": {
-            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-            "r": 1.0,
-            "g": 0.9778601,
-            "b": 0.78039217,
-            "a": 1.0
-          },
-          "graphicsPrefabReference": {
-            "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-            "m_AssetGUID": "3e4cdebecc6e0db469720619529e3dc2",
-            "m_SubObjectName": "",
-            "m_SubObjectType": ""
-          },
-          "applyToSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -137,7 +102,7 @@
       "additionalTargetCellsPerIncrement": 0,
       "additionalItemBonus": 0,
       "additionalWeaponDie": 0,
-      "alteredDuration": "None"
+      "alteredDuration": "Minutes_1_10_480_1440_Infinite"
     },
     "speedType": "Instant",
     "speedParameter": 10.0,
@@ -148,7 +113,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3cff2b6f11a2cd649b3fb3fb2c402351",
+        "m_AssetGUID": "cfdd90724f8ab4944a9ac23ada9f3109",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -172,7 +137,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "cc55fb31dbc2c82479e121bb18a126f2",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -184,14 +149,14 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6937e1207989e6644ad591240a0bb88c",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "beforeImpactParticleReference": null,
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "dc52f8444fa49f24ca22b361d63dbb15",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -276,13 +241,13 @@
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "13002582a0306fe44915c63f57e4ea59",
+        "m_AssetGUID": "876a397905fd63a43ae7963b339a4012",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "0c47cc2ece484284eb5eec49a38a2cae",
+        "m_AssetGUID": "97339939e0d41f94f8f9ae0fb9049fb6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -299,10 +264,10 @@
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
-      "aoeScoreMultiplier": 1.5,
+      "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
-      "cooldownForBattle": 2,
-      "dynamicCooldown": true
+      "cooldownForBattle": 0,
+      "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0"
   },
@@ -319,10 +284,10 @@
   "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
+  "usesDetermination": "ProficiencyBonus",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "usesAbilityScoreName": "Intelligence",
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -337,13 +302,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerDarkelfFaerieFireTitle",
-    "description": "Feature/&PowerDarkelfFaerieFireDescription",
+    "title": "Power/&PowerCommandUndeadTitle",
+    "description": "Power/&PowerCommandUndeadDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9ca4f4b1dea3dbe41a40bf189c91bbd3",
-      "m_SubObjectName": "FaerieFire",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -358,7 +323,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a",
+  "guid": "edea18b3-b5ce-53af-a379-3ac82c49abae",
   "contentPack": 9999,
-  "name": "PowerDarkelfFaerieFire"
+  "name": "PowerCommandUndead"
 }
