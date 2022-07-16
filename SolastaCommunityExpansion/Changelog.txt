@@ -4,3 +4,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 CHANGES:
 
 - Add Dead Master subclass
+- Fix Level 20 campaigns cap
