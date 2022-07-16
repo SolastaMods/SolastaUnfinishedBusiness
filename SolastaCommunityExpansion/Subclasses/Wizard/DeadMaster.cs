@@ -94,11 +94,11 @@ internal sealed class DeadMaster : AbstractSubclass
         var commandUndeadEffect = powerCommandUndead.EffectDescription;
 
         commandUndeadEffect.restrictedCreatureFamilies = new List<string> {CharacterFamilyDefinitions.Undead.Name};
-        commandUndeadEffect.durationParameter = 1;
-        commandUndeadEffect.durationType = RuleDefinitions.DurationType.Minute;
         commandUndeadEffect.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
         commandUndeadEffect.savingThrowAbility = AttributeDefinitions.Charisma;
-        commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
+        commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
+        commandUndeadEffect.difficultyClassComputation = RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        commandUndeadEffect.fixedSavingThrowDifficultyClass = 8;
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardDeadMaster", SubclassNamespace)
