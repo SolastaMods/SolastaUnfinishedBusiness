@@ -63,6 +63,30 @@ internal sealed class DeadMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        var powerCommandUndead = FeatureDefinitionPowerBuilder
+            .Create("PowerCommandUndead", SubclassNamespace)
+            .SetGuiPresentation(Category.Power)
+            .Configure(
+                0,
+                RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                string.Empty,
+                RuleDefinitions.ActivationTime.BonusAction,
+                1,
+                RuleDefinitions.RechargeRate.LongRest,
+                false,
+                false,
+                string.Empty,
+                DominateBeast.EffectDescription)
+            .AddToDB();
+
+        var commandUndeadEffect = powerCommandUndead.EffectDescription;
+
+        commandUndeadEffect.restrictedCreatureFamilies = new List<string> {CharacterFamilyDefinitions.Undead.Name};
+        commandUndeadEffect.durationType = RuleDefinitions.DurationType.UntilAnyRest;
+        commandUndeadEffect.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
+        commandUndeadEffect.savingThrowAbility = AttributeDefinitions.Charisma;
+        commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardDeadMaster", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
@@ -70,6 +94,7 @@ internal sealed class DeadMaster : AbstractSubclass
             .AddFeatureAtLevel(featureStarkHarvest, 2)
             .AddFeatureAtLevel(featureUndeadChains, 6)
             .AddFeatureAtLevel(featureHardenToNecrotic, 10)
+            .AddFeatureAtLevel(powerCommandUndead, 14)
             .AddToDB();
     }
 
