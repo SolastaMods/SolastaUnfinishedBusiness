@@ -16,21 +16,23 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationBattleManager_IsValidAttackForReadiedAction
 {
-    internal static void Postfix(GameLocationBattleManager __instance, ref bool __result,
+    internal static void Postfix(
+        GameLocationBattleManager __instance,
+        ref bool __result,
         BattleDefinitions.AttackEvaluationParams attackParams,
         bool forbidDisadvantage)
     {
-        if (DatabaseHelper.TryGetDefinition<SpellDefinition>(attackParams.effectName, null, out var cantrip))
+        if (!DatabaseHelper.TryGetDefinition<SpellDefinition>(attackParams.effectName, null, out var cantrip))
         {
-            var attack = cantrip.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
-            if (attack != null)
-            {
-                var canAttack = attack.CanAttack;
-                if (canAttack != null)
-                {
-                    __result = canAttack(attackParams.attacker, attackParams.defender);
-                }
-            }
+            return;
+        }
+
+        var attack = cantrip.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
+        var canAttack = attack?.CanAttack;
+
+        if (canAttack != null)
+        {
+            __result = canAttack(attackParams.attacker, attackParams.defender);
         }
     }
 }
@@ -53,16 +55,21 @@ internal static class GameLocationBattleManager_CanPerformReadiedActionOnCharact
             if (i < 1) { continue; }
 
             var code = codes[i];
-            if (code.opcode == OpCodes.Callvirt && code.operand.ToString().Contains("Contains"))
+
+            if (code.opcode != OpCodes.Callvirt || !code.operand.ToString().Contains("Contains"))
             {
-                var prev = codes[i - 1];
-                if (prev.opcode == OpCodes.Callvirt &&
-                    prev.operand.ToString().Contains("PreferredReadyCantrip"))
-                {
-                    containsIndex = i;
-                    break;
-                }
+                continue;
             }
+
+            var prev = codes[i - 1];
+
+            if (prev.opcode != OpCodes.Callvirt || !prev.operand.ToString().Contains("PreferredReadyCantrip"))
+            {
+                continue;
+            }
+
+            containsIndex = i;
+            break;
         }
 
         if (containsIndex > 0)
@@ -76,12 +83,12 @@ internal static class GameLocationBattleManager_CanPerformReadiedActionOnCharact
     private static bool CheckAndModifyCantrips(List<SpellDefinition> readied,
         SpellDefinition preferred)
     {
-        if (CustomReactionsContext.ForcePreferredCantrip)
+        if (!CustomReactionsContext.ForcePreferredCantrip)
         {
-            readied.RemoveAll(c => c != preferred);
-            return !readied.Empty();
+            return readied.Contains(preferred);
         }
 
-        return readied.Contains(preferred);
+        readied.RemoveAll(c => c != preferred);
+        return !readied.Empty();
     }
 }

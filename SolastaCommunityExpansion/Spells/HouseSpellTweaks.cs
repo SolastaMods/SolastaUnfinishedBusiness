@@ -1,8 +1,10 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Patches.Bugfix;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Spells;
 
@@ -11,12 +13,25 @@ internal static class HouseSpellTweaks
     internal static void Register()
     {
         AddBleedingToRestoration();
+        EnableAnimateDead();
         UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
         MinorFixes();
         RemoveConcentrationRequirementsFromAnySpell();
         RemoveHumanoidFilterOnHideousLaughter();
         RemoveRecurringEffectOnEntangle();
+    }
+
+    private static void EnableAnimateDead()
+    {
+        AnimateDead.implemented = true;
+        AnimateDead.requiresConcentration = true;
+        AnimateDead.EffectDescription.durationType = RuleDefinitions.DurationType.Hour;
+        AnimateDead.EffectDescription.EffectForms[0].SummonForm.conditionDefinition = ConditionMindControlledByCaster;
+        AnimateDead.EffectDescription.EffectForms[0].SummonForm.persistOnConcentrationLoss = true;
+
+        SpellListCleric.SpellsByLevel.Find(x => x.Level == 3).Spells.Add(AnimateDead);
+        SpellListWizard.SpellsByLevel.Find(x => x.Level == 3).Spells.Add(AnimateDead);
     }
 
     private static void RemoveConcentrationRequirementsFromAnySpell()
@@ -79,7 +94,7 @@ internal static class HouseSpellTweaks
         ClearAlteredDuration(ProtectionFromEnergyThunder);
         ClearAlteredDuration(ProtectionFromPoison);
 
-        static void ClearAlteredDuration(SpellDefinition spell)
+        static void ClearAlteredDuration([NotNull] IMagicEffect spell)
         {
             spell.EffectDescription.EffectAdvancement.alteredDuration = RuleDefinitions.AdvancementDuration.None;
         }
@@ -157,9 +172,9 @@ internal static class HouseSpellTweaks
             SetHeight(Grease, 0);
         }
 
-        static void SetHeight(SpellDefinition sd, int height)
+        static void SetHeight([NotNull] IMagicEffect spellDefinition, int height)
         {
-            sd.EffectDescription.targetParameter2 = height;
+            spellDefinition.EffectDescription.targetParameter2 = height;
         }
 
         static void ClearTargetParameter2ForTargetTypeCube()
@@ -167,8 +182,8 @@ internal static class HouseSpellTweaks
             foreach (var sd in DatabaseRepository
                          .GetDatabase<SpellDefinition>()
                          .Where(sd =>
-                             sd.EffectDescription.TargetType == RuleDefinitions.TargetType.Cube
-                             || sd.EffectDescription.TargetType == RuleDefinitions.TargetType.CubeWithOffset))
+                             sd.EffectDescription.TargetType is RuleDefinitions.TargetType.Cube
+                                 or RuleDefinitions.TargetType.CubeWithOffset))
             {
                 // TargetParameter2 is not used by TargetType.Cube but has random values assigned.
                 // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.

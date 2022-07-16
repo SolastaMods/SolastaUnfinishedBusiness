@@ -2,9 +2,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffect;
 
@@ -16,17 +16,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
 internal static class GameLocationActionManager_ExecuteActionAsync
 {
     internal static IEnumerator Postfix(
-        IEnumerator values,
-        CharacterAction action)
+        [NotNull] IEnumerator values,
+        [NotNull] CharacterAction action)
     {
         Main.Logger.Log(action.ActionDefinition.Name);
-        Global.CurrentAction = action;
-
-        if (action is CharacterActionCastSpell actionCastSpell)
-        {
-            Global.CastedSpellRepertoire = actionCastSpell.ActiveSpell.SpellRepertoire;
-            Global.CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
-        }
 
         var features = action.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<ICustomOnActionFeature>();
 
@@ -44,10 +37,6 @@ internal static class GameLocationActionManager_ExecuteActionAsync
         {
             feature.OnAfterAction(action);
         }
-
-        Global.CurrentAction = null;
-        Global.CastedSpell = null;
-        Global.CastedSpellRepertoire = null;
     }
 }
 
@@ -57,25 +46,30 @@ internal static class GameLocationActionManager_ExecuteActionAsync
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationActionManager_ReactForReadiedAction
 {
-    internal static bool Prefix(CharacterActionParams reactionParams)
+    internal static bool Prefix([NotNull] CharacterActionParams reactionParams)
     {
         // For some reason TA do not set reactionParams.ReadyActionType to ReadyActionType.Cantrip
-        // So we manualy detect it as casting spell level 0
-        if (reactionParams.RulesetEffect is RulesetEffectSpell {SlotLevel: 0} spell)
+        // So we manually detect it as casting spell level 0
+        if (reactionParams.RulesetEffect is not RulesetEffectSpell {SlotLevel: 0} spell)
         {
-            var spelltargets = spell.ComputeTargetParameter();
-            if (reactionParams.RulesetEffect.EffectDescription.IsSingleTarget && spelltargets > 1)
-            {
-                var target = reactionParams.TargetCharacters.FirstOrDefault();
-                var mod = reactionParams.ActionModifiers.FirstOrDefault();
+            return true;
+        }
 
-                while (target != null && mod != null && reactionParams.TargetCharacters.Count < spelltargets)
-                {
-                    reactionParams.TargetCharacters.Add(target);
-                    // Technically casts after first might need to have different mods, but not by much since we attacking same target.
-                    reactionParams.ActionModifiers.Add(mod);
-                }
-            }
+        var spellTargets = spell.ComputeTargetParameter();
+
+        if (!reactionParams.RulesetEffect.EffectDescription.IsSingleTarget || spellTargets <= 1)
+        {
+            return true;
+        }
+
+        var target = reactionParams.TargetCharacters.FirstOrDefault();
+        var mod = reactionParams.ActionModifiers.FirstOrDefault();
+
+        while (target != null && mod != null && reactionParams.TargetCharacters.Count < spellTargets)
+        {
+            reactionParams.TargetCharacters.Add(target);
+            // Technically casts after first might need to have different mods, but not by much since we attacking same target.
+            reactionParams.ActionModifiers.Add(mod);
         }
 
         return true;

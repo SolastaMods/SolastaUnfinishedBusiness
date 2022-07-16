@@ -113,6 +113,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] CreateDead {
+            get {
+                object obj = ResourceManager.GetObject("CreateDead", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Darkelf {
             get {
                 object obj = ResourceManager.GetObject("Darkelf", resourceCulture);
@@ -273,6 +283,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] GrayDwarf {
+            get {
+                object obj = ResourceManager.GetObject("GrayDwarf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Halberd {
             get {
                 object obj = ResourceManager.GetObject("Halberd", resourceCulture);
@@ -341,7 +361,7 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] HalfSylvanElf {
             get {
@@ -561,32 +581,31 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DwarfFemale	Abagtha
-        ///DwarfFemale	Bera
-        ///DwarfFemale	Birsha
-        ///DwarfFemale	Brallesyl
-        ///DwarfFemale	Bretri
-        ///DwarfFemale	Bronnura
-        ///DwarfFemale	Clauda
-        ///DwarfFemale	Dabareh
-        ///DwarfFemale	Dearma
-        ///DwarfFemale	Demelza
-        ///DwarfFemale	Dodai
-        ///DwarfFemale	Dura
-        ///DwarfFemale	Gath
-        ///DwarfFemale	Hadar
-        ///DwarfFemale	Hagar
-        ///DwarfFemale	Halah
-        ///DwarfFemale	Hanan
-        ///DwarfFemale	Iddo
-        ///DwarfFemale	Jenndora
-        ///DwarfFemale	Jenrin
-        ///DwarfFemale	Juttah
-        ///DwarfFemale	Melea
-        ///DwarfFemale	Meribah
-        ///DwarfFemale	Misnan
-        ///DwarfFemale	Myrnera
-        ///DwarfFemale	Na [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Dwarf	Female	Abagtha
+        ///Dwarf	Female	Bera
+        ///Dwarf	Female	Birsha
+        ///Dwarf	Female	Brallesyl
+        ///Dwarf	Female	Bretri
+        ///Dwarf	Female	Bronnura
+        ///Dwarf	Female	Clauda
+        ///Dwarf	Female	Dabareh
+        ///Dwarf	Female	Dearma
+        ///Dwarf	Female	Demelza
+        ///Dwarf	Female	Dodai
+        ///Dwarf	Female	Dura
+        ///Dwarf	Female	Gath
+        ///Dwarf	Female	Hadar
+        ///Dwarf	Female	Hagar
+        ///Dwarf	Female	Halah
+        ///Dwarf	Female	Hanan
+        ///Dwarf	Female	Iddo
+        ///Dwarf	Female	Jenndora
+        ///Dwarf	Female	Jenrin
+        ///Dwarf	Female	Juttah
+        ///Dwarf	Female	Melea
+        ///Dwarf	Female	Meribah
+        ///Dwarf	Female	Misnan
+        ///Dwarf	Femal [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Names {
             get {
@@ -660,6 +679,16 @@ namespace SolastaCommunityExpansion.Properties {
         public static byte[] PowerAttackIcon {
             get {
                 object obj = ResourceManager.GetObject("PowerAttackIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ProducedFlameThrow {
+            get {
+                object obj = ResourceManager.GetObject("ProducedFlameThrow", resourceCulture);
                 return ((byte[])(obj));
             }
         }

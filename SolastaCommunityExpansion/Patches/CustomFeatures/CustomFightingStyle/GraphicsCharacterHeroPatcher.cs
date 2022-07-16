@@ -10,22 +10,28 @@ internal static class GraphicsCharacterHeroPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GraphicsCharacterHero_GetAttackAnimationData
     {
-        internal static void Postfix(GraphicsCharacterHero __instance, ref string __result,
+        internal static void Postfix(
+            ref string __result,
             RulesetAttackMode attackMode,
             ActionModifier attackModifier,
             ref bool isThrown,
             ref bool leftHand)
         {
-            if (ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
+            if (!ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
             {
-                var weaponTypeDefinition = ShieldStrikeContext.ShieldWeaponType;
-                if (weaponTypeDefinition != null)
-                {
-                    leftHand = true;
-                    isThrown = false;
-                    __result = weaponTypeDefinition.AnimationTag;
-                }
+                return;
             }
+
+            var weaponTypeDefinition = ShieldStrikeContext.ShieldWeaponType;
+
+            if (weaponTypeDefinition == null)
+            {
+                return;
+            }
+
+            leftHand = true;
+            isThrown = false;
+            __result = weaponTypeDefinition.AnimationTag;
         }
     }
 }

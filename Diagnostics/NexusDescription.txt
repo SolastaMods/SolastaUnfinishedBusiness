@@ -1,6 +1,8 @@
 
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
 
+[url=https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion]DONATE[/url]
+
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 [size=4][b]Credits[/b][/size]
@@ -11,6 +13,7 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]Bazou[/b]: Witch class, fighting styles
 [*][b]Boofat[/b]: alwaysAlt
 [*][b]ChrisJohnDigital[/b]: Tinkerer class, crafting, faction relations, feats, fighting styles, items, subclasses, progression
+[*][b]DemonSlayer730[/b]: Path of the Rage Mage subclass
 [*][b]Dreadmaker[/b]: Forest Guardian subclass
 [*][b]DubhHerder[/b]: high level spells, feats, bug models replacement, high level monsters, Warlock class and subclasses
 [*][b]ElAntonious[/b]: Arcanist subclass, feats
@@ -19,20 +22,16 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
 [*][b]Nd[/b]: Marshal and Opportunist subclasses
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
-[*][b]SilverGriffon[/b]: pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race
-[*][b]Spacehamster[/b]: dataminer
+[*][b]SilverGriffon[/b]: pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, Dark Elf race, Divine Heart subclass
 [*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration
-[*][b][/b]: 
 [*][b]Esker[/b]: ruleset support, classes design, quality assurance
 [*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance
-[*][b][/b]: 
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]Prioritizer[/b]: Russian translations
-[*][b]Burtsev-Alexey[/b]: deep copy algorithm
 [*][b]Narria[/b]: modKit creator, developer
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [/list]
@@ -116,6 +115,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 [*][b]Dark Elf[/b]: Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 [*][b]Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
+[*][b]Gray Dwarf[/b]: The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 [*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Half-High Elf[/b]: Half-High elves are trained to use magic very early.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
@@ -144,6 +144,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Blaster[/b]: You specialize in hurling projectiles and causing explosions.
 [*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat.
 [*][b]Scout Sentinel[/b]: A Scout Sentinel Tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
+[*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 [*][b]Soulblade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
@@ -157,6 +158,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Arcane Fighter[/b]: Channel your magic into weapon attacks.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Con Artist[/b]: Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
+[*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
 [*][b]Life Transmuter[/b]: Masters of manipulating both matter and life energy.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
@@ -164,6 +166,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Oath of Retribution[/b]: Paladins who swear the Oath of Retribution fully commit themselves to terminate the unholiness and injustice with extreme prejudice. For these paladins, the duty of avenging sins and corruptions weighs greater than their own values.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
+[*][b]Path Of The Rage Mage[/b]: Path Of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
 [*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Master[/b]: Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
@@ -175,59 +178,70 @@ All settings start disabled by default. On first start the mod will display an w
 
 [list=1]
 
-[*][b]Apothecary (Intelligence)[/b]: Increase your Intelligence by 1, to a maximum of 20.
+[*][b]Apothecary [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
-[*][b]Apothecary (Wisdom)[/b]: Increase your Wisdom by 1, to a maximum of 20.
+[*][b]Apothecary [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 [*][b]Arcane Defense[/b]: Increase your Intelligence by 1, to a maximum of 20.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
 [*][b]Arcane Precision[/b]: You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used twice per long rest.
+[*][b]Archery [FS][/b]: You gain a +2 bonus to attack rolls with ranged weapons.
 [*][b]Brutal Thug[/b]: You land powerful blows in the right places.
 You gain simple and martial weapon proficiencies.
 You can sneak attack using martial weapons.
+[*][b]Celestial Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Celestial Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Celestial Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Charismatic Defense[/b]: Increase your Charisma by 1, to a maximum of 20.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
 [*][b]Charismatic Precision[/b]: You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used twice per long rest.
-[*][b]Chef (Constitution)[/b]: Increase your Constitution by 1, to a maximum of 20.
+[*][b]Chef [Con][/b]: Increase your Constitution by 1, to a maximum of 20.
 You can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.
 Once a day, you may spend an hour to cook treats that provide temporary HP when eaten.
-[*][b]Chef (Wisdom)[/b]: Increase your Wisdom by 1, to a maximum of 20.
+[*][b]Chef [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
 You can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.
 Once a day, you may spend an hour to cook treats that provide temporary HP when eaten.
+[*][b]Crippling [FS][/b]: When you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.
 [*][b]Deadeye[/b]: You have mastered ranged weapons and can make shots that others find impossible.
 • Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.
 • Your ranged weapon attacks ignore half cover and three-quarters cover.
 • You can choose to take a -5 penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 10 damage of the weapon's type.
+[*][b]Defense [FS][/b]: While you are wearing armor, you gain a +1 bonus to AC.
 [*][b]Dual Flurry[/b]: You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
 [*][b]Dual Weapon Defense[/b]: You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
+[*][b]Dueling [FS][/b]: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+[*][b]Elven Precision [Cha][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Charisma by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
+[*][b]Elven Precision [Dex][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
+[*][b]Elven Precision [Int][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
+[*][b]Elven Precision [Wis][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Fast Hands[/b]: You gain Cunning Action. You can use the Hide or Disengage actions as a bonus action.
 You can use your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to Disarm a trap or open a lock, or take the Use an Object action.
-[*][b]Fey Teleportation (Charisma)[/b]: Increase your Charisma by 1, to a maximum of 20.
+[*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
-[*][b]Fey Teleportation (Intelligence)[/b]: Increase your Intelligence by 1, to a maximum of 20.
+[*][b]Fey Teleportation [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
-[*][b]Fey Teleportation (Wisdom)[/b]: Increase your Wisdom by 1, to a maximum of 20.
+[*][b]Fey Teleportation [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
-[*][b]Fighting Style: Archery[/b]: You gain a +2 bonus to attack rolls with ranged weapons.
-[*][b]Fighting Style: Crippling[/b]: When you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.
-[*][b]Fighting Style: Defense[/b]: While you are wearing armor, you gain a +1 bonus to AC.
-[*][b]Fighting Style: Dueling[/b]: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
-[*][b]Fighting Style: Great Weapon[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
-[*][b]Fighting Style: Protection[/b]: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
-[*][b]Fighting Style: Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
-If you have a free hand, you can shove as a bonus action.
-[*][b]Fighting Style: Titan Fighting[/b]: You gain a +2 to hit against creatures of Large size or bigger.
-[*][b]Fighting Style: Two Weapon[/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
-[*][b]Fighting Surge (Dexterity)[/b]: Increase your Dexterity by 1, to a maximum of 20.
+[*][b]Fighting Surge [Dex][/b]: Increase your Dexterity by 1, to a maximum of 20.
 On your turn, you can take one additional action on top of your regular action. Once you use this feature, you must finish a long rest before you can use it again.
-[*][b]Fighting Surge (Strength)[/b]: Increase your Strength by 1, to a maximum of 20.
+[*][b]Fighting Surge [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 On your turn, you can take one additional action on top of your regular action. Once you use this feature, you must finish a long rest before you can use it again.
+[*][b]Flame Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
+[*][b]Flame Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
+[*][b]Flame Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
 [*][b]Fletcher[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with smith's tools, or expertise if you are already proficient.
  You gain proficiency with all bows and crossbows.
+[*][b]Great Weapon [FS][/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Defense Mastery[/b]: You gain resistance to bludgeoning, slashing, and piercing damage.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
@@ -235,13 +249,14 @@ You gain proficiency with smith's tools, or expertise if you are already profici
 [*][b]Light Armor[/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with light armor.
 [*][b]Manacalon Crafter[/b]: Increase your Intelligence by 1, to a maximum of 20.
-You gain proficiency with manacolon rosary and Arcana, or expertise if already proficient.
+You gain proficiency with manacalon rosary and Arcana, or expertise if already proficient.
 Requires the ability to cast spells.
 [*][b]Marksman[/b]: When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
-[*][b]Medium Armor (Dexterity)[/b]: Increase your Dexterity by 1, to a maximum of 20.
+[*][b]Medium Armor [Dex][/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with Medium Armor and shields.
-[*][b]Medium Armor (Strength)[/b]: Increase your Strength by 1, to a maximum of 20.
+[*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
+[*][b]Merciless [FS][/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 [*][b]Metamagic: Careful[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Careful metamagic and gain 2 sorcery points.
 [*][b]Metamagic: Distant[/b]: Increase your Charisma by 1, to a maximum of 20.
@@ -260,12 +275,15 @@ You learn the Twinned metamagic and gain 2 sorcery points.
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
 • While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
 [*][b]Power Attack[/b]: You learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
-[*][b]Primal Rage (Constitution)[/b]: Increase your Constitution by 1, to a maximum of 20.
+[*][b]Primal Rage [Con][/b]: Increase your Constitution by 1, to a maximum of 20.
 You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
-[*][b]Primal Rage (Strength)[/b]: Increase your Strength by 1, to a maximum of 20.
+[*][b]Primal Rage [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
+[*][b]Protection [FS][/b]: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+[*][b]Pugilist [FS][/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
+If you have a free hand, you can shove as a bonus action.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
 • You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
@@ -278,28 +296,30 @@ Requires the ability to cast spells.
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
 • When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
-[*][b]Shadow Touched (Charisma)[/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+[*][b]Shadow Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
-[*][b]Shadow Touched (Intelligence)[/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+[*][b]Shadow Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
-[*][b]Shadow Touched (Wisdom)[/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+[*][b]Shadow Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Shady[/b]: Increase your Dexterity by 1, to a maximum of 20.
 Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Rogue's Sneak Attack. At 12th level, this damage increases to 2d6 and at 20th level, to 4d6.
 [*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage.
 You gain advantage on shove attempts while wielding a shield.
-[*][b]Telekinetic (Charisma)[/b]: Increase your Charisma by 1, to a maximum of 20.
+[*][b]Telekinetic [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
-[*][b]Telekinetic (Intelligence)[/b]: Increase your Intelligence by 1, to a maximum of 20.
+[*][b]Telekinetic [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet.
-[*][b]Telekinetic (Wisdom)[/b]: Increase your Wisdom by 1, to a maximum of 20.
-As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
+[*][b]Telekinetic [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
+As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
+[*][b]Titan Fighting [FS][/b]: You gain a +2 to hit against creatures of Large size or bigger.
 [*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
-[*][b]Toxicologist (Intelligence)[/b]: Increase your Intelligence by 1, to a maximum of 20.
+[*][b]Toxicologist [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
-[*][b]Toxicologist (Wisdom)[/b]: Increase your Wisdom by 1, to a maximum of 20.
+[*][b]Toxicologist [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
+[*][b]Two Weapon [FS][/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 [*][b]War Caster[/b]: You gain advantage on checks to maintain concentration.
 You gain the ability to perform the somatic component of spells even with both hands full.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
@@ -313,6 +333,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [list=1]
 
 [*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
+[*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
 If you have free hand, you can shove as a bonus action.
 [*][b]Titan Fighting[/b]: You gain a +2 hit against creatures of size Large or bigger.
@@ -435,3 +456,4 @@ The cloud moves 10 feet directly away from you in a direction that you choose at
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
 [line]
+

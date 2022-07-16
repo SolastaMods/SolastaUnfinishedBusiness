@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
@@ -75,7 +74,7 @@ public static class ZenArcher
         return new FeatureDefinition[]
         {
             FeatureDefinitionProficiencyBuilder
-                .Create("ClassMonkZenArcherCombat", Monk.GUID)
+                .Create("ClassMonkZenArcherCombat", Monk.Guid)
                 .SetGuiPresentation(Category.Feature)
                 .SetProficiencies(ProficiencyType.Weapon,
                     WeaponTypeDefinitions.LongbowType.Name,
@@ -94,7 +93,7 @@ public static class ZenArcher
     private static FeatureDefinitionPower BuildZenArrow()
     {
         var technique = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkZenArrowTechnique", Monk.GUID)
+            .Create("ClassMonkZenArrowTechnique", Monk.Guid)
             .SetGuiPresentation(Category.Power, ZenArrows)
             .SetShortTitle("Power/&ClassMonkZenArrowTechniqueShortTitle")
             .SetSharedPool(Monk.KiPool)
@@ -107,7 +106,7 @@ public static class ZenArcher
             .AddToDB();
 
         var prone = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkZenArrowProne", Monk.GUID)
+            .Create("ClassMonkZenArrowProne", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetSharedPool(Monk.KiPool)
             .SetActivationTime(ActivationTime.NoCost)
@@ -134,7 +133,7 @@ public static class ZenArcher
             .AddToDB();
 
         var push = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkZenArrowPush", Monk.GUID)
+            .Create("ClassMonkZenArrowPush", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetSharedPool(Monk.KiPool)
             .SetActivationTime(ActivationTime.NoCost)
@@ -161,7 +160,7 @@ public static class ZenArcher
             .AddToDB();
 
         var distract = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkZenArrowDistract", Monk.GUID)
+            .Create("ClassMonkZenArrowDistract", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetSharedPool(Monk.KiPool)
             .SetActivationTime(ActivationTime.NoCost)
@@ -196,7 +195,7 @@ public static class ZenArcher
     private static ConditionDefinition BuildDistractedCondition()
     {
         return ConditionDefinitionBuilder
-            .Create("ClassMonkZenArrowDistractCondition", Monk.GUID)
+            .Create("ClassMonkZenArrowDistractCondition", Monk.Guid)
             .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
             .SetDuration(DurationType.Round, 1)
@@ -204,7 +203,7 @@ public static class ZenArcher
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create("ClassMonkZenArrowDistractFeature", Monk.GUID)
+                .Create("ClassMonkZenArrowDistractFeature", Monk.Guid)
                 .SetGuiPresentationNoContent(true)
                 .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                 .AddToDB())
@@ -214,7 +213,7 @@ public static class ZenArcher
     private static FeatureDefinition[] BuildLevel06Features()
     {
         var extraFlurryAttack1 = FeatureDefinitionAdditionalActionBuilder
-            .Create("ClassMonkZenArcherFlurryOfArrowsExtraAttacks1", Monk.GUID)
+            .Create("ClassMonkZenArcherFlurryOfArrowsExtraAttacks1", Monk.Guid)
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, true,
                     CharacterValidators.NoArmor, CharacterValidators.NoShield, WieldsZenArcherWeapon)
@@ -224,14 +223,14 @@ public static class ZenArcher
             .AddToDB();
 
         var extraFlurryAttack2 = FeatureDefinitionAdditionalActionBuilder
-            .Create("ClassMonkZenArcherFlurryOfArrowsExtraAttacks2", Monk.GUID)
+            .Create("ClassMonkZenArcherFlurryOfArrowsExtraAttacks2", Monk.Guid)
             .SetGuiPresentationNoContent(true)
             .SetActionType(ActionDefinitions.ActionType.Bonus)
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
             .AddToDB();
 
         var flurryOfArrows = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkZenArcherFlurryOfArrows", Monk.GUID)
+            .Create("ClassMonkZenArcherFlurryOfArrows", Monk.Guid)
             .SetGuiPresentation(Category.Power, FlurryOfArrows)
             .SetSharedPool(Monk.KiPool)
             .SetActivationTime(ActivationTime.BonusAction)
@@ -243,7 +242,7 @@ public static class ZenArcher
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ClassMonkZenArcherFlurryOfArrowsCondition", Monk.GUID)
+                            .Create("ClassMonkZenArcherFlurryOfArrowsCondition", Monk.Guid)
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetDuration(DurationType.Round, 0, false)
@@ -259,7 +258,7 @@ public static class ZenArcher
             .AddToDB();
 
         var kiPoweredArrows = FeatureDefinitionBuilder
-            .Create("ClassMonkZenArcherKiPoweredArows", Monk.GUID)
+            .Create("ClassMonkZenArcherKiPoweredArows", Monk.Guid)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical,
                 (mode, _, character) => IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition)))
@@ -271,7 +270,7 @@ public static class ZenArcher
     private static FeatureDefinition[] BuildLevel11Features()
     {
         var stunningArrows = FeatureDefinitionBuilder
-            .Create("ClassMonkZenArcherStunningArrows", Monk.GUID)
+            .Create("ClassMonkZenArcherStunningArrows", Monk.Guid)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ZenArcherStunningArrows())
             .AddToDB();
@@ -282,7 +281,7 @@ public static class ZenArcher
     private static FeatureDefinition BuildUpgradedZenArrow()
     {
         var technique = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkZenArrowUpgradedTechnique", Monk.GUID)
+            .Create("ClassMonkZenArrowUpgradedTechnique", Monk.Guid)
             .SetGuiPresentation(Category.Power, ZenArrows)
             .SetShortTitle("Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle")
             .SetSharedPool(Monk.KiPool)
@@ -296,7 +295,7 @@ public static class ZenArcher
             .AddToDB();
 
         var prone = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkZenArrowUpgradedProne", Monk.GUID)
+            .Create("ClassMonkZenArrowUpgradedProne", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetSharedPool(Monk.KiPool)
             .SetActivationTime(ActivationTime.NoCost)
@@ -322,14 +321,14 @@ public static class ZenArcher
                     new EffectFormBuilder()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ClassMonkZenArrowUpgradedSlowCondition", Monk.GUID)
+                            .Create("ClassMonkZenArrowUpgradedSlowCondition", Monk.Guid)
                             .SetGuiPresentation(Category.Condition,
                                 ConditionDefinitions.ConditionEncumbered.GuiPresentation.SpriteReference)
                             .SetDuration(DurationType.Round, 1)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetConditionType(ConditionType.Detrimental)
                             .SetFeatures(FeatureDefinitionMovementAffinityBuilder
-                                .Create("ClassMonkZenArrowUpgradedSlowFeature", Monk.GUID)
+                                .Create("ClassMonkZenArrowUpgradedSlowFeature", Monk.Guid)
                                 .SetGuiPresentationNoContent(true)
                                 .SetBaseSpeedMultiplicativeModifier(0)
                                 .AddToDB())
@@ -339,7 +338,7 @@ public static class ZenArcher
             .AddToDB();
 
         var push = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkZenArrowUpgradedPush", Monk.GUID)
+            .Create("ClassMonkZenArrowUpgradedPush", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetSharedPool(Monk.KiPool)
             .SetActivationTime(ActivationTime.NoCost)
@@ -366,7 +365,7 @@ public static class ZenArcher
             .AddToDB();
 
         var distract = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkZenArrowUpgradedDistract", Monk.GUID)
+            .Create("ClassMonkZenArrowUpgradedDistract", Monk.Guid)
             .SetGuiPresentation(Category.Power)
             .SetSharedPool(Monk.KiPool)
             .SetActivationTime(ActivationTime.NoCost)
@@ -390,14 +389,14 @@ public static class ZenArcher
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ClassMonkZenArrowUpgradedDistractCondition", Monk.GUID)
+                            .Create("ClassMonkZenArrowUpgradedDistractCondition", Monk.Guid)
                             .SetGuiPresentation(Category.Condition,
                                 ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
                             .SetDuration(DurationType.Round, 1)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetConditionType(ConditionType.Detrimental)
                             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                                .Create("ClassMonkZenArrowUpgradedDistractFeature", Monk.GUID)
+                                .Create("ClassMonkZenArrowUpgradedDistractFeature", Monk.Guid)
                                 .SetGuiPresentationNoContent(true)
                                 .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                 .AddToDB())
@@ -431,32 +430,32 @@ public static class ZenArcher
         return IsMonkWeapon(character, mainHandItem?.ItemDefinition);
     }
 
-    private class ZenArcherMarker
+    private sealed class ZenArcherMarker
     {
         //Used for easier detecton of Zen Archer characters to extend their Monk weapon list
     }
 
-    public class ZenArcherStunningArrows
+    public sealed class ZenArcherStunningArrows
     {
-        //Used for easier detecton of Zen Archer characters to allow stunning strike on arrows
+        //Used for easier detection of Zen Archer characters to allow stunning strike on arrows
     }
 
-    private class ExtendWeaponRange : IModifyAttackModeForWeapon
-    {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
-        {
-            if (attackMode == null || attackMode.Magical || (!attackMode.Ranged && !attackMode.Thrown))
-            {
-                return;
-            }
-
-            if (!Monk.IsMonkWeapon(character, attackMode))
-            {
-                return;
-            }
-
-            attackMode.CloseRange = Math.Min(16, attackMode.CloseRange * 2);
-            attackMode.MaxRange = Math.Min(32, attackMode.MaxRange * 2);
-        }
-    }
+    // private class ExtendWeaponRange : IModifyAttackModeForWeapon
+    // {
+    //     public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+    //     {
+    //         if (attackMode == null || attackMode.Magical || (!attackMode.Ranged && !attackMode.Thrown))
+    //         {
+    //             return;
+    //         }
+    //
+    //         if (!Monk.IsMonkWeapon(character, attackMode))
+    //         {
+    //             return;
+    //         }
+    //
+    //         attackMode.CloseRange = Math.Min(16, attackMode.CloseRange * 2);
+    //         attackMode.MaxRange = Math.Min(32, attackMode.MaxRange * 2);
+    //     }
+    // }
 }

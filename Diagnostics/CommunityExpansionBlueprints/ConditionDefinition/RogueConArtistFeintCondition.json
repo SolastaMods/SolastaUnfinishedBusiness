@@ -220,8 +220,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&RoguishConArtistFeintConditionTitle",
-    "description": "Subclass/&RoguishConArtistFeintConditionDescription",
+    "title": "Feature/&RogueConArtistFeintConditionTitle",
+    "description": "Feature/&RogueConArtistFeintConditionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",

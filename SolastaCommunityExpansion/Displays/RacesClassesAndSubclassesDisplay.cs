@@ -8,14 +8,11 @@ namespace SolastaCommunityExpansion.Displays;
 
 internal static class RacesClassesAndSubclassesDisplay
 {
-    internal static void DisplayGeneral()
+    private static void DisplayGeneral()
     {
-        bool toggle;
-        int intValue;
-
         UI.Label("");
 
-        toggle = Main.Settings.DisplayGeneralRaceClassSubClassToggle;
+        var toggle = Main.Settings.DisplayGeneralRaceClassSubClassToggle;
         if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
         {
             Main.Settings.DisplayGeneralRaceClassSubClassToggle = toggle;
@@ -46,11 +43,11 @@ internal static class RacesClassesAndSubclassesDisplay
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc"));
-        intValue = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
+        var intValue = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
         if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
         {
             Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc = intValue;
-            ConArtist.UpdateSpellDCBoost();
+            ConArtist.UpdateSpellDcBoost();
         }
 
         UI.Label("");
@@ -59,26 +56,30 @@ internal static class RacesClassesAndSubclassesDisplay
         if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
         {
             Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc = intValue;
-            MasterManipulator.UpdateSpellDCBoost();
+            MasterManipulator.UpdateSpellDcBoost();
         }
 
         UI.Label("");
-        toggle = Main.Settings.ReduceDarkelfLightPenalty;
+
+        toggle = Main.Settings.ReduceDarkElfLightPenalty;
         if (UI.Toggle(Gui.Localize("ModUi/&ReduceDarkelfLightPenalty"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.ReduceDarkelfLightPenalty = toggle;
+            Main.Settings.ReduceDarkElfLightPenalty = toggle;
+        }
+
+        toggle = Main.Settings.ReduceGrayDwarfLightPenalty;
+        if (UI.Toggle(Gui.Localize("ModUi/&ReduceGrayDwarfLightPenalty"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ReduceGrayDwarfLightPenalty = toggle;
         }
     }
 
     internal static void DisplayClassesAndSubclasses()
     {
-        bool displayToggle;
-        int sliderPos;
-
         DisplayGeneral();
 
-        displayToggle = Main.Settings.DisplayRacesToggle;
-        sliderPos = Main.Settings.RaceSliderPosition;
+        var displayToggle = Main.Settings.DisplayRacesToggle;
+        var sliderPos = Main.Settings.RaceSliderPosition;
         DisplayDefinitions(
             Gui.Localize("ModUi/&Races"),
             RacesContext.Switch,

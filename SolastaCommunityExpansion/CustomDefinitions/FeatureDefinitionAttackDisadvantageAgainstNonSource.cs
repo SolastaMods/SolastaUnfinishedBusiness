@@ -24,13 +24,15 @@ public class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefini
         {
             foreach (var rulesetCondition in keyValuePair.Value)
             {
-                if (rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName) &&
-                    rulesetCondition.SourceGuid != defender.Guid)
+                if (!rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName) ||
+                    rulesetCondition.SourceGuid == defender.Guid)
                 {
-                    attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1,
-                        featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
-                    return;
+                    continue;
                 }
+
+                attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1,
+                    featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
+                return;
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -20,9 +21,10 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class ZappaFeats
 {
+    internal const string ElvenAccuracyTag = "ElvenAccuracy";
     private static readonly Guid ZappaFeatNamespace = new("514f14e3-db8e-47b3-950a-350e8cae37d6");
 
-    internal static void CreateFeats(List<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         // Arcane Defense
         var arcaneDefense = FeatDefinitionBuilder
@@ -170,6 +172,59 @@ internal static class ZappaFeats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+        //
+        //
+        //
+
+        static (bool, string) ValidateElvenAccuracy(FeatDefinitionWithPrerequisites _,
+            [NotNull] RulesetCharacterHero hero)
+        {
+            var isElf = hero.RaceDefinition.Name.Contains(CharacterRaceDefinitions.Elf.Name);
+            var elfTitle = CharacterRaceDefinitions.Elf.FormatTitle();
+            var halfElfTitle = CharacterRaceDefinitions.HalfElf.FormatTitle();
+            var param = $"{elfTitle}, {halfElfTitle}";
+
+            return isElf
+                ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", param))
+                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), "EA7171"));
+        }
+
+        // Elven Accuracy (Dexterity)
+        var elvenAccuracyDexterity =
+            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatElvenAccuracyDexterity", ZappaFeatNamespace)
+                .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
+                .AddToDB();
+
+        // Elven Accuracy (Intelligence)
+        var elvenAccuracyIntelligence =
+            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatElvenAccuracyIntelligence", ZappaFeatNamespace)
+                .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
+                .AddToDB();
+
+        // Elven Accuracy (Wisdom)
+        var elvenAccuracyWisdom =
+            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatElvenAccuracyWisdom", ZappaFeatNamespace)
+                .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
+                .AddToDB();
+
+        // Elven Accuracy (Charisma)
+        var elvenAccuracyCharisma =
+            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatElvenAccuracyCharisma", ZappaFeatNamespace)
+                .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateElvenAccuracy)
                 .AddToDB();
 
         // Fast Hands
@@ -487,6 +542,10 @@ internal static class ZappaFeats
             charismaticDefense,
             charismaticPrecision,
             dualWeaponDefense,
+            elvenAccuracyDexterity,
+            elvenAccuracyIntelligence,
+            elvenAccuracyWisdom,
+            elvenAccuracyCharisma,
             fastHands,
             fightingSurgeDexterity,
             fightingSurgeStrength,
@@ -574,21 +633,25 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 
     public void ApplyFeature(RulesetCharacterHero hero, string tag)
     {
-        if (!hero.MetamagicFeatures.ContainsKey(MetamagicOption))
+        if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
         {
-            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> {MetamagicOption});
-
-            MetamagicTrained = true;
+            return;
         }
+
+        hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> {MetamagicOption});
+
+        MetamagicTrained = true;
     }
 
     public void RemoveFeature(RulesetCharacterHero hero, string tag)
     {
-        if (MetamagicTrained)
+        if (!MetamagicTrained)
         {
-            hero.MetamagicFeatures.Remove(MetamagicOption);
-
-            MetamagicTrained = false;
+            return;
         }
+
+        hero.MetamagicFeatures.Remove(MetamagicOption);
+
+        MetamagicTrained = false;
     }
 }

@@ -58,26 +58,27 @@ public static class AttacksOfOpportunity
     private static IEnumerator ProcessSentinel(GameLocationCharacter unit, GameLocationCharacter attacker,
         GameLocationCharacter defender, GameLocationBattleManager battleManager)
     {
-        if (attacker.IsOppositeSide(unit.Side)
-            && defender.Side == unit.Side
-            && (unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
-            && !(defender.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
-            && CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier,
+        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side ||
+            !(unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false) ||
+            (defender.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false) || !CanMakeAoO(unit,
+                attacker, out var opportunityAttackMode, out var actionModifier,
                 battleManager))
         {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            RequestReactionAttack(EWFeats.SentinelFeat, new CharacterActionParams(
-                unit,
-                ActionDefinitions.Id.AttackOpportunity,
-                opportunityAttackMode,
-                attacker,
-                actionModifier)
-            );
-
-            yield return battleManager.WaitForReactions(unit, actionService, count);
+            yield break;
         }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        RequestReactionAttack(EwFeats.SentinelFeat, new CharacterActionParams(
+            unit,
+            ActionDefinitions.Id.AttackOpportunity,
+            opportunityAttackMode,
+            attacker,
+            actionModifier)
+        );
+
+        yield return battleManager.WaitForReactions(unit, actionService, count);
     }
 
     public static void ProcessOnCharacterMoveStart(GameLocationCharacter mover, int3 destination)
@@ -121,24 +122,25 @@ public static class AttacksOfOpportunity
     private static IEnumerator ProcessPolearmExpert(GameLocationCharacter attacker, GameLocationCharacter mover,
         GameLocationBattleManager battleManager)
     {
-        if (attacker.IsOppositeSide(mover.Side)
-            && CanMakeAoOOnEnemyEnterReach(attacker.RulesetCharacter)
-            && movingCharactersCache.TryGetValue(mover.Guid, out var movement)
-            && battleManager.CanPerformOpportunityAttackOnCharacter(attacker, mover, movement.Item2, movement.Item1,
+        if (!attacker.IsOppositeSide(mover.Side) || !CanMakeAoOOnEnemyEnterReach(attacker.RulesetCharacter) ||
+            !movingCharactersCache.TryGetValue(mover.Guid, out var movement) ||
+            !battleManager.CanPerformOpportunityAttackOnCharacter(attacker, mover, movement.Item2, movement.Item1,
                 out var attackMode))
         {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactForOpportunityAttack(new CharacterActionParams(
-                attacker,
-                ActionDefinitions.Id.AttackOpportunity,
-                attackMode,
-                mover,
-                new ActionModifier()));
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield break;
         }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        actionService.ReactForOpportunityAttack(new CharacterActionParams(
+            attacker,
+            ActionDefinitions.Id.AttackOpportunity,
+            attackMode,
+            mover,
+            new ActionModifier()));
+
+        yield return battleManager.WaitForReactions(attacker, actionService, count);
     }
 
     private static bool CanMakeAoOOnEnemyEnterReach(RulesetCharacter character)
@@ -151,11 +153,13 @@ public static class AttacksOfOpportunity
     public static void RequestReactionAttack(string type, CharacterActionParams actionParams)
     {
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-        if (actionManager != null)
+        if (actionManager == null)
         {
-            actionParams.AttackMode?.AddAttackTagAsNeeded(NotAoOTag);
-            actionManager.AddInterruptRequest(new ReactionRequestReactionAttack(type, actionParams));
+            return;
         }
+
+        actionParams.AttackMode?.AddAttackTagAsNeeded(NotAoOTag);
+        actionManager.AddInterruptRequest(new ReactionRequestReactionAttack(type, actionParams));
     }
 
     private static bool CanMakeAoO(GameLocationCharacter attacker, GameLocationCharacter defender,

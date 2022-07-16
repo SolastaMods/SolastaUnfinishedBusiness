@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -21,41 +22,42 @@ internal static class GameLocationCharacter_CanUseAtLeastOnPower
         var rulesetCharacter = __instance.RulesetCharacter;
         if (__result)
         {
-            if (rulesetCharacter != null)
+            if (rulesetCharacter == null)
             {
-                __result = false;
-                foreach (var rulesetUsablePower in rulesetCharacter.UsablePowers)
-                {
-                    if (CanUsePower(rulesetCharacter, rulesetUsablePower))
-                    {
-                        __result = true;
-                        return;
-                    }
-                }
+                return;
             }
 
+            if (!rulesetCharacter.UsablePowers
+                    .Any(rulesetUsablePower => CanUsePower(rulesetCharacter, rulesetUsablePower)))
+            {
+                __result = false;
+
+                return;
+            }
+
+            __result = true;
+        }
+
+        if (rulesetCharacter == null)
+        {
             return;
         }
 
-        if (rulesetCharacter != null)
         {
-            foreach (var rulesetUsablePower in rulesetCharacter.UsablePowers)
-            {
-                if (rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
+            if (!rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
+                    rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
                     CanUsePower(rulesetCharacter, rulesetUsablePower) &&
-                    !(!accountDelegatedPowers && rulesetUsablePower.PowerDefinition.DelegatedToAction) &&
+                    (accountDelegatedPowers || !rulesetUsablePower.PowerDefinition.DelegatedToAction) &&
                     !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
                     actionType == ActionDefinitions.ActionType.Main &&
-                    (rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute1 ||
-                     rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute10 ||
-                     rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours1 ||
-                     rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours24))
-                {
-                    __result = true;
-
-                    return;
-                }
+                    rulesetUsablePower.PowerDefinition.ActivationTime is RuleDefinitions.ActivationTime.Minute1
+                        or RuleDefinitions.ActivationTime.Minute10 or RuleDefinitions.ActivationTime.Hours1
+                        or RuleDefinitions.ActivationTime.Hours24))
+            {
+                return;
             }
+
+            __result = true;
         }
     }
 

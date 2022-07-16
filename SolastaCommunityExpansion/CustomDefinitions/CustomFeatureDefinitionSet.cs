@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModKit;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaCommunityExpansion.Api.Infrastructure;
@@ -27,11 +26,13 @@ public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
     {
         get
         {
-            if (_fullSetIsDirty)
+            if (!_fullSetIsDirty)
             {
-                _allFeatureSet.SetRange(FeaturesByLevel.SelectMany(e => e.Value));
-                _fullSetIsDirty = false;
+                return _allFeatureSet;
             }
+
+            _allFeatureSet.SetRange(FeaturesByLevel.SelectMany(e => e.Value));
+            _fullSetIsDirty = false;
 
             return _allFeatureSet;
         }
@@ -79,8 +80,8 @@ public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
 
     public List<FeatureDefinition> GetLevelFeatures(int level)
     {
-        //TODO: decide if we want to wrap this into new list, to be sure htis one is immutable
-        return FeaturesByLevel.GetValueOrDefault(level);
+        //TODO: decide if we want to wrap this into new list, to be sure this one is immutable
+        return FeaturesByLevel.TryGetValue(level, out var result) ? result : null;
     }
 }
 
@@ -111,7 +112,7 @@ public class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder
         return this;
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level, List<FeatureDefinition> features)
+    public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
     {
         Definition.AddLevelFeatures(level, features);
         return this;
@@ -123,7 +124,7 @@ public class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder
         return this;
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level, List<FeatureDefinition> features)
+    public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
     {
         Definition.SetLevelFeatures(level, features);
         return this;
@@ -149,8 +150,10 @@ public class FeatureDefinitionRemover : FeatureDefinition, IFeatureDefinitionCus
     {
         ServiceRepository.GetService<ICharacterBuildingService>()
             .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
-        //technically we return feature not where we took it from
-        tag = AttributeDefinitions.GetClassTag(lastClass, classLevel);
+        // technically we return feature not where we took it from
+        // add 100 here to avoid this to collide with anything from 1 to 20
+        // i.e.: removing attributes on levels 4, 8, etc.
+        tag = AttributeDefinitions.GetClassTag(lastClass, 100 + classLevel);
         ServiceRepository.GetService<ICharacterBuildingService>()
             .GrantFeatures(hero, new List<FeatureDefinition> {FeatureToRemove}, tag, false);
     }
@@ -159,7 +162,7 @@ public class FeatureDefinitionRemover : FeatureDefinition, IFeatureDefinitionCus
 public class FeatureDefinitionRemoverBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionRemover, FeatureDefinitionRemoverBuilder>
 {
-    private static string WrapName(string name) { return $"{$"{name}Remover"}"; }
+    private static string WrapName(string name) { return $"{name}Remover"; }
 
     public static FeatureDefinitionRemoverBuilder CreateFrom(FeatureDefinition feature)
     {
@@ -178,7 +181,7 @@ public class FeatureDefinitionRemoverBuilder
         try
         {
             var result = DatabaseHelper.GetDefinition<FeatureDefinition>(name, null);
-            if (result != null && result is FeatureDefinitionRemover remover)
+            if (result is FeatureDefinitionRemover remover)
             {
                 return remover;
             }

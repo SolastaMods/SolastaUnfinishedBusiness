@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Models;
@@ -10,15 +11,17 @@ internal static class Level20PatchingContext
 {
     private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
-    public static IEnumerable<CodeInstruction> Level20Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    // ReSharper disable once UnusedMember.Global
+    public static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var code = new List<CodeInstruction>(instructions);
 
         if (Main.Settings.EnableLevel20)
         {
             code
-                .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
-                .ForEach(x => x.operand = MOD_MAX_LEVEL);
+                .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GameMaxLevel)
+                .ForEach(x => x.operand = ModMaxLevel);
         }
 
         return code;
@@ -49,8 +52,14 @@ internal static class Level20PatchingContext
 
         foreach (var method in methods)
         {
-            Main.Log(method.Name);
-            harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+            try
+            {
+                harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+            }
+            catch
+            {
+                Main.Error("cannot fully patch Level 20");
+            }
         }
     }
 }

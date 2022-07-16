@@ -9,55 +9,23 @@
 import argparse
 import os
 import re
-import shutil
 import sys
 from deep_translator import GoogleTranslator
 
-
-OUTPUT_FOLDER = "Translations-"
-CHARS_MAX = 5000
+CHARS_MAX = 4500
 SEPARATOR = "\x0D"
-
 
 def parse_command_line():
     my_parser = argparse.ArgumentParser(description='Translates Solasta game terms')
-    my_parser.add_argument('input_file',
+    my_parser.add_argument('input_folder',
                         type=str,
-                        help='input file')
-    my_parser.add_argument('output_file',
-                        type=str,
-                        help='output file')
+                        help='input folder')
     my_parser.add_argument('-c', '--code',
                         type=str,
                         required=True,
                         help='language code')
-    my_parser.add_argument('-d', '--dict',
-                        type=str,
-                        help='dictionary file')
-
 
     return my_parser.parse_args()
-
-
-def load_dictionary(filename):
-    dictionary = {}
-    if not filename:
-       pass
-    elif not os.path.exists(filename):
-        print(f"WARNING: dictionary file doesn't exist. using an empty one")
-    else:
-        with open(filename, "rt", encoding="utf-8") as f:
-            record = "\n"
-            while record:
-                record = f.readline()
-                if record and record.split():
-                    try:
-                        (f, r) = record.split(" ", 1).strip()
-                        dictionary[f] = r
-                    except:
-                        print(f"ERROR: skipping dictionary line {record}")
-
-    return dictionary
 
 
 def display_progress(count, total, status=''):
@@ -100,55 +68,56 @@ def get_records(filename):
         print("ERROR")
 
 
-def translate_chunk(text, code):
-    text = text.replace("\\n", "\n")
-    translated = GoogleTranslator(source="auto", target=code).translate(text) if len(text) <= CHARS_MAX else text
-    translated = translated.replace("\n", "\\n")
+def translate_text(text, code):
+    text = text.replace("\\n", "{99}")
+    if len(text) <= CHARS_MAX:
+        translated = GoogleTranslator(source="auto", target=code).translate(text) 
+    else:
+        translated = text
+    translated = translated.replace("{99}", "\\n")
 
     return translated
 
 
 # kiddos: this is ugly ;-)
-r0 = re.compile(r"<# ([A-F0-9]*?)>")
-r1 = re.compile(r"<#([A-F0-9]*?)> (.*?) </color>")
 r2 = re.compile(r"<i> (.*?) </i>")
 r3 = re.compile(r"<b> (.*?) </b>")
+r4 = re.compile(r"< (.*?)>")
+r5 = re.compile(r"<(.*?) >")
 
 def fix_translated_format(text):
-    text = r0.sub(r"<#\1>", text)
-    text = r1.sub(r"<#\1>\2</color>", text)
     text = r2.sub(r"<i>\1</i>", text)
     text = r3.sub(r"<b>\1</b>", text) 
-
+    text = r4.sub(r"<\1>", text)
+    text = r5.sub(r"<\1>", text) 
     return text
 
 
-def apply_dictionary(dictionary, text):
-    # text = text.replace("</color> ", "</color>")
-
-    for key in dictionary:
-        text = text.replace(key, dictionary[key])
-
-    return text
-
-
-def translate_file(input_file, output_file, code, dictionary=None):
+def translate_file(input_file, output_file, code):
     with open(output_file, "wt", encoding="utf-8") as f:
 
         for term, text in get_records(input_file):
-            translated = translate_chunk(text, code)
+            if len(text) > 4500:
+                continue
+            translated = translate_text(text, code)
             fixed = fix_translated_format(translated)
-            replaced = apply_dictionary(dictionary, fixed)
-            f.write(f"{term}={replaced}\n")
+            f.write(f"{term}={fixed}\n")
 
+
+def translate_folder(root_folder_name, folder_name, code):
+    root_output_name = code if code != "pt" else "pt-BR"
+    os.mkdir(folder_name.replace(root_folder_name, root_output_name))
+    for filename in os.listdir(folder_name):
+        input_file = os.path.join(folder_name, filename)
+        if os.path.isfile(input_file):
+            output_file = f"{root_output_name}\\{input_file[3:-7]}-{root_output_name}.txt"
+            translate_file(input_file, output_file, code)
+        else:
+            translate_folder(root_folder_name, input_file, code)
 
 def main():
     args = parse_command_line()
-    translate_file(
-        args.input_file,
-        args.output_file,
-        args.code,
-        load_dictionary(args.dict))
+    translate_folder(args.input_folder, args.input_folder, args.code)
 
 if __name__ == "__main__":
     main()

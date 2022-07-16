@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using JetBrains.Annotations;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Patches.Diagnostic;
@@ -15,6 +17,8 @@ namespace SolastaCommunityExpansion.Displays
     {
         private const string ModDescription = @"
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
+
+[url=https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion]DONATE[/url]
 
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
@@ -182,16 +186,16 @@ All settings start disabled by default. On first start the mod will display an w
         {
             UI.Label("");
             UI.Label(". You can set the environment variable " +
-                     DiagnosticsContext.ProjectEnvironmentVariable.italic().yellow() +
+                     DiagnosticsContext.ProjectEnvironmentVariable.Italic().Khaki() +
                      " to customize the output folder");
 
             if (DiagnosticsContext.ProjectFolder == null)
             {
-                UI.Label(". The output folder is set to " + "your game folder".yellow().bold());
+                UI.Label(". The output folder is set to " + "your game folder".Khaki().Bold());
             }
             else
             {
-                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.yellow().bold());
+                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.Khaki().Bold());
             }
 
             UI.Label("");
@@ -199,9 +203,9 @@ All settings start disabled by default. On first start the mod will display an w
             string exportTaLabel;
             string exportTaLabel2;
             string exportCeLabel;
-            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.TA].percentageComplete;
-            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.TA2].percentageComplete;
-            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.CE].percentageComplete;
+            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta].percentageComplete;
+            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta2].percentageComplete;
+            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.Ce].percentageComplete;
 
             if (percentageCompleteTa == 0)
             {
@@ -209,7 +213,7 @@ All settings start disabled by default. On first start the mod will display an w
             }
             else
             {
-                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".bold().yellow();
+                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".Bold().Khaki();
             }
 
             if (percentageCompleteTa2 == 0)
@@ -218,7 +222,7 @@ All settings start disabled by default. On first start the mod will display an w
             }
             else
             {
-                exportTaLabel2 = "Cancel TA export at " + $"{percentageCompleteTa2:00.0%}".bold().yellow();
+                exportTaLabel2 = "Cancel TA export at " + $"{percentageCompleteTa2:00.0%}".Bold().Khaki();
             }
 
             if (percentageCompleteCe == 0)
@@ -227,7 +231,7 @@ All settings start disabled by default. On first start the mod will display an w
             }
             else
             {
-                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".bold().yellow();
+                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".Bold().Khaki();
             }
 
             using (UI.HorizontalScope())
@@ -236,11 +240,11 @@ All settings start disabled by default. On first start the mod will display an w
                 {
                     if (percentageCompleteTa == 0)
                     {
-                        DiagnosticsContext.ExportTADefinitions();
+                        DiagnosticsContext.ExportTaDefinitions();
                     }
                     else
                     {
-                        BlueprintExporter.Cancel(DiagnosticsContext.TA);
+                        BlueprintExporter.Cancel(DiagnosticsContext.Ta);
                     }
                 }, UI.Width(200));
 
@@ -248,11 +252,11 @@ All settings start disabled by default. On first start the mod will display an w
                 {
                     if (percentageCompleteCe == 0)
                     {
-                        DiagnosticsContext.ExportCEDefinitions();
+                        DiagnosticsContext.ExportCeDefinitions();
                     }
                     else
                     {
-                        BlueprintExporter.Cancel(DiagnosticsContext.CE);
+                        BlueprintExporter.Cancel(DiagnosticsContext.Ce);
                     }
                 }, UI.Width(200));
 
@@ -260,22 +264,22 @@ All settings start disabled by default. On first start the mod will display an w
                 {
                     if (percentageCompleteTa2 == 0)
                     {
-                        DiagnosticsContext.ExportTADefinitionsAfterCELoaded();
+                        DiagnosticsContext.ExportTaDefinitionsAfterCeLoaded();
                     }
                     else
                     {
-                        BlueprintExporter.Cancel(DiagnosticsContext.TA2);
+                        BlueprintExporter.Cancel(DiagnosticsContext.Ta2);
                     }
                 }, UI.Width(200));
             }
 
             using (UI.HorizontalScope())
             {
-                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(),
+                UI.ActionButton("Create TA diagnostics", DiagnosticsContext.CreateTaDefinitionDiagnostics,
                     UI.Width(200));
-                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(),
+                UI.ActionButton("Create CE diagnostics", DiagnosticsContext.CreateCeDefinitionDiagnostics,
                     UI.Width(200));
-                UI.ActionButton("Dump Descriptions", () => DisplayDumpDescription(), UI.Width(200));
+                UI.ActionButton("Dump Descriptions", DisplayDumpDescription, UI.Width(200));
             }
 
             UI.Label("");
@@ -299,7 +303,8 @@ All settings start disabled by default. On first start the mod will display an w
             UI.Label("");
         }
 
-        private static string GenerateDescription<T>(IEnumerable<T> definitions) where T : BaseDefinition
+        [NotNull]
+        private static string GenerateDescription<T>([NotNull] IEnumerable<T> definitions) where T : BaseDefinition
         {
             var outString = new StringBuilder();
 
@@ -314,7 +319,7 @@ All settings start disabled by default. On first start the mod will display an w
             return outString.ToString();
         }
 
-        internal static void DisplayDumpDescription()
+        private static void DisplayDumpDescription()
         {
             var collectedCredits = new StringBuilder();
 
@@ -347,13 +352,12 @@ All settings start disabled by default. On first start the mod will display an w
                 GenerateDescription(ClassesContext.Classes),
                 GenerateDescription(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
                     .Where(x => !SubclassesContext.Subclasses.Contains(x))
-                    .Where(x => DiagnosticsContext.IsCeDefinition(x))),
+                    .Where(DiagnosticsContext.IsCeDefinition)),
                 GenerateDescription(SubclassesContext.Subclasses),
                 GenerateDescription(FeatsContext.Feats),
                 GenerateDescription(FightingStyleContext.FightingStyles),
                 GenerateDescription(SpellsContext.Spells),
-                ItemCraftingContext.GenerateItemsDescription(),
-                GenerateDescription(DungeonMakerContext.ModdedMonsters));
+                ItemCraftingContext.GenerateItemsDescription());
 
             using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
             sw.WriteLine(descriptionData);

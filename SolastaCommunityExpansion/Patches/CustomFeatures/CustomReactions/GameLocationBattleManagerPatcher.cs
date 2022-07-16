@@ -85,7 +85,6 @@ internal static class GameLocationBattleManager_HandleFailedSavingThrow
 
     private static bool IsFailed(RuleDefinitions.RollOutcome outcome)
     {
-        return outcome == RuleDefinitions.RollOutcome.Failure
-               || outcome == RuleDefinitions.RollOutcome.CriticalFailure;
+        return outcome != RuleDefinitions.RollOutcome.Failure && outcome != RuleDefinitions.RollOutcome.CriticalFailure;
     }
 }

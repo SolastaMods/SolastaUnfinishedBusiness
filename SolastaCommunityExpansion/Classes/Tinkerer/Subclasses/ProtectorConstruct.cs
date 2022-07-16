@@ -51,15 +51,6 @@ public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : FeatureD
     {
         Definition.GuiPresentation.Title = "Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle";
         Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription";
-
-#pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-        var autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-        {
-            ClassLevel = 1,
-            SpellsList =
-                new List<SpellDefinition> {SummonProtectorSpellConstructBuilder.SummonProtectorConstruct}
-        };
-#pragma warning restore S1481, IDE0059 // Unused local variables should be removed
     }
 
     private static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
@@ -152,16 +143,16 @@ internal sealed class SummonProtectorPowerConstructBuilder : FeatureDefinitionPo
         Definition.hasCastingFailure = false;
         Definition.uniqueInstance = true;
 
-        var ProtectorConstructEffect = new EffectDescriptionBuilder();
-        ProtectorConstructEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
+        var protectorConstructEffect = new EffectDescriptionBuilder();
+        protectorConstructEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
             RuleDefinitions.TurnOccurenceType.EndOfTurn);
-        ProtectorConstructEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1,
+        protectorConstructEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1,
             RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-        ProtectorConstructEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature,
+        protectorConstructEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature,
             ScriptableObject.CreateInstance<ItemDefinition>(), 1, ProtectorConstructBuilder.ProtectorConstruct.name,
             null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
-        Definition.effectDescription = ProtectorConstructEffect.Build();
+        Definition.effectDescription = protectorConstructEffect.Build();
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -519,9 +510,10 @@ internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
 
         var selfrepair = new HealingForm {BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2};
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
-        effect.healingForm = selfrepair;
-        effect.createdByCharacter = true;
+        var effect = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.Healing, healingForm = selfrepair, createdByCharacter = true
+        };
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();

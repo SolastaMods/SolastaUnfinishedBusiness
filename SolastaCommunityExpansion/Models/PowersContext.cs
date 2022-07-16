@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
@@ -10,14 +11,11 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class PowersContext
 {
-    private static readonly Guid BAZOU_POWERS_BASE_GUID = new("99cee84d-6187-4d7f-a36e-1bd96d3f2deb");
+    internal static readonly HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions = new();
+
+    private static readonly Guid BazouPowersBaseGuid = new("99cee84d-6187-4d7f-a36e-1bd96d3f2deb");
 
     private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
-
-    internal static void Load()
-    {
-        LoadHelpPower();
-    }
 
     internal static void LateLoad()
     {
@@ -25,11 +23,6 @@ internal static class PowersContext
     }
 
     internal static void Switch()
-    {
-        SwitchHelpPower();
-    }
-
-    internal static void SwitchHelpPower()
     {
         var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
         var subRaces = dbCharacterRaceDefinition
@@ -59,7 +52,7 @@ internal static class PowersContext
         }
     }
 
-    private static void LoadHelpPower()
+    internal static void Load()
     {
         var effectDescription = TrueStrike.EffectDescription.Copy();
 
@@ -76,7 +69,7 @@ internal static class PowersContext
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = helpPowerCondition;
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
-            .Create("HelpAction", BAZOU_POWERS_BASE_GUID)
+            .Create("HelpAction", BazouPowersBaseGuid)
             .SetGuiPresentation(Category.Power, Aid.GuiPresentation.SpriteReference)
             .Configure(
                 1,
@@ -91,27 +84,5 @@ internal static class PowersContext
                 effectDescription,
                 true)
             .AddToDB();
-    }
-
-    public static void ApplyPowerEffectForms(FeatureDefinitionPower power, RulesetCharacter source,
-        RulesetCharacter target, string logTag = null)
-    {
-        var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
-
-        if (logTag != null)
-        {
-            target.AdditionalDamageGenerated(source, target, RuleDefinitions.DieType.D1, 0, 0, logTag);
-        }
-
-        var usablePower = UsablePowersProvider.Get(power, source);
-        var effectPower = ruleset.InstantiateEffectPower(source, usablePower, false);
-        var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
-        formsParams.FillSourceAndTarget(source, target);
-        formsParams.FillFromActiveEffect(effectPower);
-        formsParams.FillSoloPowerSpecialParameters();
-        formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
-        ruleset.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
-        ruleset.ClearDamageFormsByIndex();
-        ruleset.TerminateEffect(effectPower, false);
     }
 }

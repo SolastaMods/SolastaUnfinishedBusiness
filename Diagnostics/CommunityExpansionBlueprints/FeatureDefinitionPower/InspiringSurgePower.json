@@ -296,7 +296,7 @@
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "Feature/&InspiringSurgePowerTitleShort",
+  "shortTitleOverride": "Feature/&InspiringSurgePowerTitle",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "magical": true,

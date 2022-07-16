@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterDefinitions;
@@ -19,7 +20,7 @@ internal static class ConjurationsContext
         ConjuredFourBeast_BadlandsSpider,
         ConjuredEightBeast_Wolf,
 
-        // Conjure minor elementals (4)
+        // Conjure minor elemental (4)
         SkarnGhoul, // CR 2
         WindSnake, // CR 2
         Fire_Jester, // CR 1
@@ -39,7 +40,9 @@ internal static class ConjurationsContext
         FeyBear, // CR 4
         Green_Hag, // CR 3
         FeyWolf, // CR 2
-        FeyDriad // CR 1
+        FeyDriad, // CR 1
+
+        Adam_The_Twelth
     };
 
     private static readonly Guid Namespace = new("de4539b8e0194684b1d0585100dd94e5");
@@ -50,12 +53,9 @@ internal static class ConjurationsContext
     internal static void Load()
     {
         // NOTE: assumes monsters have FullyControlledWhenAllied=false by default
-
-        var controlled = Main.Settings.FullyControlConjurations;
-
         foreach (var conjuredMonster in ConjuredMonsters)
         {
-            conjuredMonster.fullyControlledWhenAllied = controlled;
+            conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
         }
 
         if (Main.Settings.EnableUpcastConjureElementalAndFey)
@@ -64,11 +64,11 @@ internal static class ConjurationsContext
         }
     }
 
-    internal static void AddSummonsSubSpells()
+    private static void AddSummonsSubSpells()
     {
         // Invisible Stalker
         if (!DatabaseRepository.GetDatabase<SpellDefinition>()
-                .TryGetElement(InvisibleStalkerSubspellName, out var _))
+                .TryGetElement(InvisibleStalkerSubspellName, out _))
         {
             var definition = SpellDefinitionBuilder
                 .Create(ConjureElementalFire, InvisibleStalkerSubspellName, Namespace)
@@ -91,16 +91,18 @@ internal static class ConjurationsContext
             }
         }
 
-        // TODO: add higher and lower level elementals
+        // TODO: add higher level elemental
         // TODO: add higher level fey
 
-        ConfigureAdvancement(ConjureElemental);
         ConfigureAdvancement(ConjureFey);
+        ConfigureAdvancement(ConjureElemental);
+        ConfigureAdvancement(ConjureMinorElementals);
 
-        // Set advancement at spell level,not sub-spell
-        static void ConfigureAdvancement(SpellDefinition spell)
+        // Set advancement at spell level, not sub-spell
+        static void ConfigureAdvancement([NotNull] IMagicEffect spell)
         {
             var advancement = spell.EffectDescription.EffectAdvancement;
+
             advancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
             advancement.additionalSpellLevelPerIncrement = 1;
         }

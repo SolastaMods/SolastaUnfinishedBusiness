@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityExplorer;
 using static SolastaCommunityExpansion.Displays.PatchesDisplay;
 
@@ -10,25 +11,27 @@ namespace SolastaCommunityExpansion.Displays;
 
 internal static class CreditsDisplay
 {
-    private static bool displayPatches;
+    private static bool _displayPatches;
 
-    internal static readonly Dictionary<string, string> ThanksTable = new()
+    private static readonly Dictionary<string, string> ThanksTable = new()
     {
         {"Tactical Adventures", "early access to DLC builds and community support"},
         {"JetBrains", "one year Rider IDE subscription for 3 developers"},
         {"", ""},
         {"Critical Hit", "<b>M. Miller</b>, <b>J. Cohen</b>, <b>L. Goldiner</b>"},
-        {"D20", "D. Fenter, B. Lane, J. Loustaunau"},
+        {"D20", "D. Fenter, B. Amorsen, B. Lane, J. Loustaunau"},
         {"D12", "E. Antonio, C. Aardappel, M. Klepac"},
-        {"D8", "R. Baker, R. Maxim, D. Boggs"},
+        {"D8", "R. Baker, R. Maxim, D. Boggs, P. Marreck"},
         {
-            "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
-                  "M. Harck, D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
-                  "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson\n" +
-                  "J. Batanero, J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker"
+            "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, J. Bendoski, M. Oliveira, M. Harck\n" +
+                  "D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez, R. Garcia, \n" +
+                  "R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson, J. Batanero\n" +
+                  "J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker, N. Zhuxy, M. Arteaga, J. Boyd, C. Badgley\n" +
+                  "D. Faires, E. Smith, G. Kinch"
         }
     };
 
+    // used in DEBUG mode (don't make private)
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"),
@@ -38,6 +41,7 @@ internal static class CreditsDisplay
             "ChrisJohnDigital",
             "Tinkerer class, crafting, faction relations, feats, fighting styles, items, subclasses, progression"
         ),
+        ("DemonSlayer730", "Path of the Rage Mage subclass"),
         ("Dreadmaker", "Forest Guardian subclass"),
         (
             "DubhHerder",
@@ -56,7 +60,6 @@ internal static class CreditsDisplay
             "SilverGriffon",
             "pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, Dark Elf race, Divine Heart subclass"
         ),
-        ("Spacehamster", "dataminer"),
         (
             "TPABOBAP",
             "Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration"
@@ -74,14 +77,13 @@ internal static class CreditsDisplay
         ("", ""),
         ("Nyowwww", "Chinese translations"),
         ("Prioritizer", "Russian translations"),
-        ("Burtsev-Alexey", "deep copy algorithm"),
         ("Narria", "modKit creator, developer"),
         ("Sinai-dev", "Unity Explorer UI standalone")
     };
 
-    private static bool IsUnityExplorerInstalled { get; } =
-        File.Exists(Path.Combine(Main.MOD_FOLDER, "UnityExplorer.STANDALONE.Mono.dll")) &&
-        File.Exists(Path.Combine(Main.MOD_FOLDER, "UniverseLib.Mono.dll"));
+    private static readonly bool IsUnityExplorerInstalled =
+        File.Exists(Path.Combine(Main.ModFolder, "UnityExplorer.STANDALONE.Mono.dll")) &&
+        File.Exists(Path.Combine(Main.ModFolder, "UniverseLib.Mono.dll"));
 
     private static bool IsUnityExplorerEnabled { get; set; }
 
@@ -120,55 +122,42 @@ internal static class CreditsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Donations".bold().yellow(), () =>
+            UI.ActionButton("Donations".Bold().Khaki(), () =>
             {
                 OpenUrl(
                     "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion");
             }, UI.Width(150));
 
-            UI.ActionButton("Wiki".bold().yellow(), () =>
+            UI.ActionButton("Wiki".Bold().Khaki(), () =>
             {
                 OpenUrl(
                     "https://github.com/SolastaMods/SolastaCommunityExpansion/wiki");
             }, UI.Width(150));
 
-            if (IsUnityExplorerInstalled)
+            if (!IsUnityExplorerEnabled && IsUnityExplorerInstalled)
             {
-                UI.ActionButton("Unity Explorer UI".bold().yellow(), () =>
+                UI.ActionButton("Unity Explorer UI".Bold().Khaki(), () =>
                 {
-                    if (!IsUnityExplorerEnabled)
-                    {
-                        IsUnityExplorerEnabled = true;
+                    IsUnityExplorerEnabled = true;
 
-                        try
-                        {
-                            ExplorerStandalone.CreateInstance();
-                        }
-                        catch
-                        {
-                        }
+                    try
+                    {
+                        ExplorerStandalone.CreateInstance();
+                    }
+                    catch
+                    {
+                        // ignored
                     }
                 }, UI.Width(150));
             }
         }
 
-
-#if false
-            UI.Label("");
-
-            var toggle = Main.Settings.EnableBetaContent;
-            if (UI.Toggle(Gui.Localize("ModUI/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableBetaContent = toggle;
-            }
-#endif
-
         UI.Label("");
-        UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref displayPatches, 200);
+        UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref _displayPatches, 200);
 
         UI.Label("");
 
-        if (displayPatches)
+        if (_displayPatches)
         {
             DisplayPatches();
         }
@@ -178,7 +167,7 @@ internal static class CreditsDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.Label(author.orange(), UI.Width(150));
+                UI.Label(author.Orange(), UI.Width(150));
                 UI.Label(content, UI.Width(600));
             }
         }
@@ -190,7 +179,7 @@ internal static class CreditsDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.Label(kvp.Key.orange(), UI.Width(150));
+                UI.Label(kvp.Key.Orange(), UI.Width(150));
                 UI.Label(kvp.Value, UI.Width(600));
             }
         }

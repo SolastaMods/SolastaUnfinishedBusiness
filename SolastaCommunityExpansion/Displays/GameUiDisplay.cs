@@ -1,5 +1,4 @@
-﻿using System;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Displays;
@@ -8,9 +7,7 @@ internal static class GameUiDisplay
 {
     internal static void DisplayGameUi()
     {
-        bool toggle;
         int intValue;
-        float floatValue;
 
         #region Battle
 
@@ -18,7 +15,7 @@ internal static class GameUiDisplay
         UI.Label(Gui.Localize("ModUi/&Battle"));
         UI.Label("");
 
-        toggle = Main.Settings.DontFollowCharacterInBattle;
+        var toggle = Main.Settings.DontFollowCharacterInBattle;
         if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DontFollowCharacterInBattle = toggle;
@@ -44,7 +41,7 @@ internal static class GameUiDisplay
 
         UI.Label("");
 
-        floatValue = Main.Settings.FasterTimeModifier;
+        var floatValue = Main.Settings.FasterTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue, 1.5f, 10f, 1.5f,
                 1, "X", UI.AutoWidth()))
         {
@@ -107,10 +104,10 @@ internal static class GameUiDisplay
             }
         }
 
-        toggle = Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered;
+        toggle = Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered;
         if (UI.Toggle(Gui.Localize("ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
+            Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered = toggle;
         }
 
         #endregion
@@ -152,12 +149,11 @@ internal static class GameUiDisplay
         {
             UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325));
 
-            intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbAppearances,
-                Main.Settings.EmpressGarbAppearance);
+            intValue = Main.Settings.EmpressGarbAppearanceIndex;
             if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbAppearances,
-                    ItemOptionsContext.EmpressGarbAppearances.Length, 3, UI.Width(440)))
+                    ItemOptionsContext.EmpressGarbAppearances.Length, 2, UI.Width(440)))
             {
-                Main.Settings.EmpressGarbAppearance = ItemOptionsContext.EmpressGarbAppearances[intValue];
+                Main.Settings.EmpressGarbAppearanceIndex = intValue;
                 ItemOptionsContext.SwitchEmpressGarb();
             }
         }

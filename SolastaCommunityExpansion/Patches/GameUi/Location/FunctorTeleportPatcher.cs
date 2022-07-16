@@ -56,12 +56,14 @@ internal static class FunctorTeleport_Execute
         {
             yield return instruction;
 
-            if (instruction.Calls(teleportCharacterMethod))
+            if (!instruction.Calls(teleportCharacterMethod))
             {
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-                yield return new CodeInstruction(OpCodes.Ldfld, characterField);
-                yield return new CodeInstruction(OpCodes.Call, followCharacterOnTeleportMethod);
+                continue;
             }
+
+            yield return new CodeInstruction(OpCodes.Ldarg_0);
+            yield return new CodeInstruction(OpCodes.Ldfld, characterField);
+            yield return new CodeInstruction(OpCodes.Call, followCharacterOnTeleportMethod);
         }
     }
 }

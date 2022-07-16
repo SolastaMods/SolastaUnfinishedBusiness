@@ -1,10 +1,11 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public static class ArrayExtensions
 {
-    public static void ForEach(this Array array, Action<Array, int[]> action)
+    public static void ForEach([NotNull] this Array array, Action<Array, int[]> action)
     {
         if (array.LongLength == 0)
         {
@@ -12,6 +13,7 @@ public static class ArrayExtensions
         }
 
         var walker = new ArrayTraverse(array);
+
         do
         {
             action(array, walker.Position);
@@ -19,13 +21,14 @@ public static class ArrayExtensions
     }
 }
 
-internal class ArrayTraverse
+internal sealed class ArrayTraverse
 {
     private readonly int[] maxLengths;
 
-    public ArrayTraverse(Array array)
+    public ArrayTraverse([NotNull] Array array)
     {
         maxLengths = new int[array.Rank];
+
         for (var i = 0; i < array.Rank; ++i)
         {
             maxLengths[i] = array.GetLength(i) - 1;
@@ -40,16 +43,19 @@ internal class ArrayTraverse
     {
         for (var i = 0; i < Position.Length; ++i)
         {
-            if (Position[i] < maxLengths[i])
+            if (Position[i] >= maxLengths[i])
             {
-                Position[i]++;
-                for (var j = 0; j < i; j++)
-                {
-                    Position[j] = 0;
-                }
-
-                return true;
+                continue;
             }
+
+            Position[i]++;
+
+            for (var j = 0; j < i; j++)
+            {
+                Position[j] = 0;
+            }
+
+            return true;
         }
 
         return false;

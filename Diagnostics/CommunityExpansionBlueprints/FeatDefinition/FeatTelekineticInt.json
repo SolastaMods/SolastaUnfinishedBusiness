@@ -10,7 +10,7 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatIntIncrement:d2209a77-7ae2-5e9f-a7b1-5c7eab76e9cf",
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
     "Definition:PowerTelekineticIntPull:0c4769e1-7785-5615-946c-999fa27b1408",
     "Definition:PowerTelekineticIntPush:b5710ff2-d652-5915-9a1e-d574795c480c"
   ],

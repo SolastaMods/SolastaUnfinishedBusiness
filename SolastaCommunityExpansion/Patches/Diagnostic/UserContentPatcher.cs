@@ -11,13 +11,14 @@ internal static class GamingPlatformManager_IsContentPackAvailable
 {
     public static bool Prefix(GamingPlatformDefinitions.ContentPack contentPack, ref bool __result)
     {
-        if (contentPack == CeContentPackContext.CeContentPack)
+        if (contentPack != CeContentPackContext.CeContentPack
+            && Main.Settings.EnableDiagsDump != PlayerControllerManager.DmControllerId)
         {
-            __result = true;
-
-            return false;
+            return true;
         }
 
-        return true;
+        __result = true;
+
+        return false;
     }
 }

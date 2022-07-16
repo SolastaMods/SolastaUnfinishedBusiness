@@ -47,6 +47,7 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
         return This();
     }
 
+#if false
     public TBuilder SetClassPrerequisite(params string[] classes)
     {
         return SetClassPrerequisite(classes.AsEnumerable());
@@ -68,7 +69,7 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
         Definition.CompatibleRacesPrerequisite.SetRange(races.OrderBy(r => r));
         return This();
     }
-
+    
     public TBuilder SetFeatPrerequisite(params string[] feats)
     {
         return SetFeatPrerequisite(feats.AsEnumerable());
@@ -79,6 +80,7 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
         Definition.KnownFeatsPrerequisite.SetRange(feats.OrderBy(f => f));
         return This();
     }
+#endif
 
     public TBuilder SetArmorProficiencyPrerequisite(ArmorCategoryDefinition category)
     {

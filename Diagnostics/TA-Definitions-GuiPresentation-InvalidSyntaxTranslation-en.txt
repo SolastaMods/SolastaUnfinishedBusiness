@@ -87,4 +87,3 @@ ScrollEyeBite_Panicked	Description='SHOULD NOT BE IN GAME'.
 ScrollEyeBite_Sickened	Title='SHOULD NOT BE IN GAME'.
 ScrollEyeBite_Sickened	Description='SHOULD NOT BE IN GAME'.
 Sergeant_Coparann	Title='Sergeant'.
-SilverDragon_Princess	Title='SilverDragon_Princess'.

@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using UnityEngine;
 
@@ -17,9 +18,10 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
 })]
 internal static class SubspellSelectionModal_Bind
 {
-    public static List<SpellDefinition> FilteredSubspells { get; internal set; }
+    public static List<SpellDefinition> FilteredSubspells { get; private set; }
 
-    public static List<SpellDefinition> MySubspellsList(SpellDefinition masterSpell, int slotLevel)
+    [CanBeNull]
+    public static List<SpellDefinition> MySubspellsList([NotNull] SpellDefinition masterSpell, int slotLevel)
     {
         var subspellsList = masterSpell.SubspellsList;
         var mySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name

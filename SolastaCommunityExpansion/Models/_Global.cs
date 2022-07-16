@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 
 namespace SolastaCommunityExpansion.Models;
@@ -13,30 +14,28 @@ public static class Global
                                          Gui.GameLocation.LocationDefinition &&
                                          Gui.GameLocation.LocationDefinition.IsUserLocation;
 
-    // is new adventure panel in context
-    public static bool IsNewAdventurePanelInContext { get; set; }
-
     // last level up hero name
     public static string LastLevelUpHeroName { get; set; }
 
     // level up hero
+    [CanBeNull]
     public static RulesetCharacterHero ActiveLevelUpHero =>
         ServiceRepository.GetService<ICharacterBuildingService>()?.CurrentLocalHeroCharacter;
 
-    // holds the active player character when in battle
+    // inspected hero on both location and pool
+    [CanBeNull] public static RulesetCharacterHero InspectedHero { get; set; }
+
+    // holds the active player character
     public static GameLocationCharacter ActivePlayerCharacter { get; set; }
 
-    // inspected hero on both location and pool
-    public static RulesetCharacterHero InspectedHero { get; set; }
-
     // holds the current action from any character on the map
-    public static CharacterAction CurrentAction { get; set; }
+    public static CharacterAction CurrentAction { get; private set; }
 
     // holds the the casted spell
-    public static SpellDefinition CastedSpell { get; set; }
+    public static SpellDefinition CastedSpell { get; private set; }
 
     // holds the the casting repertoire
-    public static RulesetSpellRepertoire CastedSpellRepertoire { get; set; }
+    public static RulesetSpellRepertoire CastedSpellRepertoire { get; private set; }
 
     // last attack was a critical hit
     public static bool CriticalHit { get; set; }
@@ -49,12 +48,29 @@ public static class Global
 
     // true if not in game
     public static bool IsOffGame => Gui.Game == null;
-
+    
     public static bool IsSpellStrike { get; set; } = false;
     
     public static RuleDefinitions.RollOutcome SpellStrikeRollOutcome { get; set; } = RuleDefinitions.RollOutcome.Neutral;
     
     public static int SpellStrikeDieRoll { get; set; } = 10;
+    
+    internal static void ActionStarted([NotNull] CharacterAction characterAction)
+    {
+        CurrentAction = characterAction;
+        ActivePlayerCharacter = characterAction.ActingCharacter;
+
+        if (characterAction is CharacterActionCastSpell actionCastSpell)
+        {
+            CastedSpellRepertoire = actionCastSpell.ActiveSpell.SpellRepertoire;
+            CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
+        }
+        else
+        {
+            CastedSpellRepertoire = null;
+            CastedSpell = null;
+        }
+    }
     
     public static bool ActiveLevelUpHeroHasCantrip(SpellDefinition spellDefinition)
     {

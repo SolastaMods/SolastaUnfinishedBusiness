@@ -10,7 +10,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetItem_FillTags
 {
-    public static void Postfix(RulesetItem __instance,
+    public static void Postfix(
+        RulesetItem __instance,
         Dictionary<string, TagsDefinitions.Criticity> tagsMap,
         object context,
         bool active = false)
@@ -27,7 +28,7 @@ internal static class RulesetItem_FillTags
 
         if (DiagnosticsContext.IsCeDefinition(__instance.ItemDefinition))
         {
-            tagsMap.TryAdd(CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);
+            tagsMap.TryAdd(CeContentPackContext.CeTag, TagsDefinitions.Criticity.Normal);
         }
     }
 }

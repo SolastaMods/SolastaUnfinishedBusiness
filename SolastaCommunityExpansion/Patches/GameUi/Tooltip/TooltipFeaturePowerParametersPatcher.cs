@@ -10,12 +10,12 @@ internal static class TooltipFeaturePowerParameters_Bind
 {
     internal static void Postfix(TooltipFeaturePowerParameters __instance, ITooltip tooltip)
     {
-        if (tooltip.DataProvider == null || tooltip.DataProvider is not GuiPowerDefinition guiPowerDefinition)
+        if (tooltip.DataProvider is not GuiPowerDefinition guiPowerDefinition)
         {
             return;
         }
 
-        if (tooltip.Context == null || tooltip.Context is not RulesetCharacter character)
+        if (tooltip.Context is not RulesetCharacter character)
         {
             return;
         }

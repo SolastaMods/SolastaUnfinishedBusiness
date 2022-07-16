@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder;
@@ -12,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder;
 internal static class CursorLocationGeometricShape_UpdateGeometricShape
 {
     public static void MyUpdateCubePosition_Regular(
-        GeometricShape __instance,
+        [NotNull] GeometricShape __instance,
         Vector3 origin,
         float edgeSize,
         bool adaptToGroundLevel,
@@ -79,17 +80,17 @@ internal static class CursorLocationGeometricShape_UpdateGeometricShape
         var targetParameter2Field =
             typeof(CursorLocationGeometricShape).GetField("targetParameter2",
                 BindingFlags.Instance | BindingFlags.NonPublic);
-        var updateCubePosition_RegularMethod = typeof(GeometricShape).GetMethod("UpdateCubePosition_Regular");
-        var myUpdateCubePosition_RegularMethod =
+        var updateCubePositionRegularMethod = typeof(GeometricShape).GetMethod("UpdateCubePosition_Regular");
+        var myUpdateCubePositionRegularMethod =
             typeof(CursorLocationGeometricShape_UpdateGeometricShape).GetMethod("MyUpdateCubePosition_Regular");
 
         foreach (var instruction in instructions)
         {
-            if (instruction.Calls(updateCubePosition_RegularMethod))
+            if (instruction.Calls(updateCubePositionRegularMethod))
             {
                 yield return new CodeInstruction(OpCodes.Ldarg_0); // this
                 yield return new CodeInstruction(OpCodes.Ldfld, targetParameter2Field);
-                yield return new CodeInstruction(OpCodes.Call, myUpdateCubePosition_RegularMethod);
+                yield return new CodeInstruction(OpCodes.Call, myUpdateCubePositionRegularMethod);
             }
             else
             {

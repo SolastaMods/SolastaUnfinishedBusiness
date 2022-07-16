@@ -1,19 +1,6 @@
-﻿PATRONS:
-
-- Thanks to all individuals who contributed so far...
-- We could do much more if everyone donates $1-$5
-
-- The [donation] button is under Mod UI > Credits
-- It opens a browser page with a paypal support link
-
-ATTENTION:
-
-- RESPEC any hero/save with blind fighting style or feat
+﻿You can contribute to this work with any financial amount
+The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Add sorcerer Divine Heart subclass
-- Update dark elves light sensitivity with an UI setting
-- Deprecate blind fighting style and feat
-- Fix sorcerers creation
-- Improve deadeye feat to support darts
+- Add Dead Master subclass

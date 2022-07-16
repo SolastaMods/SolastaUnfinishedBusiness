@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ArmorCategoryDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaCommunityExpansion.Feats;
 
 internal static class ArmorFeats
 {
-    public static readonly Guid ArmorNamespace = new("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
+    private static readonly Guid ArmorNamespace = new("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
 
-    public static void CreateArmorFeats(List<FeatDefinition> feats)
+    public static void CreateArmorFeats([NotNull] List<FeatDefinition> feats)
     {
         var lightArmorProficiency = BuildProficiency("FeatLightArmorProficiency",
             ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory);
@@ -22,19 +23,13 @@ internal static class ArmorFeats
         var mediumArmorProficiency = BuildProficiency("FeatMediumArmorProficiency",
             ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
 
-        var dexterityModifier = BuildAttributeModifier("FeatDexIncrement",
-            AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 1);
-
-        var strengthModifier = BuildAttributeModifier("FeatStrengthIncrement",
-            AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1);
-
-        var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, dexterityModifier);
+        var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, AttributeModifierCreed_Of_Misaye);
 
         // Note: medium armor feats have pre-req of light armor
         var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory, mediumArmorProficiency,
-            dexterityModifier);
+            AttributeModifierCreed_Of_Misaye);
         var mediumStrengthArmorFeat = BuildFeat("FeatMediumArmorStrength", LightArmorCategory,
-            mediumArmorProficiency, strengthModifier);
+            mediumArmorProficiency, AttributeModifierCreed_Of_Einar);
 
         // Note: heavy armor master has pre-req of heavy armor
         var heavyArmorMasterFeat = BuildFeat("FeatHeavyArmorMasterClass", HeavyArmorCategory,
@@ -44,7 +39,7 @@ internal static class ArmorFeats
         feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrengthArmorFeat, heavyArmorMasterFeat);
     }
 
-    public static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite,
+    private static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite,
         params FeatureDefinition[] features)
     {
         return FeatDefinitionBuilder
@@ -55,7 +50,7 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    public static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
+    private static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
     {
         return FeatDefinitionBuilder
             .Create(name, ArmorNamespace)
@@ -64,23 +59,13 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    public static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type,
+    private static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type,
         params string[] proficiencies)
     {
         return FeatureDefinitionProficiencyBuilder
             .Create(name, ArmorNamespace)
             .SetGuiPresentation(Category.Feat)
             .SetProficiencies(type, proficiencies)
-            .AddToDB();
-    }
-
-    public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name,
-        AttributeModifierOperation modifierType, string attribute, int amount)
-    {
-        return FeatureDefinitionAttributeModifierBuilder
-            .Create(name, ArmorNamespace)
-            .SetGuiPresentation(Category.Feat)
-            .SetModifier(modifierType, attribute, amount)
             .AddToDB();
     }
 }

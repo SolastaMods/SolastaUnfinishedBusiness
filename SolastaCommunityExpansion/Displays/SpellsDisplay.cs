@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Displays.Shared;
 
@@ -7,9 +8,9 @@ namespace SolastaCommunityExpansion.Displays;
 
 internal static class SpellsDisplay
 {
-    private const int SHOW_ALL = -1;
+    private const int ShowAll = -1;
 
-    private static int SpellLevelFilter { get; set; } = SHOW_ALL;
+    private static int SpellLevelFilter { get; set; } = ShowAll;
 
     internal static void DisplaySpells()
     {
@@ -21,7 +22,7 @@ internal static class SpellsDisplay
         UI.Label("");
 
         intValue = SpellLevelFilter;
-        if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, SHOW_ALL, 9, SHOW_ALL))
+        if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
         {
             SpellLevelFilter = intValue;
         }
@@ -31,19 +32,19 @@ internal static class SpellsDisplay
         using (UI.HorizontalScope())
         {
             toggle = SpellsContext.IsAllSetSelected();
-            if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PixelsPerColumn)))
             {
                 SpellsContext.SelectAllSet(toggle);
             }
 
             toggle = SpellsContext.IsSuggestedSetSelected();
-            if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PixelsPerColumn)))
             {
                 SpellsContext.SelectSuggestedSet(toggle);
             }
 
             toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
-            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(PixelsPerColumn)))
             {
                 var keys = Main.Settings.DisplaySpellListsToggle.Keys.ToHashSet();
 
@@ -65,25 +66,25 @@ internal static class SpellsDisplay
             var sliderPos = Main.Settings.SpellListSliderPosition[name];
             var spellEnabled = Main.Settings.SpellListSpellEnabled[name];
             var allowedSpells = spellListContext.AllSpells
-                .Where(x => SpellLevelFilter == SHOW_ALL || x.SpellLevel == SpellLevelFilter).ToHashSet();
+                .Where(x => SpellLevelFilter == ShowAll || x.SpellLevel == SpellLevelFilter).ToHashSet();
 
             void AdditionalRendering()
             {
                 toggle = spellListContext.IsAllSetSelected;
-                if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PixelsPerColumn)))
                 {
                     spellListContext.SelectAllSetInternal(toggle);
                 }
 
                 toggle = spellListContext.IsSuggestedSetSelected;
-                if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PixelsPerColumn)))
                 {
                     spellListContext.SelectSuggestedSetInternal(toggle);
                 }
             }
 
             DisplayDefinitions(
-                kvp.Key.yellow(),
+                kvp.Key.Khaki(),
                 spellListContext.Switch,
                 allowedSpells,
                 spellEnabled,

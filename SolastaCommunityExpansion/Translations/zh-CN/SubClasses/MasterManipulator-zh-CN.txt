@@ -1,0 +1,10 @@
+Feature/&MagicAffinityControlHeightenedDescription=当施放一些附魔、咒法和幻术系法术时，它们会以比所使用的法术位高1级施放。强化的法术包括：魅惑人类、睡眠术、七彩喷射、人类定身术、隐形术、法术反制、解除魔法、放逐术、困惑术、魅影杀手、支配人类和怪物定身术
+Feature/&MagicAffinityControlHeightenedTitle=奥术操控
+Feature/&MagicAffinityMasterManipulatorDCDescription=对手更难抵抗你的法术。豁免DC提高{0}点
+Feature/&MagicAffinityMasterManipulatorDCTitle=奥术之力
+Feature/&ManipulatorMentalSavingThrowsDescription=获得体质和魅力豁免的熟练项
+Feature/&ManipulatorMentalSavingThrowsTitle=意志抗力
+Power/&PowerManipulatorDominatePersonDescription=你能施放支配人类，每次长休可使用等同于你的智力调整值的次数
+Power/&PowerManipulatorDominatePersonTitle=支配人类
+Subclass/&TraditionMasterManipulatorDescription=控心大师擅长控制战场，阻止敌人攻击他们
+Subclass/&TraditionMasterManipulatorTitle=控心大师

@@ -49,29 +49,31 @@ public class RangedAttackInMeleeDisadvantageRemover
             var instruction = instructions[i];
             if (foundConscious)
             {
-                if (instruction.opcode == OpCodes.Ldc_I4_1)
+                if (instruction.opcode != OpCodes.Ldc_I4_1)
                 {
-                    insertionIndex = i;
-                    break;
+                    continue;
                 }
+
+                insertionIndex = i;
+                break;
             }
-            else
+
+            if (instruction.opcode == OpCodes.Call
+                && instruction.operand != null
+                && instruction.operand.ToString().Contains("IsConsciousCharacterOfSideNextToCharacter"))
             {
-                if (instruction.opcode == OpCodes.Call
-                    && instruction.operand != null
-                    && instruction.operand.ToString().Contains("IsConsciousCharacterOfSideNextToCharacter"))
-                {
-                    foundConscious = true;
-                }
+                foundConscious = true;
             }
         }
 
-        if (insertionIndex > 0)
+        if (insertionIndex <= 0)
         {
-            var method = new Func<BattleDefinitions.AttackEvaluationParams, bool>(HasDisadvantage).Method;
-            instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
-            instructions.Insert(insertionIndex, new CodeInstruction(OpCodes.Ldarg_1));
+            return;
         }
+
+        var method = new Func<BattleDefinitions.AttackEvaluationParams, bool>(HasDisadvantage).Method;
+        instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
+        instructions.Insert(insertionIndex, new CodeInstruction(OpCodes.Ldarg_1));
     }
 
     private static bool HasDisadvantage(BattleDefinitions.AttackEvaluationParams attackParams)

@@ -1,0 +1,12 @@
+Feat/&FeatMediumArmorDexDescription=Увеличьте свою Ловкость на 1, максимум до 20.\nВы получаете владение средней броней и щитами.
+Feat/&FeatMediumArmorDexTitle=Средняя броня (Ловкость)
+Feat/&FeatMediumArmorProficiencyDescription=Вы получаете владение средними доспехами и щитами.
+Feat/&FeatMediumArmorProficiencyTitle=Средняя броня
+Feat/&FeatMediumArmorStrengthDescription=Увеличьте свою Силу на 1, максимум до 20.\nВы получаете владение средними доспехами и щитами.
+Feat/&FeatMediumArmorStrengthTitle=Средняя броня (Сила)
+Feat/&FeatLightArmorDescription=Увеличьте свою Силу на 1, максимум до 20.\nВы получаете владение легкими доспехами.
+Feat/&FeatLightArmorProficiencyDescription=Получите навык использования легких доспехов.
+Feat/&FeatLightArmorProficiencyTitle=Легкая броня
+Feat/&FeatLightArmorTitle=Легкая броня
+Feat/&FeatHeavyArmorMasterClassDescription=Вы получаете сопротивление к дробящему, рубящему и колющему урону.
+Feat/&FeatHeavyArmorMasterClassTitle=Мастер Тяжелой брони

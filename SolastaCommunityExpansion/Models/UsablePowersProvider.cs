@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
@@ -9,7 +10,8 @@ public static class UsablePowersProvider
     //TODO: think whether we ned to cache these at all, and if we indeed do, maybe switch to caching per character?
     private static readonly Dictionary<FeatureDefinitionPower, RulesetUsablePower> UsablePowers = new();
 
-    public static RulesetUsablePower Get(FeatureDefinitionPower power, RulesetCharacter actor = null)
+    [NotNull]
+    public static RulesetUsablePower Get(FeatureDefinitionPower power, [CanBeNull] RulesetCharacter actor = null)
     {
         RulesetUsablePower result = null;
         if (actor != null)
@@ -17,27 +19,29 @@ public static class UsablePowersProvider
             result = actor.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
         }
 
-        if (result == null)
+        if (result != null)
         {
-            if (UsablePowers.ContainsKey(power))
-            {
-                result = UsablePowers[power];
-            }
-            else
-            {
-                result = new RulesetUsablePower(power, null, null);
-                UsablePowers.Add(power, result);
-            }
-
-            //Update properties to match actor 
-            UpdateSaveDC(actor, result);
-            UpdatePoolUses(actor, result);
+            return result;
         }
+
+        if (UsablePowers.ContainsKey(power))
+        {
+            result = UsablePowers[power];
+        }
+        else
+        {
+            result = new RulesetUsablePower(power, null, null);
+            UsablePowers.Add(power, result);
+        }
+
+        //Update properties to match actor
+        UpdateSaveDc(actor, result);
+        UpdatePoolUses(actor, result);
 
         return result;
     }
 
-    public static void UpdatePoolUses(RulesetCharacter character, RulesetUsablePower usablePower)
+    private static void UpdatePoolUses([CanBeNull] RulesetCharacter character, RulesetUsablePower usablePower)
     {
         if (character == null)
         {
@@ -56,7 +60,7 @@ public static class UsablePowersProvider
         usablePower.remainingUses = pool.RemainingUses / powerCost;
     }
 
-    public static void UpdateSaveDC(RulesetCharacter actor, RulesetUsablePower usablePower)
+    public static void UpdateSaveDc([CanBeNull] RulesetCharacter actor, [NotNull] RulesetUsablePower usablePower)
     {
         var power = usablePower.PowerDefinition;
         var effectDescription = power.EffectDescription;
@@ -79,11 +83,13 @@ public static class UsablePowersProvider
                         break;
                     }
 
-                    if (spellRepertoire.SpellCastingSubclass != null)
+                    if (spellRepertoire.SpellCastingSubclass == null)
                     {
-                        rulesetSpellRepertoire = spellRepertoire;
-                        break;
+                        continue;
                     }
+
+                    rulesetSpellRepertoire = spellRepertoire;
+                    break;
                 }
 
                 if (rulesetSpellRepertoire != null)

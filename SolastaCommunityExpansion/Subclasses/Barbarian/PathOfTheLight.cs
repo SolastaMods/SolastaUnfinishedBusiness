@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -13,7 +14,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPower
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian;
 
-internal class PathOfTheLight : AbstractSubclass
+internal sealed class PathOfTheLight : AbstractSubclass
 {
     private const string IlluminatedConditionName = "PathOfTheLightIlluminatedCondition";
     private const string IlluminatingStrikeName = "PathOfTheLightIlluminatingStrike";
@@ -42,27 +43,27 @@ internal class PathOfTheLight : AbstractSubclass
         {20, 10}
     };
 
-    private static ConditionDefinitionIlluminated illuminatedCondition;
+    private static ConditionDefinitionIlluminated _illuminatedCondition;
 
-    private static FeatureDefinition illuminatingStrike;
+    private static FeatureDefinition _illuminatingStrike;
 
     // Dummy feature to show in UI
-    private static FeatureDefinition illuminatingStrikeImprovement;
+    private static FeatureDefinition _illuminatingStrikeImprovement;
 
-    private static FeatureDefinition pierceTheDarkness;
+    private static FeatureDefinition _pierceTheDarkness;
 
-    private static FeatureDefinition lightsProtection;
+    private static FeatureDefinition _lightsProtection;
 
-    private static FeatureDefinition eyesOfTruth;
+    private static FeatureDefinition _eyesOfTruth;
 
-    private static FeatureDefinition illuminatingBurst;
+    private static FeatureDefinition _illuminatingBurst;
 
-    private static FeatureDefinitionAttackDisadvantageAgainstNonSource disadvantageAgainstNonSource;
+    private static FeatureDefinitionAttackDisadvantageAgainstNonSource _disadvantageAgainstNonSource;
 
     // Prevents a creature from turning invisible by "granting" immunity to invisibility
-    private static FeatureDefinition preventInvisibility;
+    private static FeatureDefinition _preventInvisibility;
 
-    private static ConditionDefinition illuminatingBurstSuppressedCondition;
+    private static ConditionDefinition _illuminatingBurstSuppressedCondition;
 
     private CharacterSubclassDefinition Subclass { get; } = CharacterSubclassDefinitionBuilder
         .Create("PathOfTheLight", SubclassNamespace)
@@ -75,7 +76,7 @@ internal class PathOfTheLight : AbstractSubclass
         .AddFeatureAtLevel(IlluminatingBurst, 14)
         .AddToDB();
 
-    private static ConditionDefinitionIlluminated IlluminatedCondition => illuminatedCondition ??=
+    private static ConditionDefinitionIlluminated IlluminatedCondition => _illuminatedCondition ??=
         ConditionDefinitionIlluminatedBuilder
             .Create(IlluminatedConditionName, SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass,
@@ -88,7 +89,7 @@ internal class PathOfTheLight : AbstractSubclass
             .AddFeatures(DisadvantageAgainstNonSource, PreventInvisibility)
             .AddToDB();
 
-    private static FeatureDefinition IlluminatingStrike => illuminatingStrike ??= FeatureDefinitionFeatureSetBuilder
+    private static FeatureDefinition IlluminatingStrike => _illuminatingStrike ??= FeatureDefinitionFeatureSetBuilder
         .Create("PathOfTheLightIlluminatingStrikeFeatureSet", SubclassNamespace)
         .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrike", Category.Subclass)
         .SetEnumerateInDescription(false)
@@ -100,13 +101,13 @@ internal class PathOfTheLight : AbstractSubclass
             .AddToDB())
         .AddToDB();
 
-    private static FeatureDefinition IlluminatingStrikeImprovement => illuminatingStrikeImprovement ??=
+    private static FeatureDefinition IlluminatingStrikeImprovement => _illuminatingStrikeImprovement ??=
         FeatureDefinitionBuilder
             .Create("PathOfTheLightIlluminatingStrikeImprovement", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrikeImprovement", Category.Subclass)
             .AddToDB();
 
-    private static FeatureDefinition PierceTheDarkness => pierceTheDarkness ??= FeatureDefinitionFeatureSetBuilder
+    private static FeatureDefinition PierceTheDarkness => _pierceTheDarkness ??= FeatureDefinitionFeatureSetBuilder
         .Create("PathOfTheLightPierceTheDarkness", SubclassNamespace)
         .SetGuiPresentation("BarbarianPathOfTheLightPierceTheDarkness", Category.Subclass)
         .SetEnumerateInDescription(false)
@@ -115,7 +116,7 @@ internal class PathOfTheLight : AbstractSubclass
         .AddFeatureSet(FeatureDefinitionSenses.SenseSuperiorDarkvision)
         .AddToDB();
 
-    private static FeatureDefinition LightsProtection => lightsProtection ??= FeatureDefinitionFeatureSetBuilder
+    private static FeatureDefinition LightsProtection => _lightsProtection ??= FeatureDefinitionFeatureSetBuilder
         .Create("PathOfTheLightLightsProtection", SubclassNamespace)
         .SetGuiPresentation("BarbarianPathOfTheLightLightsProtection", Category.Subclass)
         .SetEnumerateInDescription(false)
@@ -129,9 +130,9 @@ internal class PathOfTheLight : AbstractSubclass
                 .AddToDB())
         .AddToDB();
 
-    private static FeatureDefinition EyesOfTruth => eyesOfTruth ??= CreateEyesOfTruth();
+    private static FeatureDefinition EyesOfTruth => _eyesOfTruth ??= CreateEyesOfTruth();
 
-    private static FeatureDefinition IlluminatingBurst => illuminatingBurst ??= FeatureDefinitionFeatureSetBuilder
+    private static FeatureDefinition IlluminatingBurst => _illuminatingBurst ??= FeatureDefinitionFeatureSetBuilder
         .Create("PathOfTheLightIlluminatingBurstFeatureSet", SubclassNamespace)
         .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurst", Category.Subclass)
         .SetEnumerateInDescription(false)
@@ -153,7 +154,7 @@ internal class PathOfTheLight : AbstractSubclass
         .AddToDB();
 
     private static FeatureDefinitionAttackDisadvantageAgainstNonSource DisadvantageAgainstNonSource =>
-        disadvantageAgainstNonSource ??=
+        _disadvantageAgainstNonSource ??=
             FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
                 .Create("PathOfTheLightIlluminatedDisadvantage", SubclassNamespace)
                 .SetGuiPresentation("Feature/&NoContentTitle",
@@ -161,7 +162,7 @@ internal class PathOfTheLight : AbstractSubclass
                 .SetConditionName(IlluminatedConditionName)
                 .AddToDB();
 
-    private static FeatureDefinition PreventInvisibility => preventInvisibility ??=
+    private static FeatureDefinition PreventInvisibility => _preventInvisibility ??=
         FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheLightIlluminatedPreventInvisibility", SubclassNamespace)
             .SetGuiPresentation("Feature/&NoContentTitle",
@@ -179,7 +180,7 @@ internal class PathOfTheLight : AbstractSubclass
             .AddToDB();
 
     private static ConditionDefinition IlluminatingBurstSuppressedCondition =>
-        illuminatingBurstSuppressedCondition ??= ConditionDefinitionBuilder
+        _illuminatingBurstSuppressedCondition ??= ConditionDefinitionBuilder
             .Create("PathOfTheLightIlluminatingBurstSuppressedCondition", SubclassNamespace)
             .SetGuiPresentationNoContent(true)
             .SetAllowMultipleInstances(false)
@@ -318,16 +319,18 @@ internal class PathOfTheLight : AbstractSubclass
         }
 
         // Intentionally *includes* conditions that have Illuminated as their parent (like the Illuminating Burst condition)
-        if (!character.HasConditionOfTypeOrSubType(IlluminatedConditionName)
-            && (character.PersonalLightSource?.SourceName == IlluminatingStrikeName ||
-                character.PersonalLightSource?.SourceName == IlluminatingBurstName))
+        if (character.HasConditionOfTypeOrSubType(IlluminatedConditionName) ||
+            (character.PersonalLightSource?.SourceName != IlluminatingStrikeName &&
+             character.PersonalLightSource?.SourceName != IlluminatingBurstName))
         {
-            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-
-            visibilityService.RemoveCharacterLightSource(GameLocationCharacter.GetFromActor(removedFrom),
-                character.PersonalLightSource);
-            character.PersonalLightSource = null;
+            return;
         }
+
+        var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+
+        visibilityService.RemoveCharacterLightSource(GameLocationCharacter.GetFromActor(removedFrom),
+            character.PersonalLightSource);
+        character.PersonalLightSource = null;
     }
 
     // Helper classes
@@ -340,12 +343,13 @@ internal class PathOfTheLight : AbstractSubclass
             HandleAfterIlluminatedConditionRemoved(removedFrom);
         }
 
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, [NotNull] RulesetCondition rulesetCondition)
         {
             ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
         }
     }
 
+    // ReSharper disable once ClassNeverInstantiated.Local
     private sealed class ConditionDefinitionIlluminatedBuilder
         : ConditionDefinitionBuilder<ConditionDefinitionIlluminated, ConditionDefinitionIlluminatedBuilder>
     {
@@ -361,12 +365,13 @@ internal class PathOfTheLight : AbstractSubclass
             HandleAfterIlluminatedConditionRemoved(removedFrom);
         }
 
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, [NotNull] RulesetCondition rulesetCondition)
         {
             ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
         }
     }
 
+    // ReSharper disable once ClassNeverInstantiated.Local
     private sealed class ConditionDefinitionIlluminatedByBurstBuilder
         : ConditionDefinitionBuilder<ConditionDefinitionIlluminatedByBurst,
             ConditionDefinitionIlluminatedByBurstBuilder>
@@ -443,12 +448,14 @@ internal class PathOfTheLight : AbstractSubclass
             }
         }
 
+        [NotNull]
         public static IlluminatingStrikeFeatureBuilder Create(string name, Guid guidNamespace,
             ConditionDefinition illuminatedCondition)
         {
             return new IlluminatingStrikeFeatureBuilder(name, guidNamespace, illuminatedCondition);
         }
 
+        [NotNull]
         private static LightSourceForm CreateIlluminatedLightSource()
         {
             var faerieFireLightSource =
@@ -479,6 +486,7 @@ internal class PathOfTheLight : AbstractSubclass
             Definition.showCasting = false;
         }
 
+        [NotNull]
         public static IlluminatingStrikeInitiatorBuilder Create(string name, Guid guidNamespace,
             ConditionDefinition illuminatedCondition)
         {
@@ -547,6 +555,7 @@ internal class PathOfTheLight : AbstractSubclass
             Definition.disableIfConditionIsOwned = illuminatingBurstSuppressedCondition;
         }
 
+        [NotNull]
         public static PowerIlluminatingBurstBuilder Create(string name, Guid guidNamespace,
             ConditionDefinition illuminatedCondition, ConditionDefinition illuminatingBurstSuppressedCondition)
         {
@@ -606,10 +615,9 @@ internal class PathOfTheLight : AbstractSubclass
             var addLightSource = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.LightSource,
-                SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
+                SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates,
+                lightSourceForm = lightSourceForm
             };
-
-            addLightSource.lightSourceForm = lightSourceForm;
 
             effectDescriptionBuilder
                 .SetSavingThrowData(
@@ -661,6 +669,7 @@ internal class PathOfTheLight : AbstractSubclass
             Definition.showCasting = false;
         }
 
+        [NotNull]
         public static IlluminatingBurstInitiatorBuilder Create(string name, Guid guidNamespace,
             ConditionDefinition illuminatingBurstSuppressedCondition)
         {

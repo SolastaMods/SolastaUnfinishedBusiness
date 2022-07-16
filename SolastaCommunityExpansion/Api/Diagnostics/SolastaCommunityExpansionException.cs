@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Api.Diagnostics;
 
@@ -18,7 +19,8 @@ public class SolastaCommunityExpansionException : Exception
     {
     }
 
-    protected SolastaCommunityExpansionException(SerializationInfo info, StreamingContext context) : base(info, context)
+    protected SolastaCommunityExpansionException([NotNull] SerializationInfo info, StreamingContext context) :
+        base(info, context)
     {
     }
 }

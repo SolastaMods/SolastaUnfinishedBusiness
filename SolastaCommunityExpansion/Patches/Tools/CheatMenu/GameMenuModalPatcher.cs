@@ -10,11 +10,13 @@ internal static class GameMenuModal_SetButtonAvailability
 {
     internal static void Postfix(GameMenuModal __instance, GameMenuModal.MenuButtonIndex index)
     {
-        if (Main.Settings.EnableCheatMenu && index == GameMenuModal.MenuButtonIndex.Cheats)
+        if (!Main.Settings.EnableCheatMenu || index != GameMenuModal.MenuButtonIndex.Cheats)
         {
-            __instance.buttonCanvases[(int)index].gameObject.SetActive(true);
-            __instance.buttonCanvases[(int)index].interactable = true;
-            __instance.buttonCanvases[(int)index].alpha = 1f;
+            return;
         }
+
+        __instance.buttonCanvases[(int)index].gameObject.SetActive(true);
+        __instance.buttonCanvases[(int)index].interactable = true;
+        __instance.buttonCanvases[(int)index].alpha = 1f;
     }
 }

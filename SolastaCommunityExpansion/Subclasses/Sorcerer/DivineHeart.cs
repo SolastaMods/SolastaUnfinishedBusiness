@@ -9,7 +9,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Sorcerer;
 
-internal class DivineHeart : AbstractSubclass
+internal sealed class DivineHeart : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("58ce31d8-6a37-4d6e-adbd-b9b60658a3ef");
     private readonly CharacterSubclassDefinition Subclass;
@@ -74,7 +74,7 @@ internal class DivineHeart : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var divineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinityDivineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
             .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
                 "MagicAffinityDivineHeartClericSpellsList", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
@@ -137,7 +137,7 @@ internal class DivineHeart : AbstractSubclass
                 DomainLife.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(divineHeartDeityChoice, 1)
             .AddFeatureAtLevel(divineHeartDivineFortitude, 1)
-            .AddFeatureAtLevel(divineHeartClericSpellsList, 1)
+            .AddFeatureAtLevel(magicAffinityDivineHeartClericSpellsList, 1)
             .AddFeatureAtLevel(divineHeartEmpoweredHealingPower, 6)
             .AddFeatureAtLevel(divineHeartPlanarPortalPower, 14)
             .AddFeatureAtLevel(divineHeartDivineRecoveryPower, 18)

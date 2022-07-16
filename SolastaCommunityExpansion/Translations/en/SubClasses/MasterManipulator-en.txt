@@ -1,0 +1,10 @@
+Feature/&MagicAffinityControlHeightenedDescription=When casting some Enchantment, Abjuration, and Illusion spells they are cast at a spell slot 1 level higher than the one used. Improved spells include: Charm Person, Sleep, Color Spray, Hold Person, Invisibility, Counterspell, Dispel Magic, Banishment, Confusion, Phantasmal Killer, Dominate Person, and Hold Monster.
+Feature/&MagicAffinityControlHeightenedTitle=Arcane Manipulation
+Feature/&MagicAffinityMasterManipulatorDCDescription=It is harder for opponents to resist your spells. The save DC increases by {0}.
+Feature/&MagicAffinityMasterManipulatorDCTitle=Arcane Force
+Feature/&ManipulatorMentalSavingThrowsDescription=Gain proficiency in saving throws with Constitution and Charisma.
+Feature/&ManipulatorMentalSavingThrowsTitle=Mental Resistance
+Power/&PowerManipulatorDominatePersonDescription=You can use Dominate Person a number of times per long rest equal to your Intelligence modifier.
+Power/&PowerManipulatorDominatePersonTitle=Dominate Person
+Subclass/&TraditionMasterManipulatorDescription=Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+Subclass/&TraditionMasterManipulatorTitle=Master Manipulator

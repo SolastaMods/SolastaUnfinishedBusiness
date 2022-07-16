@@ -45,11 +45,10 @@ internal class FeatDefinitionWithPrerequisites : FeatDefinition
     {
         var results = Validators.Select(v => v(feat, hero));
 
-        if (results.Any())
-        {
-            return (results.All(r => r.result), string.Join("\n", results.Select(r => r.output)));
-        }
+        var valueTuples = results as (bool result, string output)[] ?? results.ToArray();
 
-        return (true, string.Empty);
+        return valueTuples.Any()
+            ? (valueTuples.All(r => r.result), string.Join("\n", valueTuples.Select(r => r.output)))
+            : (true, string.Empty);
     }
 }

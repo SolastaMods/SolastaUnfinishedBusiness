@@ -8,11 +8,8 @@ internal static class FeatsAndFightingStylesDisplay
 {
     internal static void DisplayFeatsAndFightingStyles()
     {
-        bool displayToggle;
-        int sliderPos;
-
-        displayToggle = Main.Settings.DisplayFeatsToggle;
-        sliderPos = Main.Settings.FeatSliderPosition;
+        var displayToggle = Main.Settings.DisplayFeatsToggle;
+        var sliderPos = Main.Settings.FeatSliderPosition;
         DisplayDefinitions(
             Gui.Localize("ModUi/&Feats"),
             FeatsContext.Switch,

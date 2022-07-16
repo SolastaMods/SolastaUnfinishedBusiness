@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
@@ -11,13 +12,20 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class ArchetypesPreviewModal_Refresh
 {
-    public static int Level(FeatureUnlockByLevel featureUnlockByLevel)
+    public static int Level([NotNull] FeatureUnlockByLevel featureUnlockByLevel)
     {
         var hero = Global.ActiveLevelUpHero;
+
+        if (hero == null)
+        {
+            return featureUnlockByLevel.Level;
+        }
+
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-        if (isLevelingUp
+        if (selectedClass != null
+            && isLevelingUp
             && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
             && featureUnlockByLevel.Level <= levels + 1)
         {
@@ -27,7 +35,8 @@ internal static class ArchetypesPreviewModal_Refresh
         return featureUnlockByLevel.Level;
     }
 
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
         var myLevelMethod = typeof(ArchetypesPreviewModal_Refresh).GetMethod("Level");
@@ -54,9 +63,16 @@ internal static class ArchetypesPreviewModal_Show
     internal static void Prefix(ref List<string> subclasses)
     {
         var hero = Global.ActiveLevelUpHero;
+
+        if (hero == null)
+        {
+            return;
+        }
+
         var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-        if (hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
+        if (selectedClass != null
+            && hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
         {
             subclasses = new List<string> {characterSubclassDefinition.Name};
         }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Feats;
 
 namespace SolastaCommunityExpansion.Models;
@@ -23,14 +24,14 @@ internal static class FeatsContext
         CraftyFeats.CreateFeats(feats);
         ElAntoniousFeats.CreateFeats(feats);
         ZappaFeats.CreateFeats(feats);
-        EWFeats.CreateFeats(feats);
+        EwFeats.CreateFeats(feats);
 
         feats.ForEach(LoadFeat);
 
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
     }
 
-    private static void LoadFeat(FeatDefinition featDefinition)
+    private static void LoadFeat([NotNull] FeatDefinition featDefinition)
     {
         if (!Feats.Contains(featDefinition))
         {
@@ -40,7 +41,7 @@ internal static class FeatsContext
         UpdateFeatsVisibility(featDefinition);
     }
 
-    private static void UpdateFeatsVisibility(FeatDefinition featDefinition)
+    private static void UpdateFeatsVisibility([NotNull] BaseDefinition featDefinition)
     {
         featDefinition.GuiPresentation.hidden = !Main.Settings.FeatEnabled.Contains(featDefinition.Name);
     }

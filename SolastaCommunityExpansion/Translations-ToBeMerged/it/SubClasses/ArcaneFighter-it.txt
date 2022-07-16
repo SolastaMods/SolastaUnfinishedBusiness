@@ -1,0 +1,16 @@
+Feature/&ArcaneFighterAdditionalActionDescription=Puoi lanciare un incantesimo dopo aver sconfitto un nemico con i tuoi attacchi con le armi.
+Feature/&ArcaneFighterAdditionalActionTitle=Combattimento di incantesimi
+Feature/&ArcaneFighterBonusWeaponDamageDescription=Una volta per turno, i tuoi attacchi con le armi infliggono 1d8 danni extra.
+Feature/&ArcaneFighterBonusWeaponDamageTitle=Attacchi magici
+Feature/&AttackModifierMeleeWizardArcaneWeaponDescription=Quando è attivo su un'arma, i suoi attacchi contano come magici e usi la tua Intelligenza per i tiri per colpire e per i danni.
+Feature/&AttackModifierMeleeWizardArcaneWeaponTitle=Arma Arcana
+Feature/&AttributeModifierMeleeWizardExtraAttackDescription=Ottieni un attacco extra.
+Feature/&AttributeModifierMeleeWizardExtraAttackTitle=Attacco extra
+Feature/&MagicAffinityMeleeWizardConcentrationDescription=Grazie all'esperienza nel caos del combattimento, ottieni vantaggio alle prove di concentrazione.
+Feature/&MagicAffinityMeleeWizardConcentrationTitle=Concentrazione migliorata
+Feature/&ProficiencyWeaponArcaneFighterDescription=L'esperienza in combattimento ha fornito al Combattente Arcano un addestramento in Armi Semplici e Marziali.
+Feature/&ProficiencyWeaponArcaneFighterTitle=Addestramento con le armi
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Danni aggiuntivi da attacchi a poteri magici
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Danni aggiuntivi da attacchi a poteri magici
+Subclass/&TraditionArcaneFighterDescription=Incanala la tua magia in attacchi con le armi.
+Subclass/&TraditionArcaneFighterTitle=Combattente Arcano

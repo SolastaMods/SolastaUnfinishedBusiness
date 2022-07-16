@@ -2,6 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
@@ -91,12 +92,6 @@ internal static class ToolsDisplay
             Main.Settings.EnableSaveByLocation = toggle;
         }
 
-        toggle = Main.Settings.EnableCharacterChecker;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharacterChecker"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCharacterChecker = toggle;
-        }
-
         toggle = Main.Settings.EnableCheatMenu;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
         {
@@ -143,8 +138,8 @@ internal static class ToolsDisplay
 
         intValue = Main.Settings.OverridePartySize;
         if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
-                DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE,
-                DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+                DungeonMakerContext.MinPartySize, DungeonMakerContext.MaxPartySize,
+                DungeonMakerContext.GamePartySize, "", UI.AutoWidth()))
         {
             Main.Settings.OverridePartySize = intValue;
         }
@@ -165,8 +160,6 @@ internal static class ToolsDisplay
 
     private static void DisplayFactionRelations()
     {
-        int intValue;
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&FactionRelations"));
         UI.Label("");
@@ -195,16 +188,9 @@ internal static class ToolsDisplay
 
                 var title = faction.FormatTitle();
 
-                if (flip)
-                {
-                    title = title.yellow();
-                }
-                else
-                {
-                    title = title.white();
-                }
+                title = flip ? title.Khaki() : title.White();
 
-                intValue = gameFactionService.FactionRelations[faction.Name];
+                var intValue = gameFactionService.FactionRelations[faction.Name];
 
                 if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap,
                         faction.MaxRelationCap, 0, "", UI.AutoWidth()))
@@ -241,26 +227,24 @@ internal static class ToolsDisplay
         using (UI.HorizontalScope())
         {
             UI.Space(40f);
-            UI.Label("Category".bold(), UI.Width(100));
+            UI.Label("Category".Bold(), UI.Width(100));
 
             if (CurrentItemsFilterIndex == 11 /* Weapons */)
             {
                 UI.Space(40f);
-                UI.Label("Weapon Tag".bold(), UI.Width(100));
+                UI.Label("Weapon Tag".Bold(), UI.Width(100));
             }
 
             UI.Space(40f);
-            UI.Label("Item Tag".bold(), UI.Width(100));
+            UI.Label("Item Tag".Bold(), UI.Width(100));
 
             UI.Space(40f);
             UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
         }
 
-        int intValue;
-
         using (UI.HorizontalScope(UI.Width(800), UI.Height(400)))
         {
-            intValue = CurrentItemsFilterIndex;
+            var intValue = CurrentItemsFilterIndex;
             if (UI.SelectionGrid(
                     ref intValue,
                     ItemsFiltersLabels,
@@ -324,7 +308,7 @@ internal static class ToolsDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.ActionButton("+".bold().red(), () =>
+                UI.ActionButton("+".Bold().Red(), () =>
                     {
                         var rulesetItem = rulesetItemFactoryService.CreateStandardItem(item, true, characterName);
 

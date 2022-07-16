@@ -10,7 +10,7 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatIntIncrement:d2209a77-7ae2-5e9f-a7b1-5c7eab76e9cf",
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
     "Definition:FeyTeleportationAutoPrepMistyBarbarian:8a5682f7-8563-52f3-936b-138645322366",
     "Definition:FeyTeleportationAutoPrepMistyClassMonk:061e2ddc-5378-5ef5-8af4-6e33e5cd7454",
     "Definition:FeyTeleportationAutoPrepMistyClassTinkerer:5902baac-de33-5c7d-ac6d-0c07a57b56f2",

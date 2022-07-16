@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using TA;
 
@@ -14,15 +15,15 @@ public static class RespecContext
     private const string LevelDownName = "LevelDown";
     private const string RespecName = "Respec";
 
-    public static RestActivityDefinition RestActivityLevelDown { get; } = RestActivityDefinitionBuilder
+    private static RestActivityDefinition RestActivityLevelDown { get; } = RestActivityDefinitionBuilder
         .Create(LevelDownName, "fdb4d86eaef942d1a22dbf1fb5a7299f")
-        .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
+        .SetGuiPresentation("MainMenu/&LevelDownTitle", "MainMenu/&LevelDownDescription")
         .SetRestData(
             RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
             RestActivityDefinition.ActivityCondition.None, LevelDownName, string.Empty)
         .AddToDB();
 
-    public static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
+    private static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
         .Create(RespecName, "40824029eb224fb581f0d4e5989b6735")
         .SetGuiPresentation("RestActivity/&ZSRespecTitle", "RestActivity/&ZSRespecDescription")
         .SetRestData(
@@ -35,6 +36,8 @@ public static class RespecContext
         _ = RestActivityLevelDown;
         _ = RestActivityRespec;
 
+        ServiceRepository.GetService<IFunctorService>()
+            .RegisterFunctor(LevelDownName, new LevelDownContext.FunctorLevelDown());
         ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
 
         Switch();
@@ -54,18 +57,18 @@ public static class RespecContext
         }
     }
 
-    public class FunctorRespec : Functor
+    public sealed class FunctorRespec : Functor
     {
-        internal static bool IsRespecing { get; set; }
+        internal static bool IsRespecing { get; private set; }
 
         public override IEnumerator Execute(FunctorParametersDescription functorParameters,
             FunctorExecutionContext context)
         {
             var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
-            var gameLocationscreenExplorationVisible =
+            var gameLocationScreenExplorationVisible =
                 gameLocationScreenExploration && gameLocationScreenExploration.Visible;
 
-            if (Global.IsMultiplayer || !gameLocationscreenExplorationVisible)
+            if (Global.IsMultiplayer || !gameLocationScreenExplorationVisible)
             {
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Informative1,
@@ -97,7 +100,7 @@ public static class RespecContext
             gameLocationScreenExploration.Show();
         }
 
-        internal static IEnumerator StartRespec(RulesetCharacterHero hero)
+        private static IEnumerator StartRespec(RulesetCharacterHero hero)
         {
             var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
@@ -113,10 +116,11 @@ public static class RespecContext
                 yield return null;
             }
 
-            IsRespecing = !hero.TryGetHeroBuildingData(out var _);
+            IsRespecing = !hero.TryGetHeroBuildingData(out _);
         }
 
-        internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
+        private static void FinalizeRespec([NotNull] RulesetCharacter oldHero,
+            [NotNull] RulesetCharacter newHero)
         {
             var guid = oldHero.Guid;
             var tags = oldHero.Tags;
@@ -126,34 +130,38 @@ public static class RespecContext
                 ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
             var worldLocationEntityFactoryService =
                 ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
-            var gameLocationCharacter =
-                gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
 
-            newHero.guid = guid;
-            newHero.Tags.AddRange(tags);
-            newHero.Attributes[AttributeDefinitions.Experience] = experience;
-
-            CopyInventoryOver(oldHero, newHero, gameLocationCharacter.LocationPosition);
-
-            gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
-
-            UpdateRestPanelUi(gameCampaignCharacters);
-
-            gameLocationCharacter.SetRuleset(newHero);
-
-            if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter,
-                    out var worldLocationCharacter))
+            if (gameLocationCharacterService != null)
             {
-                worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
-            }
+                var gameLocationCharacter =
+                    gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
 
-            gameLocationCharacterService.dirtyParty = true;
-            gameLocationCharacterService.RefreshAllCharacters();
+                newHero.guid = guid;
+                newHero.Tags.AddRange(tags);
+                newHero.Attributes[AttributeDefinitions.Experience] = experience;
+
+                CopyInventoryOver(oldHero, gameLocationCharacter.LocationPosition);
+
+                gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
+
+                UpdateRestPanelUi(gameCampaignCharacters);
+
+                gameLocationCharacter.SetRuleset(newHero);
+
+                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter,
+                        out var worldLocationCharacter))
+                {
+                    worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
+                }
+
+                gameLocationCharacterService.dirtyParty = true;
+                gameLocationCharacterService.RefreshAllCharacters();
+            }
 
             IsRespecing = false;
         }
 
-        internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero,
+        private static void CopyInventoryOver([NotNull] RulesetCharacter oldHero,
             int3 position)
         {
             var inventoryCommandService = ServiceRepository.GetService<IInventoryCommandService>();
@@ -173,7 +181,7 @@ public static class RespecContext
             }
         }
 
-        internal static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
+        private static void UpdateRestPanelUi(IReadOnlyList<GameCampaignCharacter> gameCampaignCharacters)
         {
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
             var restAfterPanel = restModalScreen.restAfterPanel;

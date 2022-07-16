@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -32,7 +33,7 @@ internal sealed class FeatureDefinitionIndomitableMightBuilder : FeatureDefiniti
 internal sealed class FeatureDefinitionIndomitableMight : FeatureDefinition, IChangeAbilityCheck
 {
     public int MinRoll(
-        RulesetCharacter character,
+        [CanBeNull] RulesetCharacter character,
         int baseBonus,
         int rollModifier,
         string abilityScoreName,

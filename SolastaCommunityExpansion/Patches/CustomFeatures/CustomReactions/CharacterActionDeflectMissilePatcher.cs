@@ -49,19 +49,9 @@ internal static class CharacterActionDeflectMissile_ExecuteImpl
 
         rulesCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionActionAffinity>(rulesCharacter.FeaturesToBrowse);
 
-        var feature = (FeatureDefinition)null;
-
-        foreach (var featureDefinition in rulesCharacter.FeaturesToBrowse)
-        {
-            var definitionActionAffinity = (FeatureDefinitionActionAffinity)featureDefinition;
-
-            if (definitionActionAffinity.AuthorizedActions.Contains(ActionDefinitions.Id.DeflectMissile))
-            {
-                feature = definitionActionAffinity;
-
-                break;
-            }
-        }
+        var feature = rulesCharacter.FeaturesToBrowse.Cast<FeatureDefinitionActionAffinity>().FirstOrDefault(
+            definitionActionAffinity =>
+                definitionActionAffinity.AuthorizedActions.Contains(ActionDefinitions.Id.DeflectMissile));
 
         if (feature != null)
         {

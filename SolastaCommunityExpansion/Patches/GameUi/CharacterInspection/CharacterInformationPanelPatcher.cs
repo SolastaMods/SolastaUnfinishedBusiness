@@ -23,24 +23,22 @@ internal static class CharacterInformationPanel_EnumerateFeatures
     {
         choiceFeature = null;
 
-        foreach (var featureUnlock in panel.InspectedCharacter.MainClassDefinition.FeatureUnlocks)
+        foreach (var featureDefinition in panel.InspectedCharacter.MainClassDefinition.FeatureUnlocks.Select(
+                     featureUnlock => featureUnlock.FeatureDefinition))
         {
-            var featureDefinition = featureUnlock.FeatureDefinition;
-
-            if (featureDefinition is FeatureDefinitionFeatureSetCustom set && set.AllFeatures.Contains(subFeature))
+            switch (featureDefinition)
             {
-                choiceFeature = featureDefinition;
+                case FeatureDefinitionFeatureSetCustom set when set.AllFeatures.Contains(subFeature):
+                    choiceFeature = featureDefinition;
 
-                return true;
-            }
+                    return true;
+                case FeatureDefinitionFeatureSet
+                {
+                    Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion
+                } definitionFeatureSet when definitionFeatureSet.FeatureSet.Contains(subFeature):
+                    choiceFeature = featureDefinition;
 
-            if (featureDefinition is FeatureDefinitionFeatureSet definitionFeatureSet
-                && definitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion
-                && definitionFeatureSet.FeatureSet.Contains(subFeature))
-            {
-                choiceFeature = featureDefinition;
-
-                return true;
+                    return true;
             }
         }
 
@@ -131,11 +129,11 @@ internal static class CharacterInformationPanel_EnumerateFeatures
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterInformationPanel_Bind
 {
-    internal static Transform ClassSelector { get; private set; }
+    private static Transform ClassSelector { get; set; }
 
     internal static void Postfix(CharacterInformationPanel __instance)
     {
-        if (!Main.Settings.EnableEnhancedCharacterInspection)
+        if (!Main.Settings.EnableEnhancedCharacterInspection || Main.Settings.EnableGamepad)
         {
             return;
         }
@@ -143,141 +141,143 @@ internal static class CharacterInformationPanel_Bind
         var backGroup = __instance.transform.Find("BackgroundGroup")?.GetComponent<RectTransform>();
         var classGroup = __instance.transform.Find("ClassGroup")?.GetComponent<RectTransform>();
 
-        if (classGroup != null && backGroup != null)
+        if (classGroup == null || backGroup == null)
         {
-            backGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 32, 662);
-            backGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 32, 458);
+            return;
+        }
 
-            classGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 32, 662);
-            classGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 32, 856);
+        backGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 32, 662);
+        backGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 32, 458);
 
-            //this is actualyy top-right one
-            var child = backGroup.Find("OrnamentBottomRight")?.GetComponent<RectTransform>();
+        classGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 32, 662);
+        classGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 32, 856);
 
-            if (child != null)
+        //this is actually top-right one
+        var child = backGroup.Find("OrnamentBottomRight")?.GetComponent<RectTransform>();
+
+        if (child != null)
+        {
+            child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 5, 50);
+        }
+
+        child = backGroup.Find("BackgroundImageMask")?.GetComponent<RectTransform>();
+
+        if (child != null)
+        {
+            child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 218);
+        }
+
+        child = backGroup.Find("BackgroundDescriptionGroup")?.GetComponent<RectTransform>();
+
+        if (child != null)
+        {
+            child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 65, 175);
+        }
+
+        child = classGroup.Find("ClassFeaturesGroup")?.GetComponent<RectTransform>();
+
+        if (child != null)
+        {
+            child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 20, 642);
+            child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 260, 590);
+
+            var sizeDelta = child.sizeDelta;
+
+            child.sizeDelta = new Vector2(sizeDelta.x, sizeDelta.y - 100);
+        }
+
+        child = classGroup.Find("ClassDescriptionGroup")?.GetComponent<RectTransform>();
+
+        if (child != null)
+        {
+            child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 355);
+            child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 270);
+        }
+
+        classGroup.FindChildRecursive("OrnamentBottomLeft")?.gameObject.SetActive(false);
+
+        //
+        // setup class buttons for MC scenarios
+        //
+
+        InspectionPanelContext.SelectedClassIndex = 0;
+
+        var hero = Global.InspectedHero;
+
+        // abort on a SC hero
+        if (hero?.ClassesAndLevels == null || hero.ClassesAndLevels.Count == 1)
+        {
+            if (ClassSelector != null)
             {
-                child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 5, 50);
+                ClassSelector.gameObject.SetActive(false);
             }
 
-            child = backGroup.Find("BackgroundImageMask")?.GetComponent<RectTransform>();
+            return;
+        }
 
-            if (child != null)
+        Transform labelsGroup;
+
+        if (ClassSelector == null)
+        {
+            var voice = backGroup.FindChildRecursive("Voice");
+
+            ClassSelector = Object.Instantiate(voice, classGroup.transform);
+            ClassSelector.name = "Classes";
+            ClassSelector.FindChildRecursive("PlayAudio").gameObject.SetActive(false);
+            ClassSelector.FindChildRecursive("HeaderGroup").gameObject.SetActive(false);
+
+            labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
+
+            var firstButton = labelsGroup.GetChild(0);
+
+            for (var i = labelsGroup.childCount; i < MulticlassContext.MaxClasses; i++)
             {
-                child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 218);
+                Object.Instantiate(firstButton, firstButton.parent);
             }
+        }
+        else
+        {
+            ClassSelector.gameObject.SetActive(true);
 
-            child = backGroup.Find("BackgroundDescriptionGroup")?.GetComponent<RectTransform>();
+            labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
+        }
 
-            if (child != null)
+        var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
+        var classesCount = classesTitles.Count;
+
+        for (var i = 0; i < classesCount; i++)
+        {
+            var childToggle = labelsGroup.GetChild(i);
+            var labelChoiceToggle = childToggle.GetComponent<LabelChoiceToggle>();
+            var uiToggle = childToggle.GetComponent<Toggle>();
+
+            childToggle.gameObject.SetActive(true);
+
+            labelChoiceToggle.Bind(i, classesTitles[i], x =>
             {
-                child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 65, 175);
-            }
-
-            child = classGroup.Find("ClassFeaturesGroup")?.GetComponent<RectTransform>();
-
-            if (child != null)
-            {
-                child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 20, 642);
-                child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 260, 590);
-
-                var sizeDelta = child.sizeDelta;
-
-                child.sizeDelta = new Vector2(sizeDelta.x, sizeDelta.y - 100);
-            }
-
-            child = classGroup.Find("ClassDescriptionGroup")?.GetComponent<RectTransform>();
-
-            if (child != null)
-            {
-                child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 355);
-                child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 270);
-            }
-
-            classGroup.FindChildRecursive("OrnamentBottomLeft")?.gameObject.SetActive(false);
-
-            //
-            // setup class buttons for MC scenarios
-            //
-
-            InspectionPanelContext.SelectedClassIndex = 0;
-
-            var hero = Global.InspectedHero;
-
-            // abort on a SC hero
-            if (hero == null || hero.ClassesAndLevels == null || hero.ClassesAndLevels.Count == 1)
-            {
-                if (ClassSelector != null)
+                if (!uiToggle.isOn)
                 {
-                    ClassSelector.gameObject.SetActive(false);
+                    return;
                 }
 
-                return;
-            }
+                InspectionPanelContext.SelectedClassIndex = x;
+                __instance.RefreshNow();
 
-            Transform labelsGroup;
-
-            if (ClassSelector == null)
-            {
-                var voice = backGroup.FindChildRecursive("Voice");
-
-                ClassSelector = Object.Instantiate(voice, classGroup.transform);
-                ClassSelector.name = "Classes";
-                ClassSelector.FindChildRecursive("PlayAudio").gameObject.SetActive(false);
-                ClassSelector.FindChildRecursive("HeaderGroup").gameObject.SetActive(false);
-
-                labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
-
-                var firstButton = labelsGroup.GetChild(0);
-
-                for (var i = labelsGroup.childCount; i < MulticlassContext.MAX_CLASSES; i++)
+                for (var i = 0; i < classesCount; ++i)
                 {
-                    Object.Instantiate(firstButton, firstButton.parent);
-                }
-            }
-            else
-            {
-                ClassSelector.gameObject.SetActive(true);
-
-                labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
-            }
-
-            var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
-            var classesCount = classesTitles.Count;
-
-            for (var i = 0; i < classesCount; i++)
-            {
-                var childToggle = labelsGroup.GetChild(i);
-                var labelChoiceToggle = childToggle.GetComponent<LabelChoiceToggle>();
-                var uiToggle = childToggle.GetComponent<Toggle>();
-
-                childToggle.gameObject.SetActive(true);
-
-                labelChoiceToggle.Bind(i, classesTitles[i], x =>
-                {
-                    var screen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
-
-                    if (uiToggle.isOn)
+                    if (i != x)
                     {
-                        InspectionPanelContext.SelectedClassIndex = x;
-                        __instance.RefreshNow();
-
-                        for (var i = 0; i < classesCount; ++i)
-                        {
-                            if (i != x)
-                            {
-                                labelsGroup.GetChild(i).GetComponent<LabelChoiceToggle>().Refresh(false, true);
-                            }
-                        }
+                        labelsGroup.GetChild(i).GetComponent<LabelChoiceToggle>().Refresh(false, true);
                     }
-                });
-            }
+                }
+            });
+        }
 
-            labelsGroup.GetChild(0).GetComponent<Toggle>().isOn = true;
+        labelsGroup.GetChild(0).GetComponent<Toggle>().isOn = true;
 
-            for (var i = classesCount; i < MulticlassContext.MAX_CLASSES; i++)
-            {
-                labelsGroup.GetChild(i).gameObject.SetActive(false);
-            }
+        for (var i = classesCount; i < MulticlassContext.MaxClasses; i++)
+        {
+            labelsGroup.GetChild(i).gameObject.SetActive(false);
         }
     }
 }
@@ -312,7 +312,7 @@ internal static class CharacterInformationPanelRefresh
             {
                 found++;
 
-                if (found == 2 || found == 3)
+                if (found is 2 or 3)
                 {
                     yield return new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod);
                 }

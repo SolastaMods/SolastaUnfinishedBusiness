@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Api.Infrastructure;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Properties;
@@ -12,7 +13,8 @@ internal static class GnomeRaceBuilder
 {
     internal static CharacterRaceDefinition GnomeRace { get; } = BuildGnome();
 
-    internal static CharacterRaceDefinition BuildGnome()
+    [NotNull]
+    private static CharacterRaceDefinition BuildGnome()
     {
         var gnomeSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("Gnome", Resources.Gnome, 1024, 512);

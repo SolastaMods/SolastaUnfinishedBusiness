@@ -1771,7 +1771,8 @@
     "Definition:DLC1_People08_SiteneroSpared_CompatibilityScenario:08cfde1990e414545bd53da674d15af5",
     "Definition:DLC1_Forge07_FailRebellionQuests_CompatibilityScenario:f7140f46a694dda468cf7d23b16ae454",
     "Definition:DLC1_Orenetis06_KareliaCSbroken:6fec1ac11ee63fd4daa58e473280eb2f",
-    "Definition:DLC1_People08_ReportToRose_CompatibilityScenario:3810b2e5faab4d6438262145793d7c73"
+    "Definition:DLC1_People08_ReportToRose_CompatibilityScenario:3810b2e5faab4d6438262145793d7c73",
+    "Definition:DLC1_People08_EscortSitenero_CompatibilityScenario:b9d97abd9adf5af4b8fa752748c204b8"
   ],
   "journalStart": "Campaign/&DLC1_Journal_Start",
   "initialBestiaryContent": [
@@ -3354,6 +3355,7 @@
     ],
     "name": "DLC1_Location"
   },
+  "namedPlacesPath": "Campaign/DLC1_Valley_NamedPlaces",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

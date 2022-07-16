@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine.AddressableAssets;
 
@@ -175,7 +176,7 @@ public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditio
         bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber,
         RuleDefinitions.AdditionalDamageType additionalDamageType,
         string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement,
-        List<DiceByRank> diceByRankTable)
+        [NotNull] IEnumerable<DiceByRank> diceByRankTable)
     {
         // this should be first to avoid issues with Damage Value determination
         SetDamageDice(damageDieType, damageDiceNumber);

@@ -69,11 +69,14 @@ public class CustomPortraitPointPool : MonoBehaviour
     private void Setup(ICusomPortraitPointPoolProvider provider, RulesetCharacter character)
     {
         var image = transform.Find("SorceryPointsImage").GetComponent<Image>();
-        if (image != null)
+
+        if (image == null)
         {
-            image.sprite = null;
-            image.SetupSprite(provider.Icon);
+            return;
         }
+
+        image.sprite = null;
+        image.SetupSprite(provider.Icon);
     }
 
     private void UpdateState(ICusomPortraitPointPoolProvider provider, RulesetCharacter character)

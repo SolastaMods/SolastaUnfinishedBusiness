@@ -2,6 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Subclasses.Wizard;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape;
 
@@ -24,9 +25,14 @@ internal static class RulesetCharacterMonster_FinalizeMonster
         }
     }
 
-    // usable powers must be added afterhand to overwrite default values from game
+    // usable powers must be added after hand to overwrite default values from game
     internal static void Postfix(RulesetCharacterMonster __instance)
     {
+        //
+        // TODO: Consider creating an interface / delegate for this if really necessary
+        //
+        DeadMaster.OnMonsterCreated(__instance);
+
         if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
         {
             return;

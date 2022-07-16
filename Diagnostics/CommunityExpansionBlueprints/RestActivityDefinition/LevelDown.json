@@ -9,8 +9,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "MainMenu/&ExportPdfTitle",
-    "description": "MainMenu/&ExportPdfDescription",
+    "title": "MainMenu/&LevelDownTitle",
+    "description": "MainMenu/&LevelDownDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

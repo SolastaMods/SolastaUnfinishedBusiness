@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -11,7 +12,7 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class FightingStyleFeats
 {
-    public static readonly Guid FightingStyleFeatsNamespace = new("db157827-0f8a-4fbb-bb87-6d54689a587a");
+    private static readonly Guid FightingStyleFeatsNamespace = new("db157827-0f8a-4fbb-bb87-6d54689a587a");
 
     public static void CreateFeats(List<FeatDefinition> feats)
     {
@@ -26,7 +27,7 @@ internal static class FightingStyleFeats
 
         feats.AddRange(
             FightingStyleContext.FightingStyles
-                .Select(fs => BuildFightingStyleFeat(fs)));
+                .Select(BuildFightingStyleFeat));
     }
 
     private static FeatDefinition BuildFightingStyleFeat(string style)
@@ -44,7 +45,7 @@ internal static class FightingStyleFeats
                     .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
                     .AddToDB()
             )
-            .SetValidators((feat, hero) =>
+            .SetValidators((_, hero) =>
             {
                 var hasFightingStyle = hero.TrainedFightingStyles
                     .Any(x => x.Name == style);
@@ -66,7 +67,7 @@ internal static class FightingStyleFeats
             .AddToDB();
     }
 
-    private static FeatDefinition BuildFightingStyleFeat(FightingStyleDefinition fightingStyle)
+    private static FeatDefinition BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)
     {
         return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
             .Create($"Feat{fightingStyle.Name}", FightingStyleFeatsNamespace)
@@ -77,7 +78,7 @@ internal static class FightingStyleFeats
                     .SetGuiPresentation(fightingStyle.GuiPresentation)
                     .AddToDB()
             )
-            .SetValidators((feat, hero) =>
+            .SetValidators((_, hero) =>
             {
                 var hasFightingStyle = hero.TrainedFightingStyles
                     .Any(x => x.Name == fightingStyle.Name);

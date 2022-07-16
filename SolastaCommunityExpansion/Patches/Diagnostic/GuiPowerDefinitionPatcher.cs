@@ -13,7 +13,7 @@ internal static class GuiPowerDefinition_EnumerateTags
         if (DiagnosticsContext.IsCeDefinition(__instance.BaseDefinition))
         {
             TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
-                CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);
+                CeContentPackContext.CeTag, TagsDefinitions.Criticity.Normal);
         }
     }
 }

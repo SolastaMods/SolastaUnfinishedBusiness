@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection;
 
@@ -14,7 +14,8 @@ internal static class RecipesByTooltypeLine_Load
     internal static void Prefix(List<RecipeDefinition> recipes)
     {
         recipes.Sort((a, b) =>
-            a.CraftedItem.FormatTitle().CompareTo(b.CraftedItem.FormatTitle()));
+            String.Compare(a.CraftedItem.FormatTitle(), b.CraftedItem.FormatTitle(),
+                StringComparison.CurrentCultureIgnoreCase));
     }
 }
 
@@ -26,10 +27,5 @@ internal static class RecipesByTooltypeLine_Refresh
     internal static void Prefix(ref List<RecipeDefinition> knownRecipes)
     {
         ItemCraftingContext.FilterRecipes(ref knownRecipes);
-
-        var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
-        var craftingPanel = characterInspectionScreen.craftingPanel;
-
-        LayoutRebuilder.ForceRebuildLayoutImmediate(craftingPanel.craftingOptionLinesTable);
     }
 }

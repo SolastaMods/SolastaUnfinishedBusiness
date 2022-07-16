@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Classes.Magus;
+using JetBrains.Annotations;
+
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Classes.Tinkerer;
 using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Classes.Witch;
-
-//using SolastaCommunityExpansion.Classes.Magus;
-//using SolastaCommunityExpansion.Classes.Warden;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -27,7 +27,8 @@ internal static class ClassesContext
 
                 if (result == 0)
                 {
-                    result = a.FeatureDefinition.FormatTitle().CompareTo(b.FeatureDefinition.FormatTitle());
+                    result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
+                        StringComparison.CurrentCulture);
                 }
 
                 return result;
@@ -41,12 +42,7 @@ internal static class ClassesContext
         LoadClass(TinkererClass.BuildTinkererClass());
         LoadClass(Warlock.BuildWarlockClass());
         LoadClass(Witch.Instance);
-
-        //
-        // DISABLE THIS BEFORE RELEASE (IT'S BETA)
-        //
         LoadClass(Magus.BuildMagusClass());
-
         Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
     }
 
@@ -58,7 +54,7 @@ internal static class ClassesContext
         }
     }
 
-    private static void LoadClass(CharacterClassDefinition characterClassDefinition)
+    private static void LoadClass([NotNull] CharacterClassDefinition characterClassDefinition)
     {
         if (!Classes.Contains(characterClassDefinition))
         {
@@ -68,7 +64,7 @@ internal static class ClassesContext
         UpdateClassVisibility(characterClassDefinition);
     }
 
-    private static void UpdateClassVisibility(CharacterClassDefinition characterClassDefinition)
+    private static void UpdateClassVisibility([NotNull] BaseDefinition characterClassDefinition)
     {
         characterClassDefinition.GuiPresentation.hidden =
             !Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name);

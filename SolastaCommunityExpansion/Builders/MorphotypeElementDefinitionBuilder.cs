@@ -1,5 +1,4 @@
 ﻿using System;
-using TA;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -9,6 +8,7 @@ public abstract class
     where TDefinition : MorphotypeElementDefinition
     where TBuilder : MorphotypeElementDefinitionBuilder<TDefinition, TBuilder>
 {
+#if false
     public TBuilder SetBodyDecorationBlendFactor(float value)
     {
         Definition.bodyDecorationBlendFactor = value;
@@ -20,6 +20,7 @@ public abstract class
         Definition.bodyDecorationType = value;
         return This();
     }
+#endif
 
     public TBuilder SetCategory(MorphotypeElementDefinition.ElementCategory value)
     {
@@ -33,6 +34,7 @@ public abstract class
         return This();
     }
 
+#if false
     public TBuilder SetMinMaxValue(RangedFloat value)
     {
         Definition.minMaxValue = value;
@@ -62,6 +64,7 @@ public abstract class
         Definition.secondColor = value;
         return This();
     }
+#endif
 
     public TBuilder SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag value)
     {
@@ -69,11 +72,13 @@ public abstract class
         return This();
     }
 
+#if false
     public TBuilder SetThirdColor(Color value)
     {
         Definition.thirdColor = value;
         return This();
     }
+#endif
 
     public TBuilder SetSortOrder(int value)
     {

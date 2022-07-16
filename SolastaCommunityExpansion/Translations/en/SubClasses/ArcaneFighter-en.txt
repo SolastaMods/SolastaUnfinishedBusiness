@@ -1,0 +1,16 @@
+Feature/&ArcaneFighterAdditionalActionDescription=You can cast a spell after defeating an enemy with your weapon attacks.
+Feature/&ArcaneFighterAdditionalActionTitle=Spell Fighting
+Feature/&ArcaneFighterBonusWeaponDamageDescription=Once per turn, your weapon attacks deal an extra 1d8 damage.
+Feature/&ArcaneFighterBonusWeaponDamageTitle=Magically Powered Attacks
+Feature/&AttackModifierMeleeWizardArcaneWeaponDescription=When active on a weapon, its attacks count as magical and you use your Intelligence for your attack and damage rolls.
+Feature/&AttackModifierMeleeWizardArcaneWeaponTitle=Arcane Weapon
+Feature/&AttributeModifierMeleeWizardExtraAttackDescription=You gain an extra attack.
+Feature/&AttributeModifierMeleeWizardExtraAttackTitle=Extra Attack
+Feature/&MagicAffinityMeleeWizardConcentrationDescription=Due to experience in the chaos of combat, gain advantage on concentration checks.
+Feature/&MagicAffinityMeleeWizardConcentrationTitle=Improved Concentration
+Feature/&ProficiencyWeaponArcaneFighterDescription=Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
+Feature/&ProficiencyWeaponArcaneFighterTitle=Weapon Training
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Additional Damage from Magically Powered Attacks
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Additional Damage from Magically Powered Attacks
+Subclass/&TraditionArcaneFighterDescription=Channel your magic into weapon attacks.
+Subclass/&TraditionArcaneFighterTitle=Arcane Fighter

@@ -45,16 +45,7 @@ internal static class EquipmentDefinitions_ScaleAndRoundCosts
         // scaled as gold
         var scaledGold = scaledCopper / 100.0;
 
-        if (scaledGold > 10)
-        {
-            // if more than 10 gp round to nearest gp
-            scaledGold = Math.Round(scaledGold, MidpointRounding.AwayFromZero);
-        }
-        else
-        {
-            // else keep 2 sig fig
-            scaledGold = scaledGold.Round(2);
-        }
+        scaledGold = scaledGold > 10 ? Math.Round(scaledGold, MidpointRounding.AwayFromZero) : scaledGold.Round(2);
 
         // convert back to cp
         var scaledAndRoundedCopper = (int)(scaledGold * 100);
@@ -68,11 +59,13 @@ internal static class EquipmentDefinitions_ScaleAndRoundCosts
             (scaledAndRoundedCopper - (scaledCosts[1] * 100) - (scaledCosts[3] * 10) - scaledCosts[4]) / 1000;
 
         // only show platinum if baseCosts had platinum
-        if (baseCosts[0] == 0)
+        if (baseCosts[0] != 0)
         {
-            scaledCosts[1] += 10 * scaledCosts[0];
-            scaledCosts[0] = 0;
+            return false;
         }
+
+        scaledCosts[1] += 10 * scaledCosts[0];
+        scaledCosts[0] = 0;
 
         return false;
     }
@@ -84,12 +77,12 @@ internal static class EquipmentDefinitions_ScaleAndRoundCosts
 internal static class Precision
 {
     // 2^-24
-    public const float FLOAT_EPSILON = 0.0000000596046448f;
+    private const float FloatEpsilon = 0.0000000596046448f;
 
     // 2^-53
-    public const double DOUBLE_EPSILON = 0.00000000000000011102230246251565d;
+    private const double DoubleEpsilon = 0.00000000000000011102230246251565d;
 
-    public static bool AlmostEquals(this double a, double b, double epsilon = DOUBLE_EPSILON)
+    public static bool AlmostEquals(this double a, double b, double epsilon = DoubleEpsilon)
     {
         // ReSharper disable CompareOfFloatsByEqualityOperator
         if (a == b)
@@ -101,7 +94,7 @@ internal static class Precision
         return Math.Abs(a - b) < epsilon;
     }
 
-    public static bool AlmostEquals(this float a, float b, float epsilon = FLOAT_EPSILON)
+    public static bool AlmostEquals(this float a, float b, float epsilon = FloatEpsilon)
     {
         // ReSharper disable CompareOfFloatsByEqualityOperator
         if (a == b)
@@ -149,10 +142,10 @@ internal static class SignificantDigits
             return double.NegativeInfinity;
         }
 
-        if (significantDigits < 1 || significantDigits > 15)
+        if (significantDigits is < 1 or > 15)
         {
             throw new ArgumentOutOfRangeException(nameof(significantDigits), value,
-                "The significantDigits argument must be between 1 and 15.");
+                @"The significantDigits argument must be between 1 and 15.");
         }
 
         // The resulting rounding position will be negative for rounding at whole numbers, and positive for decimal places.
@@ -161,7 +154,7 @@ internal static class SignificantDigits
         // try to use a rounding position directly, if no scale is needed.
         // this is because the scale mutliplication after the rounding can introduce error, although 
         // this only happens when you're dealing with really tiny numbers, i.e 9.9e-14.
-        if (roundingPosition > 0 && roundingPosition < 16)
+        if (roundingPosition is > 0 and < 16)
         {
             return Math.Round(value, roundingPosition, MidpointRounding.AwayFromZero);
         }

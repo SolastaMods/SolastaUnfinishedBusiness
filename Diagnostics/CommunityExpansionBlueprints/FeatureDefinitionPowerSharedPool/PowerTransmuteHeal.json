@@ -313,8 +313,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&PowerTransmuteHealTitle",
-    "description": "Subclass/&PowerTransmuteHealDescription",
+    "title": "Power/&PowerTransmuteHealTitle",
+    "description": "Power/&PowerTransmuteHealDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4ddb7825c66c9094db0cbd1598281c1a",

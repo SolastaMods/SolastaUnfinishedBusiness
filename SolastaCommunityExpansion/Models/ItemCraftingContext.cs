@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.ItemCrafting;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 #if DEBUG
 using System.Text;
 #endif
@@ -12,7 +14,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class ItemCraftingContext
 {
-    public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new()
+    public static readonly List<string> BaseGameItemsCategories = new()
     {
         "PrimedItems", "EnchantingIngredients", "RelicForgeries"
     };
@@ -39,15 +41,6 @@ internal static class ItemCraftingContext
         {"HideArmor", Gui.Localize("ModUi/&HiderArmor")},
         {"LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title")},
         {"StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle")}
-    };
-
-    private static readonly List<string> SortCategories = new()
-    {
-        "Name",
-        "Category",
-        "Cost",
-        "Weight",
-        "Cost per Weight"
     };
 
     private static readonly List<string> ItemCategories = new()
@@ -88,8 +81,8 @@ internal static class ItemCraftingContext
 
         foreach (var key in RecipeBooks.Keys)
         {
-            UpdateCraftingItemsInDMState(key);
-            UpdateCraftingRecipesInDMState(key);
+            UpdateCraftingItemsInDmState(key);
+            UpdateCraftingRecipesInDmState(key);
         }
 
         LoadFilteringAndSorting();
@@ -97,48 +90,47 @@ internal static class ItemCraftingContext
 
     internal static void UpdateRecipeCost()
     {
-        foreach (var items in RecipeBooks.Values)
+        foreach (var item in RecipeBooks.Values.SelectMany(items => items))
         {
-            foreach (var item in items)
-            {
-                item.costs = new[] {0, Main.Settings.RecipeCost, 0, 0, 0};
-            }
+            item.costs = new[] {0, Main.Settings.RecipeCost, 0, 0, 0};
         }
     }
 
     internal static void AddToStore(string key)
     {
-        if (Main.Settings.CraftingInStore.Contains(key))
+        if (!Main.Settings.CraftingInStore.Contains(key))
         {
-            foreach (var item in RecipeBooks[key])
+            return;
+        }
+
+        foreach (var item in RecipeBooks[key])
+        {
+            foreach (var merchant in MerchantTypeContext.MerchantTypes
+                         .Where(x => x.Item2.IsDocument))
             {
-                foreach (var merchant in MerchantTypeContext.MerchantTypes
-                             .Where(x => x.Item2.IsDocument))
-                {
-                    ItemRecipeGenerationHelper.StockItem(merchant.Item1, item);
-                }
+                ItemRecipeGenerationHelper.StockItem(merchant.Item1, item);
             }
         }
     }
 
-    internal static void UpdateCraftingItemsInDMState(string key)
+    internal static void UpdateCraftingItemsInDmState(string key)
     {
-        if (BASE_GAME_ITEMS_CATEGORIES.Contains(key))
+        if (BaseGameItemsCategories.Contains(key))
         {
             // Don't touch the in dungeon state of base game items.
             return;
         }
 
-        var available = Main.Settings.CraftingItemsInDM.Contains(key);
+        var available = Main.Settings.CraftingItemsInDm.Contains(key);
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.inDungeonEditor = available;
         }
     }
 
-    internal static void UpdateCraftingRecipesInDMState(string key)
+    internal static void UpdateCraftingRecipesInDmState([NotNull] string key)
     {
-        var available = Main.Settings.CraftingRecipesInDM.Contains(key);
+        var available = Main.Settings.CraftingRecipesInDm.Contains(key);
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             recipeBookDefinition.inDungeonEditor = available;
@@ -159,7 +151,7 @@ internal static class ItemCraftingContext
         }
     }
 
-    internal static void LoadFilteringAndSorting()
+    private static void LoadFilteringAndSorting()
     {
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
         var craftingPanel = characterInspectionScreen.craftingPanel;
@@ -191,35 +183,47 @@ internal static class ItemCraftingContext
 
     internal static void FilterRecipes(ref List<RecipeDefinition> knownRecipes)
     {
+        if (Main.Settings.EnableGamepad)
+        {
+            FilterGuiDropdown.gameObject.SetActive(false);
+
+            return;
+        }
+
         switch (FilterGuiDropdown.value)
         {
             case 0: // all
-                return;
+                break;
 
             case 1: // ammunition
                 knownRecipes = knownRecipes
                     .Where(x => x.CraftedItem.IsAmmunition)
                     .ToList();
-                return;
+                break;
 
             case 2: // armor
                 knownRecipes = knownRecipes
                     .Where(x => x.CraftedItem.IsArmor)
                     .ToList();
-                return;
+                break;
 
             case 3: // usable devices
                 knownRecipes = knownRecipes
                     .Where(x => x.CraftedItem.IsUsableDevice)
                     .ToList();
-                return;
+                break;
 
             case 4: // weapons
                 knownRecipes = knownRecipes
                     .Where(x => x.CraftedItem.IsWeapon)
                     .ToList();
-                return;
+                break;
         }
+
+        var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+        var craftingPanel = characterInspectionScreen.craftingPanel;
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(craftingPanel.craftingOptionLinesTable);
     }
 
 #if DEBUG

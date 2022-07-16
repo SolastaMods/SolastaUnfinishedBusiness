@@ -13,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DieRollModifierDivineHeartEmpoweredHealingTitle",
-    "description": "Feature/&DieRollModifierDivineHeartEmpoweredHealingDescription",
+    "title": "Feature/&PowerDivineHeartEmpoweredHealingTitle",
+    "description": "Feature/&PowerDivineHeartEmpoweredHealingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

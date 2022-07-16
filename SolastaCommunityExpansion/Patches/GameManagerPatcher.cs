@@ -1,9 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using I2.Loc;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
-using SolastaMonsters.Models;
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -14,9 +14,8 @@ namespace SolastaCommunityExpansion.Patches;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameManager_BindPostDatabase
 {
-    //
-    // Skyrim Load Order (ops, Solasta, lol)
-    //
+    private static readonly HashSet<string> SupportedLanguages = new() {"zh-CN"};
+
     internal static void Postfix()
     {
 #if DEBUG
@@ -25,17 +24,17 @@ internal static class GameManager_BindPostDatabase
 #endif
 
         // Translations must load first
-        var languageCode = Main.Settings.SelectedOverwriteLanguageCode == "off"
-            ? LocalizationManager.CurrentLanguageCode
-            : Main.Settings.SelectedOverwriteLanguageCode;
+        var currentLanguageCode = !SupportedLanguages.Contains(LocalizationManager.CurrentLanguageCode)
+            ? Translations.English
+            : LocalizationManager.CurrentLanguageCode;
 
-        Translations.LoadTranslations(languageCode);
+        Translations.LoadTranslations(currentLanguageCode);
 
         // Resources must load second
         ResourceLocatorContext.Load();
 
         // Cache TA definitions for diagnostics and export
-        DiagnosticsContext.CacheTADefinitions();
+        DiagnosticsContext.CacheTaDefinitions();
 
         // Needs to be after CacheTADefinitions
         CeContentPackContext.Load();
@@ -58,7 +57,6 @@ internal static class GameManager_BindPostDatabase
         InventoryManagementContext.Load();
         ItemCraftingContext.Load();
         Level20Context.Load();
-        LevelDownContext.Load();
         PickPocketContext.Load();
         PowerBundleContext.Load();
         RemoveBugVisualModelsContext.Load();
@@ -122,9 +120,6 @@ internal static class GameManager_BindPostDatabase
             // Classes Features Sorting
             ClassesContext.LateLoad();
 
-            // Load Monsters last to ensure it leverages all mod blueprints
-            MonsterContext.LateLoad();
-
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();
 
@@ -132,10 +127,9 @@ internal static class GameManager_BindPostDatabase
             GuiWrapperContext.Recache();
 
             // Cache CE definitions for diagnostics and export
-            DiagnosticsContext.CacheCEDefinitions();
+            DiagnosticsContext.CacheCeDefinitions();
 
-            Main.Enabled = true;
-            Main.Logger.Log("Enabled.");
+            Main.Enable();
 
             // Manages update or welcome messages
             BootContext.Load();

@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class HealingFeats
 {
-    public static readonly Guid HealingFeatNamespace = new("501448fd-3c84-4031-befe-84c2ae75123b");
+    private static readonly Guid HealingFeatNamespace = new("501448fd-3c84-4031-befe-84c2ae75123b");
 
     public static void CreateFeats(List<FeatDefinition> feats)
     {
@@ -18,7 +18,7 @@ internal static class HealingFeats
         var inspiringLeaderPresentation = GuiPresentationBuilder.Build(
             "InspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);
 
-        var inspiringEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Distance, 10,
+        var inspiringEffect = BuildEffectDescriptionTempHpForm(RuleDefinitions.RangeType.Distance, 10,
             RuleDefinitions.TargetType.Individuals, 6, RuleDefinitions.DurationType.Permanent, 0,
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
             EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, true, 0,
@@ -101,7 +101,7 @@ internal static class HealingFeats
         var treatEatPresentation = GuiPresentationBuilder.Build(
             "ProfChefTreatAction", Category.Feat, PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference);
 
-        var treatEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Self, 1,
+        var treatEffect = BuildEffectDescriptionTempHpForm(RuleDefinitions.RangeType.Self, 1,
             RuleDefinitions.TargetType.Self, 1, RuleDefinitions.DurationType.Permanent, 0,
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
             EffectForm.LevelApplianceType.No, RuleDefinitions.LevelSourceType.CharacterLevel, false, 5,
@@ -197,7 +197,7 @@ internal static class HealingFeats
             .AddToDB();
     }
 
-    private static EffectDescription BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType rangeType,
+    private static EffectDescription BuildEffectDescriptionTempHpForm(RuleDefinitions.RangeType rangeType,
         int rangeParameter,
         RuleDefinitions.TargetType targetType, int targetParameter,
         RuleDefinitions.DurationType durationType, int durationParameter,

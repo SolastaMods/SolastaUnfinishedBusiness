@@ -7,7 +7,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using ModKit;
 using UnityEngine;
-using static ModKit.Utility.ReflectionCache;
 using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.DataViewer;
@@ -117,37 +116,27 @@ public abstract class Node
         get
         {
             var count = 1;
+
             if (IsBaseType)
             {
                 return count;
             }
 
 #pragma warning disable CS0618 // Type or member is obsolete
-            if (Expanded == ToggleState.On)
-#pragma warning restore CS0618 // Type or member is obsolete
+            if (Expanded != ToggleState.On)
             {
-                foreach (var child in GetItemNodes())
-                {
-                    count += child.ExpandedNodeCount;
-                }
-
-                foreach (var child in GetComponentNodes())
-                {
-                    count += child.ExpandedNodeCount;
-                }
-
-                foreach (var child in GetPropertyNodes())
-                {
-                    count += child.ExpandedNodeCount;
-                }
-
-                foreach (var child in GetFieldNodes())
-                {
-                    count += child.ExpandedNodeCount;
-                }
+                return count;
             }
 
-            return Count;
+            count += GetItemNodes().Sum(child => child.ExpandedNodeCount);
+
+            count += GetComponentNodes().Sum(child => child.ExpandedNodeCount);
+
+            count += GetPropertyNodes().Sum(child => child.ExpandedNodeCount);
+
+            count += GetFieldNodes().Sum(child => child.ExpandedNodeCount);
+
+            return count;
         }
     }
 
@@ -284,23 +273,32 @@ internal abstract class GenericNode<TNode> : Node
         }
         protected set
         {
-            if (!value?.Equals(_value) ?? _value != null)
+            if (!(!value?.Equals(_value) ?? _value != null))
             {
-                _value = value;
-                if (!Type.IsValueType || IsNullable)
-                {
-                    var oldType = _instType;
-                    _instType = value?.GetType();
-                    if (_instType != oldType)
-                    {
-                        _isBaseType = null;
-                        _isEnumerable = null;
-                        _isGameObject = null;
-                        _fieldIsDirty = true;
-                        _propertyIsDirty = true;
-                    }
-                }
+                return;
             }
+
+            _value = value;
+
+            if (Type.IsValueType && !IsNullable)
+            {
+                return;
+            }
+
+            var oldType = _instType;
+
+            _instType = value?.GetType();
+
+            if (_instType == oldType)
+            {
+                return;
+            }
+
+            _isBaseType = null;
+            _isEnumerable = null;
+            _isGameObject = null;
+            _fieldIsDirty = true;
+            _propertyIsDirty = true;
         }
     }
 
@@ -463,10 +461,11 @@ internal abstract class GenericNode<TNode> : Node
         var itemTypes = InstType.GetInterfaces()
             .Where(item => item.IsGenericType && item.GetGenericTypeDefinition() == typeof(IEnumerable<>))
             .Select(item => item.GetGenericArguments()[0]);
-        var itemType = itemTypes.Count() == 1 ? itemTypes.First() : typeof(object);
+        var enumerable = itemTypes as Type[] ?? itemTypes.ToArray();
+        var itemType = enumerable.Length == 1 ? enumerable.First() : typeof(object);
         var nodeType = typeof(ItemNode<>).MakeGenericType(itemType);
         var i = 0;
-        foreach (var item in Value as IEnumerable)
+        foreach (var item in (IEnumerable)Value)
         {
             _itemNodes.Add(FindOrCreateChildForValue(nodeType, this, "<item_" + i + ">", item));
             i++;
@@ -500,7 +499,7 @@ internal abstract class GenericNode<TNode> : Node
                 FindOrCreateChildForValue(nodeType.MakeGenericType(Type, InstType, child.FieldType), this,
                     child.Name))
             .ToList();
-        _fieldNodes.Sort((x, y) => x.Name.CompareTo(y.Name));
+        _fieldNodes.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     private void UpdatePropertyNodes()
@@ -530,36 +529,38 @@ internal abstract class GenericNode<TNode> : Node
             FindOrCreateChildForValue(nodeType.MakeGenericType(Type, InstType, child.PropertyType), this,
                 child.Name)).ToList();
 
-        _propertyNodes.Sort((x, y) => x.Name.CompareTo(y.Name));
+        _propertyNodes.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     protected override void UpdateValue()
     {
-        if (_valueIsDirty)
+        if (!_valueIsDirty)
         {
-            _valueIsDirty = false;
-
-            _componentIsDirty = true;
-            _itemIsDirty = true;
-
-            if (_fieldNodes != null)
-            {
-                foreach (var child in _fieldNodes)
-                {
-                    child.SetDirty();
-                }
-            }
-
-            if (_propertyNodes != null)
-            {
-                foreach (var child in _propertyNodes)
-                {
-                    child.SetDirty();
-                }
-            }
-
-            UpdateValueImpl();
+            return;
         }
+
+        _valueIsDirty = false;
+
+        _componentIsDirty = true;
+        _itemIsDirty = true;
+
+        if (_fieldNodes != null)
+        {
+            foreach (var child in _fieldNodes)
+            {
+                child.SetDirty();
+            }
+        }
+
+        if (_propertyNodes != null)
+        {
+            foreach (var child in _propertyNodes)
+            {
+                child.SetDirty();
+            }
+        }
+
+        UpdateValueImpl();
     }
 
     protected abstract void UpdateValueImpl();
@@ -606,12 +607,7 @@ internal class ComponentNode : PassiveNode<Component>
 
     public override Node GetParent()
     {
-        if (_parentNode.TryGetTarget(out var parent))
-        {
-            return parent;
-        }
-
-        return null;
+        return _parentNode.TryGetTarget(out var parent) ? parent : null;
     }
 }
 
@@ -626,12 +622,7 @@ internal class ItemNode<TNode> : PassiveNode<TNode>
 
     public override Node GetParent()
     {
-        if (_parentNode.TryGetTarget(out var parent))
-        {
-            return parent;
-        }
-
-        return null;
+        return _parentNode.TryGetTarget(out var parent) ? parent : null;
     }
 }
 
@@ -662,12 +653,7 @@ internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
 
     public override Node GetParent()
     {
-        if (_parentNode.TryGetTarget(out var parent))
-        {
-            return parent;
-        }
-
-        return null;
+        return _parentNode.TryGetTarget(out var parent) ? parent : null;
     }
 }
 

@@ -22,13 +22,9 @@ internal static class ItemRecipeGenerationHelper
                 var recipeName = "RecipeEnchanting" + newItem.Name;
                 var builder = RecipeDefinitionBuilder.Create(recipeName, itemCollection.BaseGuid);
                 builder.AddIngredient(baseItem);
-                foreach (var ingredient in itemData.Recipe.Ingredients)
+                foreach (var ingredient in itemData.Recipe.Ingredients.Where(ingredient =>
+                             !itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition)))
                 {
-                    if (itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition))
-                    {
-                        continue;
-                    }
-
                     builder.AddIngredient(ingredient);
                 }
 
@@ -51,13 +47,15 @@ internal static class ItemRecipeGenerationHelper
 
                 ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
 
-                if (Main.Settings.CraftingInStore.Contains(baseItem.Name))
+                if (!Main.Settings.CraftingInStore.Contains(baseItem.Name))
                 {
-                    foreach (var merchant in MerchantTypeContext.MerchantTypes
-                                 .Where(x => x.Item2.IsDocument))
-                    {
-                        StockItem(merchant.Item1, craftingManual);
-                    }
+                    continue;
+                }
+
+                foreach (var merchant in MerchantTypeContext.MerchantTypes
+                             .Where(x => x.Item2.IsDocument))
+                {
+                    StockItem(merchant.Item1, craftingManual);
                 }
             }
         }
@@ -76,13 +74,9 @@ internal static class ItemRecipeGenerationHelper
                 var recipeName = "RecipeEnchanting" + newItem.Name;
                 var builder = RecipeDefinitionBuilder.Create(recipeName, itemCollection.BaseGuid);
                 builder.AddIngredient(baseItem);
-                foreach (var ingredient in itemData.Recipe.Ingredients)
+                foreach (var ingredient in itemData.Recipe.Ingredients.Where(ingredient =>
+                             !itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition)))
                 {
-                    if (itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition))
-                    {
-                        continue;
-                    }
-
                     builder.AddIngredient(ingredient);
                 }
 
@@ -105,13 +99,15 @@ internal static class ItemRecipeGenerationHelper
 
                 ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
 
-                if (Main.Settings.CraftingInStore.Contains(baseItem.Name))
+                if (!Main.Settings.CraftingInStore.Contains(baseItem.Name))
                 {
-                    foreach (var merchant in MerchantTypeContext.MerchantTypes
-                                 .Where(x => x.Item2.IsDocument))
-                    {
-                        StockItem(merchant.Item1, craftingManual);
-                    }
+                    continue;
+                }
+
+                foreach (var merchant in MerchantTypeContext.MerchantTypes
+                             .Where(x => x.Item2.IsDocument))
+                {
+                    StockItem(merchant.Item1, craftingManual);
                 }
             }
         }
@@ -119,16 +115,18 @@ internal static class ItemRecipeGenerationHelper
 
     public static void StockItem(MerchantDefinition merchant, ItemDefinition item)
     {
-        var stockUnit = new StockUnitDescription();
-        stockUnit.itemDefinition = item;
-        stockUnit.initialAmount = 1;
-        stockUnit.initialized = true;
-        stockUnit.maxAmount = 2;
-        stockUnit.minAmount = 1;
-        stockUnit.stackCount = 1;
-        stockUnit.reassortAmount = 1;
-        stockUnit.reassortRateValue = 1;
-        stockUnit.reassortRateType = RuleDefinitions.DurationType.Hour;
+        var stockUnit = new StockUnitDescription
+        {
+            itemDefinition = item,
+            initialAmount = 1,
+            initialized = true,
+            maxAmount = 2,
+            minAmount = 1,
+            stackCount = 1,
+            reassortAmount = 1,
+            reassortRateValue = 1,
+            reassortRateType = RuleDefinitions.DurationType.Hour
+        };
         merchant.StockUnitDescriptions.Add(stockUnit);
     }
 
@@ -136,7 +134,7 @@ internal static class ItemRecipeGenerationHelper
     {
         var baseGuid = new Guid("80a5106e-5cb7-4fdd-8f96-b94f3aafd4dd");
 
-        var EnchantedToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
+        var enchantedToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
         {
             {
                 DatabaseHelper.ItemDefinitions.Ingredient_Enchant_MithralStone,
@@ -203,36 +201,37 @@ internal static class ItemRecipeGenerationHelper
             }
         };
         var recipes = new List<RecipeDefinition>();
-        foreach (var item in EnchantedToIngredient.Keys)
+
+        foreach (var item in enchantedToIngredient.Keys)
         {
             var recipeName = "RecipeEnchanting" + item.Name;
             var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
-            builder.AddIngredient(EnchantedToIngredient[item]);
+            builder.AddIngredient(enchantedToIngredient[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
             builder.SetGuiPresentation(item.GuiPresentation);
             recipes.Add(builder.AddToDB());
         }
 
-        const string groupKey = "EnchantingIngredients";
-        ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
+        const string GROUP_KEY = "EnchantingIngredients";
+        ItemCraftingContext.RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
 
-        foreach (var recipe in recipes)
+        foreach (var craftingManual in recipes.Select(recipe => ItemBuilder.BuilderCopyFromItemSetRecipe(
+                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
+                     recipe, Main.Settings.RecipeCost,
+                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation)))
         {
-            var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(
-                DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
-                recipe, Main.Settings.RecipeCost,
-                DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
+            ItemCraftingContext.RecipeBooks[GROUP_KEY].Add(craftingManual);
 
-            ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
-
-            if (Main.Settings.CraftingInStore.Contains(groupKey))
+            if (!Main.Settings.CraftingInStore.Contains(GROUP_KEY))
             {
-                foreach (var merchant in MerchantTypeContext.MerchantTypes
-                             .Where(x => x.Item2.IsDocument))
-                {
-                    StockItem(merchant.Item1, craftingManual);
-                }
+                continue;
+            }
+
+            foreach (var merchant in MerchantTypeContext.MerchantTypes
+                         .Where(x => x.Item2.IsDocument))
+            {
+                StockItem(merchant.Item1, craftingManual);
             }
         }
     }
@@ -273,8 +272,8 @@ internal static class ItemRecipeGenerationHelper
         };
         var recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(baseGuid, primedToBase[item], item));
 
-        const string groupKey = "PrimedItems";
-        ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
+        const string GROUP_KEY = "PrimedItems";
+        ItemCraftingContext.RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
 
         foreach (var recipe in recipes)
         {
@@ -284,15 +283,17 @@ internal static class ItemRecipeGenerationHelper
                 recipe, Main.Settings.RecipeCost,
                 DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden.GuiPresentation);
 
-            ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
+            ItemCraftingContext.RecipeBooks[GROUP_KEY].Add(craftingManual);
 
-            if (Main.Settings.CraftingInStore.Contains(groupKey))
+            if (!Main.Settings.CraftingInStore.Contains(GROUP_KEY))
             {
-                foreach (var merchant in MerchantTypeContext.MerchantTypes
-                             .Where(x => x.Item2.IsDocument))
-                {
-                    StockItem(merchant.Item1, craftingManual);
-                }
+                continue;
+            }
+
+            foreach (var merchant in MerchantTypeContext.MerchantTypes
+                         .Where(x => x.Item2.IsDocument))
+            {
+                StockItem(merchant.Item1, craftingManual);
             }
         }
     }
@@ -301,7 +302,7 @@ internal static class ItemRecipeGenerationHelper
     {
         var baseGuid = new Guid("80a5106e-5cb7-4fdd-8f96-b94f3aafd4dd");
 
-        var ForgeryToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
+        var forgeryToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
         {
             {
                 DatabaseHelper.ItemDefinitions.CAERLEM_TirmarianHolySymbol,
@@ -317,18 +318,19 @@ internal static class ItemRecipeGenerationHelper
             }
         };
         var recipes = new List<RecipeDefinition>();
-        foreach (var item in ForgeryToIngredient.Keys)
+
+        foreach (var item in forgeryToIngredient.Keys)
         {
             var recipeName = "RecipeForgery" + item.Name;
             var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
-            builder.AddIngredient(ForgeryToIngredient[item]);
+            builder.AddIngredient(forgeryToIngredient[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType);
             builder.SetGuiPresentation(item.GuiPresentation);
             recipes.Add(builder.AddToDB());
         }
 
-        var ScrollForgeries = new Dictionary<ItemDefinition, ItemDefinition>
+        var scrollForgeries = new Dictionary<ItemDefinition, ItemDefinition>
         {
             {
                 DatabaseHelper.ItemDefinitions.BONEKEEP_AkshasJournal,
@@ -356,36 +358,38 @@ internal static class ItemRecipeGenerationHelper
             },
             {DatabaseHelper.ItemDefinitions.CAERLEM_Daliat_Document, DatabaseHelper.ItemDefinitions.Ingredient_Skarn}
         };
-        foreach (var item in ScrollForgeries.Keys)
+
+        foreach (var item in scrollForgeries.Keys)
         {
             var recipeName = "RecipeForgery" + item.Name;
             var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
-            builder.AddIngredient(ScrollForgeries[item]);
+            builder.AddIngredient(scrollForgeries[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType);
             builder.SetGuiPresentation(item.GuiPresentation);
             recipes.Add(builder.AddToDB());
         }
 
-        const string groupKey = "RelicForgeries";
-        ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
+        const string GROUP_KEY = "RelicForgeries";
 
-        foreach (var recipe in recipes)
+        ItemCraftingContext.RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
+
+        foreach (var craftingManual in recipes.Select(recipe => ItemBuilder.BuilderCopyFromItemSetRecipe(
+                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
+                     recipe, Main.Settings.RecipeCost,
+                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation)))
         {
-            var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(
-                DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
-                recipe, Main.Settings.RecipeCost,
-                DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
+            ItemCraftingContext.RecipeBooks[GROUP_KEY].Add(craftingManual);
 
-            ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
-
-            if (Main.Settings.CraftingInStore.Contains(groupKey))
+            if (!Main.Settings.CraftingInStore.Contains(GROUP_KEY))
             {
-                foreach (var merchant in MerchantTypeContext.MerchantTypes
-                             .Where(x => x.Item2.IsDocument))
-                {
-                    StockItem(merchant.Item1, craftingManual);
-                }
+                continue;
+            }
+
+            foreach (var merchant in MerchantTypeContext.MerchantTypes
+                         .Where(x => x.Item2.IsDocument))
+            {
+                StockItem(merchant.Item1, craftingManual);
             }
         }
     }

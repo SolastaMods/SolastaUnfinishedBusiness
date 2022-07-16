@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -26,8 +28,9 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
-internal class Marshal : AbstractSubclass
+internal sealed class Marshal : AbstractSubclass
 {
+    // ReSharper disable once InconsistentNaming
     private CharacterSubclassDefinition Subclass;
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -45,19 +48,15 @@ internal static class KnowYourEnemyBuilder
 {
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)
     {
-        GameBestiaryEntry entry = null;
-        if (ServiceRepository.GetService<IGameLoreService>().Bestiary.TryGetBestiaryEntry(enemy, out entry))
-        {
-            return entry.KnowledgeLevelDefinition.Level;
-        }
-
-        return 0;
+        return ServiceRepository.GetService<IGameLoreService>().Bestiary.TryGetBestiaryEntry(enemy, out var entry)
+            ? entry.KnowledgeLevelDefinition.Level
+            : 0;
     }
 
     private static void KnowYourEnemyOnAttackDelegate(GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        ActionModifier attackModifier,
-        RulesetAttackMode attackerAttackMode)
+        [CanBeNull] ActionModifier attackModifier,
+        [CanBeNull] RulesetAttackMode attackerAttackMode)
     {
         // no spell attack
         if (attackerAttackMode == null || attackModifier == null)
@@ -75,8 +74,7 @@ internal static class KnowYourEnemyBuilder
     {
         var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnAttackEffectBuilder
             .Create("KnowYourEnemyAttackHitModifier", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle",
-                "Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription")
+            .SetGuiPresentation("FighterMarshalKnowYourEnemyFeatureSet", Category.Feature)
             .SetOnAttackDelegates(KnowYourEnemyOnAttackDelegate, null)
             .AddToDB();
 
@@ -94,7 +92,7 @@ internal static class KnowYourEnemyBuilder
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("KnowYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalKnowYourEnemyFeatureSet", Category.Subclass)
+            .SetGuiPresentation("FighterMarshalKnowYourEnemyFeatureSet", Category.Feature)
             .AddFeatureSet(
                 knowYourEnemiesAttackHitModifier,
                 AdditionalDamageRangerFavoredEnemyAberration,
@@ -134,7 +132,7 @@ internal static class StudyYourEnemyBuilder
 
         return FeatureDefinitionPowerBuilder
             .Create("StudyYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalStudyYourEnemyPower", Category.Subclass,
+            .SetGuiPresentation("FighterMarshalStudyYourEnemyPower", Category.Power,
                 IdentifyCreatures.GuiPresentation.SpriteReference)
             .SetFixedUsesPerRecharge(2)
             .SetCostPerUse(1)
@@ -152,7 +150,7 @@ internal static class StudyYourEnemyBuilder
             bool proxyOnly,
             bool forceSelfConditionOnly,
             EffectApplication effectApplication = EffectApplication.All,
-            List<EffectFormFilter> filters = null)
+            [CanBeNull] List<EffectFormFilter> filters = null)
         {
             var manager = ServiceRepository.GetService<IGameLoreService>();
 
@@ -173,6 +171,11 @@ internal static class StudyYourEnemyBuilder
                 manager.MonsterKnowledgeChanged?.Invoke(creature.MonsterDefinition, entry.KnowledgeLevelDefinition);
             }
 
+            if (entry == null)
+            {
+                return;
+            }
+
             var checkModifier = new ActionModifier();
             var roller = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
 
@@ -183,15 +186,14 @@ internal static class StudyYourEnemyBuilder
             var level = entry.KnowledgeLevelDefinition.Level;
             var num = level;
 
-            if (outcome == RollOutcome.Success
-                || outcome == RollOutcome.CriticalSuccess)
+            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 var num2 = outcome == RollOutcome.Success ? 1 : 2;
                 num = Mathf.Min(entry.KnowledgeLevelDefinition.Level + num2, 4);
                 manager.LearnMonsterKnowledge(entry.MonsterDefinition, manager.Bestiary.SortedKnowledgeLevels[num]);
             }
 
-            gameLocationCharacter?.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
+            gameLocationCharacter.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
                 gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
         }
 
@@ -208,11 +210,11 @@ internal static class CoordinatedAttackBuilder
         GameLocationCharacter defender,
         RollOutcome outcome,
         CharacterActionParams actionParams,
-        RulesetAttackMode attackMode,
+        [NotNull] RulesetAttackMode attackMode,
         ActionModifier attackModifier)
     {
         // melee only
-        if (attackMode.ranged || outcome == RollOutcome.CriticalFailure || outcome == RollOutcome.Failure ||
+        if (attackMode.ranged || outcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
             actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
         {
             yield break;
@@ -221,8 +223,8 @@ internal static class CoordinatedAttackBuilder
         var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
         var battleManager = gameLocationBattleService as GameLocationBattleManager;
-
         var allies = new List<GameLocationCharacter>();
+
         foreach (var guestCharacter in characterService.GuestCharacters)
         {
             if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
@@ -243,28 +245,24 @@ internal static class CoordinatedAttackBuilder
             allies.Add(gameLocationMonster);
         }
 
-        foreach (var partyCharacter in characterService.PartyCharacters)
-        {
-            if (partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) != 0)
-            {
-                continue;
-            }
-
-            if (partyCharacter == attacker)
-            {
-                continue;
-            }
-
-            allies.Add(partyCharacter);
-        }
+        allies.AddRange(characterService.PartyCharacters
+            .Where(partyCharacter => partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == 0)
+            .Where(partyCharacter => partyCharacter != attacker));
 
         var reactions = new List<CharacterActionParams>();
+
         foreach (var partyCharacter in allies)
         {
             var allAttackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
             var attackParams = default(BattleDefinitions.AttackEvaluationParams);
             var actionModifierBefore = new ActionModifier();
             var canAttack = true;
+
+            if (allAttackMode == null)
+            {
+                continue;
+            }
+
             if (allAttackMode.Ranged)
             {
                 attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition, allAttackMode,
@@ -291,28 +289,31 @@ internal static class CoordinatedAttackBuilder
             {
                 StringParameter2 = "CoordinatedAttack", BoolParameter4 = !canAttack
             };
+
             reactions.Add(reactionParams);
         }
 
-        if (!reactions.Empty() && battleManager != null)
+        if (reactions.Empty() || battleManager == null)
         {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            foreach (var reaction in reactions)
-            {
-                actionService.ReactForOpportunityAttack(reaction);
-            }
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield break;
         }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        foreach (var reaction in reactions)
+        {
+            actionService.ReactForOpportunityAttack(reaction);
+        }
+
+        yield return battleManager.WaitForReactions(attacker, actionService, count);
     }
 
     internal static FeatureDefinition BuildCoordinatedAttack()
     {
         return FeatureDefinitionBuilder
             .Create("CoordinatedAttack", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalCoordinatedAttack", Category.Subclass)
+            .SetGuiPresentation("FighterMarshalCoordinatedAttack", Category.Feature)
             .SetCustomSubFeatures(new ReactToAttackFinished(CoordinatedAttackOnAttackHitDelegate))
             .AddToDB();
     }
@@ -340,7 +341,9 @@ internal static class EternalComradeBuilder
         effectDescription.SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count);
 
         var eternalComradeAttack = MonsterAttackDefinitionBuilder
-            .Create(Attack_Generic_Guard_Longsword, "AttackEternalComrade",
+            .Create(
+                Attack_Generic_Guard_Longsword,
+                "AttackEternalComrade",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetEffectDescription(effectDescription)
             .AddToDB();
@@ -350,9 +353,13 @@ internal static class EternalComradeBuilder
         var marshalEternalComradeAttackInteraction = new MonsterAttackIteration(eternalComradeAttack, 1);
 
         return MonsterDefinitionBuilder
-            .Create(SuperEgo_Servant_Hostile, "EternalComrade",
+            .Create(
+                SuperEgo_Servant_Hostile,
+                "EternalComrade",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("MarshalEternalComrade", Category.Subclass,
+            .SetGuiPresentation(
+                "MarshalEternalComrade",
+                Category.Feature,
                 SuperEgo_Servant_Hostile.GuiPresentation.SpriteReference)
             .ClearFeatures()
             .SetFeatures(
@@ -396,19 +403,18 @@ internal static class EternalComradeBuilder
 
     internal static FeatureDefinitionFeatureSet BuildEternalComradeFeatureSet()
     {
-        var summonForm = new SummonForm();
-        summonForm.monsterDefinitionName = EternalComrade.Name;
+        var summonForm = new SummonForm {monsterDefinitionName = EternalComrade.Name};
 
-        var effectForm = new EffectForm();
-        effectForm.formType = EffectForm.EffectFormType.Summon;
-        effectForm.createdByCharacter = true;
-        effectForm.summonForm = summonForm;
+        var effectForm = new EffectForm
+        {
+            formType = EffectForm.EffectFormType.Summon, createdByCharacter = true, summonForm = summonForm
+        };
 
         // TODO: make this use concentration and reduce the duration to may be 3 rounds
         // TODO: increase the number of use to 2 and recharge per long rest
         var summonEternalComradePower = FeatureDefinitionPowerBuilder
             .Create("SummonEternalComrade", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalSummonEternalComradePower", Category.Subclass,
+            .SetGuiPresentation("FighterMarshalSummonEternalComradePower", Category.Power,
                 Bane.GuiPresentation.SpriteReference)
             .SetCostPerUse(1)
             .SetUsesFixed(1)
@@ -466,7 +472,9 @@ internal static class EternalComradeBuilder
         hpConditionDefinition.additionalDamageType = "Fighter";
 
         var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
-            .Create(SummoningAffinityKindredSpiritBond, "SummoningAffinityMarshalEternalComrade",
+            .Create(
+                SummoningAffinityKindredSpiritBond,
+                "SummoningAffinityMarshalEternalComrade",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .ClearEffectForms()
             .SetRequiredMonsterTag("MarshalEternalComrade")
@@ -476,8 +484,12 @@ internal static class EternalComradeBuilder
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create("EternalComradeFeatureSet", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalEternalComradeFeatureSet", Category.Subclass)
+            .Create(
+                "EternalComradeFeatureSet",
+                MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
+            .SetGuiPresentation(
+                "FighterMarshalEternalComradeFeatureSet",
+                Category.Feature)
             .SetFeatureSet(summoningAffinity, summonEternalComradePower)
             .AddToDB();
     }
@@ -491,7 +503,9 @@ internal static class FearlessCommanderBuilder
             .Create("FearlessCommander", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetFeatureSet(ConditionAffinityFrightenedImmunity)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetGuiPresentation("FighterMarshalFearlessCommanderFeatureSet", Category.Subclass)
+            .SetGuiPresentation(
+                "FighterMarshalFearlessCommanderFeatureSet",
+                Category.Feature)
             .AddToDB();
     }
 }
@@ -501,10 +515,12 @@ internal static class EncourageBuilder
     internal static FeatureDefinitionPower BuildEncourage()
     {
         var conditionEncouraged = ConditionDefinitionBuilder
-            .Create("ConditionEncouraged", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
+            .Create(
+                "ConditionEncouraged",
+                MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentation(
-                "Subclass/&FighterMarshalEncouragementPowerTitle",
-                "Subclass/&FighterMarshalEncouragementPowerDescription",
+                "FighterMarshalEncouragementPower",
+                Category.Power,
                 ConditionBlessed.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
@@ -540,7 +556,7 @@ internal static class EncourageBuilder
                 ActivationTime.PermanentUnlessIncapacitated, 1,
                 RechargeRate.AtWill, false, false, AttributeDefinitions.Charisma, effect)
             .SetShowCasting(false)
-            .SetGuiPresentation("FighterMarshalEncouragementPower", Category.Subclass,
+            .SetGuiPresentation("FighterMarshalEncouragementPower", Category.Power,
                 Bless.GuiPresentation.SpriteReference)
             .AddToDB();
     }

@@ -1,18 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Models.RespecContext;
 
 namespace SolastaCommunityExpansion.Models;
 
 internal static class LevelDownContext
 {
-    public static bool IsLevelDown { get; set; }
-
-    internal static void Load()
-    {
-        ServiceRepository.GetService<IFunctorService>().RegisterFunctor("LevelDown", new FunctorLevelDown());
-    }
+    public static bool IsLevelDown { get; private set; }
 
     internal static void ConfirmAndExecute(string filename)
     {
@@ -22,24 +18,27 @@ internal static class LevelDownContext
 
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
-            "MainMenu/&ExportPdfTitle", "Message/&LevelDownConfirmationDescription",
+            "MainMenu/&LevelDownTitle", "Message/&LevelDownConfirmationDescription",
             "Message/&MessageYesTitle", "Message/&MessageNoTitle",
             () => LevelDown(rulesetCharacterHero), null);
     }
 
-    private static void RemoveFeaturesByTag(RulesetCharacterHero hero, CharacterClassDefinition classDefinition,
-        string tag)
+    private static void RemoveFeaturesByTag([NotNull] RulesetCharacterHero hero,
+        CharacterClassDefinition classDefinition,
+        [NotNull] string tag)
     {
-        if (hero.ActiveFeatures.ContainsKey(tag))
+        if (!hero.ActiveFeatures.ContainsKey(tag))
         {
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
-            CustomFeaturesContext.RemoveFeatures(hero, classDefinition, tag, hero.ActiveFeatures[tag]);
-
-            hero.ActiveFeatures.Remove(tag);
+            return;
         }
+
+        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+        CustomFeaturesContext.RemoveFeatures(hero, classDefinition, tag, hero.ActiveFeatures[tag]);
+
+        hero.ActiveFeatures.Remove(tag);
     }
 
-    private static void LevelDown(RulesetCharacterHero hero)
+    private static void LevelDown([NotNull] RulesetCharacterHero hero)
     {
         var indexLevel = hero.ClassesHistory.Count - 1;
         var characterClassDefinition = hero.ClassesHistory.Last();
@@ -124,7 +123,7 @@ internal static class LevelDownContext
         IsLevelDown = false;
     }
 
-    private static void UnlearnSpells(RulesetCharacterHero hero, int indexLevel)
+    private static void UnlearnSpells([NotNull] RulesetCharacterHero hero, int indexLevel)
     {
         var heroRepertoire =
             hero.SpellRepertoires.FirstOrDefault(x =>
@@ -135,7 +134,6 @@ internal static class LevelDownContext
             return;
         }
 
-        int spellsToRemove;
         var cantripsToRemove = heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel] -
                                heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel - 1];
 
@@ -182,8 +180,8 @@ internal static class LevelDownContext
                 break;
 
             case RuleDefinitions.SpellKnowledge.Selection:
-                spellsToRemove = heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel] -
-                                 heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel - 1];
+                var spellsToRemove = heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel] -
+                                     heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel - 1];
 
                 while (spellsToRemove-- > 0)
                 {
@@ -191,10 +189,13 @@ internal static class LevelDownContext
                 }
 
                 break;
+
+            case RuleDefinitions.SpellKnowledge.FixedList:
+                break;
         }
     }
 
-    private class FunctorLevelDown : Functor
+    internal sealed class FunctorLevelDown : Functor
     {
         public override IEnumerator Execute(
             FunctorParametersDescription functorParameters,
@@ -204,7 +205,7 @@ internal static class LevelDownContext
             {
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Informative1,
-                    "MainMenu/&ExportPdfTitle", "Message/&LevelDownMultiplayerAbortDescription",
+                    "MainMenu/&LevelDownTitle", "Message/&LevelDownMultiplayerAbortDescription",
                     "Message/&MessageOkTitle", string.Empty,
                     null, null);
 
@@ -215,7 +216,7 @@ internal static class LevelDownContext
 
             Gui.GuiService.ShowMessage(
                 MessageModal.Severity.Attention2,
-                "MainMenu/&ExportPdfTitle", "Message/&LevelDownConfirmationDescription",
+                "MainMenu/&LevelDownTitle", "Message/&LevelDownConfirmationDescription",
                 "Message/&MessageYesTitle", "Message/&MessageNoTitle",
                 () => state = 1,
                 () => state = 0);
@@ -225,16 +226,18 @@ internal static class LevelDownContext
                 yield return null;
             }
 
-            if (state > 0)
+            if (state <= 0)
             {
-                if (functorParameters.RestingHero.ClassesHistory.Count > 1)
-                {
-                    LevelDown(functorParameters.RestingHero);
-                }
-                else
-                {
-                    yield return new FunctorRespec().Execute(functorParameters, context);
-                }
+                yield break;
+            }
+
+            if (functorParameters.RestingHero.ClassesHistory.Count > 1)
+            {
+                LevelDown(functorParameters.RestingHero);
+            }
+            else
+            {
+                yield return new FunctorRespec().Execute(functorParameters, context);
             }
         }
     }

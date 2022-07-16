@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
@@ -6,7 +7,8 @@ public static class GameLocationCharacterExtensions
 {
     private static readonly Dictionary<string, int> SkipAttackModes = new();
 
-    private static string Key(GameLocationCharacter instance)
+    [NotNull]
+    private static string Key([NotNull] GameLocationCharacter instance)
     {
         return $"{instance.Name}:{instance.Guid}";
     }
@@ -24,11 +26,7 @@ public static class GameLocationCharacterExtensions
     public static int GetSkipAttackModes(this GameLocationCharacter instance)
     {
         var key = Key(instance);
-        if (SkipAttackModes.ContainsKey(key))
-        {
-            return SkipAttackModes[key];
-        }
 
-        return 0;
+        return SkipAttackModes.ContainsKey(key) ? SkipAttackModes[key] : 0;
     }
 }

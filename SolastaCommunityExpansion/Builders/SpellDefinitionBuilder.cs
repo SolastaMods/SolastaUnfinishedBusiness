@@ -46,6 +46,7 @@ public abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : Definition
     {
         Definition.spellsBundle = true;
         Definition.SubspellsList.SetRange(subspells);
+        Definition.spellsBundle = subspells.Any();
         return This();
     }
 

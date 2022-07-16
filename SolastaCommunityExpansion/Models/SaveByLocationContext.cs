@@ -1,25 +1,26 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Models;
 
 internal static class SaveByLocationContext
 {
-    internal const string COTM_CAMPAIGN = "CrownOfTheMagister";
-    internal const string VOTP_CAMPAIGN = "DLC1_ValleyOfThePast_Campaign";
-    internal const string USER_CAMPAIGN = "UserCampaign";
+    private const string CotmCampaign = "CrownOfTheMagister";
+    private const string VotpCampaign = "DLC1_ValleyOfThePast_Campaign";
+    internal const string UserCampaign = "UserCampaign";
 
-    internal const string LocationSaveFolder = @"CE\Location";
-    internal const string CampaignSaveFolder = @"CE\Campaign";
+    private const string LocationSaveFolder = @"CE\Location";
+    private const string CampaignSaveFolder = @"CE\Campaign";
 
     internal static readonly string DefaultSaveGameDirectory =
         Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
 
-    internal static readonly string LocationSaveGameDirectory =
+    private static readonly string LocationSaveGameDirectory =
         Path.Combine(DefaultSaveGameDirectory, LocationSaveFolder);
 
-    internal static readonly string CampaignSaveGameDirectory =
+    private static readonly string CampaignSaveGameDirectory =
         Path.Combine(DefaultSaveGameDirectory, CampaignSaveFolder);
 
     internal static void LateLoad()
@@ -71,22 +72,24 @@ internal static class SaveByLocationContext
 
         var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
-        if (selectedCampaignService != null && mostRecent != null)
+        if (mostRecent == null)
         {
-            Main.Log($"Most recent folder={mostRecent.Path}");
+            return;
+        }
 
-            switch (mostRecent.LocationType)
-            {
-                default:
-                    selectedCampaignService.SetStandardCampaignLocation();
-                    break;
-                case LocationType.UserLocation:
-                    selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, Path.GetFileName(mostRecent.Path));
-                    break;
-                case LocationType.CustomCampaign:
-                    selectedCampaignService.SetCampaignLocation(Path.GetFileName(mostRecent.Path), string.Empty);
-                    break;
-            }
+        Main.Log($"Most recent folder={mostRecent.Path}");
+
+        switch (mostRecent.LocationType)
+        {
+            default:
+                selectedCampaignService.SetStandardCampaignLocation();
+                break;
+            case LocationType.UserLocation:
+                selectedCampaignService.SetCampaignLocation(UserCampaign, Path.GetFileName(mostRecent.Path));
+                break;
+            case LocationType.CustomCampaign:
+                selectedCampaignService.SetCampaignLocation(Path.GetFileName(mostRecent.Path), string.Empty);
+                break;
         }
     }
 
@@ -122,26 +125,29 @@ internal static class SaveByLocationContext
 
     internal static class ServiceRepositoryEx
     {
+        [NotNull]
         public static T GetOrCreateService<T>() where T : class, IService, new()
         {
             var repo = ServiceRepository.GetService<T>();
 
-            if (repo == null)
+            if (repo != null)
             {
-                repo = new T();
-                ServiceRepository.AddService(repo);
+                return repo;
             }
+
+            repo = new T();
+            ServiceRepository.AddService(repo);
 
             return repo;
         }
     }
 
-    internal interface ISelectedCampaignService : IService
+    private interface ISelectedCampaignService : IService
     {
-        string CampaignOrLocationName { get; }
-        LocationType LocationType { get; }
-        string SaveGameDirectory { get; }
-        void SetCampaignLocation(string campaign, string location);
+        // string CampaignOrLocationName { get; }
+        // LocationType LocationType { get; }
+        // string SaveGameDirectory { get; }
+        // void SetCampaignLocation(string campaign, string location);
     }
 
     internal enum LocationType
@@ -151,20 +157,20 @@ internal static class SaveByLocationContext
         CustomCampaign
     }
 
-    internal class SelectedCampaignService : ISelectedCampaignService
+    internal sealed class SelectedCampaignService : ISelectedCampaignService
     {
         public string CampaignOrLocationName { get; private set; }
-        public LocationType LocationType { get; private set; }
         public string SaveGameDirectory { get; private set; }
+        public LocationType LocationType { get; private set; }
 
-        public void SetCampaignLocation(string campaign, string location)
+        public void SetCampaignLocation([CanBeNull] string campaign, [CanBeNull] string location)
         {
             Main.Log($"SetCampaignLocation: Campaign='{campaign}', Location='{location}'");
 
             var camp = campaign?.Trim() ?? string.Empty;
             var loc = location?.Trim() ?? string.Empty;
 
-            if ((camp == USER_CAMPAIGN || string.IsNullOrWhiteSpace(camp)) && !string.IsNullOrWhiteSpace(loc))
+            if ((camp == UserCampaign || string.IsNullOrWhiteSpace(camp)) && !string.IsNullOrWhiteSpace(loc))
             {
                 // User individual location
                 SaveGameDirectory = Path.Combine(LocationSaveGameDirectory, loc);
@@ -172,7 +178,7 @@ internal static class SaveByLocationContext
                 CampaignOrLocationName = location;
             }
             // this check not really needed, could just be !string.IsNullOrWhiteSpace(camp)
-            else if (camp != COTM_CAMPAIGN && camp != VOTP_CAMPAIGN && !string.IsNullOrWhiteSpace(camp))
+            else if (camp != CotmCampaign && camp != VotpCampaign && !string.IsNullOrWhiteSpace(camp))
             {
                 // User campaign
                 SaveGameDirectory = Path.Combine(CampaignSaveGameDirectory, camp);

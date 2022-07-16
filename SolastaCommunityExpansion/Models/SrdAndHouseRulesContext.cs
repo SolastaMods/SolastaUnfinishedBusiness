@@ -60,9 +60,26 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void ApplyBarbarianUnarmoredDefenseNotStacking()
+    private static void ApplyBarbarianUnarmoredDefenseNotStacking()
     {
         DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
             .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER);
+    }
+
+    internal static void ApplySrdWeightToFoodRations()
+    {
+        var foodSrdWeight = DatabaseHelper.ItemDefinitions.Food_Ration;
+        var foodForagedSrdWeight = DatabaseHelper.ItemDefinitions.Food_Ration_Foraged;
+
+        if (Main.Settings.ApplySrdWeightToFoodRations)
+        {
+            foodSrdWeight.weight = 2.0f;
+            foodForagedSrdWeight.weight = 2.0f;
+        }
+        else
+        {
+            foodSrdWeight.weight = 3.0f;
+            foodForagedSrdWeight.weight = 3.0f;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using ModKit;
+﻿using SolastaCommunityExpansion.Api.ModKit;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Displays.BlueprintDisplay;
 using static SolastaCommunityExpansion.Displays.CharacterDisplay;
@@ -25,57 +25,57 @@ namespace SolastaCommunityExpansion.Displays
     public class ModUi : IMenuSelectablePage
     {
         private int characterSelectedPane;
-        public string Name => Main.Enabled ? Gui.Localize("ModUi/&Character") : "Character";
+        public string Name => Gui.Localize("ModUi/&Character");
 
         public int Priority => 100;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref characterSelectedPane,
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&GeneralMenu") : "General", DisplayCharacter),
+                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayCharacter),
                 new NamedAction(
-                    Main.Enabled ? Gui.Localize("ModUi/&RacesClassesSubclasses") : "Races, Classes & Subclasses",
+                    Gui.Localize("ModUi/&RacesClassesSubclasses"),
                     DisplayClassesAndSubclasses),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&FeatsFightingStyles") : "Feats & Fighting Styles",
+                new NamedAction(Gui.Localize("ModUi/&FeatsFightingStyles"),
                     DisplayFeatsAndFightingStyles),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&SpellsMenu") : "Spells", DisplaySpells));
+                new NamedAction(Gui.Localize("ModUi/&SpellsMenu"), DisplaySpells));
         }
     }
 
     public class GameplayViewer : IMenuSelectablePage
     {
         private int gamePlaySelectedPane;
-        public string Name => Main.Enabled ? Gui.Localize("ModUi/&Gameplay") : "Gameplay";
+        public string Name => Gui.Localize("ModUi/&Gameplay");
 
         public int Priority => 200;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref gamePlaySelectedPane,
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Rules") : "Rules", DisplayRules),
+                new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
                 new NamedAction(
-                    Main.Enabled ? Gui.Localize("ModUi/&ItemsCraftingMerchants") : "Items, Crafting & Merchants",
+                    Gui.Localize("ModUi/&ItemsCraftingMerchants"),
                     DisplayItemsAndCrafting),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Tools") : "Tools", DisplayTools));
+                new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools));
         }
     }
 
     public class InterfaceViewer : IMenuSelectablePage
     {
         private int interfaceSelectedPane;
-        public string Name => Main.Enabled ? Gui.Localize("ModUi/&Interface") : "Interface";
+        public string Name => Gui.Localize("ModUi/&Interface");
 
         public int Priority => 300;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref interfaceSelectedPane,
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&DungeonMakerMenu") : "Dungeon Maker",
+                new NamedAction(Gui.Localize("ModUi/&DungeonMakerMenu"),
                     DisplayDungeonMaker),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&GameUi") : "Game UI", DisplayGameUi),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&KeyboardMouse") : "Keyboard & Mouse",
+                new NamedAction(Gui.Localize("ModUi/&GameUi"), DisplayGameUi),
+                new NamedAction(Gui.Localize("ModUi/&Input"),
                     DisplayKeyboardAndMouse),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Translations") : "Translations",
+                new NamedAction(Gui.Localize("ModUi/&Translations"),
                     DisplayTranslations));
         }
     }
@@ -83,34 +83,34 @@ namespace SolastaCommunityExpansion.Displays
     public class EncountersViewer : IMenuSelectablePage
     {
         private int encountersSelectedPane;
-        public string Name => Main.Enabled ? Gui.Localize("ModUi/&Encounters") : "Encounters";
+        public string Name => Gui.Localize("ModUi/&Encounters");
 
         public int Priority => 400;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref encountersSelectedPane,
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&GeneralMenu") : "General",
+                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"),
                     DisplayEncountersGeneral),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Bestiary") : "Bestiary", DisplayBestiary),
-                new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&CharactersPool") : "Characters Pool", DisplayNPCs));
+                new NamedAction(Gui.Localize("ModUi/&Bestiary"), DisplayBestiary),
+                new NamedAction(Gui.Localize("ModUi/&CharactersPool"), DisplayNpcs));
         }
     }
 
     public class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {
         private int creditsSelectedPane;
-        public string Name => Main.Enabled ? Gui.Localize("ModUi/&CreditsAndDiagnostics") : "Credits & Diagnostics";
+        public string Name => Gui.Localize("ModUi/&CreditsAndDiagnostics");
 
         public int Priority => 999;
 
         public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref creditsSelectedPane,
-            new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Credits") : "Credits", DisplayCredits),
+            new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
 #if DEBUG
             new NamedAction("Diagnostics", DisplayDiagnostics),
 #endif
-            new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Blueprints") : "Blueprints", DisplayBlueprints),
-            new NamedAction(Main.Enabled ? Gui.Localize("ModUi/&Services") : "Services", DisplayGameServices)
+            new NamedAction(Gui.Localize("ModUi/&Blueprints"), DisplayBlueprints),
+            new NamedAction(Gui.Localize("ModUi/&Services"), DisplayGameServices)
         );
     }
 }

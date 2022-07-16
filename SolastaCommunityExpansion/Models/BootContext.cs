@@ -2,6 +2,7 @@
 using System.IO.Compression;
 using System.Net;
 using System.Text;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityModManagerNet;
@@ -26,13 +27,14 @@ internal static class BootContext
 
     private static string GetInstalledVersion()
     {
-        var infoPayload = File.ReadAllText(Path.Combine(Main.MOD_FOLDER, "Info.json"));
+        var infoPayload = File.ReadAllText(Path.Combine(Main.ModFolder, "Info.json"));
         var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
+        // ReSharper disable once AssignNullToNotNullAttribute
         return infoJson["Version"].Value<string>();
     }
 
-    private static bool ShouldUpdate(out string version, out string changeLog)
+    private static bool ShouldUpdate(out string version, [NotNull] out string changeLog)
     {
         const string BASE_URL =
             "https://raw.githubusercontent.com/SolastaMods/SolastaCommunityExpansion/master/SolastaCommunityExpansion";
@@ -51,7 +53,9 @@ internal static class BootContext
             var infoPayload = wc.DownloadString($"{BASE_URL}/Info.json");
             var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
+            // ReSharper disable once AssignNullToNotNullAttribute
             version = infoJson["Version"].Value<string>();
+            // ReSharper disable once StringCompareToIsCultureSpecific
             hasUpdate = version.CompareTo(GetInstalledVersion()) > 0;
 
             changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");
@@ -76,8 +80,8 @@ internal static class BootContext
 
         string message;
         var zipFile = $"SolastaCommunityExpansion-{version}.zip";
-        var fullZipFile = Path.Combine(Main.MOD_FOLDER, zipFile);
-        var fullZipFolder = Path.Combine(Main.MOD_FOLDER, "SolastaCommunityExpansion");
+        var fullZipFile = Path.Combine(Main.ModFolder, zipFile);
+        var fullZipFolder = Path.Combine(Main.ModFolder, "SolastaCommunityExpansion");
         var url = $"{BASE_URL}/releases/download/{version}/{zipFile}";
 
         try
@@ -89,12 +93,12 @@ internal static class BootContext
                 Directory.Delete(fullZipFolder, true);
             }
 
-            ZipFile.ExtractToDirectory(fullZipFile, Main.MOD_FOLDER);
+            ZipFile.ExtractToDirectory(fullZipFile, Main.ModFolder);
             File.Delete(fullZipFile);
 
             foreach (var destFile in destFiles)
             {
-                var fullDestFile = Path.Combine(Main.MOD_FOLDER, destFile);
+                var fullDestFile = Path.Combine(Main.ModFolder, destFile);
 
                 File.Delete(fullDestFile);
                 File.Move(
@@ -139,7 +143,7 @@ internal static class BootContext
             null);
     }
 
-    internal static void DisplayWelcomeMessage()
+    private static void DisplayWelcomeMessage()
     {
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Informative1,

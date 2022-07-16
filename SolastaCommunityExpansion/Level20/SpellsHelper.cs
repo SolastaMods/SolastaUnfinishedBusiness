@@ -3,7 +3,7 @@ using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Level20;
 
-// keep public as CE:MC depends on it 
+// keep public as CE:MC depends on it
 public static class SpellsHelper
 {
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
@@ -352,9 +352,9 @@ public static class SpellsHelper
     };
 
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
-    internal static List<SlotsByLevelDuplet> HalfCastingSlots { get; } = new()
+    internal static IEnumerable<SlotsByLevelDuplet> HalfCastingSlots { get; } = new List<SlotsByLevelDuplet>
     {
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -367,7 +367,7 @@ public static class SpellsHelper
             },
             Level = 1
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -380,7 +380,7 @@ public static class SpellsHelper
             },
             Level = 2
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -393,7 +393,7 @@ public static class SpellsHelper
             },
             Level = 3
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -406,7 +406,7 @@ public static class SpellsHelper
             },
             Level = 4
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -419,7 +419,7 @@ public static class SpellsHelper
             },
             Level = 5
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -432,7 +432,7 @@ public static class SpellsHelper
             },
             Level = 6
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -445,7 +445,7 @@ public static class SpellsHelper
             },
             Level = 7
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -458,7 +458,7 @@ public static class SpellsHelper
             },
             Level = 8
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -471,7 +471,7 @@ public static class SpellsHelper
             },
             Level = 9
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -484,7 +484,7 @@ public static class SpellsHelper
             },
             Level = 10
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -497,7 +497,7 @@ public static class SpellsHelper
             },
             Level = 11
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -510,7 +510,7 @@ public static class SpellsHelper
             },
             Level = 12
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -523,7 +523,7 @@ public static class SpellsHelper
             },
             Level = 13
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -536,7 +536,7 @@ public static class SpellsHelper
             },
             Level = 14
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -549,7 +549,7 @@ public static class SpellsHelper
             },
             Level = 15
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -562,7 +562,7 @@ public static class SpellsHelper
             },
             Level = 16
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -575,7 +575,7 @@ public static class SpellsHelper
             },
             Level = 17
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -588,7 +588,7 @@ public static class SpellsHelper
             },
             Level = 18
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -601,7 +601,7 @@ public static class SpellsHelper
             },
             Level = 19
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -617,274 +617,9 @@ public static class SpellsHelper
     };
 
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
-    internal static List<SlotsByLevelDuplet> ArtificerCastingSlots { get; } = new()
+    internal static IEnumerable<SlotsByLevelDuplet> OneThirdCastingSlots { get; } = new List<SlotsByLevelDuplet>
     {
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                2,
-                0,
-                0,
-                0,
-                0,
-                0
-            },
-            Level = 1
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                2,
-                0,
-                0,
-                0,
-                0,
-                0
-            },
-            Level = 2
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                3,
-                0,
-                0,
-                0,
-                0,
-                0
-            },
-            Level = 3
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                3,
-                0,
-                0,
-                0,
-                0,
-                0
-            },
-            Level = 4
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                2,
-                0,
-                0,
-                0,
-                0
-            },
-            Level = 5
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                2,
-                0,
-                0,
-                0,
-                0
-            },
-            Level = 6
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                0,
-                0,
-                0,
-                0
-            },
-            Level = 7
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                0,
-                0,
-                0,
-                0
-            },
-            Level = 8
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                2,
-                0,
-                0,
-                0
-            },
-            Level = 9
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                2,
-                0,
-                0,
-                0
-            },
-            Level = 10
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                0,
-                0,
-                0
-            },
-            Level = 11
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                0,
-                0,
-                0
-            },
-            Level = 12
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                1,
-                0,
-                0
-            },
-            Level = 13
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                1,
-                0,
-                0
-            },
-            Level = 14
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                2,
-                0,
-                0
-            },
-            Level = 15
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                2,
-                0,
-                0
-            },
-            Level = 16
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                3,
-                1,
-                0
-            },
-            Level = 17
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                3,
-                1,
-                0
-            },
-            Level = 18
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            Level = 19
-        },
-        new SlotsByLevelDuplet
-        {
-            Slots = new List<int>
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            Level = 20
-        }
-    };
-
-    // game uses IndexOf(0) on these sub lists reason why the last 0 there
-    internal static List<SlotsByLevelDuplet> OneThirdCastingSlots { get; } = new()
-    {
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -896,7 +631,7 @@ public static class SpellsHelper
             },
             Level = 1
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -908,7 +643,7 @@ public static class SpellsHelper
             },
             Level = 2
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -920,7 +655,7 @@ public static class SpellsHelper
             },
             Level = 3
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -932,7 +667,7 @@ public static class SpellsHelper
             },
             Level = 4
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -944,7 +679,7 @@ public static class SpellsHelper
             },
             Level = 5
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -956,7 +691,7 @@ public static class SpellsHelper
             },
             Level = 6
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -968,7 +703,7 @@ public static class SpellsHelper
             },
             Level = 7
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -980,7 +715,7 @@ public static class SpellsHelper
             },
             Level = 8
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -992,7 +727,7 @@ public static class SpellsHelper
             },
             Level = 9
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1004,7 +739,7 @@ public static class SpellsHelper
             },
             Level = 10
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1016,7 +751,7 @@ public static class SpellsHelper
             },
             Level = 11
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1028,7 +763,7 @@ public static class SpellsHelper
             },
             Level = 12
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1040,7 +775,7 @@ public static class SpellsHelper
             },
             Level = 13
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1052,7 +787,7 @@ public static class SpellsHelper
             },
             Level = 14
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1064,7 +799,7 @@ public static class SpellsHelper
             },
             Level = 15
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1076,7 +811,7 @@ public static class SpellsHelper
             },
             Level = 16
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1088,7 +823,7 @@ public static class SpellsHelper
             },
             Level = 17
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1100,7 +835,7 @@ public static class SpellsHelper
             },
             Level = 18
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1112,7 +847,7 @@ public static class SpellsHelper
             },
             Level = 19
         },
-        new SlotsByLevelDuplet
+        new()
         {
             Slots = new List<int>
             {
@@ -1126,7 +861,7 @@ public static class SpellsHelper
         }
     };
 
-    internal static List<int> EmptyReplacedSpells { get; } = new()
+    internal static IEnumerable<int> EmptyReplacedSpells { get; } = new List<int>
     {
         0,
         0,
@@ -1150,7 +885,7 @@ public static class SpellsHelper
         0
     };
 
-    internal static List<int> FullCasterReplacedSpells { get; } = new()
+    internal static IEnumerable<int> FullCasterReplacedSpells { get; } = new List<int>
     {
         0,
         1,
@@ -1174,7 +909,7 @@ public static class SpellsHelper
         1
     };
 
-    internal static List<int> HalfCasterReplacedSpells { get; } = new()
+    internal static IEnumerable<int> HalfCasterReplacedSpells { get; } = new List<int>
     {
         0,
         0,
@@ -1198,7 +933,7 @@ public static class SpellsHelper
         1
     };
 
-    internal static List<int> OneThirdCasterReplacedSpells { get; } = new()
+    internal static IEnumerable<int> OneThirdCasterReplacedSpells { get; } = new List<int>
     {
         0,
         0,
@@ -1222,7 +957,7 @@ public static class SpellsHelper
         1
     };
 
-    internal static List<int> SorcererKnownSpells { get; } = new()
+    internal static IEnumerable<int> SorcererKnownSpells { get; } = new List<int>
     {
         2,
         3,

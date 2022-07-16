@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection.Emit;
-using ModKit.Utility;
 
 namespace SolastaCommunityExpansion.DataViewer;
 
@@ -17,11 +16,13 @@ internal static class UnsafeForceCast
             cache = weakRef.Target as Func<TInput, TOutput>;
         }
 
-        if (cache == null)
+        if (cache != null)
         {
-            cache = CreateDelegate<TInput, TOutput>();
-            _cache[typeof(TInput), typeof(TOutput)] = new WeakReference(cache);
+            return cache;
         }
+
+        cache = CreateDelegate<TInput, TOutput>();
+        _cache[typeof(TInput), typeof(TOutput)] = new WeakReference(cache);
 
         return cache;
     }

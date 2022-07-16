@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FeatureDefinitionFeatureSet_FormatDescription
 {
-    internal static void Postfix(FeatureDefinitionFeatureSet __instance, ref string __result)
+    internal static void Postfix([NotNull] FeatureDefinitionFeatureSet __instance, ref string __result)
     {
         if (!__instance.HasSubFeatureOfType<CustomSetDescription>())
         {
@@ -23,8 +24,8 @@ internal static class FeatureDefinitionFeatureSet_FormatDescription
         }
 
         var description = Gui.Localize(__instance.GuiPresentation.Description);
-
         var featureSet = __instance.FeatureSet.ToList();
+
         featureSet.RemoveAll(f => f.GuiPresentation.Hidden);
 
         if (!featureSet.Empty())

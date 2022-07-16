@@ -2,7 +2,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
-using ModKit;
+using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using static SolastaCommunityExpansion.Models.DmProEditorContext;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
@@ -12,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class UserLocationSettingsModal_RefreshVisualMoods
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var found = 0;
 
@@ -53,7 +54,7 @@ internal static class UserLocationSettingsModal_RuntimeLoaded
 
             __instance.optionsListSize.Add(new GuiDropdown.OptionDataAdvanced
             {
-                text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).yellow() + " " +
+                text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).Khaki() + " " +
                        Gui.Format("{0} x {1}", sizeString, sizeString),
                 TooltipContent = string.Empty
             });

@@ -12,7 +12,7 @@ internal static class CharacterActionPanelPatcher
     {
         internal static void Prefix(CharacterActionPanel __instance, ActionDefinitions.ReadyActionType readyActionType)
         {
-            CustomReactionsContext.SaveReadyActionPreferedCantripPatch(__instance.actionParams, readyActionType);
+            CustomReactionsContext.SaveReadyActionPreferredCantripPatch(__instance.actionParams, readyActionType);
         }
     }
 }

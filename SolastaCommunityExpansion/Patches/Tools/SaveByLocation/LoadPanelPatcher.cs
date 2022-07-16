@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using ModKit;
+using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using static GuiDropdown;
@@ -18,12 +20,12 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class LoadPanel_OnBeginShow
 {
-    internal static GameObject Dropdown { get; private set; }
+    private static GameObject Dropdown { get; set; }
 
-    public static bool Prefix(LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview,
+    public static bool Prefix([NotNull] LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview,
         [HarmonyArgument("instant")] bool _ = false)
     {
-        if (!Main.Settings.EnableSaveByLocation)
+        if (!Main.Settings.EnableSaveByLocation || Main.Settings.EnableGamepad)
         {
             if (Dropdown != null)
             {
@@ -127,17 +129,17 @@ internal static class LoadPanel_OnBeginShow
             {
                 default:
                     Main.Error($"Unknown LocationType: {locationType}");
-                    return title.red();
+                    return title.Red();
                 case LocationType.StandardCampaign:
                     return title;
                 case LocationType.CustomCampaign:
-                    return title.yellow();
+                    return title.Khaki();
                 case LocationType.UserLocation:
-                    return title.orange();
+                    return title.Orange();
             }
         }
 
-        void ValueChanged(GuiDropdown dropdown)
+        void ValueChanged([NotNull] GuiDropdown dropdown)
         {
             // update selected campaign
             var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
@@ -147,20 +149,24 @@ internal static class LoadPanel_OnBeginShow
             Main.Log(
                 $"ValueChanged: {dropdown.value}, selected={selected.LocationType}, {selected.text}, {selected.CampaignOrLocation}");
 
-            switch (selected.LocationType)
+            if (selected != null)
             {
-                default:
-                    Main.Error($"Unknown LocationType: {selected.LocationType}");
-                    break;
-                case LocationType.StandardCampaign:
-                    selectedCampaignService.SetStandardCampaignLocation();
-                    break;
-                case LocationType.UserLocation: // location (campaign=USER_CAMPAIGN + location)
-                    selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, selected.CampaignOrLocation);
-                    break;
-                case LocationType.CustomCampaign: // campaign
-                    selectedCampaignService.SetCampaignLocation(selected.CampaignOrLocation, string.Empty);
-                    break;
+                switch (selected.LocationType)
+                {
+                    default:
+                        Main.Error($"Unknown LocationType: {selected.LocationType}");
+                        break;
+                    case LocationType.StandardCampaign:
+                        selectedCampaignService.SetStandardCampaignLocation();
+                        break;
+                    case LocationType.UserLocation: // location (campaign=USER_CAMPAIGN + location)
+                        selectedCampaignService.SetCampaignLocation(SaveByLocationContext.UserCampaign,
+                            selected.CampaignOrLocation);
+                        break;
+                    case LocationType.CustomCampaign: // campaign
+                        selectedCampaignService.SetCampaignLocation(selected.CampaignOrLocation, string.Empty);
+                        break;
+                }
             }
 
             dropdown.UpdateTooltip();
@@ -174,55 +180,31 @@ internal static class LoadPanel_OnBeginShow
 
         GuiDropdown CreateOrActivateDropdown()
         {
-            GuiDropdown dd;
-
-            // create a drop down singleton
             if (Dropdown == null)
             {
                 var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
 
-                Dropdown = Object.Instantiate(dropdownPrefab);
+                Dropdown = Object.Instantiate(dropdownPrefab, __instance.loadButton.transform.parent.parent);
                 Dropdown.name = "LoadMenuDropDown";
 
-                dd = Dropdown.GetComponent<GuiDropdown>();
-                dd.onValueChanged.AddListener(delegate { ValueChanged(dd); });
+                var dropdown = Dropdown.GetComponent<GuiDropdown>();
+                var dropDownRect = Dropdown.GetComponent<RectTransform>();
 
-                var buttonBar = __instance.gameObject
-                    .GetComponentsInChildren<RectTransform>()
-                    .SingleOrDefault(c => c.gameObject.name == "ButtonsBar")?.gameObject;
-
-                if (buttonBar != null)
-                {
-                    var horizontalLayoutGroup = buttonBar.GetComponent<HorizontalLayoutGroup>();
-
-                    if (horizontalLayoutGroup != null)
-                    {
-                        Dropdown.transform.SetParent(horizontalLayoutGroup.transform, false);
-
-                        horizontalLayoutGroup.childForceExpandWidth = true;
-                        horizontalLayoutGroup.childForceExpandHeight = true;
-                        horizontalLayoutGroup.childControlWidth = true;
-                        horizontalLayoutGroup.childControlHeight = true;
-                        horizontalLayoutGroup.childAlignment = TextAnchor.MiddleLeft;
-
-                        var dropDownLayout = dd.gameObject.AddComponent<LayoutElement>();
-                        // any large flexible width will do
-                        dropDownLayout.flexibleWidth = 3;
-                    }
-                }
+                dropdown.onValueChanged.AddListener(delegate { ValueChanged(dropdown); });
+                dropDownRect.anchoredPosition = new Vector2(72f, 230f);
+                dropDownRect.sizeDelta = new Vector2(320f, 30f);
             }
             else
             {
                 Dropdown.SetActive(true);
-                dd = Dropdown.GetComponent<GuiDropdown>();
             }
 
-            return dd;
+            return Dropdown.GetComponent<GuiDropdown>();
         }
     }
 }
 
-internal class LocationOptionData : OptionDataAdvanced
+internal sealed class LocationOptionData : OptionDataAdvanced
 {
     public string CampaignOrLocation { get; set; }
     public LocationType LocationType { get; set; }

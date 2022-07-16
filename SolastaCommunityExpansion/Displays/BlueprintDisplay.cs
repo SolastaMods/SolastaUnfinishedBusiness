@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using ModKit;
-using ModKit.Utility;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Api.ModKit;
 using SolastaCommunityExpansion.DataViewer;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public static class BlueprintDisplay
     private static IEnumerable<BaseDefinition> _filteredBPs;
 
     // tree view
-    private static readonly ReflectionTreeView _treeView = new();
+    private static readonly ReflectionTreeView TreeView = new();
     private static int _bpTypeIndex;
 
     private static Vector2 _bpsScrollPosition;
@@ -38,34 +39,36 @@ public static class BlueprintDisplay
     // search selection
     private static ToggleState _searchExpanded;
 
-    private static readonly GUIStyle _buttonStyle = new(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
+    private static readonly GUIStyle ButtonStyle = new(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
 
     private static IEnumerable<BaseDefinition> GetBlueprints()
     {
-        if (_allBlueprints == null)
+        if (_allBlueprints != null)
         {
-            if (BlueprintLoader.Shared.LoadInProgress())
-            {
-                return _allBlueprints;
-            }
-
-            BlueprintLoader.Shared.Load(bps => _allBlueprints = bps);
+            return _allBlueprints;
         }
+
+        if (BlueprintLoader.Shared.LoadInProgress())
+        {
+            return _allBlueprints;
+        }
+
+        BlueprintLoader.Shared.Load(bps => _allBlueprints = bps);
 
         return _allBlueprints;
     }
 
-    private static void RefreshBPSearchData()
+    private static void RefreshBpSearchData()
     {
         _filteredBPs = GetBlueprints();
 
         if (_filteredBPs != null)
         {
-            _treeView.SetRoot(_filteredBPs);
+            TreeView.SetRoot(_filteredBPs);
         }
         else
         {
-            _treeView.Clear();
+            TreeView.Clear();
         }
 
         _bpFields = Node.GetFields(_bpTypes[_bpTypeIndex]).OrderBy(info => info.Name)
@@ -76,7 +79,7 @@ public static class BlueprintDisplay
         _searchIndex = Array.IndexOf(_bpChildNames, "name");
     }
 
-    public static void RefreshTypeNames()
+    private static void RefreshTypeNames()
     {
         _bpTypes = new Type[] {null}
             .Concat(GetBlueprints().Select(bp => bp.GetType()).Distinct().OrderBy(type => type.Name)).ToArray();
@@ -93,11 +96,11 @@ public static class BlueprintDisplay
         _bpTypeIndex = 0;
     }
 
-    public static void UpdateSearchResults()
+    private static void UpdateSearchResults()
     {
         if (string.IsNullOrEmpty(_searchText))
         {
-            _treeView.SetRoot(_filteredBPs);
+            TreeView.SetRoot(_filteredBPs);
         }
         else
         {
@@ -105,11 +108,11 @@ public static class BlueprintDisplay
 
             if (_bpFields.TryGetValue(_bpChildNames[_searchIndex], out var f))
             {
-                _treeView.SetRoot(_filteredBPs.Where(bp =>
+                TreeView.SetRoot(_filteredBPs.Where(bp =>
                 {
                     try
                     {
-                        return (f.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) !=
+                        return (f.GetValue(bp)?.ToString().ToLower().Contains(searchText) ?? false) !=
                                _searchReversed;
                     }
                     catch
@@ -120,11 +123,11 @@ public static class BlueprintDisplay
             }
             else if (_bpProperties.TryGetValue(_bpChildNames[_searchIndex], out var p))
             {
-                _treeView.SetRoot(_filteredBPs.Where(bp =>
+                TreeView.SetRoot(_filteredBPs.Where(bp =>
                 {
                     try
                     {
-                        return (p.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) !=
+                        return (p.GetValue(bp)?.ToString().ToLower().Contains(searchText) ?? false) !=
                                _searchReversed;
                     }
                     catch
@@ -156,7 +159,7 @@ public static class BlueprintDisplay
                 }
 
                 RefreshTypeNames();
-                RefreshBPSearchData();
+                RefreshBpSearchData();
             }
 
             using (new GUILayout.HorizontalScope())
@@ -191,12 +194,12 @@ public static class BlueprintDisplay
                     GUIHelper.SelectionGrid(ref _bpTypeIndex, _bpTypeNames, 1, () =>
                     {
                         _searchText = null;
-                        RefreshBPSearchData();
+                        RefreshBpSearchData();
                         _filteredBPs = _bpTypeIndex == 0
                             ? GetBlueprints()
                             : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]).ToList();
-                        _treeView.SetRoot(_filteredBPs);
-                    }, _buttonStyle, GUILayout.Width(450));
+                        TreeView.SetRoot(_filteredBPs);
+                    }, ButtonStyle, GUILayout.Width(450));
                 }
 
                 using (new GUILayout.VerticalScope(GUI.skin.box))
@@ -210,11 +213,11 @@ public static class BlueprintDisplay
                             // search bar
                             GUILayout.Space(10f);
 
-                            // slelection - button
+                            // selection - button
                             using (new GUILayout.HorizontalScope())
                             {
                                 UI.ToggleButton(ref _searchExpanded, $"Search: {_bpChildNames[_searchIndex]}",
-                                    _buttonStyle, GUILayout.ExpandWidth(false));
+                                    ButtonStyle, GUILayout.ExpandWidth(false));
 
                                 // _searchText input
                                 GUILayout.Space(10);
@@ -240,10 +243,10 @@ public static class BlueprintDisplay
                     {
                         // selection
                         GUIHelper.Div();
-                        const float availableWidth = 960f - 550;
-                        var xCols = (int)Math.Ceiling(availableWidth / 300);
+                        const float AVAILABLE_WIDTH = 960f - 550;
+                        var xCols = (int)Math.Ceiling(AVAILABLE_WIDTH / 300);
                         GUIHelper.SelectionGrid(ref _searchIndex, _bpChildNames, xCols, () => isDirty = true,
-                            _buttonStyle, GUILayout.Width(availableWidth));
+                            ButtonStyle, GUILayout.Width(AVAILABLE_WIDTH));
                     }
 
                     // Do the search
@@ -256,7 +259,7 @@ public static class BlueprintDisplay
                     // tree view
                     using (new GUILayout.VerticalScope())
                     {
-                        _treeView.OnGUI();
+                        TreeView.OnGUI();
                     }
                 }
             }

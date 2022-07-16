@@ -8,8 +8,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CraftyFeats/&CraftySkillsTitle",
-    "description": "CraftyFeats/&CraftyArcanaDescription",
+    "title": "Feat/&CraftySkillsTitle",
+    "description": "Feat/&CraftyArcanaDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

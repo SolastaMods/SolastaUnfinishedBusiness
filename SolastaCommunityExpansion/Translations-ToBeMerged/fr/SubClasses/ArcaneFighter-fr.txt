@@ -1,0 +1,16 @@
+Feature/&ArcaneFighterAdditionalActionDescription=Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques avec une arme.
+Feature/&ArcaneFighterAdditionalActionTitle=Combat de sorts
+Feature/&ArcaneFighterBonusWeaponDamageDescription=Une fois par tour, vos attaques avec une arme infligent 1d8 dégâts supplémentaires.
+Feature/&ArcaneFighterBonusWeaponDamageTitle=Attaques magiques
+Feature/&AttackModifierMeleeWizardArcaneWeaponDescription=Lorsqu'elle est active sur une arme, ses attaques comptent comme magiques et vous utilisez votre Intelligence pour vos jets d'attaque et de dégâts.
+Feature/&AttackModifierMeleeWizardArcaneWeaponTitle=Arme arcanique
+Feature/&AttributeModifierMeleeWizardExtraAttackDescription=Vous gagnez une attaque supplémentaire.
+Feature/&AttributeModifierMeleeWizardExtraAttackTitle=Attaque supplémentaire
+Feature/&MagicAffinityMeleeWizardConcentrationDescription=En raison de l'expérience dans le chaos du combat, bénéficiez d'un avantage sur les tests de concentration.
+Feature/&MagicAffinityMeleeWizardConcentrationTitle=Concentration améliorée
+Feature/&ProficiencyWeaponArcaneFighterDescription=L'expérience du combat a donné à l'Arcane Fighter une formation aux armes simples et martiales.
+Feature/&ProficiencyWeaponArcaneFighterTitle=Entraînement aux armes
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat=Dégâts supplémentaires des attaques magiques
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine=Dégâts supplémentaires des attaques magiques
+Subclass/&TraditionArcaneFighterDescription=Canalisez votre magie dans des attaques d'armes.
+Subclass/&TraditionArcaneFighterTitle=Combattant arcanique

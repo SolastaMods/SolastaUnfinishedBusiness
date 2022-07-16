@@ -14,6 +14,6 @@ internal static class RulesetCharacterHero_GrantItem
             return;
         }
 
-        tryToEquip = __instance.TryGetHeroBuildingData(out var _);
+        tryToEquip = __instance.TryGetHeroBuildingData(out _);
     }
 }

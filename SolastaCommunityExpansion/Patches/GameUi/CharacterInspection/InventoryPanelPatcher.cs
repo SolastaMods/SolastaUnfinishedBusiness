@@ -13,6 +13,7 @@ internal static class InventoryPanel_OnBeginShow
         InventoryManagementContext.RefreshControlsVisibility();
 
         if (Main.Settings.EnableInventoryFilteringAndSorting
+            && !Main.Settings.EnableGamepad
             && !Global.IsMultiplayer)
         {
             InventoryManagementContext.SelectionChanged();
@@ -28,6 +29,7 @@ internal static class ContainerPanel_Bind
     {
         // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
         if (Main.Settings.EnableInventoryFilteringAndSorting
+            && !Main.Settings.EnableGamepad
             && !Global.IsMultiplayer
             && __instance.MainContainerPanel)
         {

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using ModKit.Utility;
 using SolastaCommunityExpansion.Models;
 using UnityModManagerNet;
 
 namespace SolastaCommunityExpansion.Utils;
 
-public class Core
+public sealed class Core
 {
 }
 
@@ -20,13 +19,12 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool DisplayWelcomeMessage { get; set; } = true;
-    public bool EnableBetaContent { get; set; }
+    public int EnableDiagsDump { get; set; }
 
     //
     // Blueprints Viewer UI
     //
 
-    // must be set to zero or won't compile
     internal int SelectedRawDataType;
     internal int MaxRows = 20;
     internal int MaxSearchDepth = 3;
@@ -95,11 +93,11 @@ public class Settings : UnityModManager.ModSettings
     public bool OfferAdditionalLoreFriendlyNames { get; set; }
     public bool UnlockAllNpcFaces { get; set; }
     public bool AllowUnmarkedSorcerers { get; set; }
-    public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
+    public bool UnlockMarkAndTattoosForAllCharacters { get; set; }
     public bool UnlockEyeStyles { get; set; }
     public bool AddNewBrightEyeColors { get; set; }
     public bool UnlockGlowingEyeColors { get; set; }
-    public bool UnlockGlowingColorsForAllMarksAndTatoos { get; set; }
+    public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
 
     //
     // Characters - Races, Classes & Subclasses
@@ -109,7 +107,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
     public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
     public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
-    public bool ReduceDarkelfLightPenalty { get; set; }
+    public bool ReduceDarkElfLightPenalty { get; set; }
+    public bool ReduceGrayDwarfLightPenalty { get; set; }
     public int RaceSliderPosition { get; set; } = 4;
     public List<string> RaceEnabled { get; } = new();
     public int ClassSliderPosition { get; set; } = 4;
@@ -153,6 +152,7 @@ public class Settings : UnityModManager.ModSettings
     public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
     public bool FixSorcererTwinnedLogic { get; set; }
     public bool FullyControlConjurations { get; set; }
+    public bool ApplySrdWeightToFoodRations { get; set; }
 
     // House
     public bool ChangeSleetStormToCube { get; set; }
@@ -164,12 +164,12 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
-    public int IncreaseSenseNormalVision { get; set; } = HouseFeatureContext.DEFAULT_VISION_RANGE;
+    public int IncreaseSenseNormalVision { get; set; } = HouseFeatureContext.DefaultVisionRange;
 
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
 
     // public bool UseHeightOneCylinderEffect { get; set; }
-    public bool AddPickpocketableLoot { get; set; }
+    public bool AddPickPocketableLoot { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool ScaleMerchantPricesCorrectly { get; set; }
 
@@ -185,8 +185,9 @@ public class Settings : UnityModManager.ModSettings
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
 #endif
+    public int ArcaneShieldstaffOptions { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
-    public bool RemoveIdentifcationRequirements { get; set; }
+    public bool RemoveIdentificationRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public int TotalCraftingTimeModifier { get; set; }
     public int RecipeCost { get; set; } = 200;
@@ -194,8 +195,8 @@ public class Settings : UnityModManager.ModSettings
 
     // Crafting
     public List<string> CraftingInStore { get; } = new();
-    public List<string> CraftingItemsInDM { get; } = new();
-    public List<string> CraftingRecipesInDM { get; } = new();
+    public List<string> CraftingItemsInDm { get; } = new();
+    public List<string> CraftingRecipesInDm { get; } = new();
 
     // Merchants
     public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
@@ -212,15 +213,14 @@ public class Settings : UnityModManager.ModSettings
 
     // General
     public bool EnableSaveByLocation { get; set; }
-    public bool EnableCharacterChecker { get; set; }
     public bool EnableRespec { get; set; }
     public bool EnableCheatMenu { get; set; }
     public bool OverrideMinMaxLevel { get; set; }
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
-    public List<string> DefaultPartyHeroes = new();
+    public List<string> defaultPartyHeroes = new();
     public bool NoExperienceOnLevelUp { get; set; }
-    public int OverridePartySize { get; set; } = DungeonMakerContext.GAME_PARTY_SIZE;
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
+    public int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
     public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
     // Debug
@@ -242,11 +242,6 @@ public class Settings : UnityModManager.ModSettings
     public bool UnleashNpcAsEnemy { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }
     public bool EnableDungeonMakerModdedContent { get; set; }
-#if DEBUG
-    public bool EnableExtraHighLevelMonsters { get; set; } = true; // simplifies diags. creation (one less boot)
-#else
-    public bool EnableExtraHighLevelMonsters { get; set; }
-#endif
 
     //
     // Interface - Game UI
@@ -265,13 +260,13 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
-    public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
+    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
 
     // Inventory and Items
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public string EmpressGarbAppearance { get; set; } = "Normal";
+    public int EmpressGarbAppearanceIndex { get; set; }
 
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
@@ -297,15 +292,14 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCtrlClickBypassAttackReactionPanel { get; set; }
     public bool EnableIgnoreCtrlClickOnCriticalHit { get; set; }
     public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
+    public bool EnableGamepad { get; set; }
 
     //
     // Interface - Translations
     //
 
     public bool EnableOnTheFlyTranslations { get; set; }
-    public string SelectedLanguageCode { get; set; } = "en";
-    public string SelectedOverwriteLanguageCode { get; set; } = "off";
-    public Translations.Engine TranslationEngine { get; set; } = Translations.Engine.Google;
+    public string SelectedLanguageCode { get; set; } = Translations.English;
 
     //
     // Encounters - General

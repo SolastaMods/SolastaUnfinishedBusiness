@@ -12,6 +12,7 @@ public abstract class WeaponTypeDefinitionBuilder<TDefinition, TBuilder> : Defin
         return This();
     }
 
+#if false
     public TBuilder SetWeaponCategory(string category)
     {
         Definition.weaponCategory = category;
@@ -23,6 +24,7 @@ public abstract class WeaponTypeDefinitionBuilder<TDefinition, TBuilder> : Defin
         Definition.weaponProximity = proximity;
         return This();
     }
+#endif
 
     public TBuilder SetAnimationTag(string tag)
     {

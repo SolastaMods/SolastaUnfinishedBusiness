@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
@@ -13,17 +14,19 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class CustomReactionsContext
 {
-    private static IDamagedReactionSpell _alwayseact;
+    private static IDamagedReactionSpell _alwaysReact;
 
-    public static bool ForcePreferredCantrip; //used by actual feature
-    public static bool ForcePreferredCantripUI = false; //used for local UI state
-    public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();
+    public static bool ForcePreferredCantrip { get; private set; } //used by actual feature
+    public static bool ForcePreferredCantripUI { get; set; } //used for local UI state
+
+    [NotNull]
+    public static IDamagedReactionSpell AlwaysReactToDamaged => _alwaysReact ??= new AlwaysReactToDamagedImpl();
 
     public static void Load()
     {
         MakeReactDefinition(ReactionRequestWarcaster.Name);
         MakeReactDefinition(ReactionRequestSpendBundlePower.Name);
-        MakeReactDefinition(ReactionRequestReactionAttack.Name(EWFeats.SentinelFeat));
+        MakeReactDefinition(ReactionRequestReactionAttack.Name(EwFeats.SentinelFeat));
     }
 
     private static void MakeReactDefinition(string name)
@@ -35,10 +38,17 @@ public static class CustomReactionsContext
             .AddToDB();
     }
 
-    public static IEnumerator TryReactingToDamageWithSpell(GameLocationCharacter attacker,
-        GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
-        bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
-        RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
+    public static IEnumerator TryReactingToDamageWithSpell(
+        [NotNull] GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier attackModifier,
+        RulesetAttackMode attackMode,
+        bool rangedAttack,
+        RuleDefinitions.AdvantageType advantageType,
+        List<EffectForm> actualEffectForms,
+        RulesetEffect rulesetEffect,
+        bool criticalHit,
+        bool firstTarget)
     {
         var ruleCaster = attacker.RulesetCharacter;
 
@@ -78,41 +88,46 @@ public static class CustomReactionsContext
         }
     }
 
-    public static IEnumerator ReactWithSpell(SpellDefinition spell, GameLocationCharacter caster,
+    private static IEnumerator ReactWithSpell(SpellDefinition spell, GameLocationCharacter caster,
         GameLocationCharacter target)
     {
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-        if (actionManager != null)
+        if (actionManager == null)
         {
-            var ruleCaster = caster.RulesetCharacter;
-            var spellSlot = ruleCaster.GetLowestSlotLevelAndRepertoireToCastSpell(spell, out var spellBook);
-
-            if (spellBook != null)
-            {
-                var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
-                var reactionParams = new CharacterActionParams(caster, Id.CastReaction)
-                {
-                    IntParameter = 0,
-                    RulesetEffect =
-                        ruleset.InstantiateEffectSpell(ruleCaster, spellBook, spell, spellSlot, false),
-                    IsReactionEffect = true
-                };
-
-                reactionParams.TargetCharacters.Add(target);
-                reactionParams.ActionModifiers.Add(new ActionModifier());
-
-                var reactions = actionManager.PendingReactionRequestGroups.Count;
-                var reaction = new ReactionRequestCastDamageSpell(reactionParams, target, spellSlot == 0);
-
-                actionManager.AddInterruptRequest(reaction);
-
-                yield return WaitForReactions(actionManager, reactions);
-            }
+            yield break;
         }
+
+        var ruleCaster = caster.RulesetCharacter;
+        var spellSlot = ruleCaster.GetLowestSlotLevelAndRepertoireToCastSpell(spell, out var spellBook);
+
+        if (spellBook == null)
+        {
+            yield break;
+        }
+
+        var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
+        var reactionParams = new CharacterActionParams(caster, Id.CastReaction)
+        {
+            IntParameter = 0,
+            RulesetEffect =
+                ruleset.InstantiateEffectSpell(ruleCaster, spellBook, spell, spellSlot, false),
+            IsReactionEffect = true
+        };
+
+        reactionParams.TargetCharacters.Add(target);
+        reactionParams.ActionModifiers.Add(new ActionModifier());
+
+        var reactions = actionManager.PendingReactionRequestGroups.Count;
+        var reaction = new ReactionRequestCastDamageSpell(reactionParams, target, spellSlot == 0);
+
+        actionManager.AddInterruptRequest(reaction);
+
+        yield return WaitForReactions(actionManager, reactions);
     }
 
-    private static IEnumerator WaitForReactions(IGameLocationActionService actionService, int previousReactionCount)
+    private static IEnumerator WaitForReactions([CanBeNull] IGameLocationActionService actionService,
+        int previousReactionCount)
     {
         while (actionService?.PendingReactionRequestGroups != null &&
                previousReactionCount < actionService.PendingReactionRequestGroups.Count)
@@ -121,7 +136,7 @@ public static class CustomReactionsContext
         }
     }
 
-    internal static void SaveReadyActionPreferedCantripPatch(CharacterActionParams actionParams,
+    internal static void SaveReadyActionPreferredCantripPatch([CanBeNull] CharacterActionParams actionParams,
         ReadyActionType readyActionType)
     {
         if (actionParams != null && readyActionType == ReadyActionType.Cantrip)
@@ -130,7 +145,7 @@ public static class CustomReactionsContext
         }
     }
 
-    internal static void ReadReadyActionPreferedCantripPatch(CharacterActionParams actionParams)
+    internal static void ReadReadyActionPreferredCantripPatch(CharacterActionParams actionParams)
     {
         if (actionParams is {ReadyActionType: ReadyActionType.Cantrip})
         {
@@ -145,7 +160,7 @@ public static class CustomReactionsContext
             List<EffectForm> actualEffectForms, RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget);
     }
 
-    private class AlwaysReactToDamagedImpl : IDamagedReactionSpell
+    private sealed class AlwaysReactToDamagedImpl : IDamagedReactionSpell
     {
         public bool CanReact(GameLocationCharacter attacker, GameLocationCharacter defender,
             ActionModifier attackModifier,

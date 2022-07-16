@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Utils;
 using TA;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class GameUiContext
 {
-    private const int EXITS_WITH_GIZMOS = 2;
+    private const int ExitsWithGizmos = 2;
 
     private static readonly GadgetBlueprint[] GadgetExits =
     {
@@ -21,7 +22,7 @@ internal static class GameUiContext
 
     internal static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
     {
-        return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? EXITS_WITH_GIZMOS : 0);
+        return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? ExitsWithGizmos : 0);
     }
 
     internal static void Load()
@@ -32,36 +33,48 @@ internal static class GameUiContext
         inputService.RegisterCommand(InputCommands.Id.EditorRotate, (int)KeyCode.R, (int)KeyCode.LeftShift);
 
         // HUD
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftC, (int)KeyCode.C, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftL, (int)KeyCode.L, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftM, (int)KeyCode.M, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftP, (int)KeyCode.P, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftH, (int)KeyCode.H, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Debug Overlay
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftD, (int)KeyCode.D, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Export Character
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftE, (int)KeyCode.E, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Spawn Encounter
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftS, (int)KeyCode.S, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Teleport
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftT, (int)KeyCode.T, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Zoom Camera
-        inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_Z, (int)KeyCode.Z, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(Hotkeys.CtrlShiftZ, (int)KeyCode.Z, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
+
+        SwitchControlScheme();
+    }
+
+    internal static void SwitchControlScheme()
+    {
+        var inputManager = ServiceRepository.GetService<IInputService>();
+        var controlScheme = Main.Settings.EnableGamepad
+            ? InputDefinitions.ControlSchemeGamepad
+            : InputDefinitions.ControlSchemeKeyboardMouse;
+
+        inputManager.SwitchControlScheme(controlScheme);
     }
 
     internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
@@ -70,41 +83,41 @@ internal static class GameUiContext
         {
             switch (command)
             {
-                case Hotkeys.CTRL_SHIFT_C:
+                case Hotkeys.CtrlShiftC:
                     GameHud.ShowCharacterControlPanel(gameLocationBaseScreen);
                     return;
 
-                case Hotkeys.CTRL_SHIFT_L:
+                case Hotkeys.CtrlShiftL:
                     GameHud.TogglePanelVisibility(Gui.GuiService.GetScreen<GuiConsoleScreen>());
                     return;
 
-                case Hotkeys.CTRL_SHIFT_M:
+                case Hotkeys.CtrlShiftM:
                     GameHud.TogglePanelVisibility(GetTimeAndNavigationPanel());
                     return;
 
-                case Hotkeys.CTRL_SHIFT_P:
+                case Hotkeys.CtrlShiftP:
                     GameHud.TogglePanelVisibility(GetInitiativeOrPartyPanel());
                     return;
             }
         }
 
-        if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CTRL_SHIFT_H)
+        if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CtrlShiftH)
         {
             GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
         }
-        else if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
+        else if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CtrlShiftD)
         {
             ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
         }
-        else if (Main.Settings.EnableTeleportParty && command == Hotkeys.CTRL_SHIFT_T)
+        else if (Main.Settings.EnableTeleportParty && command == Hotkeys.CtrlShiftT)
         {
             Teleporter.ConfirmTeleportParty();
         }
-        else if (Main.Settings.EnableHotkeyZoomCamera && command == Hotkeys.CTRL_SHIFT_Z)
+        else if (Main.Settings.EnableHotkeyZoomCamera && command == Hotkeys.CtrlShiftZ)
         {
             ToggleZoomCamera();
         }
-        else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
+        else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CtrlShiftS)
         {
             EncountersSpawnContext.ConfirmStageEncounter();
         }
@@ -113,46 +126,46 @@ internal static class GameUiContext
         {
             var cameraService = ServiceRepository.GetService<ICameraService>();
 
-            if (cameraService != null)
+            if (cameraService == null)
             {
-                EnableDebugCamera = !EnableDebugCamera;
-                cameraService.DebugCameraEnabled = EnableDebugCamera;
+                return;
             }
+
+            EnableDebugCamera = !EnableDebugCamera;
+            cameraService.DebugCameraEnabled = EnableDebugCamera;
         }
 
         [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
+        [CanBeNull]
         GuiPanel GetInitiativeOrPartyPanel()
         {
-            switch (gameLocationBaseScreen)
+            return gameLocationBaseScreen switch
             {
-                case GameLocationScreenExploration gameLocationScreenExploration:
-                    return gameLocationScreenExploration.partyControlPanel;
-                case GameLocationScreenBattle gameLocationScreenBattle:
-                    return gameLocationScreenBattle.initiativeTable;
-                default:
-                    return null;
-            }
+                GameLocationScreenExploration gameLocationScreenExploration => gameLocationScreenExploration
+                    .partyControlPanel,
+                GameLocationScreenBattle gameLocationScreenBattle => gameLocationScreenBattle.initiativeTable,
+                _ => null
+            };
         }
 
         [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
+        [CanBeNull]
         TimeAndNavigationPanel GetTimeAndNavigationPanel()
         {
-            switch (gameLocationBaseScreen)
+            return gameLocationBaseScreen switch
             {
-                case GameLocationScreenExploration gameLocationScreenExploration:
-                    return gameLocationScreenExploration
-                        .timeAndNavigationPanel;
-                case GameLocationScreenBattle gameLocationScreenBattle:
-                    return gameLocationScreenBattle.timeAndNavigationPanel;
-                default:
-                    return null;
-            }
+                GameLocationScreenExploration gameLocationScreenExploration => gameLocationScreenExploration
+                    .timeAndNavigationPanel,
+                GameLocationScreenBattle gameLocationScreenBattle => gameLocationScreenBattle.timeAndNavigationPanel,
+                _ => null
+            };
         }
     }
 
     internal static class GameHud
     {
-        internal static void ShowAll(GameLocationBaseScreen gameLocationBaseScreen, GuiPanel initiativeOrPartyPanel,
+        internal static void ShowAll([NotNull] GameLocationBaseScreen gameLocationBaseScreen,
+            GuiPanel initiativeOrPartyPanel,
             TimeAndNavigationPanel timeAndNavigationPanel)
         {
             var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
@@ -165,7 +178,7 @@ internal static class GameUiContext
             TogglePanelVisibility(timeAndNavigationPanel, anyVisible);
         }
 
-        internal static void ShowCharacterControlPanel(GameLocationBaseScreen gameLocationBaseScreen,
+        internal static void ShowCharacterControlPanel([NotNull] GameLocationBaseScreen gameLocationBaseScreen,
             bool forceHide = false)
         {
             var characterControlPanel = gameLocationBaseScreen.CharacterControlPanel;
@@ -179,12 +192,14 @@ internal static class GameUiContext
             {
                 var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
 
-                if (gameLocationSelectionService.SelectedCharacters.Count > 0)
+                if (gameLocationSelectionService.SelectedCharacters.Count <= 0)
                 {
-                    characterControlPanel.Bind(gameLocationSelectionService.SelectedCharacters[0],
-                        gameLocationBaseScreen.ActionTooltipDock);
-                    characterControlPanel.Show();
+                    return;
                 }
+
+                characterControlPanel.Bind(gameLocationSelectionService.SelectedCharacters[0],
+                    gameLocationBaseScreen.ActionTooltipDock);
+                characterControlPanel.Show();
             }
         }
 
@@ -205,7 +220,7 @@ internal static class GameUiContext
             }
         }
 
-        public static void RefreshCharactrControlPanel()
+        public static void RefreshCharacterControlPanel()
         {
             if (Gui.CurrentLocationScreen != null && Gui.CurrentLocationScreen is GameLocationBaseScreen location)
             {
@@ -214,7 +229,7 @@ internal static class GameUiContext
         }
     }
 
-    internal static class Teleporter
+    private static class Teleporter
     {
         internal static void ConfirmTeleportParty()
         {

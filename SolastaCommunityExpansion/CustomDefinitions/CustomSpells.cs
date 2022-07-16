@@ -52,8 +52,6 @@ internal class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
     public EffectDescription GetCustomEffect(RulesetCharacter caster)
     {
         var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-        if (casterLevel < _level) { return null; }
-
-        return _upgraded;
+        return casterLevel < _level ? null : _upgraded;
     }
 }

@@ -405,8 +405,7 @@ public static class Magus
             .AddToDB();
 
         var canUseRuptureStrike = CharacterValidators.HasBeenGrantedFeature(power);
-        power.SetCustomSubFeatures(new PowerUseValidity(canUseRuptureStrike, CharacterValidators.NoShield,
-            CharacterValidators.EmptyOffhand));
+        power.SetCustomSubFeatures(new PowerUseValidity(canUseRuptureStrike, CharacterValidators.NoShield));
 
         return power;
     }
@@ -471,8 +470,7 @@ public static class Magus
             .AddToDB();
 
         var canUseExileStrike = CharacterValidators.HasBeenGrantedFeature(power);
-        power.SetCustomSubFeatures(new PowerUseValidity(canUseExileStrike, CharacterValidators.NoShield,
-            CharacterValidators.EmptyOffhand));
+        power.SetCustomSubFeatures(new PowerUseValidity(canUseExileStrike, CharacterValidators.NoShield));
 
         return power;
     }
@@ -529,8 +527,7 @@ public static class Magus
             .AddToDB();
 
         var canUseTerrorStrike = CharacterValidators.HasBeenGrantedFeature(power);
-        power.SetCustomSubFeatures(new PowerUseValidity(canUseTerrorStrike, CharacterValidators.NoShield,
-            CharacterValidators.EmptyOffhand));
+        power.SetCustomSubFeatures(new PowerUseValidity(canUseTerrorStrike, CharacterValidators.NoShield));
 
         return power;
     }
@@ -812,8 +809,7 @@ public static class Magus
             .AddToDB();
 
         var canUseNullifyStrike = CharacterValidators.HasBeenGrantedFeature(power);
-        power.SetCustomSubFeatures(new PowerUseValidity(canUseNullifyStrike, CharacterValidators.NoShield,
-            CharacterValidators.FullyUnarmed));
+        power.SetCustomSubFeatures(new PowerUseValidity(canUseNullifyStrike, CharacterValidators.NoShield));
 
         return power;
     }

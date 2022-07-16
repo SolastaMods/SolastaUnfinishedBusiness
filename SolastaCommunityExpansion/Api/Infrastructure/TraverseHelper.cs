@@ -1,11 +1,12 @@
 ﻿using System;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public static class TraverseHelper
 {
-    private static bool FailOnMissingMember { get; } = true;
+    private static bool FailOnMissingMember => true;
 
     /// <summary>
     ///     Usage
@@ -23,7 +24,7 @@ public static class TraverseHelper
     ///     Traverse will happily continue without error if you supply a field name that doesn't exist.
     ///     SetField will throw an appropriate exception.
     /// </remarks>
-    internal static void SetField<T, V>(this T instance, string fieldName, V value) where T : class
+    internal static void SetField<T, V>([NotNull] this T instance, [NotNull] string fieldName, V value) where T : class
     {
         Preconditions.IsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
@@ -42,7 +43,7 @@ public static class TraverseHelper
         // AccessTools.FieldRefAccess<T, V>(instance, fieldName) = value;
     }
 
-    internal static V GetField<T, V>(this T instance, string fieldName) where T : class
+    private static V GetField<T, V>([NotNull] this T instance, [NotNull] string fieldName) where T : class
     {
         Preconditions.IsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
@@ -57,13 +58,13 @@ public static class TraverseHelper
         return t.Field<V>(fieldName).Value;
     }
 
-    public static V GetField<V>(this object instance, string fieldName)
+    public static V GetField<V>([NotNull] this object instance, [NotNull] string fieldName)
     {
         return instance.GetField<object, V>(fieldName);
     }
 
 #if DEBUG
-    public static V GetProperty<V>(this object instance, string propertyName)
+    public static V GetProperty<V>([NotNull] this object instance, [NotNull] string propertyName)
     {
         Preconditions.IsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(propertyName, nameof(propertyName));
@@ -78,7 +79,8 @@ public static class TraverseHelper
         return t.Property<V>(propertyName).Value;
     }
 
-    public static void SetProperty<T, V>(this T instance, string propertyName, V value) where T : class
+    public static void SetProperty<T, V>([NotNull] this T instance, [NotNull] string propertyName, V value)
+        where T : class
     {
         Preconditions.IsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(propertyName, nameof(propertyName));

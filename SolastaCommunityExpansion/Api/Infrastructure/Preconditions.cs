@@ -26,7 +26,7 @@ public static class Preconditions
     {
         if (string.IsNullOrEmpty(paramValue))
         {
-            throw new ArgumentException("The parameter must not be null or an empty string.", paramName);
+            throw new ArgumentException(@"The parameter must not be null or an empty string.", paramName);
         }
     }
 
@@ -36,7 +36,7 @@ public static class Preconditions
     {
         if (string.IsNullOrWhiteSpace(paramValue))
         {
-            throw new ArgumentException("The parameter must not be null or whitespace.", paramName);
+            throw new ArgumentException(@"The parameter must not be null or whitespace.", paramName);
         }
     }
 
@@ -48,7 +48,7 @@ public static class Preconditions
         {
             if (duration == 0)
             {
-                throw new ArgumentException($"A duration value is required for duration type {type}.",
+                throw new ArgumentException($@"A duration value is required for duration type {type}.",
                     nameof(duration));
             }
         }
@@ -57,7 +57,7 @@ public static class Preconditions
             if (duration != 0)
             {
                 throw new ArgumentException(
-                    $"Duration={duration}. A duration value is not expected for duration type {type}.",
+                    $@"Duration={duration}. A duration value is not expected for duration type {type}.",
                     nameof(duration));
             }
         }
@@ -65,7 +65,7 @@ public static class Preconditions
 
     [Conditional("DEBUG")]
     [AssertionMethod]
-    internal static void AreEqual<T>(T left, T right, string message)
+    internal static void AreEqual<T>([NotNull] T left, T right, string message)
     {
         if (!left.Equals(right))
         {

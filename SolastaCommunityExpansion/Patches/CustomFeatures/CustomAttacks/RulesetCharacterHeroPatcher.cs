@@ -56,7 +56,7 @@ internal static class RulesetCharacterHero_RefreshAttackModes
 {
     private static bool _callRefresh;
 
-    internal static void Prefix(RulesetCharacterHero __instance, ref bool callRefresh)
+    internal static void Prefix(ref bool callRefresh)
     {
         _callRefresh = callRefresh;
         callRefresh = false;
@@ -88,10 +88,6 @@ internal static class RulesetCharacterHero_RefreshAll
     internal static void Prefix(RulesetCharacterHero __instance)
     {
         var listeners = __instance.GetSubFeaturesByType<IHeroRefreshedListener>();
-        if (listeners == null)
-        {
-            return;
-        }
 
         foreach (var listener in listeners)
         {
@@ -150,6 +146,12 @@ internal static class RulesetCharacterHero_RefreshActiveFightingStyles
                         }
                     }
 
+                    break;
+
+                case FightingStyleDefinition.TriggerCondition.WearingArmor:
+                case FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon:
+                case FightingStyleDefinition.TriggerCondition.TwoHandedMeleeWeapon:
+                case FightingStyleDefinition.TriggerCondition.ShieldEquiped:
                     break;
             }
         }

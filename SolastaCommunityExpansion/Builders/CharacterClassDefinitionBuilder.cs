@@ -34,7 +34,8 @@ public class
                 weight = weight, personalityFlag = personalityType.Name
             });
 
-        Definition.PersonalityFlagOccurences.Sort((x, y) => x.PersonalityFlag.CompareTo(y.PersonalityFlag));
+        Definition.PersonalityFlagOccurences.Sort((x, y) =>
+            String.Compare(x.PersonalityFlag, y.PersonalityFlag, StringComparison.CurrentCultureIgnoreCase));
 
         return this;
     }
@@ -195,6 +196,7 @@ public class
 
     #region Expertise preference
 
+#if false
     public CharacterClassDefinitionBuilder AddExpertisePreference(SkillDefinition skillType)
     {
         Definition.ExpertiseAutolearnPreference.Add(skillType.Name);
@@ -234,6 +236,7 @@ public class
         Definition.ExpertiseAutolearnPreference.Sort();
         return this;
     }
+#endif
 
     #endregion
 
@@ -263,6 +266,7 @@ public class
 
     #region Metamagic preference
 
+#if false
     public CharacterClassDefinitionBuilder AddMetamagicPreference(MetamagicOptionDefinition option)
     {
         Definition.MetamagicAutolearnPreference.Add(option.Name);
@@ -282,6 +286,7 @@ public class
         Definition.MetamagicAutolearnPreference.Sort();
         return this;
     }
+#endif
 
     #endregion
 }

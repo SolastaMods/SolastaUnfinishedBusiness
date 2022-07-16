@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 
@@ -19,8 +20,8 @@ internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
         RulesetCharacterHero hero,
         ref string prerequisiteOutput)
     {
-        if (feat is not FeatDefinitionWithPrerequisites featDefinitionWithPrerequisites ||
-            featDefinitionWithPrerequisites.Validators.Count == 0)
+        if (feat is not FeatDefinitionWithPrerequisites featDefinitionWithPrerequisites
+            || featDefinitionWithPrerequisites.Validators.Count == 0)
         {
             return;
         }
@@ -28,10 +29,11 @@ internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
         var (result, output) = featDefinitionWithPrerequisites.Validate(featDefinitionWithPrerequisites, hero);
 
         __result = __result && result;
-        prerequisiteOutput += "\n" + output;
+        prerequisiteOutput += '\n' + output;
     }
 
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var codes = instructions.ToList();
         var callSpellRepertoiresIndex =
@@ -51,22 +53,24 @@ internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
 
         // fix in DEBUG build to avoid the annoying assert statement about Feats acquired at level 1
         // it replaces the Trace comparision ClassesHistory.Count > 1 with ClassesHistory.Count > 0
-        if (Main.IsDebugBuild)
+        if (!Main.IsDebugBuild)
         {
-            var assertCheckIndex = codes.FindIndex(c => c.opcode == OpCodes.Ldc_I4_1);
+            return codes;
+        }
 
-            if (assertCheckIndex != -1)
-            {
-                codes[assertCheckIndex] = new CodeInstruction(OpCodes.Ldc_I4_0);
-            }
+        var assertCheckIndex = codes.FindIndex(c => c.opcode == OpCodes.Ldc_I4_1);
+
+        if (assertCheckIndex != -1)
+        {
+            codes[assertCheckIndex] = new CodeInstruction(OpCodes.Ldc_I4_0);
         }
 
         return codes;
     }
 
-    private static int CanCastSpells(RulesetCharacterHero hero)
+    private static int CanCastSpells([NotNull] RulesetCharacterHero hero)
     {
-        // Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell 
+        // Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell
         // which are registered before feat selection at lvl 1
 
         return hero.EnumerateFeaturesToBrowse<FeatureDefinitionCastSpell>().Count;

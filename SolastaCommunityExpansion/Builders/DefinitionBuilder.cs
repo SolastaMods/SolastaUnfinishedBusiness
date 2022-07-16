@@ -302,7 +302,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
         {
             if (namespaceGuid == Guid.Empty)
             {
-                throw new ArgumentException("Please supply a non-empty Guid", nameof(namespaceGuid));
+                throw new ArgumentException(@"Please supply a non-empty Guid", nameof(namespaceGuid));
             }
 
             // create guid from namespace+name
@@ -363,7 +363,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
         Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
         Preconditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
 
-        if (!Guid.TryParse(Definition.GUID, out var _))
+        if (!Guid.TryParse(Definition.GUID, out _))
         {
             throw new SolastaCommunityExpansionException(
                 $"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
@@ -510,13 +510,15 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
                     Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
                 }
 
-                if (string.IsNullOrEmpty(Definition.GuiPresentation.Description))
+                if (!string.IsNullOrEmpty(Definition.GuiPresentation.Description))
                 {
-                    Main.Log(
-                        $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
-
-                    Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
+                    return;
                 }
+
+                Main.Log(
+                    $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
+
+                Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
             }
         }
     }
@@ -555,7 +557,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     ///     Override this in a derived builder (and set to true) to disable the standard set of Create methods.
     ///     You must then provide your own specialized constructor and/or Create method.
     /// </summary>
-    protected virtual bool DisableStandardCreateMethods => false;
+    protected bool DisableStandardCreateMethods => false;
 
     private static TBuilder CreateImpl(params object[] parameters)
     {

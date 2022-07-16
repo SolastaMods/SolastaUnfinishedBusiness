@@ -12,10 +12,10 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Druid;
 
-internal class CircleOfTheForestGuardian : AbstractSubclass
+internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 {
     private const string DruidForestGuardianDruidSubclassName = "DruidForestGuardianDruidSubclass";
-    internal static readonly Guid BaseGuid = new("45a7595b-5d5f-4351-b7f1-cb78c9d0a136");
+    private static readonly Guid BaseGuid = new("45a7595b-5d5f-4351-b7f1-cb78c9d0a136");
     private CharacterSubclassDefinition Subclass;
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -81,7 +81,7 @@ internal class CircleOfTheForestGuardian : AbstractSubclass
     private static (FeatureDefinitionPowerSharedPool barkWard, FeatureDefinitionPowerSharedPool improvedBarkWard,
         FeatureDefinitionPowerSharedPool superiorBarkWard) CreateBarkWard()
     {
-        var tempHPEffect = EffectFormBuilder
+        var tempHpEffect = EffectFormBuilder
             .Create()
             .SetTempHPForm(4, DieType.D1, 0)
             .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
@@ -108,7 +108,7 @@ internal class CircleOfTheForestGuardian : AbstractSubclass
             .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
             .SetCreatedByCharacter()
             .SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(tempHPEffect)
+            .AddEffectForm(tempHpEffect)
             .AddEffectForm(barkWardBuff)
             .SetEffectAdvancement(EffectIncrementMethod.None)
             .Build();
@@ -118,7 +118,7 @@ internal class CircleOfTheForestGuardian : AbstractSubclass
             .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
             .SetCreatedByCharacter()
             .SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(tempHPEffect)
+            .AddEffectForm(tempHpEffect)
             .AddEffectForm(improvedBarkWardBuff)
             .SetEffectAdvancement(EffectIncrementMethod.None)
             .Build();
@@ -128,7 +128,7 @@ internal class CircleOfTheForestGuardian : AbstractSubclass
             .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
             .SetCreatedByCharacter()
             .SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(tempHPEffect)
+            .AddEffectForm(tempHpEffect)
             .AddEffectForm(superiorBarkWardBuff)
             .SetEffectAdvancement(EffectIncrementMethod.None)
             .Build();

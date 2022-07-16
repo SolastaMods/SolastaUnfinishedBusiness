@@ -50,17 +50,20 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 #endif
+
     public MonsterDefinitionBuilder SetBestiaryEntry(BestiaryEntry entry)
     {
         Definition.bestiaryEntry = entry;
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetBestiaryReference(MonsterDefinition monster)
     {
         Definition.bestiaryReference = monster;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetBestiarySpriteReference(AssetReferenceSprite sprite)
     {
@@ -112,7 +115,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         Definition.dualSex = value;
         return this;
     }
-    
+
     public MonsterDefinitionBuilder SetFollowFloorAngle(bool value)
     {
         Definition.followFloorAngle = value;
@@ -193,14 +196,8 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder SetInDungeonEditor(bool value)
     {
-        if (value)
-        {
-            Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.Monster;
-        }
-        else
-        {
-            Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
-        }
+        Definition.dungeonMakerPresence =
+            value ? MonsterDefinition.DungeonMaker.Monster : MonsterDefinition.DungeonMaker.None;
 
         return this;
     }
@@ -485,13 +482,11 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
-#if false
     public MonsterDefinitionBuilder SetLegendaryActionOptions(
         params LegendaryActionDescription[] legendaryActionDescriptions)
     {
         return SetLegendaryActionOptions(legendaryActionDescriptions.AsEnumerable());
     }
-#endif
 
     public MonsterDefinitionBuilder SetLegendaryActionOptions(
         IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)

@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageRaceSelectionPanel_OnBeginShow
 {
-    internal static void Prefix(CharacterStageRaceSelectionPanel __instance)
+    internal static void Prefix([NotNull] CharacterStageRaceSelectionPanel __instance)
     {
         var allRaces = new List<CharacterRaceDefinition>();
         var subRaces = new List<CharacterRaceDefinition>();
@@ -22,7 +23,7 @@ internal static class CharacterStageRaceSelectionPanel_OnBeginShow
         __instance.sortedSubRaces.Clear();
 
         foreach (var characterRaceDefinition in allRaces
-                     .Where(x => x.SubRaces != null && x.SubRaces.Count > 0))
+                     .Where(x => x.SubRaces is {Count: > 0}))
         {
             if (characterRaceDefinition.SubRaces.Count > __instance.maxSubRacesPerRace)
             {

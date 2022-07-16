@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Models;
 public static class CustomFeaturesContext
 {
     internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, string tag,
-        List<FeatureDefinition> features, bool handleCustomCode = true)
+        [NotNull] List<FeatureDefinition> features, bool handleCustomCode = true)
     {
         foreach (var grantedFeature in features)
         {
@@ -18,8 +19,10 @@ public static class CustomFeaturesContext
                 customFeature.ApplyFeature(hero, tag);
             }
 
-            if (grantedFeature is FeatureDefinitionFeatureSet set &&
-                set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            if (grantedFeature is FeatureDefinitionFeatureSet
+                {
+                    Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
+                } set)
             {
                 RecursiveGrantCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
             }
@@ -42,7 +45,7 @@ public static class CustomFeaturesContext
         }
     }
 
-    internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, string tag,
+    internal static void RecursiveRemoveCustomFeatures([NotNull] RulesetCharacterHero hero, string tag,
         List<FeatureDefinition> features, bool handleCustomCode = true)
     {
         var selectedClass = LevelUpContext.GetSelectedClass(hero);
@@ -60,8 +63,10 @@ public static class CustomFeaturesContext
                 customFeature.RemoveFeature(hero, tag);
             }
 
-            if (grantedFeature is FeatureDefinitionFeatureSet set &&
-                set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            if (grantedFeature is FeatureDefinitionFeatureSet
+                {
+                    Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
+                } set)
             {
                 RecursiveRemoveCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
             }
@@ -86,8 +91,11 @@ public static class CustomFeaturesContext
         hero.UpdateFeatureModifiers(tag);
     }
 
-    private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero,
-        RulesetSpellRepertoire heroRepertoire, string tag, FeatureDefinitionPointPool featureDefinitionPointPool)
+    private static void RemoveFeatureDefinitionPointPool(
+        RulesetCharacterHero hero,
+        [CanBeNull] RulesetSpellRepertoire heroRepertoire,
+        string tag,
+        [NotNull] FeatureDefinitionPointPool featureDefinitionPointPool)
     {
         var poolAmount = featureDefinitionPointPool.PoolAmount;
 
@@ -137,75 +145,95 @@ public static class CustomFeaturesContext
             case HeroDefinitions.PointsPoolType.Tool:
                 hero.TrainedToolTypes.RemoveRange(hero.TrainedToolTypes.Count - poolAmount, poolAmount);
                 break;
+
+            case HeroDefinitions.PointsPoolType.SpellUnlearn:
+            case HeroDefinitions.PointsPoolType.Irrelevant:
+                break;
         }
     }
 
-    internal static void RemoveFeatures(RulesetCharacterHero hero,
-        CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
+    internal static void RemoveFeatures(
+        [NotNull] RulesetCharacterHero hero,
+        CharacterClassDefinition characterClassDefinition,
+        string tag,
+        List<FeatureDefinition> featuresToRemove)
     {
         var classLevel = hero.ClassesAndLevels[characterClassDefinition];
         var heroRepertoire =
             hero.SpellRepertoires.FirstOrDefault(x =>
                 LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
-        var buildinData = hero.GetHeroBuildingData();
+        var buildingData = hero.GetHeroBuildingData();
         var spellTag = GetSpellLearningTag(hero, tag);
 
         foreach (var featureDefinition in featuresToRemove)
         {
-            if (featureDefinition is FeatureDefinitionCastSpell && heroRepertoire != null)
+            switch (featureDefinition)
             {
-                hero.SpellRepertoires.Remove(heroRepertoire);
-            }
+                case FeatureDefinitionCastSpell when heroRepertoire != null:
+                    hero.SpellRepertoires.Remove(heroRepertoire);
 
-            if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells &&
-                heroRepertoire != null)
-            {
-                var spellsToRemove = featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups
-                    .FirstOrDefault(x => x.ClassLevel == classLevel)?.SpellsList.Count ?? 0;
+                    break;
 
-                while (spellsToRemove-- > 0)
+                case FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells
+                    when heroRepertoire != null:
                 {
-                    heroRepertoire.AutoPreparedSpells.RemoveAt(heroRepertoire.AutoPreparedSpells.Count - 1);
-                }
-            }
-            else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips &&
-                     heroRepertoire != null)
-            {
-                //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
-                heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
-                if (buildinData != null)
-                {
-                    if (buildinData.BonusCantrips.ContainsKey(spellTag))
+                    var spellsToRemove = featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups
+                        .FirstOrDefault(x => x.ClassLevel == classLevel)?.SpellsList.Count ?? 0;
+
+                    while (spellsToRemove-- > 0)
                     {
-                        buildinData.BonusCantrips[spellTag]
+                        heroRepertoire.AutoPreparedSpells.RemoveAt(heroRepertoire.AutoPreparedSpells.Count - 1);
+                    }
+
+                    break;
+                }
+                case FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips when heroRepertoire != null:
+                {
+                    //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
+                    heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+
+                    if (buildingData == null)
+                    {
+                        continue;
+                    }
+
+                    if (buildingData.BonusCantrips.ContainsKey(spellTag))
+                    {
+                        buildingData.BonusCantrips[spellTag]
                             .RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
                     }
+
+                    break;
                 }
-            }
-            else if (featureDefinition is FeatureDefinitionFightingStyleChoice)
-            {
-                hero.TrainedFightingStyles.RemoveAt(hero.TrainedFightingStyles.Count - 1);
-            }
-            else if (featureDefinition is FeatureDefinitionSubclassChoice)
-            {
-                hero.ClassesAndSubclasses.Remove(characterClassDefinition);
-            }
-            else if (featureDefinition is FeatureDefinitionPointPool featureDefinitionPointPool)
-            {
-                RemoveFeatureDefinitionPointPool(hero, heroRepertoire, tag, featureDefinitionPointPool);
-            }
-            else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet &&
-                     featureDefinitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            {
-                RemoveFeatures(hero, characterClassDefinition, tag, featureDefinitionFeatureSet.FeatureSet);
+                case FeatureDefinitionFightingStyleChoice:
+                    hero.TrainedFightingStyles.RemoveAt(hero.TrainedFightingStyles.Count - 1);
+
+                    break;
+
+                case FeatureDefinitionSubclassChoice:
+                    hero.ClassesAndSubclasses.Remove(characterClassDefinition);
+
+                    break;
+
+                case FeatureDefinitionPointPool featureDefinitionPointPool:
+                    RemoveFeatureDefinitionPointPool(hero, heroRepertoire, tag, featureDefinitionPointPool);
+
+                    break;
+
+                case FeatureDefinitionFeatureSet
+                {
+                    Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
+                } featureDefinitionFeatureSet:
+                    RemoveFeatures(hero, characterClassDefinition, tag, featureDefinitionFeatureSet.FeatureSet);
+
+                    break;
             }
         }
     }
 
-    public static void ActuallyRemoveCharacterFeature(RulesetCharacterHero hero, FeatureDefinition feature)
+    public static void ActuallyRemoveCharacterFeature([NotNull] RulesetCharacterHero hero, FeatureDefinition feature)
     {
-        if (feature is FeatureDefinitionFeatureSet set &&
-            set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+        if (feature is FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union} set)
         {
             foreach (var f in set.FeatureSet)
             {
@@ -219,96 +247,109 @@ public static class CustomFeaturesContext
             var tag = e.Key;
             var features = e.Value;
 
-            if (features.Contains(feature))
+            if (!features.Contains(feature))
             {
-                var featuresToRemove = new List<FeatureDefinition> {feature};
-                RecursiveRemoveCustomFeatures(hero, tag, featuresToRemove, false);
-                if (selectedClass != null)
-                {
-                    RemoveFeatures(hero, selectedClass, tag, featuresToRemove);
-                }
-
-                features.Remove(feature);
-                break;
+                continue;
             }
+
+            var featuresToRemove = new List<FeatureDefinition> {feature};
+
+            RecursiveRemoveCustomFeatures(hero, tag, featuresToRemove, false);
+
+            if (selectedClass != null)
+            {
+                RemoveFeatures(hero, selectedClass, tag, featuresToRemove);
+            }
+
+            features.Remove(feature);
+
+            break;
         }
     }
 
-    internal static void RechargeLinkedPowers(RulesetCharacter character, RuleDefinitions.RestType restType)
+    internal static void RechargeLinkedPowers(
+        [NotNull] RulesetCharacter character,
+        RuleDefinitions.RestType restType)
     {
         var pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
 
         foreach (var usablePower in character.UsablePowers)
         {
-            if (usablePower.PowerDefinition is IPowerSharedPool pool)
+            if (usablePower.PowerDefinition is not IPowerSharedPool pool)
             {
-                var pointPoolPower = pool.GetUsagePoolPower();
+                continue;
+            }
 
-                // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or 
-                // it recharges on a long rest and this is a long rest.
-                if (!pointPoolPowerDefinitions.Contains(pointPoolPower)
-                    && ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
-                         (restType == RuleDefinitions.RestType.ShortRest ||
-                          restType == RuleDefinitions.RestType.LongRest)) ||
-                        (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest &&
-                         restType == RuleDefinitions.RestType.LongRest)))
-                {
-                    pointPoolPowerDefinitions.Add(pointPoolPower);
-                }
+            var pointPoolPower = pool.GetUsagePoolPower();
+
+            // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or
+            // it recharges on a long rest and this is a long rest.
+            if (!pointPoolPowerDefinitions.Contains(pointPoolPower)
+                && ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
+                     restType is RuleDefinitions.RestType.ShortRest or RuleDefinitions.RestType.LongRest) ||
+                    (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest &&
+                     restType == RuleDefinitions.RestType.LongRest)))
+            {
+                pointPoolPowerDefinitions.Add(pointPoolPower);
             }
         }
 
         // Find the UsablePower of the point pool powers.
         foreach (var poolPower in character.UsablePowers)
         {
-            if (pointPoolPowerDefinitions.Contains(poolPower.PowerDefinition))
+            if (!pointPoolPowerDefinitions.Contains(poolPower.PowerDefinition))
             {
-                var poolSize = GetMaxUsesForPool(poolPower, character);
-
-                poolPower.remainingUses = poolSize;
-
-                AssignUsesToSharedPowersForPool(character, poolPower, poolSize, poolSize);
+                continue;
             }
+
+            var poolSize = GetMaxUsesForPool(poolPower, character);
+
+            poolPower.remainingUses = poolSize;
+
+            AssignUsesToSharedPowersForPool(character, poolPower, poolSize, poolSize);
         }
     }
 
-    internal static void AssignUsesToSharedPowersForPool(RulesetCharacter character, RulesetUsablePower poolPower,
-        int remainingUses, int totalUses)
+    private static void AssignUsesToSharedPowersForPool(
+        [NotNull] RulesetCharacter character,
+        RulesetUsablePower poolPower,
+        int remainingUses,
+        int totalUses)
     {
         // Find powers that rely on this pool
         foreach (var usablePower in character.UsablePowers)
         {
-            if (usablePower.PowerDefinition is IPowerSharedPool pool)
+            if (usablePower.PowerDefinition is not IPowerSharedPool pool)
             {
-                var pointPoolPower = pool.GetUsagePoolPower();
-
-                if (pointPoolPower == poolPower.PowerDefinition)
-                {
-                    usablePower.maxUses = totalUses / usablePower.PowerDefinition.CostPerUse;
-                    usablePower.remainingUses = remainingUses / usablePower.PowerDefinition.CostPerUse;
-                }
+                continue;
             }
+
+            var pointPoolPower = pool.GetUsagePoolPower();
+
+            if (pointPoolPower != poolPower.PowerDefinition)
+            {
+                continue;
+            }
+
+            usablePower.maxUses = totalUses / usablePower.PowerDefinition.CostPerUse;
+            usablePower.remainingUses = remainingUses / usablePower.PowerDefinition.CostPerUse;
         }
     }
 
-    public static RulesetUsablePower GetPoolPower(RulesetUsablePower power, RulesetCharacter character)
+    [CanBeNull]
+    public static RulesetUsablePower GetPoolPower([NotNull] RulesetUsablePower power, RulesetCharacter character)
     {
-        if (power.PowerDefinition is IPowerSharedPool pool)
+        if (power.PowerDefinition is not IPowerSharedPool pool)
         {
-            var poolPower = pool.GetUsagePoolPower();
-            foreach (var usablePower in character.UsablePowers)
-            {
-                if (usablePower.PowerDefinition == poolPower)
-                {
-                    return usablePower;
-                }
-            }
+            return null;
         }
 
-        return null;
+        var poolPower = pool.GetUsagePoolPower();
+
+        return character.UsablePowers.FirstOrDefault(usablePower => usablePower.PowerDefinition == poolPower);
     }
 
-    internal static int GetMaxUsesForPool(RulesetUsablePower poolPower, RulesetCharacter character)
+    internal static int GetMaxUsesForPool([NotNull] RulesetUsablePower poolPower, [NotNull] RulesetCharacter character)
     {
         var totalPoolSize = poolPower.MaxUses;
 
@@ -324,25 +365,28 @@ public static class CustomFeaturesContext
         return totalPoolSize;
     }
 
-    internal static void UpdateUsageForPower(this RulesetCharacter character, FeatureDefinitionPower power,
+    internal static void UpdateUsageForPower([NotNull] this RulesetCharacter character, FeatureDefinitionPower power,
         int poolUsage)
     {
         foreach (var poolPower in character.UsablePowers)
         {
-            if (poolPower.PowerDefinition == power)
+            if (poolPower.PowerDefinition != power)
             {
-                var maxUses = GetMaxUsesForPool(poolPower, character);
-                var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
-
-                poolPower.remainingUses = remainingUses;
-                AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
-
-                return;
+                continue;
             }
+
+            var maxUses = GetMaxUsesForPool(poolPower, character);
+            var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
+
+            poolPower.remainingUses = remainingUses;
+            AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
+
+            return;
         }
     }
 
-    internal static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower,
+    internal static void UpdateUsageForPowerPool(this RulesetCharacter character,
+        [NotNull] RulesetUsablePower modifiedPower,
         int poolUsage)
     {
         if (modifiedPower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
@@ -354,35 +398,37 @@ public static class CustomFeaturesContext
 
         foreach (var poolPower in character.UsablePowers)
         {
-            if (poolPower.PowerDefinition == pointPoolPower)
+            if (poolPower.PowerDefinition != pointPoolPower)
             {
-                var maxUses = GetMaxUsesForPool(poolPower, character);
-                var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
-
-                poolPower.remainingUses = remainingUses;
-                AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
-
-                // refresh character control panel after power pool usage is updated
-                // needed for custom point pools on portrait to update properly in some cases
-                GameUiContext.GameHud.RefreshCharactrControlPanel();
-                return;
+                continue;
             }
+
+            var maxUses = GetMaxUsesForPool(poolPower, character);
+            var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
+
+            poolPower.remainingUses = remainingUses;
+            AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
+
+            // refresh character control panel after power pool usage is updated
+            // needed for custom point pools on portrait to update properly in some cases
+            GameUiContext.GameHud.RefreshCharacterControlPanel();
+            return;
         }
     }
 
-    internal static int GetRemainingPowerUses(this RulesetCharacter character, RulesetUsablePower usablePower)
-    {
-        if (usablePower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
-        {
-            return usablePower.PowerDefinition.CostPerUse == 0
-                ? int.MaxValue
-                : usablePower.RemainingUses / usablePower.PowerDefinition.CostPerUse;
-        }
+    // internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] RulesetUsablePower usablePower)
+    // {
+    //     if (usablePower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
+    //     {
+    //         return usablePower.PowerDefinition.CostPerUse == 0
+    //             ? int.MaxValue
+    //             : usablePower.RemainingUses / usablePower.PowerDefinition.CostPerUse;
+    //     }
+    //
+    //     return GetRemainingPowerPoolUses(character, sharedPoolPower);
+    // }
 
-        return GetRemainingPowerPoolUses(character, sharedPoolPower);
-    }
-
-    internal static int GetRemainingPowerUses(this RulesetCharacter character, FeatureDefinitionPower power)
+    internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)
     {
         if (power.CostPerUse == 0)
         {
@@ -403,35 +449,33 @@ public static class CustomFeaturesContext
         return usablePower.RemainingUses / power.CostPerUse;
     }
 
-    internal static int GetRemainingPowerPoolUses(this RulesetCharacter character, IPowerSharedPool sharedPoolPower)
+    private static int GetRemainingPowerPoolUses(
+        [NotNull] this RulesetCharacter character,
+        [NotNull] IPowerSharedPool sharedPoolPower)
     {
         var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 
-        foreach (var poolPower in character.UsablePowers)
-        {
-            if (poolPower.PowerDefinition == pointPoolPower)
-            {
-                return poolPower.RemainingUses;
-            }
-        }
-
-        return 0;
+        return (from poolPower in character.UsablePowers
+            where poolPower.PowerDefinition == pointPoolPower
+            select poolPower.RemainingUses).FirstOrDefault();
     }
 
-    public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
+    public static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)
     {
         return ModifySpellEffect(original, spell.SpellDefinition, spell.Caster);
     }
 
-    public static EffectDescription ModifySpellEffect(SpellDefinition spell, RulesetCharacter caster)
+    public static EffectDescription ModifySpellEffect([NotNull] SpellDefinition spell, RulesetCharacter caster)
     {
         return ModifySpellEffect(spell.EffectDescription, spell, caster);
     }
 
-    public static EffectDescription ModifySpellEffect(EffectDescription original, SpellDefinition spell,
-        RulesetCharacter caster)
+    private static EffectDescription ModifySpellEffect(
+        EffectDescription original,
+        SpellDefinition spell,
+        [CanBeNull] RulesetCharacter caster)
     {
-        //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
+        //TODO: find a way to cache result, so it works faster - this method is called several times per spell cast
         var result = original;
 
         var baseDefinition = spell.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
@@ -451,7 +495,7 @@ public static class CustomFeaturesContext
     }
 
     /**Modifies spell description for GUI purposes. Uses only modifiers based on ICustomMagicEffectBasedOnCaster*/
-    public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
+    public static EffectDescription ModifySpellEffectGui(EffectDescription original, [NotNull] GuiSpellDefinition spell)
     {
         var result = original;
         var caster = Global.InspectedHero
@@ -459,6 +503,7 @@ public static class CustomFeaturesContext
                      ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
         var baseDefinition = spell.SpellDefinition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+
         if (baseDefinition != null && caster != null)
         {
             result = baseDefinition.GetCustomEffect(caster) ?? original;
@@ -467,7 +512,9 @@ public static class CustomFeaturesContext
         return result;
     }
 
-    public static EffectDescription AddEffectForms(EffectDescription baseEffect, params EffectForm[] effectForms)
+    [NotNull]
+    public static EffectDescription AddEffectForms(EffectDescription baseEffect,
+        [NotNull] params EffectForm[] effectForms)
     {
         var newEffect = baseEffect.Copy();
 
@@ -477,31 +524,35 @@ public static class CustomFeaturesContext
     }
 
     public static bool GetValidationErrors(
-        IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators, out List<string> errors)
+        [NotNull] IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators,
+        [NotNull] out List<string> errors)
     {
         errors = validators
             .Select(v => v())
             .Where(v => v != null)
             .ToList();
+
         return errors.Empty();
     }
 
-    public static string UnCustomizeTag(string tag)
+    [NotNull]
+    public static string UnCustomizeTag([NotNull] string tag)
     {
         return tag.Replace("[Custom]", "");
     }
 
-    public static string CustomizeTag(string tag)
+    [NotNull]
+    public static string CustomizeTag([NotNull] string tag)
     {
         return UnCustomizeTag(tag) + "[Custom]";
     }
 
-    public static bool IsCustomTag(string tag)
+    public static bool IsCustomTag([CanBeNull] string tag)
     {
         return tag != null && tag.Contains("[Custom]");
     }
 
-    public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
+    public static string GetSpellLearningTag(RulesetCharacterHero hero, [CanBeNull] string tag)
     {
         if (tag == null)
         {

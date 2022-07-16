@@ -10,17 +10,19 @@ internal static class RulesetCharacterHero_GrantExperience
 {
     internal static void Prefix(ref int experiencePoints)
     {
-        if (Main.Settings.MultiplyTheExperienceGainedBy != 100 && Main.Settings.MultiplyTheExperienceGainedBy > 0)
+        if (Main.Settings.MultiplyTheExperienceGainedBy is 100 or <= 0)
         {
-            var original = experiencePoints;
-
-            experiencePoints =
-                (int)Math.Round(experiencePoints * Main.Settings.MultiplyTheExperienceGainedBy / 100.0f,
-                    MidpointRounding.AwayFromZero);
-
-            Main.Log(
-                $"GrantExperience: Multiplying experience gained by {Main.Settings.MultiplyTheExperienceGainedBy}%. Original={original}, modified={experiencePoints}.");
+            return;
         }
+
+        var original = experiencePoints;
+
+        experiencePoints =
+            (int)Math.Round(experiencePoints * Main.Settings.MultiplyTheExperienceGainedBy / 100.0f,
+                MidpointRounding.AwayFromZero);
+
+        Main.Log(
+            $"GrantExperience: Multiplying experience gained by {Main.Settings.MultiplyTheExperienceGainedBy}%. Original={original}, modified={experiencePoints}.");
     }
 }
 

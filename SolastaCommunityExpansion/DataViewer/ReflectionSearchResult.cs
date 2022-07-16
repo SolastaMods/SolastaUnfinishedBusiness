@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using JetBrains.Annotations;
 using ModKit;
-using ModKit.Utility;
+using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.DataViewer;
 
@@ -43,12 +44,14 @@ public class ResultNode<TNode> : ResultNode where TNode : class
 
     public void Traverse(TraversalCallback callback, int depth = 0)
     {
-        if (callback(this, depth))
+        if (!callback(this, depth))
         {
-            foreach (var child in Children)
-            {
-                child.Traverse(callback, depth + 1);
-            }
+            return;
+        }
+
+        foreach (var child in Children)
+        {
+            child.Traverse(callback, depth + 1);
         }
     }
 
@@ -57,17 +60,21 @@ public class ResultNode<TNode> : ResultNode where TNode : class
         return Children.Find(rn => rn.Node == node);
     }
 
-    public ResultNode<TNode> FindOrAddChild(TNode node)
+    [NotNull]
+    private ResultNode<TNode> FindOrAddChild(TNode node)
     {
-        var rnode = Children.Find(rn => rn.Node == node);
-        if (rnode == null)
+        var rNode = Children.Find(rn => rn.Node == node);
+
+        if (rNode != null)
         {
-            rnode = Activator.CreateInstance(GetType(), ALL_FLAGS, null, null, null) as ResultNode<TNode>;
-            rnode.Node = node;
-            Children.Add(rnode);
+            return rNode;
         }
 
-        return rnode;
+        rNode = Activator.CreateInstance(GetType(), ALL_FLAGS, null, null, null) as ResultNode<TNode>;
+        rNode.Node = node;
+        Children.Add(rNode);
+
+        return rNode;
     }
 
     public void AddSearchResult(IEnumerable<TNode> path)
@@ -91,12 +98,8 @@ public class ResultNode<TNode> : ResultNode where TNode : class
     private StringBuilder BuildString(StringBuilder builder, int depth)
     {
         builder.Append($"{NodeTypePrefix} {Name}:{Type} - {ValueText}\n".Indent(depth));
-        foreach (var child in Children)
-        {
-            builder = child.BuildString(builder, depth + 1);
-        }
 
-        return builder;
+        return Children.Aggregate(builder, (current, child) => child.BuildString(current, depth + 1));
     }
 
     public override string ToString()

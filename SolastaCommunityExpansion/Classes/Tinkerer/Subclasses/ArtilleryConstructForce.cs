@@ -293,18 +293,19 @@ Web
         Definition.projectile = ForceArtilleryProjectileBuilder.ForceArtilleryProjectile.name;
         Definition.projectileBone = AnimationDefinitions.BoneType.Chest;
 
-        var motionForm = new MotionForm();
-        motionForm.type = MotionForm.MotionType.PushFromOrigin;
-        motionForm.distance = 1;
+        var motionForm = new MotionForm {type = MotionForm.MotionType.PushFromOrigin, distance = 1};
 
-        var effectmotion = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
-        effectmotion.motionForm = motionForm;
-        effectmotion.createdByCharacter = true;
-        effectmotion.HasSavingThrow = false;
-        effectmotion.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        effectmotion.levelMultiplier = 1;
-        effectmotion.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
-        effectmotion.applyLevel = EffectForm.LevelApplianceType.No;
+        var effectmotion = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.Motion,
+            motionForm = motionForm,
+            createdByCharacter = true,
+            HasSavingThrow = false,
+            AddBonusMode = RuleDefinitions.AddBonusMode.None,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.EffectLevel,
+            applyLevel = EffectForm.LevelApplianceType.No
+        };
 
         var forceArtilleryAttack = new DamageForm
         {
@@ -314,13 +315,17 @@ Web
             BonusDamage = 0
         };
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Damage, DamageForm = forceArtilleryAttack};
-        effect.createdByCharacter = true;
-        effect.hasSavingThrow = false;
-        effect.addBonusMode = RuleDefinitions.AddBonusMode.None;
-        effect.levelMultiplier = 1;
-        effect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
-        effect.applyLevel = EffectForm.LevelApplianceType.No;
+        var effect = new EffectForm
+        {
+            FormType = EffectForm.EffectFormType.Damage,
+            DamageForm = forceArtilleryAttack,
+            createdByCharacter = true,
+            hasSavingThrow = false,
+            addBonusMode = RuleDefinitions.AddBonusMode.None,
+            levelMultiplier = 1,
+            levelType = RuleDefinitions.LevelSourceType.EffectLevel,
+            applyLevel = EffectForm.LevelApplianceType.No
+        };
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();
@@ -342,7 +347,7 @@ Web
         Definition.EffectDescription.SetEffectParticleParameters(effectParticleParameters);
     }
 
-    public static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)
+    private static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)
     {
         return new ForceArtilleryAttackBuilder(name, guid).AddToDB();
     }

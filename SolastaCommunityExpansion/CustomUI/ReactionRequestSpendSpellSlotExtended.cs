@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomUI;
 
-public class ReactionRequestSpendSpellSlotExtended : ReactionRequest
+public sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 {
     private readonly GuiCharacter _guiCharacter;
 
@@ -37,7 +37,7 @@ public class ReactionRequestSpendSpellSlotExtended : ReactionRequest
     }
 
     public override int SelectedSubOption =>
-        SubOptionsAvailability.Keys.ToList().Find(v => v == ReactionParams.IntParameter);
+        SubOptionsAvailability.Keys.ToList().FindIndex(v => v == ReactionParams.IntParameter);
 
     public override string SuboptionTag => ReactionParams.StringParameter;
 

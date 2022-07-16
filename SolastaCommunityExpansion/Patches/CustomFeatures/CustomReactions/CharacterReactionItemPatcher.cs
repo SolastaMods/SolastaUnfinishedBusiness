@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomUI;
 using UnityEngine;
@@ -15,7 +16,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterReactionItem_Bind
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var codes = instructions.ToList();
         var customBindMethod =
@@ -27,19 +29,21 @@ internal static class CharacterReactionItem_Bind
 
         var bindIndex = codes.FindIndex(x => x.Calls(bind));
 
-        if (bindIndex > 0)
+        if (bindIndex <= 0)
         {
-            codes[bindIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
-            codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_1));
+            return codes.AsEnumerable();
         }
+
+        codes[bindIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
+        codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_1));
 
         return codes.AsEnumerable();
     }
 
-    internal static void Postfix(CharacterReactionItem __instance)
+    internal static void Postfix([NotNull] CharacterReactionItem __instance)
     {
         var request = __instance.ReactionRequest;
-        var size = request is ReactionRequestWarcaster || request is ReactionRequestSpendBundlePower
+        var size = request is ReactionRequestWarcaster or ReactionRequestSpendBundlePower
             ? 400
             : 290;
 
@@ -47,24 +51,56 @@ internal static class CharacterReactionItem_Bind
             .SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
     }
 
-    private static void CustomBind(CharacterReactionSubitem instance,
+    private static void CustomBind(
+        [NotNull] CharacterReactionSubitem instance,
         RulesetSpellRepertoire spellRepertoire,
         int slotLevel,
         string text,
         bool interactable,
-        CharacterReactionSubitem.SubitemSelectedHandler subitemSelected, ReactionRequest reactionRequest)
+        CharacterReactionSubitem.SubitemSelectedHandler subitemSelected,
+        ReactionRequest reactionRequest)
     {
-        if (reactionRequest is ReactionRequestWarcaster warcasterRequest)
+        switch (reactionRequest)
         {
-            instance.BindWarcaster(warcasterRequest, slotLevel, interactable, subitemSelected);
+            case ReactionRequestWarcaster warcasterRequest:
+                instance.BindWarcaster(warcasterRequest, slotLevel, interactable, subitemSelected);
+                break;
+            case ReactionRequestSpendBundlePower bundlePowerRequest:
+                instance.BindPowerBundle(bundlePowerRequest, slotLevel, interactable, subitemSelected);
+                break;
+            default:
+                instance.Bind(spellRepertoire, slotLevel, text, interactable, subitemSelected);
+                break;
         }
-        else if (reactionRequest is ReactionRequestSpendBundlePower bundlePoweRequest)
+    }
+}
+
+// Replace `GetSelectedSubItem` to fix reaction selection crashes.
+// Default one selects last item that is Selected, regardless if it is active or not, leading to wrong spell slots for smites being selected
+// This implementation returns first item that is both Selected and active
+[HarmonyPatch(typeof(CharacterReactionItem), "GetSelectedSubItem")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class CharacterReactionItem_GetSelectedSubItem
+{
+    internal static bool Prefix([NotNull] CharacterReactionItem __instance, out int __result)
+    {
+        __result = 0;
+
+        var itemsTable = __instance.subItemsTable;
+
+        for (var index = 0; index < itemsTable.childCount; ++index)
         {
-            instance.BindPowerBundle(bundlePoweRequest, slotLevel, interactable, subitemSelected);
+            var item = itemsTable.GetChild(index).GetComponent<CharacterReactionSubitem>();
+
+            if (!item.gameObject.activeSelf || !item.Selected)
+            {
+                continue;
+            }
+
+            __result = index;
+            break;
         }
-        else
-        {
-            instance.Bind(spellRepertoire, slotLevel, text, interactable, subitemSelected);
-        }
+
+        return false;
     }
 }

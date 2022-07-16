@@ -16,16 +16,18 @@ internal static class FunctorParametersDescription_PlayerPlacementMarkers
     {
         var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-        if (partyCount > 4 && __result.Length > 0)
+        if (partyCount <= 4 || __result.Length <= 0)
         {
-            var result = new Transform[partyCount];
-
-            for (var idx = 0; idx < partyCount; idx++)
-            {
-                result[idx] = __result[0];
-            }
-
-            __result = result;
+            return;
         }
+
+        var result = new Transform[partyCount];
+
+        for (var idx = 0; idx < partyCount; idx++)
+        {
+            result[idx] = __result[0];
+        }
+
+        __result = result;
     }
 }

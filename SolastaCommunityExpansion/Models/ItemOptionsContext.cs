@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Classes.Warlock;
 using UnityEngine.AddressableAssets;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
@@ -14,12 +17,6 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class ItemOptionsContext
 {
-    internal static readonly string[] EmpressGarbAppearances =
-    {
-        "Normal", "Barbarian Clothes", "Druid Leather", "Elven Chain", "Plain Shirt", "Sorcerer's Armor",
-        "Studded Leather", "Sylvan Armor", "Wizard Clothes"
-    };
-
     private static readonly List<ItemDefinition> Crowns = new()
     {
         CrownOfTheMagister,
@@ -37,9 +34,25 @@ internal static class ItemOptionsContext
         CrownOfTheMagister12
     };
 
+    internal static string[] EmpressGarbAppearances { get; } =
+    {
+        Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("Equipment/&Barbarian_Clothes_Title"),
+        Gui.Localize("Equipment/&Druid_Leather_Title"), Gui.Localize("Equipment/&ElvenChain_Unidentified_Title"),
+        Gui.Localize("Equipment/&Armor_Commoner_ClothesTitle"),
+        CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title")),
+        Gui.Localize("Equipment/&Armor_StuddedLeatherTitle"), Gui.Localize("Equipment/&GreenmageArmor_Title"),
+        Gui.Localize("Equipment/&Armor_Adventuring_Wizard_OutfitTitle")
+    };
+
+    internal static string[] ArcaneShieldstaffOptions { get; } =
+    {
+        Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("ModUI/&ArcaneShieldAddDruidAndSorcerer"),
+        Gui.Localize("ModUI/&ArcaneShieldAll")
+    };
+
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
-    internal static void LoadClothingGorimStock()
+    private static void LoadClothingGorimStock()
     {
         if (!Main.Settings.StockGorimStoreWithAllNonMagicalClothing)
         {
@@ -51,21 +64,47 @@ internal static class ItemOptionsContext
                           !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo &&
                           x != ClothesWizard_B))
         {
-            var stockClothing = new StockUnitDescription();
-
-            stockClothing.itemDefinition = item;
-            stockClothing.initialAmount = 2;
-            stockClothing.initialized = true;
-            stockClothing.factionStatus = "Indifference";
-            stockClothing.maxAmount = 4;
-            stockClothing.minAmount = 2;
-            stockClothing.stackCount = 1;
-            stockClothing.reassortAmount = 1;
-            stockClothing.reassortRateValue = 1;
-            stockClothing.reassortRateType = RuleDefinitions.DurationType.Day;
+            var stockClothing = new StockUnitDescription
+            {
+                itemDefinition = item,
+                initialAmount = 2,
+                initialized = true,
+                factionStatus = "Indifference",
+                maxAmount = 4,
+                minAmount = 2,
+                stackCount = 1,
+                reassortAmount = 1,
+                reassortRateValue = 1,
+                reassortRateType = RuleDefinitions.DurationType.Day
+            };
 
             Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore.StockUnitDescriptions.Add(stockClothing);
         }
+
+        //rename valley noble's clothes by color to avoid confusion
+        var silverNoble = ClothesNoble_Valley_Silver;
+        silverNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Silver";
+
+        var redNoble = ClothesNoble_Valley_Red;
+        redNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Red";
+
+        var purpleNoble = ClothesNoble_Valley_Purple;
+        purpleNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Purple";
+
+        var pinkNoble = ClothesNoble_Valley_Pink;
+        pinkNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Pink";
+
+        var orangeNoble = ClothesNoble_Valley_Orange;
+        orangeNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Orange";
+
+        var greenNoble = ClothesNoble_Valley_Green;
+        greenNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Green";
+
+        var cherryNoble = ClothesNoble_Valley_Cherry;
+        cherryNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Cherry";
+
+        var valleyNoble = ClothesNoble_Valley;
+        valleyNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Valley";
     }
 
     internal static void SwitchSetBeltOfDwarvenKindBeardChances()
@@ -110,48 +149,45 @@ internal static class ItemOptionsContext
 
     internal static void SwitchEmpressGarb()
     {
-        if (EmpressGarbOriginalItemPresentation == null)
-        {
-            EmpressGarbOriginalItemPresentation = Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
-        }
+        EmpressGarbOriginalItemPresentation ??= Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
 
-        switch (Main.Settings.EmpressGarbAppearance)
+        switch (Main.Settings.EmpressGarbAppearanceIndex)
         {
-            case "Normal":
+            case 0: //"Normal":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 break;
 
-            case "Barbarian Clothes":
+            case 1: // Barbarian Clothes
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = BarbarianClothes.ItemPresentation;
                 break;
 
-            case "Druid Leather":
+            case 2: // Druid Leather
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = LeatherDruid.ItemPresentation;
                 break;
 
-            case "Elven Chain":
+            case 3: // Elven Chain
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ElvenChain.ItemPresentation;
                 break;
 
-            case "Plain Shirt":
+            case 4: // Plain Shirt
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useCustomArmorMaterial = false;
                 break;
 
-            case "Studded Leather":
+            case 5: // Sorcerer's Armor
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
+                break;
+
+            case 6: // Studded Leather
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = StuddedLeather.ItemPresentation;
                 break;
 
-            case "Sylvan Armor":
+            case 7: // Sylvan Armor
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = GreenmageArmor.ItemPresentation;
                 break;
 
-            case "Wizard Clothes":
+            case 8: // Wizard Clothes
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = WizardClothes_Alternate.ItemPresentation;
-                break;
-
-            case "Sorcerer's Armor":
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
                 break;
         }
     }
@@ -204,11 +240,43 @@ internal static class ItemOptionsContext
                      .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
                      .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
         {
-            if (Main.Settings.MakeAllMagicStaveArcaneFoci)
+            if (!Main.Settings.MakeAllMagicStaveArcaneFoci)
             {
-                item.IsFocusItem = true;
-                item.FocusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
+                continue;
             }
+
+            item.IsFocusItem = true;
+            item.FocusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
+        }
+    }
+
+    internal static void SwitchAttuneArcaneShieldstaff()
+    {
+        switch (Main.Settings.ArcaneShieldstaffOptions)
+        {
+            case 0:
+                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger);
+
+                if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
+                {
+                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
+                }
+
+                break;
+
+            case 1:
+                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Druid, Sorcerer);
+
+                if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
+                {
+                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
+                }
+
+                break;
+
+            case 2:
+                ArcaneShieldstaff.RequiredAttunementClasses.Clear();
+                break;
         }
     }
 
@@ -271,16 +339,18 @@ internal static class ItemOptionsContext
         GreenmageArmor.RequiredAttunementClasses.Clear();
         WizardClothes_Alternate.RequiredAttunementClasses.Clear();
 
-        if (!Main.Settings.AllowAnyClassToWearSylvanArmor)
+        if (Main.Settings.AllowAnyClassToWearSylvanArmor)
         {
-            GreenmageArmor.RequiredAttunementClasses.Add(Wizard);
-            WizardClothes_Alternate.RequiredAttunementClasses.Add(Wizard);
+            return;
         }
+
+        GreenmageArmor.RequiredAttunementClasses.Add(Wizard);
+        WizardClothes_Alternate.RequiredAttunementClasses.Add(Wizard);
     }
 
-    internal static void LoadRemoveIdentification()
+    private static void LoadRemoveIdentification()
     {
-        if (Main.Settings.RemoveIdentifcationRequirements)
+        if (Main.Settings.RemoveIdentificationRequirements)
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
             {
@@ -288,7 +358,11 @@ internal static class ItemOptionsContext
             }
         }
 
-        if (Main.Settings.RemoveAttunementRequirements)
+        if (!Main.Settings.RemoveAttunementRequirements)
+        {
+            return;
+        }
+
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
             {
@@ -297,27 +371,8 @@ internal static class ItemOptionsContext
         }
     }
 
-    // private static void FixGameRecipesTitles()
-    // {
-    //     var craftingRecipes = DatabaseRepository.GetDatabase<ItemDefinition>()
-    //         .GetAllElements()
-    //         .Where(x => x.IsDocument)
-    //         .Where(x =>
-    //             x.GuiPresentation.Title == "Equipment/&CraftingManualTitle"
-    //             || x.GuiPresentation.Title == "Equipment/&CraftingManual_x5_Title");
-    //
-    //     foreach (var craftingRecipe in craftingRecipes)
-    //     {
-    //         var itemTitle = craftingRecipe.DocumentDescription.RecipeDefinition.FormatTitle();
-    //
-    //         craftingRecipe.GuiPresentation.title =
-    //             Gui.Format(craftingRecipe.GuiPresentation.Title, itemTitle);
-    //     }
-    // }
-
     internal static void Load()
     {
-        //FixGameRecipesTitles();
         LoadRemoveIdentification();
         LoadClothingGorimStock();
         SwitchSetBeltOfDwarvenKindBeardChances();
@@ -332,6 +387,7 @@ internal static class ItemOptionsContext
         SwitchRestockCircleOfDanantar();
         SwitchRestockTowerOfKnowledge();
         SwitchUniversalSylvanArmorAndLightbringer();
+        SwitchAttuneArcaneShieldstaff();
     }
 
     private sealed class WandIdentifyBuilder : ItemDefinitionBuilder
@@ -352,18 +408,19 @@ internal static class ItemOptionsContext
             Definition.GuiPresentation.Description = description;
             Definition.UsableDeviceDescription.DeviceFunctions[0].spellDefinition = Identify;
 
-            var stockFocus = new StockUnitDescription();
-
-            stockFocus.itemDefinition = Definition;
-            stockFocus.initialAmount = 1;
-            stockFocus.initialized = true;
-            stockFocus.factionStatus = "Indifference";
-            stockFocus.maxAmount = 2;
-            stockFocus.minAmount = 1;
-            stockFocus.stackCount = 1;
-            stockFocus.reassortAmount = 1;
-            stockFocus.reassortRateValue = 1;
-            stockFocus.reassortRateType = RuleDefinitions.DurationType.Day;
+            var stockFocus = new StockUnitDescription
+            {
+                itemDefinition = Definition,
+                initialAmount = 1,
+                initialized = true,
+                factionStatus = "Indifference",
+                maxAmount = 2,
+                minAmount = 1,
+                stackCount = 1,
+                reassortAmount = 1,
+                reassortRateValue = 1,
+                reassortRateType = RuleDefinitions.DurationType.Day
+            };
 
             StockFocus.Add(stockFocus);
         }
@@ -422,8 +479,8 @@ internal static class ItemOptionsContext
             string description,
             ItemDefinition original,
             EquipmentDefinitions.FocusType type,
-            AssetReferenceSprite assetReferenceSprite,
-            params string[] slotTypes) : base(original, name, guid)
+            [CanBeNull] AssetReferenceSprite assetReferenceSprite,
+            [NotNull] params string[] slotTypes) : base(original, name, guid)
         {
             // Use IsXXXItem = true/SetIsXXXItem(true) before using the XXXItemDescription
             Definition.IsFocusItem = true;
@@ -445,18 +502,19 @@ internal static class ItemOptionsContext
                 Definition.SlotsWhereActive.SetRange(slotTypes);
             }
 
-            var stockFocus = new StockUnitDescription();
-
-            stockFocus.itemDefinition = Definition;
-            stockFocus.initialAmount = 1;
-            stockFocus.initialized = true;
-            stockFocus.factionStatus = "Indifference";
-            stockFocus.maxAmount = 2;
-            stockFocus.minAmount = 1;
-            stockFocus.stackCount = 1;
-            stockFocus.reassortAmount = 1;
-            stockFocus.reassortRateValue = 1;
-            stockFocus.reassortRateType = RuleDefinitions.DurationType.Day;
+            var stockFocus = new StockUnitDescription
+            {
+                itemDefinition = Definition,
+                initialAmount = 1,
+                initialized = true,
+                factionStatus = "Indifference",
+                maxAmount = 2,
+                minAmount = 1,
+                stackCount = 1,
+                reassortAmount = 1,
+                reassortRateValue = 1,
+                reassortRateType = RuleDefinitions.DurationType.Day
+            };
 
             StockFocus.Add(stockFocus);
         }
@@ -469,7 +527,7 @@ internal static class ItemOptionsContext
             ItemDefinition original,
             EquipmentDefinitions.FocusType type,
             AssetReferenceSprite assetReferenceSprite,
-            params string[] slotTypes)
+            [NotNull] params string[] slotTypes)
         {
             return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite,
                 slotTypes).AddToDB();

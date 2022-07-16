@@ -15,13 +15,7 @@ internal static class CharacterPoolManager_SaveCharacter
             return;
         }
 
-        if (Main.Settings.KeepCharactersPanelOpenAndHeroSelectedOnLevelUp)
-        {
-            Global.LastLevelUpHeroName = heroCharacter.Name;
-        }
-        else
-        {
-            Global.LastLevelUpHeroName = null;
-        }
+        Global.LastLevelUpHeroName =
+            Main.Settings.KeepCharactersPanelOpenAndHeroSelectedOnLevelUp ? heroCharacter.Name : null;
     }
 }

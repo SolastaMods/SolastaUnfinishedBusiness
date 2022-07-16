@@ -31,12 +31,8 @@ internal static class GameLocationCharacterPatcher
                 }
 
                 var operand = x.operand.ToString();
-                if (operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IActionPerformanceProvider"))
-                {
-                    return true;
-                }
 
-                return false;
+                return operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IActionPerformanceProvider");
             });
 
             if (bindIndex > 0)

@@ -28,9 +28,8 @@ internal static class ReactionModal_ReactionTriggered
         var rulesetCharacter = request.Character.RulesetCharacter;
 
         if (rulesetCharacter.IsSubstitute
-            && (request is ReactionRequestCastSpell
-                || request is ReactionRequestCastFallPreventionSpell
-                || request is ReactionRequestCastImmunityToSpell))
+            && request is ReactionRequestCastSpell or ReactionRequestCastFallPreventionSpell
+                or ReactionRequestCastImmunityToSpell)
         {
             ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
             return false;
@@ -43,15 +42,13 @@ internal static class ReactionModal_ReactionTriggered
         //
         // Tacticians heroes should only CounterStrike with melee weapons
         //
-        if (request is ReactionRequestCounterAttackWithPower
-            && request.SuboptionTag == "CounterStrike"
-            && request.Character.RulesetCharacter is RulesetCharacterHero hero
-            && hero.IsWieldingRangedWeapon())
+        if (request is not ReactionRequestCounterAttackWithPower || request.SuboptionTag != "CounterStrike" ||
+            request.Character.RulesetCharacter is not RulesetCharacterHero hero || !hero.IsWieldingRangedWeapon())
         {
-            ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
-            return false;
+            return true;
         }
 
-        return true;
+        ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
+        return false;
     }
 }

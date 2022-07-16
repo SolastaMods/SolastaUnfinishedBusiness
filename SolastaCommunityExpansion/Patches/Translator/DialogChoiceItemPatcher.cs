@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.Translator;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class DialogChoiceItem_Bind
 {
-    internal static void Postfix(DialogChoiceItem __instance, DialogChoiceDescription dialogChoice)
+    internal static void Postfix([NotNull] DialogChoiceItem __instance, DialogChoiceDescription dialogChoice)
     {
         __instance.labelHighlighter.TargetLabel.Text =
             DungeonMakerContext.ReplaceVariable(__instance.labelHighlighter.TargetLabel.Text);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,19 +13,19 @@ public static class MulticlassGameUiContext
 {
     private static readonly Color LightGreenSlot = new(0f, 1f, 0f, 1f);
     private static readonly Color WhiteSlot = new(1f, 1f, 1f, 1f);
-    private static readonly float[] fontSizes = {17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f};
+    private static readonly float[] FontSizes = {17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f};
 
     public static float GetFontSize(int classesCount)
     {
-        return fontSizes[classesCount % (MulticlassContext.MAX_CLASSES + 1)];
+        return FontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
     }
 
     public static void PaintPactSlots(
-        RulesetCharacterHero heroWithSpellRepertoire,
+        [NotNull] RulesetCharacterHero heroWithSpellRepertoire,
         int totalSlotsCount,
         int totalSlotsRemainingCount,
         int slotLevel,
-        RectTransform rectTransform,
+        [NotNull] RectTransform rectTransform,
         bool hasTooltip = false)
     {
         var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
@@ -112,7 +113,7 @@ public static class MulticlassGameUiContext
         rectTransform.GetComponent<GuiTooltip>().Content = str;
     }
 
-    public static void PaintSlotsWhite(RectTransform rectTransform)
+    public static void PaintSlotsWhite([NotNull] RectTransform rectTransform)
     {
         for (var index = 0; index < rectTransform.childCount; ++index)
         {
@@ -125,7 +126,7 @@ public static class MulticlassGameUiContext
 
     /**Adds available slot level options to optionsAvailability and returns index of pre-picked option, or -1*/
     public static int AddAvailableSubLevels(Dictionary<int, bool> optionsAvailability, RulesetCharacterHero hero,
-        RulesetSpellRepertoire spellRepertoire, int minSpellLevel = 1, int maxSpellLevel = 0)
+        [NotNull] RulesetSpellRepertoire spellRepertoire, int minSpellLevel = 1, int maxSpellLevel = 0)
     {
         var selectedSlot = -1;
 
@@ -151,25 +152,28 @@ public static class MulticlassGameUiContext
                 max -= pactMagicSlotsCount;
             }
 
-            if (max > 0 && (
-                    (level <= maxRepertoireLevel
-                     && (isMulticaster || !hasPactMagic))
-                    || level == warlockSpellLevel
-                ))
+            if (max <= 0 || ((level > maxRepertoireLevel || (!isMulticaster && hasPactMagic)) &&
+                             level != warlockSpellLevel))
             {
-                optionsAvailability.Add(level, remaining > 0);
-                if (!selected && remaining > 0)
-                {
-                    selected = true;
-                    selectedSlot = level - minSpellLevel;
-                }
+                continue;
             }
+
+            optionsAvailability.Add(level, remaining > 0);
+
+            if (selected || remaining <= 0)
+            {
+                continue;
+            }
+
+            selected = true;
+            selectedSlot = level - minSpellLevel;
         }
 
         return selectedSlot;
     }
 
-    public static string GetAllClassesLabel(GuiCharacter character, char separator)
+    [CanBeNull]
+    public static string GetAllClassesLabel([CanBeNull] GuiCharacter character, char separator)
     {
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var builder = new StringBuilder();
@@ -231,14 +235,15 @@ public static class MulticlassGameUiContext
         return builder.ToString().Remove(builder.Length - 1, 1);
     }
 
-    public static string GetAllClassesHitDiceLabel(GuiCharacter character, out int dieTypeCount)
+    [NotNull]
+    public static string GetAllClassesHitDiceLabel([NotNull] GuiCharacter character, out int dieTypeCount)
     {
         Assert.IsNotNull(character, nameof(character));
 
         var builder = new StringBuilder();
         var hero = character.RulesetCharacterHero;
         var dieTypesCount = new Dictionary<RuleDefinitions.DieType, int>();
-        const char separator = ' ';
+        const char SEPARATOR = ' ';
 
         foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
         {
@@ -255,7 +260,7 @@ public static class MulticlassGameUiContext
             builder
                 .Append(dieTypesCount[dieType])
                 .Append(Gui.GetDieSymbol(dieType))
-                .Append(separator);
+                .Append(SEPARATOR);
         }
 
         dieTypeCount = dieTypesCount.Count;
@@ -263,7 +268,8 @@ public static class MulticlassGameUiContext
         return builder.Remove(builder.Length - 1, 1).ToString();
     }
 
-    public static string GetLevelAndExperienceTooltip(GuiCharacter character)
+    [CanBeNull]
+    public static string GetLevelAndExperienceTooltip([NotNull] GuiCharacter character)
     {
         var builder = new StringBuilder();
         var hero = character.RulesetCharacterHero;
@@ -290,29 +296,30 @@ public static class MulticlassGameUiContext
                 experience.ToString("N0"), num.ToString("N0"), (characterLevel + 1).ToString("N0")));
         }
 
-        if (hero.ClassesAndLevels.Count >
-            1) // cannot use InspectionPanelContext here as this method happens before that context is set
+        if (hero.ClassesAndLevels.Count <= 1)
         {
-            builder.Append('\n');
+            return builder.ToString();
+        }
 
-            for (var i = 0; i < hero.ClassesHistory.Count; i++)
+        builder.Append('\n');
+
+        for (var i = 0; i < hero.ClassesHistory.Count; i++)
+        {
+            var characterClassDefinition = hero.ClassesHistory[i];
+
+            hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition,
+                out var characterSubclassDefinition);
+
+            builder
+                .AppendFormat("\n{0:00} - ", i + 1)
+                .Append(characterClassDefinition.FormatTitle());
+
+            // NOTE: don't use characterSubclassDefinition?. which bypasses Unity object lifetime check
+            if (characterSubclassDefinition)
             {
-                var characterClassDefinition = hero.ClassesHistory[i];
-
-                hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition,
-                    out var characterSubclassDefinition);
-
                 builder
-                    .AppendFormat("\n{0:00} - ", i + 1)
-                    .Append(characterClassDefinition.FormatTitle());
-
-                // NOTE: don't use characterSubclassDefinition?. which bypasses Unity object lifetime check
-                if (characterSubclassDefinition)
-                {
-                    builder
-                        .Append(' ')
-                        .Append(characterSubclassDefinition.FormatTitle());
-                }
+                    .Append(' ')
+                    .Append(characterSubclassDefinition.FormatTitle());
             }
         }
 

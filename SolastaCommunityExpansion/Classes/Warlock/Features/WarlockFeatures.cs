@@ -16,9 +16,9 @@ internal static class WarlockFeatures
     internal static readonly FeatureDefinitionFeatureSetCustom WarlockMysticArcanumSet =
         CreateMysticArcanumSet((11, 6), (13, 7), (15, 8), (17, 9));
 
-    private static FeatureDefinitionPower warlockEldritchMasterPower;
+    private static FeatureDefinitionPower _warlockEldritchMasterPower;
 
-    internal static FeatureDefinitionPower WarlockEldritchMasterPower => warlockEldritchMasterPower ??=
+    internal static FeatureDefinitionPower WarlockEldritchMasterPower => _warlockEldritchMasterPower ??=
         FeatureDefinitionPowerBuilder
             .Create(PowerWizardArcaneRecovery, "ClassWarlockEldritchMaster", CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
@@ -27,9 +27,9 @@ internal static class WarlockFeatures
 
     #region WarlockEldritchInvocationSet
 
-    private static FeatureDefinitionFeatureSetCustom warlockEldritchInvocationSet;
+    private static FeatureDefinitionFeatureSetCustom _warlockEldritchInvocationSet;
 
-    public static FeatureDefinitionFeatureSetCustom WarlockEldritchInvocationSet => warlockEldritchInvocationSet ??=
+    public static FeatureDefinitionFeatureSetCustom WarlockEldritchInvocationSet => _warlockEldritchInvocationSet ??=
         FeatureDefinitionFeatureSetCustomBuilder
             .Create("ClassWarlockEldritchInvocationSetLevel", CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
@@ -89,10 +89,10 @@ internal static class WarlockFeatures
 
     #region WarlockEldritchInvocationReplacer
 
-    private static FeatureDefinitionFeatureSetReplaceCustom warlockEldritchInvocationReplacer;
+    private static FeatureDefinitionFeatureSetReplaceCustom _warlockEldritchInvocationReplacer;
 
     public static FeatureDefinitionFeatureSetReplaceCustom WarlockEldritchInvocationReplacer =>
-        warlockEldritchInvocationReplacer ??= FeatureDefinitionFeatureSetReplaceCustomBuilder
+        _warlockEldritchInvocationReplacer ??= FeatureDefinitionFeatureSetReplaceCustomBuilder
             .Create("ClassWarlockEldritchInvocationReplace", CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetReplacedFeatureSet(WarlockEldritchInvocationSet)

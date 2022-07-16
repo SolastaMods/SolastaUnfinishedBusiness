@@ -16,7 +16,7 @@ internal static class RedWitch
         return Subclass ??= BuildAndAddSubclass(witchClass);
     }
 
-    public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClass)
+    private static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClass)
     {
         return WitchSubclassHelper.BuildAndAddSubclass(
             "Red",

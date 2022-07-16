@@ -12,8 +12,7 @@ internal static class SubspellSelectionModal_OnActivate
     internal static bool Prefix(SubspellSelectionModal __instance, int index)
     {
         if (Main.Settings.EnableUpcastConjureElementalAndFey
-            && SubspellSelectionModal_Bind.FilteredSubspells != null
-            && SubspellSelectionModal_Bind.FilteredSubspells.Count > 0)
+            && SubspellSelectionModal_Bind.FilteredSubspells is {Count: > 0})
         {
             var subspells = SubspellSelectionModal_Bind.FilteredSubspells;
 
@@ -37,28 +36,28 @@ internal static class SubspellSelectionModal_OnActivate
 
         var masterPower = PowerBundleContext.GetPower(__instance.masterSpell);
 
-        if (masterPower != null)
+        if (masterPower == null)
         {
-            if (__instance.spellCastEngaged != null)
-            {
-                __instance.spellCastEngaged(__instance.spellRepertoire,
-                    __instance.spellRepertoire.KnownSpells[index], __instance.slotLevel);
-            }
-            else
-            {
-                __instance.deviceFunctionEngaged?.Invoke(
-                    __instance.guiCharacter,
-                    __instance.rulesetItemDevice,
-                    __instance.rulesetDeviceFunction,
-                    0, index
-                );
-            }
-
-            __instance.Hide();
-
-            return false;
+            return true;
         }
 
-        return true;
+        if (__instance.spellCastEngaged != null)
+        {
+            __instance.spellCastEngaged(__instance.spellRepertoire,
+                __instance.spellRepertoire.KnownSpells[index], __instance.slotLevel);
+        }
+        else
+        {
+            __instance.deviceFunctionEngaged?.Invoke(
+                __instance.guiCharacter,
+                __instance.rulesetItemDevice,
+                __instance.rulesetDeviceFunction,
+                0, index
+            );
+        }
+
+        __instance.Hide();
+
+        return false;
     }
 }

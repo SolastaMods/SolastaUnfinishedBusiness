@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders.Features;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.Level20.Features;
@@ -26,7 +27,7 @@ internal sealed class FeatureDefinitionPrimalChampionBuilder : FeatureDefinition
 
 internal sealed class FeatureDefinitionPrimalChampion : FeatureDefinition, IFeatureDefinitionCustomCode
 {
-    public void ApplyFeature(RulesetCharacterHero hero, string tag)
+    public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
     {
         ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, 4);
         ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, 4);
@@ -34,7 +35,7 @@ internal sealed class FeatureDefinitionPrimalChampion : FeatureDefinition, IFeat
         hero.RefreshAll();
     }
 
-    public void RemoveFeature(RulesetCharacterHero hero, string tag)
+    public void RemoveFeature([NotNull] RulesetCharacterHero hero, string tag)
     {
         ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, -4);
         ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, -4);
@@ -42,9 +43,10 @@ internal sealed class FeatureDefinitionPrimalChampion : FeatureDefinition, IFeat
         hero.RefreshAll();
     }
 
-    private static void ModifyAttributeAndMax(RulesetCharacterHero hero, string attributeName, int amount)
+    private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
     {
         var attribute = hero.GetAttribute(attributeName);
+
         attribute.BaseValue += amount;
         attribute.MaxValue += amount;
         attribute.MaxEditableValue += amount;

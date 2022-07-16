@@ -6,18 +6,17 @@ Failure/&FailureFlagTargetMeleeWeaponError=不能用当前武器对此目标进�
 Feature/&AlwaysBeardDescription={0}%=概率长出光荣的胡须
 Feature/&BardSkillsTitle=吟游诗人技艺
 Feature/&EmptyString=
-Feature/&Emptystring=
 Format/&LevelAndExperienceFormat=等级：{0}\n经验值：{1}\n升级到等级{3}还需{2}点
 Format/&LevelAndExperienceMaxedFormat=等级：{0}\n经验值：{1}\n达到最大等级
-MainMenu/&ExportPdfDescription=降级此角色
-MainMenu/&ExportPdfTitle=降级
+MainMenu/&LevelDownDescription=降级此角色
+MainMenu/&LevelDownTitle=降级
 Message/&CharacterExportDuplicateNameErrorDescription=导出取消：\n\n角色池中存在一个重复的名称\n请尝试使用不同的名字
 Message/&CharacterExportEmptyNameErrorDescription=导出取消：\n\n请尝试使用非空白的名字
 Message/&CharacterExportModalContentDescription=输入要导出的角色名称：
 Message/&CharacterExportModalTitleDescription=角色导出
 Message/&LevelDownConfirmationDescription=是否降级此角色？
 Message/&LevelDownMultiplayerAbortDescription=无法在多人游戏中降级角色
-Message/&MessageModWelcomeDescription=社区扩展包引入了大量令人惊喜的功能，但是默认未启用。点击<color=yellow>Ctrl-F10</color>打开Unity Mod=Manager的操作界面[UMM]，然后点击“社区扩展包”旁边的设置图标，打开设置页面\n\n探索这些选项并选择你喜欢的。UMM操作界面将开启
+Message/&MessageModWelcomeDescription=社区扩展包引入了大量令人惊喜的功能，但是默认未启用。点击<color=#F0DAA0>Ctrl-F10</color>打开Unity Mod=Manager的操作界面[UMM]，然后点击“社区扩展包”旁边的设置图标，打开设置页面\n\n探索这些选项并选择你喜欢的。UMM操作界面将开启
 Message/&MessageModWelcomeTitle=社区扩展包
 Message/&RespecMultiplayerAbortDescription=无法在多人游戏或冒险地图中重置角色
 Message/&SpawnCustomEncounterDescription=在坐标({0},={1})处制造一场遭遇战？
@@ -29,8 +28,6 @@ Reaction/&ReadiedAction{0}Description=准备{0}
 Reaction/&ReadiedAction{0}Title=准备{0}
 Reaction/&SpendPower{0}Description=消耗{0}
 Reaction/&SpendPower{0}Title=消耗{0}
-Reaction/&SpendPowerBundleDescription=使用能力
-Reaction/&SpendPowerBundleTitle=使用能力
 Reaction/&SubitemSelectPowerBundleTitle=选项
 Reaction/&SubitemSelectSlotLevelTitle=法术位等级
 Reaction/&Use{0}Description=使用{0}

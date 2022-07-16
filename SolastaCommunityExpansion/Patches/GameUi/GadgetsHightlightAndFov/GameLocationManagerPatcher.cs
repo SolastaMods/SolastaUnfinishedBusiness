@@ -40,7 +40,7 @@ internal static class GameLocationManager_ReadyLocation
 
     internal static void Postfix(GameLocationManager __instance)
     {
-        if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered || Gui.GameLocation.UserLocation == null)
+        if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered || Gui.GameLocation.UserLocation == null)
         {
             return;
         }

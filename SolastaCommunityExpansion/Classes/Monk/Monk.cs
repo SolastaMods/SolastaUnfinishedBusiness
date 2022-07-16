@@ -21,10 +21,10 @@ namespace SolastaCommunityExpansion.Classes.Monk;
 
 public static class Monk
 {
-    public const string ClassName = "ClassMonk";
+    private const string ClassName = "ClassMonk";
     public const string WeaponTag = "MonkWeapon";
     public const string FlurryTag = "MonkFlurryAttack";
-    public static readonly Guid GUID = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
+    public static readonly Guid Guid = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
 
     //TODO: maybe instead of a list make dynamic weapon checker that will tell if weapon is a monk one?
     // Monk weapons are unarmed, shortswords and any simple melee weapons that don't have the two-handed or heavy property.
@@ -62,7 +62,7 @@ public static class Monk
     private static int kiPoolIncreases, martailArtsDiceProgression, unarmoredMovementProgression;
 
     private static ConditionDefinition MonkClimbingCondition;
-    public static CharacterClassDefinition Class { get; private set; }
+    private static CharacterClassDefinition Class { get; set; }
 
     public static FeatureDefinitionPower KiPool { get; private set; }
 
@@ -118,7 +118,7 @@ public static class Monk
         BuildKiFeatureSet();
 
         Class = CharacterClassDefinitionBuilder
-            .Create(ClassName, GUID)
+            .Create(ClassName, Guid)
 
             #region Presentation
 
@@ -214,7 +214,7 @@ public static class Monk
 
             // Weapons
             .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
-                .Create("ClassMonkWeaponProficiency", GUID)
+                .Create("ClassMonkWeaponProficiency", Guid)
                 .SetGuiPresentation(Category.Feature, "Feature/&WeaponTrainingShortDescription")
                 .SetProficiencies(ProficiencyType.Weapon,
                     WeaponCategoryDefinitions.SimpleWeaponCategory.Name,
@@ -223,7 +223,7 @@ public static class Monk
 
             // Saves
             .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
-                .Create("ClassMonkSavingThrowProficiency", GUID)
+                .Create("ClassMonkSavingThrowProficiency", Guid)
                 .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
                 .SetProficiencies(ProficiencyType.SavingThrow,
                     AttributeDefinitions.Strength,
@@ -232,7 +232,7 @@ public static class Monk
 
             // Skill points
             .AddFeatureAtLevel(1, FeatureDefinitionPointPoolBuilder
-                .Create("ClassMonkSkillProficiency", GUID)
+                .Create("ClassMonkSkillProficiency", Guid)
                 .SetGuiPresentation(Category.Feature, "Feature/&SkillGainChoicesPluralDescription")
                 .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
                 .OnlyUniqueChoices()
@@ -253,7 +253,7 @@ public static class Monk
             //TODO: make sure it doesn't work with shields
             //TODO: make sure it doesn't stack with other `ability bonus to AC` features
             .AddFeatureAtLevel(1, FeatureDefinitionAttributeModifierBuilder
-                .Create("ClassMonkUnarmoredDefense", GUID)
+                .Create("ClassMonkUnarmoredDefense", Guid)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
                 .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
@@ -464,7 +464,7 @@ public static class Monk
     private static void BuildMartialArts()
     {
         attackedWithMonkWeaponCondition = ConditionDefinitionBuilder
-            .Create("ClassMonkAttackedWithMonkWeapon", GUID)
+            .Create("ClassMonkAttackedWithMonkWeapon", Guid)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetDuration(DurationType.Round, 1)
@@ -475,7 +475,7 @@ public static class Monk
         attackedWithMonkWeapon = CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition);
 
         martialArts = FeatureDefinitionBuilder
-            .Create("ClassMonkMartialArts", GUID)
+            .Create("ClassMonkMartialArts", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity, IsMonkWeapon,
@@ -484,7 +484,7 @@ public static class Monk
                     CharacterValidators.NoArmor, CharacterValidators.NoShield),
                 new ApplyMonkWeaponStatusOnAttack(),
                 //TODO: add an option in mod setting to include or exclude this unarmed attack, plus maybe add checks that you have weapon in main hand, so no double options
-                // new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main, 
+                // new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main,
                 //     CharacterValidators.NoArmor, CharacterValidators.NoShield),
                 new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus, UsingOnlyMonkWeapons,
                     attackedWithMonkWeapon, CharacterValidators.NoShield, CharacterValidators.NoArmor)
@@ -495,13 +495,13 @@ public static class Monk
     private static FeatureDefinition BuildUnarmoredMovement()
     {
         var feature = FeatureDefinitionMovementAffinityBuilder
-            .Create("ClassMonkUnarmoredMovementModifier", GUID)
+            .Create("ClassMonkUnarmoredMovementModifier", Guid)
             .SetGuiPresentationNoContent(true)
             .SetBaseSpeedAdditiveModifier(2)
             .AddToDB();
 
         return FeatureDefinitionBuilder
-            .Create("ClassMonkUnarmoredMovement", GUID)
+            .Create("ClassMonkUnarmoredMovement", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ConditionalMovementModifier(feature,
                 CharacterValidators.NoArmor, CharacterValidators.NoShield))
@@ -511,7 +511,7 @@ public static class Monk
     private static FeatureDefinition BuildUnarmoredMovementBonus()
     {
         return FeatureDefinitionMovementAffinityBuilder
-            .Create("ClassMonkUnarmoredMovementBonusModifier", GUID)
+            .Create("ClassMonkUnarmoredMovementBonusModifier", Guid)
             .SetGuiPresentationNoContent(true)
             .SetBaseSpeedAdditiveModifier(1)
             .AddToDB();
@@ -520,7 +520,7 @@ public static class Monk
     private static FeatureDefinition BuildUnarmoredMovementImprovement()
     {
         return FeatureDefinitionBuilder
-            .Create($"ClassMonkUnarmoredMovementBonus{unarmoredMovementProgression++:D2}", GUID)
+            .Create($"ClassMonkUnarmoredMovementBonus{unarmoredMovementProgression++:D2}", Guid)
             .SetGuiPresentation("ClassMonkUnarmoredMovementBonus", Category.Feature)
             .SetCustomSubFeatures(MovementBonusApplier)
             .AddToDB();
@@ -529,7 +529,7 @@ public static class Monk
     private static FeatureDefinition BuildUnarmoredMovementVerticalSurface()
     {
         return FeatureDefinitionBuilder
-            .Create("ClassMonkUnarmoredMovementVerticalSurface", GUID)
+            .Create("ClassMonkUnarmoredMovementVerticalSurface", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new MonkClimbing())
             .AddToDB();
@@ -538,7 +538,7 @@ public static class Monk
     private static void BuildClimbingCondition()
     {
         MonkClimbingCondition = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionSpiderClimb, "ClassMonkClimbingCondition", GUID)
+            .Create(ConditionDefinitions.ConditionSpiderClimb, "ClassMonkClimbingCondition", Guid)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
     }
@@ -546,7 +546,7 @@ public static class Monk
     private static FeatureDefinition BuildMartialDiceProgression()
     {
         return FeatureDefinitionBuilder
-            .Create($"ClassMonkMartialDiceProgression{martailArtsDiceProgression++:D2}", GUID)
+            .Create($"ClassMonkMartialDiceProgression{martailArtsDiceProgression++:D2}", Guid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
     }
@@ -560,7 +560,7 @@ public static class Monk
         );
 
         KiPool = FeatureDefinitionPowerBuilder
-            .Create("ClassMonkKiPool", GUID)
+            .Create("ClassMonkKiPool", Guid)
             .SetGuiPresentation(Category.Power, hidden: true)
             .SetUsesFixed(2)
             .SetRechargeRate(RechargeRate.ShortRest)
@@ -569,7 +569,7 @@ public static class Monk
         KiPool.SetCustomSubFeatures(new CustomPortraitPoolPower(KiPool, icon: MonkKiIcon));
 
         var extraFlurryAttack1 = FeatureDefinitionAdditionalActionBuilder
-            .Create("ClassMonkFlurryOfBlowsExtraAttacks1", GUID)
+            .Create("ClassMonkFlurryOfBlowsExtraAttacks1", Guid)
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus, true,
                     CharacterValidators.NoArmor, CharacterValidators.NoShield)
@@ -579,14 +579,14 @@ public static class Monk
             .AddToDB();
 
         var extraFlurryAttack2 = FeatureDefinitionAdditionalActionBuilder
-            .Create("ClassMonkFlurryOfBlowsExtraAttacks2", GUID)
+            .Create("ClassMonkFlurryOfBlowsExtraAttacks2", Guid)
             .SetGuiPresentationNoContent(true)
             .SetActionType(ActionDefinitions.ActionType.Bonus)
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
             .AddToDB();
 
         flurryOfBlows = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkFlurryOfBlows", GUID)
+            .Create("ClassMonkFlurryOfBlows", Guid)
             .SetGuiPresentation(Category.Power, MonkFlurryOfBlowsIcon)
             .SetSharedPool(KiPool)
             .SetActivationTime(ActivationTime.BonusAction)
@@ -598,7 +598,7 @@ public static class Monk
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ClassMonkFlurryOfBlowsCondition", GUID)
+                            .Create("ClassMonkFlurryOfBlowsCondition", Guid)
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetDuration(DurationType.Round, 0, false)
@@ -615,7 +615,7 @@ public static class Monk
 
         var dodging = ConditionDefinitions.ConditionDodging;
         patientDefense = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkPatientDefense", GUID)
+            .Create("ClassMonkPatientDefense", Guid)
             .SetGuiPresentation(Category.Power, MonkPatientDefenseIcon)
             .SetSharedPool(KiPool)
             .SetActivationTime(ActivationTime.BonusAction)
@@ -627,7 +627,7 @@ public static class Monk
                 .AddEffectForm(new EffectFormBuilder()
                     .CreatedByCharacter()
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ClassMonkPatientDefenseCondition", GUID)
+                            .Create("ClassMonkPatientDefenseCondition", Guid)
                             .SetGuiPresentation("ConditionDodging", Category.Rules,
                                 dodging.GuiPresentation.SpriteReference)
                             .SetConditionParticleReferenceFrom(dodging)
@@ -645,7 +645,7 @@ public static class Monk
             .AddToDB();
 
         stepOfTheWind = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkStepOfTheWind", GUID)
+            .Create("ClassMonkStepOfTheWind", Guid)
             .SetGuiPresentation(Category.Power, MonkStepOfTheWindIcon)
             .SetSharedPool(KiPool)
             .SetActivationTime(ActivationTime.BonusAction)
@@ -656,7 +656,7 @@ public static class Monk
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ClassMonkStepOfTheWindCondition", GUID)
+                            .Create("ClassMonkStepOfTheWindCondition", Guid)
                             .SetGuiPresentation(Category.Condition,
                                 ConditionDefinitions.ConditionJump.GuiPresentation.SpriteReference)
                             .SetSilent(Silent.None)
@@ -665,7 +665,7 @@ public static class Monk
                             .SetSpecialDuration(true)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                                    .Create("ClassMonkStepOfTheWindFeature", GUID)
+                                    .Create("ClassMonkStepOfTheWindFeature", Guid)
                                     .SetGuiPresentationNoContent(true)
                                     .SetActionType(ActionDefinitions.ActionType.Bonus)
                                     .SetRestrictedActions(ActionDefinitions.Id.DashBonus,
@@ -681,7 +681,7 @@ public static class Monk
             .AddToDB();
 
         ki = FeatureDefinitionFeatureSetBuilder
-            .Create("ClassMonkKi", GUID)
+            .Create("ClassMonkKi", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(CustomSetDescription.Marker)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -689,7 +689,7 @@ public static class Monk
             .AddToDB();
 
         stunningStrike = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkStunningStrike", GUID)
+            .Create("ClassMonkStunningStrike", Guid)
             .SetGuiPresentation(Category.Power, MonkStunningStrikeIcon)
             .SetSharedPool(KiPool)
             .SetActivationTime(ActivationTime.OnAttackHit)
@@ -732,7 +732,7 @@ public static class Monk
     private static FeatureDefinition BuildKiPoolIncrease()
     {
         return FeatureDefinitionPowerPoolModifierBuilder
-            .Create($"ClassMonkKiPoolIncrease{kiPoolIncreases++:D2}", GUID)
+            .Create($"ClassMonkKiPoolIncrease{kiPoolIncreases++:D2}", Guid)
             .SetGuiPresentationNoContent(true)
             .Configure(1, UsesDetermination.Fixed, "", KiPool)
             .AddToDB();
@@ -741,7 +741,7 @@ public static class Monk
     private static FeatureDefinition BuildDeflectMissile()
     {
         var deflectMissile = FeatureDefinitionActionAffinityBuilder
-            .Create("ClassMonkDeflectMissile", GUID)
+            .Create("ClassMonkDeflectMissile", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions(ActionDefinitions.Id.DeflectMissile)
             .SetCustomSubFeatures(new CustomMissileDeflection
@@ -759,7 +759,7 @@ public static class Monk
     {
         //TODO: should we hide it from power menu?
         return FeatureDefinitionPowerBuilder
-            .Create("ClassMonkSlowFall", GUID)
+            .Create("ClassMonkSlowFall", Guid)
             .SetGuiPresentation(Category.Power, MonkSlowFallIcon)
             .SetActivationTime(ActivationTime.Reaction)
             .SetRechargeRate(RechargeRate.AtWill)
@@ -779,7 +779,7 @@ public static class Monk
     private static FeatureDefinition BuildExtraAttack()
     {
         return FeatureDefinitionAttributeModifierBuilder
-            .Create("ClassMonkExtraAttack", GUID)
+            .Create("ClassMonkExtraAttack", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetModifiedAttribute(AttributeDefinitions.AttacksNumber)
             .SetModifierType2(AttributeModifierOperation.Additive)
@@ -790,7 +790,7 @@ public static class Monk
     private static FeatureDefinition BuildKiEmpoweredStrikes()
     {
         return FeatureDefinitionBuilder
-            .Create("ClassMonkKiEmpoweredStrikes", GUID)
+            .Create("ClassMonkKiEmpoweredStrikes", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical,
                 WeaponValidators.IsUnarmedWeapon))
@@ -800,7 +800,7 @@ public static class Monk
     private static FeatureDefinition BuildStillnessOfMind()
     {
         return FeatureDefinitionPowerBuilder
-            .Create("ClassMonkKiStillnessOfMind", GUID)
+            .Create("ClassMonkKiStillnessOfMind", Guid)
             .SetGuiPresentation(Category.Power, MonkStillnessOfMindIcon)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(0)
@@ -820,7 +820,7 @@ public static class Monk
     private static FeatureDefinition BuildPurityOfBody()
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create("ClassMonkPurityOfBody", GUID)
+            .Create("ClassMonkPurityOfBody", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
                 FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
@@ -833,7 +833,7 @@ public static class Monk
     private static FeatureDefinition BuildDiamondSoul()
     {
         return FeatureDefinitionProficiencyBuilder
-            .Create("ClassMonkDiamondSoul", GUID)
+            .Create("ClassMonkDiamondSoul", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.SavingThrow,
                 AttributeDefinitions.Strength,
@@ -844,7 +844,7 @@ public static class Monk
                 AttributeDefinitions.Charisma
             )
             .SetCustomSubFeatures(new CustomRerollFailedSave(FeatureDefinitionPowerSharedPoolBuilder
-                .Create("ClassMonkDiamondSoulPower", GUID)
+                .Create("ClassMonkDiamondSoulPower", Guid)
                 .SetGuiPresentation(Category.Power)
                 .SetSharedPool(KiPool)
                 .SetCostPerUse(1)
@@ -855,7 +855,7 @@ public static class Monk
     private static FeatureDefinition BuildTongueOfSunAndMoon()
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create("ClassMonkTongueOfSunAndMoon", GUID)
+            .Create("ClassMonkTongueOfSunAndMoon", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(FeatureDefinitionFeatureSets.FeatureSetAllLanguagesButCode.FeatureSet.ToArray())
             .AddToDB();
@@ -864,7 +864,7 @@ public static class Monk
     private static FeatureDefinition BuildEmptyBody()
     {
         return FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMonkEmptyBody", GUID)
+            .Create("ClassMonkEmptyBody", Guid)
             .SetGuiPresentation(Category.Power, MonkEmptyBodyIcon)
             .SetSharedPool(KiPool)
             .SetCostPerUse(4)
@@ -880,7 +880,7 @@ public static class Monk
                         .Build(),
                     new EffectFormBuilder()
                         .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ClassMonkEmptyBodyCondition", GUID)
+                            .Create("ClassMonkEmptyBodyCondition", Guid)
                             .SetGuiPresentation(Category.Condition,
                                 ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
                             .AddFeatures(
@@ -894,17 +894,17 @@ public static class Monk
                                 FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
                                 FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance,
                                 FeatureDefinitionDamageAffinityBuilder
-                                    .Create("ClassMonkEmptyBodyBludgeoningResistance", GUID)
+                                    .Create("ClassMonkEmptyBodyBludgeoningResistance", Guid)
                                     .SetDamageType(DamageTypeBludgeoning)
                                     .SetDamageAffinityType(DamageAffinityType.Resistance)
                                     .AddToDB(),
                                 FeatureDefinitionDamageAffinityBuilder
-                                    .Create("ClassMonkEmptyBodyPiercingResistance", GUID)
+                                    .Create("ClassMonkEmptyBodyPiercingResistance", Guid)
                                     .SetDamageType(DamageTypePiercing)
                                     .SetDamageAffinityType(DamageAffinityType.Resistance)
                                     .AddToDB(),
                                 FeatureDefinitionDamageAffinityBuilder
-                                    .Create("ClassMonkEmptyBodySlashingResistance", GUID)
+                                    .Create("ClassMonkEmptyBodySlashingResistance", Guid)
                                     .SetDamageType(DamageTypeSlashing)
                                     .SetDamageAffinityType(DamageAffinityType.Resistance)
                                     .AddToDB()
@@ -920,7 +920,7 @@ public static class Monk
     private static FeatureDefinition BuildPerfectSelf()
     {
         return FeatureDefinitionBuilder
-            .Create("ClassMonkPerfectSelf", GUID)
+            .Create("ClassMonkPerfectSelf", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new PerfectSelf())
             .AddToDB();
@@ -933,23 +933,13 @@ public static class Monk
 
     public static bool IsMonkWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
     {
-        if (attackMode is not {SourceDefinition: ItemDefinition item})
-        {
-            return false;
-        }
-
-        return IsMonkWeapon(character, item);
+        return attackMode is {SourceDefinition: ItemDefinition item} && IsMonkWeapon(character, item);
     }
 
     public static bool IsMonkWeapon(RulesetCharacter character, RulesetItem weapon)
     {
         //fists
-        if (weapon == null)
-        {
-            return true;
-        }
-
-        return IsMonkWeapon(character, weapon.ItemDefinition);
+        return weapon == null || IsMonkWeapon(character, weapon.ItemDefinition);
     }
 
     public static bool IsMonkWeapon(RulesetCharacter character, ItemDefinition weapon)
@@ -989,31 +979,22 @@ public static class Monk
 
         var level = hero.ClassesAndLevels[Class];
 
-        if (level >= 17)
+        return level switch
         {
-            return (DieType.D10, 1);
-        }
-
-        if (level >= 11)
-        {
-            return (DieType.D8, 1);
-        }
-
-        if (level >= 5)
-        {
-            return (DieType.D6, 1);
-        }
-
-        return (DieType.D4, 1);
+            >= 17 => (DieType.D10, 1),
+            >= 11 => (DieType.D8, 1),
+            >= 5 => (DieType.D6, 1),
+            _ => (DieType.D4, 1)
+        };
     }
 
-    private class MonkClimbing : ICustomOnActionFeature, ICharacterTurnStartListener, ICharacterTurnEndListener,
+    private sealed class MonkClimbing : ICustomOnActionFeature, ICharacterTurnStartListener, ICharacterTurnEndListener,
         IHeroRefreshedListener, ICharacterBattlStartedListener, ICharacterBattlEndedListener
     {
-        private static readonly string CATEGORY = "MonkClimbing";
+        private const string Category = "MonkClimbing";
         private static readonly HashSet<string> Forbidden = new();
 
-        private static readonly CharacterValidator[] validators =
+        private static readonly CharacterValidator[] Validators =
         {
             CharacterValidators.NoArmor, CharacterValidators.NoShield
         };
@@ -1031,6 +1012,7 @@ public static class Monk
         public void OnChracterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var character = locationCharacter.RulesetCharacter;
+
             ForbidClimbing(character);
             LoseClimbing(character);
         }
@@ -1038,24 +1020,28 @@ public static class Monk
         public void OnChracterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var character = locationCharacter.RulesetCharacter;
+
             AllowClimbing(character);
             TryBecomeClimbing(character);
         }
 
         public void OnBeforeAction(CharacterAction characterAction)
         {
-            if (characterAction.ActionId != ActionDefinitions.Id.TacticalMove
-                && characterAction.ActionId != ActionDefinitions.Id.ExplorationMove)
+            if (characterAction.ActionId is ActionDefinitions.Id.TacticalMove or ActionDefinitions.Id.ExplorationMove)
             {
-                var character = characterAction.ActingCharacter.RulesetCharacter;
-                ForbidClimbing(character);
-                LoseClimbing(character);
+                return;
             }
+
+            var character = characterAction.ActingCharacter.RulesetCharacter;
+
+            ForbidClimbing(character);
+            LoseClimbing(character);
         }
 
         public void OnAfterAction(CharacterAction characterAction)
         {
             var character = characterAction.ActingCharacter.RulesetCharacter;
+
             AllowClimbing(character);
             TryBecomeClimbing(character);
         }
@@ -1072,14 +1058,13 @@ public static class Monk
                 return false;
             }
 
-            if (Forbidden.Contains(CharacterId(character))
-                || !character.IsValid(validators))
+            if (!Forbidden.Contains(CharacterId(character)) && character.IsValid(Validators))
             {
-                LoseClimbing(character);
-                return false;
+                return true;
             }
 
-            return true;
+            LoseClimbing(character);
+            return false;
         }
 
         private static void TryBecomeClimbing(RulesetCharacter character)
@@ -1089,12 +1074,12 @@ public static class Monk
                 return;
             }
 
-            if (character == null || character.HasConditionOfCategory(CATEGORY))
+            if (character == null || character.HasConditionOfCategory(Category))
             {
                 return;
             }
 
-            character.AddConditionOfCategory(CATEGORY, RulesetCondition.CreateActiveCondition(character.Guid,
+            character.AddConditionOfCategory(Category, RulesetCondition.CreateActiveCondition(character.Guid,
                 MonkClimbingCondition, DurationType.Permanent,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -1126,14 +1111,14 @@ public static class Monk
 
         private static void LoseClimbing(RulesetCharacter character)
         {
-            if (character != null && character.HasConditionOfCategory(CATEGORY))
+            if (character != null && character.HasConditionOfCategory(Category))
             {
-                character.RemoveAllConditionsOfCategory(CATEGORY);
+                character.RemoveAllConditionsOfCategory(Category);
             }
         }
     }
 
-    private class PerfectSelf : ICharacterBattlStartedListener
+    private sealed class PerfectSelf : ICharacterBattlStartedListener
     {
         public void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
@@ -1143,15 +1128,17 @@ public static class Monk
                 return;
             }
 
-            if (character.GetRemainingPowerUses(KiPool) == 0)
+            if (character.GetRemainingPowerUses(KiPool) != 0)
             {
-                character.UpdateUsageForPower(KiPool, -4);
-                GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
+                return;
             }
+
+            character.UpdateUsageForPower(KiPool, -4);
+            GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
         }
     }
 
-    private class ApplyMonkWeaponStatusOnAttack : IOnAttackEffect
+    private sealed class ApplyMonkWeaponStatusOnAttack : IOnAttackEffect
     {
         public void BeforeOnAttack(GameLocationCharacter attacker, GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -1164,6 +1151,7 @@ public static class Monk
             RulesetAttackMode attackerAttackMode)
         {
             var character = attacker.RulesetCharacter;
+
             if (character == null)
             {
                 return;

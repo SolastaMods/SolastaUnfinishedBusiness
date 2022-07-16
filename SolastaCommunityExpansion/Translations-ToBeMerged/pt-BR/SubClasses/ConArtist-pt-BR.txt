@@ -1,0 +1,14 @@
+Feature/&AbilityAffinityRogueConArtistDescription=Vantagem em testes de habilidade usando Persuasão, Enganação, Performance e Prestidigitação.
+Feature/&AbilityAffinityRogueConArtistTitle=Manipulativo
+Feature/&CastSpellConArtistDescription=Lance feitiços e truques de Mago das escolas de Conjuração, Encantamento, Ilusão e Transmutação. O Vigarista usa Carisma para lançar seus feitiços.
+Feature/&CastSpellConArtistTitle=Feitiço
+Feature/&MagicAffinityRoguishConArtistDCDescription=Sua CD de salvamento de feitiços aumenta em {0}.
+Feature/&MagicAffinityRoguishConArtistDCTitle=Manipulação Aprimorada
+Feature/&RogueConArtistFeintConditionDescription=Ser enganado concede vantagem no próximo ataque.
+Feature/&RogueConArtistFeintConditionTitle=Enganado
+Feature/&RoguishConArtistFeintDescription=Ganhe a habilidade de fintar em combate como uma ação bônus. Se o alvo falhar no teste de resistência, isso concede vantagem no próximo ataque contra o alvo.
+Feature/&RoguishConArtistFeintTitle=Finta
+Feature/&RoguishConArtistMentalSavingThrowsDescription=Você ganha proficiência em testes de resistência de Sabedoria e Carisma.
+Feature/&RoguishConArtistMentalSavingThrowsTitle=Força mental
+Subclass/&RoguishConArtistDescription=Vigaristas são ladinos que se especializam em enganar e enganar os outros. Eles usam magia para ajudar suas habilidades naturais de manipulação.
+Subclass/&RoguishConArtistTitle=Vigarista

@@ -15,14 +15,14 @@ internal static class HideMonsterHitPointsContext
             BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
-        var retval = false;
+        var retVal = false;
 
         if (rb != null)
         {
-            retval = (bool)rb.Invoke(__instance, null);
+            retVal = (bool)rb.Invoke(__instance, null);
         }
 
-        return retval;
+        return retVal;
     }
 
     /// <summary>
@@ -30,30 +30,17 @@ internal static class HideMonsterHitPointsContext
     /// </summary>
     internal static float GetSteppedHealthRatio(float ratio)
     {
-        // Green
-        if (ratio >= 1f)
+        return ratio switch
         {
-            return 1f;
-        }
-
-        // Green
-        if (ratio >= 0.5f)
-        {
-            return 0.75f;
-        }
-
-        // Orange
-        if (ratio >= 0.25f)
-        {
-            return 0.5f;
-        }
-
-        // Red
-        if (ratio > 0f)
-        {
-            return 0.25f;
-        }
-
-        return ratio;
+            // Green
+            >= 1f => 1f,
+            // Green
+            >= 0.5f => 0.75f,
+            // Orange
+            >= 0.25f => 0.5f,
+            // Red
+            > 0f => 0.25f,
+            _ => ratio
+        };
     }
 }

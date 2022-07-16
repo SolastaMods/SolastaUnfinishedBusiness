@@ -10,16 +10,16 @@ internal static class GuiSpellDefinition_EnumerateTags
 {
     public static void Postfix(GuiSpellDefinition __instance)
     {
-        if (SpellsContext.Spells.TryGetValue(__instance.SpellDefinition, out var record))
+        if (SpellsContext.Spells.TryGetValue(__instance.SpellDefinition, out _))
         {
             TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
-                CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);
+                CeContentPackContext.CeTag, TagsDefinitions.Criticity.Normal);
         }
         else if (DiagnosticsContext.IsCeDefinition(__instance.BaseDefinition))
         {
             // Not all CE spells are registered in SpellsContext
             TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
-                CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);
+                CeContentPackContext.CeTag, TagsDefinitions.Criticity.Normal);
         }
     }
 }

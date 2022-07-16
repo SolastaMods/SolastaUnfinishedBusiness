@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
 using TA;
@@ -15,9 +17,10 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchically
 {
-    internal static bool Prefix(CharacterBuildingManager __instance,
-        CharacterHeroBuildingData heroBuildingData,
-        List<FeatureDefinition> grantedFeatures,
+    internal static bool Prefix(
+        [NotNull] CharacterBuildingManager __instance,
+        [NotNull] CharacterHeroBuildingData heroBuildingData,
+        [NotNull] List<FeatureDefinition> grantedFeatures,
         string tag)
     {
         //
@@ -47,9 +50,9 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                 case FeatureDefinitionProficiency proficiency:
                     if (proficiency.ProficiencyType == RuleDefinitions.ProficiencyType.FightingStyle)
                     {
-                        foreach (var name in proficiency.Proficiencies)
+                        foreach (var style in proficiency.Proficiencies.Select(name =>
+                                     DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(name)))
                         {
-                            var style = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(name);
                             __instance.AcquireBonusFightingStyle(heroBuildingData, style, tag);
                         }
                     }
@@ -78,7 +81,7 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_CreateCharacter
 {
-    internal static void Postfix(CharacterBuildingManager __instance)
+    internal static void Postfix([NotNull] CharacterBuildingManager __instance)
     {
         LevelUpContext.RegisterHero(__instance.CurrentLocalHeroCharacter, null, null);
     }
@@ -89,7 +92,7 @@ internal static class CharacterBuildingManager_CreateCharacter
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_LevelUpCharacter
 {
-    internal static void Prefix(RulesetCharacterHero hero, ref bool force)
+    internal static void Prefix([NotNull] RulesetCharacterHero hero, ref bool force)
     {
         // ensure the hero will get the experience gain
         if (Main.Settings.NoExperienceOnLevelUp)
@@ -105,13 +108,13 @@ internal static class CharacterBuildingManager_LevelUpCharacter
     }
 }
 
-// sort spell repertoires, add all known spells to wholelist casters and unregister the hero leveling up
+// sort spell repertoires, add all known spells to whole list casters and unregister the hero leveling up
 [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_FinalizeCharacter
 {
     // original game code doesn't grant Race features above level 1
-    internal static void Prefix(CharacterBuildingManager __instance, RulesetCharacterHero hero)
+    internal static void Prefix([NotNull] CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
     {
         var characterLevelAttribute = hero.GetAttribute(AttributeDefinitions.CharacterLevel);
 
@@ -142,7 +145,7 @@ internal static class CharacterBuildingManager_FinalizeCharacter
         __instance.GrantFeatures(hero, grantedFeatures, $"02Race{characterLevel}", false);
     }
 
-    internal static void Postfix(RulesetCharacterHero hero)
+    internal static void Postfix([NotNull] RulesetCharacterHero hero)
     {
         //
         // keep spell repertoires sorted by class title but ancestry one is always kept first
@@ -167,11 +170,11 @@ internal static class CharacterBuildingManager_FinalizeCharacter
                 ? b.SpellCastingClass.FormatTitle()
                 : b.SpellCastingSubclass.FormatTitle();
 
-            return title1.CompareTo(title2);
+            return String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase);
         });
 
         //
-        // Add wholelist caster spells to KnownSpells collection to improve the MC spell selection UI
+        // Add whole list caster spells to KnownSpells collection to improve the MC spell selection UI
         //
         var selectedClassRepertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
 
@@ -225,7 +228,7 @@ internal static class CharacterBuildingManager_FinalizeCharacter
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_AssignClassLevel
 {
-    internal static bool Prefix(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+    internal static bool Prefix([NotNull] RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
     {
         LevelUpContext.SetSelectedClass(hero, classDefinition);
 
@@ -246,7 +249,7 @@ internal static class CharacterBuildingManager_AssignClassLevel
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_AssignSubclass
 {
-    internal static void Prefix(RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
+    internal static void Prefix([NotNull] RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
     {
         LevelUpContext.SetSelectedSubclass(hero, subclassDefinition);
     }
@@ -257,7 +260,7 @@ internal static class CharacterBuildingManager_AssignSubclass
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_GrantFeatures
 {
-    internal static bool Prefix(RulesetCharacterHero hero)
+    internal static bool Prefix([NotNull] RulesetCharacterHero hero)
     {
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
@@ -265,7 +268,8 @@ internal static class CharacterBuildingManager_GrantFeatures
         return !(isLevelingUp && isClassSelectionStage);
     }
 
-    internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures, string tag)
+    internal static void Postfix([NotNull] RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures,
+        string tag)
     {
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
@@ -290,7 +294,7 @@ internal static class CharacterBuildingManager_ClearPrevious
 {
     private static readonly List<FeatureDefinition> ToRemove = new();
 
-    internal static void Prefix(RulesetCharacterHero hero, string tag)
+    internal static void Prefix(RulesetCharacterHero hero, [CanBeNull] string tag)
     {
         ToRemove.Clear();
 
@@ -309,7 +313,7 @@ internal static class CharacterBuildingManager_ClearPrevious
             return;
         }
 
-        //TODO: check if other places where this is called require same prefx/postfix treatment
+        //TODO: check if other places where this is called require same prefix/postfix treatment
         CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, ToRemove);
     }
 }
@@ -318,7 +322,7 @@ internal static class CharacterBuildingManager_ClearPrevious
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnacquireBonusCantrips
 {
-    internal static void Prefix(CharacterHeroBuildingData heroBuildingData, string tag)
+    internal static void Prefix(CharacterHeroBuildingData heroBuildingData, [CanBeNull] string tag)
     {
         if (string.IsNullOrEmpty(tag))
         {
@@ -351,17 +355,17 @@ internal static class CharacterBuildingManager_UnacquireBonusCantrips
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnassignRace
 {
-    internal static void Prefix(CharacterHeroBuildingData heroBuildingData)
+    internal static void Prefix([NotNull] CharacterHeroBuildingData heroBuildingData)
     {
         var hero = heroBuildingData.HeroCharacter;
-        var tag = AttributeDefinitions.TagRace;
+        const string TAG = AttributeDefinitions.TagRace;
 
-        if (!hero.ActiveFeatures.ContainsKey(tag))
+        if (!hero.ActiveFeatures.ContainsKey(TAG))
         {
             return;
         }
 
-        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, TAG, hero.ActiveFeatures[TAG]);
     }
 }
 
@@ -369,17 +373,17 @@ internal static class CharacterBuildingManager_UnassignRace
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnassignBackground
 {
-    internal static void Prefix(CharacterHeroBuildingData heroBuildingData)
+    internal static void Prefix([NotNull] CharacterHeroBuildingData heroBuildingData)
     {
         var hero = heroBuildingData.HeroCharacter;
-        var tag = AttributeDefinitions.TagBackground;
+        const string TAG = AttributeDefinitions.TagBackground;
 
-        if (!hero.ActiveFeatures.ContainsKey(tag))
+        if (!hero.ActiveFeatures.ContainsKey(TAG))
         {
             return;
         }
 
-        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, TAG, hero.ActiveFeatures[TAG]);
     }
 }
 
@@ -388,7 +392,7 @@ internal static class CharacterBuildingManager_UnassignBackground
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnassignLastClassLevel
 {
-    internal static bool Prefix(RulesetCharacterHero hero)
+    internal static bool Prefix([NotNull] RulesetCharacterHero hero)
     {
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
@@ -422,7 +426,7 @@ internal static class CharacterBuildingManager_UnassignLastClassLevel
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnassignLastSubclass
 {
-    internal static void Prefix(RulesetCharacterHero hero, bool onlyIfCurrentLevel = false)
+    internal static void Prefix([NotNull] RulesetCharacterHero hero, bool onlyIfCurrentLevel = false)
     {
         var classDefinition = hero.ClassesHistory[hero.ClassesHistory.Count - 1];
         var classLevel = hero.ClassesAndLevels[classDefinition];
@@ -460,7 +464,7 @@ internal static class CharacterBuildingManager_UnassignLastSubclass
 internal static class CharacterBuildingManager_EnumerateKnownAndAcquiredSpells
 {
     internal static void Postfix(
-        CharacterHeroBuildingData heroBuildingData,
+        [NotNull] CharacterHeroBuildingData heroBuildingData,
         List<SpellDefinition> __result)
     {
         var hero = heroBuildingData.HeroCharacter;
@@ -492,7 +496,7 @@ internal static class CharacterBuildingManager_EnumerateKnownAndAcquiredSpells
 internal static class CharacterBuildingManager_GetSpellFeature
 {
     internal static bool Prefix(
-        CharacterHeroBuildingData heroBuildingData,
+        [NotNull] CharacterHeroBuildingData heroBuildingData,
         string tag,
         ref FeatureDefinitionCastSpell __result)
     {
@@ -505,7 +509,11 @@ internal static class CharacterBuildingManager_GetSpellFeature
         }
 
         var selectedClass = LevelUpContext.GetSelectedClass(hero);
-        var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+
+        if (selectedClass == null)
+        {
+            return true;
+        }
 
         var localTag = tag;
 
@@ -562,7 +570,7 @@ internal static class CharacterBuildingManager_UpgradeSpellPointPools
 {
     internal static bool Prefix(
         CharacterBuildingManager __instance,
-        CharacterHeroBuildingData heroBuildingData)
+        [NotNull] CharacterHeroBuildingData heroBuildingData)
     {
         var hero = heroBuildingData.HeroCharacter;
         var isMulticlass = LevelUpContext.IsMulticlass(hero);
@@ -581,32 +589,23 @@ internal static class CharacterBuildingManager_UpgradeSpellPointPools
             var poolName = string.Empty;
             var maxPoints = 0;
 
-            if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                CastingOrigin.Class)
+            switch (spellRepertoire.SpellCastingFeature.SpellCastingOrigin)
             {
                 // PATCH: short circuit if the feature is for another class (change from native code)
-                if (spellRepertoire.SpellCastingClass != selectedClass)
-                {
+                case CastingOrigin.Class when spellRepertoire.SpellCastingClass != selectedClass:
                     continue;
-                }
-
-                poolName = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
-            }
-            else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                     CastingOrigin.Subclass)
-            {
+                case CastingOrigin.Class:
+                    poolName = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
+                    break;
                 // PATCH: short circuit if the feature is for another subclass (change from native code)
-                if (spellRepertoire.SpellCastingSubclass != selectedSubclass)
-                {
+                case CastingOrigin.Subclass when spellRepertoire.SpellCastingSubclass != selectedSubclass:
                     continue;
-                }
-
-                poolName = AttributeDefinitions.GetSubclassTag(selectedClass, selectedClassLevel, selectedSubclass);
-            }
-            else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                     CastingOrigin.Race)
-            {
-                poolName = AttributeDefinitions.TagRace;
+                case CastingOrigin.Subclass:
+                    poolName = AttributeDefinitions.GetSubclassTag(selectedClass, selectedClassLevel, selectedSubclass);
+                    break;
+                case CastingOrigin.Race:
+                    poolName = AttributeDefinitions.TagRace;
+                    break;
             }
 
             if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip)
@@ -659,14 +658,6 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
             ? AttributeDefinitions.GetSubclassTag(lastClassDefinition, level, subclassDefinition)
             : string.Empty;
 
-        var tag = spellCasting.SpellCastingOrigin switch
-        {
-            CastingOrigin.Class => classTag,
-            CastingOrigin.Subclass => subclassTag,
-            CastingOrigin.Race => AttributeDefinitions.TagRace,
-            _ => string.Empty
-        };
-
         //
         // BUGFIX: correctly apply bonus cantrips
         //
@@ -693,7 +684,7 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
             heroBuildingData.TempAcquiredCantripsNumber -= activePool.MaxPoints;
         }
 
-        var selectedClassName = LevelUpContext.GetSelectedClass(hero).Name;
+        var selectedClassName = LevelUpContext.GetSelectedClass(hero)?.Name;
 
         var bonusPools = hero.GetTaggedFeaturesByType<FeatureDefinitionPointPool>()
             .Where(x => x.Item2.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
@@ -701,7 +692,8 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
             .Sum(x => x.PoolAmount);
 
         var bonusCantrips = hero.GetTaggedFeaturesByType<FeatureDefinitionBonusCantrips>()
-            .Where(x => x.Item1 != classTag && x.Item1 != subclassTag && x.Item1.Contains(selectedClassName))
+            .Where(x => selectedClassName != null && x.Item1 != classTag && x.Item1 != subclassTag &&
+                        x.Item1.Contains(selectedClassName))
             .Select(x => x.Item2)
             .Sum(x => x.BonusCantrips.Count);
 
@@ -714,8 +706,9 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal class CharacterBuildingManager_AssignDefaultMorphotypes
 {
-    public static RangedInt PreferedSkinColors(RacePresentation racePresentation,
-        CharacterHeroBuildingData heroBuildingData)
+    public static RangedInt PreferedSkinColors(
+        RacePresentation racePresentation,
+        [NotNull] CharacterHeroBuildingData heroBuildingData)
     {
         var subRaceDefinition = heroBuildingData.HeroCharacter.SubRaceDefinition;
 
@@ -724,8 +717,9 @@ internal class CharacterBuildingManager_AssignDefaultMorphotypes
             : racePresentation.PreferedSkinColors;
     }
 
-    public static RangedInt PreferedHairColors(RacePresentation racePresentation,
-        CharacterHeroBuildingData heroBuildingData)
+    public static RangedInt PreferedHairColors(
+        RacePresentation racePresentation,
+        [NotNull] CharacterHeroBuildingData heroBuildingData)
     {
         var subRaceDefinition = heroBuildingData.HeroCharacter.SubRaceDefinition;
 
@@ -734,7 +728,7 @@ internal class CharacterBuildingManager_AssignDefaultMorphotypes
             : racePresentation.PreferedHairColors;
     }
 
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var preferedSkinColorsMethod = typeof(RacePresentation).GetMethod("get_PreferedSkinColors");
         var preferedHairColorsColorsMethod = typeof(RacePresentation).GetMethod("get_PreferedHairColors");

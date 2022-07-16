@@ -2,6 +2,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.BugFix;
 
@@ -14,18 +16,20 @@ namespace SolastaCommunityExpansion.Patches.BugFix;
 internal static class WieldedConfigurationSelector_Bind
 {
     public static void MyBind(
-        InventorySlotBox inventorySlotBox,
+        [NotNull] InventorySlotBox inventorySlotBox,
         RulesetInventorySlot rulesetInventorySlot,
-        GuiCharacter guiCharacter,
+        [CanBeNull] GuiCharacter guiCharacter,
         bool inMainHud,
-        bool forceRefresh,
+        RectTransform anchor,
+        TooltipDefinitions.AnchorMode anchorMode,
+        bool refreshDirectly,
         GuiCharacter wieldedConfigurationSelectorGuiCharacter) // OpCodes.Ldarg_1 below...
     {
         inventorySlotBox.Bind(rulesetInventorySlot, guiCharacter ?? wieldedConfigurationSelectorGuiCharacter,
-            inMainHud, forceRefresh);
+            inMainHud, anchor, anchorMode, refreshDirectly);
     }
 
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         //
         // BUGFIX: wielded configuration selection

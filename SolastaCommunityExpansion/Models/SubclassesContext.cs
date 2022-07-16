@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Subclasses;
 using SolastaCommunityExpansion.Subclasses.Barbarian;
 using SolastaCommunityExpansion.Subclasses.Druid;
@@ -33,7 +35,8 @@ internal static class SubclassesContext
 
                 if (result == 0)
                 {
-                    result = a.FeatureDefinition.FormatTitle().CompareTo(b.FeatureDefinition.FormatTitle());
+                    result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
+                        StringComparison.CurrentCultureIgnoreCase);
                 }
 
                 return result;
@@ -53,11 +56,13 @@ internal static class SubclassesContext
         LoadSubclass(new OathOfRetribution());
         LoadSubclass(new Opportunist());
         LoadSubclass(new PathOfTheLight());
+        LoadSubclass(new PathOfTheRageMage());
         LoadSubclass(new RoyalKnight());
         LoadSubclass(new SpellMaster());
         LoadSubclass(new SpellShield());
         LoadSubclass(new Tactician());
         LoadSubclass(new DivineHeart());
+        LoadSubclass(new DeadMaster());
 
         Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
 
@@ -67,12 +72,12 @@ internal static class SubclassesContext
         }
 
         ArcaneFighter.UpdateEnchantWeapon();
-        ConArtist.UpdateSpellDCBoost();
-        MasterManipulator.UpdateSpellDCBoost();
+        ConArtist.UpdateSpellDcBoost();
+        MasterManipulator.UpdateSpellDcBoost();
         SpellMaster.UpdateBonusRecovery();
     }
 
-    private static void LoadSubclass(AbstractSubclass subclassBuilder)
+    private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)
     {
         var subclass = subclassBuilder.GetSubclass();
 
@@ -85,7 +90,7 @@ internal static class SubclassesContext
         UpdateSubclassVisibility(subclass);
     }
 
-    private static void UpdateSubclassVisibility(CharacterSubclassDefinition characterSubclassDefinition)
+    private static void UpdateSubclassVisibility([NotNull] CharacterSubclassDefinition characterSubclassDefinition)
     {
         var name = characterSubclassDefinition.Name;
         var choiceList = SubclassesChoiceList[characterSubclassDefinition];

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -41,12 +42,14 @@ internal static class ItemBuilder
         }
 
         // If example enchated has multiple forms, copy over extra forms
-        if (magicalExample.WeaponDescription.EffectDescription.EffectForms.Count > 1)
+        if (magicalExample.WeaponDescription.EffectDescription.EffectForms.Count <= 1)
         {
-            for (var i = 1; i < magicalExample.WeaponDescription.EffectDescription.EffectForms.Count; i++)
-            {
-                builder.AddWeaponEffect(magicalExample.WeaponDescription.EffectDescription.EffectForms[i]);
-            }
+            return builder.AddToDB();
+        }
+
+        for (var i = 1; i < magicalExample.WeaponDescription.EffectDescription.EffectForms.Count; i++)
+        {
+            builder.AddWeaponEffect(magicalExample.WeaponDescription.EffectDescription.EffectForms[i]);
         }
 
         return builder.AddToDB();
@@ -77,8 +80,9 @@ internal static class ItemBuilder
         return builder.AddToDB();
     }
 
-    private static List<ItemPropertyDescription> FilterItemProperty(
-        IEnumerable<ItemPropertyDescription> listToFilter, FeatureDefinition toFilter)
+    [NotNull]
+    private static IEnumerable<ItemPropertyDescription> FilterItemProperty(
+        [NotNull] IEnumerable<ItemPropertyDescription> listToFilter, BaseDefinition toFilter)
     {
         return listToFilter.Where(ip => !ip.FeatureDefinition.GUID.Equals(toFilter.GUID)).ToList();
     }

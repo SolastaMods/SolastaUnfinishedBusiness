@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static EquipmentDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
@@ -13,7 +14,7 @@ public static class ItemPropertyDescriptions
 
     public static readonly ItemPropertyDescription WeaponPlus2 = BuildFrom(AttackModifierWeaponPlus2);
 
-    public static readonly ItemPropertyDescription WeaponPlus3 = BuildFrom(AttackModifierWeaponPlus3);
+    // public static readonly ItemPropertyDescription WeaponPlus3 = BuildFrom(AttackModifierWeaponPlus3);
 
     public static readonly ItemPropertyDescription ForceImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.MagicMissile));
@@ -38,21 +39,20 @@ public static class ItemPropertyDescriptions
         return ItemPropertyDescriptionBuilder.From(feature, appliesOnItemOnly, knowledgeAffinity).Build();
     }
 
-    public static ItemPropertyDescription BuildFrom(
-        ConditionDefinition conditione,
-        bool appliesOnItemOnly = true,
-        KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
-    {
-        return ItemPropertyDescriptionBuilder.From(conditione, appliesOnItemOnly, knowledgeAffinity).Build();
-    }
+    // public static ItemPropertyDescription BuildFrom(
+    //     ConditionDefinition condition,
+    //     bool appliesOnItemOnly = true,
+    //     KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
+    // {
+    //     return ItemPropertyDescriptionBuilder.From(condition, appliesOnItemOnly, knowledgeAffinity).Build();
+    // }
 
-
-    public static FeatureDefinition BuildAttackVFXFromSpell(SpellDefinition spell)
+    private static FeatureDefinition BuildAttackVFXFromSpell([NotNull] SpellDefinition spell)
     {
         return BuildAttackVFXFromEffect($"AttackImpact{spell.Name}SpellVFX", spell.EffectDescription);
     }
 
-    public static FeatureDefinition BuildAttackVFXFromEffect(string name, EffectDescription effect)
+    private static FeatureDefinition BuildAttackVFXFromEffect(string name, [NotNull] EffectDescription effect)
     {
         return FeatureDefinitionAttackModifierBuilder
             .Create(name, DefinitionBuilder.CENamespaceGuid)

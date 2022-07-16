@@ -32,31 +32,36 @@ internal static class RulesetImplementationManager_ApplySpellSlotsForm
 
         var spellSlotsForm = effectForm.SpellSlotsForm;
 
-        if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp
-            && SharedSpellsContext.RecoverySlots.TryGetValue(formsParams.activeEffect.Name, out var invokerClass)
-            && invokerClass is CharacterClassDefinition characterClassDefinition)
+        switch (spellSlotsForm.Type)
         {
-            foreach (var spellRepertoire in substituteHero.SpellRepertoires)
+            case SpellSlotsForm.EffectType.RecoverHalfLevelUp
+                when SharedSpellsContext.RecoverySlots.TryGetValue(formsParams.activeEffect.Name,
+                    out var invokerClass) && invokerClass is CharacterClassDefinition characterClassDefinition:
             {
-                var currentValue = 0;
-
-                if (spellRepertoire.SpellCastingClass == characterClassDefinition)
+                foreach (var spellRepertoire in substituteHero.SpellRepertoires)
                 {
-                    currentValue = substituteHero.ClassesAndLevels[characterClassDefinition];
-                }
-                else if (spellRepertoire.SpellCastingSubclass != null)
-                {
-                    var characterClass = substituteHero.ClassesAndSubclasses
-                        .FirstOrDefault(x => x.Value == spellRepertoire.SpellCastingSubclass).Key;
+                    var currentValue = 0;
 
-                    if (characterClass == characterClassDefinition)
+                    if (spellRepertoire.SpellCastingClass == characterClassDefinition)
                     {
                         currentValue = substituteHero.ClassesAndLevels[characterClassDefinition];
                     }
-                }
+                    else if (spellRepertoire.SpellCastingSubclass != null)
+                    {
+                        var characterClass = substituteHero.ClassesAndSubclasses
+                            .FirstOrDefault(x => x.Value == spellRepertoire.SpellCastingSubclass).Key;
 
-                if (currentValue > 0)
-                {
+                        if (characterClass == characterClassDefinition)
+                        {
+                            currentValue = substituteHero.ClassesAndLevels[characterClassDefinition];
+                        }
+                    }
+
+                    if (currentValue <= 0)
+                    {
+                        continue;
+                    }
+
                     var slotsCapital = (currentValue % 2) + (currentValue / 2);
 
                     Gui.GuiService.GetScreen<SlotRecoveryModal>()
@@ -65,44 +70,40 @@ internal static class RulesetImplementationManager_ApplySpellSlotsForm
 
                     break;
                 }
+
+                break;
             }
-        }
-
-        //
-        // handles Sorcerer and Wildshape scenarios slots / points scenarios
-        //
-
-        else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot ||
-                 spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSorceryPoints)
-        {
-            var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
-
-            Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(substituteHero, spellRepertoire,
-                spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
-        }
-        else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.GainSorceryPoints)
-        {
-            var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
-
-            formsParams.sourceCharacter.GainSorceryPoints(spellSlotsForm.SorceryPointsGain);
-        }
-        else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecovererSorceryHalfLevelUp)
-        {
-            var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
-            var currentValue = substituteHero.ClassesAndLevels[Sorcerer];
-            var sorceryPointsGain = (currentValue % 2) + (currentValue / 2);
-
-            formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
-        }
-        else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RechargePower &&
-                 formsParams.targetCharacter is RulesetCharacter)
-        {
-            foreach (var usablePower in substituteHero.UsablePowers)
+            //
+            // handles Sorcerer and Wildshape scenarios slots / points scenarios
+            //
+            case SpellSlotsForm.EffectType.CreateSpellSlot or SpellSlotsForm.EffectType.CreateSorceryPoints:
             {
-                if (usablePower.PowerDefinition == spellSlotsForm.PowerDefinition)
+                var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
+
+                Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(substituteHero, spellRepertoire,
+                    spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
+                break;
+            }
+            case SpellSlotsForm.EffectType.GainSorceryPoints:
+                formsParams.sourceCharacter.GainSorceryPoints(spellSlotsForm.SorceryPointsGain);
+                break;
+            case SpellSlotsForm.EffectType.RecovererSorceryHalfLevelUp:
+            {
+                var currentValue = substituteHero.ClassesAndLevels[Sorcerer];
+                var sorceryPointsGain = (currentValue % 2) + (currentValue / 2);
+
+                formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
+                break;
+            }
+            case SpellSlotsForm.EffectType.RechargePower when formsParams.targetCharacter is RulesetCharacter:
+            {
+                foreach (var usablePower in substituteHero.UsablePowers.Where(usablePower =>
+                             usablePower.PowerDefinition == spellSlotsForm.PowerDefinition))
                 {
                     usablePower.Recharge();
                 }
+
+                break;
             }
         }
 

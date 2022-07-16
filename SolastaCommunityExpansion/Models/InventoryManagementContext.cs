@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +32,7 @@ internal static class InventoryManagementContext
 
     private static GuiDropdown SortGuiDropdown { get; set; }
 
-    internal static Action SelectionChanged { get; set; }
+    internal static Action SelectionChanged { get; private set; }
 
     internal static void Load()
     {
@@ -88,6 +89,7 @@ internal static class InventoryManagementContext
         reorderButton.onClick.AddListener(delegate
         {
             if (Main.Settings.EnableInventoryFilteringAndSorting
+                && !Main.Settings.EnableGamepad
                 && !Global.IsMultiplayer)
             {
                 ResetControls();
@@ -161,18 +163,22 @@ internal static class InventoryManagementContext
 
     internal static void ResetControls()
     {
-        if (BySortGroup != null) // required to avoid a null exception during game load
+        if (BySortGroup == null)
         {
-            FilterGuiDropdown.value = 0;
-            SortGuiDropdown.value = 0;
-            BySortGroup.Inverted = false;
-            BySortGroup.Refresh();
+            return;
         }
+
+        FilterGuiDropdown.value = 0;
+        SortGuiDropdown.value = 0;
+        BySortGroup.Inverted = false;
+        BySortGroup.Refresh();
     }
 
     internal static void RefreshControlsVisibility()
     {
-        var active = Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer;
+        var active = Main.Settings.EnableInventoryFilteringAndSorting
+                     && !Main.Settings.EnableGamepad
+                     && !Global.IsMultiplayer;
 
         FilterGuiDropdown.gameObject.SetActive(active);
         BySortGroup.gameObject.SetActive(active);
@@ -183,7 +189,7 @@ internal static class InventoryManagementContext
     {
         var sortOrder = BySortGroup.Inverted ? -1 : 1;
 
-        int SortByName(RulesetItem a, RulesetItem b)
+        int SortByName([NotNull] RulesetItem a, [NotNull] RulesetItem b)
         {
             var at = Gui.Localize(a.ItemDefinition.GuiPresentation.Title);
             var bt = Gui.Localize(b.ItemDefinition.GuiPresentation.Title);
@@ -193,7 +199,7 @@ internal static class InventoryManagementContext
                 return sortOrder * (a.StackCount - b.StackCount);
             }
 
-            return sortOrder * at.CompareTo(bt);
+            return sortOrder * String.Compare(at, bt, StringComparison.CurrentCultureIgnoreCase);
         }
 
         switch (SortGuiDropdown.value)
@@ -218,7 +224,7 @@ internal static class InventoryManagementContext
                         return SortByName(a, b);
                     }
 
-                    return sortOrder * bmct.CompareTo(bmct);
+                    return sortOrder * String.Compare(bmct, bmct, StringComparison.CurrentCultureIgnoreCase);
                 });
 
                 break;
@@ -275,7 +281,7 @@ internal static class InventoryManagementContext
         }
     }
 
-    internal static void SortAndFilter(RulesetContainer container)
+    internal static void SortAndFilter([CanBeNull] RulesetContainer container)
     {
         if (container == null)
         {
@@ -304,12 +310,14 @@ internal static class InventoryManagementContext
         });
     }
 
-    internal static void Flush(RulesetContainer container)
+    internal static void Flush([CanBeNull] RulesetContainer container)
     {
-        if (container != null)
+        if (container == null)
         {
-            FilteredItems.ForEach(item => container.AddSubItem(item, true));
-            FilteredItems.Clear();
+            return;
         }
+
+        FilteredItems.ForEach(item => container.AddSubItem(item, true));
+        FilteredItems.Clear();
     }
 }

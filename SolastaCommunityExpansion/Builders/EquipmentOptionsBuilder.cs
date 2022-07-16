@@ -8,19 +8,14 @@ public static class EquipmentOptionsBuilder
 {
     public static HeroEquipmentOption Option(ItemDefinition itemType, string optionType, int number)
     {
-        var itemOption = new HeroEquipmentOption();
-        itemOption.number = number;
-        itemOption.optionType = optionType;
-        itemOption.itemReference = itemType;
+        var itemOption = new HeroEquipmentOption {number = number, optionType = optionType, itemReference = itemType};
         return itemOption;
     }
 
     public static HeroEquipmentOption Option(string defaultChoice, string optionType, int number)
     {
-        var itemOption = new HeroEquipmentOption();
-        itemOption.number = number;
-        itemOption.optionType = optionType;
-        itemOption.defaultChoice = defaultChoice;
+        var itemOption =
+            new HeroEquipmentOption {number = number, optionType = optionType, defaultChoice = defaultChoice};
         return itemOption;
     }
 

@@ -19,20 +19,22 @@ internal static class CharactersPanel_OnBeginShow
 
     internal static void Postfix(CharactersPanel __instance, float __state)
     {
-        if (Global.LastLevelUpHeroName != null)
+        if (Global.LastLevelUpHeroName == null)
         {
-            __instance.OnSelectPlate(
-                __instance.characterPlates.Find(x => x.GuiCharacter.Name == Global.LastLevelUpHeroName));
-
-            Global.LastLevelUpHeroName = null;
-
-            Main.Log($"setting position to {__state}");
-
-            // Reset the scroll position because OnBeginShow sets it to 1.0f.
-            // This keeps the selected character in view unless the panel is sorted by level
-            // in which case the character will move.
-            // TODO: calculate the required character position.
-            __instance.charactersScrollview.verticalNormalizedPosition = __state;
+            return;
         }
+
+        __instance.OnSelectPlate(
+            __instance.characterPlates.Find(x => x.GuiCharacter.Name == Global.LastLevelUpHeroName));
+
+        Global.LastLevelUpHeroName = null;
+
+        Main.Log($"setting position to {__state}");
+
+        // Reset the scroll position because OnBeginShow sets it to 1.0f.
+        // This keeps the selected character in view unless the panel is sorted by level
+        // in which case the character will move.
+        // TODO: calculate the required character position.
+        __instance.charactersScrollview.verticalNormalizedPosition = __state;
     }
 }

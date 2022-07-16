@@ -3,6 +3,7 @@ using System.Linq;
 using AwesomeTechnologies;
 using AwesomeTechnologies.VegetationSystem;
 using AwesomeTechnologies.VegetationSystem.Biomes;
+using JetBrains.Annotations;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = System.Random;
@@ -11,24 +12,25 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class DmProRendererContext
 {
-    private const int MARGIN = 25;
-    private const int FLAT_ROOM_SIZE = 12;
-    private const string FLAT_ROOM_TAG = "Flat";
+    private const int Margin = 25;
+    private const int FlatRoomSize = 12;
+    private const string FlatRoomTag = "Flat";
 
     private static VegetationMaskArea TemplateVegetationMaskArea { get; set; }
 
-    private static bool IsFlatRoom(UserRoom userRoom)
+    private static bool IsFlatRoom([NotNull] UserRoom userRoom)
     {
-        return userRoom.RoomBlueprint.name.StartsWith(FLAT_ROOM_TAG);
+        return userRoom.RoomBlueprint.name.StartsWith(FlatRoomTag);
     }
 
-    private static bool IsDynamicFlatRoom(UserRoom userRoom)
+    private static bool IsDynamicFlatRoom([NotNull] UserRoom userRoom)
     {
         return IsFlatRoom(userRoom) &&
-               int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var _);
+               int.TryParse(userRoom.RoomBlueprint.name.Substring(FlatRoomTag.Length, 2), out _);
     }
 
-    public static void GetTemplateVegetationMaskArea(WorldLocation worldLocation)
+    // ReSharper disable once UnusedMember.Global
+    public static void GetTemplateVegetationMaskArea([NotNull] WorldLocation worldLocation)
     {
         var prefabByReference =
             worldLocation.prefabByReference;
@@ -44,7 +46,8 @@ internal static class DmProRendererContext
         }
     }
 
-    public static void SetupLocationTerrain(WorldLocation worldLocation, UserLocation userLocation)
+    // ReSharper disable once UnusedMember.Global
+    public static void SetupLocationTerrain([NotNull] WorldLocation worldLocation, UserLocation userLocation)
     {
         var masterTerrain = worldLocation.gameObject.GetComponentInChildren<Terrain>();
 
@@ -55,12 +58,12 @@ internal static class DmProRendererContext
 
         // calculates inverted heights in map coordinates
         var locationSize = UserLocationDefinitions.CellsBySize[userLocation.Size];
-        var mapHeights = new int[locationSize + (MARGIN * 2), locationSize + (MARGIN * 2)];
+        var mapHeights = new int[locationSize + (Margin * 2), locationSize + (Margin * 2)];
 
         foreach (var userRoom in userLocation.UserRooms)
         {
             var isIndoor = !DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name);
-            const int border = 2;
+            const int BORDER = 2;
             var px = userRoom.Position.x;
             var py = userRoom.Position.y;
             var oh = userRoom.OrientedHeight;
@@ -71,10 +74,10 @@ internal static class DmProRendererContext
                 for (var y = 0; y < oh; y++)
                 {
                     var lowGround = isIndoor &&
-                                    ((x >= border && x <= ow - border && y >= border && y <= oh - border) ||
+                                    ((x >= BORDER && x <= ow - BORDER && y >= BORDER && y <= oh - BORDER) ||
                                      userRoom.GetCellType(x, y) == RoomBlueprint.CellType.GroundLow);
 
-                    mapHeights[MARGIN + px + x, MARGIN + py + y] = lowGround ? 1 : 0;
+                    mapHeights[Margin + px + x, Margin + py + y] = lowGround ? 1 : 0;
                 }
             }
         }
@@ -87,8 +90,8 @@ internal static class DmProRendererContext
         {
             for (var x = 0; x < resolution; x++)
             {
-                var sx = (int)Math.Round(x * (locationSize + (MARGIN * 2f) - 1f) / (resolution - 1f));
-                var sy = (int)Math.Round(y * (locationSize + (MARGIN * 2f) - 1f) / (resolution - 1f));
+                var sx = (int)Math.Round(x * (locationSize + (Margin * 2f) - 1f) / (resolution - 1f));
+                var sy = (int)Math.Round(y * (locationSize + (Margin * 2f) - 1f) / (resolution - 1f));
 
                 heights[y, x] = 1 - mapHeights[sx, sy];
             }
@@ -101,7 +104,7 @@ internal static class DmProRendererContext
         var terrainData = masterTerrain.terrainData;
 
         terrainData.size =
-            new Vector3(locationSize + (MARGIN * 2f), 5f, locationSize + (MARGIN * 2f));
+            new Vector3(locationSize + (Margin * 2f), 5f, locationSize + (Margin * 2f));
         terrainData.SetHeights(0, 0, heights);
         masterTerrain.transform.position = new Vector3(transformPosition.x, -5.01f, transformPosition.z);
 
@@ -118,20 +121,21 @@ internal static class DmProRendererContext
 
         biomeMaskArea.ClearNodes();
         biomeMaskArea.AddNode(
-            biomeMaskArea.transform.InverseTransformDirection(new Vector3(-MARGIN, 0, locationSize + MARGIN)));
-        biomeMaskArea.AddNode(biomeMaskArea.transform.InverseTransformDirection(new Vector3(-MARGIN, 0, -MARGIN)));
+            biomeMaskArea.transform.InverseTransformDirection(new Vector3(-Margin, 0, locationSize + Margin)));
+        biomeMaskArea.AddNode(biomeMaskArea.transform.InverseTransformDirection(new Vector3(-Margin, 0, -Margin)));
         biomeMaskArea.AddNode(
-            biomeMaskArea.transform.InverseTransformDirection(new Vector3(locationSize + MARGIN, 0, -MARGIN)));
+            biomeMaskArea.transform.InverseTransformDirection(new Vector3(locationSize + Margin, 0, -Margin)));
         biomeMaskArea.AddNode(
-            biomeMaskArea.transform.InverseTransformDirection(new Vector3(locationSize + MARGIN, 0,
-                locationSize + MARGIN)));
+            biomeMaskArea.transform.InverseTransformDirection(new Vector3(locationSize + Margin, 0,
+                locationSize + Margin)));
         biomeMaskArea.UpdateBiomeMask();
         worldLocation.gameObject.GetComponentInChildren<VegetationSystemPro>()?.CalculateVegetationSystemBounds();
     }
 
-    public static void SetupFlatRooms(Transform roomTransform, UserRoom userRoom)
+    // ReSharper disable once UnusedMember.Global
+    public static void SetupFlatRooms(Transform roomTransform, [NotNull] UserRoom userRoom)
     {
-        static void DisableWalls(Transform transform)
+        static void DisableWalls([NotNull] Transform transform)
         {
             for (var i = 0; i < transform.childCount; i++)
             {
@@ -140,18 +144,20 @@ internal static class DmProRendererContext
 
             var name = transform.gameObject.name;
 
-            if ((name.Contains("Wall") && !name.Contains("Drain")) || name.Contains("Column") ||
-                name.Contains("DM_Dirt_Pack"))
+            if ((!name.Contains("Wall") || name.Contains("Drain")) && !name.Contains("Column") &&
+                !name.Contains("DM_Dirt_Pack"))
             {
-                // need to keep parents around otherwise pure flat locations don't render correctly
-                if (transform.childCount > 0)
-                {
-                    transform.position = new Vector3(-1f, 0f, -1f);
-                }
-                else
-                {
-                    transform.gameObject.SetActive(false);
-                }
+                return;
+            }
+
+            // need to keep parents around otherwise pure flat locations don't render correctly
+            if (transform.childCount > 0)
+            {
+                transform.position = new Vector3(-1f, 0f, -1f);
+            }
+            else
+            {
+                transform.gameObject.SetActive(false);
             }
         }
 
@@ -162,39 +168,44 @@ internal static class DmProRendererContext
 
         DisableWalls(roomTransform);
 
-        if (int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var multiplier))
+        if (!int.TryParse(userRoom.RoomBlueprint.name.Substring(FlatRoomTag.Length, 2), out var multiplier))
         {
-            var rnd = new Random();
-            var position = roomTransform.position;
-            var moveBy = (multiplier - 1) * FLAT_ROOM_SIZE / 2;
-            var newPosition = new Vector3(position.x - moveBy, 0, position.z - moveBy);
-
-            roomTransform.position = newPosition;
-
-            for (var x = 0; x < multiplier; x++)
-            {
-                for (var z = 0; z < multiplier; z++)
-                {
-                    if (x > 0 || z > 0)
-                    {
-                        // placing textures using a random angle to remove the repetition feeling a bit
-                        var angle = LocationDefinitions.OrientationToAngle(
-                            (LocationDefinitions.Orientation)rnd.Next(0, 3));
-                        var newRoom = Object.Instantiate(roomTransform.gameObject,
-                            new Vector3(newPosition.x + (FLAT_ROOM_SIZE * x), 0,
-                                newPosition.z + (FLAT_ROOM_SIZE * z)), Quaternion.identity,
-                            roomTransform.parent);
-
-                        newRoom.transform.rotation = Quaternion.Euler(0, angle, 0);
-                    }
-                }
-            }
-
-            // adds a hint to fix the reflection probe later on
-            roomTransform.name = FLAT_ROOM_TAG + roomTransform.name;
+            return;
         }
+
+        var rnd = new Random();
+        var position = roomTransform.position;
+        var moveBy = (multiplier - 1) * FlatRoomSize / 2;
+        var newPosition = new Vector3(position.x - moveBy, 0, position.z - moveBy);
+
+        roomTransform.position = newPosition;
+
+        for (var x = 0; x < multiplier; x++)
+        {
+            for (var z = 0; z < multiplier; z++)
+            {
+                if (x <= 0 && z <= 0)
+                {
+                    continue;
+                }
+
+                // placing textures using a random angle to remove the repetition feeling a bit
+                var angle = LocationDefinitions.OrientationToAngle(
+                    (LocationDefinitions.Orientation)rnd.Next(0, 3));
+                var newRoom = Object.Instantiate(roomTransform.gameObject,
+                    new Vector3(newPosition.x + (FlatRoomSize * x), 0,
+                        newPosition.z + (FlatRoomSize * z)), Quaternion.identity,
+                    roomTransform.parent);
+
+                newRoom.transform.rotation = Quaternion.Euler(0, angle, 0);
+            }
+        }
+
+        // adds a hint to fix the reflection probe later on
+        roomTransform.name = FlatRoomTag + roomTransform.name;
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)
     {
         if (TemplateVegetationMaskArea == null ||
@@ -210,8 +221,8 @@ internal static class DmProRendererContext
         // exceptional case here as the mask must be a constant size in this case as the vegetation mask object will get re-instantiated later
         if (IsDynamicFlatRoom(userRoom))
         {
-            sizex = FLAT_ROOM_SIZE;
-            sizey = FLAT_ROOM_SIZE;
+            sizex = FlatRoomSize;
+            sizey = FlatRoomSize;
         }
 
         vegetationMaskArea.transform.position = new Vector3(userRoom.Position.x + (sizex / 2f), 0,
@@ -230,12 +241,13 @@ internal static class DmProRendererContext
         vegetationMaskArea.UpdateVegetationMask();
     }
 
-    public static void FixFlatRoomReflectionProbe(WorldLocation worldLocation)
+    // ReSharper disable once UnusedMember.Global
+    public static void FixFlatRoomReflectionProbe([NotNull] WorldLocation worldLocation)
     {
         var reflectionProbes = worldLocation.GetComponentsInChildren<ReflectionProbe>();
 
         foreach (var reflectionProbe in reflectionProbes.Where(x =>
-                     x.transform.parent.name.StartsWith(FLAT_ROOM_TAG)))
+                     x.transform.parent.name.StartsWith(FlatRoomTag)))
         {
             var size = reflectionProbe.size;
 

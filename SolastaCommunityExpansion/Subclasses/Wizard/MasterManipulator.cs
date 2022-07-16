@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
@@ -7,9 +8,11 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
-internal class MasterManipulator : AbstractSubclass
+internal sealed class MasterManipulator : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("af7255d2-8ce2-4398-8999-f1ef536001f6");
+
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal MasterManipulator()
@@ -29,20 +32,20 @@ internal class MasterManipulator : AbstractSubclass
                 Confusion, // enchantment
                 PhantasmalKiller, // illusion
                 DominatePerson, // Enchantment
-                HoldMonster) // Enchantment           
-            .SetGuiPresentation("MagicAffinityMasterManipulatorList", Category.Subclass)
+                HoldMonster) // Enchantment
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder
             .Create("ManipulatorMentalSavingThrows", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();
 
         var powerDominate = FeatureDefinitionPowerBuilder
             .Create("PowerManipulatorDominatePerson", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass, DominatePerson.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Power, DominatePerson.GuiPresentation.SpriteReference)
             .Configure(0,
                 RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
                 AttributeDefinitions.Intelligence,
@@ -72,21 +75,23 @@ internal class MasterManipulator : AbstractSubclass
         return Subclass;
     }
 
-    private static GuiPresentationBuilder GetSpellDCPresentation()
+    [NotNull]
+    private static GuiPresentationBuilder GetSpellDcPresentation()
     {
-        return new GuiPresentationBuilder("Subclass/&MagicAffinityMasterManipulatorDCTitle",
-            "Subclass/&MagicAffinityMasterManipulatorDC" +
-            Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc + "Description");
+        return new GuiPresentationBuilder("Feature/&MagicAffinityMasterManipulatorDCTitle",
+            Gui.Format("Feature/&MagicAffinityMasterManipulatorDCDescription",
+                Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc.ToString()));
     }
 
-    internal static void UpdateSpellDCBoost()
+    internal static void UpdateSpellDcBoost()
     {
-        if (DcIncreaseAffinity)
+        if (!DcIncreaseAffinity)
         {
-            DcIncreaseAffinity.saveDCModifier = Main.Settings
-                .OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
-            DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
+            return;
         }
+
+        DcIncreaseAffinity.saveDCModifier = Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
+        DcIncreaseAffinity.guiPresentation = GetSpellDcPresentation().Build();
     }
 
     private static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier,
@@ -109,7 +114,7 @@ internal class MasterManipulator : AbstractSubclass
         _dcIncreaseAffinity ??= BuildMagicAffinityModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
             Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc,
             RuleDefinitions.SpellParamsModifierType.FlatValue, "MagicAffinityMasterManipulatorDC",
-            GetSpellDCPresentation().Build());
+            GetSpellDcPresentation().Build());
 
     #endregion
 }

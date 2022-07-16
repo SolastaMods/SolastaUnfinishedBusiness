@@ -13,7 +13,7 @@ internal static class FaceUnlockContext
     {
         var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
 
-        if (Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos)
+        if (Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(
                          x => x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecorationColor &&
@@ -75,7 +75,7 @@ internal static class FaceUnlockContext
             }
         }
 
-        if (Main.Settings.UnlockMarkAndTatoosForAllCharacters)
+        if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
                          x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecoration))
@@ -84,16 +84,18 @@ internal static class FaceUnlockContext
             }
         }
 
-        if (Main.Settings.AllowUnmarkedSorcerers)
+        if (!Main.Settings.AllowUnmarkedSorcerers)
         {
-            SorcerousDraconicBloodline.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default;
-            SorcerousManaPainter.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default;
-            SorcerousChildRift.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default;
-            SorcerousHauntedSoul.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default;
+            return;
         }
+
+        SorcerousDraconicBloodline.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+            .Default;
+        SorcerousManaPainter.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+            .Default;
+        SorcerousChildRift.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+            .Default;
+        SorcerousHauntedSoul.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+            .Default;
     }
 }

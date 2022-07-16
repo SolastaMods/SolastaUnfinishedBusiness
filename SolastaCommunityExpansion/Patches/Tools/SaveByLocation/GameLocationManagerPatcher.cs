@@ -11,7 +11,7 @@ internal static class GameLocationManager_LoadLocationAsync
     public static void Prefix(GameLocationManager __instance,
         string locationDefinitionName, string userLocationName, string userCampaignName)
     {
-        if (!Main.Settings.EnableSaveByLocation)
+        if (!Main.Settings.EnableSaveByLocation || Main.Settings.EnableGamepad)
         {
             return;
         }
@@ -21,15 +21,18 @@ internal static class GameLocationManager_LoadLocationAsync
 
         var sessionService = ServiceRepository.GetService<ISessionService>();
 
-        if (sessionService != null && sessionService.Session != null)
+        if (sessionService is {Session: { }})
         {
             // Record which campaign/location the latest load game belongs to
 
+#if DEBUG
             var session = sessionService.Session;
-            var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
             Main.Log(
                 $"Campaign-ss: Campaign={session.CampaignDefinitionName}, Location: {session.UserLocationName}");
+#endif
+            var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
+
 
             selectedCampaignService.SetCampaignLocation(userCampaignName, userLocationName);
         }

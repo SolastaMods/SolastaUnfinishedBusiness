@@ -9,6 +9,8 @@ namespace SolastaCommunityExpansion.Subclasses.Paladin;
 internal sealed class OathOfRetribution : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("f5efd735-ff95-4256-ad17-dde585aeb5f3");
+
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal OathOfRetribution()

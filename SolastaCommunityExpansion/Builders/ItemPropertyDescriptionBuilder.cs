@@ -9,12 +9,14 @@ public class ItemPropertyDescriptionBuilder
 
     public ItemPropertyDescriptionBuilder()
     {
-        property = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.GreataxePlus1.StaticProperties[0]);
-        property.conditionDefinition = null;
-        property.featureDefinition = null;
-        property.type = ItemPropertyDescription.PropertyType.Feature;
-        property.appliesOnItemOnly = true;
-        property.knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden;
+        property = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.GreataxePlus1.StaticProperties[0])
+        {
+            conditionDefinition = null,
+            featureDefinition = null,
+            type = ItemPropertyDescription.PropertyType.Feature,
+            appliesOnItemOnly = true,
+            knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
+        };
     }
 
     public static ItemPropertyDescriptionBuilder From(FeatureDefinition feature, bool appliesOnItemOnly = true,
@@ -65,14 +67,12 @@ public class ItemPropertyDescriptionBuilder
 
     private void Validate()
     {
-        if (property.Type == ItemPropertyDescription.PropertyType.Feature && property.FeatureDefinition == null)
+        switch (property.Type)
         {
-            throw new ArgumentException("ItemPropertyDescriptionBuilder empty FeatureDefinition!");
-        }
-
-        if (property.Type == ItemPropertyDescription.PropertyType.Condition && property.ConditionDefinition == null)
-        {
-            throw new ArgumentException("ItemPropertyDescriptionBuilder empty ConditionDefinition!");
+            case ItemPropertyDescription.PropertyType.Feature when property.FeatureDefinition == null:
+                throw new ArgumentException("ItemPropertyDescriptionBuilder empty FeatureDefinition!");
+            case ItemPropertyDescription.PropertyType.Condition when property.ConditionDefinition == null:
+                throw new ArgumentException("ItemPropertyDescriptionBuilder empty ConditionDefinition!");
         }
     }
 

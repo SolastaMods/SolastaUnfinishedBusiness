@@ -8,14 +8,11 @@ internal static class RulesDisplay
 {
     internal static void DisplayRules()
     {
-        bool toggle;
-        int intValue;
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label("");
 
-        toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
+        var toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
@@ -87,6 +84,15 @@ internal static class RulesDisplay
         }
 
         UI.Label("");
+
+        toggle = Main.Settings.ApplySrdWeightToFoodRations;
+        if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ApplySrdWeightToFoodRations = toggle;
+            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
+        }
+
+        UI.Label("");
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label("");
 
@@ -153,11 +159,11 @@ internal static class RulesDisplay
 
         UI.Label("");
 
-        intValue = Main.Settings.IncreaseSenseNormalVision;
+        var intValue = Main.Settings.IncreaseSenseNormalVision;
         UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
         if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"), ref intValue,
-                HouseFeatureContext.DEFAULT_VISION_RANGE, HouseFeatureContext.MAX_VISION_RANGE,
-                HouseFeatureContext.DEFAULT_VISION_RANGE, "", UI.AutoWidth()))
+                HouseFeatureContext.DefaultVisionRange, HouseFeatureContext.MaxVisionRange,
+                HouseFeatureContext.DefaultVisionRange, "", UI.AutoWidth()))
         {
             Main.Settings.IncreaseSenseNormalVision = intValue;
         }
@@ -172,10 +178,10 @@ internal static class RulesDisplay
 
         UI.Label("");
 
-        toggle = Main.Settings.AddPickpocketableLoot;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddPickpocketableLoot"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.AddPickPocketableLoot;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddPickpocketableLoot = toggle;
+            Main.Settings.AddPickPocketableLoot = toggle;
             if (toggle)
             {
                 PickPocketContext.Load();

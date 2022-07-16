@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Races;
 
 namespace SolastaCommunityExpansion.Models;
@@ -22,7 +24,8 @@ internal static class RacesContext
 
                 if (result == 0)
                 {
-                    result = a.FeatureDefinition.FormatTitle().CompareTo(b.FeatureDefinition.FormatTitle());
+                    result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
+                        StringComparison.CurrentCultureIgnoreCase);
                 }
 
                 return result;
@@ -37,6 +40,7 @@ internal static class RacesContext
         LoadRace(BolgrifRaceBuilder.BolgrifRace);
         LoadRace(DarkelfSubraceBuilder.DarkelfSubrace);
         LoadRace(GnomeRaceBuilder.GnomeRace);
+        LoadRace(GrayDwarfSubraceBuilder.GrayDwarfSubrace);
         LoadRace(HalfElfVariantRaceBuilder.HalfElfVariantRace); // depends on DarkElf sub race
 
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
@@ -50,7 +54,7 @@ internal static class RacesContext
         RaceScaleMap[GnomeRaceBuilder.GnomeRace] = -0.04f / -0.06f;
     }
 
-    private static void LoadRace(CharacterRaceDefinition characterRaceDefinition)
+    private static void LoadRace([NotNull] CharacterRaceDefinition characterRaceDefinition)
     {
         if (characterRaceDefinition.SubRaces.Count > 0)
         {
@@ -66,7 +70,7 @@ internal static class RacesContext
         }
     }
 
-    private static void UpdateRaceVisibility(CharacterRaceDefinition characterRaceDefinition)
+    private static void UpdateRaceVisibility([NotNull] CharacterRaceDefinition characterRaceDefinition)
     {
         characterRaceDefinition.GuiPresentation.hidden =
             !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name);

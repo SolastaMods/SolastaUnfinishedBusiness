@@ -140,7 +140,7 @@ internal static class FeatureHelpers
     }
 
     // TODO Most of theese builders should likely get moved/merged with the CE builders.
-    public class FeatureDefinitionPowerBuilder : Builders.Features.FeatureDefinitionPowerBuilder
+    public sealed class FeatureDefinitionPowerBuilder : Builders.Features.FeatureDefinitionPowerBuilder
     {
         public FeatureDefinitionPowerBuilder(string name, Guid guidNamespace, int usesPerRecharge,
             RuleDefinitions.UsesDetermination usesDetermination,
@@ -167,7 +167,7 @@ internal static class FeatureHelpers
         }
     }
 
-    public class
+    private sealed class
         FeatureDefinitionAttributeModifierBuilder : Builders.Features.FeatureDefinitionAttributeModifierBuilder
     {
         public FeatureDefinitionAttributeModifierBuilder(string name, Guid guidNamespace,
@@ -181,7 +181,7 @@ internal static class FeatureHelpers
         }
     }
 
-    public class FeatureDefinitionMagicAffinityBuilder : Builders.Features.FeatureDefinitionMagicAffinityBuilder
+    public sealed class FeatureDefinitionMagicAffinityBuilder : Builders.Features.FeatureDefinitionMagicAffinityBuilder
     {
         public FeatureDefinitionMagicAffinityBuilder(string name, Guid guidNamespace, int levelBonus,
             GuiPresentation guiPresentation, params string[] spellNames) :
@@ -214,7 +214,7 @@ internal static class FeatureHelpers
         }
     }
 
-    public class
+    private sealed class
         FeatureDefinitionSavingThrowAffinityBuilder : Builders.Features.FeatureDefinitionSavingThrowAffinityBuilder
     {
         public FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid guidNamespace,
@@ -254,7 +254,7 @@ internal static class FeatureHelpers
         }
     }
 
-    public class
+    private sealed class
         FeatureDefinitionAbilityCheckAffinityBuilder : Builders.Features.FeatureDefinitionAbilityCheckAffinityBuilder
     {
         public FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid guidNameapce,
@@ -284,7 +284,7 @@ internal static class FeatureHelpers
         }
     }
 
-    public class
+    public sealed class
         FeatureDefinitionCraftingAffinityBuilder : Builders.Features.FeatureDefinitionCraftingAffinityBuilder
     {
         public FeatureDefinitionCraftingAffinityBuilder(string name, Guid guidNamespace,
@@ -307,7 +307,7 @@ internal static class FeatureHelpers
         }
     }
 
-    public class RestActivityDefinitionBuilder : Builders.RestActivityDefinitionBuilder
+    public sealed class RestActivityDefinitionBuilder : Builders.RestActivityDefinitionBuilder
     {
         public RestActivityDefinitionBuilder(string name, Guid guidNamespace, RestDefinitions.RestStage restStage,
             RuleDefinitions.RestType restType,
@@ -322,7 +322,7 @@ internal static class FeatureHelpers
         }
     }
 
-    public class
+    private sealed class
         FeatureDefinitionMovementAffinityBuilder : Builders.Features.FeatureDefinitionMovementAffinityBuilder
     {
         public FeatureDefinitionMovementAffinityBuilder(string name, Guid guidNamespace, bool addBase,
@@ -336,7 +336,8 @@ internal static class FeatureHelpers
         }
     }
 
-    public class FeatureDefinitionHealingModifierBuilder : Builders.Features.FeatureDefinitionHealingModifierBuilder
+    private sealed class
+        FeatureDefinitionHealingModifierBuilder : Builders.Features.FeatureDefinitionHealingModifierBuilder
     {
         public FeatureDefinitionHealingModifierBuilder(string name, Guid guidNamespace, int healingBonusDiceNumber,
             RuleDefinitions.DieType healingBonusDiceType,
@@ -349,7 +350,7 @@ internal static class FeatureHelpers
         }
     }
 
-    public class
+    public sealed class
         FeatureDefinitionAdditionalDamageBuilder : Builders.Features.FeatureDefinitionAdditionalDamageBuilder
     {
         public FeatureDefinitionAdditionalDamageBuilder(string name, Guid guidNamesapce, string notificationTag,
@@ -361,7 +362,7 @@ internal static class FeatureHelpers
             RuleDefinitions.AdditionalDamageType additionalDamageType,
             string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement,
             IEnumerable<DiceByRank> diceByRankTable,
-            bool hasSavingThrow, string savingThrowAbility, int savingThrowDC,
+            bool hasSavingThrow, string savingThrowAbility, int savingThrowDc,
             RuleDefinitions.EffectSavingThrowType damageSaveAffinity,
             IEnumerable<ConditionOperationDescription> conditionOperations,
             GuiPresentation guiPresentation) : base(name, guidNamesapce)
@@ -381,7 +382,7 @@ internal static class FeatureHelpers
             Definition.damageDieType = damageDieType;
             Definition.hasSavingThrow = hasSavingThrow;
             Definition.savingThrowAbility = savingThrowAbility;
-            Definition.savingThrowDC = savingThrowDC;
+            Definition.savingThrowDC = savingThrowDc;
             Definition.damageSaveAffinity = damageSaveAffinity;
             Definition.ConditionOperations.SetRange(conditionOperations);
             Definition.guiPresentation = guiPresentation;

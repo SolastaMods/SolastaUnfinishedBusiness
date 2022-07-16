@@ -21,12 +21,14 @@ internal static class CursorLocationSelectTarget_IsFilteringValid
 
         var canBeUsedToAttack = actionParams?.RulesetEffect
             ?.SourceDefinition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>()?.CanBeUsedToAttack;
-        if (canBeUsedToAttack != null &&
-            !canBeUsedToAttack(__instance, actionParams.actingCharacter, target,
+
+        if (canBeUsedToAttack == null || canBeUsedToAttack(__instance, actionParams.actingCharacter, target,
                 out var failure))
         {
-            __result = false;
-            __instance.actionModifier.FailureFlags.Add(failure);
+            return;
         }
+
+        __result = false;
+        __instance.actionModifier.FailureFlags.Add(failure);
     }
 }

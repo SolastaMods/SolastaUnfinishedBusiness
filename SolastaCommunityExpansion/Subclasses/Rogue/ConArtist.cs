@@ -1,17 +1,21 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Level20;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue;
 
-internal class ConArtist : AbstractSubclass
+internal sealed class ConArtist : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
 
     private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
+
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal ConArtist()
@@ -19,7 +23,7 @@ internal class ConArtist : AbstractSubclass
         // Make Con Artist subclass
         var abilityAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityAffinityRogueConArtist", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
                 RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, RuleDefinitions.DieType.D8, 0,
                 (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
@@ -30,7 +34,7 @@ internal class ConArtist : AbstractSubclass
 
         var spellCasting = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellConArtist", SubclassNamespace)
-            .SetGuiPresentation("RoguishConArtistSpellcasting", Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .SetSpellList(SpellListDefinitions.SpellListWizard)
@@ -38,6 +42,7 @@ internal class ConArtist : AbstractSubclass
             .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
+            .SetReplacedSpells(SpellsHelper.OneThirdCasterReplacedSpells)
             .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
             .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
             .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
@@ -55,7 +60,7 @@ internal class ConArtist : AbstractSubclass
 
         var condition = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "RogueConArtistFeintCondition", SubclassNamespace)
-            .SetGuiPresentation("RoguishConArtistFeintCondition", Category.Subclass,
+            .SetGuiPresentation(Category.Feature,
                 ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
             .SetAdditionalDamageData(RuleDefinitions.DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
@@ -71,7 +76,7 @@ internal class ConArtist : AbstractSubclass
 
         var feint = FeatureDefinitionPowerBuilder
             .Create("RoguishConArtistFeint", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .Configure(
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
@@ -80,7 +85,7 @@ internal class ConArtist : AbstractSubclass
 
         var proficiency = FeatureDefinitionProficiencyBuilder
             .Create("RoguishConArtistMentalSavingThrows", SubclassNamespace)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Wisdom)
             .AddToDB();
@@ -99,7 +104,7 @@ internal class ConArtist : AbstractSubclass
     private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
         FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityRoguishConArtistDC", SubclassNamespace)
-            .SetGuiPresentation(GetSpellDCPresentation().Build())
+            .SetGuiPresentation(GetSpellDcPresentation().Build())
             .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
                 Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,
                 RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
@@ -115,19 +120,23 @@ internal class ConArtist : AbstractSubclass
         return Subclass;
     }
 
-    private static GuiPresentationBuilder GetSpellDCPresentation()
+    [NotNull]
+    private static GuiPresentationBuilder GetSpellDcPresentation()
     {
-        return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDCTitle",
-            "Subclass/&MagicAffinityRoguishConArtistDC" +
-            Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description");
+        return new GuiPresentationBuilder(
+            "Feature/&MagicAffinityRoguishConArtistDCTitle",
+            Gui.Format("Feature/&MagicAffinityRoguishConArtistDCDescription",
+                Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc.ToString()));
     }
 
-    internal static void UpdateSpellDCBoost()
+    internal static void UpdateSpellDcBoost()
     {
-        if (DcIncreaseAffinity)
+        if (!DcIncreaseAffinity)
         {
-            DcIncreaseAffinity.saveDCModifier = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
-            DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
+            return;
         }
+
+        DcIncreaseAffinity.saveDCModifier = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
+        DcIncreaseAffinity.guiPresentation = GetSpellDcPresentation().Build();
     }
 }

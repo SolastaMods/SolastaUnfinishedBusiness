@@ -67,7 +67,7 @@ internal static class SpellRepertoirePanel_Bind
             {
                 var transform = spellsByLevel.GetChild(j);
 
-                if (transform.TryGetComponent(typeof(SlotStatusTable), out var _))
+                if (transform.TryGetComponent(typeof(SlotStatusTable), out _))
                 {
                     transform.gameObject.SetActive(i < slotLevel + accountForCantrips); // table header (with slots)
                 }
@@ -97,7 +97,6 @@ internal static class SpellRepertoirePanel_Bind
         else
         {
             var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
-            var isWarlockRepertoire = SharedSpellsContext.IsWarlock(spellRepertoire.SpellCastingClass);
             var isSharedcaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
             var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);

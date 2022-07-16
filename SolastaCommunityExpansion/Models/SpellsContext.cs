@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Spells;
 
 namespace SolastaCommunityExpansion.Models;
@@ -8,10 +9,12 @@ internal static class SpellsContext
 {
     internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = new();
 
-    private static readonly SortedDictionary<string, SpellListDefinition> spellLists = new();
-    internal static HashSet<SpellDefinition> Spells { get; set; } = new();
+    // ReSharper disable once InconsistentNaming
+    private static readonly SortedList<string, SpellListDefinition> spellLists = new();
+    internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
 
-    internal static SortedDictionary<string, SpellListDefinition> SpellLists
+    [NotNull]
+    internal static SortedList<string, SpellListDefinition> SpellLists
     {
         get
         {
@@ -25,7 +28,6 @@ internal static class SpellsContext
 
             foreach (var characterClass in dbCharacterClassDefinition)
             {
-                Main.Log($"{characterClass.Name}");
                 var title = characterClass.FormatTitle();
 
                 var featureDefinitionCastSpell = characterClass.FeatureUnlocks
@@ -48,19 +50,20 @@ internal static class SpellsContext
 
                 var featureDefinition = characterSubclass.FeatureUnlocks
                     .Select(x => x.FeatureDefinition)
-                    .FirstOrDefault(x => x is FeatureDefinitionCastSpell || x is FeatureDefinitionMagicAffinity);
+                    .FirstOrDefault(x => x is FeatureDefinitionCastSpell or FeatureDefinitionMagicAffinity);
 
-                if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
-                    && featureDefinitionMagicAffinity.ExtendedSpellList != null
-                    && !spellLists.ContainsValue(featureDefinitionMagicAffinity.ExtendedSpellList))
+                switch (featureDefinition)
                 {
-                    spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
-                }
-                else if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell
-                         && featureDefinitionCastSpell.SpellListDefinition != null
-                         && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
-                {
-                    spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+                    case FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
+                        when featureDefinitionMagicAffinity.ExtendedSpellList != null &&
+                             !spellLists.ContainsValue(featureDefinitionMagicAffinity.ExtendedSpellList):
+                        spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
+                        break;
+                    case FeatureDefinitionCastSpell featureDefinitionCastSpell
+                        when featureDefinitionCastSpell.SpellListDefinition != null &&
+                             !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition):
+                        spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+                        break;
                 }
             }
 
@@ -70,28 +73,12 @@ internal static class SpellsContext
 
     internal static bool IsAllSetSelected()
     {
-        foreach (var spellListContext in SpellListContextTab.Values)
-        {
-            if (!spellListContext.IsAllSetSelected)
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return SpellListContextTab.Values.All(spellListContext => spellListContext.IsAllSetSelected);
     }
 
     internal static bool IsSuggestedSetSelected()
     {
-        foreach (var spellListContext in SpellListContextTab.Values)
-        {
-            if (!spellListContext.IsSuggestedSetSelected)
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return SpellListContextTab.Values.All(spellListContext => spellListContext.IsSuggestedSetSelected);
     }
 
     internal static void SelectAllSet(bool toggle)
@@ -129,9 +116,9 @@ internal static class SpellsContext
         BazouSpells.Register();
         HolicSpells.Register();
         SrdSpells.Register();
-        EWSpells.Register();
+        EwSpells.Register();
         HouseSpellTweaks.Register();
-        SGSpells.Register();
+        SgSpells.Register();
 
         // caches which spells are toggleable per spell list
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
@@ -147,13 +134,13 @@ internal static class SpellsContext
         //BazouSpells.AddToDB();
         HolicSpells.AddToDB();
         SrdSpells.AddToDB();
-        SGSpells.AddToDB();
+        SgSpells.AddToDB();
     }
 
     internal static void RegisterSpell(
         SpellDefinition spellDefinition,
         int suggestedStartsAt = 0,
-        params SpellListDefinition[] spellLists)
+        params SpellListDefinition[] registeredSpellLists)
     {
         if (Spells.Contains(spellDefinition))
         {
@@ -162,9 +149,9 @@ internal static class SpellsContext
 
         Spells.Add(spellDefinition);
 
-        for (var i = 0; i < spellLists.Length; i++)
+        for (var i = 0; i < registeredSpellLists.Length; i++)
         {
-            var spellList = spellLists[i];
+            var spellList = registeredSpellLists[i];
 
             if (i < suggestedStartsAt)
             {
@@ -180,15 +167,6 @@ internal static class SpellsContext
         }
     }
 
-
-#if DEBUG
-    public static string GenerateSpellsDescription()
-    {
-        // TODO: remove this later after the other request gets merged otherwise won't compile in DEBUG
-        return string.Empty;
-    }
-#endif
-
     internal sealed class SpellListContext
     {
         public SpellListContext(SpellListDefinition spellListDefinition)
@@ -200,13 +178,15 @@ internal static class SpellsContext
         }
 
         private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
-        public SpellListDefinition SpellList { get; }
+        private SpellListDefinition SpellList { get; }
         public HashSet<SpellDefinition> AllSpells { get; }
         public HashSet<SpellDefinition> MinimumSpells { get; }
         public HashSet<SpellDefinition> SuggestedSpells { get; }
 
+        // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool IsAllSetSelected => SelectedSpells.Count == AllSpells.Count;
 
+        // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
                                               && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
 
@@ -246,7 +226,7 @@ internal static class SpellsContext
             }
         }
 
-        public void Switch(SpellDefinition spellDefinition, bool active)
+        public void Switch([NotNull] SpellDefinition spellDefinition, bool active)
         {
             var spellListName = SpellList.Name;
             var spellName = spellDefinition.Name;

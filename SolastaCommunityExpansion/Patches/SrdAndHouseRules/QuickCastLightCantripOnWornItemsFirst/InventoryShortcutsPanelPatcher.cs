@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantripOnWornItemsFirst;
 // TODO: modify "Screen/&CastLightButtonDescription"
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantr
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class InventoryShortcutsPanel_OnCastLightCb
 {
-    public static bool MyTryFindTargetWieldedItem(RulesetCharacterHero rulesetCharacterHero,
+    public static bool MyTryFindTargetWieldedItem([NotNull] RulesetCharacterHero rulesetCharacterHero,
         out RulesetItem targetItem)
     {
         if (!Main.Settings.QuickCastLightCantripOnWornItemsFirst)
@@ -38,16 +39,19 @@ internal static class InventoryShortcutsPanel_OnCastLightCb
 
         // Torso
         var rulesetInventorySlote = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso];
-        if (rulesetInventorySlot2.EquipedItem != null)
+
+        if (rulesetInventorySlot2.EquipedItem == null)
         {
-            targetItem = rulesetInventorySlote.EquipedItem;
-            return true;
+            return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
         }
+
+        targetItem = rulesetInventorySlote.EquipedItem;
+
+        return true;
 
         // Other...
 
         // Else default MainHand, OffHand
-        return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
     }
 
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

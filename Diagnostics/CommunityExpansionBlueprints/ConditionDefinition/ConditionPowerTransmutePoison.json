@@ -124,8 +124,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ConditionTransmutePoisonTitle",
-    "description": "Subclass/&ConditionTransmutePoisonDescription",
+    "title": "Condition/&ConditionPowerTransmutePoisonTitle",
+    "description": "Condition/&ConditionPowerTransmutePoisonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a723156c787808644b470992b3f992df",

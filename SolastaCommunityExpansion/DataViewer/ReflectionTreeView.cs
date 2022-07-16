@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using ModKit;
-using ModKit.Utility;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Api.ModKit;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.DataViewer;
@@ -32,15 +33,15 @@ public class ReflectionTreeView
         SetRoot(root);
     }
 
-    public float DepthDelta { get; set; } = 30f;
+    private static float DepthDelta => 30f;
 
-    public static int MaxRows => Main.Settings.MaxRows;
+    private static int MaxRows => Main.Settings.MaxRows;
 
     public object Root => _tree.Root;
 
-    public float TitleMinWidth { get; set; } = 300f;
+    private static float TitleMinWidth => 300f;
 
-    private void updateCounts(int visitCount, int depth, int breadth)
+    private void UpdateCounts(int visitCount, int depth, int breadth)
     {
         this.visitCount = visitCount;
         searchDepth = depth;
@@ -68,7 +69,7 @@ public class ReflectionTreeView
 #pragma warning disable CS0618 // Type or member is obsolete
         _tree.RootNode.Expanded = ToggleState.On;
 #pragma warning restore CS0618 // Type or member is obsolete
-        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
+        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
     }
 
     public void OnGUI(bool drawRoot = true, bool collapse = false)
@@ -78,15 +79,9 @@ public class ReflectionTreeView
             return;
         }
 
-        if (_buttonStyle == null)
-        {
-            _buttonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft, stretchHeight = true};
-        }
+        _buttonStyle ??= new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft, stretchHeight = true};
 
-        if (_valueStyle == null)
-        {
-            _valueStyle = new GUIStyle(GUI.skin.box) {alignment = TextAnchor.MiddleLeft, stretchHeight = true};
-        }
+        _valueStyle ??= new GUIStyle(GUI.skin.box) {alignment = TextAnchor.MiddleLeft, stretchHeight = true};
 
         var startIndexUBound = Math.Max(0, _nodesCount - MaxRows);
 
@@ -99,13 +94,15 @@ public class ReflectionTreeView
                 if (_mouseOver)
                 {
                     var delta = Input.mouseScrollDelta;
-                    if (delta.y > 0 && _startIndex > 0)
+
+                    switch (delta.y)
                     {
-                        _startIndex--;
-                    }
-                    else if (delta.y < 0 && _startIndex < startIndexUBound)
-                    {
-                        _startIndex++;
+                        case > 0 when _startIndex > 0:
+                            _startIndex--;
+                            break;
+                        case < 0 when _startIndex < startIndexUBound:
+                            _startIndex++;
+                            break;
                     }
                 }
 
@@ -141,10 +138,10 @@ public class ReflectionTreeView
                 GUILayout.Space(10f);
                 GUILayout.Label($"Scroll: {_startIndex} / {_totalNodeCount}", GUILayout.ExpandWidth(false));
                 GUILayout.Space(10f);
-                UI.ActionTextField(ref searchText, "searhText", _ => { }, () =>
+                UI.ActionTextField(ref searchText, "searchText", _ => { }, () =>
                 {
                     searchText = searchText.Trim();
-                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
+                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
                 }, UI.Width(250));
                 GUILayout.Space(10f);
                 var isSearching = ReflectionSearch.Shared.IsSearching;
@@ -157,14 +154,14 @@ public class ReflectionTreeView
                     else
                     {
                         searchText = searchText.Trim();
-                        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts,
+                        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts,
                             _searchResults);
                     }
                 }, UI.AutoWidth());
                 GUILayout.Space(10f);
                 if (GUIHelper.AdjusterButton(ref Main.Settings.MaxSearchDepth, "Max Depth:", 0))
                 {
-                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
+                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
                 }
 
                 GUILayout.Space(10f);
@@ -245,12 +242,14 @@ public class ReflectionTreeView
                     }
 
                     // cache height
-                    if (Event.current.type == EventType.Repaint)
+                    if (Event.current.type != EventType.Repaint)
                     {
-                        _mouseOver = _viewerRect.Contains(Event.current.mousePosition);
-                        _viewerRect = GUILayoutUtility.GetLastRect();
-                        _height = _viewerRect.height + 5f;
+                        return;
                     }
+
+                    _mouseOver = _viewerRect.Contains(Event.current.mousePosition);
+                    _viewerRect = GUILayoutUtility.GetLastRect();
+                    _height = _viewerRect.height + 5f;
                 }
             }
         }
@@ -260,34 +259,36 @@ public class ReflectionTreeView
     {
         _nodesCount++;
 
-        if (_nodesCount > _startIndex && _nodesCount <= _startIndex + MaxRows)
+        if (_nodesCount <= _startIndex || _nodesCount > _startIndex + MaxRows)
         {
-            using (new GUILayout.HorizontalScope())
+            return;
+        }
+
+        using (new GUILayout.HorizontalScope())
+        {
+            // title
+            GUILayout.Space(DepthDelta * (depth - _skipLevels));
+            var name = node.Name;
+            name = name.MarkedSubstring(searchText);
+            UI.ToggleButton(ref expanded,
+                $"[{node.NodeTypePrefix}] ".Grey() +
+                name + " : " + (
+                    node.IsBaseType ? node.Type.Name.Grey() :
+                    node.IsGameObject ? node.Type.Name.Magenta() :
+                    node.IsEnumerable ? node.Type.Name.Cyan() : node.Type.Name.Orange()),
+                _buttonStyle, GUILayout.ExpandWidth(false), GUILayout.MinWidth(TitleMinWidth));
+
+            // value
+            var originalColor = GUI.contentColor;
+            GUI.contentColor = node.IsException ? Color.red : node.IsNull ? Color.grey : originalColor;
+            GUILayout.TextArea(node.ValueText.MarkedSubstring(searchText));
+            GUI.contentColor = originalColor;
+
+            // instance type
+            if (node.InstType != null && node.InstType != node.Type)
             {
-                // title
-                GUILayout.Space(DepthDelta * (depth - _skipLevels));
-                var name = node.Name;
-                name = name.MarkedSubstring(searchText);
-                UI.ToggleButton(ref expanded,
-                    $"[{node.NodeTypePrefix}] ".color(RGBA.grey) +
-                    name + " : " + node.Type.Name.color(
-                        node.IsBaseType ? RGBA.grey :
-                        node.IsGameObject ? RGBA.magenta :
-                        node.IsEnumerable ? RGBA.cyan : RGBA.orange),
-                    _buttonStyle, GUILayout.ExpandWidth(false), GUILayout.MinWidth(TitleMinWidth));
-
-                // value
-                var originalColor = GUI.contentColor;
-                GUI.contentColor = node.IsException ? Color.red : node.IsNull ? Color.grey : originalColor;
-                GUILayout.TextArea(node.ValueText.MarkedSubstring(searchText));
-                GUI.contentColor = originalColor;
-
-                // instance type
-                if (node.InstType != null && node.InstType != node.Type)
-                {
-                    GUILayout.Label(node.InstType.Name.color(RGBA.yellow), _buttonStyle,
-                        GUILayout.ExpandWidth(false));
-                }
+                GUILayout.Label(node.InstType.Name.Khaki(), _buttonStyle,
+                    GUILayout.ExpandWidth(false));
             }
         }
     }

@@ -70,13 +70,10 @@ public class ReactionRequestWarcaster : ReactionRequest
             }
         }
 
-        foreach (var pair in SubOptionsAvailability)
+        foreach (var pair in SubOptionsAvailability.Where(pair => pair.Value))
         {
-            if (pair.Value)
-            {
-                SelectSubOption(pair.Key);
-                break;
-            }
+            SelectSubOption(pair.Key);
+            break;
         }
     }
 
@@ -98,7 +95,8 @@ public class ReactionRequestWarcaster : ReactionRequest
 
         //TODO: find better way to detect warcaster
         var affinities = rulesetCharacter.GetFeaturesByType<FeatureDefinitionMagicAffinity>();
-        if (affinities == null || affinities.All(a => a.Name != "MagicAffinityWarCasterFeat"))
+
+        if (affinities.All(a => a.Name != "MagicAffinityWarCasterFeat"))
         {
             return null;
         }
@@ -172,18 +170,21 @@ public class ReactionRequestWarcaster : ReactionRequest
                 spell, spell.SpellLevel, false);
             ReactionParams.RulesetEffect = spellEffect;
 
-            var spelltargets = spellEffect.ComputeTargetParameter();
-            if (reactionParams.RulesetEffect.EffectDescription.IsSingleTarget && spelltargets > 0)
-            {
-                var target = reactionParams.TargetCharacters.FirstOrDefault();
-                var mod = reactionParams.ActionModifiers.FirstOrDefault();
+            var spellTargets = spellEffect.ComputeTargetParameter();
 
-                while (target != null && mod != null && reactionParams.TargetCharacters.Count < spelltargets)
-                {
-                    reactionParams.TargetCharacters.Add(target);
-                    // Technically casts after first might need to have different mods, but not by much since we attacking same target.
-                    reactionParams.ActionModifiers.Add(mod);
-                }
+            if (!reactionParams.RulesetEffect.EffectDescription.IsSingleTarget || spellTargets <= 0)
+            {
+                return;
+            }
+
+            var target = reactionParams.TargetCharacters.FirstOrDefault();
+            var mod = reactionParams.ActionModifiers.FirstOrDefault();
+
+            while (target != null && mod != null && reactionParams.TargetCharacters.Count < spellTargets)
+            {
+                reactionParams.TargetCharacters.Add(target);
+                // Technically casts after first might need to have different mods, but not by much since we attacking same target.
+                reactionParams.ActionModifiers.Add(mod);
             }
         }
     }

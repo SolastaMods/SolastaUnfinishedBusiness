@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Models;
 
 public static class PlayerControllerContext
 {
-    private const int PLAYER_CONTROLLER_ID = 1;
+    private const int PlayerControllerID = 1;
 
-    private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new();
+    private static readonly Dictionary<GameLocationCharacter, int> ControllersChoices = new();
 
     internal static readonly string[] Controllers = {"Human", "AI"};
 
+    // ReSharper disable once InconsistentNaming
     private static int[] playerCharactersChoices { get; set; }
 
     internal static List<GameLocationCharacter> PlayerCharacters { get; } = new();
@@ -27,19 +29,19 @@ public static class PlayerControllerContext
             {
                 var playerCharacter = PlayerCharacters[i];
 
-                controllersChoices[playerCharacter] = value[i];
+                ControllersChoices[playerCharacter] = value[i];
             }
         }
     }
 
-    internal static bool SideFlipped { get; private set; }
+    private static bool SideFlipped { get; set; }
 
     internal static void RefreshGuiState()
     {
-        var controllersChoicesCopy = controllersChoices.ToDictionary(x => x.Key, x => x.Value);
+        var controllersChoicesCopy = ControllersChoices.ToDictionary(x => x.Key, x => x.Value);
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-        controllersChoices.Clear();
+        ControllersChoices.Clear();
         PlayerCharacters.Clear();
 
         if (gameLocationCharacterService != null)
@@ -49,19 +51,18 @@ public static class PlayerControllerContext
         }
 
         PlayerCharacters.ForEach(x =>
-            controllersChoices.Add(x, controllersChoicesCopy.TryGetValue(x, out var choice) ? choice : 0));
-        playerCharactersChoices = controllersChoices.Values.ToArray();
+            ControllersChoices.Add(x, controllersChoicesCopy.TryGetValue(x, out var choice) ? choice : 0));
+        playerCharactersChoices = ControllersChoices.Values.ToArray();
     }
 
     private static void UpdatePartyControllerIds(bool reset = false)
     {
         var activePlayerController = Gui.ActivePlayerController;
 
-        for (var i = 0; i < PlayerCharacters.Count; i++)
+        foreach (var playerCharacter in PlayerCharacters)
         {
-            var playerCharacter = PlayerCharacters[i];
-            var controllerId = reset || controllersChoices[playerCharacter] == 0
-                ? PLAYER_CONTROLLER_ID
+            var controllerId = reset || ControllersChoices[playerCharacter] == 0
+                ? PlayerControllerID
                 : PlayerControllerManager.DmControllerId;
 
             playerCharacter.ControllerId = controllerId;
@@ -70,7 +71,7 @@ public static class PlayerControllerContext
         activePlayerController.DirtyControlledCharacters();
     }
 
-    internal static void Start(GameLocationBattle battle)
+    internal static void Start([NotNull] GameLocationBattle battle)
     {
         var activeContender = battle.ActiveContender;
         var enemies = battle.EnemyContenders;
@@ -81,34 +82,38 @@ public static class PlayerControllerContext
             UpdatePartyControllerIds();
         }
 
-        if (Main.Settings.EnableEnemiesControlledByPlayer && enemies.Contains(activeContender))
+        if (!Main.Settings.EnableEnemiesControlledByPlayer || !enemies.Contains(activeContender))
         {
-            SideFlipped = true;
-            enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
-            players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
-            Gui.ActivePlayerController.ControlledCharacters.Clear();
-            Gui.ActivePlayerController.ControlledCharacters.AddRange(enemies);
+            return;
         }
+
 
         Global.IsSpellStrike = false;
         Global.SpellStrikeRollOutcome = RuleDefinitions.RollOutcome.Neutral;
         Global.SpellStrikeDieRoll = -1;
+        SideFlipped = true;
+        enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
+        players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
+        Gui.ActivePlayerController.ControlledCharacters.Clear();
+        Gui.ActivePlayerController.ControlledCharacters.AddRange(enemies);
     }
 
     internal static void Stop(GameLocationBattle battle)
     {
         UpdatePartyControllerIds(true);
 
-        if (SideFlipped)
+        if (!SideFlipped)
         {
-            var enemies = battle.EnemyContenders;
-            var players = battle.PlayerContenders;
-
-            SideFlipped = false;
-            enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
-            players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
-            Gui.ActivePlayerController.ControlledCharacters.Clear();
-            Gui.ActivePlayerController.ControlledCharacters.AddRange(players);
+            return;
         }
+
+        var enemies = battle.EnemyContenders;
+        var players = battle.PlayerContenders;
+
+        SideFlipped = false;
+        enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
+        players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
+        Gui.ActivePlayerController.ControlledCharacters.Clear();
+        Gui.ActivePlayerController.ControlledCharacters.AddRange(players);
     }
 }

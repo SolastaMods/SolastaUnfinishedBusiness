@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models;
 
 public static class MulticlassInOutRulesContext
 {
-    public static void EnumerateHeroAllowedClassDefinitions(RulesetCharacterHero hero,
-        List<CharacterClassDefinition> allowedClasses, ref int selectedClass)
+    public static void EnumerateHeroAllowedClassDefinitions([NotNull] RulesetCharacterHero hero,
+        [NotNull] List<CharacterClassDefinition> allowedClasses, out int selectedClass)
     {
         var currentClass = hero.ClassesHistory[hero.ClassesHistory.Count - 1];
 
@@ -24,27 +26,16 @@ public static class MulticlassInOutRulesContext
         // only allows existing classes with required In/Out attributes
         else if (hero.ClassesAndLevels.Count >= Main.Settings.MaxAllowedClasses)
         {
-            foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
-            {
-                if (!Main.Settings.EnableMinInOutAttributes
-                    || ApproveMultiClassInOut(hero, characterClassDefinition))
-                {
-                    allowedClasses.Add(characterClassDefinition);
-                }
-            }
+            allowedClasses.AddRange(hero.ClassesAndLevels.Keys.Where(characterClassDefinition =>
+                !Main.Settings.EnableMinInOutAttributes || ApproveMultiClassInOut(hero, characterClassDefinition)));
         }
 
         // only allows supported classes with required In/Out attributes
         else
         {
-            foreach (var classDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
-            {
-                if (IsSupported(classDefinition)
-                    && (!Main.Settings.EnableMinInOutAttributes || ApproveMultiClassInOut(hero, classDefinition)))
-                {
-                    allowedClasses.Add(classDefinition);
-                }
-            }
+            allowedClasses.AddRange(DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(classDefinition =>
+                IsSupported(classDefinition) && (!Main.Settings.EnableMinInOutAttributes ||
+                                                 ApproveMultiClassInOut(hero, classDefinition))));
         }
 
         allowedClasses.Sort((a, b) =>
@@ -52,45 +43,35 @@ public static class MulticlassInOutRulesContext
             hero.ClassesAndLevels.TryGetValue(a, out var aLevels);
             hero.ClassesAndLevels.TryGetValue(b, out var bLevels);
 
-            if (aLevels == bLevels)
-            {
-                return a.FormatTitle().CompareTo(b.FormatTitle());
-            }
-
-            return bLevels.CompareTo(aLevels);
+            return aLevels == bLevels
+                ? String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase)
+                : bLevels.CompareTo(aLevels);
         });
 
         selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
     }
 
-    private static int MyGetAttribute(RulesetCharacterHero hero, string attributeName)
+    private static int MyGetAttribute([NotNull] RulesetEntity hero, string attributeName)
     {
         var attribute = hero.GetAttribute(attributeName);
         var activeModifiers = attribute.ActiveModifiers;
-        var currentValue = attribute.BaseValue;
-
-        foreach (var activeModifier in activeModifiers
-                     .Where(x => x.Operation ==
-                                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive))
-        {
-            currentValue += Mathf.FloorToInt(activeModifier.Value);
-        }
+        var currentValue = attribute.BaseValue + activeModifiers
+            .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            .Sum(activeModifier => Mathf.FloorToInt(activeModifier.Value));
 
         return Mathf.Clamp(currentValue, int.MinValue,
             attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
     }
 
-    private static Dictionary<string, int> GetItemsAttributeModifiers(RulesetCharacterHero hero)
+    [NotNull]
+    private static Dictionary<string, int> GetItemsAttributeModifiers([NotNull] RulesetCharacter hero)
     {
-        var attributeModifiers = new Dictionary<string, int>();
         var items = new List<RulesetItem>();
 
         hero.CharacterInventory.EnumerateAllItems(items, false);
 
-        foreach (var attributeName in AttributeDefinitions.AbilityScoreNames)
-        {
-            attributeModifiers.Add(attributeName, 0);
-        }
+        var attributeModifiers =
+            AttributeDefinitions.AbilityScoreNames.ToDictionary(attributeName => attributeName, _ => 0);
 
         foreach (var featureDefinitionAttributeModifier in items
                      .SelectMany(x => x.ItemDefinition.StaticProperties
@@ -108,7 +89,8 @@ public static class MulticlassInOutRulesContext
     }
 
     [SuppressMessage("Convert switch statement to expression", "IDE0066")]
-    public static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+    private static bool ApproveMultiClassInOut(RulesetCharacter hero,
+        [NotNull] BaseDefinition classDefinition)
     {
         if (classDefinition.GuiPresentation.Hidden)
         {
@@ -130,13 +112,13 @@ public static class MulticlassInOutRulesContext
         switch (classDefinition.Name)
         {
             case RuleDefinitions.BarbarianClass:
-            case IntegrationContext.CLASS_WARDEN:
+                //case IntegrationContext.CLASS_WARDEN:
                 return strength >= 13;
 
             case RuleDefinitions.SorcererClass:
             case RuleDefinitions.WarlockClass:
-            case IntegrationContext.CLASS_WARLOCK:
-            case IntegrationContext.CLASS_WITCH:
+            case IntegrationContext.ClassWarlock:
+            case IntegrationContext.ClassWitch:
                 return charisma >= 13;
 
             case RuleDefinitions.ClericClass:
@@ -147,7 +129,7 @@ public static class MulticlassInOutRulesContext
                 return strength >= 13 || dexterity >= 13;
 
             case RuleDefinitions.MonkClass:
-            case IntegrationContext.CLASS_MONK:
+            case IntegrationContext.ClassMonk:
                 return wisdom >= 13 && dexterity >= 13;
 
             case RuleDefinitions.RangerClass:
@@ -160,18 +142,18 @@ public static class MulticlassInOutRulesContext
                 return dexterity >= 13;
 
             case RuleDefinitions.WizardClass:
-            case IntegrationContext.CLASS_TINKERER:
+            case IntegrationContext.ClassTinkerer:
                 return intelligence >= 13;
 
-            case IntegrationContext.CLASS_MAGUS:
-                return intelligence >= 13 && (strength >= 13 || dexterity >= 13);
+            // case IntegrationContext.CLASS_MAGUS:
+            //     return intelligence >= 13 && (strength >= 13 || dexterity >= 13);
 
             default:
                 return false;
         }
     }
 
-    public static bool IsSupported(CharacterClassDefinition classDefinition)
+    private static bool IsSupported([NotNull] BaseDefinition classDefinition)
     {
         return !classDefinition.GuiPresentation.Hidden;
     }

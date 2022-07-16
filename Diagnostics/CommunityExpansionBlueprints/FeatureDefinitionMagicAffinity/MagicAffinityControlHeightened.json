@@ -56,8 +56,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&MagicAffinityMasterManipulatorListTitle",
-    "description": "Subclass/&MagicAffinityMasterManipulatorListDescription",
+    "title": "Feature/&MagicAffinityControlHeightenedTitle",
+    "description": "Feature/&MagicAffinityControlHeightenedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
@@ -9,18 +10,19 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 internal static class RaceSelectionSlot_Refresh
 {
     internal static void Postfix(
-        RaceSelectionSlot __instance,
-        CharacterRaceDefinition raceDefinition,
+        [NotNull] RaceSelectionSlot __instance,
+        [NotNull] CharacterRaceDefinition raceDefinition,
         int selectedSubRace)
     {
         var gameObject = __instance.subraceCountLabel.gameObject;
-        var count = raceDefinition.SubRaces
-            .Count(x => !x.GuiPresentation.Hidden);
+        var count = raceDefinition.SubRaces.Count(x => !x.GuiPresentation.Hidden);
 
         if (gameObject.activeSelf)
         {
-            __instance.subraceCountLabel.Text = Gui.Format("Stage/&RaceSubraceCountDescription",
-                (selectedSubRace + 1).ToString(), count.ToString());
+            __instance.subraceCountLabel.Text = Gui.Format(
+                "Stage/&RaceSubraceCountDescription",
+                (selectedSubRace + 1).ToString(),
+                count.ToString());
         }
     }
 }
