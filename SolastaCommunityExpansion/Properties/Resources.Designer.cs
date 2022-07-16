@@ -113,6 +113,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] CreateDead {
+            get {
+                object obj = ResourceManager.GetObject("CreateDead", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Darkelf {
             get {
                 object obj = ResourceManager.GetObject("Darkelf", resourceCulture);
@@ -269,7 +279,7 @@ namespace SolastaCommunityExpansion.Properties {
                 return ((byte[])(obj));
             }
         }
-		
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
@@ -278,7 +288,7 @@ namespace SolastaCommunityExpansion.Properties {
                 object obj = ResourceManager.GetObject("GrayDwarf", resourceCulture);
                 return ((byte[])(obj));
             }
-        }		
+        }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
@@ -351,7 +361,7 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] HalfSylvanElf {
             get {
@@ -595,8 +605,7 @@ namespace SolastaCommunityExpansion.Properties {
         ///Dwarf	Female	Melea
         ///Dwarf	Female	Meribah
         ///Dwarf	Female	Misnan
-        ///DwarfFemale	Myrnera
-        ///DwarfFemale	Na [rest of string was truncated]&quot;;.
+        ///Dwarf	Femal [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Names {
             get {

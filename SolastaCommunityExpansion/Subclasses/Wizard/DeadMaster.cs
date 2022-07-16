@@ -4,6 +4,8 @@ using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -153,7 +155,9 @@ internal sealed class DeadMaster : AbstractSubclass
         GetDeadSpellAutoPreparedGroups()
     {
         var result = new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>();
-
+        var spriteReference =
+            CustomIcons.CreateAssetReferenceSprite("CreateDead", Resources.CreateDead, 128, 128);
+        
         foreach (var kvp in CreateDeadSpellMonsters)
         {
             var level = kvp.Key;
@@ -164,7 +168,7 @@ internal sealed class DeadMaster : AbstractSubclass
             {
                 var subSpell = SpellDefinitionBuilder
                     .Create(ConjureFey, $"CreateDead{monster.name}", SubclassNamespace)
-                    .SetGuiPresentation(monster.GuiPresentation)
+                    .SetGuiPresentation(monster.GuiPresentation.Title, monster.GuiPresentation.Description, spriteReference)
                     .SetSchoolOfMagic(SchoolNecromancy)
                     .SetSpellLevel(level)
                     .SetRequiresConcentration(false)
@@ -184,7 +188,7 @@ internal sealed class DeadMaster : AbstractSubclass
 
             var spell = SpellDefinitionBuilder
                 .Create(ConjureFey, $"CreateDead{level}", SubclassNamespace)
-                .SetGuiPresentation(Category.Spell)
+                .SetGuiPresentation(Category.Spell, spriteReference)
                 .SetSchoolOfMagic(SchoolNecromancy)
                 .SetSpellLevel(level)
                 .SetRequiresConcentration(false)
@@ -192,7 +196,7 @@ internal sealed class DeadMaster : AbstractSubclass
                 .SetSubSpells(spells)
                 .AddToDB();
 
-            spell.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = string.Empty;
+            spell.EffectDescription.EffectForms.Clear();
             spell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;
             // spell.EffectDescription.EffectAdvancement.additionalSummonsPerIncrement = 1;
             // spell.EffectDescription.EffectAdvancement.effectIncrementMethod =
