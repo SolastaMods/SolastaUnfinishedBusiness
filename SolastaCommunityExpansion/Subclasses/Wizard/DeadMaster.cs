@@ -7,6 +7,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
+using UnityEngine.AddressableAssets;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -32,11 +33,20 @@ internal sealed class DeadMaster : AbstractSubclass
 
     internal DeadMaster()
     {
+        var spriteReference =
+            CustomIcons.CreateAssetReferenceSprite("CreateDead", Resources.CreateDead, 128, 128);
+
+        // var spellCommandUndead = SpellDefinitionBuilder
+        //     .Create(DominateBeast, "CommandUndead", SubclassNamespace)
+        //     .SetGuiPresentation(Category.Spell, spriteReference)
+        //     .SetSchoolOfMagic(SchoolNecromancy)
+        //     .SetSpellLevel(7);
+
         var autoPreparedSpellsWizardDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsWizardDeadMaster", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Wizard)
-            .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups())
+            .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups(spriteReference))
             .AddToDB();
 
         var featureStarkHarvest = FeatureDefinitionOnCharacterKillBuilder
@@ -68,23 +78,24 @@ internal sealed class DeadMaster : AbstractSubclass
             .Create("PowerCommandUndead", SubclassNamespace)
             .SetGuiPresentation(Category.Power)
             .Configure(
-                2,
-                RuleDefinitions.UsesDetermination.Fixed,
+                0,
+                RuleDefinitions.UsesDetermination.ProficiencyBonus,
                 AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.Action,
                 1,
                 RuleDefinitions.RechargeRate.LongRest,
                 false,
                 false,
-                string.Empty,
+                AttributeDefinitions.Intelligence,
                 DominateBeast.EffectDescription)
-            .SetAbilityScoreDetermination(RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility)
+            .SetAbilityScoreDetermination(RuleDefinitions.AbilityScoreDetermination.Explicit)
             .AddToDB();
 
         var commandUndeadEffect = powerCommandUndead.EffectDescription;
 
         commandUndeadEffect.restrictedCreatureFamilies = new List<string> {CharacterFamilyDefinitions.Undead.Name};
-        commandUndeadEffect.durationType = RuleDefinitions.DurationType.UntilAnyRest;
+        commandUndeadEffect.durationParameter = 1;
+        commandUndeadEffect.durationType = RuleDefinitions.DurationType.Minute;
         commandUndeadEffect.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
         commandUndeadEffect.savingThrowAbility = AttributeDefinitions.Charisma;
         commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
@@ -196,11 +207,9 @@ internal sealed class DeadMaster : AbstractSubclass
 
     [NotNull]
     private static IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>
-        GetDeadSpellAutoPreparedGroups()
+        GetDeadSpellAutoPreparedGroups(AssetReferenceSprite spriteReference)
     {
         var result = new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>();
-        var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite("CreateDead", Resources.CreateDead, 128, 128);
 
         foreach (var kvp in CreateDeadSpellMonsters)
         {
