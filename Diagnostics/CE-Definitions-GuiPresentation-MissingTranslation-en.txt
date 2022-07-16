@@ -1,2 +1,1 @@
-PowerCommandUndead	Title='Power/&PowerCommandUndeadTitle'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.
