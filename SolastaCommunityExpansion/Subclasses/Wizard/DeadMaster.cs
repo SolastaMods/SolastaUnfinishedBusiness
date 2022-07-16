@@ -157,7 +157,7 @@ internal sealed class DeadMaster : AbstractSubclass
         var result = new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>();
         var spriteReference =
             CustomIcons.CreateAssetReferenceSprite("CreateDead", Resources.CreateDead, 128, 128);
-        
+
         foreach (var kvp in CreateDeadSpellMonsters)
         {
             var level = kvp.Key;
@@ -168,7 +168,8 @@ internal sealed class DeadMaster : AbstractSubclass
             {
                 var subSpell = SpellDefinitionBuilder
                     .Create(ConjureFey, $"CreateDead{monster.name}", SubclassNamespace)
-                    .SetGuiPresentation(monster.GuiPresentation.Title, monster.GuiPresentation.Description, spriteReference)
+                    .SetGuiPresentation(monster.GuiPresentation.Title, monster.GuiPresentation.Description,
+                        spriteReference)
                     .SetSchoolOfMagic(SchoolNecromancy)
                     .SetSpellLevel(level)
                     .SetRequiresConcentration(false)
@@ -178,6 +179,8 @@ internal sealed class DeadMaster : AbstractSubclass
 
                 monster.fullyControlledWhenAllied = true;
                 subSpell.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = monster.name;
+                subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod =
+                    RuleDefinitions.EffectIncrementMethod.None;
                 subSpell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;
                 // subSpell.EffectDescription.EffectAdvancement.additionalSummonsPerIncrement = 1;
                 // subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod =
@@ -197,6 +200,8 @@ internal sealed class DeadMaster : AbstractSubclass
                 .AddToDB();
 
             spell.EffectDescription.EffectForms.Clear();
+            spell.EffectDescription.EffectAdvancement.effectIncrementMethod =
+                RuleDefinitions.EffectIncrementMethod.None;
             spell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;
             // spell.EffectDescription.EffectAdvancement.additionalSummonsPerIncrement = 1;
             // spell.EffectDescription.EffectAdvancement.effectIncrementMethod =

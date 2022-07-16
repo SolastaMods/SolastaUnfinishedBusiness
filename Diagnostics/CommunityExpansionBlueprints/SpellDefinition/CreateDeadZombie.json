@@ -304,9 +304,9 @@
     "description": "Monster/&ZombieDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c63b82f9f3f2e1f45b2a88fe8391ce92",
-      "m_SubObjectName": "CustomPortrait_Zombie",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "1058000d8fe55a80a4b972601a92769a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

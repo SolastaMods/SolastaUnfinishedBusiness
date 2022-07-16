@@ -71,37 +71,7 @@
     "effectPoolAmount": 60,
     "effectApplication": "All",
     "effectFormFilters": [],
-    "effectForms": [
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Summon",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 0,
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
-        "summonForm": {
-          "$type": "SummonForm, Assembly-CSharp",
-          "summonType": "Creature",
-          "itemDefinition": null,
-          "trackItem": false,
-          "monsterDefinitionName": "FeyBear",
-          "number": 1,
-          "conditionDefinition": "Definition:ConditionMindControlledByCaster:72691050707821744968bd0595150b86",
-          "persistOnConcentrationLoss": false,
-          "decisionPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
-          "effectProxyDefinitionName": ""
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      }
-    ],
+    "effectForms": [],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
@@ -308,7 +278,7 @@
     "description": "Spell/&CreateDead7Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "1058000d8fe55a80a4b972601a92769a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
