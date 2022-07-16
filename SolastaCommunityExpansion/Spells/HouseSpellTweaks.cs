@@ -13,25 +13,12 @@ internal static class HouseSpellTweaks
     internal static void Register()
     {
         AddBleedingToRestoration();
-        EnableAnimateDead();
         UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
         MinorFixes();
         RemoveConcentrationRequirementsFromAnySpell();
         RemoveHumanoidFilterOnHideousLaughter();
         RemoveRecurringEffectOnEntangle();
-    }
-
-    private static void EnableAnimateDead()
-    {
-        AnimateDead.implemented = true;
-        AnimateDead.requiresConcentration = true;
-        AnimateDead.EffectDescription.durationType = RuleDefinitions.DurationType.Hour;
-        AnimateDead.EffectDescription.EffectForms[0].SummonForm.conditionDefinition = ConditionMindControlledByCaster;
-        AnimateDead.EffectDescription.EffectForms[0].SummonForm.persistOnConcentrationLoss = true;
-
-        SpellListCleric.SpellsByLevel.Find(x => x.Level == 3).Spells.Add(AnimateDead);
-        SpellListWizard.SpellsByLevel.Find(x => x.Level == 3).Spells.Add(AnimateDead);
     }
 
     private static void RemoveConcentrationRequirementsFromAnySpell()
