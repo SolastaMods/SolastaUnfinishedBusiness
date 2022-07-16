@@ -62,6 +62,7 @@ internal static class SubclassesContext
         LoadSubclass(new SpellShield());
         LoadSubclass(new Tactician());
         LoadSubclass(new DivineHeart());
+        LoadSubclass(new DeadMaster());
 
         Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
 
