@@ -16,7 +16,7 @@ internal static class GameCampaignParty_UpdateLevelCaps
 
         levelCap = Main.Settings.OverrideMinMaxLevel ? Level20Context.ModMaxLevel : levelCap;
 
-        foreach (GameCampaignCharacter characters in __instance.CharactersList)
+        foreach (var characters in __instance.CharactersList)
         {
             var characterLevel = characters.RulesetCharacter.GetAttribute("CharacterLevel");
             var experience = characters.RulesetCharacter.GetAttribute("Experience");

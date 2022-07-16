@@ -197,8 +197,9 @@ public abstract class
         Definition.abilityScore = abilityScoreName;
         return This();
     }
-    
-    public TBuilder SetAbilityScoreDetermination(RuleDefinitions.AbilityScoreDetermination abilityScoreNameDetermination)
+
+    public TBuilder SetAbilityScoreDetermination(
+        RuleDefinitions.AbilityScoreDetermination abilityScoreNameDetermination)
     {
         Definition.abilityScoreDetermination = abilityScoreNameDetermination;
         return This();

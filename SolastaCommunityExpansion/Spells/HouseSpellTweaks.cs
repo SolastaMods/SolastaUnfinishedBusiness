@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Patches.Bugfix;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Spells;
 
