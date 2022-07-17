@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
@@ -191,12 +192,8 @@ public static class Magus
         var fightingStyles = FeatureDefinitionFightingStyleChoiceBuilder
             .Create("ClassMagusFightingStyle", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Class)
-            .AddFightingStyles(
-                DatabaseHelper.FightingStyleDefinitions.Dueling.Name,
-                DatabaseHelper.FightingStyleDefinitions.Protection.Name,
-                DatabaseHelper.FightingStyleDefinitions.GreatWeapon.Name,
-                DatabaseHelper.FightingStyleDefinitions.Defense.Name,
-                DatabaseHelper.FightingStyleDefinitions.TwoWeapon.Name)
+            .AddFightingStyles(DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleFighter.FightingStyles
+                .Where(x => x != DatabaseHelper.FightingStyleDefinitions.Archery.Name))
             .AddToDB();
 
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
