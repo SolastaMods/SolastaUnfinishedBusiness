@@ -62,11 +62,16 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
         var i = 0;
         foreach (var p in subPowers)
         {
-            reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundleContext.GetSpell(p));
             var canUsePower = CanUsePower(rulesetCharacter, p);
-            SubOptionsAvailability.Add(i, canUsePower);
+            Main.Log($"Can use {p.Name} = {canUsePower}");
+            if (!canUsePower)
+            {
+                continue;
+            }
+            reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundleContext.GetSpell(p));
+            SubOptionsAvailability.Add(i, true);
 
-            if (canUsePower && !selected)
+            if (!selected)
             {
                 SelectSubOption(i);
                 selected = true;
@@ -78,6 +83,7 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
 
     private static bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
     {
+        Main.Log($"{character.Name} can use {power.Name}?", true);
         var powerValidators = power.GetAllSubFeaturesOfType<IPowerUseValidity>();
         if (powerValidators.Any(v => !v.CanUsePower(character)))
         {

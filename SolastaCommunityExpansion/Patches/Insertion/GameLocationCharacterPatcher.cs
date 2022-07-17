@@ -1,7 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Classes.Magus;
 using SolastaCommunityExpansion.CustomInterfaces;
+using SolastaCommunityExpansion.Models;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Insertion;
 
@@ -54,6 +58,44 @@ internal static class GameLocationCharacterPatcher
             {
                 effect.AfterOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
             }
+        }
+    }
+    
+    [HarmonyPatch(typeof(GameLocationCharacter), "HandleActionExecution")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameLocationCharacter_HandleActionExecution
+    {
+        internal static void Postfix(GameLocationCharacter __instance, CharacterActionParams actionParams, ActionDefinitions.ActionScope scope)
+        {
+            if (scope != ActionDefinitions.ActionScope.Battle)
+            {
+                return;
+            }
+
+            if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
+            {
+                return;
+            }
+
+            var rulesetCharacter = actionParams.actingCharacter.RulesetCharacter;
+            if (!rulesetCharacter.HasAnyFeature(Magus.SpellStrike))
+            {
+                return;
+            }
+
+            if (!Global.IsSpellStrike)
+            {
+                return;
+            }
+            
+            __instance.UsedMainAttacks++;
+            if (rulesetCharacter != null)
+            {
+                rulesetCharacter.ExecutedAttacks++;
+                rulesetCharacter.RefreshAttackModes();
+            }
+            __instance.currentActionRankByType[ ActionDefinitions.ActionType.Main]--;
+            __instance.RefreshActionPerformances();
         }
     }
 }

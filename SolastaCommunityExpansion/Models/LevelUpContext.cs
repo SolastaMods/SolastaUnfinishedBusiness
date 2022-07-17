@@ -109,7 +109,8 @@ public static class LevelUpContext
                 levelUpData.SelectedClass == Wizard ||
                 levelUpData.SelectedClass == TinkererClass ||
                 levelUpData.SelectedClass == WarlockClass ||
-                levelUpData.SelectedClass == WitchClass
+                levelUpData.SelectedClass == WitchClass ||
+                levelUpData.SelectedClass == MagusClass
             ) &&
             !(
                 classesAndLevels.ContainsKey(Ranger) ||
@@ -117,7 +118,8 @@ public static class LevelUpContext
                 classesAndLevels.ContainsKey(Wizard) ||
                 classesAndLevels.ContainsKey(TinkererClass) ||
                 classesAndLevels.ContainsKey(WarlockClass) ||
-                classesAndLevels.ContainsKey(WitchClass)
+                classesAndLevels.ContainsKey(WitchClass) ||
+                classesAndLevels.ContainsKey(MagusClass)
             );
 
         if (required)

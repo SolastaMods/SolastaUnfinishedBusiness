@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Spells;
 using TA;
 
 namespace SolastaCommunityExpansion.Patches.Insertion;
@@ -73,6 +76,11 @@ internal static class GameLocationBattleManagerPatcher
     {
         internal static void Prefix(GameLocationCharacter mover)
         {
+            if (mover.RulesetCharacter.isDeadOrDyingOrUnconscious)
+            {
+                return;
+            }
+            
             var matchingOccurenceConditions = new List<RulesetCondition>();
             foreach (var item2 in mover.RulesetCharacter.ConditionsByCategory
                          .SelectMany(item => item.Value))
@@ -84,10 +92,18 @@ internal static class GameLocationBattleManagerPatcher
                         break;
                 }
             }
-
-            foreach (var condition in matchingOccurenceConditions)
+            
+            WorldLocationSpecialEffectsManager effectManager =
+                ServiceRepository.GetService<IWorldLocationSpecialEffectsService>() as WorldLocationSpecialEffectsManager;
+            
+            foreach (RulesetCondition condition in matchingOccurenceConditions)
             {
+                Main.Log($"source character GUID {condition.sourceGuid}");
+
+                effectManager.ConditionAdded(mover.RulesetCharacter, condition, true);
                 mover.RulesetActor.ExecuteRecurrentForms(condition);
+                effectManager.ConditionRemoved(mover.RulesetCharacter, condition);
+                
                 if (condition.HasFinished && !condition.IsDurationDefinedByEffect())
                 {
                     mover.RulesetActor.RemoveCondition(condition);
@@ -103,8 +119,7 @@ internal static class GameLocationBattleManagerPatcher
                 }
             }
         }
-
-
+        
         internal static IEnumerator Postfix(
             IEnumerator __result,
             GameLocationBattleManager __instance,
