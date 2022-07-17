@@ -28,6 +28,7 @@ internal static class OtherFeats
         .SetGuiPresentation(Category.Feat)
         .SetMustCastSpellsPrerequisite()
         .AddToDB();
+
     public static void CreateFeats(List<FeatDefinition> feats)
     {
         // Savage Attacker

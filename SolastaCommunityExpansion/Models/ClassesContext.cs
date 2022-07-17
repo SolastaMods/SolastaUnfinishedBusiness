@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Classes.Magus;
 using JetBrains.Annotations;
-
+using SolastaCommunityExpansion.Classes.Magus;
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Classes.Tinkerer;
 using SolastaCommunityExpansion.Classes.Warlock;

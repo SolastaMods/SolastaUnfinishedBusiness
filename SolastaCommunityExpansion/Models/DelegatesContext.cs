@@ -149,7 +149,7 @@ internal static class DelegatesContext
             rulesetCharacter.SpellDissipated += SpellDissipated;
             rulesetCharacter.TagRevealed += TagRevealed;
             rulesetCharacter.ActorReplaced += ActorReplaced;
-            
+
             if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterHero rulesetCharacterHero)
             {
                 continue;

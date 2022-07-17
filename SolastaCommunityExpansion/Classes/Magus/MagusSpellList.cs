@@ -7,9 +7,9 @@ namespace SolastaCommunityExpansion.Classes.Magus;
 // keep public as CE:MC depends on it
 public static class MagusSpells
 {
-     public static List<FeatureDefinitionCastSpell.SlotsByLevelDuplet> MagusCastingSlot { get; } = new()
+    public static List<FeatureDefinitionCastSpell.SlotsByLevelDuplet> MagusCastingSlot { get; } = new()
     {
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -26,7 +26,7 @@ public static class MagusSpells
             },
             Level = 01
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -43,7 +43,7 @@ public static class MagusSpells
             },
             Level = 02
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -60,7 +60,7 @@ public static class MagusSpells
             },
             Level = 03
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -77,7 +77,7 @@ public static class MagusSpells
             },
             Level = 04
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -94,7 +94,7 @@ public static class MagusSpells
             },
             Level = 05
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -111,7 +111,7 @@ public static class MagusSpells
             },
             Level = 06
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -128,7 +128,7 @@ public static class MagusSpells
             },
             Level = 07
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -145,7 +145,7 @@ public static class MagusSpells
             },
             Level = 08
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -162,7 +162,7 @@ public static class MagusSpells
             },
             Level = 09
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -179,7 +179,7 @@ public static class MagusSpells
             },
             Level = 10
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -196,7 +196,7 @@ public static class MagusSpells
             },
             Level = 11
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -213,7 +213,7 @@ public static class MagusSpells
             },
             Level = 12
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -230,7 +230,7 @@ public static class MagusSpells
             },
             Level = 13
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -247,7 +247,7 @@ public static class MagusSpells
             },
             Level = 14
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -264,7 +264,7 @@ public static class MagusSpells
             },
             Level = 15
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -281,7 +281,7 @@ public static class MagusSpells
             },
             Level = 16
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -298,7 +298,7 @@ public static class MagusSpells
             },
             Level = 17
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -315,7 +315,7 @@ public static class MagusSpells
             },
             Level = 18
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -332,7 +332,7 @@ public static class MagusSpells
             },
             Level = 19
         },
-        new()
+        new FeatureDefinitionCastSpell.SlotsByLevelDuplet
         {
             Slots = new List<int>
             {
@@ -350,15 +350,18 @@ public static class MagusSpells
             Level = 20
         }
     };
-    
+
     internal static SpellListDefinition MagusSpellList { get; } = SpellListDefinitionBuilder
         .Create("ClassMagusSpellList", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation("ClassMagusSpellList", Category.Class)
         .ClearSpells()
         .SetSpellsAtLevel(0, Sparkle, Light, FireBolt, ChillTouch, RayOfFrost, ShockingGrasp, TrueStrike, ShadowDagger)
-        .SetSpellsAtLevel(1, Shield, MageArmor, ExpeditiousRetreat, ProtectionFromEvilGood, FeatherFall, InflictWounds, Sleep, BurningHands, Jump, Longstrider, GuidingBolt)
-        .SetSpellsAtLevel(2, SeeInvisibility, HoldPerson, MistyStep, FlameBlade, Shatter, SpiderClimb, ScorchingRay, Blur, FlamingSphere, AcidArrow, MagicWeapon, Blindness, RayOfEnfeeblement)
-        .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, Slow, Haste, BestowCurse, StinkingCloud, Fireball, LightningBolt, ProtectionFromEnergy, SleetStorm)
+        .SetSpellsAtLevel(1, Shield, MageArmor, ExpeditiousRetreat, ProtectionFromEvilGood, FeatherFall, InflictWounds,
+            Sleep, BurningHands, Jump, Longstrider, GuidingBolt)
+        .SetSpellsAtLevel(2, SeeInvisibility, HoldPerson, MistyStep, FlameBlade, Shatter, SpiderClimb, ScorchingRay,
+            Blur, FlamingSphere, AcidArrow, MagicWeapon, Blindness, RayOfEnfeeblement)
+        .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, Slow, Haste, BestowCurse, StinkingCloud, Fireball,
+            LightningBolt, ProtectionFromEnergy, SleetStorm)
         .SetSpellsAtLevel(4, Banishment, Blight, DimensionDoor, GreaterInvisibility, PhantasmalKiller)
         .SetSpellsAtLevel(5, HoldMonster, MindTwist, ConjureElemental, Contagion)
         .SetSpellsAtLevel(6, Sunbeam, Disintegrate, GlobeOfInvulnerability, Eyebite)

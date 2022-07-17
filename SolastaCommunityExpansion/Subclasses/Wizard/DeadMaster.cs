@@ -97,7 +97,8 @@ internal sealed class DeadMaster : AbstractSubclass
         commandUndeadEffect.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
         commandUndeadEffect.savingThrowAbility = AttributeDefinitions.Charisma;
         commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
-        commandUndeadEffect.difficultyClassComputation = RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        commandUndeadEffect.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
         commandUndeadEffect.fixedSavingThrowDifficultyClass = 8;
 
         Subclass = CharacterSubclassDefinitionBuilder

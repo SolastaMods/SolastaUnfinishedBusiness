@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
@@ -48,7 +47,7 @@ public static class Magus
         .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
         .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
         .AddToDB();
-    
+
     private static void BuildEquipment(CharacterClassDefinitionBuilder classMagusBuilder)
     {
         classMagusBuilder
@@ -183,8 +182,8 @@ public static class Magus
             .SetLevelFeatures(11, exileStrike, frostFang)
             .AddToDB();
     }
-    #endif 
-    
+#endif
+
     private static void BuildProgression(CharacterClassDefinitionBuilder classMagusBuilder)
     {
         var fightingStyles = FeatureDefinitionFightingStyleChoiceBuilder
@@ -196,14 +195,14 @@ public static class Magus
                 DatabaseHelper.FightingStyleDefinitions.Defense.Name,
                 DatabaseHelper.FightingStyleDefinitions.TwoWeapon.Name)
             .AddToDB();
-        
+
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
             .Create("ClassMagusWarMagic", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ClassMagusWarMagic", Category.Class)
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
         magicAffinity.rangeSpellNoProximityPenalty = true;
-        
+
         var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
             .Create("ClassMagusSubclassChoice", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ClassMagusSubclassChoice", Category.Class)
@@ -212,8 +211,8 @@ public static class Magus
             .SetSubclasses(
                 ArcaneGladiator.Build())
             .AddToDB();
-        
-        var extraAttack =  FeatureDefinitionAttributeModifierBuilder
+
+        var extraAttack = FeatureDefinitionAttributeModifierBuilder
             .Create("ClassMagusExtraAttack", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack
                 .guiPresentation)
@@ -221,7 +220,7 @@ public static class Magus
             .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
             .SetModifierValue(1)
             .AddToDB();
-        
+
         var aegis = BuildAegis();
 
         classMagusBuilder
@@ -298,30 +297,34 @@ public static class Magus
 
         return ClassMagus;
     }
-    
+
     #region aegis
-    private static readonly FeatureDefinitionAttributeModifier AegisAcIncrease = FeatureDefinitionAttributeModifierBuilder
-        .Create("ClassMagusAegisACModifier", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation("ClassMagusAegisACModifier", Category.Class)
-        .SetSituationalContext(SituationalContext.None)
-        .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
-        .SetModifierValue(2)
-        .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
-        .AddToDB();
+
+    private static readonly FeatureDefinitionAttributeModifier AegisAcIncrease =
+        FeatureDefinitionAttributeModifierBuilder
+            .Create("ClassMagusAegisACModifier", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusAegisACModifier", Category.Class)
+            .SetSituationalContext(SituationalContext.None)
+            .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            .SetModifierValue(2)
+            .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
+            .AddToDB();
 
     private static readonly FeatureDefinitionSavingThrowAffinity AegisSavingThrowIncrease =
         FeatureDefinitionSavingThrowAffinityBuilder
-            .Create(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRingOfProtectionPlusTwo ,"ClassMagusAegisSavingThrowIncrease", DefinitionBuilder.CENamespaceGuid)
+            .Create(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRingOfProtectionPlusTwo,
+                "ClassMagusAegisSavingThrowIncrease", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ClassMagusAegisSavingThrowIncrease", Category.Class)
             .AddToDB();
-    
+
     public static readonly ConditionDefinition AegisCondition = ConditionDefinitionBuilder
         .Create("ClassMagusAegisCondition", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation("ClassMagusAegisCondition", Category.Class, ConditionHeraldOfBattle.guiPresentation.spriteReference)
+        .SetGuiPresentation("ClassMagusAegisCondition", Category.Class,
+            ConditionHeraldOfBattle.guiPresentation.spriteReference)
         .SetConditionParticleReference(ConditionBlurred.conditionParticleReference)
         .SetFeatures(AegisAcIncrease, AegisSavingThrowIncrease)
         .AddToDB();
-    
+
     private static EffectDescription Aegis(SpellDefinition spell, EffectDescription effect,
         RulesetCharacter caster)
     {
@@ -336,7 +339,7 @@ public static class Magus
                 formType = EffectForm.EffectFormType.Condition,
                 conditionForm = new ConditionForm
                 {
-                    conditionDefinition = AegisCondition, applyToSelf = true, forceOnSelf = true,
+                    conditionDefinition = AegisCondition, applyToSelf = true, forceOnSelf = true
                 }
             }
         );
@@ -353,8 +356,9 @@ public static class Magus
             .SetEffectModifier(Aegis)
             .AddToDB();
     }
+
     #endregion
-    
+
     #region rupture_strike
 
     private static FeatureDefinitionPower BuildRuptureStrike(FeatureDefinitionPower sharedPool)
@@ -374,7 +378,7 @@ public static class Magus
             formType = EffectForm.EffectFormType.Damage,
             hasSavingThrow = false,
             canSaveToCancel = false,
-            damageForm = new DamageForm { damageType = DamageTypeNecrotic, diceNumber = 1, dieType = DieType.D4 }
+            damageForm = new DamageForm {damageType = DamageTypeNecrotic, diceNumber = 1, dieType = DieType.D4}
         });
 
         var power = FeatureDefinitionPowerSharedPoolBuilder
@@ -542,10 +546,11 @@ public static class Magus
     private static FeatureDefinition BuildGreaterBane()
     {
         //  grant bane 
-        var bonusSpellList = new List<SpellDefinition> { DatabaseHelper.SpellDefinitions.Bane };
+        var bonusSpellList = new List<SpellDefinition> {DatabaseHelper.SpellDefinitions.Bane};
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("ClassMagusGreaterBaneBonusSpell", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusGreaterBaneBonusSpell", Category.Class, DatabaseHelper.SpellDefinitions.Bane.guiPresentation.spriteReference)
+            .SetGuiPresentation("ClassMagusGreaterBaneBonusSpell", Category.Class,
+                DatabaseHelper.SpellDefinitions.Bane.guiPresentation.spriteReference)
             .SetAutoTag("GreaterBane")
             .SetSpellcastingClass(ClassMagus)
             .SetPreparedSpellGroups(
@@ -951,6 +956,7 @@ public static class Magus
     #endregion
 
     #region burning_skin
+
     private static EffectDescription BurningSkin(SpellDefinition spell, EffectDescription effect,
         RulesetCharacter caster)
     {
@@ -960,7 +966,7 @@ public static class Magus
         }
 
         effect.targetFilteringTag = TargetFilteringTag.No;
-       return effect;
+        return effect;
     }
 
     private static FeatureDefinition BuildBurningSkin()
@@ -994,9 +1000,9 @@ public static class Magus
             .AddFeatureSet(autoPreparedSpells, burningSkin)
             .AddToDB();
     }
-    
+
     #endregion
-    
+
     #region spell_strike
 
     public static readonly FeatureDefinitionPower SpellStrikePower = FeatureDefinitionPowerBuilder
@@ -1010,16 +1016,16 @@ public static class Magus
             .Create("ClassMagusSpellStrikeAdditionalDamage", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetFrequencyLimit(FeatureLimitedUsage.None)
-            .SetDamageDice(DieType.D1,0)
+            .SetDamageDice(DieType.D1, 0)
             .AddToDB();
-    
+
     public static readonly FeatureDefinition SpellStrike = FeatureDefinitionBuilder
         .Create("ClassMagusSpellStrike", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation("ClassMagusSpellStrike", Category.Class)
         .SetCustomSubFeatures(PerformAttackAfterMagicEffectUse.MeleeAttack,
             CustomSpellEffectLevel.ByCasterLevel)
         .AddToDB();
- 
+
     public static bool CanSpellStrike(CharacterActionMagicEffect instance)
     {
         var actionParams = instance.actionParams;
@@ -1037,7 +1043,7 @@ public static class Magus
         {
             return false;
         }
-        
+
         if (actionParams.RulesetEffect.EffectDescription.targetSide == Side.Ally)
         {
             return false;
@@ -1047,7 +1053,7 @@ public static class Magus
         {
             return false;
         }
-        
+
         if (actionParams.RulesetEffect.MetamagicOption != null)
         {
             return false;
@@ -1059,7 +1065,7 @@ public static class Magus
         {
             return false;
         }
-        
+
         var customFeature = SpellStrike.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
         var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
         return getAttackAfterUse?.Invoke(instance) != null;
@@ -1067,15 +1073,12 @@ public static class Magus
 
     public static void PrepareSpellStrike(CharacterActionMagicEffect magicEffect, CharacterActionParams attackParams)
     {
-         SpellStrikePower.effectDescription = new EffectDescription
-         {
+        SpellStrikePower.effectDescription = new EffectDescription
+        {
             effectParticleParameters = magicEffect.actionParams.RulesetEffect.EffectDescription
                 .effectParticleParameters
         };
-        attackParams.usablePower = new RulesetUsablePower
-        {
-            powerDefinition = SpellStrikePower
-        };
+        attackParams.usablePower = new RulesetUsablePower {powerDefinition = SpellStrikePower};
 
         var damageForm = magicEffect.actionParams.activeEffect.EffectDescription.FindFirstDamageForm();
         if (damageForm == null)
@@ -1106,9 +1109,10 @@ public static class Magus
                     .effectParticleParameters.impactParticleReference,
                 DamageTypePoison => DatabaseHelper.SpellDefinitions.VenomousSpike.effectDescription
                     .effectParticleParameters.impactParticleReference,
-                _ => SpellStrikeAdditionalDamage.impactParticleReference,
+                _ => SpellStrikeAdditionalDamage.impactParticleReference
             };
         }
     }
+
     #endregion
 }

@@ -1,11 +1,12 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomUI;
 
-public class ReactionRequestSpendBundlePower : ReactionRequest
+public sealed class ReactionRequestSpendBundlePower : ReactionRequest
 {
     public const string Name = "SpendPowerBundle";
     private readonly GuiCharacter guiCharacter;
@@ -14,7 +15,8 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
 
     private readonly GameLocationCharacter target;
 
-    public ReactionRequestSpendBundlePower(CharacterActionParams reactionParams)
+    public ReactionRequestSpendBundlePower(
+        [NotNull] CharacterActionParams reactionParams)
         : base(Name, reactionParams)
     {
         target = reactionParams.TargetCharacters[0];
@@ -40,7 +42,7 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
     }
 
 
-    public override string SuboptionTag => "PowerBundle";
+    [NotNull] public override string SuboptionTag => "PowerBundle";
 
     public override bool IsStillValid =>
         ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
@@ -50,16 +52,20 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
     {
         SubOptionsAvailability.Clear();
 
-        var reactionParams = ReactionParams;
-        var actingCharacter = reactionParams.ActingCharacter;
+        var actingCharacter = ReactionParams.ActingCharacter;
         var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-
         var subPowers = masterPower.GetBundleSubPowers();
         var selected = false;
 
-        reactionParams.SpellRepertoire = new RulesetSpellRepertoire();
+        if (subPowers == null)
+        {
+            return;
+        }
+
+        ReactionParams.SpellRepertoire = new RulesetSpellRepertoire();
+
         var i = 0;
+
         foreach (var p in subPowers)
         {
             var canUsePower = CanUsePower(rulesetCharacter, p);
@@ -68,7 +74,8 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
             {
                 continue;
             }
-            reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundleContext.GetSpell(p));
+
+            base.reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundleContext.GetSpell(p));
             SubOptionsAvailability.Add(i, true);
 
             if (!selected)
@@ -84,8 +91,10 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
     private static bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
     {
         Main.Log($"{character.Name} can use {power.Name}?", true);
+
         var powerValidators = power.GetAllSubFeaturesOfType<IPowerUseValidity>();
-        if (powerValidators.Any(v => !v.CanUsePower(character)))
+
+        if (powerValidators != null && powerValidators.Any(v => !v.CanUsePower(character)))
         {
             return false;
         }
@@ -96,10 +105,9 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
     public override void SelectSubOption(int option)
     {
         ReactionParams.RulesetEffect?.Terminate(false);
-        var reactionParams = ReactionParams;
 
-        var targetCharacters = reactionParams.TargetCharacters;
-        var modifiers = reactionParams.ActionModifiers;
+        var targetCharacters = ReactionParams.TargetCharacters;
+        var modifiers = ReactionParams.ActionModifiers;
 
         targetCharacters.Clear();
         modifiers.Clear();
@@ -109,11 +117,11 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
             return;
         }
 
-        var actingCharacter = reactionParams.ActingCharacter;
-        reactionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
+        var actingCharacter = ReactionParams.ActingCharacter;
+        ReactionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
             .AllActionDefinitions[ActionDefinitions.Id.SpendPower];
 
-        var spell = reactionParams.SpellRepertoire.KnownSpells[option];
+        var spell = ReactionParams.SpellRepertoire.KnownSpells[option];
         var power = PowerBundleContext.GetPower(spell);
 
         var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
@@ -122,6 +130,11 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
         var powerEffect = rulesService.InstantiateEffectPower(rulesetCharacter, usablePower, false);
 
         ReactionParams.RulesetEffect = powerEffect;
+
+        if (power == null)
+        {
+            return;
+        }
 
         var effectDescription = power.EffectDescription;
         if (effectDescription.RangeType == RuleDefinitions.RangeType.Self

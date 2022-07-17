@@ -1,0 +1,148 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 6,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
+        "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+        "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab",
+        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb",
+        "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44",
+        "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+        "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8",
+        "Definition:FeatherFall:4e3a52bac403e3246bb7c4c12f520245",
+        "Definition:GuidingBolt:97277a5063bcd6d48af24984618dc218",
+        "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49",
+        "Definition:Jump:f9b46eef2189b8342a4943588e2f947c",
+        "Definition:Longstrider:79bd842bd1a7d65499d148a671f7ce83",
+        "Definition:MageArmor:4772a21b455a76149adcc38d58267a10",
+        "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39",
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+        "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84",
+        "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
+        "Definition:Blur:277b11af157a3c84292024790e6173b3",
+        "Definition:FlameBlade:0547a31a7b87dbb438758ae4cf914af7",
+        "Definition:FlamingSphere:3b54dc222148dc8499eb981f7383c71f",
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:MagicWeapon:c9c2c6779e83836468fb6f4ab562897f",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+        "Definition:RayOfEnfeeblement:b617f68e7f041b74bb018ce5bf9a1c5c",
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58",
+        "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885",
+        "Definition:Shatter:acb96b651384a47428da7c0c32ab359e",
+        "Definition:SpiderClimb:1ba4092482a450c4da60e17cbe4577df"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:BestowCurse:c7af146d2e243eb42910adbddec1d7d3",
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+        "Definition:Fear:cff391ef9dd8106448ed464270dcc9c4",
+        "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
+        "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83",
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785",
+        "Definition:LightningBolt:f6e4a759d9257fe429523d7f3e8d9eb3",
+        "Definition:ProtectionFromEnergy:8416ac74aea478f498e2d50380376e90",
+        "Definition:SleetStorm:180d1c76c4d7ace4bae4ab9ad6b21b82",
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
+        "Definition:StinkingCloud:b62f452e6a757124da5eef6ca9fd46e9"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+        "Definition:DimensionDoor:c85120485a4cc914eb81b7b75e9e7bbc",
+        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:ConjureElemental:7b1c584f8e18f6a4194eba7bc80d3643",
+        "Definition:Contagion:13567fa6f3f984347b5b6c4347fac6e8",
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16",
+        "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": [
+        "Definition:Disintegrate:d57e7732a47d3fa4791776a5b99733a1",
+        "Definition:Eyebite:ea9050011d6bef2419be7b2d59750659",
+        "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177",
+        "Definition:Sunbeam:ec547e11445032d4f9519982399724a6"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Class/&ClassMagusSpellListTitle",
+    "description": "Class/&ClassMagusSpellListDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f974349b-6d51-5db9-abd3-87ac7f491fd7",
+  "contentPack": 9999,
+  "name": "ClassMagusSpellList"
+}

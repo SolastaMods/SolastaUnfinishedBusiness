@@ -127,6 +127,7 @@ All settings start disabled by default. On first start the mod will display an w
 
 [list=1]
 
+[*][b]Magus[/b]: Student of both philosophies, blending magical ability and martial prowess into an entirely unique discipline in which both spell and steel are used to devastating effect
 [*][b]Monk[/b]: Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a Monk does.
 [*][b]Tinkerer[/b]: Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.
 [*][b]Warlock[/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
@@ -151,6 +152,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]Moonlit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
+[*][b]Arcane Gladiator[/b]: Arcane Gladiators are honorable protector which protecting their allies by compelling high profile duelling with them. They are also famous for the tactic of alpha striking their foes by big evocation spell followed by a swing with the heaviest weapon in their hand.      
 [*][b]None[/b]: 
 [/list]
 
