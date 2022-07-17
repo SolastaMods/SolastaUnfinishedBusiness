@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
@@ -33,7 +34,7 @@ public static class Magus
 
     private static FeatureDefinitionPointPool FeatureDefinitionSkillPoints { get; set; }
 
-    public static FeatureDefinitionCastSpell FeatureDefinitionClassMagusCastSpell = FeatureDefinitionCastSpellBuilder
+    public static readonly FeatureDefinitionCastSpell FeatureDefinitionClassMagusCastSpell = FeatureDefinitionCastSpellBuilder
         .Create("ClassMagusCastSpell", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation("ClassMagusCastSpell", Category.Class)
         .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
@@ -48,7 +49,7 @@ public static class Magus
         .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
         .AddToDB();
 
-    private static void BuildEquipment(CharacterClassDefinitionBuilder classMagusBuilder)
+    private static void BuildEquipment([NotNull] CharacterClassDefinitionBuilder classMagusBuilder)
     {
         classMagusBuilder
             .AddEquipmentRow(
@@ -184,12 +185,13 @@ public static class Magus
     }
 #endif
 
-    private static void BuildProgression(CharacterClassDefinitionBuilder classMagusBuilder)
+    private static void BuildProgression([NotNull] CharacterClassDefinitionBuilder classMagusBuilder)
     {
         var fightingStyles = FeatureDefinitionFightingStyleChoiceBuilder
             .Create("ClassMagusFightingStyle", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ClassMagusFightingStyle", Category.Class)
-            .AddFightingStyles(DatabaseHelper.FightingStyleDefinitions.Dueling.Name,
+            .AddFightingStyles(
+                DatabaseHelper.FightingStyleDefinitions.Dueling.Name,
                 DatabaseHelper.FightingStyleDefinitions.Protection.Name,
                 DatabaseHelper.FightingStyleDefinitions.GreatWeapon.Name,
                 DatabaseHelper.FightingStyleDefinitions.Defense.Name,
@@ -201,6 +203,7 @@ public static class Magus
             .SetGuiPresentation("ClassMagusWarMagic", Category.Class)
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
+
         magicAffinity.rangeSpellNoProximityPenalty = true;
 
         var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
@@ -234,7 +237,7 @@ public static class Magus
                 subclassChoices
             )
             .AddFeaturesAtLevel(2, fightingStyles, magicAffinity)
-            //.AddFeaturesAtLevel(3, sub class feature) 
+            //.AddFeaturesAtLevel(3, sub class feature)
             .AddFeatureAtLevel(4, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
             .AddFeaturesAtLevel(5, extraAttack)
             .AddFeaturesAtLevel(6, SpellStrike, SpellStrikeAdditionalDamage)
@@ -303,7 +306,7 @@ public static class Magus
     private static readonly FeatureDefinitionAttributeModifier AegisAcIncrease =
         FeatureDefinitionAttributeModifierBuilder
             .Create("ClassMagusAegisACModifier", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusAegisACModifier", Category.Class)
+            .SetGuiPresentation(Category.Feature)
             .SetSituationalContext(SituationalContext.None)
             .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
             .SetModifierValue(2)
@@ -314,13 +317,12 @@ public static class Magus
         FeatureDefinitionSavingThrowAffinityBuilder
             .Create(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRingOfProtectionPlusTwo,
                 "ClassMagusAegisSavingThrowIncrease", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusAegisSavingThrowIncrease", Category.Class)
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
     public static readonly ConditionDefinition AegisCondition = ConditionDefinitionBuilder
         .Create("ClassMagusAegisCondition", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation("ClassMagusAegisCondition", Category.Class,
-            ConditionHeraldOfBattle.guiPresentation.spriteReference)
+        .SetGuiPresentation(Category.Condition, ConditionHeraldOfBattle.guiPresentation.spriteReference)
         .SetConditionParticleReference(ConditionBlurred.conditionParticleReference)
         .SetFeatures(AegisAcIncrease, AegisSavingThrowIncrease)
         .AddToDB();
@@ -634,7 +636,7 @@ public static class Magus
             DefinitionBuilder.CENamespaceGuid)
         .SetParentCondition(DatabaseHelper.ConditionDefinitions.ConditionParalyzed)
         .SetDuration(DurationType.Round, 1)
-        .SetGuiPresentation(Category.Class, "ClassMagusConditionParalyzedWhenBeingPreyedOn",
+        .SetGuiPresentation(Category.Condition,
             DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear.guiPresentation.spriteReference)
         .AddToDB();
 
@@ -1007,7 +1009,7 @@ public static class Magus
 
     public static readonly FeatureDefinitionPower SpellStrikePower = FeatureDefinitionPowerBuilder
         .Create("ClassMagusSpellStrikePower", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation("ClassMagusSpellStrikePower", Category.Class)
+        .SetGuiPresentationNoContent()
         .SetRechargeRate(RechargeRate.AtWill)
         .AddToDB();
 

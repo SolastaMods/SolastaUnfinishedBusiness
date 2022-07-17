@@ -13,13 +13,13 @@ public static class ArcaneGladiator
     {
         var shamefulRunawayCombatAffinity = FeatureDefinitionCombatAffinityBuilder
             .Create("ClassMagusArcaneGladiatorShamefulRunawayCombatAffinity", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ShamefulRunawayCombatAffinity", Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
         shamefulRunawayCombatAffinity.autoCritical = true;
 
         var shamefulRunawayCondition = ConditionDefinitionBuilder
             .Create("ClassMagusArcaneGladiatorShamefulRunawayCondition", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ShamefulRunawayCondition", Category.Subclass)
+            .SetGuiPresentation(Category.Condition)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(shamefulRunawayCombatAffinity)
             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Damaged)
@@ -28,20 +28,20 @@ public static class ArcaneGladiator
         var disadvantageAgainstNonChallenger =
             FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
                 .Create("ClassMagusArcaneGladiatorDisadvantageAgainstNonChallenger", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("DisadvantageAgainstNonChallenger", Category.Subclass)
+                .SetGuiPresentation(Category.Feature)
                 .SetConditionName("ClassMagusArcaneGladiatorDuelled")
                 .AddToDB();
 
         var conditionDuelled = ConditionDefinitionBuilder
             .Create("ClassMagusArcaneGladiatorDuelled", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArcaneGladiatorDuelled", Category.Subclass,
+            .SetGuiPresentation(Category.Feature,
                 DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle.guiPresentation.SpriteReference)
             .SetFeatures(disadvantageAgainstNonChallenger)
             .AddToDB();
 
         var cullTheWeak = FeatureDefinitionOnAttackEffectBuilder
             .Create("ClassMagusArcaneGladiatorCullTheWeak", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "CullTheWeak")
+            .SetGuiPresentation(Category.Feature)
             .SetOnAttackDelegates((attacker, defender, outcome, mode) =>
             {
                 var character = defender.RulesetCharacter;
@@ -137,7 +137,7 @@ public static class ArcaneGladiator
         // the attack is similar to the frenzy barb
         var conditionSpellStrikeBonusAttack = ConditionDefinitionBuilder
             .Create("ClassMagusArcaneGladiatorConditionSpellStrikeBonusAttack", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ConditionSpellStrikeBonusAttack",
+            .SetGuiPresentation(Category.Condition,
                 DatabaseHelper.ConditionDefinitions.ConditionBerserkerFrenzy.guiPresentation.SpriteReference)
             .AddFeatures(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
             .AddToDB();
