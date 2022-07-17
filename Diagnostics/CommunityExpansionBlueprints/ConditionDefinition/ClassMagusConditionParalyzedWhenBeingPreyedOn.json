@@ -116,8 +116,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Class/&ClassMagusConditionParalyzedWhenBeingPreyedOnTitle",
-    "description": "ClassMagusConditionParalyzedWhenBeingPreyedOn",
+    "title": "Condition/&ClassMagusConditionParalyzedWhenBeingPreyedOnTitle",
+    "description": "Condition/&ClassMagusConditionParalyzedWhenBeingPreyedOnDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6999cc364fd0b374a8acf35bac34d694",

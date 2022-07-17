@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassMagusArcaneGladiatorCullTheWeakTitle",
-    "description": "CullTheWeak",
+    "title": "Feature/&ClassMagusArcaneGladiatorCullTheWeakTitle",
+    "description": "Feature/&ClassMagusArcaneGladiatorCullTheWeakDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

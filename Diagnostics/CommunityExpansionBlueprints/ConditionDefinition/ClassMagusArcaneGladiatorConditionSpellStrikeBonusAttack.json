@@ -118,8 +118,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassMagusArcaneGladiatorConditionSpellStrikeBonusAttackTitle",
-    "description": "ConditionSpellStrikeBonusAttack",
+    "title": "Condition/&ClassMagusArcaneGladiatorConditionSpellStrikeBonusAttackTitle",
+    "description": "Condition/&ClassMagusArcaneGladiatorConditionSpellStrikeBonusAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4a08ee03bc9a7d146a7a6906103dfd42",

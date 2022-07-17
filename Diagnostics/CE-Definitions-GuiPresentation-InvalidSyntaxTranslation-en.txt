@@ -1,7 +1,4 @@
-ClassMagusArcaneGladiatorConditionSpellStrikeBonusAttack	Description='ConditionSpellStrikeBonusAttack'.
-ClassMagusArcaneGladiatorCullTheWeak	Description='CullTheWeak'.
 ClassMagusArcaneGladiatorDueling	Description='ClassMagusArcaneGladiatorDueling'.
-ClassMagusConditionParalyzedWhenBeingPreyedOn	Description='ClassMagusConditionParalyzedWhenBeingPreyedOn'.
 DH_ElementalForm_Air	Title='Air Plane'.
 DH_ElementalForm_Air	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
 DH_ElementalForm_AirAdditionalDamage	Title='Elemental Damage: Air Plane'.

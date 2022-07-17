@@ -8,8 +8,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Class/&ClassMagusAegisACModifierTitle",
-    "description": "Class/&ClassMagusAegisACModifierDescription",
+    "title": "Feature/&ClassMagusAegisACModifierTitle",
+    "description": "Feature/&ClassMagusAegisACModifierDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -120,8 +120,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ShamefulRunawayConditionTitle",
-    "description": "Subclass/&ShamefulRunawayConditionDescription",
+    "title": "Condition/&ClassMagusArcaneGladiatorShamefulRunawayConditionTitle",
+    "description": "Condition/&ClassMagusArcaneGladiatorShamefulRunawayConditionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

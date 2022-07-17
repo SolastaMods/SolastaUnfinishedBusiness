@@ -27,11 +27,9 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration
-[*][b][/b]: 
 [*][b]Esker[/b]: ruleset support, classes design, quality assurance
 [*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance
-[*][b][/b]: 
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]Narria[/b]: modKit creator, developer
@@ -127,7 +125,7 @@ All settings start disabled by default. On first start the mod will display an w
 
 [list=1]
 
-[*][b]Magus[/b]: Student of both philosophies, blending magical ability and martial prowess into an entirely unique discipline in which both spell and steel are used to devastating effect
+[*][b]Magus [BETA][/b]: Student of both philosophies, blending magical ability and martial prowess into an entirely unique discipline in which both spell and steel are used to devastating effect
 [*][b]Monk[/b]: Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a Monk does.
 [*][b]Tinkerer[/b]: Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.
 [*][b]Warlock[/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
@@ -153,7 +151,6 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]Moonlit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 [*][b]Arcane Gladiator[/b]: Arcane Gladiators are honorable protector which protecting their allies by compelling high profile duelling with them. They are also famous for the tactic of alpha striking their foes by big evocation spell followed by a swing with the heaviest weapon in their hand.      
-[*][b]None[/b]: 
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
