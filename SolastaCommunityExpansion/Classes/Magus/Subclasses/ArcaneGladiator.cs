@@ -13,13 +13,14 @@ public static class ArcaneGladiator
     {
         var shamefulRunawayCombatAffinity = FeatureDefinitionCombatAffinityBuilder
             .Create("ClassMagusArcaneGladiatorShamefulRunawayCombatAffinity", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ShamefulRunawayCombatAffinity")
+            .SetGuiPresentation("ShamefulRunawayCombatAffinity", Category.Subclass)
             .AddToDB();
         shamefulRunawayCombatAffinity.autoCritical = true;
         
         var shamefulRunawayCondition = ConditionDefinitionBuilder
             .Create("ClassMagusArcaneGladiatorShamefulRunawayCondition", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ShamefulRunawayCondition")
+            .SetGuiPresentation("ShamefulRunawayCondition", Category.Subclass)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(shamefulRunawayCombatAffinity)
             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Damaged)
             .AddToDB();
@@ -27,13 +28,13 @@ public static class ArcaneGladiator
         var disadvantageAgainstNonChallenger =
         FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
             .Create("ClassMagusArcaneGladiatorDisadvantageAgainstNonChallenger", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "DisadvantageAgainstNonChallenger")
+            .SetGuiPresentation("DisadvantageAgainstNonChallenger", Category.Subclass)
             .SetConditionName("ClassMagusArcaneGladiatorDuelled")
             .AddToDB();
         
         var conditionDuelled = ConditionDefinitionBuilder
             .Create("ClassMagusArcaneGladiatorDuelled", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "Duelled", DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle.guiPresentation.SpriteReference)
+            .SetGuiPresentation("ClassMagusArcaneGladiatorDuelled", Category.Subclass, DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle.guiPresentation.SpriteReference)
             .SetFeatures(disadvantageAgainstNonChallenger)
             .AddToDB();
         
@@ -71,7 +72,7 @@ public static class ArcaneGladiator
         
         var conditionDueling = ConditionDefinitionBuilder
             .Create("ClassMagusArcaneGladiatorDueling", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "Dueling", DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle.guiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, "ClassMagusArcaneGladiatorDueling", DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle.guiPresentation.SpriteReference)
             .SetFeatures(cullTheWeak)
             .SetCustomSubFeatures(AttacksOfOpportunity.CanIgnoreDisengage)
             .AddToDB();
@@ -95,11 +96,11 @@ public static class ArcaneGladiator
 
         return FeatureDefinitionPowerBuilder
             .Create("ClassMagusArcaneGladiatorArcaneDuel", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ArcaneDuel")
+            .SetGuiPresentation("ClassMagusArcaneGladiatorArcaneDuel", Category.Subclass, DatabaseHelper.SpellDefinitions.DispelEvilAndGood.guiPresentation.SpriteReference)
             .SetEffectDescription(effect)
+            .SetUsesProficiency()
             .SetCostPerUse(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-            .SetFixedUsesPerRecharge(2)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
             .AddToDB();
     }
@@ -108,7 +109,7 @@ public static class ArcaneGladiator
     {
        return FeatureDefinitionOnAttackEffectBuilder
             .Create("ClassMagusArcaneGladiatorHeavyWeaponMastery", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "HeavyWeaponMastery")
+            .SetGuiPresentation("ClassMagusArcaneGladiatorHeavyWeaponMastery", Category.Subclass)
             .SetOnAttackDelegates((attacker, _, outcome, mode) =>
             {
                 if (mode == null || attacker == null ||
@@ -152,7 +153,7 @@ public static class ArcaneGladiator
 
         var spellStrikeBonusAttack = FeatureDefinitionPowerBuilder
             .Create("ClassMagusArcaneGladiatorPowerSpellStrikeBonusAttack", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "PowerSpellStrikeBonusAttack")
+            .SetGuiPresentation("ClassMagusArcaneGladiatorPowerSpellStrikeBonusAttack", Category.Subclass)
             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
             .SetEffectDescription(spellStrikeBonusAttackEffect)
             .SetActivationTime(RuleDefinitions.ActivationTime.OnSpellCast)

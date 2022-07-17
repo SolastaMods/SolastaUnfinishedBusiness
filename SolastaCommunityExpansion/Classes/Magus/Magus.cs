@@ -36,7 +36,7 @@ public static class Magus
 
     public static FeatureDefinitionCastSpell FeatureDefinitionClassMagusCastSpell = FeatureDefinitionCastSpellBuilder
         .Create("ClassMagusCastSpell", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation("ClassMagusSpellcasting", Category.Class)
+        .SetGuiPresentation("ClassMagusCastSpell", Category.Class)
         .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
         .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
         .SetSpellList(MagusSpells.MagusSpellList)
@@ -54,15 +54,17 @@ public static class Magus
         classMagusBuilder
             .AddEquipmentRow(
                 Column(
-                    Option(DatabaseHelper.ItemDefinitions.Longbow, OptionWeaponMartialRangedChoice, 1),
-                    Option(DatabaseHelper.ItemDefinitions.Arrow, OptionAmmoPack, 1),
-                    Option(DatabaseHelper.ItemDefinitions.Leather, OptionArmor, 1)
-                ),
-                Column(
                     Option(DatabaseHelper.ItemDefinitions.Longsword, OptionWeaponMartialMeleeChoice, 1),
                     Option(DatabaseHelper.ItemDefinitions.Shield, OptionArmor, 1),
                     Option(DatabaseHelper.ItemDefinitions.ScaleMail, OptionArmor, 1)
-                    ))
+                ),
+                Column(
+                    Option(DatabaseHelper.ItemDefinitions.Longbow, OptionWeaponMartialRangedChoice, 1),
+                    Option(DatabaseHelper.ItemDefinitions.Arrow, OptionAmmoPack, 1),
+                    Option(DatabaseHelper.ItemDefinitions.Leather, OptionArmor, 1)
+                ))
+            .AddEquipmentRow(
+                Column(Option(DatabaseHelper.ItemDefinitions.ComponentPouch, OptionFocus, 1)))
             .AddEquipmentRow(
                 Column(Option(DatabaseHelper.ItemDefinitions.ScholarPack, OptionStarterPack, 1)),
                 Column(Option(DatabaseHelper.ItemDefinitions.DungeoneerPack, OptionStarterPack, 1)))
@@ -79,7 +81,7 @@ public static class Magus
         {
             return FeatureDefinitionProficiencyBuilder
                 .Create(name, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentation(name, Category.Class)
                 .SetProficiencies(type, proficiencies)
                 .AddToDB();
         }
@@ -90,7 +92,7 @@ public static class Magus
 
         FeatureDefinitionProficiencyWeapon =
             BuildProficiency("ClassMagusWeaponProficiency", ProficiencyType.Weapon,
-                MartialWeaponCategory);
+                MartialWeaponCategory, SimpleWeaponCategory);
 
         FeatureDefinitionProficiencyTool =
             BuildProficiency("ClassMagusToolsProficiency", ProficiencyType.Tool,
@@ -103,6 +105,7 @@ public static class Magus
 
         FeatureDefinitionSkillPoints = FeatureDefinitionPointPoolBuilder
             .Create("ClassMagusSkillProficiency", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusSkillProficiency", Category.Class)
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 4)
             .OnlyUniqueChoices()
             .RestrictChoices(
@@ -116,7 +119,6 @@ public static class Magus
                 SkillDefinitions.Perception,
                 SkillDefinitions.Nature,
                 SkillDefinitions.Religion)
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
     }
 
@@ -187,7 +189,7 @@ public static class Magus
     {
         var fightingStyles = FeatureDefinitionFightingStyleChoiceBuilder
             .Create("ClassMagusFightingStyle", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Class, "ClassMagusFightingStyle")
+            .SetGuiPresentation("ClassMagusFightingStyle", Category.Class)
             .AddFightingStyles(DatabaseHelper.FightingStyleDefinitions.Dueling.Name,
                 DatabaseHelper.FightingStyleDefinitions.Protection.Name,
                 DatabaseHelper.FightingStyleDefinitions.GreatWeapon.Name,
@@ -197,15 +199,15 @@ public static class Magus
         
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
             .Create("ClassMagusWarMagic", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Class, "ClassMagusWarMagic")
+            .SetGuiPresentation("ClassMagusWarMagic", Category.Class)
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
         magicAffinity.rangeSpellNoProximityPenalty = true;
         
         var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
-            .Create("SubclassChoiceMagusSecretOrder", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("SubclassChoiceMagusSecretOrder", Category.Subclass)
-            .SetSubclassSuffix("Coven")
+            .Create("ClassMagusSubclassChoice", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusSubclassChoice", Category.Class)
+            .SetSubclassSuffix("Academy")
             .SetFilterByDeity(false)
             .SetSubclasses(
                 ArcaneGladiator.Build())
@@ -229,10 +231,11 @@ public static class Magus
                 FeatureDefinitionProficiencyWeapon,
                 FeatureDefinitionProficiencyTool,
                 FeatureDefinitionSkillPoints,
-                FeatureDefinitionClassMagusCastSpell
+                FeatureDefinitionClassMagusCastSpell,
+                subclassChoices
             )
             .AddFeaturesAtLevel(2, fightingStyles, magicAffinity)
-            .AddFeaturesAtLevel(3, subclassChoices) 
+            //.AddFeaturesAtLevel(3, sub class feature) 
             .AddFeatureAtLevel(4, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
             .AddFeaturesAtLevel(5, extraAttack)
             .AddFeaturesAtLevel(6, SpellStrike, SpellStrikeAdditionalDamage)
@@ -998,7 +1001,7 @@ public static class Magus
 
     public static readonly FeatureDefinitionPower SpellStrikePower = FeatureDefinitionPowerBuilder
         .Create("ClassMagusSpellStrikePower", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation(Category.Class, "ClassMagusSpellStrikePower")
+        .SetGuiPresentation("ClassMagusSpellStrikePower", Category.Class)
         .SetRechargeRate(RechargeRate.AtWill)
         .AddToDB();
 
@@ -1012,7 +1015,7 @@ public static class Magus
     
     public static readonly FeatureDefinition SpellStrike = FeatureDefinitionBuilder
         .Create("ClassMagusSpellStrike", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation(Category.Class, "ClassMagusSpellStrike")
+        .SetGuiPresentation("ClassMagusSpellStrike", Category.Class)
         .SetCustomSubFeatures(PerformAttackAfterMagicEffectUse.MeleeAttack,
             CustomSpellEffectLevel.ByCasterLevel)
         .AddToDB();
