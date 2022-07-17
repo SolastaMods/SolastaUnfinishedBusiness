@@ -34,20 +34,21 @@ public static class Magus
 
     private static FeatureDefinitionPointPool FeatureDefinitionSkillPoints { get; set; }
 
-    public static readonly FeatureDefinitionCastSpell FeatureDefinitionClassMagusCastSpell = FeatureDefinitionCastSpellBuilder
-        .Create("ClassMagusCastSpell", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation("ClassMagusCastSpell", Category.Class)
-        .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
-        .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
-        .SetSpellList(MagusSpells.MagusSpellList)
-        .SetSpellKnowledge(SpellKnowledge.WholeList)
-        .SetSpellReadyness(SpellReadyness.Prepared)
-        .SetSpellPreparationCount(SpellPreparationCount.AbilityBonusPlusLevel)
-        .SetSlotsRecharge(RechargeRate.LongRest)
-        .SetSpellCastingLevel(1)
-        .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
-        .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
-        .AddToDB();
+    public static readonly FeatureDefinitionCastSpell FeatureDefinitionClassMagusCastSpell =
+        FeatureDefinitionCastSpellBuilder
+            .Create("ClassMagusCastSpell", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusCastSpell", Category.Class)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
+            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
+            .SetSpellList(MagusSpells.MagusSpellList)
+            .SetSpellKnowledge(SpellKnowledge.WholeList)
+            .SetSpellReadyness(SpellReadyness.Prepared)
+            .SetSpellPreparationCount(SpellPreparationCount.AbilityBonusPlusLevel)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSpellCastingLevel(1)
+            .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
+            .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
+            .AddToDB();
 
     private static void BuildEquipment([NotNull] CharacterClassDefinitionBuilder classMagusBuilder)
     {
@@ -105,7 +106,7 @@ public static class Magus
 
         FeatureDefinitionSkillPoints = FeatureDefinitionPointPoolBuilder
             .Create("ClassMagusSkillProficiency", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusSkillProficiency", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 4)
             .OnlyUniqueChoices()
             .RestrictChoices(
@@ -163,7 +164,7 @@ public static class Magus
 
         // grant heat metal but can target any creatures
         var burningSkin = BuildBurningSkin();
-        
+
         // frost fang: hopefully cold damage with sweet animation
         var frostFang = BuildFrostFang(ArcanaPool);
         // mind spike
@@ -189,7 +190,7 @@ public static class Magus
     {
         var fightingStyles = FeatureDefinitionFightingStyleChoiceBuilder
             .Create("ClassMagusFightingStyle", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusFightingStyle", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .AddFightingStyles(
                 DatabaseHelper.FightingStyleDefinitions.Dueling.Name,
                 DatabaseHelper.FightingStyleDefinitions.Protection.Name,
@@ -200,7 +201,7 @@ public static class Magus
 
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
             .Create("ClassMagusWarMagic", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusWarMagic", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
 
@@ -208,7 +209,7 @@ public static class Magus
 
         var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
             .Create("ClassMagusSubclassChoice", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusSubclassChoice", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetSubclassSuffix("Academy")
             .SetFilterByDeity(false)
             .SetSubclasses(
@@ -327,7 +328,7 @@ public static class Magus
         .SetFeatures(AegisAcIncrease, AegisSavingThrowIncrease)
         .AddToDB();
 
-    private static EffectDescription Aegis(SpellDefinition spell, EffectDescription effect,
+    private static EffectDescription Aegis([NotNull] SpellDefinition spell, EffectDescription effect,
         RulesetCharacter caster)
     {
         if (spell.requiresConcentration != true)
@@ -354,7 +355,7 @@ public static class Magus
         // enhance mage armor effect
         return FeatureDefinitionSpellModifierBuilder
             .Create("ClassMagusAegisModifySpellEffect", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusAegisModifySpellEffect", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetEffectModifier(Aegis)
             .AddToDB();
     }
@@ -363,12 +364,12 @@ public static class Magus
 
     #region rupture_strike
 
+    [NotNull]
     private static FeatureDefinitionPower BuildRuptureStrike(FeatureDefinitionPower sharedPool)
     {
         var condition = ConditionDefinitionBuilder
             .Create("ClassMagusConditionRupture", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Class, "ClassMagusConditionRupture",
-                ConditionSlowed.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Class, ConditionSlowed.GuiPresentation.SpriteReference)
             .AddToDB();
         condition.specialDuration = true;
         condition.durationParameter = 1;
@@ -385,7 +386,7 @@ public static class Magus
 
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtRuptureStrike", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtRuptureStrike", null, 0, true)
+            .SetGuiPresentation(Category.Subclass, null, 0, true)
             .SetSharedPool(sharedPool)
             .SetActivationTime(ActivationTime.NoCost)
             .SetCostPerUse(1)
@@ -423,12 +424,12 @@ public static class Magus
 
     #region exile_strike
 
+    [NotNull]
     private static FeatureDefinitionPower BuildExileStrike(FeatureDefinitionPower sharedPool)
     {
         var condition = ConditionDefinitionBuilder
             .Create("ClassMagusConditionExiled", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Class, "ClassMagusConditionExiled",
-                ConditionBanished.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Class, ConditionBanished.GuiPresentation.SpriteReference)
             .SetParentCondition(ConditionBanished)
             .AddToDB();
         condition.specialDuration = true;
@@ -440,7 +441,7 @@ public static class Magus
 
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtExileStrike", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtExileStrike", null, 0, true)
+            .SetGuiPresentation(Category.Subclass, null, 0, true)
             .SetSharedPool(sharedPool)
             .SetActivationTime(ActivationTime.NoCost)
             .SetCostPerUse(1)
@@ -488,11 +489,12 @@ public static class Magus
 
     #region terror_strike
 
+    [NotNull]
     private static FeatureDefinitionPower BuildTerrorStrike(FeatureDefinitionPower sharedPool)
     {
         var condition = ConditionDefinitionBuilder
             .Create("ClassMagusConditionTerror", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Class, "ClassMagusConditionTerror",
+            .SetGuiPresentation(Category.Class,
                 DatabaseHelper.ConditionDefinitions.ConditionFrightened.GuiPresentation.SpriteReference)
             .SetParentCondition(DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear)
             .SetConditionType(ConditionType.Detrimental)
@@ -507,7 +509,7 @@ public static class Magus
 
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtTerrorStrike", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtTerrorStrike", null, 0, true)
+            .SetGuiPresentation(Category.Subclass, null, 0, true)
             .SetSharedPool(sharedPool)
             .SetActivationTime(ActivationTime.NoCost)
             .SetCostPerUse(1)
@@ -551,7 +553,7 @@ public static class Magus
         var bonusSpellList = new List<SpellDefinition> {DatabaseHelper.SpellDefinitions.Bane};
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("ClassMagusGreaterBaneBonusSpell", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusGreaterBaneBonusSpell", Category.Class,
+            .SetGuiPresentation(Category.Class,
                 DatabaseHelper.SpellDefinitions.Bane.guiPresentation.spriteReference)
             .SetAutoTag("GreaterBane")
             .SetSpellcastingClass(ClassMagus)
@@ -565,7 +567,7 @@ public static class Magus
         // force disadvantage on enemies saving throw
         var greaterBane = FeatureDefinitionMagicAffinityBuilder
             .Create("ClassMagusGreaterBaneSavingThrowAffinityModifier", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusGreaterBaneSavingThrowAffinityModifier", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .AddToDB();
         greaterBane.forcedSavingThrowAffinity = AdvantageType.Disadvantage;
         greaterBane.forcedSpellDefinition = DatabaseHelper.SpellDefinitions.Bane;
@@ -573,7 +575,7 @@ public static class Magus
         // greater bane
         return FeatureDefinitionFeatureSetBuilder
             .Create("ClassMagusArcaneArtGreaterBane", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArcaneArtGreaterBane", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddFeatureSet(autoPreparedSpells, greaterBane)
             .AddToDB();
@@ -587,7 +589,7 @@ public static class Magus
     {
         var frostFangAdditionalDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create("ClassMagusAdditionalDamageFrostFang", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusAdditionalDamageFrostFang", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetNotificationTag("FrostFang")
             .SetDamageDice(DieType.D8, 2)
             .SetSpecificDamageType(DamageTypeCold)
@@ -598,7 +600,7 @@ public static class Magus
 
         var frostFangCondition = ConditionDefinitionBuilder
             .Create("ClassMagusConditionFrostFang", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusConditionFrostFang", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetSpecialDuration(true)
             .SetDuration(DurationType.Minute, 1)
             .SetFeatures(frostFangAdditionalDamage)
@@ -618,7 +620,7 @@ public static class Magus
 
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtFrostFang", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArcaneArtFrostFang", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetSharedPool(sharedPool)
             .SetActivationTime(ActivationTime.BonusAction)
             .SetCostPerUse(2)
@@ -655,6 +657,7 @@ public static class Magus
                 }
 
                 var conditionsToRemoved = new List<RulesetCondition>();
+
                 foreach (var keyValuePair in character.RulesetCharacter.conditionsByCategory)
                 {
                     foreach (var linkedCondition in keyValuePair.Value)
@@ -746,7 +749,7 @@ public static class Magus
 
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtEldritchPredator", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtEldritchPredator")
+            .SetGuiPresentation(Category.Subclass)
             .SetSharedPool(sharedPool)
             .SetCostPerUse(2)
             .SetEffectDescription(effect)
@@ -780,7 +783,7 @@ public static class Magus
         var condition =
             ConditionNullifyBuilder
                 .Create("ClassMagusConditionNullify", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Class, "ClassMagusConditionNullify",
+                .SetGuiPresentation(Category.Class,
                     DatabaseHelper.ConditionDefinitions.ConditionStunned.guiPresentation.spriteReference)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetSpecialDuration(true)
@@ -790,7 +793,7 @@ public static class Magus
 
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtNullifyStrike", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtNullifyStrike", null, 0, true)
+            .SetGuiPresentation(Category.Subclass, null, 0, true)
             .SetSharedPool(sharedPool)
             .SetActivationTime(ActivationTime.NoCost)
             .SetCostPerUse(1)
@@ -851,7 +854,7 @@ public static class Magus
     {
         var frightenByUnfathomableHorror = ConditionFrightenByUnfathomableHorrorBuilder
             .Create("ClassMagusConditionFrightenByUnfathomableHorror", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusConditionFrightenByUnfathomableHorror", Category.Class,
+            .SetGuiPresentation(Category.Class,
                 DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear.guiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
@@ -892,7 +895,7 @@ public static class Magus
 
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtUnfathomableError", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtUnfathomableError")
+            .SetGuiPresentation(Category.Subclass)
             .SetSharedPool(sharedPool)
             .SetEffectDescription(effect)
             .SetActivationTime(ActivationTime.PermanentUnlessIncapacitated)
@@ -930,7 +933,7 @@ public static class Magus
         bonusSpellList.Add(DatabaseHelper.SpellDefinitions.MageArmor);
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("ClassMagusArmorOfTheMagisterBonusSpell", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArmorOfTheMagisterBonusSpell", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetAutoTag("ArcaneArt")
             .SetSpellcastingClass(ClassMagus)
             .SetPreparedSpellGroups(
@@ -943,13 +946,13 @@ public static class Magus
         // enhance mage armor effect
         var enhancedMageAmor = FeatureDefinitionSpellModifierBuilder
             .Create("ClassMagusArmorOfTheMagisterModifyMageAmorEffect", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArmorOfTheMagisterModifyMageAmorEffect", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetEffectModifier(EnhanceMageAmor)
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("ClassMagusArcaneArtArmorOfTheMagister", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArcaneArtArmorOfTheMagister", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddFeatureSet(autoPreparedSpells, enhancedMageAmor)
             .AddToDB();
@@ -978,7 +981,7 @@ public static class Magus
         bonusSpellList.Add(DatabaseHelper.SpellDefinitions.HeatMetal);
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("ClassMagusBurningSkinBonusSpell", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusBurningSkinBonusSpell", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetAutoTag("ArcaneArt")
             .SetSpellcastingClass(ClassMagus)
             .SetPreparedSpellGroups(
@@ -991,13 +994,13 @@ public static class Magus
         // remove heat metal target filtering tag
         var burningSkin = FeatureDefinitionSpellModifierBuilder
             .Create("ClassMagusBurningSkinModifyHeatMetalEffect", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusBurningSkinModifyHeatMetalEffect", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetEffectModifier(BurningSkin)
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("ClassMagusArcaneArtBurningSkin", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArcaneArtBurningSkin", Category.Class)
+            .SetGuiPresentation(Category.Class)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddFeatureSet(autoPreparedSpells, burningSkin)
             .AddToDB();
@@ -1023,7 +1026,7 @@ public static class Magus
 
     public static readonly FeatureDefinition SpellStrike = FeatureDefinitionBuilder
         .Create("ClassMagusSpellStrike", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation("ClassMagusSpellStrike", Category.Class)
+        .SetGuiPresentation(Category.Class)
         .SetCustomSubFeatures(PerformAttackAfterMagicEffectUse.MeleeAttack,
             CustomSpellEffectLevel.ByCasterLevel)
         .AddToDB();

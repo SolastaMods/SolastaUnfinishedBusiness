@@ -73,7 +73,7 @@ public static class ArcaneGladiator
 
         var conditionDueling = ConditionDefinitionBuilder
             .Create("ClassMagusArcaneGladiatorDueling", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Condition, "ClassMagusArcaneGladiatorDueling",
+            .SetGuiPresentation(Category.Condition,
                 DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle.guiPresentation.SpriteReference)
             .SetFeatures(cullTheWeak)
             .SetCustomSubFeatures(AttacksOfOpportunity.CanIgnoreDisengage)
@@ -99,7 +99,7 @@ public static class ArcaneGladiator
 
         return FeatureDefinitionPowerBuilder
             .Create("ClassMagusArcaneGladiatorArcaneDuel", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArcaneGladiatorArcaneDuel", Category.Subclass,
+            .SetGuiPresentation(Category.Subclass,
                 DatabaseHelper.SpellDefinitions.DispelEvilAndGood.guiPresentation.SpriteReference)
             .SetEffectDescription(effect)
             .SetUsesProficiency()
@@ -113,7 +113,7 @@ public static class ArcaneGladiator
     {
         return FeatureDefinitionOnAttackEffectBuilder
             .Create("ClassMagusArcaneGladiatorHeavyWeaponMastery", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArcaneGladiatorHeavyWeaponMastery", Category.Subclass)
+            .SetGuiPresentation(Category.Subclass)
             .SetOnAttackDelegates((attacker, _, outcome, mode) =>
             {
                 if (mode == null || attacker == null ||
@@ -159,7 +159,7 @@ public static class ArcaneGladiator
 
         var spellStrikeBonusAttack = FeatureDefinitionPowerBuilder
             .Create("ClassMagusArcaneGladiatorPowerSpellStrikeBonusAttack", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ClassMagusArcaneGladiatorPowerSpellStrikeBonusAttack", Category.Subclass)
+            .SetGuiPresentation(Category.Subclass)
             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
             .SetEffectDescription(spellStrikeBonusAttackEffect)
             .SetActivationTime(RuleDefinitions.ActivationTime.OnSpellCast)
