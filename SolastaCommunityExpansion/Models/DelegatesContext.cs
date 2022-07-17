@@ -247,7 +247,7 @@ internal static class DelegatesContext
 
     private static void CharacterLevelUpStarted(RulesetCharacterHero hero)
     {
-        Main.Logger.Log("Character Level Up Started");
+        Main.Logger.Log($"{hero.Name} Character Level Up Started");
     }
 
     //
@@ -256,22 +256,22 @@ internal static class DelegatesContext
 
     private static void CharacterCreated(GameLocationCharacter character)
     {
-        Main.Logger.Log("Character Created");
+        Main.Logger.Log($"{character.Name} Character Created");
     }
 
     private static void CharacterRevealed(GameLocationCharacter character)
     {
-        Main.Logger.Log("Character Revealed");
+        Main.Logger.Log($"{character.Name} Character Revealed");
     }
 
     private static void CharacterDestroying(GameLocationCharacter character)
     {
-        Main.Logger.Log("Character Destroying");
+        Main.Logger.Log($"{character.Name} Character Destroying");
     }
 
     private static void CharacterKilled(GameLocationCharacter character)
     {
-        Main.Logger.Log("Character Killed");
+        Main.Logger.Log($"{character.Name} Character Killed");
 
         var attacker = Global.ActivePlayerCharacter?.RulesetCharacter;
 
@@ -297,7 +297,7 @@ internal static class DelegatesContext
 
     private static void ItemEquiped(RulesetCharacterHero hero, RulesetItem item)
     {
-        Main.Logger.Log("Item Equipped Hero");
+        Main.Logger.Log($"{hero.Name} Item Equipped Hero");
     }
 
     //
@@ -339,61 +339,61 @@ internal static class DelegatesContext
 
     private static void ActionStarted([NotNull] CharacterAction characterAction)
     {
-        Main.Logger.Log("Action Started");
+        Main.Logger.Log($"{characterAction.ActingCharacter.Name} {characterAction.ActionId} Action Started");
 
         Global.ActionStarted(characterAction);
     }
 
     private static void ActionChainStarted(CharacterActionChainParams characterActionChainParams)
     {
-        Main.Logger.Log("Action Chain Started");
+        Main.Logger.Log($"{characterActionChainParams.ActingCharacter.Name} Action Chain Started");
     }
 
     private static void ActionChainFinished(
         CharacterActionChainParams characterActionChainParams,
         bool aborted)
     {
-        Main.Logger.Log("Action Chain Finished");
+        Main.Logger.Log($"{characterActionChainParams.ActingCharacter.Name} Action Chain Finished");
     }
 
     private static void MagicEffectPreparing(ref ActionDefinitions.MagicEffectCastData data)
     {
-        Main.Logger.Log("Magic Effect Preparing");
+        Main.Logger.Log($"{data.Caster?.Name} Magic Effect Preparing");
     }
 
     private static void MagicEffectPreparingOnTarget(ref ActionDefinitions.MagicEffectCastData data)
     {
-        Main.Logger.Log("Magic Effect Preparing On Target");
+        Main.Logger.Log($"{data.Caster?.Name} Magic Effect Preparing On Target");
     }
 
     private static void MagicEffectLaunch(ref ActionDefinitions.MagicEffectCastData data)
     {
-        Main.Logger.Log("Magic Effect Launch");
+        Main.Logger.Log($"{data.Caster?.Name} Magic Effect Launch");
     }
 
     private static void MagicEffectCastOnTarget(ref ActionDefinitions.MagicEffectCastData data)
     {
-        Main.Logger.Log("Magic Effect Cast On Target");
+        Main.Logger.Log($"{data.Caster?.Name} Magic Effect Cast On Target");
     }
 
     private static void MagicEffectCastOnZone(ref ActionDefinitions.MagicEffectCastData data)
     {
-        Main.Logger.Log("Magic Effect Cast On Zone");
+        Main.Logger.Log($"{data.Caster?.Name} Magic Effect Cast On Zone");
     }
 
     private static void MagicEffectBeforeHitTarget(ref ActionDefinitions.MagicEffectCastData data)
     {
-        Main.Logger.Log("Magic Effect Before Hit Target");
+        Main.Logger.Log($"{data.Caster?.Name} Magic Effect Before Hit Target");
     }
 
     private static void MagicEffectHitTarget(ref ActionDefinitions.MagicEffectCastData data)
     {
-        Main.Logger.Log("Magic Effect Hit Target");
+        Main.Logger.Log($"{data.Caster?.Name} Magic Effect Hit Target");
     }
 
     private static void SpellCast(string spellDefinitionName, int fromDevice)
     {
-        Main.Logger.Log("Spell Cast");
+        Main.Logger.Log($"{spellDefinitionName} Spell Cast");
     }
 
     private static void ActionUsed(
@@ -401,7 +401,7 @@ internal static class DelegatesContext
         CharacterActionParams actionParams,
         ActionDefinition actionDefinition)
     {
-        Main.Logger.Log("Action Used");
+        Main.Logger.Log($"{actingCharacter?.Name} Action Used");
     }
 
     private static void ShoveActionUsed(
@@ -410,7 +410,7 @@ internal static class DelegatesContext
         ActionDefinition actionDefinition,
         bool success)
     {
-        Main.Logger.Log("Shove Action Used");
+        Main.Logger.Log($"{actingCharacter?.Name} Shove Action Used");
     }
 
     private static void ItemUsed(string itemDefinitionName)
