@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
+using UnityEngine.AddressableAssets;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -31,11 +33,20 @@ internal sealed class DeadMaster : AbstractSubclass
 
     internal DeadMaster()
     {
+        var spriteReference =
+            CustomIcons.CreateAssetReferenceSprite("CreateDead", Resources.CreateDead, 128, 128);
+
+        // var spellCommandUndead = SpellDefinitionBuilder
+        //     .Create(DominateBeast, "CommandUndead", SubclassNamespace)
+        //     .SetGuiPresentation(Category.Spell, spriteReference)
+        //     .SetSchoolOfMagic(SchoolNecromancy)
+        //     .SetSpellLevel(7);
+
         var autoPreparedSpellsWizardDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsWizardDeadMaster", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Wizard)
-            .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups())
+            .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups(spriteReference))
             .AddToDB();
 
         var featureStarkHarvest = FeatureDefinitionOnCharacterKillBuilder
@@ -63,6 +74,32 @@ internal sealed class DeadMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        var powerCommandUndead = FeatureDefinitionPowerBuilder
+            .Create("PowerCommandUndead", SubclassNamespace)
+            .SetGuiPresentation(Category.Power)
+            .Configure(
+                0,
+                RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                AttributeDefinitions.Intelligence,
+                RuleDefinitions.ActivationTime.Action,
+                1,
+                RuleDefinitions.RechargeRate.LongRest,
+                false,
+                false,
+                AttributeDefinitions.Intelligence,
+                DominateBeast.EffectDescription)
+            .SetAbilityScoreDetermination(RuleDefinitions.AbilityScoreDetermination.Explicit)
+            .AddToDB();
+
+        var commandUndeadEffect = powerCommandUndead.EffectDescription;
+
+        commandUndeadEffect.restrictedCreatureFamilies = new List<string> {CharacterFamilyDefinitions.Undead.Name};
+        commandUndeadEffect.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
+        commandUndeadEffect.savingThrowAbility = AttributeDefinitions.Charisma;
+        commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
+        commandUndeadEffect.difficultyClassComputation = RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        commandUndeadEffect.fixedSavingThrowDifficultyClass = 8;
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardDeadMaster", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
@@ -70,10 +107,24 @@ internal sealed class DeadMaster : AbstractSubclass
             .AddFeatureAtLevel(featureStarkHarvest, 2)
             .AddFeatureAtLevel(featureUndeadChains, 6)
             .AddFeatureAtLevel(featureHardenToNecrotic, 10)
+            .AddFeatureAtLevel(powerCommandUndead, 14)
             .AddToDB();
+
+        EnableCommandAllUndead();
     }
 
     private static CharacterSubclassDefinition Subclass { get; set; }
+
+    private static void EnableCommandAllUndead()
+    {
+        var monsterDefinitions = DatabaseRepository.GetDatabase<MonsterDefinition>();
+
+        foreach (var monsterDefinition in monsterDefinitions
+                     .Where(x => x.CharacterFamily == CharacterFamilyDefinitions.Undead.Name))
+        {
+            monsterDefinition.fullyControlledWhenAllied = true;
+        }
+    }
 
     internal static void OnMonsterCreated(RulesetCharacterMonster monster)
     {
@@ -111,17 +162,15 @@ internal sealed class DeadMaster : AbstractSubclass
         {
             monster.ActiveFeatures.Add(featureDefinitionAttackModifier);
         }
+
+        var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
+
+        gameLoreService.LearnMonsterKnowledge(monster.MonsterDefinition, KnowledgeLevelDefinitions.Mastered4);
     }
 
-    private static void OnStarkHarvestKill(
-        GameLocationCharacter character,
-        bool dropLoot,
-        bool removeBody,
-        bool forceRemove,
-        bool considerDead,
-        bool becomesDying)
+    private static void OnStarkHarvestKill(GameLocationCharacter character)
     {
-        if (!considerDead || Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
+        if (Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
         {
             return;
         }
@@ -152,11 +201,9 @@ internal sealed class DeadMaster : AbstractSubclass
 
     [NotNull]
     private static IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>
-        GetDeadSpellAutoPreparedGroups()
+        GetDeadSpellAutoPreparedGroups(AssetReferenceSprite spriteReference)
     {
         var result = new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>();
-        var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite("CreateDead", Resources.CreateDead, 128, 128);
 
         foreach (var kvp in CreateDeadSpellMonsters)
         {
@@ -178,6 +225,7 @@ internal sealed class DeadMaster : AbstractSubclass
                     .AddToDB();
 
                 monster.fullyControlledWhenAllied = true;
+                subSpell.EffectDescription.rangeParameter = 1;
                 subSpell.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = monster.name;
                 subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod =
                     RuleDefinitions.EffectIncrementMethod.None;
@@ -200,6 +248,7 @@ internal sealed class DeadMaster : AbstractSubclass
                 .AddToDB();
 
             spell.EffectDescription.EffectForms.Clear();
+            spell.EffectDescription.rangeParameter = 1;
             spell.EffectDescription.EffectAdvancement.effectIncrementMethod =
                 RuleDefinitions.EffectIncrementMethod.None;
             spell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;

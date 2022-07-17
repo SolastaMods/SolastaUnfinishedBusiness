@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureHardenToNecrotic:3a80c34a-50b9-5a71-8551-d8035e58a420",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCommandUndead:edea18b3-b5ce-53af-a379-3ac82c49abae",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

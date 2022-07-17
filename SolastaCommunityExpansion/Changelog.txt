@@ -4,3 +4,5 @@ The donation button is under Mod UI > Credits & Diagnostics
 CHANGES:
 
 - Add Dead Master subclass
+- Fix Level 20 campaigns cap
+- Fix Dark Elf faerie fire / darkness DC to 8 + CHA modifier + PB

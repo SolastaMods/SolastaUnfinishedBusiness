@@ -78,15 +78,9 @@ internal sealed class Merciless : AbstractFightingStyle
         return instance;
     }
 
-    private static void OnMercilessKill(
-        GameLocationCharacter character,
-        bool dropLoot,
-        bool removeBody,
-        bool forceRemove,
-        bool considerDead,
-        bool becomesDying)
+    private static void OnMercilessKill(GameLocationCharacter character)
     {
-        if (!considerDead || Global.CurrentAction is not CharacterActionAttack actionAttack)
+        if (Global.CurrentAction is not CharacterActionAttack actionAttack)
         {
             return;
         }
@@ -118,7 +112,6 @@ internal sealed class Merciless : AbstractFightingStyle
         foreach (var enemy in battle.EnemyContenders
                      .Where(enemy =>
                          enemy != character
-                         && enemy.PerceivedAllies.Contains(character)
                          && int3.Distance(character.LocationPosition, enemy.LocationPosition) <= distance))
         {
             effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);

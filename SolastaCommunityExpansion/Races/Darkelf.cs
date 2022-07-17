@@ -128,6 +128,9 @@ internal static class DarkelfSubraceBuilder
             .SetShowCasting(true)
             .AddToDB();
 
+        darkelfFaerieFirePower.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        darkelfFaerieFirePower.EffectDescription.fixedSavingThrowDifficultyClass = 8;
         darkelfFaerieFirePower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         var darkelfDarknessPower = FeatureDefinitionPowerBuilder
@@ -141,6 +144,9 @@ internal static class DarkelfSubraceBuilder
             .SetShowCasting(true)
             .AddToDB();
 
+        darkelfDarknessPower.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        darkelfDarknessPower.EffectDescription.fixedSavingThrowDifficultyClass = 8;
         darkelfDarknessPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         var darkelfWeaponTraining = FeatureDefinitionProficiencyBuilder

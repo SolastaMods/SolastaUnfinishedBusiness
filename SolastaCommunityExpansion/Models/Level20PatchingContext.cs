@@ -40,10 +40,11 @@ internal static class Level20PatchingContext
             typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"),
             typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding),
             typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"),
-            typeof(GameCampaignParty).GetMethod("UpdateLevelCaps"), typeof(HigherLevelFeaturesModal).GetMethod("Bind"),
+            typeof(HigherLevelFeaturesModal).GetMethod("Bind"),
             typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"),
-            typeof(RulesetCharacterHero).GetMethod("SerializeAttributes"), typeof(RulesetCharacterHero)
-                .GetMethod("SerializeElements"), // TODO: The fist 2 - 12 shouldn't really be patched as they are version numbers but doesn't seem to cause issues in logic there...
+            typeof(RulesetCharacterHero).GetMethod("SerializeAttributes"),
+            // TODO: The fist 2 - 12 shouldn't really be patched as they are version numbers but doesn't seem to cause issues in logic there...
+            typeof(RulesetCharacterHero).GetMethod("SerializeElements"),
             typeof(RulesetEntity).GetMethod("SerializeElements")
         };
 
