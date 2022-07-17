@@ -119,7 +119,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ClassMagusArcaneGladiatorDuelingTitle",
-    "description": "ClassMagusArcaneGladiatorDueling",
+    "description": "Condition/&ClassMagusArcaneGladiatorDuelingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
