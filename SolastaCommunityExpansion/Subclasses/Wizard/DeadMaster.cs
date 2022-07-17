@@ -168,15 +168,9 @@ internal sealed class DeadMaster : AbstractSubclass
         gameLoreService.LearnMonsterKnowledge(monster.MonsterDefinition, KnowledgeLevelDefinitions.Mastered4);
     }
 
-    private static void OnStarkHarvestKill(
-        GameLocationCharacter character,
-        bool dropLoot,
-        bool removeBody,
-        bool forceRemove,
-        bool considerDead,
-        bool becomesDying)
+    private static void OnStarkHarvestKill(GameLocationCharacter character)
     {
-        if (!considerDead || Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
+        if (Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
         {
             return;
         }

@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+using SolastaCommunityExpansion.CustomInterfaces;
 
-namespace SolastaCommunityExpansion.Patches;
+namespace SolastaCommunityExpansion.Models;
 
 //
 // WORK IN PROGRESS: GOAL IS TO REUSE AS MANY AS IN GAME DELEGATES AS POSSIBLE INSTEAD OF PATCHING CODE
@@ -20,9 +23,13 @@ internal static class DelegatesContext
         Main.Logger.Log("Game Created");
 
         var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
-        
+
         gameLocationService.LocationReady += LocationReady;
         gameLocationService.LocationUnloading += LocationUnloading;
+
+        var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+
+        characterBuildingService.CharacterLevelUpStarted += CharacterLevelUpStarted;
     }
 
     private static void GameDestroying()
@@ -117,44 +124,48 @@ internal static class DelegatesContext
         gameLocationActionService.ItemUsed -= ItemUsed;
     }
 
+    private static void CharacterLevelUpStarted(RulesetCharacterHero hero)
+    {
+        Main.Logger.Log("Character Level Up Started");
+    }
+
     private static void CharacterCreated(GameLocationCharacter character)
     {
         Main.Logger.Log("Character Created");
-
-        // if (character.RulesetCharacter is RulesetCharacterHero rulesetCharacterHero)
-        // {
-        //     rulesetCharacterHero.ItemEquipedCallback += ItemEquiped;
-        //     rulesetCharacterHero.CharacterInventory.ItemEquiped += ItemEquiped;
-        //     rulesetCharacterHero.CharacterInventory.ItemAltered += ItemAltered;
-        //     rulesetCharacterHero.CharacterInventory.ItemUnequiped += ItemUnequiped;
-        //     rulesetCharacterHero.CharacterInventory.ItemReleased += ItemReleased;
-        // }
     }
 
     private static void CharacterDestroying(GameLocationCharacter character)
     {
         Main.Logger.Log("Character Destroying");
-
-        // if (character.RulesetCharacter is RulesetCharacterHero rulesetCharacterHero)
-        // {
-        //     rulesetCharacterHero.ItemEquipedCallback -= ItemEquiped;
-        //     rulesetCharacterHero.CharacterInventory.ItemEquiped -= ItemEquiped;
-        //     rulesetCharacterHero.CharacterInventory.ItemAltered -= ItemAltered;
-        //     rulesetCharacterHero.CharacterInventory.ItemUnequiped -= ItemUnequiped;
-        //     rulesetCharacterHero.CharacterInventory.ItemReleased -= ItemReleased;
-        // }
     }
 
     private static void CharacterKilled(GameLocationCharacter character)
     {
         Main.Logger.Log("Character Killed");
+
+        var attacker = Global.ActivePlayerCharacter?.RulesetCharacter;
+
+        if (attacker == null)
+        {
+            return;
+        }
+
+        var features = new List<FeatureDefinition>();
+
+        attacker.EnumerateFeaturesToBrowse<IOnCharacterKill>(features);
+
+        // ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
+        foreach (IOnCharacterKill characterKill in features)
+        {
+            characterKill.OnCharacterKill(character);
+        }
     }
 
-    public static void ItemEquiped(RulesetCharacterHero hero, RulesetItem item)
+    private static void ItemEquiped(RulesetCharacterHero hero, RulesetItem item)
     {
         Main.Logger.Log("Item Equipped Hero");
     }
-    
+
     private static void ItemEquiped(
         RulesetInventory characterInventory,
         RulesetInventorySlot slot,
@@ -184,9 +195,11 @@ internal static class DelegatesContext
         Main.Logger.Log("Item Released");
     }
 
-    private static void ActionStarted(CharacterAction characterAction)
+    private static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         Main.Logger.Log("Action Started");
+
+        Global.ActionStarted(characterAction);
     }
 
     private static void ActionChainStarted(CharacterActionChainParams characterActionChainParams)

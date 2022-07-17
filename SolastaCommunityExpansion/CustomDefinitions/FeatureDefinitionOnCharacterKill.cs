@@ -6,15 +6,9 @@ public sealed class FeatureDefinitionOnCharacterKill : FeatureDefinition, IOnCha
 {
     private OnCharacterKillDelegate onCharacterKill;
 
-    public void OnCharacterKill(
-        GameLocationCharacter character,
-        bool dropLoot,
-        bool removeBody,
-        bool forceRemove,
-        bool considerDead,
-        bool becomesDying)
+    public void OnCharacterKill(GameLocationCharacter character)
     {
-        onCharacterKill?.Invoke(character, dropLoot, removeBody, forceRemove, considerDead, becomesDying);
+        onCharacterKill?.Invoke(character);
     }
 
     internal void SetOnCharacterKill(OnCharacterKillDelegate onCharacterKillSet)
