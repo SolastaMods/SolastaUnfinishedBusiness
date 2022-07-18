@@ -1009,7 +1009,12 @@ public static class Magus
 
     public static readonly FeatureDefinitionPower SpellStrikePower = FeatureDefinitionPowerBuilder
         .Create("ClassMagusSpellStrikePower", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentationNoContent()
+        .SetGuiPresentationNoContent(true)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .Build()
+            )
         .SetRechargeRate(RechargeRate.AtWill)
         .AddToDB();
 
@@ -1051,7 +1056,7 @@ public static class Magus
             return false;
         }
 
-        if (actionParams.RulesetEffect.EffectDescription.IsAoE)
+        if (actionParams.RulesetEffect.EffectDescription.IsAoE || actionParams.RulesetEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.Distance or RangeType.Self)
         {
             return false;
         }
@@ -1075,11 +1080,10 @@ public static class Magus
 
     public static void PrepareSpellStrike(CharacterActionMagicEffect magicEffect, CharacterActionParams attackParams)
     {
-        SpellStrikePower.effectDescription = new EffectDescription
-        {
-            effectParticleParameters = magicEffect.actionParams.RulesetEffect.EffectDescription
-                .effectParticleParameters
-        };
+        SpellStrikePower.effectDescription.effectParticleParameters = magicEffect.actionParams.RulesetEffect
+            .EffectDescription
+            .effectParticleParameters;
+        
         attackParams.usablePower = new RulesetUsablePower {powerDefinition = SpellStrikePower};
 
         var damageForm = magicEffect.actionParams.activeEffect.EffectDescription.FindFirstDamageForm();

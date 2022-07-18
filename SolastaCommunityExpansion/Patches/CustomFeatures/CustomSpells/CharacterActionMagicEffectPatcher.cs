@@ -95,8 +95,7 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
             if (attackOutcome is not (RuleDefinitions.RollOutcome.Success
                 or RuleDefinitions.RollOutcome.CriticalSuccess))
             {
-                Global.SpellStrikeRollOutcome = RuleDefinitions.RollOutcome.Neutral;
-                yield break;
+                __instance.actionParams.activeEffect.EffectDescription.rangeType = RuleDefinitions.RangeType.MeleeHit;
             }
 
             Global.SpellStrikeRollOutcome = attackOutcome;
@@ -145,9 +144,7 @@ internal static class RulesetCharacter_RollMagicAttack
 {
     internal static bool Prefix(ref int __result, out RuleDefinitions.RollOutcome outcome)
     {
-        if (Global.IsSpellStrike &&
-            Global.SpellStrikeRollOutcome is RuleDefinitions.RollOutcome.Success
-                or RuleDefinitions.RollOutcome.CriticalSuccess)
+        if (Global.IsSpellStrike)
         {
             __result = Global.SpellStrikeDieRoll;
             outcome = Global.SpellStrikeRollOutcome;
@@ -160,12 +157,12 @@ internal static class RulesetCharacter_RollMagicAttack
 
     internal static void Postfix(ref int __result, ref RuleDefinitions.RollOutcome outcome)
     {
-        if (Global.IsSpellStrike &&
-            Global.SpellStrikeRollOutcome is RuleDefinitions.RollOutcome.Success
-                or RuleDefinitions.RollOutcome.CriticalSuccess)
+        if (!Global.IsSpellStrike)
         {
-            __result = Global.SpellStrikeDieRoll;
-            outcome = Global.SpellStrikeRollOutcome;
+            return;
         }
+
+        __result = Global.SpellStrikeDieRoll;
+        outcome = Global.SpellStrikeRollOutcome;
     }
 }
