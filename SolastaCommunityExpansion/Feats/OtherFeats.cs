@@ -14,6 +14,21 @@ internal static class OtherFeats
 {
     private static readonly Guid OtherFeatNamespace = new("655e8588-4d6e-42f3-9564-69e7345d5620");
 
+    public static FeatDefinition Warcaster = FeatDefinitionBuilder
+        .Create("FeatWarCaster", OtherFeatNamespace)
+        .SetFeatures(
+            FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinityWarCasterFeat", OtherFeatNamespace)
+                .SetGuiPresentation("FeatWarCaster", Category.Feat)
+                .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
+                    RuleDefinitions.SpellParamsModifierType.None, false, false, false)
+                .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
+                .SetHandsFullCastingModifiers(true, true, true)
+                .AddToDB())
+        .SetGuiPresentation(Category.Feat)
+        .SetMustCastSpellsPrerequisite()
+        .AddToDB();
+
     public static void CreateFeats(List<FeatDefinition> feats)
     {
         // Savage Attacker
@@ -84,23 +99,7 @@ internal static class OtherFeats
             .SetArmorProficiencyPrerequisite(DatabaseHelper.ArmorCategoryDefinitions.ShieldCategory)
             .AddToDB();
 
-        // War Caster
-        var warCaster = FeatDefinitionBuilder
-            .Create("FeatWarCaster", OtherFeatNamespace)
-            .SetFeatures(
-                FeatureDefinitionMagicAffinityBuilder
-                    .Create("MagicAffinityWarCasterFeat", OtherFeatNamespace)
-                    .SetGuiPresentation("FeatWarCaster", Category.Feat)
-                    .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
-                        RuleDefinitions.SpellParamsModifierType.None, false, false, false)
-                    .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
-                    .SetHandsFullCastingModifiers(true, true, true)
-                    .AddToDB())
-            .SetGuiPresentation(Category.Feat)
-            .SetMustCastSpellsPrerequisite()
-            .AddToDB();
-
-        feats.AddRange(savageAttacker, tough, warCaster, improvedCritical, shieldExpert);
+        feats.AddRange(savageAttacker, tough, Warcaster, improvedCritical, shieldExpert);
     }
 
     private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,

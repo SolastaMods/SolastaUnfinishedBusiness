@@ -1,7 +1,6 @@
-﻿#if false
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaCommunityExpansion.Spells.AceHighSpells;
 
 namespace SolastaCommunityExpansion.Classes.Magus;
 
@@ -9,17 +8,19 @@ namespace SolastaCommunityExpansion.Classes.Magus;
 public static class MagusSpells
 {
     internal static SpellListDefinition MagusSpellList { get; } = SpellListDefinitionBuilder
-        .Create("MagusSpellList", DefinitionBuilder.CENamespaceGuid)
-        .SetGuiPresentation(Category.SpellList)
+        .Create("ClassMagusSpellList", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentationNoContent()
         .ClearSpells()
-        .SetSpellsAtLevel(1, Shield, MageArmor, ExpeditiousRetreat, ProtectionFromEvilGood,
-            HellishRebukeSpell, PactMarkSpell)
-        .SetSpellsAtLevel(2, SeeInvisibility, HoldPerson, Invisibility, MistyStep, RayOfEnfeeblement, Shatter,
-            SpiderClimb)
-        .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, Slow, Haste)
-        .SetSpellsAtLevel(4, Banishment, Blight, DimensionDoor, GreaterInvisibility)
-        .SetSpellsAtLevel(5, HoldMonster, MindTwist, ConjureElemental)
+        .SetSpellsAtLevel(0, Sparkle, Light, FireBolt, ChillTouch, RayOfFrost, ShockingGrasp, TrueStrike, ShadowDagger)
+        .SetSpellsAtLevel(1, Shield, MageArmor, ExpeditiousRetreat, ProtectionFromEvilGood, FeatherFall, InflictWounds,
+            Sleep, BurningHands, Jump, Longstrider, GuidingBolt)
+        .SetSpellsAtLevel(2, SeeInvisibility, HoldPerson, MistyStep, FlameBlade, Shatter, SpiderClimb, ScorchingRay,
+            Blur, FlamingSphere, AcidArrow, MagicWeapon, Blindness, RayOfEnfeeblement)
+        .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, Slow, Haste, BestowCurse, StinkingCloud, Fireball,
+            LightningBolt, ProtectionFromEnergy, SleetStorm)
+        .SetSpellsAtLevel(4, Banishment, Blight, DimensionDoor, GreaterInvisibility, PhantasmalKiller)
+        .SetSpellsAtLevel(5, HoldMonster, MindTwist, ConjureElemental, Contagion)
+        .SetSpellsAtLevel(6, Sunbeam, Disintegrate, GlobeOfInvulnerability, Eyebite)
         .FinalizeSpells()
         .AddToDB();
 }
-#endif

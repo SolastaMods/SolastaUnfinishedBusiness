@@ -73,6 +73,11 @@ internal static class GameLocationBattleManagerPatcher
     {
         internal static void Prefix(GameLocationCharacter mover)
         {
+            if (mover.RulesetCharacter.isDeadOrDyingOrUnconscious)
+            {
+                return;
+            }
+
             var matchingOccurenceConditions = new List<RulesetCondition>();
             foreach (var item2 in mover.RulesetCharacter.ConditionsByCategory
                          .SelectMany(item => item.Value))
@@ -85,9 +90,21 @@ internal static class GameLocationBattleManagerPatcher
                 }
             }
 
+            var effectManager =
+                ServiceRepository.GetService<IWorldLocationSpecialEffectsService>() as
+                    WorldLocationSpecialEffectsManager;
+
             foreach (var condition in matchingOccurenceConditions)
             {
-                mover.RulesetActor.ExecuteRecurrentForms(condition);
+                Main.Log($"source character GUID {condition.sourceGuid}");
+
+                if (effectManager != null)
+                {
+                    effectManager.ConditionAdded(mover.RulesetCharacter, condition, true);
+                    mover.RulesetActor.ExecuteRecurrentForms(condition);
+                    effectManager.ConditionRemoved(mover.RulesetCharacter, condition);
+                }
+
                 if (condition.HasFinished && !condition.IsDurationDefinedByEffect())
                 {
                     mover.RulesetActor.RemoveCondition(condition);
@@ -103,7 +120,6 @@ internal static class GameLocationBattleManagerPatcher
                 }
             }
         }
-
 
         internal static IEnumerator Postfix(
             IEnumerator __result,

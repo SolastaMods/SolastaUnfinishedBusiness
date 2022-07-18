@@ -49,6 +49,13 @@ public static class Global
     // true if not in game
     public static bool IsOffGame => Gui.Game == null;
 
+    public static bool IsSpellStrike { get; set; } = false;
+
+    public static RuleDefinitions.RollOutcome SpellStrikeRollOutcome { get; set; } =
+        RuleDefinitions.RollOutcome.Neutral;
+
+    public static int SpellStrikeDieRoll { get; set; } = 10;
+
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         CurrentAction = characterAction;

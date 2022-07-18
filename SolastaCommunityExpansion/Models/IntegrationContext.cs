@@ -13,7 +13,7 @@ internal static class IntegrationContext
 
     internal const string ClassWitch = "ClassWitch";
 
-    //internal const string CLASS_MAGUS = "ClassMagus";
+    internal const string CLASS_MAGUS = "ClassMagus";
     private const string SubclassConartist = "RoguishConArtist";
     private const string SubclassSpellshield = "FighterSpellShield";
     private const string SubclassPathOfTheRageMage = "BarbarianPathOfTheRageMage";
@@ -39,7 +39,7 @@ internal static class IntegrationContext
 
     internal static CharacterClassDefinition WitchClass { get; private set; } = DummyClass;
 
-    //internal static CharacterClassDefinition MagusClass { get; private set; } = DummyClass;
+    internal static CharacterClassDefinition MagusClass { get; private set; } = DummyClass;
     internal static CharacterSubclassDefinition ConArtistSubclass { get; private set; } = DummySubclass;
     internal static CharacterSubclassDefinition SpellShieldSubclass { get; private set; } = DummySubclass;
     internal static CharacterSubclassDefinition PathOfTheRageMageSubclass { get; private set; } = DummySubclass;
@@ -54,7 +54,7 @@ internal static class IntegrationContext
         //dbCharacterClassDefinition.TryGetElement(CLASS_WARDEN, out var unofficialWarden);
         dbCharacterClassDefinition.TryGetElement(ClassWarlock, out var unofficialWarlock);
         dbCharacterClassDefinition.TryGetElement(ClassWitch, out var unofficialWitch);
-        //dbCharacterClassDefinition.TryGetElement(CLASS_MAGUS, out var unofficialMagus);
+        dbCharacterClassDefinition.TryGetElement(CLASS_MAGUS, out var unofficialMagus);
         dbCharacterSubclassDefinition.TryGetElement(SubclassConartist, out var unofficialConArtist);
         dbCharacterSubclassDefinition.TryGetElement(SubclassSpellshield, out var unofficialSpellShield);
         dbCharacterSubclassDefinition.TryGetElement(SubclassPathOfTheRageMage, out var unofficialPathOfTheRageMage);
@@ -66,7 +66,7 @@ internal static class IntegrationContext
         //WardenClass = unofficialWarden ? unofficialWarden : DummyClass;
         WitchClass = unofficialWitch ? unofficialWitch : DummyClass;
         WarlockClass = unofficialWarlock ? unofficialWarlock : DummyClass;
-        //MagusClass = unofficialMagus ? unofficialMagus : DummyClass;
+        MagusClass = unofficialMagus ? unofficialMagus : DummyClass;
         ConArtistSubclass = unofficialConArtist ? unofficialConArtist : DummySubclass;
         SpellShieldSubclass = unofficialSpellShield ? unofficialSpellShield : DummySubclass;
         PathOfTheRageMageSubclass = unofficialPathOfTheRageMage ? unofficialPathOfTheRageMage : DummySubclass;

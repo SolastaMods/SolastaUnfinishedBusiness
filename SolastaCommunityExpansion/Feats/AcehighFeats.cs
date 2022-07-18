@@ -110,6 +110,98 @@ internal static class AcehighFeats
             .AddToDB();
     }
 
+    private sealed class PowerAttackOneHandedAttackModifierBuilder : FeatureDefinitionBuilder
+    {
+        private const string PowerAttackAttackModifierName = "PowerAttackAttackModifier";
+        private const string PowerAttackAttackModifierNameGuid = "87286627-3e62-459d-8781-ceac1c3462e6";
+
+        public static readonly FeatureDefinition PowerAttackAttackModifier
+            = CreateAndAddToDB(PowerAttackAttackModifierName, PowerAttackAttackModifierNameGuid);
+
+        private PowerAttackOneHandedAttackModifierBuilder(string name, string guid) : base(name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feature/&PowerAttackTitle";
+            Definition.GuiPresentation.Description = "Feature/&PowerAttackDescription";
+
+            Definition.SetCustomSubFeatures(new ModifyPowerAttackPower());
+        }
+
+        private static FeatureDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new PowerAttackOneHandedAttackModifierBuilder(name, guid).AddToDB();
+        }
+    }
+
+    private sealed class StopPowerConcentrationProvider : ICusomConcentrationProvider
+    {
+        public FeatureDefinitionPower StopPower;
+
+        public StopPowerConcentrationProvider(string name, string tooltip, AssetReferenceSprite icon)
+        {
+            Name = name;
+            Tooltip = tooltip;
+            Icon = icon;
+        }
+
+        public string Name { get; }
+        public string Tooltip { get; }
+        public AssetReferenceSprite Icon { get; }
+
+        public void Stop(RulesetCharacter character)
+        {
+            if (StopPower == null)
+            {
+                return;
+            }
+
+            var rules = ServiceRepository.GetService<IRulesetImplementationService>();
+            var usable = UsablePowersProvider.Get(StopPower, character);
+            var locationCharacter = GameLocationCharacter.GetFromActor(character);
+            var actionParams = new CharacterActionParams(locationCharacter,
+                ActionDefinitions.Id.PowerNoCost)
+            {
+                SkipAnimationsAndVFX = true,
+                TargetCharacters = {locationCharacter},
+                ActionModifiers = {new ActionModifier()},
+                RulesetEffect = rules.InstantiateEffectPower(character, usable, true)
+            };
+
+            ServiceRepository.GetService<ICommandService>()
+                .ExecuteAction(actionParams, _ => { }, false);
+        }
+    }
+
+    private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
+    {
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+            RulesetItem weapon)
+        {
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            if (!WeaponValidators.IsMelee(weapon))
+            {
+                return;
+            }
+
+            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            const int TO_HIT = -3;
+            var toDamage = 3 + proficiency;
+
+            attackMode.ToHitBonus += TO_HIT;
+            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_HIT,
+                RuleDefinitions.FeatureSourceType.Power, "PowerAttack", null));
+
+            damage.BonusDamage += toDamage;
+            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
+                RuleDefinitions.FeatureSourceType.Power, "PowerAttack", null));
+        }
+    }
+
     private sealed class DeadeyeIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
     {
         private const string DeadeyeIgnoreDefenderName = "DeadeyeIgnoreDefender";
@@ -307,98 +399,6 @@ internal static class AcehighFeats
             damage.BonusDamage += TO_DAMAGE;
             damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_DAMAGE,
                 RuleDefinitions.FeatureSourceType.Power, "Deadeye", null));
-        }
-    }
-
-    private sealed class PowerAttackOneHandedAttackModifierBuilder : FeatureDefinitionBuilder
-    {
-        private const string PowerAttackAttackModifierName = "PowerAttackAttackModifier";
-        private const string PowerAttackAttackModifierNameGuid = "87286627-3e62-459d-8781-ceac1c3462e6";
-
-        public static readonly FeatureDefinition PowerAttackAttackModifier
-            = CreateAndAddToDB(PowerAttackAttackModifierName, PowerAttackAttackModifierNameGuid);
-
-        private PowerAttackOneHandedAttackModifierBuilder(string name, string guid) : base(name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feature/&PowerAttackTitle";
-            Definition.GuiPresentation.Description = "Feature/&PowerAttackDescription";
-
-            Definition.SetCustomSubFeatures(new ModifyPowerAttackPower());
-        }
-
-        private static FeatureDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new PowerAttackOneHandedAttackModifierBuilder(name, guid).AddToDB();
-        }
-    }
-
-    private sealed class StopPowerConcentrationProvider : ICusomConcentrationProvider
-    {
-        public FeatureDefinitionPower StopPower;
-
-        public StopPowerConcentrationProvider(string name, string tooltip, AssetReferenceSprite icon)
-        {
-            Name = name;
-            Tooltip = tooltip;
-            Icon = icon;
-        }
-
-        public string Name { get; }
-        public string Tooltip { get; }
-        public AssetReferenceSprite Icon { get; }
-
-        public void Stop(RulesetCharacter character)
-        {
-            if (StopPower == null)
-            {
-                return;
-            }
-
-            var rules = ServiceRepository.GetService<IRulesetImplementationService>();
-            var usable = UsablePowersProvider.Get(StopPower, character);
-            var locationCharacter = GameLocationCharacter.GetFromActor(character);
-            var actionParams = new CharacterActionParams(locationCharacter,
-                ActionDefinitions.Id.PowerNoCost)
-            {
-                SkipAnimationsAndVFX = true,
-                TargetCharacters = {locationCharacter},
-                ActionModifiers = {new ActionModifier()},
-                RulesetEffect = rules.InstantiateEffectPower(character, usable, true)
-            };
-
-            ServiceRepository.GetService<ICommandService>()
-                .ExecuteAction(actionParams, _ => { }, false);
-        }
-    }
-
-    private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
-    {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
-            RulesetItem weapon)
-        {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
-            if (!WeaponValidators.IsMelee(weapon))
-            {
-                return;
-            }
-
-            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            const int TO_HIT = -3;
-            var toDamage = 3 + proficiency;
-
-            attackMode.ToHitBonus += TO_HIT;
-            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_HIT,
-                RuleDefinitions.FeatureSourceType.Power, "PowerAttack", null));
-
-            damage.BonusDamage += toDamage;
-            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
-                RuleDefinitions.FeatureSourceType.Power, "PowerAttack", null));
         }
     }
 }

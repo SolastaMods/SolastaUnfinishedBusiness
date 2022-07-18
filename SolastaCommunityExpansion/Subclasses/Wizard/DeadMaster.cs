@@ -97,7 +97,8 @@ internal sealed class DeadMaster : AbstractSubclass
         commandUndeadEffect.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
         commandUndeadEffect.savingThrowAbility = AttributeDefinitions.Charisma;
         commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
-        commandUndeadEffect.difficultyClassComputation = RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        commandUndeadEffect.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
         commandUndeadEffect.fixedSavingThrowDifficultyClass = 8;
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -168,15 +169,9 @@ internal sealed class DeadMaster : AbstractSubclass
         gameLoreService.LearnMonsterKnowledge(monster.MonsterDefinition, KnowledgeLevelDefinitions.Mastered4);
     }
 
-    private static void OnStarkHarvestKill(
-        GameLocationCharacter character,
-        bool dropLoot,
-        bool removeBody,
-        bool forceRemove,
-        bool considerDead,
-        bool becomesDying)
+    private static void OnStarkHarvestKill(GameLocationCharacter character)
     {
-        if (!considerDead || Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
+        if (Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
         {
             return;
         }

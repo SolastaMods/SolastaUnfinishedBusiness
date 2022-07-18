@@ -1,0 +1,30 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOnAttackEffect, SolastaCommunityExpansion",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ClassMagusArcaneGladiatorCullTheWeakTitle",
+    "description": "Feature/&ClassMagusArcaneGladiatorCullTheWeakDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a3f5d67a-084d-5bb3-a67f-f76444a0ed52",
+  "contentPack": 9999,
+  "name": "ClassMagusArcaneGladiatorCullTheWeak"
+}

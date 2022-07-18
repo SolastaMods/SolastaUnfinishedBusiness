@@ -20,7 +20,7 @@ public static class AttacksOfOpportunity
     public const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
     public static readonly ICanIgnoreAoOImmunity CanIgnoreDisengage = new CanIgnoreDisengage();
     public static readonly object SentinelFeatMarker = new SentinelFeatMarker();
-    private static readonly Dictionary<ulong, (int3, int3)> movingCharactersCache = new();
+    public static readonly Dictionary<ulong, (int3, int3)> movingCharactersCache = new();
 
     public static IEnumerator ProcessOnCharacterAttackFinished(
         GameLocationBattleManager battleManager,

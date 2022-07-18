@@ -133,6 +133,8 @@ internal static class GameManager_BindPostDatabase
 
             // Manages update or welcome messages
             BootContext.Load();
+
+            DelegatesContext.Load();
         };
     }
 }
