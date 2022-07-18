@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomFightingStyle;
@@ -12,7 +13,7 @@ internal static class GraphicsCharacterHeroPatcher
     {
         internal static void Postfix(
             ref string __result,
-            RulesetAttackMode attackMode,
+            [NotNull] RulesetAttackMode attackMode,
             ActionModifier attackModifier,
             ref bool isThrown,
             ref bool leftHand)
@@ -23,11 +24,6 @@ internal static class GraphicsCharacterHeroPatcher
             }
 
             var weaponTypeDefinition = ShieldStrikeContext.ShieldWeaponType;
-
-            if (weaponTypeDefinition == null)
-            {
-                return;
-            }
 
             leftHand = true;
             isThrown = false;
