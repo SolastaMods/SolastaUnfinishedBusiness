@@ -1,5 +1,5 @@
-Feat/&FeatMercilessDescription=When you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
-Feat/&FeatMercilessTitle=Merciless [FS]
+Feat/&FeatMercilessDescription=当你在回合内使用近战武器攻击将一个目标生命值减少至0时，你能在同一行动中进行一次额外的近战武器攻击。在被击倒的目标等同于一半于你的熟练加值半径范围内的敌人如果能看到该目标，其必须成功一次感知豁免（DC=8+熟练加值+力量调整值），否则会对你感到恐惧，直到其下回合结束。如果触发的攻击是暴击，则触发范围等同于你的熟练加值
+Feat/&FeatMercilessTitle=无情【战斗风格】
 FightingStyle/&BlindFightingDescription=你获得10英尺范围的盲感
 FightingStyle/&BlindFightingTitle=盲斗
 FightingStyle/&CripplingDescription=当你以近战攻击命中后，你能使目标的速度降低10英尺，持续至你下一回合开始

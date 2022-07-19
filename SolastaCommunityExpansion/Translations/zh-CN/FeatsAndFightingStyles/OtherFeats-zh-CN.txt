@@ -1,6 +1,5 @@
 Feat/&FeatImprovedCriticalDescription=你的攻击在掷出19或20时视为重击
 Feat/&FeatImprovedCriticalTitle=精通重击
-Feat/&FeatSavageAttackerDescription=当你投出1时重投武器和法术的伤害骰(不重投所有伤害来源，例如偷袭和重击)
 Feat/&FeatSavageAttackerReroll=因为野性袭击者的效果{0}重投{1}伤害骰，数值由{2}变为{3}
 Feat/&FeatSavageAttackerTitle=野性袭击者
 Feat/&FeatShieldExpertDescription=你受训将盾牌作为武器使用。盾牌视为你熟练的近战武器，造成1d4点钝击伤害\n在手持盾牌时，你在推撞上获得优势
@@ -16,3 +15,4 @@ Reaction/&WarcasterReactionDescription={0}正在离开一个或多个角色的�
 Reaction/&WarcasterReactionReactDescription=使用反应攻击目标
 Reaction/&WarcasterReactionReactTitle=攻击
 Reaction/&WarcasterReactionTitle=借机攻击
+Feat/&FeatSavageAttackerDescription=当你投出1时重投武器和法术的伤害骰(不重投所有伤害来源，例如偷袭和重击)
