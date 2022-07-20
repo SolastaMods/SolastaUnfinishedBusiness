@@ -3,4 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix Spell Strike incorrectly changing spells range
+- Fix default party interaction with MP sessions
