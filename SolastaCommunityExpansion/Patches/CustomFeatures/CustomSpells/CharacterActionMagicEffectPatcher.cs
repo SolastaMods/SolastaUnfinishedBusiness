@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Classes.Magus;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -11,12 +12,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells;
 [HarmonyPatch(typeof(CharacterActionMagicEffect), "ExecuteImpl")]
 internal static class CharacterActionMagicEffect_ExecuteImpl
 {
-    internal static void Prefix(CharacterActionMagicEffect __instance)
+    internal static void Prefix([NotNull] CharacterActionMagicEffect __instance)
     {
         var definition = __instance.GetBaseDefinition();
         var spellStrike = Magus.CanSpellStrike(__instance);
 
-        //skip spell animation if this is "attack after cast" spell
+        // skip spell animation if this is "attack after cast" spell
         if (definition.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>() || spellStrike)
         {
             __instance.ActionParams.SkipAnimationsAndVFX = true;
@@ -32,10 +33,11 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
     }
 
 
-    internal static IEnumerator Postfix(IEnumerator __result,
+    internal static IEnumerator Postfix(
+        [NotNull] IEnumerator __result,
         CharacterActionMagicEffect __instance)
     {
-        while (__result.MoveNext() && !Global.IsSpellStrike)
+        while (!Global.IsSpellStrike && __result.MoveNext())
         {
             yield return __result.Current;
         }
@@ -45,19 +47,17 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
         //TODO: add possibility to get attack via feature
         //TODO: add possibility to process multiple attack features
         var customFeature = definition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
-        var effect = __instance.actionParams.RulesetEffect.EffectDescription;
 
         if (customFeature == null && Global.IsSpellStrike)
         {
             customFeature = Magus.SpellStrike.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
         }
 
-        var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
-
         CharacterActionAttack attackAction = null;
+        var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
         var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
-
         var attackParams = getAttackAfterUse?.Invoke(__instance);
+
         if (attackParams != null)
         {
             if (Global.IsSpellStrike)
@@ -90,9 +90,8 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
         Magus.SpellStrikePower.effectDescription.effectParticleParameters = null;
         Magus.SpellStrikeAdditionalDamage.impactParticleReference = null;
 
-        //
-        // TODO: FIX BELOW AS IT'S BLEEDING THE SPELL EFFECT CHANGE
-        //
+        var saveRangeType = __instance.actionParams.activeEffect.EffectDescription.rangeType;
+
         if (Global.IsSpellStrike)
         {
             if (attackOutcome is not (RuleDefinitions.RollOutcome.Success
@@ -113,11 +112,7 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
         var chainAction = definition.GetFirstSubFeatureOfType<IChainMagicEffect>()
             ?.GetNextMagicEffect(__instance, attackAction, attackOutcome);
 
-        if (chainAction == null)
-        {
-            yield break;
-        }
-
+        if (chainAction != null)
         {
             var enums = chainAction.Execute();
 
@@ -126,6 +121,8 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
                 yield return enums.Current;
             }
         }
+
+        __instance.actionParams.activeEffect.EffectDescription.rangeType = saveRangeType;
     }
 }
 
