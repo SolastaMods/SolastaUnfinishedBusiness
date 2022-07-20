@@ -1,33 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<FeatDefinitionWithPrerequisites,
     FeatDefinitionWithPrerequisitesBuilder>
 {
-    public FeatDefinitionWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    protected FeatDefinitionWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    public FeatDefinitionWithPrerequisitesBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+    protected FeatDefinitionWithPrerequisitesBuilder(string name, string definitionGuid) : base(name, definitionGuid)
     {
     }
 
-    public FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name,
+    protected FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
 
-    public FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name,
+    protected FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name,
         string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 
     public FeatDefinitionWithPrerequisitesBuilder SetValidators(
-        params Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>[]
+        [NotNull] params Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>[]
             validators)
     {
         Definition.Validators.AddRange(validators);
@@ -36,7 +39,7 @@ internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<Fe
     }
 }
 
-internal class FeatDefinitionWithPrerequisites : FeatDefinition
+internal sealed class FeatDefinitionWithPrerequisites : FeatDefinition
 {
     public List<Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>>
         Validators { get; } = new();

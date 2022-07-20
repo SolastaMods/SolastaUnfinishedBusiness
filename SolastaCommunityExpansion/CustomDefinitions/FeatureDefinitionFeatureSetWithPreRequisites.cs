@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
-public class FeatureDefinitionFeatureSetWithPreRequisites : FeatureDefinitionFeatureSet,
+public sealed class FeatureDefinitionFeatureSetWithPreRequisites : FeatureDefinitionFeatureSet,
     IFeatureDefinitionWithPrerequisites
 {
     public List<IFeatureDefinitionWithPrerequisites.Validate> Validators { get; set; }

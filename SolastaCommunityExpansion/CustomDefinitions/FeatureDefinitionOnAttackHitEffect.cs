@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.CustomInterfaces;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
@@ -7,7 +8,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions;
      * This has much greater flexibility, so there are cases where it is appropriate, but when possible it is
      * better for future maintainability of features to use the features provided by TA.
      */
-public class FeatureDefinitionOnAttackHitEffect : FeatureDefinition, IOnAttackHitEffect
+public sealed class FeatureDefinitionOnAttackHitEffect : FeatureDefinition, IOnAttackHitEffect
 {
     private OnAttackHitDelegate afterOnAttackHit;
     private OnAttackHitDelegate beforeOnAttackHit;
@@ -34,7 +35,8 @@ public class FeatureDefinitionOnAttackHitEffect : FeatureDefinition, IOnAttackHi
         afterOnAttackHit?.Invoke(attacker, defender, outcome, actionParams, attackMode, attackModifier);
     }
 
-    internal void SetOnAttackHitDelegates(OnAttackHitDelegate before = null, OnAttackHitDelegate after = null)
+    internal void SetOnAttackHitDelegates([CanBeNull] OnAttackHitDelegate before = null,
+        [CanBeNull] OnAttackHitDelegate after = null)
     {
         beforeOnAttackHit = before;
         afterOnAttackHit = after;

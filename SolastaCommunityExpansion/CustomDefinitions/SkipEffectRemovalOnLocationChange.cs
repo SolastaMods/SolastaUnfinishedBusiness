@@ -5,7 +5,7 @@ public static class SkipEffectRemovalOnLocationChange
     public static readonly ISKipEffectRemovalOnLocationChange Always = new AlwaysSkip();
     public static readonly ISKipEffectRemovalOnLocationChange OnChained = new SkipOnChained();
 
-    private class AlwaysSkip : ISKipEffectRemovalOnLocationChange
+    private sealed class AlwaysSkip : ISKipEffectRemovalOnLocationChange
     {
         public bool Skip(bool willEnterChainedLocation)
         {
@@ -13,7 +13,7 @@ public static class SkipEffectRemovalOnLocationChange
         }
     }
 
-    private class SkipOnChained : ISKipEffectRemovalOnLocationChange
+    private sealed class SkipOnChained : ISKipEffectRemovalOnLocationChange
     {
         public bool Skip(bool willEnterChainedLocation)
         {

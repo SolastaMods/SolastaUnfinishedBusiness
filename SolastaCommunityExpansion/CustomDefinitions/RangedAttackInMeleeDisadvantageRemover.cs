@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
 
@@ -25,7 +26,7 @@ public class RangedAttackInMeleeDisadvantageRemover
     {
     }
 
-    public bool CanApply(RulesetCharacter character, RulesetAttackMode attackMode)
+    private bool CanApply(RulesetCharacter character, RulesetAttackMode attackMode)
     {
         if (isWeaponValid != null && !isWeaponValid.Invoke(attackMode, null, character))
         {
@@ -40,13 +41,15 @@ public class RangedAttackInMeleeDisadvantageRemover
          * Replaces starting value of a disadvantage on a ranged attack in melee flag from `true`
          * with a result of a call of custom method
          */
-    public static void ApplyTranspile(List<CodeInstruction> instructions)
+    public static void ApplyTranspile([NotNull] List<CodeInstruction> instructions)
     {
         var foundConscious = false;
         var insertionIndex = -1;
+
         for (var i = 0; i < instructions.Count; i++)
         {
             var instruction = instructions[i];
+
             if (foundConscious)
             {
                 if (instruction.opcode != OpCodes.Ldc_I4_1)
@@ -72,6 +75,7 @@ public class RangedAttackInMeleeDisadvantageRemover
         }
 
         var method = new Func<BattleDefinitions.AttackEvaluationParams, bool>(HasDisadvantage).Method;
+
         instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
         instructions.Insert(insertionIndex, new CodeInstruction(OpCodes.Ldarg_1));
     }
@@ -84,6 +88,7 @@ public class RangedAttackInMeleeDisadvantageRemover
         }
 
         var character = attackParams.attacker?.RulesetCharacter;
+
         if (character == null)
         {
             return true;

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders.Features;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
@@ -7,7 +9,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions;
 /// <summary>
 ///     Grants you immunity to opportunity attacks when the attacker has the specified condition (inflicted by you).
 /// </summary>
-public class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition : FeatureDefinition,
+public sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition : FeatureDefinition,
     ICombatAffinityProvider
 {
     public string ConditionName { get; set; }
@@ -16,7 +18,7 @@ public class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition : 
     public bool CanRageToOvercomeSurprise => false;
     public bool AutoCritical => false;
     public bool CriticalHitImmunity => false;
-    public ConditionDefinition RequiredCondition => null;
+    [CanBeNull] public ConditionDefinition RequiredCondition => null;
     public bool IgnoreCover => false;
 
     public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender,
@@ -38,7 +40,7 @@ public class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition : 
         return RuleDefinitions.AdvantageType.None;
     }
 
-    public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, RulesetCharacter attacker)
+    public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, [NotNull] RulesetCharacter attacker)
     {
         return attacker.ConditionsByCategory.SelectMany(keyValuePair => keyValuePair.Value).Any(rulesetCondition =>
             rulesetCondition.SourceGuid == myself.Guid &&
@@ -46,6 +48,7 @@ public class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition : 
     }
 }
 
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 internal class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition,
         FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder>
@@ -55,6 +58,7 @@ internal class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionB
     {
     }
 
+    [NotNull]
     public FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder SetConditionName(
         string conditionName)
     {

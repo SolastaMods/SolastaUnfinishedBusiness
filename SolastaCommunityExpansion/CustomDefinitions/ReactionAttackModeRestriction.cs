@@ -1,9 +1,10 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
-public class ReactionAttackModeRestriction : IReactionAttackModeRestriction
+public sealed class ReactionAttackModeRestriction : IReactionAttackModeRestriction
 {
     public static readonly ValidReactionModeHandler MeleeOnly = (mode, ranged, _, _) =>
     {
@@ -40,7 +41,8 @@ public class ReactionAttackModeRestriction : IReactionAttackModeRestriction
         return validators.All(v => v(attackMode, rangedAttack, character, target));
     }
 
-    public static ValidReactionModeHandler TargenHasNoCondition(ConditionDefinition condition)
+    [NotNull]
+    public static ValidReactionModeHandler TargetHasNoCondition(ConditionDefinition condition)
     {
         return (_, _, _, target) =>
         {

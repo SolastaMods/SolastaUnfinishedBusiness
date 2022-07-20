@@ -51,7 +51,7 @@ public static class ArcaneGladiator
                 }
 
                 var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-                if (!AttacksOfOpportunity.movingCharactersCache.TryGetValue(defender.Guid, out var movement) ||
+                if (!AttacksOfOpportunity.MovingCharactersCache.TryGetValue(defender.Guid, out var movement) ||
                     !battleManager.CanPerformOpportunityAttackOnCharacter(attacker, defender, movement.Item1,
                         movement.Item2,
                         out _))

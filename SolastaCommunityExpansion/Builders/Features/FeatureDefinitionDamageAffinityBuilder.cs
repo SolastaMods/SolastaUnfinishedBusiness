@@ -58,19 +58,11 @@ public class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAff
     }
 
     public FeatureDefinitionDamageAffinityBuilder SetRetaliate(FeatureDefinitionPower featureDefinitionPower,
-        int rangeCells)
+        int rangeCells, bool retaliateWhenHit = false)
     {
         Definition.retaliatePower = featureDefinitionPower;
         Definition.retaliateRangeCells = rangeCells;
-
-        return This();
-    }
-
-    public FeatureDefinitionDamageAffinityBuilder SetRetaliate(FeatureDefinitionPower featureDefinitionPower,
-        int rangeCells, bool reliateWhenHit)
-    {
-        SetRetaliate(featureDefinitionPower, rangeCells);
-        Definition.retaliateWhenHit = reliateWhenHit;
+        Definition.retaliateWhenHit = retaliateWhenHit;
 
         return This();
     }

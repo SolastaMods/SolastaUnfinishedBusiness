@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
-public class PowerUseValidity : IPowerUseValidity
+public sealed class PowerUseValidity : IPowerUseValidity
 {
     private readonly CharacterValidator[] validators;
 

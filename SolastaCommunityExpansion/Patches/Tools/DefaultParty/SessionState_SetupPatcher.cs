@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty;
 
@@ -11,6 +12,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class SessionState_Setup_Begin
 {
+    // ReSharper disable once UnusedMember.Global
     public static void AssignCharacterToPlayer(
         [NotNull] Session session,
         int playerIndex,
@@ -18,7 +20,8 @@ internal static class SessionState_Setup_Begin
         string filename,
         bool notify)
     {
-        if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty
+        if (!Global.IsMultiplayer
+            && Main.Settings.EnableTogglesToOverwriteDefaultTestParty
             && slotIndex < Main.Settings.defaultPartyHeroes.Count)
         {
             var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
@@ -31,9 +34,12 @@ internal static class SessionState_Setup_Begin
     }
 
     [CanBeNull]
+    // ReSharper disable once UnusedMember.Global
     public static List<string> PredefinedParty([NotNull] CampaignDefinition campaignDefinition)
     {
-        if (campaignDefinition.PredefinedParty == null || campaignDefinition.PredefinedParty.Count == 0)
+        if (Global.IsMultiplayer
+            || campaignDefinition.PredefinedParty == null
+            || campaignDefinition.PredefinedParty.Count == 0)
         {
             return campaignDefinition.PredefinedParty;
         }
@@ -54,7 +60,9 @@ internal static class SessionState_Setup_Begin
         return result;
     }
 
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [ItemNotNull]
+    // ReSharper disable once UnusedMember.Global
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var assignCharacterToPlayerMethod = typeof(Session).GetMethod("AssignCharacterToPlayer");
         var myAssignCharacterToPlayerMethod = typeof(SessionState_Setup_Begin).GetMethod("AssignCharacterToPlayer");

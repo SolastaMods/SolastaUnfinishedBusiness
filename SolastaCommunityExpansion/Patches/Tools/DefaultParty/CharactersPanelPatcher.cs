@@ -2,6 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 

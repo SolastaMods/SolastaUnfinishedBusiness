@@ -11,11 +11,12 @@ internal static class NewAdventurePanel_Refresh
 {
     internal static bool ShouldAssignDefaultParty { get; set; }
 
+    // ReSharper disable once UnusedMember.Global
     internal static void Postfix(NewAdventurePanel __instance)
     {
-        if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty
-            || !ShouldAssignDefaultParty
-            || Global.IsMultiplayer)
+        if (Global.IsMultiplayer
+            || !Main.Settings.EnableTogglesToOverwriteDefaultTestParty
+            || !ShouldAssignDefaultParty)
         {
             return;
         }
@@ -43,3 +44,15 @@ internal static class NewAdventurePanel_Refresh
         ShouldAssignDefaultParty = false;
     }
 }
+
+[HarmonyPatch(typeof(NewAdventurePanel), "OnEndHide")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class NewAdventurePanel_OnEndHide
+{
+    // ReSharper disable once UnusedMember.Global
+    internal static void Prefix()
+    {
+        Global.IsSettingUpMultiplayer = false;
+    }
+}
+

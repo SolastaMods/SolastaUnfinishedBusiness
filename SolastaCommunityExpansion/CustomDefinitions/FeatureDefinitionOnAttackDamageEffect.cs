@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions;
      * This has much greater flexibility, so there are cases where it is appropriate, but when possible it is
      * better for future maintainability of features to use the features provided by TA.
      */
-public class FeatureDefinitionOnAttackDamageEffect : FeatureDefinition, IOnAttackDamageEffect
+public sealed class FeatureDefinitionOnAttackDamageEffect : FeatureDefinition, IOnAttackDamageEffect
 {
     private OnAttackDamageDelegate afterOnAttackDamage;
     private OnAttackDamageDelegate beforeOnAttackDamage;
@@ -45,8 +46,8 @@ public class FeatureDefinitionOnAttackDamageEffect : FeatureDefinition, IOnAttac
             actualEffectForms, rulesetEffect, criticalHit, firstTarget);
     }
 
-    internal void SetOnAttackDamageDelegates(OnAttackDamageDelegate before = null,
-        OnAttackDamageDelegate after = null)
+    internal void SetOnAttackDamageDelegates([CanBeNull] OnAttackDamageDelegate before = null,
+        [CanBeNull] OnAttackDamageDelegate after = null)
     {
         beforeOnAttackDamage = before;
         afterOnAttackDamage = after;

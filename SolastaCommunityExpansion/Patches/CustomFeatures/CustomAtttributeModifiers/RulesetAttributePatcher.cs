@@ -34,7 +34,7 @@ internal static class RulesetAttribute_Refresh
             {
                 minModValue = Mathf.RoundToInt(modifier.Value);
             }
-            else if (modifier.Tags.Contains(ExclusiveArmorClassBonus.TAG))
+            else if (modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag))
             {
                 exclusives.Add(modifier);
             }
@@ -106,7 +106,7 @@ internal static class RulesetCharacter_RefreshArmorClassInFeatures
         var modifier = RulesetAttributeModifier.BuildAttributeModifier(operationType, modifierValue, tag);
         if (feature.HasSubFeatureOfType<ExclusiveArmorClassBonus>())
         {
-            modifier.Tags.Add(ExclusiveArmorClassBonus.TAG);
+            modifier.Tags.Add(ExclusiveArmorClassBonus.Tag);
         }
 
         return modifier;

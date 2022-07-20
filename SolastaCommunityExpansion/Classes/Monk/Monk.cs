@@ -255,7 +255,7 @@ public static class Monk
             .AddFeatureAtLevel(1, FeatureDefinitionAttributeModifierBuilder
                 .Create("ClassMonkUnarmoredDefense", Guid)
                 .SetGuiPresentation(Category.Feature)
-                .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
+                .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker)
                 .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
                 .SetModifierType2(AttributeModifierOperation.AddAbilityScoreBonus)
                 .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
@@ -696,7 +696,7 @@ public static class Monk
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetCostPerUse(1)
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(CanUseStunningStrike,
-                ReactionAttackModeRestriction.TargenHasNoCondition(ConditionDefinitions.ConditionStunned)
+                ReactionAttackModeRestriction.TargetHasNoCondition(ConditionDefinitions.ConditionStunned)
             ))
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetDurationData(DurationType.Round, 1)
@@ -746,7 +746,7 @@ public static class Monk
             .SetAuthorizedActions(ActionDefinitions.Id.DeflectMissile)
             .SetCustomSubFeatures(new CustomMissileDeflection
             {
-                characterClass = ClassName, classLevelMult = 1, descriptionTag = "Monk"
+                CharacterClass = ClassName, ClassLevelMult = 1, DescriptionTag = "Monk"
             })
             .AddToDB();
 

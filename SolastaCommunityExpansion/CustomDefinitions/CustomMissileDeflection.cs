@@ -1,71 +1,72 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
-public class CustomMissileDeflection : ICustomMissileDeflection
+public sealed class CustomMissileDeflection : ICustomMissileDeflection
 {
-    public RuleDefinitions.AdvantageType advantage = RuleDefinitions.AdvantageType.None;
-    public string attribute = AttributeDefinitions.Dexterity;
-    public string characterClass = null;
-    public int characterLevelMult = 0;
-    public int classLevelMult = 0;
-    public string descriptionTag = null;
-    public int dieNumber = 1;
-    public RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D10;
-    public int proficiencyBonusMult = 0;
+    private const RuleDefinitions.AdvantageType Advantage = RuleDefinitions.AdvantageType.None;
+    private const string Attribute = AttributeDefinitions.Dexterity;
+    private const int DieNumber = 1;
+    private const RuleDefinitions.DieType DieType = RuleDefinitions.DieType.D10;
 
+    public string CharacterClass = null;
 
-    public int GetDamageReduction(RulesetCharacter target, RulesetCharacter attacker)
+    //private const int ProficiencyBonusMult = 0;
+    public int ClassLevelMult = 0;
+    public string DescriptionTag = null;
+
+    public int GetDamageReduction([NotNull] RulesetCharacter target, RulesetCharacter attacker)
     {
         var reduction = 0;
 
-        for (var i = 0; i < dieNumber; i++)
+        for (var i = 0; i < DieNumber; i++)
         {
-            reduction += RuleDefinitions.RollDie(dieType, advantage, out _, out _);
+            reduction += RuleDefinitions.RollDie(DieType, Advantage, out _, out _);
         }
 
-        if (!string.IsNullOrEmpty(attribute))
+        if (!string.IsNullOrEmpty(Attribute))
         {
-            var attr = target.GetAttribute(attribute, true);
+            var attr = target.GetAttribute(Attribute, true);
             if (attr != null)
             {
                 reduction += AttributeDefinitions.ComputeAbilityScoreModifier(attr.CurrentValue);
             }
         }
 
-        var characterLevel = target.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        //     var characterLevel = target.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
 
-        if (characterLevelMult != 0)
+        // if (characterLevelMult != 0)
+        // {
+        //     reduction += characterLevel * characterLevelMult;
+        // }
+
+        if (!string.IsNullOrEmpty(CharacterClass) && ClassLevelMult != 0 && target is RulesetCharacterHero hero)
         {
-            reduction += characterLevel * characterLevelMult;
+            var classLevel = hero.ClassesAndLevels.FirstOrDefault(e => e.Key.Name == CharacterClass).Value;
+            reduction += classLevel * ClassLevelMult;
         }
 
-        if (!string.IsNullOrEmpty(characterClass) && classLevelMult != 0 && target is RulesetCharacterHero hero)
-        {
-            var classLevel = hero.ClassesAndLevels.FirstOrDefault(e => e.Key.Name == characterClass).Value;
-            reduction += classLevel * classLevelMult;
-        }
-
-        if (proficiencyBonusMult != 0)
-        {
-            reduction += AttributeDefinitions.ComputeProficiencyBonus(characterLevel) * proficiencyBonusMult;
-        }
-
+        // if (ProficiencyBonusMult != 0)
+        // {
+        //     reduction += AttributeDefinitions.ComputeProficiencyBonus(characterLevel) * ProficiencyBonusMult;
+        // }
 
         return reduction;
     }
 
     public string FormatDescription(RulesetCharacter target, RulesetCharacter attacker, string def)
     {
-        if (string.IsNullOrEmpty(descriptionTag))
+        if (string.IsNullOrEmpty(DescriptionTag))
         {
             return def;
         }
 
         var guiDefender = new GuiCharacter(target);
         var guiAttacker = new GuiCharacter(attacker);
-        var format = Gui.Localize($"Reaction/&CustomDeflectMissile{descriptionTag}Title");
+        var format = Gui.Localize($"Reaction/&CustomDeflectMissile{DescriptionTag}Title");
+
         return string.Format(format, guiAttacker.Name, guiDefender.Name);
     }
 }

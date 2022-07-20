@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaCommunityExpansion.Api.Infrastructure;
@@ -14,13 +16,13 @@ namespace SolastaCommunityExpansion.CustomDefinitions;
 public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
 {
     private readonly List<FeatureDefinition> _allFeatureSet = new();
-    private readonly Dictionary<int, List<FeatureDefinition>> FeaturesByLevel = new();
+    private readonly Dictionary<int, List<FeatureDefinition>> featuresByLevel = new();
     private bool _fullSetIsDirty;
 
     /**Are level requirements in character levels or class levels?*/
     public bool RequireClassLevels { get; set; }
 
-    public List<int> AllLevels => FeaturesByLevel.Select(e => e.Key).ToList();
+    [NotNull] public List<int> AllLevels => featuresByLevel.Select(e => e.Key).ToList();
 
     public List<FeatureDefinition> AllFeatures
     {
@@ -31,7 +33,7 @@ public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
                 return _allFeatureSet;
             }
 
-            _allFeatureSet.SetRange(FeaturesByLevel.SelectMany(e => e.Value));
+            _allFeatureSet.SetRange(featuresByLevel.SelectMany(e => e.Value));
             _fullSetIsDirty = false;
 
             return _allFeatureSet;
@@ -41,95 +43,107 @@ public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
     private List<FeatureDefinition> GetOrMakeLevelFeatures(int level)
     {
         List<FeatureDefinition> levelFeatures;
-        if (!FeaturesByLevel.ContainsKey(level))
+        if (!featuresByLevel.ContainsKey(level))
         {
             levelFeatures = new List<FeatureDefinition>();
-            FeaturesByLevel.Add(level, levelFeatures);
+            featuresByLevel.Add(level, levelFeatures);
         }
         else
         {
-            levelFeatures = FeaturesByLevel[level];
+            levelFeatures = featuresByLevel[level];
         }
 
         return levelFeatures;
     }
 
-    public void AddLevelFeatures(int level, params FeatureDefinition[] features)
+    public void AddLevelFeatures(int level, [NotNull] params FeatureDefinition[] features)
     {
         GetOrMakeLevelFeatures(level).AddRange(features);
         _fullSetIsDirty = true;
     }
 
-    public void AddLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
+    public void AddLevelFeatures(int level, [NotNull] IEnumerable<FeatureDefinition> features)
     {
         GetOrMakeLevelFeatures(level).AddRange(features);
         _fullSetIsDirty = true;
     }
 
-    public void SetLevelFeatures(int level, params FeatureDefinition[] features)
+    public void SetLevelFeatures(int level, [NotNull] params FeatureDefinition[] features)
     {
         GetOrMakeLevelFeatures(level).SetRange(features);
         _fullSetIsDirty = true;
     }
 
-    public void SetLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
+    public void SetLevelFeatures(int level, [NotNull] IEnumerable<FeatureDefinition> features)
     {
         GetOrMakeLevelFeatures(level).SetRange(features);
         _fullSetIsDirty = true;
     }
 
+    [CanBeNull]
     public List<FeatureDefinition> GetLevelFeatures(int level)
     {
         //TODO: decide if we want to wrap this into new list, to be sure this one is immutable
-        return FeaturesByLevel.TryGetValue(level, out var result) ? result : null;
+        return featuresByLevel.TryGetValue(level, out var result) ? result : null;
     }
 }
 
-public class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder<FeatureDefinitionFeatureSetCustom,
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+public class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder<
+    FeatureDefinitionFeatureSetCustom,
     FeatureDefinitionFeatureSetCustomBuilder>
 {
-    public FeatureDefinitionFeatureSetCustomBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    protected FeatureDefinitionFeatureSetCustomBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+    protected FeatureDefinitionFeatureSetCustomBuilder(string name, string definitionGuid) : base(name, definitionGuid)
     {
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder(FeatureDefinitionFeatureSetCustom original, string name,
+    protected FeatureDefinitionFeatureSetCustomBuilder(FeatureDefinitionFeatureSetCustom original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder(FeatureDefinitionFeatureSetCustom original, string name,
+    protected FeatureDefinitionFeatureSetCustomBuilder(FeatureDefinitionFeatureSetCustom original, string name,
         string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level, params FeatureDefinition[] features)
+    [NotNull]
+    public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level,
+        [NotNull] params FeatureDefinition[] features)
     {
         Definition.AddLevelFeatures(level, features);
         return this;
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
+    [NotNull]
+    public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level,
+        [NotNull] IEnumerable<FeatureDefinition> features)
     {
         Definition.AddLevelFeatures(level, features);
         return this;
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level, params FeatureDefinition[] features)
+    [NotNull]
+    public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level,
+        [NotNull] params FeatureDefinition[] features)
     {
         Definition.SetLevelFeatures(level, features);
         return this;
     }
 
-    public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
+    [NotNull]
+    public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level,
+        [NotNull] IEnumerable<FeatureDefinition> features)
     {
         Definition.SetLevelFeatures(level, features);
         return this;
     }
 
+    [NotNull]
     public FeatureDefinitionFeatureSetCustomBuilder SetRequireClassLevels(bool value)
     {
         Definition.RequireClassLevels = value;
@@ -137,11 +151,11 @@ public class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder
     }
 }
 
-public class FeatureDefinitionRemover : FeatureDefinition, IFeatureDefinitionCustomCode
+public sealed class FeatureDefinitionRemover : FeatureDefinition, IFeatureDefinitionCustomCode
 {
     public FeatureDefinition FeatureToRemove { get; set; }
 
-    public void ApplyFeature(RulesetCharacterHero hero, string tag)
+    public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
     {
         CustomFeaturesContext.ActuallyRemoveCharacterFeature(hero, FeatureToRemove);
     }
@@ -162,9 +176,10 @@ public class FeatureDefinitionRemover : FeatureDefinition, IFeatureDefinitionCus
 public class FeatureDefinitionRemoverBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionRemover, FeatureDefinitionRemoverBuilder>
 {
+    [NotNull]
     private static string WrapName(string name) { return $"{name}Remover"; }
 
-    public static FeatureDefinitionRemoverBuilder CreateFrom(FeatureDefinition feature)
+    private static FeatureDefinitionRemoverBuilder CreateFrom([NotNull] FeatureDefinition feature)
     {
         return Create(WrapName(feature.Name), CENamespaceGuid)
             .SetGuiPresentation(
@@ -175,7 +190,7 @@ public class FeatureDefinitionRemoverBuilder
             .SetFeatureToRemove(feature);
     }
 
-    public static FeatureDefinitionRemover CreateOrGetFrom(FeatureDefinition feature)
+    public static FeatureDefinitionRemover CreateOrGetFrom([NotNull] FeatureDefinition feature)
     {
         var name = WrapName(feature.Name);
         try
@@ -193,7 +208,8 @@ public class FeatureDefinitionRemoverBuilder
         return CreateFrom(feature).AddToDB();
     }
 
-    public FeatureDefinitionRemoverBuilder SetFeatureToRemove(FeatureDefinition feature)
+    [NotNull]
+    private FeatureDefinitionRemoverBuilder SetFeatureToRemove(FeatureDefinition feature)
     {
         Definition.FeatureToRemove = feature;
         return this;
@@ -223,11 +239,11 @@ public class FeatureDefinitionRemoverBuilder
     #endregion
 }
 
-public class FeatureDefinitionFeatureSetReplaceCustom : FeatureDefinitionFeatureSetCustom
+public sealed class FeatureDefinitionFeatureSetReplaceCustom : FeatureDefinitionFeatureSetCustom
 {
     public FeatureDefinitionFeatureSetCustom ReplacedFeatureSet { get; private set; }
 
-    public void SetReplacedFeatureSet(FeatureDefinitionFeatureSetCustom featureSet)
+    public void SetReplacedFeatureSet([NotNull] FeatureDefinitionFeatureSetCustom featureSet)
     {
         ReplacedFeatureSet = featureSet;
         GuiPresentation.spriteReference = featureSet.GuiPresentation.SpriteReference;
@@ -240,31 +256,33 @@ public class FeatureDefinitionFeatureSetReplaceCustom : FeatureDefinitionFeature
     }
 }
 
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class FeatureDefinitionFeatureSetReplaceCustomBuilder : FeatureDefinitionBuilder<
     FeatureDefinitionFeatureSetReplaceCustom, FeatureDefinitionFeatureSetReplaceCustomBuilder>
 {
-    public FeatureDefinitionFeatureSetReplaceCustomBuilder(string name, Guid namespaceGuid) : base(name,
+    protected FeatureDefinitionFeatureSetReplaceCustomBuilder(string name, Guid namespaceGuid) : base(name,
         namespaceGuid)
     {
     }
 
-    public FeatureDefinitionFeatureSetReplaceCustomBuilder(string name, string definitionGuid) : base(name,
+    protected FeatureDefinitionFeatureSetReplaceCustomBuilder(string name, string definitionGuid) : base(name,
         definitionGuid)
     {
     }
 
-    public FeatureDefinitionFeatureSetReplaceCustomBuilder(FeatureDefinitionFeatureSetReplaceCustom original,
+    protected FeatureDefinitionFeatureSetReplaceCustomBuilder(FeatureDefinitionFeatureSetReplaceCustom original,
         string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
 
-    public FeatureDefinitionFeatureSetReplaceCustomBuilder(FeatureDefinitionFeatureSetReplaceCustom original,
+    protected FeatureDefinitionFeatureSetReplaceCustomBuilder(FeatureDefinitionFeatureSetReplaceCustom original,
         string name, string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 
+    [NotNull]
     public FeatureDefinitionFeatureSetReplaceCustomBuilder SetReplacedFeatureSet(
-        FeatureDefinitionFeatureSetCustom featureSet)
+        [NotNull] FeatureDefinitionFeatureSetCustom featureSet)
     {
         Definition.SetReplacedFeatureSet(featureSet);
         return this;

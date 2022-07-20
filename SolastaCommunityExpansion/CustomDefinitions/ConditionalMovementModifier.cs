@@ -5,7 +5,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
-public class ConditionalMovementModifier : IConditionalMovementModifier
+public sealed class ConditionalMovementModifier : IConditionalMovementModifier
 {
     private readonly FeatureDefinition modifier;
     private readonly CharacterValidator[] validators;

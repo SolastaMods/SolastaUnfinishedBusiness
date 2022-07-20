@@ -92,7 +92,7 @@ public static class EwFeats
                 .Create("PolearmFeatFeature", Guid)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
-                    new CanmakeAoOOnReachEntered(CharacterValidators.HasPolearm),
+                    new CanMakeAoOOnReachEntered(CharacterValidators.HasPolearm),
                     new AddPolearmFollowupAttack()
                 )
                 .AddToDB())
