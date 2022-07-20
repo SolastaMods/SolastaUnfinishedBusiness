@@ -4,7 +4,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions;
 
 public delegate bool IsActiveConditionalPowerDelegate(RulesetCharacterHero character);
 
-public class FeatureDefinitionConditionalPower : FeatureDefinitionPower, IConditionalPower
+public sealed class FeatureDefinitionConditionalPower : FeatureDefinitionPower, IConditionalPower
 {
     private IsActiveConditionalPowerDelegate isActive;
 

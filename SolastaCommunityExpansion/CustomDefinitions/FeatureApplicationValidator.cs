@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Api.Extensions;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
@@ -8,7 +9,7 @@ public interface IFeatureApplicationValidator
     bool IsValid(RulesetCharacter character);
 }
 
-public class FeatureApplicationValidator : IFeatureApplicationValidator
+public sealed class FeatureApplicationValidator : IFeatureApplicationValidator
 {
     private readonly CharacterValidator[] validators;
 
@@ -17,7 +18,7 @@ public class FeatureApplicationValidator : IFeatureApplicationValidator
         this.validators = validators;
     }
 
-    public bool IsValid(RulesetCharacter character)
+    public bool IsValid([CanBeNull] RulesetCharacter character)
     {
         return character == null || character.IsValid(validators);
     }

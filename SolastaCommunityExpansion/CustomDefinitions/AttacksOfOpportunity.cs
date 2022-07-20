@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomUI;
@@ -20,7 +21,7 @@ public static class AttacksOfOpportunity
     public const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
     public static readonly ICanIgnoreAoOImmunity CanIgnoreDisengage = new CanIgnoreDisengage();
     public static readonly object SentinelFeatMarker = new SentinelFeatMarker();
-    public static readonly Dictionary<ulong, (int3, int3)> movingCharactersCache = new();
+    public static readonly Dictionary<ulong, (int3, int3)> MovingCharactersCache = new();
 
     public static IEnumerator ProcessOnCharacterAttackFinished(
         GameLocationBattleManager battleManager,
@@ -55,7 +56,8 @@ public static class AttacksOfOpportunity
         }
     }
 
-    private static IEnumerator ProcessSentinel(GameLocationCharacter unit, GameLocationCharacter attacker,
+    private static IEnumerator ProcessSentinel([NotNull] GameLocationCharacter unit,
+        [NotNull] GameLocationCharacter attacker,
         GameLocationCharacter defender, GameLocationBattleManager battleManager)
     {
         if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side ||
@@ -81,9 +83,9 @@ public static class AttacksOfOpportunity
         yield return battleManager.WaitForReactions(unit, actionService, count);
     }
 
-    public static void ProcessOnCharacterMoveStart(GameLocationCharacter mover, int3 destination)
+    public static void ProcessOnCharacterMoveStart([NotNull] GameLocationCharacter mover, int3 destination)
     {
-        movingCharactersCache.AddOrReplace(mover.Guid, (mover.locationPosition, destination));
+        MovingCharactersCache.AddOrReplace(mover.Guid, (mover.locationPosition, destination));
     }
 
     public static IEnumerator ProcessOnCharacterMoveEnd(GameLocationBattleManager battleManager,
@@ -116,14 +118,15 @@ public static class AttacksOfOpportunity
 
     public static void CleanMovingCache()
     {
-        movingCharactersCache.Clear();
+        MovingCharactersCache.Clear();
     }
 
-    private static IEnumerator ProcessPolearmExpert(GameLocationCharacter attacker, GameLocationCharacter mover,
+    private static IEnumerator ProcessPolearmExpert([NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter mover,
         GameLocationBattleManager battleManager)
     {
         if (!attacker.IsOppositeSide(mover.Side) || !CanMakeAoOOnEnemyEnterReach(attacker.RulesetCharacter) ||
-            !movingCharactersCache.TryGetValue(mover.Guid, out var movement) ||
+            !MovingCharactersCache.TryGetValue(mover.Guid, out var movement) ||
             !battleManager.CanPerformOpportunityAttackOnCharacter(attacker, mover, movement.Item2, movement.Item1,
                 out var attackMode))
         {
@@ -143,14 +146,14 @@ public static class AttacksOfOpportunity
         yield return battleManager.WaitForReactions(attacker, actionService, count);
     }
 
-    private static bool CanMakeAoOOnEnemyEnterReach(RulesetCharacter character)
+    private static bool CanMakeAoOOnEnemyEnterReach([CanBeNull] RulesetCharacter character)
     {
         return character != null &&
-               character.GetSubFeaturesByType<CanmakeAoOOnReachEntered>()
+               character.GetSubFeaturesByType<CanMakeAoOOnReachEntered>()
                    .Any(f => f.IsValid(character));
     }
 
-    public static void RequestReactionAttack(string type, CharacterActionParams actionParams)
+    private static void RequestReactionAttack(string type, CharacterActionParams actionParams)
     {
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
         if (actionManager == null)
@@ -163,7 +166,7 @@ public static class AttacksOfOpportunity
     }
 
     private static bool CanMakeAoO(GameLocationCharacter attacker, GameLocationCharacter defender,
-        out RulesetAttackMode attackMode, out ActionModifier actionModifier,
+        [CanBeNull] out RulesetAttackMode attackMode, [NotNull] out ActionModifier actionModifier,
         IGameLocationBattleService battleManager = null)
     {
         battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>();
@@ -195,15 +198,15 @@ public static class AttacksOfOpportunity
     }
 }
 
-internal class CanIgnoreDisengage : ICanIgnoreAoOImmunity
+internal sealed class CanIgnoreDisengage : ICanIgnoreAoOImmunity
 {
-    public bool CanIgnoreAoOImmunity(RulesetCharacter character, RulesetCharacter attacker)
+    public bool CanIgnoreAoOImmunity([NotNull] RulesetCharacter character, RulesetCharacter attacker)
     {
-        var FeaturesToBrowse = new List<FeatureDefinition>();
-        character.EnumerateFeaturesToBrowse<ICombatAffinityProvider>(FeaturesToBrowse);
+        var featuresToBrowse = new List<FeatureDefinition>();
+        character.EnumerateFeaturesToBrowse<ICombatAffinityProvider>(featuresToBrowse);
         var service = ServiceRepository.GetService<IRulesetImplementationService>();
         var disengaging = DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging;
-        foreach (var feature in FeaturesToBrowse)
+        foreach (var feature in featuresToBrowse)
         {
             if (feature != disengaging
                 && feature is ICombatAffinityProvider affinityProvider
@@ -222,20 +225,20 @@ internal class CanIgnoreDisengage : ICanIgnoreAoOImmunity
     }
 }
 
-internal class SentinelFeatMarker
+internal sealed class SentinelFeatMarker
 {
 }
 
-internal class CanmakeAoOOnReachEntered
+internal sealed class CanMakeAoOOnReachEntered
 {
     private readonly CharacterValidator[] validators;
 
-    public CanmakeAoOOnReachEntered(params CharacterValidator[] validators)
+    public CanMakeAoOOnReachEntered(params CharacterValidator[] validators)
     {
         this.validators = validators;
     }
 
-    public bool IsValid(RulesetCharacter character)
+    public bool IsValid([CanBeNull] RulesetCharacter character)
     {
         return character != null && character.IsValid(validators);
     }
@@ -252,7 +255,7 @@ public delegate IEnumerator ReactToAttackFinishedHandler(GameLocationCharacter c
     GameLocationCharacter defender, RuleDefinitions.RollOutcome outcome,
     CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier);
 
-public class ReactToAttackFinished : IReactToAttackFinished
+public sealed class ReactToAttackFinished : IReactToAttackFinished
 {
     private readonly ReactToAttackFinishedHandler handler;
 

@@ -35,7 +35,7 @@ internal static class ZappaFeats
                     .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatArcaneDefenseAdd",
                         ZappaFeatNamespace)
                     .SetGuiPresentationNoContent()
-                    .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
+                    .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker)
                     .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                     .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
                     .AddToDB()
@@ -110,7 +110,7 @@ internal static class ZappaFeats
                     .Create(AttributeModifierBarbarianUnarmoredDefense,
                         "AttributeModifierFeatCharismaticDefenseAdd", ZappaFeatNamespace)
                     .SetGuiPresentationNoContent()
-                    .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
+                    .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker)
                     .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                     .SetModifierAbilityScore(AttributeDefinitions.Charisma)
                     .AddToDB()
@@ -479,7 +479,7 @@ internal static class ZappaFeats
                     .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefenseAdd",
                         ZappaFeatNamespace)
                     .SetGuiPresentationNoContent()
-                    .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
+                    .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker)
                     .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                     .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
                     .AddToDB()

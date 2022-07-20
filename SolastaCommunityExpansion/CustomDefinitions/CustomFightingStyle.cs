@@ -1,11 +1,12 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
 public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
 
-public class FightingStyleDefinitionCustomizable : FightingStyleDefinition, ICustomFightingStyle
+public sealed class FightingStyleDefinitionCustomizable : FightingStyleDefinition, ICustomFightingStyle
 {
     private IsActiveFightingStyleDelegate isActive;
 
@@ -20,13 +21,15 @@ public class FightingStyleDefinitionCustomizable : FightingStyleDefinition, ICus
     }
 }
 
-public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<FightingStyleDefinitionCustomizable,
+public abstract class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
+    FightingStyleDefinitionCustomizable,
     CustomizableFightingStyleBuilder>
 {
     protected CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
     {
     }
 
+    [NotNull]
     public CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
     {
         Definition.SetIsActiveDelegate(del);

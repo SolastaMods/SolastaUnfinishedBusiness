@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions;
      * This has much greater flexibility, so there are cases where it is appropriate, but when possible it is
      * better for future maintainability of features to use the features provided by TA.
      */
-public class FeatureDefinitionOnMagicalAttackDamageEffect : FeatureDefinition, IOnMagicalAttackDamageEffect
+public sealed class FeatureDefinitionOnMagicalAttackDamageEffect : FeatureDefinition, IOnMagicalAttackDamageEffect
 {
     private OnMagicalAttackDamageDelegate afterOnMagicalAttackDamage;
     private OnMagicalAttackDamageDelegate beforeOnMagicalAttackDamage;
@@ -39,8 +40,8 @@ public class FeatureDefinitionOnMagicalAttackDamageEffect : FeatureDefinition, I
             firstTarget, criticalHit);
     }
 
-    internal void SetOnMagicalAttackDamageDelegates(OnMagicalAttackDamageDelegate before = null,
-        OnMagicalAttackDamageDelegate after = null)
+    internal void SetOnMagicalAttackDamageDelegates([CanBeNull] OnMagicalAttackDamageDelegate before = null,
+        [CanBeNull] OnMagicalAttackDamageDelegate after = null)
     {
         beforeOnMagicalAttackDamage = before;
         afterOnMagicalAttackDamage = after;

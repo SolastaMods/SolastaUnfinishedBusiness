@@ -1,4 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomDefinitions;
+﻿using JetBrains.Annotations;
+
+namespace SolastaCommunityExpansion.CustomDefinitions;
 
 public interface ICustomSpellEffectLevel
 {
@@ -10,9 +12,9 @@ public static class CustomSpellEffectLevel
     public static readonly ICustomSpellEffectLevel ByCasterLevel = new SpellEffectLevelFromCasterLevel();
 }
 
-internal class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
+internal sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
 {
-    public int GetEffectLevel(RulesetActor caster)
+    public int GetEffectLevel([NotNull] RulesetActor caster)
     {
         return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
     }

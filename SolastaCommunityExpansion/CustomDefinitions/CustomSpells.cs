@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 
@@ -38,7 +39,7 @@ public class SpellModifyingFeatureDefinition : FeatureDefinition, IModifySpellEf
     }
 }
 
-internal class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
+internal sealed class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
 {
     private readonly int _level;
     private readonly EffectDescription _upgraded;
@@ -49,7 +50,8 @@ internal class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
         _level = level;
     }
 
-    public EffectDescription GetCustomEffect(RulesetCharacter caster)
+    [CanBeNull]
+    public EffectDescription GetCustomEffect([NotNull] RulesetCharacter caster)
     {
         var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
         return casterLevel < _level ? null : _upgraded;

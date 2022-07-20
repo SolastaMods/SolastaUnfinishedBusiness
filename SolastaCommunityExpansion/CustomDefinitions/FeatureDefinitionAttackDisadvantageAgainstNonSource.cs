@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders.Features;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
@@ -6,7 +8,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions;
 /// <summary>
 ///     Imposes disadvantage when attacking anyone but the source of the specified condition.
 /// </summary>
-public class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefinition, ICombatAffinityProvider
+public sealed class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefinition, ICombatAffinityProvider
 {
     public string ConditionName { get; set; }
 
@@ -14,27 +16,21 @@ public class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefini
     public bool CanRageToOvercomeSurprise => false;
     public bool AutoCritical => false;
     public bool CriticalHitImmunity => false;
-    public ConditionDefinition RequiredCondition => null;
+    [CanBeNull] public ConditionDefinition RequiredCondition => null;
     public bool IgnoreCover => false;
 
-    public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender,
+    public void ComputeAttackModifier([NotNull] RulesetCharacter myself, RulesetCharacter defender,
         RulesetAttackMode attackMode, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
     {
-        foreach (var keyValuePair in myself.ConditionsByCategory)
+        if (!myself.ConditionsByCategory.SelectMany(keyValuePair => keyValuePair.Value).Any(rulesetCondition =>
+                rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName) &&
+                rulesetCondition.SourceGuid != defender.Guid))
         {
-            foreach (var rulesetCondition in keyValuePair.Value)
-            {
-                if (!rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName) ||
-                    rulesetCondition.SourceGuid == defender.Guid)
-                {
-                    continue;
-                }
-
-                attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1,
-                    featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
-                return;
-            }
+            return;
         }
+
+        attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1,
+            featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
     }
 
     public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks,
@@ -56,7 +52,7 @@ public class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefini
     }
 }
 
-internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
+internal abstract class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource,
         FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
 {
@@ -65,6 +61,7 @@ internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
     {
     }
 
+    [NotNull]
     public FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder SetConditionName(string conditionName)
     {
         Definition.ConditionName = conditionName;

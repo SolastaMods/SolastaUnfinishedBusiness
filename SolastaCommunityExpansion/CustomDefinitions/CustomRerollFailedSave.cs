@@ -1,12 +1,13 @@
-﻿using SolastaCommunityExpansion.CustomInterfaces;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
-public class CustomRerollFailedSave : IUsePowerToRerollFailedSave
+public sealed class CustomRerollFailedSave : IUsePowerToRerollFailedSave
 {
     private readonly FeatureDefinitionPower power;
 
-    public CustomRerollFailedSave(FeatureDefinitionPower power, string reactionName = null)
+    public CustomRerollFailedSave(FeatureDefinitionPower power, [CanBeNull] string reactionName = null)
     {
         this.power = power;
         ReactionName = string.IsNullOrEmpty(reactionName) ? power.Name : reactionName;

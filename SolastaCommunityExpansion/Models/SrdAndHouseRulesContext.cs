@@ -63,7 +63,7 @@ internal static class SrdAndHouseRulesContext
     private static void ApplyBarbarianUnarmoredDefenseNotStacking()
     {
         DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
-            .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER);
+            .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
     }
 
     internal static void ApplySrdWeightToFoodRations()

@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Api.Extensions;
+﻿using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 
@@ -18,7 +19,8 @@ public class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
         _validators = validators;
     }
 
-    public void ModifyAttribute(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+    public void ModifyAttribute(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+        RulesetItem weapon)
     {
         if (attackMode == null)
         {
@@ -55,7 +57,8 @@ public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
         this.validators = validators;
     }
 
-    public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+    public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+        RulesetItem weapon)
     {
         if (attackMode == null)
         {
@@ -79,7 +82,7 @@ public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
         RulesetItem weapon);
 }
 
-public class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
+public sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
 {
     public delegate (RuleDefinitions.DieType, int) GetWeaponDiceHandler(RulesetCharacter character,
         RulesetItem weapon);
@@ -92,7 +95,7 @@ public class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
         this.getWeaponDice = getWeaponDice;
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         var effectDescription = attackMode.EffectDescription;
@@ -123,7 +126,7 @@ public class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
     }
 }
 
-public class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
+public sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
 {
     private readonly string tag;
 
@@ -133,7 +136,7 @@ public class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
         this.tag = tag;
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         attackMode.AddAttackTagAsNeeded(tag);
@@ -150,21 +153,21 @@ public class AddEffectToWeaponAttack : ModifyAttackModeForWeaponBase
         this.effect = effect;
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         attackMode.EffectDescription.AddEffectForms(effect);
     }
 }
 
-public class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
+public sealed class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
 {
     public BumpWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid, params CharacterValidator[] validators)
         : base(isWeaponValid, validators)
     {
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         attackMode.closeRange = attackMode.maxRange;
