@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders.Features;
@@ -47,7 +48,8 @@ public sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondi
     }
 }
 
-internal abstract class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+internal class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition,
         FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder>
 {

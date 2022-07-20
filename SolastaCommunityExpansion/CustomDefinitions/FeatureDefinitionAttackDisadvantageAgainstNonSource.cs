@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders.Features;
@@ -52,7 +53,8 @@ public sealed class FeatureDefinitionAttackDisadvantageAgainstNonSource : Featur
     }
 }
 
-internal abstract class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource,
         FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
 {

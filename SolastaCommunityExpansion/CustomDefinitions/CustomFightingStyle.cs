@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomInterfaces;
 
@@ -21,7 +22,8 @@ public sealed class FightingStyleDefinitionCustomizable : FightingStyleDefinitio
     }
 }
 
-public abstract class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
     FightingStyleDefinitionCustomizable,
     CustomizableFightingStyleBuilder>
 {
