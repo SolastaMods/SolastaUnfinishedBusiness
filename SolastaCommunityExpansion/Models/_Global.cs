@@ -61,6 +61,10 @@ public static class Global
         CurrentAction = characterAction;
         ActivePlayerCharacter = characterAction.ActingCharacter;
 
+        IsSpellStrike = false;
+        SpellStrikeRollOutcome = RuleDefinitions.RollOutcome.Neutral;
+        SpellStrikeDieRoll = -1;
+
         if (characterAction is CharacterActionCastSpell actionCastSpell)
         {
             CastedSpellRepertoire = actionCastSpell.ActiveSpell.SpellRepertoire;

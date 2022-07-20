@@ -87,10 +87,6 @@ public static class PlayerControllerContext
             return;
         }
 
-
-        Global.IsSpellStrike = false;
-        Global.SpellStrikeRollOutcome = RuleDefinitions.RollOutcome.Neutral;
-        Global.SpellStrikeDieRoll = -1;
         SideFlipped = true;
         enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
         players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));

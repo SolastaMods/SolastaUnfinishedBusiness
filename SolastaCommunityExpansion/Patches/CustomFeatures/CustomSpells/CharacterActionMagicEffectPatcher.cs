@@ -90,6 +90,9 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
         Magus.SpellStrikePower.effectDescription.effectParticleParameters = null;
         Magus.SpellStrikeAdditionalDamage.impactParticleReference = null;
 
+        //
+        // TODO: FIX BELOW AS IT'S BLEEDING THE SPELL EFFECT CHANGE
+        //
         if (Global.IsSpellStrike)
         {
             if (attackOutcome is not (RuleDefinitions.RollOutcome.Success
@@ -129,8 +132,7 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
 [HarmonyPatch(typeof(RulesetCharacter), "RollAttackMode")]
 internal static class RulesetCharacter_RollAttackMode
 {
-    internal static void Postfix(RulesetCharacter __instance, ref int __result, RulesetAttackMode attackMode,
-        RulesetActor target)
+    internal static void Postfix(ref int __result)
     {
         if (Global.IsSpellStrike)
         {
@@ -142,27 +144,17 @@ internal static class RulesetCharacter_RollAttackMode
 [HarmonyPatch(typeof(RulesetCharacter), "RollMagicAttack")]
 internal static class RulesetCharacter_RollMagicAttack
 {
-    internal static bool Prefix(ref int __result, out RuleDefinitions.RollOutcome outcome)
-    {
-        if (Global.IsSpellStrike)
-        {
-            __result = Global.SpellStrikeDieRoll;
-            outcome = Global.SpellStrikeRollOutcome;
-            return false;
-        }
-
-        outcome = RuleDefinitions.RollOutcome.Failure;
-        return true;
-    }
-
-    internal static void Postfix(ref int __result, ref RuleDefinitions.RollOutcome outcome)
+    internal static bool Prefix(ref int __result, ref RuleDefinitions.RollOutcome outcome)
     {
         if (!Global.IsSpellStrike)
         {
-            return;
+            return true;
         }
 
         __result = Global.SpellStrikeDieRoll;
         outcome = Global.SpellStrikeRollOutcome;
+
+        return false;
+
     }
 }
