@@ -3,5 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix Spell Strike instability warning
-- Only cantrips that have attack roll are qualified for Spell Strike
+- Fix Spell Strike incorrectly changing spells range
