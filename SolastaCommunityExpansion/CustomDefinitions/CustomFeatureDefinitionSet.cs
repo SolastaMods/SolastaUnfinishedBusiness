@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
@@ -87,7 +88,8 @@ public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
     }
 }
 
-public abstract class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder<
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+public class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder<
     FeatureDefinitionFeatureSetCustom,
     FeatureDefinitionFeatureSetCustomBuilder>
 {
@@ -254,7 +256,8 @@ public sealed class FeatureDefinitionFeatureSetReplaceCustom : FeatureDefinition
     }
 }
 
-public abstract class FeatureDefinitionFeatureSetReplaceCustomBuilder : FeatureDefinitionBuilder<
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+public class FeatureDefinitionFeatureSetReplaceCustomBuilder : FeatureDefinitionBuilder<
     FeatureDefinitionFeatureSetReplaceCustom, FeatureDefinitionFeatureSetReplaceCustomBuilder>
 {
     protected FeatureDefinitionFeatureSetReplaceCustomBuilder(string name, Guid namespaceGuid) : base(name,

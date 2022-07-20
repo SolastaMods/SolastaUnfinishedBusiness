@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
-internal abstract class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<FeatDefinitionWithPrerequisites,
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<FeatDefinitionWithPrerequisites,
     FeatDefinitionWithPrerequisitesBuilder>
 {
     protected FeatDefinitionWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
