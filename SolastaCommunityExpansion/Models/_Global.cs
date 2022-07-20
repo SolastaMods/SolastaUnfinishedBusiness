@@ -44,7 +44,9 @@ public static class Global
     public static HashSet<ConditionDefinition> CharacterLabelEnabledConditions { get; } = new();
 
     // true if in a multiplayer game
-    public static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+    public static bool IsSettingUpMultiplayer { get; set; }
+    public static bool IsMultiplayer => IsSettingUpMultiplayer
+                                        || ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
     // true if not in game
     public static bool IsOffGame => Gui.Game == null;
