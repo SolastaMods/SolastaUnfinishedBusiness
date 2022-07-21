@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -26,6 +27,89 @@ internal static class ZappaFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+#if false
+        var conditionBladeDance = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBlessed, "ConditionBladeDance", ZappaFeatNamespace)
+            .SetGuiPresentation("FeatBladeDance", Category.Feat)
+            .Configure(
+                RuleDefinitions.DurationType.Minute,
+                1,
+                false,
+                PowerFeatRaiseShield,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create(AttributeModifierBarbarianUnarmoredDefense,
+                        "AttributeModifierBladeDance", ZappaFeatNamespace)
+                    .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
+                    .AddToDB(),
+                 FeatureDefinitionAbilityCheckAffinityBuilder
+                     .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
+                         "AbilityCheckBladeDanceAcrobatics", ZappaFeatNamespace)
+                     .AddToDB(),
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
+                        "AbilityCheckBladeDanceConstitution", ZappaFeatNamespace)
+                    .AddToDB(),
+                FeatureDefinitionMoveModes.MoveModeMove7)
+            .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+            .SetSilent(Silent.None)
+            .SetAllowMultipleInstances(false)
+            .SetTerminateWhenRemoved(true)
+            .AddToDB();
+
+        var effectBladeDance = EffectDescriptionBuilder
+            .Create()
+            .SetTargetingData(
+                RuleDefinitions.Side.Ally,
+                RuleDefinitions.RangeType.Self, 1,
+                RuleDefinitions.TargetType.Self)
+            .SetCreatedByCharacter()
+            .SetDurationData(
+                RuleDefinitions.DurationType.Minute, 1,
+                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .AddEffectForm(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionBladeDance, ConditionForm.ConditionOperation.Add)
+                    .Build()
+            )
+            .Build();
+
+        var bladeDancePower = FeatureDefinitionPowerBuilder
+            .Create("PowerBladeDance", ZappaFeatNamespace)
+            .SetGuiPresentation("FeatBladeDance", Category.Feat,
+                PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
+            .Configure(
+                0, RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                AttributeDefinitions.Intelligence,
+                RuleDefinitions.ActivationTime.BonusAction,
+                1,
+                RuleDefinitions.RechargeRate.LongRest,
+                false,
+                false,
+                AttributeDefinitions.Intelligence,
+                effectBladeDance,
+                true)
+            .SetCustomSubFeatures(
+                new PowerUseValidity(
+                    (character) =>
+                    {
+                        if (character is not RulesetCharacterHero hero)
+                        {
+                            return false;
+                        }
+
+                        return !hero.IsWearingMediumArmor() && !hero.IsWearingHeavyArmor() && !hero.IsWearingShield();
+                    }))
+            .AddToDB();
+
+        var bladeDance = FeatDefinitionBuilder
+            .Create("FeatBladeDancer", ZappaFeatNamespace)
+            .SetFeatures(bladeDancePower)
+            //.SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
+            .SetGuiPresentation(Category.Feat)
+            .AddToDB();
+#endif
+
         // Arcane Defense
         var arcaneDefense = FeatDefinitionBuilder
             .Create("FeatArcaneDefense", ZappaFeatNamespace)
@@ -536,6 +620,7 @@ internal static class ZappaFeats
         //
 
         feats.AddRange(
+            //bladeDance,
             arcaneDefense,
             arcanePrecision,
             brutalThug,
@@ -631,7 +716,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 
     public MetamagicOptionDefinition MetamagicOption { get; set; }
 
-    public void ApplyFeature(RulesetCharacterHero hero, string tag)
+    public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
     {
         if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
         {
