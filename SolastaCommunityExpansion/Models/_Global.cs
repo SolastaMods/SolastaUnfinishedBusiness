@@ -62,20 +62,24 @@ public static class Global
     {
         CurrentAction = characterAction;
         ActivePlayerCharacter = characterAction.ActingCharacter;
-
+        CastedSpellRepertoire = null;
+        CastedSpell = null;
         IsSpellStrike = false;
         SpellStrikeRollOutcome = RuleDefinitions.RollOutcome.Neutral;
         SpellStrikeDieRoll = -1;
 
-        if (characterAction is CharacterActionCastSpell actionCastSpell)
+        switch (characterAction)
         {
-            CastedSpellRepertoire = actionCastSpell.ActiveSpell.SpellRepertoire;
-            CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
-        }
-        else
-        {
-            CastedSpellRepertoire = null;
-            CastedSpell = null;
+            case CharacterActionCastSpell actionCastSpell:
+                CastedSpellRepertoire = actionCastSpell.ActiveSpell.SpellRepertoire;
+                CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
+                break;
+            case CharacterActionReady actionReady:
+                CustomReactionsContext.ReadReadyActionPreferredCantripPatch(actionReady.actionParams);
+                break;
+            case CharacterActionSpendPower spendPower:
+                PowerBundleContext.SpendBundledPowerIfNeeded(spendPower);
+                break;
         }
     }
 

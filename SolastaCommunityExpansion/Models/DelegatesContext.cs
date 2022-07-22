@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomInterfaces;
 using TA;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -66,7 +65,7 @@ internal static class DelegatesContext
 
         foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
         {
-            //gameLocationCharacter.Placed += Placed;
+            gameLocationCharacter.Placed += Placed;
             gameLocationCharacter.MoveStarted += MoveStarted;
             gameLocationCharacter.PrepareChargeStarted += PrepareChargeStarted;
             gameLocationCharacter.ChargeStarted += ChargeStarted;
@@ -115,7 +114,7 @@ internal static class DelegatesContext
             gameLocationCharacter.IsAngryStatusChanged += IsAngryStatusChanged;
             gameLocationCharacter.UsedTacticalMovesChanged += UsedTacticalMovesChanged;
             gameLocationCharacter.CurrentMonsterAttackChanged += CurrentMonsterAttackChanged;
-            gameLocationCharacter.DisolveStarted += DisolveStarted;
+            gameLocationCharacter.DisolveStarted += DissolveStarted;
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
@@ -193,7 +192,7 @@ internal static class DelegatesContext
 
         foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
         {
-            //gameLocationCharacter.Placed -= Placed;
+            gameLocationCharacter.Placed -= Placed;
             gameLocationCharacter.MoveStarted -= MoveStarted;
             gameLocationCharacter.PrepareChargeStarted -= PrepareChargeStarted;
             gameLocationCharacter.ChargeStarted -= ChargeStarted;
@@ -242,7 +241,7 @@ internal static class DelegatesContext
             gameLocationCharacter.IsAngryStatusChanged -= IsAngryStatusChanged;
             gameLocationCharacter.UsedTacticalMovesChanged -= UsedTacticalMovesChanged;
             gameLocationCharacter.CurrentMonsterAttackChanged -= CurrentMonsterAttackChanged;
-            gameLocationCharacter.DisolveStarted -= DisolveStarted;
+            gameLocationCharacter.DisolveStarted -= DissolveStarted;
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
@@ -311,7 +310,7 @@ internal static class DelegatesContext
     // ICharacterBuildingService
     //
 
-    private static void CharacterLevelUpStarted(RulesetCharacterHero hero)
+    private static void CharacterLevelUpStarted([NotNull] RulesetCharacterHero hero)
     {
         Main.Logger.Log($"{hero.Name} Character Level Up Started");
     }
@@ -320,22 +319,22 @@ internal static class DelegatesContext
     // IGameLocationCharacterService
     //
 
-    private static void CharacterCreated(GameLocationCharacter character)
+    private static void CharacterCreated([NotNull] GameLocationCharacter character)
     {
         Main.Logger.Log($"{character.Name} Character Created");
     }
 
-    private static void CharacterRevealed(GameLocationCharacter character)
+    private static void CharacterRevealed([NotNull] GameLocationCharacter character)
     {
         Main.Logger.Log($"{character.Name} Character Revealed");
     }
 
-    private static void CharacterDestroying(GameLocationCharacter character)
+    private static void CharacterDestroying([NotNull] GameLocationCharacter character)
     {
         Main.Logger.Log($"{character.Name} Character Destroying");
     }
 
-    private static void CharacterKilled(GameLocationCharacter character)
+    private static void CharacterKilled([NotNull] GameLocationCharacter character)
     {
         Main.Logger.Log($"{character.Name} Character Killed");
 
@@ -361,7 +360,7 @@ internal static class DelegatesContext
     // RulesetCharacterHero
     //
 
-    private static void ItemEquiped(RulesetCharacterHero hero, RulesetItem item)
+    private static void ItemEquiped([NotNull] RulesetCharacterHero hero, RulesetItem item)
     {
         Main.Logger.Log($"{hero.Name} Item Equipped Hero");
     }
@@ -410,13 +409,13 @@ internal static class DelegatesContext
         Global.ActionStarted(characterAction);
     }
 
-    private static void ActionChainStarted(CharacterActionChainParams characterActionChainParams)
+    private static void ActionChainStarted([NotNull] CharacterActionChainParams characterActionChainParams)
     {
         Main.Logger.Log($"{characterActionChainParams.ActingCharacter.Name} Action Chain Started");
     }
 
     private static void ActionChainFinished(
-        CharacterActionChainParams characterActionChainParams,
+        [NotNull] CharacterActionChainParams characterActionChainParams,
         bool aborted)
     {
         Main.Logger.Log($"{characterActionChainParams.ActingCharacter.Name} Action Chain Finished");
@@ -463,7 +462,7 @@ internal static class DelegatesContext
     }
 
     private static void ActionUsed(
-        GameLocationCharacter actingCharacter,
+        [CanBeNull] GameLocationCharacter actingCharacter,
         CharacterActionParams actionParams,
         ActionDefinition actionDefinition)
     {
@@ -471,7 +470,7 @@ internal static class DelegatesContext
     }
 
     private static void ShoveActionUsed(
-        GameLocationCharacter actingCharacter,
+        [CanBeNull] GameLocationCharacter actingCharacter,
         GameLocationCharacter attackingCharacter,
         ActionDefinition actionDefinition,
         bool success)
@@ -488,7 +487,7 @@ internal static class DelegatesContext
     // GameLocationCharacter
     //
 
-    private static void Placed(GameLocationCharacter character, int3 location)
+    private static void Placed([CanBeNull] GameLocationCharacter character, int3 location)
     {
         Main.Logger.Log($"{character?.Name} Placed");
     }
@@ -499,61 +498,45 @@ internal static class DelegatesContext
     }
 
     private static void PrepareChargeStarted(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         CharacterActionParams actionParams)
     {
-        Main.Logger.Log($"{character?.Name} Prepare Charge Started");
+        Main.Logger.Log($"{character.Name} Prepare Charge Started");
     }
 
     private static void ChargeStarted(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         CharacterActionParams actionParams)
     {
-        Main.Logger.Log($"{character?.Name} Charge Started");
+        Main.Logger.Log($"{character.Name} Charge Started");
     }
 
     private static void ChargeEnded(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         CharacterActionParams actionParams)
     {
-        Main.Logger.Log($"{character?.Name} Charge Ended");
+        Main.Logger.Log($"{character.Name} Charge Ended");
     }
 
     private static void ChargeAborted(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         CharacterActionParams actionParams)
     {
-        Main.Logger.Log($"{character?.Name} Charge Aborted");
-    }
-
-    private static void UpdateMotions()
-    {
-        Main.Logger.Log("Update Motions");
+        Main.Logger.Log($"{character.Name} Charge Aborted");
     }
 
     private static void TeleportStarted(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         int3 destination,
         LocationDefinitions.Orientation destinationOrientation,
         bool sendEvent)
     {
-        Main.Logger.Log($"{character?.Name} Teleport Started");
+        Main.Logger.Log($"{character.Name} Teleport Started");
     }
 
     private static void Moved(ref GameLocationCharacterDefinitions.MovedParameters parameters)
     {
         Main.Logger.Log("Moved");
-    }
-
-    private static void Rotated(
-        GameLocationCharacter character,
-        LocationDefinitions.Orientation sourceOrientation,
-        LocationDefinitions.Orientation destinationOrientation,
-        Vector3 targetPosition,
-        bool refreshVisual = true,
-        bool refreshPerception = true)
-    {
-        Main.Logger.Log($"{character?.Name} Rotated");
     }
 
     private static void Stopped(CharacterAction.InterruptionType interruption)
@@ -562,35 +545,35 @@ internal static class DelegatesContext
     }
 
     private static void FallStarted(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         int3 source,
         int3 destination,
         bool featherFall)
     {
-        Main.Logger.Log($"{character?.Name} Fall Started");
+        Main.Logger.Log($"{character.Name} Fall Started");
     }
 
     private static void FallStopped(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         int3 source,
         int3 destination)
     {
-        Main.Logger.Log($"{character?.Name} Fall Stopped");
+        Main.Logger.Log($"{character.Name} Fall Stopped");
     }
 
-    private static void CrawlStarted(GameLocationCharacter character)
+    private static void CrawlStarted([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Crawl Started");
+        Main.Logger.Log($"{character.Name} Crawl Started");
     }
 
-    private static void BurrowStarted(GameLocationCharacter character)
+    private static void BurrowStarted([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Burrow Started");
+        Main.Logger.Log($"{character.Name} Burrow Started");
     }
 
-    private static void BurrowEnded(GameLocationCharacter character)
+    private static void BurrowEnded([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Burrow Ended");
+        Main.Logger.Log($"{character.Name} Burrow Ended");
     }
 
     private static void JumpStarted(
@@ -605,12 +588,12 @@ internal static class DelegatesContext
     }
 
     private static void JumpFinished(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         int3 source,
         int3 destination,
         bool jumpFailed)
     {
-        Main.Logger.Log($"{character?.Name} Jump Finished");
+        Main.Logger.Log($"{character.Name} Jump Finished");
     }
 
     private static void VaultStarted(
@@ -629,7 +612,7 @@ internal static class DelegatesContext
     }
 
     private static void ClimbStarted(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         int3 source,
         int3 destination,
         LocationDefinitions.Orientation orientation,
@@ -637,20 +620,20 @@ internal static class DelegatesContext
         bool lastMove,
         bool fastClimb)
     {
-        Main.Logger.Log($"{character?.Name} Climb Started");
+        Main.Logger.Log($"{character.Name} Climb Started");
     }
 
     private static void ClimbFinished(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         int3 source,
         int3 destination,
         bool easyClimb)
     {
-        Main.Logger.Log($"{character?.Name} Climb Finished");
+        Main.Logger.Log($"{character.Name} Climb Finished");
     }
 
     private static void ChangeSurfaceStarted(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         int3 destinationPosition,
         LocationDefinitions.Orientation destinationOrientation,
         CellFlags.Side destinationSide,
@@ -659,56 +642,56 @@ internal static class DelegatesContext
         bool difficultTerrain,
         bool lastMove)
     {
-        Main.Logger.Log($"{character?.Name} Change Surface Started");
+        Main.Logger.Log($"{character.Name} Change Surface Started");
     }
 
     private static void AttackStart(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
+        [NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter defender,
         RuleDefinitions.RollOutcome outcome,
         CharacterActionParams actionParams,
         RulesetAttackMode attackMode,
         ActionModifier attackModifier)
     {
-        Main.Logger.Log($"{attacker?.Name},{defender?.Name} Attack Start");
+        Main.Logger.Log($"{attacker.Name},{defender.Name} Attack Start");
     }
 
     private static void AttackImpactStart(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
+        [NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter defender,
         RuleDefinitions.RollOutcome outcome,
         CharacterActionParams actionParams,
         RulesetAttackMode attackMode,
         ActionModifier attackModifier)
     {
-        Main.Logger.Log($"{attacker?.Name},{defender?.Name}Attack Impact Start");
+        Main.Logger.Log($"{attacker.Name},{defender.Name}Attack Impact Start");
     }
 
     private static void DeflectAttackStart(
-        GameLocationCharacter blocker,
-        GameLocationCharacter attacker)
+        [NotNull] GameLocationCharacter blocker,
+        [NotNull] GameLocationCharacter attacker)
     {
-        Main.Logger.Log($"{blocker?.Name},{attacker?.Name} Deflect Attack Start");
+        Main.Logger.Log($"{blocker.Name},{attacker.Name} Deflect Attack Start");
     }
 
     private static void ManipulateStart(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         AnimationDefinitions.ManipulationType animation)
     {
-        Main.Logger.Log($"{character?.Name} Manipulate Start");
+        Main.Logger.Log($"{character.Name} Manipulate Start");
     }
 
-    private static void ManipulateEnd(GameLocationCharacter character)
+    private static void ManipulateEnd([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Manipulate End");
+        Main.Logger.Log($"{character.Name} Manipulate End");
     }
 
     private static void ShoveStart(
-        GameLocationCharacter attacker,
-        GameLocationCharacter target,
+        [NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter target,
         bool success)
     {
-        Main.Logger.Log($"{attacker?.Name},{target?.Name} Shove Start");
+        Main.Logger.Log($"{attacker.Name},{target.Name} Shove Start");
     }
 
     private static void CastingStart(
@@ -717,38 +700,38 @@ internal static class DelegatesContext
         Main.Logger.Log("Casting Start");
     }
 
-    private static void HitStart(GameLocationCharacter character)
+    private static void HitStart([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Hit Start");
+        Main.Logger.Log($"{character.Name} Hit Start");
     }
 
-    private static void PathFailed(GameLocationCharacter character)
+    private static void PathFailed([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Path Failed");
+        Main.Logger.Log($"{character.Name} Path Failed");
     }
 
     private static void DialogStarted(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         NarrativeSequence narrativeSequence)
     {
-        Main.Logger.Log($"{character?.Name} Dialog Started");
+        Main.Logger.Log($"{character.Name} Dialog Started");
     }
 
     private static void DialogEnded(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         NarrativeSequence narrativeSequence)
     {
-        Main.Logger.Log($"{character?.Name} Dialog Ended");
+        Main.Logger.Log($"{character.Name} Dialog Ended");
     }
 
-    private static void DialogChoiceStarted(GameLocationCharacter character)
+    private static void DialogChoiceStarted([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Dialog Choice Started");
+        Main.Logger.Log($"{character.Name} Dialog Choice Started");
     }
 
-    private static void DialogChoiceEnded(GameLocationCharacter character)
+    private static void DialogChoiceEnded([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Dialog Choice Ended");
+        Main.Logger.Log($"{character.Name} Dialog Choice Ended");
     }
 
     private static void SpeechStarted(
@@ -757,86 +740,80 @@ internal static class DelegatesContext
         Main.Logger.Log("Speech Started");
     }
 
-    private static void SpeechEnded(GameLocationCharacter character, bool forceStop)
+    private static void SpeechEnded([NotNull] GameLocationCharacter character, bool forceStop)
     {
-        Main.Logger.Log($"{character?.Name} Speech Ended");
+        Main.Logger.Log($"{character.Name} Speech Ended");
     }
 
     private static void ListenStarted(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         GameLocationCharacter speaker,
         bool lookAtOverriden,
         bool facialExpressionOverriden)
     {
-        Main.Logger.Log($"{character?.Name} Listen Started");
+        Main.Logger.Log($"{character.Name} Listen Started");
     }
 
     private static void ListenEnded(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         GameLocationCharacter speaker)
     {
-        Main.Logger.Log($"{character?.Name} Listen Ended");
-    }
-
-    private static void AdditionalAnimationStarted(
-        ref GameLocationCharacterDefinitions.AdditionalAnimationParameters parameters)
-    {
-        Main.Logger.Log("AdditionalAnimationStarted");
+        Main.Logger.Log($"{character.Name} Listen Ended");
     }
 
     private static void TextFeedbackRequested(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         string colorStyle,
         string text)
     {
-        Main.Logger.Log($"{character?.Name} Text Feedback Requested");
+        Main.Logger.Log($"{character.Name} Text Feedback Requested");
     }
 
     private static void InGameDialogLineRequested(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         string line,
         float duration,
         bool banterPoolElement)
     {
-        Main.Logger.Log($"{character?.Name} In Game Dialog Line Requested");
+        Main.Logger.Log($"{character.Name} In Game Dialog Line Requested");
     }
 
-    private static void AlreadySuccessful(GameLocationCharacter character)
+    private static void AlreadySuccessful([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Already Successful");
+        Main.Logger.Log($"{character.Name} Already Successful");
     }
 
-    private static void AlreadyFailed(GameLocationCharacter character)
+    private static void AlreadyFailed([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Already Failed");
+        Main.Logger.Log($"{character.Name} Already Failed");
     }
 
-    private static void ProneStatusChanged(GameLocationCharacter character)
+    private static void ProneStatusChanged([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Prone Status Changed");
+        Main.Logger.Log($"{character.Name} Prone Status Changed");
     }
 
-    private static void IsAngryStatusChanged(GameLocationCharacter character, bool status)
+    private static void IsAngryStatusChanged([NotNull] GameLocationCharacter character, bool status)
     {
-        Main.Logger.Log("IsAngry Status Changed");
+        Main.Logger.Log($"{character.Name} IsAngry Status Changed");
     }
 
-    private static void UsedTacticalMovesChanged(GameLocationCharacter character)
+    private static void UsedTacticalMovesChanged([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Used Tactical Moves Changed");
+        Main.Logger.Log($"{character.Name} Used Tactical Moves Changed");
     }
 
     private static void CurrentMonsterAttackChanged(
-        GameLocationCharacter character,
+        [NotNull] GameLocationCharacter character,
         MonsterAttackDefinition monsterAttackDefinition,
         Action graphicsRefreshedCallback)
     {
-        Main.Logger.Log($"{character?.Name} Current Monster Attack Changed");
+        Main.Logger.Log($"{character.Name} Current Monster Attack Changed");
     }
 
-    private static void DisolveStarted(GameLocationCharacter character)
+    private static void DissolveStarted([NotNull] GameLocationCharacter character)
     {
-        Main.Logger.Log($"{character?.Name} Dissolve Started");
+        Main.Logger.Log($"{character.Name} Dissolve Started");
     }
 
     //
@@ -853,7 +830,9 @@ internal static class DelegatesContext
         Main.Logger.Log("ConditionRemoved");
     }
 
-    private static void ConditionRemovedForVisual(RulesetActor character, RulesetCondition removedActiveCondition,
+    private static void ConditionRemovedForVisual(
+        RulesetActor character,
+        RulesetCondition removedActiveCondition,
         bool showGraphics = true)
     {
         Main.Logger.Log("ConditionRemovedForVisual");
@@ -885,8 +864,11 @@ internal static class DelegatesContext
         Main.Logger.Log("ImmuneToDamage");
     }
 
-    private static void DamageAltered(RulesetActor character, string damageType,
-        RuleDefinitions.DamageAffinityType damageAffinityType, bool silent)
+    private static void DamageAltered(
+        RulesetActor character,
+        string damageType,
+        RuleDefinitions.DamageAffinityType damageAffinityType,
+        bool silent)
     {
         Main.Logger.Log("DamageAltered");
     }
@@ -896,37 +878,70 @@ internal static class DelegatesContext
         Main.Logger.Log("ImmuneToCondition");
     }
 
-    private static void SaveRolled(RulesetActor character, string ablityScoreName, BaseDefinition sourceDefinition,
-        RuleDefinitions.RollOutcome outcome, int saveDC, int totalRoll, int saveRoll, int firstRoll, int secondRoll,
-        int rollModifier, List<RuleDefinitions.TrendInfo> modifierTrends,
-        List<RuleDefinitions.TrendInfo> advantageTrends, bool hasHitVisual)
+    private static void SaveRolled(
+        RulesetActor character,
+        string abilityScoreName,
+        BaseDefinition sourceDefinition,
+        RuleDefinitions.RollOutcome outcome,
+        int saveDc,
+        int totalRoll,
+        int saveRoll,
+        int firstRoll,
+        int secondRoll,
+        int rollModifier,
+        List<RuleDefinitions.TrendInfo> modifierTrends,
+        List<RuleDefinitions.TrendInfo> advantageTrends,
+        bool hasHitVisual)
     {
         Main.Logger.Log("SaveRolled");
     }
 
-    private static void DieRerolled(RulesetActor character, RuleDefinitions.DieType dieType, int previousValue,
-        int newValue, string localizationKey)
+    private static void DieRerolled(
+        RulesetActor character,
+        RuleDefinitions.DieType dieType,
+        int previousValue,
+        int newValue,
+        string localizationKey)
     {
         Main.Logger.Log("DieRerolled");
     }
 
-    private static void AttackInitiated(RulesetActor character, int firstRoll, int secondRoll, int modifier,
+    private static void AttackInitiated(
+        RulesetActor character,
+        int firstRoll,
+        int secondRoll,
+        int modifier,
         RuleDefinitions.AdvantageType advantageType)
     {
         Main.Logger.Log("AttackInitiated");
     }
 
-    private static void AttackRolled(RulesetActor character, RulesetActor target, BaseDefinition attackMethod,
-        RuleDefinitions.RollOutcome outcome, int attackRoll, int rawRoll, int modifier,
-        List<RuleDefinitions.TrendInfo> toHitTrends, List<RuleDefinitions.TrendInfo> advantageTrends,
+    private static void AttackRolled(
+        RulesetActor character,
+        RulesetActor target,
+        BaseDefinition attackMethod,
+        RuleDefinitions.RollOutcome outcome,
+        int attackRoll,
+        int rawRoll,
+        int modifier,
+        List<RuleDefinitions.TrendInfo> toHitTrends,
+        List<RuleDefinitions.TrendInfo> advantageTrends,
         bool opportunity = false)
     {
         Main.Logger.Log("AttackRolled");
     }
 
-    private static void IncomingAttackRolled(RulesetActor character, RulesetActor target, BaseDefinition attackMethod,
-        bool rangeAttack, RuleDefinitions.RollOutcome outcome, int attackRoll, int rawRoll, int modifier,
-        List<RuleDefinitions.TrendInfo> toHitTrends, List<RuleDefinitions.TrendInfo> advantageTrends,
+    private static void IncomingAttackRolled(
+        RulesetActor character,
+        RulesetActor target,
+        BaseDefinition attackMethod,
+        bool rangeAttack,
+        RuleDefinitions.RollOutcome outcome,
+        int attackRoll,
+        int rawRoll,
+        int modifier,
+        List<RuleDefinitions.TrendInfo> toHitTrends,
+        List<RuleDefinitions.TrendInfo> advantageTrends,
         bool opportunity = false)
     {
         Main.Logger.Log("IncomingAttackRolled");
@@ -952,13 +967,18 @@ internal static class DelegatesContext
         Main.Logger.Log("HealingFormsTriggered");
     }
 
-    private static void IncomingDamageNotified(RulesetActor character, RuleDefinitions.EffectSourceType damageType,
+    private static void IncomingDamageNotified(
+        RulesetActor character,
+        RuleDefinitions.EffectSourceType damageType,
         BaseDefinition attackVectorDefinition)
     {
         Main.Logger.Log("IncomingDamageNotified");
     }
 
-    private static void AbilityScoreIncreased(RulesetActor character, string abilityScore, int valueIncrease,
+    private static void AbilityScoreIncreased(
+        RulesetActor character,
+        string abilityScore,
+        int valueIncrease,
         int maxIncrease)
     {
         Main.Logger.Log("AbilityScoreIncreased");
@@ -974,30 +994,44 @@ internal static class DelegatesContext
         Main.Logger.Log("DamageReduced");
     }
 
-    private static void ReplacedAbilityScoreForSave(RulesetActor saver, FeatureDefinition feature,
-        string originalAbilityScore, string replacedAbilityScore)
+    private static void ReplacedAbilityScoreForSave(
+        RulesetActor saver,
+        FeatureDefinition feature,
+        string originalAbilityScore,
+        string replacedAbilityScore)
     {
         Main.Logger.Log("ReplacedAbilityScoreForSave");
     }
 
-    private static void AdditionalSaveDieRolled(RulesetActor character, RuleDefinitions.TrendInfo trendInfo)
+    private static void AdditionalSaveDieRolled(
+        RulesetActor character,
+        RuleDefinitions.TrendInfo trendInfo)
     {
         Main.Logger.Log("AdditionalSaveDieRolled");
     }
 
-    private static void DamageReceived(RulesetActor target, int damage, string damageType, ulong sourceGuid,
+    private static void DamageReceived(
+        RulesetActor target,
+        int damage,
+        string damageType,
+        ulong sourceGuid,
         RollInfo rollInfo)
     {
         Main.Logger.Log("DamageReceived");
     }
 
-    private static void AlterationInflicted(RulesetActor source, RulesetActor target,
+    private static void AlterationInflicted(
+        RulesetActor source,
+        RulesetActor target,
         AlterationForm.Type alterationType)
     {
         Main.Logger.Log("AlterationInflicted");
     }
 
-    private static void SpellDissipated(RulesetActor source, RulesetActor target, SpellDefinition spellDefinition,
+    private static void SpellDissipated(
+        RulesetActor source,
+        RulesetActor target,
+        SpellDefinition spellDefinition,
         bool success)
     {
         Main.Logger.Log("SpellDissipated");
