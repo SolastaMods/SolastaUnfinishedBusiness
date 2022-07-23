@@ -11,7 +11,8 @@ internal static class RulesetImplementationManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class IsSituationalContextValid
     {
-        internal static void Postfix(RulesetImplementationManagerLocation __instance, ref bool __result,
+        internal static void Postfix(
+            ref bool __result,
             RulesetImplementationDefinitions.SituationalContextParams contextParams)
         {
             __result = CustomSituationalContext.IsContextValid(contextParams, __result);

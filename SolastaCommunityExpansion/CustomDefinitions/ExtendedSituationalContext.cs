@@ -4,7 +4,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions;
 
 public enum ExtendedSituationalContext
 {
-    MainWeaponIsMelee = 1000
+    MainWeaponIsMelee = 1000,
+    WearingNoArmorOrLightArmorWithoutShield = 1001
 }
 
 public static class CustomSituationalContext
@@ -15,8 +16,14 @@ public static class CustomSituationalContext
 
         return (ExtendedSituationalContext)context switch
         {
-            ExtendedSituationalContext.MainWeaponIsMelee => CharacterValidators.MainHandIsMeleeWeapon(contextParams
-                .source),
+            ExtendedSituationalContext.MainWeaponIsMelee =>
+                CharacterValidators.MainHandIsMeleeWeapon(contextParams.source),
+
+            ExtendedSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
+                CharacterValidators.NoArmor(contextParams.source)
+                || (CharacterValidators.LightArmor(contextParams.source)
+                    && CharacterValidators.NoShield(contextParams.source)),
+
             _ => def
         };
     }

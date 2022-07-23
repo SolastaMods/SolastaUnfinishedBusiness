@@ -29,17 +29,21 @@ internal static class ZappaFeats
     {
 #if false
         var conditionBladeDance = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBlessed, "ConditionBladeDance", ZappaFeatNamespace)
-            .SetGuiPresentation("FeatBladeDance", Category.Feat)
+            .Create("ConditionBladeDance", ZappaFeatNamespace)
+            .SetGuiPresentation(
+                "FeatBladeDance", Category.Feat, ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .Configure(
                 RuleDefinitions.DurationType.Minute,
                 1,
                 false,
-                PowerFeatRaiseShield,
+                //PowerFeatRaiseShield,
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create(AttributeModifierBarbarianUnarmoredDefense,
-                        "AttributeModifierBladeDance", ZappaFeatNamespace)
+                    .Create("AttributeModifierBladeDance", ZappaFeatNamespace)
+                    .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
+                    .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus)
                     .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
+                    .SetSituationalContext((RuleDefinitions.SituationalContext)
+                        ExtendedSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
                     .AddToDB(),
                  FeatureDefinitionAbilityCheckAffinityBuilder
                      .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
@@ -51,6 +55,7 @@ internal static class ZappaFeats
                     .AddToDB(),
                 FeatureDefinitionMoveModes.MoveModeMove7)
             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+            .SetTerminateWhenRemoved(true)
             .SetSilent(Silent.None)
             .SetAllowMultipleInstances(false)
             .SetTerminateWhenRemoved(true)
