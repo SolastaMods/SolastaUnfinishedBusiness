@@ -3,4 +3,6 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
+- Fix ClothBringer class requirements
 - Fix Pact of Tome cantrips offering
+- Fix on-the-fly translations in official campaigns

@@ -12,7 +12,7 @@ internal static class FunctorRaiseBanterEvent_Execute
 {
     internal static void Prefix([NotNull] FunctorParametersDescription functorParameters)
     {
-        functorParameters.stringParameter = DungeonMakerContext.ReplaceVariable(functorParameters.stringParameter);
+        functorParameters.stringParameter = DungeonMakerContext.ReplaceVariable(Gui.Localize(functorParameters.stringParameter));
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {

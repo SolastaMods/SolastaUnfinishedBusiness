@@ -11,7 +11,8 @@ internal static class GameLocationScreenNarration_RefreshControlPanel
 {
     internal static void Prefix(ref string speechText)
     {
-        speechText = DungeonMakerContext.ReplaceVariable(speechText);
+        speechText = DungeonMakerContext.ReplaceVariable(
+            Gui.Localize(speechText));
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {

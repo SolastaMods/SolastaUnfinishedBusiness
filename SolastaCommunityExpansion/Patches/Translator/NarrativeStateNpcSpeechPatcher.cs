@@ -11,7 +11,7 @@ internal static class NarrativeStateNpcSpeech_RecordSpeechLine_Getter
 {
     internal static void Prefix(ref string textLine)
     {
-        textLine = DungeonMakerContext.ReplaceVariable(textLine);
+        textLine = DungeonMakerContext.ReplaceVariable(Gui.Localize(textLine));
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
