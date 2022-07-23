@@ -27,9 +27,11 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration
+[*][b][/b]: 
 [*][b]Esker[/b]: ruleset support, classes design, quality assurance
 [*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance
+[*][b][/b]: 
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]Narria[/b]: modKit creator, developer
@@ -151,6 +153,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]Moonlit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 [*][b]Arcane Gladiator[/b]: Arcane Gladiators are honorable protector which protecting their allies by compelling high profile duelling with them. They are also famous for the tactic of alpha striking their foes by big evocation spell followed by a swing with the heaviest weapon in their hand.      
+[*][b]None[/b]: 
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
@@ -158,6 +161,7 @@ All settings start disabled by default. On first start the mod will display an w
 [list=1]
 
 [*][b]Arcane Fighter[/b]: Channel your magic into weapon attacks.
+[*][b]Blade Dancer[/b]: In combat, a blade dancer uses a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Con Artist[/b]: Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
@@ -313,7 +317,7 @@ As a bonus action, you can telekinetically push or pull one creature you can see
 [*][b]Telekinetic [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet.
 [*][b]Telekinetic [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
-As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
+As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
 [*][b]Titan Fighting [FS][/b]: You gain a +2 to hit against creatures of Large size or bigger.
 [*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.

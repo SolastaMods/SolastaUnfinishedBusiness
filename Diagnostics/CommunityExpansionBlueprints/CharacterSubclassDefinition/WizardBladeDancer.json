@@ -3,42 +3,37 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DH_Blink:0ed881be-2754-55a1-ab0d-6a99da33ce04",
-      "level": 1
+      "featureDefinition": "Definition:PowerBladeDance:9b28dff7-c398-5373-a395-1940d42f83b6",
+      "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DH_RiftWalk:f282f345-ddc3-5d4f-9b05-4151caab7e26",
-      "level": 1
+      "featureDefinition": "Definition:PowerDanceOfDefense:d950e847-a9b4-5b0e-a4c8-fb830c744c14",
+      "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RiftWalkerSpellsMagicAffinity:3b445597-4773-5175-a546-7da0b2fed5fb",
-      "level": 1
+      "featureDefinition": "Definition:BladeDancerLightArmorProficiency:b3a4e8af-9fd7-5f97-aefc-5f81c5cfb603",
+      "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RiftWalkerMovementAffinityRestrainedImmunity:048c5a60-f9c8-57ad-bfba-b6c31aea6aab",
+      "featureDefinition": "Definition:BladeDancerMartialWeaponProficiency:4570a121-162c-57c0-90ba-91a8c735f1b8",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierFighterExtraAttack:082bfabcdf5bf1f4b843526c71143716",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RiftStrikeDamageAffinity:af5a8800-723d-5314-b580-779f7f2c2861",
-      "level": 6
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DH_FadeIntoTheVoid:62be4831-2c55-514b-ac3a-371ac7a7da1f",
+      "featureDefinition": "Definition:PowerDanceOfDefense:d950e847-a9b4-5b0e-a4c8-fb830c744c14",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DH_RiftControl:84fe358f-4719-5e86-99b1-58995b79ac5f",
-      "level": 10
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DHWardingBondBonusCantrip:859e6d65-6061-519f-b2fc-155daca9f481",
+      "featureDefinition": "Definition:FeatureDanceOfVictory:9aefff51-d375-50d9-aa8b-b9b96ed44b98",
       "level": 14
     }
   ],
@@ -47,12 +42,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&DHWarlockSubclassRiftWalkerTitle",
-    "description": "Subclass/&DHWarlockSubclassRiftWalkerDescription",
+    "title": "Subclass/&WizardBladeDancerTitle",
+    "description": "Subclass/&WizardBladeDancerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "41f600f15c0f69149b5d8c2cff9a44bb",
-      "m_SubObjectName": "Barbarian_Path_Magebane",
+      "m_AssetGUID": "4218d50fb51e07940a335e58e07e4e68",
+      "m_SubObjectName": "DomainMischief",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -68,7 +63,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3880ef69-b019-53b8-99ba-d1dd9b2c0a0a",
+  "guid": "c8dbeabe-4fb6-5a86-8366-c3fb2a4ae569",
   "contentPack": 9999,
-  "name": "DHWarlockSubclassRiftWalker"
+  "name": "WizardBladeDancer"
 }
