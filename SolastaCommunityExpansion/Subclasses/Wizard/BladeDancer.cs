@@ -23,8 +23,67 @@ internal sealed class BladeDancer : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("081d41b8-ed38-4d44-8af1-3879efc99aa1");
 
+    internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem item)
+    {
+        if (!hero.IsWearingShield() && !hero.IsWearingMediumArmor() && !hero.IsWearingHeavyArmor())
+        {
+            return;
+        }
+
+        var conditionBladeDance02 = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionBladeDance02");
+
+        hero.RemoveConditionOfCategory("11Effect", new RulesetCondition()
+        {
+            conditionDefinition = conditionBladeDance02
+        });
+    }
+
     internal BladeDancer()
     {
+        var lightArmorProficiency = FeatureDefinitionProficiencyBuilder
+            .Create("BladeDancerLightArmorProficiency", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(
+                RuleDefinitions.ProficiencyType.Armor, ArmorCategoryDefinitions.LightArmorCategory.Name)
+            .AddToDB();
+
+        var oneHandedMeleeWeaponProficiency = FeatureDefinitionFeatureSetBuilder
+            .Create("OneHandedMeleeWeaponProficiency", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetFeatureSet(
+                FeatureDefinitionProficiencyBuilder
+                    .Create("BladeDancerDaggerProficiency", SubclassNamespace)
+                    .SetGuiPresentation(WeaponTypeDefinitions.DaggerType.GuiPresentation)
+                    .SetProficiencies(
+                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.DaggerType.Name)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create("BladeDancerLongSwordProficiency", SubclassNamespace)
+                    .SetGuiPresentation(WeaponTypeDefinitions.LongswordType.GuiPresentation)
+                    .SetProficiencies(
+                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.LongswordType.Name)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create("BladeDancerRapierProficiency", SubclassNamespace)
+                    .SetGuiPresentation(WeaponTypeDefinitions.RapierType.GuiPresentation)
+                    .SetProficiencies(
+                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.RapierType.Name)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create("BladeDancerScimitarProficiency", SubclassNamespace)
+                    .SetGuiPresentation(WeaponTypeDefinitions.ScimitarType.GuiPresentation)
+                    .SetProficiencies(
+                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.ScimitarType.Name)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create("BladeDancerShortSwordProficiency", SubclassNamespace)
+                    .SetGuiPresentation(WeaponTypeDefinitions.ShortswordType.GuiPresentation)
+                    .SetProficiencies(
+                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.ShortswordType.Name)
+                    .AddToDB())
+            .AddToDB();
+
         var conditionBladeDance02 = ConditionDefinitionBuilder
             .Create("ConditionBladeDance02", SubclassNamespace)
             .SetGuiPresentation(
@@ -36,6 +95,7 @@ internal sealed class BladeDancer : AbstractSubclass
                 false,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierBladeDance", SubclassNamespace)
+                    .SetGuiPresentation(Category.Feature)
                     .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
                     .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus)
                     .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
@@ -71,7 +131,15 @@ internal sealed class BladeDancer : AbstractSubclass
             .SetGuiPresentation(
                 "PowerBladeDance", Category.Power,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
-            .AddFeatures(FeatureDefinitionAdditionalDamages.AdditionalDamageWeaponPlus1)
+            .AddFeatures(
+                FeatureDefinitionAttackModifierBuilder
+                    .Create("AttackModifierBladeDance", SubclassNamespace)
+                    .SetGuiPresentation("PowerDanceOfVictory", Category.Power)
+                    .Configure(
+                        RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus,
+                        0,
+                        AttributeDefinitions.Intelligence)
+                    .AddToDB())
             .AddToDB();
 
         var effectBladeDance02 = EffectDescriptionBuilder
@@ -128,10 +196,9 @@ internal sealed class BladeDancer : AbstractSubclass
             )
             .Build();
 
-        var bladeDancePower02 = FeatureDefinitionPowerBuilder
-            .Create("PowerBladeDance02", SubclassNamespace)
+        var powerBladeDance = FeatureDefinitionPowerBuilder
+            .Create("PowerBladeDance", SubclassNamespace)
             .SetGuiPresentation(
-                "PowerBladeDance",
                 Category.Power,
                 FeatureDefinitionPowers.PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
             .Configure(
@@ -158,10 +225,9 @@ internal sealed class BladeDancer : AbstractSubclass
                     }))
             .AddToDB();
 
-        var bladeDancePower10 = FeatureDefinitionPowerBuilder
-            .Create("PowerBladeDance10", SubclassNamespace)
+        var powerDanceOfDefense = FeatureDefinitionPowerBuilder
+            .Create("PowerDanceOfDefense", SubclassNamespace)
             .SetGuiPresentation(
-                "PowerBladeDance",
                 Category.Power,
                 FeatureDefinitionPowers.PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
             .Configure(
@@ -175,7 +241,7 @@ internal sealed class BladeDancer : AbstractSubclass
                 AttributeDefinitions.Intelligence,
                 effectBladeDance10,
                 true)
-            .SetOverriddenPower(bladeDancePower02)
+            .SetOverriddenPower(powerBladeDance)
             .SetCustomSubFeatures(
                 new PowerUseValidity(
                     (character) =>
@@ -189,10 +255,9 @@ internal sealed class BladeDancer : AbstractSubclass
                     }))
             .AddToDB();
 
-        var bladeDancePower14 = FeatureDefinitionPowerBuilder
-            .Create("PowerBladeDance14", SubclassNamespace)
+        var powerDanceOfVictory = FeatureDefinitionPowerBuilder
+            .Create("PowerDanceOfVictory", SubclassNamespace)
             .SetGuiPresentation(
-                "PowerBladeDance",
                 Category.Power,
                 FeatureDefinitionPowers.PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
             .Configure(
@@ -206,7 +271,7 @@ internal sealed class BladeDancer : AbstractSubclass
                 AttributeDefinitions.Intelligence,
                 effectBladeDance14,
                 true)
-            .SetOverriddenPower(bladeDancePower10)
+            .SetOverriddenPower(powerDanceOfDefense)
             .SetCustomSubFeatures(
                 new PowerUseValidity(
                     (character) =>
@@ -223,10 +288,10 @@ internal sealed class BladeDancer : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardBladeDancer", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(bladeDancePower02, 2)
+            .AddFeaturesAtLevel(2, lightArmorProficiency, oneHandedMeleeWeaponProficiency, powerBladeDance)
             .AddFeatureAtLevel(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack, 6) // TODO: allow cantrips as one of the attacks
-            .AddFeatureAtLevel(bladeDancePower10, 10)
-            .AddFeatureAtLevel(bladeDancePower14, 14)
+            .AddFeatureAtLevel(powerDanceOfDefense, 10)
+            .AddFeatureAtLevel(powerDanceOfVictory, 14)
             .AddToDB();
     }
 

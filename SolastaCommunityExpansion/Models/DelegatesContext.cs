@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomInterfaces;
+using SolastaCommunityExpansion.Subclasses.Wizard;
 using TA;
 
 namespace SolastaCommunityExpansion.Models;
@@ -154,7 +155,7 @@ internal static class DelegatesContext
                 continue;
             }
 
-            rulesetCharacterHero.ItemEquipedCallback += ItemEquiped;
+            rulesetCharacterHero.ItemEquipedCallback += ItemEquipped;
             rulesetCharacterHero.CharacterInventory.ItemEquiped += ItemEquiped;
             rulesetCharacterHero.CharacterInventory.ItemAltered += ItemAltered;
             rulesetCharacterHero.CharacterInventory.ItemUnequiped += ItemUnequiped;
@@ -281,7 +282,7 @@ internal static class DelegatesContext
                 continue;
             }
 
-            rulesetCharacterHero.ItemEquipedCallback -= ItemEquiped;
+            rulesetCharacterHero.ItemEquipedCallback -= ItemEquipped;
             rulesetCharacterHero.CharacterInventory.ItemEquiped -= ItemEquiped;
             rulesetCharacterHero.CharacterInventory.ItemAltered -= ItemAltered;
             rulesetCharacterHero.CharacterInventory.ItemUnequiped -= ItemUnequiped;
@@ -360,9 +361,11 @@ internal static class DelegatesContext
     // RulesetCharacterHero
     //
 
-    private static void ItemEquiped([NotNull] RulesetCharacterHero hero, RulesetItem item)
+    private static void ItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem item)
     {
         Main.Logger.Log($"{hero.Name} Item Equipped Hero");
+
+        BladeDancer.OnItemEquipped(hero, item);
     }
 
     //

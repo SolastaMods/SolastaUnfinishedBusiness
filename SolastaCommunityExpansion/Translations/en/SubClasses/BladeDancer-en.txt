@@ -1,4 +1,15 @@
-﻿Power/&PowerBladeDanceDescription=You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you don medium or heavy armor or a shield, or if you use two hands to make an attack with a weapon.
+﻿Feature/&AttributeModifierBladeDanceDescription=You gain a bonus to your AC equal to your Intelligence modifier
+Feature/&AttributeModifierBladeDanceTitle=Blade Dance
+Feature/&BladeDancerLightArmorProficiencyDescription=You gain proficiency with light armor.
+Feature/&BladeDancerLightArmorProficiencyTitle=Light Armor Proficiency
+Feature/&OneHandedMeleeWeaponProficiencyDescription=You gain proficiency with one type of one-handed melee weapon of your choice.
+Feature/&OneHandedMeleeWeaponProficiencyTitle=One-Handed Melee Weapon Proficiency
+Power/&PowerBladeDanceDescription=You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you do medium armor, heavy armor or a shield, or if you use two hands to make an attack with a weapon. You gain the following benefits:\n• You gain a bonus to your AC equal to your Intelligence modifier\n• Your walking speed increases by 10 feet.\n• You have advantage on Dexterity (Acrobatics) checks.\n• You have advantage on Constitution checks.\nYou can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.
 Power/&PowerBladeDanceTitle=Blade Dance
+Power/&PowerDanceOfDefenseDescription=You can direct your magic to absorb damage while your blade dance is active. When you take damage, you can use your reaction to expend one spell slot and reduce that damage to you by an amount equal to five times the spell slot's level.
+Power/&PowerDanceOfDefenseTitle=Dance of Defense
+Power/&PowerDanceOfVictoryDescription=You can add your Intelligence modifier to the damage of your melee weapon attacks while your blade dance is active.
+Power/&PowerDanceOfVictoryTitle=Dance of Victory
 Subclass/&WizardBladeDancerDescription=In combat, a blade dancer uses a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 Subclass/&WizardBladeDancerTitle=Blade Dancer
+
