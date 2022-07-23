@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI.WebControls;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
@@ -23,18 +24,21 @@ internal sealed class BladeDancer : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("081d41b8-ed38-4d44-8af1-3879efc99aa1");
 
-    internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem item)
+    private static ConditionDefinition ConditionBladeDance { get; set; }
+
+    internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem _)
     {
-        if (!hero.IsWearingShield() && !hero.IsWearingMediumArmor() && !hero.IsWearingHeavyArmor())
+        if (!hero.IsWearingShield()
+            && !hero.IsWearingMediumArmor()
+            && !hero.IsWearingHeavyArmor()
+            && !hero.IsWieldingTwoHandedWeapon())
         {
             return;
         }
 
-        var conditionBladeDance02 = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionBladeDance02");
-
         hero.RemoveConditionOfCategory("11Effect", new RulesetCondition()
         {
-            conditionDefinition = conditionBladeDance02
+            conditionDefinition = ConditionBladeDance
         });
     }
 
@@ -47,45 +51,15 @@ internal sealed class BladeDancer : AbstractSubclass
                 RuleDefinitions.ProficiencyType.Armor, ArmorCategoryDefinitions.LightArmorCategory.Name)
             .AddToDB();
 
-        var oneHandedMeleeWeaponProficiency = FeatureDefinitionFeatureSetBuilder
-            .Create("OneHandedMeleeWeaponProficiency", SubclassNamespace)
+        var martialWeaponProficiency = FeatureDefinitionProficiencyBuilder
+            .Create("BladeDancerMartialWeaponProficiency", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetFeatureSet(
-                FeatureDefinitionProficiencyBuilder
-                    .Create("BladeDancerDaggerProficiency", SubclassNamespace)
-                    .SetGuiPresentation(WeaponTypeDefinitions.DaggerType.GuiPresentation)
-                    .SetProficiencies(
-                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.DaggerType.Name)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create("BladeDancerLongSwordProficiency", SubclassNamespace)
-                    .SetGuiPresentation(WeaponTypeDefinitions.LongswordType.GuiPresentation)
-                    .SetProficiencies(
-                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.LongswordType.Name)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create("BladeDancerRapierProficiency", SubclassNamespace)
-                    .SetGuiPresentation(WeaponTypeDefinitions.RapierType.GuiPresentation)
-                    .SetProficiencies(
-                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.RapierType.Name)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create("BladeDancerScimitarProficiency", SubclassNamespace)
-                    .SetGuiPresentation(WeaponTypeDefinitions.ScimitarType.GuiPresentation)
-                    .SetProficiencies(
-                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.ScimitarType.Name)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create("BladeDancerShortSwordProficiency", SubclassNamespace)
-                    .SetGuiPresentation(WeaponTypeDefinitions.ShortswordType.GuiPresentation)
-                    .SetProficiencies(
-                        RuleDefinitions.ProficiencyType.Weapon, WeaponTypeDefinitions.ShortswordType.Name)
-                    .AddToDB())
+            .SetProficiencies(
+                RuleDefinitions.ProficiencyType.Weapon, WeaponCategoryDefinitions.MartialWeaponCategory.Name)
             .AddToDB();
 
-        var conditionBladeDance02 = ConditionDefinitionBuilder
-            .Create("ConditionBladeDance02", SubclassNamespace)
+        ConditionBladeDance = ConditionDefinitionBuilder
+            .Create("ConditionBladeDance", SubclassNamespace)
             .SetGuiPresentation(
                 "PowerBladeDance", Category.Power,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
@@ -106,6 +80,7 @@ internal sealed class BladeDancer : AbstractSubclass
                      .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
                          "AbilityCheckBladeDanceAcrobatics", SubclassNamespace)
                      .AddToDB(),
+                // TODO: Make this add INT bonus to concentration checks
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
                         "AbilityCheckBladeDanceConstitution", SubclassNamespace)
@@ -118,31 +93,7 @@ internal sealed class BladeDancer : AbstractSubclass
             .SetTerminateWhenRemoved(true)
             .AddToDB();
 
-        var conditionBladeDance10 = ConditionDefinitionBuilder
-            .Create(conditionBladeDance02, "ConditionBladeDance10", SubclassNamespace)
-            .SetGuiPresentation(
-                "PowerBladeDance", Category.Power,
-                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
-            .AddFeatures(FeatureDefinitionPowers.PowerFeatRaiseShield)
-            .AddToDB();
-
-        var conditionBladeDance14 = ConditionDefinitionBuilder
-            .Create(conditionBladeDance10, "ConditionBladeDance14", SubclassNamespace)
-            .SetGuiPresentation(
-                "PowerBladeDance", Category.Power,
-                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
-            .AddFeatures(
-                FeatureDefinitionAttackModifierBuilder
-                    .Create("AttackModifierBladeDance", SubclassNamespace)
-                    .SetGuiPresentation("PowerDanceOfVictory", Category.Power)
-                    .Configure(
-                        RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus,
-                        0,
-                        AttributeDefinitions.Intelligence)
-                    .AddToDB())
-            .AddToDB();
-
-        var effectBladeDance02 = EffectDescriptionBuilder
+        var effectBladeDance = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(
                 RuleDefinitions.Side.Ally,
@@ -155,43 +106,7 @@ internal sealed class BladeDancer : AbstractSubclass
             .AddEffectForm(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(conditionBladeDance02, ConditionForm.ConditionOperation.Add)
-                    .Build()
-            )
-            .Build();
-
-        var effectBladeDance10 = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(
-                RuleDefinitions.Side.Ally,
-                RuleDefinitions.RangeType.Self, 1,
-                RuleDefinitions.TargetType.Self)
-            .SetCreatedByCharacter()
-            .SetDurationData(
-                RuleDefinitions.DurationType.Minute, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionBladeDance10, ConditionForm.ConditionOperation.Add)
-                    .Build()
-            )
-            .Build();
-
-        var effectBladeDance14 = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(
-                RuleDefinitions.Side.Ally,
-                RuleDefinitions.RangeType.Self, 1,
-                RuleDefinitions.TargetType.Self)
-            .SetCreatedByCharacter()
-            .SetDurationData(
-                RuleDefinitions.DurationType.Minute, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionBladeDance14, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(ConditionBladeDance, ConditionForm.ConditionOperation.Add)
                     .Build()
             )
             .Build();
@@ -210,88 +125,76 @@ internal sealed class BladeDancer : AbstractSubclass
                 false,
                 false,
                 AttributeDefinitions.Intelligence,
-                effectBladeDance02,
+                effectBladeDance,
                 true)
             .SetCustomSubFeatures(
-                new PowerUseValidity(
-                    (character) =>
-                    {
-                        if (character is not RulesetCharacterHero hero)
-                        {
-                            return false;
-                        }
-
-                        return !hero.IsWearingMediumArmor() && !hero.IsWearingHeavyArmor() && !hero.IsWearingShield();
-                    }))
+                new PowerUseValidity(character =>
+                    !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor() && !character.IsWearingShield()))
             .AddToDB();
 
+        // TODO: Not sure why this isn't triggering
         var powerDanceOfDefense = FeatureDefinitionPowerBuilder
             .Create("PowerDanceOfDefense", SubclassNamespace)
-            .SetGuiPresentation(
-                Category.Power,
-                FeatureDefinitionPowers.PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Power)
             .Configure(
-                0, RuleDefinitions.UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.BonusAction,
                 1,
-                RuleDefinitions.RechargeRate.LongRest,
+                RuleDefinitions.UsesDetermination.Fixed,
+                AttributeDefinitions.Intelligence,
+                RuleDefinitions.ActivationTime.Reaction,
+                1,
+                RuleDefinitions.RechargeRate.AtWill,
                 false,
                 false,
                 AttributeDefinitions.Intelligence,
-                effectBladeDance10,
-                true)
-            .SetOverriddenPower(powerBladeDance)
+                new EffectDescriptionBuilder()
+                    .SetTargetingData(
+                        RuleDefinitions.Side.Ally,
+                        RuleDefinitions.RangeType.Touch,
+                        1,
+                        RuleDefinitions.TargetType.Self
+                    )
+                    .SetEffectAdvancement(
+                        RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1
+                    )
+                    .SetEffectForms(new EffectFormBuilder()
+                        .SetHealingForm(
+                            RuleDefinitions.HealingComputation.Dice,
+                            0,
+                            RuleDefinitions.DieType.D1,
+                            5,
+                            false,
+                            RuleDefinitions.HealingCap.MaximumHitPoints
+                        )
+                        .Build()
+                    )
+                    .Build()
+            )
             .SetCustomSubFeatures(
-                new PowerUseValidity(
-                    (character) =>
-                    {
-                        if (character is not RulesetCharacterHero hero)
-                        {
-                            return false;
-                        }
-
-                        return !hero.IsWearingMediumArmor() && !hero.IsWearingHeavyArmor() && !hero.IsWearingShield();
-                    }))
+                new PowerUseValidity(character =>
+                        character.HasConditionOfCategoryAndType("11Effect", "ConditionBladeDance")))
             .AddToDB();
 
-        var powerDanceOfVictory = FeatureDefinitionPowerBuilder
-            .Create("PowerDanceOfVictory", SubclassNamespace)
-            .SetGuiPresentation(
-                Category.Power,
-                FeatureDefinitionPowers.PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
+        var featureDanceOfVictory = FeatureDefinitionAttackModifierBuilder
+            .Create("FeatureDanceOfVictory", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature)
             .Configure(
-                0, RuleDefinitions.UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.BonusAction,
-                1,
-                RuleDefinitions.RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Intelligence,
-                effectBladeDance14,
-                true)
-            .SetOverriddenPower(powerDanceOfDefense)
+                RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus,
+                0,
+                AttributeDefinitions.Intelligence)
             .SetCustomSubFeatures(
-                new PowerUseValidity(
-                    (character) =>
-                    {
-                        if (character is not RulesetCharacterHero hero)
-                        {
-                            return false;
-                        }
-
-                        return !hero.IsWearingMediumArmor() && !hero.IsWearingHeavyArmor() && !hero.IsWearingShield();
-                    }))
+                new FeatureApplicationValidator(character =>
+                    character.HasConditionOfCategoryAndType("11Effect", "ConditionBladeDance")))
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardBladeDancer", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, lightArmorProficiency, oneHandedMeleeWeaponProficiency, powerBladeDance)
-            .AddFeatureAtLevel(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack, 6) // TODO: allow cantrips as one of the attacks
+            // TODO: remove powerDanceOfDefense after tests
+            .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, powerBladeDance, powerDanceOfDefense)
+            // TODO: allow cantrips as one of the attacks
+            .AddFeatureAtLevel(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack, 6)
             .AddFeatureAtLevel(powerDanceOfDefense, 10)
-            .AddFeatureAtLevel(powerDanceOfVictory, 14)
+            .AddFeatureAtLevel(featureDanceOfVictory, 14)
             .AddToDB();
     }
 

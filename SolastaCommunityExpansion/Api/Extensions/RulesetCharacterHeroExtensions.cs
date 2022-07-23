@@ -93,4 +93,16 @@ public static class RulesetCharacterHeroExtensions
             .GetElement(element.ArmorCategory).IsPhysicalArmor
                && element.ArmorCategory == EquipmentDefinitions.MediumArmorCategory;
     }
+
+    public static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacterHero hero)
+    {
+        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+
+        if (equipedItem != null && equipedItem.ItemDefinition.IsWeapon)
+        {
+            return equipedItem.ItemDefinition.activeTags.Contains("TwoHanded");
+        }
+
+        return false;
+    }
 }
