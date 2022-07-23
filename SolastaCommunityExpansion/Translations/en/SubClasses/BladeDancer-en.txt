@@ -1,0 +1,4 @@
+﻿Power/&PowerBladeDanceDescription=You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you don medium or heavy armor or a shield, or if you use two hands to make an attack with a weapon.
+Power/&PowerBladeDanceTitle=Blade Dance
+Subclass/&WizardBladeDancerDescription=In combat, a blade dancer uses a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
+Subclass/&WizardBladeDancerTitle=Blade Dancer
