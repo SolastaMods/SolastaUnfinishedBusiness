@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 
@@ -489,6 +490,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                 }
 
                 CharacterActionParams reactionParams = null;
+
                 if (validUses)
                 {
                     // Check required properties if needed
@@ -730,86 +732,88 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                 }
 
                 //Wrapped in no-formatting to simplify merges/changes from TA ------ START --------
-                    // @formatter:off
-                    bool ValidateProperty()
+                // @formatter:off
+                bool ValidateProperty()
+                {
+                    // ReSharper disable once VariableHidesOuterVariable
+                    // Check required properties if needed
+                    var validProperty = true;
+
+                    if (/*validTrigger &&*/ provider.RequiredProperty != RuleDefinitions.AdditionalDamageRequiredProperty.None && attackMode != null)
                     {
-                        // ReSharper disable once VariableHidesOuterVariable
-                        // Check required properties if needed
-                        var validProperty = true;
-                        if (/*validTrigger &&*/ provider.RequiredProperty != RuleDefinitions.AdditionalDamageRequiredProperty.None && attackMode != null)
+                        var finesse = false;
+                        var melee = false;
+                        var range = false;
+                        var itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
+                        if (itemDefinition != null
+                            && itemDefinition.IsWeapon)
                         {
-                            var finesse = false;
-                            var melee = false;
-                            var range = false;
-                            var itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
-                            if (itemDefinition != null
-                                && itemDefinition.IsWeapon)
-                            {
-                                var weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
-                                if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Melee && !rangedAttack)
-                                {
-                                    melee = true;
-
-                                    if (itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagFinesse))
-                                    {
-                                        finesse = true;
-                                    }
-                                }
-                                else
-                                {
-                                    range = true;
-                                }
-                            }
-                            else if (attacker.RulesetCharacter.IsSubstitute)
+                            var weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
+                            if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Melee && !rangedAttack)
                             {
                                 melee = true;
-                            }
-                            //CUSTOM CODE ---- START
-                            //Count shield bashing as melee
-                            if (!melee && ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
-                            {
-                                melee = true;
-                            }
-                            //CUSTOM CODE ---- END
 
-                            if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.FinesseOrRangeWeapon)
-                            {
-                                if (!finesse && !range)
+                                if (itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagFinesse))
                                 {
-                                    validProperty = false;
-                                }
-                            }
-                            else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.RangeWeapon)
-                            {
-                                if (!range)
-                                {
-                                    validProperty = false;
-                                }
-                            }
-                            else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
-                            {
-                                if (!melee)
-                                {
-                                    validProperty = false;
-                                }
-                            }
-                            else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeStrengthWeapon)
-                            {
-                                if (!melee || attackMode.AbilityScore != AttributeDefinitions.Strength)
-                                {
-                                    validProperty = false;
+                                    finesse = true;
                                 }
                             }
                             else
                             {
-                                Trace.LogAssertion($"RequiredProperty {provider.RequiredProperty} not implemented for {provider.TriggerCondition}.");
+                                range = true;
                             }
                         }
+                        else if (attacker.RulesetCharacter.IsSubstitute)
+                        {
+                            melee = true;
+                        }
+                        //CUSTOM CODE ---- START
+                        //Count shield bashing as melee
+                        if (!melee && ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
+                        {
+                            melee = true;
+                        }
+                        //CUSTOM CODE ---- END
 
-                        return validProperty;
+                        if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.FinesseOrRangeWeapon)
+                        {
+                            if (!finesse && !range)
+                            {
+                                validProperty = false;
+                            }
+                        }
+                        else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.RangeWeapon)
+                        {
+                            if (!range)
+                            {
+                                validProperty = false;
+                            }
+                        }
+                        else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
+                        {
+                            if (!melee)
+                            {
+                                validProperty = false;
+                            }
+                        }
+                        else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeStrengthWeapon)
+                        {
+                            if (!melee || attackMode.AbilityScore != AttributeDefinitions.Strength)
+                            {
+                                validProperty = false;
+                            }
+                        }
+                        else
+                        {
+                            Trace.LogAssertion($"RequiredProperty {provider.RequiredProperty} not implemented for {provider.TriggerCondition}.");
+                        }
                     }
+
+                    return validProperty;
+                }
                 // @formatter:on
                 //Wrapped in no-formatting to simplify merges/changes from TA ------ END --------
+
                 if (validTrigger && validProperty)
                 {
                     __instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms,
@@ -908,6 +912,89 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                 actionService.ReactToDeflectMissile(reactionParams);
 
                 yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
+            }
+
+            //
+            // TODO: improve below and make it generic
+            //
+
+            var damageEffect = actualEffectForms.Find(x => x.DamageForm != null);
+
+            // Can I reduce the damage consuming slots? (i.e: Blade Dancer)
+            if (damageEffect != null
+                && defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
+                ActionDefinitions.ActionStatus.Available
+                && defender.RulesetCharacter is RulesetCharacterHero heroDefender)
+            {
+                var reduceDamageFeatures = new List<FeatureDefinition>();
+
+                heroDefender.EnumerateFeaturesToBrowse<FeatureDefinitionReduceDamage>(reduceDamageFeatures);
+
+                foreach (var featureDefinition in reduceDamageFeatures)
+                {
+                    var featureDefinitionReduceDamage = (FeatureDefinitionReduceDamage)featureDefinition;
+                    var classDefinition = heroDefender.FindClassHoldingFeature(featureDefinitionReduceDamage);
+                    RulesetSpellRepertoire selectedSpellRepertoire = null;
+
+                    foreach (var spellRepertoire in heroDefender.SpellRepertoires)
+                    {
+                        if (spellRepertoire.SpellCastingClass != classDefinition)
+                        {
+                            continue;
+                        }
+
+                        var atLeastOneSpellSlotAvailable = false;
+
+                        for (var spellLevel = 1;
+                             spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                             spellLevel++)
+                        {
+                            spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out _);
+
+                            if (remaining <= 0)
+                            {
+                                continue;
+                            }
+
+                            selectedSpellRepertoire = spellRepertoire;
+                            atLeastOneSpellSlotAvailable = true;
+                            break;
+                        }
+
+                        if (!atLeastOneSpellSlotAvailable)
+                        {
+                            continue;
+                        }
+
+                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                        var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                        var reactionParams =
+                            new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+                            {
+                                IntParameter = 1,
+                                StringParameter = featureDefinitionReduceDamage.NotificationTag,
+                                SpellRepertoire = selectedSpellRepertoire
+                            };
+
+                        actionService.ReactToSpendSpellSlot(reactionParams);
+                        yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
+
+                        if (!reactionParams.ReactionValidated)
+                        {
+                            continue;
+                        }
+
+                        var slot = reactionParams.IntParameter;
+                        var totalReducedDamage = featureDefinitionReduceDamage.ReducedDamage * slot;
+
+                        damageEffect.DamageForm.bonusDamage += totalReducedDamage;
+                        damageEffect.DamageForm.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(
+                            totalReducedDamage,
+                            featureDefinitionReduceDamage.SourceType,
+                            defender.Name,
+                            defender));
+                    }
+                }
             }
 
             // Can I modify the damage?

@@ -1,46 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI.WebControls;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Properties;
-using SolastaCommunityExpansion.Utils;
-using UnityEngine.AddressableAssets;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterDefinitions;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
 internal sealed class BladeDancer : AbstractSubclass
 {
     private static readonly Guid SubclassNamespace = new("081d41b8-ed38-4d44-8af1-3879efc99aa1");
-
-    private static ConditionDefinition ConditionBladeDance { get; set; }
-
-    internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem _)
-    {
-        if (!hero.IsWearingShield()
-            && !hero.IsWearingMediumArmor()
-            && !hero.IsWearingHeavyArmor()
-            && !hero.IsWieldingTwoHandedWeapon())
-        {
-            return;
-        }
-
-        hero.RemoveConditionOfCategory("11Effect", new RulesetCondition()
-        {
-            conditionDefinition = ConditionBladeDance
-        });
-    }
 
     internal BladeDancer()
     {
@@ -67,25 +39,29 @@ internal sealed class BladeDancer : AbstractSubclass
                 RuleDefinitions.DurationType.Minute,
                 1,
                 false,
+                FeatureDefinitionMoveModes.MoveModeMove7,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierBladeDance", SubclassNamespace)
                     .SetGuiPresentation(Category.Feature)
                     .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
-                    .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus)
+                    .SetModifierType2(
+                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus)
                     .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
                     .SetSituationalContext((RuleDefinitions.SituationalContext)
                         ExtendedSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
                     .AddToDB(),
-                 FeatureDefinitionAbilityCheckAffinityBuilder
-                     .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
-                         "AbilityCheckBladeDanceAcrobatics", SubclassNamespace)
-                     .AddToDB(),
-                // TODO: Make this add INT bonus to concentration checks
                 FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
-                        "AbilityCheckBladeDanceConstitution", SubclassNamespace)
+                    .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
+                        "AbilityCheckBladeDanceAcrobatics", SubclassNamespace)
                     .AddToDB(),
-                FeatureDefinitionMoveModes.MoveModeMove7)
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create("AbilityCheckBladeDanceConstitution", SubclassNamespace)
+                    .BuildAndSetAffinityGroups(
+                        RuleDefinitions.CharacterAbilityCheckAffinity.Advantage,
+                        RuleDefinitions.DieType.D1,
+                        4,
+                        (AttributeDefinitions.Constitution, string.Empty))
+                    .AddToDB())
             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
             .SetTerminateWhenRemoved(true)
             .SetSilent(Silent.None)
@@ -129,49 +105,20 @@ internal sealed class BladeDancer : AbstractSubclass
                 true)
             .SetCustomSubFeatures(
                 new PowerUseValidity(character =>
-                    !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor() && !character.IsWearingShield()))
+                    !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor() &&
+                    !character.IsWearingShield()))
             .AddToDB();
 
-        // TODO: Not sure why this isn't triggering
-        var powerDanceOfDefense = FeatureDefinitionPowerBuilder
-            .Create("PowerDanceOfDefense", SubclassNamespace)
-            .SetGuiPresentation(Category.Power)
-            .Configure(
-                1,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.Reaction,
-                1,
-                RuleDefinitions.RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Intelligence,
-                new EffectDescriptionBuilder()
-                    .SetTargetingData(
-                        RuleDefinitions.Side.Ally,
-                        RuleDefinitions.RangeType.Touch,
-                        1,
-                        RuleDefinitions.TargetType.Self
-                    )
-                    .SetEffectAdvancement(
-                        RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1
-                    )
-                    .SetEffectForms(new EffectFormBuilder()
-                        .SetHealingForm(
-                            RuleDefinitions.HealingComputation.Dice,
-                            0,
-                            RuleDefinitions.DieType.D1,
-                            5,
-                            false,
-                            RuleDefinitions.HealingCap.MaximumHitPoints
-                        )
-                        .Build()
-                    )
-                    .Build()
-            )
+        var featureDanceOfDefense = FeatureDefinitionReduceDamageBuilder
+            .Create("FeatureDanceOfDefense", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("DanceOfDefense")
+            .SetReducedDamage(5)
+            .SetSourceType(RuleDefinitions.FeatureSourceType.CharacterFeature)
+            .SetSourceName("FeatureDanceOfDefense")
             .SetCustomSubFeatures(
-                new PowerUseValidity(character =>
-                        character.HasConditionOfCategoryAndType("11Effect", "ConditionBladeDance")))
+                new FeatureApplicationValidator(character =>
+                    character.HasConditionOfCategoryAndType("11Effect", "ConditionBladeDance")))
             .AddToDB();
 
         var featureDanceOfVictory = FeatureDefinitionAttackModifierBuilder
@@ -190,15 +137,31 @@ internal sealed class BladeDancer : AbstractSubclass
             .Create("WizardBladeDancer", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
             // TODO: remove powerDanceOfDefense after tests
-            .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, powerBladeDance, powerDanceOfDefense)
+            .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, powerBladeDance,
+                featureDanceOfDefense)
             // TODO: allow cantrips as one of the attacks
             .AddFeatureAtLevel(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack, 6)
-            .AddFeatureAtLevel(powerDanceOfDefense, 10)
+            .AddFeatureAtLevel(featureDanceOfDefense, 10)
             .AddFeatureAtLevel(featureDanceOfVictory, 14)
             .AddToDB();
     }
 
+    private static ConditionDefinition ConditionBladeDance { get; set; }
+
     private static CharacterSubclassDefinition Subclass { get; set; }
+
+    internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem _)
+    {
+        if (!hero.IsWearingShield()
+            && !hero.IsWearingMediumArmor()
+            && !hero.IsWearingHeavyArmor()
+            && !hero.IsWieldingTwoHandedWeapon())
+        {
+            return;
+        }
+
+        hero.RemoveConditionOfCategory("11Effect", new RulesetCondition {conditionDefinition = ConditionBladeDance});
+    }
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
