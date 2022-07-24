@@ -3,7 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Add Wizard Blade Dancer subclass
-- Fix Cloth Bringer class requirements
-- Fix Pact of Tome cantrips offering
-- Fix on-the-fly translations in official campaigns
+- Fix Blade Dancer log dumping
