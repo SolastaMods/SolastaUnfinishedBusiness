@@ -59,4 +59,51 @@ public static class RulesetCharacterHeroExtensions
 
         return list;
     }
+
+    public static bool IsWearingLightArmor([NotNull] this RulesetCharacterHero hero)
+    {
+        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+
+        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
+        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+
+        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>()
+                   .GetElement(element.ArmorCategory).IsPhysicalArmor
+               && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
+    }
+
+    public static bool IsWearingMediumArmor([NotNull] this RulesetCharacterHero hero)
+    {
+        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+
+        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
+        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+
+        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>()
+                   .GetElement(element.ArmorCategory).IsPhysicalArmor
+               && element.ArmorCategory == EquipmentDefinitions.MediumArmorCategory;
+    }
+
+    public static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacterHero hero)
+    {
+        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+            .EquipedItem;
+
+        if (equipedItem != null && equipedItem.ItemDefinition.IsWeapon)
+        {
+            return equipedItem.ItemDefinition.activeTags.Contains("TwoHanded");
+        }
+
+        return false;
+    }
 }

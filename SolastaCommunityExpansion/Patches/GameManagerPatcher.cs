@@ -63,9 +63,6 @@ internal static class GameManager_BindPostDatabase
         RespecContext.Load();
         ShieldStrikeContext.Load();
 
-        // Item Options must be loaded after Item Crafting
-        ItemOptionsContext.Load();
-
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();
 
@@ -89,6 +86,9 @@ internal static class GameManager_BindPostDatabase
 
         // Load SRD and House rules last in case they change previous blueprints
         SrdAndHouseRulesContext.Load();
+
+        // Item Options must be loaded after Item Crafting
+        ItemOptionsContext.Load();
 
         ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
         {

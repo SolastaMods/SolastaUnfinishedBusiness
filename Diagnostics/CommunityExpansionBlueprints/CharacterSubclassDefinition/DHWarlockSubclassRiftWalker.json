@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DH_RiftStrike:cb82cab9-4db1-58a7-992c-8883ca356539",
+      "featureDefinition": "Definition:RiftStrikeDamageAffinity:af5a8800-723d-5314-b580-779f7f2c2861",
       "level": 6
     },
     {

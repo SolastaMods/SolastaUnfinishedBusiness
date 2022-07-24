@@ -55,4 +55,3 @@ internal static class NewAdventurePanel_OnEndHide
         Global.IsSettingUpMultiplayer = false;
     }
 }
-

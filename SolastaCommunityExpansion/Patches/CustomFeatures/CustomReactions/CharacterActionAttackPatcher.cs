@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 
@@ -10,9 +11,9 @@ internal static class CharacterActionAttackPatcher
 {
     [HarmonyPatch(typeof(CharacterActionAttack), "ExecuteImpl")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ExecuteImpl
+    internal static class CharacterActionAttack_ExecuteImpl
     {
-        internal static IEnumerator Postfix(IEnumerator values, CharacterActionAttack __instance)
+        internal static IEnumerator Postfix([NotNull] IEnumerator values, [NotNull] CharacterActionAttack __instance)
         {
             var actingCharacter = __instance.ActingCharacter;
             var character = actingCharacter.RulesetCharacter;
@@ -25,9 +26,15 @@ internal static class CharacterActionAttackPatcher
 
             var features = character?.GetSubFeaturesByType<IReactToAttackFinished>();
 
-            void AttackImpactStartHandler(GameLocationCharacter _, GameLocationCharacter _defender,
-                RuleDefinitions.RollOutcome _outcome, CharacterActionParams _params, RulesetAttackMode _mode,
-                ActionModifier _modifier)
+            // ReSharper disable InconsistentNaming
+            void AttackImpactStartHandler(
+                    GameLocationCharacter _,
+                    GameLocationCharacter _defender,
+                    RuleDefinitions.RollOutcome _outcome,
+                    CharacterActionParams _params,
+                    RulesetAttackMode _mode,
+                    ActionModifier _modifier)
+                // ReSharper enable InconsistentNaming
             {
                 found = true;
                 defender = _defender;
@@ -56,8 +63,8 @@ internal static class CharacterActionAttackPatcher
 
             foreach (var feature in features)
             {
-                yield return feature.HandleReactToAttackFinished(actingCharacter, defender, outcome, actionParams,
-                    mode, modifier);
+                yield return feature.HandleReactToAttackFinished(
+                    actingCharacter, defender, outcome, actionParams, mode, modifier);
             }
         }
     }

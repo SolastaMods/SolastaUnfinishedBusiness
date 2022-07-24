@@ -631,7 +631,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 
     public MetamagicOptionDefinition MetamagicOption { get; set; }
 
-    public void ApplyFeature(RulesetCharacterHero hero, string tag)
+    public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
     {
         if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
         {

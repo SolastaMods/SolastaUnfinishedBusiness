@@ -11,7 +11,7 @@ public static class WarlockSubclassRiftWalkerPatron
     private static FeatureDefinitionPower _riftWalk;
     private static FeatureDefinitionDamageAffinity _fadeIntoTheVoid;
     private static FeatureDefinitionPower _riftBlink;
-    private static FeatureDefinitionPower _riftStrike;
+    private static FeatureDefinitionDamageAffinity _riftStrike;
     private static FeatureDefinitionPower _riftJump;
     private static FeatureDefinitionConditionAffinity _riftCloak;
     private static FeatureDefinitionBonusCantrips _wardingBondBonusCantrip;
@@ -74,7 +74,7 @@ public static class WarlockSubclassRiftWalkerPatron
 
     private static void RiftStrikeBuilder()
     {
-        _riftStrike = FeatureDefinitionPowerBuilder
+        var riftStrikePower = FeatureDefinitionPowerBuilder
             .Create("DH_RiftStrike", CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
                 DatabaseHelper.FeatureDefinitionPowers.PowerSpellBladeSpellTyrant.GuiPresentation.SpriteReference)
@@ -92,10 +92,18 @@ public static class WarlockSubclassRiftWalkerPatron
                 true)
             .AddToDB();
 
-        _riftStrike.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
-        _riftStrike.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
-        _riftStrike.EffectDescription.HasSavingThrow = false;
-        _riftStrike.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
+        riftStrikePower.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
+        riftStrikePower.EffectDescription.DurationParameter = 2;
+        riftStrikePower.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
+        riftStrikePower.EffectDescription.HasSavingThrow = false;
+        riftStrikePower.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
+
+        _riftStrike = FeatureDefinitionDamageAffinityBuilder
+            .Create("RiftStrikeDamageAffinity", CENamespaceGuid)
+            .SetGuiPresentation("DH_RiftStrike", Category.Feature)
+            .SetDamageAffinityType(RuleDefinitions.DamageAffinityType.None)
+            .SetRetaliate(riftStrikePower, 1, true)
+            .AddToDB();
     }
 
     private static void RiftJumpBuilder()

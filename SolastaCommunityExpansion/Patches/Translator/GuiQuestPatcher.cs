@@ -11,7 +11,7 @@ internal static class GuiQuest_GetStepTitle
 {
     internal static void Postfix(ref string __result)
     {
-        __result = DungeonMakerContext.ReplaceVariable(__result);
+        __result = DungeonMakerContext.ReplaceVariable(Gui.Localize(__result));
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
@@ -28,7 +28,7 @@ internal static class GuiQuest_GetStepDescription
 {
     internal static void Postfix(ref string __result)
     {
-        __result = DungeonMakerContext.ReplaceVariable(__result);
+        __result = DungeonMakerContext.ReplaceVariable(Gui.Localize(__result));
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {

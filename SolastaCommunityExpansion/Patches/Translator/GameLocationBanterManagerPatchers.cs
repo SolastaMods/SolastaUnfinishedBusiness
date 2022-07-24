@@ -11,7 +11,7 @@ internal static class Gui_Format
 {
     internal static void Prefix(ref string line)
     {
-        line = DungeonMakerContext.ReplaceVariable(line);
+        line = DungeonMakerContext.ReplaceVariable(Gui.Localize(line));
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {

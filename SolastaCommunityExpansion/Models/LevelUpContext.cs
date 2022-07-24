@@ -249,13 +249,19 @@ public static class LevelUpContext
 
         foreach (var featureDefinition in featureDefinitions)
         {
-            if (featureDefinition is FeatureDefinitionAutoPreparedSpells
+            switch (featureDefinition)
+            {
+                case FeatureDefinitionAutoPreparedSpells
                 {
                     AutoPreparedSpellsGroups: { }
-                } featureDefinitionAutoPreparedSpells)
-            {
-                allowedAutoPreparedSpells.AddRange(
-                    featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                } featureDefinitionAutoPreparedSpells:
+                    allowedAutoPreparedSpells.AddRange(
+                        featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                    break;
+                case FeatureDefinitionFeatureSet {uniqueChoices: false} featureDefinitionFeatureSet:
+                    allowedAutoPreparedSpells.AddRange(
+                        CacheAllowedAutoPreparedSpells(featureDefinitionFeatureSet.FeatureSet));
+                    break;
             }
         }
 
@@ -272,6 +278,10 @@ public static class LevelUpContext
         {
             switch (featureDefinition)
             {
+                case FeatureDefinitionFeatureSet {uniqueChoices: false} featureDefinitionFeatureSet:
+                    allowedSpells.AddRange(
+                        CacheAllowedSpells(featureDefinitionFeatureSet.FeatureSet));
+                    break;
                 case FeatureDefinitionCastSpell featureDefinitionCastSpell
                     when featureDefinitionCastSpell.SpellListDefinition != null:
                     allowedSpells.AddRange(

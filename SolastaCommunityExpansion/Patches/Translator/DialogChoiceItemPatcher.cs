@@ -13,7 +13,7 @@ internal static class DialogChoiceItem_Bind
     internal static void Postfix([NotNull] DialogChoiceItem __instance, DialogChoiceDescription dialogChoice)
     {
         __instance.labelHighlighter.TargetLabel.Text =
-            DungeonMakerContext.ReplaceVariable(__instance.labelHighlighter.TargetLabel.Text);
+            DungeonMakerContext.ReplaceVariable(Gui.Localize(__instance.labelHighlighter.TargetLabel.Text));
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
