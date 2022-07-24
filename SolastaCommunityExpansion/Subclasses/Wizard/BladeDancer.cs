@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
@@ -113,7 +112,7 @@ internal sealed class BladeDancer : AbstractSubclass
             .Create("FeatureDanceOfDefense", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("DanceOfDefense")
-            .SetReducedDamage(5)
+            .SetReducedDamage(-5)
             .SetSourceType(RuleDefinitions.FeatureSourceType.CharacterFeature)
             .SetSourceName("FeatureDanceOfDefense")
             .SetCustomSubFeatures(
@@ -136,9 +135,7 @@ internal sealed class BladeDancer : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardBladeDancer", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
-            // TODO: remove powerDanceOfDefense after tests
-            .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, powerBladeDance,
-                featureDanceOfDefense)
+            .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, powerBladeDance)
             // TODO: allow cantrips as one of the attacks
             .AddFeatureAtLevel(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack, 6)
             .AddFeatureAtLevel(featureDanceOfDefense, 10)

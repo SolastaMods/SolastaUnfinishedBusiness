@@ -152,6 +152,5 @@ internal static class RulesetCharacter_RollMagicAttack
         outcome = Global.SpellStrikeRollOutcome;
 
         return false;
-
     }
 }

@@ -73,7 +73,7 @@ public static class RulesetCharacterHeroExtensions
         var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
 
         return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>()
-            .GetElement(element.ArmorCategory).IsPhysicalArmor
+                   .GetElement(element.ArmorCategory).IsPhysicalArmor
                && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
     }
 
@@ -90,13 +90,14 @@ public static class RulesetCharacterHeroExtensions
         var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
 
         return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>()
-            .GetElement(element.ArmorCategory).IsPhysicalArmor
+                   .GetElement(element.ArmorCategory).IsPhysicalArmor
                && element.ArmorCategory == EquipmentDefinitions.MediumArmorCategory;
     }
 
     public static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacterHero hero)
     {
-        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+            .EquipedItem;
 
         if (equipedItem != null && equipedItem.ItemDefinition.IsWeapon)
         {

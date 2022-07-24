@@ -8,11 +8,20 @@ namespace SolastaCommunityExpansion.Api.Extensions;
 
 internal static class RulesetCharacterExtensions
 {
-    public static bool IsWearingLightArmor([NotNull] this RulesetCharacter _) => false;
+    public static bool IsWearingLightArmor([NotNull] this RulesetCharacter _)
+    {
+        return false;
+    }
 
-    public static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _) => false;
+    public static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _)
+    {
+        return false;
+    }
 
-    public static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacter _) => false;
+    public static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacter _)
+    {
+        return false;
+    }
 
     public static bool IsValid(this RulesetCharacter instance, [NotNull] params CharacterValidator[] validators)
     {

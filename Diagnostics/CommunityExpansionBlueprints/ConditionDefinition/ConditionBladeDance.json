@@ -4,10 +4,10 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
     "Definition:AttributeModifierBladeDance:3e2ce621-bc66-55b1-ba23-87589b012414",
     "Definition:AbilityCheckBladeDanceAcrobatics:bbb819ce-7e31-50a2-8edf-6d89b6b32ade",
-    "Definition:AbilityCheckBladeDanceConstitution:694d3dca-a6c5-5188-bb3b-1328ac2e4c92",
-    "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543"
+    "Definition:AbilityCheckBladeDanceConstitution:694d3dca-a6c5-5188-bb3b-1328ac2e4c92"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

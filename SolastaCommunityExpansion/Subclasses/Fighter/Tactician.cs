@@ -57,7 +57,8 @@ internal static class KnockDownPowerBuilder
 
         newEffectDescription.SetEffectForms(damageEffect, proneMotionEffect);
         newEffectDescription.SetSavingThrowDifficultyAbility(AttributeDefinitions.Strength);
-        newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
+        newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation
+            .AbilityScoreAndProficiency);
         newEffectDescription.SavingThrowAbility = AttributeDefinitions.Strength;
         newEffectDescription.HasSavingThrow = true;
         newEffectDescription.DurationType = RuleDefinitions.DurationType.Round;

@@ -28,13 +28,13 @@ internal static class CharacterActionAttackPatcher
 
             // ReSharper disable InconsistentNaming
             void AttackImpactStartHandler(
-                GameLocationCharacter _,
-                GameLocationCharacter _defender,
-                RuleDefinitions.RollOutcome _outcome,
-                CharacterActionParams _params,
-                RulesetAttackMode _mode,
-                ActionModifier _modifier)
-            // ReSharper enable InconsistentNaming
+                    GameLocationCharacter _,
+                    GameLocationCharacter _defender,
+                    RuleDefinitions.RollOutcome _outcome,
+                    CharacterActionParams _params,
+                    RulesetAttackMode _mode,
+                    ActionModifier _modifier)
+                // ReSharper enable InconsistentNaming
             {
                 found = true;
                 defender = _defender;

@@ -75,7 +75,7 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
                 continue;
             }
 
-            base.reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundleContext.GetSpell(p));
+            reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundleContext.GetSpell(p));
             SubOptionsAvailability.Add(i, true);
 
             if (!selected)

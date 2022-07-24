@@ -258,7 +258,7 @@ public static class LevelUpContext
                     allowedAutoPreparedSpells.AddRange(
                         featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
                     break;
-                case FeatureDefinitionFeatureSet  {uniqueChoices: false} featureDefinitionFeatureSet:
+                case FeatureDefinitionFeatureSet {uniqueChoices: false} featureDefinitionFeatureSet:
                     allowedAutoPreparedSpells.AddRange(
                         CacheAllowedAutoPreparedSpells(featureDefinitionFeatureSet.FeatureSet));
                     break;
