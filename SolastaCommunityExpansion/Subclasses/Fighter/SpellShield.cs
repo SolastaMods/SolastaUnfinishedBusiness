@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Level20;
@@ -14,7 +15,7 @@ internal sealed class SpellShield : AbstractSubclass
 
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
-
+    
     internal SpellShield()
     {
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
@@ -32,10 +33,6 @@ internal sealed class SpellShield : AbstractSubclass
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellList(SpellListDefinitions.SpellListWizard)
-            .AddRestrictedSchool(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .AddRestrictedSchool(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .AddRestrictedSchool(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .AddRestrictedSchool(SchoolOfMagicDefinitions.SchoolIllusion)
             .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
@@ -44,16 +41,39 @@ internal sealed class SpellShield : AbstractSubclass
             .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
             .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
 
-        var spellShieldResistance = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("SpellShieldSpellResistance", SubclassNamespace)
-            .SetGuiPresentation("FighterSpellShieldSpellResistance", Category.Subclass)
-            .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Charisma)
+        var conditionWarMagic = ConditionDefinitionBuilder
+            .Create("ConditionSpellShieldWarMagic", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Condition, ConditionBerserkerFrenzy.guiPresentation.SpriteReference)
+            .AddFeatures(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
+            .AddToDB();
+
+        var effect = EffectDescriptionBuilder
+            .Create()
+            .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Self, 0,
+                RuleDefinitions.TargetType.Self)
+            .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionWarMagic, ConditionForm.ConditionOperation.Add)
+                    .Build()
+            )
+            .Build();
+        effect.canBePlacedOnCharacter = true;
+        effect.targetExcludeCaster = false;
+        
+        var warMagicPower = FeatureDefinitionPowerBuilder
+            .Create("PowerSpellShieldWarMagic", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetEffectDescription(effect)
+            .SetActivationTime(RuleDefinitions.ActivationTime.OnSpellCast)
+            .AddToDB();
+        
+        // replace attack with cantrip
+        var replaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
+            .Create("SpellShieldReplaceAttackWithCantrip", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         // or maybe some boost to the spell shield spells?
@@ -115,7 +135,8 @@ internal sealed class SpellShield : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(magicAffinity, 3)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
-            .AddFeatureAtLevel(spellShieldResistance, 7)
+            .AddFeatureAtLevel(warMagicPower, 7)
+            .AddFeatureAtLevel(replaceAttackWithCantrip, 7)
             .AddFeatureAtLevel(bonusSpell, 10)
             .AddFeatureAtLevel(arcaneDeflectionPower, 15)
             .AddFeatureAtLevel(actionAffinitySpellShieldRangedDefense, 18).AddToDB();

@@ -2,6 +2,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +18,15 @@ internal static class SpellSelectionPanelPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellSelectionPanel_Bind
     {
+        internal static void Prefix(GameLocationCharacter caster, ref bool cantripOnly, ActionDefinitions.ActionType actionType)
+        {
+            if (caster.RulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>() &&
+                caster.UsedMainAttacks > 0 && actionType == ActionDefinitions.ActionType.Main)
+            {
+                cantripOnly = true;
+            }
+        }
+        
         internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster,
             SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType,
             bool cantripOnly)
@@ -65,7 +76,7 @@ internal static class SpellSelectionPanelPatcher
             foreach (var rulesetSpellRepertoire in spellRepertoires)
             {
                 var startLevel = 0;
-
+                
                 for (var level = startLevel;
                      level <= rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel;
                      level++)
