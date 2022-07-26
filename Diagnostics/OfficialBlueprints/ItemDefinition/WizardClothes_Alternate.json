@@ -31,7 +31,8 @@
   "requiresAttunement": true,
   "requiresIdentification": true,
   "requiredAttunementClasses": [
-    "Definition:Wizard:a279003a65f95a64eb58fcc71463c734"
+    "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
+    "Definition:Sorcerer:7214644869e323444b7817d1804eb985"
   ],
   "itemRarity": "VeryRare",
   "staticProperties": [
