@@ -6,12 +6,7 @@
   "staticDCValue": 10,
   "staticToHitValue": 4,
   "spellListDefinition": "Definition:SpellListWizard:ebbe572795f1e2e499bf55d00df9547f",
-  "restrictedSchools": [
-    "SchoolAbjuration",
-    "SchoolIllusion",
-    "SchoolNecromancy",
-    "SchoolTransmutation"
-  ],
+  "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
