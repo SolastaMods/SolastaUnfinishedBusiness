@@ -152,7 +152,8 @@ internal sealed class BladeDancer : AbstractSubclass
         if (!hero.IsWearingShield()
             && !hero.IsWearingMediumArmor()
             && !hero.IsWearingHeavyArmor()
-            && !hero.IsWieldingTwoHandedWeapon())
+            && !hero.IsWieldingTwoHandedWeapon()
+            || !hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDance.Name))
         {
             return;
         }
