@@ -79,11 +79,6 @@ internal static class GameLocationCharacterPatcher
                 return;
             }
 
-            /*if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
-            {
-                return;
-            }*/
-
             var rulesetCharacter = actionParams.actingCharacter.RulesetCharacter;
 
             if (!rulesetCharacter.HasAnyFeature(Magus.SpellStrike) && !rulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
@@ -98,6 +93,11 @@ internal static class GameLocationCharacterPatcher
 
             if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain &&
                 actionParams.actionDefinition.Id != ActionDefinitions.Id.AttackMain)
+            {
+                return;
+            }
+
+            if (actionParams.RulesetEffect is not RulesetEffectSpell spellEffect || spellEffect.spellDefinition.spellLevel > 0)
             {
                 return;
             }

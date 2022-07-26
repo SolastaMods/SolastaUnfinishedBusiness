@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Level20;
+using UnityEngine;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
@@ -43,7 +46,7 @@ internal sealed class SpellShield : AbstractSubclass
 
         var conditionWarMagic = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldWarMagic", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Condition, ConditionBerserkerFrenzy.guiPresentation.SpriteReference)
+            .SetGuiPresentationNoContent(true)
             .AddFeatures(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
             .AddToDB();
 
@@ -73,20 +76,15 @@ internal sealed class SpellShield : AbstractSubclass
         // replace attack with cantrip
         var replaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
             .Create("SpellShieldReplaceAttackWithCantrip", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        // or maybe some boost to the spell shield spells?
-
-        var bonusSpell = FeatureDefinitionAdditionalActionBuilder
-            .Create("SpellShieldAdditionalAction", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetRestrictedActions(ActionDefinitions.Id.CastMain)
-            .SetMaxAttacksNumber(-1)
-            .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
             .AddToDB();
 
+        var vigor = FeatureDefinitionBuilder
+            .Create("SpellShieldVigor", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass)
+            .SetCustomSubFeatures(new VigorSpell())
+            .AddToDB();
+        
         var deflectionCondition = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldArcaneDeflection", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass)
@@ -137,7 +135,7 @@ internal sealed class SpellShield : AbstractSubclass
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
             .AddFeatureAtLevel(warMagicPower, 7)
             .AddFeatureAtLevel(replaceAttackWithCantrip, 7)
-            .AddFeatureAtLevel(bonusSpell, 10)
+            .AddFeatureAtLevel(vigor, 10)
             .AddFeatureAtLevel(arcaneDeflectionPower, 15)
             .AddFeatureAtLevel(actionAffinitySpellShieldRangedDefense, 18).AddToDB();
     }
@@ -150,5 +148,15 @@ internal sealed class SpellShield : AbstractSubclass
     internal override CharacterSubclassDefinition GetSubclass()
     {
         return Subclass;
+    }
+    
+    private sealed class VigorSpell : IIncreaseSpellDC
+    {
+        public int IncreasSpellDC(GameLocationCharacter caster)
+        {
+            var strModifier = AttributeDefinitions.ComputeAbilityScoreModifier(caster.RulesetCharacter
+                .GetAttribute(AttributeDefinitions.Strength).CurrentValue);
+            return Mathf.FloorToInt(strModifier*0.5f);
+        }
     }
 }
