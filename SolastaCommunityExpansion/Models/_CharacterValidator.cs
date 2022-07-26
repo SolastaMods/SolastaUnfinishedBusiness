@@ -48,7 +48,7 @@ public static class CharacterValidators
 
     public static readonly CharacterValidator InBattle = _ =>
         ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
-    
+
     [NotNull]
     public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)
     {

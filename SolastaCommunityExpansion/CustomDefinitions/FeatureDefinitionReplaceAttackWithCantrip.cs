@@ -2,7 +2,6 @@
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
-public class FeatureDefinitionReplaceAttackWithCantrip: FeatureDefinition, IReplaceAttackWithCantrip
+public class FeatureDefinitionReplaceAttackWithCantrip : FeatureDefinition, IReplaceAttackWithCantrip
 {
-    
 }

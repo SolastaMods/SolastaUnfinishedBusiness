@@ -81,7 +81,8 @@ internal static class GameLocationCharacterPatcher
 
             var rulesetCharacter = actionParams.actingCharacter.RulesetCharacter;
 
-            if (!rulesetCharacter.HasAnyFeature(Magus.SpellStrike) && !rulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
+            if (!rulesetCharacter.HasAnyFeature(Magus.SpellStrike) &&
+                !rulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
             {
                 return;
             }
@@ -97,26 +98,27 @@ internal static class GameLocationCharacterPatcher
                 return;
             }
 
-            if (actionParams.RulesetEffect is not RulesetEffectSpell spellEffect || spellEffect.spellDefinition.spellLevel > 0)
+            if (actionParams.RulesetEffect is not RulesetEffectSpell spellEffect ||
+                spellEffect.spellDefinition.spellLevel > 0)
             {
                 return;
             }
 
-            int num = 0;
-            foreach (RulesetAttackMode attackMode in actionParams.ActingCharacter.RulesetCharacter.AttackModes)
+            var num = 0;
+            foreach (var attackMode in actionParams.ActingCharacter.RulesetCharacter.AttackModes)
             {
                 if (attackMode.ActionType == ActionDefinitions.ActionType.Main)
                 {
                     num = Mathf.Max(num, attackMode.AttacksNumber);
                 }
             }
-            
+
             if (actionParams.actionDefinition.Id == ActionDefinitions.Id.CastMain)
             {
                 __instance.usedMainAttacks++;
                 if (__instance.usedMainAttacks < num)
                 {
-                    __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;   
+                    __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
                 }
                 else
                 {
@@ -131,7 +133,8 @@ internal static class GameLocationCharacterPatcher
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationCharacter_GetActionStatus
 {
-    internal static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId, ActionDefinitions.ActionScope scope, ref ActionDefinitions.ActionStatus  __result)
+    internal static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId,
+        ActionDefinitions.ActionScope scope, ref ActionDefinitions.ActionStatus __result)
     {
         if (scope != ActionDefinitions.ActionScope.Battle)
         {
@@ -148,7 +151,7 @@ internal static class GameLocationCharacter_GetActionStatus
             return;
         }
 
-        if (__instance.usedMainAttacks  == 0)
+        if (__instance.usedMainAttacks == 0)
         {
             return;
         }
@@ -157,7 +160,7 @@ internal static class GameLocationCharacter_GetActionStatus
         {
             return;
         }
-        
+
         __result = ActionDefinitions.ActionStatus.Available;
     }
 }

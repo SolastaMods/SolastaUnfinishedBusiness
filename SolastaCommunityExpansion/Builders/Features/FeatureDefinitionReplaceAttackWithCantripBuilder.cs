@@ -7,7 +7,6 @@ public class FeatureDefinitionReplaceAttackWithCantripBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionReplaceAttackWithCantrip,
         FeatureDefinitionReplaceAttackWithCantripBuilder>
 {
-    
     #region Constructors
 
     protected FeatureDefinitionReplaceAttackWithCantripBuilder(string name, string guid)

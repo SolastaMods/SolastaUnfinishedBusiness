@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SolastaCommunityExpansion.CustomInterfaces;
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
 
 public interface IIncreaseSpellDC
 {

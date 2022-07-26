@@ -149,10 +149,10 @@ internal sealed class BladeDancer : AbstractSubclass
 
     internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem _)
     {
-        if (!hero.IsWearingShield()
-            && !hero.IsWearingMediumArmor()
-            && !hero.IsWearingHeavyArmor()
-            && !hero.IsWieldingTwoHandedWeapon()
+        if ((!hero.IsWearingShield()
+             && !hero.IsWearingMediumArmor()
+             && !hero.IsWearingHeavyArmor()
+             && !hero.IsWieldingTwoHandedWeapon())
             || !hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDance.Name))
         {
             return;

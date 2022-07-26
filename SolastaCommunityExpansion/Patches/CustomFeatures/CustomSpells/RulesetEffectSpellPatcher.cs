@@ -35,4 +35,3 @@ internal static class RulesetEffectSpell_SaveDC
         }
     }
 }
-

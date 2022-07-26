@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -18,7 +16,7 @@ internal sealed class SpellShield : AbstractSubclass
 
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
-    
+
     internal SpellShield()
     {
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
@@ -47,7 +45,7 @@ internal sealed class SpellShield : AbstractSubclass
         var conditionWarMagic = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldWarMagic", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
-            .AddFeatures(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
+            .AddFeatures(FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
             .AddToDB();
 
         var effect = EffectDescriptionBuilder
@@ -64,7 +62,7 @@ internal sealed class SpellShield : AbstractSubclass
             .Build();
         effect.canBePlacedOnCharacter = true;
         effect.targetExcludeCaster = false;
-        
+
         var warMagicPower = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldWarMagic", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass)
@@ -72,7 +70,7 @@ internal sealed class SpellShield : AbstractSubclass
             .SetEffectDescription(effect)
             .SetActivationTime(RuleDefinitions.ActivationTime.OnSpellCast)
             .AddToDB();
-        
+
         // replace attack with cantrip
         var replaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
             .Create("SpellShieldReplaceAttackWithCantrip", DefinitionBuilder.CENamespaceGuid)
@@ -84,7 +82,7 @@ internal sealed class SpellShield : AbstractSubclass
             .SetGuiPresentation(Category.Subclass)
             .SetCustomSubFeatures(new VigorSpell())
             .AddToDB();
-        
+
         var deflectionCondition = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldArcaneDeflection", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass)
@@ -149,14 +147,14 @@ internal sealed class SpellShield : AbstractSubclass
     {
         return Subclass;
     }
-    
+
     private sealed class VigorSpell : IIncreaseSpellDC
     {
         public int IncreasSpellDC(GameLocationCharacter caster)
         {
             var strModifier = AttributeDefinitions.ComputeAbilityScoreModifier(caster.RulesetCharacter
                 .GetAttribute(AttributeDefinitions.Strength).CurrentValue);
-            return Mathf.FloorToInt(strModifier*0.5f);
+            return Mathf.FloorToInt(strModifier * 0.5f);
         }
     }
 }
