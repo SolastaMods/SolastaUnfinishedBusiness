@@ -1,7 +1,1 @@
-PowerSpellShieldWarMagic	Title='Subclass/&PowerSpellShieldWarMagicTitle'.
-PowerSpellShieldWarMagic	Description='Subclass/&PowerSpellShieldWarMagicDescription'.
-SpellShieldReplaceAttackWithCantrip	Title='Subclass/&SpellShieldReplaceAttackWithCantripTitle'.
-SpellShieldReplaceAttackWithCantrip	Description='Subclass/&SpellShieldReplaceAttackWithCantripDescription'.
-SpellShieldVigor	Title='Subclass/&SpellShieldVigorTitle'.
-SpellShieldVigor	Description='Subclass/&SpellShieldVigorDescription'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.
