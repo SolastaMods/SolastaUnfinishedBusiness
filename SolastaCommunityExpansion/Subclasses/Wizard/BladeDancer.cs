@@ -108,6 +108,11 @@ internal sealed class BladeDancer : AbstractSubclass
                     !character.IsWearingShield()))
             .AddToDB();
 
+        var featureReplaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
+            .Create("FeatureReplaceAttackWithCantrip", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         var featureDanceOfDefense = FeatureDefinitionReduceDamageBuilder
             .Create("FeatureDanceOfDefense", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
@@ -136,7 +141,7 @@ internal sealed class BladeDancer : AbstractSubclass
             .Create("WizardBladeDancer", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, powerBladeDance)
-            // TODO: allow cantrips as one of the attacks
+            .AddFeatureAtLevel(featureReplaceAttackWithCantrip, 6)
             .AddFeatureAtLevel(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack, 6)
             .AddFeatureAtLevel(featureDanceOfDefense, 10)
             .AddFeatureAtLevel(featureDanceOfVictory, 14)
