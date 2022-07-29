@@ -7,9 +7,7 @@ public interface IIncreaseSpellDC
 
 public interface IIncreaseSpellAttackRoll
 {
-    int GetSpellAttackRollModifier(RulesetCharacter caster);
     RuleDefinitions.FeatureSourceType sourceType { get; set; }
     string sourceName { get; set; }
+    int GetSpellAttackRollModifier(RulesetCharacter caster);
 }
-
-

@@ -19,7 +19,7 @@ internal static class RulesetCharacterPatcher
             __result = AttacksOfOpportunity.IsSubjectToAttackOfOpportunity(__instance, attacker, __result);
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeSpellAttackBonus")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_ComputeSpellAttackBonus
@@ -32,11 +32,12 @@ internal static class RulesetCharacterPatcher
             {
                 var modifer = feature.GetSpellAttackRollModifier(__instance);
                 __result += modifer;
-                __instance.magicAttackTrends.Add(new RuleDefinitions.TrendInfo(modifer, feature.sourceType, feature.sourceName, null));
+                __instance.magicAttackTrends.Add(new RuleDefinitions.TrendInfo(modifer, feature.sourceType,
+                    feature.sourceName, null));
             }
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeSaveDC")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_ComputeSaveDC

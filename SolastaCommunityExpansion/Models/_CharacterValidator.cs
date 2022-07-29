@@ -48,6 +48,21 @@ public static class CharacterValidators
     public static readonly CharacterValidator InBattle = _ =>
         ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
 
+    public static readonly CharacterValidator LightArmor = character =>
+    {
+        var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
+            .EquipedItem;
+        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
+        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>().GetElement(element.ArmorCategory)
+            .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
+    };
+
     [NotNull]
     public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)
     {
@@ -70,17 +85,4 @@ public static class CharacterValidators
                    hero.activeFeatures.Any(item => item.Value.Contains(feature));
         };
     }
-    
-    public static readonly CharacterValidator LightArmor = character =>
-    {
-        RulesetItem equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
-        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
-        {
-            return false;
-        }
-
-        ArmorDescription armorDescription = equipedItem.ItemDefinition.ArmorDescription;
-        ArmorTypeDefinition element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
-        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>().GetElement(element.ArmorCategory).IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
-    };
 }
