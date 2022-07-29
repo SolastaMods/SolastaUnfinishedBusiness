@@ -1,6 +1,8 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Level20;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -32,10 +34,6 @@ internal sealed class SpellShield : AbstractSubclass
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellList(SpellListDefinitions.SpellListWizard)
-            .AddRestrictedSchool(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .AddRestrictedSchool(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .AddRestrictedSchool(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .AddRestrictedSchool(SchoolOfMagicDefinitions.SchoolIllusion)
             .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
@@ -44,27 +42,49 @@ internal sealed class SpellShield : AbstractSubclass
             .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
             .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
 
-        var spellShieldResistance = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("SpellShieldSpellResistance", SubclassNamespace)
-            .SetGuiPresentation("FighterSpellShieldSpellResistance", Category.Subclass)
-            .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Charisma)
+        var conditionWarMagic = ConditionDefinitionBuilder
+            .Create("ConditionSpellShieldWarMagic", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentationNoContent(true)
+            .AddFeatures(FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
             .AddToDB();
 
-        // or maybe some boost to the spell shield spells?
+        var effect = EffectDescriptionBuilder
+            .Create()
+            .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Self, 0,
+                RuleDefinitions.TargetType.Self)
+            .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionWarMagic, ConditionForm.ConditionOperation.Add)
+                    .Build()
+            )
+            .Build();
+        effect.canBePlacedOnCharacter = true;
+        effect.targetExcludeCaster = false;
 
-        var bonusSpell = FeatureDefinitionAdditionalActionBuilder
-            .Create("SpellShieldAdditionalAction", SubclassNamespace)
+        var warMagicPower = FeatureDefinitionPowerBuilder
+            .Create("PowerSpellShieldWarMagic", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetRestrictedActions(ActionDefinitions.Id.CastMain)
-            .SetMaxAttacksNumber(-1)
-            .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetEffectDescription(effect)
+            .SetActivationTime(RuleDefinitions.ActivationTime.OnSpellCast)
+            .AddToDB();
+
+        // replace attack with cantrip
+        var replaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
+            .Create("SpellShieldReplaceAttackWithCantrip", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass)
+            .AddToDB();
+
+        var vigor = FeatureDefinitionMagicAffinityBuilder
+            .Create("SpellShieldVigor", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass)
+            .SetCustomSubFeatures(new VigorSpellDCModifier(),
+                new VigorSpellAttackModifier
+                {
+                    sourceName = "VigorSpell", sourceType = RuleDefinitions.FeatureSourceType.ExplicitFeature
+                })
             .AddToDB();
 
         var deflectionCondition = ConditionDefinitionBuilder
@@ -115,8 +135,9 @@ internal sealed class SpellShield : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(magicAffinity, 3)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
-            .AddFeatureAtLevel(spellShieldResistance, 7)
-            .AddFeatureAtLevel(bonusSpell, 10)
+            .AddFeatureAtLevel(warMagicPower, 7)
+            .AddFeatureAtLevel(replaceAttackWithCantrip, 7)
+            .AddFeatureAtLevel(vigor, 10)
             .AddFeatureAtLevel(arcaneDeflectionPower, 15)
             .AddFeatureAtLevel(actionAffinitySpellShieldRangedDefense, 18).AddToDB();
     }
@@ -129,5 +150,40 @@ internal sealed class SpellShield : AbstractSubclass
     internal override CharacterSubclassDefinition GetSubclass()
     {
         return Subclass;
+    }
+
+    private static int CalculateModifier([NotNull] RulesetCharacter myself)
+    {
+        if (myself == null)
+        {
+            throw new ArgumentNullException(nameof(myself));
+        }
+
+        var strModifier =
+            AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Strength)
+                .CurrentValue);
+        var dexModifier =
+            AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Dexterity)
+                .CurrentValue);
+        return Math.Max(strModifier, dexModifier);
+    }
+
+    private sealed class VigorSpellDCModifier : IIncreaseSpellDC
+    {
+        public int GetSpellModifier(RulesetCharacter caster)
+        {
+            return CalculateModifier(caster);
+        }
+    }
+
+    private sealed class VigorSpellAttackModifier : IIncreaseSpellAttackRoll
+    {
+        public int GetSpellAttackRollModifier(RulesetCharacter caster)
+        {
+            return CalculateModifier(caster);
+        }
+
+        public RuleDefinitions.FeatureSourceType sourceType { get; set; }
+        public string sourceName { get; set; }
     }
 }

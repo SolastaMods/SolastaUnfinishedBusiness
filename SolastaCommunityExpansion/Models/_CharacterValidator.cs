@@ -10,7 +10,6 @@ public static class CharacterValidators
 {
     public static readonly CharacterValidator HasAttacked = character => character.ExecutedAttacks > 0;
     public static readonly CharacterValidator NoArmor = character => !character.IsWearingArmor();
-    public static readonly CharacterValidator LightArmor = character => character.IsWearingLightArmor();
     public static readonly CharacterValidator MediumArmor = character => character.IsWearingMediumArmor();
     public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
     public static readonly CharacterValidator HasShield = character => character.IsWearingShield();
@@ -49,7 +48,20 @@ public static class CharacterValidators
     public static readonly CharacterValidator InBattle = _ =>
         ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
 
-    public static readonly CharacterValidator UseSpellStrike = _ => Global.IsSpellStrike;
+    public static readonly CharacterValidator LightArmor = character =>
+    {
+        var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
+            .EquipedItem;
+        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
+        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>().GetElement(element.ArmorCategory)
+            .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
+    };
 
     [NotNull]
     public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)

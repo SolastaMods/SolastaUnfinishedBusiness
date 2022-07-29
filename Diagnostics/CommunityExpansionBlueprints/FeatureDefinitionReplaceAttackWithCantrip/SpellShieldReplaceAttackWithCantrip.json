@@ -1,0 +1,30 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionReplaceAttackWithCantrip, SolastaCommunityExpansion",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&SpellShieldReplaceAttackWithCantripTitle",
+    "description": "Subclass/&SpellShieldReplaceAttackWithCantripDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5f4bf62c-407d-5bd6-b8da-62f7a39defc6",
+  "contentPack": 9999,
+  "name": "SpellShieldReplaceAttackWithCantrip"
+}

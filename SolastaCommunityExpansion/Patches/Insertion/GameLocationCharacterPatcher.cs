@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Classes.Magus;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Insertion;
 
@@ -78,33 +79,88 @@ internal static class GameLocationCharacterPatcher
                 return;
             }
 
-            if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
-            {
-                return;
-            }
-
             var rulesetCharacter = actionParams.actingCharacter.RulesetCharacter;
 
-            if (!rulesetCharacter.HasAnyFeature(Magus.SpellStrike))
+            if (!rulesetCharacter.HasAnyFeature(Magus.SpellStrike) &&
+                !rulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
             {
                 return;
             }
 
-            if (!Global.IsSpellStrike)
+            if (!Global.IsSpellStrike && !rulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
             {
                 return;
             }
 
-            __instance.UsedMainAttacks++;
-
-            if (rulesetCharacter != null)
+            if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain &&
+                actionParams.actionDefinition.Id != ActionDefinitions.Id.AttackMain)
             {
-                rulesetCharacter.ExecutedAttacks++;
-                rulesetCharacter.RefreshAttackModes();
+                return;
             }
 
-            __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
-            __instance.RefreshActionPerformances();
+            if (actionParams.RulesetEffect is not RulesetEffectSpell spellEffect ||
+                spellEffect.spellDefinition.spellLevel > 0)
+            {
+                return;
+            }
+
+            var num = 0;
+            foreach (var attackMode in actionParams.ActingCharacter.RulesetCharacter.AttackModes)
+            {
+                if (attackMode.ActionType == ActionDefinitions.ActionType.Main)
+                {
+                    num = Mathf.Max(num, attackMode.AttacksNumber);
+                }
+            }
+
+            if (actionParams.actionDefinition.Id == ActionDefinitions.Id.CastMain)
+            {
+                __instance.usedMainAttacks++;
+                if (__instance.usedMainAttacks < num)
+                {
+                    __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
+                }
+                else
+                {
+                    __instance.usedMainAttacks = 0;
+                }
+            }
         }
+    }
+}
+
+[HarmonyPatch(typeof(GameLocationCharacter), "GetActionStatus")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class GameLocationCharacter_GetActionStatus
+{
+    internal static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId,
+        ActionDefinitions.ActionScope scope, ref ActionDefinitions.ActionStatus __result)
+    {
+        if (scope != ActionDefinitions.ActionScope.Battle)
+        {
+            return;
+        }
+
+        if (actionId != ActionDefinitions.Id.CastMain)
+        {
+            return;
+        }
+
+        if (!__instance.RulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
+        {
+            return;
+        }
+
+        if (__instance.usedMainAttacks == 0)
+        {
+            return;
+        }
+
+        if (__instance.usedMainCantrip)
+        {
+            return;
+        }
+
+        __result = ActionDefinitions.ActionStatus.Available;
     }
 }

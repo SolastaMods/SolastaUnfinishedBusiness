@@ -13,12 +13,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SpellShieldSpellResistance:b2ea8a6c-cac0-5ba3-af0a-735ed8fcd8ee",
+      "featureDefinition": "Definition:SpellShieldReplaceAttackWithCantrip:5f4bf62c-407d-5bd6-b8da-62f7a39defc6",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SpellShieldAdditionalAction:f01a8cc0-4ea0-5733-8b2e-ace350ba4beb",
+      "featureDefinition": "Definition:PowerSpellShieldWarMagic:0226f614-9d9d-56dd-803d-8607fd9aa071",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SpellShieldVigor:c5711d5e-d160-532e-9969-60e5d2cf0798",
       "level": 10
     },
     {

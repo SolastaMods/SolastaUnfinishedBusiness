@@ -3,4 +3,6 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix Blade Dancer log dumping
+- Improve Blade Dance level 6 feature
+- Improve Spell Shield subclass
+- Fix Blade Dance AC with light armor

@@ -1,18 +1,10 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "CastMain"
-  ],
-  "maxAttacksNumber": -1,
-  "triggerCondition": "HasDownedAnEnemy",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionReplaceAttackWithCantrip, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&SpellShieldAdditionalActionTitle",
-    "description": "Subclass/&SpellShieldAdditionalActionDescription",
+    "title": "Feature/&FeatureReplaceAttackWithCantripTitle",
+    "description": "Feature/&FeatureReplaceAttackWithCantripDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f01a8cc0-4ea0-5733-8b2e-ace350ba4beb",
+  "guid": "aa706e60-2143-530a-a2a5-40f2c7d191c6",
   "contentPack": 9999,
-  "name": "SpellShieldAdditionalAction"
+  "name": "FeatureReplaceAttackWithCantrip"
 }
