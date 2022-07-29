@@ -10,7 +10,6 @@ public static class CharacterValidators
 {
     public static readonly CharacterValidator HasAttacked = character => character.ExecutedAttacks > 0;
     public static readonly CharacterValidator NoArmor = character => !character.IsWearingArmor();
-    public static readonly CharacterValidator LightArmor = character => character.IsWearingLightArmor();
     public static readonly CharacterValidator MediumArmor = character => character.IsWearingMediumArmor();
     public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
     public static readonly CharacterValidator HasShield = character => character.IsWearingShield();
@@ -71,4 +70,17 @@ public static class CharacterValidators
                    hero.activeFeatures.Any(item => item.Value.Contains(feature));
         };
     }
+    
+    public static readonly CharacterValidator LightArmor = character =>
+    {
+        RulesetItem equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        ArmorDescription armorDescription = equipedItem.ItemDefinition.ArmorDescription;
+        ArmorTypeDefinition element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>().GetElement(element.ArmorCategory).IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
+    };
 }
