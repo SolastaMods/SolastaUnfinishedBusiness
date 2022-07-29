@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureReplaceAttackWithCantrip:aa706e60-2143-530a-a2a5-40f2c7d191c6",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureDanceOfDefense:8d764054-a0f2-594a-8b2e-722ea6448891",
       "level": 10
     },

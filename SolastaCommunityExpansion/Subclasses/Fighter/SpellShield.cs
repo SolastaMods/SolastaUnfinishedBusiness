@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Level20;
-using UnityEngine;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
@@ -81,11 +80,11 @@ internal sealed class SpellShield : AbstractSubclass
         var vigor = FeatureDefinitionMagicAffinityBuilder
             .Create("SpellShieldVigor", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass)
-            .SetCustomSubFeatures(new VigorSpellDCModifier(), new VigorSpellAttackModifier()
-            {
-                sourceName = "VigorSpell",
-                sourceType = RuleDefinitions.FeatureSourceType.ExplicitFeature
-            })
+            .SetCustomSubFeatures(new VigorSpellDCModifier(),
+                new VigorSpellAttackModifier
+                {
+                    sourceName = "VigorSpell", sourceType = RuleDefinitions.FeatureSourceType.ExplicitFeature
+                })
             .AddToDB();
 
         var deflectionCondition = ConditionDefinitionBuilder
@@ -160,8 +159,12 @@ internal sealed class SpellShield : AbstractSubclass
             throw new ArgumentNullException(nameof(myself));
         }
 
-        var strModifier = AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Strength).CurrentValue);
-        var dexModifier = AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue);
+        var strModifier =
+            AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Strength)
+                .CurrentValue);
+        var dexModifier =
+            AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Dexterity)
+                .CurrentValue);
         return Math.Max(strModifier, dexModifier);
     }
 
