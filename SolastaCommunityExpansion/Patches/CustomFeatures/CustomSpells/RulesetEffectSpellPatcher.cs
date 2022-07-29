@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -15,23 +16,5 @@ internal static class RulesetEffectSpell_EffectDescription
     internal static void Postfix(RulesetEffectSpell __instance, ref EffectDescription __result)
     {
         __result = CustomFeaturesContext.ModifySpellEffect(__result, __instance);
-    }
-}
-
-[HarmonyPatch(typeof(RulesetEffectSpell), "SaveDC", MethodType.Getter)]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetEffectSpell_SaveDC
-{
-    internal static void Postfix(RulesetEffectSpell __instance, ref int __result)
-    {
-        var gameLocationCharacter = GameLocationCharacter.GetFromActor(__instance.caster);
-        var features = __instance.caster.GetSubFeaturesByType<IIncreaseSpellDC>();
-        foreach (var feature in features)
-        {
-            if (feature != null)
-            {
-                __result += feature.IncreasSpellDC(gameLocationCharacter);
-            }
-        }
     }
 }

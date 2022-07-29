@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -77,10 +78,14 @@ internal sealed class SpellShield : AbstractSubclass
             .SetGuiPresentation(Category.Subclass)
             .AddToDB();
 
-        var vigor = FeatureDefinitionBuilder
+        var vigor = FeatureDefinitionMagicAffinityBuilder
             .Create("SpellShieldVigor", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass)
-            .SetCustomSubFeatures(new VigorSpell())
+            .SetCustomSubFeatures(new VigorSpellDCModifier(), new VigorSpellAttackModifier()
+            {
+                sourceName = "VigorSpell",
+                sourceType = RuleDefinitions.FeatureSourceType.ExplicitFeature
+            })
             .AddToDB();
 
         var deflectionCondition = ConditionDefinitionBuilder
@@ -148,13 +153,34 @@ internal sealed class SpellShield : AbstractSubclass
         return Subclass;
     }
 
-    private sealed class VigorSpell : IIncreaseSpellDC
+    private static int CalculateModifier([NotNull] RulesetCharacter myself)
     {
-        public int IncreasSpellDC(GameLocationCharacter caster)
+        if (myself == null)
         {
-            var strModifier = AttributeDefinitions.ComputeAbilityScoreModifier(caster.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Strength).CurrentValue);
-            return Mathf.FloorToInt(strModifier * 0.5f);
+            throw new ArgumentNullException(nameof(myself));
         }
+
+        var strModifier = AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Strength).CurrentValue);
+        var dexModifier = AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue);
+        return Math.Max(strModifier, dexModifier);
+    }
+
+    private sealed class VigorSpellDCModifier : IIncreaseSpellDC
+    {
+        public int GetSpellModifier(RulesetCharacter caster)
+        {
+            return CalculateModifier(caster);
+        }
+    }
+
+    private sealed class VigorSpellAttackModifier : IIncreaseSpellAttackRoll
+    {
+        public int GetSpellAttackRollModifier(RulesetCharacter caster)
+        {
+            return CalculateModifier(caster);
+        }
+
+        public RuleDefinitions.FeatureSourceType sourceType { get; set; }
+        public string sourceName { get; set; }
     }
 }
