@@ -20,5 +20,5 @@ Subclass/&PowerSpellShieldWarMagicDescription=你能在施放法术后以附赠�
 Subclass/&PowerSpellShieldWarMagicTitle=战争魔法
 Subclass/&SpellShieldReplaceAttackWithCantripDescription=你能以一个戏法来代替一次攻击
 Subclass/&SpellShieldReplaceAttackWithCantripTitle=快速戏法
-Subclass/&SpellShieldVigorDescription=你将你的力量调整值的一半（四舍五入）加至你的法术豁免DC
+Subclass/&SpellShieldVigorDescription=你将你的力量或敏捷调整值（取最高者）加至你的法术豁免DC和法术攻击骰
 Subclass/&SpellShieldVigorTitle=活力
