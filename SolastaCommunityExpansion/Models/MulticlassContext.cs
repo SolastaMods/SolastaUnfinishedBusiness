@@ -17,7 +17,7 @@ internal static class MulticlassContext
         _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
         _ = ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass;
         _ = ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass;
-        _ = ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass;
+        // _ = ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass;
         _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolBardSkillPointsMulticlass;
         _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass;
         _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass;
@@ -108,13 +108,13 @@ public sealed class ArmorProficiencyMulticlassBuilder : FeatureDefinitionProfici
             EquipmentDefinitions.ShieldCategory
         );
 
-    public static readonly FeatureDefinitionProficiency WardenArmorProficiencyMulticlass =
-        CreateAndAddToDB(WardenArmorProficiencyMulticlassName, WardenArmorProficiencyMulticlassGuid,
-            "Feature/&WardenArmorProficiencyTitle",
-            EquipmentDefinitions.LightArmorCategory,
-            EquipmentDefinitions.MediumArmorCategory,
-            EquipmentDefinitions.ShieldCategory
-        );
+    // public static readonly FeatureDefinitionProficiency WardenArmorProficiencyMulticlass =
+    //     CreateAndAddToDB(WardenArmorProficiencyMulticlassName, WardenArmorProficiencyMulticlassGuid,
+    //         "Feature/&WardenArmorProficiencyTitle",
+    //         EquipmentDefinitions.LightArmorCategory,
+    //         EquipmentDefinitions.MediumArmorCategory,
+    //         EquipmentDefinitions.ShieldCategory
+    //     );
 
     private ArmorProficiencyMulticlassBuilder(string name, string guid, string title,
         [NotNull] params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
