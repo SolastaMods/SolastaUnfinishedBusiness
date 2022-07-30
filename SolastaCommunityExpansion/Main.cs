@@ -69,7 +69,6 @@ internal static class Main
             Mod = new ModManager<Core, Settings>();
             Mod.Enable(modEntry, assembly);
 
-            Menu = new MenuManager();
             modEntry.OnShowGUI = _ =>
             {
                 if (Settings.EnableHeroesControlledByComputer)
@@ -81,6 +80,7 @@ internal static class Main
             Enable = () =>
             {
                 Enabled = true;
+                Menu = new MenuManager();
                 Menu.Enable(modEntry, assembly);
                 Logger.Log("Enabled.");
             };
