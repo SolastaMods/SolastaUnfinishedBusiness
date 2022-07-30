@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -38,7 +39,7 @@ internal sealed class BladeDancer : AbstractSubclass
                 RuleDefinitions.DurationType.Minute,
                 1,
                 false,
-                FeatureDefinitionMoveModes.MoveModeMove7,
+                FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierBladeDance", SubclassNamespace)
                     .SetGuiPresentation(Category.Feature)
