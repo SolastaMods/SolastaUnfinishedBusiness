@@ -3,5 +3,6 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix Blade Dance movement
 - Fix Arcanist never removing Arcane Mark
+- Fix Blade Dance movement
+- Fix Elven Accuracy to trigger on spells

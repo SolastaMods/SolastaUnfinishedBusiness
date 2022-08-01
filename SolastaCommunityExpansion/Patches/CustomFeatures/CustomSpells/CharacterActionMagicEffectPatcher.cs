@@ -1,9 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Classes.Magus;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells;
@@ -129,6 +132,37 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
 [HarmonyPatch(typeof(RulesetCharacter), "RollAttackMode")]
 internal static class RulesetCharacter_RollAttackMode
 {
+    internal static void Prefix(
+        RulesetCharacter __instance,
+        RulesetAttackMode attackMode,
+        bool ignoreAdvantage,
+        List<RuleDefinitions.TrendInfo> advantageTrends,
+        bool testMode)
+    {
+        Global.ElvenAccuracyHero = null;
+
+        if (ignoreAdvantage
+            || !testMode
+            || attackMode.abilityScore is AttributeDefinitions.Strength or AttributeDefinitions.Constitution)
+        {
+            return;
+        }
+
+        var advantageType = RuleDefinitions.ComputeAdvantage(advantageTrends);
+
+        if (advantageType != RuleDefinitions.AdvantageType.Advantage)
+        {
+            return;
+        }
+
+        var hero = __instance as RulesetCharacterHero ?? __instance.OriginalFormCharacter as RulesetCharacterHero;
+
+        if (hero != null && hero.TrainedFeats.Any(x => x.Name.Contains(ZappaFeats.ElvenAccuracyTag)))
+        {
+            Global.ElvenAccuracyHero = hero;
+        }
+    }
+
     internal static void Postfix(ref int __result)
     {
         if (Global.IsSpellStrike)
@@ -141,8 +175,33 @@ internal static class RulesetCharacter_RollAttackMode
 [HarmonyPatch(typeof(RulesetCharacter), "RollMagicAttack")]
 internal static class RulesetCharacter_RollMagicAttack
 {
-    internal static bool Prefix(ref int __result, ref RuleDefinitions.RollOutcome outcome)
+    internal static bool Prefix(
+        RulesetCharacter __instance,
+        ref int __result,
+        List<RuleDefinitions.TrendInfo> advantageTrends,
+        ref RuleDefinitions.RollOutcome outcome,
+        bool testMode)
     {
+        //
+        // SUPPORTS ELVEN ACCURACY FEAT
+        //
+        Global.ElvenAccuracyHero = null;
+
+        if (testMode)
+        {
+            var advantageType = RuleDefinitions.ComputeAdvantage(advantageTrends);
+
+            if (advantageType == RuleDefinitions.AdvantageType.Advantage)
+            {
+                var hero = __instance as RulesetCharacterHero ?? __instance.OriginalFormCharacter as RulesetCharacterHero;
+
+                if (hero != null && hero.TrainedFeats.Any(x => x.Name.Contains(ZappaFeats.ElvenAccuracyTag)))
+                {
+                    Global.ElvenAccuracyHero = hero;
+                }
+            }
+        }
+
         if (!Global.IsSpellStrike)
         {
             return true;
