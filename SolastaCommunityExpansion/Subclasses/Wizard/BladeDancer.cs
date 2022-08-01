@@ -57,15 +57,12 @@ internal sealed class BladeDancer : AbstractSubclass
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create("AbilityCheckBladeDanceConstitution", SubclassNamespace)
                     .BuildAndSetAffinityGroups(
-                        RuleDefinitions.CharacterAbilityCheckAffinity.Advantage,
+                        RuleDefinitions.CharacterAbilityCheckAffinity.None,
                         RuleDefinitions.DieType.D1,
                         4,
                         (AttributeDefinitions.Constitution, string.Empty))
                     .AddToDB())
             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-            .SetTerminateWhenRemoved(true)
-            .SetSilent(Silent.None)
-            .SetAllowMultipleInstances(false)
             .SetTerminateWhenRemoved(true)
             .AddToDB();
 
