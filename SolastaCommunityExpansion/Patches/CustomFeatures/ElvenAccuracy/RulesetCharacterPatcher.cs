@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 using TA;
 using UnityEngine;

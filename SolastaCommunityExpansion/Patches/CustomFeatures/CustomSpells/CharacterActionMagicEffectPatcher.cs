@@ -193,7 +193,8 @@ internal static class RulesetCharacter_RollMagicAttack
 
             if (advantageType == RuleDefinitions.AdvantageType.Advantage)
             {
-                var hero = __instance as RulesetCharacterHero ?? __instance.OriginalFormCharacter as RulesetCharacterHero;
+                var hero = __instance as RulesetCharacterHero ??
+                           __instance.OriginalFormCharacter as RulesetCharacterHero;
 
                 if (hero != null && hero.TrainedFeats.Any(x => x.Name.Contains(ZappaFeats.ElvenAccuracyTag)))
                 {
