@@ -26,7 +26,7 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
-[*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration 
+[*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration
 [*][b]Esker[/b]: ruleset support, classes design, quality assurance
 [*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance

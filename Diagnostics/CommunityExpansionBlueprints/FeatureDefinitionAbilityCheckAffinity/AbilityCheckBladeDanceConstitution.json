@@ -6,7 +6,7 @@
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Constitution",
       "proficiencyName": "",
-      "affinity": "Advantage",
+      "affinity": "None",
       "abilityCheckModifierDiceNumber": 4,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "None",
