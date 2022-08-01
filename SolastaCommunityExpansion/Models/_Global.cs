@@ -59,6 +59,8 @@ public static class Global
 
     public static int SpellStrikeDieRoll { get; set; } = 10;
 
+    [CanBeNull] public static RulesetCharacterHero ElvenAccuracyHero { get; set; }
+
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         CurrentAction = characterAction;

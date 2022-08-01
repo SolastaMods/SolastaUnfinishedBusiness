@@ -1,59 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.Feats;
+using JetBrains.Annotations;
+using SolastaCommunityExpansion.Models;
 using TA;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.ElvenAccuracy;
 
-[HarmonyPatch(typeof(RulesetCharacter), "RollAttackMode")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetCharacter_RollAttackMode
-{
-    internal static RulesetCharacterHero ElvenAccuracyHero { get; private set; }
-
-    internal static void Prefix(
-        RulesetCharacter __instance,
-        RulesetAttackMode attackMode,
-        bool ignoreAdvantage,
-        List<RuleDefinitions.TrendInfo> advantageTrends,
-        bool testMode)
-    {
-        ElvenAccuracyHero = null;
-
-        if (ignoreAdvantage
-            || !testMode
-            || attackMode.abilityScore is AttributeDefinitions.Strength or AttributeDefinitions.Constitution)
-        {
-            return;
-        }
-
-        var advantageType = RuleDefinitions.ComputeAdvantage(advantageTrends);
-
-        if (advantageType != RuleDefinitions.AdvantageType.Advantage)
-        {
-            return;
-        }
-
-        var hero = __instance as RulesetCharacterHero ?? __instance.OriginalFormCharacter as RulesetCharacterHero;
-
-        if (hero != null && hero.TrainedFeats.Any(x => x.Name.Contains(ZappaFeats.ElvenAccuracyTag)))
-        {
-            ElvenAccuracyHero = hero;
-        }
-    }
-}
-
 [HarmonyPatch(typeof(RulesetActor), "RollDie")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetActor_RollDie
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var rollDieMethod = typeof(RuleDefinitions).GetMethod("RollDie", BindingFlags.Public | BindingFlags.Static);
         var myRollDieMethod = typeof(RulesetActor_RollDie).GetMethod("RollDie");
@@ -71,6 +33,7 @@ internal static class RulesetActor_RollDie
         }
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static int RollDie(
         RuleDefinitions.DieType diceType,
         RuleDefinitions.AdvantageType advantageType,
@@ -78,7 +41,7 @@ internal static class RulesetActor_RollDie
         out int secondRoll,
         float rollAlterationScore)
     {
-        var hero = RulesetCharacter_RollAttackMode.ElvenAccuracyHero;
+        var hero = Global.ElvenAccuracyHero;
 
         if (hero == null)
         {

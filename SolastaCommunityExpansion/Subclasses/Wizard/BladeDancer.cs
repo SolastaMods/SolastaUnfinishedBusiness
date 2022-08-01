@@ -38,7 +38,7 @@ internal sealed class BladeDancer : AbstractSubclass
                 RuleDefinitions.DurationType.Minute,
                 1,
                 false,
-                FeatureDefinitionMoveModes.MoveModeMove7,
+                FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierBladeDance", SubclassNamespace)
                     .SetGuiPresentation(Category.Feature)
@@ -56,15 +56,12 @@ internal sealed class BladeDancer : AbstractSubclass
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create("AbilityCheckBladeDanceConstitution", SubclassNamespace)
                     .BuildAndSetAffinityGroups(
-                        RuleDefinitions.CharacterAbilityCheckAffinity.Advantage,
+                        RuleDefinitions.CharacterAbilityCheckAffinity.None,
                         RuleDefinitions.DieType.D1,
                         4,
                         (AttributeDefinitions.Constitution, string.Empty))
                     .AddToDB())
             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-            .SetTerminateWhenRemoved(true)
-            .SetSilent(Silent.None)
-            .SetAllowMultipleInstances(false)
             .SetTerminateWhenRemoved(true)
             .AddToDB();
 

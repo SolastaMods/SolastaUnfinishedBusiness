@@ -98,7 +98,8 @@ internal sealed class Arcanist : AbstractSubclass
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 0)
             .SetNotificationTag("ArcanistMark")
-            .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
+            .SetTargetCondition(MarkedByArcanist,
+                RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
             .SetNoSave()
             .SetNoAdvancement()
             .SetConditionOperations(

@@ -3,6 +3,6 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Improve Blade Dance level 6 feature
-- Improve Spell Shield subclass
-- Fix Blade Dance AC with light armor
+- Fix Arcanist never removing Arcane Mark
+- Fix Blade Dance movement
+- Fix Elven Accuracy to trigger on spells
