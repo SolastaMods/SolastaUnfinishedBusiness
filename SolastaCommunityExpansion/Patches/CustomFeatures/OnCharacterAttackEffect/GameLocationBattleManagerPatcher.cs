@@ -33,7 +33,23 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
         {
             var num = provider.DamageDiceNumber;
 
-            if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
+            //
+            // CUSTOM CODE
+            //
+            if (provider.DamageAdvancement ==
+                (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel)
+            {
+                var rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero ??
+                                       attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+                if (rulesetCharacter != null)
+                {
+                    var characterLevel = rulesetCharacter.ClassesHistory.Count;
+                    num = provider.GetDiceOfRank(characterLevel);
+                }
+            }
+            // END CUSTOM CODE
+            else if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
             {
                 // game code doesn't consider heroes in wildshape form
                 //RulesetCharacterHero rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero;

@@ -126,9 +126,11 @@ internal sealed class BladeDancer : AbstractSubclass
             .Create("FeatureDanceOfVictory", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .Configure(
-                RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus,
+                RuleDefinitions.AttackModifierMethod.None,
                 0,
-                AttributeDefinitions.Intelligence)
+                String.Empty,
+                RuleDefinitions.AttackModifierMethod.FlatValue,
+                5)
             .SetCustomSubFeatures(
                 new FeatureApplicationValidator(character =>
                     character.HasConditionOfCategoryAndType("11Effect", "ConditionBladeDance")))

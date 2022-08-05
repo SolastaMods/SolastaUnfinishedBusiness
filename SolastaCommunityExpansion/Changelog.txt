@@ -3,6 +3,5 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix Arcanist never removing Arcane Mark
-- Fix Blade Dance movement
-- Fix Elven Accuracy to trigger on spells
+- Change Dance of Victory to add a flat +4 damage
+- Fix Shady feat

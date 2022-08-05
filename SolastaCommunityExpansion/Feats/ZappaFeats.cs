@@ -438,7 +438,8 @@ internal static class ZappaFeats
                         ZappaFeatNamespace)
                     .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feature)
                     .SetDamageDice(RuleDefinitions.DieType.D6, 1)
-                    .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
+                    .SetAdvancement(
+                        (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
                         (1, 0),
                         (2, 0),
                         (3, 0),

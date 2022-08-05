@@ -14,7 +14,7 @@
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
   "specificDamageType": "DamageFire",
-  "damageAdvancement": "ClassLevel",
+  "damageAdvancement": 9000,
   "diceByRankTable": [
     {
       "$type": "DiceByRank, Assembly-CSharp",
