@@ -10,10 +10,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetImplementationManagerLocation_IsMetamagicOptionAvailable
 {
-    private static readonly string[] NotAllowedSpells =
-    {
-        "EWSunlightBlade"
-    };
+    private static readonly string[] NotAllowedSpells = Array.Empty<string>();
 
     private static readonly string[] AllowedSpellsIfHeroBelowLevel5 =
     {
