@@ -10,6 +10,11 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetImplementationManagerLocation_IsMetamagicOptionAvailable
 {
+    private static readonly string[] NotAllowedSpells =
+    {
+        "EWSunlightBlade"
+    };
+
     private static readonly string[] AllowedSpellsIfHeroBelowLevel5 =
     {
         "EldritchBlast", "EldritchBlastGraspingHand", "EldritchBlastRepellingBlast"
@@ -40,8 +45,7 @@ internal static class RulesetImplementationManagerLocation_IsMetamagicOptionAvai
         MetamagicOptionDefinition metamagicOption,
         ref string failure)
     {
-        if (!Main.Settings.FixSorcererTwinnedLogic
-            || metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
+        if (metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
             || caster is not RulesetCharacterHero hero)
         {
             return;
@@ -49,8 +53,21 @@ internal static class RulesetImplementationManagerLocation_IsMetamagicOptionAvai
 
         var spellDefinition = rulesetEffectSpell.SpellDefinition;
 
-        if (Array.IndexOf(AllowedSpellsIfHeroBelowLevel5, spellDefinition) == -1
-            && Array.IndexOf(AllowedSpellsIfNotUpcast, spellDefinition) == -1)
+        if (Array.IndexOf(NotAllowedSpells, spellDefinition.Name) >= 0)
+        {
+            failure = "Cannot be twinned";
+            __result = false;
+
+            return;
+        }
+
+        if (!Main.Settings.FixSorcererTwinnedLogic)
+        {
+            return;
+        }
+
+        if (Array.IndexOf(AllowedSpellsIfHeroBelowLevel5, spellDefinition.Name) == -1
+            && Array.IndexOf(AllowedSpellsIfNotUpcast, spellDefinition.Name) == -1)
         {
             return;
         }
