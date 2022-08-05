@@ -130,8 +130,7 @@ internal sealed class BladeDancer : AbstractSubclass
                 0,
                 String.Empty,
                 RuleDefinitions.AttackModifierMethod.FlatValue,
-                4,
-                AttributeDefinitions.Intelligence)
+                5)
             .SetCustomSubFeatures(
                 new FeatureApplicationValidator(character =>
                     character.HasConditionOfCategoryAndType("11Effect", "ConditionBladeDance")))
