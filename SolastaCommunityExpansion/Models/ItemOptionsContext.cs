@@ -46,8 +46,7 @@ internal static class ItemOptionsContext
 
     internal static string[] ArcaneShieldstaffOptions { get; } =
     {
-        Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("ModUI/&ArcaneShieldAddDruidAndSorcerer"),
-        Gui.Localize("ModUI/&ArcaneShieldAll")
+        Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("ModUI/&ArcaneShieldAll")
     };
 
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
@@ -255,7 +254,7 @@ internal static class ItemOptionsContext
         switch (Main.Settings.ArcaneShieldstaffOptions)
         {
             case 0:
-                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger);
+                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Sorcerer);
 
                 if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
                 {
@@ -265,16 +264,6 @@ internal static class ItemOptionsContext
                 break;
 
             case 1:
-                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Druid, Sorcerer);
-
-                if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
-                {
-                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
-                }
-
-                break;
-
-            case 2:
                 ArcaneShieldstaff.RequiredAttunementClasses.Clear();
                 break;
         }
