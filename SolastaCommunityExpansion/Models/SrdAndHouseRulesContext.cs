@@ -13,6 +13,7 @@ internal static class SrdAndHouseRulesContext
         AllowTargetingSelectionWhenCastingChainLightningSpell();
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         ApplyBarbarianUnarmoredDefenseNotStacking();
+        ApplySrdWeightToFoodRations();
     }
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
