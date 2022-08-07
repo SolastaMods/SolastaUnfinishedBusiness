@@ -78,7 +78,6 @@ ModUi/&EnableInvisibleCrownOfTheMagister=将<color=#D89555>大法师之冠</colo
 ModUi/&EnableLevel20=启用20级<color=#C04040E0>【需要重启游戏】</color>
 ModUi/&EnableLogDialoguesToConsole=在对话日志中启用记录对话到游戏控制台的功能
 ModUi/&EnableMinInOutAttributes=强制兼职时的属性前置要求
-ModUi/&EnableOnTheFlyTranslations=启用实时自定义内容翻译
 ModUi/&EnableRelearnSpells=能学习已从其它职业习得的戏法和法术
 ModUi/&EnableRespec=启用在休息后重置角色和降级的功能
 ModUi/&EnablesAsiAndFeat=启用属性和专长的同时选择<color=#F0DAA0>【而非二选一】</color>

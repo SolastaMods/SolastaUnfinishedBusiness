@@ -297,8 +297,7 @@ public class Settings : UnityModManager.ModSettings
     //
     // Interface - Translations
     //
-
-    public bool EnableOnTheFlyTranslations { get; set; }
+    
     public string SelectedLanguageCode { get; set; } = Translations.English;
 
     //
