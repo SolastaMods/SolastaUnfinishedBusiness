@@ -17,14 +17,6 @@ public static class TranslationsDisplay
         UI.Label(Gui.Format("ModUi/&Campaigns"));
         UI.Label("");
 
-        var toggle = Main.Settings.EnableOnTheFlyTranslations;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOnTheFlyTranslations"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableOnTheFlyTranslations = toggle;
-        }
-
-        UI.Label("");
-
         using (UI.HorizontalScope())
         {
             UI.Label(Gui.Localize("ModUi/&TargetLanguage"), UI.Width(120));

@@ -46,7 +46,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=Display all known spells from other cl
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMaker=<color=#F0DAA0>Dungeon Maker:</color>
-ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed\n. You can embed any campaign variable in your dialogs, descriptions, etc.\n. CE will replace them with their value during gameplay <i><color=#F0DAA0>[i.e: Hello {Salute} Hero!]</color></i>
+ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed
 ModUi/&DungeonMakerMenu=Dungeon Maker
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
 ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection
@@ -77,7 +77,6 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Hide the <color=#D89555>Crown of the Ma
 ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
 ModUi/&EnableMinInOutAttributes=Enforce ability scores minimum in & out pre-requisites
-ModUi/&EnableOnTheFlyTranslations=Enable real time custom content translations
 ModUi/&EnableRelearnSpells=Can select cantrips or spells already learned from other classes
 ModUi/&EnableRespec=Enable the RESPEC and Level Down after rest actions
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
