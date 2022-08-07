@@ -47,7 +47,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=在升级时显示所有从其它职�
 ModUi/&DontFollowCharacterInBattle=摄像机不再跟随已出现在屏幕上的角色
 ModUi/&DontFollowMargin=<color=white>+ 除非角色靠近于%的屏幕边缘</color>
 ModUi/&DungeonMaker=<color=#F0DAA0>地城制作：</color>
-ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod\n. 你能在你的对话、描述等内嵌入任何战役变量\n. 社区Mod将在游戏过程中进行替换<color=#F0DAA0>【例如：你好英雄{敬礼}！】</color>
+ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod
 ModUi/&DungeonMakerMenu=地城制作
 ModUi/&EmpressGarbAppearance=<color=#D89555>女帝装束链甲衫</color>外形
 ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额外的背景故事
