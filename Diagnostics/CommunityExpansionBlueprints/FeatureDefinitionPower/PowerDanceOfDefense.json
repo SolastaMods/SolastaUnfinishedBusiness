@@ -74,11 +74,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBladeDance",
-          "conditionDefinition": "Definition:ConditionBladeDance:e2bf4022-b761-5170-8e2e-175e7df3fcd0",
+          "conditionDefinitionName": "ConditionDanceOfDefense",
+          "conditionDefinition": "Definition:ConditionDanceOfDefense:f1d3f1cc-c8c7-5604-8335-c0b10423f8c0",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionBladeDance:e2bf4022-b761-5170-8e2e-175e7df3fcd0"
+            "Definition:ConditionDanceOfDefense:f1d3f1cc-c8c7-5604-8335-c0b10423f8c0"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -153,24 +153,14 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": null,
-        "m_SubObjectType": null
-      },
+      "beforeImpactParticleReference": null,
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": null,
-        "m_SubObjectType": null
-      },
+      "activeEffectImpactParticleReference": null,
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -306,7 +296,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerBladeDance:9b28dff7-c398-5373-a395-1940d42f83b6",
   "includeBaseDescription": false,
   "magical": true,
   "guiPresentation": {
@@ -333,7 +323,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9b28dff7-c398-5373-a395-1940d42f83b6",
+  "guid": "d950e847-a9b4-5b0e-a4c8-fb830c744c14",
   "contentPack": 9999,
-  "name": "PowerBladeDance"
+  "name": "PowerDanceOfDefense"
 }

@@ -185,7 +185,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
 #endif
-    public int ArcaneShieldstaffOptions { get; set; }
+    public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentificationRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
@@ -298,7 +298,6 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Translations
     //
 
-    public bool EnableOnTheFlyTranslations { get; set; }
     public string SelectedLanguageCode { get; set; } = Translations.English;
 
     //

@@ -29,10 +29,14 @@ internal sealed class BladeDancer : AbstractSubclass
                 RuleDefinitions.ProficiencyType.Weapon, WeaponCategoryDefinitions.MartialWeaponCategory.Name)
             .AddToDB();
 
+        var featureReplaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
+            .Create("BladeDancerReplaceAttackWithCantrip", SubclassNamespace)
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         ConditionBladeDance = ConditionDefinitionBuilder
             .Create("ConditionBladeDance", SubclassNamespace)
-            .SetGuiPresentation(
-                "PowerBladeDance", Category.Power,
+            .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .Configure(
                 RuleDefinitions.DurationType.Minute,
@@ -86,7 +90,8 @@ internal sealed class BladeDancer : AbstractSubclass
         var powerBladeDance = FeatureDefinitionPowerBuilder
             .Create("PowerBladeDance", SubclassNamespace)
             .SetGuiPresentation(
-                Category.Power,
+                "Feature/&FeatureBladeDanceTitle",
+                "Condition/&ConditionBladeDanceDescription",
                 FeatureDefinitionPowers.PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
             .Configure(
                 0, RuleDefinitions.UsesDetermination.ProficiencyBonus,
@@ -100,69 +105,148 @@ internal sealed class BladeDancer : AbstractSubclass
                 effectBladeDance,
                 true)
             .SetCustomSubFeatures(
-                new PowerUseValidity(character =>
-                    !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor() &&
-                    !character.IsWearingShield()))
+                new PowerUseValidity(IsBladeDanceValid))
             .AddToDB();
 
-        var featureReplaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
-            .Create("FeatureReplaceAttackWithCantrip", SubclassNamespace)
-            .SetGuiPresentation(Category.Feature)
+        ConditionDanceOfDefense = ConditionDefinitionBuilder
+            .Create(ConditionBladeDance, "ConditionDanceOfDefense", SubclassNamespace)
+            .SetGuiPresentation("ConditionBladeDance", Category.Condition,
+                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
+            .AddFeatures(
+                FeatureDefinitionReduceDamageBuilder
+                    .Create("FeatureDanceOfDefense", SubclassNamespace)
+                    .SetGuiPresentation(Category.Feature)
+                    .SetNotificationTag("DanceOfDefense")
+                    .SetReducedDamage(-5)
+                    .SetSourceType(RuleDefinitions.FeatureSourceType.CharacterFeature)
+                    .SetSourceName("FeatureDanceOfDefense")
+                    .AddToDB())
             .AddToDB();
 
-        var featureDanceOfDefense = FeatureDefinitionReduceDamageBuilder
-            .Create("FeatureDanceOfDefense", SubclassNamespace)
-            .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag("DanceOfDefense")
-            .SetReducedDamage(-5)
-            .SetSourceType(RuleDefinitions.FeatureSourceType.CharacterFeature)
-            .SetSourceName("FeatureDanceOfDefense")
-            .SetCustomSubFeatures(
-                new FeatureApplicationValidator(character =>
-                    character.HasConditionOfCategoryAndType("11Effect", "ConditionBladeDance")))
+        var effectDanceOfDefense = EffectDescriptionBuilder
+            .Create(effectBladeDance)
+            .ClearEffectForms()
+            .AddEffectForm(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(ConditionDanceOfDefense, ConditionForm.ConditionOperation.Add)
+                    .Build()
+            )
+            .Build();
+
+        var powerDanceOfDefense = FeatureDefinitionPowerBuilder
+            .Create(powerBladeDance, "PowerDanceOfDefense", SubclassNamespace)
+            .SetEffectDescription(effectDanceOfDefense)
+            .SetOverriddenPower(powerBladeDance)
             .AddToDB();
 
-        var featureDanceOfVictory = FeatureDefinitionAttackModifierBuilder
-            .Create("FeatureDanceOfVictory", SubclassNamespace)
-            .SetGuiPresentation(Category.Feature)
-            .Configure(
-                RuleDefinitions.AttackModifierMethod.None,
-                0,
-                String.Empty,
-                RuleDefinitions.AttackModifierMethod.FlatValue,
-                5)
-            .SetCustomSubFeatures(
-                new FeatureApplicationValidator(character =>
-                    character.HasConditionOfCategoryAndType("11Effect", "ConditionBladeDance")))
+        ConditionDanceOfVictory = ConditionDefinitionBuilder
+            .Create(ConditionDanceOfDefense, "ConditionDanceOfVictory", SubclassNamespace)
+            .SetGuiPresentation("ConditionBladeDance", Category.Condition,
+                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
+            .AddFeatures(
+                FeatureDefinitionAttackModifierBuilder
+                    .Create("FeatureDanceOfVictory", SubclassNamespace)
+                    .SetGuiPresentation(Category.Feature)
+                    .Configure(
+                        RuleDefinitions.AttackModifierMethod.None,
+                        0,
+                        String.Empty,
+                        RuleDefinitions.AttackModifierMethod.FlatValue,
+                        5)
+                    .AddToDB())
+            .AddToDB();
+
+        var effectDanceOfVictory = EffectDescriptionBuilder
+            .Create(effectBladeDance)
+            .ClearEffectForms()
+            .AddEffectForm(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(ConditionDanceOfVictory, ConditionForm.ConditionOperation.Add)
+                    .Build()
+            )
+            .Build();
+
+        var powerDanceOfVictory = FeatureDefinitionPowerBuilder
+            .Create(powerBladeDance, "PowerDanceOfVictory", SubclassNamespace)
+            .SetEffectDescription(effectDanceOfVictory)
+            .SetOverriddenPower(powerDanceOfDefense)
+            .AddToDB();
+
+        //
+        // use sets for better descriptions on level up
+        //
+
+        var featureBladeDanceSet = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureBladeDanceSet", SubclassNamespace)
+            .SetGuiPresentation("FeatureBladeDance", Category.Feature)
+            .SetFeatureSet(powerBladeDance)
+            .AddToDB();
+
+        var featureDanceOfDefenseSet = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureDanceOfDefenseSet", SubclassNamespace)
+            .SetGuiPresentation("FeatureDanceOfDefense", Category.Feature)
+            .SetFeatureSet(powerDanceOfDefense)
+            .AddToDB();
+
+        var featureDanceOfVictorySet = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureDanceOfVictorySet", SubclassNamespace)
+            .SetGuiPresentation("FeatureDanceOfVictory", Category.Feature)
+            .SetFeatureSet(powerDanceOfVictory)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardBladeDancer", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, powerBladeDance)
+            .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, featureBladeDanceSet)
             .AddFeatureAtLevel(featureReplaceAttackWithCantrip, 6)
             .AddFeatureAtLevel(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack, 6)
-            .AddFeatureAtLevel(featureDanceOfDefense, 10)
-            .AddFeatureAtLevel(featureDanceOfVictory, 14)
+            .AddFeatureAtLevel(featureDanceOfDefenseSet, 10)
+            .AddFeatureAtLevel(featureDanceOfVictorySet, 14)
             .AddToDB();
     }
 
     private static ConditionDefinition ConditionBladeDance { get; set; }
 
+    private static ConditionDefinition ConditionDanceOfDefense { get; set; }
+
+    private static ConditionDefinition ConditionDanceOfVictory { get; set; }
+
     private static CharacterSubclassDefinition Subclass { get; set; }
+
+    private static bool IsBladeDanceValid(RulesetCharacter hero)
+    {
+        return !hero.IsWearingMediumArmor()
+               && !hero.IsWearingHeavyArmor()
+               && !hero.IsWearingShield()
+               && !hero.IsWieldingTwoHandedWeapon();
+    }
 
     internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem _)
     {
-        if ((!hero.IsWearingShield()
-             && !hero.IsWearingMediumArmor()
-             && !hero.IsWearingHeavyArmor()
-             && !hero.IsWieldingTwoHandedWeapon())
-            || !hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDance.Name))
+        if (IsBladeDanceValid(hero))
         {
             return;
         }
 
-        hero.RemoveConditionOfCategory("11Effect", new RulesetCondition {conditionDefinition = ConditionBladeDance});
+        if (hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDance.Name))
+        {
+            hero.RemoveConditionOfCategory("11Effect",
+                new RulesetCondition {conditionDefinition = ConditionBladeDance});
+        }
+
+        if (hero.HasConditionOfCategoryAndType("11Effect", ConditionDanceOfDefense.Name))
+        {
+            hero.RemoveConditionOfCategory("11Effect",
+                new RulesetCondition {conditionDefinition = ConditionDanceOfDefense});
+        }
+
+        if (hero.HasConditionOfCategoryAndType("11Effect", ConditionDanceOfVictory.Name))
+        {
+            hero.RemoveConditionOfCategory("11Effect",
+                new RulesetCondition {conditionDefinition = ConditionDanceOfVictory});
+        }
     }
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

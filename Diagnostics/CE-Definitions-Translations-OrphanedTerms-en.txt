@@ -38,9 +38,8 @@ ModUi/&AllowUnmarkedSorcerers=Allow	<color=#D89555>Sorcerer</color> without orig
 ModUi/&AllRecipesInDm=All	recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>	key only highlight gadgets in party field of view <i><color=#F0DAA0>[only in custom dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce	weight of food ration to 2 pounds
-ModUI/&ArcaneShieldAddDruidAndSorcerer=Druid	& Sorcerer
 ModUI/&ArcaneShieldAll=All	Classes
-ModUi/&ArcaneShieldstaffOptions=Extend	attunement on <color=#D89555>Arcane Shieldstaff</color>:
+ModUi/&ArcaneShieldstaffOptions=Allow	<color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
 ModUi/&AutoPauseOnVictory=Pause	the UI when victorious in battle
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow	Curse</color> does not require concentration when cast with L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>Blinded</color>	condition doesn't allow attack of opportunity
@@ -56,7 +55,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=Display	all known spells from other cl
 ModUi/&DontFollowCharacterInBattle=Battle	camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+	Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMaker=<color=#F0DAA0>Dungeon	Maker:</color>
-ModUi/&DungeonMakerBasicHelp=.	These settings won't require the player to have this mod installed\n. You can embed any campaign variable in your dialogs, descriptions, etc.\n. CE will replace them with their value during gameplay <i><color=#F0DAA0>[i.e: Hello {Salute} Hero!]</color></i>
+ModUi/&DungeonMakerBasicHelp=.	These settings won't require the player to have this mod installed
 ModUi/&DungeonMakerMenu=Dungeon	Maker
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress	Garb</color> appearance
 ModUi/&EnableAdditionalBackstoryDisplay=Enable	additional backstory display on background inspection
@@ -87,7 +86,6 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Hide	the <color=#D89555>Crown of the Ma
 ModUi/&EnableLevel20=Enable	level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable	log dialogues to game console during narrative sequences
 ModUi/&EnableMinInOutAttributes=Enforce	ability scores minimum in & out pre-requisites
-ModUi/&EnableOnTheFlyTranslations=Enable	real time custom content translations
 ModUi/&EnableRelearnSpells=Can	select cantrips or spells already learned from other classes
 ModUi/&EnableRespec=Enable	the RESPEC and Level Down after rest actions
 ModUi/&EnablesAsiAndFeat=Enable	both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
@@ -1936,23 +1934,25 @@ Feedback/&AdditionalDamageArcanistMarkFormat=Arcanist's	Mark!
 Feedback/&AdditionalDamageArcanistMarkLine=Arcanist's	Mark detonates and deals extra damage to the target!
 Subclass/&RangerArcanistRangerSubclassDescription=The	Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 Subclass/&RangerArcanistRangerSubclassTitle=Ranger	Arcanist
+Condition/&ConditionBladeDanceDescription=You	can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you do medium armor, heavy armor or a shield, or if you use two hands to make an attack with a weapon.
+Condition/&ConditionBladeDanceTitle=Blade	Dancing
 Feature/&AttributeModifierBladeDanceDescription=You	gain a bonus to your AC equal to your Intelligence modifier.
 Feature/&AttributeModifierBladeDanceTitle=Blade	Dance
 Feature/&BladeDancerLightArmorProficiencyDescription=You	gain proficiency with light armor.
 Feature/&BladeDancerLightArmorProficiencyTitle=Light	Armor Proficiency
 Feature/&BladeDancerMartialWeaponProficiencyDescription=You	gain proficiency with martial weapons.
 Feature/&BladeDancerMartialWeaponProficiencyTitle=Martial	Weapons Proficiency
+Feature/&BladeDancerReplaceAttackWithCantripDescription=You	can replace one of your attack with a cantrip. 
+Feature/&BladeDancerReplaceAttackWithCantripTitle=Quick	Cantrip
+Feature/&FeatureBladeDanceDescription=You	can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you do medium armor, heavy armor or a shield, or if you use two hands to make an attack with a weapon:\n• You gain a bonus to your AC equal to your Intelligence modifier.\n• Your walking speed increases by 10 feet.\n• You have advantage on Dexterity (Acrobatics) checks.\n• You have a +4 bonus on Constitution checks.\nYou can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.
+Feature/&FeatureBladeDanceTitle=Blade	Dance
 Feature/&FeatureDanceOfDefenseDescription=You	can direct your magic to absorb damage while your blade dance is active. When you take damage, you can use your reaction to expend one spell slot and reduce that damage to you by an amount equal to five times the spell slot's level.
 Feature/&FeatureDanceOfDefenseTitle=Dance	of Defense
 Feature/&FeatureDanceOfVictoryDescription=You	add a +5 to the damage of your weapon attacks while your blade dance is active.
 Feature/&FeatureDanceOfVictoryTitle=Dance	of Victory
-Feature/&FeatureReplaceAttackWithCantripDescription=You	can replace one of your attack with a cantrip. 
-Feature/&FeatureReplaceAttackWithCantripTitle=Quick	Cantrip
-Power/&PowerBladeDanceDescription=You	can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you do medium armor, heavy armor or a shield, or if you use two hands to make an attack with a weapon. You gain the following benefits:\n• You gain a bonus to your AC equal to your Intelligence modifier\n• Your walking speed increases by 10 feet.\n• You have advantage on Dexterity (Acrobatics) checks.\n• You have a +4 bonus on Constitution checks.\nYou can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.
-Power/&PowerBladeDanceTitle=Blade	Dance
+Reaction/&SpendSpellSlotDanceOfDefenseDescription=You	can reduce the damage by an amount equal to five times the spell slot's level.
 Reaction/&SpendSpellSlotDanceOfDefenseReactDescription=Use	reaction to reduce damage.
 Reaction/&SpendSpellSlotDanceOfDefenseReactTitle=Dance	of Defense
-Reaction/&SpendSpellSlotDanceOfDefenseDescription=You	can reduce the damage by an amount equal to five times the spell slot's level.
 Reaction/&SpendSpellSlotDanceOfDefenseTitle=Dance	of Defense
 Reaction/&SubitemSelectDanceOfDefenseTitle=Select	slot
 Subclass/&WizardBladeDancerDescription=In	combat, a blade dancer uses a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
@@ -2108,11 +2108,11 @@ Feature/&OpportunistQuickStrikeTitle=Quick	Strike
 Subclass/&OpportunistDescription=Opportunist	are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat=Illuminating	Strike!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine=Illuminating	Strike deals extra damage to the target!
-Subclass/&BarbarianPathOfTheLightDescription=Barbarians	who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
+Subclass/&BarbarianPathOfTheLightDescription=Barbarians	who follow the Path of The Light illuminate the darkness and protect their allies from dangers that lurk within it.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription=You	are always under the effects of a See Invisibility spell.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle=Eyes	of Truth
 Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription=Distracted	by Illuminating Strike.
-Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription=Disadvantage	on any attack roll that isn't against the Path of the Light barbarian.
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription=Disadvantage	on any attack roll that isn't against the Path of The Light barbarian.
 Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription=Cannot	become invisible.
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription=On	the turn that you enter your rage, you can choose to illuminate up to three enemies within 30 feet of you. They must succeed on a Constitution saving throw (DC equal to 8 + your proficiency bonus + your Constitution modifier) or take 4d6 radiant damage and be illuminated by your Illuminating Strike for 1 minute. A creature illuminated in this way makes another Constitution saving throw at the end of each of its turns. On a successful save, the effect ends for it.
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription=Up	to three enemies make a Constitution saving throw or take 4d6 radiant damage and become illuminated by your Illuminating Strike.
@@ -2128,7 +2128,7 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription=You	gain superior 
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle=Pierce	the Darkness
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription=Can	perceive invisible creatures.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle=Invisibility	Sight
-Subclass/&BarbarianPathOfTheLightTitle=Path	of the Light
+Subclass/&BarbarianPathOfTheLightTitle=Path	of The Light
 Feature/&arcaneExplosionPathOfTheMageRageDescription=	Your arcane power now erupts out of you while raging. On your first hit while raging, you deal an extra 1d6 Force damage.
 Feature/&arcaneExplosionPathOfTheMageRageTitle=Arcane	Explosion
 Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Your	rage manifests as a surge of arcane power, allowing you to cast spells. Charisma is your spellcasting modifier. You have access to spells on the Sorcerer spell list. You use your weapon as an arcane focus. You cannot cast spells while raging.
@@ -2144,8 +2144,8 @@ Feature/&supernaturalExploitsPathOfTheRagemageDescription=	You can channel your 
 Feature/&supernaturalExploitsPathOfTheRagemageTitle=Supernatural	Exploits
 Feature/&supernaturalExploitsSeeInvisibilityPathOfTheRagemageDescription=	You cast See Invisibility using your Supernatural Exploits power. You can cast this once per long rest.
 Feature/&supernaturalExploitsSeeInvisibilityPathOfTheRagemageTitle=See	Invisibility
-Subclass/&BarbarianPathOfTheRageMageDescription=Path	Of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
-Subclass/&BarbarianPathOfTheRageMageTitle=Path	Of The Rage Mage
+Subclass/&BarbarianPathOfTheRageMageDescription=Path	of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
+Subclass/&BarbarianPathOfTheRageMageTitle=Path	of The Rage Mage
 Feature/&InspiringSurgePowerDescription=Grant	an ally an additional main action for 1 round. Does not stack with Action Surge.
 Feature/&InspiringSurgePowerTitle=Inspiring	Surge
 Feature/&RallyingCryPowerDescription=Replaces	Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.

@@ -19,7 +19,6 @@ ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有脸部印
 ModUi/&AllRecipesInDm=所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<color=#F0DAA0>【仅限自定义地牢】</color>
 ModUi/&ApplySRDWeightToFoodRations=将口粮的重量减少至2磅
-ModUI/&ArcaneShieldAddDruidAndSorcerer=德鲁伊&术士
 ModUI/&ArcaneShieldAll=所有职业
 ModUi/&ArcaneShieldstaffOptions=拓展<color=#D89555>奥术盾杖</color>的同调至：
 ModUi/&AutoPauseOnVictory=战斗胜利后暂停游戏
@@ -47,7 +46,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=在升级时显示所有从其它职�
 ModUi/&DontFollowCharacterInBattle=摄像机不再跟随已出现在屏幕上的角色
 ModUi/&DontFollowMargin=<color=white>+ 除非角色靠近于%的屏幕边缘</color>
 ModUi/&DungeonMaker=<color=#F0DAA0>地城制作：</color>
-ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod\n. 你能在你的对话、描述等内嵌入任何战役变量\n. 社区Mod将在游戏过程中进行替换<color=#F0DAA0>【例如：你好英雄{敬礼}！】</color>
+ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod
 ModUi/&DungeonMakerMenu=地城制作
 ModUi/&EmpressGarbAppearance=<color=#D89555>女帝装束链甲衫</color>外形
 ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额外的背景故事
@@ -78,7 +77,6 @@ ModUi/&EnableInvisibleCrownOfTheMagister=将<color=#D89555>大法师之冠</colo
 ModUi/&EnableLevel20=启用20级<color=#C04040E0>【需要重启游戏】</color>
 ModUi/&EnableLogDialoguesToConsole=在对话日志中启用记录对话到游戏控制台的功能
 ModUi/&EnableMinInOutAttributes=强制兼职时的属性前置要求
-ModUi/&EnableOnTheFlyTranslations=启用实时自定义内容翻译
 ModUi/&EnableRelearnSpells=能学习已从其它职业习得的戏法和法术
 ModUi/&EnableRespec=启用在休息后重置角色和降级的功能
 ModUi/&EnablesAsiAndFeat=启用属性和专长的同时选择<color=#F0DAA0>【而非二选一】</color>

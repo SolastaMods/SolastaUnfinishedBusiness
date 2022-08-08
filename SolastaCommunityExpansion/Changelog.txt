@@ -3,5 +3,5 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Change Dance of Victory to add a flat +4 damage
-- Fix Shady feat
+- Minor fixes
+- Refactor Blade Dancer [RESPEC any Blade Dancer hero before this update]

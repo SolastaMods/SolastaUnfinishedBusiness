@@ -16,5 +16,5 @@ Feature/&supernaturalExploitsPathOfTheRagemageDescription= You can channel your 
 Feature/&supernaturalExploitsPathOfTheRagemageTitle=Supernatural Exploits
 Feature/&supernaturalExploitsSeeInvisibilityPathOfTheRagemageDescription= You cast See Invisibility using your Supernatural Exploits power. You can cast this once per long rest.
 Feature/&supernaturalExploitsSeeInvisibilityPathOfTheRagemageTitle=See Invisibility
-Subclass/&BarbarianPathOfTheRageMageDescription=Path Of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
-Subclass/&BarbarianPathOfTheRageMageTitle=Path Of The Rage Mage
+Subclass/&BarbarianPathOfTheRageMageDescription=Path of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
+Subclass/&BarbarianPathOfTheRageMageTitle=Path of The Rage Mage
