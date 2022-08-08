@@ -36,7 +36,8 @@ internal sealed class BladeDancer : AbstractSubclass
 
         ConditionBladeDance = ConditionDefinitionBuilder
             .Create("ConditionBladeDance", SubclassNamespace)
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition,
+                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .Configure(
                 RuleDefinitions.DurationType.Minute,
                 1,
@@ -109,7 +110,8 @@ internal sealed class BladeDancer : AbstractSubclass
 
         ConditionDanceOfDefense = ConditionDefinitionBuilder
             .Create(ConditionBladeDance, "ConditionDanceOfDefense", SubclassNamespace)
-            .SetGuiPresentation("ConditionBladeDance", Category.Condition, ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("ConditionBladeDance", Category.Condition,
+                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
                 FeatureDefinitionReduceDamageBuilder
                     .Create("FeatureDanceOfDefense", SubclassNamespace)
@@ -131,16 +133,17 @@ internal sealed class BladeDancer : AbstractSubclass
                     .Build()
             )
             .Build();
-        
+
         var powerDanceOfDefense = FeatureDefinitionPowerBuilder
             .Create(powerBladeDance, "PowerDanceOfDefense", SubclassNamespace)
             .SetEffectDescription(effectDanceOfDefense)
             .SetOverriddenPower(powerBladeDance)
             .AddToDB();
-        
+
         ConditionDanceOfVictory = ConditionDefinitionBuilder
             .Create(ConditionDanceOfDefense, "ConditionDanceOfVictory", SubclassNamespace)
-            .SetGuiPresentation("ConditionBladeDance", Category.Condition, ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("ConditionBladeDance", Category.Condition,
+                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
                     .Create("FeatureDanceOfVictory", SubclassNamespace)
@@ -164,7 +167,7 @@ internal sealed class BladeDancer : AbstractSubclass
                     .Build()
             )
             .Build();
-        
+
         var powerDanceOfVictory = FeatureDefinitionPowerBuilder
             .Create(powerBladeDance, "PowerDanceOfVictory", SubclassNamespace)
             .SetEffectDescription(effectDanceOfVictory)
@@ -174,25 +177,25 @@ internal sealed class BladeDancer : AbstractSubclass
         //
         // use sets for better descriptions on level up
         //
-        
+
         var featureBladeDanceSet = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureBladeDanceSet", SubclassNamespace)
             .SetGuiPresentation("FeatureBladeDance", Category.Feature)
             .SetFeatureSet(powerBladeDance)
             .AddToDB();
-        
+
         var featureDanceOfDefenseSet = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureDanceOfDefenseSet", SubclassNamespace)
             .SetGuiPresentation("FeatureDanceOfDefense", Category.Feature)
             .SetFeatureSet(powerDanceOfDefense)
             .AddToDB();
-        
+
         var featureDanceOfVictorySet = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureDanceOfVictorySet", SubclassNamespace)
             .SetGuiPresentation("FeatureDanceOfVictory", Category.Feature)
             .SetFeatureSet(powerDanceOfVictory)
             .AddToDB();
-        
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardBladeDancer", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
@@ -205,19 +208,21 @@ internal sealed class BladeDancer : AbstractSubclass
     }
 
     private static ConditionDefinition ConditionBladeDance { get; set; }
-    
+
     private static ConditionDefinition ConditionDanceOfDefense { get; set; }
-    
+
     private static ConditionDefinition ConditionDanceOfVictory { get; set; }
 
     private static CharacterSubclassDefinition Subclass { get; set; }
 
-    private static bool IsBladeDanceValid(RulesetCharacter hero) => 
-        !hero.IsWearingMediumArmor()
-        && !hero.IsWearingHeavyArmor()
-        && !hero.IsWearingShield()
-        && !hero.IsWieldingTwoHandedWeapon();
-    
+    private static bool IsBladeDanceValid(RulesetCharacter hero)
+    {
+        return !hero.IsWearingMediumArmor()
+               && !hero.IsWearingHeavyArmor()
+               && !hero.IsWearingShield()
+               && !hero.IsWieldingTwoHandedWeapon();
+    }
+
     internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem _)
     {
         if (IsBladeDanceValid(hero))
@@ -227,17 +232,20 @@ internal sealed class BladeDancer : AbstractSubclass
 
         if (hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDance.Name))
         {
-            hero.RemoveConditionOfCategory("11Effect", new RulesetCondition {conditionDefinition = ConditionBladeDance});
+            hero.RemoveConditionOfCategory("11Effect",
+                new RulesetCondition {conditionDefinition = ConditionBladeDance});
         }
 
         if (hero.HasConditionOfCategoryAndType("11Effect", ConditionDanceOfDefense.Name))
         {
-            hero.RemoveConditionOfCategory("11Effect", new RulesetCondition {conditionDefinition = ConditionDanceOfDefense});
+            hero.RemoveConditionOfCategory("11Effect",
+                new RulesetCondition {conditionDefinition = ConditionDanceOfDefense});
         }
-        
+
         if (hero.HasConditionOfCategoryAndType("11Effect", ConditionDanceOfVictory.Name))
         {
-            hero.RemoveConditionOfCategory("11Effect", new RulesetCondition {conditionDefinition = ConditionDanceOfVictory});
+            hero.RemoveConditionOfCategory("11Effect",
+                new RulesetCondition {conditionDefinition = ConditionDanceOfVictory});
         }
     }
 
