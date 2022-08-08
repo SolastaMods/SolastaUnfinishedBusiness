@@ -1,10 +1,18 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionReplaceAttackWithCantrip, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerDanceOfVictory:13e1034a-9532-5761-94fe-47ac3f695663"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureReplaceAttackWithCantripTitle",
-    "description": "Feature/&FeatureReplaceAttackWithCantripDescription",
+    "title": "Feature/&FeatureDanceOfVictoryTitle",
+    "description": "Feature/&FeatureDanceOfVictoryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "aa706e60-2143-530a-a2a5-40f2c7d191c6",
+  "guid": "c03618f0-561f-5482-858c-f58d3a5b5d68",
   "contentPack": 9999,
-  "name": "FeatureReplaceAttackWithCantrip"
+  "name": "FeatureDanceOfVictorySet"
 }
