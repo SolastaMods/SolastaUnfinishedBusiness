@@ -20,7 +20,7 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view <i><color=#F0DAA0>[only in custom dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce weight of food ration to 2 pounds
 ModUI/&ArcaneShieldAll=All Classes
-ModUi/&ArcaneShieldstaffOptions=Extend attunement on <color=#D89555>Arcane Shieldstaff</color>:
+ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Battle=<color=#F0DAA0>Battle:</color>

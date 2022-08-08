@@ -251,21 +251,18 @@ internal static class ItemOptionsContext
 
     internal static void SwitchAttuneArcaneShieldstaff()
     {
-        switch (Main.Settings.ArcaneShieldstaffOptions)
+        if (Main.Settings.AllowAnyClassToUseArcaneShieldstaff)
         {
-            case 0:
-                ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Sorcerer);
+            ArcaneShieldstaff.RequiredAttunementClasses.Clear();
+        }
+        else
+        {
+            ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Sorcerer);
 
-                if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
-                {
-                    ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
-                }
-
-                break;
-
-            case 1:
-                ArcaneShieldstaff.RequiredAttunementClasses.Clear();
-                break;
+            if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
+            {
+                ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
+            }
         }
     }
 

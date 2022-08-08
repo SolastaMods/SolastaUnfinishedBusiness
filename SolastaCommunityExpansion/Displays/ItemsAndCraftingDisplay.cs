@@ -101,18 +101,11 @@ internal static class ItemsAndCraftingDisplay
 
         UI.Label("");
 
-        using (UI.HorizontalScope())
+        toggle = Main.Settings.AllowAnyClassToUseArcaneShieldstaff;
+        if (UI.Toggle(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), ref toggle, UI.AutoWidth()))
         {
-            UI.Label(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), UI.Width(325));
-
-            intValue = Main.Settings.ArcaneShieldstaffOptions;
-
-            if (UI.SelectionGrid(ref intValue, ItemOptionsContext.ArcaneShieldstaffOptions,
-                    ItemOptionsContext.ArcaneShieldstaffOptions.Length, 3, UI.Width(440)))
-            {
-                Main.Settings.ArcaneShieldstaffOptions = intValue;
-                ItemOptionsContext.SwitchAttuneArcaneShieldstaff();
-            }
+            Main.Settings.AllowAnyClassToUseArcaneShieldstaff = toggle;
+            ItemOptionsContext.SwitchAttuneArcaneShieldstaff();
         }
 
         UI.Label("");
