@@ -88,7 +88,6 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池切换键设置�
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=启用<color=#D89555>法师</color>法术大师子职的<color=#D89555>奥术深研</color>能力可无限回复\n<color=#F0DAA0>必须在该能力有可用次数时或在创建角色前启用</color>
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>召唤元素</color>，<color=#D89555>召唤精类生物</color>的升环施法
 ModUi/&Encounters=遭遇战
-ModUi/&ExecuteBatchTranslations=. 批量翻译并创建以目标语言前缀的新战役文件
 ModUi/&ExpandAll=全部展开
 ModUi/&FactionHelp=<color=#C04040E0>加载官方战役修改派系关系……</color>
 ModUi/&FactionRelations=<color=#F0DAA0>派系关系：</color>

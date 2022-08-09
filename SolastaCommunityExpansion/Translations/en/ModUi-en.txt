@@ -18,7 +18,7 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target select
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view <i><color=#F0DAA0>[only in custom dungeons]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduce weight of food ration to 2 pounds
+ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUI/&ArcaneShieldAll=All Classes
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
@@ -81,14 +81,13 @@ ModUi/&EnableRelearnSpells=Can select cantrips or spells already learned from ot
 ModUi/&EnableRespec=Enable the RESPEC and Level Down after rest actions
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
-ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable short rest recharge of <color=#D89555>Arcane Weapon</color> on <color=#D89555>Wizard</color> Arcane Fighter
+ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable short rest recharge of Arcane Weapon on <color=#D89555>Wizard Arcane Fighter</color>
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=#F0DAA0>[you might break quests or maps if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
-ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable unlimited <color=#D89555>Arcane Recovery</color> on <color=#D89555>Wizard</color> Spell Master\n<i><color=#F0DAA0>Must be enabled when the ability has available uses or before character creation</color></i>
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable unlimited Arcane Recovery on <color=#D89555>Wizard Spell Master</color>\n<i><color=#F0DAA0>Must be enabled when the ability has available uses or before character creation</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color>, <color=#D89555>Conjure Fey</color>
 ModUi/&Encounters=Encounters
-ModUi/&ExecuteBatchTranslations=. Batch translate instead to create a new campaign prefixed by the target language
 ModUi/&ExpandAll=Expand All
 ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Faction Relations:</color>
@@ -104,7 +103,7 @@ ModUi/&GameUi=Game UI
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
-ModUi/&HideMonsterHitPoints=Display Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points
+ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&HiderArmor=Hide Armor
 ModUi/&House=<color=#F0DAA0>House:</color>
 ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far away]</color></i>
@@ -137,8 +136,8 @@ ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on 
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OverrideMinMaxLevel=Override the required min and max levels when starting new adventures
 ModUi/&OverridePartySize=<color=white>Override the party size in custom adventures</color>
-ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override <color=#D89555>Rogue</color> Con Artist <color=#D89555>Improved Manipulation</color> Spell DC</color>
-ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override <color=#D89555>Wizard</color> Master Manipulator <color=#D89555>Arcane Manipulation</color> Spell DC</color>
+ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override <color=#D89555>Rogue Con Artist</color> Improved Manipulation Spell DC</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override <color=#D89555>Wizard Master Manipulator</color> Arcane Manipulation Spell DC</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
@@ -147,11 +146,11 @@ ModUi/&Races=<color=#F0DAA0>Races & Subraces</color>
 ModUi/&RacesClassesSubclasses=Races, Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's Cost</color>
 ModUi/&RecipesInDm=Recipes in DM
-ModUi/&ReduceDarkelfLightPenalty=Swap <color=#D89555>Dark Elf</color> Light Penalty to -1d4 on attacks instead of Disadvantage
-ModUi/&ReduceGrayDwarfLightPenalty=Swap <color=#D89555>Gray Dwarf</color> Light Penalty to -1d4 on attacks instead of Disadvantage
+ModUi/&ReduceDarkelfLightPenalty=Swap <color=#D89555>Dark Elf</color> Light Penalty Disadvantage with -1d4 on attacks
+ModUi/&ReduceGrayDwarfLightPenalty=Swap <color=#D89555>Gray Dwarf</color> Light Penalty Disadvantage with -1d4 on attacks
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveBugVisualModels=Replace bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveBugVisualModels=Replace spider like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell=Remove concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveIdentificationRequirements=Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

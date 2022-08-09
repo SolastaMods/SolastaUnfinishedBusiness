@@ -34,8 +34,6 @@ public static class TranslationsDisplay
         }
 
         UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&ExecuteBatchTranslations"));
-        UI.Label("");
 
         var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
 
