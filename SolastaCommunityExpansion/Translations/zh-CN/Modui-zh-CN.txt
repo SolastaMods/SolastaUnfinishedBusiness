@@ -1,4 +1,4 @@
-ModUi/&AddAllToStore=全部加入商店
+﻿ModUi/&AddAllToStore=全部加入商店
 ModUi/&AddBleedingToLesserRestoration=添加<color=#D89555>流血</color>状态至<color=#D89555>次级/高等复原术</color>的移除效果范围
 ModUi/&AddHelpActionToAllRaces=添加<color=#D89555>协助</color>至全部种族
 ModUi/&AddNewBrightEyeColors=添加额外明亮眼睛颜色<color=#C04040E0>【需要重启游戏】</color>
@@ -20,7 +20,7 @@ ModUi/&AllRecipesInDm=所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<color=#F0DAA0>【仅限自定义地牢】</color>
 ModUi/&ApplySRDWeightToFoodRations=将口粮的重量减少至2磅
 ModUI/&ArcaneShieldAll=所有职业
-ModUi/&ArcaneShieldstaffOptions=拓展<color=#D89555>奥术盾杖</color>的同调至：
+ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任意职业同调
 ModUi/&AutoPauseOnVictory=战斗胜利后暂停游戏
 ModUi/&Basic=<color=#F0DAA0>基础：</color>
 ModUi/&Battle=<color=#F0DAA0>战斗：</color>
