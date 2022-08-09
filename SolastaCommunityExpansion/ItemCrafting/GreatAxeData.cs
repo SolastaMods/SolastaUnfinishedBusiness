@@ -16,10 +16,7 @@ internal static class GreatAxeData
         {
             BaseGuid = new Guid("16757d1b-518f-4669-af43-1ddf5d23c223"),
             BaseWeapons =
-                new List<ItemDefinition>
-                {
-                    DatabaseHelper.ItemDefinitions.Greataxe
-                },
+                new List<ItemDefinition> {DatabaseHelper.ItemDefinitions.Greataxe},
             PossiblePrimedItemsToReplace = new List<ItemDefinition>
             {
                 DatabaseHelper.ItemDefinitions.Primed_Morningstar,
