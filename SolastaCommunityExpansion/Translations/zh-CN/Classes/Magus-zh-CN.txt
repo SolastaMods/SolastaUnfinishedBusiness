@@ -1,5 +1,4 @@
 ﻿Class/&ClassMagusAegisModifySpellEffectDescription=当你专注于一个法术时，你的AC和豁免获得+2加值
-Class/&ClassMagusAegisModifySpellEffectDescription=当你专注于一个法术时，你的AC和豁免获得+2加值
 Class/&ClassMagusAegisModifySpellEffectTitle=庇护
 Class/&ClassMagusArmorProficiencyDescription=获得轻甲、中甲和盾牌的熟练项
 Class/&ClassMagusArmorProficiencyTitle=魔战士护甲熟练

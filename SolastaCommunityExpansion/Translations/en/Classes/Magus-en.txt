@@ -1,5 +1,4 @@
 ﻿Class/&ClassMagusAegisModifySpellEffectDescription=When you are concentrating on a spell your AC and Saving Throws increased by 2.
-Class/&ClassMagusAegisModifySpellEffectDescription=When you are concentrating on a spell your AC and Saving Throws increased by 2.
 Class/&ClassMagusAegisModifySpellEffectTitle=Aegis
 Class/&ClassMagusArmorProficiencyDescription=Proficiency with Light and Medium armors as well as Shields.
 Class/&ClassMagusArmorProficiencyTitle=Magus Armor Proficiency
