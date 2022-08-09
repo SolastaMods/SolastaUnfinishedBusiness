@@ -3,5 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Minor fixes
-- Refactor Blade Dancer [RESPEC any Blade Dancer hero before this update]
+- Add new recipes for GreatAxe and GreatSword
