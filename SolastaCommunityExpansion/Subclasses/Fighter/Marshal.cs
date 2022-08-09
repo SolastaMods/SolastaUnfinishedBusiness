@@ -239,14 +239,18 @@ internal static class CoordinatedAttackBuilder
             {
                 continue;
             }
-
+            
             var gameLocationMonster = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
 
-            allies.Add(gameLocationMonster);
+            if (gameLocationMonster.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == ActionDefinitions.ActionStatus.Available
+                && !gameLocationMonster.Prone)
+            {
+                allies.Add(gameLocationMonster);    
+            }
         }
 
         allies.AddRange(characterService.PartyCharacters
-            .Where(partyCharacter => partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == 0)
+            .Where(partyCharacter => partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == 0 && !partyCharacter.Prone)
             .Where(partyCharacter => partyCharacter != attacker));
 
         var reactions = new List<CharacterActionParams>();
