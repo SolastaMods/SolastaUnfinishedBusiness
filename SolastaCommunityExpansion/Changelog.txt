@@ -4,5 +4,5 @@ The donation button is under Mod UI > Credits & Diagnostics
 CHANGES:
 
 - Add new recipes for GreatAxe and GreatSword
-- Bring Chinese translations up to date
-- Minor fixes on Marshal
+- Minor fixes on Marshal subclass
+- Update Chinese translations
