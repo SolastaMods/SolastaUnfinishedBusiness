@@ -18,16 +18,16 @@ internal static class CreditsDisplay
         {"Tactical Adventures", "early access to DLC builds and community support"},
         {"JetBrains", "one year Rider IDE subscription for 3 developers"},
         {"", ""},
-        {"Critical Hit", "<b>M. Miller</b>, <b>J. Cohen</b>, <b>L. Goldiner</b>"},
+        {"Critical Hit", "<b>M. Miller</b>, <b>C. Alvarez</b>, <b>J. Cohen</b>, <b>L. Goldiner</b>"},
         {"D20", "D. Fenter, B. Amorsen, B. Lane, J. Loustaunau"},
         {"D12", "E. Antonio, C. Aardappel, M. Klepac"},
         {"D8", "R. Baker, R. Maxim, D. Boggs, P. Marreck"},
         {
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, J. Bendoski, M. Oliveira, M. Harck\n" +
-                  "D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, C. Alvarez, R. Garcia, \n" +
-                  "R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson, J. Batanero\n" +
-                  "J. Gattis, J. Lamarre, H. Yes, J. Dileo, L. Barker, N. Zhuxy, M. Arteaga, J. Boyd, C. Badgley\n" +
-                  "D. Faires, E. Smith, G. Kinch"
+                  "D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, R. Garcia, R. Name\n" +
+                  "G. Ruiz, A. Badeaux, S. Braden, E. Gilbert, C. Tontodonati, G. Johnson, J. Batanero, J. Gattis\n" +
+                  "J. Lamarre, H. Yes, J. Dileo, L. Barker, N. Zhuxy, M. Arteaga, J. Boyd, C. Badgley, D. Faires\n" +
+                  "E. Smith, G. Kinch, A. Searle, R. Hamblin"
         }
     };
 
@@ -54,7 +54,7 @@ internal static class CreditsDisplay
             "ImpPhil",
             "adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map"
         ),
-        ("Nd", "Marshal and Opportunist subclasses"),
+        ("Nd", "Magus class, Marshal and Opportunist subclasses"),
         ("RedOrca", "Path of the Light subclass, Indomitable Might"),
         (
             "SilverGriffon",
@@ -68,7 +68,7 @@ internal static class CreditsDisplay
         ("Vylantze", "English terms review, tweaks, bug fixes"),
         (
             "Zappastuff",
-            "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Holic75's code integration"
+            "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Dead Master, Blade Dancer, Holic75's code integration"
         ),
         ("", ""),
         ("Esker", "ruleset support, classes design, quality assurance"),

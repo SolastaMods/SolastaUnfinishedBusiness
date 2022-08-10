@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -76,5 +77,13 @@ internal static class ArchetypesPreviewModal_Show
         {
             subclasses = new List<string> {characterSubclassDefinition.Name};
         }
+
+        var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
+
+        subclasses.Sort((left, right) =>
+            string.Compare(
+                dbCharacterSubclassDefinition.GetElement(left).FormatTitle(),
+                dbCharacterSubclassDefinition.GetElement(right).FormatTitle(),
+                StringComparison.CurrentCultureIgnoreCase));
     }
 }

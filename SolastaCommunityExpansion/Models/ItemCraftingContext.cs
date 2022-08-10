@@ -34,6 +34,8 @@ internal static class ItemCraftingContext
         {"Warhammer", Gui.Localize("Equipment/&WarhammerTypeTitle")},
         {"Quarterstaff", Gui.Localize("Equipment/&QuarterstaffTypeTitle")},
         {"Rapier", Gui.Localize("Equipment/&RapierTypeTitle")},
+        {"Greataxe", Gui.Localize("Equipment/&GreataxeTypeTitle")},
+        {"Greatsword", Gui.Localize("Equipment/&GreatswordTypeTitle")},
         {"Spear", Gui.Localize("Equipment/&SpearTypeTitle")},
         {"Scimitar", Gui.Localize("Equipment/&ScimitarTypeTitle")},
         {"Shield_Wooden", Gui.Localize("Equipment/&Shield_Wooden_Title")},
@@ -76,6 +78,8 @@ internal static class ItemCraftingContext
         ItemRecipeGenerationHelper.AddRecipesForWeapons(SpearData.Items);
         ItemRecipeGenerationHelper.AddRecipesForWeapons(ScimitarData.Items);
         ItemRecipeGenerationHelper.AddRecipesForWeapons(RapierData.Items);
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(GreatAxeData.Items);
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(GreatSwordData.Items);
 
         ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
 
