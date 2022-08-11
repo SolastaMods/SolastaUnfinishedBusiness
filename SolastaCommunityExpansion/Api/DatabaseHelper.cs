@@ -11102,8 +11102,8 @@ public static partial class DatabaseHelper
         public static ItemDefinition ScrollRemoveCurse { get; } =
             GetDefinition<ItemDefinition>("ScrollRemoveCurse", "68d401c459c112e4bb38991888d43f22");
 
-        // public static ItemDefinition ScrollResurrection { get; } =
-        //     GetDefinition<ItemDefinition>("ScrollResurrection", "57b805ad7e8dac94199b00805ed63b3c");
+        public static ItemDefinition ScrollResurrection { get; } =
+            GetDefinition<ItemDefinition>("ScrollResurrection", "57b805ad7e8dac94199b00805ed63b3c");
 
         public static ItemDefinition ScrollRevivify { get; } =
             GetDefinition<ItemDefinition>("ScrollRevivify", "67a2c72f62b599946923a0a95a85e45c");
@@ -20281,8 +20281,8 @@ public static partial class DatabaseHelper
         public static SpellDefinition Resistance { get; } =
             GetDefinition<SpellDefinition>("Resistance", "384dce9da39ad4e4b82106fa7829c17c");
 
-        // public static SpellDefinition Resurrection { get; } =
-        //     GetDefinition<SpellDefinition>("Resurrection", "f796a243f664c73409cca137f137f5f3");
+        public static SpellDefinition Resurrection { get; } =
+            GetDefinition<SpellDefinition>("Resurrection", "f796a243f664c73409cca137f137f5f3");
 
         public static SpellDefinition Revivify { get; } =
             GetDefinition<SpellDefinition>("Revivify", "16e7fb95186cf9b41806d15fbacd81af");
