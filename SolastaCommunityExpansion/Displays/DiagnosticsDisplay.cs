@@ -73,8 +73,10 @@ This is a collection of work from the Solasta modding community. It includes mul
 
 [b]STEP 2:[/b] Install Community Expansion (CE):
 
+[list]
 [*] Create the folder [b]/Applications/Mods[/b]
 [*] Download CE from the files section, unzip and copy it under above folder
+[/list]
 
 [size=4][b]Multiplayer[/b][/size]
 
