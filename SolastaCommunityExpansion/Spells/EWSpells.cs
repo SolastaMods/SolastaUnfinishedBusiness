@@ -252,7 +252,8 @@ internal static class EwSpells
                                     RuleDefinitions.AdditionalDamageType.Specific,
                                     RuleDefinitions.DamageTypeThunder,
                                     RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
-                                    DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1)
+                                    DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1),
+                                    true
                                 )
                                 .AddToDB()
                             )

@@ -3,6 +3,5 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Add new recipes for GreatAxe and GreatSword
-- Minor fixes on Marshal subclass
-- Update Chinese translations
+- Fix Resonating Strike doubling static damage on critical
+- Update codebase for game v 1.3.91
