@@ -176,7 +176,8 @@ public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditio
         bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber,
         RuleDefinitions.AdditionalDamageType additionalDamageType,
         string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement,
-        [NotNull] IEnumerable<DiceByRank> diceByRankTable)
+        [NotNull] IEnumerable<DiceByRank> diceByRankTable,
+        bool ignoreCriticalDoubleDice = false)
     {
         // this should be first to avoid issues with Damage Value determination
         SetDamageDice(damageDieType, damageDiceNumber);
@@ -196,6 +197,7 @@ public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditio
         Definition.DiceByRankTable.SetRange(diceByRankTable);
         Definition.damageDieType = damageDieType;
 
+        Definition.ignoreCriticalDoubleDice = ignoreCriticalDoubleDice;
         return This();
     }
 
