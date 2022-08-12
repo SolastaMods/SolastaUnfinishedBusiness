@@ -3,5 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix Resonating Strike doubling static damage on critical
-- Update codebase for game v 1.3.91
+- Fix missing translations

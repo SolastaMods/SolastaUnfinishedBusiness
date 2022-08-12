@@ -81,8 +81,10 @@ This is a collection of work from the Solasta modding community. It includes mul
 
 [b]STEP 2:[/b] Install Community Expansion (CE):
 
+[list]
 [*] Create the folder [b]/Applications/Mods[/b]
 [*] Download CE from the files section, unzip and copy it under above folder
+[/list]
 
 [size=4][b]Multiplayer[/b][/size]
 
@@ -420,8 +422,8 @@ The cloud moves 10 feet directly away from you in a direction that you choose at
 [*][b]Spear[/b]: Black Viper Spear, Doom Tipped Spear, Spear of Acuteness, Whiteburn Spear, Lightbringer Spear, Spear of Sharpness
 [*][b]Scimitar[/b]: Stormblade Scimitar, Frostburn Scimitar, Lightbringer Scimitar, Dragonblade Scimitar, Warden Scimitar, Whiteburn Scimitar, Souldrinker Scimitar
 [*][b]Rapier[/b]: Stormblade Rapier, Frostburn Rapier, Lightbringer Rapier, Dragonblade Rapier, Warden Rapier, Whiteburn Rapier, Souldrinker Rapier, Rapier of Power
-[*][b]Greataxe[/b]: Equipment/&Enchanted_Greataxe_Acuteness_Title, Equipment/&Enchanted_Greataxe_Bearclaw_Title, Equipment/&Enchanted_Greataxe_Power_Title, Equipment/&Enchanted_Greataxe_Lightbringer_Title, Equipment/&Enchanted_Greataxe_Punisher_Title
-[*][b]Greatsword[/b]: Equipment/&Enchanted_Greatsword_Punisher_Title
+[*][b]Greataxe[/b]: Greataxe of Acuteness, Bearclaw Greataxe, Greataxe of Power, Lightbringer Greataxe, Punisher Greataxe
+[*][b]Greatsword[/b]: Punisher Greatsword
 [*][b]Wooden Shield[/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
 [*][b]Shield[/b]: Shield of Sturdiness, Shield of Robustness, Shield of Survival, Shield of Flame Dancing, Shield of Frost Walking, Shield of Deflection
 [*][b]Hide Armor[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection
