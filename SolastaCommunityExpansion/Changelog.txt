@@ -3,4 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix missing translations
+- Fix Half-High Elf to use Charisma as cantrip score ability
