@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.Insertion;
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Insertion;
 
 public class GraphicsCharacterFactoryManagerPatcher
 {

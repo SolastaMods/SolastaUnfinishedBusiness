@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.OfficialAdvantageDisadvantageRules;
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.OfficialAdvantageDi
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RuleDefinitions_ComputeAdvantage
 {
-    public static void Postfix(List<TrendInfo> trends, ref AdvantageType __result)
+    public static void Postfix([NotNull] List<TrendInfo> trends, ref AdvantageType __result)
     {
         if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
         {

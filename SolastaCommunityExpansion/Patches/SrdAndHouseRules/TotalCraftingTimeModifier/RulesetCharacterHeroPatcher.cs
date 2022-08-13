@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.Crafting;
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.TotalCraftingTimeModifier;
 
 [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeCraftingDurationHours")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

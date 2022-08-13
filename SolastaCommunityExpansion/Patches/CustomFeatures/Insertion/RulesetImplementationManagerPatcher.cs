@@ -2,12 +2,12 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.Insertion;
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Insertion;
 
 internal static class RulesetImplementationManagerPatcher
 {
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsSituationalContextValid")]
-    [HarmonyPatch(new[] {typeof(RulesetImplementationDefinitions.SituationalContextParams)})]
+    [HarmonyPatch(new[] { typeof(RulesetImplementationDefinitions.SituationalContextParams) })]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class IsSituationalContextValid
     {
