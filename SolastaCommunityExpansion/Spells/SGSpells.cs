@@ -19,13 +19,6 @@ public static class SgSpells
     private static readonly SpellDefinition RadiantMotes = BuildRadiantMotes();
     private static readonly SpellDefinition Mule = BuildMule();
 
-    internal static void AddToDB()
-    {
-        _ = IlluminatingSphere;
-        _ = RadiantMotes;
-        _ = Mule;
-    }
-
     internal static void Register()
     {
         //cantrip

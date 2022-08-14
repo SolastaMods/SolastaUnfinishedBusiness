@@ -69,9 +69,6 @@ internal static class GameManager_BindPostDatabase
         // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
         PowersContext.Load();
 
-        // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
-        SpellsContext.Load();
-
         // Races may rely on spells and powers being in the DB before they can properly load.
         RacesContext.Load();
 

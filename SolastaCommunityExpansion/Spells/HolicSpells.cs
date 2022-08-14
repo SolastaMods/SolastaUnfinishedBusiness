@@ -24,16 +24,6 @@ internal static class HolicSpells
     private static readonly SpellDefinition WinterBreath = BuildWinterBreath();
     private static readonly SpellDefinition EarthTremor = BuildEarthTremor();
 
-    internal static void AddToDB()
-    {
-        _ = AcidClaw;
-        _ = AirBlast;
-        _ = BurstOfRadiance;
-        _ = ThunderStrike;
-        _ = EarthTremor;
-        _ = WinterBreath;
-    }
-
     internal static void Register()
     {
         RegisterSpell(AcidClaw, 0, SpellListDruid);
