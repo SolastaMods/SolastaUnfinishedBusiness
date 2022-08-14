@@ -800,7 +800,7 @@ public static class SrdSpells
         effectDescription.RestrictedCreatureFamilies.Clear();
         effectDescription.SetDuration(RuleDefinitions.DurationType.Hour, 1);
         effectDescription.EffectAdvancement.alteredDuration =
-            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateMonster;
+            (RuleDefinitions.AdvancementDuration)ExtraAdvancementDuration.DominateMonster;
 
         return SpellDefinitionBuilder
             .Create("DHDominateMonsterSpell", DhBaseGuid)
