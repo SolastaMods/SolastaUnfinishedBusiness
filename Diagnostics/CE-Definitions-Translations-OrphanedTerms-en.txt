@@ -144,6 +144,7 @@ ModUi/&RecipeCost=<color=white>Recipe's	Cost</color>
 ModUi/&RecipesInDm=Recipes	in DM
 ModUi/&ReduceDarkelfLightPenalty=Swap	<color=#D89555>Dark Elf</color> Light Penalty Disadvantage with -1d4 on attacks
 ModUi/&ReduceGrayDwarfLightPenalty=Swap	<color=#D89555>Gray Dwarf</color> Light Penalty Disadvantage with -1d4 on attacks
+ModUi/&HalfHighElfUseCharisma=<color=#D89555>Half-High	Elf</color> uses Charisma instead of Intelligence as the cantrip score ability <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RelicForgeries=Relic	Forgeries
 ModUi/&RemoveAttunementRequirements=Remove	attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels=Replace	spider like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -341,6 +342,8 @@ Race/&HalfElfHighElfRaceDescription=Half-High	elves are trained to use magic ver
 Race/&HalfElfHighElfRaceTitle=Half-High	Elf
 Race/&HalfElfSylvanElfRaceDescription=Half-Sylvan	elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 Race/&HalfElfSylvanElfRaceTitle=Half-Sylvan	Elf
+Feature/&HalfElfHighCastSpellDescription=Choose	one Wizard cantrip, using Charisma as the spellcasting ability.
+Feature/&HalfElfHighCastSpellTitle=High	Elf Cantrip
 Class/&ClassMagusAegisModifySpellEffectDescription=When	you are concentrating on a spell your AC and Saving Throws increased by 2.
 Class/&ClassMagusArmorProficiencyDescription=Proficiency	with Light and Medium armors as well as Shields.
 Class/&ClassMagusArmorProficiencyTitle=Magus	Armor Proficiency

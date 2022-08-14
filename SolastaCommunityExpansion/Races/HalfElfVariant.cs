@@ -52,12 +52,12 @@ internal static class HalfElfVariantRaceBuilder
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .AddToDB();
-        
+
         var halfElfHighElf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "HalfElfHighElfRace", RaceNamespace)
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)
             .SetFeaturesAtLevel(1,
-                castSpellHalfElfHigh,
+                Main.Settings.HalfHighElfUseCharisma ? castSpellHalfElfHigh : CastSpellElfHigh,
                 MoveModeMove6)
             .AddToDB();
 

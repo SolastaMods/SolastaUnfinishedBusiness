@@ -109,6 +109,7 @@ public class Settings : UnityModManager.ModSettings
     public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
     public bool ReduceDarkElfLightPenalty { get; set; }
     public bool ReduceGrayDwarfLightPenalty { get; set; }
+    public bool HalfHighElfUseCharisma { get; set; }
     public int RaceSliderPosition { get; set; } = 4;
     public List<string> RaceEnabled { get; } = new();
     public int ClassSliderPosition { get; set; } = 4;

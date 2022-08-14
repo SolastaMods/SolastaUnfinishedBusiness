@@ -4,4 +4,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 CHANGES:
 
 - Bring back RiftWalker subclass
-- Change Half-High Elf to use Charisma as the cantrip score ability
+- Add an option to allow Half-High Elf Half-High Elf to use Charisma as the cantrip score ability
