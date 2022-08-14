@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace SolastaCommunityExpansion.Api.Extensions;
+﻿namespace SolastaCommunityExpansion.Api.Extensions;
 
 public enum ExtraEffectFormType
 {
@@ -80,7 +78,9 @@ public enum ExtraAdditionalDamageAdvancement
 public enum ExtraAdvancementDuration
 {
     None = RuleDefinitions.AdvancementDuration.None,
+    // ReSharper disable once InconsistentNaming
     Hours_1_8_24 = RuleDefinitions.AdvancementDuration.Hours_1_8_24,
+    // ReSharper disable once InconsistentNaming
     Minutes_1_10_480_1440_Infinite = RuleDefinitions.AdvancementDuration.Minutes_1_10_480_1440_Infinite,
     DominateBeast = 9000,
     DominatePerson = 9001,
