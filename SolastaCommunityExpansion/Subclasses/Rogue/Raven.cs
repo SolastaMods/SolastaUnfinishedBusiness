@@ -86,7 +86,7 @@ internal sealed class Raven : AbstractSubclass
                         (18, 5),
                         (19, 6),
                         (20, 6))
-                    .SetNotificationTag("Heart Seeking Shot")
+                    .SetNotificationTag("HeartSeekingShot")
                     .AddToDB()
             )
             .AddToDB();
