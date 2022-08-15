@@ -51,7 +51,7 @@ internal sealed class Raven : AbstractSubclass
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("HeartSeekingShotCriticalThresholdModifier", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
-                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 18)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -2)
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("HeartSeekingShotAttackModifier", DefinitionBuilder.CENamespaceGuid)
