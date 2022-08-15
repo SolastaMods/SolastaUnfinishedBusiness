@@ -4,5 +4,5 @@ Race/&HalfElfHighElfRaceDescription=半高等精灵很早就接受了使用魔�
 Race/&HalfElfHighElfRaceTitle=半高等精灵
 Race/&HalfElfSylvanElfRaceDescription=半木精灵被训练成在荒野中生存的人，也特别善于生存。由于他们的木血统，他们从小就被训练用剑和弓作战
 Race/&HalfElfSylvanElfRaceTitle=半木精灵
-Feature/&HalfElfHighCastSpellDescription=Choose one Wizard cantrip, using Charisma as the spellcasting ability.
-Feature/&HalfElfHighCastSpellTitle=High Elf Cantrip
+Feature/&HalfElfHighCastSpellDescription=选择一个法师戏法，使用魅力作为施放属性
+Feature/&HalfElfHighCastSpellTitle=高等精灵戏法
