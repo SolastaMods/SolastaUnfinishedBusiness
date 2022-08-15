@@ -1,4 +1,0 @@
-HeartSeekingShotAttackModifier	Title='Feature/&HeartSeekingShotAttackModifierTitle'.
-HeartSeekingShotAttackModifier	Description='Feature/&HeartSeekingShotAttackModifierDescription'.
-HeartSeekingShotCriticalThresholdModifier	Title='Feature/&HeartSeekingShotCriticalThresholdModifierTitle'.
-HeartSeekingShotCriticalThresholdModifier	Description='Feature/&HeartSeekingShotCriticalThresholdModifierDescription'.

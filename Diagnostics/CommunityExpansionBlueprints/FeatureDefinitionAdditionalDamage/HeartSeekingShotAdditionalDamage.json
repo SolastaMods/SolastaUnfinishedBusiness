@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "Heart Seeking Shot",
+  "notificationTag": "HeartSeekingShot",
   "limitedUsage": "None",
   "triggerCondition": "CriticalHit",
   "requiredProperty": "None",
