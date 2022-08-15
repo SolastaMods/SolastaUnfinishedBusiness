@@ -25,7 +25,7 @@ internal sealed class Raven : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
     {
-        var concentrationProvider = new AcehighFeats.StopPowerConcentrationProvider("DeadEye",
+        var concentrationProvider = new AcehighFeats.StopPowerConcentrationProvider("HeartSeekingShot",
             "Tooltip/&HeartSeekingShotConcentration",
             CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
@@ -61,7 +61,8 @@ internal sealed class Raven : AbstractSubclass
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("HeartSeekingShotAdditionalDamage", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
-                    .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit)
+                    .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
+                    .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
                     .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.SameAsBaseDamage)
                     .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
                     .SetDamageDice(RuleDefinitions.DieType.D6, 1)
@@ -84,7 +85,7 @@ internal sealed class Raven : AbstractSubclass
                         (18, 5),
                         (19, 6),
                         (20, 6))
-                    .SetNotificationTag("Heart Seeking Shot")
+                    .SetNotificationTag("HeartSeekingShot")
                     .AddToDB()
                     )
             .AddToDB();
@@ -113,38 +114,38 @@ internal sealed class Raven : AbstractSubclass
             .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.HasTwoHandedRangeWeapon))
             .AddToDB();
 
-            PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
+        PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
 
-            var turnOffPower = FeatureDefinitionPowerBuilder
-                .Create("TurnOffHeartSeekingShotPower", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentationNoContent(true)
-                .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
-                .SetUsesFixed(1)
-                .SetCostPerUse(0)
-                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                .SetEffectDescription(new EffectDescriptionBuilder()
-                    .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                        RuleDefinitions.TargetType.Self)
-                    .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
-                    .SetEffectForms(
-                        new EffectFormBuilder()
-                            .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
-                            .Build(),
-                        new EffectFormBuilder()
-                            .SetConditionForm(heartSeekingShotCondition, ConditionForm.ConditionOperation.Remove)
-                            .Build())
-                    .Build())
-                .AddToDB();
+        var turnOffPower = FeatureDefinitionPowerBuilder
+            .Create("TurnOffHeartSeekingShotPower", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentationNoContent(true)
+            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetUsesFixed(1)
+            .SetCostPerUse(0)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
+                    RuleDefinitions.TargetType.Self)
+                .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
+                .SetEffectForms(
+                    new EffectFormBuilder()
+                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
+                        .Build(),
+                    new EffectFormBuilder()
+                        .SetConditionForm(heartSeekingShotCondition, ConditionForm.ConditionOperation.Remove)
+                        .Build())
+                .Build())
+            .AddToDB();
 
-            PowersContext.PowersThatIgnoreInterruptions.Add(turnOffPower);
-            concentrationProvider.StopPower = turnOffPower;
+        PowersContext.PowersThatIgnoreInterruptions.Add(turnOffPower);
+        concentrationProvider.StopPower = turnOffPower;
 
-            return FeatureDefinitionFeatureSetBuilder
-                .Create("RoguishRavenHeartSeekingShotFeatureSet", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature)
-                .AddFeatureSet(turnOnPower, turnOffPower)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .AddToDB();
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("RoguishRavenHeartSeekingShotFeatureSet", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(turnOnPower, turnOffPower)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .AddToDB();
     }
 
     private static CharacterSubclassDefinition CreateRaven()
