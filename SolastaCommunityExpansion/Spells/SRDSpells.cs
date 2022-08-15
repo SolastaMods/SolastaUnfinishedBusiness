@@ -6,7 +6,6 @@ using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Patches.Bugfix;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;

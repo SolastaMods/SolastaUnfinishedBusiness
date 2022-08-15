@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
-using SolastaCommunityExpansion.Patches.Bugfix;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 

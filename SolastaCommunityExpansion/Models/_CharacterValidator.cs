@@ -24,7 +24,7 @@ public static class CharacterValidators
         return WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                || WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     };
-    
+
     public static readonly CharacterValidator HasTwoHandedRangeWeapon = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
