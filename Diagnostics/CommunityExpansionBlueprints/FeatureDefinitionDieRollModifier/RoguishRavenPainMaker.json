@@ -1,19 +1,20 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "AHWarlockSubclassSoulBladePact",
-    "AncientForest",
-    "DHWarlockSubclassElementalPatron",
-    "DHWarlockSubclassRiftWalker",
-    "MoonLit"
-  ],
-  "filterByDeity": false,
-  "subclassSuffix": "Patron",
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 1,
+  "maxRollValue": 0,
+  "minRerollValue": 1,
+  "rerollCount": 1,
+  "rerollLocalizationKey": "Feature/&RoguishRavenPainMakerReroll",
+  "forcedMinimalHalfDamageOnDice": false,
+  "validityContext": "AttackDamageValueRoll",
+  "requireProficiency": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassWarlockPatronTitle",
-    "description": "Subclass/&ClassWarlockPatronDescription",
+    "title": "Feature/&RoguishRavenPainMakerTitle",
+    "description": "Feature/&RoguishRavenPainMakerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ddcae779-e75e-5d00-8b87-8d0defd80f16",
+  "guid": "b7de23ed-71fe-5719-b84e-3c262f41ea4c",
   "contentPack": 9999,
-  "name": "ClassWarlockSubclassChoice"
+  "name": "RoguishRavenPainMaker"
 }

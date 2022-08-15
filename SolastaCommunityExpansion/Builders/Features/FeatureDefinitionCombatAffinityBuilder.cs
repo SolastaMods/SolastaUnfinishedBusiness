@@ -28,6 +28,12 @@ public abstract class
         return This();
     }
 
+    public TBuilder SetIgnoreCover()
+    {
+        Definition.ignoreCover = true;
+        return This();
+    }
+
     #region Constructors
 
     protected FeatureDefinitionCombatAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

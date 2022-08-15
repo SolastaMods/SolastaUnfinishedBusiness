@@ -129,14 +129,6 @@ internal static class SpellsContext
         }
     }
 
-    internal static void Load()
-    {
-        //BazouSpells.AddToDB();
-        HolicSpells.AddToDB();
-        SrdSpells.AddToDB();
-        SgSpells.AddToDB();
-    }
-
     internal static void RegisterSpell(
         SpellDefinition spellDefinition,
         int suggestedStartsAt = 0,

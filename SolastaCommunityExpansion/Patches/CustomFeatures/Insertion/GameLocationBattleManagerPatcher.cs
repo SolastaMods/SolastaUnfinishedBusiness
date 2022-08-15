@@ -7,7 +7,7 @@ using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using TA;
 
-namespace SolastaCommunityExpansion.Patches.Insertion;
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Insertion;
 
 internal static class GameLocationBattleManagerPatcher
 {

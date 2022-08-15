@@ -132,7 +132,7 @@ internal static class AcehighFeats
         }
     }
 
-    private sealed class StopPowerConcentrationProvider : ICusomConcentrationProvider
+    public sealed class StopPowerConcentrationProvider : ICusomConcentrationProvider
     {
         public FeatureDefinitionPower StopPower;
 

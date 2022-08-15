@@ -1,19 +1,18 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "AHWarlockSubclassSoulBladePact",
-    "AncientForest",
-    "DHWarlockSubclassElementalPatron",
-    "DHWarlockSubclassRiftWalker",
-    "MoonLit"
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Main",
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [
+    "AttackMain"
   ],
-  "filterByDeity": false,
-  "subclassSuffix": "Patron",
+  "maxAttacksNumber": 1,
+  "triggerCondition": "HasDownedAnEnemy",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassWarlockPatronTitle",
-    "description": "Subclass/&ClassWarlockPatronDescription",
+    "title": "Feature/&RoguishRavenKillingSpreeTitle",
+    "description": "Feature/&RoguishRavenKillingSpreeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ddcae779-e75e-5d00-8b87-8d0defd80f16",
+  "guid": "cffc4a5c-9ca0-5bc4-8e94-bb1561c0da1f",
   "contentPack": 9999,
-  "name": "ClassWarlockSubclassChoice"
+  "name": "RoguishRavenKillingSpree"
 }

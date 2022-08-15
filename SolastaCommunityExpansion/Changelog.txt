@@ -3,4 +3,5 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix missing translations
+- Add the Roguish Raven subclass
+- Fix minor issues

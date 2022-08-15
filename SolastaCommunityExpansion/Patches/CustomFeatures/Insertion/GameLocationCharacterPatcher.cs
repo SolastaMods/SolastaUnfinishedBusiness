@@ -7,7 +7,7 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.Insertion;
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Insertion;
 
 internal static class GameLocationCharacterPatcher
 {

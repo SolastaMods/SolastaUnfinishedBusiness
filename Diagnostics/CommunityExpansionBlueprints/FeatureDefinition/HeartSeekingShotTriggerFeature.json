@@ -1,19 +1,10 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "AHWarlockSubclassSoulBladePact",
-    "AncientForest",
-    "DHWarlockSubclassElementalPatron",
-    "DHWarlockSubclassRiftWalker",
-    "MoonLit"
-  ],
-  "filterByDeity": false,
-  "subclassSuffix": "Patron",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Subclass/&ClassWarlockPatronTitle",
-    "description": "Subclass/&ClassWarlockPatronDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ddcae779-e75e-5d00-8b87-8d0defd80f16",
+  "guid": "c542fabe-2baf-5ddc-9e7c-f5e8eb240414",
   "contentPack": 9999,
-  "name": "ClassWarlockSubclassChoice"
+  "name": "HeartSeekingShotTriggerFeature"
 }
