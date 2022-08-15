@@ -5,7 +5,9 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Subclasses.Rogue;
 using TA;
 using UnityEngine;
 
@@ -73,5 +75,19 @@ internal static class RulesetActor_RollDie
         secondRoll = rolls[2];
 
         return Mathf.Max(firstRoll, secondRoll);
+    }
+
+    // TODO: make this more generic
+    internal static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
+        ref bool enumerateFeatures, ref bool canRerollDice)
+    {
+        if (!__instance.HasSubFeatureOfType<Raven.RavenRerollAnyDamageDieMarker>() ||
+            rollContext != RuleDefinitions.RollContext.AttackDamageValueRoll)
+        {
+            return;
+        }
+
+        enumerateFeatures = true;
+        canRerollDice = true;
     }
 }

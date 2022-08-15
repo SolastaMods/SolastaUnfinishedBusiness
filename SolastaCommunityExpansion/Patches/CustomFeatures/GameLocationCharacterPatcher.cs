@@ -22,7 +22,10 @@ internal static class GameLocationCharacterPatcher
             var customMethod =
                 new Action<RulesetActor, List<FeatureDefinition>,
                     Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>>(CustomEnumerate).Method;
-
+            var customMethod2 =
+                new Action<RulesetActor, List<FeatureDefinition>,
+                    Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>>(CustomEnumerate2).Method;
+            
             var bindIndex = codes.FindIndex(x =>
             {
                 if (x.operand == null)
@@ -39,6 +42,23 @@ internal static class GameLocationCharacterPatcher
             {
                 codes[bindIndex] = new CodeInstruction(OpCodes.Call, customMethod);
             }
+            
+            var bindIndex2 = codes.FindIndex(x =>
+            {
+                if (x.operand == null)
+                {
+                    return false;
+                }
+
+                var operand = x.operand.ToString();
+
+                return operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IAdditionalActionsProvider");
+            });
+
+            if (bindIndex2 > 0)
+            {
+                codes[bindIndex2] = new CodeInstruction(OpCodes.Call, customMethod2);
+            }
 
             return codes.AsEnumerable();
         }
@@ -47,6 +67,22 @@ internal static class GameLocationCharacterPatcher
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
         {
             actor.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(features);
+            if (actor is not RulesetCharacter character)
+            {
+                return;
+            }
+
+            features.RemoveAll(f =>
+            {
+                var validator = f.GetFirstSubFeatureOfType<IFeatureApplicationValidator>();
+                return validator != null && !validator.IsValid(character);
+            });
+        }
+        
+        private static void CustomEnumerate2(RulesetActor actor, List<FeatureDefinition> features,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
+        {
+            actor.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(features);
             if (actor is not RulesetCharacter character)
             {
                 return;

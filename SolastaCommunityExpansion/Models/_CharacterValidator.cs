@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 
 namespace SolastaCommunityExpansion.Models;
@@ -22,6 +23,19 @@ public static class CharacterValidators
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         return WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                || WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+    };
+    
+    public static readonly CharacterValidator HasTwoHandedRangeWeapon = character =>
+    {
+        var slotsByName = character.CharacterInventory.InventorySlotsByName;
+        var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem.ItemDefinition;
+        return equipedItem.WeaponDescription.WeaponTypeDefinition == DatabaseHelper.WeaponTypeDefinitions.LongbowType
+               || equipedItem.WeaponDescription.WeaponTypeDefinition ==
+               DatabaseHelper.WeaponTypeDefinitions.ShortbowType
+               || equipedItem.WeaponDescription.WeaponTypeDefinition ==
+               DatabaseHelper.WeaponTypeDefinitions.LightCrossbowType
+               || equipedItem.WeaponDescription.WeaponTypeDefinition ==
+               DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType;
     };
 
     public static readonly CharacterValidator MainHandIsMeleeWeapon = character =>
