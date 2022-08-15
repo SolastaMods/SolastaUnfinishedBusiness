@@ -27,6 +27,12 @@ public abstract class
         Definition.myAttackAdvantage = advantage;
         return This();
     }
+    
+    public TBuilder SetIgnoreCover()
+    {
+        Definition.ignoreCover = true;
+        return This();
+    }
 
     #region Constructors
 
