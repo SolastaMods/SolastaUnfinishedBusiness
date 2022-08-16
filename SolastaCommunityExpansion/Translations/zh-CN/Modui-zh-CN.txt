@@ -148,6 +148,7 @@ ModUi/&RecipeCost=<color=white>配方消耗</color>
 ModUi/&RecipesInDm=配方加入地城制作
 ModUi/&ReduceDarkelfLightPenalty=切换<color=#D89555>黑暗精灵</color>的强光敏感惩罚为-1d4减值
 ModUi/&ReduceGrayDwarfLightPenalty=切换<color=#D89555>灰矮人</color>的强光敏感惩罚为-1d4减值
+ModUi/&HalfHighElfUseCharisma=<color=#D89555>半高等精灵</color>使用魅力取代智力作为戏法的施法属性<color=#C04040E0>【需要重启游戏】</color>
 ModUi/&RelicForgeries=遗物赝品
 ModUi/&RemoveAttunementRequirements=移除同调的先决条件<color=#C04040E0>【需要重启游戏】</color>
 ModUi/&RemoveBugVisualModels=以其它模型替代蜘蛛模型<color=#C04040E0>【需要重启游戏】</color>

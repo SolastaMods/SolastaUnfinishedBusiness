@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.Insertion;
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Insertion;
 
 internal static class RulesetCharacterHeroPatcher
 {

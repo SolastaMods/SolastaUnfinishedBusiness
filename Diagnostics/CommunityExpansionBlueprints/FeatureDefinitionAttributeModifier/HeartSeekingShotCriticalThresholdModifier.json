@@ -1,19 +1,15 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "AHWarlockSubclassSoulBladePact",
-    "AncientForest",
-    "DHWarlockSubclassElementalPatron",
-    "DHWarlockSubclassRiftWalker",
-    "MoonLit"
-  ],
-  "filterByDeity": false,
-  "subclassSuffix": "Patron",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifierType2": "Additive",
+  "modifiedAttribute": "CriticalThreshold",
+  "modifierValue": -2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassWarlockPatronTitle",
-    "description": "Subclass/&ClassWarlockPatronDescription",
+    "title": "Feature/&HeartSeekingShotCriticalThresholdModifierTitle",
+    "description": "Feature/&HeartSeekingShotCriticalThresholdModifierDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ddcae779-e75e-5d00-8b87-8d0defd80f16",
+  "guid": "ae593bc1-5b11-5cbd-a0ef-b598e44b39b2",
   "contentPack": 9999,
-  "name": "ClassWarlockSubclassChoice"
+  "name": "HeartSeekingShotCriticalThresholdModifier"
 }

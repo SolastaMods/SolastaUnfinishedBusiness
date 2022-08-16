@@ -3,4 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix missing translations
+- Fix incorrect toggle on mod UI

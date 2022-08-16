@@ -6,7 +6,6 @@ using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Patches.Bugfix;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
@@ -46,30 +45,6 @@ public static class SrdSpells
     public static readonly SpellDefinition TimeStop = BuildTimeStop();
     public static readonly SpellDefinition Shapechange = BuildShapechange();
     public static readonly SpellDefinition Weird = BuildWeird();
-
-    internal static void AddToDB()
-    {
-        _ = DivineWord;
-        _ = FingerOfDeath;
-        _ = ReverseGravity;
-        _ = ConjureCelestial;
-        _ = DominateMonster;
-        _ = Feeblemind;
-        _ = HolyAura;
-        _ = IncendiaryCloud;
-        _ = Maze;
-        _ = MindBlank;
-        _ = PowerWordStun;
-        _ = SunBurst;
-        _ = Foresight;
-        _ = MassHeal;
-        _ = MeteorSwarmSingleTarget;
-        _ = PowerWordHeal;
-        _ = PowerWordKill;
-        _ = TimeStop;
-        _ = Shapechange;
-        _ = Weird;
-    }
 
     internal static void Register()
     {
@@ -824,7 +799,7 @@ public static class SrdSpells
         effectDescription.RestrictedCreatureFamilies.Clear();
         effectDescription.SetDuration(RuleDefinitions.DurationType.Hour, 1);
         effectDescription.EffectAdvancement.alteredDuration =
-            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateMonster;
+            (RuleDefinitions.AdvancementDuration)ExtraAdvancementDuration.DominateMonster;
 
         return SpellDefinitionBuilder
             .Create("DHDominateMonsterSpell", DhBaseGuid)

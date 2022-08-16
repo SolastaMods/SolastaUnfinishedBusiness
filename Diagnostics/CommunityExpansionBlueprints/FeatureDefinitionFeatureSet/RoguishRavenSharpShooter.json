@@ -1,19 +1,19 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "AHWarlockSubclassSoulBladePact",
-    "AncientForest",
-    "DHWarlockSubclassElementalPatron",
-    "DHWarlockSubclassRiftWalker",
-    "MoonLit"
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:RoguishRavenRangeWeaponProficiency:15b4b8fe-d2ce-57c3-8b2d-c476fc071566",
+    "Definition:RoguishRavenRangeAttackAffinity:71c20dd5-111e-5f59-ac37-0c593f901b9d"
   ],
-  "filterByDeity": false,
-  "subclassSuffix": "Patron",
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassWarlockPatronTitle",
-    "description": "Subclass/&ClassWarlockPatronDescription",
+    "title": "Feature/&RoguishRavenSharpShooterTitle",
+    "description": "Feature/&RoguishRavenSharpShooterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ddcae779-e75e-5d00-8b87-8d0defd80f16",
+  "guid": "38ce030d-a079-5834-9cd7-3b25ec7811cf",
   "contentPack": 9999,
-  "name": "ClassWarlockSubclassChoice"
+  "name": "RoguishRavenSharpShooter"
 }

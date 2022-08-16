@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
-using SolastaCommunityExpansion.Patches.Bugfix;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
@@ -67,9 +66,9 @@ internal static class HouseSpellTweaks
 
         // Use our logic to calculate duration for DominatePerson/Beast/Monster
         DominateBeast.EffectDescription.EffectAdvancement.alteredDuration =
-            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateBeast;
+            (RuleDefinitions.AdvancementDuration)ExtraAdvancementDuration.DominateBeast;
         DominatePerson.EffectDescription.EffectAdvancement.alteredDuration =
-            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominatePerson;
+            (RuleDefinitions.AdvancementDuration)ExtraAdvancementDuration.DominatePerson;
 
         // Stops upcasting assigning non-SRD durations
         ClearAlteredDuration(ProtectionFromEnergy);

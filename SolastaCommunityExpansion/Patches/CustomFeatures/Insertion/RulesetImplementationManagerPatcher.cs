@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.Insertion;
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Insertion;
 
 internal static class RulesetImplementationManagerPatcher
 {

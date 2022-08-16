@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.OfficialAdvantageDi
 
 [HarmonyPatch(typeof(ActionModifier), "AttackAdvantageTrend", MethodType.Getter)]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class ActionModifier_AttackAdvantageTrend
+internal static class ActionModifier_AttackAdvantageTrend_Getter
 {
     public static bool Prefix(ActionModifier __instance, ref int __result)
     {

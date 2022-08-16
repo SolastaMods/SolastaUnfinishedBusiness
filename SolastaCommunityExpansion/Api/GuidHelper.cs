@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using JetBrains.Annotations;
@@ -43,10 +44,12 @@ public static class GuidHelper
 
         // convert the namespace UUID to network order (step 3)
         var namespaceBytes = namespaceId.ToByteArray();
+
         SwapByteOrder(namespaceBytes);
 
         // compute the hash of the name space ID concatenated with the name (step 4)
         byte[] hash;
+
         using (HashAlgorithm algorithm = version == 3 ? MD5.Create() : SHA1.Create())
         {
             algorithm.TransformBlock(namespaceBytes, 0, namespaceBytes.Length, null, 0);
@@ -56,6 +59,7 @@ public static class GuidHelper
 
         // most bytes from the hash are copied straight to the bytes of the new GUID (steps 5-7, 9, 11-12)
         var newGuid = new byte[16];
+
         Array.Copy(hash, 0, newGuid, 0, 16);
 
         // set the four most significant bits (bits 12 through 15) of the time_hi_and_version field to the appropriate 4-bit version number from Section 4.1.3 (step 8)
@@ -66,11 +70,12 @@ public static class GuidHelper
 
         // convert the resulting UUID to local byte order (step 13)
         SwapByteOrder(newGuid);
+
         return new Guid(newGuid);
     }
 
     // Converts a GUID (expressed as a byte array) to/from network order (MSB-first).
-    private static void SwapByteOrder(byte[] guid)
+    private static void SwapByteOrder(IList<byte> guid)
     {
         SwapBytes(guid, 0, 3);
         SwapBytes(guid, 1, 2);
@@ -78,7 +83,7 @@ public static class GuidHelper
         SwapBytes(guid, 6, 7);
     }
 
-    private static void SwapBytes([NotNull] byte[] guid, int left, int right)
+    private static void SwapBytes([NotNull] IList<byte> guid, int left, int right)
     {
         (guid[right], guid[left]) = (guid[left], guid[right]);
     }

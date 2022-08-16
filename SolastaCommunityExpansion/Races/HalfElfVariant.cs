@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -46,11 +47,17 @@ internal static class HalfElfVariantRaceBuilder
         var halfHighSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
+        var castSpellHalfElfHigh = FeatureDefinitionCastSpellBuilder
+            .Create(CastSpellElfHigh, "HalfElfHighCastSpell", RaceNamespace)
+            .SetGuiPresentation(Category.Feature)
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .AddToDB();
+
         var halfElfHighElf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "HalfElfHighElfRace", RaceNamespace)
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)
             .SetFeaturesAtLevel(1,
-                CastSpellElfHigh,
+                Main.Settings.HalfHighElfUseCharisma ? castSpellHalfElfHigh : CastSpellElfHigh,
                 MoveModeMove6)
             .AddToDB();
 

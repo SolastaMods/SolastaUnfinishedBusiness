@@ -20,7 +20,7 @@ public static partial class DatabaseHelper
         if (definition == null)
         {
             throw new SolastaCommunityExpansionException(
-                $"Definition with name={key} or guid={guid} not found in database {typeof(T).Name}");
+                $"Definition with name={key} or guid={guid} not found in database {typeof(T).Name}.");
         }
 
         return definition;
@@ -38,6 +38,7 @@ public static partial class DatabaseHelper
         }
 
         definition = db.TryGetElement(key, guid);
+
         return definition != null;
     }
 }

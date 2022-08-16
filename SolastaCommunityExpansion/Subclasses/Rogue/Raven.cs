@@ -4,10 +4,10 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue;
 
@@ -29,19 +29,19 @@ internal sealed class Raven : AbstractSubclass
             "Tooltip/&HeartSeekingShotConcentration",
             CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
-        
+
         var triggerCondition = ConditionDefinitionBuilder
-                .Create("HeartSeekingShotTriggerCondition", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentationNoContent(true)
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetDuration(RuleDefinitions.DurationType.Permanent)
-                .SetFeatures(
-                    FeatureDefinitionBuilder
-                        .Create("HeartSeekingShotTriggerFeature", DefinitionBuilder.CENamespaceGuid)
-                        .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(concentrationProvider)
-                        .AddToDB())
-                .AddToDB();
+            .Create("HeartSeekingShotTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetDuration(RuleDefinitions.DurationType.Permanent)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("HeartSeekingShotTriggerFeature", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(concentrationProvider)
+                    .AddToDB())
+            .AddToDB();
 
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
         var heartSeekingShotCondition = ConditionDefinitionBuilder
@@ -51,7 +51,8 @@ internal sealed class Raven : AbstractSubclass
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("HeartSeekingShotCriticalThresholdModifier", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
-                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -2)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeDefinitions.CriticalThreshold, -2)
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("HeartSeekingShotAttackModifier", DefinitionBuilder.CENamespaceGuid)
@@ -66,7 +67,8 @@ internal sealed class Raven : AbstractSubclass
                     .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.SameAsBaseDamage)
                     .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
                     .SetDamageDice(RuleDefinitions.DieType.D6, 1)
-                    .SetAdvancement( (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
+                    .SetAdvancement(
+                        (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
                         (3, 2),
                         (4, 2),
                         (5, 2),
@@ -87,9 +89,9 @@ internal sealed class Raven : AbstractSubclass
                         (20, 6))
                     .SetNotificationTag("HeartSeekingShot")
                     .AddToDB()
-                    )
+            )
             .AddToDB();
-        
+
         var turnOnPower = FeatureDefinitionPowerBuilder
             .Create("HeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("HeartSeekingShot", Category.Power,
@@ -159,7 +161,7 @@ internal sealed class Raven : AbstractSubclass
                 FeatureDefinitionProficiencyBuilder
                     .Create("RoguishRavenRangeWeaponProficiency", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, 
+                    .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
                         WeaponTypeDefinitions.HeavyCrossbowType.Name,
                         WeaponTypeDefinitions.LongbowType.Name)
                     .AddToDB(),
@@ -172,7 +174,7 @@ internal sealed class Raven : AbstractSubclass
             )
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
-        
+
         // killing spree 
         // bonus range attack from main and can sneak attack after killing an enemies
         var killingSpree = FeatureDefinitionAdditionalActionBuilder
@@ -191,16 +193,17 @@ internal sealed class Raven : AbstractSubclass
                 return true;
             }))
             .AddToDB();
-        
+
         // pain maker
         // reroll any 1 when roll damage but need to use the new roll
         var painMaker = FeatureDefinitionDieRollModifierBuilder
             .Create("RoguishRavenPainMaker", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
-            .SetModifiers(RuleDefinitions.RollContext.AttackDamageValueRoll, 1, 1, "Feature/&RoguishRavenPainMakerReroll")
+            .SetModifiers(RuleDefinitions.RollContext.AttackDamageValueRoll, 1, 1,
+                "Feature/&RoguishRavenPainMakerReroll")
             .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
-        
+
         return CharacterSubclassDefinitionBuilder
             .Create("Raven", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
@@ -214,6 +217,5 @@ internal sealed class Raven : AbstractSubclass
     // marker to reroll any damage die including sneak attack
     public sealed class RavenRerollAnyDamageDieMarker
     {
-        
     }
 }
