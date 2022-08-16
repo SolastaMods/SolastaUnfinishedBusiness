@@ -4,3 +4,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 CHANGES:
 
 - Fix incorrect toggle on mod UI
+- Tweak Roguish Raven subclass

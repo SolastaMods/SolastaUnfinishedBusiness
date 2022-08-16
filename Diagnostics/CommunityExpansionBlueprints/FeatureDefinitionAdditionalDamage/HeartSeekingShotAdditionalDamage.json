@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "HeartSeekingShot",
   "limitedUsage": "None",
-  "triggerCondition": "CriticalHit",
+  "triggerCondition": "AlwaysActive",
   "requiredProperty": "None",
   "attackModeOnly": false,
   "requiredTargetCondition": null,
