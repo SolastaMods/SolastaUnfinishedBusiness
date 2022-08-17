@@ -73,7 +73,7 @@ internal static class RacesClassesAndSubclassesDisplay
             Main.Settings.ReduceGrayDwarfLightPenalty = toggle;
         }
 
-        toggle = Main.Settings.ReduceGrayDwarfLightPenalty;
+        toggle = Main.Settings.HalfHighElfUseCharisma;
         if (UI.Toggle(Gui.Localize("ModUi/&HalfHighElfUseCharisma"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.HalfHighElfUseCharisma = toggle;

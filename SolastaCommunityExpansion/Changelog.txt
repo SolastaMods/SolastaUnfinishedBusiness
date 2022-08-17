@@ -3,5 +3,6 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Add the Roguish Raven subclass
-- Fix minor issues
+- Fix incorrect toggle on mod UI
+- Fix AC stacking under some scenarios
+- Tweak Roguish Raven subclass

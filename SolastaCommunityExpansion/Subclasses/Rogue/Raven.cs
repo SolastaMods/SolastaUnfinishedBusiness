@@ -25,7 +25,7 @@ internal sealed class Raven : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
     {
-        var concentrationProvider = new AcehighFeats.StopPowerConcentrationProvider("DeadEye",
+        var concentrationProvider = new AcehighFeats.StopPowerConcentrationProvider("HeartSeekingShot",
             "Tooltip/&HeartSeekingShotConcentration",
             CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
@@ -62,7 +62,8 @@ internal sealed class Raven : AbstractSubclass
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("HeartSeekingShotAdditionalDamage", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
-                    .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit)
+                    .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
+                    .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
                     .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.SameAsBaseDamage)
                     .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
                     .SetDamageDice(RuleDefinitions.DieType.D6, 1)

@@ -4,18 +4,19 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAtttributeModifiers;
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttributeModifiers;
 
 // non stacked AC
 [HarmonyPatch(typeof(RulesetAttribute), "Refresh")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetAttribute_Refresh
 {
-    internal static bool Prefix(RulesetAttribute __instance)
+    internal static bool Prefix([NotNull] RulesetAttribute __instance)
     {
         if (__instance.Name != AttributeDefinitions.ArmorClass)
         {
@@ -25,38 +26,57 @@ internal static class RulesetAttribute_Refresh
         var currentValue = __instance.BaseValue;
         var activeModifiers = __instance.ActiveModifiers;
         var minModValue = int.MinValue;
+        var setValue = int.MinValue;
 
         var exclusives = new List<RulesetAttributeModifier>();
 
         foreach (var modifier in activeModifiers)
         {
-            if (modifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force)
+            switch (modifier.Operation)
             {
-                minModValue = Mathf.RoundToInt(modifier.Value);
-            }
-            else if (modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag))
-            {
-                exclusives.Add(modifier);
-            }
-            else
-            {
-                currentValue = modifier.ApplyOnValue(currentValue);
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force:
+                    minModValue = Mathf.RoundToInt(modifier.Value);
+                    break;
+
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set:
+                    setValue = (int)modifier.value;
+                    currentValue = modifier.ApplyOnValue(currentValue);
+                    break;
+
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Multiplicative:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ConditionAmount:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.SurroundingEnemies:
+                default:
+                {
+                    if (modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag))
+                    {
+                        exclusives.Add(modifier);
+                    }
+                    else
+                    {
+                        currentValue = modifier.ApplyOnValue(currentValue);
+                    }
+
+                    break;
+                }
             }
         }
 
         if (!exclusives.Empty())
         {
-            var value = exclusives
-                .Select(modifier => modifier.ApplyOnValue(currentValue)).Prepend(int.MinValue).Max();
+            var exclusiveAc = exclusives
+                .Select(modifier => modifier.ApplyOnValue(currentValue)).Prepend(setValue).Max() - currentValue;
 
-            currentValue = value;
+            currentValue = currentValue + (10 - setValue) + exclusiveAc;
         }
-
 
         var realMaxValue = __instance.MaxEditableValue > 0
             ? __instance.MaxEditableValue
             : __instance.MaxValue;
-
 
         currentValue = minModValue <= currentValue
             ? Mathf.Clamp(currentValue, __instance.MinValue, realMaxValue)
@@ -64,7 +84,6 @@ internal static class RulesetAttribute_Refresh
 
         __instance.currentValue = currentValue;
         __instance.upToDate = true;
-
         __instance.AttributeRefreshed?.Invoke();
 
         return false;
@@ -75,7 +94,8 @@ internal static class RulesetAttribute_Refresh
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacter_RefreshArmorClassInFeatures
 {
-    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [NotNull]
+    public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var codes = instructions.ToList();
         var method = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation,
