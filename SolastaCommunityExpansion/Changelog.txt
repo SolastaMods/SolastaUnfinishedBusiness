@@ -3,6 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix incorrect toggle on mod UI
-- Fix AC stacking under some scenarios
-- Tweak Roguish Raven subclass
+- Add a mod UI setting to tweak AC stacking

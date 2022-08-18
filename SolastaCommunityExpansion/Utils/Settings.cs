@@ -144,6 +144,7 @@ public class Settings : UnityModManager.ModSettings
 
     // SRD
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
+    public bool UseMoreRestrictiveAcStacking { get; set; }
     public bool AllowCrossbowsToUseBowFeatures { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }

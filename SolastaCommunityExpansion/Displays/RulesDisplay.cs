@@ -20,6 +20,14 @@ internal static class RulesDisplay
 
         UI.Label("");
 
+        toggle = Main.Settings.UseMoreRestrictiveAcStacking;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseMoreRestrictiveAcStacking"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseMoreRestrictiveAcStacking = toggle;
+        }
+
+        UI.Label("");
+
         toggle = Main.Settings.AddBleedingToLesserRestoration;
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {

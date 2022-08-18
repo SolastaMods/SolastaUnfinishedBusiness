@@ -26,7 +26,7 @@ internal static class RulesetAttribute_Refresh
         var currentValue = __instance.BaseValue;
         var activeModifiers = __instance.ActiveModifiers;
         var minModValue = int.MinValue;
-        var setValue = int.MinValue;
+        var setValue = 10;
 
         var exclusives = new List<RulesetAttributeModifier>();
 
@@ -39,8 +39,12 @@ internal static class RulesetAttribute_Refresh
                     break;
 
                 case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set:
-                    setValue = (int)modifier.value;
+                    setValue = Main.Settings.UseMoreRestrictiveAcStacking
+                               || modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag)
+                        ? Mathf.RoundToInt(modifier.Value)
+                        : 10;
                     currentValue = modifier.ApplyOnValue(currentValue);
+
                     break;
 
                 case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive:
