@@ -39,7 +39,8 @@ internal static class RulesetAttribute_Refresh
                     break;
 
                 case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set:
-                    setValue = modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag)
+                    setValue = Main.Settings.UseMoreRestrictiveAcStacking
+                               || modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag)
                         ? Mathf.RoundToInt(modifier.Value)
                         : 10;
                     currentValue = modifier.ApplyOnValue(currentValue);

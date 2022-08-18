@@ -12,7 +12,7 @@ internal static class SrdAndHouseRulesContext
     {
         AllowTargetingSelectionWhenCastingChainLightningSpell();
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
-        ApplyACNonStackingRules();
+        ApplyAcNonStackingRules();
         ApplySrdWeightToFoodRations();
     }
 
@@ -61,7 +61,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    private static void ApplyACNonStackingRules()
+    private static void ApplyAcNonStackingRules()
     {
         DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
             .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
