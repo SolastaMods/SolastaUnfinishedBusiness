@@ -3,4 +3,4 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Fix AC stacking
+- Add a mod UI setting to tweak AC stacking
