@@ -196,4 +196,4 @@ ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠�
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color><color=#C04040E0>【需要重启游戏】</color>
 ModUi/&WeaponTag=武器标签
-ModUi/&UseMoreRestrictiveAcStacking=AC granting clothes and <color=#D89555>Barkskin</color> won't stack with <color=#D89555>Unarmored Defense</color> or similar features
+ModUi/&UseMoreRestrictiveAcStacking=赋予AC的装备和<color=#D89555>树皮术</color>不再与<color=#D89555>无甲防御</color>或类似特性叠加
