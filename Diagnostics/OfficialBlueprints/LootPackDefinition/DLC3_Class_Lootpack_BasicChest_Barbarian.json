@@ -1,0 +1,117 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Greataxe+2:0477c4bebe9d44f4d91fec239e4fd371",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 2,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Shortsword+1:3ac23b0b74ed4134e95ed5960ca32567",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Shortsword+1:3ac23b0b74ed4134e95ed5960ca32567",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_Bard_MagicItems_Table:cf3ae5fb375229b4a97ed5c27e6e193a"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 2,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:PotionOfSuperiorHealing:0b66baca2c0c01441a65465be8179ee2",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_Potions_Table:329f8ed15f9e8c9478daf906f80ba032"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Bracers_Of_Defense:3acacf2a7d9302242b33de2b70baa5ac",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_Potions_Table:329f8ed15f9e8c9478daf906f80ba032"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Backpack_Handy_Haversack:9ec2d5fa8a78a6540aec55cbaa2e30f1",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_Potions_Table:329f8ed15f9e8c9478daf906f80ba032"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:CloakOfProtection:6e294008b7bef06419834fbbba188b8f",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_Potions_Table:329f8ed15f9e8c9478daf906f80ba032"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Shortsword+1:3ac23b0b74ed4134e95ed5960ca32567",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_Potions_Table:329f8ed15f9e8c9478daf906f80ba032"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Shortsword+1:3ac23b0b74ed4134e95ed5960ca32567",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_Barbarian_PotionsGiantStrength_Table:a777a9957ae519a49b58e5741bcd00cc"
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "c1618a42a414fd941a7b6d91cbfbfd81",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Class_Lootpack_BasicChest_Barbarian"
+}

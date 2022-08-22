@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionRestHealingModifier, Assembly-CSharp",
+  "applyDuringShortRest": false,
+  "applyDuringLongRest": true,
+  "addBonusWhenSpendingHitDie": false,
+  "bonusDieTypeByRankTable": [],
+  "addModifierWhenSpendingHitDie": true,
+  "abilityModifierWhenSpendingHitDie": "Charisma",
+  "addTempHPBonusAtTheEnd": true,
+  "addBardicDieAtTheEnd": true,
+  "addModifierAtTheEnd": false,
+  "abilityModifierAtTheEnd": "Charisma",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FluteOfRespiteSootheTitle",
+    "description": "Feature/&FluteOfRespiteSootheDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5b300931ad0824c4290154a893c66884",
+  "contentPack": "BaseGame",
+  "name": "RestHealingModifierBardItemRespite"
+}

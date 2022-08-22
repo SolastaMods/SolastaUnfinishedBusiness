@@ -1,0 +1,45 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:DamageAffinityFeatBlessingOfTheElementsFire:3ca39e22dc296064ca4b56889c6d843f",
+    "Definition:DamageAffinityFeatBlessingOfTheElementsCold:652689608ab5e5243b849dc2a29d79f6",
+    "Definition:DamageAffinityFeatBlessingOfTheElementsLightning:f858f8e5b913e414399f65cd15e16bc4",
+    "Definition:PowerFeatBlessingOfTheElements:3a581696a8442aa468d9a9735a656073"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&BlessingOfTheElementsTitle",
+    "description": "Feat/&BlessingOfTheElementsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "893347a7345b33346bf3831c99e70c14",
+  "contentPack": "BaseGame",
+  "name": "BlessingOfTheElements"
+}

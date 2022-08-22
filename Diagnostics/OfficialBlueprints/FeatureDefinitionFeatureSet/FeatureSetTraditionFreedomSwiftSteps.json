@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ActionAffinityTraditionFreedomSwiftSteps:c1e66ff9587cc554bb300e9c5de1d04e",
+    "Definition:PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement:6fcd80134823b1140b6bc170ad14aefb"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetTraditionFreedomFlurryOfBlowsSwiftStepsTitle",
+    "description": "Feature/&FeatureSetTraditionFreedomFlurryOfBlowsSwiftStepsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "27feffb3d8d87f140a0eb8c2aa2cdc7f",
+  "contentPack": "InnerStrength",
+  "name": "FeatureSetTraditionFreedomSwiftSteps"
+}

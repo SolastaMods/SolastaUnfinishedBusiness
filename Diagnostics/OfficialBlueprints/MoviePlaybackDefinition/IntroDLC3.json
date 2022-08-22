@@ -1,0 +1,99 @@
+{
+  "$type": "MoviePlaybackDefinition, Assembly-CSharp",
+  "movieFilename": "DLC3_IntroCS.mp4",
+  "subtitleOccurences": [
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 2.8,
+      "endSecond": 8.5,
+      "locKey": "Campaign/&DLC3_Introduction_1"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 11.0,
+      "endSecond": 18.5,
+      "locKey": "Campaign/&DLC3_Introduction_2"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 20.0,
+      "endSecond": 25.0,
+      "locKey": "Campaign/&DLC3_Introduction_3"
+    }
+  ],
+  "fallbackImages": [
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 2.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "2542e13cdf4738c48b4a7ab9287e0269",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 11.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "a0d4d0c918a4f1f40b2f4cd3fe45b675",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 19.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "e6160e63760d79441854c155066a7c40",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "totalFallbackDuration": 0.28,
+  "audioEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Play_DLC1_Introduction",
+      "id": 1076433585,
+      "guid": "186C6817-8B0F-478A-9EA1-331D7465D904",
+      "name": "186C6817-8B0F-478A-9EA1-331D7465D904"
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "8d848af7850c6244097aa112abc44ff6",
+  "contentPack": "PalaceOfIce",
+  "name": "IntroDLC3"
+}

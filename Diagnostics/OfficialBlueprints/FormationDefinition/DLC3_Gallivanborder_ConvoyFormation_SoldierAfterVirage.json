@@ -1,0 +1,63 @@
+{
+  "$type": "FormationDefinition, Assembly-CSharp",
+  "defaultFormation": false,
+  "formationPositions": [
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": -2,
+      "y": 0,
+      "z": -2
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 1,
+      "y": 0,
+      "z": -2
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 1,
+      "y": 0,
+      "z": -5
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": -2,
+      "y": 0,
+      "z": -5
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "a8e6470d6ee236e448d03d3ec6421300",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Gallivanborder_ConvoyFormation_SoldierAfterVirage"
+}

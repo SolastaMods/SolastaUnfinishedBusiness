@@ -1,0 +1,183 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Seal_2_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 4,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Seal_3_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 4,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Seal_4_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 4,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzze_Plate_1_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzze_Plate_2_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzze_Plate_3_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzze_Plate_4_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzzle_Mechanism_1_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzzle_Mechanism_2_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzzle_Mechanism_3_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzzle_Mechanism_4_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzzle_Solved_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_UndermountainLavaTunnels_Lava_Puzzle_Plate_All_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 1,
+      "stringValue": ""
+    }
+  ],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "b267cca4f84b6d14d9ef098650dab98d",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": null,
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "",
+    "unchartedDescription": "",
+    "knownTitle": "",
+    "knownDescription": "",
+    "exploredTitle": "",
+    "exploredDescription": ""
+  },
+  "challengeRating": 1,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": false,
+  "useNewSectorCullingAlgorithm": false,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": false,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7e8409cc5c5d0cd4bb046a3faf9adc44",
+      "m_SubObjectName": "DLC3_UndermountainLavaTunnels",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "aaa519bbc5191544a8eae007c5c34eb2",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_UndermountainLavaTunnels_LocationDB"
+}

@@ -1,0 +1,67 @@
+{
+  "$type": "BiomeDefinition, Assembly-CSharp",
+  "terrainType": "Arctic",
+  "encounterTable": "Definition:PrincipalityNoAttack:01e4e938dc1a63a4ea5122821be9a462",
+  "narrativeEventBasicLines": [
+    "Travel/&DLC1_StandardRandomEvents1",
+    "Travel/&DLC1_StandardRandomEvents2",
+    "Travel/&DLC1_StandardRandomEvents3",
+    "Travel/&DLC1_StandardRandomEvents4",
+    "Travel/&DLC1_StandardRandomEvents5",
+    "Travel/&DLC1_StandardRandomEvents6",
+    "Travel/&DLC1_StandardRandomEvents7",
+    "Travel/&DLC1_StandardRandomEvents8",
+    "Travel/&DLC1_StandardRandomEvents9",
+    "Travel/&DLC1_StandardRandomEvents10",
+    "Travel/&DLC1_StandardRandomEvents11",
+    "Travel/&DLC1_StandardRandomEvents12",
+    "Travel/&DLC1_StandardRandomEvents13",
+    "Travel/&DLC1_StandardRandomEvents14",
+    "Travel/&DLC1_StandardRandomEvents15",
+    "Travel/&DLC1_StandardRandomEvents21",
+    "Travel/&DLC1_StandardRandomEvents22",
+    "Travel/&DLC1_StandardRandomEvents23",
+    "Travel/&DLC1_StandardRandomEvents24",
+    "Travel/&DLC1_StandardRandomEvents25",
+    "Travel/&StandardRandomEvents1Title",
+    "Travel/&StandardRandomEvents11Title",
+    "Travel/&StandardRandomEvents7Title",
+    "Travel/&StandardRandomEvents8Title",
+    "Travel/&StandardRandomEvents9Title"
+  ],
+  "encounterLocations": [
+    "Definition:DLC3_Encounter_FrozenAqueduct_LocationDB:dacbc3cfd212f844c900ccdcc0b2abee",
+    "Definition:DLC1_Encounter_Mines_LocationDB:756c643c07a7edd4685c4ad3fae33001",
+    "Definition:DLC3_Encounter_Icehenge_LocationDB:7aa2e2a7eb81c2148a2abbf9b20f7a00",
+    "Definition:DLC3_Encounter_TrapperHut_LocationDB:86c0cbd0238f3b242b32f7b7bf0098a5",
+    "Definition:DLC3_Encounter_LakeIsland_LocationDB:b645f1edaf251024c94ffecdefede048",
+    "Definition:DLC3_Encounter_SnowyHillock_LocationDB:42a3cc67e6858db4794a7d64e2365793"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "7900b6731af09ee468d36830640ed930",
+  "contentPack": "PalaceOfIce",
+  "name": "Biome_DLC3_NoEncounter"
+}

@@ -1,0 +1,33 @@
+{
+  "$type": "ReactionDefinition, Assembly-CSharp",
+  "reactTitle": "Reaction/&SwirlingDanceReactTitle",
+  "reactDescription": "Reaction/&SwirlingDanceReactDescription",
+  "validationDismissesSimilarReactions": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Reaction/&SwirlingDanceTitle",
+    "description": "Reaction/&SwirlingDanceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "55721aea3c230a343b3be194b4645d86",
+  "contentPack": "InnerStrength",
+  "name": "SwirlingDance"
+}

@@ -1,0 +1,135 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "firstName": "Race/&HalfElfMaleName10Title",
+  "surName": "Race/&HalfElfSurName11Title",
+  "abilityScores": [
+    8,
+    14,
+    13,
+    10,
+    12,
+    15
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:HalfElf:bf7685e7b813d8c46a7d903080d23541",
+  "subRace": null,
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkin_09",
+  "musculatureMorphotypeValue": 60.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_HalfElf_D",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColor_40",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorSilver",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_01",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
+  "mainClass": "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb",
+  "subClass": null,
+  "deity": "Definition:Maraike:94543509579e75f4c943de3b12f861af",
+  "background": "Definition:Artist_Background:4bf1ce20257f6564da50630367f7b174",
+  "backgroundPersonalityFlag1": "Friendliness",
+  "backgroundPersonalityFlag2": "Cynicism",
+  "alignment": "Neutral",
+  "alignmentPersonalityFlag1": "Self-Preservation",
+  "alignmentPersonalityFlag2": "Pragmatism",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+    "Definition:Rapier:ed13ff01b4757f148b8d5d23840cf4b8",
+    "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",
+    "Definition:EntertainerPack:955a82bd013a3e04a98e6735c808d8df"
+  ],
+  "startingMoney": [
+    0,
+    10,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Acrobatics",
+    "Deception",
+    "Persuasion"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "invocationsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 1,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:Dazzle:dc9e69f2397e0d541a8821fe4e4cf6ba",
+    "Definition:ViciousMockery:001568c9862db2f449b64db4cdbb127f"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
+    "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680",
+    "Definition:HealingWord:0d615e01b2fdf5f42815342ea1e0a26f",
+    "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
+  ],
+  "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 39,
+  "preferredAncestry": null,
+  "featurePreferences": [],
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Rapier:ed13ff01b4757f148b8d5d23840cf4b8",
+      "offHandItemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e"
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e5a716eeea0e11441b8d9debc826ab86",
+      "m_SubObjectName": "Level1_Bard_Corthyn_Dosa",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "d565d854f253ebd419af849861be14a2",
+  "contentPack": "InnerStrength",
+  "name": "Level1_Bard_Corthyn_Dosa"
+}

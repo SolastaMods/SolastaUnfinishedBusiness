@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ActionAffinitySorcererDraconicDragonWings:8be135f1b6b13f74a93af093d0e01820",
+    "Definition:PowerSorcererDraconicDragonWingsSprout:e359a1ae4d8e12340bc57b67578893f0",
+    "Definition:PowerSorcererDraconicDragonWingsDismiss:0c8e7587a4bc6fd46990bb5c26b2b069"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetSorcererDraconicDragonWingsTitle",
+    "description": "Feature/&FeatureSetSorcererDraconicDragonWingsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "838847a9d4199fb419c1f34212f93af9",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetSorcererDraconicDragonWings"
+}
