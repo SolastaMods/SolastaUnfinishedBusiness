@@ -359,9 +359,9 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
 //
 // this patch shouldn't be protected
 //
-[HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttack")]
+[HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackHitConfirmed")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameLocationBattleManager_HandleCharacterAttack
+internal static class GameLocationBattleManager_HandleCharacterAttackHitConfirmed
 {
     internal static IEnumerator Postfix(
         IEnumerator values,
@@ -369,9 +369,15 @@ internal static class GameLocationBattleManager_HandleCharacterAttack
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier attackModifier,
-        RulesetAttackMode attackerAttackMode)
+        RulesetAttackMode attackMode,
+        bool rangedAttack,
+        RuleDefinitions.AdvantageType advantageType,
+        List<EffectForm> actualEffectForms,
+        RulesetEffect rulesetEffect,
+        bool criticalHit,
+        bool firstTarget)
     {
-        Main.Logger.Log("HandleCharacterAttack");
+        Main.Logger.Log("HandleCharacterAttackHitConfirmed");
 
         var rulesetCharacter = attacker.RulesetCharacter;
 
@@ -379,7 +385,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttack
         {
             foreach (var feature in rulesetCharacter.GetSubFeaturesByType<IOnAttackEffect>())
             {
-                feature.BeforeOnAttack(attacker, defender, attackModifier, attackerAttackMode);
+                feature.BeforeOnAttack(attacker, defender, attackModifier, attackMode);
             }
         }
 
@@ -392,7 +398,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttack
         {
             foreach (var feature in rulesetCharacter.GetSubFeaturesByType<IOnAttackEffect>())
             {
-                feature.AfterOnAttack(attacker, defender, attackModifier, attackerAttackMode);
+                feature.AfterOnAttack(attacker, defender, attackModifier, attackMode);
             }
         }
     }
@@ -401,7 +407,10 @@ internal static class GameLocationBattleManager_HandleCharacterAttack
 //
 // this patch shouldn't be protected
 //
-[HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackDamage")]
+//
+// TODO: REVIEW THIS PATCH
+//
+// [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackDamage")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationBattleManager_HandleCharacterAttackDamage
 {
@@ -1130,7 +1139,10 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
 //
 // this patch shouldn't be protected
 //
-[HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMagicalAttackDamage")]
+//
+// TODO: REVIEW THIS PATCH
+//
+//[HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMagicalAttackDamage")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationBattleManager_HandleCharacterMagicalAttackDamage
 {
