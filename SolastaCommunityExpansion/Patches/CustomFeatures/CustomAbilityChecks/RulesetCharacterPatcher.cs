@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 
@@ -16,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAbilityChecks;
 internal static class RulesetCharacter_RollAbilityCheck
 {
     internal static void Prefix(
-        RulesetCharacter __instance,
+        [NotNull] RulesetCharacter __instance,
         int baseBonus,
         string abilityScoreName,
         string proficiencyName,
@@ -51,7 +52,7 @@ internal static class RulesetCharacter_RollAbilityCheck
 internal static class RulesetCharacter_ResolveContestCheck
 {
     public static int ExtendedRollDie(
-        RulesetCharacter rulesetCharacter,
+        [NotNull] RulesetCharacter rulesetCharacter,
         RuleDefinitions.DieType dieType,
         RuleDefinitions.RollContext rollContext,
         bool isProficient,
@@ -60,6 +61,7 @@ internal static class RulesetCharacter_ResolveContestCheck
         out int secondRoll,
         bool enumerateFeatures,
         bool canRerollDice,
+        string skill,
         int baseBonus,
         int rollModifier,
         string abilityScoreName,
@@ -68,7 +70,7 @@ internal static class RulesetCharacter_ResolveContestCheck
         List<RuleDefinitions.TrendInfo> modifierTrends)
     {
         var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType, out firstRoll,
-            out secondRoll, enumerateFeatures, canRerollDice);
+            out secondRoll, enumerateFeatures, canRerollDice, skill);
         var features = rulesetCharacter.EnumerateFeaturesToBrowse<IChangeAbilityCheck>();
 
         if (features.Count <= 0)
@@ -92,7 +94,7 @@ internal static class RulesetCharacter_ResolveContestCheck
     // there are 2 calls to RollDie on this method
     // we replace them to allow us to compare the die result vs. the minRoll value from any IChangeAbilityCheck feature
     //
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var found = 0;
         var rollDieMethod = typeof(RulesetActor).GetMethod("RollDie");
