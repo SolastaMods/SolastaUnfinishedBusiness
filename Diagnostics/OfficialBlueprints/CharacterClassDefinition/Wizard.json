@@ -182,6 +182,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
     }
   ],
   "personalityFlagOccurences": [
@@ -197,7 +202,7 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 5,
+      "weight": 10,
       "personalityFlag": "GpSpellcaster"
     },
     {
@@ -233,6 +238,7 @@
     "Robust",
     "Lockbreaker"
   ],
+  "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 2,
   "classPictogramReference": {
@@ -244,6 +250,10 @@
   "defaultBattleDecisions": "Definition:CasterCombatDecisions:a8306539d792bbd408f6a6151b5b443a",
   "classAnimationId": "Wizard",
   "vocalSpellSemeClass": "Arcana",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -1,7 +1,7 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
   "hasCantrips": true,
-  "maxSpellLevel": 7,
+  "maxSpellLevel": 8,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
@@ -103,9 +103,28 @@
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 7,
-      "spells": []
+      "spells": [
+        "Definition:ConjureCelestial:2e51ca6269386154a8d8ed0db63f866b",
+        "Definition:Resurrection:f796a243f664c73409cca137f137f5f3",
+        "Definition:Regenerate:11ce287bdf5b59d46bc8a992186ed349",
+        "Definition:FireStorm:6d8d659df5d60734d8c276777fba855a",
+        "Definition:DivineWord:c9f85f76897179c4baabdc7c45f1930d",
+        "Definition:Symbol:8c8ce37ddf59f72449ac2a6f384d34ea"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": [
+        "Definition:HolyAura:164c25acb1cabd242b98b7974abfb7a0",
+        "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d",
+        "Definition:Thunderstorm:a1f409e76434597449d0379d6d36539e",
+        "Definition:SpellWard:bf6cbb4f462c5fe4db090980b9126a43"
+      ]
     }
   ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfJugementAuraRightenousness:04e1b71b315b8d341b67ac441404ed88",
       "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfJugementRetribution:eeb5ad9f71a881f4a9fd7591f9927838",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [

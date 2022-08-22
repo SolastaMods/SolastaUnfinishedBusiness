@@ -50,6 +50,7 @@
     "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
     "difficultyClassComputation": "FixedValue",
@@ -77,6 +78,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -89,6 +91,7 @@
           "versatile": false,
           "diceNumber": 2,
           "dieType": "D10",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 4,
           "damageType": "DamagePiercing",
@@ -109,6 +112,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -121,6 +125,7 @@
           "versatile": false,
           "diceNumber": 1,
           "dieType": "D8",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
           "damageType": "DamageAcid",
@@ -255,6 +260,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -309,6 +315,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -327,7 +334,8 @@
       "cooldownForBattle": 0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "projectile": "Javelin",
   "projectileBone": "Prop1",
@@ -335,6 +343,7 @@
   "itemDefinitionOffHand": null,
   "useAnimationTag": true,
   "animationTag": "Rapier",
+  "isMultiattack": false,
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

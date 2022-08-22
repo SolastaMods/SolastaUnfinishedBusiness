@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 50.44185,
   "ageMorphotypeValue": 0.0,
+  "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_NPC_Lisbath_Townsend",
   "hairShapeMorphotype": "HairShape_E",
   "hairColorMorphotype": "HairColorCopper",
@@ -15,37 +16,39 @@
   "eyeColorMorphotype": "EyeColorBlack",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "Scars_None",
-  "armorDefinition": "ScaleMail",
+  "scarsMorphotype": "Scars_03",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "StuddedLeather",
   "helmetDefinition": "",
-  "tabardDefinition": "ClothesTabardCouncil",
+  "tabardDefinition": "",
   "showHelmet": true,
   "firstColor": {
-    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
-    "a": 1.0
-  },
-  "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 1.0,
     "g": 1.0,
     "b": 1.0,
     "a": 1.0
   },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.7169812,
+    "g": 0.7169812,
+    "b": 0.6121395,
+    "a": 1.0
+  },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
+    "r": 0.9811321,
+    "g": 0.7964188,
+    "b": 0.6803133,
     "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.3809185,
-    "g": 0.609346449,
-    "b": 0.754717,
+    "r": 1.0,
+    "g": 0.913522,
+    "b": 0.8443396,
     "a": 1.0
   },
   "overrideWieldedItems": false,
@@ -54,12 +57,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "",
+    "title": "NPC/&NPC_LisbathTownsendTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5a5f2dc9993881f46a190de67fbe5500",
-      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Lisbath_Townsend",
+      "m_AssetGUID": "53620df54f740574d8790927454fe57a",
+      "m_SubObjectName": "CustomPortrait_DLC3_Lisbath",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

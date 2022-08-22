@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerTraditionCourtMageImprovedSpellShield:8167c2777077e1e4b97443e098076226",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerTraditionCourtMageExpandedSpellShield:41f776ee4d12ec94e90a6b589b0ac89a",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

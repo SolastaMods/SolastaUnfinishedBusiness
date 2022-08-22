@@ -7,7 +7,7 @@
   "sceneFilePath": "",
   "sceneReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "40108333ed3683a438fe33022e74d0ca",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -38,9 +38,9 @@
     "skyboxMaterial": null,
     "ambientLight": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0,
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
       "a": 1.0
     },
     "fog": false,
@@ -57,7 +57,7 @@
     "auraBaseSettings": {
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
-      "density": 0.251,
+      "density": 0.05,
       "useScattering": true,
       "scattering": 0.5,
       "useAmbientLighting": true,
@@ -165,12 +165,12 @@
   },
   "locationPresentation": {
     "$type": "LocationPresentation, Assembly-CSharp",
-    "unchartedTitle": "",
-    "unchartedDescription": "",
-    "knownTitle": "",
-    "knownDescription": "",
-    "exploredTitle": "",
-    "exploredDescription": ""
+    "unchartedTitle": "Map/&Location_Presentation_DLC3_Hut_Title",
+    "unchartedDescription": "Map/&Location_Presentation_DLC3_Hut_Description",
+    "knownTitle": "Map/&Location_Presentation_DLC3_Hut_Title",
+    "knownDescription": "Map/&Location_Presentation_DLC3_Hut_Description",
+    "exploredTitle": "Map/&Location_Presentation_DLC3_Hut_Title",
+    "exploredDescription": "Map/&Location_Presentation_DLC3_Hut_Description"
   },
   "challengeRating": 1,
   "focusWhenRevealed": false,
@@ -184,11 +184,12 @@
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "",
-    "description": "",
+    "title": "Map/&Location_Presentation_DLC3_Hut_Title",
+    "description": "Map/&Location_Presentation_DLC3_Hut_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c14700a7ee4496b4b91c43bbe4c328fb",

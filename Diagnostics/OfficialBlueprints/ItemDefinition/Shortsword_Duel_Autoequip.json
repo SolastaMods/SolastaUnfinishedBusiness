@@ -28,7 +28,8 @@
   ],
   "itemTags": [
     "Standard",
-    "Metal"
+    "Metal",
+    "Monk"
   ],
   "activeTags": [],
   "inactiveTags": [],
@@ -37,6 +38,7 @@
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Common",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": true,
@@ -88,9 +90,10 @@
       "savingThrowAbility": "Dexterity",
       "ignoreCover": false,
       "grantedConditionOnSave": null,
+      "rollSaveOnlyIfRelevantForms": false,
       "hasShoveRoll": false,
       "createdByCharacter": false,
-      "difficultyClassComputation": "FixedValue",
+      "difficultyClassComputation": "SpellCastingFeature",
       "savingThrowDifficultyAbility": "Wisdom",
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
@@ -115,6 +118,7 @@
           "applyLevel": "No",
           "levelType": "ClassLevel",
           "levelMultiplier": 1,
+          "diceByLevelTable": [],
           "createdByCharacter": false,
           "createdByCondition": false,
           "hasSavingThrow": false,
@@ -127,6 +131,7 @@
             "versatile": false,
             "diceNumber": 1,
             "dieType": "D6",
+            "overrideWithBardicInspirationDie": false,
             "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamagePiercing",
@@ -261,6 +266,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "activeEffectSurfaceParticlePerIndex": "",
         "emissiveBorderCellStartParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
@@ -315,6 +321,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "forceApplyZoneParticle": false,
         "applyEmissionColorOnWeapons": false,
         "emissionColor": {
           "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -333,13 +340,19 @@
         "cooldownForBattle": 0,
         "dynamicCooldown": false
       },
-      "animationMagicEffect": "Animation0"
+      "animationMagicEffect": "Animation0",
+      "lightCounterDispellsEffect": false
     },
     "ammunitionType": "ArrowType"
   },
   "isAmmunition": false,
   "isUsableDevice": false,
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,

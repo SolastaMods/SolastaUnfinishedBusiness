@@ -71,7 +71,8 @@
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
     "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
-    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
+    "Definition:CombatAffinityFlyby:a5d877d885f31944fbae4bbaa2bb5d6c"
   ],
   "attackIterations": [
     {
@@ -143,6 +144,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

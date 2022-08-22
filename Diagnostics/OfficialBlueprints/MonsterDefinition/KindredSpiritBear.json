@@ -116,6 +116,8 @@
       "a": 1.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "ab52a2d7f64eec443b86221d0ba4e0ef",

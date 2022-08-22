@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
   "useControllerAbilityChecks": true,
   "affinityGroups": [],
+  "substractBardicDieRoll": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

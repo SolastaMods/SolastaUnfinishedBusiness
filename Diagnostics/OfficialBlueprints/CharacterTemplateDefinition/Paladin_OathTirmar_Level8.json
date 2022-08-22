@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
   "subClass": "Definition:OathOfTirmar:c14f1d650aaf1994eae74f2c6063bb63",
   "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
@@ -47,7 +49,8 @@
     "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
     "Definition:HalfPlate:f9e3efa11a2605b418144ca32808ca44",
     "Definition:Longsword+1:b666bb2f12d1f15439fa61f3cfd9cc31",
-    "Definition:CrownOfTheMagister01:93d1ac6f99433a64896b9d4cc7878050"
+    "Definition:CrownOfTheMagister01:93d1ac6f99433a64896b9d4cc7878050",
+    "Definition:ScrollRaiseDead:c1d6f26b1782eed42aee7f4168d2c73e"
   ],
   "startingMoney": [
     0,
@@ -62,6 +65,7 @@
   ],
   "toolsOverride": [],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -72,6 +76,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
     "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
@@ -82,6 +87,8 @@
   "sex": "Male",
   "pronoun": "Male",
   "age": 22,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

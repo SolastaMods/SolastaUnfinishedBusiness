@@ -5,6 +5,7 @@
     "Definition:SummoningAffinityKindredSpiritSharedPain:1e69f374526c6d14581fa3320c1c7c35"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

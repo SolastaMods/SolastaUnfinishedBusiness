@@ -3,10 +3,12 @@
   "editorOnly": false,
   "isUserCampaign": false,
   "multiplayer": true,
+  "canLoadEndGameSave": false,
   "partySize": 4,
   "minStartLevel": 1,
   "maxStartLevel": 1,
-  "levelCap": 15,
+  "maxLevelImport": 12,
+  "levelCap": 16,
   "predefinedParty": [],
   "calendar": "Definition:SolastanCalendar:59113df69a4ea89479030146cc95b63d",
   "startYear": 1024,
@@ -796,6 +798,14 @@
       "name": "SleepAtInn-C",
       "type": "Int",
       "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Spawn_Dead_Orcs",
+      "type": "Bool",
+      "boolValue": true,
       "intValue": 0,
       "stringValue": "Init"
     }
@@ -2404,6 +2414,10 @@
     "name": "Location"
   },
   "namedPlacesPath": "Campaign/COTM_NamedPlaces",
+  "recommendedCampaign": null,
+  "recommendedSceneNameStartsWith": "",
+  "variablesToImport": [],
+  "questStatusToImport": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

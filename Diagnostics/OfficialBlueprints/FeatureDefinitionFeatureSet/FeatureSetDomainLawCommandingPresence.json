@@ -5,6 +5,7 @@
     "Definition:AbilityCheckAffinityDomainLawCommandingPresenceIntimidationAdvantage:3cf1970ddc20f054bb0a50b522cfc24c"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

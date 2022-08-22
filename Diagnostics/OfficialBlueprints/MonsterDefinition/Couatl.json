@@ -93,7 +93,9 @@
     "Definition:DamageAffinityPsychicImmunity:b52cfcbb789ae27428958d10a45529ac",
     "Definition:DamageAffinityBludgeoningImmunity_except_magical:78ea11738d3e10345a5d3bc71e1899e2",
     "Definition:DamageAffinityPiercingImmunity_except_magical:a4fa74652b5aee6448c5c4226cc4556a",
-    "Definition:DamageAffinitySlashingImmunity_except_magical:188cb95c327e56e4093239b4d4fc2a8c"
+    "Definition:DamageAffinitySlashingImmunity_except_magical:188cb95c327e56e4093239b4d4fc2a8c",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:PowerCouatlConstrict:145615b26225b8840ad416ab1772f1db"
   ],
   "attackIterations": [
     {
@@ -139,7 +141,7 @@
     "customMaterials": [],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "06a468f2a92070841bf16acd0e7bd262",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -149,22 +151,24 @@
       "y": -1.0,
       "z": 0.0
     },
-    "overrideCharacterShaderColors": false,
+    "overrideCharacterShaderColors": true,
     "firstCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0,
-      "a": 0.0
+      "r": 1.0,
+      "g": 0.9709,
+      "b": 0.709,
+      "a": 1.0
     },
     "secondCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0,
-      "a": 0.0
+      "r": 1.0,
+      "g": 0.7450981,
+      "b": 0.333333373,
+      "a": 1.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": false,
+    "hasPhantomVertexAnimation": false,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
@@ -185,14 +189,14 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 1.2,
+    "maleModelScale": 0.655,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "85da69cb61c66e24ea02f7057fc639c6",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 1.2,
+    "femaleModelScale": 0.655,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,

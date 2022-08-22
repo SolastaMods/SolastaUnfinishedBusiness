@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
   "subClass": null,
   "deity": null,
@@ -60,6 +62,7 @@
     "HerbalismKitType"
   ],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [
     "Language_Orc"
@@ -85,6 +88,7 @@
     "Definition:MageArmor:4772a21b455a76149adcc38d58267a10"
   ],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
     "Definition:FeatherFall:4e3a52bac403e3246bb7c4c12f520245",
@@ -96,6 +100,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 80,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

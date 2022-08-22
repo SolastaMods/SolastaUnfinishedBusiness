@@ -1,7 +1,7 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
   "hasCantrips": true,
-  "maxSpellLevel": 7,
+  "maxSpellLevel": 8,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
@@ -107,9 +107,24 @@
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 7,
-      "spells": []
+      "spells": [
+        "Definition:Resurrection:f796a243f664c73409cca137f137f5f3",
+        "Definition:Regenerate:11ce287bdf5b59d46bc8a992186ed349",
+        "Definition:FireStorm:6d8d659df5d60734d8c276777fba855a"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": [
+        "Definition:Sunburst:ae5f8354abadb0d448df8951b9488354",
+        "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d",
+        "Definition:Feeblemind:d116a54565935514a9437c1a79397182"
+      ]
     }
   ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

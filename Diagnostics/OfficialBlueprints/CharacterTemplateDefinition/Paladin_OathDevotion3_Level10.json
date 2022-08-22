@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
   "subClass": "Definition:OathOfDevotion:e2f392c9605b90b4a9f579cb3bf8d371",
   "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
@@ -61,6 +63,7 @@
   ],
   "toolsOverride": [],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -71,11 +74,14 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Male",
   "pronoun": "Male",
   "age": 22,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -114,7 +120,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 10,
+    "sortOrder": 99,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

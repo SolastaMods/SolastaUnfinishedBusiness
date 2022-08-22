@@ -38,6 +38,7 @@
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
@@ -65,6 +66,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 0,
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -115,6 +117,16 @@
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 8,
               "substituteMonster": "Definition:WildshapeTiger_Drake:b30db79c6af6d2344bf2e7477f140ca9"
+            },
+            {
+              "$type": "ShapeOptionDescription, Assembly-CSharp",
+              "requiredLevel": 10,
+              "substituteMonster": "Definition:WildShapeApe:73b214186870df3428237fbe6d1b8cb8"
+            },
+            {
+              "$type": "ShapeOptionDescription, Assembly-CSharp",
+              "requiredLevel": 13,
+              "substituteMonster": "Definition:WildShapeTundraTiger:49a8aa6ddedf04349b66e1ad4822504b"
             }
           ],
           "keepMentalAbilityScores": true,
@@ -244,6 +256,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -298,6 +311,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -316,18 +330,24 @@
       "cooldownForBattle": 0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "delegatedToAction": true,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "Action",
+  "autoActivationRequiredTargetSenseType": "None",
+  "autoActivationRequiredTargetCreatureTag": "",
+  "triggeringPower": null,
+  "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
   "reactionName": "",
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
+  "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "ShortRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
@@ -345,7 +365,6 @@
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
-  "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

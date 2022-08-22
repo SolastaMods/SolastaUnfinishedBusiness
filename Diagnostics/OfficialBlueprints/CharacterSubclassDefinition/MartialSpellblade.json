@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSpellBladeSpellTyrant:30d80b470a93c5340a76c867d40ece6f",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerMartialSpellbladeArcaneEscape:64ecebef2b3ef064585f780b471c8a34",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

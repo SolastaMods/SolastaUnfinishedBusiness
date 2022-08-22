@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Druid:df2da915a153d7a48a896041cf318953",
   "subClass": "Definition:CircleBalance:e0796189ca05f8d4db203f2798d4f841",
   "deity": "Definition:Maraike:94543509579e75f4c943de3b12f861af",
@@ -89,6 +91,7 @@
     "TwinBlade",
     "UncannyAccuracy"
   ],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -104,6 +107,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
     "Definition:Entangle:0224dcb79ea69f34eb9a51546fc78d0d",
@@ -127,6 +131,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 20,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -165,7 +171,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 99,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

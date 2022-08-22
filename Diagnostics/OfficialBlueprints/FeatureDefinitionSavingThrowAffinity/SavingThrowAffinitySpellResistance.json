@@ -138,6 +138,7 @@
   ],
   "indomitableSavingThrows": 0,
   "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

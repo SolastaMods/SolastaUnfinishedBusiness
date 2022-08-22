@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfDevotionAuraDevotion:efd92accd1ccf2e4e9f00de4a07bd694",
       "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfDevotionPurityOfSpirit:f17231f9284ebdc45939d3e289049696",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

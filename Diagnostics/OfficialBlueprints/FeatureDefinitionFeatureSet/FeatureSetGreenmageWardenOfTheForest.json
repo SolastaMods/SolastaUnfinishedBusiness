@@ -7,6 +7,7 @@
     "Definition:TerrainTypeAffinityRangerNaturalExplorerForest:105c7b19608adaa4ba65f0e7f2914b07"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

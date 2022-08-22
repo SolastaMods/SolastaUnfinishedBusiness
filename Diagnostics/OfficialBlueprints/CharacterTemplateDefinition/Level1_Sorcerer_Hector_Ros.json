@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_SorcererChildOfTheRift",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
   "subClass": "Definition:SorcerousChildRift:a5f62682f02bbd24a9dd3dd8e98b5d00",
   "deity": null,
@@ -59,6 +61,7 @@
   ],
   "toolsOverride": [],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [
     "Language_Tirmarian"
@@ -81,11 +84,14 @@
     "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a"
   ],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Male",
   "pronoun": "Male",
   "age": 30,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

@@ -25,6 +25,14 @@
         "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
         "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af"
       ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:GuardianOfFaith:9a2e9a322fd95a94197cfb894349d665",
+        "Definition:FreedomOfMovement:7c93b80e19d0f3e47843e96bd06d026c"
+      ]
     }
   ],
   "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",

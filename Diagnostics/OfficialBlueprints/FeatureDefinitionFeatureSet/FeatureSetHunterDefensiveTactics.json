@@ -6,6 +6,7 @@
     "Definition:ConditionAffinityHunterSteelWill:863e9a5c2d2e3fe49bee76a29bec38de"
   ],
   "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": true,
   "enumerateInDescription": true,

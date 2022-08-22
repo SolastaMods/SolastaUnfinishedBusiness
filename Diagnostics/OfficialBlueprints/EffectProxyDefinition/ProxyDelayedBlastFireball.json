@@ -6,6 +6,7 @@
   "canAttack": false,
   "canTriggerPower": true,
   "autoTerminateOnTriggerPower": true,
+  "incrementalDamageDice": 1,
   "actionId": "ProxyDelayedBlastFireball",
   "freeActionId": "NoAction",
   "attackMethod": "ReproduceDamageForms",
@@ -30,22 +31,22 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "addLightSource": false,
+  "addLightSource": true,
   "lightSourceForm": {
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
-    "brightRange": 4,
-    "dimAdditionalRange": 4,
+    "brightRange": 2,
+    "dimAdditionalRange": 2,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 1.0,
-      "g": 1.0,
-      "b": 1.0,
+      "r": 0.945098042,
+      "g": 0.360784322,
+      "b": 0.243137255,
       "a": 1.0
     },
     "graphicsPrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "382beb45afcab144c934e4a1f34b619d",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -54,7 +55,7 @@
   "lightSourceOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
-    "y": 0.0,
+    "y": 0.5,
     "z": 0.0
   },
   "spellImmunityFromOutside": false,

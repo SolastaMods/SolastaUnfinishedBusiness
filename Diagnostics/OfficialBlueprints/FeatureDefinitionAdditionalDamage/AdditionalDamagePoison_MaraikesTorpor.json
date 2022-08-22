@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "Poison",
   "limitedUsage": "None",
+  "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
   "requiredProperty": "None",
   "attackModeOnly": false,
@@ -9,6 +10,7 @@
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
   "damageDieType": "D1",
   "damageDiceNumber": 0,
@@ -23,6 +25,7 @@
   "savingThrowAbility": "Constitution",
   "dcComputation": "FixedValue",
   "savingThrowDC": 12,
+  "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "Negates",
   "conditionOperations": [
     {

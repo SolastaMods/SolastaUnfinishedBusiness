@@ -25,6 +25,14 @@
         "Definition:Daylight:73762817061cfec47b824d2f3a9fc3f6",
         "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4"
       ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:DreadfulOmen:a06863ee662908a47a95ca334aa24b99",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f"
+      ]
     }
   ],
   "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",

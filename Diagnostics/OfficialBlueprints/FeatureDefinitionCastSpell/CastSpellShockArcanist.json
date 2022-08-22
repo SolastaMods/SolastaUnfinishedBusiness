@@ -11,6 +11,7 @@
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
+  "uniqueLevelSlots": false,
   "spellCastingLevel": 9,
   "knownCantrips": [
     3,
@@ -316,6 +317,7 @@
     }
   ],
   "focusType": "Arcane",
+  "hasAccessToInvocations": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

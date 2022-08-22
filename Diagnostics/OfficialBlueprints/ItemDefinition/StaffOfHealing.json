@@ -33,10 +33,12 @@
   "requiresAttunement": true,
   "requiresIdentification": true,
   "requiredAttunementClasses": [
+    "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb",
     "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
     "Definition:Druid:df2da915a153d7a48a896041cf318953"
   ],
   "itemRarity": "VeryRare",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": true,
@@ -87,9 +89,10 @@
       "savingThrowAbility": "Dexterity",
       "ignoreCover": false,
       "grantedConditionOnSave": null,
+      "rollSaveOnlyIfRelevantForms": false,
       "hasShoveRoll": false,
       "createdByCharacter": false,
-      "difficultyClassComputation": "FixedValue",
+      "difficultyClassComputation": "SpellCastingFeature",
       "savingThrowDifficultyAbility": "Wisdom",
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
@@ -114,6 +117,7 @@
           "applyLevel": "No",
           "levelType": "ClassLevel",
           "levelMultiplier": 0,
+          "diceByLevelTable": [],
           "createdByCharacter": false,
           "createdByCondition": false,
           "hasSavingThrow": false,
@@ -126,6 +130,7 @@
             "versatile": true,
             "diceNumber": 1,
             "dieType": "D6",
+            "overrideWithBardicInspirationDie": false,
             "versatileDieType": "D8",
             "bonusDamage": 0,
             "damageType": "DamageBludgeoning",
@@ -260,6 +265,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "activeEffectSurfaceParticlePerIndex": "",
         "emissiveBorderCellStartParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
@@ -314,6 +320,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "forceApplyZoneParticle": false,
         "applyEmissionColorOnWeapons": false,
         "emissionColor": {
           "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -332,7 +339,8 @@
         "cooldownForBattle": 0,
         "dynamicCooldown": false
       },
-      "animationMagicEffect": "Animation0"
+      "animationMagicEffect": "Animation0",
+      "lightCounterDispellsEffect": false
     },
     "ammunitionType": "ArrowType"
   },
@@ -399,6 +407,11 @@
     }
   },
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,

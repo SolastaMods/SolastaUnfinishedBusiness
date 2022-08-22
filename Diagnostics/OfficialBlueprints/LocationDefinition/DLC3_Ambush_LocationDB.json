@@ -1,7 +1,7 @@
 {
   "$type": "LocationDefinition, Assembly-CSharp",
   "isUserLocation": false,
-  "alwaysHidden": false,
+  "alwaysHidden": true,
   "registeredFactions": [],
   "registeredVariables": [],
   "sceneFilePath": "",
@@ -168,17 +168,17 @@
   },
   "locationPresentation": {
     "$type": "LocationPresentation, Assembly-CSharp",
-    "unchartedTitle": "",
-    "unchartedDescription": "",
-    "knownTitle": "",
-    "knownDescription": "",
-    "exploredTitle": "",
-    "exploredDescription": ""
+    "unchartedTitle": "Feature/&Emptystring",
+    "unchartedDescription": "Feature/&Emptystring",
+    "knownTitle": "Feature/&Emptystring",
+    "knownDescription": "Feature/&Emptystring",
+    "exploredTitle": "Feature/&Emptystring",
+    "exploredDescription": "Feature/&Emptystring"
   },
   "challengeRating": 1,
   "focusWhenRevealed": false,
   "startsWithScavengerCamp": false,
-  "ignoredByScavengers": false,
+  "ignoredByScavengers": true,
   "useDirectionalLightInCutscene": false,
   "useNewSectorCullingAlgorithm": false,
   "keepSectorCullingResultsWhenInactive": false,
@@ -187,11 +187,12 @@
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "",
-    "description": "",
+    "title": "Feature/&Emptystring",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6e2fb10b8419a784baaaa37620711b08",

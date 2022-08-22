@@ -4,7 +4,7 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
-  "defaultFaction": "Antiquarians",
+  "defaultFaction": "DLC3_Faction_SouthernClan",
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "LawfulGood",
@@ -200,6 +200,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

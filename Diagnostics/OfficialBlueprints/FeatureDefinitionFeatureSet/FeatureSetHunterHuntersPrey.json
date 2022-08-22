@@ -6,6 +6,7 @@
     "Definition:AdditionalActionHunterHordeBreaker:d8dd24bc7c35a1641bd6d90cc4088be5"
   ],
   "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": true,
   "enumerateInDescription": true,

@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
   "subClass": "Definition:TraditionShockArcanist:6f400ff2620a4c14cabd9f8fd450eee1",
   "deity": null,
@@ -79,6 +81,7 @@
   "featsOverride": [
     "MasterAlchemist"
   ],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [
     "Language_Giant"
@@ -108,6 +111,7 @@
     "Definition:Identify:e398d34493329f147bae4902122057c2"
   ],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
     "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
@@ -161,6 +165,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 20,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

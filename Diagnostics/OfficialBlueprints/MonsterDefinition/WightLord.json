@@ -127,11 +127,6 @@
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 3,
       "monsterAttackDefinition": "Definition:Attack_WightLord_Longbow:5897dfc6ae3975a48a4df1b7df1e6959"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_WightLord_LifeDrain:14588372ac0b89d44805484799c31773"
     }
   ],
   "sneakStance": "Stealth",
@@ -197,6 +192,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "5bbe5d35725c2cc4492672476f4fc783",

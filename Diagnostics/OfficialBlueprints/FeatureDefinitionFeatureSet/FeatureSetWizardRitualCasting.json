@@ -5,6 +5,7 @@
     "Definition:ActionAffinityWizardRitualCasting:ab85ac35847f3fc4899712329db32377"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

@@ -35,7 +35,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "defaultBattleDecisionPackage": "Definition:GiantDefaultCombatDecisions:fab51e461a5de8f4591fccf4e19bb205",
   "threatEvaluatorDefinition": null,
   "languages": [
     "Language_Giant"
@@ -127,6 +127,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

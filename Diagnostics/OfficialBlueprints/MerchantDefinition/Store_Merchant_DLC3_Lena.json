@@ -1085,8 +1085,8 @@
       "reassortAmount": 0,
       "reassortRateType": "Day",
       "reassortRateValue": 1,
-      "requiredFaction": "DLC1_Faction_Mask",
-      "factionStatus": "Brotherhood"
+      "requiredFaction": "DLC3_Faction_Principality",
+      "factionStatus": "Alliance"
     },
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
@@ -1099,8 +1099,22 @@
       "reassortAmount": 0,
       "reassortRateType": "Day",
       "reassortRateValue": 1,
-      "requiredFaction": "DLC1_Faction_Mask",
-      "factionStatus": "Hatred"
+      "requiredFaction": "DLC3_Faction_Principality",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:ScrollComprehendLanguages:0554b2cd7e104534c891bf46126c9b3b",
+      "stackCount": 1,
+      "initialAmount": 10,
+      "minAmount": 0,
+      "maxAmount": 10,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "DLC3_Faction_Principality",
+      "factionStatus": "Alliance"
     }
   ],
   "guiPresentation": {

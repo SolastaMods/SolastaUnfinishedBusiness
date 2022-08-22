@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ActionAffinityRangerMarksmanFastAim:4746079c3d167bd4e80e30079e5821ec",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierMarksmanExtraAttack:6e359ebcd9f54a546a6ab02ea0683bbb",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

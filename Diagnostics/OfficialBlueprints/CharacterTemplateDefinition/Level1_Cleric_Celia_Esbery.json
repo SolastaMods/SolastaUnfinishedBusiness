@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "subClass": "Definition:DomainLife:67493523943f9dc45bd2d33f6de4ee91",
   "deity": "Definition:Maraike:94543509579e75f4c943de3b12f861af",
@@ -59,6 +61,7 @@
   ],
   "toolsOverride": [],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [
     "Language_Tirmarian"
@@ -75,6 +78,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
     "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49",
@@ -86,6 +90,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 20,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

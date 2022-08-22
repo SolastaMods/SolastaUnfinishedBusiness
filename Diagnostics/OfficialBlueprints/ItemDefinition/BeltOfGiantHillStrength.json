@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1000,
+    2000,
     0,
     0,
     0
@@ -34,6 +34,7 @@
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
   "itemRarity": "Rare",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -49,6 +50,11 @@
   "isAmmunition": false,
   "isUsableDevice": false,
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,

@@ -2,7 +2,7 @@
   "$type": "MonsterAttackDefinition, Assembly-CSharp",
   "displayedInEditor": true,
   "methodName": "",
-  "actionType": "Main",
+  "actionType": "Bonus",
   "toHitBonus": 5,
   "afterChargeOnly": false,
   "limitedUse": false,
@@ -50,6 +50,7 @@
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
@@ -77,6 +78,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -89,6 +91,7 @@
           "versatile": false,
           "diceNumber": 1,
           "dieType": "D8",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 1,
           "damageType": "DamagePiercing",
@@ -223,6 +226,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -277,6 +281,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -295,14 +300,16 @@
       "cooldownForBattle": 0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "projectile": "Arrow",
   "projectileBone": "Prop1",
-  "itemDefinitionMainHand": "Definition:Longsword+2:d579aefc31c24434e9d53e702276e8fd",
-  "itemDefinitionOffHand": "Definition:Shield+2:6bf62399e308acf42a0191b635f61297",
+  "itemDefinitionMainHand": "Definition:HeavyCrossbow+2:95230786dda0a654c97871ea4ae6f8df",
+  "itemDefinitionOffHand": null,
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
+  "isMultiattack": false,
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

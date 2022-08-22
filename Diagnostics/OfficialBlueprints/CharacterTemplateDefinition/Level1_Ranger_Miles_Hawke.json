@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40",
   "subClass": null,
   "deity": null,
@@ -68,6 +70,7 @@
     "HerbalismKitType"
   ],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [
     "Language_Dwarvish"
@@ -80,11 +83,14 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Male",
   "pronoun": "Male",
   "age": 24,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

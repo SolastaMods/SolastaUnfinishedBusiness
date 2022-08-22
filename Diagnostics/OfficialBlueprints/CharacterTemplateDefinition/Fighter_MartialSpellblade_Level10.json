@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
   "subClass": "Definition:MartialSpellblade:09e74bece88a0c74a97f67f542ad3046",
   "deity": null,
@@ -69,6 +71,7 @@
   "featsOverride": [
     "FollowUpStrike"
   ],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [
     "Language_Orc"
@@ -86,11 +89,14 @@
     "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8"
   ],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Male",
   "pronoun": "Male",
   "age": 22,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -129,7 +135,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 10,
+    "sortOrder": 99,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

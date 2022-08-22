@@ -11,6 +11,7 @@
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
+  "uniqueLevelSlots": false,
   "spellCastingLevel": 6,
   "knownCantrips": [
     1,
@@ -316,6 +317,7 @@
     }
   ],
   "focusType": "None",
+  "hasAccessToInvocations": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

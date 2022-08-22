@@ -6,6 +6,7 @@
     null
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

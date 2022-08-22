@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
   "subClass": "Definition:TraditionShockArcanist:6f400ff2620a4c14cabd9f8fd450eee1",
   "deity": null,
@@ -61,6 +63,7 @@
   ],
   "toolsOverride": [],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -87,6 +90,7 @@
     "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680"
   ],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
     "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
@@ -98,6 +102,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 20,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

@@ -14,12 +14,16 @@
   "durationType": "Round",
   "durationParameterDie": "D4",
   "durationParameter": 1,
+  "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
     "Damaged"
   ],
   "interruptionRequiresSavingThrow": false,
+  "interruptionSavingThrowComputationMethod": "SaveOverride",
+  "interruptionSavingThrowAbility": "",
   "interruptionDamageThreshold": 0,
+  "keepConditionIfSavingThrowSucceeds": false,
   "conditionTags": [
     "Protection"
   ],
@@ -31,6 +35,7 @@
     "Definition:ConditionIncapacitated:24d96cfe3b77b9a4b951bfb0e02fc018"
   ],
   "additionalDamageWhenHit": false,
+  "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
@@ -197,12 +202,14 @@
   "subsequentSavingThrowAbilityScore": "Constitution",
   "subsequentVariableForDC": "FrenzyExhaustionDC",
   "subsequentDCIncrease": 5,
+  "effectFormsOnRemoved": [],
   "forceBehavior": false,
   "fearSource": false,
   "battlePackage": null,
   "explorationPackage": null,
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
+  "refundReceivedDamageWhenRemoved": false,
   "followSourcePosition": false,
   "disolveCharacterOnDeath": false,
   "disolveParameters": {

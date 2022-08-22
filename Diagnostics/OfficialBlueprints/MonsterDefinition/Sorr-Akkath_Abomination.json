@@ -2,7 +2,7 @@
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
-  "characterFamily": "Giant",
+  "characterFamily": "Humanoid",
   "creatureTags": [
     "Shapechanger"
   ],
@@ -141,6 +141,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

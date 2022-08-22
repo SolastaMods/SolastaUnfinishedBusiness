@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "subClass": "Definition:DomainMischief:ddd19f644f2ce1742bc12c9efb4adab2",
   "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
@@ -81,6 +83,7 @@
   "featsOverride": [
     "EagerForBattle"
   ],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -100,6 +103,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
     "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
@@ -153,6 +157,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 47,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -191,7 +197,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 1,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

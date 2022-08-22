@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_NPC_Beryl_Stonebeard",
   "hairShapeMorphotype": "HairShape_A",
   "hairColorMorphotype": "HairColorBlond",
@@ -16,36 +17,38 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "armorDefinition": "ScaleMail",
   "helmetDefinition": "",
-  "tabardDefinition": "ClothesTabardCouncil",
+  "tabardDefinition": "",
   "showHelmet": false,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.214667082,
-    "g": 0.478834033,
-    "b": 0.6792453,
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
     "a": 1.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.400943339,
-    "g": 0.6943464,
+    "r": 1.0,
+    "g": 1.0,
     "b": 1.0,
     "a": 1.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
     "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.7830188,
-    "g": 0.7830188,
-    "b": 0.7830188,
+    "r": 1.0,
+    "g": 0.8685984,
+    "b": 0.8160377,
     "a": 1.0
   },
   "overrideWieldedItems": false,
@@ -58,8 +61,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "fd1fe2a6be3028342babc308eb846242",
-      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Beryl_Stonebeard_Lieutenant",
+      "m_AssetGUID": "87111273a2e1c8a4b9a969e316328e09",
+      "m_SubObjectName": "CustomPortrait_DLC3_Beryl",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

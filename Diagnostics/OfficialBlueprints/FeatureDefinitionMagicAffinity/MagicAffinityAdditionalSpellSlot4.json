@@ -20,9 +20,11 @@
   "somaticWithWeapon": false,
   "canUseProficientWeaponAsFocus": false,
   "rangeSpellNoProximityPenalty": false,
+  "targetSelfOverride": null,
   "usesWarList": false,
   "warListSlotBonus": 1,
   "ritualCasting": "None",
+  "canLearnRitualScrolls": false,
   "scribeAdvantageType": "None",
   "scribeDurationMultiplier": 1.0,
   "scribeCostMultiplier": 1.0,
@@ -32,7 +34,13 @@
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
   "extendedSpellList": null,
+  "addBonusToEffectSaveDC": "None",
+  "spellWithModifiedSaveDC": null,
+  "powerWithModifiedSaveDC": null,
+  "bonusToEffectSaveDC": 0,
   "deviceTagsAutoIdentifying": [],
+  "autoIdentifyPossessedMagicalItems": false,
+  "ignoreClassRestrictionsOnMagicalItems": false,
   "additionalSlots": [
     {
       "$type": "AdditionalSlotsDuplet, Assembly-CSharp",
@@ -44,6 +52,7 @@
   "preserveSlotRoll": false,
   "preserveSlotThreshold": 20,
   "preserveSlotLevelCap": 5,
+  "healingPerSpentSorceryPoint": 0,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "subClass": "Definition:DomainLife:67493523943f9dc45bd2d33f6de4ee91",
   "deity": "Definition:Arun:9fe6be99f689cc94683098b128c799d8",
@@ -66,6 +68,7 @@
     "GamingSetDiceType"
   ],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -82,6 +85,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:SpiritualWeapon:2a304c1b2bfa7be4c9cf7c7e08268fd7",
     "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
@@ -113,6 +117,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 47,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -151,7 +157,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 99,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

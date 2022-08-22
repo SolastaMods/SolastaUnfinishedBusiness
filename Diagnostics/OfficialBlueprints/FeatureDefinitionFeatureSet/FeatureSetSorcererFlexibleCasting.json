@@ -5,6 +5,7 @@
     "Definition:PowerSorcererCreateSorceryPoints:61386039a5180c346bd5db553a34d4ed"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

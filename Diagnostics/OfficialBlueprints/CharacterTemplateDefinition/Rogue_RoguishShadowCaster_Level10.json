@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Rogue:8ae0dcdf1cf0a264c8198e0ca715eaf3",
   "subClass": "Definition:RoguishShadowCaster:c5672e851a6615d4598b5ec32c3ff3dc",
   "deity": null,
@@ -73,6 +75,7 @@
   "featsOverride": [
     "TakeAim"
   ],
+  "invocationsOverride": [],
   "expertisesOverride": [
     "Stealth",
     "ThievesToolsType"
@@ -94,11 +97,14 @@
     "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559"
   ],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Male",
   "pronoun": "Male",
   "age": 97,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -137,7 +143,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 10,
+    "sortOrder": 99,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

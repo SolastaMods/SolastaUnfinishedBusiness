@@ -50,6 +50,7 @@
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
@@ -77,6 +78,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -89,6 +91,7 @@
           "versatile": false,
           "diceNumber": 1,
           "dieType": "D6",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 2,
           "damageType": "DamagePiercing",
@@ -223,6 +226,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -277,6 +281,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -295,7 +300,8 @@
       "cooldownForBattle": 0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "projectile": "Arrow",
   "projectileBone": "Prop1",
@@ -303,6 +309,7 @@
   "itemDefinitionOffHand": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
+  "isMultiattack": false,
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

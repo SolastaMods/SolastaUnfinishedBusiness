@@ -5,6 +5,7 @@
     "Definition:SenseTremorsense16:0c4195ea1bc8d6a48b516f82161efbae"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

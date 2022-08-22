@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": true,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionLifeDrained:ce10be38f182d7046bca13becd0e6bf6",
   "conditionType": "Detrimental",
   "features": [
     "Definition:AttributeModifierLifeDrained:1df87241987a91f46a0fed245bde9858"
@@ -14,16 +14,21 @@
   "durationType": "Dispelled",
   "durationParameterDie": "D4",
   "durationParameter": 1,
+  "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
     "None"
   ],
   "interruptionRequiresSavingThrow": false,
+  "interruptionSavingThrowComputationMethod": "SaveOverride",
+  "interruptionSavingThrowAbility": "",
   "interruptionDamageThreshold": 0,
+  "keepConditionIfSavingThrowSucceeds": false,
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
+  "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
@@ -190,12 +195,14 @@
   "subsequentSavingThrowAbilityScore": "Constitution",
   "subsequentVariableForDC": "FrenzyExhaustionDC",
   "subsequentDCIncrease": 5,
+  "effectFormsOnRemoved": [],
   "forceBehavior": false,
   "fearSource": false,
   "battlePackage": null,
   "explorationPackage": null,
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
+  "refundReceivedDamageWhenRemoved": false,
   "followSourcePosition": false,
   "disolveCharacterOnDeath": false,
   "disolveParameters": {

@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Rogue:8ae0dcdf1cf0a264c8198e0ca715eaf3",
   "subClass": null,
   "deity": null,
@@ -66,6 +68,7 @@
     "ThievesToolsType"
   ],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [
     "Deception",
     "Stealth"
@@ -79,11 +82,14 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Male",
   "pronoun": "Male",
   "age": 22,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

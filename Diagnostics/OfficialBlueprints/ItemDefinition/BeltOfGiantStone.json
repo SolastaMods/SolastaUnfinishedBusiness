@@ -34,6 +34,7 @@
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
   "itemRarity": "VeryRare",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -49,6 +50,11 @@
   "isAmmunition": false,
   "isUsableDevice": false,
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -188,7 +194,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&BeltOfGiantFire_Title",
+    "title": "Equipment/&BeltOfGiantStone_Title",
     "description": "Equipment/&BeltOfGiantHillStrength_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

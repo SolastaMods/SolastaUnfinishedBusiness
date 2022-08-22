@@ -34,6 +34,7 @@
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
   "itemRarity": "Uncommon",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
@@ -90,6 +91,11 @@
     }
   },
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,

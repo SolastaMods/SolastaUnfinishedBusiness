@@ -8,6 +8,7 @@
   "ritual": false,
   "uniqueInstance": false,
   "castingTime": "Action",
+  "reactionContext": "None",
   "ritualCastingTime": "Action",
   "requiresConcentration": true,
   "effectDescription": {
@@ -48,6 +49,7 @@
     "savingThrowAbility": "Charisma",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
@@ -77,6 +79,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 0,
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -217,6 +220,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -271,6 +275,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -289,7 +294,8 @@
       "cooldownForBattle": 0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

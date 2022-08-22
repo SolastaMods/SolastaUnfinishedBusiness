@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SavingThrowAffinityMagebaneRejectMagic:58ef68c076b1ed34d9996087cbd2385f",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSpellCrusher:88f95bbcfe6ad18429e38e32da0d1835",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [

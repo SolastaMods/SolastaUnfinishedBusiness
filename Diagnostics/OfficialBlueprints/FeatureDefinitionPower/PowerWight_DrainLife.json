@@ -38,6 +38,7 @@
     "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "FixedValue",
@@ -65,6 +66,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -77,6 +79,7 @@
           "versatile": false,
           "diceNumber": 1,
           "dieType": "D6",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D10",
           "bonusDamage": 2,
           "damageType": "DamageNecrotic",
@@ -97,6 +100,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -237,6 +241,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -291,6 +296,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -309,18 +315,24 @@
       "cooldownForBattle": 0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "Action",
+  "autoActivationRequiredTargetSenseType": "None",
+  "autoActivationRequiredTargetCreatureTag": "",
+  "triggeringPower": null,
+  "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
   "reactionName": "",
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
+  "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
@@ -338,7 +350,6 @@
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
-  "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetRangerHunterMultiAttackChoice:dd8c548e778c525489ecf9f01e9d7949",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerHunterSuperiorHuntersDefenseChoice:77c666af9821d354d9e46109b7fda344",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

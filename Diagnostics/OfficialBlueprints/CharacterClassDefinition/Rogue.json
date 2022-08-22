@@ -231,6 +231,21 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseRogueBlindsense:ebddf941c3e27e049b018c86261672ff",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyRogueSlipperyMind:6f3028b39983672448e68a1c068db2c2",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
     }
   ],
   "personalityFlagOccurences": [
@@ -261,18 +276,23 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 5,
+      "weight": 10,
       "personalityFlag": "GpStealth"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 2,
+      "weight": 4,
       "personalityFlag": "GpCombat"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 1,
       "personalityFlag": "GpExplorer"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 2,
+      "personalityFlag": "GpSpellcaster"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
@@ -310,6 +330,7 @@
     "Robust",
     "PowerfulCantrip"
   ],
+  "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 5,
   "classPictogramReference": {
@@ -321,6 +342,10 @@
   "defaultBattleDecisions": "Definition:RogueCombatDecisions:c261d934de0fe154d8205afceb17ed6b",
   "classAnimationId": "Rogue",
   "vocalSpellSemeClass": "Arcana",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -49,6 +49,7 @@
   "optionalPersonalityFlags": [],
   "defaultOptionalPersonalityFlags": [],
   "forbiddenAlignments": [],
+  "hasBackgroundQuest": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

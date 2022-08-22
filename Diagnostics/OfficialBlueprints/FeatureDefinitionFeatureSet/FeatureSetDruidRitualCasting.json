@@ -5,6 +5,7 @@
     "Definition:ActionAffinityDruidRitualCasting:9e24a77eb88e5574a8abb07b80942bc4"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

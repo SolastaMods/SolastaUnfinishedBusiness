@@ -3,9 +3,11 @@
   "editorOnly": true,
   "isUserCampaign": false,
   "multiplayer": false,
+  "canLoadEndGameSave": false,
   "partySize": 4,
   "minStartLevel": 3,
   "maxStartLevel": 3,
+  "maxLevelImport": 12,
   "levelCap": 10,
   "predefinedParty": [
     "Garrad",
@@ -1747,6 +1749,10 @@
     "name": "Location"
   },
   "namedPlacesPath": "Campaign/COTM_NamedPlaces",
+  "recommendedCampaign": null,
+  "recommendedSceneNameStartsWith": "",
+  "variablesToImport": [],
+  "questStatusToImport": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

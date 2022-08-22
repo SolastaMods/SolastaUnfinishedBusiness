@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "subClass": "Definition:DomainBattle:bf3c54c59b182fd4a84e5df0656c161c",
   "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
@@ -67,6 +69,7 @@
     "GamingSetDiceType"
   ],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -83,6 +86,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
     "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
@@ -94,6 +98,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 47,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

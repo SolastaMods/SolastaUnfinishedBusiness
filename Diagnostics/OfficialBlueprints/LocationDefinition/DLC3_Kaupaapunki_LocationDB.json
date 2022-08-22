@@ -168,15 +168,15 @@
   },
   "locationPresentation": {
     "$type": "LocationPresentation, Assembly-CSharp",
-    "unchartedTitle": "",
-    "unchartedDescription": "",
-    "knownTitle": "",
-    "knownDescription": "",
-    "exploredTitle": "",
-    "exploredDescription": ""
+    "unchartedTitle": "Map/&Location_Presentation_DLC3_Kaupaapunki_Title",
+    "unchartedDescription": "Map/&Location_Presentation_DLC3_Kaupaapunki_Description",
+    "knownTitle": "Map/&Location_Presentation_DLC3_Kaupaapunki_Title",
+    "knownDescription": "Map/&Location_Presentation_DLC3_Kaupaapunki_Description",
+    "exploredTitle": "Map/&Location_Presentation_DLC3_Kaupaapunki_Title",
+    "exploredDescription": "Map/&Location_Presentation_DLC3_Kaupaapunki_Description"
   },
   "challengeRating": 1,
-  "focusWhenRevealed": false,
+  "focusWhenRevealed": true,
   "startsWithScavengerCamp": false,
   "ignoredByScavengers": false,
   "useDirectionalLightInCutscene": false,
@@ -187,11 +187,12 @@
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "",
-    "description": "",
+    "title": "Map/&Location_Presentation_DLC3_Kaupaapunki_Title",
+    "description": "Map/&Location_Presentation_DLC3_Kaupaapunki_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "be615bd88625d384e842486abe654eef",

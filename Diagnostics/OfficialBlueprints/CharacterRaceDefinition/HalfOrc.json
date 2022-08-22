@@ -69,6 +69,8 @@
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Human",
+    "armorAssetPrefix": "Human",
+    "helmetAssetPrefix": "Human",
     "morphotypeAssetPrefix": "Human",
     "maleNameOptions": [
       "Race/&HalfOrcMaleName1Title",
@@ -104,8 +106,23 @@
       "Race/&HalfOrcSurName4Title",
       "Race/&HalfOrcSurName5Title"
     ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
     "needBeard": false,
-    "canModifyMusculature": true,
+    "defaultMusculature": 0,
     "originOptions": [
       "Origin_HO"
     ],
@@ -167,6 +184,18 @@
       "HairShape_S",
       "HairShape_None"
     ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
     "maleBeardShapeOptions": [
       "BeardShape_None",
       "BeardShape_D",
@@ -179,6 +208,9 @@
       "BeardShape_P",
       "BeardShape_C"
     ],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM2",

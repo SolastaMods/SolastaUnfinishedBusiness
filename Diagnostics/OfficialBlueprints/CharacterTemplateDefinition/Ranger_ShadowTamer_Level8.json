@@ -27,6 +27,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40",
   "subClass": "Definition:RangerShadowTamer:d2f10edd7ced050418161755ee3db7a8",
   "deity": null,
@@ -63,6 +65,7 @@
   ],
   "toolsOverride": [],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -79,11 +82,14 @@
     "Definition:LesserRestoration:5da149e59ebb042419041382af919aea"
   ],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Male",
   "pronoun": "Male",
   "age": 22,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -122,7 +128,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 2,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

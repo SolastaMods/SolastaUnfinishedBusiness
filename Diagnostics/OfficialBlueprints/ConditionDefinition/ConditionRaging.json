@@ -21,13 +21,14 @@
   "durationType": "Minute",
   "durationParameterDie": "D1",
   "durationParameter": 1,
+  "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "BattleEnd",
-    "NoAttackOrDamagedInTurn"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
+  "interruptionSavingThrowComputationMethod": "SaveOverride",
+  "interruptionSavingThrowAbility": "",
   "interruptionDamageThreshold": 0,
+  "keepConditionIfSavingThrowSucceeds": false,
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [
@@ -36,6 +37,7 @@
     "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477"
   ],
   "additionalDamageWhenHit": false,
+  "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
@@ -202,12 +204,14 @@
   "subsequentSavingThrowAbilityScore": "Constitution",
   "subsequentVariableForDC": "FrenzyExhaustionDC",
   "subsequentDCIncrease": 5,
+  "effectFormsOnRemoved": [],
   "forceBehavior": false,
   "fearSource": false,
   "battlePackage": null,
   "explorationPackage": null,
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
+  "refundReceivedDamageWhenRemoved": false,
   "followSourcePosition": false,
   "disolveCharacterOnDeath": false,
   "disolveParameters": {

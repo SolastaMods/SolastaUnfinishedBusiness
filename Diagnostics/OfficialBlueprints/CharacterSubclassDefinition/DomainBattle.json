@@ -55,6 +55,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDomainBattleDecisiveStrike11:15b98402b645c17429a2d4eff4d1827b",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainBattleDecisiveStrike14:2e23f3d286c0e864192600708c6693dd",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

@@ -4,6 +4,7 @@
   "savingThrowAdvantageType": "Advantage",
   "savingThrowModifier": 0,
   "conditionAffinityType": "Immunity",
+  "silent": false,
   "rerollSaveWhenGained": true,
   "rerollAdvantageType": "Advantage",
   "myselfFamilyRestrictions": [],

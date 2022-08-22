@@ -35,6 +35,7 @@
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Uncommon",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
@@ -81,6 +82,7 @@
       "savingThrowAbility": "Constitution",
       "ignoreCover": false,
       "grantedConditionOnSave": null,
+      "rollSaveOnlyIfRelevantForms": false,
       "hasShoveRoll": false,
       "createdByCharacter": false,
       "difficultyClassComputation": "FixedValue",
@@ -108,6 +110,7 @@
           "applyLevel": "No",
           "levelType": "ClassLevel",
           "levelMultiplier": 0,
+          "diceByLevelTable": [],
           "createdByCharacter": false,
           "createdByCondition": false,
           "hasSavingThrow": true,
@@ -134,18 +137,20 @@
           "applyLevel": "No",
           "levelType": "ClassLevel",
           "levelMultiplier": 0,
+          "diceByLevelTable": [],
           "createdByCharacter": false,
           "createdByCondition": false,
           "hasSavingThrow": true,
           "savingThrowAffinity": "HalfDamage",
           "dcModifier": 0,
-          "canSaveToCancel": true,
+          "canSaveToCancel": false,
           "saveOccurence": "StartOfTurn",
           "damageForm": {
             "$type": "DamageForm, Assembly-CSharp",
             "versatile": false,
             "diceNumber": 3,
             "dieType": "D8",
+            "overrideWithBardicInspirationDie": false,
             "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamagePoison",
@@ -280,6 +285,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "activeEffectSurfaceParticlePerIndex": "",
         "emissiveBorderCellStartParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
@@ -334,6 +340,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "forceApplyZoneParticle": false,
         "applyEmissionColorOnWeapons": false,
         "emissionColor": {
           "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -352,11 +359,17 @@
         "cooldownForBattle": 0,
         "dynamicCooldown": false
       },
-      "animationMagicEffect": "Animation0"
+      "animationMagicEffect": "Animation0",
+      "lightCounterDispellsEffect": false
     }
   },
   "isUsableDevice": false,
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,

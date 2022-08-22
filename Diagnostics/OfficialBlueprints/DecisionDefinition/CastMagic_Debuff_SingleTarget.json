@@ -70,7 +70,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "IsCloseFromMe"
+              "name": "IsFarFromMe"
             },
             "weight": 1.0
           },
@@ -92,7 +92,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "CanCastMagic_PreferAdvantage"
+              "name": "CanCastMagic_IgnoreAdvantage"
             },
             "weight": 1.0
           },
@@ -116,7 +116,7 @@
               },
               "name": "TargetHasHighThreat"
             },
-            "weight": 1.0
+            "weight": 0.5
           }
         ]
       },

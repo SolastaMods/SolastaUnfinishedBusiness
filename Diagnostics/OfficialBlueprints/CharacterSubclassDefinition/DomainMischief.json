@@ -50,6 +50,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDomainMischiefStrikeOfChaos11:eb05326230913954db1a88f9046b6869",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainMischiefStrikeOfChaos14:8b7a42d0dd1453b4c8448e5bdf68540a",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [

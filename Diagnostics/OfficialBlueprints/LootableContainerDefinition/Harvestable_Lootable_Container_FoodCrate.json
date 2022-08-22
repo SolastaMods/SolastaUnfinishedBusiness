@@ -4,6 +4,8 @@
   "contentAlwaysKnown": true,
   "forbidDrop": true,
   "ignoredByScavengers": false,
+  "fastLoot": true,
+  "useLootModal": true,
   "restrictedItems": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
