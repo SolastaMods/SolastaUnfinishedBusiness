@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks;
@@ -19,11 +18,6 @@ internal static class RulesetItem_FillTags
         if (WeaponValidators.IsPolearm(__instance))
         {
             tagsMap.TryAdd(CustomWeaponsContext.PolearmWeaponTag, TagsDefinitions.Criticity.Normal);
-        }
-
-        if (Monk.IsMonkWeapon(null, __instance))
-        {
-            tagsMap.TryAdd(Monk.WeaponTag, TagsDefinitions.Criticity.Normal);
         }
 
         if (DiagnosticsContext.IsCeDefinition(__instance.ItemDefinition))

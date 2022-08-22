@@ -8,9 +8,6 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Utils;
 using UnityEngine;
 using static ConditionOperationDescription;
-using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
-using static SolastaCommunityExpansion.Models.SpellsContext;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
 using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Spells;
@@ -24,8 +21,8 @@ internal static class EwSpells
 
     internal static void Register()
     {
-        RegisterSpell(SunlightBlade, 0, WarlockSpellList, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(ResonatingStrike, 0, WarlockSpellList, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(SunlightBlade, 0, WarlockSpellList, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(ResonatingStrike, 0, WarlockSpellList, SpellListWizard, SpellListSorcerer);
     }
 
     private static SpellDefinition BuildSunlightBlade()

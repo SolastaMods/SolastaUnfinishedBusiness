@@ -2,7 +2,6 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
-using SolastaCommunityExpansion.Classes.Magus;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
@@ -81,8 +80,7 @@ internal static class GameLocationCharacterPatcher
 
             var rulesetCharacter = actionParams.actingCharacter.RulesetCharacter;
 
-            if (!rulesetCharacter.HasAnyFeature(Magus.SpellStrike) &&
-                !rulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
+            if (!rulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
             {
                 return;
             }

@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaCommunityExpansion.Classes.Magus;
-using SolastaCommunityExpansion.Classes.Monk;
-using SolastaCommunityExpansion.Classes.Tinkerer;
-using SolastaCommunityExpansion.Classes.Warlock;
-using SolastaCommunityExpansion.Classes.Witch;
 
 namespace SolastaCommunityExpansion.Models;
 

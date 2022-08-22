@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
@@ -18,11 +17,6 @@ internal static class GuiItemDefinition_EnumerateTags
         if (WeaponValidators.IsPolearm(item))
         {
             tags.TryAdd(CustomWeaponsContext.PolearmWeaponTag, TagsDefinitions.Criticity.Normal);
-        }
-
-        if (Monk.IsMonkWeapon(null, item))
-        {
-            tags.TryAdd(Monk.WeaponTag, TagsDefinitions.Criticity.Normal);
         }
 
         if (DiagnosticsContext.IsCeDefinition(__instance.BaseDefinition))

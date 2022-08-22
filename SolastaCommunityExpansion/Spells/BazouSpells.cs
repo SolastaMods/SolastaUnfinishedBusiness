@@ -6,8 +6,6 @@ using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
-using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
-using static SolastaCommunityExpansion.Classes.Witch.Witch;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
@@ -53,12 +51,12 @@ internal static class BazouSpells
     */
     internal static void Register()
     {
-        RegisterSpell(EldritchOrb, 1, WitchSpellList, WarlockSpellList);
-        RegisterSpell(FindFamiliar, 1, WitchSpellList, SpellListWizard, WarlockSpellList);
-        RegisterSpell(Frenzy, 1, WitchSpellList, WarlockSpellList, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(MinorLifesteal, 1, WitchSpellList, SpellListWizard);
-        RegisterSpell(PetalStorm, 1, WitchSpellList, SpellListDruid);
-        RegisterSpell(ProtectThreshold, 1, WitchSpellList, SpellListCleric, SpellListDruid, SpellListPaladin);
+        // RegisterSpell(EldritchOrb, 1, WitchSpellList, WarlockSpellList);
+        // RegisterSpell(FindFamiliar, 1, WitchSpellList, SpellListWizard, WarlockSpellList);
+        // RegisterSpell(Frenzy, 1, WitchSpellList, WarlockSpellList, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(MinorLifesteal, 1, WitchSpellList, SpellListWizard);
+        // RegisterSpell(PetalStorm, 1, WitchSpellList, SpellListDruid);
+        // RegisterSpell(ProtectThreshold, 1, WitchSpellList, SpellListCleric, SpellListDruid, SpellListPaladin);
     }
 
     [NotNull]

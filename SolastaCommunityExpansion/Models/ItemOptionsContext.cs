@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Classes.Warlock;
 using UnityEngine.AddressableAssets;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
@@ -259,10 +258,10 @@ internal static class ItemOptionsContext
         {
             ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Sorcerer);
 
-            if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
-            {
-                ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
-            }
+            // if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
+            // {
+            //     ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
+            // }
         }
     }
 

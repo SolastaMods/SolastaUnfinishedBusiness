@@ -4,7 +4,6 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
-using SolastaCommunityExpansion.Classes.Magus;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
@@ -18,21 +17,12 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
     internal static void Prefix([NotNull] CharacterActionMagicEffect __instance)
     {
         var definition = __instance.GetBaseDefinition();
-        var spellStrike = Magus.CanSpellStrike(__instance);
 
         // skip spell animation if this is "attack after cast" spell
-        if (definition.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>() || spellStrike)
+        if (definition.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
         {
             __instance.ActionParams.SkipAnimationsAndVFX = true;
         }
-
-        if (spellStrike)
-        {
-            __instance.needToWaitCastAnimation = false;
-        }
-
-        Global.IsSpellStrike = spellStrike;
-        Global.SpellStrikeRollOutcome = RuleDefinitions.RollOutcome.Neutral;
     }
 
 
@@ -51,11 +41,6 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
         //TODO: add possibility to process multiple attack features
         var customFeature = definition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
 
-        if (customFeature == null && Global.IsSpellStrike)
-        {
-            customFeature = Magus.SpellStrike.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
-        }
-
         CharacterActionAttack attackAction = null;
         var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
         var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
@@ -63,11 +48,6 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
 
         if (attackParams != null)
         {
-            if (Global.IsSpellStrike)
-            {
-                Magus.PrepareSpellStrike(__instance, attackParams);
-            }
-
             void AttackImpactStartHandler(
                 GameLocationCharacter attacker,
                 GameLocationCharacter defender,
@@ -89,9 +69,6 @@ internal static class CharacterActionMagicEffect_ExecuteImpl
 
             attackParams.ActingCharacter.AttackImpactStart -= AttackImpactStartHandler;
         }
-
-        Magus.SpellStrikePower.effectDescription.effectParticleParameters = null;
-        Magus.SpellStrikeAdditionalDamage.impactParticleReference = null;
 
         var saveRangeType = __instance.actionParams.activeEffect.EffectDescription.rangeType;
 
@@ -203,14 +180,6 @@ internal static class RulesetCharacter_RollMagicAttack
             }
         }
 
-        if (!Global.IsSpellStrike)
-        {
-            return true;
-        }
-
-        __result = Global.SpellStrikeDieRoll;
-        outcome = Global.SpellStrikeRollOutcome;
-
-        return false;
+        return true;
     }
 }

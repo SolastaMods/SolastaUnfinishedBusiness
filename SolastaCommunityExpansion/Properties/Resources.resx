@@ -153,20 +153,12 @@
     <value>..\Resources\Fire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Gnome" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GnomeRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
    <data name="GrayDwarf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GrayDwarfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data> 
   <data name="Teleport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Teleport.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Warlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WarlockClass.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WinterBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -193,26 +185,6 @@
     <value>..\Resources\ElementalFormIconEnhanced.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="WarlockChainSummon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WarlockChainSummon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="EldritchInvocation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EldritchInvocation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="EldritchBlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EldritchBlast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="EldritchBlastGrasp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EldritchBlastGrasp.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="EldritchBlastRepell" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EldritchBlastRepell.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="SunlightBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SunlightBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
@@ -221,60 +193,12 @@
     <value>..\Resources\ResonatingStrike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Monk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkClass.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MonkPictogram" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkPictogram.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MonkKiIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkKiIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MonkEmptyBody" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkEmptyBody.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MonkFlurryOfBlows" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkFlurryOfBlows.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MonkPatientDefense" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkPatientDefense.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MonkSlowFall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkSlowFall.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MonkStepOfTheWind" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkStepOfTheWind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MonkStillnessOfMind" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkStillnessOfMind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MonkStunningStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonkStunningStrike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="PowerAttackConcentrationIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PowerAttackConcentrationIcon.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerAttackIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PowerAttackIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="FlurryOfArrows" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FlurryOfArrows.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ZenArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ZenArrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DeadeyeConcentrationIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">

@@ -8,10 +8,6 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionCastSpell;
-using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
-using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
-using static SolastaCommunityExpansion.Classes.Witch.Witch;
-using static SolastaCommunityExpansion.Models.SpellsContext;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -48,34 +44,34 @@ public static class SrdSpells
 
     internal static void Register()
     {
-        // cantrips
-        RegisterSpell(EldritchBlast, 1, WarlockSpellList);
-
-        // 7th level
-        RegisterSpell(DivineWord, 0, SpellListCleric);
-        RegisterSpell(FingerOfDeath, 1, WarlockSpellList, WitchSpellList, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(ReverseGravity, 0, SpellListDruid, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(ConjureCelestial, 0, SpellListCleric);
-
-        // 8th level
-        RegisterSpell(DominateMonster, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer, WitchSpellList);
-        RegisterSpell(Feeblemind, 2, WarlockSpellList, SpellListDruid, SpellListWizard, WitchSpellList);
-        RegisterSpell(HolyAura, 1, SpellListCleric);
-        RegisterSpell(IncendiaryCloud, 0, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(Maze, 0, SpellListWizard);
-        RegisterSpell(MindBlank, 0, SpellListWizard, WitchSpellList);
-        RegisterSpell(PowerWordStun, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer, WitchSpellList);
-        RegisterSpell(SunBurst, 1, SpellListDruid, SpellListWizard, SpellListSorcerer);
-
-        // 9th level
-        RegisterSpell(Foresight, 2, WarlockSpellList, SpellListDruid, SpellListWizard, WitchSpellList);
-        RegisterSpell(MassHeal, 1, SpellListCleric);
-        RegisterSpell(MeteorSwarmSingleTarget, 0, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(PowerWordHeal, 1, SpellListCleric);
-        RegisterSpell(PowerWordKill, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(TimeStop, 0, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(Shapechange, 1, SpellListDruid, SpellListWizard);
-        RegisterSpell(Weird, 1, WarlockSpellList, SpellListWizard, WitchSpellList);
+        // // cantrips
+        // RegisterSpell(EldritchBlast, 1, WarlockSpellList);
+        //
+        // // 7th level
+        // RegisterSpell(DivineWord, 0, SpellListCleric);
+        // RegisterSpell(FingerOfDeath, 1, WarlockSpellList, WitchSpellList, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(ReverseGravity, 0, SpellListDruid, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(ConjureCelestial, 0, SpellListCleric);
+        //
+        // // 8th level
+        // RegisterSpell(DominateMonster, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer, WitchSpellList);
+        // RegisterSpell(Feeblemind, 2, WarlockSpellList, SpellListDruid, SpellListWizard, WitchSpellList);
+        // RegisterSpell(HolyAura, 1, SpellListCleric);
+        // RegisterSpell(IncendiaryCloud, 0, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(Maze, 0, SpellListWizard);
+        // RegisterSpell(MindBlank, 0, SpellListWizard, WitchSpellList);
+        // RegisterSpell(PowerWordStun, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer, WitchSpellList);
+        // RegisterSpell(SunBurst, 1, SpellListDruid, SpellListWizard, SpellListSorcerer);
+        //
+        // // 9th level
+        // RegisterSpell(Foresight, 2, WarlockSpellList, SpellListDruid, SpellListWizard, WitchSpellList);
+        // RegisterSpell(MassHeal, 1, SpellListCleric);
+        // RegisterSpell(MeteorSwarmSingleTarget, 0, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(PowerWordHeal, 1, SpellListCleric);
+        // RegisterSpell(PowerWordKill, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(TimeStop, 0, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(Shapechange, 1, SpellListDruid, SpellListWizard);
+        // RegisterSpell(Weird, 1, WarlockSpellList, SpellListWizard, WitchSpellList);
     }
 
     private static SpellDefinition BuildDivineWord()

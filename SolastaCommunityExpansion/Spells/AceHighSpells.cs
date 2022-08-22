@@ -5,7 +5,6 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 
 namespace SolastaCommunityExpansion.Spells;
@@ -19,8 +18,7 @@ internal static class AceHighSpells
 
     internal static void Register()
     {
-        RegisterSpell(PactMarkSpell, 1, WarlockSpellList);
-        RegisterSpell(HellishRebukeSpell, 1, WarlockSpellList);
+
     }
 
     private static SpellDefinition BuildHellishRebuke()

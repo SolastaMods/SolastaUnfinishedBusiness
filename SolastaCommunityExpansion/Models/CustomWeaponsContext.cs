@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaCommunityExpansion.Properties;
@@ -165,51 +164,51 @@ public static class CustomWeaponsContext
                 damageType: RuleDefinitions.DamageTypeForce)
             .Build());
 
-        HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
-        HandwrapsOfPulling.IsUsableDevice = true;
-        HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
-            .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-            .SetSaveDC(-1)
-            .AddFunctions(new DeviceFunctionDescriptionBuilder()
-                .SetPower(FeatureDefinitionPowerBuilder
-                    .Create("PowerFunctionHandwrapsOfPulling", Monk.Guid)
-                    .SetGuiPresentation(Category.Power)
-                    .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
-                    .SetUsesFixed(1)
-                    .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                    .SetEffectDescription(new EffectDescriptionBuilder()
-                        .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
-                            RuleDefinitions.TargetType.Individuals)
-                        .ExcludeCaster()
-                        .SetSavingThrowData(
-                            true,
-                            true,
-                            AttributeDefinitions.Strength,
-                            false,
-                            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                            AttributeDefinitions.Wisdom)
-                        .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple
-                            .EffectDescription.EffectParticleParameters)
-                        .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                        .SetEffectForms(new EffectFormBuilder()
-                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
-                            .Build())
-                        .Build())
-                    .AddToDB())
-                .Build())
-            .Build();
+        // HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
+        // HandwrapsOfPulling.IsUsableDevice = true;
+        // HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
+        //     .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+        //     .SetSaveDC(-1)
+        //     .AddFunctions(new DeviceFunctionDescriptionBuilder()
+        //         .SetPower(FeatureDefinitionPowerBuilder
+        //             .Create("PowerFunctionHandwrapsOfPulling", Monk.Guid)
+        //             .SetGuiPresentation(Category.Power)
+        //             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
+        //             .SetUsesFixed(1)
+        //             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+        //             .SetEffectDescription(new EffectDescriptionBuilder()
+        //                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
+        //                     RuleDefinitions.TargetType.Individuals)
+        //                 .ExcludeCaster()
+        //                 .SetSavingThrowData(
+        //                     true,
+        //                     true,
+        //                     AttributeDefinitions.Strength,
+        //                     false,
+        //                     RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+        //                     AttributeDefinitions.Wisdom)
+        //                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple
+        //                     .EffectDescription.EffectParticleParameters)
+        //                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
+        //                 .SetEffectForms(new EffectFormBuilder()
+        //                     .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+        //                     .Build())
+        //                 .Build())
+        //             .AddToDB())
+        //         .Build())
+        //     .Build();
 
-        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus1, 24, 10, Monk.Guid,
-            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), Monk.Guid), ShopCrafting));
-
-        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus2, 48, 16, Monk.Guid,
-            ItemDefinitions.Ingredient_Enchant_Blood_Gem), Monk.Guid), ShopCrafting));
-
-        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfForce, 48, 16, Monk.Guid,
-            ItemDefinitions.Ingredient_Enchant_Soul_Gem), Monk.Guid), ShopCrafting));
-
-        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfPulling, 48, 16, Monk.Guid,
-            ItemDefinitions.Ingredient_Enchant_Slavestone), Monk.Guid), ShopCrafting));
+        // ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus1, 24, 10, Monk.Guid,
+        //     ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), Monk.Guid), ShopCrafting));
+        //
+        // ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus2, 48, 16, Monk.Guid,
+        //     ItemDefinitions.Ingredient_Enchant_Blood_Gem), Monk.Guid), ShopCrafting));
+        //
+        // ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfForce, 48, 16, Monk.Guid,
+        //     ItemDefinitions.Ingredient_Enchant_Soul_Gem), Monk.Guid), ShopCrafting));
+        //
+        // ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfPulling, 48, 16, Monk.Guid,
+        //     ItemDefinitions.Ingredient_Enchant_Slavestone), Monk.Guid), ShopCrafting));
     }
 
     [NotNull]

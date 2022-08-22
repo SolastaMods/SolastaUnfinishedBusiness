@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using static FeatureDefinitionCastSpell;
-using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
 using static SolastaCommunityExpansion.Models.IntegrationContext;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -140,14 +139,14 @@ public static class SharedSpellsContext
     {
         var warlockLevel = GetWarlockLevel(rulesetCharacterHero);
 
-        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0) : 0;
+        return warlockLevel > 0 ? 0 : 0; //WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0) : 0;
     }
 
     public static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
     {
         var warlockLevel = GetWarlockLevel(rulesetCharacterHero);
 
-        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
+        return warlockLevel > 0 ? 0 : 0; //WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
     }
 
     public static int GetWarlockUsedSlots([NotNull] RulesetCharacterHero rulesetCharacterHero)
@@ -159,10 +158,12 @@ public static class SharedSpellsContext
             return 0;
         }
 
-        repertoire.usedSpellsSlots
-            .TryGetValue(PactMagicSlotTabIndex, out var warlockUsedSlots);
+        return 0;
 
-        return warlockUsedSlots;
+        // repertoire.usedSpellsSlots
+        //     .TryGetValue(PactMagicSlotTabIndex, out var warlockUsedSlots);
+        //
+        // return warlockUsedSlots;
     }
 
     [CanBeNull]
