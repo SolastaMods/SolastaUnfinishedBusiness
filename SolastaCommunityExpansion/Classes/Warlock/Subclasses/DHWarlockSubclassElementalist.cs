@@ -224,7 +224,7 @@ internal static class WarlockSubclassElementalPatron
                 FeatureLimitedUsage.OncePerTurn,
                 AdditionalDamageValueDetermination.ProficiencyBonus,
                 AdditionalDamageTriggerCondition.SpellDamagesTarget,
-                AdditionalDamageRequiredProperty.None,
+                RestrictedContextRequiredProperty.None,
                 false,
                 DieType.D4,
                 1,

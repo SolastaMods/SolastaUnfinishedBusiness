@@ -335,7 +335,7 @@ internal static class DelegatesContext
         Main.Logger.Log($"{character.Name} Character Destroying");
     }
 
-    private static void CharacterKilled([NotNull] GameLocationCharacter character)
+    private static void CharacterKilled([NotNull] GameLocationCharacter character, bool considerDead)
     {
         Main.Logger.Log($"{character.Name} Character Killed");
 
@@ -672,7 +672,8 @@ internal static class DelegatesContext
 
     private static void DeflectAttackStart(
         [NotNull] GameLocationCharacter blocker,
-        [NotNull] GameLocationCharacter attacker)
+        [NotNull] GameLocationCharacter attacker,
+        bool isMonkDeflectMissile)
     {
         Main.Logger.Log($"{blocker.Name},{attacker.Name} Deflect Attack Start");
     }
@@ -776,7 +777,8 @@ internal static class DelegatesContext
         [NotNull] GameLocationCharacter character,
         string line,
         float duration,
-        bool banterPoolElement)
+        bool banterPoolElement,
+        bool spoken)
     {
         Main.Logger.Log($"{character.Name} In Game Dialog Line Requested");
     }
@@ -871,6 +873,7 @@ internal static class DelegatesContext
         RulesetActor character,
         string damageType,
         RuleDefinitions.DamageAffinityType damageAffinityType,
+        int flatDamageReduction,
         bool silent)
     {
         Main.Logger.Log("DamageAltered");
@@ -929,7 +932,8 @@ internal static class DelegatesContext
         int modifier,
         List<RuleDefinitions.TrendInfo> toHitTrends,
         List<RuleDefinitions.TrendInfo> advantageTrends,
-        bool opportunity = false)
+        bool opportunity = false,
+        ActionDefinitions.ReactionCounterAttackType reactionCounterAttackType = ActionDefinitions.ReactionCounterAttackType.None)
     {
         Main.Logger.Log("AttackRolled");
     }

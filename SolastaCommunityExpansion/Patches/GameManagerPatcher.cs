@@ -79,7 +79,7 @@ internal static class GameManager_BindPostDatabase
         SubclassesContext.Load();
 
         // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
-        MulticlassContext.Load();
+        //MulticlassContext.Load();
 
         // Load SRD and House rules last in case they change previous blueprints
         SrdAndHouseRulesContext.Load();
@@ -112,7 +112,7 @@ internal static class GameManager_BindPostDatabase
             Level20Context.LateLoad();
 
             // Multiclass
-            MulticlassContext.LateLoad();
+            //MulticlassContext.LateLoad();
 
             // Classes Features Sorting
             ClassesContext.LateLoad();

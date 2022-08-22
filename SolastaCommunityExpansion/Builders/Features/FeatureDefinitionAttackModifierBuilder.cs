@@ -23,7 +23,7 @@ public class FeatureDefinitionAttackModifierBuilder
         Definition.damageRollModifier = damageRollModifier;
         Definition.damageRollAbilityScore = damageRollAbilityScore;
         Definition.canAddAbilityBonusToSecondary = canAddAbilityBonusToSecondary;
-        Definition.additionalAttackTag = additionalAttackTag;
+        Definition.additionalBonusUnarmedStrikeAttacksTag = additionalAttackTag;
 
         return This();
     }
@@ -38,7 +38,7 @@ public class FeatureDefinitionAttackModifierBuilder
 
     public FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
     {
-        Definition.additionalAttackTag = tag;
+        Definition.additionalBonusUnarmedStrikeAttacksTag = tag;
 
         return This();
     }

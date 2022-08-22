@@ -51,10 +51,10 @@ public enum ExtraAttributeModifierOperation
     Multiplicative = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Multiplicative,
     MultiplyByClassLevel = FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel,
     MultiplyByCharacterLevel = FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel,
-    Force = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force,
+    ForceForceAnyway = FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway,
     AddAbilityScoreBonus = FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus,
-    ConditionAmount = FeatureDefinitionAttributeModifier.AttributeModifierOperation.ConditionAmount,
-    SurroundingEnemies = FeatureDefinitionAttributeModifier.AttributeModifierOperation.SurroundingEnemies,
+    AddConditionAmount = FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
+    AddSurroundingEnemies = FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddSurroundingEnemies,
     AdditiveAtEnd = 9000
 }
 

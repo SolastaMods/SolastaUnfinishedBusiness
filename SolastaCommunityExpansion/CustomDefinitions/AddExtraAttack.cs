@@ -339,7 +339,7 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         var bonus = (from modifier in features.OfType<FeatureDefinitionAttributeModifier>()
             where modifier.ModifiedAttribute == AttributeDefinitions.ArmorClass
-            where modifier.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive
+            where modifier.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive
             select modifier.ModifierValue).Sum();
 
         if (bonus == 0)

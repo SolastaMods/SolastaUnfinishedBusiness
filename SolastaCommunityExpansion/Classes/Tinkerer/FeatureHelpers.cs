@@ -174,7 +174,7 @@ internal static class FeatureHelpers
             AttributeModifierOperation modifierType,
             string attribute, int amount, GuiPresentation guiPresentation) : base(name, guidNamespace)
         {
-            Definition.modifierType2 = modifierType;
+            Definition.modifierOperation = modifierType;
             Definition.modifiedAttribute = attribute;
             Definition.modifierValue = amount;
             Definition.guiPresentation = guiPresentation;
@@ -357,7 +357,7 @@ internal static class FeatureHelpers
             RuleDefinitions.FeatureLimitedUsage limitedUsage,
             RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
             RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition,
-            RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
+            RuleDefinitions.RestrictedContextRequiredProperty requiredProperty,
             bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber,
             RuleDefinitions.AdditionalDamageType additionalDamageType,
             string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement,
@@ -371,6 +371,7 @@ internal static class FeatureHelpers
             Definition.limitedUsage = limitedUsage;
             Definition.damageValueDetermination = damageValueDetermination;
             Definition.triggerCondition = triggerCondition;
+            Definition.requiredProperty = requiredProperty;
             Definition.requiredProperty = requiredProperty;
             Definition.attackModeOnly = attackModeOnly;
             Definition.damageDieType = damageDieType;

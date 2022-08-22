@@ -1639,9 +1639,9 @@ public static class SrdSpells
             var sourceAbilityBonus =
                 formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter) ?? 0;
 
-            formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.TagEffect, sourceGuid, sourceFaction,
-                formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
+            // formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
+            //     RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.TagEffect, sourceGuid, sourceFaction,
+            //     formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
         }
     }
 
@@ -1715,7 +1715,7 @@ public static class SrdSpells
             Definition.GuiPresentation.Description = DescriptionString;
             Definition.modifiedAttribute = SmartAttributeDefinitions.Intelligence.name;
             Definition.modifierAbilityScore = SmartAttributeDefinitions.Intelligence.name;
-            Definition.modifierType2 = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force;
+            Definition.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway;
             Definition.modifierValue = 1;
             Definition.situationalContext = RuleDefinitions.SituationalContext.None;
         }
@@ -1743,7 +1743,7 @@ public static class SrdSpells
             Definition.GuiPresentation.Description = DescriptionString;
             Definition.modifiedAttribute = SmartAttributeDefinitions.Charisma.name;
             Definition.modifierAbilityScore = SmartAttributeDefinitions.Charisma.name;
-            Definition.modifierType2 = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force;
+            Definition.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway;
             Definition.modifierValue = 1;
             Definition.situationalContext = RuleDefinitions.SituationalContext.None;
         }

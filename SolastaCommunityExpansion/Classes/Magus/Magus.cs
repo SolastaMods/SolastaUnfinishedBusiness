@@ -217,9 +217,7 @@ public static class Magus
             .Create("ClassMagusExtraAttack", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack
                 .guiPresentation)
-            .SetModifiedAttribute(AttributeDefinitions.AttacksNumber)
-            .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
-            .SetModifierValue(1)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, 1)
             .AddToDB();
 
         var aegis = BuildAegis();
@@ -306,9 +304,7 @@ public static class Magus
             .Create("ClassMagusAegisACModifier", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetSituationalContext(SituationalContext.None)
-            .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
-            .SetModifierValue(2)
-            .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .AddToDB();
 
     private static readonly FeatureDefinitionSavingThrowAffinity AegisSavingThrowIncrease =

@@ -57,7 +57,7 @@ internal sealed class ArcaneFighter : AbstractSubclass
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
                 RuleDefinitions.AdditionalDamageValueDetermination.Die,
                 RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,
-                RuleDefinitions.AdditionalDamageRequiredProperty.None,
+                RuleDefinitions.RestrictedContextRequiredProperty.None,
                 true /* attack only */, RuleDefinitions.DieType.D8, 1 /* dice number */,
                 RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "",
                 RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())

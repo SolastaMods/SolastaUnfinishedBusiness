@@ -18,6 +18,7 @@ internal static class GuiWrapperContext
         guiWrapperManager.monsterDefinitionsMap.Clear();
         guiWrapperManager.merchantDefinitionsMap.Clear();
         guiWrapperManager.itemDefinitionsMap.Clear();
+        guiWrapperManager.invocationDefinitionsMap.Clear();
         guiWrapperManager.spellDefinitionsMap.Clear();
         guiWrapperManager.effectProxyDefinitionsMap.Clear();
         guiWrapperManager.powerDefinitionsMap.Clear();

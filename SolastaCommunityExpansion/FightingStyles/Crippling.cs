@@ -58,7 +58,7 @@ internal sealed class Crippling : AbstractFightingStyle
             .SetDamageDice(RuleDefinitions.DieType.D1, 0)
             .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
             .SetNotificationTag("CripplingFightingStyle")
-            .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
+            .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.MeleeWeapon)
             .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
             .SetConditionOperations(conditionOperation)
             .AddToDB();

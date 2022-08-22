@@ -37,11 +37,11 @@ internal static class ClassesContext
 
     internal static void Load()
     {
-        LoadClass(Monk.BuildClass());
-        LoadClass(TinkererClass.BuildTinkererClass());
-        LoadClass(Warlock.BuildWarlockClass());
-        LoadClass(Witch.Instance);
-        LoadClass(Magus.BuildMagusClass());
+        // LoadClass(Monk.BuildClass());
+        // LoadClass(TinkererClass.BuildTinkererClass());
+        // LoadClass(Warlock.BuildWarlockClass());
+        // LoadClass(Witch.Instance);
+        // LoadClass(Magus.BuildMagusClass());
         Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
     }
 

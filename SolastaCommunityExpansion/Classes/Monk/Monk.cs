@@ -257,7 +257,6 @@ public static class Monk
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker)
                 .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
-                .SetModifierType2(AttributeModifierOperation.AddAbilityScoreBonus)
                 .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
                 .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
                 .AddToDB())
@@ -782,7 +781,6 @@ public static class Monk
             .Create("ClassMonkExtraAttack", Guid)
             .SetGuiPresentation(Category.Feature)
             .SetModifiedAttribute(AttributeDefinitions.AttacksNumber)
-            .SetModifierType2(AttributeModifierOperation.Additive)
             .SetModifierValue(1)
             .AddToDB();
     }

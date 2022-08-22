@@ -402,9 +402,9 @@ internal sealed class PathOfTheLight : AbstractSubclass
             Definition.damageDiceNumber = 1;
             Definition.damageDieType = RuleDefinitions.DieType.D6;
             Definition.damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.None;
-            Definition.limitedUsage = RuleDefinitions.FeatureLimitedUsage.OnceInMyturn;
+            Definition.limitedUsage = RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn;
             Definition.notificationTag = "BarbarianPathOfTheLightIlluminatingStrike";
-            Definition.requiredProperty = RuleDefinitions.AdditionalDamageRequiredProperty.None;
+            Definition.requiredProperty = RuleDefinitions.RestrictedContextRequiredProperty.None;
             Definition.addLightSource = true;
             Definition.lightSourceForm = CreateIlluminatedLightSource();
 

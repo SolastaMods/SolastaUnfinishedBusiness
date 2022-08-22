@@ -16,7 +16,7 @@ internal sealed class AttributeModifierFighterIndomitableBuilder : FeatureDefini
     {
         Definition.GuiPresentation.Title = "Feature/&IndomitableResistanceAddTitle";
         Definition.GuiPresentation.Description = "Feature/&IndomitableResistanceAddDescription";
-        Definition.modifierType2 = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive;
+        Definition.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive;
     }
 
     private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)

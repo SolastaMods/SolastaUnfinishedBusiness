@@ -182,8 +182,8 @@ internal static class SpellsByLevelGroup_BindLearning
                 __instance.autoPreparedSpells);
         }
 
-        __instance.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
-            allSpells, null, __instance.autoPreparedSpells, unlearnedSpells, autoPrepareTag, tooltipAnchor, anchorMode);
+        // __instance.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
+        //     allSpells, null, __instance.autoPreparedSpells, unlearnedSpells, autoPrepareTag, tooltipAnchor, anchorMode);
 
         if (unlearn)
         {
@@ -196,7 +196,7 @@ internal static class SpellsByLevelGroup_BindLearning
                 canAcquireSpells);
         }
 
-        __instance.slotStatusTable.Bind(null, spellLevel, null, false);
+        __instance.slotStatusTable.Bind(null, spellLevel, false, null, false);
 
         return false;
     }

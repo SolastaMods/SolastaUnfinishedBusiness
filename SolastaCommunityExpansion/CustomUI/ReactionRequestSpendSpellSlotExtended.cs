@@ -14,19 +14,19 @@ public sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 
         var hero = actionParams.ActingCharacter.RulesetCharacter as RulesetCharacterHero;
         var spellRepertoire = ReactionParams.SpellRepertoire;
-        int selected;
+        int selected = 0;
 
-        if (actionParams.StringParameter == "EldritchSmite")
-        {
-            var minLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-
-            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
-                minLevel, minLevel);
-        }
-        else
-        {
-            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
-        }
+        // if (actionParams.StringParameter == "EldritchSmite")
+        // {
+        //     var minLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+        //
+        //     selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
+        //         minLevel, minLevel);
+        // }
+        // else
+        // {
+        //     selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
+        // }
 
         if (selected >= 0)
         {

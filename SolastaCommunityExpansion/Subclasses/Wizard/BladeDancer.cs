@@ -47,8 +47,6 @@ internal sealed class BladeDancer : AbstractSubclass
                     .Create("AttributeModifierBladeDance", SubclassNamespace)
                     .SetGuiPresentation(Category.Feature)
                     .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
-                    .SetModifierType2(
-                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus)
                     .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
                     .SetSituationalContext((RuleDefinitions.SituationalContext)
                         ExtendedSituationalContext.WearingNoArmorOrLightArmorWithoutShield)

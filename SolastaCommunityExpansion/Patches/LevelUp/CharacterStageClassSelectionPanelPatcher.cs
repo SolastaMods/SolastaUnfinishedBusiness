@@ -29,9 +29,9 @@ internal static class CharacterStageClassSelectionPanel_OnBeginShow
         }
 
         LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, true);
-        MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(__instance.currentHero,
-            __instance.compatibleClasses,
-            out __instance.selectedClass);
+        // MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(__instance.currentHero,
+        //     __instance.compatibleClasses,
+        //     out __instance.selectedClass);
 
         var commonData = __instance.CommonData;
 

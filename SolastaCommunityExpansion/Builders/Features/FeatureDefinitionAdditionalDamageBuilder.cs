@@ -103,7 +103,7 @@ public abstract class
         return This();
     }
 
-    public TBuilder SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty property)
+    public TBuilder SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty property)
     {
         Definition.requiredProperty = property;
         return This();
@@ -172,7 +172,7 @@ public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditio
         string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
         RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
         RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition,
-        RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
+        RuleDefinitions.RestrictedContextRequiredProperty requiredProperty,
         bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber,
         RuleDefinitions.AdditionalDamageType additionalDamageType,
         string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement,

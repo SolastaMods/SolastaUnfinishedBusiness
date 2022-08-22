@@ -73,7 +73,7 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
         }
 
         //Attack outcome is worse that required
-        if (effect.Outcome > MinOutcomeToAttack) { return null; }
+        if (effect.AttackRollOutcome > MinOutcomeToAttack) { return null; }
 
         //Target rolled saving throw and got better result
         if (effect.RolledSaveThrow && effect.SaveOutcome < MinSaveOutcomeToAttack) { return null; }

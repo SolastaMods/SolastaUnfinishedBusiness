@@ -84,7 +84,7 @@ internal static class DarkelfSubraceBuilder
 
             darkelfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.None;
             darkelfCombatAffinityLightSensitivity.myAttackModifierValueDetermination =
-                RuleDefinitions.CombatAddinityValueDetermination.Die;
+                RuleDefinitions.CombatAffinityValueDetermination.Die;
             darkelfCombatAffinityLightSensitivity.GuiPresentation.description = REDUCED_DESCRIPTION;
             darkelfConditionLightSensitive.GuiPresentation.description = REDUCED_DESCRIPTION;
             darkelfLightAffinity.GuiPresentation.description = REDUCED_DESCRIPTION;
@@ -93,7 +93,7 @@ internal static class DarkelfSubraceBuilder
         {
             darkelfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
             darkelfCombatAffinityLightSensitivity.myAttackModifierValueDetermination =
-                RuleDefinitions.CombatAddinityValueDetermination.None;
+                RuleDefinitions.CombatAffinityValueDetermination.None;
             darkelfCombatAffinityLightSensitivity.GuiPresentation.description =
                 darkelfLightAffinity.GuiPresentation.Description;
             darkelfConditionLightSensitive.GuiPresentation.description =

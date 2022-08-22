@@ -486,7 +486,7 @@ internal static class EldritchInvocationsBuilder
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
                 RuleDefinitions.AdditionalDamageValueDetermination.Die,
                 RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot,
-                RuleDefinitions.AdditionalDamageRequiredProperty.None,
+                RuleDefinitions.RestrictedContextRequiredProperty.None,
                 true,
                 RuleDefinitions.DieType.D8,
                 0,

@@ -85,7 +85,7 @@ internal static class GrayDwarfSubraceBuilder
 
             grayDwarfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.None;
             grayDwarfCombatAffinityLightSensitivity.myAttackModifierValueDetermination =
-                RuleDefinitions.CombatAddinityValueDetermination.Die;
+                RuleDefinitions.CombatAffinityValueDetermination.Die;
             grayDwarfCombatAffinityLightSensitivity.GuiPresentation.description = REDUCED_DESCRIPTION;
             grayDwarfConditionLightSensitive.GuiPresentation.description = REDUCED_DESCRIPTION;
             grayDwarfLightAffinity.GuiPresentation.description = REDUCED_DESCRIPTION;
@@ -94,7 +94,7 @@ internal static class GrayDwarfSubraceBuilder
         {
             grayDwarfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
             grayDwarfCombatAffinityLightSensitivity.myAttackModifierValueDetermination =
-                RuleDefinitions.CombatAddinityValueDetermination.None;
+                RuleDefinitions.CombatAffinityValueDetermination.None;
             grayDwarfCombatAffinityLightSensitivity.GuiPresentation.description =
                 grayDwarfLightAffinity.GuiPresentation.Description;
             grayDwarfConditionLightSensitive.GuiPresentation.description =
@@ -170,7 +170,7 @@ internal static class GrayDwarfSubraceBuilder
             .SetGuiPresentationNoContent()
             .SetNotificationTag("StoneStrength")
             .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeStrengthWeapon)
+            .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.MeleeStrengthWeapon)
             .SetDamageDice(RuleDefinitions.DieType.D4, 1)
             .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
             .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.SameAsBaseDamage)

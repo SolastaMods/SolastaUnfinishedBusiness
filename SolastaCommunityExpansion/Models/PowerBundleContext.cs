@@ -229,7 +229,7 @@ internal sealed class FunctorUseCustomRestPower : Functor
 
                 if (power != null)
                 {
-                    rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
+                    //rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
                     ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
 
                     GameConsoleHelper.LogCharacterUsedPower(ruleChar, power,

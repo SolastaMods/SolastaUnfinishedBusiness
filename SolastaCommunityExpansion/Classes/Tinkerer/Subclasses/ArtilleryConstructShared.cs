@@ -745,7 +745,7 @@ internal sealed class HalfCoverShieldAttributeBuilder : FeatureDefinitionAttribu
         Definition.GuiPresentation.Description = "Rules/&HalfCoverShieldAttributeDescription";
 
         Definition.modifiedAttribute = DatabaseHelper.SmartAttributeDefinitions.ArmorClass.Name;
-        Definition.modifierType2 = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive;
+        Definition.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive;
         Definition.modifierValue = 2;
     }
 

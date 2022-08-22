@@ -477,7 +477,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                 var validProperty = true;
                 if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
                 {
-                    if (provider.LimitedUsage == RuleDefinitions.FeatureLimitedUsage.OnceInMyturn &&
+                    if (provider.LimitedUsage == RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn &&
                         (attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) ||
                          (__instance.Battle != null && __instance.Battle.ActiveContender != attacker)))
                     {
@@ -755,7 +755,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                     // Check required properties if needed
                     var validProperty = true;
 
-                    if (/*validTrigger &&*/ provider.RequiredProperty != RuleDefinitions.AdditionalDamageRequiredProperty.None && attackMode != null)
+                    if (/*validTrigger &&*/ provider.RequiredProperty != RuleDefinitions.RestrictedContextRequiredProperty.None && attackMode != null)
                     {
                         var finesse = false;
                         var melee = false;
@@ -791,28 +791,28 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                         }
                         //CUSTOM CODE ---- END
 
-                        if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.FinesseOrRangeWeapon)
+                        if (provider.RequiredProperty == RuleDefinitions.RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
                         {
                             if (!finesse && !range)
                             {
                                 validProperty = false;
                             }
                         }
-                        else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.RangeWeapon)
+                        else if (provider.RequiredProperty == RuleDefinitions.RestrictedContextRequiredProperty.RangeWeapon)
                         {
                             if (!range)
                             {
                                 validProperty = false;
                             }
                         }
-                        else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
+                        else if (provider.RequiredProperty == RuleDefinitions.RestrictedContextRequiredProperty.MeleeWeapon)
                         {
                             if (!melee)
                             {
                                 validProperty = false;
                             }
                         }
-                        else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeStrengthWeapon)
+                        else if (provider.RequiredProperty == RuleDefinitions.RestrictedContextRequiredProperty.MeleeStrengthWeapon)
                         {
                             if (!melee || attackMode.AbilityScore != AttributeDefinitions.Strength)
                             {
@@ -1102,8 +1102,8 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                     }
                 }
 
-                yield return __instance.HandleReactionToDamage(attacker, defender, attackModifier,
-                    actualEffectForms, attackMode);
+                // yield return __instance.HandleReactionToDamage(attacker, defender, attackModifier,
+                //     actualEffectForms, attackMode);
             }
         }
 

@@ -95,13 +95,13 @@ internal static class CharacterDisplay
 
         UI.Label("");
 
-        intValue = Main.Settings.MaxAllowedClasses;
-        if (UI.Slider(Gui.Localize("ModUi/&MaxAllowedClasses"), ref intValue, 1,
-                MulticlassContext.MaxClasses, MulticlassContext.MaxClasses, "",
-                UI.AutoWidth()))
-        {
-            Main.Settings.MaxAllowedClasses = intValue;
-        }
+        // intValue = Main.Settings.MaxAllowedClasses;
+        // if (UI.Slider(Gui.Localize("ModUi/&MaxAllowedClasses"), ref intValue, 1,
+        //         MulticlassContext.MaxClasses, MulticlassContext.MaxClasses, "",
+        //         UI.AutoWidth()))
+        // {
+        //     Main.Settings.MaxAllowedClasses = intValue;
+        // }
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&Progression"));

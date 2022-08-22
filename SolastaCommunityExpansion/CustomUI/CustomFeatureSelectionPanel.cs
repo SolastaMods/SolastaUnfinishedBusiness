@@ -1060,7 +1060,7 @@ internal static class SpellsByLevelGroupExtensions
         spellsTable.sizeDelta = new Vector2(x, spellsTable.sizeDelta.y);
         instance.RectTransform.sizeDelta = new Vector2(x, instance.RectTransform.sizeDelta.y);
 
-        instance.slotStatusTable.Bind(null, featureLevel, null, false);
+        instance.slotStatusTable.Bind(null, featureLevel, false, null, false);
 
         if (unlearn)
         {

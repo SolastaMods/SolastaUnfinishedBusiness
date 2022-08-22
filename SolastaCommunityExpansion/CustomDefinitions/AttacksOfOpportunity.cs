@@ -206,20 +206,20 @@ internal sealed class CanIgnoreDisengage : ICanIgnoreAoOImmunity
         character.EnumerateFeaturesToBrowse<ICombatAffinityProvider>(featuresToBrowse);
         var service = ServiceRepository.GetService<IRulesetImplementationService>();
         var disengaging = DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging;
-        foreach (var feature in featuresToBrowse)
-        {
-            if (feature != disengaging
-                && feature is ICombatAffinityProvider affinityProvider
-                && service.IsSituationalContextValid(
-                    new RulesetImplementationDefinitions.SituationalContextParams(
-                        affinityProvider.SituationalContext, attacker,
-                        character, service.FindSourceIdOfFeature(character, feature),
-                        affinityProvider.RequiredCondition, null))
-                && affinityProvider.IsImmuneToOpportunityAttack(character, attacker))
-            {
-                return false;
-            }
-        }
+        // foreach (var feature in featuresToBrowse)
+        // {
+        //     if (feature != disengaging
+        //         && feature is ICombatAffinityProvider affinityProvider
+        //         && service.IsSituationalContextValid(
+        //             new RulesetImplementationDefinitions.SituationalContextParams(
+        //                 affinityProvider.SituationalContext, attacker,
+        //                 character, service.FindSourceIdOfFeature(character, feature),
+        //                 affinityProvider.RequiredCondition, null))
+        //         && affinityProvider.IsImmuneToOpportunityAttack(character, attacker))
+        //     {
+        //         return false;
+        //     }
+        // }
 
         return true;
     }

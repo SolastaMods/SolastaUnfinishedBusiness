@@ -126,7 +126,7 @@ public static class BattleSmithBuilder
             AbilityScoreReplacement abilityReplacement, string additionalAttackTag) : base(name, guidNamespace)
         {
             Definition.abilityScoreReplacement = abilityReplacement;
-            Definition.additionalAttackTag = additionalAttackTag;
+            Definition.additionalBonusUnarmedStrikeAttacksTag = additionalAttackTag;
             Definition.attackRollModifierMethod = AttackModifierMethod.FlatValue;
             Definition.damageRollModifierMethod = AttackModifierMethod.FlatValue;
         }

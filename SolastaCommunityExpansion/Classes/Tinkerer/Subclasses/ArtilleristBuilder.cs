@@ -124,7 +124,7 @@ public static class ArtilleristBuilder
             "ArtificerArtilleristArcaneFirearm",
             TinkererClass.GuidNamespace, "ArcaneFirearm",
             FeatureLimitedUsage.OncePerTurn, AdditionalDamageValueDetermination.Die,
-            AdditionalDamageTriggerCondition.EvocationSpellDamage, AdditionalDamageRequiredProperty.None,
+            AdditionalDamageTriggerCondition.EvocationSpellDamage, RestrictedContextRequiredProperty.None,
             false /* attack only */, DieType.D8, 1 /* dice number */, AdditionalDamageType.SameAsBaseDamage, "",
             AdditionalDamageAdvancement.None,
             new List<DiceByRank>(), false, AttributeDefinitions.Wisdom, 0, EffectSavingThrowType.None,

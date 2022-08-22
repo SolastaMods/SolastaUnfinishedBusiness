@@ -463,7 +463,7 @@ internal static class ZappaFeats
                     )
                     .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
                     .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-                    .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.FinesseOrRangeWeapon)
+                    .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
                     .AddToDB()
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)

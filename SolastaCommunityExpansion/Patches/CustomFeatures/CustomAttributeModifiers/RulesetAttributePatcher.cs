@@ -34,7 +34,7 @@ internal static class RulesetAttribute_Refresh
         {
             switch (modifier.Operation)
             {
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway:
                     minModValue = Mathf.RoundToInt(modifier.Value);
                     break;
 
@@ -52,8 +52,12 @@ internal static class RulesetAttribute_Refresh
                 case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel:
                 case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel:
                 case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ConditionAmount:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.SurroundingEnemies:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddSurroundingEnemies:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfWorse:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions:
                 default:
                 {
                     if (modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag))
@@ -102,21 +106,21 @@ internal static class RulesetCharacter_RefreshArmorClassInFeatures
     public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var codes = instructions.ToList();
-        var method = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation,
-            float, string, RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
-
-        var index = codes.FindIndex(c => c.Calls(method));
-
-        if (index <= 0)
-        {
-            return codes.AsEnumerable();
-        }
-
-        var custom = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation,
-            float, string, FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuild).Method;
-
-        codes[index] = new CodeInstruction(OpCodes.Call, custom);
-        codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_2));
+        // var method = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation,
+        //     float, string, RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
+        //
+        // var index = codes.FindIndex(c => c.Calls(method));
+        //
+        // if (index <= 0)
+        // {
+        //     return codes.AsEnumerable();
+        // }
+        //
+        // var custom = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation,
+        //     float, string, FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuild).Method;
+        //
+        // codes[index] = new CodeInstruction(OpCodes.Call, custom);
+        // codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_2));
 
         return codes.AsEnumerable();
     }

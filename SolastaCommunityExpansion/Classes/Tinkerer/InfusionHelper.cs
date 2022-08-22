@@ -430,7 +430,7 @@ internal static class InfusionHelpers
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
                 RuleDefinitions.AdditionalDamageValueDetermination.Die,
                 RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,
-                RuleDefinitions.AdditionalDamageRequiredProperty.None, true, RuleDefinitions.DieType.D4, 1,
+                RuleDefinitions.RestrictedContextRequiredProperty.None, true, RuleDefinitions.DieType.D4, 1,
                 RuleDefinitions.AdditionalDamageType.Specific,
                 "DamageRadiant", RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(), true,
                 AttributeDefinitions.Constitution, 15, RuleDefinitions.EffectSavingThrowType.None,

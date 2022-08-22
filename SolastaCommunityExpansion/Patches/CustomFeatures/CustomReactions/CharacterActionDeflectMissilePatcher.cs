@@ -26,7 +26,7 @@ internal static class CharacterActionDeflectMissile_ExecuteImpl
         yield return actingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(Event.RotationEnd);
         yield return actingCharacter.WaitForHitAnimation();
 
-        actingCharacter.DeflectAttack(actionParams.TargetCharacters[0]);
+        //actingCharacter.DeflectAttack(actionParams.TargetCharacters[0]);
 
         var reductionAmount = 0;
         var customDeflector = rulesCharacter.GetSubFeaturesByType<ICustomMissileDeflection>().FirstOrDefault();

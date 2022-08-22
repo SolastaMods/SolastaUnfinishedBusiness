@@ -26,7 +26,7 @@ public static class HouseFeatureContext
     {
         DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
-            RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon;
+            RuleDefinitions.RestrictedContextRequiredProperty.MeleeWeapon;
     }
 
     /**

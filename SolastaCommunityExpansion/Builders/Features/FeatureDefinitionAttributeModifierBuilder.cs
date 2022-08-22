@@ -9,7 +9,7 @@ public class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilde
     public FeatureDefinitionAttributeModifierBuilder SetModifier(AttributeModifierOperation modifierType,
         string attribute, int amount)
     {
-        Definition.modifierType2 = modifierType;
+        Definition.modifierOperation = modifierType;
         Definition.modifiedAttribute = attribute;
         Definition.modifierValue = amount;
         return this;
@@ -30,12 +30,6 @@ public class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilde
     public FeatureDefinitionAttributeModifierBuilder SetModifiedAttribute(string attribute)
     {
         Definition.modifiedAttribute = attribute;
-        return this;
-    }
-
-    public FeatureDefinitionAttributeModifierBuilder SetModifierType2(AttributeModifierOperation modifierType)
-    {
-        Definition.modifierType2 = modifierType;
         return this;
     }
 

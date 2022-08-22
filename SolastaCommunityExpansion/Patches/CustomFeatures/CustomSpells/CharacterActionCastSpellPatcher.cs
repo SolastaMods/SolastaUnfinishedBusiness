@@ -67,8 +67,8 @@ internal static class CharacterActionCastSpell_ApplyMagicEffect
 
         var actualEffectForms = __instance.actualEffectForms;
 
-        damageReceived = ServiceRepository.GetService<IRulesetImplementationService>()
-            .ApplyEffectForms(actualEffectForms[targetIndex], formsParams);
+        // damageReceived = ServiceRepository.GetService<IRulesetImplementationService>()
+        //     .ApplyEffectForms(actualEffectForms[targetIndex], formsParams);
 
         return false;
     }

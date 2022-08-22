@@ -20,9 +20,12 @@ public sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondi
     public bool CriticalHitImmunity => false;
     [CanBeNull] public ConditionDefinition RequiredCondition => null;
     public bool IgnoreCover => false;
+    public RuleDefinitions.CoverType PermanentCover { get; }
+    public RuleDefinitions.AdvantageType ReadyAttackAdvantage { get; }
+    public bool ShoveOnReadyAttackHit { get; }
 
-    public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender,
-        RulesetAttackMode attackMode, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
+    public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode,
+        ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin, int bardicDieRoll)
     {
         // Intentionally empty?
     }
