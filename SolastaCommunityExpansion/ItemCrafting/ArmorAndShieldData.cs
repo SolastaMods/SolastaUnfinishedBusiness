@@ -22,7 +22,17 @@ internal static class ArmorAndShieldData
                     DatabaseHelper.ItemDefinitions.Shield,
                     DatabaseHelper.ItemDefinitions.HideArmor,
                     DatabaseHelper.ItemDefinitions.LeatherDruid,
-                    DatabaseHelper.ItemDefinitions.StuddedLeather
+                    DatabaseHelper.ItemDefinitions.StuddedLeather,
+                    DatabaseHelper.ItemDefinitions.ChainShirt,
+                    DatabaseHelper.ItemDefinitions.PaddedLeather,
+                    DatabaseHelper.ItemDefinitions.Leather,
+                    DatabaseHelper.ItemDefinitions.ScaleMail,
+                    DatabaseHelper.ItemDefinitions.Breastplate,
+                    DatabaseHelper.ItemDefinitions.HalfPlate,
+                    DatabaseHelper.ItemDefinitions.Ringmail,
+                    DatabaseHelper.ItemDefinitions.ChainMail,
+                    DatabaseHelper.ItemDefinitions.SplintArmor,
+                    DatabaseHelper.ItemDefinitions.Plate
                 },
             PossiblePrimedItemsToReplace = new List<ItemDefinition>
             {
