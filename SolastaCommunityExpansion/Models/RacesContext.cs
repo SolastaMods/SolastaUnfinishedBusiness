@@ -39,7 +39,6 @@ internal static class RacesContext
 
         LoadRace(BolgrifRaceBuilder.BolgrifRace);
         LoadRace(DarkelfSubraceBuilder.DarkelfSubrace);
-        LoadRace(GnomeRaceBuilder.GnomeRace);
         LoadRace(GrayDwarfSubraceBuilder.GrayDwarfSubrace);
         LoadRace(HalfElfVariantRaceBuilder.HalfElfVariantRace); // depends on DarkElf sub race
 
@@ -51,7 +50,6 @@ internal static class RacesContext
         }
 
         RaceScaleMap[BolgrifRaceBuilder.BolgrifRace] = 8.8f / 6.4f;
-        RaceScaleMap[GnomeRaceBuilder.GnomeRace] = -0.04f / -0.06f;
     }
 
     private static void LoadRace([NotNull] CharacterRaceDefinition characterRaceDefinition)
