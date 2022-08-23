@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
@@ -14,8 +12,6 @@ internal static class CeContentPackContext
 
     public const string CeTag = "CommunityExpansion";
 
-    private static readonly ContentPackDefinition ContentPackDefinition = CreateContentPackDefinition();
-
     private static ContentPackDefinition CreateContentPackDefinition()
     {
         var sprite = CustomIcons.CreateAssetReferenceSprite("ContentPack", Resources.ContentPack, 128);
@@ -28,12 +24,9 @@ internal static class CeContentPackContext
 
     public static void Load()
     {
-        _ = ContentPackDefinition;
+        _ = CreateContentPackDefinition();
 
-        var autoUnlockedPacks = (List<GamingPlatformDefinitions.ContentPack>)
-            AccessTools.Field(typeof(GamingPlatformManager), "automaticallyUnlockedContentPacks").GetValue(null);
-
-        autoUnlockedPacks.Add(CeContentPack);
+        GamingPlatformManager.automaticallyUnlockedContentPacks.Add(CeContentPack);
     }
 
     private sealed class

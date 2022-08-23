@@ -96,7 +96,7 @@ public static class SharedSpellsContext
 
     public static bool IsWarlock(CharacterClassDefinition characterClassDefinition)
     {
-        return characterClassDefinition == WarlockClass;
+        return characterClassDefinition == Warlock;
     }
 
     // need the null check for companions who don't have repertoires
@@ -112,7 +112,7 @@ public static class SharedSpellsContext
     {
         return rulesetCharacterHero != null
                && rulesetCharacterHero.SpellRepertoires
-                   .Where(sr => sr.SpellCastingClass != WarlockClass)
+                   .Where(sr => sr.SpellCastingClass != Warlock)
                    .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
     }
 
@@ -125,7 +125,7 @@ public static class SharedSpellsContext
         }
 
         var warlockLevel = 0;
-        var warlock = rulesetCharacterHero.ClassesAndLevels.Keys.FirstOrDefault(x => x == WarlockClass);
+        var warlock = rulesetCharacterHero.ClassesAndLevels.Keys.FirstOrDefault(x => x == Warlock);
 
         if (warlock != null)
         {
@@ -203,7 +203,7 @@ public static class SharedSpellsContext
         {
             var repertoire = rulesetCharacterHero.SpellRepertoires
                 .Find(x => x.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race &&
-                           x.SpellCastingClass != WarlockClass);
+                           x.SpellCastingClass != Warlock);
 
             return GetClassSpellLevel(repertoire);
         }
@@ -228,15 +228,13 @@ public static class SharedSpellsContext
 
     public static void Load()
     {
-        ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);
-        ClassCasterType.Add(WitchClass, CasterType.Full);
-        ClassCasterType.Add(MagusClass, CasterType.HalfRoundUp);
+        // ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);
         SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
         SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
         SubclassCasterType.Add(PathOfTheRageMageSubclass, CasterType.OneThird);
-        RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);
-        RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
-        RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
+        // RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);
+        // RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
+        // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
     }
 
     private sealed class CasterLevelContext

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using static SolastaCommunityExpansion.Models.IntegrationContext;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ItemDefinitions;
 
@@ -106,20 +105,16 @@ public static class LevelUpContext
             (
                 levelUpData.SelectedClass == Ranger ||
                 levelUpData.SelectedClass == Sorcerer ||
-                levelUpData.SelectedClass == Wizard ||
-                levelUpData.SelectedClass == TinkererClass ||
-                levelUpData.SelectedClass == WarlockClass ||
-                levelUpData.SelectedClass == WitchClass ||
-                levelUpData.SelectedClass == MagusClass
+                levelUpData.SelectedClass == Warlock ||
+                levelUpData.SelectedClass == Wizard //||
+                // levelUpData.SelectedClass == TinkererClass
             ) &&
             !(
                 classesAndLevels.ContainsKey(Ranger) ||
                 classesAndLevels.ContainsKey(Sorcerer) ||
-                classesAndLevels.ContainsKey(Wizard) ||
-                classesAndLevels.ContainsKey(TinkererClass) ||
-                classesAndLevels.ContainsKey(WarlockClass) ||
-                classesAndLevels.ContainsKey(WitchClass) ||
-                classesAndLevels.ContainsKey(MagusClass)
+                classesAndLevels.ContainsKey(Warlock) ||
+                classesAndLevels.ContainsKey(Wizard) //||
+                // classesAndLevels.ContainsKey(TinkererClass)
             );
 
         if (required)

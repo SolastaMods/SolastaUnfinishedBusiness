@@ -146,6 +146,12 @@ public static partial class DatabaseHelper
         public static CampaignDefinition DLC1_ValleyOfThePast_Campaign { get; } =
             GetDefinition<CampaignDefinition>("DLC1_ValleyOfThePast_Campaign", "9341c27ba88906a4ab7461ec8d47db17");
 
+        public static CampaignDefinition DLC3_PalaceOfIce_Campaign { get; } =
+            GetDefinition<CampaignDefinition>("DLC3_PalaceOfIce_Campaign", "59b9933342e526c4c833d979e8909a14");
+
+        public static CampaignDefinition DLC3_PalaceOfIce_CampaignMap { get; } =
+            GetDefinition<CampaignDefinition>("DLC3_PalaceOfIce_CampaignMap", "df435fa9a7218a246bfbeec0ea218ec3");
+
         public static CampaignDefinition TelemaDemo { get; } =
             GetDefinition<CampaignDefinition>("TelemaDemo", "d007f98ad89d171448159b55da41f6a7");
 
@@ -172,8 +178,14 @@ public static partial class DatabaseHelper
             GetDefinition<CharacterBackgroundDefinition>("Acolyte_Lawkeeper_QA_Background",
                 "1296466bbd77cf0449cfae202df0c177");
 
+        public static CharacterBackgroundDefinition Aescetic_Background { get; } =
+            GetDefinition<CharacterBackgroundDefinition>("Aescetic_Background", "44826b4ed6895b94b8dbc098d240ed01");
+
         public static CharacterBackgroundDefinition Aristocrat { get; } =
             GetDefinition<CharacterBackgroundDefinition>("Aristocrat", "744e33d0ec1536644ad9ab1f940f4e34");
+
+        public static CharacterBackgroundDefinition Artist_Background { get; } =
+            GetDefinition<CharacterBackgroundDefinition>("Artist_Background", "4bf1ce20257f6564da50630367f7b174");
 
         public static CharacterBackgroundDefinition KS_Garrad_Miles { get; } =
             GetDefinition<CharacterBackgroundDefinition>("KS_Garrad_Miles", "9c0e0a6309ebbda479943f6bb321227e");
@@ -197,6 +209,9 @@ public static partial class DatabaseHelper
             GetDefinition<CharacterBackgroundDefinition>("Lowlife_Sellsword_QA_Background",
                 "c7b5de46a96ce3047b15bc2814b10cfa");
 
+        public static CharacterBackgroundDefinition Occultist_Background { get; } =
+            GetDefinition<CharacterBackgroundDefinition>("Occultist_Background", "840f77395893a3940931567b411433e1");
+
         public static CharacterBackgroundDefinition Philosopher { get; } =
             GetDefinition<CharacterBackgroundDefinition>("Philosopher", "0f2258daa7e85d342b99a5dfe17b5730");
 
@@ -219,6 +234,9 @@ public static partial class DatabaseHelper
         public static CharacterClassDefinition Barbarian { get; } =
             GetDefinition<CharacterClassDefinition>("Barbarian", "54d4d7f98cbd6e54e8bbe0f698180064");
 
+        public static CharacterClassDefinition Bard { get; } =
+            GetDefinition<CharacterClassDefinition>("Bard", "8d8eb73e8e6c7d24789c3381ab0acccb");
+
         public static CharacterClassDefinition Cleric { get; } =
             GetDefinition<CharacterClassDefinition>("Cleric", "ae0f550f733a7e04aa225da694b2827c");
 
@@ -227,6 +245,9 @@ public static partial class DatabaseHelper
 
         public static CharacterClassDefinition Fighter { get; } =
             GetDefinition<CharacterClassDefinition>("Fighter", "5d0445b8e44872d4c900ebe861ae4b6f");
+
+        public static CharacterClassDefinition Monk { get; } =
+            GetDefinition<CharacterClassDefinition>("Monk", "c324ef1e442a1474ebf361413dee9432");
 
         public static CharacterClassDefinition Paladin { get; } =
             GetDefinition<CharacterClassDefinition>("Paladin", "b2e60f3a15ee5de40a14cce2d16f02ba");
@@ -239,6 +260,9 @@ public static partial class DatabaseHelper
 
         public static CharacterClassDefinition Sorcerer { get; } =
             GetDefinition<CharacterClassDefinition>("Sorcerer", "7214644869e323444b7817d1804eb985");
+
+        public static CharacterClassDefinition Warlock { get; } =
+            GetDefinition<CharacterClassDefinition>("Warlock", "b493e1ccc3740f04da1b025bdcf39916");
 
         public static CharacterClassDefinition Wizard { get; } =
             GetDefinition<CharacterClassDefinition>("Wizard", "a279003a65f95a64eb58fcc71463c734");
@@ -294,6 +318,9 @@ public static partial class DatabaseHelper
 
     public static class CharacterRaceDefinitions
     {
+        public static CharacterRaceDefinition Dragonborn { get; } =
+            GetDefinition<CharacterRaceDefinition>("Dragonborn", "863fd0fc96274bb42874b6d16fd7622b");
+
         public static CharacterRaceDefinition Dwarf { get; } =
             GetDefinition<CharacterRaceDefinition>("Dwarf", "2e3395f10bfa00e4487d852ec3b20154");
 
@@ -312,6 +339,15 @@ public static partial class DatabaseHelper
         public static CharacterRaceDefinition ElfSylvan { get; } =
             GetDefinition<CharacterRaceDefinition>("ElfSylvan", "1b0e27feb0a8d6944b907d5afaf28e0a");
 
+        public static CharacterRaceDefinition Gnome { get; } =
+            GetDefinition<CharacterRaceDefinition>("Gnome", "682d426d5aa652c41aa07364d32c9ad8");
+
+        public static CharacterRaceDefinition GnomeRock { get; } =
+            GetDefinition<CharacterRaceDefinition>("GnomeRock", "3f7461eb3501a6648876f182db33f8bd");
+
+        public static CharacterRaceDefinition GnomeShadow { get; } =
+            GetDefinition<CharacterRaceDefinition>("GnomeShadow", "b7442825f83a42047a3c8f43122340fd");
+
         public static CharacterRaceDefinition HalfElf { get; } =
             GetDefinition<CharacterRaceDefinition>("HalfElf", "bf7685e7b813d8c46a7d903080d23541");
 
@@ -329,6 +365,9 @@ public static partial class DatabaseHelper
 
         public static CharacterRaceDefinition Human { get; } =
             GetDefinition<CharacterRaceDefinition>("Human", "d844f80cc9ab3cb4d95630e35163eedd");
+
+        public static CharacterRaceDefinition Tiefling { get; } =
+            GetDefinition<CharacterRaceDefinition>("Tiefling", "5a0f67df27e0274438f46e6eb59448cb");
     }
 
     public static class CharacterSizeDefinitions
@@ -374,6 +413,18 @@ public static partial class DatabaseHelper
 
         public static CharacterSubclassDefinition CircleWinds { get; } =
             GetDefinition<CharacterSubclassDefinition>("CircleWinds", "f54333ff79f7d4a428f53d89f7e0ce84");
+
+        public static CharacterSubclassDefinition CollegeOfHeroism { get; } =
+            GetDefinition<CharacterSubclassDefinition>("CollegeOfHeroism", "8d1414799f22f544885366a32b244d88");
+
+        public static CharacterSubclassDefinition CollegeOfHope { get; } =
+            GetDefinition<CharacterSubclassDefinition>("CollegeOfHope", "3f35dfdaa2cbfab46a93ee57fe1a76d4");
+
+        public static CharacterSubclassDefinition CollegeOfLore { get; } =
+            GetDefinition<CharacterSubclassDefinition>("CollegeOfLore", "8b16f6f5c136ccf46b338149aaf46faf");
+
+        public static CharacterSubclassDefinition CollegeOfTraditions { get; } =
+            GetDefinition<CharacterSubclassDefinition>("CollegeOfTraditions", "734493ada5e8f8341a46b334303ef9cb");
 
         public static CharacterSubclassDefinition DomainBattle { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainBattle", "bf3c54c59b182fd4a84e5df0656c161c");
@@ -441,6 +492,18 @@ public static partial class DatabaseHelper
         public static CharacterSubclassDefinition PathStone { get; } =
             GetDefinition<CharacterSubclassDefinition>("PathStone", "8d98ed8e42cad3145b99eed1d990e92d");
 
+        public static CharacterSubclassDefinition PatronFiend { get; } =
+            GetDefinition<CharacterSubclassDefinition>("PatronFiend", "6f4a40075c00bd04e9d0b8b013caed2d");
+
+        public static CharacterSubclassDefinition PatronHive { get; } =
+            GetDefinition<CharacterSubclassDefinition>("PatronHive", "68c482b518357c945a0aca10c70ffe49");
+
+        public static CharacterSubclassDefinition PatronTimekeeper { get; } =
+            GetDefinition<CharacterSubclassDefinition>("PatronTimekeeper", "01855ed1da30eca48a7a9900ce2bdc83");
+
+        public static CharacterSubclassDefinition PatronTree { get; } =
+            GetDefinition<CharacterSubclassDefinition>("PatronTree", "2c92edfdd8e8bf242ae2f13489409399");
+
         public static CharacterSubclassDefinition RangerHunter { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerHunter", "5b748a0a00d099742927b7e0fa0c3189");
 
@@ -481,18 +544,33 @@ public static partial class DatabaseHelper
         public static CharacterSubclassDefinition TraditionCourtMage { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionCourtMage", "5338913caca0e6347b626b8a8f24f5f7");
 
+        public static CharacterSubclassDefinition TraditionFreedom { get; } =
+            GetDefinition<CharacterSubclassDefinition>("TraditionFreedom", "d057df7d8d894a54f8c3e34cb46b4ae3");
+
         public static CharacterSubclassDefinition TraditionGreenmage { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionGreenmage", "ca9d46f90b868fe43aaddd39c171ec5e");
+
+        public static CharacterSubclassDefinition TraditionLight { get; } =
+            GetDefinition<CharacterSubclassDefinition>("TraditionLight", "ff386637f2308f9439182c23351b001e");
 
         public static CharacterSubclassDefinition TraditionLoremaster { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionLoremaster", "77b38dd008b5ec645974812a45483e60");
 
+        public static CharacterSubclassDefinition TraditionOpenHand { get; } =
+            GetDefinition<CharacterSubclassDefinition>("TraditionOpenHand", "8ba2b49fa44e40b4fb8c9bf555588743");
+
         public static CharacterSubclassDefinition TraditionShockArcanist { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionShockArcanist", "6f400ff2620a4c14cabd9f8fd450eee1");
+
+        public static CharacterSubclassDefinition TraditionSurvival { get; } =
+            GetDefinition<CharacterSubclassDefinition>("TraditionSurvival", "e3f7b077e1b88844dbd1221d596439bb");
     }
 
     public static class ConditionDefinitions
     {
+        public static ConditionDefinition CondiitonFeatDistractingGambit { get; } =
+            GetDefinition<ConditionDefinition>("CondiitonFeatDistractingGambit", "945e4f634a1ad5c4e8ca644def36787b");
+
         public static ConditionDefinition Condition_MummyLord_ChannelNegativeEnergy { get; } =
             GetDefinition<ConditionDefinition>("Condition_MummyLord_ChannelNegativeEnergy",
                 "7cbd116e43327ad4194ae4b2ff2fbb99");
@@ -527,6 +605,10 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionAided { get; } =
             GetDefinition<ConditionDefinition>("ConditionAided", "0f3ca4961d9ecec4bb9ed8933a1bc4d4");
 
+        public static ConditionDefinition ConditionAlreadyHitByDirtyFighting { get; } =
+            GetDefinition<ConditionDefinition>("ConditionAlreadyHitByDirtyFighting",
+                "d791a54ad045bbc429cae380574bb96f");
+
         public static ConditionDefinition ConditionAnnoyedByBee { get; } =
             GetDefinition<ConditionDefinition>("ConditionAnnoyedByBee", "d40a359e8ff6a1a44ae395249136ca2b");
 
@@ -552,6 +634,10 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionAsleep { get; } =
             GetDefinition<ConditionDefinition>("ConditionAsleep", "2ece6f42f971b5746b8478ca7b2c164e");
 
+        public static ConditionDefinition ConditionAtkAdvantageDemonGreaseTrueStrike { get; } =
+            GetDefinition<ConditionDefinition>("ConditionAtkAdvantageDemonGreaseTrueStrike",
+                "1668bfa9ab5ac5948a9906143ac83101");
+
         public static ConditionDefinition ConditionAuraOfCourage { get; } =
             GetDefinition<ConditionDefinition>("ConditionAuraOfCourage", "26344c0379e31364bb805bb27a885c10");
 
@@ -573,14 +659,33 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionBackFromTheDead4 { get; } =
             GetDefinition<ConditionDefinition>("ConditionBackFromTheDead4", "b36611383de562b439f146fe03f6fa70");
 
+        public static ConditionDefinition ConditionBalanceOfPower { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBalanceOfPower", "0377c3ac875241e4fb58334e7e8306db");
+
+        public static ConditionDefinition ConditionBalanceOfPowerVulnerability { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBalanceOfPowerVulnerability",
+                "5783a3b6d7f963f45a0d50ce1910cb15");
+
         public static ConditionDefinition ConditionBaned { get; } =
             GetDefinition<ConditionDefinition>("ConditionBaned", "5c3098b02cf041744b22475397b7d514");
 
         public static ConditionDefinition ConditionBanished { get; } =
             GetDefinition<ConditionDefinition>("ConditionBanished", "e618d09f3dc242e41b23ee9db638058a");
 
+        public static ConditionDefinition ConditionBanishedByMaze { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBanishedByMaze", "93b8bb5488dbc5d4fb65fcb5cc53909f");
+
         public static ConditionDefinition ConditionBanishedByPrismaticSpray { get; } =
             GetDefinition<ConditionDefinition>("ConditionBanishedByPrismaticSpray", "1d680ab820b56c544810c01d353a261e");
+
+        public static ConditionDefinition ConditionBanishedHurlThroughHell { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBanishedHurlThroughHell", "8e4aeac81b103a640a20c69fcbf6621c");
+
+        public static ConditionDefinition ConditionBanishedTimeshift { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBanishedTimeshift", "fa046e868c8816244bf8dcb28dbe7c72");
+
+        public static ConditionDefinition ConditionBardicInspiration { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBardicInspiration", "e76c421c0a8f49046909673053aec5d6");
 
         public static ConditionDefinition ConditionBarkskin { get; } =
             GetDefinition<ConditionDefinition>("ConditionBarkskin", "bc47ad39bf39bd74eb6f0945720f7c9c");
@@ -624,20 +729,35 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionBlinded_Sunbeam { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlinded_Sunbeam", "fcf5c55e4f66d574aab611a50e5d6d2b");
 
+        public static ConditionDefinition ConditionBlinded_Sunburst { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBlinded_Sunburst", "fa766b043a5f2154fb804e8b7f7160a6");
+
         public static ConditionDefinition ConditionBlinded10minutes { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlinded10minutes", "2c0626af1e543e640be3777fd14ebf7c");
 
         public static ConditionDefinition ConditionBlinded1hour { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlinded1hour", "425387853dc83f54e94c898a971df3dc");
 
+        public static ConditionDefinition ConditionBlinded1minute { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBlinded1minute", "89bc8542c1b8bba47919722774af38bd");
+
         public static ConditionDefinition ConditionBlindedByPrismaticSpray { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlindedByPrismaticSpray", "463b35d9a3c2c564eb00e11e01900ab7");
+
+        public static ConditionDefinition ConditionBlindedEndOfNextTurn { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBlindedEndOfNextTurn", "fec8524775c5c134c9313deb3bedc345");
 
         public static ConditionDefinition ConditionBlindedFieryPresence { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlindedFieryPresence", "e2a4c660989e9184182b129d9601fa1e");
 
         public static ConditionDefinition ConditionBlurred { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlurred", "b324ff10d315032429be409fd6c1c87f");
+
+        public static ConditionDefinition ConditionBolsteredByHeroicTale { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBolsteredByHeroicTale", "324ffdc9ac6934e42a16df950ebc7409");
+
+        public static ConditionDefinition ConditionBolsteredMorale { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBolsteredMorale", "5869a7ca93f0e2e42a0fdcd905551e3a");
 
         public static ConditionDefinition ConditionBranded { get; } =
             GetDefinition<ConditionDefinition>("ConditionBranded", "bdc70071f0e49714486b6fddb9e679ee");
@@ -655,8 +775,14 @@ public static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionCalmedByCalmEmotionsEnemy",
                 "df1563ca538b23841bafaac417d32f35");
 
+        public static ConditionDefinition ConditionCanBeMurdered { get; } =
+            GetDefinition<ConditionDefinition>("ConditionCanBeMurdered", "cdec8d3099cd68c4fa48bc8efc6ef8cc");
+
         public static ConditionDefinition ConditionCarriedByWind { get; } =
             GetDefinition<ConditionDefinition>("ConditionCarriedByWind", "e563a794896f0c54ba56c08fac30b601");
+
+        public static ConditionDefinition ConditionCastingCountercharmed { get; } =
+            GetDefinition<ConditionDefinition>("ConditionCastingCountercharmed", "fc382cce12e2e1b48bbfee7e9a6609a1");
 
         public static ConditionDefinition ConditionCatsGrace { get; } =
             GetDefinition<ConditionDefinition>("ConditionCatsGrace", "cb318a3ba2fce2c4aa7f073143407a35");
@@ -690,11 +816,21 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionCircleBalanceGiftOfLife { get; } =
             GetDefinition<ConditionDefinition>("ConditionCircleBalanceGiftOfLife", "140f784ed9eea0248970c0083f0f2937");
 
+        public static ConditionDefinition ConditionCloakAndDagger { get; } =
+            GetDefinition<ConditionDefinition>("ConditionCloakAndDagger", "0ce41a6e05cf3e44da347fbecf41123c");
+
         public static ConditionDefinition ConditionCloakOfDisplacement { get; } =
             GetDefinition<ConditionDefinition>("ConditionCloakOfDisplacement", "60325e61b478571478ae31ab6dd6b5f7");
 
+        public static ConditionDefinition ConditionCollegeLoreCuttingWords { get; } =
+            GetDefinition<ConditionDefinition>("ConditionCollegeLoreCuttingWords", "7d87a8b391a720b48a84c9014ef7259b");
+
         public static ConditionDefinition ConditionComprehendLanguages { get; } =
             GetDefinition<ConditionDefinition>("ConditionComprehendLanguages", "2f3694b8e5ef5a04abcbc0957ddae3eb");
+
+        public static ConditionDefinition ConditionConcentrationDisadvSpellTaint { get; } =
+            GetDefinition<ConditionDefinition>("ConditionConcentrationDisadvSpellTaint",
+                "7d5a8eb87b260c74e822fce7b8c94479");
 
         public static ConditionDefinition ConditionConfused { get; } =
             GetDefinition<ConditionDefinition>("ConditionConfused", "be780d885f411094f8359c0e368c778d");
@@ -713,6 +849,18 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionConjuredItemLink { get; } =
             GetDefinition<ConditionDefinition>("ConditionConjuredItemLink", "a0489ed5ecfa04d4ba9d8286b8e7e4e8");
+
+        public static ConditionDefinition ConditionConstrictedByCouatl { get; } =
+            GetDefinition<ConditionDefinition>("ConditionConstrictedByCouatl", "37293edd176f36144a56f2931d5210bf");
+
+        public static ConditionDefinition ConditionConstrictedByMarilith { get; } =
+            GetDefinition<ConditionDefinition>("ConditionConstrictedByMarilith", "283ff66915b433245a8e53b48997f73a");
+
+        public static ConditionDefinition ConditionConstrictingCouatl { get; } =
+            GetDefinition<ConditionDefinition>("ConditionConstrictingCouatl", "287b67da6e3c2764fa6d6014724b9091");
+
+        public static ConditionDefinition ConditionConstrictingMarilith { get; } =
+            GetDefinition<ConditionDefinition>("ConditionConstrictingMarilith", "e612052346531094594a942ac0c94d3c");
 
         public static ConditionDefinition ConditionContagionBlindingSickness { get; } =
             GetDefinition<ConditionDefinition>("ConditionContagionBlindingSickness",
@@ -735,6 +883,9 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionControllingLevitation { get; } =
             GetDefinition<ConditionDefinition>("ConditionControllingLevitation", "ed506c6891c014647aabffe31f8f3d7a");
+
+        public static ConditionDefinition ConditionCountercharmed { get; } =
+            GetDefinition<ConditionDefinition>("ConditionCountercharmed", "f303f69ac029cd94f8aaccece7b483b0");
 
         public static ConditionDefinition ConditionCriticalCharacter { get; } =
             GetDefinition<ConditionDefinition>("ConditionCriticalCharacter", "eed1ab32e3f2fa84eae62bcd4c4b06f9");
@@ -788,6 +939,10 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionCursingWithBestow { get; } =
             GetDefinition<ConditionDefinition>("ConditionCursingWithBestow", "374ed7c26d1e1bc47b635ccf9b44c7d1");
 
+        public static ConditionDefinition ConditionDamageDemonGreaseTrueStrike { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDamageDemonGreaseTrueStrike",
+                "85165746656063345a2adcecad31cef6");
+
         public static ConditionDefinition ConditionDarkness { get; } =
             GetDefinition<ConditionDefinition>("ConditionDarkness", "5dccdb5c5c2d7a044b78e41440d2724b");
 
@@ -807,8 +962,15 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionDashingBonus { get; } =
             GetDefinition<ConditionDefinition>("ConditionDashingBonus", "3ac8bbfd8ce7eed4e891bcaa4a460805");
 
+        public static ConditionDefinition ConditionDashingBonusStepOfTheWind { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingBonusStepOfTheWind",
+                "f632b0b5deb722b438276d2864001a2a");
+
         public static ConditionDefinition ConditionDashingBonusSwiftBlade { get; } =
             GetDefinition<ConditionDefinition>("ConditionDashingBonusSwiftBlade", "9b5e8b98c02b3da49835581d0bafce68");
+
+        public static ConditionDefinition ConditionDashingBonusSwiftSteps { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingBonusSwiftSteps", "7bf0df6a3f08c7f41b2c725fbce54612");
 
         public static ConditionDefinition ConditionDashingExpeditiousRetreat { get; } =
             GetDefinition<ConditionDefinition>("ConditionDashingExpeditiousRetreat",
@@ -851,6 +1013,53 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionDefilerDarkness { get; } =
             GetDefinition<ConditionDefinition>("ConditionDefilerDarkness", "ec64fa6cb2259774492e73625f888406");
 
+        public static ConditionDefinition ConditionDemonGreaseDawnBreakBaned { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseDawnBreakBaned",
+                "ff5cb2777252a8e49a850c049f59466e");
+
+        public static ConditionDefinition ConditionDemonGreaseDawnBreakReducedAC { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseDawnBreakReducedAC",
+                "4f3d3dab625d71545ac1f2d7ed234cf1");
+
+        public static ConditionDefinition ConditionDemonGreaseDawnBreakSpellAtkPlus2 { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseDawnBreakSpellAtk+2",
+                "5bf9154e7c8b8a44aa7ae708a7b431cb");
+
+        public static ConditionDefinition ConditionDemonGreaseFiendSlayingIncreasedAC { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseFiendSlayingIncreasedAC",
+                "fc61e423f1eba254cb7d4ddbac9df07c");
+
+        public static ConditionDefinition ConditionDemonGreaseFiendSlayingVulnerabilities { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseFiendSlayingVulnerabilities",
+                "a8972275adac9f94ead47d9bca275126");
+
+        public static ConditionDefinition ConditionDemonGreaseFumes { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseFumes", "a861341883ef4a8418059cf6694f363d");
+
+        public static ConditionDefinition ConditionDemonGreaseNightHuntBonusAttack_WPN { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseNightHuntBonusAttack_WPN",
+                "9ad0417d5dd371f4099d2d91bed6cdaf");
+
+        public static ConditionDefinition ConditionDemonGreaseNightHuntHigherAC_ARM { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseNightHuntHigherAC_ARM",
+                "846ccc59fa0433749865ab2c6063a5bc");
+
+        public static ConditionDefinition ConditionDemonGreaseNightHuntHigherAC_WPN { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseNightHuntHigherAC_WPN",
+                "c3495e3f9f897064ea8d7cc6e93d8713");
+
+        public static ConditionDefinition ConditionDemonGreaseNightHuntHigherSpellAtk { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreaseNightHuntHigherSpellAtk",
+                "db99dd0545eb10e479b6f6e92087847c");
+
+        public static ConditionDefinition ConditionDemonGreasePseudoLifeDisadvAttacks { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreasePseudoLifeDisadvAttacks",
+                "e662cf0dd9478fc4d8897ed9fae02fcd");
+
+        public static ConditionDefinition ConditionDemonGreasePseudoLifeVulnerabilities { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDemonGreasePseudoLifeVulnerabilities",
+                "d53914b543a93c04c9741049636b3e77");
+
         public static ConditionDefinition ConditionDetectMagicSight { get; } =
             GetDefinition<ConditionDefinition>("ConditionDetectMagicSight", "74773549c539393449a2da4f3b3c2fc8");
 
@@ -875,11 +1084,17 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionDisengaging { get; } =
             GetDefinition<ConditionDefinition>("ConditionDisengaging", "9d3de19ca17c6554ea5485fbc3eabd25");
 
+        public static ConditionDefinition ConditionDisengagingStepOfTheWind { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDisengagingStepOfTheWind", "865ef31fb94216c4887311b7f31c3815");
+
         public static ConditionDefinition ConditionDisintegrated { get; } =
             GetDefinition<ConditionDefinition>("ConditionDisintegrated", "bc6b8b76e32d19945a94c1d6aba58425");
 
         public static ConditionDefinition ConditionDispellingEvilAndGood { get; } =
             GetDefinition<ConditionDefinition>("ConditionDispellingEvilAndGood", "1d1f2c9deebe86a4d958f5d0fd78032f");
+
+        public static ConditionDefinition ConditionDistracted { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDistracted", "14362dc687ac1a846badc792993ddca8");
 
         public static ConditionDefinition ConditionDivineFavor { get; } =
             GetDefinition<ConditionDefinition>("ConditionDivineFavor", "c0fb515d23746ab4087250a0dbeee0cb");
@@ -893,6 +1108,9 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionDodgingCoordinatedDefense { get; } =
             GetDefinition<ConditionDefinition>("ConditionDodgingCoordinatedDefense",
                 "879ba92a257bb0c4bb110c9fe6aa92e1");
+
+        public static ConditionDefinition ConditionDodgingPatientDefense { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDodgingPatientDefense", "98edcd71a1453784dbfc6f9246211d15");
 
         public static ConditionDefinition ConditionDomainMischiefBorrowedLuck { get; } =
             GetDefinition<ConditionDefinition>("ConditionDomainMischiefBorrowedLuck",
@@ -925,6 +1143,10 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionExpeditiousRetreat { get; } =
             GetDefinition<ConditionDefinition>("ConditionExpeditiousRetreat", "38c4a8bf234d93a49b661be9d137ec9f");
 
+        public static ConditionDefinition ConditionExpeditiousRetreatDemonGreaseNightHunt { get; } =
+            GetDefinition<ConditionDefinition>("ConditionExpeditiousRetreatDemonGreaseNightHunt",
+                "3c3e2c92df0b7d344a0a4c03f5c88f14");
+
         public static ConditionDefinition ConditionExpeditiousRetreatFirstRound { get; } =
             GetDefinition<ConditionDefinition>("ConditionExpeditiousRetreatFirstRound",
                 "c446d8b4b232bee47b86eff87d80a17d");
@@ -937,6 +1159,13 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionEyebiteSickened { get; } =
             GetDefinition<ConditionDefinition>("ConditionEyebiteSickened", "ce51df7b36b708b44af89cdef643644c");
+
+        public static ConditionDefinition ConditionFeatBlessingOfTheElements { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFeatBlessingOfTheElements",
+                "af98cdb0b5b57954ab778677f520700a");
+
+        public static ConditionDefinition ConditionFeatDauntingPush { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFeatDauntingPush", "42ed6e20face7634cb4941f1f957d68f");
 
         public static ConditionDefinition ConditionFeatherFalling { get; } =
             GetDefinition<ConditionDefinition>("ConditionFeatherFalling", "a13b601a64e39344f87635ef12c9085f");
@@ -960,6 +1189,62 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionFeatTwinBlade { get; } =
             GetDefinition<ConditionDefinition>("ConditionFeatTwinBlade", "0a271d6613ee9894ba4c121c5f4ab1ce");
 
+        public static ConditionDefinition ConditionFeebleMinded { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFeebleMinded", "581eceb937d34fe43a6293d23df1ddd3");
+
+        public static ConditionDefinition ConditionFiendDarkOnesOwnLuck { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendDarkOnesOwnLuck", "1de2ff447b789b14c9222e9f413c538b");
+
+        public static ConditionDefinition ConditionFiendishResilienceAcid { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceAcid", "7beae150fdf8e5c4b8623300b5239c68");
+
+        public static ConditionDefinition ConditionFiendishResilienceBase { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceBase", "3ff6a6c965919424a978e71591ea1a68");
+
+        public static ConditionDefinition ConditionFiendishResilienceBludgeoning { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceBludgeoning",
+                "32dffdb10b6248c44a2efd8248f991cd");
+
+        public static ConditionDefinition ConditionFiendishResilienceCold { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceCold", "f9ce7b1abc02f7a42bb32a4798a838be");
+
+        public static ConditionDefinition ConditionFiendishResilienceFire { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceFire", "97ca1ea35657d95409acec02c50b7ac0");
+
+        public static ConditionDefinition ConditionFiendishResilienceForce { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceForce", "991f5f8a97a522e49a928836ebb528ca");
+
+        public static ConditionDefinition ConditionFiendishResilienceLightning { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceLightning",
+                "4781dad30dc41aa4fa1537ce425ce46d");
+
+        public static ConditionDefinition ConditionFiendishResilienceNecrotic { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceNecrotic",
+                "7ea5112144ad03c419f87c569266f1c8");
+
+        public static ConditionDefinition ConditionFiendishResiliencePiercing { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResiliencePiercing",
+                "ac6fc21c36a9ad7448b43cdc49d60e60");
+
+        public static ConditionDefinition ConditionFiendishResiliencePoison { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResiliencePoison", "a0e1f42907272b844b89c156cf14a6b8");
+
+        public static ConditionDefinition ConditionFiendishResiliencePsychic { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResiliencePsychic",
+                "58825e1c74c3dd246817f8a7f6e08077");
+
+        public static ConditionDefinition ConditionFiendishResilienceRadiant { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceRadiant",
+                "91415f8edbea5734c863f09544d1f5a2");
+
+        public static ConditionDefinition ConditionFiendishResilienceSlashing { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceSlashing",
+                "479b8058505e7f940969a123f3220589");
+
+        public static ConditionDefinition ConditionFiendishResilienceThunder { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceThunder",
+                "170e778589b61f44aa2c51632b1390d7");
+
         public static ConditionDefinition ConditionFightAdvantageHyeronimus { get; } =
             GetDefinition<ConditionDefinition>("ConditionFightAdvantageHyeronimus", "91bcacb4daa596444a6f9971c66760e5");
 
@@ -974,6 +1259,9 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionFlying12 { get; } =
             GetDefinition<ConditionDefinition>("ConditionFlying12", "33fb0e0fb4c74604e8fe76b8d3370510");
+
+        public static ConditionDefinition ConditionFlyingAdaptive { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFlyingAdaptive", "cdef2a25e10345349a181ccf2b03cd97");
 
         public static ConditionDefinition ConditionFlyingBootsWinged { get; } =
             GetDefinition<ConditionDefinition>("ConditionFlyingBootsWinged", "83fc6ceb7037bcb41b2fc67df5595685");
@@ -996,8 +1284,15 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionFrightened { get; } =
             GetDefinition<ConditionDefinition>("ConditionFrightened", "5cbaee42aac310e42a407fc59bf65515");
 
+        public static ConditionDefinition ConditionFrightenedByDreadfulOmen { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFrightenedByDreadfulOmen", "2b5eb210a6ebf8d4e95608ced6506cb0");
+
         public static ConditionDefinition ConditionFrightenedFear { get; } =
             GetDefinition<ConditionDefinition>("ConditionFrightenedFear", "d4b01db5ba28522458248ba9859cbe84");
+
+        public static ConditionDefinition ConditionFrightenedFearEndOfNextTurn { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFrightenedFearEndOfNextTurn",
+                "9a680035ff5e74b49a03ef7daf0bc08d");
 
         public static ConditionDefinition ConditionFrightenedMummy { get; } =
             GetDefinition<ConditionDefinition>("ConditionFrightenedMummy", "0aeccdd5e913595438d514d95396025a");
@@ -1044,6 +1339,9 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionHasted { get; } =
             GetDefinition<ConditionDefinition>("ConditionHasted", "71b371f2148274c4a8f2161188aaea6f");
 
+        public static ConditionDefinition ConditionHastedAccelerate { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHastedAccelerate", "36cde8be69b56ee448fcf3f3b90c516e");
+
         public static ConditionDefinition ConditionHastedClayGolem { get; } =
             GetDefinition<ConditionDefinition>("ConditionHastedClayGolem", "fc4935af0cee0f840a3924f2033ad56b");
 
@@ -1083,8 +1381,23 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionHindered_By_Frost { get; } =
             GetDefinition<ConditionDefinition>("ConditionHindered_By_Frost", "c148df61de4a42345aeb1962d83f7b58");
 
+        public static ConditionDefinition ConditionHitByDirtyFighting { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHitByDirtyFighting", "b789e0deab9c30f4989c47ca830961dd");
+
+        public static ConditionDefinition ConditionHitByThunderingVoice { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHitByThunderingVoice", "4d5c2e94cd102544da93e2c4b8308ede");
+
+        public static ConditionDefinition ConditionHolyAura { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHolyAura", "6df15ac12dd5e5b4bad0ba28a791400c");
+
+        public static ConditionDefinition ConditionHopeless { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHopeless", "afad80c7920ae4f4ab64c0e6a6d8dda7");
+
         public static ConditionDefinition ConditionHuntersMark { get; } =
             GetDefinition<ConditionDefinition>("ConditionHuntersMark", "8976ad3b5ae10da418cf1d329be5b141");
+
+        public static ConditionDefinition ConditionImmuneToDemonicInfluence { get; } =
+            GetDefinition<ConditionDefinition>("ConditionImmuneToDemonicInfluence", "7acd949f1cf4fef47b34337bf496cd49");
 
         public static ConditionDefinition ConditionIncapacitated { get; } =
             GetDefinition<ConditionDefinition>("ConditionIncapacitated", "24d96cfe3b77b9a4b951bfb0e02fc018");
@@ -1092,6 +1405,12 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionIncapacitatedByHideousLaughter { get; } =
             GetDefinition<ConditionDefinition>("ConditionIncapacitatedByHideousLaughter",
                 "cb230ea2d4d1a274f8f3f3e9e3c0a25a");
+
+        public static ConditionDefinition ConditionIncapacitatedByHilarity { get; } =
+            GetDefinition<ConditionDefinition>("ConditionIncapacitatedByHilarity", "8e613c59eefda07448859fe05d1ea9d0");
+
+        public static ConditionDefinition ConditionInsane { get; } =
+            GetDefinition<ConditionDefinition>("ConditionInsane", "abd9393618bf62c419f941b6278feb29");
 
         public static ConditionDefinition ConditionInStinkingCloud { get; } =
             GetDefinition<ConditionDefinition>("ConditionInStinkingCloud", "0d4652577abc5bf49bca3291b7cc91d1");
@@ -1107,6 +1426,16 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionInvisibleGreater { get; } =
             GetDefinition<ConditionDefinition>("ConditionInvisibleGreater", "59190d77c6803cf4f8c35b057aab3737");
+
+        public static ConditionDefinition ConditionInvisibleOneWithShadows { get; } =
+            GetDefinition<ConditionDefinition>("ConditionInvisibleOneWithShadows", "405ef1e99e1c0264b8b2816a537e3d36");
+
+        public static ConditionDefinition ConditionInvisibleUncatchable { get; } =
+            GetDefinition<ConditionDefinition>("ConditionInvisibleUncatchable", "66bbc257eb8991b4799a2056830429e0");
+
+        public static ConditionDefinition ConditionInvocationOneWithShadowsDimDarkness { get; } =
+            GetDefinition<ConditionDefinition>("ConditionInvocationOneWithShadowsDimDarkness",
+                "b70c4cbbc8a3b1441b0d8a20898b3e61");
 
         public static ConditionDefinition ConditionJump { get; } =
             GetDefinition<ConditionDefinition>("ConditionJump", "f9385896b5f74c6458c4b1fefceddb04");
@@ -1154,17 +1483,26 @@ public static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionKindredSpiritMagicalSpiritMagicAttack",
                 "b46c70c51f36e0a40865b40c9535ddd8");
 
+        public static ConditionDefinition ConditionKindredSpiritRage { get; } =
+            GetDefinition<ConditionDefinition>("ConditionKindredSpiritRage", "3a633b3fa69a1aa4ca566e473863b78d");
+
         public static ConditionDefinition ConditionKindredSpiritSharedPain { get; } =
             GetDefinition<ConditionDefinition>("ConditionKindredSpiritSharedPain", "fd9592f7ba30e3648b502ca6fbfeee3d");
 
         public static ConditionDefinition ConditionKindredSpiritSpider { get; } =
             GetDefinition<ConditionDefinition>("ConditionKindredSpiritSpider", "f088c0cc11b570e4a93c234458616362");
 
+        public static ConditionDefinition ConditionKindredSpiritTiger { get; } =
+            GetDefinition<ConditionDefinition>("ConditionKindredSpiritTiger", "c1b9bbcb26eb3ed41873946b8b154d25");
+
         public static ConditionDefinition ConditionKindredSpiritViper { get; } =
             GetDefinition<ConditionDefinition>("ConditionKindredSpiritViper", "b411742e08b0e1e4da713d8ca9d38643");
 
         public static ConditionDefinition ConditionKindredSpiritWolf { get; } =
             GetDefinition<ConditionDefinition>("ConditionKindredSpiritWolf", "e1591e0485726f04da864fb077d478fb");
+
+        public static ConditionDefinition ConditionLeadByExampleMarked { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLeadByExampleMarked", "f9d1a859f63c5264ba1018eaf8f28bfc");
 
         public static ConditionDefinition ConditionLethargic { get; } =
             GetDefinition<ConditionDefinition>("ConditionLethargic", "37044f32f596e1441a4f4954b84b32b3");
@@ -1185,15 +1523,29 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionLightHypersensitive { get; } =
             GetDefinition<ConditionDefinition>("ConditionLightHypersensitive", "3bd94127fc524e740a38596a57d7cdc1");
 
+        public static ConditionDefinition ConditionLightHypersensitiveDemonGreaseNightHunt { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLightHypersensitiveDemonGreaseNightHunt",
+                "6077e744517a79448b1aa48643d96d34");
+
         public static ConditionDefinition ConditionLightSensitive { get; } =
             GetDefinition<ConditionDefinition>("ConditionLightSensitive", "ca49770be06152b44aca3d6df2678a81");
+
+        public static ConditionDefinition ConditionLightSensitiveDemonGreaseNightHunt { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLightSensitiveDemonGreaseNightHunt",
+                "32c1d9a150153474ebece95ccc29b160");
 
         public static ConditionDefinition ConditionLightSensitiveSorakSaboteur { get; } =
             GetDefinition<ConditionDefinition>("ConditionLightSensitiveSorakSaboteur",
                 "533ff2b82c312534a80fc9b5e48f9649");
 
+        public static ConditionDefinition ConditionListeningToSongOfHope { get; } =
+            GetDefinition<ConditionDefinition>("ConditionListeningToSongOfHope", "79f936e973e2c0b4faf47950400d60b9");
+
         public static ConditionDefinition ConditionLongstrider { get; } =
             GetDefinition<ConditionDefinition>("ConditionLongstrider", "d278d9e2c54a9074cb81e1e7d677a467");
+
+        public static ConditionDefinition ConditionLuminousKi { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLuminousKi", "af0a53f2cd83c114fb99aba99c9d129a");
 
         public static ConditionDefinition ConditionMagicallyArmored { get; } =
             GetDefinition<ConditionDefinition>("ConditionMagicallyArmored", "96663ed9ef2b4d54c8f1ca1630527037");
@@ -1203,6 +1555,15 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionMagicalWeapon { get; } =
             GetDefinition<ConditionDefinition>("ConditionMagicalWeapon", "53d7ed92fec7b0d4dbffc8e3508ee4c0");
+
+        public static ConditionDefinition ConditionMalediction { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMalediction", "9aaae1fb011c1844ea985c18c0b9cbb0");
+
+        public static ConditionDefinition ConditionMaledictionSource { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMaledictionSource", "007ed2fceffdafe4aa6096ea55fd149d");
+
+        public static ConditionDefinition ConditionManacalonsPerfection { get; } =
+            GetDefinition<ConditionDefinition>("ConditionManacalonsPerfection", "54b9865e17db29c40a0de6cc73bf91f5");
 
         public static ConditionDefinition ConditionMarkedByBrandingSmite { get; } =
             GetDefinition<ConditionDefinition>("ConditionMarkedByBrandingSmite", "62575b5191d6a224498f177d933703ef");
@@ -1218,6 +1579,26 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionMindDominatedByCaster { get; } =
             GetDefinition<ConditionDefinition>("ConditionMindDominatedByCaster", "913de2c4edaa29949a2981ffd5de2072");
+
+        public static ConditionDefinition ConditionMocked { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMocked", "fc3a07eadd92b3f4c8077efb05f84b7d");
+
+        public static ConditionDefinition ConditionMonkDeflectMissile { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMonkDeflectMissile", "7d3a526ae64aa58488b83dac8fb4cc20");
+
+        public static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus",
+                "b86ca48afc417b247b22900df01189c2");
+
+        public static ConditionDefinition ConditionMonkMartialArtsUnarmedStrikeBonus { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMonkMartialArtsUnarmedStrikeBonus",
+                "73f8b21d9406959459c0379b4989297c");
+
+        public static ConditionDefinition ConditionMonkSlowFall { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMonkSlowFall", "8b4e7b8182baaa248933ba3430ac3b0d");
+
+        public static ConditionDefinition ConditionMurderImmunity { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMurderImmunity", "6cbbc3a78633f3d458e7c2313e2438c1");
 
         public static ConditionDefinition ConditionOathOfDevotionAuraOfDevotion { get; } =
             GetDefinition<ConditionDefinition>("ConditionOathOfDevotionAuraOfDevotion",
@@ -1245,6 +1626,9 @@ public static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionOathOfTirmarSmiteTheHidden",
                 "55512d1ddf76e4d468ecab59ba3fd0e9");
 
+        public static ConditionDefinition ConditionOathOfTirmarSoraksBane { get; } =
+            GetDefinition<ConditionDefinition>("ConditionOathOfTirmarSoraksBane", "bfecdf397d96dbf4eae069507c6834f9");
+
         public static ConditionDefinition ConditionOnAcidPilgrim { get; } =
             GetDefinition<ConditionDefinition>("ConditionOnAcidPilgrim", "553038f4b330320468b522f848665bb6");
 
@@ -1269,8 +1653,32 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionOnFireElementalFire { get; } =
             GetDefinition<ConditionDefinition>("ConditionOnFireElementalFire", "64cd30765b691e145937d4f2ce9b3447");
 
+        public static ConditionDefinition ConditionOpenHandTechniqueDazzled { get; } =
+            GetDefinition<ConditionDefinition>("ConditionOpenHandTechniqueDazzled", "91e9bd7b1d001cc4d948629a1660dc29");
+
         public static ConditionDefinition ConditionOwlsWisdom { get; } =
             GetDefinition<ConditionDefinition>("ConditionOwlsWisdom", "1cfcdb0fc269c1147a35c3e865600b96");
+
+        public static ConditionDefinition ConditionPactChain { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPactChain", "c612c84593d20f043a6c3ac052943143");
+
+        public static ConditionDefinition ConditionPactChainImp { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPactChainImp", "f40d07009f87ccb46ba4a8073e77229f");
+
+        public static ConditionDefinition ConditionPactChainPseudodragon { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPactChainPseudodragon", "78b013370b34ad24ab9bbcee79f490e4");
+
+        public static ConditionDefinition ConditionPactChainQuasit { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPactChainQuasit", "877154b57154e0741a86fd323b240ec5");
+
+        public static ConditionDefinition ConditionPactChainSprite { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPactChainSprite", "2d7ff6a8303a0e641913125388552852");
+
+        public static ConditionDefinition ConditionPainful { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPainful", "1b5f15d513522ba4d92a3f2fe13b2587");
+
+        public static ConditionDefinition ConditionPalaceOfIce_LairEffect { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPalaceOfIce_LairEffect", "99717f894d469d546b1df65151233d88");
 
         public static ConditionDefinition ConditionParalyzed { get; } =
             GetDefinition<ConditionDefinition>("ConditionParalyzed", "a775cb208dcfe8244bc724c2af40b4fa");
@@ -1282,11 +1690,25 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionParalyzed_GhoulsCaress { get; } =
             GetDefinition<ConditionDefinition>("ConditionParalyzed_GhoulsCaress", "feb0f3f4b605db4478d2f446f527d4f6");
 
+        public static ConditionDefinition ConditionParalyzed_PrismaticSpray { get; } =
+            GetDefinition<ConditionDefinition>("ConditionParalyzed_PrismaticSpray", "ee8d399a6f8e4c94a80955e46555988f");
+
+        public static ConditionDefinition ConditionParalyzedGhoul { get; } =
+            GetDefinition<ConditionDefinition>("ConditionParalyzedGhoul", "d51c33770c372d4439a4fecfa0018dd5");
+
         public static ConditionDefinition ConditionParalyzedMummy { get; } =
             GetDefinition<ConditionDefinition>("ConditionParalyzedMummy", "ea6d4f0a4ebb7bc4dac86eeddaa159cc");
 
         public static ConditionDefinition ConditionPassWithoutTrace { get; } =
             GetDefinition<ConditionDefinition>("ConditionPassWithoutTrace", "a388ed2698ecbe640ac9f29ede4a007b");
+
+        public static ConditionDefinition ConditionPatronHiveWeakeningPheromones { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPatronHiveWeakeningPheromones",
+                "85924a75d2fa7bd4f979d38817a79dcf");
+
+        public static ConditionDefinition ConditionPatronTimekeeperCurseOfTime { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPatronTimekeeperCurseOfTime",
+                "757a141b3f7884b4d801a882add98961");
 
         public static ConditionDefinition ConditionPetrified { get; } =
             GetDefinition<ConditionDefinition>("ConditionPetrified", "e45613adea09c0e4cb33633ffe469282");
@@ -1307,11 +1729,17 @@ public static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionPoisonedDarkweaverPoisonous",
                 "93f05657b286a9e4c95530b36256ed2c");
 
+        public static ConditionDefinition ConditionPoisonedHezrouStench { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPoisonedHezrouStench", "fca9617f269a3c3489384e3c36dfd62f");
+
         public static ConditionDefinition ConditionPoisonedMaraikesTorpor { get; } =
             GetDefinition<ConditionDefinition>("ConditionPoisonedMaraikesTorpor", "f77a1a38bc99d14479fc084ea9efd7d3");
 
         public static ConditionDefinition ConditionPoisonedQueenSpiderBlood { get; } =
             GetDefinition<ConditionDefinition>("ConditionPoisonedQueenSpiderBlood", "1c647212482306544b1b81be64d0c137");
+
+        public static ConditionDefinition ConditionPoisonedVrock { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPoisonedVrock", "25e800b20d1298f4cbbbfca07ecc523e");
 
         public static ConditionDefinition ConditionPossessed { get; } =
             GetDefinition<ConditionDefinition>("ConditionPossessed", "85a404f9b3a07364d995f8f5cf3ffeac");
@@ -1355,6 +1783,10 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionProtectedFromEvil { get; } =
             GetDefinition<ConditionDefinition>("ConditionProtectedFromEvil", "30d7c95a591669f4fb4cdc304002ad01");
 
+        public static ConditionDefinition ConditionProtectedFromEvilOathOfDevotionPurityOfSpirit { get; } =
+            GetDefinition<ConditionDefinition>("ConditionProtectedFromEvilOathOfDevotionPurityOfSpirit",
+                "8818e9d2edb73964e975c9e1d9490f37");
+
         public static ConditionDefinition ConditionProtectedFromPoison { get; } =
             GetDefinition<ConditionDefinition>("ConditionProtectedFromPoison", "36724daf8fb1659489abd231442d8e50");
 
@@ -1362,8 +1794,17 @@ public static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionProtectedInsideMagicCircle",
                 "89ed635a4a31c964cabc1d12e44f44dc");
 
+        public static ConditionDefinition ConditionPseudoLifeTempHP { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPseudoLifeTempHP", "563f3cb91de53db4bbd3d3c2adf093fc");
+
         public static ConditionDefinition ConditionRaging { get; } =
             GetDefinition<ConditionDefinition>("ConditionRaging", "1567bb2d092a2bf4fbe78f6ea6afdf49");
+
+        public static ConditionDefinition ConditionRagingNormal { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRagingNormal", "804b1d48468ede74f970bbabd5be661f");
+
+        public static ConditionDefinition ConditionRagingPersistent { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRagingPersistent", "ecc1a944b7ad946429debc7947e3f150");
 
         public static ConditionDefinition ConditionRangerHideInPlainSight { get; } =
             GetDefinition<ConditionDefinition>("ConditionRangerHideInPlainSight", "effe49574628edf4fb3700c9f38a359a");
@@ -1393,6 +1834,13 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionRegenerating { get; } =
             GetDefinition<ConditionDefinition>("ConditionRegenerating", "e225c8f9c43d30e42b175cbf39efd28c");
 
+        public static ConditionDefinition ConditionResistedDruidNaturesSanctuary { get; } =
+            GetDefinition<ConditionDefinition>("ConditionResistedDruidNaturesSanctuary",
+                "7a9d525d033fa004d9f44443f9be2a53");
+
+        public static ConditionDefinition ConditionResistedHezrouStench { get; } =
+            GetDefinition<ConditionDefinition>("ConditionResistedHezrouStench", "dee041f3d1557f5449b4c76832da530c");
+
         public static ConditionDefinition ConditionResisting { get; } =
             GetDefinition<ConditionDefinition>("ConditionResisting", "48c5209eeba85e540b854da022a316ac");
 
@@ -1401,6 +1849,10 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionRestrainedByAnathema { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrainedByAnathema", "68d525a29941041468da84de5d4c4519");
+
+        public static ConditionDefinition ConditionRestrainedByAnathemaImprovement { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRestrainedByAnathemaImprovement",
+                "7d532aa4934e2854f98a0b0aca618231");
 
         public static ConditionDefinition ConditionRestrainedByBlackTentacles { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrainedByBlackTentacles",
@@ -1412,12 +1864,16 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionRestrainedByMagicalArrow { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrainedByMagicalArrow", "927ee44cbd732e14b9c785c897613297");
 
-        public static ConditionDefinition ConditionRestrainedByPrismaticSpray { get; } =
-            GetDefinition<ConditionDefinition>("ConditionRestrainedByPrismaticSpray",
-                "ee8d399a6f8e4c94a80955e46555988f");
+        public static ConditionDefinition ConditionRestrainedByNaturesSanctuary { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRestrainedByNaturesSanctuary",
+                "795710919495f2e49a862efabac97c6c");
 
         public static ConditionDefinition ConditionRestrainedByTheBurden { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrainedByTheBurden", "f9f22d22a7a6ad84b882698f0c65de1d");
+
+        public static ConditionDefinition ConditionRestrainedByWeakeningEntanglingShot { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRestrainedByWeakeningEntanglingShot",
+                "d2f85514a1c0f734c8a50590a5541d3f");
 
         public static ConditionDefinition ConditionRestrainedByWeb { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrainedByWeb", "0a8efc601f1a64144905a95acf388a97");
@@ -1449,6 +1905,9 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionRousingShout { get; } =
             GetDefinition<ConditionDefinition>("ConditionRousingShout", "53e8e0a0e80df904a98dc5841421e986");
 
+        public static ConditionDefinition ConditionScreechVrock { get; } =
+            GetDefinition<ConditionDefinition>("ConditionScreechVrock", "f922361b6de97754184c9fe1eba8a6dd");
+
         public static ConditionDefinition ConditionSeeInvisibility { get; } =
             GetDefinition<ConditionDefinition>("ConditionSeeInvisibility", "cdeedcd50f0f1714d99fbb92cc7be2ac");
 
@@ -1470,11 +1929,21 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionShieldedByFaith { get; } =
             GetDefinition<ConditionDefinition>("ConditionShieldedByFaith", "b34e00964f0d48248a2c225bdfe17e94");
 
+        public static ConditionDefinition ConditionShine { get; } =
+            GetDefinition<ConditionDefinition>("ConditionShine", "6ec6aef512f50f346b5ee785a358b20f");
+
         public static ConditionDefinition ConditionShocked { get; } =
             GetDefinition<ConditionDefinition>("ConditionShocked", "f61fc1425ede7a945b9291c9fc81164e");
 
         public static ConditionDefinition ConditionSilenced { get; } =
             GetDefinition<ConditionDefinition>("ConditionSilenced", "760d7f77ab62cb941b669ec458827067");
+
+        public static ConditionDefinition ConditionSilencedDemonGreaseTrueStrike { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSilencedDemonGreaseTrueStrike",
+                "25e81460a900e9241a9ec0c4319f9e3a");
+
+        public static ConditionDefinition ConditionSleepBySymbol { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSleepBySymbol", "f482c0c9749c1844fbbdb0abe0611b8b");
 
         public static ConditionDefinition ConditionSleetStorm { get; } =
             GetDefinition<ConditionDefinition>("ConditionSleetStorm", "5c7db68b5ff840a43ba0fe83b14648f0");
@@ -1493,6 +1962,17 @@ public static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionSorcererDraconicElementalResistance",
                 "37eb34368e5b7ce4284fb36cccbb0069");
 
+        public static ConditionDefinition ConditionSpellbladeArcaneEscape { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSpellbladeArcaneEscape", "dcd805d96413c6f4bbee10e836f2928e");
+
+        public static ConditionDefinition ConditionSpellSaveAdvantageDemonGreaseSpellTaint { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSpellSaveAdvantageDemonGreaseSpellTaint",
+                "0e45d7dd278af994e99a3d7b519fe8e8");
+
+        public static ConditionDefinition ConditionSpellSaveDisadvDemonGreaseSpellTaint { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSpellSaveDisadvDemonGreaseSpellTaint",
+                "f38f238ab06368048973021e349a78f8");
+
         public static ConditionDefinition ConditionSpiderClimb { get; } =
             GetDefinition<ConditionDefinition>("ConditionSpiderClimb", "5a917a82060957048bc59b6623c6dd68");
 
@@ -1507,6 +1987,9 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionStaffOfMetis { get; } =
             GetDefinition<ConditionDefinition>("ConditionStaffOfMetis", "3f4a2512035c4ea47aaf594b7e01900a");
+
+        public static ConditionDefinition ConditionStartedSongOfHope { get; } =
+            GetDefinition<ConditionDefinition>("ConditionStartedSongOfHope", "a3a3dc0235cddb74198bf45d41ae63e5");
 
         public static ConditionDefinition ConditionStealthy { get; } =
             GetDefinition<ConditionDefinition>("ConditionStealthy", "6d0b454edd63d704db950b386a9d1f96");
@@ -1538,6 +2021,10 @@ public static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionStunned_MaulOfTheDestroyer",
                 "48add59c1392c3441a70c95862fc5c60");
 
+        public static ConditionDefinition ConditionStunned_MonkStunningStrike { get; } =
+            GetDefinition<ConditionDefinition>("ConditionStunned_MonkStunningStrike",
+                "682a62d3d097c8a48bea39a35291713a");
+
         public static ConditionDefinition ConditionStunned_MummyLord_BlasphemousWords { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned_MummyLord_BlasphemousWords",
                 "94e239272cdf4f644b709c06aa2d1c31");
@@ -1545,11 +2032,17 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionStunned_MutantApeSlam { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned_MutantApeSlam", "0120f37b21830004da1291cf5b34be55");
 
+        public static ConditionDefinition ConditionStunned_PowerWordStun { get; } =
+            GetDefinition<ConditionDefinition>("ConditionStunned_PowerWordStun", "3a1c79cdad008a04583756237f2f925a");
+
         public static ConditionDefinition ConditionStunned1hour { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned1hour", "3f5d5810c02129f47806d57e0c702a6c");
 
         public static ConditionDefinition ConditionStunnedConjuredDeath { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunnedConjuredDeath", "a270f5d6fa09e63408c0e351a0b41e1e");
+
+        public static ConditionDefinition ConditionStunnedEndOfNextTurn { get; } =
+            GetDefinition<ConditionDefinition>("ConditionStunnedEndOfNextTurn", "52d84ec9931c95e45b11a92f9bafe6e6");
 
         public static ConditionDefinition ConditionSubstituteForm { get; } =
             GetDefinition<ConditionDefinition>("ConditionSubstituteForm", "d68c11ab71bf4d547b116d5071a728b5");
@@ -1591,6 +2084,16 @@ public static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionTraditionCourtMageImprovedSpellShield",
                 "c2264192749b66540b6e7aba16b1f783");
 
+        public static ConditionDefinition
+            ConditionTraditionFreedomFlurryOfBlowsUnarmedStrikeBonusUnendingStrikes { get; } =
+            GetDefinition<ConditionDefinition>(
+                "ConditionTraditionFreedomFlurryOfBlowsUnarmedStrikeBonusUnendingStrikes",
+                "5140a6bc7affb3646aaf315bd0001e51");
+
+        public static ConditionDefinition ConditionTraditionFreedomSwiftStepsAttackAdvantage { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTraditionFreedomSwiftStepsAttackAdvantage",
+                "adc5d9eab21aaa8419372f4e29aad2cb");
+
         public static ConditionDefinition ConditionTraditionShockArcanistArcaneFury { get; } =
             GetDefinition<ConditionDefinition>("ConditionTraditionShockArcanistArcaneFury",
                 "403fdec1b29b4ec4a9a4cba837c1d387");
@@ -1598,6 +2101,22 @@ public static partial class DatabaseHelper
         public static ConditionDefinition ConditionTraditionShockArcanistArcaneShocked { get; } =
             GetDefinition<ConditionDefinition>("ConditionTraditionShockArcanistArcaneShocked",
                 "6bbdeb63818fd0c47a1daa0b88f8bebc");
+
+        public static ConditionDefinition ConditionTraditionShockArcanistGreaterArcaneShocked { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTraditionShockArcanistGreaterArcaneShocked",
+                "a9f2d08d5baac0840aa5847ccb4fbe05");
+
+        public static ConditionDefinition ConditionTraditionSurvivalDefensiveStance { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTraditionSurvivalDefensiveStance",
+                "71c9fc47402b3aa4e87f704f6dac0aa2");
+
+        public static ConditionDefinition ConditionTraditionSurvivalUnbreakableBody { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTraditionSurvivalUnbreakableBody",
+                "1555aa4ca1535134a9ceff3570a0407c");
+
+        public static ConditionDefinition ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved",
+                "4bc418cbb219b7342a537d4b8b3bf2cb");
 
         public static ConditionDefinition ConditionTranceOfSorrtarr { get; } =
             GetDefinition<ConditionDefinition>("ConditionTranceOfSorrtarr", "63dd2355deeb8cb40bb40ad0beefb9f8");
@@ -1610,6 +2129,10 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionTruesight_GemOfSeeing { get; } =
             GetDefinition<ConditionDefinition>("ConditionTruesight_GemOfSeeing", "e1a1387a016fa17429d8b6f510aa33d7");
+
+        public static ConditionDefinition ConditionTruesightDemonGreaseTrueStrike { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTruesightDemonGreaseTrueStrike",
+                "1798b2e0af1fa4a408c0e44f7953d0b5");
 
         public static ConditionDefinition ConditionTrueStrike { get; } =
             GetDefinition<ConditionDefinition>("ConditionTrueStrike", "56ca167fe03b17d4aa21d379351e2ae7");
@@ -1636,6 +2159,9 @@ public static partial class DatabaseHelper
 
         public static ConditionDefinition ConditionUnconscious { get; } =
             GetDefinition<ConditionDefinition>("ConditionUnconscious", "2d543b2740ecddd4a977d8a706a8a2c9");
+
+        public static ConditionDefinition ConditionUnderDemonicInfluence { get; } =
+            GetDefinition<ConditionDefinition>("ConditionUnderDemonicInfluence", "4b1f8f41c85ec4049bb9e39e9caa091b");
 
         public static ConditionDefinition ConditionVampiricTouch { get; } =
             GetDefinition<ConditionDefinition>("ConditionVampiricTouch", "3cbe6e5e64732aa498755d590b55e63f");
@@ -1776,6 +2302,9 @@ public static partial class DatabaseHelper
         public static EffectProxyDefinition ProxyIceStorm { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyIceStorm", "5212a2fd804c07c40ae6af4b7a559a48");
 
+        public static EffectProxyDefinition ProxyIncendiaryCloud { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyIncendiaryCloud", "35cdf53d352dbbe458c041fda9512429");
+
         public static EffectProxyDefinition ProxyIndomitableLight { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyIndomitableLight", "c634f8a187082c44b8bbfd7e5a77e9c0");
 
@@ -1791,6 +2320,9 @@ public static partial class DatabaseHelper
         public static EffectProxyDefinition ProxySleetStorm { get; } =
             GetDefinition<EffectProxyDefinition>("ProxySleetStorm", "e59587d5be1e50d44801ab6c58c4bfb5");
 
+        public static EffectProxyDefinition ProxySpellWard { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySpellWard", "34109935bab879840aec6bf1836f8669");
+
         public static EffectProxyDefinition ProxySpikeGrowth { get; } =
             GetDefinition<EffectProxyDefinition>("ProxySpikeGrowth", "2459587534abf8e478ac7ef5c4f3d0e9");
 
@@ -1799,6 +2331,27 @@ public static partial class DatabaseHelper
 
         public static EffectProxyDefinition ProxyStinkingCloud { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyStinkingCloud", "f5b7598890014a948a182485672021a9");
+
+        public static EffectProxyDefinition ProxySymbolOfDeath { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySymbolOfDeath", "de868b74db61b2346baafcce8001e781");
+
+        public static EffectProxyDefinition ProxySymbolOfFear { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySymbolOfFear", "5cb690bda0e2b6649abf581bcb64395c");
+
+        public static EffectProxyDefinition ProxySymbolOfHopelessness { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySymbolOfHopelessness", "15c8313726f8db04ebc0b741e06651f0");
+
+        public static EffectProxyDefinition ProxySymbolOfInsanity { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySymbolOfInsanity", "3200b3c282980144eb0c9e53a3615e5e");
+
+        public static EffectProxyDefinition ProxySymbolOfPain { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySymbolOfPain", "c094a17e1d65ddc42ad340101af0ebf1");
+
+        public static EffectProxyDefinition ProxySymbolOfSleep { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySymbolOfSleep", "1a2987f27c9b29046ade9666898b244a");
+
+        public static EffectProxyDefinition ProxySymbolOfStun { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySymbolOfStun", "94bf8f1f1e2bfff4fb17e430da5916f4");
 
         public static EffectProxyDefinition ProxyVengefulSpirits { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyVengefulSpirits", "85910ba92b2800e41940d0b011df53b4");
@@ -1839,6 +2392,9 @@ public static partial class DatabaseHelper
         public static FactionDefinition CircleOfDanantar { get; } =
             GetDefinition<FactionDefinition>("CircleOfDanantar", "9756da05d2671e645890bf96292a0418");
 
+        public static FactionDefinition DLC1_Faction_Ally { get; } =
+            GetDefinition<FactionDefinition>("DLC1_Faction_Ally", "a5439f0a3dffced44a746670be3e829f");
+
         public static FactionDefinition DLC1_Faction_Forge { get; } =
             GetDefinition<FactionDefinition>("DLC1_Faction_Forge", "72118ca0d51a56e42bf220d8d3d7218d");
 
@@ -1865,6 +2421,57 @@ public static partial class DatabaseHelper
 
         public static FactionDefinition DLC1_Faction_ThePeople { get; } =
             GetDefinition<FactionDefinition>("DLC1_Faction_ThePeople", "b3c8946dcd983ab41bb61d5da112f8f2");
+
+        public static FactionDefinition DLC3_Faction_Captain_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_Captain_Hidden", "941fb3060dd174642ab9f5a4f5be0e93");
+
+        public static FactionDefinition DLC3_Faction_ElvenClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_ElvenClan", "09c52c7c4de20c941a9aca5dc2f5689f");
+
+        public static FactionDefinition DLC3_Faction_ElvenClan_Dragons { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_ElvenClan_Dragons", "6152efa931418b34eb5883dee71957e1");
+
+        public static FactionDefinition DLC3_Faction_ElvenClan_Impostors { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_ElvenClan_Impostors", "865c724fa84b6fe4ea7760e8d998c2b9");
+
+        public static FactionDefinition DLC3_Faction_ElvenClan_RebelCivilians { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_ElvenClan_RebelCivilians",
+                "21c1be03caf1987488f25430d67904f7");
+
+        public static FactionDefinition DLC3_Faction_Gallivan_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_Gallivan_Hidden", "f94c23f9109c29a46910937936698a1b");
+
+        public static FactionDefinition DLC3_Faction_General_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_General_Hidden", "268fc4b0876d4f1438407b976edbb607");
+
+        public static FactionDefinition DLC3_Faction_GiantCitizen_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_GiantCitizen_Hidden", "72154b637102efb4fb37a54b9c02d191");
+
+        public static FactionDefinition DLC3_Faction_HumanClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_HumanClan", "df1a95b99cc08d341aad8c1d0358b9f0");
+
+        public static FactionDefinition DLC3_Faction_NorthernClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_NorthernClan", "33ee8529d6d65ea4382c634d1218b1e8");
+
+        public static FactionDefinition DLC3_Faction_Principality { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_Principality", "f74fb8892039a6241be44e6078cd94b9");
+
+        public static FactionDefinition DLC3_Faction_Prisoner_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_Prisoner_Hidden", "666bdd85ec3d56e4292c4c0b22458e9f");
+
+        public static FactionDefinition DLC3_Faction_SouthernClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_SouthernClan", "161407fa362ba564d9b28bc343e0206a");
+
+        public static FactionDefinition DLC3_Faction_UndermountainClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_UndermountainClan", "6ae17d2b0aeca7e44bdd0f483a5fa136");
+
+        public static FactionDefinition DLC3_Faction_UndermountainClan_Ettiven { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_UndermountainClan_Ettiven",
+                "331bd2ea7a2faec43b8dd61703b3f76b");
+
+        public static FactionDefinition DLC3_Faction_UndermountainClan_Perlevinn { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_UndermountainClan_Perlevinn",
+                "ee63f17e2a543524c8581eebada69c78");
 
         public static FactionDefinition Evocation_Suncloud_Clan { get; } =
             GetDefinition<FactionDefinition>("Evocation_Suncloud_Clan", "ed9c037cde37bed448754ad1e30626a7");
@@ -1947,8 +2554,23 @@ public static partial class DatabaseHelper
         public static FeatDefinition Ambidextrous { get; } =
             GetDefinition<FeatDefinition>("Ambidextrous", "122519c3efdb45e46ac656b86f4e5c33");
 
+        public static FeatDefinition ArcaneAppraiser { get; } =
+            GetDefinition<FeatDefinition>("ArcaneAppraiser", "714bab6cbb3aecc4a8a2bc8701e33634");
+
         public static FeatDefinition ArmorMaster { get; } =
             GetDefinition<FeatDefinition>("ArmorMaster", "33ee6f5e58414924884053ceba3f616c");
+
+        public static FeatDefinition BadlandsMarauder { get; } =
+            GetDefinition<FeatDefinition>("BadlandsMarauder", "d9fd5500748c7f74c8d77b4e8f5c4b21");
+
+        public static FeatDefinition BlessingOfTheElements { get; } =
+            GetDefinition<FeatDefinition>("BlessingOfTheElements", "893347a7345b33346bf3831c99e70c14");
+
+        public static FeatDefinition BurningTouch { get; } =
+            GetDefinition<FeatDefinition>("BurningTouch", "137865edfafb80b45a37af5f4da837a1");
+
+        public static FeatDefinition CloakAndDagger { get; } =
+            GetDefinition<FeatDefinition>("CloakAndDagger", "febf420e3ece2f445aca63d280822307");
 
         public static FeatDefinition Creed_Of_Arun { get; } =
             GetDefinition<FeatDefinition>("Creed_Of_Arun", "d2bedff851762bc4c8fd5dd1fdaafe92");
@@ -1968,11 +2590,20 @@ public static partial class DatabaseHelper
         public static FeatDefinition Creed_Of_Solasta { get; } =
             GetDefinition<FeatDefinition>("Creed_Of_Solasta", "c6448d436213e144584ff0cea7d94bee");
 
+        public static FeatDefinition DauntingPush { get; } =
+            GetDefinition<FeatDefinition>("DauntingPush", "30a065677d0c41c469d257ea988ac744");
+
         public static FeatDefinition DiscretionOfTheCoedymwarth { get; } =
             GetDefinition<FeatDefinition>("DiscretionOfTheCoedymwarth", "a9ade687a0f3d314cb606e9e59c30a29");
 
+        public static FeatDefinition DistractingGambit { get; } =
+            GetDefinition<FeatDefinition>("DistractingGambit", "40761a5be51f58b469cd4dab9e90ffe2");
+
         public static FeatDefinition EagerForBattle { get; } =
             GetDefinition<FeatDefinition>("EagerForBattle", "880202487b623e745aed936143d09169");
+
+        public static FeatDefinition ElectrifyingTouch { get; } =
+            GetDefinition<FeatDefinition>("ElectrifyingTouch", "c28d1850e11daf64faa8ec8dcdcac8dc");
 
         public static FeatDefinition Enduring_Body { get; } =
             GetDefinition<FeatDefinition>("Enduring_Body", "34dd72a0472be3f4fa7a0c21fecebb33");
@@ -1986,11 +2617,20 @@ public static partial class DatabaseHelper
         public static FeatDefinition FollowUpStrike { get; } =
             GetDefinition<FeatDefinition>("FollowUpStrike", "f3755eece62108b42a71b35e98413a27");
 
+        public static FeatDefinition ForestallingStrength { get; } =
+            GetDefinition<FeatDefinition>("ForestallingStrength", "7e98767c55c82a44fadec7be06027be4");
+
+        public static FeatDefinition ForestRunner { get; } =
+            GetDefinition<FeatDefinition>("ForestRunner", "4fb963a0015a9e748b41c52842b29eb0");
+
         public static FeatDefinition HardToKill { get; } =
             GetDefinition<FeatDefinition>("HardToKill", "d960507f7a923f14595bc2fd08912e7e");
 
         public static FeatDefinition Hauler { get; } =
             GetDefinition<FeatDefinition>("Hauler", "51ce78450110fba40871d92a65f49bf0");
+
+        public static FeatDefinition IcyTouch { get; } =
+            GetDefinition<FeatDefinition>("IcyTouch", "19e2cc12139fb794fb161b301c5d0c0d");
 
         public static FeatDefinition InitiateAlchemist { get; } =
             GetDefinition<FeatDefinition>("InitiateAlchemist", "2143790770b5d0643ab8ef46e81d8b78");
@@ -2010,14 +2650,26 @@ public static partial class DatabaseHelper
         public static FeatDefinition MasterEnchanter { get; } =
             GetDefinition<FeatDefinition>("MasterEnchanter", "0cbca3ecf7f347f46b16fde862aad78e");
 
+        public static FeatDefinition MeltingTouch { get; } =
+            GetDefinition<FeatDefinition>("MeltingTouch", "c62c458bb06bf9348ac59caea94a82e5");
+
+        public static FeatDefinition Mender { get; } =
+            GetDefinition<FeatDefinition>("Mender", "8029d2965a5d33140a70a97f98d8cc1d");
+
         public static FeatDefinition MightOfTheIronLegion { get; } =
             GetDefinition<FeatDefinition>("MightOfTheIronLegion", "7c645a5768100354f8c3384511cef368");
+
+        public static FeatDefinition MightyBlow { get; } =
+            GetDefinition<FeatDefinition>("MightyBlow", "966a948eaffedca4996733cbd15d1f8b");
 
         public static FeatDefinition PowerfulCantrip { get; } =
             GetDefinition<FeatDefinition>("PowerfulCantrip", "152714ccf291c6546b872308973420b4");
 
         public static FeatDefinition RaiseShield { get; } =
             GetDefinition<FeatDefinition>("RaiseShield", "edc520c65fd669d4b9ccdcfae142118d");
+
+        public static FeatDefinition ReadyOrNot { get; } =
+            GetDefinition<FeatDefinition>("ReadyOrNot", "53672048fa5a6874e8b8bdffa6a61db4");
 
         public static FeatDefinition Robust { get; } =
             GetDefinition<FeatDefinition>("Robust", "a99eb54f255f7e64386e15da1a401d9c");
@@ -2031,6 +2683,12 @@ public static partial class DatabaseHelper
         public static FeatDefinition TakeAim { get; } =
             GetDefinition<FeatDefinition>("TakeAim", "adab4324a567ad54a9faac84cd148f04");
 
+        public static FeatDefinition ToxicTouch { get; } =
+            GetDefinition<FeatDefinition>("ToxicTouch", "7c5f3cc69ea02eb44ada2b2e0831c8cf");
+
+        public static FeatDefinition TripAttack { get; } =
+            GetDefinition<FeatDefinition>("TripAttack", "a631858bf05812747971187b82c11182");
+
         public static FeatDefinition TwinBlade { get; } =
             GetDefinition<FeatDefinition>("TwinBlade", "eca03c6622ebea646872b3cc0b5496b3");
 
@@ -2040,6 +2698,10 @@ public static partial class DatabaseHelper
 
     public static class FeatureDefinitionAbilityCheckAffinitys
     {
+        public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinity_PalaceOfIce_LairEffect { get; } =
+            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinity_PalaceOfIce_LairEffect",
+                "90db3a7f55acfbf4a99d6b32d018d4ba");
+
         public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityAmuletOfPureSouls { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityAmuletOfPureSouls",
                 "4ce8f901887bfa040ba838328f101a5f");
@@ -2055,6 +2717,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityArmorOfTheVagrant { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityArmorOfTheVagrant",
                 "f3488ad15814b3a4884736c4e5bea400");
+
+        public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityBardJackOfAllTrades { get; } =
+            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityBardJackOfAllTrades",
+                "a61f9dae164b10b4d8c11ea83135fab3");
 
         public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityBeltOfDwarvenkind { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityBeltOfDwarvenkind",
@@ -2099,6 +2765,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityCloakOfTheAncientKing { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityCloakOfTheAncientKing",
                 "7f275b7e92336ea4c92902691dad6e7a");
+
+        public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityCollegeLoreCuttingWords { get; } =
+            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityCollegeLoreCuttingWords",
+                "3179404511c554243ac93d798129b850");
 
         public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionBackFromTheDead1 { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionBackFromTheDead1",
@@ -2218,6 +2888,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityFeatLockbreaker { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityFeatLockbreaker",
                 "0123c6fd322235e41a1d7c09a1d88ad4");
+
+        public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityFiendDarkOnesOwnLuck { get; } =
+            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityFiendDarkOnesOwnLuck",
+                "2a5a8b5f47564574887f5ce9b8e55a22");
 
         public static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityFrightened { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityFrightened",
@@ -2350,6 +3024,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityBarbarianRecklessAttack",
                 "f992624db9f12d042a442fbbbe3a86d5");
 
+        public static FeatureDefinitionActionAffinity ActionAffinityBardicInspiration { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityBardicInspiration",
+                "3fe69ac0c9fee7e4abb9c9798a0a9772");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityBardRitualCasting { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityBardRitualCasting",
+                "35d9c66bb309d6c4ba62b40b22a215a7");
+
         public static FeatureDefinitionActionAffinity ActionAffinityBlackTentacles { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityBlackTentacles",
                 "3941dd2e584ac3d468b13d29fe2ef99f");
@@ -2394,9 +3076,17 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionFrightenedFear",
                 "12a1f5a969e9ef54cba8799bdbe30694");
 
+        public static FeatureDefinitionActionAffinity ActionAffinityConditionHopeless { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionHopeless",
+                "23efdda8b8c4d1b4a8bc003b41ae6aad");
+
         public static FeatureDefinitionActionAffinity ActionAffinityConditionIncapacitated { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionIncapacitated",
                 "0a38f5c8f6d13a0479249a8e935f64c0");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityConditionInsane { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionInsane",
+                "44db0f5df146d2c49b50f482b45e315f");
 
         public static FeatureDefinitionActionAffinity ActionAffinityConditionLethargic { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionLethargic",
@@ -2405,6 +3095,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionActionAffinity ActionAffinityConditionOnFire { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionOnFire",
                 "8a75fa48a86a0f24ea26200a5c553a8d");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityConditionOpenHandTechniqueDazzled { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionOpenHandTechniqueDazzled",
+                "bfcaf1f26b5911a42a58be9fc69d3062");
 
         public static FeatureDefinitionActionAffinity ActionAffinityConditionRaging { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionRaging",
@@ -2490,6 +3184,18 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityHunterGiantKiller",
                 "8ef5dd7f692e2bb4a8ee162f8dbac44a");
 
+        public static FeatureDefinitionActionAffinity ActionAffinityInvocationBookAncientSecrets { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityInvocationBookAncientSecrets",
+                "f27eae7273156b54a9545487b9bde90c");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityInvocationOneWithShadowsTurnInvisible { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityInvocationOneWithShadowsTurnInvisible",
+                "c46082f342b56ee4db1bc84242475614");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityKindredSpiritRage { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityKindredSpiritRage",
+                "ec5f9028b1fb1ed47abbcd5c0bc22f57");
+
         public static FeatureDefinitionActionAffinity ActionAffinityKindredSpiritRally { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityKindredSpiritRally",
                 "1dbfb8454512e034081cd11da19a957e");
@@ -2497,6 +3203,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionActionAffinity ActionAffinityLevitate { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityLevitate",
                 "cbba7291964daea4cac8ddd0ee764424");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityMagebaneSpellCrusher { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMagebaneSpellCrusher",
+                "45f75cb2d0d2e5642997721adc99ec77");
 
         public static FeatureDefinitionActionAffinity ActionAffinityMarksmanReactionShot { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMarksmanReactionShot",
@@ -2513,6 +3223,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionActionAffinity ActionAffinityMartialMountainerShieldBash { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMartialMountainerShieldBash",
                 "d629b7d423721c64087a5e03628ae704");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityMonkDeflectMissiles { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMonkDeflectMissiles",
+                "b0303cb455c3bc247b71e1e0b87d50d4");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityMonkFlurryOfBlows { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMonkFlurryOfBlows",
+                "9ff5aed5e72e2714380781e829fc9dac");
 
         public static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge",
@@ -2534,13 +3252,25 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerMarksmanFastAim",
                 "4746079c3d167bd4e80e30079e5821ec");
 
+        public static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish",
+                "9ea1a220e0620c54d84cd754b1365239");
+
         public static FeatureDefinitionActionAffinity ActionAffinityReapplyEffect { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityReapplyEffect",
                 "4131729f4dd919a47a2fdd5d53c66c80");
 
+        public static FeatureDefinitionActionAffinity ActionAffinityRetaliation { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRetaliation",
+                "ec64ca6a83b04e947a2a3fb85a22ddc9");
+
         public static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction",
                 "1db5972af0c18804882b2f8de86e9b1a");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityRoguishDarkweaverShadowy { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRoguishDarkweaverShadowy",
+                "c3c39024c70a31d47a5376446890ece6");
 
         public static FeatureDefinitionActionAffinity ActionAffinityShadowTamerSwiftRetaliation { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityShadowTamerSwiftRetaliation",
@@ -2550,6 +3280,18 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySharedPain",
                 "86f8555a84b0a1246bac88da7f64ac7f");
 
+        public static FeatureDefinitionActionAffinity ActionAffinitySlowFall { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySlowFall",
+                "a83275fbb524450fb08519303710c468");
+
+        public static FeatureDefinitionActionAffinity ActionAffinitySongOfHope { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySongOfHope",
+                "da4cdce1c48cccd459154627e9c1844b");
+
+        public static FeatureDefinitionActionAffinity ActionAffinitySorcererDraconicDragonWings { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySorcererDraconicDragonWings",
+                "8be135f1b6b13f74a93af093d0e01820");
+
         public static FeatureDefinitionActionAffinity ActionAffinitySubstituteForm { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySubstituteForm",
                 "d3435e8576eb07842a7fd7090e1a2c43");
@@ -2558,9 +3300,25 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityThiefFastHands",
                 "ef18115a49a7aa04f847b06f11cf5da4");
 
+        public static FeatureDefinitionActionAffinity ActionAffinityTraditionFreedomSwiftSteps { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionFreedomSwiftSteps",
+                "c1e66ff9587cc554bb300e9c5de1d04e");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityTraditionFreedomSwirlingDance { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionFreedomSwirlingDance",
+                "e90e6437f3556244691ef467ef0811a6");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityTraditionFreedomUnendingStrikes { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionFreedomUnendingStrikes",
+                "c2d7c928cddbbf1418ec28a468585673");
+
         public static FeatureDefinitionActionAffinity ActionAffinityTraditionGreenMageLeafScales { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionGreenMageLeafScales",
                 "fb454fe6a27595447800cb857f7c437f");
+
+        public static FeatureDefinitionActionAffinity ActionAffinityTraditionOpenHandOpenHandTechnique { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionOpenHandOpenHandTechnique",
+                "878fcd896afc5fc48b2c00b397fa7fe0");
 
         public static FeatureDefinitionActionAffinity ActionAffinityUncannyDodge { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityUncannyDodge",
@@ -2612,6 +3370,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_DLC1_Mask_Spy_SneakAttack",
                 "1f04e88664360234d98df41f10bbb54a");
 
+        public static FeatureDefinitionAdditionalDamage AdditionalDamage_Dlc3_Shadowcaster_SneakAttack { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Dlc3_Shadowcaster_SneakAttack",
+                "bfc0e7970c0589c48a4d310f7a32a930");
+
         public static FeatureDefinitionAdditionalDamage AdditionalDamage_GoblinCutthroat_Finisher { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_GoblinCutthroat_Finisher",
                 "dd156f8d6b7f6cd42aa8a6b0b1bf85ae");
@@ -2628,6 +3390,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Sorr-Akkath_Assassin_SneakAttack",
                 "3139786d8be93824bb8b93dfdf34d177");
 
+        public static FeatureDefinitionAdditionalDamage AdditionalDamage_Sorr_Akkath_Harasser_SneakAttack { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Sorr-Akkath_Harasser_SneakAttack",
+                "d5f1643b916c21e44b08171bbcdf9c00");
+
         public static FeatureDefinitionAdditionalDamage AdditionalDamage_Sorr_Akkath_Saboteur_SneakAttack { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Sorr-Akkath_Saboteur_SneakAttack",
                 "91d01439921070849bc5b4d729d8a9aa");
@@ -2640,6 +3406,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Weapon_Cheater2",
                 "8e7cf024f0eef334d998e9bf6916c1eb");
 
+        public static FeatureDefinitionAdditionalDamage AdditionalDamage_Weapon_Dragonblade { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Weapon_Dragonblade",
+                "5218c34c21c59ad48aec4b9bcbb8d6ee");
+
         public static FeatureDefinitionAdditionalDamage AdditionalDamage_Weapon_Feybane { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Weapon_Feybane",
                 "ff258b0307039f44089f55ce7ddd39e5");
@@ -2647,6 +3417,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAdditionalDamage AdditionalDamage_Weapon_Feybane2 { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Weapon_Feybane2",
                 "2e27a4dbdc2157f4ab9a7b446bc0b631");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamage_Weapon_Guardian { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Weapon_Guardian",
+                "b6fc84a4d89495049b66ad1b12807569");
 
         public static FeatureDefinitionAdditionalDamage AdditionalDamage_Weapon_Sunstar { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Weapon_Sunstar",
@@ -2676,6 +3450,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBarbarianBrutalCritical",
                 "cec43a27eb2890742aa67fbdcee0bf3b");
 
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageBarbarianClawFrightfulStrike { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBarbarianClawFrightfulStrike",
+                "8c690a9783ed66341b0ab88e59d55e80");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageBarbarianStoneLastStand { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBarbarianStoneLastStand",
+                "c86c447998090874fb9a72f653ff5b0f");
+
         public static FeatureDefinitionAdditionalDamage AdditionalDamageBracersOfArchery { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBracersOfArchery",
                 "30eee1e5faabfb543be82319955939d4");
@@ -2700,6 +3482,30 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDarkweaverPoisonous",
                 "e5f22ebd6cc24ea4b9a19a1f8ccb6c5b");
 
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageDemonGrease_CONSpellTaint { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDemonGrease_CONSpellTaint",
+                "89d2ce0414ea59740823c2b837b9a49b");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageDemonGrease_DawnBreak { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDemonGrease_DawnBreak",
+                "9c116637ab9871f4daa39b51682b5763");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageDemonGrease_DMGSpellTaint { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDemonGrease_DMGSpellTaint",
+                "4e7b802107e9a4c46ac47990b78f3cc7");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageDemonGrease_FiendSlaying { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDemonGrease_FiendSlaying",
+                "73d47593e4a5904459a1ad67c4ea1d3d");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageDemonGrease_NightHunt { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDemonGrease_NightHunt",
+                "7e80c159a108c4844a9e1f0f44d82a5f");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageDemonGrease_PseudoLife { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDemonGrease_PseudoLife",
+                "eb61d7a65b2a2514e8514c6c3c4fa42c");
+
         public static FeatureDefinitionAdditionalDamage AdditionalDamageDivineFavor { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDivineFavor",
                 "1dff78f3c21bcea43a4a13fd1c35d89f");
@@ -2720,6 +3526,26 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDoomblade",
                 "bfe99ea44deaf8046a8a223717cd17f5");
 
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageFeatBurningTouch { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageFeatBurningTouch",
+                "3494a645c9df48e448994d22d148b6c1");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageFeatElectrifyingTouch { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageFeatElectrifyingTouch",
+                "468955b0243baf343ad16e0d2b1d121a");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageFeatIcyTouch { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageFeatIcyTouch",
+                "4e0a9dbb743085f4c87275d19035393c");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageFeatMeltingTouch { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageFeatMeltingTouch",
+                "f6815e10f2a08204cac089c2a4a623a6");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageFeatToxicTouch { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageFeatToxicTouch",
+                "f41d7ef556c5e6443aa1151d79e2ac42");
+
         public static FeatureDefinitionAdditionalDamage AdditionalDamageHalfOrcSavageAttacks { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHalfOrcSavageAttacks",
                 "7b00c67d27fadfb41b864b007e6e3454");
@@ -2731,6 +3557,22 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAdditionalDamage AdditionalDamageHuntersMark { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHuntersMark",
                 "fd4eb0830ac4d9f449bec3145cb0fe40");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageInvocationAgonizingBlast { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageInvocationAgonizingBlast",
+                "5b7737e732e325e4a8c4b861a5590444");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageLifedrinker { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageLifedrinker",
+                "27658a2fb255bf94bae54315c017e186");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageMalediction { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageMalediction",
+                "62415067858950347842852c28b61c83");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageMightyBlow { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageMightyBlow",
+                "5437fd8c397351042908970fb379a2dd");
 
         public static FeatureDefinitionAdditionalDamage
             AdditionalDamageOathOfJugementAuraOfRighteousnessMagic { get; } =
@@ -2779,6 +3621,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAdditionalDamage AdditionalDamagePathMagebaneEnemyMagic { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePathMagebaneEnemyMagic",
                 "be9459e200e8b6e449d9e96035e7c93f");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamagePatronHiveWeakeningPheromones { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePatronHiveWeakeningPheromones",
+                "f9e3bc43ccfd271468a20cdb03e8e0f8");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamagePatronTimekeeperCurseOfTime { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePatronTimekeeperCurseOfTime",
+                "368d23b2773aad94280f93491c1ded18");
 
         public static FeatureDefinitionAdditionalDamage AdditionalDamagePoison_ArivadsKiss { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePoison_ArivadsKiss",
@@ -2896,6 +3746,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRoguishHoodlumNonFinesseSneakAttack",
                 "5535efe6afb0e14468c2820183e9e94d");
 
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageRoguishShadowcasterShadowCasting { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRoguishShadowcasterShadowCasting",
+                "ca444b9c3ec2fb74bb71e2dcfde6df0b");
+
         public static FeatureDefinitionAdditionalDamage
             AdditionalDamageShadowTamerDarkSlayerDmgHyperSensitive { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageShadowTamerDarkSlayerDmgHyperSensitive",
@@ -2910,6 +3764,15 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageSorcererDraconicElementalAffinity",
                 "4b1f8ed81b6941a4993b86bc4a875c89");
 
+        public static FeatureDefinitionAdditionalDamage
+            AdditionalDamageTraditionLightRadiantStrikesLuminousKi { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesLuminousKi",
+                "3f5334a4af8163f4981d188e71cf727f");
+
+        public static FeatureDefinitionAdditionalDamage AdditionalDamageTraditionLightRadiantStrikesShine { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesShine",
+                "f290e5e5e51e58a4982a23e1ef58c0ed");
+
         public static FeatureDefinitionAdditionalDamage AdditionalDamageTraditionShockArcanistArcaneFury { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionShockArcanistArcaneFury",
                 "6d905b89b6eacd84992513ff6f418266");
@@ -2921,6 +3784,26 @@ public static partial class DatabaseHelper
 
     public static class FeatureDefinitionAncestrys
     {
+        public static FeatureDefinitionAncestry AncestryDragonbornDraconicBlack { get; } =
+            GetDefinition<FeatureDefinitionAncestry>("AncestryDragonbornDraconicBlack",
+                "61ee2b2f89217874e8eb235b7c8f152d");
+
+        public static FeatureDefinitionAncestry AncestryDragonbornDraconicBlue { get; } =
+            GetDefinition<FeatureDefinitionAncestry>("AncestryDragonbornDraconicBlue",
+                "6fb28284f3de3f442a6c5a6fecff1fa1");
+
+        public static FeatureDefinitionAncestry AncestryDragonbornDraconicGold { get; } =
+            GetDefinition<FeatureDefinitionAncestry>("AncestryDragonbornDraconicGold",
+                "44e10b05bc6a49f4297207e6c1af3ddb");
+
+        public static FeatureDefinitionAncestry AncestryDragonbornDraconicGreen { get; } =
+            GetDefinition<FeatureDefinitionAncestry>("AncestryDragonbornDraconicGreen",
+                "e9da5ee9072b8a147925fdef59789905");
+
+        public static FeatureDefinitionAncestry AncestryDragonbornDraconicSilver { get; } =
+            GetDefinition<FeatureDefinitionAncestry>("AncestryDragonbornDraconicSilver",
+                "b2cf7162e98ebe54fbca0fb23f66be49");
+
         public static FeatureDefinitionAncestry AncestrySorcererDraconicBlack { get; } =
             GetDefinition<FeatureDefinitionAncestry>("AncestrySorcererDraconicBlack",
                 "51b706df4f7c7a64688d8b0ac501ae21");
@@ -2960,6 +3843,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifier_ChildOfDarkness_DimLight",
                 "b05099f93a9a4b643a42ed859937b474");
 
+        public static FeatureDefinitionAttackModifier AttackModifier_PalaceOfIce_LairEffect { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifier_PalaceOfIce_LairEffect",
+                "d641db021bafdf34b8a881acba1a7371");
+
         public static FeatureDefinitionAttackModifier AttackModifier_ProphetOfDarkness_Darkness { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifier_ProphetOfDarkness_Darkness",
                 "d0901cf53e7a3f14ba437b75ccef7997");
@@ -2971,6 +3858,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAttackModifier AttackModifierBerserkerFrenzy { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierBerserkerFrenzy",
                 "df8c5b0838433cf419c1bb5d74ed49c5");
+
+        public static FeatureDefinitionAttackModifier AttackModifierDemonGreaseNightHunt { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierDemonGreaseNightHunt",
+                "89ef16994a06e94459d6fbc9f257670f");
 
         public static FeatureDefinitionAttackModifier AttackModifierFeatAmbidextrous { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFeatAmbidextrous",
@@ -3024,6 +3915,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierKindredSpiritMagicSpiritMagicAttack",
                 "ecf64b2fbd2445a47b119d51b379dd62");
 
+        public static FeatureDefinitionAttackModifier AttackModifierKindredSpiritRageAttackDamageProficiency { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierKindredSpiritRageAttackDamageProficiency",
+                "bdd16e65871d71c48aba52962fdfd52b");
+
+        public static FeatureDefinitionAttackModifier AttackModifierKindredSpiritRageAttackExtraAttack { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierKindredSpiritRageAttackExtraAttack",
+                "79f41fdf22b4e15408f3f4bcfb1a957c");
+
         public static FeatureDefinitionAttackModifier AttackModifierMagicWeapon { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon",
                 "7a1aa2567ec34e849b50168e392d0c5d");
@@ -3040,17 +3939,58 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMartialSpellBladeMagicWeapon",
                 "9de1d9539d9b72048acf914d292e95ad");
 
+        public static FeatureDefinitionAttackModifier AttackModifierMonkDeflectMissile { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkDeflectMissile",
+                "5cc7fc3ca9bc0324580ab2f2239eb344");
+
+        public static FeatureDefinitionAttackModifier AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus",
+                "64f7a1a49eff10e4f9835b08365e1bd5");
+
+        public static FeatureDefinitionAttackModifier
+            AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom",
+                "a851252a844683f4c88564e53563a854");
+
+        public static FeatureDefinitionAttackModifier AttackModifierMonkKiEmpoweredStrikes { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkKiEmpoweredStrikes",
+                "f7a71d6795bbccf459dafb42d541f9c9");
+
+        public static FeatureDefinitionAttackModifier AttackModifierMonkMartialArtsImprovedDamage { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkMartialArtsImprovedDamage",
+                "4a6917adf817ad4448032a76e2a75e3d");
+
+        public static FeatureDefinitionAttackModifier AttackModifierMonkMartialArtsUnarmedStrikeBonus { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkMartialArtsUnarmedStrikeBonus",
+                "b1bb7710dd02f984f98925027d463cbd");
+
         public static FeatureDefinitionAttackModifier AttackModifierOathOfDevotionSacredWeapon { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierOathOfDevotionSacredWeapon",
                 "8661544943c0cfc48ad6913917cae9e1");
+
+        public static FeatureDefinitionAttackModifier AttackModifierOathOfTirmarSoraksBane { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierOathOfTirmarSoraksBane",
+                "ef80e75ccb5dbd94cba4df4dd1750af7");
 
         public static FeatureDefinitionAttackModifier AttackModifierOilOfSharpnessPlus3 { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierOilOfSharpness+3",
                 "4922541c5186cbe49904d57d7491c478");
 
+        public static FeatureDefinitionAttackModifier AttackModifierPactBladeMagicalWeapon { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierPactBladeMagicalWeapon",
+                "e1b298051238c204fadb870d4e1542d5");
+
+        public static FeatureDefinitionAttackModifier AttackModifierScimitarOfSpeed { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierScimitarOfSpeed",
+                "9d3bb009184505c40bb316ebc82e7daf");
+
         public static FeatureDefinitionAttackModifier AttackModifierShillelagh { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierShillelagh",
                 "0dee4862758e39c4ca86faeafd1507a1");
+
+        public static FeatureDefinitionAttackModifier AttackModifierTraditionSurvivalUnmovingStrength { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierTraditionSurvivalUnmovingStrength",
+                "d6afa65db805468f870dd5415fcaad3d");
 
         public static FeatureDefinitionAttackModifier AttackModifierWeaponPlus1 { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierWeapon+1",
@@ -3074,6 +4014,18 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAttributeModifier AttributeModifier_BootsOfFirstStrike_Initiative { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifier_BootsOfFirstStrike_Initiative",
                 "b2f25f3c3fa1c974d97ac4a97afbbc6d");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierACDemonGreaseDawnBreak_ARM { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierACDemonGreaseDawnBreak_ARM",
+                "6de7938acda7d9448b95e04c56a0f352");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierACDemonGreaseNightHunt_ARM { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierACDemonGreaseNightHunt_ARM",
+                "142c7f4687581aa46aa5ca9be544f30a");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierACDemonGreaseNightHunt_WPN { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierACDemonGreaseNightHunt_WPN",
+                "25a162362f85d994ebc92c74f6951c46");
 
         public static FeatureDefinitionAttributeModifier AttributeModifierACFeatRushToBattle { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierACFeatRushToBattle",
@@ -3175,6 +4127,26 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBarbarianUnarmoredDefense",
                 "4a68fe3fbe3d0434cb517af7e7535d5c");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierBardicInspirationDieD10 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBardicInspirationDieD10",
+                "040b2d763e35261409b08ce10e8d5aa7");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierBardicInspirationDieD12 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBardicInspirationDieD12",
+                "4f9d08c9701e37e46adcf014a271977e");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierBardicInspirationDieD6 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBardicInspirationDieD6",
+                "b62ac3f6f47a96c47898b82f1811fe33");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierBardicInspirationDieD8 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBardicInspirationDieD8",
+                "9c5ea60f1fad3254f81b036901201312");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierBardicInspirationNumber { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBardicInspirationNumber",
+                "6c1c22b7012e568439ea2706c72e51a7");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierBarkskin { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBarkskin",
                 "5a071f498c38a0042bc3dc3c3099e692");
@@ -3211,6 +4183,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCogOfCohh",
                 "d1a71a1398ffae14cbc6fc6068624f24");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierConditionCloakAndDagger { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierConditionCloakAndDagger",
+                "ad9e2453c55c71744a6c93669bc391a7");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Arun { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Arun",
                 "448b8ab9ee9cd784b81e82a65d5810f0");
@@ -3235,9 +4211,18 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Solasta",
                 "330246532ae609848887c37e44b7f7e4");
 
+        public static FeatureDefinitionAttributeModifier
+            AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>(
+                "AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_Dagger+3", "763e669b3aed6d64bae1cfb6144305fe");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierCursedByMummyRot { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCursedByMummyRot",
                 "335dda7afb9fcda4dbf31b7f424d8212");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierDaggerSoulHuntingWisLower { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDaggerSoulHuntingWisLower",
+                "e2a237ef6459fd44cbcf9317ac7b6e42");
 
         public static FeatureDefinitionAttributeModifier AttributeModifierDazzled { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDazzled",
@@ -3247,6 +4232,35 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDiscretionOfTheCoedymwarth",
                 "0bf3f4a58ac30784a96ab3f7a4f3de28");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierDLC3_Dwarven_Weapon_BattleaxePlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Battleaxe+3",
+                "90fa705804ec98d48a54b30f8d1a4fc1");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierDLC3_Dwarven_Weapon_DaggerPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Dagger+3",
+                "abd91569f8f6a2f48bd769aafb7ccdd7");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierDLC3_Dwarven_Weapon_GreataxePlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Greataxe+3",
+                "bcce635c45de0394b8b10c37ec38509e");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierDLC3_Dwarven_Weapon_LongswordPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Longsword+3",
+                "fe50f5e3b13bb5540aca4a143f08ad79");
+
+        public static FeatureDefinitionAttributeModifier
+            AttributeModifierDLC3_Dwarven_Weapon_QuarterstaffPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Quarterstaff+3",
+                "9da39eebec6f3864380d3c22fb39420f");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierDLC3_Dwarven_Weapon_ShortswordPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Shortsword+3",
+                "6899d68c7ebc4074680c8078ba2d0a7b");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierDLC3_Dwarven_Weapon_WarhammerPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Warhammer+3",
+                "ad5e9c1464928ac4998265344963eb73");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierDomainBattleExtraAttack { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDomainBattleExtraAttack",
                 "18a16de30197d53469a9f07447bbcaa9");
@@ -3254,6 +4268,18 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAttributeModifier AttributeModifierDoomBlade { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDoomBlade",
                 "50d062871e766a34fbc1e7e84cb48272");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierDragonbornAbilityScoreIncreaseCha { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDragonbornAbilityScoreIncreaseCha",
+                "3f0d5ad154575ec4e87226bd093345bf");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierDragonbornAbilityScoreIncreaseStr { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDragonbornAbilityScoreIncreaseStr",
+                "eb0d5d32a3399a14bb3d7f93129e8b57");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierDruidCircleWindsUnfettered { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDruidCircleWindsUnfettered",
+                "43cc39b92eaf19148896c3e3f80638f2");
 
         public static FeatureDefinitionAttributeModifier AttributeModifierDwarfAbilityScoreIncrease { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDwarfAbilityScoreIncrease",
@@ -3315,6 +4341,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeatArmorMaster",
                 "c86e177937299f34e8796281f1b77d40");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierFeatBadlandsMarauder { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeatBadlandsMarauder",
+                "2cc86961c46d64c40ace424bdc0d9270");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierFeatDistractingGambit { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeatDistractingGambit",
+                "de6aca284c231f548901ecc62c16bb37");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierFeatEagerForBattle { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeatEagerForBattle",
                 "a7af57bf10586c342a9614a92e0a0d2c");
@@ -3322,6 +4356,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAttributeModifier AttributeModifierFeatFocusedSleeper { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeatFocusedSleeper",
                 "a769052495523a0438dca5964d1062c8");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierFeatForestRunner { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeatForestRunner",
+                "8319e939353e6494c9122280d1725648");
 
         public static FeatureDefinitionAttributeModifier AttributeModifierFeatHardToKill { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeatHardToKill",
@@ -3339,6 +4377,18 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeatUncannyAccuracy",
                 "008f4fc3d21796a42bfe9e57d991d683");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierFeeblemindedCharisma { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeeblemindedCharisma",
+                "123ef9aa518e61c408601158e77c91f5");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierFeeblemindedIntelligence { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeeblemindedIntelligence",
+                "3a302e8b91ab98c4695c91fa3b86bb1f");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierFeeblemindedWisdom { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFeeblemindedWisdom",
+                "7b2ddf7d042a4f54abbd36dadd12727e");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierFighterExtraAttack { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterExtraAttack",
                 "082bfabcdf5bf1f4b843526c71143716");
@@ -3346,6 +4396,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitable { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitable",
                 "3200b9c2d4698eb4a94a678a3767cdc0");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd1 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitableAdd1",
+                "532478a247702d545a8f6c21018bfd38");
 
         public static FeatureDefinitionAttributeModifier AttributeModifierFightingStyleDefense { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFightingStyleDefense",
@@ -3386,6 +4440,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAttributeModifier AttributeModifierGiantStrengthHillPermanent { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGiantStrengthHillPermanent",
                 "8da1c13d67abeec42be5831b21493d78");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierGnomeRockAbilityScoreIncreaseCon { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGnomeRockAbilityScoreIncreaseCon",
+                "95af87b030449cf44a4974d730eeb5c3");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierGnomeShadowAbilityScoreIncreaseDex { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGnomeShadowAbilityScoreIncreaseDex",
+                "9cd25e09b1b8b55448675f05ea018a17");
 
         public static FeatureDefinitionAttributeModifier AttributeModifierHalfElfAbilityScoreIncreaseCha { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHalfElfAbilityScoreIncreaseCha",
@@ -3431,6 +4493,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHumanAbilityScoreIncrease",
                 "b0cd677e67d900d45aa4dc0ac9b1b707");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierInvocationVoiceChainMaster { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierInvocationVoiceChainMaster",
+                "a60825945883ea540ac46d70363d9762");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierKindredSpiritBear { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierKindredSpiritBear",
                 "8d92264d129c0864a9cd15d36f75e373");
@@ -3447,6 +4513,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierKindredSpiritEagle",
                 "6dcab1edf4a1b9f48aef44a673269cd1");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierKindredSpiritRageAC { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierKindredSpiritRageAC",
+                "00df3f0848fbb5e4aa220884884748de");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierKindredSpiritWolf { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierKindredSpiritWolf",
                 "cb0571f18111c8148a1dda3701126283");
@@ -3459,9 +4529,17 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMageArmor",
                 "725f993cc606597478aeb5119f9e2e29");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierMarksmanExtraAttack { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMarksmanExtraAttack",
+                "6e359ebcd9f54a546a6ab02ea0683bbb");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionImprovedCritical { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionImprovedCritical",
                 "6e6f489cef90d6b4ebe16357f17daa56");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionSuperiorCritical { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionSuperiorCritical",
+                "be5054cc67fc986468ff9c0ca4b6cd5b");
 
         public static FeatureDefinitionAttributeModifier AttributeModifierMartialMountainerTunnelFighter { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialMountainerTunnelFighter",
@@ -3470,6 +4548,30 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAttributeModifier AttributeModifierMightOfTheIronLegion { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMightOfTheIronLegion",
                 "1dcfd0bdcf4ac594a9ecc969e1e0845e");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierMonkExtraAttack { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMonkExtraAttack",
+                "22520c26c9c7309439470fec2592f014");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierMonkKiPointsBase { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMonkKiPointsBase",
+                "122e4f4053145eb418bc8c0f268f45f8");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierMonkKiPointsMultiplier { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMonkKiPointsMultiplier",
+                "2eed6714d532a594cb9d7cf170ca2285");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierMonkUnarmoredDefense { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMonkUnarmoredDefense",
+                "d508c64aff29e3b478f08bd67d2d430f");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierNecklaceOfGroundingAC { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierNecklaceOfGroundingAC",
+                "06416e41e04d23f4ca877b2a92562bb0");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierNecklaceOfGroundingKi { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierNecklaceOfGroundingKi",
+                "87bd243817bfef14197e06b98f457cd4");
 
         public static FeatureDefinitionAttributeModifier AttributeModifierOgrePowerPermanent { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierOgrePowerPermanent",
@@ -3498,6 +4600,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAttributeModifier AttributeModifierPathClawDragonScalesAC { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPathClawDragonScalesAC",
                 "2a4659b2b49b1564aaeaa8e46528742c");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierPatronTreeOneWithTheTree { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPatronTreeOneWithTheTree",
+                "f8f590141d2298e438145941c63f6ac8");
 
         public static FeatureDefinitionAttributeModifier AttributeModifierRangerExtraAttack { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierRangerExtraAttack",
@@ -3543,6 +4649,18 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSwiftBladeBladeDance",
                 "79d091104a511e34c92c90f6839fc450");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierThirstingBladeExtraAttack { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierThirstingBladeExtraAttack",
+                "c8fdab391be03a149b811bc58ff75512");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierTieflingAbilityScoreIncreaseCha { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTieflingAbilityScoreIncreaseCha",
+                "ee857308581b2d0438b3d0f75d5c0447");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierTieflingAbilityScoreIncreaseInt { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTieflingAbilityScoreIncreaseInt",
+                "64c56ed57dc7abd4ab3714cea9d83618");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierTomeOfAllThings_CHA { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTomeOfAllThings_CHA",
                 "450e3c60f1c44ee47bc17694ca1e0163");
@@ -3567,9 +4685,21 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTomeOfAllThings_WIS",
                 "12d91dbe7cbc42f43a37b699740c0c07");
 
+        public static FeatureDefinitionAttributeModifier AttributeModifierTraditionSurvivalDefensiveStance { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTraditionSurvivalDefensiveStance",
+                "01a886665cb268a469ee47ef62fd8189");
+
         public static FeatureDefinitionAttributeModifier AttributeModifierWardedByWardingBond { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierWardedByWardingBond",
                 "0ffb45cef176d494ab33d58afb5e0d40");
+
+        public static FeatureDefinitionAttributeModifier AttributeModifierWarlockPactChainInitial { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierWarlockPactChainInitial",
+                "580baa5a045ecc8458976bb74342df06");
+
+        public static FeatureDefinitionAttributeModifier AttributeModiierFeatForestallingStrength { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModiierFeatForestallingStrength",
+                "3513ffc4958661d4eaba4157ec0ad257");
     }
 
     public static class FeatureDefinitionAutoPreparedSpellss
@@ -3605,6 +4735,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsCircleLandSwamp { get; } =
             GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsCircleLandSwamp",
                 "a9d2e3a27ccd26642ac29972156d2e88");
+
+        public static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsCollegeHope { get; } =
+            GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsCollegeHope",
+                "dea51f249b17c8b439041595ac5d01e4");
 
         public static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsDomainBattle { get; } =
             GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsDomainBattle",
@@ -3691,10 +4825,17 @@ public static partial class DatabaseHelper
 
         public static FeatureDefinitionBonusCantrips BonusCantripsDomainSun { get; } =
             GetDefinition<FeatureDefinitionBonusCantrips>("BonusCantripsDomainSun", "06126cf078446534e9bec57df2e2a522");
+
+        public static FeatureDefinitionBonusCantrips BonusCantripsTiefling { get; } =
+            GetDefinition<FeatureDefinitionBonusCantrips>("BonusCantripsTiefling", "d98a976f45d898c4caf96dc255f12662");
     }
 
     public static class FeatureDefinitionCampAffinitys
     {
+        public static FeatureDefinitionCampAffinity CampAffinityBardFontOfInspiration { get; } =
+            GetDefinition<FeatureDefinitionCampAffinity>("CampAffinityBardFontOfInspiration",
+                "62b71bfaba7744343a949f91eea9454d");
+
         public static FeatureDefinitionCampAffinity CampAffinityDomainOblivionPeacefulRest { get; } =
             GetDefinition<FeatureDefinitionCampAffinity>("CampAffinityDomainOblivionPeacefulRest",
                 "82674c4f25c7fdb4a901085c44341f0a");
@@ -3705,6 +4846,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionCampAffinity CampAffinityFeatFocusedSleeper { get; } =
             GetDefinition<FeatureDefinitionCampAffinity>("CampAffinityFeatFocusedSleeper",
                 "700dbddba37dbe64e820acd53ce9d77f");
+
+        public static FeatureDefinitionCampAffinity CampAffinityMonkTimelessBody { get; } =
+            GetDefinition<FeatureDefinitionCampAffinity>("CampAffinityMonkTimelessBody",
+                "4ce68fa957623fb4c9ad9f3bf8de785f");
     }
 
     public static class FeatureDefinitionCastSpells
@@ -3726,6 +4871,17 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionCastSpell CastSpell_DLC1_Mask_Cleric { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC1_Mask_Cleric", "3e81e5c1986fdb349865462e75b037e0");
 
+        public static FeatureDefinitionCastSpell CastSpell_DLC3_Gallivan_Druid { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Gallivan_Druid",
+                "de1ddd670a3c66d49912083b7b38e2d3");
+
+        public static FeatureDefinitionCastSpell CastSpell_DLC3_Gallivan_RogueShadowCaster { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Gallivan_RogueShadowCaster",
+                "0e1d5a41d2542764191c70288b10f05d");
+
+        public static FeatureDefinitionCastSpell CastSpell_DLC3_Kratshar { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Kratshar", "f66a79a01f1142241b66089e41d14963");
+
         public static FeatureDefinitionCastSpell CastSpell_DLC3_Vigdis { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Vigdis", "cf833df47f362f947b1311458f89dd49");
 
@@ -3741,8 +4897,15 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionCastSpell CastSpellArrok { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellArrok", "a80133823bcca4b4c86aba89dcdeb045");
 
+        public static FeatureDefinitionCastSpell CastSpellBard { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellBard", "b97ce84dfc41a2b4488e97d9f4767a48");
+
         public static FeatureDefinitionCastSpell CastSpellBerylStonebeard { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellBerylStonebeard", "0c49538160b4b934ea25560bd6fdf568");
+
+        public static FeatureDefinitionCastSpell CastSpellBerylStonebeard_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellBerylStonebeard_DLC3",
+                "baaa0dea9ae5ef444a0edf129fd2f6a7");
 
         public static FeatureDefinitionCastSpell CastSpellCleric { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellCleric", "94ac6d781469a6e49beff9d70c0d85f5");
@@ -3794,6 +4957,12 @@ public static partial class DatabaseHelper
 
         public static FeatureDefinitionCastSpell CastSpellGenericSorcerer { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellGenericSorcerer", "4cafd2ff1a6d67640ae73feb3cfc6b79");
+
+        public static FeatureDefinitionCastSpell CastSpellGlabrezu { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellGlabrezu", "817cb3026dfe938479f1b31f76a1446b");
+
+        public static FeatureDefinitionCastSpell CastSpellGnomeShadow { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellGnomeShadow", "5d0826a2c11327149a98a1e1dac959f7");
 
         public static FeatureDefinitionCastSpell CastSpellGoblinShaman { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellGoblinShaman", "e102e0f4101119c459c52d25d734d43c");
@@ -3869,6 +5038,15 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellSorr-Akkath_Acolyte_of_Sorr-Tarr",
                 "8131707d1a7e0ac40ab9b3503eeb04ef");
 
+        public static FeatureDefinitionCastSpell CastSpellTiefling { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellTiefling", "9775abc21053dc84cb6ff7ea6770f1ce");
+
+        public static FeatureDefinitionCastSpell CastSpellTraditionLight { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellTraditionLight", "4822a86731024b94aa49c50593690006");
+
+        public static FeatureDefinitionCastSpell CastSpellWarlock { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellWarlock", "e6839e1384d509e47b5f88d1f3ffa7cd");
+
         public static FeatureDefinitionCastSpell CastSpellWizard { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellWizard", "399373f8f5f9ede498cb06ca39268290");
     }
@@ -3886,6 +5064,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityAdamantinePlateArmor",
                 "4d239583f80a284459ceca86a5e17c40");
 
+        public static FeatureDefinitionCombatAffinity CombatAffinityAttackAdvantageDemonGreaseTrueStrike { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityAttackAdvantageDemonGreaseTrueStrike",
+                "ef23d4823d1980049a88cb32149f4889");
+
+        public static FeatureDefinitionCombatAffinity CombatAffinityAttackDisadvantage { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityAttackDisadvantage",
+                "65678ff3198c1294982b4d6235597ab0");
+
         public static FeatureDefinitionCombatAffinity CombatAffinityBackfromTheDead1 { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBackfromTheDead1",
                 "537d90c3431b63a4b94ac6fb9b19a66f");
@@ -3901,6 +5087,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionCombatAffinity CombatAffinityBackfromTheDead4 { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBackfromTheDead4",
                 "6b87f318e42fe4240b5d244d7475261e");
+
+        public static FeatureDefinitionCombatAffinity CombatAffinityBalanceOfPower { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBalanceOfPower",
+                "30a6e1cc2e7084344b75b9a1e81e7020");
+
+        public static FeatureDefinitionCombatAffinity CombatAffinityBalanceOfPowerVulnerability { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBalanceOfPowerVulnerability",
+                "7d465f06824ffa942a3eb77aa002d180");
 
         public static FeatureDefinitionCombatAffinity CombatAffinityBaned { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBaned", "91a5ae107d79d784c82f1c9f1b93d144");
@@ -3930,6 +5124,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityCloakOfDisplacement",
                 "a5bb218f8fa48a54a911f23d56eeef96");
 
+        public static FeatureDefinitionCombatAffinity CombatAffinityCollegeLoreCuttingWords { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityCollegeLoreCuttingWords",
+                "e43695b8d2219db40978618b071b4b28");
+
+        public static FeatureDefinitionCombatAffinity CombatAffinityConditionHolyAura { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityConditionHolyAura",
+                "430b451f1e61e1e48b606b57350e9ed3");
+
         public static FeatureDefinitionCombatAffinity CombatAffinityContagionFilthFever { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityContagionFilthFever",
                 "3f5c3121d61a4dd44beb9b43b0b36250");
@@ -3957,6 +5159,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEagerForBattle",
                 "0e1d36f6967e55444a8c7dabb91a8aee");
 
+        public static FeatureDefinitionCombatAffinity CombatAffinityEldritchSpear { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEldritchSpear",
+                "4daae5689c02f9b4cba7a3989d8ad8d5");
+
         public static FeatureDefinitionCombatAffinity CombatAffinityEnfeebled { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEnfeebled",
                 "0fa938d5e8f4a4f40ad1e449cfd92cb5");
@@ -3965,9 +5171,17 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEyebiteSickened",
                 "2134cf7702ee5ca438665ecba86c0f36");
 
+        public static FeatureDefinitionCombatAffinity CombatAffinityFeatReadyOrNot { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityFeatReadyOrNot",
+                "4d36f87530b16b54db31451b7fc3783d");
+
         public static FeatureDefinitionCombatAffinity CombatAffinityFeatTakeAim { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityFeatTakeAim",
                 "646d955ece891b84b8e5a6b4001c13b9");
+
+        public static FeatureDefinitionCombatAffinity CombatAffinityFeatTripAttack { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityFeatTripAttack",
+                "36c5ec149c264e94a9c35d7a36c12b53");
 
         public static FeatureDefinitionCombatAffinity CombatAffinityFeatUncannyAccuracy { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityFeatUncannyAccuracy",
@@ -3996,6 +5210,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityHeavilyObscured",
                 "37285cb4ed0361e45aadf367f6e8c421");
 
+        public static FeatureDefinitionCombatAffinity CombatAffinityHitByThunderingVoice { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityHitByThunderingVoice",
+                "892a2ed4f1f2f154ca20eb14455920e9");
+
         public static FeatureDefinitionCombatAffinity CombatAffinityHunterEscapeTheHorde { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityHunterEscapeTheHorde",
                 "1d9e08361e91f6044b93474c6522a196");
@@ -4004,6 +5222,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityHunterMultiattackDefense",
                 "f3c61bf420ebe394b829478b7dcf01e6");
 
+        public static FeatureDefinitionCombatAffinity CombatAffinityIncreasedReliance { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityIncreasedReliance",
+                "7998fc47b3d24b44cb18cefede60feff");
+
         public static FeatureDefinitionCombatAffinity CombatAffinityInvisible { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityInvisible",
                 "601ff29b2ae08de46a67c6a77af56855");
@@ -4011,6 +5233,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionCombatAffinity CombatAffinityInvisibleStalker { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityInvisibleStalker",
                 "5186335f8810333429765b32706043e0");
+
+        public static FeatureDefinitionCombatAffinity CombatAffinityMartialMountaineerPackStriker { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityMartialMountaineerPackStriker",
+                "cbdb711692139eb48b59f4e4ec2aa5be");
 
         public static FeatureDefinitionCombatAffinity CombatAffinityPackTactics { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPackTactics",
@@ -4023,6 +5249,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionCombatAffinity CombatAffinityParalyzedAutoCrit { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityParalyzedAutoCrit",
                 "370440ae8dc98be43b3efc2c839fc266");
+
+        public static FeatureDefinitionCombatAffinity CombatAffinityPatronTreeOneWithTheTree { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPatronTreeOneWithTheTree",
+                "258b0d6f79ab0934bbdb243912d6f169");
 
         public static FeatureDefinitionCombatAffinity CombatAffinityPoisoned { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPoisoned",
@@ -4120,6 +5350,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityTargetedByGuidingWinds",
                 "db90adc78dedbcf4da69e3a5b85dc4b3");
 
+        public static FeatureDefinitionCombatAffinity CombatAffinityTraditionFreedomSwiftStepsAdvantage { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityTraditionFreedomSwiftStepsAdvantage",
+                "05671935f291cc94aba106f857222b62");
+
+        public static FeatureDefinitionCombatAffinity CombatAffinityTraditionSurvivalDefensiveStanceAdvantage { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityTraditionSurvivalDefensiveStanceAdvantage",
+                "dda752bb722ceed49ab99d17273ede13");
+
         public static FeatureDefinitionCombatAffinity CombatAffinityTrueStrike { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityTrueStrike",
                 "fbe1bf0aba1a9d54abeb4422b2480d90");
@@ -4134,10 +5372,22 @@ public static partial class DatabaseHelper
 
         public static FeatureDefinitionCombatAffinity CombatAffinityVeil { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityVeil", "dfd212fee9f2dfd4ea983092bb446140");
+
+        public static FeatureDefinitionCombatAffinity CombatAffinityWandOfWarMageCover { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityWandOfWarMageCover",
+                "1b7b84b716f4253438cd1fda97ef6fcb");
     }
 
     public static class FeatureDefinitionConditionAffinitys
     {
+        public static FeatureDefinitionConditionAffinity ConditionAffinityAlreadyHitByDirtyFighting { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityAlreadyHitByDirtyFighting",
+                "33e6e32579a8ad346ad493e75751d8ae");
+
+        public static FeatureDefinitionConditionAffinity ConditionAffinityBanishedByMazeImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityBanishedByMazeImmunity",
+                "f192158f25f78554eb6ecea34ffcd2bd");
+
         public static FeatureDefinitionConditionAffinity ConditionAffinityBlindnessImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityBlindnessImmunity",
                 "0d2434c320408d74e9c8fa43ec0716b7");
@@ -4149,6 +5399,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionConditionAffinity ConditionAffinityCalmEmotionFrightenedImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCalmEmotionFrightenedImmunity",
                 "f2c70d3f302356c45bf9859205ff16ce");
+
+        public static FeatureDefinitionConditionAffinity ConditionAffinityCharmedAdvantage { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCharmedAdvantage",
+                "e4320fb657099654db90051c91a9df94");
 
         public static FeatureDefinitionConditionAffinity ConditionAffinityCharmImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCharmImmunity",
@@ -4182,6 +5436,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCloakOfArachnida",
                 "67f8255433ddff24fa0ea270dedfe1b8");
 
+        public static FeatureDefinitionConditionAffinity ConditionAffinityDemonicInfluenceImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityDemonicInfluenceImmunity",
+                "180bb42cb4c325347b6af8184af29b36");
+
         public static FeatureDefinitionConditionAffinity ConditionAffinityDiseaseImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityDiseaseImmunity",
                 "1913ab33c64e94f4b88b23ce63268cb1");
@@ -4189,6 +5447,11 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionConditionAffinity ConditionAffinityDiseaseImmunity_PeriaptOfHealth { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityDiseaseImmunity_PeriaptOfHealth",
                 "f7fb57a9a847df649bd3b4efbd3ffe48");
+
+        public static FeatureDefinitionConditionAffinity
+            ConditionAffinityDruidCircleLandNaturesSanctuaryImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>(
+                "ConditionAffinityDruidCircleLandNaturesSanctuaryImmunity", "f947c7acef059a1499ef1ee22597c069");
 
         public static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharm { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharm",
@@ -4215,6 +5478,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFreedomOfMovementRestrained",
                 "ded05463bca9c77408cbe1eba0401020");
 
+        public static FeatureDefinitionConditionAffinity ConditionAffinityFrightenedAdvantage { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrightenedAdvantage",
+                "2bcc676fe28ff274087e76a31e0b45ed");
+
+        public static FeatureDefinitionConditionAffinity ConditionAffinityFrightenedFearImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrightenedFearImmunity",
+                "9611f8c570eb8344bbba73c40351a17d");
+
         public static FeatureDefinitionConditionAffinity ConditionAffinityFrightenedHeroism { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrightenedHeroism",
                 "70c1758c5d0b4fb448cbcb6afda6f21f");
@@ -4235,6 +5506,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHalflingBrave",
                 "fe7490b0a47723c4998036a8c2dc5cce");
 
+        public static FeatureDefinitionConditionAffinity ConditionAffinityHezrouStenchImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHezrouStenchImmunity",
+                "5cf1e395578a8a34e91884b49f9fa817");
+
         public static FeatureDefinitionConditionAffinity ConditionAffinityHinderedByFrostImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHinderedByFrostImmunity",
                 "f0b82f8e00ab71b499cba40f950a034b");
@@ -4242,6 +5517,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionConditionAffinity ConditionAffinityHunterSteelWill { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHunterSteelWill",
                 "863e9a5c2d2e3fe49bee76a29bec38de");
+
+        public static FeatureDefinitionConditionAffinity ConditionAffinityInvocationDevilsSight { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityInvocationDevilsSight",
+                "5dec704c4dfe6f7438ccdb8401584f67");
+
+        public static FeatureDefinitionConditionAffinity ConditionAffinityLifeDrainedAdvantage { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityLifeDrainedAdvantage",
+                "da4c87f46a04a7941a1e996c53216170");
 
         public static FeatureDefinitionConditionAffinity ConditionAffinityLightSensitivityImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityLightSensitivityImmunity",
@@ -4263,6 +5546,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityMindlessRageFrightened",
                 "55d73f64032b02d419a60b3df94976a9");
 
+        public static FeatureDefinitionConditionAffinity ConditionAffinityParalyzedGhoulImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityParalyzedGhoulImmunity",
+                "50066743171e8354088998a971cacacd");
+
         public static FeatureDefinitionConditionAffinity ConditionAffinityParalyzedmmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityParalyzedmmunity",
                 "fb168e0f7aeed9c479746505d1df5da7");
@@ -4270,6 +5557,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionConditionAffinity ConditionAffinityParalyzedMummyImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityParalyzedMummyImmunity",
                 "7349083e78fecc943bebb7ab09c7e286");
+
+        public static FeatureDefinitionConditionAffinity ConditionAffinityPatronTreeBlessingOfTheTree { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPatronTreeBlessingOfTheTree",
+                "173eef1111953714395109c4201c2a79");
 
         public static FeatureDefinitionConditionAffinity ConditionAffinityPetrifiedImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPetrifiedImmunity",
@@ -4317,6 +5608,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionCraftingAffinity CraftingAffinityFeatMasterEnchanter { get; } =
             GetDefinition<FeatureDefinitionCraftingAffinity>("CraftingAffinityFeatMasterEnchanter",
                 "d45e878763c9c7f4a8d4c8158ec8d47c");
+
+        public static FeatureDefinitionCraftingAffinity CraftingAffinityGnomeRockTinker { get; } =
+            GetDefinition<FeatureDefinitionCraftingAffinity>("CraftingAffinityGnomeRockTinker",
+                "55f28a487324a1c4080f176957ff16c2");
 
         public static FeatureDefinitionCraftingAffinity CraftingAffinityLoremasterKeenMindCrafting { get; } =
             GetDefinition<FeatureDefinitionCraftingAffinity>("CraftingAffinityLoremasterKeenMindCrafting",
@@ -4390,6 +5685,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionDamageAffinity DamageAffinityColdVulnerability { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityColdVulnerability",
                 "71b720298dbfd3645917018cf7369ab3");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityConditionHolyAura { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityConditionHolyAura",
+                "73798f914832ba94c9d32c94d9dbdbda");
 
         public static FeatureDefinitionDamageAffinity DamageAffinityConditionRagingBludgeoning { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityConditionRagingBludgeoning",
@@ -4535,6 +5834,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityDomainElementaLightningPrimalHarmony",
                 "1cf46254ceecccb459949478e1cd60bf");
 
+        public static FeatureDefinitionDamageAffinity DamageAffinityDragonbornDamageResistance { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityDragonbornDamageResistance",
+                "e27f56c560e98e044b4cad421bb11646");
+
         public static FeatureDefinitionDamageAffinity DamageAffinityDwarfResilience { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityDwarfResilience",
                 "33adf87f49e8adb4fb1a75f89972ec54");
@@ -4542,6 +5845,70 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionDamageAffinity DamageAffinityDwarfResilience_BeltOfDwarvenKind { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityDwarfResilience_BeltOfDwarvenKind",
                 "e65773e98f2278a4bbe114c3401d018a");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFeatBlessingOfTheElementsCold { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFeatBlessingOfTheElementsCold",
+                "652689608ab5e5243b849dc2a29d79f6");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFeatBlessingOfTheElementsFire { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFeatBlessingOfTheElementsFire",
+                "3ca39e22dc296064ca4b56889c6d843f");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFeatBlessingOfTheElementsLightning { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFeatBlessingOfTheElementsLightning",
+                "f858f8e5b913e414399f65cd15e16bc4");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceAcid { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceAcid",
+                "4cd52db45f649b949a153ca166df35c5");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceBludgeoning { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceBludgeoning",
+                "2b76e326ad4a23b449becae66e73c9cf");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceCold { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceCold",
+                "12289d8211a4b7241ad25b7e033112c9");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceFire { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceFire",
+                "f329a3a0f1242c64fa56d6d7e6c4bf60");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceForce { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceForce",
+                "3916b669297a0404aa6cbf0fd3f771e2");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceLightning { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceLightning",
+                "3ce1329369c55804f84c7103d040fa3b");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceNecrotic { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceNecrotic",
+                "301e8bd953586a04397673c8d177c213");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResiliencePiercing { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResiliencePiercing",
+                "e53d3a39b8e905e4e91cf54489813b60");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResiliencePoison { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResiliencePoison",
+                "dfe7fec4023e4fa4ea203e0c24ddc731");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResiliencePsychic { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResiliencePsychic",
+                "f5116d315edd4994dbbf4b6771c0cfaa");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceRadiant { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceRadiant",
+                "064da0b0dee71654b8e3cd7e64dbc900");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceSlashing { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceSlashing",
+                "d8eb38b1a420f274483b8ed6d8d5ddfd");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityFiendishResilienceThunder { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFiendishResilienceThunder",
+                "845024644056dc34191d49723a85469a");
 
         public static FeatureDefinitionDamageAffinity DamageAffinityFireImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunity",
@@ -4615,9 +5982,40 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityNecroticResistance",
                 "ee5f1fbda4f516844b493f08fdd4fb5a");
 
+        public static FeatureDefinitionDamageAffinity
+            DamageAffinityOathOfMotherlandHeartOfLavaBludgeoningReduction { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>(
+                "DamageAffinityOathOfMotherlandHeartOfLavaBludgeoningReduction", "8a54dc4d7e7c28444abd65cebda66e87");
+
+        public static FeatureDefinitionDamageAffinity
+            DamageAffinityOathOfMotherlandHeartOfLavaPiercingReduction { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityOathOfMotherlandHeartOfLavaPiercingReduction",
+                "0655dc647f8c89543b2c59f3920a6d8f");
+
+        public static FeatureDefinitionDamageAffinity
+            DamageAffinityOathOfMotherlandHeartOfLavaSlashingReduction { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityOathOfMotherlandHeartOfLavaSlashingReduction",
+                "fef64b892900c224883137662d72b966");
+
         public static FeatureDefinitionDamageAffinity DamageAffinityPathClawDragonScales { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPathClawDragonScales",
                 "e135abb8cd5e83647943fdf8bfc0a4f4");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityPatronTreeBlessingOfTheTreeNecrotic { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPatronTreeBlessingOfTheTreeNecrotic",
+                "30f625ebea9dc4742b7c47d4bff8aa0b");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityPatronTreeBlessingOfTheTreePoison { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPatronTreeBlessingOfTheTreePoison",
+                "326b1c39bba4c5e4fb56f34d9c2746f9");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityPatronTreePiercingBranch { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPatronTreePiercingBranch",
+                "f2ad4101382c8084eaa5b32935c46293");
+
+        public static FeatureDefinitionDamageAffinity DamageAffinityPatronTreePiercingBranchOneWithTheTree { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPatronTreePiercingBranchOneWithTheTree",
+                "fc4ab13af0baced40977bac3cf45df0e");
 
         public static FeatureDefinitionDamageAffinity DamageAffinityPiercingImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPiercingImmunity",
@@ -4703,6 +6101,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySlashingResistanceExceptSilver",
                 "225f3571dfe75434e9db0b3fe2088d18");
 
+        public static FeatureDefinitionDamageAffinity DamageAffinitySlashingVulnerability { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySlashingVulnerability",
+                "f789e6285bb4a4f40b79d334009f9c99");
+
         public static FeatureDefinitionDamageAffinity DamageAffinitySorakAbomination_SlashingResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySorakAbomination_SlashingResistance",
                 "f38fe55e17441bd4791f5fc00928babc");
@@ -4769,9 +6171,25 @@ public static partial class DatabaseHelper
 
     public static class FeatureDefinitionDieRollModifiers
     {
+        public static FeatureDefinitionDieRollModifier DieRollModifierBardHeroismBolsterMorale { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierBardHeroismBolsterMorale",
+                "751a9f30199343e49a731bac80573ffd");
+
+        public static FeatureDefinitionDieRollModifier DieRollModifierBardTraditionAuraOfPreeminence { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierBardTraditionAuraOfPreeminence",
+                "0d14b755141f7d64fb6c1492bbc7471e");
+
         public static FeatureDefinitionDieRollModifier DieRollModifierCaerLemMonsterInitiativeFirst { get; } =
             GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierCaerLemMonsterInitiativeFirst",
                 "1bbe0e6e42b118340aba030655b3057d");
+
+        public static FeatureDefinitionDieRollModifier DieRollModifierConditionBardicInspiration { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierConditionBardicInspiration",
+                "1add07f663e241b4ba8a471c6d934ba6");
+
+        public static FeatureDefinitionDieRollModifier DieRollModifierConditionManacalonsPerfection { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierConditionManacalonsPerfection",
+                "5fbfb88afe366ac4ebe5cc7e145b5cc9");
 
         public static FeatureDefinitionDieRollModifier DieRollModifierEmpoweredSpell { get; } =
             GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierEmpoweredSpell",
@@ -4800,6 +6218,11 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionDieRollModifier DieRollModifierTraditionShockArcanistArcaneWarfare { get; } =
             GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierTraditionShockArcanistArcaneWarfare",
                 "2123bba6eb04ad841b5321f52d783811");
+
+        public static FeatureDefinitionDieRollModifier
+            DieRollModifierTraditionShockArcanistGreaterArcaneShock { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierTraditionShockArcanistGreaterArcaneShock",
+                "01624d8e359771840beeb6b6ec99307c");
 
         public static FeatureDefinitionDieRollModifier DieRollModifierTutorialLiamAttackRollDisadvantage { get; } =
             GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierTutorialLiamAttackRollDisadvantage",
@@ -4919,6 +6342,18 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionFeatureSet FeatureSetBarbarianRage { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBarbarianRage", "441371b715de6db4b9813628803d7fa6");
 
+        public static FeatureDefinitionFeatureSet FeatureSetBardFontOfInspiration_Obsolete { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBardFontOfInspiration_Obsolete",
+                "d4b20063e6e067c4f9688380d7555ae6");
+
+        public static FeatureDefinitionFeatureSet FeatureSetBardicInspiration { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBardicInspiration",
+                "06e2b36a863298547af3116f9bec50b6");
+
+        public static FeatureDefinitionFeatureSet FeatureSetBardRitualCasting { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBardRitualCasting",
+                "4fc0f3ab8b68e4c46b034e88031fa28f");
+
         public static FeatureDefinitionFeatureSet FeatureSetChampionRemarkableAthlete { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetChampionRemarkableAthlete",
                 "51427fc1ded4fe14fac8457df1dee9ed");
@@ -4955,6 +6390,18 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDomainLawUnyieldingEnforcer",
                 "877d7444fad748343be83f208ea292bb");
 
+        public static FeatureDefinitionFeatureSet FeatureSetDragonbornAbilityScoreIncrease { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornAbilityScoreIncrease",
+                "37525dab947d10d4c9fe04f61c9d6835");
+
+        public static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon",
+                "74b1863afca4985418a4b258f1c2736c");
+
+        public static FeatureDefinitionFeatureSet FeatureSetDragonbornDraconicChoice { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornDraconicChoice",
+                "3e7d09f7510221a47b8cd7f74fb06d89");
+
         public static FeatureDefinitionFeatureSet FeatureSetDruidRitualCasting { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDruidRitualCasting",
                 "16a0bc81771c47447ba8f59113b082eb");
@@ -4969,6 +6416,9 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionFeatureSet FeatureSetElfSylvanLanguages { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfSylvanLanguages",
                 "01dc3c08b4f35e647a5593d87623f040");
+
+        public static FeatureDefinitionFeatureSet FeatureSetGnomeRockTinker { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGnomeRockTinker", "2487a51a800e67942a78a6fc2e189e22");
 
         public static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest",
@@ -5013,6 +6463,18 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetHunterHuntersPrey",
                 "3ea5b9dedb33e7f44939a9e8692cecb4");
 
+        public static FeatureDefinitionFeatureSet FeatureSetInvocationBookAncientSecrets { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInvocationBookAncientSecrets",
+                "8a6a3f4acf1441542a1da6b5ba3296af");
+
+        public static FeatureDefinitionFeatureSet FeatureSetInvocationDevilsSight { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInvocationDevilsSight",
+                "4a16f4feac646014697996c87ff47be8");
+
+        public static FeatureDefinitionFeatureSet FeatureSetInvocationWitchSight { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInvocationWitchSight",
+                "b8caaab6bade758478d2e7d843e96918");
+
         public static FeatureDefinitionFeatureSet FeatureSetKindredSpiritBond { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetKindredSpiritBond",
                 "09a4626f1b957284bb1e8bcc40917b3e");
@@ -5029,6 +6491,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetKindredSpiritMagicalSpirit",
                 "e7278c8fe46f88442948432753587154");
 
+        public static FeatureDefinitionFeatureSet FeatureSetKindredSpiritRage { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetKindredSpiritRage",
+                "0a3eeacda2e5a5748b6cf5279f8c87d5");
+
         public static FeatureDefinitionFeatureSet FeatureSetKindredSpiritSharedPain { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetKindredSpiritSharedPain",
                 "7d1ea347e3c86c24db9960e7e83f9e46");
@@ -5037,9 +6503,60 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetLoreMasterArcaneLore",
                 "f606ed750f58826489c15b0b017b0ad6");
 
+        public static FeatureDefinitionFeatureSet FeatureSetLoreMasterArcaneProfessor { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetLoreMasterArcaneProfessor",
+                "1e552ba89c578154c98fc3aa0a59683e");
+
         public static FeatureDefinitionFeatureSet FeatureSetLoremasterKeenMind { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetLoremasterKeenMind",
                 "53667750483570c44ac42764a06616f8");
+
+        public static FeatureDefinitionFeatureSet FeatureSetMonkDeflectMissiles { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkDeflectMissiles",
+                "6deed565f540c8b49919c8174b99a558");
+
+        public static FeatureDefinitionFeatureSet FeatureSetMonkDiamondSoul { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkDiamondSoul", "7f224f602693b2b46ad8e2ab4f7c5bbf");
+
+        public static FeatureDefinitionFeatureSet FeatureSetMonkFlurryOfBlows { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkFlurryOfBlows",
+                "48a146e4b2069e14b82d8f51355fded3");
+
+        public static FeatureDefinitionFeatureSet FeatureSetMonkPurityOfBody { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkPurityOfBody",
+                "d63581eaca948bc4491d28122a2331ef");
+
+        public static FeatureDefinitionFeatureSet FeatureSetMonkStepOfTheWind { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkStepOfTheWind",
+                "8b9db5a4bcf83264d83077da21292574");
+
+        public static FeatureDefinitionFeatureSet FeatureSetMonkStillnessOfMind { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkStillnessOfMind",
+                "65e2445644ce7474f85f72ae48aabe7e");
+
+        public static FeatureDefinitionFeatureSet FeatureSetMonkTimelessBody { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkTimelessBody",
+                "0f7d15738d407dc48a70f7d1fd16c270");
+
+        public static FeatureDefinitionFeatureSet FeatureSetMonkTongueSunMoon { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkTongueSunMoon",
+                "5390b4425bb270347928e971d49aabcd");
+
+        public static FeatureDefinitionFeatureSet FeatureSetOathOfMotherlandHeartOfLava { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetOathOfMotherlandHeartOfLava",
+                "0991f4538cc2eaa478b9bb3885e8b4f2");
+
+        public static FeatureDefinitionFeatureSet FeatureSetPactBlade { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactBlade", "a29909bbaef089a4392c12fdee2db8fc");
+
+        public static FeatureDefinitionFeatureSet FeatureSetPactChain { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactChain", "101749129eb42a74583471b1f8dc44b7");
+
+        public static FeatureDefinitionFeatureSet FeatureSetPactSelection { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactSelection", "963a6bb7e0f97a041a0cbef786b2c8f6");
+
+        public static FeatureDefinitionFeatureSet FeatureSetPactTome { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactTome", "8b33a6d5c658687478e1fdd190df8fa6");
 
         public static FeatureDefinitionFeatureSet FeatureSetPathClawDragonAncestry { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPathClawDragonAncestry",
@@ -5049,9 +6566,25 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPathClawDragonScales",
                 "c4cc44cdd757285459755bbcac460e14");
 
+        public static FeatureDefinitionFeatureSet FeatureSetPatronFiendFiendishResilience { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPatronFiendFiendishResilience",
+                "eeed9ff39c80f704dbd5fe2891a5f749");
+
+        public static FeatureDefinitionFeatureSet FeatureSetPatronTreeBlessingOfTheTree { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPatronTreeBlessingOfTheTree",
+                "dbdd584d428a5cd44b5a1d1e7e348c0e");
+
+        public static FeatureDefinitionFeatureSet FeatureSetPatronTreeOneWithTheTree { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPatronTreeOneWithTheTree",
+                "c2039b5d2ea4fff438319c0ff81f1415");
+
         public static FeatureDefinitionFeatureSet FeatureSetRangerHunterMultiAttackChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetRangerHunterMultiAttackChoice",
                 "dd8c548e778c525489ecf9f01e9d7949");
+
+        public static FeatureDefinitionFeatureSet FeatureSetRangerHunterSuperiorHuntersDefenseChoice { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetRangerHunterSuperiorHuntersDefenseChoice",
+                "77c666af9821d354d9e46109b7fda344");
 
         public static FeatureDefinitionFeatureSet FeatureSetRoguishHoodlumTheRightTools { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetRoguishHoodlumTheRightTools",
@@ -5065,9 +6598,20 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetShadowTamerKnowDarkness",
                 "b09848b9f5aac9640857de648e0e530c");
 
+        public static FeatureDefinitionFeatureSet FeatureSetShadowy { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetShadowy", "53243a12e36f5e04fa491e330d77c29d");
+
+        public static FeatureDefinitionFeatureSet FeatureSetSorcererChildRiftRiftwalk { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererChildRiftRiftwalk",
+                "b2b4c6d6f29f65b47b7d3c9bd4d2f217");
+
         public static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicChoice",
                 "d0daeacd6d9590f439f4c1f6b9894bc7");
+
+        public static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicDragonWings { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicDragonWings",
+                "838847a9d4199fb419c1f34212f93af9");
 
         public static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicResilience { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicResilience",
@@ -5077,9 +6621,40 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererFlexibleCasting",
                 "42cb790f216dcc64091346e6e9ad37e1");
 
+        public static FeatureDefinitionFeatureSet FeatureSetSpellCrusher { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSpellCrusher", "88f95bbcfe6ad18429e38e32da0d1835");
+
+        public static FeatureDefinitionFeatureSet FeatureSetTieflingHellishResistance { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTieflingHellishResistance",
+                "ad681cc5b1544ab4e930bfc412e104c5");
+
         public static FeatureDefinitionFeatureSet FeatureSetTraditionCourtMageAlwaysPrepared { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionCourtMageAlwaysPrepared",
                 "25374fc677439c2409d0569eee4efb23");
+
+        public static FeatureDefinitionFeatureSet FeatureSetTraditionFreedomSwiftSteps { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionFreedomSwiftSteps",
+                "27feffb3d8d87f140a0eb8c2aa2cdc7f");
+
+        public static FeatureDefinitionFeatureSet FeatureSetTraditionFreedomUnendingStrikes { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionFreedomUnendingStrikes",
+                "75621e0ac0b5df846bf3e27a3510ad3d");
+
+        public static FeatureDefinitionFeatureSet FeatureSetTraditionLightRadiantStrikes { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionLightRadiantStrikes",
+                "84b72e1454f1b12429624101a56a3d26");
+
+        public static FeatureDefinitionFeatureSet FeatureSetTraditionOpenHandOpenHandTechnique { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionOpenHandOpenHandTechnique",
+                "db88aed3dee5ffe4e9b33183b8b4179d");
+
+        public static FeatureDefinitionFeatureSet FeatureSetTraditionSurvivalDefensiveStance { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionSurvivalDefensiveStance",
+                "6b0e1c5ca5c0b4b44a17be1fbd323cc6");
+
+        public static FeatureDefinitionFeatureSet FeatureSetTraditionSurvivalUnbreakableBody { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionSurvivalUnbreakableBody",
+                "6b76747dd2edaa2469255be85e51b9d6");
 
         public static FeatureDefinitionFeatureSet FeatureSetUndeadFeatures { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetUndeadFeatures", "8592d3b6e3b8c674e9076802bd971e08");
@@ -5137,6 +6712,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierDomainLifeDiscipleOfLife",
                 "01c167967680875469f909ff492ad5ff");
 
+        public static FeatureDefinitionHealingModifier HealingModifierFeatMender { get; } =
+            GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierFeatMender",
+                "bd6f482007142e84b81ccce5a2dfbe42");
+
         public static FeatureDefinitionHealingModifier HealingModifierFeatRobust { get; } =
             GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierFeatRobust",
                 "646397db89a168f45b824195a3e5c1fe");
@@ -5188,6 +6767,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionLightAffinity>("LightAffinityHypersensitivity",
                 "cad5a138934aad54885b54000570b74d");
 
+        public static FeatureDefinitionLightAffinity LightAffinityInvocationOneWithShadows { get; } =
+            GetDefinition<FeatureDefinitionLightAffinity>("LightAffinityInvocationOneWithShadows",
+                "15563443479575b47b16ed69b99324f0");
+
         public static FeatureDefinitionLightAffinity LightAffinityLightSensitivity { get; } =
             GetDefinition<FeatureDefinitionLightAffinity>("LightAffinityLightSensitivity",
                 "736fe1855ea505349ae72578eea585f1");
@@ -5229,9 +6812,25 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityAnnoyedByBee",
                 "792da45b5ca416e43a8c531b554ac3e4");
 
+        public static FeatureDefinitionMagicAffinity MagicAffinityArcaneAppraiser { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityArcaneAppraiser",
+                "55202c453bea5bf44b5c359092b33b01");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityBardRitualCasting { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityBardRitualCasting",
+                "31b9d3a9e9b726e469e1e53164fbabd5");
+
         public static FeatureDefinitionMagicAffinity MagicAffinityBattleMagic { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityBattleMagic",
                 "daf4e911e0bf3d74ebabeebfe28fcfe5");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityCantUseMagic { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityCantUseMagic",
+                "792ff9dc179fb3243aa3755e823917a5");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityChitinousBoonAdditionalSpellSlot { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityChitinousBoonAdditionalSpellSlot",
+                "173a617f7bacda346abcec147f1a5a60");
 
         public static FeatureDefinitionMagicAffinity MagicAffinityCircleBalanceSurvivalOfTheWisest { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityCircleBalanceSurvivalOfTheWisest",
@@ -5244,6 +6843,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionMagicAffinity MagicAffinityClericRitualCasting { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityClericRitualCasting",
                 "1c0b3c1fa82f308489cb593d01f8cc49");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityCollegeLorePeerlessSkill { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityCollegeLorePeerlessSkill",
+                "849a64faba69a1145800d3e1aae4fc65");
 
         public static FeatureDefinitionMagicAffinity MagicAffinityCombatCasting { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityCombatCasting",
@@ -5272,6 +6875,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionMagicAffinity MagicAffinityCourtMageCounterspellMastery { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityCourtMageCounterspellMastery",
                 "b726588257d3ccb4892d2b58f49c414f");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityDemonGreaseNightHunt { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityDemonGreaseNightHunt",
+                "b809e2f09938c2846add3f76a7c2e253");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityDistracted { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityDistracted",
+                "0e932ee8eaee17146a0780baff019c24");
 
         public static FeatureDefinitionMagicAffinity MagicAffinityDomainLawForceOfLawImposeDisadvantage { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityDomainLawForceOfLawImposeDisadvantage",
@@ -5305,9 +6916,21 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityGreenmageGreenMagicList",
                 "4ee834ee27aa1114c90b130662a2fffe");
 
+        public static FeatureDefinitionMagicAffinity MagicAffinityInvocationBookAncientSecrets { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityInvocationBookAncientSecrets",
+                "be1b3bfbeac33f34cb0bc1ad132ac17e");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityInvocationWitchSight { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityInvocationWitchSight",
+                "347a65930c3be4346a720cd5e108a67c");
+
         public static FeatureDefinitionMagicAffinity MagicAffinityLoreMasterArcaneLore { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityLoreMasterArcaneLore",
                 "565d0577890364e4693c78de2eb7f9a8");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityLoreMasterArcaneProfessor { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityLoreMasterArcaneProfessor",
+                "b068d0d0148b1ff4fbc19378774ea96c");
 
         public static FeatureDefinitionMagicAffinity MagicAffinityLoremasterKeenMindScribing { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityLoremasterKeenMindScribing",
@@ -5316,6 +6939,18 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionMagicAffinity MagicAffinityLoreMasterSpellAcademic { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityLoreMasterSpellAcademic",
                 "c620fe1e18059f8488e69ed34bbc3de2");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityPatronFiendExpandedSpells { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityPatronFiendExpandedSpells",
+                "6dfd0abf997e04644a037f47803a638e");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityPatronHiveExpandedSpells { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityPatronHiveExpandedSpells",
+                "0846f5bde11cad94d9c54ea59a187699");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityPatronTreeExpandedSpells { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityPatronTreeExpandedSpells",
+                "4de13a437cf7c1d4fb88bdedc018eeb8");
 
         public static FeatureDefinitionMagicAffinity MagicAffinityShadowRetribution { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityShadowRetribution",
@@ -5328,13 +6963,37 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionMagicAffinity MagicAffinitySilenced { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinitySilenced", "45ed40e1e2282fc46bcc8ccb7000e0e3");
 
+        public static FeatureDefinitionMagicAffinity MagicAffinitySilencedDemonGreaseTrueStrike { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinitySilencedDemonGreaseTrueStrike",
+                "e6beed458d4748e41866ad33fa76b1a2");
+
         public static FeatureDefinitionMagicAffinity MagicAffinitySorcererChildRiftMagic { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinitySorcererChildRiftMagic",
                 "5e70c16be10470f418e54e6c687bf7e7");
 
+        public static FeatureDefinitionMagicAffinity MagicAffinitySorcererManaPainterManaBalance { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinitySorcererManaPainterManaBalance",
+                "305a2088013b2054fb9761af345804de");
+
         public static FeatureDefinitionMagicAffinity MagicAffinitySpellBladeIntoTheFray { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinitySpellBladeIntoTheFray",
                 "dcbc028742c7af3479f0c56e3146d286");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityStunningStrikeBracers { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityStunningStrikeBracers",
+                "7ab2a988d6e0fed46a8ffe55d8b00474");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityUseMagicalItem { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityUseMagicalItem",
+                "0b276a3faeeafe749b8d7594bfcf7d36");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityWandOfWarMagePlus1 { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityWandOfWarMage+1",
+                "7b145c69c1f3f0e4eaf4ebdbf6264e61");
+
+        public static FeatureDefinitionMagicAffinity MagicAffinityWandOfWarMagePlus2 { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityWandOfWarMage+2",
+                "7bf0ec32f44bb2f4481a6cf110987bfe");
 
         public static FeatureDefinitionMagicAffinity MagicAffinityWizardRitualCasting { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityWizardRitualCasting",
@@ -5343,6 +7002,10 @@ public static partial class DatabaseHelper
 
     public static class FeatureDefinitionMovementAffinitys
     {
+        public static FeatureDefinitionMovementAffinity MovementAffinity_PalaceOfIce_LairEffect { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinity_PalaceOfIce_LairEffect",
+                "7977a531adc3fdd418bbe847664072b8");
+
         public static FeatureDefinitionMovementAffinity MovementAffinityBarbarianFastMovement { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityBarbarianFastMovement",
                 "b46d47bd558a34d48911656bd4b088c7");
@@ -5391,6 +7054,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionEncumbered",
                 "a810ba411fbe58d42a7a906850004c2c");
 
+        public static FeatureDefinitionMovementAffinity MovementAffinityConditionFlyingAdaptive { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionFlyingAdaptive",
+                "4f9ac82da0669a247bb79fb3858b6f64");
+
         public static FeatureDefinitionMovementAffinity MovementAffinityConditionHasted { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionHasted",
                 "010aed5428204144aaf5fb7dc04ab460");
@@ -5419,6 +7086,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionSlowed",
                 "d1cc31d667617454e9751c34328770d4");
 
+        public static FeatureDefinitionMovementAffinity MovementAffinityConditionSpellbladeArcaneEscape { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionSpellbladeArcaneEscape",
+                "b3376f0b13030a64b8c4c6cbf57ef2d0");
+
         public static FeatureDefinitionMovementAffinity MovementAffinityConditionSurprised { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionSurprised",
                 "c28e6fc22b7b45c41914b034884134fb");
@@ -5426,6 +7097,18 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionMovementAffinity MovementAffinityDarkweaverSpiderOnWall { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityDarkweaverSpiderOnWall",
                 "3640df83dd86b20428769df9d4dd95d8");
+
+        public static FeatureDefinitionMovementAffinity MovementAffinityDruidCircleWindsUnfettered { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityDruidCircleWindsUnfettered",
+                "cdf27fcd5de38c04e8ac74ee6a897c67");
+
+        public static FeatureDefinitionMovementAffinity MovementAffinityFeatDauntingPush { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityFeatDauntingPush",
+                "fcbb6c81abbbbad42870e7e516c5576a");
+
+        public static FeatureDefinitionMovementAffinity MovementAffinityFeatForestRunner { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityFeatForestRunner",
+                "e50949705fa293b4f9c8c7a9d0300a0e");
 
         public static FeatureDefinitionMovementAffinity MovementAffinityFeatRushToBattle { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityFeatRushToBattle",
@@ -5459,6 +7142,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityLongstrider",
                 "2f32a56ca6d7b95499bd37b445e3ea4f");
 
+        public static FeatureDefinitionMovementAffinity MovementAffinityMonkUnarmoredMovement { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityMonkUnarmoredMovement",
+                "7383919b02175764787835182aff6df4");
+
+        public static FeatureDefinitionMovementAffinity MovementAffinityMonkUnarmoredMovementImproved { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityMonkUnarmoredMovementImproved",
+                "005af4878b4a3a546a9963f7b68fb858");
+
         public static FeatureDefinitionMovementAffinity MovementAffinityNoClimb { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoClimb",
                 "f65dd18ad2835b14e96502705a1b9544");
@@ -5470,6 +7161,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionMovementAffinity MovementAffinityNoVault { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoVault",
                 "0b6455d36a68ae84f864f99a3b2c3a34");
+
+        public static FeatureDefinitionMovementAffinity MovementAffinityPactChainSprite { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityPactChainSprite",
+                "b700e9c609a367348a6b76514a31458d");
 
         public static FeatureDefinitionMovementAffinity MovementAffinityRangerSwiftBladeQuickStep { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityRangerSwiftBladeQuickStep",
@@ -5504,6 +7199,9 @@ public static partial class DatabaseHelper
     {
         public static FeatureDefinitionMoveMode MoveModeBurrow10 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeBurrow10", "4e03964022dd7ca4e837500b55559905");
+
+        public static FeatureDefinitionMoveMode MoveModeBurrow16 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeBurrow16", "c3c9ed37d46582a478900ee0808b7f41");
 
         public static FeatureDefinitionMoveMode MoveModeBurrow8 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeBurrow8", "56c35cd75dc9a8c40b6e20bd8a593441");
@@ -5613,6 +7311,25 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionPointPool>("PointPoolBarbarianrSkillPoints",
                 "869a37e29e1256545bbdeca89ce59b00");
 
+        public static FeatureDefinitionPointPool PointPoolBardExpertiseLevel10 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardExpertiseLevel10",
+                "c9924d8f1efd829469539ff0dc9d39a7");
+
+        public static FeatureDefinitionPointPool PointPoolBardExpertiseLevel3 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardExpertiseLevel3",
+                "1d0f836dadaecb64b85e1d1a28343f11");
+
+        public static FeatureDefinitionPointPool PointPoolBardMagicalSecrets10 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardMagicalSecrets10",
+                "570e2f16b7521134fb509807314b640e");
+
+        public static FeatureDefinitionPointPool PointPoolBardMagicalSecrets14 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardMagicalSecrets14",
+                "c83024f13d1596342adcb1968dca7286");
+
+        public static FeatureDefinitionPointPool PointPoolBardSkillPoints { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardSkillPoints", "76d1562c4e823814984a0ab2d47f1e30");
+
         public static FeatureDefinitionPointPool PointPoolBonusFeat { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolBonusFeat", "c3eef96a911e20a40ab0e8a61c7463e1");
 
@@ -5622,6 +7339,14 @@ public static partial class DatabaseHelper
 
         public static FeatureDefinitionPointPool PointPoolClericSkillPoints { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolClericSkillPoints", "49aa06f1e0153354d895089c036309ea");
+
+        public static FeatureDefinitionPointPool PointPoolCollegeLoreAdditionalMagicalSecrets { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolCollegeLoreAdditionalMagicalSecrets",
+                "ad99f4051ed6b8e4b917a7c71a51542f");
+
+        public static FeatureDefinitionPointPool PointPoolCollegeLoreBonusSkills { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolCollegeLoreBonusSkills",
+                "a43794a774c9b4a40b7b4c84fdfeb80a");
 
         public static FeatureDefinitionPointPool PointPoolDruidSkillPoints { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolDruidSkillPoints", "19e6b56cbea23144daba63c85ad5bc0f");
@@ -5660,9 +7385,23 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPointPool PointPoolHumanSkillPool { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolHumanSkillPool", "fb11e5dca271149489469178f25918e0");
 
+        public static FeatureDefinitionPointPool PointPoolInvocationBookAncientSecrets { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolInvocationBookAncientSecrets",
+                "249a615f8dca82449a780ad69f557afa");
+
         public static FeatureDefinitionPointPool PointPoolLoreMasterArcaneLore { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolLoreMasterArcaneLore",
                 "fa0e139660e0a32489b0b335a2b8da2b");
+
+        public static FeatureDefinitionPointPool PointPoolLoreMasterArcaneProfessor { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolLoreMasterArcaneProfessor",
+                "7266869b4e59b6e43a6ae7a194fc3fc8");
+
+        public static FeatureDefinitionPointPool PointPoolMonkSkillPoints { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolMonkSkillPoints", "82b438d6e2959b348bc02f9b4a344a3e");
+
+        public static FeatureDefinitionPointPool PointPoolPactTome { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolPactTome", "791b6d9070630584794cf4f664ec24f0");
 
         public static FeatureDefinitionPointPool PointPoolPaladinSkillPoints { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolPaladinSkillPoints",
@@ -5688,6 +7427,46 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionPointPool>("PointPoolSorcererSkillPoints",
                 "388294e65ae81294e967e351da221df8");
 
+        public static FeatureDefinitionPointPool PointPoolWarlockInvocation12 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockInvocation12",
+                "3d9cb6c32806dd9408c43cf585f3d653");
+
+        public static FeatureDefinitionPointPool PointPoolWarlockInvocation15 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockInvocation15",
+                "1defb9c5a6a0b1647a82738bd7d62fd6");
+
+        public static FeatureDefinitionPointPool PointPoolWarlockInvocation2 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockInvocation2",
+                "16f46266185860948a7f12d79b63797a");
+
+        public static FeatureDefinitionPointPool PointPoolWarlockInvocation5 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockInvocation5",
+                "172af25238752de43a0d02ed223e9c2d");
+
+        public static FeatureDefinitionPointPool PointPoolWarlockInvocation7 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockInvocation7",
+                "1b38baeb1fff98f48967501641d1201c");
+
+        public static FeatureDefinitionPointPool PointPoolWarlockInvocation9 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockInvocation9",
+                "80e280ceff52cd243a9d9d6b5faff1cc");
+
+        public static FeatureDefinitionPointPool PointPoolWarlockMysticArcanum6 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockMysticArcanum6",
+                "2b1594bca494bd847a6e8b15763e2714");
+
+        public static FeatureDefinitionPointPool PointPoolWarlockMysticArcanum7 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockMysticArcanum7",
+                "5bb82ea3a75c1094d8601641748d7aa7");
+
+        public static FeatureDefinitionPointPool PointPoolWarlockMysticArcanum8 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockMysticArcanum8",
+                "5325adcfd9c05ef46a9e50120dba61de");
+
+        public static FeatureDefinitionPointPool PointPoolWarlockSkillPoints { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockSkillPoints",
+                "16dd9f5d7cc44254c9284ad7d81e3db8");
+
         public static FeatureDefinitionPointPool PointPoolWizardSkillPoints { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolWizardSkillPoints", "2c68bd1101a20324d9c4fd61e40610fb");
 
@@ -5698,6 +7477,17 @@ public static partial class DatabaseHelper
 
     public static class FeatureDefinitionPowers
     {
+        public static FeatureDefinitionPower Power_HornOfBlasting { get; } =
+            GetDefinition<FeatureDefinitionPower>("Power_HornOfBlasting", "117e943843bc8de43a009efea1708b49");
+
+        public static FeatureDefinitionPower Power_Legendary_AncientRemorhaz_Feed { get; } =
+            GetDefinition<FeatureDefinitionPower>("Power_Legendary_AncientRemorhaz_Feed",
+                "84cd4f3ecc8e48d4ea645eb5170ede37");
+
+        public static FeatureDefinitionPower Power_Legendary_AncientRemorhaz_SonicBlast { get; } =
+            GetDefinition<FeatureDefinitionPower>("Power_Legendary_AncientRemorhaz_SonicBlast",
+                "5b9204e305477894b9996a77bd1e2f0b");
+
         public static FeatureDefinitionPower Power_Legendary_MummyLord_BlasphemousWords { get; } =
             GetDefinition<FeatureDefinitionPower>("Power_Legendary_MummyLord_BlasphemousWords",
                 "8e9cff4b551f7cc419ddabbc4806ef7a");
@@ -5720,14 +7510,70 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower Power_MummyLord_DreadfulGlare { get; } =
             GetDefinition<FeatureDefinitionPower>("Power_MummyLord_DreadfulGlare", "ebd779d578d4b54478685a80fdbf95c7");
 
+        public static FeatureDefinitionPower PowerAncientRemorhazSwallow { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerAncientRemorhazSwallow", "f8150fc16c108fd46ae285d67b789939");
+
         public static FeatureDefinitionPower PowerArrokAuraOfFire { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerArrokAuraOfFire", "365bec3f2b1ea8343a326a5a3a5ee723");
+
+        public static FeatureDefinitionPower PowerBarbarianPersistentRageStart { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBarbarianPersistentRageStart",
+                "55b04337ae3b3c243aa098067aadcc7d");
 
         public static FeatureDefinitionPower PowerBarbarianRageStart { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBarbarianRageStart", "e7a28acc3db191643891258016ef8779");
 
         public static FeatureDefinitionPower PowerBarbarianRageStop { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBarbarianRageStop", "aa7092dd0c21573439e4325a919c81f3");
+
+        public static FeatureDefinitionPower PowerBardCountercharm { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardCountercharm", "b45d84885b928b94aa41092cee886e89");
+
+        public static FeatureDefinitionPower PowerBardGiveBardicInspiration { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardGiveBardicInspiration", "88ab025d44d800b47ad76e552cb349a3");
+
+        public static FeatureDefinitionPower PowerBardHeroismAtRoadsEnd { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHeroismAtRoadsEnd", "84a517ed445eaa04fb31a0a33155f742");
+
+        public static FeatureDefinitionPower PowerBardHeroismBolsterMorale { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHeroismBolsterMorale", "8e98a13e8b8601d46bab3f1ab06919ea");
+
+        public static FeatureDefinitionPower PowerBardHeroismHeroicTale { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHeroismHeroicTale", "f72469f835c761344a6239f0d2ddbfca");
+
+        public static FeatureDefinitionPower PowerBardHeroismThunderingVoice { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHeroismThunderingVoice",
+                "ad638f8912750c648abad5d2d44c02bc");
+
+        public static FeatureDefinitionPower PowerBardHopeSingSongOfHope { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHopeSingSongOfHope", "1c6f69d8990b8874b98db3a7e4f2e277");
+
+        public static FeatureDefinitionPower PowerBardHopeStartSongOfHope { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHopeStartSongOfHope", "1e35d98e45134204482e958829946e0e");
+
+        public static FeatureDefinitionPower PowerBardHopeWordsOfHope13 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHopeWordsOfHope13", "d01a9a0ddc7d47943881e9f92ec5985b");
+
+        public static FeatureDefinitionPower PowerBardHopeWordsOfHope17 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHopeWordsOfHope17", "7cbe2e993147f1440b0058da53ede327");
+
+        public static FeatureDefinitionPower PowerBardHopeWordsOfHope6 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHopeWordsOfHope6", "a9af65803f7172e46bd2c2380bb6f651");
+
+        public static FeatureDefinitionPower PowerBardHopeWordsOfHope9 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHopeWordsOfHope9", "21f711e70cd96d54b8f184ac895ee674");
+
+        public static FeatureDefinitionPower PowerBardTraditionAncientTradition { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardTraditionAncientTradition",
+                "86a4587af9fb6fc42a059820fb58fdfd");
+
+        public static FeatureDefinitionPower PowerBardTraditionManacalonsPerfection { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardTraditionManacalonsPerfection",
+                "090813cdac14aea47a1b511af1490b18");
+
+        public static FeatureDefinitionPower PowerBardTraditionVerbalOnslaught { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardTraditionVerbalOnslaught",
+                "aa174f8ff72bfe241936d4d00820f79a");
 
         public static FeatureDefinitionPower PowerBerserkerFrenzy { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBerserkerFrenzy", "28c7303e7742ef94fb6a3780c3033759");
@@ -5738,6 +7584,9 @@ public static partial class DatabaseHelper
 
         public static FeatureDefinitionPower PowerBerserkerMindlessRage { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBerserkerMindlessRage", "192598156a60fe1438e3758a2ba9b547");
+
+        public static FeatureDefinitionPower PowerBulette_Snow_Leap { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBulette_Snow_Leap", "941be00f2ac16f6449970672ee106af4");
 
         public static FeatureDefinitionPower PowerBuletteLeap { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBuletteLeap", "43cdc9869a4e4fbdbcb6eec5146d17c0");
@@ -5769,11 +7618,20 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerClericTurnUndead11 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead11", "db14a6ae364552e48bea1c5bc3a7aa6f");
 
+        public static FeatureDefinitionPower PowerClericTurnUndead14 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead14", "bc3d8b8b1e845b6469932cca7a046c67");
+
         public static FeatureDefinitionPower PowerClericTurnUndead5 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead5", "fb5ef341e5829984d8c789d9aa500ff2");
 
         public static FeatureDefinitionPower PowerClericTurnUndead8 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead8", "6fd2d50bba7337a43b4034a75d077911");
+
+        public static FeatureDefinitionPower PowerCollegeLoreCuttingWords { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerCollegeLoreCuttingWords", "9c76270c07f31f94a9b1b1422b5c75e1");
+
+        public static FeatureDefinitionPower PowerCouatlConstrict { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerCouatlConstrict", "145615b26225b8840ad416ab1772f1db");
 
         public static FeatureDefinitionPower PowerDefilerDarkness { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDefilerDarkness", "fd6fb44696a51b24e907474087d41bd7");
@@ -5802,6 +7660,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerDomainBattleDecisiveStrike11 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike11",
                 "15b98402b645c17429a2d4eff4d1827b");
+
+        public static FeatureDefinitionPower PowerDomainBattleDecisiveStrike14 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike14",
+                "2e23f3d286c0e864192600708c6693dd");
 
         public static FeatureDefinitionPower PowerDomainBattleDecisiveStrike5 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike5",
@@ -5863,6 +7725,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerDomainLawAnathema { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLawAnathema", "02164197b5814c44a808162faa35c58d");
 
+        public static FeatureDefinitionPower PowerDomainLawAnathemaImprovement { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainLawAnathemaImprovement",
+                "1958972db9db5a54c9d97ec829c6dcdb");
+
         public static FeatureDefinitionPower PowerDomainLawForceOfLaw { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLawForceOfLaw", "35cc82ea560b9274fa1bd8560d834795");
 
@@ -5887,6 +7753,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionPower>("PowerDomainMischiefStrikeOfChaos11",
                 "eb05326230913954db1a88f9046b6869");
 
+        public static FeatureDefinitionPower PowerDomainMischiefStrikeOfChaos14 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainMischiefStrikeOfChaos14",
+                "8b7a42d0dd1453b4c8448e5bdf68540a");
+
         public static FeatureDefinitionPower PowerDomainMischiefStrikeOfChaos5 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainMischiefStrikeOfChaos5",
                 "8b8c70dc30c820b4984118c1e700628b");
@@ -5905,6 +7775,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerDomainOblivionMarkOfFate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainOblivionMarkOfFate", "a70f0bb11c6979747ae1716b47af653b");
 
+        public static FeatureDefinitionPower PowerDomainOblivionMarkOfFateImprovement { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainOblivionMarkOfFateImprovement",
+                "056da008ddeff774d85bb28a1af3137f");
+
         public static FeatureDefinitionPower PowerDomainSunHeraldOfTheSun { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainSunHeraldOfTheSun", "f1e5b3f070f970144bb3659b4de807f5");
 
@@ -5914,8 +7788,32 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerDomainSunSoothingHand { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainSunSoothingHand", "634e6e54a72c3da4aa27aabcff593b88");
 
+        public static FeatureDefinitionPower PowerDragonbornBreathWeaponBlack { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlack",
+                "dca30e1e1a2112e4e933e870243a6362");
+
+        public static FeatureDefinitionPower PowerDragonbornBreathWeaponBlue { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlue",
+                "8ae044db5645a5849a9315596a72a2a5");
+
+        public static FeatureDefinitionPower PowerDragonbornBreathWeaponGold { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponGold",
+                "41960a577c03ef34abae82d2201108d3");
+
+        public static FeatureDefinitionPower PowerDragonbornBreathWeaponGreen { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponGreen",
+                "d1d9e610c2367b045a99a93613b53342");
+
+        public static FeatureDefinitionPower PowerDragonbornBreathWeaponSilver { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponSilver",
+                "24f01c8e9b1c995498f0e7dab316db30");
+
         public static FeatureDefinitionPower PowerDragonBreath_Acid { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid", "79118d71787cf2c42b488ed522c552c9");
+
+        public static FeatureDefinitionPower PowerDragonBreath_Acid_Spectral_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid_Spectral_DLC3",
+                "7f521cc30f0027f4699e4ce1926b735c");
 
         public static FeatureDefinitionPower PowerDragonBreath_Fire { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Fire", "ae53f3fda5bff924f8c7414ac9a2af27");
@@ -5938,8 +7836,24 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerDragonFrightfulPresence { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence", "afa9d44eb9c7a1b479e4caa0bb92111c");
 
+        public static FeatureDefinitionPower PowerDragonFrightfulPresence_Spectral_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence_Spectral_DLC3",
+                "5f4403bd2049ce74790fee20c969e691");
+
         public static FeatureDefinitionPower PowerDragonWingAttack { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonWingAttack", "9eb9b2b941476b44482c055f4c1f4b77");
+
+        public static FeatureDefinitionPower PowerDragonWingAttack_Spectral_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonWingAttack_Spectral_DLC3",
+                "d2db1e8d1d575b44b99b61cfa4bc15e5");
+
+        public static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower",
+                "61fb75d6698e1794d8a50580488fdf00");
+
+        public static FeatureDefinitionPower PowerDruidCircleLandNaturesSanctuary { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDruidCircleLandNaturesSanctuary",
+                "e379100663c93164ca1dbffc5b4b8ea9");
 
         public static FeatureDefinitionPower PowerDruidWildShape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidWildShape", "5b4f6371d0bdffb4194ab22c82ff17a3");
@@ -5953,11 +7867,67 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerEyebiteSickened { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerEyebiteSickened", "c5b18871e7914624ea2cbbd847303907");
 
+        public static FeatureDefinitionPower PowerFeatBlessingOfTheElements { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFeatBlessingOfTheElements", "3a581696a8442aa468d9a9735a656073");
+
+        public static FeatureDefinitionPower PowerFeatCloakAndDagger { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFeatCloakAndDagger", "2c856e705d2d7014ba8e8882695c7d1c");
+
+        public static FeatureDefinitionPower PowerFeatDauntingPush { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFeatDauntingPush", "79aa19589b5753049825c96c61e28ae6");
+
+        public static FeatureDefinitionPower PowerFeatDistractingGambit { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFeatDistractingGambit", "eb0fc71a586598d4d9d9de9db3c8c44f");
+
         public static FeatureDefinitionPower PowerFeatRaiseShield { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFeatRaiseShield", "cac99af2e8c3c5845a677213cc965c15");
 
         public static FeatureDefinitionPower PowerFeatTwinBlade { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFeatTwinBlade", "1069c13af472dda4fb0d0c1ce6734d05");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceAcid { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceAcid", "3e50b6cb85712db4ebc6f3d6f32ab52d");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceBludgeoning { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceBludgeoning",
+                "22c005816ca351c49bad76ec0a883675");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceCold { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceCold", "5ac188b2da08815448fdf880b02847ac");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceFire { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceFire", "d80c997b6646cb04a9f0d83c544c3246");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceForce { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceForce", "e0c7cab4a33b84c4d90f6948f3b8a521");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceLightning { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceLightning",
+                "86d1c3508e8c5c741a7cd53b98db4653");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceNecrotic { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceNecrotic",
+                "429f8fbe6014cf342a07c1861fbd965e");
+
+        public static FeatureDefinitionPower PowerFiendishResiliencePiercing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResiliencePiercing",
+                "2079cab31d6354547b6a6dd67db3b741");
+
+        public static FeatureDefinitionPower PowerFiendishResiliencePoison { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResiliencePoison", "4bf8c600585452041bb28f5be3ff2cf2");
+
+        public static FeatureDefinitionPower PowerFiendishResiliencePsychic { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResiliencePsychic", "d8f0a20c2f3941b48955c7019c1cbaaa");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceRadiant { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceRadiant", "8746414941c0e9341a9f62a7d117e23d");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceSlashing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceSlashing",
+                "b79c120f6b5185245b89007d376be8bf");
+
+        public static FeatureDefinitionPower PowerFiendishResilienceThunder { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceThunder", "f8aee135e47d29447baf592bb24f619b");
 
         public static FeatureDefinitionPower PowerFighterActionSurge { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterActionSurge", "f0303fb750e20564ebea8c51e8f20394");
@@ -5978,6 +7948,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerFighterSecondWind_DLC1_NPC1 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_DLC1_NPC1",
                 "069cd2ebe4b531145848741d1390b953");
+
+        public static FeatureDefinitionPower PowerFighterSecondWind_DLC3_Ashdown { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_DLC3_Ashdown",
+                "75d57d5752a1d6441a86d3aee58ffe5b");
 
         public static FeatureDefinitionPower PowerFighterSecondWind_Dominion_Soldier { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_Dominion_Soldier",
@@ -6001,11 +7975,63 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerFireShieldWarmRetaliate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFireShieldWarmRetaliate", "edef45b513babad4faf9065d7a71184e");
 
+        public static FeatureDefinitionPower PowerFluteOfRespiteSoothingNotes { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFluteOfRespiteSoothingNotes",
+                "755aea4d31c7c044cbf9ebd4e12f552b");
+
         public static FeatureDefinitionPower PowerFunctionAlchemistFire { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionAlchemistFire", "82930d1f00aaa0e47a3b9fb6f83dd591");
 
         public static FeatureDefinitionPower PowerFunctionAntitoxin { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionAntitoxin", "32cff0ab00ee40f42b6db5d4e64acf3c");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_DawnBreak_ARM { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_DawnBreak_ARM",
+                "e96a35c98ffdb11448f17d7d1c42d4a6");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_DawnBreak_WPN { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_DawnBreak_WPN",
+                "75d6e87e404111045846ba3bb1ab0b83");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_FiendSlaying_ARM { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_FiendSlaying_ARM",
+                "def0569b9fedb804dac97b91e3770311");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_FiendSlaying_WPN { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_FiendSlaying_WPN",
+                "e0c577765fcbfa946832ce020a94e85f");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_NightHunt_ARM { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_NightHunt_ARM",
+                "c788f2c896c6e8f48b5a687f2ce128c1");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_NightHunt_WPN { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_NightHunt_WPN",
+                "4999dae1bf1ce924dac30124d03ef960");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_PseudoLife_ARM { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_PseudoLife_ARM",
+                "97d44ba2ddf66f3499666805a2bf8336");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_PseudoLife_WPN { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_PseudoLife_WPN",
+                "026302c4425322a4abd2017d4676c716");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_SpellTaint_ARM { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_SpellTaint_ARM",
+                "6c6bac4c34acc2a45b79c403eb1cdb1b");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_SpellTaint_WPN { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_SpellTaint_WPN",
+                "2453ad0d2cf05d344ad43fb73ff1cc4a");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_TrueStrike_ARM { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_TrueStrike_ARM",
+                "d0bf40acfa0ae39488cd2bad17eb2e48");
+
+        public static FeatureDefinitionPower PowerFunctionApplyDemonGrease_TrueStrike_WPN { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyDemonGrease_TrueStrike_WPN",
+                "249eedc4417f3c3439d31cd2be1761cd");
 
         public static FeatureDefinitionPower PowerFunctionApplyOilOfSharpness { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionApplyOilOfSharpness",
@@ -6161,6 +8187,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerFunctionRemedyOther { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionRemedyOther", "c5cf36c7a8b58c64b84744afbae6e099");
 
+        public static FeatureDefinitionPower PowerFunctionRestorativeOintment { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionRestorativeOintment",
+                "3a195cfeb23d9da4d8aa7ed7cdcd24f4");
+
+        public static FeatureDefinitionPower PowerFunctionRestorativeOintmentOther { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionRestorativeOintmentOther",
+                "5f6dcc59a05d8af44a12e6129191cdb8");
+
         public static FeatureDefinitionPower PowerFunctionTestDisease { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionTestDisease", "36881b2f969c0734691df934d5e7d66f");
 
@@ -6191,6 +8225,28 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerGrimBladeShadowEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerGrimBladeShadowEscape", "c50d76d6b130bf3409a77fb788b3146b");
 
+        public static FeatureDefinitionPower PowerHezrouStench { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerHezrouStench", "9bd06b9f9d549c148854037568f6c5d3");
+
+        public static FeatureDefinitionPower PowerHolyAuraRetaliate { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerHolyAuraRetaliate", "3e52ca1b7410b6a44949b961d779fca0");
+
+        public static FeatureDefinitionPower PowerIceGolemBreath { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerIceGolemBreath", "bcc544c409b121d4c8606829b3dc4611");
+
+        public static FeatureDefinitionPower PowerIncubus_Drain { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerIncubus_Drain", "80cb221b036d0e54389b0558191e6424");
+
+        public static FeatureDefinitionPower PowerIncubusDemonicInfluence { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerIncubusDemonicInfluence", "60f8b289fa22ade4b9d045379baa06fe");
+
+        public static FeatureDefinitionPower PowerInvocationOneWithShadowsTurnInvisivle { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerInvocationOneWithShadowsTurnInvisivle",
+                "11f3885b4d56b1c44a1d4c27ebeb4fca");
+
+        public static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast", "39b555fc1bc50ba4aa3eaa3e724b3522");
+
         public static FeatureDefinitionPower PowerIronGolemBreath { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerIronGolemBreath", "47ee827598e33fc4584bf3b555785ce3");
 
@@ -6203,6 +8259,9 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerKindredSpiritEagle { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerKindredSpiritEagle", "527999e9a045ec94cace6093651f3d39");
 
+        public static FeatureDefinitionPower PowerKindredSpiritRage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerKindredSpiritRage", "4f705331245c8e447a3dae762892d74f");
+
         public static FeatureDefinitionPower PowerKindredSpiritRally { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerKindredSpiritRally", "cb3eb0f588d63834f90807f37b14855d");
 
@@ -6213,11 +8272,18 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerKindredSpiritSpider { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerKindredSpiritSpider", "d46054d7fadc1a04daea7c3dc63ced88");
 
+        public static FeatureDefinitionPower PowerKindredSpiritTiger { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerKindredSpiritTiger", "14ce0c1c8546f7143a512e2888136d44");
+
         public static FeatureDefinitionPower PowerKindredSpiritViper { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerKindredSpiritViper", "6c35a9b065d828f4db8931cc01613a2f");
 
         public static FeatureDefinitionPower PowerKindredSpiritWolf { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerKindredSpiritWolf", "ef680a0407617024cbf8312fdc031f48");
+
+        public static FeatureDefinitionPower PowerKutkartalIncreasedReliance { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerKutkartalIncreasedReliance",
+                "75a5eaa8a1e9dbb47a261c2977eaecc1");
 
         public static FeatureDefinitionPower PowerLaetharMistyFormEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerLaetharMistyFormEscape", "b1e0eeb55625f0942a989f7ec9e8593a");
@@ -6225,8 +8291,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerLaetharParalyzingGaze { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerLaetharParalyzingGaze", "03b2852b0ff272445b288a3b356ea883");
 
+        public static FeatureDefinitionPower PowerMagebaneSpellCrusher { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMagebaneSpellCrusher", "c2fb5a55606c7b445ac319de2f8ff57e");
+
         public static FeatureDefinitionPower PowerMagebaneWarcry { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMagebaneWarcry", "9693f4628374e854aa96a2a6e9bc0633");
+
+        public static FeatureDefinitionPower PowerMarilithTail { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMarilithTail", "eea9e36c449e37d41a1f52d338348566");
 
         public static FeatureDefinitionPower PowerMarksmanRecycler { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMarksmanRecycler", "7e52d1de7ba71c242ad840e3cdec1cab");
@@ -6239,9 +8311,53 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout",
                 "f890378a453b6f349a2cb591434a6908");
 
+        public static FeatureDefinitionPower PowerMartialCommanderLeadByExample { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderLeadByExample",
+                "358792966a0dead4a84fe0789d44b371");
+
         public static FeatureDefinitionPower PowerMartialCommanderRousingShout { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderRousingShout",
                 "fd14034ff3094f944891c9bb8ebb2462");
+
+        public static FeatureDefinitionPower PowerMartialSpellbladeArcaneEscape { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMartialSpellbladeArcaneEscape",
+                "64ecebef2b3ef064585f780b471c8a34");
+
+        public static FeatureDefinitionPower PowerMelekTeleport { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMelekTeleport", "447c8c72797d1fc47bffeca66656e4ea");
+
+        public static FeatureDefinitionPower PowerMonkFlurryOfBlows { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkFlurryOfBlows", "1ffa4b8777fe25345a5b85370c1807a2");
+
+        public static FeatureDefinitionPower PowerMonkItemPenitentBelt { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkItemPenitentBelt", "1dd0175ec0ca2a047885f47c0c21a7bb");
+
+        public static FeatureDefinitionPower PowerMonkMartialArts { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkMartialArts", "1cb30a9a67a839849a848e99397890e9");
+
+        public static FeatureDefinitionPower PowerMonkPatientDefense { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefense", "24fa05ec9f3efcf4d86e6a0833c6281b");
+
+        public static FeatureDefinitionPower PowerMonkPatientDefenseSurvival3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefenseSurvival3",
+                "5b492cfd4be376347ba9668f2aa12ca5");
+
+        public static FeatureDefinitionPower PowerMonkPatientDefenseSurvival6 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefenseSurvival6",
+                "2c42f668a894d2c4880754279b704bd5");
+
+        public static FeatureDefinitionPower PowerMonkReturnMissile { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkReturnMissile", "e9b7bdaa28e60594bbc860da8b0de483");
+
+        public static FeatureDefinitionPower PowerMonkStepOfTheWindDash { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkStepOfTheWindDash", "ad72e6601389d5a4d8d5dc3596133068");
+
+        public static FeatureDefinitionPower PowerMonkStepOftheWindDisengage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkStepOftheWindDisengage",
+                "5abdaaafd4a5f884983d4b20204ac087");
+
+        public static FeatureDefinitionPower PowerMonkStunningStrike { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkStunningStrike", "5e112de763b0d40428c65e6b825a2f74");
 
         public static FeatureDefinitionPower PowerMountaineerCloseQuarters { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMountaineerCloseQuarters", "a976c9590645d4742a40ae28ddd6c7a4");
@@ -6255,6 +8371,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerOathOfDevotionAuraDevotion { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionAuraDevotion",
                 "efd92accd1ccf2e4e9f00de4a07bd694");
+
+        public static FeatureDefinitionPower PowerOathOfDevotionPurityOfSpirit { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionPurityOfSpirit",
+                "f17231f9284ebdc45939d3e289049696");
 
         public static FeatureDefinitionPower PowerOathOfDevotionSacredWeapon { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionSacredWeapon",
@@ -6270,6 +8390,9 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerOathOfJugementPurgeCorruption { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementPurgeCorruption",
                 "7ff8494085d06144eae66418911cc6bc");
+
+        public static FeatureDefinitionPower PowerOathOfJugementRetribution { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementRetribution", "eeb5ad9f71a881f4a9fd7591f9927838");
 
         public static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice",
@@ -6297,11 +8420,29 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionPower>("PowerOathOfTirmarSmiteTheHidden",
                 "dc9d544b98b972d47bc76e447516221c");
 
+        public static FeatureDefinitionPower PowerOathOfTirmarSoraksBane { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerOathOfTirmarSoraksBane", "a0e91d35e61c73e4a8b4cbae568b9241");
+
+        public static FeatureDefinitionPower PowerPactChainImp { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPactChainImp", "b919e2188b7a8634a9ba2e11d58b99f6");
+
+        public static FeatureDefinitionPower PowerPactChainPseudodragon { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPactChainPseudodragon", "91c072163ad19bc48ae336f43270537d");
+
+        public static FeatureDefinitionPower PowerPactChainQuasit { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPactChainQuasit", "00f83295250998844bf535dd5b378610");
+
+        public static FeatureDefinitionPower PowerPactChainSprite { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPactChainSprite", "7c6331f893a8a9f43ae3854a87d7c56d");
+
         public static FeatureDefinitionPower PowerPaladinAuraOfCourage { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPaladinAuraOfCourage", "679171cbb80e38d41b4626aa3da0e72b");
 
         public static FeatureDefinitionPower PowerPaladinAuraOfProtection { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPaladinAuraOfProtection", "478d55235de018441a4d809d1f15df79");
+
+        public static FeatureDefinitionPower PowerPaladinCleansingTouch { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPaladinCleansingTouch", "ae9ae1623b2187d47aadecb04c5f6f54");
 
         public static FeatureDefinitionPower PowerPaladinCureDisease { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPaladinCureDisease", "2c61b5b506ce2bc4bb880ea878f574c2");
@@ -6321,6 +8462,58 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerPathClawDraconicWrath { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPathClawDraconicWrath", "0a76ab75bc044644ba3ee986e6e93aec");
 
+        public static FeatureDefinitionPower PowerPatronFiendDarkOnesBlessing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesBlessing",
+                "6b47598926ac9914b811a9bcebb59116");
+
+        public static FeatureDefinitionPower PowerPatronFiendDarkOnesOwnLuck { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesOwnLuck",
+                "266ed695bf4979f4d963fcb155419dc3");
+
+        public static FeatureDefinitionPower PowerPatronFiendHurlThroughHell { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronFiendHurlThroughHell",
+                "0af0f7e012ceed44b80037acaf233ca7");
+
+        public static FeatureDefinitionPower PowerPatronHiveMagicCounter { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronHiveMagicCounter", "f96278ec6d940b7418fbc99898c641e0");
+
+        public static FeatureDefinitionPower PowerPatronHiveReactiveCarapace { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronHiveReactiveCarapace",
+                "2d8891b4766fd3f4c9b336df4fc05a1b");
+
+        public static FeatureDefinitionPower PowerPatronTimekeeperAccelerate { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperAccelerate",
+                "5c9d62077a74a7146a7f2ea10f52c5c3");
+
+        public static FeatureDefinitionPower PowerPatronTimekeeperTimeShift { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperTimeShift", "8ea972bec0150f64f9603b140c3d5641");
+
+        public static FeatureDefinitionPower PowerPatronTimekeeperTimeWarp { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperTimeWarp", "23f12fe3e7f54cc499393173c98844d4");
+
+        public static FeatureDefinitionPower PowerPatronTreeExplosiveGrowth { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronTreeExplosiveGrowth", "4e0a04c11733c6246a88561e9a36fa96");
+
+        public static FeatureDefinitionPower PowerPatronTreePiercingBranch { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronTreePiercingBranch", "71daf0462ba4d7244a70774bc3cd6e14");
+
+        public static FeatureDefinitionPower PowerPatronTreePiercingBranchOneWithTheTree { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronTreePiercingBranchOneWithTheTree",
+                "afdd865a01934834cbd65e342a3c1017");
+
+        public static FeatureDefinitionPower PowerPeaksAbominationLeap { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPeaksAbominationLeap", "66b1b1dcd668c5d49ac9e3068909dd2b");
+
+        public static FeatureDefinitionPower PowerPeaksAbominationrBreath_Cold { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPeaksAbominationrBreath_Cold",
+                "0112c771121842242b8b07f2d763175d");
+
+        public static FeatureDefinitionPower PowerPeaksTerrorBreath_Cold { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPeaksTerrorBreath_Cold", "19e6b5f89fd8b6549854f2f9c9d0e62c");
+
+        public static FeatureDefinitionPower PowerPhaseIncubusTeleport { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPhaseIncubusTeleport", "03745cdc8906a63459d41fe8ee07a1f9");
+
         public static FeatureDefinitionPower PowerPhaseMarilithTeleport { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPhaseMarilithTeleport", "bd5e55fd2ab911844ad1373ba9ac67e7");
 
@@ -6330,12 +8523,20 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerRangerHideInPlainSight { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRangerHideInPlainSight", "576cea4790608ce498f61719b998e727");
 
+        public static FeatureDefinitionPower PowerRangerHunterStandAgainstTheTide { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerRangerHunterStandAgainstTheTide",
+                "b8ddb7d7f79145a48898acdd3e29518a");
+
         public static FeatureDefinitionPower PowerRangerPrimevalAwareness { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRangerPrimevalAwareness", "c98ab4090bd327747b36250bf76b2a9a");
 
         public static FeatureDefinitionPower PowerRangerSwiftBladeBattleFocus { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRangerSwiftBladeBattleFocus",
                 "0424e71a59a24024f8b100d115d9b06c");
+
+        public static FeatureDefinitionPower PowerRangerSwiftBladeUncatchable { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerRangerSwiftBladeUncatchable",
+                "5c0ea49f8e509a74896e01ee718ee5ed");
 
         public static FeatureDefinitionPower PowerReckless { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerReckless", "3095894976883c04e8c53ac7253e8005");
@@ -6345,6 +8546,13 @@ public static partial class DatabaseHelper
 
         public static FeatureDefinitionPower PowerRemorhazSwallow { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRemorhazSwallow", "9a8740b2399c7164495e0871c8e79898");
+
+        public static FeatureDefinitionPower PowerRoguishDarkweaverShadowy { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerRoguishDarkweaverShadowy", "0c819515e2325fb49b198a813dc6c053");
+
+        public static FeatureDefinitionPower PowerRoguishHoodlumDirtyFighting { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerRoguishHoodlumDirtyFighting",
+                "8dd9852ac5ed7914b8f9268bf5df1c27");
 
         public static FeatureDefinitionPower PowerRoguishHoodlumMenacing { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRoguishHoodlumMenacing", "d7b456e884cef5049b38d0bf7aa20603");
@@ -6371,6 +8579,9 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerSorakDoomLaughter { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakDoomLaughter", "1446cf4900f498647be1f173e8daa3fb");
 
+        public static FeatureDefinitionPower PowerSorakDreadLaughter { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorakDreadLaughter", "fdc52ef5aeca9364291d205e34bb54d9");
+
         public static FeatureDefinitionPower PowerSorakDummy_ApostleDarkness { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakDummy_ApostleDarkness",
                 "78247723a799fa247a08c4dbd80531a4");
@@ -6390,8 +8601,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerSorakShadowEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape", "3bc12de245ffb7b4b99aad36ea777f24");
 
+        public static FeatureDefinitionPower PowerSorakShadowEscape_at_will { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape_at_will", "941ea12a9e8e765479d0b7a57555afe4");
+
         public static FeatureDefinitionPower PowerSorakShriek { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakShriek", "195a1223da34d274fb963a43896ac933");
+
+        public static FeatureDefinitionPower PowerSorakWordOfDarkness { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorakWordOfDarkness", "321e78bf9858760479be5ffc13dca0e3");
 
         public static FeatureDefinitionPower PowerSorcererChildRiftDeflection { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftDeflection",
@@ -6400,12 +8617,27 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerSorcererChildRiftOffering { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftOffering", "cc162f4b81f3c69439b514bc87c621a1");
 
+        public static FeatureDefinitionPower PowerSorcererChildRiftRiftwalk { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftRiftwalk", "45feac29936cfc84fa32273cb5c4ee78");
+
+        public static FeatureDefinitionPower PowerSorcererChildRiftRiftwalkLandingDamage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftRiftwalkLandingDamage",
+                "dd85e38b88f55a047b28da7c42be47dc");
+
         public static FeatureDefinitionPower PowerSorcererCreateSorceryPoints { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererCreateSorceryPoints",
                 "61386039a5180c346bd5db553a34d4ed");
 
         public static FeatureDefinitionPower PowerSorcererCreateSpellSlot { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererCreateSpellSlot", "02f20097b56f86847a07f2fe3bf30214");
+
+        public static FeatureDefinitionPower PowerSorcererDraconicDragonWingsDismiss { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererDraconicDragonWingsDismiss",
+                "0c8e7587a4bc6fd46990bb5c26b2b069");
+
+        public static FeatureDefinitionPower PowerSorcererDraconicDragonWingsSprout { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererDraconicDragonWingsSprout",
+                "e359a1ae4d8e12340bc57b67578893f0");
 
         public static FeatureDefinitionPower PowerSorcererDraconicElementalResistance { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererDraconicElementalResistance",
@@ -6414,6 +8646,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerSorcererHauntedSoulRechargeVengefulSpirits { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulRechargeVengefulSpirits",
                 "b02309ada2e3aea40a03931b3bcccabf");
+
+        public static FeatureDefinitionPower PowerSorcererHauntedSoulSoulDrain { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSoulDrain",
+                "6b6416560bb66c44a9e33c6782a7e262");
 
         public static FeatureDefinitionPower PowerSorcererHauntedSoulSpiritVisage { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSpiritVisage",
@@ -6453,6 +8689,31 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionPower PowerSunbeam { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSunbeam", "ddb8f35f454801645a235ab236dee7c0");
 
+        public static FeatureDefinitionPower PowerSymbolOfDeath { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfDeath", "2ed2b3e767a51d140bbcc6e7726984d5");
+
+        public static FeatureDefinitionPower PowerSymbolOfFear { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfFear", "0f148743b5d14fd4aa919a4306903673");
+
+        public static FeatureDefinitionPower PowerSymbolOfHopelessness { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfHopelessness", "e738d80044475ac4385ca3a491a2641d");
+
+        public static FeatureDefinitionPower PowerSymbolOfInsanity { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfInsanity", "f5a6921ab557bd54399449041c0ddf65");
+
+        public static FeatureDefinitionPower PowerSymbolOfPain { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfPain", "a559b85c1902f7a4e9990bbe6c0a7fba");
+
+        public static FeatureDefinitionPower PowerSymbolOfSleep { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfSleep", "0c76a1dbfaccd1440a08ad07adfadb89");
+
+        public static FeatureDefinitionPower PowerSymbolOfStun { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfStun", "f49b6e45ab2a270498d0f0efac96d080");
+
+        public static FeatureDefinitionPower PowerTraditionCourtMageExpandedSpellShield { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionCourtMageExpandedSpellShield",
+                "41f776ee4d12ec94e90a6b589b0ac89a");
+
         public static FeatureDefinitionPower PowerTraditionCourtMageImprovedSpellShield { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionCourtMageImprovedSpellShield",
                 "8167c2777077e1e4b97443e098076226");
@@ -6461,9 +8722,52 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionPower>("PowerTraditionCourtMageSpellShield",
                 "9f04a587e594bd347b0e504b5a3f0195");
 
+        public static FeatureDefinitionPower PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement",
+                "6fcd80134823b1140b6bc170ad14aefb");
+
+        public static FeatureDefinitionPower PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement",
+                "23cb029935964f143a99a2b96ec5adcb");
+
+        public static FeatureDefinitionPower PowerTraditionFreedomSwirlingDance { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomSwirlingDance",
+                "a510122d268195a40b70be0993b260bc");
+
         public static FeatureDefinitionPower PowerTraditionGreenmageMagicalArrow { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionGreenmageMagicalArrow",
                 "8f6c1105a5186644296749e871cea873");
+
+        public static FeatureDefinitionPower PowerTraditionGreenmageWeakeningEntanglingShot { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionGreenmageWeakeningEntanglingShot",
+                "7f6ef0f6c9d14954cb9f9b0b4865dcf5");
+
+        public static FeatureDefinitionPower PowerTraditionLightBlindingFlash { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionLightBlindingFlash",
+                "27c5e4c4d4ab8a44183eef632dcf599b");
+
+        public static FeatureDefinitionPower PowerTraditionLightLuminousKi { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionLightLuminousKi", "bd9ffa260e80a3940b51ba5e59cea589");
+
+        public static FeatureDefinitionPower PowerTraditionOpenHandOpenHandTechniqueDazzle { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandOpenHandTechniqueDazzle",
+                "da8862545a5aa1345bc41337df2122de");
+
+        public static FeatureDefinitionPower PowerTraditionOpenHandOpenHandTechniqueKnockProne { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandOpenHandTechniqueKnockProne",
+                "29123208981224a468b18967d65bb034");
+
+        public static FeatureDefinitionPower PowerTraditionOpenHandOpenHandTechniquePushAway { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandOpenHandTechniquePushAway",
+                "c106dbfd18f93234aa21a4c58d0d7b16");
+
+        public static FeatureDefinitionPower PowerTraditionOpenHandTranquility { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandTranquility",
+                "cc5ee8bd84e6d3648a61a0e3a883e54b");
+
+        public static FeatureDefinitionPower PowerTraditionOpenHandWholenessOfBody { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandWholenessOfBody",
+                "97eda3a1f3e7f734d8d804779dadf1c6");
 
         public static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury",
@@ -6473,11 +8777,25 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneShock",
                 "e0c75af06a2250d43b713c2ab5f0e57a");
 
+        public static FeatureDefinitionPower PowerTraditionShockArcanistGreaterArcaneShock { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistGreaterArcaneShock",
+                "e6b8991dc79db73428f102305232dc67");
+
+        public static FeatureDefinitionPower PowerTraditionSurvivalUnbreakableBody { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionSurvivalUnbreakableBody",
+                "415f76f9e52d92d41b28541a077dd365");
+
         public static FeatureDefinitionPower PowerTsharNecroticBlast { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTsharNecroticBlast", "fb449eba2977b024bbcc3c571c0a2347");
 
         public static FeatureDefinitionPower PowerVampiricTouch { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerVampiricTouch", "a578a0f3cd07e6b4e892d32f8e786e07");
+
+        public static FeatureDefinitionPower PowerVrockScreech { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerVrockScreech", "eb5886c9a9b86f742b05d4649794192f");
+
+        public static FeatureDefinitionPower PowerVrockSpores { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerVrockSpores", "1834830d5db46704e8cb24946770a24d");
 
         public static FeatureDefinitionPower PowerWight_DrainLife { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerWight_DrainLife", "68f06a01a429b44439781babeeb93fec");
@@ -6527,6 +8845,14 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyAcolyteToolsSkills",
                 "497c13410a0ea564a9bcae0d7d445f37");
 
+        public static FeatureDefinitionProficiency ProficiencyAesceticSkills { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyAesceticSkills",
+                "31eadd81f21455e46acb1e3f684f894e");
+
+        public static FeatureDefinitionProficiency ProficiencyAesceticToolsSkills { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyAesceticToolsSkills",
+                "490965b5c91b60f42936298914525896");
+
         public static FeatureDefinitionProficiency ProficiencyAllLanguages { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyAllLanguages", "49588ac1b01f26148ac73aea7dcfddab");
 
@@ -6553,6 +8879,9 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyArmor_Of_The_Oak",
                 "982f1f98f76c9fb42939d4854c4dc22f");
 
+        public static FeatureDefinitionProficiency ProficiencyArtistSkills { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyArtistSkills", "36fe43f1ea8dcf94d99f66a7ce52c741");
+
         public static FeatureDefinitionProficiency ProficiencyBarbarianArmor { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyBarbarianArmor",
                 "ffc46b42c46e27740983aa0f9342dcf8");
@@ -6564,6 +8893,23 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionProficiency ProficiencyBarbarianWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyBarbarianWeapon",
                 "c8d029b8327ee6749ad36fab8ad3de44");
+
+        public static FeatureDefinitionProficiency ProficiencyBardArmor { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyBardArmor", "e0f5013ce6685dd41a597955b0fae00e");
+
+        public static FeatureDefinitionProficiency ProficiencyBardSavingThrow { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyBardSavingThrow",
+                "cfc942ca41203a84a86c56e20bf0223c");
+
+        public static FeatureDefinitionProficiency ProficiencyBardTools { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyBardTools", "9759007f1aff10b4c84c6e30ba68a5dc");
+
+        public static FeatureDefinitionProficiency ProficiencyBardWeapon { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyBardWeapon", "7a40cff719b5f204bad64cb9452914b2");
+
+        public static FeatureDefinitionProficiency ProficiencyBeguilingInfluence { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyBeguilingInfluence",
+                "7321bd879a398d049a09c060a6ccceb3");
 
         public static FeatureDefinitionProficiency ProficiencyBeltOfDwarvenKind { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyBeltOfDwarvenKind",
@@ -6617,6 +8963,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionProficiency ProficiencyDomainMischiefTrickster { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyDomainMischiefTrickster",
                 "b52e06fd31a96c548a9ad308f23ea0b5");
+
+        public static FeatureDefinitionProficiency ProficiencyDragonbornLanguages { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyDragonbornLanguages",
+                "1bca31a64e676814ba7566001c132d1c");
 
         public static FeatureDefinitionProficiency ProficiencyDruidArmor { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidArmor", "a42d9252dcdb2aa4b91f39e839f90240");
@@ -6700,6 +9050,14 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionProficiency ProficiencyFighterWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyFighterWeapon", "b042ddec31ba7f04bbc4e0676716c76f");
 
+        public static FeatureDefinitionProficiency ProficiencyGnomeRockArtificersLore { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyGnomeRockArtificersLore",
+                "7d282cbbaf257504089ab87cbb301c3d");
+
+        public static FeatureDefinitionProficiency ProficiencyGnomeShadowStealthy { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyGnomeShadowStealthy",
+                "58bf04232c701ce45b14a99183cd4d88");
+
         public static FeatureDefinitionProficiency ProficiencyGreenmageWardenOfTheForestArmor { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyGreenmageWardenOfTheForestArmor",
                 "961479ea10022d24fa3754985fcbe8b3");
@@ -6759,9 +9117,38 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyMightOfTheIronLegionArmor",
                 "9117a4cd230576442a39d519a8298c8f");
 
+        public static FeatureDefinitionProficiency ProficiencyMonkArmor { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyMonkArmor", "bd94beca92444ef4f94a5fec6437cfc4");
+
+        public static FeatureDefinitionProficiency ProficiencyMonkDiamondSoulSavingThrow { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyMonkDiamondSoulSavingThrow",
+                "ae3a6121ff6d06e46a36f71b68fc2415");
+
+        public static FeatureDefinitionProficiency ProficiencyMonkSavingThrow { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyMonkSavingThrow",
+                "457fd2ba26db16c4289d4fa629006e00");
+
+        public static FeatureDefinitionProficiency ProficiencyMonkTools { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyMonkTools", "9239aa8abbb8462c965fd472067eef91");
+
+        public static FeatureDefinitionProficiency ProficiencyMonkWeapon { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyMonkWeapon", "34b45490614f9e54fa5babf4a5db2740");
+
         public static FeatureDefinitionProficiency ProficiencyOathOfTirmarBonusLanguage { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyOathOfTirmarBonusLanguage",
                 "7bacacf0acb0e5d4ca52cb76639610af");
+
+        public static FeatureDefinitionProficiency ProficiencyOccultistSkills { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyOccultistSkills",
+                "316d9cf44dd985e4b9d0c9c1f08eb77a");
+
+        public static FeatureDefinitionProficiency ProficiencyOccultistToolsSkills { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyOccultistToolsSkills",
+                "cd52d25bb161ec7438f3098e226e8059");
+
+        public static FeatureDefinitionProficiency ProficiencyPactBladeMartialWeapon { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyPactBladeMartialWeapon",
+                "30a3f0cd7c8168f4da44fb99b1ed0bd5");
 
         public static FeatureDefinitionProficiency ProficiencyPaladinArmor { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyPaladinArmor", "fcb8875cea1a0de43859febd16c09bc0");
@@ -6804,6 +9191,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionProficiency ProficiencyRogueSavingThrow { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyRogueSavingThrow",
                 "6c9b10892633840428b2df5ce99005bf");
+
+        public static FeatureDefinitionProficiency ProficiencyRogueSlipperyMind { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyRogueSlipperyMind",
+                "6f3028b39983672448e68a1c068db2c2");
 
         public static FeatureDefinitionProficiency ProficiencyRogueTools { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyRogueTools", "c885e9692adb8dc42b91f78051f9408b");
@@ -6886,6 +9277,16 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionProficiency ProficiencyWandererTools { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererTools", "b33e36032f2146749902f10464ced6ba");
 
+        public static FeatureDefinitionProficiency ProficiencyWarlockArmor { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockArmor", "af89dc9ccfb2adc409e68b8982b36233");
+
+        public static FeatureDefinitionProficiency ProficiencyWarlockSavingThrow { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockSavingThrow",
+                "6cc3744c274cfc2498706b1b188f5b05");
+
+        public static FeatureDefinitionProficiency ProficiencyWarlockWeapon { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockWeapon", "c13cf034567d0f24f90ae0e93bd0b120");
+
         public static FeatureDefinitionProficiency ProficiencyWizardSavingThrow { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyWizardSavingThrow",
                 "25753a6dc3e608d43bbf4648c7855bea");
@@ -6899,6 +9300,13 @@ public static partial class DatabaseHelper
 
     public static class FeatureDefinitionRegenerations
     {
+        public static FeatureDefinitionRegeneration Regeneration_Ancient_Remorhaz { get; } =
+            GetDefinition<FeatureDefinitionRegeneration>("Regeneration_Ancient_Remorhaz",
+                "b4af810cff4e0dd49a63d271e9985235");
+
+        public static FeatureDefinitionRegeneration Regeneration_Sessroth { get; } =
+            GetDefinition<FeatureDefinitionRegeneration>("Regeneration_Sessroth", "af1c404109f7b66489f45b59d8dc4e0a");
+
         public static FeatureDefinitionRegeneration RegenerationApostleOfDarkness_Darkness { get; } =
             GetDefinition<FeatureDefinitionRegeneration>("RegenerationApostleOfDarkness_Darkness",
                 "6a8565898c686e9479c362c03c87bf66");
@@ -6961,8 +9369,31 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionRegeneration>("RegenerationVampire", "abb9d6f76c691f84f8f487e26e921f31");
     }
 
+    public static class FeatureDefinitionRestHealingModifiers
+    {
+        public static FeatureDefinitionRestHealingModifier RestHealingModifierBardHealingBallad { get; } =
+            GetDefinition<FeatureDefinitionRestHealingModifier>("RestHealingModifierBardHealingBallad",
+                "a213405962afb9e43ad2505631e8ffa8");
+
+        public static FeatureDefinitionRestHealingModifier RestHealingModifierBardItemRespite { get; } =
+            GetDefinition<FeatureDefinitionRestHealingModifier>("RestHealingModifierBardItemRespite",
+                "5b300931ad0824c4290154a893c66884");
+
+        public static FeatureDefinitionRestHealingModifier RestHealingModifierBardSongOfRest { get; } =
+            GetDefinition<FeatureDefinitionRestHealingModifier>("RestHealingModifierBardSongOfRest",
+                "e95ee9a28dfbfee48a06cb153bd32ef0");
+    }
+
     public static class FeatureDefinitionSavingThrowAffinitys
     {
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinity_PalaceOfIce_LairEffect { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinity_PalaceOfIce_LairEffect",
+                "39370e7c4d86a5d458855c42b3800967");
+
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityAdvantageToAll { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityAdvantageToAll",
+                "43ef34e25f37fc64bbc7af455a107f8f");
+
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityAntitoxin { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityAntitoxin",
                 "574119d476facbc4ea88b544113c4869");
@@ -7077,6 +9508,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionHeroesFeast",
                 "3828eabed1f34dd41a0003e87e649e74");
 
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionHolyAura { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionHolyAura",
+                "52aa9d3ef0dfe8c46accbe802787be71");
+
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionParalyzed { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionParalyzed",
                 "38b293bacc1b7104a967a403629ad46e");
@@ -7108,6 +9543,11 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionWardedByWardingBond { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionWardedByWardingBond",
                 "399a9264ee753ed4d80c364c082981dc");
+
+        public static FeatureDefinitionSavingThrowAffinity
+            SavingThrowAffinityConditionWeakeningEntanglingShot { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionWeakeningEntanglingShot",
+                "2b12474fa6d8f244cae881163addb224");
 
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityContagionBlindingSickness { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityContagionBlindingSickness",
@@ -7178,6 +9618,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityDwarvenPlate",
                 "92fa98ccbf88dc5489188b4cb692cb36");
 
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityFiendDarkOnesOwnLuck { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityFiendDarkOnesOwnLuck",
+                "9fe144d10b8164d44a132f40b6edd3cc");
+
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGarbOfTheLightbringer { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGarbOfTheLightbringer",
                 "9f10a1770d98af3469de86e7de4a5994");
@@ -7214,6 +9658,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemTransmutation",
                 "a6dd251aab8302a498f81922ab2624e7");
 
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGnomeCunning { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGnomeCunning",
+                "ed8900da5032eca4d8e98a00e3208dfc");
+
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityHeraldOfBattle { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityHeraldOfBattle",
                 "cf8b3b13b09c84f4194016f8d0df0a78");
@@ -7230,6 +9678,22 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityManaPainterAbsorption",
                 "b4a8ba8d604d35e408b297bc174769d0");
 
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityMonkDiamondSoul { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityMonkDiamondSoul",
+                "81c242cce9e96e74fbf8b3a9801928dd");
+
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityMonkEvasion { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityMonkEvasion",
+                "4cda4e7b24f7c9d44b3dcb00d97eef1e");
+
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityPatronHiveAntimagicChitin { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityPatronHiveAntimagicChitin",
+                "c4e9dc952b0a73d47a565ea2f59e31c1");
+
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityPatronHiveWeakeningPheromones { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityPatronHiveWeakeningPheromones",
+                "efba1b9e43d4abc4abc123dca4ac3e87");
+
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityProphetOfDarkness_Darkness { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityProphetOfDarkness_Darkness",
                 "6a576b2dcd5d24c429b0bb76ad358d99");
@@ -7237,6 +9701,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityProphetOfDarkness_DimLight { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityProphetOfDarkness_DimLight",
                 "bd53a86953b76cd4f9dd4c0e05d908e9");
+
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityRangerHunterEvasion { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityRangerHunterEvasion",
+                "0455e5762c1184841b3c53448ed6fb9e");
 
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityRingOfProtectionPlusOne { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityRingOfProtectionPlusOne",
@@ -7257,6 +9725,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinitySensitiveToLight { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinitySensitiveToLight",
                 "0772e8eb95cd2d147a043fa80331c54e");
+
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShadowTamerAtHomeInTheDark { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShadowTamerAtHomeInTheDark",
+                "1e21ce8d2b7ab16409b4d90bce889544");
 
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShadowTamerTunnelWisdom { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShadowTamerTunnelWisdom",
@@ -7286,6 +9758,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinitySpellResistance",
                 "d6341ebb2cb967949b4426e31e993b86");
 
+        public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinitySpellVulnerability { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinitySpellVulnerability",
+                "0dab73e83278c55408c1cc010511a375");
+
         public static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityStoneOfGoodLuck { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityStoneOfGoodLuck",
                 "cff7bfd1d09e0e24fba49a7d3c16b11a");
@@ -7305,6 +9781,9 @@ public static partial class DatabaseHelper
     {
         public static FeatureDefinitionSense SenseBlindSight12 { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseBlindSight12", "c16bc7be6870a764e9075848479ccdef");
+
+        public static FeatureDefinitionSense SenseBlindSight16 { get; } =
+            GetDefinition<FeatureDefinitionSense>("SenseBlindSight16", "9c1d39576cf623546956edf147f1c916");
 
         public static FeatureDefinitionSense SenseBlindSight2 { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseBlindSight2", "f6e92e044ad5c9945b1c01d9891bf49d");
@@ -7327,6 +9806,9 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionSense SenseNormalVision { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseNormalVision", "222ef639393ed4e4bbd7152690597945");
 
+        public static FeatureDefinitionSense SenseRogueBlindsense { get; } =
+            GetDefinition<FeatureDefinitionSense>("SenseRogueBlindsense", "ebddf941c3e27e049b018c86261672ff");
+
         public static FeatureDefinitionSense SenseSeeInvisible12 { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseSeeInvisible12", "e97d2cb0545b7e74b9c548f69778c7b4");
 
@@ -7344,6 +9826,9 @@ public static partial class DatabaseHelper
 
         public static FeatureDefinitionSense SenseTruesight16 { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseTruesight16", "ea70a5054de732f4f8112f2ffca185a6");
+
+        public static FeatureDefinitionSense SenseTruesight24 { get; } =
+            GetDefinition<FeatureDefinitionSense>("SenseTruesight24", "364620407c08a584caf6c11ee80af855");
     }
 
     public static class FeatureDefinitionSocialAffinitys
@@ -7359,6 +9844,10 @@ public static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceBarbarianPrimalPath",
                 "8d563175a81eacf41a53777bc0ac3c89");
 
+        public static FeatureDefinitionSubclassChoice SubclassChoiceBardColleges { get; } =
+            GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceBardColleges",
+                "4d80f84b48f5bb3478785d358674b50a");
+
         public static FeatureDefinitionSubclassChoice SubclassChoiceClericDivineDomains { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceClericDivineDomains",
                 "d6c7c79a648ae6847876782f4370bbfa");
@@ -7370,6 +9859,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionSubclassChoice SubclassChoiceFighterMartialArchetypes { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceFighterMartialArchetypes",
                 "e3d5d16e53da5e4419e76560aabba484");
+
+        public static FeatureDefinitionSubclassChoice SubclassChoiceMonkMonasticTraditions { get; } =
+            GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceMonkMonasticTraditions",
+                "09aba6745a6334a4184283d9dd7959a1");
 
         public static FeatureDefinitionSubclassChoice SubclassChoicePaladinSacredOaths { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoicePaladinSacredOaths",
@@ -7386,6 +9879,10 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionSubclassChoice SubclassChoiceSorcerousOrigin { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceSorcerousOrigin",
                 "9245ee52f3a8e0d4b8261797ea459062");
+
+        public static FeatureDefinitionSubclassChoice SubclassChoiceWarlockOtherworldlyPatrons { get; } =
+            GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceWarlockOtherworldlyPatrons",
+                "0c9dd88c2525932438eacf87f4b6dae9");
 
         public static FeatureDefinitionSubclassChoice SubclassChoiceWizardArcaneTraditions { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceWizardArcaneTraditions",
@@ -7469,6 +9966,18 @@ public static partial class DatabaseHelper
 
         public static FormationDefinition Dialog_Level_01_CaerLem_03 { get; } =
             GetDefinition<FormationDefinition>("Dialog_Level_01_CaerLem_03", "5ece8e54e912b044dba64878f834c5cf");
+
+        public static FormationDefinition DLC3_Gallivanborder_ConvoyFormation_Prisoners { get; } =
+            GetDefinition<FormationDefinition>("DLC3_Gallivanborder_ConvoyFormation_Prisoners",
+                "9d892d01290b5ae4097e9fb428a99882");
+
+        public static FormationDefinition DLC3_Gallivanborder_ConvoyFormation_SoldierAfterVirage { get; } =
+            GetDefinition<FormationDefinition>("DLC3_Gallivanborder_ConvoyFormation_SoldierAfterVirage",
+                "a8e6470d6ee236e448d03d3ec6421300");
+
+        public static FormationDefinition DLC3_Gallivanborder_ConvoyFormation_SoldierBeforeVirage { get; } =
+            GetDefinition<FormationDefinition>("DLC3_Gallivanborder_ConvoyFormation_SoldierBeforeVirage",
+                "77a6a2cbd4232b74a8e3b59ac5714c78");
 
         public static FormationDefinition MagicMouth { get; } =
             GetDefinition<FormationDefinition>("MagicMouth", "3ecbdcc0cbae598419d2d5d56af2cb28");
@@ -7796,6 +10305,81 @@ public static partial class DatabaseHelper
 
         public static GadgetBlueprint WeaponRack { get; } =
             GetDefinition<GadgetBlueprint>("WeaponRack", "0189c900c32e18845b1e1790ebbd7bef");
+    }
+
+    public static class InvocationDefinitions
+    {
+        public static InvocationDefinition AgonizingBlast { get; } =
+            GetDefinition<InvocationDefinition>("AgonizingBlast", "45d3b34463e4355458ddc7a979dfa97b");
+
+        public static InvocationDefinition ArmorOfShadows { get; } =
+            GetDefinition<InvocationDefinition>("ArmorOfShadows", "9f4bad35e5ec0594f8c7d4789ad58c95");
+
+        public static InvocationDefinition AscendantStep { get; } =
+            GetDefinition<InvocationDefinition>("AscendantStep", "75ac2cfe12c47e641a88af22d491189d");
+
+        public static InvocationDefinition BeguilingInfluence { get; } =
+            GetDefinition<InvocationDefinition>("BeguilingInfluence", "6971712645e691849b4a7d5eecc3cf48");
+
+        public static InvocationDefinition BewitchingWhispers { get; } =
+            GetDefinition<InvocationDefinition>("BewitchingWhispers", "ff8b1aaac1f34d94abbb9c5e3536cf47");
+
+        public static InvocationDefinition BookAncientSecrets { get; } =
+            GetDefinition<InvocationDefinition>("BookAncientSecrets", "974db8718cc8efb4bb703b9abbfbee3e");
+
+        public static InvocationDefinition ChainsCarceri { get; } =
+            GetDefinition<InvocationDefinition>("ChainsCarceri", "2ca188e44fdadb34d9d26161069c6d8b");
+
+        public static InvocationDefinition DevilsSight { get; } =
+            GetDefinition<InvocationDefinition>("DevilsSight", "c4c86e274b213a54aa98f7536e345fbb");
+
+        public static InvocationDefinition DreadfulWord { get; } =
+            GetDefinition<InvocationDefinition>("DreadfulWord", "b6aa527795d978845819581fbd7408a6");
+
+        public static InvocationDefinition EldritchSight { get; } =
+            GetDefinition<InvocationDefinition>("EldritchSight", "e268969a94c2d8c4eaaf725b0305fbcb");
+
+        public static InvocationDefinition EldritchSpear { get; } =
+            GetDefinition<InvocationDefinition>("EldritchSpear", "7d1eff41cf819cb43b5e8999f1578c2d");
+
+        public static InvocationDefinition EyesRuneKeeper { get; } =
+            GetDefinition<InvocationDefinition>("EyesRuneKeeper", "c2a13c80fde408f49806b00b16eb54fd");
+
+        public static InvocationDefinition FiendishVigor { get; } =
+            GetDefinition<InvocationDefinition>("FiendishVigor", "d0080c57051b16343856fab057da0a57");
+
+        public static InvocationDefinition Lifedrinker { get; } =
+            GetDefinition<InvocationDefinition>("Lifedrinker", "2a3a0195cc122bd4d810abd9491fbfdd");
+
+        public static InvocationDefinition MinionsChaos { get; } =
+            GetDefinition<InvocationDefinition>("MinionsChaos", "c5651b612d51a3a49bf9db3d074e6bda");
+
+        public static InvocationDefinition MireMind { get; } =
+            GetDefinition<InvocationDefinition>("MireMind", "09a39b884769d0b4a8c9cea22363910d");
+
+        public static InvocationDefinition OneWithShadows { get; } =
+            GetDefinition<InvocationDefinition>("OneWithShadows", "110f91c9d51873c449ad90df61c93d50");
+
+        public static InvocationDefinition OtherworldlyLeap { get; } =
+            GetDefinition<InvocationDefinition>("OtherworldlyLeap", "e7e8d1b3d914bbd4085d0921398bf581");
+
+        public static InvocationDefinition RepellingBlast { get; } =
+            GetDefinition<InvocationDefinition>("RepellingBlast", "5589466d3be65914597df4c8ae38e778");
+
+        public static InvocationDefinition SignIllOmen { get; } =
+            GetDefinition<InvocationDefinition>("SignIllOmen", "53ccd80e0f3df26458392052835cbceb");
+
+        public static InvocationDefinition ThiefFiveFates { get; } =
+            GetDefinition<InvocationDefinition>("ThiefFiveFates", "c21474ad589911848802c2f4f475eec3");
+
+        public static InvocationDefinition ThirstingBlade { get; } =
+            GetDefinition<InvocationDefinition>("ThirstingBlade", "99095fcdd2d9a3e4888c6fc8b9e32715");
+
+        public static InvocationDefinition VoiceChainMaster { get; } =
+            GetDefinition<InvocationDefinition>("VoiceChainMaster", "9ef2e3467dd8ee54394bbae9e5d82aa5");
+
+        public static InvocationDefinition WitchSight { get; } =
+            GetDefinition<InvocationDefinition>("WitchSight", "cae57fa35a875ea4291f37606d0f2b70");
     }
 
     public static class ItemDefinitions
@@ -8147,8 +10731,14 @@ public static partial class DatabaseHelper
         public static ItemDefinition Background_Aristocrat_Ring { get; } =
             GetDefinition<ItemDefinition>("Background_Aristocrat_Ring", "5286512267ea5264fa66b16be0f349ba");
 
+        public static ItemDefinition Background_Artist_Contract { get; } =
+            GetDefinition<ItemDefinition>("Background_Artist_Contract", "3d4b48ec19f40504ba581d072794e5fd");
+
         public static ItemDefinition Background_Lawkeeper_Badge { get; } =
             GetDefinition<ItemDefinition>("Background_Lawkeeper_Badge", "004cf076703602c49a089b333587231d");
+
+        public static ItemDefinition Background_Occultist_Notebook { get; } =
+            GetDefinition<ItemDefinition>("Background_Occultist_Notebook", "1edd1c0c98b9c1e49a1ebe9a7f5235d8");
 
         public static ItemDefinition Background_Sellsword_Ribbon { get; } =
             GetDefinition<ItemDefinition>("Background_Sellsword_Ribbon", "4b3c7d86b4dcefb4aac185299c614013");
@@ -8273,6 +10863,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition BONEKEEP_Solar_Rune_Plaque { get; } =
             GetDefinition<ItemDefinition>("BONEKEEP_Solar_Rune_Plaque", "edf70b560c20ab64d82e81e146bbd88c");
 
+        public static ItemDefinition Bongo { get; } =
+            GetDefinition<ItemDefinition>("Bongo", "f0faa497d25de694abfe70f8828d8903");
+
         public static ItemDefinition Boots_SixLeagues { get; } =
             GetDefinition<ItemDefinition>("Boots_SixLeagues", "fa8622b18bf206e49893ba5445b36abc");
 
@@ -8305,6 +10898,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition Bracers_Of_Storms { get; } =
             GetDefinition<ItemDefinition>("Bracers_Of_Storms", "2c65e9de4f50c864780e5c87ae6b3d37");
+
+        public static ItemDefinition Bracers_Of_StunningStrike { get; } =
+            GetDefinition<ItemDefinition>("Bracers_Of_StunningStrike", "b43a625a3b5fe4f498a5756618ab0c0a");
 
         public static ItemDefinition BracersOfSparkles { get; } =
             GetDefinition<ItemDefinition>("BracersOfSparkles", "357f4d75b20973140a51856b8163d14c");
@@ -8354,8 +10950,20 @@ public static partial class DatabaseHelper
         public static ItemDefinition ChainShirt { get; } =
             GetDefinition<ItemDefinition>("ChainShirt", "36e9c6a0603101942b552730618f1b41");
 
+        public static ItemDefinition ChargedBlueSapphire { get; } =
+            GetDefinition<ItemDefinition>("ChargedBlueSapphire", "a54c8c582a8a5cf4a8c908196e190c1d");
+
+        public static ItemDefinition ChargedRedCorundum { get; } =
+            GetDefinition<ItemDefinition>("ChargedRedCorundum", "b75abfba69f9c634fb85eb968328a0cc");
+
+        public static ItemDefinition ChargedYellowDiamond { get; } =
+            GetDefinition<ItemDefinition>("ChargedYellowDiamond", "1cd6e35747e3f2241934e09ca43e394c");
+
         public static ItemDefinition ChimeOfOpening { get; } =
             GetDefinition<ItemDefinition>("ChimeOfOpening", "51cb6dc3bd9131f48ab0191557b73c59");
+
+        public static ItemDefinition ChitinousBoon { get; } =
+            GetDefinition<ItemDefinition>("ChitinousBoon", "b18880011cfb58e41b2b175f30ee3d2f");
 
         public static ItemDefinition CircletOfBlasting { get; } =
             GetDefinition<ItemDefinition>("CircletOfBlasting", "93e1557ae41483b419a16bf6c9c2f08c");
@@ -8383,6 +10991,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition CloakOfTheDandy { get; } =
             GetDefinition<ItemDefinition>("CloakOfTheDandy", "3fd19abbd4f2d1d42a0090219d3ab22d");
+
+        public static ItemDefinition CloakOfUbiquity { get; } =
+            GetDefinition<ItemDefinition>("CloakOfUbiquity", "3df70ea368fa5fd4d9d34c49c3ee601d");
 
         public static ItemDefinition ClothesCommon { get; } =
             GetDefinition<ItemDefinition>("ClothesCommon", "2d37f478395d1014ebcb56b9f4fb3003");
@@ -8464,6 +11075,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition ComponentPouch_Circlet { get; } =
             GetDefinition<ItemDefinition>("ComponentPouch_Circlet", "f1b8e2103cb049c4184ed178b2b57a23");
+
+        public static ItemDefinition Conch { get; } =
+            GetDefinition<ItemDefinition>("Conch", "19130550f8db2a74e95cdeb4e4ca6210");
 
         public static ItemDefinition CONJURATION_SecretSpellBook3 { get; } =
             GetDefinition<ItemDefinition>("CONJURATION_SecretSpellBook3", "4c2f0380bedf4b041b15a670e03f777c");
@@ -8637,6 +11251,26 @@ public static partial class DatabaseHelper
         public static ItemDefinition CraftingManual_DLC1_Enchant_WarhammerStormbinder { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_WarhammerStormbinder",
                 "9fab6cf994d81ee43803ed180bffb32f");
+
+        public static ItemDefinition CraftingManual_DLC2_5_Enchant_GauntletOfAcuteness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Enchant_GauntletOfAcuteness",
+                "399e4a1116d2d74409a87ddaecf27e25");
+
+        public static ItemDefinition CraftingManual_DLC2_5_Enchant_GauntletOfSharpness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Enchant_GauntletOfSharpness",
+                "24f0ef2e6a7ffa74090b0859585c107f");
+
+        public static ItemDefinition CraftingManual_DLC2_5_Enchant_WandOfWarMagePlus1 { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Enchant_WandOfWarMage+1",
+                "e960fcffb655ff941b3a5a71cb83f93b");
+
+        public static ItemDefinition CraftingManual_DLC2_5_Enchant_WandOfWarMagePlus2 { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Enchant_WandOfWarMage+2",
+                "909e72b02909c6e4597af137312a96d2");
+
+        public static ItemDefinition CraftingManual_DLC2_5_Item_RestorativeOintment { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Item_RestorativeOintment",
+                "2e685b93a8e898040a2939e061c640b1");
 
         public static ItemDefinition CraftingManual_Enchant_BattleAxe_of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_BattleAxe_of_Acuteness",
@@ -8835,6 +11469,10 @@ public static partial class DatabaseHelper
         public static ItemDefinition CraftingManual_Enchant_Shortsword_Of_Sharpness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortsword_Of_Sharpness",
                 "b974dfa15e3867d4db9a25bfc30740f9");
+
+        public static ItemDefinition CraftingManual_Enchant_Shortsword_Sovereign { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortsword_Sovereign",
+                "46e829f90fd9072498be83d51e13b824");
 
         public static ItemDefinition CraftingManual_Enchant_Shortsword_Whiteburn { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortsword_Whiteburn",
@@ -9303,6 +11941,12 @@ public static partial class DatabaseHelper
         public static ItemDefinition Dart { get; } =
             GetDefinition<ItemDefinition>("Dart", "4fd5b12327964f74eae8cd62910dd518");
 
+        public static ItemDefinition DiplomatPack { get; } =
+            GetDefinition<ItemDefinition>("DiplomatPack", "6184c71b7ad361c4c8ab004d3c66e579");
+
+        public static ItemDefinition DivineBlade { get; } =
+            GetDefinition<ItemDefinition>("DivineBlade", "e6f09059361762446bac0e4535ba97e8");
+
         public static ItemDefinition DLC_Equipment_City_ScepterOfRedeemerControl { get; } =
             GetDefinition<ItemDefinition>("DLC_Equipment_City_ScepterOfRedeemerControl",
                 "bd3b78c2ef5adce4cb2fb8119fcd0324");
@@ -9715,6 +12359,101 @@ public static partial class DatabaseHelper
         public static ItemDefinition DLC1_Item_Stolen_Officer_Ring { get; } =
             GetDefinition<ItemDefinition>("DLC1_Item_Stolen_Officer_Ring", "4c38e1a0892d93e4d98d8fc709cfe62a");
 
+        public static ItemDefinition DLC3_DemonGrease_DawnBreak { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_DawnBreak", "811c7dd93dc28b94d9d8feee08f5129d");
+
+        public static ItemDefinition DLC3_DemonGrease_FiendSlaying { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_FiendSlaying", "e8ae2377fd6d2f6459714d4a0e887a4e");
+
+        public static ItemDefinition DLC3_DemonGrease_NightHunt { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_NightHunt", "89d867bd9e3683844af63e2888993155");
+
+        public static ItemDefinition DLC3_DemonGrease_PseudoLife { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_PseudoLife", "7c63dc1d9811a6e49a3e8e32307995a3");
+
+        public static ItemDefinition DLC3_DemonGrease_SpellTaint { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_SpellTaint", "8017599236dd3b6428c26531d2295a9b");
+
+        public static ItemDefinition DLC3_DemonGrease_TrueStrike { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_TrueStrike", "3a67bb32cf4a3314a864e9ff6d04aaee");
+
+        public static ItemDefinition DLC3_Demonic_Dagger_Of_Soul_Hunting { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Demonic_Dagger_Of_Soul_Hunting", "dfd0f5263706e2f4a9e8a5b9acf7abd6");
+
+        public static ItemDefinition DLC3_Dwarven_Weapon_BattleaxePlus3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Dwarven_Weapon_Battleaxe+3", "060c3cc60dcb89a45ad0c229a8ff22fb");
+
+        public static ItemDefinition DLC3_Dwarven_Weapon_DaggerPlus3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Dwarven_Weapon_Dagger+3", "b8493d79b7b765148aa4f3f68414123c");
+
+        public static ItemDefinition DLC3_Dwarven_Weapon_GreataxePlus3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Dwarven_Weapon_Greataxe+3", "8afd7bbd20f8a5246b6ac7fbc2163552");
+
+        public static ItemDefinition DLC3_Dwarven_Weapon_HeavyCrossbowPlus3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Dwarven_Weapon_HeavyCrossbow+3", "a3015b481f789124b90cb1e074510776");
+
+        public static ItemDefinition DLC3_Dwarven_Weapon_LightCrossbowPlus3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Dwarven_Weapon_LightCrossbow+3", "54d88dc1bfae1e24985e9cc762b6e806");
+
+        public static ItemDefinition DLC3_Dwarven_Weapon_LongswordPlus3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Dwarven_Weapon_Longsword+3", "e8675c22b55f64848b69c01f7ba438e2");
+
+        public static ItemDefinition DLC3_Dwarven_Weapon_QuarterstaffPlus3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Dwarven_Weapon_Quarterstaff+3", "0f1dc9d27d478284db6f16489d2371ed");
+
+        public static ItemDefinition DLC3_Dwarven_Weapon_ShortswordPlus3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Dwarven_Weapon_Shortsword+3", "8aa04d8eb512bf5499e34a646a2bc6ba");
+
+        public static ItemDefinition DLC3_Dwarven_Weapon_WarhammerPlus3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Dwarven_Weapon_Warhammer+3", "f7401ef5dbaada845b77eff1eacfa4cb");
+
+        public static ItemDefinition DLC3_ElvenSettlementHighDistrict_Key { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlementHighDistrict_Key", "7c9928a21d54c2c45bb93a69b94905a3");
+
+        public static ItemDefinition DLC3_ElvenSettlementRuins_Document { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlementRuins_Document", "e47a193a08f6110499af84fa8237bf8c");
+
+        public static ItemDefinition DLC3_ElvenSettlementRuins_Key { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlementRuins_Key", "b43b7fa13bd692f46800c625a2eb29cd");
+
+        public static ItemDefinition DLC3_Equipment_Kaupaa_Necropolis_Skeleton_Key { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Equipment_Kaupaa_Necropolis_Skeleton_Key",
+                "f2e53820f38bca943ad050fd1afa5843");
+
+        public static ItemDefinition DLC3_LeralynRing { get; } =
+            GetDefinition<ItemDefinition>("DLC3_LeralynRing", "c7e0be82908b1ca4bbe5ac346882f41d");
+
+        public static ItemDefinition DLC3_Magic_Morningstar_Guardian_Complete { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Magic_Morningstar_Guardian_Complete",
+                "f818fd505ba82ae40863e93613eda01c");
+
+        public static ItemDefinition DLC3_Magic_Shortsword_Sovereign { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Magic_Shortsword_Sovereign", "f64f78df81bfa454e848da6ea36da1ca");
+
+        public static ItemDefinition DLC3_Telema_CustomGateInstructions { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_CustomGateInstructions", "7b6eaccc663ddff41b092b4f92cfc0b8");
+
+        public static ItemDefinition DLC3_Telema_CustomGateManual { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_CustomGateManual", "613e3de1a16d3f745884ff716e915062");
+
+        public static ItemDefinition DLC3_Telema_HectorsDiary { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_HectorsDiary", "3fdb256c8db881547aea988e40585923");
+
+        public static ItemDefinition DLC3_Telema_PyramidKey { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_PyramidKey", "016833d4bb667b841b7b88bf9e293d70");
+
+        public static ItemDefinition DLC3_Telema_RoundKey { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_RoundKey", "4c8f544b820a5f54cb57fb5224e47a9e");
+
+        public static ItemDefinition DLC3_Telema_SessrothReport { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_SessrothReport", "562342901cc3669418788227475f2760");
+
+        public static ItemDefinition DLC3_Undermountain_BrigandsJournal { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_BrigandsJournal", "7cc800d46a6a9c74e833e88c0d855c54");
+
+        public static ItemDefinition DLC3_WhiteCity_Unusual_Rock_Fragment { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Unusual_Rock_Fragment", "e9f832573e3655c419bbf7b28b392a50");
+
         public static ItemDefinition Document_HalmanSummer_Conspiration_Docs { get; } =
             GetDefinition<ItemDefinition>("Document_HalmanSummer_Conspiration_Docs",
                 "20e49c5b2547f18458d47fdae5a23350");
@@ -9725,8 +12464,14 @@ public static partial class DatabaseHelper
         public static ItemDefinition DruidicFocus { get; } =
             GetDefinition<ItemDefinition>("DruidicFocus", "518483ab9093af04d97387aefd0bad2a");
 
+        public static ItemDefinition Drum { get; } =
+            GetDefinition<ItemDefinition>("Drum", "f6b79ccc298573e4caea720500413ba9");
+
         public static ItemDefinition Dryad_Spine { get; } =
             GetDefinition<ItemDefinition>("Dryad_Spine", "d6cb201e9e0933b4f808ec92a3f417f0");
+
+        public static ItemDefinition Dulcimer { get; } =
+            GetDefinition<ItemDefinition>("Dulcimer", "ad8eb86975799194484f155efe32b455");
 
         public static ItemDefinition DungeoneerPack { get; } =
             GetDefinition<ItemDefinition>("DungeoneerPack", "6286cf8295c47af42bca166999993f2b");
@@ -9746,6 +12491,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition DwarvenThrower { get; } =
             GetDefinition<ItemDefinition>("DwarvenThrower", "0e963d8a009f33d47ba5ef061749160a");
+
+        public static ItemDefinition DwarvenWarDrums { get; } =
+            GetDefinition<ItemDefinition>("DwarvenWarDrums", "d23b9ed52419d604f855f5ddee638600");
 
         public static ItemDefinition EarlyBird { get; } =
             GetDefinition<ItemDefinition>("EarlyBird", "462a11cca90999441bdbad68758d30a2");
@@ -9783,6 +12531,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition Enchanted_ChainShirt_Empress_war_garb { get; } =
             GetDefinition<ItemDefinition>("Enchanted_ChainShirt_Empress_war_garb", "061fffb2999ccb54aadee652bf0a53e5");
 
+        public static ItemDefinition Enchanted_Dagger_EldritchWounds { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Dagger_EldritchWounds", "1b6adcaeebb8ad34db2a78538b107108");
+
         public static ItemDefinition Enchanted_Dagger_Frostburn { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Dagger_Frostburn", "5f421e0121f8b53498573705e1c316e9");
 
@@ -9801,6 +12552,12 @@ public static partial class DatabaseHelper
         public static ItemDefinition Enchanted_Druid_Armor_Of_The_Primal_Oak { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Druid_Armor_Of_The_Primal_Oak",
                 "ade371c226a745a408339cf929f89c68");
+
+        public static ItemDefinition Enchanted_Gauntlet_Of_Acuteness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Gauntlet_Of_Acuteness", "02bc2dae36e77ae41ad5983a6faf292d");
+
+        public static ItemDefinition Enchanted_Gauntlet_Of_Sharpness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Gauntlet_Of_Sharpness", "eb97cf6bab6dd2545ba68d5d1874b693");
 
         public static ItemDefinition Enchanted_Greataxe_Of_Sharpness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Greataxe_Of_Sharpness", "6d7994139bf3efc459d3bb39dcf089db");
@@ -9913,6 +12670,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition Enchanted_Rapier_Of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Rapier_Of_Acuteness", "f435339948f74744f8e6e71f50616cae");
 
+        public static ItemDefinition Enchanted_Rapier_Of_Harmony { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Rapier_Of_Harmony", "2c3c738da46fbcc4db88d7c4205bc97b");
+
         public static ItemDefinition Enchanted_ScaleMailOfIceDancing { get; } =
             GetDefinition<ItemDefinition>("Enchanted_ScaleMailOfIceDancing", "972efa98be226d044980679e7ad7122f");
 
@@ -9924,6 +12684,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition Enchanted_Scimitar_Of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Scimitar_Of_Acuteness", "4b19f4b57db963d4181d58c3dc2f505d");
+
+        public static ItemDefinition Enchanted_Scimitar_Of_Speed { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Scimitar_Of_Speed", "997c6afa1884c164f9e0e0c30279ccb5");
 
         public static ItemDefinition Enchanted_ScimitarOfTheAnfarels { get; } =
             GetDefinition<ItemDefinition>("Enchanted_ScimitarOfTheAnfarels", "f70efa9136a6c9f42ba6e5bff41be910");
@@ -9973,6 +12736,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition EndlessQuiver { get; } =
             GetDefinition<ItemDefinition>("EndlessQuiver", "bfaf8284a5eb39546867582e0a180c04");
 
+        public static ItemDefinition EntertainerPack { get; } =
+            GetDefinition<ItemDefinition>("EntertainerPack", "955a82bd013a3e04a98e6735c808d8df");
+
         public static ItemDefinition EverlastingTorch { get; } =
             GetDefinition<ItemDefinition>("EverlastingTorch", "9054bda7174a1944194f8569463cf2df");
 
@@ -9990,6 +12756,12 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition FlameBlade { get; } =
             GetDefinition<ItemDefinition>("FlameBlade", "01a33a81a0cb1ac4e997efce0aeb4532");
+
+        public static ItemDefinition Flute { get; } =
+            GetDefinition<ItemDefinition>("Flute", "66eb201b0e459134d8ce4050a53d5393");
+
+        public static ItemDefinition FluteOfRespite { get; } =
+            GetDefinition<ItemDefinition>("FluteOfRespite", "e59c364d36281434b94e7b4cce6690ce");
 
         public static ItemDefinition Food_Ration { get; } =
             GetDefinition<ItemDefinition>("Food_Ration", "59973b7c0f7bd2f4089ec4406628b941");
@@ -10093,6 +12865,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition HolySymbolCrown { get; } =
             GetDefinition<ItemDefinition>("HolySymbolCrown", "81ab33a4033da5b4dbb93991e4a4e555");
 
+        public static ItemDefinition Horn { get; } =
+            GetDefinition<ItemDefinition>("Horn", "db4461c9e2b5f1a438ed8ab910a9bc83");
+
         public static ItemDefinition HornOfBlasting { get; } =
             GetDefinition<ItemDefinition>("HornOfBlasting", "c78c577570a72964e8ecb4668b6e5d22");
 
@@ -10170,6 +12945,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition Ingredient_Enchant_Crystal_Of_Winter { get; } =
             GetDefinition<ItemDefinition>("Ingredient_Enchant_Crystal_Of_Winter", "349532dfea26d5a42b43427baab99160");
+
+        public static ItemDefinition Ingredient_Enchant_Demonic_Essence { get; } =
+            GetDefinition<ItemDefinition>("Ingredient_Enchant_Demonic_Essence", "32023baad5dbde6439e5d2e54ad4521b");
 
         public static ItemDefinition Ingredient_Enchant_Diamond_Of_Elai { get; } =
             GetDefinition<ItemDefinition>("Ingredient_Enchant_Diamond_Of_Elai", "9257ab496a5d1394890a9b142eb89397");
@@ -10264,6 +13042,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition Ingredient_Mutant_DireWolf_Pelt { get; } =
             GetDefinition<ItemDefinition>("Ingredient_Mutant_DireWolf_Pelt", "0d1dec4ed811cb94498fe533ea3fa8da");
 
+        public static ItemDefinition Ingredient_PolarBear_Pelt { get; } =
+            GetDefinition<ItemDefinition>("Ingredient_PolarBear_Pelt", "bbf55d6e32d450c4b981094f9993e936");
+
         public static ItemDefinition Ingredient_PrimordialDragonstone { get; } =
             GetDefinition<ItemDefinition>("Ingredient_PrimordialDragonstone", "a3a9d0179e8d8a940a9d05987c000cfa");
 
@@ -10290,6 +13071,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition Ingredient_Sorak_Poison_Spine { get; } =
             GetDefinition<ItemDefinition>("Ingredient_Sorak_Poison_Spine", "722f1d60a6f3c7c4b981471769b15721");
+
+        public static ItemDefinition Ingredient_Sovereign_Stone { get; } =
+            GetDefinition<ItemDefinition>("Ingredient_Sovereign_Stone", "b1249b6db7ade774ba34ecb4e110737c");
 
         public static ItemDefinition Ingredient_SpiderQueenVenomGland { get; } =
             GetDefinition<ItemDefinition>("Ingredient_SpiderQueenVenomGland", "7e42c28bc4d8f7244b3e39934cdcded3");
@@ -10372,6 +13156,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition Lowlife_Quest_MagicalSword { get; } =
             GetDefinition<ItemDefinition>("Lowlife_Quest_MagicalSword", "ec1c2236c7fc7e34d87798f3f78983a8");
 
+        public static ItemDefinition Lute { get; } =
+            GetDefinition<ItemDefinition>("Lute", "bf3245124743f6340804f14ffb022fa1");
+
         public static ItemDefinition Mace { get; } =
             GetDefinition<ItemDefinition>("Mace", "639725eb1a28ef242851668eb3d5b2e7");
 
@@ -10423,6 +13210,15 @@ public static partial class DatabaseHelper
         public static ItemDefinition MaulPlus2 { get; } =
             GetDefinition<ItemDefinition>("Maul+2", "6524a590f9927a344b7ce0826e2f32f1");
 
+        public static ItemDefinition MonkArmor { get; } =
+            GetDefinition<ItemDefinition>("MonkArmor", "93cbf3e9ed6ac994f8ad95e03fb16d79");
+
+        public static ItemDefinition MonkGauntletPlus1 { get; } =
+            GetDefinition<ItemDefinition>("MonkGauntlet+1", "ada62b8f68d16b446b76c4761f7e584f");
+
+        public static ItemDefinition MonkGauntletPlus2 { get; } =
+            GetDefinition<ItemDefinition>("MonkGauntlet+2", "ec5fa30f98734654c86d61c85d193fb3");
+
         public static ItemDefinition Morningstar { get; } =
             GetDefinition<ItemDefinition>("Morningstar", "d99766c4fc8941f4fb0c26038895fdea");
 
@@ -10434,6 +13230,12 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition NecklaceOfFireballs { get; } =
             GetDefinition<ItemDefinition>("NecklaceOfFireballs", "2532888b20611b3489a4bc5ce3873bff");
+
+        public static ItemDefinition NecklaceOfGrounding { get; } =
+            GetDefinition<ItemDefinition>("NecklaceOfGrounding", "c4bf8382f61ef72479d9e7f986debaa4");
+
+        public static ItemDefinition OBSOLETE_WandOfMagicMissile { get; } =
+            GetDefinition<ItemDefinition>("OBSOLETE-WandOfMagicMissile", "4e649201b125cea409d359209d1259e6");
 
         public static ItemDefinition OfOrcsAndMen { get; } =
             GetDefinition<ItemDefinition>("OfOrcsAndMen", "a5c4dc7b54f61cf4e89b9fc817d2f8d5");
@@ -10473,6 +13275,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition PendantOfTheHealer { get; } =
             GetDefinition<ItemDefinition>("PendantOfTheHealer", "91b1b9d828c6904449dc61505d3f9659");
+
+        public static ItemDefinition PenitentBelt { get; } =
+            GetDefinition<ItemDefinition>("PenitentBelt", "86163b5b43f3a2e4795f67259a0cce8d");
 
         public static ItemDefinition PeriaptOfHealth { get; } =
             GetDefinition<ItemDefinition>("PeriaptOfHealth", "74c91de0ae70da148b8cf14f04c39fd3");
@@ -10519,6 +13324,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition PickupQuest_Item_SylvanRebelJournal { get; } =
             GetDefinition<ItemDefinition>("PickupQuest_Item_SylvanRebelJournal", "82fe7f743b698e04d874ef003d8fd16f");
+
+        public static ItemDefinition PipesOfHaunting { get; } =
+            GetDefinition<ItemDefinition>("PipesOfHaunting", "8a003329450dd824fb3b3788389c31d8");
 
         public static ItemDefinition Plate { get; } =
             GetDefinition<ItemDefinition>("Plate", "c235e621241816a4e8648d5fad95ad68");
@@ -10637,6 +13445,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition Primed_Dagger { get; } =
             GetDefinition<ItemDefinition>("Primed Dagger", "6b3401851b033f74088e7977f516d55b");
 
+        public static ItemDefinition Primed_Gauntlet { get; } =
+            GetDefinition<ItemDefinition>("Primed Gauntlet", "51acb92856627d6409c7da52009bdb2d");
+
         public static ItemDefinition Primed_Greataxe { get; } =
             GetDefinition<ItemDefinition>("Primed Greataxe", "533cb019e7b95e04eb6612feb99d9fb0");
 
@@ -10675,6 +13486,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition Primed_Shortsword { get; } =
             GetDefinition<ItemDefinition>("Primed Shortsword", "1ebe57945830a054d81b17695baff2e6");
+
+        public static ItemDefinition Primed_Shortsword_DLC_Sovereign { get; } =
+            GetDefinition<ItemDefinition>("Primed Shortsword_DLC_Sovereign", "44574de02cddbfb4c84a372c519ed7fe");
 
         public static ItemDefinition Primed_HeavyCrossbow { get; } =
             GetDefinition<ItemDefinition>("Primed_HeavyCrossbow", "388c95a2bb017954a87c2085695a9092");
@@ -10732,6 +13546,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition RapierPlus2 { get; } =
             GetDefinition<ItemDefinition>("Rapier+2", "638cee328977a7c4b93233f23986a278");
+
+        public static ItemDefinition RestorativeOintment { get; } =
+            GetDefinition<ItemDefinition>("RestorativeOintment", "97987a31b6e74b94b8dbd6f9d59f9716");
 
         public static ItemDefinition RingDarkvision { get; } =
             GetDefinition<ItemDefinition>("RingDarkvision", "fc4039e5726aaec4eae60b774c327ce7");
@@ -10804,6 +13621,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition ScimitarPlus1 { get; } =
             GetDefinition<ItemDefinition>("Scimitar+1", "2dab06fc44d8e5147a5f89aef08ec8d0");
+
+        public static ItemDefinition ScimitarOfSpeed { get; } =
+            GetDefinition<ItemDefinition>("ScimitarOfSpeed", "d3879748948a9a34b8c66c67e433a0de");
 
         public static ItemDefinition ScrollAcidArrow { get; } =
             GetDefinition<ItemDefinition>("ScrollAcidArrow", "be13a35f728489e42950d5e1f211207f");
@@ -11189,6 +14009,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition Sellsword_Quest_House_Key { get; } =
             GetDefinition<ItemDefinition>("Sellsword_Quest_House_Key", "5355e26c605d4774d81bb03f3afd3d8a");
 
+        public static ItemDefinition Shawm { get; } =
+            GetDefinition<ItemDefinition>("Shawm", "bf7ed2ca2e6ecc2469547300bacea7f6");
+
         public static ItemDefinition Shield { get; } =
             GetDefinition<ItemDefinition>("Shield", "28e1f623fc28c7242a89072ee116a1dc");
 
@@ -11291,6 +14114,9 @@ public static partial class DatabaseHelper
         public static ItemDefinition StaffOfMetis { get; } =
             GetDefinition<ItemDefinition>("StaffOfMetis", "c0a62e0a94537c54389734733bb0d734");
 
+        public static ItemDefinition StaffOfSwarmingInsects { get; } =
+            GetDefinition<ItemDefinition>("StaffOfSwarmingInsects", "d0222a200f3f05a40a8ebbbb3a9e7bed");
+
         public static ItemDefinition StandardBrassKey { get; } =
             GetDefinition<ItemDefinition>("StandardBrassKey", "d9602abfe9b9b5b4fb99dd675ec5bb6b");
 
@@ -11386,6 +14212,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition Temple_Of_Einar_Key { get; } =
             GetDefinition<ItemDefinition>("Temple_Of_Einar_Key", "9f9df9fb38fc81f47b77b3e65d5f7667");
+
+        public static ItemDefinition TheAmendment { get; } =
+            GetDefinition<ItemDefinition>("TheAmendment", "62a69ff62ddd16a46aa6c67454418f4f");
 
         public static ItemDefinition ThievesTool { get; } =
             GetDefinition<ItemDefinition>("ThievesTool", "91bc47b45dfb1f540a7c0672d95af251");
@@ -11495,6 +14324,12 @@ public static partial class DatabaseHelper
         public static ItemDefinition WandOfThorns { get; } =
             GetDefinition<ItemDefinition>("WandOfThorns", "31bb2bfefa6be1f41b0b2d03f7b63e80");
 
+        public static ItemDefinition WandOfWarMagePlus1 { get; } =
+            GetDefinition<ItemDefinition>("WandOfWarMage+1", "266c967a46f118d46b59671497d62bc6");
+
+        public static ItemDefinition WandOfWarMagePlus2 { get; } =
+            GetDefinition<ItemDefinition>("WandOfWarMage+2", "867d881f890ab2c4ea788c1db1085036");
+
         public static ItemDefinition WandOfWinter { get; } =
             GetDefinition<ItemDefinition>("WandOfWinter", "8504a802e95f0bd4180644ef703b7569");
 
@@ -11509,6 +14344,9 @@ public static partial class DatabaseHelper
 
         public static ItemDefinition WarhammerPlus2 { get; } =
             GetDefinition<ItemDefinition>("Warhammer+2", "970c771e34b91fa42945f60599355c34");
+
+        public static ItemDefinition Warlock_Armor { get; } =
+            GetDefinition<ItemDefinition>("Warlock_Armor", "899d2c68ed186cc4382856a2ca3ed611");
 
         public static ItemDefinition Web { get; } =
             GetDefinition<ItemDefinition>("Web", "3241f37f28bd0c24c8783759742ca6f8");
@@ -11527,6 +14365,9 @@ public static partial class DatabaseHelper
 
         public static ItemFlagDefinition ItemFlag_Flash { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlag_Flash", "ee264a2ffd043404ca06a59a4e494ddb");
+
+        public static ItemFlagDefinition ItemFlagDLC3_Dwarven_Weapon { get; } =
+            GetDefinition<ItemFlagDefinition>("ItemFlagDLC3_Dwarven_Weapon", "ace5ba1631e464647aff9f239d056b05");
 
         public static ItemFlagDefinition ItemFlagIngredient_Component { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlagIngredient_Component", "143765d0fb61ee84bb1a4d8e73b6dcf5");
@@ -11618,11 +14459,17 @@ public static partial class DatabaseHelper
         public static LanguageDefinition Language_Giant { get; } =
             GetDefinition<LanguageDefinition>("Language_Giant", "d8efe0da3b93e714fb9f52f865fbd7ec");
 
+        public static LanguageDefinition Language_Gnomish { get; } =
+            GetDefinition<LanguageDefinition>("Language_Gnomish", "750133f4caf696240a9847c42427340b");
+
         public static LanguageDefinition Language_Goblin { get; } =
             GetDefinition<LanguageDefinition>("Language_Goblin", "f717796561f635547b2d4db129ea269d");
 
         public static LanguageDefinition Language_Halfling { get; } =
             GetDefinition<LanguageDefinition>("Language_Halfling", "06ab6d940d5f73e4c8d4d65033de860e");
+
+        public static LanguageDefinition Language_Infernal { get; } =
+            GetDefinition<LanguageDefinition>("Language_Infernal", "aab78a38dbf69fc44ad923f9388e22b6");
 
         public static LanguageDefinition Language_Orc { get; } =
             GetDefinition<LanguageDefinition>("Language_Orc", "0f626b4c877f5a742b0505cce2f67d0b");
@@ -13261,6 +16108,337 @@ public static partial class DatabaseHelper
             GetDefinition<LootPackDefinition>("DLC1_Valley_NPC_Telerien_Purevoice_Loot_Drop",
                 "e61801f2c2fdf57428e5fa24a66ce907");
 
+        public static LootPackDefinition DLC3_CaptainAshdown_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CaptainAshdown_Loot_Drop", "b303757ed9044b34ab66822143cde837");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Barbarian { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Barbarian",
+                "c1618a42a414fd941a7b6d91cbfbfd81");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Bard { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Bard",
+                "e27a7012cfa51ea4387fe23267c7f46f");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Cleric { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Cleric",
+                "d6fd0c1a8fba4064485480415d83b3d1");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Druid { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Druid",
+                "12dd4e71e06e5aa49b261efb3f8538e6");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Fighter { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Fighter",
+                "7c46e55e577305b4ba093e6355ee1499");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Monk { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Monk",
+                "aa6e402fd74e695459413dd31cedb2fd");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Paladin { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Paladin",
+                "e1d7bc7e237bfee43b87b8ded8d7e977");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Ranger { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Ranger",
+                "b11ea7c972bb40e4f839ce62d7063adb");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Rogue { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Rogue",
+                "b444bc31c62d85c439c8caf4dbbbe6f0");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Sorcerer { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Sorcerer",
+                "dd5a9ed0ea7c40340bd7efb5f3b40937");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Warlock { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Warlock",
+                "36e1f6c5dc7401642950477efbf1f164");
+
+        public static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Wizard { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Wizard",
+                "a8230d844fd12c34881760cda06a6efc");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicChest_Healer { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicChest_Healer",
+                "f95c0ddbc20697c42bbf9c3efa4cfe6c");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicChest_Melee { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicChest_Melee", "c89e33b56fa9d6848a89f4e2ab438151");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicChest_Nuker { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicChest_Nuker", "f17a18da0fd044a4e96be7ce735671b7");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicChest_Range { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicChest_Range", "bcc2297192663b1459bfa8ab90a5d0bc");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Barrel_01",
+                "2173c788c0c70d647b1152ff29801878");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Basket_Pack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Basket_Pack_01",
+                "d152fed0721db634eb7f6b3daf7672ab");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Crate_01",
+                "4e15a57f38432714e8a70744425fafc0");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_JuteSack_01",
+                "441f5639ec73ef4478a3dd3640386a03");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Library_01",
+                "75a2245aa3b0d184686bdbf4abbc5f54");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Library_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Library_02",
+                "82c4cf2f2ea2c4f4996353cc28cde532");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Library_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Library_03",
+                "67c5c781a4f6218478627fab9688f483");
+
+        public static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Library_04 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Library_04",
+                "6d530377c58136e4b90a5d7fce415400");
+
+        public static LootPackDefinition DLC3_ElvenSettlement_Document_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Document_Lootpack",
+                "b852bc0763bf8474898b735b43d790f1");
+
+        public static LootPackDefinition DLC3_ElvenSettlement_Leralyn_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Leralyn_Lootpack",
+                "7888f60d464f08b479245efbfb5dbbbe");
+
+        public static LootPackDefinition DLC3_Feral_Dragon_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Feral_Dragon_loot_drop", "73d0e1eb0aea65c48a312b2d19dacf74");
+
+        public static LootPackDefinition DLC3_Gallivan_Archer_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Archer_Loot_Drop", "7f6d9e4b1c5b8f74993aa2df059014db");
+
+        public static LootPackDefinition DLC3_Gallivan_Cleric_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Cleric_Loot_Drop", "548457649ff1ac74ebba0a8d7f82cdfb");
+
+        public static LootPackDefinition DLC3_Gallivan_Convoy_Basket_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Convoy_Basket_Lootpack",
+                "d48d6639249739449bef90a0691ce6d8");
+
+        public static LootPackDefinition DLC3_Gallivan_Convoy_Cart_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Convoy_Cart_Lootpack", "a74e5c237cc22ba4cb3b2790561f6ca2");
+
+        public static LootPackDefinition DLC3_Gallivan_Convoy_Pots_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Convoy_Pots_Lootpack", "77a5877e56ada6b4896e56daec490ac5");
+
+        public static LootPackDefinition DLC3_Gallivan_Convoy_Tomb_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Convoy_Tomb_Lootpack", "5d2e9c9e39dfd7d40a90448c423e605e");
+
+        public static LootPackDefinition DLC3_GeneralBlunt_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GeneralBlunt_Loot_Drop", "53cc057d5a3375048b553c0509297b03");
+
+        public static LootPackDefinition DLC3_HumanClan_Archer_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_HumanClan_Archer_Loot_Drop", "fa29b26858a7e294d853fbc33abd8983");
+
+        public static LootPackDefinition DLC3_Kaupaa_East_Lootpack_BasicContainer_Bucket_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_East_Lootpack_BasicContainer_Bucket_01",
+                "8fb3bd559aa282f4d823d001208fb58a");
+
+        public static LootPackDefinition DLC3_Kaupaa_East_Lootpack_BasicContainer_Trunk_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_East_Lootpack_BasicContainer_Trunk_01",
+                "803664fea65591945a246c962fca7aff");
+
+        public static LootPackDefinition DLC3_Kaupaa_East_Lootpack_BasicContainer_Weapon_Rack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_East_Lootpack_BasicContainer_Weapon_Rack_01",
+                "65f158c5ed9e60148871c136178c241b");
+
+        public static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_BasicChest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_BasicChest_01",
+                "c075511377216b14d8b737a12acc5459");
+
+        public static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Library_01",
+                "d368d762951783846bc4acd23126c84c");
+
+        public static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Library_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Library_02",
+                "d3d2f01e22a46684daacd0ece8c34706");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_01",
+                "b0a252e42d0ed0f4291d17be8973dc6b");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_02",
+                "600a6c7a1238756489ff4705d9f9af09");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_03",
+                "e51d2f3138c362a4abde3bbd531f3423");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Basket_Pack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Basket_Pack_01",
+                "b5980749bbee88b47a6f00291c5bf375");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Crate_01",
+                "17265328321509545b2bde7994b83193");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Crate_02",
+                "b59d9cb9d18711247ae474f88e62d62d");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_JuteSack_01",
+                "9efa2adec3961d9419584009026f87ea");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_JuteSack_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_JuteSack_02",
+                "ce7ffdd5d923f0e4fa9fee731c15211a");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Library_01",
+                "69ef30697814d5d4f944f826b5b7d473");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Library_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Library_02",
+                "9863eaa94f2223b47a43dfed96a3eee2");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_01",
+                "7d19e962529a28d4ea528db43f91aabc");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_02",
+                "43d98ff488bd7cf43bd277f4fb42f88c");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_03",
+                "ed34bc213b02c3b4a98249daac8021c9");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_04 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_04",
+                "3cabc38adbb41a54b8e72ff2053b8a25");
+
+        public static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_05 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_05",
+                "81627eaa7dce1824bb741a9776c9084f");
+
+        public static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicChest_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicChest_02",
+                "6f8a1d60cbb1a124d963630bee0d01f2");
+
+        public static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicContainer_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicContainer_Barrel_01",
+                "32a7ef2718e702f4da7d31b58512fe65");
+
+        public static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicContainer_Cart_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicContainer_Cart_01",
+                "0c0bac2e867d4a24ab079af734e82eb4");
+
+        public static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicContainer_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicContainer_Library_01",
+                "1712ec1cd37411440ba0733a868aa5bb");
+
+        public static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicContainer_Weapon_Rack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicContainer_Weapon_Rack_01",
+                "80280d5174e34a2458305ee0a0326ff7");
+
+        public static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Barrel_01",
+                "e0edb8a6673a63642a75931f197da66e");
+
+        public static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Barrel_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Barrel_02",
+                "6570617de8388b04bb771c8c3806bc44");
+
+        public static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Basket_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Basket_01",
+                "8e8a53f670ec8cf4c9d34551529e32cf");
+
+        public static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Basket_Pack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Basket_Pack_01",
+                "5e085e639765a014c9c40799007d541a");
+
+        public static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Broken_Crate_01",
+                "9e81b2495ec5c78499d77560c3219273");
+
+        public static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Broken_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Broken_Crate_02",
+                "fb3e85fafcdc1f24399c9d8bd2192b72");
+
+        public static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Crate_01",
+                "f8d865c9c53c6e34fa3caf60de4cd14b");
+
+        public static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_JuteSack_01",
+                "8801cd10838e9304d829926ce395ec67");
+
+        public static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_JuteSack_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_JuteSack_02",
+                "3960735d80936dc45b3414b0c6dc9dcb");
+
+        public static LootPackDefinition DLC3_NPC_ElvenClans_FakeEstorgath_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_ElvenClans_FakeEstorgath_Loot_Drop",
+                "45feef38a8a9df14a8a3439f533e6e12");
+
+        public static LootPackDefinition DLC3_NPC_ElvenClans_Guard_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_ElvenClans_Guard_Loot_Drop",
+                "41d42f1221884cb46977a89f407d06f8");
+
+        public static LootPackDefinition DLC3_Onereia_Spectral_Dragon_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Onereia_Spectral_Dragon_Loot_Drop",
+                "38e1051d2d7844a42bb1d9fe9f673e80");
+
+        public static LootPackDefinition DLC3_Telema_Hall_Corpse_Hanging_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_Hall_Corpse_Hanging_Lootpack",
+                "88cf60f8fa13ee6429a911abd6f7b225");
+
+        public static LootPackDefinition DLC3_Telema_Hall_Corpse_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_Hall_Corpse_Lootpack", "14e80554c6b453240a01afba85a5da5a");
+
+        public static LootPackDefinition DLC3_Telema_HighLab_HectorsBody_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_HighLab_HectorsBody_Lootpack",
+                "9c131a26c35ac884a996c6d6808c3d87");
+
+        public static LootPackDefinition DLC3_Telema_LowLabHell_Pyramidkey_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_LowLabHell_Pyramidkey_Lootpack",
+                "f6c94f77fbcd8c044a1af9308b5335b8");
+
+        public static LootPackDefinition DLC3_Telema_LowLabNormal_Chest_RoundKey_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_LowLabNormal_Chest_RoundKey_Lootpack",
+                "2af06286427b8214aaa8a76bbf896a92");
+
+        public static LootPackDefinition DLC3_Telema_LowLabNormal_SquareKey_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_LowLabNormal_SquareKey_Lootpack",
+                "d4b837793609c5d4a99e29e2f1616d60");
+
+        public static LootPackDefinition DLC3_Telema_Outdoors_Basket_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_Outdoors_Basket_Lootpack",
+                "40f4ec4a17c5a2049965d14cb30a499e");
+
+        public static LootPackDefinition DLC3_Telema_TreasureRoom_ArmorStand_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_TreasureRoom_ArmorStand_Lootpack",
+                "1c96ee81bc484174bb2b1aed61b391ca");
+
+        public static LootPackDefinition DLC3_Telema_TreasureRoom_Chest01_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_TreasureRoom_Chest01_Lootpack",
+                "54464a951ee370e4788e35c54456be56");
+
+        public static LootPackDefinition DLC3_Telema_TreasureRoom_Library_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_TreasureRoom_Library_Lootpack",
+                "218e34ceded9bc24a8263133ae4490c8");
+
+        public static LootPackDefinition DLC3_Undermountain_Quarry_BrigandsChief_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Quarry_BrigandsChief_Lootpack",
+                "072396cfe92dff54b814a3b640c4653c");
+
+        public static LootPackDefinition DLC3_UndermountainOutside_arrowScrolls_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_UndermountainOutside_arrowScrolls_Lootpack",
+                "c6f1caf2d80658e4e9d49cce5818f933");
+
         public static LootPackDefinition Dropped_Gear_DLC1_Bodyguard { get; } =
             GetDefinition<LootPackDefinition>("Dropped_Gear_DLC1_Bodyguard", "56fbb8626adcc9b458720205d928e010");
 
@@ -13424,11 +16602,26 @@ public static partial class DatabaseHelper
         public static LootPackDefinition Giant_Stone_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Giant_Stone_loot_drop", "4866a5cf7dd3ac443afc599c4687c8c1");
 
+        public static LootPackDefinition Giant_Storm_Attacker_WhiteCity_1_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Storm_Attacker_WhiteCity_1_loot_drop",
+                "11b6c097f16246c4aa2ab3014f81759c");
+
+        public static LootPackDefinition Giant_Storm_Citizen_WhiteCity_1_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Storm_Citizen_WhiteCity_1_loot_drop",
+                "11ae033f868905143a0b0776f0d2926f");
+
+        public static LootPackDefinition Giant_Storm_Citizen_WhiteCity_2_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Storm_Citizen_WhiteCity_2_loot_drop",
+                "7b13a565aaab9f04ba8f2dd83b62a8b5");
+
         public static LootPackDefinition Giant_Storm_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Giant_Storm_loot_drop", "1bc97902e97123f4b856c7ad5af8dda1");
 
         public static LootPackDefinition Giant_Trader_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Giant_Trader_loot_drop", "5ba51a08b21adc54a9d82483a4af564e");
+
+        public static LootPackDefinition Glabrezu_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Glabrezu_loot_drop", "cdb42e1be60d24e42b7c02bc52871ee1");
 
         public static LootPackDefinition Goblin_Cutthroat_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Goblin_Cutthroat_loot_drop", "d7f3335642c193b4485744f8e271943e");
@@ -13444,6 +16637,9 @@ public static partial class DatabaseHelper
 
         public static LootPackDefinition Golem_Clay_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Golem_Clay_loot_drop", "947ac2660f7a5d649ad46a3f5afa5ef2");
+
+        public static LootPackDefinition Golem_Ice_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Golem_Ice_loot_drop", "a9104e2dd382e0945bd8d57a3862d4e9");
 
         public static LootPackDefinition Golem_Iron_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Golem_Iron_loot_drop", "bba6bcae387f0d04d8493d5714fab012");
@@ -13533,6 +16729,9 @@ public static partial class DatabaseHelper
         public static LootPackDefinition HighPriest_SorakInfiltrator_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("HighPriest_SorakInfiltrator_loot_drop",
                 "0c32ce63a12b34f43821367f16c4a496");
+
+        public static LootPackDefinition Incubus_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Incubus_loot_drop", "dcad2341ec6a8774da0e65f532d73b54");
 
         public static LootPackDefinition Kill_loot_Helia_Fairblade { get; } =
             GetDefinition<LootPackDefinition>("Kill_loot_Helia_Fairblade", "31206517733b3b14da2a61b00f7d9b72");
@@ -13736,6 +16935,12 @@ public static partial class DatabaseHelper
         public static LootPackDefinition Palace_Residence_Lootpack { get; } =
             GetDefinition<LootPackDefinition>("Palace_Residence_Lootpack", "835910031aa067545a004d04cbf5c62e");
 
+        public static LootPackDefinition PeaksAbomination_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("PeaksAbomination_loot_drop", "202a5859c91b1a84bad46f6ff738ffd3");
+
+        public static LootPackDefinition PeaksTerror_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("PeaksTerror_loot_drop", "f87cbfe83cf9c0a48a369122e14917af");
+
         public static LootPackDefinition Pickpocket_DLC1_City_Guard { get; } =
             GetDefinition<LootPackDefinition>("Pickpocket_DLC1_City_Guard", "d50e6f4c498960441ab3fc8f6404d3a8");
 
@@ -13757,6 +16962,12 @@ public static partial class DatabaseHelper
         public static LootPackDefinition Pickpocket_loot_Helia_Fairblade { get; } =
             GetDefinition<LootPackDefinition>("Pickpocket_loot_Helia_Fairblade", "72d8268173798c44c85e47e4fbd53526");
 
+        public static LootPackDefinition PolarBear_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("PolarBear_loot_drop", "8eafa2f80537cd0479563ee17563f38b");
+
+        public static LootPackDefinition Remorhaz_Ancient_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Remorhaz_Ancient_Loot_Drop", "2aab4a1a466f59d4dae0f1a02f29c8b7");
+
         public static LootPackDefinition Remorhaz_Loot_Drop { get; } =
             GetDefinition<LootPackDefinition>("Remorhaz_Loot_Drop", "f011fae64a89bb64f951e8ae635be70b");
 
@@ -13765,6 +16976,9 @@ public static partial class DatabaseHelper
 
         public static LootPackDefinition Secondary_KillRazan_Loot { get; } =
             GetDefinition<LootPackDefinition>("Secondary_KillRazan_Loot", "793ea08a289e97346bd276803f13074e");
+
+        public static LootPackDefinition Sessroth_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sessroth_loot_drop", "f9470a2043826564ba1ae5f3ace9d75d");
 
         public static LootPackDefinition Shambling_Mound_Loot_Drop { get; } =
             GetDefinition<LootPackDefinition>("Shambling_Mound_Loot_Drop", "015c4de14c869c544bf227eb06f29d06");
@@ -13798,6 +17012,9 @@ public static partial class DatabaseHelper
 
         public static LootPackDefinition Sorr_Akkath_Assassin_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Sorr-Akkath_Assassin_loot_drop", "c0282cf7785e7784294e3999e32ece20");
+
+        public static LootPackDefinition Sorr_Akkath_Kratshar_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Kratshar_loot_drop", "bb3163bd5104d69418dedde19fd55d53");
 
         public static LootPackDefinition Sorr_Akkath_Saboteur_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Sorr-Akkath_Saboteur_loot_drop", "ee8b63b431dca0746a39ca3fc56bb037");
@@ -13989,6 +17206,9 @@ public static partial class DatabaseHelper
         public static LootPackDefinition Veteran_SorakAgent_Loot_Drop { get; } =
             GetDefinition<LootPackDefinition>("Veteran_SorakAgent_Loot_Drop", "076e8c792ff1cfd41adda3ac1cc77307");
 
+        public static LootPackDefinition Vrock_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Vrock_loot_drop", "755f5f2c3a5b7674981eaf3d3d2c4c33");
+
         public static LootPackDefinition Warlord_Loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Warlord_Loot_drop", "d486d6fd0f848204fa27d8db786bee28");
 
@@ -14040,6 +17260,10 @@ public static partial class DatabaseHelper
 
     public static class MerchantDefinitions
     {
+        public static MerchantDefinition CHANGE_ME_Store_NPC_Merchant_ADV_NPC_Telerien { get; } =
+            GetDefinition<MerchantDefinition>("CHANGE_ME_Store_NPC_Merchant_ADV_NPC_Telerien",
+                "924e39966bbe1b043a99cecb438b4e77");
+
         public static MerchantDefinition DLC1_Valley_NPC_Store_Merchant_Telerien_Purevoice { get; } =
             GetDefinition<MerchantDefinition>("DLC1_Valley_NPC_Store_Merchant_Telerien_Purevoice",
                 "7a79db96074833a46b72206ea8b9a788");
@@ -14097,6 +17321,41 @@ public static partial class DatabaseHelper
 
         public static MerchantDefinition Store_Merchant_DLC1_Yasmin { get; } =
             GetDefinition<MerchantDefinition>("Store_Merchant_DLC1_Yasmin", "68b9727c11a395641acb81437aabe420");
+
+        public static MerchantDefinition Store_Merchant_DLC3_EINAREUM_NPC_General { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_EINAREUM_NPC_General",
+                "e9d8acd1ad70ad84fbfc9998cd61c26f");
+
+        public static MerchantDefinition Store_Merchant_DLC3_EINAREUM_NPC_Ingredients { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_EINAREUM_NPC_Ingredients",
+                "c7025ba6fd72d1b4f806d19b9517b061");
+
+        public static MerchantDefinition Store_Merchant_DLC3_EINAREUM_NPC_Weapons { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_EINAREUM_NPC_Weapons",
+                "4306f49410143b54ebd80764201a6a7f");
+
+        public static MerchantDefinition Store_Merchant_DLC3_ElfShopOwner { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_ElfShopOwner", "3ea478111778465449d53dd6de114ed8");
+
+        public static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_ClanHouse { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_ClanHouse",
+                "09924bd03ce71c8469cd1c4a317488b4");
+
+        public static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_General { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_General",
+                "50310bc39c8fa954fa2793f77e9b6291");
+
+        public static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_Ingredients { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_Ingredients",
+                "d6874f5eeeb12c04fbe7e0f0cc6b84db");
+
+        public static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_Scavenger { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_Scavenger",
+                "4856cb367b9d1ac438656ab2d6bfb564");
+
+        public static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_Weapons { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_Weapons",
+                "e03a481928635da41b17aa49b51df158");
 
         public static MerchantDefinition Store_Merchant_DLC3_Lena { get; } =
             GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_Lena", "827989064afe3024ba32c3bf172cdd18");
@@ -14198,6 +17457,17 @@ public static partial class DatabaseHelper
 
         public static MonsterAttackDefinition Attack_AlphaWolf_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_AlphaWolf_Bite", "41b033dfa7418c247b16c34e0b0249ba");
+
+        public static MonsterAttackDefinition Attack_Ancient_Remorhaz_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ancient_Remorhaz_Bite", "f1cf0b079f753a74e89472ab980f0097");
+
+        public static MonsterAttackDefinition Attack_Ancient_Remorhaz_QuickBite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ancient_Remorhaz_QuickBite",
+                "12eb65bdec0db1b49b21e9cebbbc113b");
+
+        public static MonsterAttackDefinition Attack_Ancient_Remorhaz_StunningBite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ancient_Remorhaz_StunningBite",
+                "7b9ad867d042f9a4cb943f24e1a67de1");
 
         public static MonsterAttackDefinition Attack_Ape_Fist { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Ape_Fist", "c20bdbeeeccfae648b9d24f3610a289e");
@@ -14318,6 +17588,9 @@ public static partial class DatabaseHelper
 
         public static MonsterAttackDefinition Attack_Bulette_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Bulette_Bite", "85096f11896d3ba478e964a506ef38a0");
+
+        public static MonsterAttackDefinition Attack_Bulette_Snow_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Bulette_Snow_Bite", "81a8a1b01dcd70b4a84a7eee605af804");
 
         public static MonsterAttackDefinition Attack_CityGuard { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_CityGuard", "b549410045013ae42866b01a604226a5");
@@ -14557,11 +17830,83 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_DLC1_Trainer_Staff { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Trainer_Staff", "562a2e3694adc524b8c7365c94b520a1");
 
+        public static MonsterAttackDefinition Attack_DLC3_Ashdown_Sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Ashdown_Sword", "aad246fe3b1e13f4baf0093f2d3ed8cf");
+
+        public static MonsterAttackDefinition Attack_DLC3_Beryl_Hammer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Beryl_Hammer", "4b009484e0064ee41a47b5a691d42374");
+
+        public static MonsterAttackDefinition Attack_DLC3_Dragonborn_Intermediate_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Dragonborn_Intermediate_Scimitar",
+                "2f2878b58fe63fe48ad15f38b5a4a190");
+
+        public static MonsterAttackDefinition Attack_DLC3_EldInnOwner_Bow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_EldInnOwner_Bow", "f610bd444aa4b4c469d3cfb8d6fccdb2");
+
+        public static MonsterAttackDefinition Attack_DLC3_ElfShopOwner_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_ElfShopOwner_Longsword",
+                "091c78d9b855f914885c38d00fd9b254");
+
+        public static MonsterAttackDefinition Attack_DLC3_Gallivan_Cleric_Mace { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Gallivan_Cleric_Mace",
+                "bf8102133bfbfc04a8d212868e50d5cb");
+
+        public static MonsterAttackDefinition Attack_DLC3_Gallivan_Soldier_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Gallivan_Soldier_Crossbow",
+                "3af1b85ca4e1b3d458ba955baa48803a");
+
+        public static MonsterAttackDefinition Attack_DLC3_GallivanArcher_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_GallivanArcher_Longbow",
+                "b767344058b0a4541aa6ea18ee670aeb");
+
+        public static MonsterAttackDefinition Attack_DLC3_GallivanArcher_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_GallivanArcher_Shortsword",
+                "22c8aab43dbb9bb42a7054aea3f8458d");
+
+        public static MonsterAttackDefinition Attack_DLC3_GallivanSoldier_Spear { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_GallivanSoldier_Spear",
+                "2e6aa0c1af83f8a46bca3e7ebef0be1a");
+
         public static MonsterAttackDefinition Attack_DLC3_Garrad_Crossbow { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Garrad_Crossbow", "1dfd43ff2333fff4fb3e4240c8745eba");
 
         public static MonsterAttackDefinition Attack_DLC3_Garrad_Longsword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Garrad_Longsword", "9a55c63c68ec5fe46a2a5e393a95456f");
+
+        public static MonsterAttackDefinition Attack_DLC3_HumanClan_Archer_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_HumanClan_Archer_Dagger",
+                "dcfb3875cdde4b040b38082482defb13");
+
+        public static MonsterAttackDefinition Attack_DLC3_HumanClan_Archer_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_HumanClan_Archer_Shortbow",
+                "54916953965d6054e8a26484b1523859");
+
+        public static MonsterAttackDefinition Attack_DLC3_HumanClan_Marksman_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_HumanClan_Marksman_Shortbow",
+                "883ca4e2b69f6924a953420cf02196ff");
+
+        public static MonsterAttackDefinition Attack_DLC3_HumanClan_Marksman_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_HumanClan_Marksman_Shortsword",
+                "c95328189a30468408954ac25a4bd920");
+
+        public static MonsterAttackDefinition Attack_DLC3_Kaupaa_Miner_Maul { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Kaupaa_Miner_Maul", "04407a42c493b3049aea97d0ba670810");
+
+        public static MonsterAttackDefinition Attack_DLC3_SouthernClanSoldierBattleAxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_SouthernClanSoldierBattleAxe",
+                "f41b5394ca78da64f81bb8a0a9416317");
+
+        public static MonsterAttackDefinition Attack_DLC3_SouthernClanSoldierCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_SouthernClanSoldierCrossbow",
+                "c263e6678d0243143900b96752bbb053");
+
+        public static MonsterAttackDefinition Attack_DLC3_Undermountain_PernnelevinGuard_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_PernnelevinGuard_Dagger",
+                "63b4646888f2b734baf2d721a29a025b");
+
+        public static MonsterAttackDefinition Attack_DLC3_Undermountain_PernnelevinGuard_Morningstar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_PernnelevinGuard_Morningstar",
+                "3087a0a67cb1b6a448d28e9e0340a7ca");
 
         public static MonsterAttackDefinition Attack_DLC3_Vigdis_Crossbow { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Vigdis_Crossbow", "e05cb53051307b24b8071fa072045266");
@@ -14577,6 +17922,20 @@ public static partial class DatabaseHelper
 
         public static MonsterAttackDefinition Attack_Estalla_Claw { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Estalla_Claw", "1fe9ba0fb99688c4090042bb448114ec");
+
+        public static MonsterAttackDefinition Attack_Feral_Dragon_Green_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Feral_Dragon_Green_Bite",
+                "194eac5fb801ef044b4397b8d8a5d4ea");
+
+        public static MonsterAttackDefinition Attack_Feral_Dragon_Green_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Feral_Dragon_Green_Claw",
+                "e58de8432610c2a4f930d59bfae5fd32");
+
+        public static MonsterAttackDefinition Attack_Feral_Dragon_Red_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Feral_Dragon_Red_Bite", "19abd48a69ad45d41ab40acc73d5b1aa");
+
+        public static MonsterAttackDefinition Attack_Feral_Dragon_Red_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Feral_Dragon_Red_Claw", "348a170def661d948b012617e4d6cd0b");
 
         public static MonsterAttackDefinition Attack_Fey_Bear_Bite_MonsterAttack { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Fey_Bear_Bite_MonsterAttack",
@@ -14730,6 +18089,12 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_GiantEagle_Talons { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_GiantEagle_Talons", "31f060524a0fac7458701e9c9ab0be79");
 
+        public static MonsterAttackDefinition Attack_Glabrezu_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Glabrezu_Fist", "2b81c9e0da646e644be0761cf83be289");
+
+        public static MonsterAttackDefinition Attack_Glabrezu_Pincer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Glabrezu_Pincer", "46a45ac9bdd71f043a7390bfd7f6b4ab");
+
         public static MonsterAttackDefinition Attack_Goblin_Cutthroat_Scimitar { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Goblin_Cutthroat_Scimitar",
                 "68293acf895fd8c459863307de3c1a20");
@@ -14749,6 +18114,9 @@ public static partial class DatabaseHelper
 
         public static MonsterAttackDefinition Attack_Golem_Clay_Slam { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Golem_Clay_Slam", "9ea77a9fbbc03d34ca3c1ba1d5357125");
+
+        public static MonsterAttackDefinition Attack_Golem_Ice_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Golem_Ice_Slam", "883474a5855d2fb4b8fbfaceb75fe687");
 
         public static MonsterAttackDefinition Attack_Golem_Iron_Slam { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Golem_Iron_Slam", "3cfd57a18b07118419037b8e4ca88e8b");
@@ -14797,6 +18165,12 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_Illoreth { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Illoreth", "7efcb5bbda64b4648869297f68f45b81");
 
+        public static MonsterAttackDefinition Attack_Incubus_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Incubus_Claw", "1b5022365397d1c43b698980d28f955e");
+
+        public static MonsterAttackDefinition Attack_Incubus_Firebolt { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Incubus_Firebolt", "9b92ba0150a062645922994f436e6ce8");
+
         public static MonsterAttackDefinition Attack_InvisibleStalker { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_InvisibleStalker", "e2b1e937444025341ab6b76e4a4bde64");
 
@@ -14815,6 +18189,12 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_Kebra_Staff { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Kebra_Staff", "327dcff4bb94a254e8cdd98bf987a1b1");
 
+        public static MonsterAttackDefinition Attack_Kutkartal_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Kutkartal_Beak", "ccce0a49c376dd44bb8c9c0556347422");
+
+        public static MonsterAttackDefinition Attack_Kutkartal_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Kutkartal_Talons", "01d81cf959f16104799917791cbfb63d");
+
         public static MonsterAttackDefinition Attack_Kythaela_Dagger_Bonus { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Kythaela_Dagger_Bonus", "688b8de11cbc80740bca8c87a43ea508");
 
@@ -14832,6 +18212,10 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_Liam_Dagger { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Liam_Dagger", "0bd1022b8fea8134ea2b0b328ee99fc0");
 
+        public static MonsterAttackDefinition Attack_Lisbath_Shortsword_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Lisbath_Shortsword_DLC3",
+                "b9bd0dda57ae48844b9c06d1cea3f80d");
+
         public static MonsterAttackDefinition Attack_Lisbath_Sword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Lisbath_Sword", "18bb7643ead63094687b201e6048f54b");
 
@@ -14846,6 +18230,12 @@ public static partial class DatabaseHelper
 
         public static MonsterAttackDefinition Attack_Marilith_Tail { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Tail", "c01ad393ee105a649bd70007f233e067");
+
+        public static MonsterAttackDefinition Attack_Melek_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Melek_Longbow", "a98df5c30a164c74da0791f6fe9bebfb");
+
+        public static MonsterAttackDefinition Attack_Melek_Mace { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Melek_Mace", "65a2f1f42c9a5bc4eb4af399d938fbca");
 
         public static MonsterAttackDefinition Attack_Minotaur_Charged_Gore { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Charged_Gore", "8741490bff5c37141b722a584a81dc16");
@@ -14994,6 +18384,18 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_Orenetis_DLC_Touch { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Orenetis_DLC_Touch", "675c05eeca2571a4d83e3fb85e3e07bd");
 
+        public static MonsterAttackDefinition Attack_PeaksAbomination_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PeaksAbomination_Claw", "22f808a4a828d0542a60e6167d221f51");
+
+        public static MonsterAttackDefinition Attack_PeaksAbomination_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PeaksAbomination_Rock", "b9d87f8dcfc766f46b5ea92b47aa8bd7");
+
+        public static MonsterAttackDefinition Attack_PeaksTerror_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PeaksTerror_Claw", "8cb1de991d18ef04793d8dad1abf16b7");
+
+        public static MonsterAttackDefinition Attack_PeaksTerror_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PeaksTerror_Rock", "00067c0799bcb08429df656330ebbd5f");
+
         public static MonsterAttackDefinition Attack_Phase_Spider_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Phase_Spider_Bite", "d8c42fc398ebefc4b871c349c8d66fb5");
 
@@ -15008,6 +18410,12 @@ public static partial class DatabaseHelper
 
         public static MonsterAttackDefinition Attack_PoisonousSnake_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_PoisonousSnake_Bite", "a1a664bd192e4054ba30e87affc0b045");
+
+        public static MonsterAttackDefinition Attack_PolarBear_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PolarBear_Bite", "a746de78fc52ac942bc240f762a6123e");
+
+        public static MonsterAttackDefinition Attack_PolarBear_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PolarBear_Claw", "7e67211a08f6fd54cbc9cde3a7a9b231");
 
         public static MonsterAttackDefinition Attack_Priest_Mace { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Priest_Mace", "23782069c676d1e43bf82e07edca9431");
@@ -15027,6 +18435,9 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_Robar_Sword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Robar_Sword", "9afc9ff56df678849a2ef87f86e9f107");
 
+        public static MonsterAttackDefinition Attack_Robar_Sword_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Robar_Sword_DLC3", "e3a2e92ecac9a074486f3d66f5087fde");
+
         public static MonsterAttackDefinition Attack_Rodric_Scimitar { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Rodric_Scimitar", "914c845e49bb0184c88f272c3beac799");
 
@@ -15035,6 +18446,12 @@ public static partial class DatabaseHelper
 
         public static MonsterAttackDefinition Attack_Scout_Shortsword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Scout_Shortsword", "2d66c1b3d7d0aaa47b922b101936c978");
+
+        public static MonsterAttackDefinition Attack_Sessroth_Javelin { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sessroth_Javelin", "e1fe7b87ef20e0e4f914507357eec8fa");
+
+        public static MonsterAttackDefinition Attack_Sessroth_Maul { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sessroth_Maul", "5008cd15f9ded544db629e251b7bd4f6");
 
         public static MonsterAttackDefinition Attack_ShockArcanist_Dagger { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_ShockArcanist_Dagger", "3185f4b9e7936214eae29048d3d5f685");
@@ -15101,6 +18518,22 @@ public static partial class DatabaseHelper
             GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Assassin_Poisoned_Spine",
                 "82c51c9ee48c5014395fede3d662312e");
 
+        public static MonsterAttackDefinition Attack_Sorr_Akkath_Devastator_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Devastator_Claw",
+                "44952985e6a322e43a7a9e7c2e68e397");
+
+        public static MonsterAttackDefinition Attack_Sorr_Akkath_Harasser_Poisoned_Spine { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Harasser_Poisoned_Spine",
+                "37bca51e61ec631478dbaaefac2afe07");
+
+        public static MonsterAttackDefinition Attack_Sorr_Akkath_Harasser_Shrieker_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Harasser_Shrieker_Dagger",
+                "7c5e566415902624282f2609c46198ee");
+
+        public static MonsterAttackDefinition Attack_Sorr_Akkath_Kratshar_Shrieker_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Kratshar_Shrieker_Dagger",
+                "097b924266768094f96555c22ae33e7c");
+
         public static MonsterAttackDefinition Attack_Sorr_Akkath_Saboteur_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Saboteur_Bite",
                 "09772d1bc25ce344eb12e5c5dca16bc8");
@@ -15132,6 +18565,18 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_Sorr_Akkath_Warrior_Poisoned_Spine { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Warrior_Poisoned_Spine",
                 "c62e43d6321bee742adfa84a06fec789");
+
+        public static MonsterAttackDefinition Attack_Spectral_Dragon_Bite_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Bite_DLC3",
+                "82f56a20c5fe14a498302789d055d7b7");
+
+        public static MonsterAttackDefinition Attack_Spectral_Dragon_Claw_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Claw_DLC3",
+                "7ac961cc2cab2884a89dcba165dbdb0e");
+
+        public static MonsterAttackDefinition Attack_Spectral_Dragon_Tail_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Tail_DLC3",
+                "ea396fdfb679956488d9d8838d31fd16");
 
         public static MonsterAttackDefinition Attack_Spectral_Spider_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Spider_Bite", "287f6b8c09be62944b09be8a1cd13db8");
@@ -15181,6 +18626,9 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_SpiritSpider_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_SpiritSpider_Bite", "c89ccd32bdb2e2746ba891da579d2eba");
 
+        public static MonsterAttackDefinition Attack_SpiritTiger_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritTiger_Claw", "55ae0c2fe17977e459e24672a84e4555");
+
         public static MonsterAttackDefinition Attack_SpiritViper_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_SpiritViper_Bite", "62078aa46d12d194aae9131ea968792a");
 
@@ -15224,6 +18672,12 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_Troll_Mutant_Claw { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Troll_Mutant_Claw", "451558dd5b8dacc439b2a6ffe0fdf8c4");
 
+        public static MonsterAttackDefinition Attack_TundraTiger_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_TundraTiger_Bite", "f873d611676c63a41a47277c30c7c5c2");
+
+        public static MonsterAttackDefinition Attack_TundraTiger_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_TundraTiger_Claw", "0043ec7420854af4fb0eda80d0ef1cb5");
+
         public static MonsterAttackDefinition Attack_Veteran_HeavyCrossbow { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Veteran_HeavyCrossbow", "71a57bf6d1b1f5c43a3e885f6b82d34f");
 
@@ -15241,6 +18695,18 @@ public static partial class DatabaseHelper
             GetDefinition<MonsterAttackDefinition>("Attack_Veteran_Sorak_Agent_Shortsword",
                 "c097ce05dd5f98048a6756c6c3280ed8");
 
+        public static MonsterAttackDefinition Attack_Vrock_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Vrock_Beak", "96bb871564dd6de47adfb040caae379c");
+
+        public static MonsterAttackDefinition Attack_Vrock_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Vrock_Talons", "3a75a0b4f492dd849b6f8ea0979ebb56");
+
+        public static MonsterAttackDefinition Attack_Vrockling_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Vrockling_Beak", "871aaf334927d4d40b6068a24e8ebb3f");
+
+        public static MonsterAttackDefinition Attack_Vrockling_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Vrockling_Talons", "0de1ba21ed24ea642b4f72c986bf65bc");
+
         public static MonsterAttackDefinition Attack_WereBear_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_WereBear_Bite", "1c7c4cb4c6cfc6246bf5a9fe096894aa");
 
@@ -15254,6 +18720,15 @@ public static partial class DatabaseHelper
         public static MonsterAttackDefinition Attack_Werewolf_humanoid_sword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Werewolf_humanoid_sword",
                 "eb05198956528294bb94691df67d4b97");
+
+        public static MonsterAttackDefinition Attack_White_Dragon_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_White_Dragon_Bite", "1d068701d60b0de438ff6c8f107c7fda");
+
+        public static MonsterAttackDefinition Attack_White_Dragon_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_White_Dragon_Claw", "d9df9ac5ab8d1194aa927706b56c4942");
+
+        public static MonsterAttackDefinition Attack_White_Dragon_Tail { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_White_Dragon_Tail", "ad7e99186a1a99d4aa8e369d15ea0303");
 
         public static MonsterAttackDefinition Attack_Widshape_Badlands_Spider_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Widshape_Badlands_Spider_Bite",
@@ -15276,6 +18751,13 @@ public static partial class DatabaseHelper
 
         public static MonsterAttackDefinition Attack_WightLord_Longsword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_WightLord_Longsword", "60744fb5794f689438639592a3bfc48e");
+
+        public static MonsterAttackDefinition Attack_Wildshape_Ape_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Ape_Fist", "ab7f17cc39f85d34883309a55fdb41bc");
+
+        public static MonsterAttackDefinition Attack_Wildshape_Ape_Toss_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Ape_Toss_Rock",
+                "77ae886006ba5c944b0017faf46e0c7b");
 
         public static MonsterAttackDefinition Attack_Wildshape_BrownBear_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Bite",
@@ -15509,6 +18991,9 @@ public static partial class DatabaseHelper
 
         public static MonsterDefinition Bulette { get; } =
             GetDefinition<MonsterDefinition>("Bulette", "a701a84d22c492f40a8c724fb71fb451");
+
+        public static MonsterDefinition Bulette_Snow { get; } =
+            GetDefinition<MonsterDefinition>("Bulette_Snow", "74d3a5d7d89fbac4cbed5b959fe27017");
 
         public static MonsterDefinition Butler_Ravensworth { get; } =
             GetDefinition<MonsterDefinition>("Butler_Ravensworth", "ee4543c8bafde26408f7c2b2e65b6bf5");
@@ -16007,17 +19492,346 @@ public static partial class DatabaseHelper
         public static MonsterDefinition DLC1_Valley_NPC_Telerien_Purevoice { get; } =
             GetDefinition<MonsterDefinition>("DLC1_Valley_NPC_Telerien_Purevoice", "ab6ec8d5fbb6e844b98f2d77ae1db20d");
 
-        public static MonsterDefinition DLC3_Garrad_Miles { get; } =
-            GetDefinition<MonsterDefinition>("DLC3_Garrad_Miles", "bec685a5453cbac43a15ca6aff56a3d4");
+        public static MonsterDefinition DLC3_Berghild_StrongSpine { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Berghild_StrongSpine", "4e1aef4754994264fad6d9ba8af4ab26");
 
-        public static MonsterDefinition DLC3_HumanClansChief { get; } =
-            GetDefinition<MonsterDefinition>("DLC3_HumanClansChief", "0b8484860c4039547b94662eba407d43");
+        public static MonsterDefinition DLC3_Beryl_Stonebeard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Beryl_Stonebeard", "a057ca234f626f64db0ce42d7da06367");
+
+        public static MonsterDefinition DLC3_Brodir_SteelHeart { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Brodir_SteelHeart", "750a6185b3811b2408ff93feb7d51394");
+
+        public static MonsterDefinition DLC3_Council_Trooper_1 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Council_Trooper_1", "dc085d77699c3074f87c8fb109c572ff");
+
+        public static MonsterDefinition DLC3_Council_Trooper_2 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Council_Trooper_2", "407022fc76103bf4689b9c587225fe50");
+
+        public static MonsterDefinition DLC3_Council_Trooper_3 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Council_Trooper_3", "e30abd5a8449e8140ad7b4406b8b0cf9");
+
+        public static MonsterDefinition DLC3_ElvenClans_DragonbornIntermediate { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_DragonbornIntermediate",
+                "7e6cbdd8376825d43a1a30a710868f52");
+
+        public static MonsterDefinition DLC3_ElvenClans_ElfAdvisor1 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ElfAdvisor1", "0d69222fc6ab5b2438a3b7eaab35c4af");
+
+        public static MonsterDefinition DLC3_ElvenClans_ElfAdvisor2 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ElfAdvisor2", "fad1917380e72a445973146374de9999");
+
+        public static MonsterDefinition DLC3_ElvenClans_ElfRepresentative { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ElfRepresentative", "e06d65de1c6977d4abfa1df8a5b6a274");
+
+        public static MonsterDefinition DLC3_ElvenClans_ElfTraitor { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ElfTraitor", "6e859847dc4c57d4f8a9b7001eeda4e4");
+
+        public static MonsterDefinition DLC3_ElvenClans_Estorgath { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_Estorgath", "3dcecb34b67cc0640b56f7e16aa8eacf");
+
+        public static MonsterDefinition DLC3_ElvenClans_FakeEstorgath { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_FakeEstorgath", "e9aba285afc54a743b051dd482d6fa8a");
+
+        public static MonsterDefinition DLC3_ElvenClans_InnOwner { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_InnOwner", "c40348d7a3b622447b0e63cb23f0aad7");
+
+        public static MonsterDefinition DLC3_ElvenClans_Leralyn { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_Leralyn", "b61efb73f8ee82244810b764843b7c8d");
+
+        public static MonsterDefinition DLC3_ElvenClans_ShopOwner { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ShopOwner", "1cfc898bfcf2abb4892aef96bf8a20ec");
+
+        public static MonsterDefinition DLC3_Gallivan_Archer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Archer", "291e697ce2a86224f92b8fc87809c67e");
+
+        public static MonsterDefinition DLC3_Gallivan_Cleric { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Cleric", "ecf98b3eeffd15d41beb2c1cae4f3843");
+
+        public static MonsterDefinition DLC3_Gallivan_ConvoyChief { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_ConvoyChief", "5525a4f2383700a49bbdef371b1bfdc5");
+
+        public static MonsterDefinition DLC3_Gallivan_Druid { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Druid", "f4ae6e6fbea4e444b8746374a55e75a2");
+
+        public static MonsterDefinition DLC3_Gallivan_Elite_RogueShadowCaster { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Elite_RogueShadowCaster",
+                "34383c4948e155748a9c730c4061ac46");
+
+        public static MonsterDefinition DLC3_Gallivan_Elite_Soldier { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Elite_Soldier", "6db0a4b801ffab249b44dcfafda9bd59");
+
+        public static MonsterDefinition DLC3_Gallivan_General { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_General", "af963105fef75be449b39a7821fa79a4");
+
+        public static MonsterDefinition DLC3_Gallivan_Mage { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Mage", "57fa7f2f42b80fd4092a66fae7fc67b4");
+
+        public static MonsterDefinition DLC3_Gallivan_Royals_TheCousin { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Royals_TheCousin", "cfbaec1abfdf71446bca55fb1461be05");
+
+        public static MonsterDefinition DLC3_Gallivan_Royals_TheHeir { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Royals_TheHeir", "2aaf62f4d05a2034fa92027c5e451a19");
+
+        public static MonsterDefinition DLC3_Gallivan_Royals_TheKing { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Royals_TheKing", "8ab0018d62388514b9235130f56441ef");
+
+        public static MonsterDefinition DLC3_Gallivan_Royals_TheQueen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Royals_TheQueen", "42f49c985411b1540a8c069b27abd1f6");
+
+        public static MonsterDefinition DLC3_Gallivan_Soldier { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Soldier", "1e324b7f04279c042a2caa24ed3f2653");
+
+        public static MonsterDefinition DLC3_Garrad_Miles { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Garrad_Miles", "8dee5c30c7127024abd063c6f2144c42");
+
+        public static MonsterDefinition DLC3_GarradSoldier01 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier01", "7b68ecc789f3d834d81a5735a2d83a56");
+
+        public static MonsterDefinition DLC3_GarradSoldier02 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier02", "48771c017e3a7114c8941b199a9d5002");
+
+        public static MonsterDefinition DLC3_GarradSoldier03 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier03", "f546cdacbdb31df4fa0411fd35cc14d9");
+
+        public static MonsterDefinition DLC3_GarradSoldier04 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier04", "0817473e58c9ebe458cfa1ee1dc98366");
+
+        public static MonsterDefinition DLC3_GarradSoldier05 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier05", "d601a2b721ff168459e2b8f023bad874");
+
+        public static MonsterDefinition DLC3_GarradSoldier06 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier06", "4660e5f55b019d74aa7fb3002e245e45");
+
+        public static MonsterDefinition DLC3_GarradSoldier07 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier07", "0bf935e159d05b742a014f9389675501");
+
+        public static MonsterDefinition DLC3_GarradSoldier08 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier08", "2f99c74cd28895d4ebee02787dbf0209");
+
+        public static MonsterDefinition DLC3_Gilmar_Goldentongue { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gilmar_Goldentongue", "a1b5777c12ee4eb429071f32e596aa2c");
+
+        public static MonsterDefinition DLC3_Grimhild_DarkHead { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Grimhild_DarkHead", "94a6eddbd4f442c4680dc8369739d3a9");
+
+        public static MonsterDefinition DLC3_HumanClans_Emissary { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_HumanClans_Emissary", "85119a92c0ea32645a3d102fc3c7cba7");
+
+        public static MonsterDefinition DLC3_HumanClans_Prisoners { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_HumanClans_Prisoners", "45ae943d4f161ce44adebd6a0815252d");
+
+        public static MonsterDefinition DLC3_Kara_WiseHead { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Kara_WiseHead", "d6d8d2fc34ec98b43aed6d27903dec50");
 
         public static MonsterDefinition DLC3_Lena_Switfhand { get; } =
             GetDefinition<MonsterDefinition>("DLC3_Lena_Switfhand", "96d65da0cb6e5e0459962ae9459a80b8");
 
+        public static MonsterDefinition DLC3_Lisbath_Townsend { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Lisbath_Townsend", "1e68984d47b61f843a5056397bd08af7");
+
+        public static MonsterDefinition DLC3_Misouk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Misouk", "875c777d0e814764ab6f114b5b2edd90");
+
+        public static MonsterDefinition DLC3_NPC_Avatar_Of_Sorr_Tarr { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Avatar_Of_Sorr-Tarr", "f082d8c2d4f9a714ab3015dfdfd6b53d");
+
+        public static MonsterDefinition DLC3_NPC_Cultist_Arcanist { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Cultist_Arcanist", "465bd3bfd8aef9948b6bb4845893f423");
+
+        public static MonsterDefinition DLC3_NPC_Cultist_Archer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Cultist_Archer", "582e27f5cfa0a564c95400111ee5f3b7");
+
+        public static MonsterDefinition DLC3_NPC_Cultist_Brute { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Cultist_Brute", "5520be2404105534fa5792da15e4aebb");
+
+        public static MonsterDefinition DLC3_NPC_Einareum_Merchant_General { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Einareum_Merchant_General", "c6c1f9c0e4314f94cb85eece62fbd040");
+
+        public static MonsterDefinition DLC3_NPC_Einareum_Merchant_Ingredients { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Einareum_Merchant_Ingredients",
+                "62414e31bdbb5734fbd1397b365b4e22");
+
+        public static MonsterDefinition DLC3_NPC_Einareum_Merchant_Weapons { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Einareum_Merchant_Weapons", "4302246fc20015e4f9506ffc4c9604c7");
+
+        public static MonsterDefinition DLC3_NPC_ElvenClans_Civilian1 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Civilian1", "e7162940d695f664a8fb30604dfc4770");
+
+        public static MonsterDefinition DLC3_NPC_ElvenClans_Civilian2 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Civilian2", "0b19d7504eb825140970d7b0ed4d49e7");
+
+        public static MonsterDefinition DLC3_NPC_ElvenClans_Civilian3 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Civilian3", "0e589c57d3a784c4fbdb425870c1290f");
+
+        public static MonsterDefinition DLC3_NPC_ElvenClans_CivilianGeneric { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_CivilianGeneric", "51f6bebe4907ee44a83d87169d48d84d");
+
+        public static MonsterDefinition DLC3_NPC_ElvenClans_Guard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Guard", "95ff8b5fb3b5908449dfff2f2915d6c2");
+
+        public static MonsterDefinition DLC3_NPC_ElvenClans_GuardCaptain { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_GuardCaptain", "feb9537d3ed52de428c985de612fc37a");
+
+        public static MonsterDefinition DLC3_NPC_Generic_ElvenCitizen_Husk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Generic_ElvenCitizen_Husk", "9f0d02eacc7e7554f9192028b16f28a8");
+
+        public static MonsterDefinition DLC3_NPC_GenericScavengerScout { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_GenericScavengerScout", "fa311cd7c3007434282c659a0b92bda7");
+
+        public static MonsterDefinition DLC3_NPC_HumanClans_Archer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_Archer", "2df8f1759e161f64980c72f5f4963e88");
+
+        public static MonsterDefinition DLC3_NPC_HumanClans_Guard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_Guard", "d4cd3cf1ccc043643bd496821023055f");
+
+        public static MonsterDefinition DLC3_NPC_HumanClans_GuardElite { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_GuardElite", "737c279f78668404d974b94c6d83dfa4");
+
+        public static MonsterDefinition DLC3_NPC_HumanClans_Marksman { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_Marksman", "16ed675ec456ed7408a0de86a383369d");
+
+        public static MonsterDefinition DLC3_NPC_HumanClansCaporal { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClansCaporal", "05b651eefa5ee18488df58446da44fd7");
+
+        public static MonsterDefinition DLC3_NPC_HumanClansLeader { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClansLeader", "0b8484860c4039547b94662eba407d43");
+
+        public static MonsterDefinition DLC3_NPC_NorthernClans_Leader { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Leader", "fcc041f05fab9744aa9667c660d6ed98");
+
+        public static MonsterDefinition DLC3_NPC_NorthernClans_Representative { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Representative",
+                "62584d640e3da2b468c3776e736cfee1");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Brother_Kaikonnen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Brother_Kaikonnen",
+                "2df2ca2b1814c7a48b1a43f35016a33a");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Butler { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Butler", "a83da44f622187b4db581dbf8990db9c");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Caretaker { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Caretaker", "8dab966baebde834f9fd55f0088c1034");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Cousin_Kaikonnen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Cousin_Kaikonnen",
+                "b1e1d88b40c647047b703b5f49a86e92");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Generic_Citizen_Husk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Generic_Citizen_Husk",
+                "402e23b91748a11479b36b80b9aa73e7");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Generic_Guard_Husk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Generic_Guard_Husk",
+                "9d199f01b9644ed4ab7620d7fdb2db6a");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Guard_Ambush { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Guard_Ambush", "02ec62ee298bb83428fb111a1c1899ec");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Guard_City { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Guard_City", "f6747a6016976be46ab5b5ea3fbfc1f7");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Guard_City_Quest { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Guard_City_Quest",
+                "738894f6a8fd1d54eb2c682de9bbd5a7");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_GuardCaptain { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_GuardCaptain", "ccfebfe0e6f49084295f5292aa1a54a2");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Incubus_Butler { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Incubus_Butler",
+                "2e3a344329ff2414eaea1aaff97b35e3");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Innkeeper { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Innkeeper", "a011be4103447f648bcb6b1a24c43c79");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_Clan { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_Clan",
+                "94c3d62ec97a6e242a5611173d1e074d");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_General { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_General",
+                "106080f3fd4e8ee458c2a9ecedf0adaf");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_Ingredients { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_Ingredients",
+                "9240ac8d9056f5a4db309c289f27449b");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_Scavenger { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_Scavenger",
+                "0b81b7522622a414988ea95b7d7fbdb3");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_Weapons { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_Weapons",
+                "0aab4de2af172ba47b204b27f64b2a57");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Miner { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Miner", "ac6a70a1469d8c648bf0d621fbff0452");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Miner_Quest { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Miner_Quest", "98ad26085625ccd4f9c1d54e359df9d8");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Traitor { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Traitor", "20c0ac0fdfbb0424d813469b2168ccf6");
+
+        public static MonsterDefinition DLC3_NPC_SouthernClans_Uncle_Kaikonnen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Uncle_Kaikonnen",
+                "61a183027219b2e41971e1e0df994428");
+
+        public static MonsterDefinition DLC3_NPC_WhiteCity_Citizen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Citizen", "44cdde8e7a77fec408c799155c97716b");
+
+        public static MonsterDefinition DLC3_NPC_WhiteCity_Gorn { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Gorn", "13edaf9be9fcc7648be211dd7ca77d33");
+
+        public static MonsterDefinition DLC3_NPC_WhiteCity_Guard_City { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Guard_City", "4d7ee6634ea8d284f84eaf53c40688ad");
+
+        public static MonsterDefinition DLC3_NPC_WhiteCity_Innkeeper { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Innkeeper", "7f104ac0b621281418ac0ca5efec5b1b");
+
+        public static MonsterDefinition DLC3_PeaksAbomination_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_PeaksAbomination_MonsterDefinition",
+                "cdb5cb01b68339248b155d1392c7173d");
+
+        public static MonsterDefinition DLC3_PeaksTerror_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_PeaksTerror_MonsterDefinition", "0d3bb4c33a103b14f81adc38a370b105");
+
         public static MonsterDefinition DLC3_Rhuad_Switfhand { get; } =
             GetDefinition<MonsterDefinition>("DLC3_Rhuad_Switfhand", "2d3dd20d83a01614aaad454fcc00f584");
+
+        public static MonsterDefinition DLC3_Robar_Sharp { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Robar_Sharp", "07cd38858cf814d4aa7a749d52ce08f0");
+
+        public static MonsterDefinition DLC3_Undermountain_BanditCaptain { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_BanditCaptain", "da6835daa086e4f43af479d5d2d59dae");
+
+        public static MonsterDefinition DLC3_Undermountain_Citizen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Citizen", "2163705b028a3e04796e016e525d4693");
+
+        public static MonsterDefinition DLC3_Undermountain_Citizen_Beasts { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Citizen_Beasts", "029c7f408c47cf34982352238f57b5ed");
+
+        public static MonsterDefinition DLC3_Undermountain_Citizen_Husk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Citizen_Husk", "31563c68559393f4ba37b05e871c645e");
+
+        public static MonsterDefinition DLC3_Undermountain_Citizen_Quarry { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Citizen_Quarry", "17dc5704edaa38249ad5c328ccb72b51");
+
+        public static MonsterDefinition DLC3_Undermountain_EttivenGuard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_EttivenGuard", "e414dc48a118db8468c2508dc6571094");
+
+        public static MonsterDefinition DLC3_Undermountain_NeutralGuard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_NeutralGuard", "5f00458a5aa07324e84c18f2ffe67232");
+
+        public static MonsterDefinition DLC3_Undermountain_PerlevinnGuard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_PerlevinnGuard", "5ab4e253e88620347bb4f974ab52f7eb");
+
+        public static MonsterDefinition DLC3_Undermountain_UndercoverGuard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_UndercoverGuard", "243823be382c00c4f806c51ba36e8076");
+
+        public static MonsterDefinition DLC3_Valdi_BoldHand { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Valdi_BoldHand", "bbf42222a1af37744a26f85123bdd624");
 
         public static MonsterDefinition DLC3_Vigdis_Kaikonnen { get; } =
             GetDefinition<MonsterDefinition>("DLC3_Vigdis_Kaikonnen", "06f0ad03bac16064194b8d96622ee0b2");
@@ -16054,6 +19868,12 @@ public static partial class DatabaseHelper
 
         public static MonsterDefinition Estalla { get; } =
             GetDefinition<MonsterDefinition>("Estalla", "265a52b1e50c7574db43fe0fd91b083c");
+
+        public static MonsterDefinition FeralDragon_Green { get; } =
+            GetDefinition<MonsterDefinition>("FeralDragon_Green", "48eb540ec2f24204cb35e100b44df155");
+
+        public static MonsterDefinition FeralDragon_Red { get; } =
+            GetDefinition<MonsterDefinition>("FeralDragon_Red", "37eb040ee873d4f4d91e2f0d46d2ff7f");
 
         public static MonsterDefinition FeyBear { get; } =
             GetDefinition<MonsterDefinition>("FeyBear", "189a58cbf168ca1448ea49dfd14a0632");
@@ -16139,6 +19959,9 @@ public static partial class DatabaseHelper
         public static MonsterDefinition Ghost { get; } =
             GetDefinition<MonsterDefinition>("Ghost", "30434138da6acb14186bbeeb238311ae");
 
+        public static MonsterDefinition Ghost_Dwarf_Guardian { get; } =
+            GetDefinition<MonsterDefinition>("Ghost_Dwarf_Guardian", "6b366180cbdaf6344af5a145b11ba152");
+
         public static MonsterDefinition Ghost_Emtan { get; } =
             GetDefinition<MonsterDefinition>("Ghost_Emtan", "10ceb1ec9f1aa4d4e8be35b3341e8fbd");
 
@@ -16175,6 +19998,18 @@ public static partial class DatabaseHelper
         public static MonsterDefinition Giant_Storm { get; } =
             GetDefinition<MonsterDefinition>("Giant_Storm", "771dc5dcddcf7a24f827ef94fff5335f");
 
+        public static MonsterDefinition Giant_Storm_Attacker_WhiteCity_1 { get; } =
+            GetDefinition<MonsterDefinition>("Giant_Storm_Attacker_WhiteCity_1", "6177f9f4b4ed83d43b557bbef10b1135");
+
+        public static MonsterDefinition Giant_Storm_Citizen_WhiteCity_1 { get; } =
+            GetDefinition<MonsterDefinition>("Giant_Storm_Citizen_WhiteCity_1", "7653957a5f255cd4f8ed1880b0df7acf");
+
+        public static MonsterDefinition Giant_Storm_Citizen_WhiteCity_2 { get; } =
+            GetDefinition<MonsterDefinition>("Giant_Storm_Citizen_WhiteCity_2", "b0335a99b69afa948a52f23d01bcc001");
+
+        public static MonsterDefinition Glabrezu_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Glabrezu_MonsterDefinition", "bb34fd6004b0c8446861173f7d3e8372");
+
         public static MonsterDefinition Goblin { get; } =
             GetDefinition<MonsterDefinition>("Goblin", "6385eddb59bc18a4b8dd19bffdd279a8");
 
@@ -16195,6 +20030,9 @@ public static partial class DatabaseHelper
 
         public static MonsterDefinition Golem_Clay { get; } =
             GetDefinition<MonsterDefinition>("Golem_Clay", "c64b84704d85fff40b59d2a636c20a72");
+
+        public static MonsterDefinition Golem_Ice { get; } =
+            GetDefinition<MonsterDefinition>("Golem_Ice", "49a674c721b42d842867c38c49a3af28");
 
         public static MonsterDefinition Golem_Iron { get; } =
             GetDefinition<MonsterDefinition>("Golem_Iron", "4a02c1d20726e4246bcb80c3a27761cf");
@@ -16242,6 +20080,9 @@ public static partial class DatabaseHelper
         public static MonsterDefinition Ilastar_Keenmind_Airgetine { get; } =
             GetDefinition<MonsterDefinition>("Ilastar_Keenmind_Airgetine", "0060775cf180657468a4012de8d3c154");
 
+        public static MonsterDefinition Incubus_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Incubus_MonsterDefinition", "b66bd35008bf8a34aa2b57a1305dcecf");
+
         public static MonsterDefinition InvisibleStalker { get; } =
             GetDefinition<MonsterDefinition>("InvisibleStalker", "5cc00f2a9e5b97b4095f9a776802eb8c");
 
@@ -16272,11 +20113,17 @@ public static partial class DatabaseHelper
         public static MonsterDefinition KindredSpiritSpider { get; } =
             GetDefinition<MonsterDefinition>("KindredSpiritSpider", "0bc08b067fc378541bd5aacb37f851ee");
 
+        public static MonsterDefinition KindredSpiritTiger { get; } =
+            GetDefinition<MonsterDefinition>("KindredSpiritTiger", "889a42d89bf7b1346a4bc907ca23606c");
+
         public static MonsterDefinition KindredSpiritViper { get; } =
             GetDefinition<MonsterDefinition>("KindredSpiritViper", "5114ddb2d0011f546a0b241f17cd349e");
 
         public static MonsterDefinition KindredSpiritWolf { get; } =
             GetDefinition<MonsterDefinition>("KindredSpiritWolf", "0a3f30bd8a811b54890b2e858e313c3e");
+
+        public static MonsterDefinition Kutkartal_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Kutkartal_MonsterDefinition", "7bc69c0905d6dde4a833e77f4236c71d");
 
         public static MonsterDefinition Kythaela { get; } =
             GetDefinition<MonsterDefinition>("Kythaela", "100361dc476e58a499d1b8a7dcde1ede");
@@ -16337,6 +20184,9 @@ public static partial class DatabaseHelper
 
         public static MonsterDefinition Medwal_Strongfire { get; } =
             GetDefinition<MonsterDefinition>("Medwal_Strongfire", "5fe534857ab5fb44dbbd5d444b4fb59f");
+
+        public static MonsterDefinition Melek_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Melek_MonsterDefinition", "2e9052b87f7d03740a72be94de7030fa");
 
         public static MonsterDefinition Merchant_Annie_Bagmordah { get; } =
             GetDefinition<MonsterDefinition>("Merchant_Annie_Bagmordah", "fd3c64cb943be794c816a5308998f47a");
@@ -16425,6 +20275,9 @@ public static partial class DatabaseHelper
         public static MonsterDefinition NPC_Brood { get; } =
             GetDefinition<MonsterDefinition>("NPC_Brood", "675b262c4cb38de4c8e8986feb181a80");
 
+        public static MonsterDefinition NPC_DLC3_Merchant_HumanClan_Warcamp { get; } =
+            GetDefinition<MonsterDefinition>("NPC_DLC3_Merchant_HumanClan_Warcamp", "e00605b1eefba474e87cf525763cd77b");
+
         public static MonsterDefinition NPC_Giant_Trader_Gorrtek { get; } =
             GetDefinition<MonsterDefinition>("NPC_Giant_Trader_Gorrtek", "a44e2280737bc364f8c15966a89adfd1");
 
@@ -16500,6 +20353,9 @@ public static partial class DatabaseHelper
         public static MonsterDefinition Poisonous_Snake { get; } =
             GetDefinition<MonsterDefinition>("Poisonous_Snake", "17430b9ff5c50a84da818193ba151b27");
 
+        public static MonsterDefinition Polar_Bear { get; } =
+            GetDefinition<MonsterDefinition>("Polar_Bear", "10a2589164dced34388cf9188b617c35");
+
         public static MonsterDefinition Priest_Of_Arun_Rogar_Ardentfire { get; } =
             GetDefinition<MonsterDefinition>("Priest_Of_Arun_Rogar_Ardentfire", "a4e826e6413cdb241877eaae99e73261");
 
@@ -16539,6 +20395,9 @@ public static partial class DatabaseHelper
         public static MonsterDefinition Remorhaz { get; } =
             GetDefinition<MonsterDefinition>("Remorhaz", "b1d9f09845585014f96d66348b24144c");
 
+        public static MonsterDefinition Remorhaz_Ancient { get; } =
+            GetDefinition<MonsterDefinition>("Remorhaz_Ancient", "30d3a26bc2e7e7441b955e93baeeed42");
+
         public static MonsterDefinition Robar_Sharp { get; } =
             GetDefinition<MonsterDefinition>("Robar_Sharp", "136c1ff66eca6a042a5782c4bac6a437");
 
@@ -16553,6 +20412,15 @@ public static partial class DatabaseHelper
 
         public static MonsterDefinition Sergeant_Coparann { get; } =
             GetDefinition<MonsterDefinition>("Sergeant_Coparann", "38f02ca56aacb284db640583351d2e4c");
+
+        public static MonsterDefinition Sessroth_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth_MonsterDefinition", "5ca66db3272ae1e4b8d8f96d44eeb672");
+
+        public static MonsterDefinition Sessroth2_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth2_MonsterDefinition", "bb4fdfe55f544eb46b562533ed2505e3");
+
+        public static MonsterDefinition Sessroth3_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth3_MonsterDefinition", "e6b5c32fea7802141b5902f41727d7e2");
 
         public static MonsterDefinition ShamblingMound_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("ShamblingMound_MonsterDefinition", "946e3ee1b3a9c094f8d5654ba68b7a7b");
@@ -16584,6 +20452,9 @@ public static partial class DatabaseHelper
         public static MonsterDefinition Skeleton_Sorcerer { get; } =
             GetDefinition<MonsterDefinition>("Skeleton_Sorcerer", "4fd429671cfc3de4ba2c15e147d930c8");
 
+        public static MonsterDefinition Skeleton_Sorcerer_Elite { get; } =
+            GetDefinition<MonsterDefinition>("Skeleton_Sorcerer_Elite", "a3d01ca3b069c1648a74eb499e5930d3");
+
         public static MonsterDefinition Small_Beetle { get; } =
             GetDefinition<MonsterDefinition>("Small_Beetle", "c712c410184b3474a9c95fbc6f9f4a44");
 
@@ -16595,6 +20466,16 @@ public static partial class DatabaseHelper
 
         public static MonsterDefinition Sorr_Akkath_Assassin { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Assassin", "d1fca5bca23d2a04c8b5e1e12a294568");
+
+        public static MonsterDefinition Sorr_Akkath_Devastator { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Devastator", "9a115a7ea237916438d2a4a3763ec71b");
+
+        public static MonsterDefinition Sorr_Akkath_Harasser { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Harasser", "d1a866ef8237f65479746cd39eb9e47c");
+
+        public static MonsterDefinition Sorr_Akkath_Kratshar_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Kratshar_MonsterDefinition",
+                "eead79e17ea07ff46ba29bc5f34ef4a0");
 
         public static MonsterDefinition Sorr_Akkath_Saboteur { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Saboteur", "3a3de4e622ed5f34d9b941e1d33ff5aa");
@@ -16625,6 +20506,9 @@ public static partial class DatabaseHelper
 
         public static MonsterDefinition SpectralDragon_Magister { get; } =
             GetDefinition<MonsterDefinition>("SpectralDragon_Magister", "520c48f04f2db6d429b57912860ed513");
+
+        public static MonsterDefinition SpectralDragon_Onereia_DLC3 { get; } =
+            GetDefinition<MonsterDefinition>("SpectralDragon_Onereia_DLC3", "5a38fb8592d28d4448e4582a50d75f9c");
 
         public static MonsterDefinition SpectralSpider { get; } =
             GetDefinition<MonsterDefinition>("SpectralSpider", "8780bac525247fb49aec9324d0f49da4");
@@ -16704,6 +20588,9 @@ public static partial class DatabaseHelper
         public static MonsterDefinition Stig { get; } =
             GetDefinition<MonsterDefinition>("Stig", "189e889e2f2323949af557451cf41fb9");
 
+        public static MonsterDefinition Succubus_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Succubus_MonsterDefinition", "34017217e2d648847a86db2e1aa0da71");
+
         public static MonsterDefinition SuperEgo_Butler { get; } =
             GetDefinition<MonsterDefinition>("SuperEgo_Butler", "1343f95442c4b9144af69f392825c9c4");
 
@@ -16728,6 +20615,9 @@ public static partial class DatabaseHelper
         public static MonsterDefinition Troll { get; } =
             GetDefinition<MonsterDefinition>("Troll", "29949a3f8848b7a4898f9276248ec952");
 
+        public static MonsterDefinition TundraTiger_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("TundraTiger_MonsterDefinition", "f9015700a865c1145a7ecd91ce4afae7");
+
         public static MonsterDefinition Tutorial_LoanShark { get; } =
             GetDefinition<MonsterDefinition>("Tutorial_LoanShark", "2873b8a3392a23d40a194bd81b61e952");
 
@@ -16737,17 +20627,33 @@ public static partial class DatabaseHelper
         public static MonsterDefinition Urka { get; } =
             GetDefinition<MonsterDefinition>("Urka", "bf04d3e36e7ce7d449ad1d16de0f3797");
 
+        public static MonsterDefinition Vrock_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Vrock_MonsterDefinition", "798ef5623a3e2fa4ebbc08c32158ef5c");
+
+        public static MonsterDefinition Vrockling_Ambush_Cutscene_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Vrockling_Ambush_Cutscene_MonsterDefinition",
+                "7fd93eeef64f98c4d8e48e1817cc9aba");
+
+        public static MonsterDefinition Vrockling_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Vrockling_MonsterDefinition", "2c9a9e00d9b34464f9598c08214b7766");
+
         public static MonsterDefinition Wanderer_NPC_HalfOrc { get; } =
             GetDefinition<MonsterDefinition>("Wanderer_NPC_HalfOrc", "b01b19844b309a64db1194ea324ccb2b");
 
         public static MonsterDefinition Werebear { get; } =
             GetDefinition<MonsterDefinition>("Werebear", "0a760ffad0030d244a0b3bc1939eaec9");
 
+        public static MonsterDefinition WhiteDragon_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("WhiteDragon_MonsterDefinition", "3472c3a577b48e64c8e2896ef1811b88");
+
         public static MonsterDefinition Wight { get; } =
             GetDefinition<MonsterDefinition>("Wight", "89e86664a5e7c004d9a5409889818949");
 
         public static MonsterDefinition WightLord { get; } =
             GetDefinition<MonsterDefinition>("WightLord", "bc3594142da32144da8d2e32fb7f39c0");
+
+        public static MonsterDefinition WildShapeApe { get; } =
+            GetDefinition<MonsterDefinition>("WildShapeApe", "73b214186870df3428237fbe6d1b8cb8");
 
         public static MonsterDefinition WildShapeBadlandsSpider { get; } =
             GetDefinition<MonsterDefinition>("WildShapeBadlandsSpider", "6081d9e27e4ebbb438538fb7682e6c45");
@@ -16769,6 +20675,9 @@ public static partial class DatabaseHelper
 
         public static MonsterDefinition WildshapeTiger_Drake { get; } =
             GetDefinition<MonsterDefinition>("WildshapeTiger_Drake", "b30db79c6af6d2344bf2e7477f140ca9");
+
+        public static MonsterDefinition WildShapeTundraTiger { get; } =
+            GetDefinition<MonsterDefinition>("WildShapeTundraTiger", "49a8aa6ddedf04349b66e1ad4822504b");
 
         public static MonsterDefinition WildShapeWolf { get; } =
             GetDefinition<MonsterDefinition>("WildShapeWolf", "772587933a7689d4eaede61d9cf17007");
@@ -16848,6 +20757,14 @@ public static partial class DatabaseHelper
         public static MonsterPresentationDefinition Eagle_Giant_Presentation { get; } =
             GetDefinition<MonsterPresentationDefinition>("Eagle_Giant_Presentation",
                 "cf7c5b5357de9c74e9163a92dc1210c9");
+
+        public static MonsterPresentationDefinition Feral_Dragon_Green_Presentation { get; } =
+            GetDefinition<MonsterPresentationDefinition>("Feral_Dragon_Green_Presentation",
+                "991fde93a35d20e4fa7694ec27987e84");
+
+        public static MonsterPresentationDefinition Feral_Dragon_Red_Presentation { get; } =
+            GetDefinition<MonsterPresentationDefinition>("Feral_Dragon_Red_Presentation",
+                "38d73e1393701dc48a0611ccbc45a3ed");
 
         public static MonsterPresentationDefinition Giant_Ape_Mutant_Presentation { get; } =
             GetDefinition<MonsterPresentationDefinition>("Giant_Ape_Mutant_Presentation",
@@ -17040,6 +20957,10 @@ public static partial class DatabaseHelper
         public static MonsterPresentationDefinition WereBear_Presentation { get; } =
             GetDefinition<MonsterPresentationDefinition>("WereBear_Presentation", "5bc09e81be03c1c4a95bfb9fb221258c");
 
+        public static MonsterPresentationDefinition White_Dragon_Presentation { get; } =
+            GetDefinition<MonsterPresentationDefinition>("White_Dragon_Presentation",
+                "7a1e58d9d6de9f9409519110fecd57f1");
+
         public static MonsterPresentationDefinition Wight_Lord_Presentation { get; } =
             GetDefinition<MonsterPresentationDefinition>("Wight_Lord_Presentation", "dc655162446d0504fab66ab340ba2336");
 
@@ -17084,6 +21005,9 @@ public static partial class DatabaseHelper
         public static MorphotypeCategoryDefinition HairShape { get; } =
             GetDefinition<MorphotypeCategoryDefinition>("HairShape", "254159fdc2b026e43a4bcf2a2dbe239d");
 
+        public static MorphotypeCategoryDefinition Horns { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Horns", "ff1682f227717a4489811004d67dfc4f");
+
         public static MorphotypeCategoryDefinition Musculature { get; } =
             GetDefinition<MorphotypeCategoryDefinition>("Musculature", "bec756acfaa58e54ab3801896511598e");
 
@@ -17098,6 +21022,9 @@ public static partial class DatabaseHelper
 
         public static MorphotypeCategoryDefinition Skin { get; } =
             GetDefinition<MorphotypeCategoryDefinition>("Skin", "588c0fed8b2df8243bcbac8c5cf89d58");
+
+        public static MorphotypeCategoryDefinition Tail { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Tail", "7058c5c2719d54d4299df2783d434143");
 
         public static MorphotypeCategoryDefinition Voice { get; } =
             GetDefinition<MorphotypeCategoryDefinition>("Voice", "171ac5619a0fec2449b4581f9a78bc3d");
@@ -17152,6 +21079,22 @@ public static partial class DatabaseHelper
 
         public static MorphotypeElementDefinition BeardShape_P { get; } =
             GetDefinition<MorphotypeElementDefinition>("BeardShape_P", "b778e7bbac83bf74abf1d3c94ca18a15");
+
+        public static MorphotypeElementDefinition BodyDecoration_Dragonborn_SorcererChildOfTheRift { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Dragonborn_SorcererChildOfTheRift",
+                "3a17a45d98a0e1947853f5b167d7dfbc");
+
+        public static MorphotypeElementDefinition BodyDecoration_Dragonborn_SorcererDraconic { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Dragonborn_SorcererDraconic",
+                "d931f92aa15d8b34f8051256ea435f86");
+
+        public static MorphotypeElementDefinition BodyDecoration_Dragonborn_SorcererHauntedSoul { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Dragonborn_SorcererHauntedSoul",
+                "a11c41f9ff55d3a47b7c494a148f5882");
+
+        public static MorphotypeElementDefinition BodyDecoration_Dragonborn_SorcererManaPainter { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Dragonborn_SorcererManaPainter",
+                "5b948b2f9e23b774da6dd39c0d7d6f8e");
 
         public static MorphotypeElementDefinition BodyDecoration_None { get; } =
             GetDefinition<MorphotypeElementDefinition>("BodyDecoration_None", "042683c126c49e044993600bca076c05");
@@ -17411,6 +21354,9 @@ public static partial class DatabaseHelper
 
         public static MorphotypeElementDefinition Eye_Default { get; } =
             GetDefinition<MorphotypeElementDefinition>("Eye_Default", "93f3400782ffac742aa154dcea6c34cb");
+
+        public static MorphotypeElementDefinition Eye_Dragonborn { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Eye_Dragonborn", "aa13e4f0fa440264f84478bf82e809c5");
 
         public static MorphotypeElementDefinition Eye_SorcererChildOfTheRift { get; } =
             GetDefinition<MorphotypeElementDefinition>("Eye_SorcererChildOfTheRift",
@@ -17676,6 +21622,141 @@ public static partial class DatabaseHelper
 
         public static MorphotypeElementDefinition FaceAndSkin_Defiler { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Defiler", "4a7726953791a534c999c143663be2d7");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_01", "203b7cd8808bef2419b5dcc37c0aad8f");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_02", "13903b6520147594d90c99bd3583eef6");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_03", "7fcfc22bef981284bb5101c21462ffba");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_04", "524acb3ecee55144aafce28024d0c960");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_05", "9f151241e9ab24147b78cb62bff6872b");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_06", "f28778628336c6941a62d43223c119d0");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_07", "8afe21de7abd0444e8618d826fa2fa5d");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_08", "9347706254f278a4097ce4b7653520c9");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_09", "080000bace2033a429ef0abcd756af5f");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_10", "b34fb2d4ee4534745ada6fff317be8e1");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_11", "cbcaeb48c3da4c6428b146d58bb976b5");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_12", "a27ee2864a3f7a640b08646e6fb81af5");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_13", "6701f5745fc7dfb40ab91c2aa670cbed");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_14", "81553d986edbb9f49a04a36bf7a0b315");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_15", "1da02af724004664eb2fecd01a985f86");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_16 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_16", "b22f17ecaa6298f4d820d8e34bd732bb");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_17 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_17", "48392c497ba5e764681ec564ac0f268e");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_18 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_18", "6aedae74cb6e680419fda599ef97325a");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_19 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_19", "ce86ce1c63fea43489b617d72423ce3b");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_20 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_20", "7d49b6ea3dd35104b89fb9a830135551");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_21 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_21", "1a51b141e751de9409cb3f2429ce61df");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_22 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_22", "d2efd01aab11eb140b9bd3a5d6199018");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_23 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_23", "194e8bd81756bbe41b54cf5e1743e89e");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_24 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_24", "39c3d78aabb7a2445a1ef522eaf2035a");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_25 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_25", "00153d584f28816458c3ac34adb7102e");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_26 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_26", "fdfe9adc31b56264c8777f56bcaef1e5");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_27 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_27", "996e516d90f528e4eb0e455e3647a0a6");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_28 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_28", "5b8b2b6d0dbff5d4d8e52a1837737a3b");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_29 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_29", "ac2787f58238aad4d9abf5fab1228c9f");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_30 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_30", "558863663d410bd458eb20b6c41c11aa");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_31 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_31", "3691b5000acbe4f4eab88eb371cce9bd");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_32 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_32", "5b5782c221a62a2498af5f2bb4e2f7ae");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_33 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_33", "4d8d643ca7aad8d4f9f6e9e9b875ffc3");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_34 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_34", "45a988de9da3c8d47aa7054a65bb6cda");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_35 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_35", "47910ab6295fb8245804e4347f328b51");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_36 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_36", "4ccaecdc775f0ff40b7592d71373b474");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_37 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_37", "e3846016635271448810eaa557064612");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_38 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_38", "e0d1cffcee41ddc49ac390f0115e058e");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_39 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_39", "6402b3f131369534f8591ad9e74bda5e");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_40 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_40", "1bdef087a8819eb439d594b816181594");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_41 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_41", "d548f39c501956047b3779fd48bde2a1");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_42 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_42", "b09dd2b2bd260fb47a03ff447d03f936");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_43 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_43", "3756345763f47dc47b7947edb91685d1");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_44 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_44", "fea1bd4c46b209a45b2160bf12542672");
+
+        public static MorphotypeElementDefinition FaceAndSkin_Dragonborn_45 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_45", "ce5a8eb8c3218b642a93c34febd91b35");
 
         public static MorphotypeElementDefinition FaceAndSkin_Neutral { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Neutral", "de86e2e571c4c3440b95118c7a2a699b");
@@ -18319,6 +22400,12 @@ public static partial class DatabaseHelper
         public static MorphotypeElementDefinition HairShape_Z { get; } =
             GetDefinition<MorphotypeElementDefinition>("HairShape_Z", "ae32c534917d3564a85c3b185468408b");
 
+        public static MorphotypeElementDefinition Horns_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Horns_A", "122200c8c7f8f344f878079ce2679517");
+
+        public static MorphotypeElementDefinition Horns_None { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Horns_None", "5aa1d24d45fe26844b7a64ec2c6e85d4");
+
         public static MorphotypeElementDefinition Musculature { get; } =
             GetDefinition<MorphotypeElementDefinition>("Musculature", "39e7e3d7566f1f44fb625e5f65149cf1");
 
@@ -18330,6 +22417,9 @@ public static partial class DatabaseHelper
 
         public static MorphotypeElementDefinition Origin_CA { get; } =
             GetDefinition<MorphotypeElementDefinition>("Origin_CA", "b94d97cfc177bef489a24b3ee061dc7e");
+
+        public static MorphotypeElementDefinition Origin_Dragonborn { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Origin_Dragonborn", "f7d0be81af4eb184fb396f69f59e1ed2");
 
         public static MorphotypeElementDefinition Origin_HO { get; } =
             GetDefinition<MorphotypeElementDefinition>("Origin_HO", "cddcfd0c68acfd540ace952ffea658fe");
@@ -18390,6 +22480,27 @@ public static partial class DatabaseHelper
 
         public static MorphotypeElementDefinition Scars_None { get; } =
             GetDefinition<MorphotypeElementDefinition>("Scars_None", "d4d87766c65bb574abc69e0103d2f9b3");
+
+        public static MorphotypeElementDefinition Tail_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_A", "ddbe8a289ceacc748931ff41c74638d8");
+
+        public static MorphotypeElementDefinition Tail_None { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_None", "33d6cc1decd12544fb5397437cf1dd1a");
+    }
+
+    public static class MusicalInstrumentTypeDefinitions
+    {
+        public static MusicalInstrumentTypeDefinition BrassType { get; } =
+            GetDefinition<MusicalInstrumentTypeDefinition>("BrassType", "62681a701091f894fbb9c51e4f126b6b");
+
+        public static MusicalInstrumentTypeDefinition PercussionType { get; } =
+            GetDefinition<MusicalInstrumentTypeDefinition>("PercussionType", "b845e999b446ef04e9ed7c3b29d9217c");
+
+        public static MusicalInstrumentTypeDefinition StringsType { get; } =
+            GetDefinition<MusicalInstrumentTypeDefinition>("StringsType", "d9980b5a5f945ea4d8574b1064801ab9");
+
+        public static MusicalInstrumentTypeDefinition WoodwindsType { get; } =
+            GetDefinition<MusicalInstrumentTypeDefinition>("WoodwindsType", "932ee566357521546b715f9202486b23");
     }
 
     public static class NarrativeTreeDefinitions
@@ -18400,6 +22511,12 @@ public static partial class DatabaseHelper
     {
         public static PersonalityFlagDefinition Authority { get; } =
             GetDefinition<PersonalityFlagDefinition>("Authority", "80bbfa1a26df10b4e8bb2c6b47a242e3");
+
+        public static PersonalityFlagDefinition Bg_Aescetic { get; } =
+            GetDefinition<PersonalityFlagDefinition>("Bg_Aescetic", "d6c862e449fbc5c4583516c371e567e3");
+
+        public static PersonalityFlagDefinition Bg_Artist { get; } =
+            GetDefinition<PersonalityFlagDefinition>("Bg_Artist", "e50ad3c5cb6b8f54f846d2df9a1274b0");
 
         public static PersonalityFlagDefinition Bg_Highclass { get; } =
             GetDefinition<PersonalityFlagDefinition>("Bg_Highclass", "b1063686808cf174491d67df11b4cc73");
@@ -18419,6 +22536,9 @@ public static partial class DatabaseHelper
         public static PersonalityFlagDefinition Bg_Nosy { get; } =
             GetDefinition<PersonalityFlagDefinition>("Bg_Nosy", "648dced0270022141b2a133e39ee060f");
 
+        public static PersonalityFlagDefinition Bg_Occultist { get; } =
+            GetDefinition<PersonalityFlagDefinition>("Bg_Occultist", "e147f2bd8f918734988650ae98224465");
+
         public static PersonalityFlagDefinition Bg_Preachy { get; } =
             GetDefinition<PersonalityFlagDefinition>("Bg_Preachy", "c9da5afffff4a3e4791c7c4c6a3aa570");
 
@@ -18434,6 +22554,9 @@ public static partial class DatabaseHelper
         public static PersonalityFlagDefinition ClassBarbarianFlag { get; } =
             GetDefinition<PersonalityFlagDefinition>("ClassBarbarianFlag", "89d89fbf4da84f745afd975a51afba97");
 
+        public static PersonalityFlagDefinition ClassBardFlag { get; } =
+            GetDefinition<PersonalityFlagDefinition>("ClassBardFlag", "323a6036881e11447a22d62ba3e34d61");
+
         public static PersonalityFlagDefinition ClassClericFlag { get; } =
             GetDefinition<PersonalityFlagDefinition>("ClassClericFlag", "325495383da872e47b522d6501f9f272");
 
@@ -18442,6 +22565,9 @@ public static partial class DatabaseHelper
 
         public static PersonalityFlagDefinition ClassFighterFlag { get; } =
             GetDefinition<PersonalityFlagDefinition>("ClassFighterFlag", "537fbdf9cae3f754a8e5117f2aa5eb6c");
+
+        public static PersonalityFlagDefinition ClassMonkFlag { get; } =
+            GetDefinition<PersonalityFlagDefinition>("ClassMonkFlag", "5dd2e9390f2c4c34788aeadfcdaba52b");
 
         public static PersonalityFlagDefinition ClassPaladinFlag { get; } =
             GetDefinition<PersonalityFlagDefinition>("ClassPaladinFlag", "2b987bfc547c87b4c826ad3d9c86f5d4");
@@ -18455,6 +22581,9 @@ public static partial class DatabaseHelper
         public static PersonalityFlagDefinition ClassSorcererFlag { get; } =
             GetDefinition<PersonalityFlagDefinition>("ClassSorcererFlag", "3c499309abc6d3443b6c65007543e538");
 
+        public static PersonalityFlagDefinition ClassWarlockFlag { get; } =
+            GetDefinition<PersonalityFlagDefinition>("ClassWarlockFlag", "b26a07e7ced508c4a878c9be58aac306");
+
         public static PersonalityFlagDefinition ClassWizardFlag { get; } =
             GetDefinition<PersonalityFlagDefinition>("ClassWizardFlag", "4b64e7785587f3748b814ee1cd6b80e7");
 
@@ -18463,6 +22592,9 @@ public static partial class DatabaseHelper
 
         public static PersonalityFlagDefinition Cynicism { get; } =
             GetDefinition<PersonalityFlagDefinition>("Cynicism", "a62ad5adeae4dd34bbfa2490a4f71f73");
+
+        public static PersonalityFlagDefinition DragonbornFlag { get; } =
+            GetDefinition<PersonalityFlagDefinition>("DragonbornFlag", "ef588ce5622c70748964690afb7d8d56");
 
         public static PersonalityFlagDefinition ElfFlag { get; } =
             GetDefinition<PersonalityFlagDefinition>("ElfFlag", "7536e4b183c4e6c45bf5e917a02556fd");
@@ -18530,6 +22662,9 @@ public static partial class DatabaseHelper
         public static PersonalityFlagDefinition Self_Preservation { get; } =
             GetDefinition<PersonalityFlagDefinition>("Self-Preservation", "1d7b2e3e1a85ed74a8656b2622e20064");
 
+        public static PersonalityFlagDefinition SigilRingFlag { get; } =
+            GetDefinition<PersonalityFlagDefinition>("SigilRingFlag", "884d61ad18c92f048b108a865879f6cf");
+
         public static PersonalityFlagDefinition Slang { get; } =
             GetDefinition<PersonalityFlagDefinition>("Slang", "eea392a48c665164ea8295916074a5d5");
 
@@ -18556,6 +22691,12 @@ public static partial class DatabaseHelper
         public static ReactionDefinition AlterAttackSpell { get; } =
             GetDefinition<ReactionDefinition>("AlterAttackSpell", "1d3e5561a5af0f24aa1777fe97b8cae1");
 
+        public static ReactionDefinition BardicInspiration { get; } =
+            GetDefinition<ReactionDefinition>("BardicInspiration", "107582163656bfc4d86631e5028539e7");
+
+        public static ReactionDefinition BlessingOfTheElements { get; } =
+            GetDefinition<ReactionDefinition>("BlessingOfTheElements", "6265aab00156611499cc45464e903644");
+
         public static ReactionDefinition BlockAttack { get; } =
             GetDefinition<ReactionDefinition>("BlockAttack", "dbce30aacfff88542a2e6ce68ecab794");
 
@@ -18571,6 +22712,10 @@ public static partial class DatabaseHelper
         public static ReactionDefinition CounterAttackWithPower { get; } =
             GetDefinition<ReactionDefinition>("CounterAttackWithPower", "2ce54472e3b79ba4e9a2c29ed99ee8a0");
 
+        public static ReactionDefinition CounterAttackWithSpellHellishRebuke { get; } =
+            GetDefinition<ReactionDefinition>("CounterAttackWithSpellHellishRebuke",
+                "cbe8b2ce8ed1c5847a25311c9264e9af");
+
         public static ReactionDefinition CounterAttackWithSpellMagicAffinityShadowRetribution { get; } =
             GetDefinition<ReactionDefinition>("CounterAttackWithSpellMagicAffinityShadowRetribution",
                 "8e6b0d168dbc47c43b50cd6191bfc509");
@@ -18580,6 +22725,12 @@ public static partial class DatabaseHelper
 
         public static ReactionDefinition DeflectMissile { get; } =
             GetDefinition<ReactionDefinition>("DeflectMissile", "0cf41eea458d3284889da6e3a117c013");
+
+        public static ReactionDefinition DeflectMissileMonk { get; } =
+            GetDefinition<ReactionDefinition>("DeflectMissileMonk", "cae6c6696704e874b9b79f902bdb6584");
+
+        public static ReactionDefinition DiamondSoul { get; } =
+            GetDefinition<ReactionDefinition>("DiamondSoul", "e5578d62431516845ba59d9ec626ec0f");
 
         public static ReactionDefinition GiantKiller { get; } =
             GetDefinition<ReactionDefinition>("GiantKiller", "c6c831cfb6cec8349a2a7544130e43cb");
@@ -18599,11 +22750,23 @@ public static partial class DatabaseHelper
         public static ReactionDefinition ReactionShot { get; } =
             GetDefinition<ReactionDefinition>("ReactionShot", "17d47b1ea76fdf14da76b3be710ca279");
 
+        public static ReactionDefinition ReactiveCarapace { get; } =
+            GetDefinition<ReactionDefinition>("ReactiveCarapace", "da5698385bef9b7439b1f41ae870b751");
+
         public static ReactionDefinition ReadiedAction { get; } =
             GetDefinition<ReactionDefinition>("ReadiedAction", "aa957a99e8c0ec646b1feaec98e50593");
 
+        public static ReactionDefinition Retaliation { get; } =
+            GetDefinition<ReactionDefinition>("Retaliation", "cd753cc19b81c684da52d865dae5ec07");
+
+        public static ReactionDefinition ReturnMissile { get; } =
+            GetDefinition<ReactionDefinition>("ReturnMissile", "3efe3735d25210948aafb9933bbbf25a");
+
         public static ReactionDefinition SharedPain { get; } =
             GetDefinition<ReactionDefinition>("SharedPain", "caaf9b35313b03b4aa3d5c20664391ed");
+
+        public static ReactionDefinition SlowFall { get; } =
+            GetDefinition<ReactionDefinition>("SlowFall", "e8d322c91a80c0d449895bcb5f0b6e5b");
 
         public static ReactionDefinition SpendPower { get; } =
             GetDefinition<ReactionDefinition>("SpendPower", "405e5fee21bd3e846ad69b13c1b2530f");
@@ -18611,8 +22774,14 @@ public static partial class DatabaseHelper
         public static ReactionDefinition SpendSpellSlot { get; } =
             GetDefinition<ReactionDefinition>("SpendSpellSlot", "1388c7c8bf604aa45b3f4751fdc10ad0");
 
+        public static ReactionDefinition StandAgainstTheTide { get; } =
+            GetDefinition<ReactionDefinition>("StandAgainstTheTide", "9a0064209fde4894a8bdcadf4fd053bc");
+
         public static ReactionDefinition SwiftRetaliation { get; } =
             GetDefinition<ReactionDefinition>("SwiftRetaliation", "e77f66760ebf8684e962c04e8e1dcb1e");
+
+        public static ReactionDefinition SwirlingDance { get; } =
+            GetDefinition<ReactionDefinition>("SwirlingDance", "55721aea3c230a343b3be194b4645d86");
 
         public static ReactionDefinition UncannyDodge { get; } =
             GetDefinition<ReactionDefinition>("UncannyDodge", "401471283c5796b4aaf1248244fab67f");
@@ -18721,6 +22890,14 @@ public static partial class DatabaseHelper
 
         public static RecipeDefinition Recipe_Enchantment_EmpressWarGarb { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_EmpressWarGarb", "fda097ca4ef27af44a070eb14682b589");
+
+        public static RecipeDefinition Recipe_Enchantment_GauntletOfAcuteness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_GauntletOfAcuteness",
+                "9309cd66dc7f4e24183c80a697ba7909");
+
+        public static RecipeDefinition Recipe_Enchantment_GauntletOfSharpness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_GauntletOfSharpness",
+                "10db8a2f4602cde4aa7a2aa6f6f49873");
 
         public static RecipeDefinition Recipe_Enchantment_GreataxeOfSharpness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_GreataxeOfSharpness",
@@ -18893,6 +23070,10 @@ public static partial class DatabaseHelper
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShortbowOfSharpshooting",
                 "98eee6cb01117154995429fee5544724");
 
+        public static RecipeDefinition Recipe_Enchantment_Shortsword_Sovereign { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_Shortsword_Sovereign",
+                "a5f8190c054ad454ca1f9f6a5a724ee7");
+
         public static RecipeDefinition Recipe_Enchantment_ShortswordLightbringer { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShortswordLightbringer",
                 "edf95fc2cd595e1488b3291a6b205521");
@@ -18929,6 +23110,12 @@ public static partial class DatabaseHelper
         public static RecipeDefinition Recipe_Enchantment_WandOfThorns { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_WandOfThorns", "1ce937d0c45033a46bbcd064c18605ae");
 
+        public static RecipeDefinition Recipe_Enchantment_WandOfWarMagePlus1 { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_WandOfWarMage+1", "434a1b78dd0d1af469340a55a8333057");
+
+        public static RecipeDefinition Recipe_Enchantment_WandOfWarMagePlus2 { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_WandOfWarMage+2", "897bc58a9d202c74bbbb5a6f9ed14064");
+
         public static RecipeDefinition Recipe_Enchantment_WandOfWinter { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_WandOfWinter", "2dd9fea0b0ac4494a8942fc99653c3f4");
 
@@ -18945,6 +23132,9 @@ public static partial class DatabaseHelper
 
         public static RecipeDefinition RecipeBasic_Bolts { get; } =
             GetDefinition<RecipeDefinition>("RecipeBasic_Bolts", "a43b02dc4187a914cac09e769684be2d");
+
+        public static RecipeDefinition Recipe_DLC2_5_RestorativeOintment { get; } =
+            GetDefinition<RecipeDefinition>("Recipe-DLC2.5-RestorativeOintment", "76e32e1f45a371e4297ef14d7fe7ddfc");
 
         public static RecipeDefinition RecipeHealingRemedy { get; } =
             GetDefinition<RecipeDefinition>("RecipeHealingRemedy", "db8308d374d35214b8d0d39f2a3c4d6a");
@@ -19429,6 +23619,12 @@ public static partial class DatabaseHelper
         public static RestActivityDefinition AttuneItemShort { get; } =
             GetDefinition<RestActivityDefinition>("AttuneItemShort", "5a92d0b69ec855345b71bd462acf809d");
 
+        public static RestActivityDefinition FiendishResilienceLongRest { get; } =
+            GetDefinition<RestActivityDefinition>("FiendishResilienceLongRest", "8b2eb332399b085468a9e8ba1c3037a2");
+
+        public static RestActivityDefinition FiendishResilienceShortRest { get; } =
+            GetDefinition<RestActivityDefinition>("FiendishResilienceShortRest", "a6ea43e2814b46144b5f409dc9f849b9");
+
         public static RestActivityDefinition LevelUp { get; } =
             GetDefinition<RestActivityDefinition>("LevelUp", "b46ba9b25d5ab524c9011bc5bfe66618");
 
@@ -19598,6 +23794,15 @@ public static partial class DatabaseHelper
         public static SmartAttributeDefinition AttacksNumber { get; } =
             GetDefinition<SmartAttributeDefinition>("AttacksNumber", "173fbcc9678129b4c80a79651ed28292");
 
+        public static SmartAttributeDefinition BardicInspirationDie { get; } =
+            GetDefinition<SmartAttributeDefinition>("BardicInspirationDie", "88299657c549dd548b87038a0083b439");
+
+        public static SmartAttributeDefinition BardicInspirationNumber { get; } =
+            GetDefinition<SmartAttributeDefinition>("BardicInspirationNumber", "0ce5ff9759ec18940a00fdd9c6280240");
+
+        public static SmartAttributeDefinition BindChainNumber { get; } =
+            GetDefinition<SmartAttributeDefinition>("BindChainNumber", "3d55f9d1872c17847a9912ebe323fd7d");
+
         public static SmartAttributeDefinition BrutalCriticalDice { get; } =
             GetDefinition<SmartAttributeDefinition>("BrutalCriticalDice", "1f4f99400bb0d8c418839f79c7080d7f");
 
@@ -19669,6 +23874,9 @@ public static partial class DatabaseHelper
         public static SmartAttributeDefinition ItemStackCount { get; } =
             GetDefinition<SmartAttributeDefinition>("ItemStackCount", "55148c91cdd4b6e4f8dab6e8ac352332");
 
+        public static SmartAttributeDefinition KiPoints { get; } =
+            GetDefinition<SmartAttributeDefinition>("KiPoints", "3668f1d1efa64f346991eefd4b24d606");
+
         public static SmartAttributeDefinition LegendaryActionPoints { get; } =
             GetDefinition<SmartAttributeDefinition>("LegendaryActionPoints", "061a19a1fadf3174ca594e10be294704");
 
@@ -19720,11 +23928,17 @@ public static partial class DatabaseHelper
         public static SpellDefinition AnimalFriendship { get; } =
             GetDefinition<SpellDefinition>("AnimalFriendship", "5f03823791376fd48b1868183b041cb3");
 
+        public static SpellDefinition AnimalShapes { get; } =
+            GetDefinition<SpellDefinition>("AnimalShapes", "051a53135d0389945b925865baf6d14e");
+
         public static SpellDefinition AnimateDead { get; } =
             GetDefinition<SpellDefinition>("AnimateDead", "8980137f1d2f2a348ad894a92259707d");
 
         public static SpellDefinition AnnoyingBee { get; } =
             GetDefinition<SpellDefinition>("AnnoyingBee", "d380ed36cd287394d8ddc88115fd8fa1");
+
+        public static SpellDefinition ArcaneSword { get; } =
+            GetDefinition<SpellDefinition>("ArcaneSword", "5ce0ab0f961bee24fbf38fe9d45f8def");
 
         public static SpellDefinition Bane { get; } =
             GetDefinition<SpellDefinition>("Bane", "2e60d6f650100a84f917bd5d0e69b356");
@@ -19870,6 +24084,18 @@ public static partial class DatabaseHelper
         public static SpellDefinition ConjureAnimalsTwoBeasts { get; } =
             GetDefinition<SpellDefinition>("ConjureAnimalsTwoBeasts", "afb3edb4c026fb4428ade3393bb73c2f");
 
+        public static SpellDefinition ConjureCelestial { get; } =
+            GetDefinition<SpellDefinition>("ConjureCelestial", "2e51ca6269386154a8d8ed0db63f866b");
+
+        public static SpellDefinition ConjureCelestialCouatl { get; } =
+            GetDefinition<SpellDefinition>("ConjureCelestialCouatl", "cd2afe7411feff6489836fe7b31f5b9a");
+
+        public static SpellDefinition ConjureCelestialKutkartal { get; } =
+            GetDefinition<SpellDefinition>("ConjureCelestialKutkartal", "f7f9fe49c34dd9e4b83f21eef73408f9");
+
+        public static SpellDefinition ConjureCelestialMelek { get; } =
+            GetDefinition<SpellDefinition>("ConjureCelestialMelek", "dae912d063ca7ca4daebcdbef7a4dc9e");
+
         public static SpellDefinition ConjureElemental { get; } =
             GetDefinition<SpellDefinition>("ConjureElemental", "7b1c584f8e18f6a4194eba7bc80d3643");
 
@@ -19969,6 +24195,9 @@ public static partial class DatabaseHelper
         public static SpellDefinition DeathWard { get; } =
             GetDefinition<SpellDefinition>("DeathWard", "5791cc9bac327d444bd26ece3c2e150e");
 
+        public static SpellDefinition DelayedBlastFireball { get; } =
+            GetDefinition<SpellDefinition>("DelayedBlastFireball", "2a6be6d6587508546a64e174134a37eb");
+
         public static SpellDefinition DetectEvilAndGood { get; } =
             GetDefinition<SpellDefinition>("DetectEvilAndGood", "e3e901f033c79014bb90853c4c0bf29d");
 
@@ -19990,14 +24219,32 @@ public static partial class DatabaseHelper
         public static SpellDefinition DispelMagic { get; } =
             GetDefinition<SpellDefinition>("DispelMagic", "296e789b353c0324b804bee2c16a419a");
 
+        public static SpellDefinition DivineBlade { get; } =
+            GetDefinition<SpellDefinition>("DivineBlade", "3a3cc601892613e4b8eac2d3c168efc9");
+
         public static SpellDefinition DivineFavor { get; } =
             GetDefinition<SpellDefinition>("DivineFavor", "1a1c36371776b464fb7a633c5cd22af4");
+
+        public static SpellDefinition DivineWord { get; } =
+            GetDefinition<SpellDefinition>("DivineWord", "c9f85f76897179c4baabdc7c45f1930d");
 
         public static SpellDefinition DominateBeast { get; } =
             GetDefinition<SpellDefinition>("DominateBeast", "c3d07b9ef913f2d4ab8682c01ce7a3e1");
 
+        public static SpellDefinition DominateMonster { get; } =
+            GetDefinition<SpellDefinition>("DominateMonster", "eaa4d8645ff6ec547b75ab43d06111db");
+
         public static SpellDefinition DominatePerson { get; } =
             GetDefinition<SpellDefinition>("DominatePerson", "89e34ee9a6361c040abb36971b697031");
+
+        public static SpellDefinition DreadfulOmen { get; } =
+            GetDefinition<SpellDefinition>("DreadfulOmen", "a06863ee662908a47a95ca334aa24b99");
+
+        public static SpellDefinition Earthquake { get; } =
+            GetDefinition<SpellDefinition>("Earthquake", "6d56eb08908625f4bac4b98fd7ddc60d");
+
+        public static SpellDefinition EldritchBlast { get; } =
+            GetDefinition<SpellDefinition>("EldritchBlast", "1bc808c50803d9841be7af7314327d6d");
 
         public static SpellDefinition EnhanceAbility { get; } =
             GetDefinition<SpellDefinition>("EnhanceAbility", "08840275ddebe7f40abaa4bc145ee9f8");
@@ -20050,8 +24297,14 @@ public static partial class DatabaseHelper
         public static SpellDefinition FeatherFall { get; } =
             GetDefinition<SpellDefinition>("FeatherFall", "4e3a52bac403e3246bb7c4c12f520245");
 
+        public static SpellDefinition Feeblemind { get; } =
+            GetDefinition<SpellDefinition>("Feeblemind", "d116a54565935514a9437c1a79397182");
+
         public static SpellDefinition FindTraps { get; } =
             GetDefinition<SpellDefinition>("FindTraps", "784a59eab3d513b42aeab8547027e5f5");
+
+        public static SpellDefinition FingerOfDeath { get; } =
+            GetDefinition<SpellDefinition>("FingerOfDeath", "facc856c4a4e5d54090b481bef1441a4");
 
         public static SpellDefinition Fireball { get; } =
             GetDefinition<SpellDefinition>("Fireball", "3f88bf59a445ce64aa23dfb935750535");
@@ -20067,6 +24320,9 @@ public static partial class DatabaseHelper
 
         public static SpellDefinition FireShieldWarm { get; } =
             GetDefinition<SpellDefinition>("FireShieldWarm", "1f5bceed5b876f14eb2be0f6642db628");
+
+        public static SpellDefinition FireStorm { get; } =
+            GetDefinition<SpellDefinition>("FireStorm", "6d8d659df5d60734d8c276777fba855a");
 
         public static SpellDefinition FlameBlade { get; } =
             GetDefinition<SpellDefinition>("FlameBlade", "0547a31a7b87dbb438758ae4cf914af7");
@@ -20097,6 +24353,9 @@ public static partial class DatabaseHelper
 
         public static SpellDefinition Goodberry { get; } =
             GetDefinition<SpellDefinition>("Goodberry", "6183e557cd5222e4eb6134ccbeb9db10");
+
+        public static SpellDefinition GravitySlam { get; } =
+            GetDefinition<SpellDefinition>("GravitySlam", "265ad14a4c626d840bb1fb3be0ec4706");
 
         public static SpellDefinition Grease { get; } =
             GetDefinition<SpellDefinition>("Grease", "31f056cc8a643054ba1e59be0d224482");
@@ -20131,6 +24390,12 @@ public static partial class DatabaseHelper
         public static SpellDefinition HeatMetal { get; } =
             GetDefinition<SpellDefinition>("HeatMetal", "79c46ad5f66e0a34e8ec9ed3f08933fa");
 
+        public static SpellDefinition HellishRebuke { get; } =
+            GetDefinition<SpellDefinition>("HellishRebuke", "ce1fe7c80c29bfc438c6f8150658083b");
+
+        public static SpellDefinition HellishRebukeTiefling { get; } =
+            GetDefinition<SpellDefinition>("HellishRebukeTiefling", "d53e314869b249d44b9b72d3d9f4f86d");
+
         public static SpellDefinition HeroesFeast { get; } =
             GetDefinition<SpellDefinition>("HeroesFeast", "2df9af96f1ce6ee4aa3d1b9ecdb67b1f");
 
@@ -20140,11 +24405,20 @@ public static partial class DatabaseHelper
         public static SpellDefinition HideousLaughter { get; } =
             GetDefinition<SpellDefinition>("HideousLaughter", "8773ef52f0dd71e4a8dbe8a2814b3cf4");
 
+        public static SpellDefinition Hilarity { get; } =
+            GetDefinition<SpellDefinition>("Hilarity", "dfb34454b35fbaf4b817c2188ae34fd1");
+
         public static SpellDefinition HoldMonster { get; } =
             GetDefinition<SpellDefinition>("HoldMonster", "1c8a63324f25814408ca250ba5ec2d16");
 
+        public static SpellDefinition HoldMonsterInvocationChainsCarceri { get; } =
+            GetDefinition<SpellDefinition>("HoldMonsterInvocationChainsCarceri", "d15b334e08fce8b41aa841025b48b976");
+
         public static SpellDefinition HoldPerson { get; } =
             GetDefinition<SpellDefinition>("HoldPerson", "cbc582b44f08e7f4b8ea69077471bc64");
+
+        public static SpellDefinition HolyAura { get; } =
+            GetDefinition<SpellDefinition>("HolyAura", "164c25acb1cabd242b98b7974abfb7a0");
 
         public static SpellDefinition HuntersMark { get; } =
             GetDefinition<SpellDefinition>("HuntersMark", "a4976a0eae64c43478a3711dc064fb8b");
@@ -20160,6 +24434,9 @@ public static partial class DatabaseHelper
 
         public static SpellDefinition IdentifyCreatures { get; } =
             GetDefinition<SpellDefinition>("IdentifyCreatures", "8cf2f383cc3d0704e860b4fd6fc7659f");
+
+        public static SpellDefinition IncendiaryCloud { get; } =
+            GetDefinition<SpellDefinition>("IncendiaryCloud", "d7ff1dbd52e71e948b4e6b2d686e04fd");
 
         public static SpellDefinition InflictWounds { get; } =
             GetDefinition<SpellDefinition>("InflictWounds", "473bbe804543d0f4ebe68ba6db675a49");
@@ -20197,17 +24474,26 @@ public static partial class DatabaseHelper
         public static SpellDefinition MageArmor { get; } =
             GetDefinition<SpellDefinition>("MageArmor", "4772a21b455a76149adcc38d58267a10");
 
+        public static SpellDefinition MageArmorInvocationArmorShadows { get; } =
+            GetDefinition<SpellDefinition>("MageArmorInvocationArmorShadows", "2f7bcd95edac88f48a89aa323ec77aab");
+
         public static SpellDefinition MagicMissile { get; } =
             GetDefinition<SpellDefinition>("MagicMissile", "2b2b43fb6eeb735479a21209286db382");
 
         public static SpellDefinition MagicWeapon { get; } =
             GetDefinition<SpellDefinition>("MagicWeapon", "c9c2c6779e83836468fb6f4ab562897f");
 
+        public static SpellDefinition Malediction { get; } =
+            GetDefinition<SpellDefinition>("Malediction", "1aeeac9ea6f521b46892438da2948664");
+
         public static SpellDefinition MassCureWounds { get; } =
             GetDefinition<SpellDefinition>("MassCureWounds", "31c98fc81cea919499357f8b2cc26bee");
 
         public static SpellDefinition MassHealingWord { get; } =
             GetDefinition<SpellDefinition>("MassHealingWord", "1b13f79192a474947a2c0138ded903b3");
+
+        public static SpellDefinition Maze { get; } =
+            GetDefinition<SpellDefinition>("Maze", "dd6e34fdb0acb334fa90be75576f7818");
 
         public static SpellDefinition MindTwist { get; } =
             GetDefinition<SpellDefinition>("MindTwist", "88c5c5e07eb13684998c75c11492fdd5");
@@ -20230,8 +24516,14 @@ public static partial class DatabaseHelper
         public static SpellDefinition PoisonSpray { get; } =
             GetDefinition<SpellDefinition>("PoisonSpray", "d3aec91794deb6646b41c246e57a1f1e");
 
+        public static SpellDefinition PowerWordStun { get; } =
+            GetDefinition<SpellDefinition>("PowerWordStun", "6c2a33f146b955a4a8f16ecf21d1f73f");
+
         public static SpellDefinition PrayerOfHealing { get; } =
             GetDefinition<SpellDefinition>("PrayerOfHealing", "f560b05d2587f5e4894220356a589968");
+
+        public static SpellDefinition PrismaticSpray { get; } =
+            GetDefinition<SpellDefinition>("PrismaticSpray", "322f68bf5c12ce94291974479425c1cd");
 
         public static SpellDefinition ProduceFlame { get; } =
             GetDefinition<SpellDefinition>("ProduceFlame", "99a59d41bc8a00a458199a4c2e7d9571");
@@ -20274,6 +24566,9 @@ public static partial class DatabaseHelper
 
         public static SpellDefinition RayOfFrost { get; } =
             GetDefinition<SpellDefinition>("RayOfFrost", "637a3697f05a4614e8200abfa5daaaff");
+
+        public static SpellDefinition Regenerate { get; } =
+            GetDefinition<SpellDefinition>("Regenerate", "11ce287bdf5b59d46bc8a992186ed349");
 
         public static SpellDefinition RemoveCurse { get; } =
             GetDefinition<SpellDefinition>("RemoveCurse", "ecabaf5104767c04b9a6549866fccfa0");
@@ -20341,6 +24636,9 @@ public static partial class DatabaseHelper
         public static SpellDefinition Sparkle { get; } =
             GetDefinition<SpellDefinition>("Sparkle", "ac43e07871656cd4db792bdbdc77ac44");
 
+        public static SpellDefinition SpellWard { get; } =
+            GetDefinition<SpellDefinition>("SpellWard", "bf6cbb4f462c5fe4db090980b9126a43");
+
         public static SpellDefinition SpiderClimb { get; } =
             GetDefinition<SpellDefinition>("SpiderClimb", "1ba4092482a450c4da60e17cbe4577df");
 
@@ -20362,6 +24660,36 @@ public static partial class DatabaseHelper
         public static SpellDefinition Sunbeam { get; } =
             GetDefinition<SpellDefinition>("Sunbeam", "ec547e11445032d4f9519982399724a6");
 
+        public static SpellDefinition Sunburst { get; } =
+            GetDefinition<SpellDefinition>("Sunburst", "ae5f8354abadb0d448df8951b9488354");
+
+        public static SpellDefinition Symbol { get; } =
+            GetDefinition<SpellDefinition>("Symbol", "8c8ce37ddf59f72449ac2a6f384d34ea");
+
+        public static SpellDefinition SymbolOfDeath { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfDeath", "24b5d8fdfbad1534790499341831524d");
+
+        public static SpellDefinition SymbolOfFear { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfFear", "90df72434d699d5409a8c8ee08373039");
+
+        public static SpellDefinition SymbolOfHopelessness { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfHopelessness", "26b4e72f215338240bc999aa2c22a49d");
+
+        public static SpellDefinition SymbolOfInsanity { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfInsanity", "0cf19963fa814cf4580de16b81a9104c");
+
+        public static SpellDefinition SymbolOfPain { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfPain", "3d18479b15819fa48b20409e56916045");
+
+        public static SpellDefinition SymbolOfSleep { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfSleep", "ffdbff0fe0cf027419bda05435356858");
+
+        public static SpellDefinition SymbolOfStun { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfStun", "d7c7ab38ff4e0624ab9633eb208f6766");
+
+        public static SpellDefinition Thunderstorm { get; } =
+            GetDefinition<SpellDefinition>("Thunderstorm", "a1f409e76434597449d0379d6d36539e");
+
         public static SpellDefinition Thunderwave { get; } =
             GetDefinition<SpellDefinition>("Thunderwave", "6c670662de0366842bca44119e9104da");
 
@@ -20379,6 +24707,9 @@ public static partial class DatabaseHelper
 
         public static SpellDefinition VenomousSpike { get; } =
             GetDefinition<SpellDefinition>("VenomousSpike", "804bffd98d2384c4b9c01ebb30f3cbee");
+
+        public static SpellDefinition ViciousMockery { get; } =
+            GetDefinition<SpellDefinition>("ViciousMockery", "001568c9862db2f449b64db4cdbb127f");
 
         public static SpellDefinition WallOfFire { get; } =
             GetDefinition<SpellDefinition>("WallOfFire", "c44e8ec6d1e888e47bbd40981b7a605d");
@@ -20431,6 +24762,16 @@ public static partial class DatabaseHelper
         public static SpellListDefinition SpellList_DLC1_ManaScientist { get; } =
             GetDefinition<SpellListDefinition>("SpellList_DLC1_ManaScientist", "21c33a207bc700e4f8bcc8dbce26629f");
 
+        public static SpellListDefinition SpellList_DLC3_Gallivan_Druid { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Gallivan_Druid", "dc27cc19d5690274d8ea710e32e902e4");
+
+        public static SpellListDefinition SpellList_DLC3_Gallivan_RogueShadowCaster { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Gallivan_RogueShadowCaster",
+                "5d586ace47211ca4291109ca75f9bca7");
+
+        public static SpellListDefinition SpellList_DLC3_Kratshar { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Kratshar", "7429d9b5f31092045ab3a12f1d078b8b");
+
         public static SpellListDefinition SpellList_DLC3_Vigdis { get; } =
             GetDefinition<SpellListDefinition>("SpellList_DLC3_Vigdis", "03f278de68da2de44a74e88136907a34");
 
@@ -20440,11 +24781,23 @@ public static partial class DatabaseHelper
         public static SpellListDefinition SpellListAdria { get; } =
             GetDefinition<SpellListDefinition>("SpellListAdria", "53e0069ec0ad5494d82114a3fa52bf22");
 
+        public static SpellListDefinition SpellListAllCantrips { get; } =
+            GetDefinition<SpellListDefinition>("SpellListAllCantrips", "d2d90930dfc4e9244b0b8cefaf93f49c");
+
+        public static SpellListDefinition SpellListAllSpells { get; } =
+            GetDefinition<SpellListDefinition>("SpellListAllSpells", "e112b77b2c6ae3f42b396ab0bc69fc53");
+
         public static SpellListDefinition SpellListArrok { get; } =
             GetDefinition<SpellListDefinition>("SpellListArrok", "22bab6e37b010ca4d942582682c32888");
 
+        public static SpellListDefinition SpellListBard { get; } =
+            GetDefinition<SpellListDefinition>("SpellListBard", "73378bcb8a4d12c418b336ee97b062c8");
+
         public static SpellListDefinition SpellListBerylStonebeard { get; } =
             GetDefinition<SpellListDefinition>("SpellListBerylStonebeard", "e466ee0c21ad86540b7e0c82e4328874");
+
+        public static SpellListDefinition SpellListBerylStonebeard_DLC3 { get; } =
+            GetDefinition<SpellListDefinition>("SpellListBerylStonebeard_DLC3", "8768d6f7ddcacd84db9cf0b9bcef145c");
 
         public static SpellListDefinition SpellListCleric { get; } =
             GetDefinition<SpellListDefinition>("SpellListCleric", "e728ae4e4306da44983db43e2889e53b");
@@ -20488,6 +24841,12 @@ public static partial class DatabaseHelper
         public static SpellListDefinition SpellListGenericSorcerer { get; } =
             GetDefinition<SpellListDefinition>("SpellListGenericSorcerer", "c9cd921295f4e854198ecf254202b341");
 
+        public static SpellListDefinition SpellListGlabrezu { get; } =
+            GetDefinition<SpellListDefinition>("SpellListGlabrezu", "b16b5d2f2c21ce540a87300db0f09bf6");
+
+        public static SpellListDefinition SpellListGnomeShadow { get; } =
+            GetDefinition<SpellListDefinition>("SpellListGnomeShadow", "7dea5f3dabaa2d44891971f51905ffd5");
+
         public static SpellListDefinition SpellListGoblinShaman { get; } =
             GetDefinition<SpellListDefinition>("SpellListGoblinShaman", "8d0f1b89e54dad7449dffcbc1bb5449f");
 
@@ -20515,6 +24874,9 @@ public static partial class DatabaseHelper
         public static SpellListDefinition SpellListMardracht { get; } =
             GetDefinition<SpellListDefinition>("SpellListMardracht", "b9b74cdd3ecb0cf43bb880907971533b");
 
+        public static SpellListDefinition SpellListMonkTraditionLight { get; } =
+            GetDefinition<SpellListDefinition>("SpellListMonkTraditionLight", "42728d375aa32254d88dda6898bc7462");
+
         public static SpellListDefinition SpellListMummyLord { get; } =
             GetDefinition<SpellListDefinition>("SpellListMummyLord", "d7974315c638a3f48bb6361bc0e193fb");
 
@@ -20529,6 +24891,15 @@ public static partial class DatabaseHelper
 
         public static SpellListDefinition SpellListPaladin { get; } =
             GetDefinition<SpellListDefinition>("SpellListPaladin", "1f7cd298d2c69194a9b04259cb39829d");
+
+        public static SpellListDefinition SpellListPatronFiend { get; } =
+            GetDefinition<SpellListDefinition>("SpellListPatronFiend", "b5b4a4d450aa7d643a2af87942b8d4ff");
+
+        public static SpellListDefinition SpellListPatronHive { get; } =
+            GetDefinition<SpellListDefinition>("SpellListPatronHive", "0a005da49f846154b870613288d01344");
+
+        public static SpellListDefinition SpellListPatronTree { get; } =
+            GetDefinition<SpellListDefinition>("SpellListPatronTree", "ecfe1e252975d0249b345ce8db6d5116");
 
         public static SpellListDefinition SpellListPriest { get; } =
             GetDefinition<SpellListDefinition>("SpellListPriest", "b80054eee0556f14587ebed2de4ada57");
@@ -20560,6 +24931,12 @@ public static partial class DatabaseHelper
 
         public static SpellListDefinition SpellListSwamp_Hag { get; } =
             GetDefinition<SpellListDefinition>("SpellListSwamp_Hag", "b2eb34f8570376449b9b783027041d30");
+
+        public static SpellListDefinition SpellListTiefling { get; } =
+            GetDefinition<SpellListDefinition>("SpellListTiefling", "e93773f3b7fb94a4c8c94b528ddde2d9");
+
+        public static SpellListDefinition SpellListWarlock { get; } =
+            GetDefinition<SpellListDefinition>("SpellListWarlock", "4916ffc0bd81f214e9752b68511ed553");
 
         public static SpellListDefinition SpellListWizard { get; } =
             GetDefinition<SpellListDefinition>("SpellListWizard", "ebbe572795f1e2e499bf55d00df9547f");
@@ -20675,6 +25052,15 @@ public static partial class DatabaseHelper
         public static DecisionDefinition CastMagic_HoldPerson { get; } =
             GetDefinition<DecisionDefinition>("CastMagic_HoldPerson", "21bacb6202524a740a53a81fcf2e0a6b");
 
+        public static DecisionDefinition CastMagic_Incubus_DemonicInfluence { get; } =
+            GetDefinition<DecisionDefinition>("CastMagic_Incubus_DemonicInfluence", "4d136e5e6c27430498a0675091bfa1e9");
+
+        public static DecisionDefinition CastMagic_Incubus_Drain { get; } =
+            GetDefinition<DecisionDefinition>("CastMagic_Incubus_Drain", "a24ff8df7f489bd428dde4d0d600a611");
+
+        public static DecisionDefinition CastMagic_MarilithTail { get; } =
+            GetDefinition<DecisionDefinition>("CastMagic_MarilithTail", "dbf1fce182cdef44bb286dcb8ba6a3f6");
+
         public static DecisionDefinition CastMagic_Reckless_Self { get; } =
             GetDefinition<DecisionDefinition>("CastMagic_Reckless_Self", "042fde731407f404a8a825095edeb5d6");
 
@@ -20701,6 +25087,15 @@ public static partial class DatabaseHelper
 
         public static DecisionDefinition CastMagic_Teleport_Reposition { get; } =
             GetDefinition<DecisionDefinition>("CastMagic_Teleport_Reposition", "8a3c8a64e2ea39744a4a07c79b2defc0");
+
+        public static DecisionDefinition CastMagic_VrockScreech { get; } =
+            GetDefinition<DecisionDefinition>("CastMagic_VrockScreech", "8827ba0032659e1418c613470bb252e9");
+
+        public static DecisionDefinition CastMagic_VrockSpores { get; } =
+            GetDefinition<DecisionDefinition>("CastMagic_VrockSpores", "21757168ea1c4ed49ac36167850a1909");
+
+        public static DecisionDefinition ChangeBehaviorToIdleGuard { get; } =
+            GetDefinition<DecisionDefinition>("ChangeBehaviorToIdleGuard", "36f16290b82fe31478ca400c2fcfb906");
 
         public static DecisionDefinition ChargeAttack_Default { get; } =
             GetDefinition<DecisionDefinition>("ChargeAttack_Default", "8a7f2c7c15a65cd4aa7862202b1e3a6a");
@@ -20870,6 +25265,12 @@ public static partial class DatabaseHelper
         public static DecisionDefinition Move_Leap_Bulette { get; } =
             GetDefinition<DecisionDefinition>("Move_Leap_Bulette", "84ca3082d875286498019cb078e203d2");
 
+        public static DecisionDefinition Move_Leap_Giant_Aggressive { get; } =
+            GetDefinition<DecisionDefinition>("Move_Leap_Giant_Aggressive", "4ff76930518612c44be38b9d002d679c");
+
+        public static DecisionDefinition Move_Leap_Giant_AggressiveSure { get; } =
+            GetDefinition<DecisionDefinition>("Move_Leap_Giant_AggressiveSure", "5d2bc13968d0eae4cab7670271362329");
+
         public static DecisionDefinition Move_PrepareCharge { get; } =
             GetDefinition<DecisionDefinition>("Move_PrepareCharge", "f28a766b87b52e24db2917812d2cbd28");
 
@@ -20970,6 +25371,9 @@ public static partial class DatabaseHelper
 
         public static DecisionDefinition StartBattle_CanTargetNPC { get; } =
             GetDefinition<DecisionDefinition>("StartBattle_CanTargetNPC", "73c812b61aa9ad24888eda7533d30516");
+
+        public static DecisionDefinition StopAllActions { get; } =
+            GetDefinition<DecisionDefinition>("StopAllActions", "2a88daad593785b4c90a4a1c9abdc9f5");
 
         public static DecisionDefinition TriggerDefeat { get; } =
             GetDefinition<DecisionDefinition>("TriggerDefeat", "4d798ccb442f1284291902dd545e3cbc");
@@ -21097,6 +25501,9 @@ public static partial class DatabaseHelper
         public static DecisionPackageDefinition GhoulCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("GhoulCombatDecisions", "913e5281f066c5748a6e42d5cd334100");
 
+        public static DecisionPackageDefinition GiantDefaultCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GiantDefaultCombatDecisions", "fab51e461a5de8f4591fccf4e19bb205");
+
         public static DecisionPackageDefinition GiantSpiderCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("GiantSpiderCombatDecisions", "6a00be8d974f5f14c9b8a601cf8503d8");
 
@@ -21112,6 +25519,9 @@ public static partial class DatabaseHelper
 
         public static DecisionPackageDefinition GreenHagCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("GreenHagCombatDecisions", "45d0923a325633048b7cd2988a90b0b8");
+
+        public static DecisionPackageDefinition IceGolemDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IceGolemDecisions", "2b5b1330d8944c7438d89c1a94bfe724");
 
         public static DecisionPackageDefinition Idle { get; } =
             GetDefinition<DecisionPackageDefinition>("Idle", "47dfd6fd3d22b214cb8c446f2438f3c6");
@@ -21129,8 +25539,19 @@ public static partial class DatabaseHelper
         public static DecisionPackageDefinition IdleGuard_Tutorial { get; } =
             GetDefinition<DecisionPackageDefinition>("IdleGuard_Tutorial", "0ea60f5ffe5ae2e4d976d5aa38e8440d");
 
+        public static DecisionPackageDefinition IdleStopActionsThenIdleGuard_Default { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleStopActionsThenIdleGuard_Default",
+                "513ef68689685c14c860bd699b90514f");
+
+        public static DecisionPackageDefinition IncubusCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IncubusCombatDecisions", "fda404e76d1308b49807889c7947b14a");
+
         public static DecisionPackageDefinition IronGolemDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("IronGolemDecisions", "a0b688cbc94296047b7b8dfd2c9a4cf8");
+
+        public static DecisionPackageDefinition Kratshar_OffensiveCasterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("Kratshar_OffensiveCasterCombatDecisions",
+                "6dc9b0f42da90704db5e05fb58ae9c0e");
 
         public static DecisionPackageDefinition LegendaryAoE_Debuff { get; } =
             GetDefinition<DecisionPackageDefinition>("LegendaryAoE_Debuff", "59cc8e8dd4e388f4aa5a214822b87f0d");
@@ -21219,6 +25640,9 @@ public static partial class DatabaseHelper
             GetDefinition<DecisionPackageDefinition>("LegendarySpiderQueenLifeLeechAlly",
                 "19ff551b6d1f7864d8158b55c33e6575");
 
+        public static DecisionPackageDefinition MarilithCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("MarilithCombatDecisions", "037a16cb0c9cf8a47ac1fb006ec2a123");
+
         public static DecisionPackageDefinition MinotaurCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("MinotaurCombatDecisions", "fc86514f32d897646aa4a9bdb62f7438");
 
@@ -21285,6 +25709,12 @@ public static partial class DatabaseHelper
         public static DecisionPackageDefinition PatrolNode_TimeWait_30 { get; } =
             GetDefinition<DecisionPackageDefinition>("PatrolNode_TimeWait_30", "9e67c7a87f60fe449b33a3e8cdae2612");
 
+        public static DecisionPackageDefinition PeaksAbominationDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("PeaksAbominationDecisions", "f1850cf3950458d48ab8911ba98127fc");
+
+        public static DecisionPackageDefinition PeaksTerrorDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("PeaksTerrorDecisions", "40a151d6ef35db74eaf226156526accf");
+
         public static DecisionPackageDefinition PhaseSpiderCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("PhaseSpiderCombatDecisions", "86531c994b0d141479db767c628b068a");
 
@@ -21300,6 +25730,10 @@ public static partial class DatabaseHelper
 
         public static DecisionPackageDefinition RogueCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("RogueCombatDecisions", "c261d934de0fe154d8205afceb17ed6b");
+
+        public static DecisionPackageDefinition RogueShadowCasterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("RogueShadowCasterCombatDecisions",
+                "efe292331c9372e4499830e9c90b060f");
 
         public static DecisionPackageDefinition ShamblingMoundCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("ShamblingMoundCombatDecisions",
@@ -21352,6 +25786,9 @@ public static partial class DatabaseHelper
 
         public static DecisionPackageDefinition TurnUndead { get; } =
             GetDefinition<DecisionPackageDefinition>("TurnUndead", "6a2eeece52411df40a1d70734888a5fa");
+
+        public static DecisionPackageDefinition VrockCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("VrockCombatDecisions", "889f2af763b28b2489909db862c3fb0f");
 
         public static DecisionPackageDefinition WightCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("WightCombatDecisions", "2784384873f468547a2261b4496b2d45");
@@ -21441,6 +25878,50 @@ public static partial class DatabaseHelper
 
     public static class TreasureTableDefinitions
     {
+        public static TreasureTableDefinition DLC3_Class_Random_AllClasses_Potions_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_AllClasses_Potions_Table",
+                "329f8ed15f9e8c9478daf906f80ba032");
+
+        public static TreasureTableDefinition DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table",
+                "8df91f86207cefb479c624ec4706e62d");
+
+        public static TreasureTableDefinition DLC3_Class_Random_AllClasses_Wands_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_AllClasses_Wands_Table",
+                "9ac5ecada2b36f84796fa13b3bdb5631");
+
+        public static TreasureTableDefinition DLC3_Class_Random_Barbarian_PotionsGiantStrength_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Barbarian_PotionsGiantStrength_Table",
+                "a777a9957ae519a49b58e5741bcd00cc");
+
+        public static TreasureTableDefinition DLC3_Class_Random_Bard_MagicItems_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Bard_MagicItems_Table",
+                "cf3ae5fb375229b4a97ed5c27e6e193a");
+
+        public static TreasureTableDefinition DLC3_Class_Random_Fighter_OneHandWeapons_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Fighter_OneHandWeapons_Table",
+                "97968e7b1ed3d324bb3244066b9e5276");
+
+        public static TreasureTableDefinition DLC3_Class_Random_Monk_MagicItems_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Monk_MagicItems_Table",
+                "5c6b8e48f2b27b94cb5dc0cea2484ad5");
+
+        public static TreasureTableDefinition DLC3_Class_Random_Paladin_TwoHandWeapons_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Paladin_TwoHandWeapons_Table",
+                "dffd901605f7bc94f945291cf747a90a");
+
+        public static TreasureTableDefinition DLC3_Class_Random_Rogue_PoisonedArrows_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Rogue_PoisonedArrows_Table",
+                "06b207e3cd3599a4aae8511e7c0a3a03");
+
+        public static TreasureTableDefinition DLC3_Class_Random_Rogue_Poisons_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Rogue_Poisons_Table",
+                "fb77d1296353c05479189b67e810cf92");
+
+        public static TreasureTableDefinition DLC3_Class_Random_Warlock_MagicItems_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Warlock_MagicItems_Table",
+                "c949571a19958ac49ae38e954d9217bc");
+
         public static TreasureTableDefinition IngredientLootStandard { get; } =
             GetDefinition<TreasureTableDefinition>("IngredientLootStandard", "6b5497b187207b64bbf120feda62bc74");
 
@@ -21479,6 +25960,9 @@ public static partial class DatabaseHelper
 
         public static TreasureTableDefinition Random_Golem_Clay_Table { get; } =
             GetDefinition<TreasureTableDefinition>("Random_Golem_Clay_Table", "929c473f2a932564d8def113aa2be752");
+
+        public static TreasureTableDefinition Random_Golem_Ice_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Golem_Ice_Table", "9f18e98b4d233c341bd699c97a9f202d");
 
         public static TreasureTableDefinition Random_Golem_Iron_Table { get; } =
             GetDefinition<TreasureTableDefinition>("Random_Golem_Iron_Table", "3201394dde218b744bb72bb26cb2f120");
