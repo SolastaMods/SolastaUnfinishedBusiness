@@ -21,6 +21,12 @@ internal static class AdditionalNamesContext
         foreach (var line in lines)
         {
             var columns = line.Split(new[] {'\t'}, 3);
+
+            if (columns.Length != 3)
+            {
+                continue;
+            }
+
             var raceName = columns[0];
             var gender = columns[1];
             var name = columns[2];

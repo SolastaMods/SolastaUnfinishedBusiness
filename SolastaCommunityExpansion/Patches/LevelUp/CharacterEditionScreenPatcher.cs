@@ -13,44 +13,44 @@ namespace SolastaCommunityExpansion.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterEditionScreen_LoadStagePanels
 {
-    [NotNull]
-    private static CustomFeatureSelectionPanel GetPanel([NotNull] CharacterEditionScreen __instance)
-    {
-        var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-        var stagePanelPrefabs =
-            characterCreationScreen.stagePanelPrefabs;
-        var container = __instance.StagesPanelContainer;
-        var gameObject = Gui.GetPrefabFromPool(stagePanelPrefabs[8], container);
-        var characterStageSpellSelectionPanel = gameObject.GetComponent<CharacterStageSpellSelectionPanel>();
-        var customFeatureSelection = gameObject.AddComponent<CustomFeatureSelectionPanel>();
-
-        customFeatureSelection.Setup(characterStageSpellSelectionPanel);
-
-        return customFeatureSelection;
-    }
+    // [NotNull]
+    // private static CustomFeatureSelectionPanel GetPanel([NotNull] CharacterEditionScreen __instance)
+    // {
+    //     var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+    //     var stagePanelPrefabs =
+    //         characterCreationScreen.stagePanelPrefabs;
+    //     var container = __instance.StagesPanelContainer;
+    //     var gameObject = Gui.GetPrefabFromPool(stagePanelPrefabs[8], container);
+    //     var characterStageSpellSelectionPanel = gameObject.GetComponent<CharacterStageSpellSelectionPanel>();
+    //     var customFeatureSelection = gameObject.AddComponent<CustomFeatureSelectionPanel>();
+    //
+    //     customFeatureSelection.Setup(characterStageSpellSelectionPanel);
+    //
+    //     return customFeatureSelection;
+    // }
 
     internal static void Postfix(CharacterEditionScreen __instance)
     {
-        switch (__instance)
-        {
-            case CharacterCreationScreen:
-            {
-                var customFeatureSelection = GetPanel(__instance);
-                var last = __instance.stagePanelsByName.ElementAt(__instance.stagePanelsByName.Count - 1);
-
-                __instance.stagePanelsByName.Remove(last.Key);
-                __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
-                __instance.stagePanelsByName.Add(last.Key, last.Value);
-                break;
-            }
-            case CharacterLevelUpScreen:
-            {
-                var customFeatureSelection = GetPanel(__instance);
-
-                __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
-                break;
-            }
-        }
+        // switch (__instance)
+        // {
+        //     case CharacterCreationScreen:
+        //     {
+        //         var customFeatureSelection = GetPanel(__instance);
+        //         var last = __instance.stagePanelsByName.ElementAt(__instance.stagePanelsByName.Count - 1);
+        //
+        //         __instance.stagePanelsByName.Remove(last.Key);
+        //         __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
+        //         __instance.stagePanelsByName.Add(last.Key, last.Value);
+        //         break;
+        //     }
+        //     case CharacterLevelUpScreen:
+        //     {
+        //         var customFeatureSelection = GetPanel(__instance);
+        //
+        //         __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
+        //         break;
+        //     }
+        // }
 
         //
         // MULTICLASS
