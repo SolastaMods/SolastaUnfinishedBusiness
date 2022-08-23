@@ -40,9 +40,19 @@ internal static class ItemCraftingContext
         {"Scimitar", Gui.Localize("Equipment/&ScimitarTypeTitle")},
         {"Shield_Wooden", Gui.Localize("Equipment/&Shield_Wooden_Title")},
         {"Shield", Gui.Localize("Equipment/&ShieldCategoryTitle")},
-        {"HideArmor", Gui.Localize("ModUi/&HiderArmor")},
+        {"HideArmor", Gui.Localize("Equipment/&Armor_HideTitle")},
         {"LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title")},
-        {"StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle")}
+        {"StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle")},
+        {"ChainShirt", Gui.Localize("Equipment/&Armor_ChainShirtTitle")},
+        {"PaddedLeather", Gui.Localize("Equipment/&Armor_PaddedLeatherTitle")},
+        {"Leather", Gui.Localize("Equipment/&Armor_LeatherTitle")},
+        {"ScaleMail", Gui.Localize("Equipment/&Armor_ScaleMailTitle")},
+        {"Breastplate", Gui.Localize("Equipment/&Armor_BreastplateTitle")},
+        {"HalfPlate", Gui.Localize("Equipment/&Armor_HalfPlateTitle")},
+        {"Ringmail", Gui.Localize("Equipment/&Armor_RingmailTitle")},
+        {"ChainMail", Gui.Localize("Equipment/&Armor_ChainMailTitle")},
+        {"SplintArmor", Gui.Localize("Equipment/&Armor_SplintmailTitle")},
+        {"Plate", Gui.Localize("Equipment/&Armor_PlateTitle")}
     };
 
     private static readonly List<string> ItemCategories = new()
