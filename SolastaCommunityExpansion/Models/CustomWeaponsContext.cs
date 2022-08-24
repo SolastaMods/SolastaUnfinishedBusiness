@@ -859,6 +859,14 @@ public static class CustomWeaponsContext
         CustomIcons.CreateAssetReferenceSprite("ProducedFlameThrow", Resources.ProducedFlameThrow, 128);
 
     #endregion
+
+    public static void AddCustomTags(ItemDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
+    {
+        if (WeaponValidators.IsPolearm(item))
+        {
+            tags.TryAdd(PolearmWeaponTag, TagsDefinitions.Criticity.Normal);
+        }
+    }
 }
 
 //TODO: move this to the separate shop context file

@@ -8,7 +8,6 @@ using ModKit;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Patches.Diagnostic;
 using static SolastaCommunityExpansion.Displays.CreditsDisplay;
 
 namespace SolastaCommunityExpansion.Displays
