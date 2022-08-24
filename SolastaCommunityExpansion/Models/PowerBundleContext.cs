@@ -171,12 +171,55 @@ public static class PowerBundleContext
     public sealed class Bundle
     {
         /**
-             * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
-             * from this bundle can be in effect
-             */
+         * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
+         * from this bundle can be in effect
+         */
         public bool TerminateAll { get; internal set; }
 
         public List<FeatureDefinitionPower> SubPowers { get; } = new();
+    }
+
+    /**
+     * Replaces power with a spell that has sub-spells and then activates bundled power according to selected subspell.
+     * Returns true if nothing needs (or can) be done.
+     */
+    internal static bool PowerBoxActivated(UsablePowerBox box)
+    {
+        var masterPower = box.usablePower.PowerDefinition;
+
+        if (GetBundle(masterPower) == null)
+        {
+            return true;
+        }
+
+        if (box.powerEngaged == null)
+        {
+            return true;
+        }
+
+        var masterSpell = GetSpell(masterPower);
+
+        if (masterSpell == null)
+        {
+            return true;
+        }
+
+        var repertoire = new RulesetSpellRepertoire();
+        repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
+        
+        //TODO: find a way to re-use same widget, but without resorting to fake spells creation
+        var subspellSelectionModalScreen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
+        subspellSelectionModalScreen.Bind(masterSpell, box.activator, repertoire, (_, spell, _) =>
+        {
+            var power = GetPower(spell);
+            var engagedHandler = box.powerEngaged;
+            var activator = box.activator;
+
+            engagedHandler(UsablePowersProvider.Get(power, activator));
+        }, 0, box.RectTransform);
+        subspellSelectionModalScreen.Show();
+
+        return false;
     }
 }
 
