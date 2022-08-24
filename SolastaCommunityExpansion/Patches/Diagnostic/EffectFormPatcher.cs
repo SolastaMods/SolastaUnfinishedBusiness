@@ -1,8 +1,8 @@
 ﻿#if DEBUG
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.DataMiner;
 using static EffectForm.EffectFormType;
+using static SolastaCommunityExpansion.DataMiner.EffectFormVerification;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
 
@@ -15,7 +15,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref DamageForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Damage, ref __result);
+            VerifyUsage(__instance, Damage, ref __result);
         }
     }
 
@@ -25,7 +25,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref HealingForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Healing, ref __result);
+            VerifyUsage(__instance, Healing, ref __result);
         }
     }
 
@@ -35,7 +35,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref ConditionForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Condition, ref __result);
+            VerifyUsage(__instance, Condition, ref __result);
         }
     }
 
@@ -45,7 +45,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref LightSourceForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, LightSource, ref __result);
+            VerifyUsage(__instance, LightSource, ref __result);
         }
     }
 
@@ -55,7 +55,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref SummonForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Summon, ref __result);
+            VerifyUsage(__instance, Summon, ref __result);
         }
     }
 
@@ -65,7 +65,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref CounterForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Counter, ref __result);
+            VerifyUsage(__instance, Counter, ref __result);
         }
     }
 
@@ -75,7 +75,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref TemporaryHitPointsForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, TemporaryHitPoints, ref __result);
+            VerifyUsage(__instance, TemporaryHitPoints, ref __result);
         }
     }
 
@@ -85,7 +85,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref MotionForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Motion, ref __result);
+            VerifyUsage(__instance, Motion, ref __result);
         }
     }
 
@@ -95,7 +95,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref SpellSlotsForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, SpellSlots, ref __result);
+            VerifyUsage(__instance, SpellSlots, ref __result);
         }
     }
 
@@ -105,7 +105,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref DivinationForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Divination, ref __result);
+            VerifyUsage(__instance, Divination, ref __result);
         }
     }
 
@@ -115,7 +115,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref ItemPropertyForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, ItemProperty, ref __result);
+            VerifyUsage(__instance, ItemProperty, ref __result);
         }
     }
 
@@ -125,7 +125,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref AlterationForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Alteration, ref __result);
+            VerifyUsage(__instance, Alteration, ref __result);
         }
     }
 
@@ -135,7 +135,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref TopologyForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Topology, ref __result);
+            VerifyUsage(__instance, Topology, ref __result);
         }
     }
 
@@ -145,7 +145,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref ReviveForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Revive, ref __result);
+            VerifyUsage(__instance, Revive, ref __result);
         }
     }
 
@@ -155,7 +155,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref KillForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, Kill, ref __result);
+            VerifyUsage(__instance, Kill, ref __result);
         }
     }
 
@@ -165,7 +165,7 @@ internal static class EffectFormPatcher
     {
         public static void Postfix(EffectForm __instance, ref ShapeChangeForm __result)
         {
-            EffectFormVerification.VerifyUsage(__instance, ShapeChange, ref __result);
+            VerifyUsage(__instance, ShapeChange, ref __result);
         }
     }
 }

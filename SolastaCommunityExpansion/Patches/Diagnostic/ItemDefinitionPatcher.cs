@@ -1,7 +1,7 @@
 ﻿#if DEBUG
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.DataMiner;
+using static SolastaCommunityExpansion.DataMiner.ItemDefinitionVerification;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
 
@@ -14,7 +14,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref ArmorDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsArmor, ref __result);
+            VerifyUsage(__instance, __instance.IsArmor, ref __result);
         }
     }
 
@@ -24,7 +24,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref WeaponDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsWeapon, ref __result);
+            VerifyUsage(__instance, __instance.IsWeapon, ref __result);
         }
     }
 
@@ -34,7 +34,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref AmmunitionDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsAmmunition, ref __result);
+            VerifyUsage(__instance, __instance.IsAmmunition, ref __result);
         }
     }
 
@@ -44,7 +44,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref UsableDeviceDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsUsableDevice, ref __result);
+            VerifyUsage(__instance, __instance.IsUsableDevice, ref __result);
         }
     }
 
@@ -54,7 +54,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref ToolDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsTool, ref __result);
+            VerifyUsage(__instance, __instance.IsTool, ref __result);
         }
     }
 
@@ -64,7 +64,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref StarterPackDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsStarterPack, ref __result);
+            VerifyUsage(__instance, __instance.IsStarterPack, ref __result);
         }
     }
 
@@ -74,7 +74,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref ContainerItemDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsContainerItem, ref __result);
+            VerifyUsage(__instance, __instance.IsContainerItem, ref __result);
         }
     }
 
@@ -84,7 +84,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref LightSourceItemDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsLightSourceItem, ref __result);
+            VerifyUsage(__instance, __instance.IsLightSourceItem, ref __result);
         }
     }
 
@@ -94,7 +94,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref FocusItemDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFocusItem, ref __result);
+            VerifyUsage(__instance, __instance.IsFocusItem, ref __result);
         }
     }
 
@@ -104,7 +104,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref WealthPileDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsWealthPile, ref __result);
+            VerifyUsage(__instance, __instance.IsWealthPile, ref __result);
         }
     }
 
@@ -114,7 +114,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref SpellbookDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsSpellbook, ref __result);
+            VerifyUsage(__instance, __instance.IsSpellbook, ref __result);
         }
     }
 
@@ -124,7 +124,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref FoodDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFood, ref __result);
+            VerifyUsage(__instance, __instance.IsFood, ref __result);
         }
     }
 
@@ -134,7 +134,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref FactionRelicDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFactionRelic, ref __result);
+            VerifyUsage(__instance, __instance.IsFactionRelic, ref __result);
         }
     }
 
@@ -144,7 +144,7 @@ internal static class ItemDefinitionPatcher
     {
         public static void Postfix(ItemDefinition __instance, ref DocumentDescription __result)
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsDocument, ref __result);
+            VerifyUsage(__instance, __instance.IsDocument, ref __result);
         }
     }
 }
