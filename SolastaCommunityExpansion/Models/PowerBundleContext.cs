@@ -180,6 +180,7 @@ public static class PowerBundleContext
     }
 
     /**
+     * Patch implementation
      * Replaces power with a spell that has sub-spells and then activates bundled power according to selected subspell.
      * Returns true if nothing needs (or can) be done.
      */
@@ -206,7 +207,7 @@ public static class PowerBundleContext
 
         var repertoire = new RulesetSpellRepertoire();
         repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
-        
+
         //TODO: find a way to re-use same widget, but without resorting to fake spells creation
         var subspellSelectionModalScreen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
         subspellSelectionModalScreen.Bind(masterSpell, box.activator, repertoire, (_, spell, _) =>
@@ -220,6 +221,159 @@ public static class PowerBundleContext
         subspellSelectionModalScreen.Show();
 
         return false;
+    }
+
+    /**
+     * Patch implementation
+     * Replaces tooltip and name on the item with ones from actual sub-power that is being substituted
+     */
+    internal static bool ModifySubspellItemBind(
+        SubspellItem __instance,
+        RulesetCharacter caster,
+        SpellDefinition spellDefinition,
+        int index,
+        SubspellItem.OnActivateHandler onActivate)
+    {
+        var power = GetPower(spellDefinition);
+
+        if (power == null)
+        {
+            return true;
+        }
+
+        __instance.index = index;
+
+        var guiPowerDefinition =
+            ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
+        __instance.spellTitle.Text = guiPowerDefinition.Title;
+
+        //add info about remaining spell slots if powers consume them
+        // var usablePower = caster.GetPowerFromDefinition(power);
+        // if (usablePower != null && power.rechargeRate == RuleDefinitions.RechargeRate.SpellSlot)
+        // {
+        //     var power_info = Helpers.Accessors.getNumberOfSpellsFromRepertoireOfSpecificSlotLevelAndFeature(power.costPerUse, caster, power.spellcastingFeature);
+        //     instance.spellTitle.Text += $"   [{power_info.remains}/{power_info.total}]";
+        // }
+
+        __instance.tooltip.TooltipClass = guiPowerDefinition.TooltipClass;
+        __instance.tooltip.Content = power.GuiPresentation.Description;
+        __instance.tooltip.DataProvider = guiPowerDefinition;
+        __instance.tooltip.Context = caster;
+
+        __instance.onActivate = onActivate;
+
+        return false;
+    }
+
+    /**
+     * Patch implementation
+     * Replaces how subspell activates for bundled powers
+     */
+    internal static bool CheckSubSpellActivated(SubspellSelectionModal selection, int index)
+    {
+        var masterPower = GetPower(selection.masterSpell);
+
+        if (masterPower == null || selection.spellCastEngaged == null)
+        {
+            return true;
+        }
+
+        var repertoire = selection.spellRepertoire;
+        selection.spellCastEngaged(repertoire, repertoire.KnownSpells[index], selection.slotLevel);
+
+        selection.Hide();
+
+        return false;
+    }
+
+    /**
+     * Patch implementation
+     * Makes after rest action activation show sub-power selection for bundled powers
+     */
+    internal static bool ExecuteAfterRestCb(AfterRestActionItem instance)
+    {
+        if (instance.executing)
+        {
+            return true;
+        }
+
+        var activity = instance.RestActivityDefinition;
+
+        if (activity.Functor != UseCustomRestPowerFunctorName || activity.StringParameter == null)
+        {
+            return true;
+        }
+
+        var masterPower = GetPower(activity.StringParameter);
+        var masterSpell = masterPower ? GetSpell(masterPower) : null;
+
+        if (!masterSpell)
+        {
+            return true;
+        }
+
+        var repertoire = new RulesetSpellRepertoire();
+        var subspellSelectionModalScreen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
+        var handler = new SpellsByLevelBox.SpellCastEngagedHandler((_, spell, _) =>
+        {
+            instance.button.interactable = false;
+
+            var power = GetPower(spell)?.Name;
+            if (power != null)
+            {
+                ServiceRepository.GetService<IGameRestingService>()
+                    .ExecuteAsync(ExecuteAsync(instance, power), power);
+            }
+        });
+
+        repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
+
+        subspellSelectionModalScreen.Bind(masterSpell, instance.Hero, repertoire, handler, 0, instance.RectTransform);
+        subspellSelectionModalScreen.Show();
+
+        return false;
+    }
+
+    private static IEnumerator ExecuteAsync(AfterRestActionItem item, string powerName)
+    {
+        item.executing = true;
+
+        var parameters = new FunctorParametersDescription {RestingHero = item.Hero, StringParameter = powerName};
+        var gameRestingService = ServiceRepository.GetService<IGameRestingService>();
+
+        yield return ServiceRepository.GetService<IFunctorService>()
+            .ExecuteFunctorAsync(item.RestActivityDefinition.Functor, parameters, gameRestingService);
+
+        yield return null;
+
+        var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+        if (gameLocationActionService != null && gameLocationCharacterService != null)
+        {
+            bool needsToWait;
+
+            do
+            {
+                needsToWait = gameLocationCharacterService.PartyCharacters
+                    .Any(partyCharacter => gameLocationActionService.IsCharacterActing(partyCharacter));
+
+                if (needsToWait)
+                {
+                    yield return null;
+                }
+            } while (needsToWait);
+        }
+
+        item.AfterRestActionTaken?.Invoke();
+        item.executing = false;
+
+        var button = item.button;
+
+        if (button != null)
+        {
+            button.interactable = true;
+        }
     }
 }
 
