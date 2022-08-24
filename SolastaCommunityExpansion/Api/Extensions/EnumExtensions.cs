@@ -1,4 +1,7 @@
-﻿namespace SolastaCommunityExpansion.Api.Extensions;
+﻿using JetBrains.Annotations;
+using static RuleDefinitions;
+
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 public enum ExtraEffectFormType
 {
@@ -23,9 +26,9 @@ public enum ExtraEffectFormType
 
 public enum ExtraRitualCasting
 {
-    None = RuleDefinitions.RitualCasting.None,
-    Prepared = RuleDefinitions.RitualCasting.Prepared,
-    Spellbook = RuleDefinitions.RitualCasting.Spellbook,
+    None = RitualCasting.None,
+    Prepared = RitualCasting.Prepared,
+    Spellbook = RitualCasting.Spellbook,
     Known = 9000
 }
 
@@ -60,31 +63,85 @@ public enum ExtraAttributeModifierOperation
 
 public enum ExtraTurnOccurenceType
 {
-    StartOfTurn = RuleDefinitions.TurnOccurenceType.StartOfTurn,
-    EndOfTurn = RuleDefinitions.TurnOccurenceType.EndOfTurn,
-    EndOfTurnNoPerceptionOfSource = RuleDefinitions.TurnOccurenceType.EndOfTurnNoPerceptionOfSource,
+    StartOfTurn = TurnOccurenceType.StartOfTurn,
+    EndOfTurn = TurnOccurenceType.EndOfTurn,
+    EndOfTurnNoPerceptionOfSource = TurnOccurenceType.EndOfTurnNoPerceptionOfSource,
     StartOfTurnWithPerceptionOfSource = 9000,
     OnMoveEnd = 9001
 }
 
 public enum ExtraAdditionalDamageAdvancement
 {
-    None = RuleDefinitions.AdditionalDamageAdvancement.None,
-    ClassLevel = RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
-    SlotLevel = RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
+    None = AdditionalDamageAdvancement.None,
+    ClassLevel = AdditionalDamageAdvancement.ClassLevel,
+    SlotLevel = AdditionalDamageAdvancement.SlotLevel,
     CharacterLevel = 9000
 }
 
 public enum ExtraAdvancementDuration
 {
-    None = RuleDefinitions.AdvancementDuration.None,
+    None = AdvancementDuration.None,
 
     // ReSharper disable once InconsistentNaming
-    Hours_1_8_24 = RuleDefinitions.AdvancementDuration.Hours_1_8_24,
+    Hours_1_8_24 = AdvancementDuration.Hours_1_8_24,
 
     // ReSharper disable once InconsistentNaming
-    Minutes_1_10_480_1440_Infinite = RuleDefinitions.AdvancementDuration.Minutes_1_10_480_1440_Infinite,
+    Minutes_1_10_480_1440_Infinite = AdvancementDuration.Minutes_1_10_480_1440_Infinite,
     DominateBeast = 9000,
     DominatePerson = 9001,
     DominateMonster = 9002
+}
+
+internal static class EnumImplementation
+{
+    internal static bool ComputeExtraAdvancementDuration([NotNull] EffectDescription effect, int slotLevel, ref int result)
+    {
+        //
+        // BUGFIX: dominate spells
+        //
+
+        if (effect.EffectAdvancement.AlteredDuration >= 0)
+        {
+            // use standard calculation
+            return true;
+        }
+
+        var alteredDuration = (ExtraAdvancementDuration)effect.EffectAdvancement.AlteredDuration;
+
+        var duration = alteredDuration switch
+        {
+            // TA DominateBeast and DominatePerson use AdvancementDuration.Minutes_1_10_480_1440_Infinite
+            // which is only computed correctly for BestowCurse.
+
+            ExtraAdvancementDuration.DominateBeast => slotLevel switch
+            {
+                <= 4 => ComputeRoundsDuration(DurationType.Minute, 1),
+                5 => ComputeRoundsDuration(DurationType.Minute, 10),
+                6 => ComputeRoundsDuration(DurationType.Hour, 1),
+                _ => ComputeRoundsDuration(DurationType.Hour, 8)
+            },
+            ExtraAdvancementDuration.DominatePerson => slotLevel switch
+            {
+                <= 5 => ComputeRoundsDuration(DurationType.Minute, 1),
+                6 => ComputeRoundsDuration(DurationType.Minute, 10),
+                7 => ComputeRoundsDuration(DurationType.Hour, 1),
+                _ => ComputeRoundsDuration(DurationType.Hour, 8)
+            },
+            ExtraAdvancementDuration.DominateMonster => slotLevel switch // currently a DubHerder CE specific spell
+            {
+                <= 8 => ComputeRoundsDuration(DurationType.Hour, 1),
+                _ => ComputeRoundsDuration(DurationType.Hour, 8)
+            },
+            _ => -1
+        };
+
+        if (duration == -1)
+        {
+            return true;
+        }
+
+        result = duration;
+
+        return false;
+    }
 }
