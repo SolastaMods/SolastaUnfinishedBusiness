@@ -5,8 +5,7 @@ using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Models;
 
-// ReSharper disable once ClassNeverInstantiated.Global
-public class GlobalUniqueEffects
+public static class GlobalUniqueEffects
 {
     public enum Group { Familiar, Tinkerer }
 
@@ -31,7 +30,7 @@ public class GlobalUniqueEffects
     }
 
     /**Returns copies*/
-    public static (HashSet<FeatureDefinitionPower>, HashSet<SpellDefinition>) GetSameGroupItems(
+    private static (HashSet<FeatureDefinitionPower>, HashSet<SpellDefinition>) GetSameGroupItems(
         FeatureDefinitionPower power)
     {
         var powers = new HashSet<FeatureDefinitionPower>();
@@ -53,7 +52,7 @@ public class GlobalUniqueEffects
         return (powers, spells);
     }
 
-    public static (HashSet<FeatureDefinitionPower>, HashSet<SpellDefinition>) GetSameGroupItems(
+    private static (HashSet<FeatureDefinitionPower>, HashSet<SpellDefinition>) GetSameGroupItems(
         SpellDefinition spell)
     {
         var powers = new HashSet<FeatureDefinitionPower>();
@@ -82,5 +81,93 @@ public class GlobalUniqueEffects
     public static void AddToGroup(Group group, [NotNull] params SpellDefinition[] spells)
     {
         GetGroup(group).Item2.AddRange(spells);
+    }
+
+    /**
+     * Used in the patch to terminate all matching powers and spells of same group
+     */
+    internal static void TerminateMatchingUniquePower(RulesetCharacter character, FeatureDefinitionPower power)
+    {
+        var (powers, spells) = GetSameGroupItems(power);
+
+        powers.Add(power);
+        TerminatePowers(character, power, powers);
+        TerminateSpells(character, null, spells);
+    }
+    
+    /**
+     * Used in the patch to terminate all matching powers and spells of same group
+     */
+    internal static void TerminateMatchingUniqueSpell(RulesetCharacter character, SpellDefinition spell)
+    {
+        var (powers, spells) = GetSameGroupItems(spell);
+
+        spells.Add(spell);
+        TerminatePowers(character, null, powers);
+        TerminateSpells(character, spell, spells);
+    }
+    
+    private static void TerminatePowers(RulesetCharacter character, FeatureDefinitionPower exclude,
+        IEnumerable<FeatureDefinitionPower> powers)
+    {
+        var allSubPowers = new HashSet<FeatureDefinitionPower>();
+
+        foreach (var power in powers)
+        {
+            allSubPowers.Add(power);
+
+            var bundles = PowerBundleContext.GetMasterPowersBySubPower(power);
+
+            foreach (var subPower in bundles.Select(PowerBundleContext.GetBundle).Where(bundle => bundle.TerminateAll)
+                         .SelectMany(bundle => bundle.SubPowers))
+            {
+                allSubPowers.Add(subPower);
+            }
+        }
+
+        if (exclude != null)
+        {
+            allSubPowers.Remove(exclude);
+        }
+
+        var toTerminate = character.PowersUsedByMe.Where(u => allSubPowers.Contains(u.PowerDefinition)).ToList();
+        foreach (var power in toTerminate)
+        {
+            character.TerminatePower(power);
+        }
+    }
+
+    private static void TerminateSpells(RulesetCharacter character, SpellDefinition exclude,
+        IEnumerable<SpellDefinition> spells)
+    {
+        var allSubSpells = new HashSet<SpellDefinition>();
+
+        foreach (var spell in spells)
+        {
+            allSubSpells.Add(spell);
+            foreach (var allElement in DatabaseRepository.GetDatabase<SpellDefinition>().GetAllElements())
+            {
+                if (!spell.IsSubSpellOf(allElement))
+                {
+                    continue;
+                }
+
+                foreach (var subSpell in allElement.SubspellsList)
+                {
+                    allSubSpells.Add(subSpell);
+                }
+            }
+        }
+
+        if (exclude != null)
+        {
+            allSubSpells.Remove(exclude);
+        }
+
+        var toTerminate = character.SpellsCastByMe.Where(c => allSubSpells.Contains(c.SpellDefinition)).ToList();
+        foreach (var spell in toTerminate)
+        {
+            character.TerminateSpell(spell);
+        }
     }
 }
