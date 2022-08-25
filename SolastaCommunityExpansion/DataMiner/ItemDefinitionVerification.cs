@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using System.IO;
 using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaCommunityExpansion.Models;
@@ -80,3 +81,4 @@ internal static class ItemDefinitionVerification
         }
     }
 }
+#endif
