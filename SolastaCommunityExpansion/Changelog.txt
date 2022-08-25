@@ -3,4 +3,5 @@ The donation button is under Mod UI > Credits & Diagnostics
 
 CHANGES:
 
-- Add a mod UI setting to tweak AC stacking
+- Add additional armor recipes
+- Fix a null exception on Raven subclass
