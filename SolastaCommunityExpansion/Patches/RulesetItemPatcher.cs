@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks;
+namespace SolastaCommunityExpansion.Patches;
 
 [HarmonyPatch(typeof(RulesetItem), "FillTags")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -15,14 +15,12 @@ internal static class RulesetItem_FillTags
         object context,
         bool active = false)
     {
-        if (WeaponValidators.IsPolearm(__instance))
-        {
-            tagsMap.TryAdd(CustomWeaponsContext.PolearmWeaponTag, TagsDefinitions.Criticity.Normal);
-        }
+        var item = __instance.itemDefinition;
 
-        if (DiagnosticsContext.IsCeDefinition(__instance.ItemDefinition))
-        {
-            tagsMap.TryAdd(CeContentPackContext.CeTag, TagsDefinitions.Criticity.Normal);
-        }
+        //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
+        CustomWeaponsContext.AddCustomTags(item, tagsMap);
+
+        //PATCH: adds `Community Expansion` tag to all CE items 
+        CeContentPackContext.AddCETag(item, tagsMap);
     }
 }
