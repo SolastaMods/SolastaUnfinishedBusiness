@@ -78,7 +78,7 @@ public static class Global
                 CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
                 break;
             case CharacterActionReady actionReady:
-                CustomReactionsContext.ReadReadyActionPreferredCantripPatch(actionReady.actionParams);
+                CustomReactionsContext.ReadReadyActionPreferredCantrip(actionReady.actionParams);
                 break;
             case CharacterActionSpendPower spendPower:
                 PowerBundleContext.SpendBundledPowerIfNeeded(spendPower);
