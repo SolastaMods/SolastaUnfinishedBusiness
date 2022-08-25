@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.UI;
+using SolastaCommunityExpansion.CustomUI;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -62,7 +62,7 @@ internal static class GameLocationCharacterPatcher
         {
             //PATCH: Skips specified amount of attack modes for main and bonus action
             //used for displaying multiple attacks on the actions panel
-            __result = MultipleAttacksOnActionPanel.GetExtraAttackMode(__instance, __result, actionId);
+            __result = ExtraAttacksOnActionPanel.FindExtraActionAttackModes(__instance, __result, actionId);
         }
     }
 }

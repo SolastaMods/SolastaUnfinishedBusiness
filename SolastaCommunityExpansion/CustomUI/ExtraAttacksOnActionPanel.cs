@@ -10,8 +10,12 @@ namespace SolastaCommunityExpansion.CustomUI;
 
 public static class ExtraAttacksOnActionPanel
 {
-    // Uses attack mode from cursor's ActionParams, instead of first one matching action type
-    // Without this when you click on any attack in actions panel targeting would work as if you clicked on the 1st
+    /**
+     * Patch implementation
+     * Used to allow multiple attacks on action panel
+     * Uses attack mode from cursor's ActionParams, instead of first one matching action type
+     * Without this when you click on any attack in actions panel targeting would work as if you clicked on the 1st
+     */
     public static void ApplyCursorLocationSelectTargetTranspile(List<CodeInstruction> instructions)
     {
         var insertionIndex = instructions.FindIndex(x => x.opcode == OpCodes.Ldloc_2);
@@ -43,7 +47,11 @@ public static class ExtraAttacksOnActionPanel
         return cursor.ActionParams?.AttackMode ?? def;
     }
 
-    // Adds extra items to the action panel if character has more than 1 attack mode available for action type of this panel
+    /**
+     * Patch implementation
+     * Used to allow multiple attacks on action panel
+     * Adds extra items to the action panel if character has more than 1 attack mode available for action type of this panel
+     */
     public static void AddExtraAttackItems(CharacterActionPanel panel)
     {
         var actionsTable = panel.characterActionsTable;
@@ -188,5 +196,65 @@ public static class ExtraAttacksOnActionPanel
 
         var itemDefinition = DatabaseHelper.ItemDefinitions.UnarmedStrikeBase;
         enumerator.Bind(new RulesetItem(itemDefinition));
+    }
+
+    /**
+     * Patch implementation
+     * Used to allow multiple attacks on action panel
+     * Skips specified amount of attack modes for main and bonus action
+     */
+    internal static RulesetAttackMode FindExtraActionAttackModes(GameLocationCharacter locChar, RulesetAttackMode def,
+        ActionDefinitions.Id actionId)
+    {
+        var skip = locChar.GetSkipAttackModes();
+
+        if (skip == 0)
+        {
+            return def;
+        }
+
+        var skipped = 0;
+
+        var result = def;
+        switch (actionId)
+        {
+            case ActionDefinitions.Id.AttackMain:
+            case ActionDefinitions.Id.AttackOff:
+                foreach (var current in locChar.RulesetCharacter.AttackModes)
+                {
+                    var found = false;
+                    if (current.AfterChargeOnly)
+                    {
+                        continue;
+                    }
+
+                    switch (current.ActionType)
+                    {
+                        case ActionDefinitions.ActionType.Main:
+                            found = actionId == ActionDefinitions.Id.AttackMain;
+                            break;
+                        case ActionDefinitions.ActionType.Bonus:
+                            found = actionId == ActionDefinitions.Id.AttackOff;
+                            break;
+                    }
+
+                    if (found)
+                    {
+                        result = current;
+                        if (skipped == skip)
+                        {
+                            break;
+                        }
+
+                        skipped++;
+                    }
+                }
+
+                break;
+            default:
+                return def;
+        }
+
+        return result;
     }
 }
