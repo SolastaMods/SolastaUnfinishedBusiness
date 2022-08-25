@@ -28,13 +28,25 @@ public static class CharacterValidators
     public static readonly CharacterValidator HasTwoHandedRangeWeapon = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
-        var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem.ItemDefinition;
-        return equipedItem.WeaponDescription.WeaponTypeDefinition == DatabaseHelper.WeaponTypeDefinitions.LongbowType
-               || equipedItem.WeaponDescription.WeaponTypeDefinition ==
+        var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand];
+        if (equipedItem == null)
+        {
+            return false;
+        }
+
+        var equipedItemDescription = equipedItem.EquipedItem?.ItemDefinition;
+        if (equipedItemDescription == null)
+        {
+            return false;
+        }
+
+        return equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
+               DatabaseHelper.WeaponTypeDefinitions.LongbowType
+               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
                DatabaseHelper.WeaponTypeDefinitions.ShortbowType
-               || equipedItem.WeaponDescription.WeaponTypeDefinition ==
+               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
                DatabaseHelper.WeaponTypeDefinitions.LightCrossbowType
-               || equipedItem.WeaponDescription.WeaponTypeDefinition ==
+               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
                DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType;
     };
 
