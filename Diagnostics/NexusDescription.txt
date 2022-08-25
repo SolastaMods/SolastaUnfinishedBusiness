@@ -27,9 +27,11 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Dead Master, Blade Dancer, Holic75's code integration
+[*][b][/b]: 
 [*][b]Esker[/b]: ruleset support, classes design, quality assurance
 [*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance
+[*][b][/b]: 
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]Narria[/b]: modKit creator, developer
@@ -153,6 +155,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Moonlit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 [*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 [*][b]Arcane Gladiator[/b]: Arcane Gladiators are honorable protector which protecting their allies by compelling high profile duelling with them. They are also famous for the tactic of alpha striking their foes by big evocation spell followed by a swing with the heaviest weapon in their hand.      
+[*][b]None[/b]: 
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
@@ -427,9 +430,19 @@ The cloud moves 10 feet directly away from you in a direction that you choose at
 [*][b]Greatsword[/b]: Punisher Greatsword
 [*][b]Wooden Shield[/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
 [*][b]Shield[/b]: Shield of Sturdiness, Shield of Robustness, Shield of Survival, Shield of Flame Dancing, Shield of Frost Walking, Shield of Deflection
-[*][b]Hide Armor[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection
+[*][b]Hide[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection
 [*][b]Druid Leather Armor[/b]: Druid Leather of Sturdiness, Druid Leather of Robustness, Druid Leather of Survival, Druid Leather of Flame Dancing, Druid Leather of Frost Walking, Druid Leather of Deflection
 [*][b]Studded Leather[/b]: Studded Leather of Sturdiness, Studded Leather of Robustness, Studded Leather of Survival, Studded Leather of Flame Dancing, Studded Leather of Frost Walking, Studded Leather of Deflection
+[*][b]Chain Shirt[/b]: Chain Shirt of Sturdiness, Chain Shirt of Robustness, Chain Shirt of Survival, Chain Shirt of Flame Dancing, Chain Shirt of Frost Walking, Chain Shirt of Deflection
+[*][b]Padded Leather[/b]: Padded Leather of Sturdiness, Padded Leather of Robustness, Padded Leather of Survival, Padded Leather of Flame Dancing, Padded Leather of Frost Walking, Padded Leather of Deflection
+[*][b]Leather[/b]: Leather of Sturdiness, Leather of Robustness, Leather of Survival, Leather of Flame Dancing, Leather of Frost Walking, Leather of Deflection
+[*][b]Scale Mail[/b]: Scale Mail of Sturdiness, Scale Mail of Robustness, Scale Mail of Survival, Scale Mail of Flame Dancing, Scale Mail of Frost Walking, Scale Mail of Deflection
+[*][b]Breastplate[/b]: Breastplate of Sturdiness, Breastplate of Robustness, Breastplate of Survival, Breastplate of Flame Dancing, Breastplate of Frost Walking, Breastplate of Deflection
+[*][b]Half Plate[/b]: Half Plate of Sturdiness, Half Plate of Robustness, Half Plate of Survival, Half Plate of Flame Dancing, Half Plate of Frost Walking, Half Plate of Deflection
+[*][b]Ringmail[/b]: Ring Mail of Sturdiness, Ring Mail of Robustness, Ring Mail of Survival, Ring Mail of Flame Dancing, Ring Mail of Frost Walking, Ring Mail of Deflection
+[*][b]Chain Mail[/b]: Chain Mail of Sturdiness, Chain Mail of Robustness, Chain Mail of Survival, Chain Mail of Flame Dancing, Chain Mail of Frost Walking, Chain Mail of Deflection
+[*][b]Splintmail[/b]: Splint Armor of Sturdiness, Splint Armor of Robustness, Splint Armor of Survival, Splint Armor of Flame Dancing, Splint Armor of Frost Walking, Splint Armor of Deflection
+[*][b]Plate[/b]: Plate of Sturdiness, Plate of Robustness, Plate of Survival, Plate of Flame Dancing, Plate of Frost Walking, Plate of Deflection
 [/list]
 
 [size=3][b]All Settings[/b][/size]
