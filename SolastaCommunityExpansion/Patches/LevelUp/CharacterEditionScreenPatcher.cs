@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
-// add the custom features selection stage panel to the creation and level up screen
+//PATCH: adds the Multiclass class selection panel to the level up screen
 [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterEditionScreen_LoadStagePanels
