@@ -15,6 +15,7 @@ internal static class CharacterStageSubclassSelectionPanel_OnBeginShow
 
     internal static void Prefix([NotNull] CharacterStageSubclassSelectionPanel __instance)
     {
+        //PATCH: sorts the sub classes panel by Title
         if (Main.Settings.EnableSortingSubclasses)
         {
             __instance.compatibleSubclasses
@@ -22,6 +23,7 @@ internal static class CharacterStageSubclassSelectionPanel_OnBeginShow
                     String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
         }
 
+        //PATCH: changes the subclasses layout to allow more offerings
         var gridLayoutGroup = __instance.subclassesTable.GetComponent<GridLayoutGroup>();
         var count = __instance.compatibleSubclasses.Count;
 

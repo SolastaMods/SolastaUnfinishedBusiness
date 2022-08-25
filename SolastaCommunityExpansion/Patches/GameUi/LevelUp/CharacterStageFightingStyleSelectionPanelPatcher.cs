@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +13,9 @@ internal static class CharacterStageFightingStyleSelectionPanel_OnBeginShow
 {
     private static Vector2 OriginalAnchoredPosition { get; set; } = Vector2.zero;
 
-    internal static void Prefix(CharacterStageFightingStyleSelectionPanel __instance)
+    internal static void Prefix([NotNull] CharacterStageFightingStyleSelectionPanel __instance)
     {
+        //PATCH: sorts the fighting style panel by Title
         if (Main.Settings.EnableSortingFightingStyles)
         {
             __instance.compatibleFightingStyles
@@ -21,6 +23,7 @@ internal static class CharacterStageFightingStyleSelectionPanel_OnBeginShow
                     String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
         }
 
+        //PATCH: changes the fighting style layout to allow more offerings
         var gridLayoutGroup = __instance.fightingStylesTable.GetComponent<GridLayoutGroup>();
         var count = __instance.compatibleFightingStyles.Count;
 

@@ -10,11 +10,10 @@ internal static class CharacterStageClassSelectionPanel_Compare
 {
     internal static void Postfix(CharacterClassDefinition left, CharacterClassDefinition right, ref int __result)
     {
-        if (!Main.Settings.EnableSortingClasses)
+        //PATCH: sorts the class panel by Title
+        if (Main.Settings.EnableSortingClasses)
         {
-            return;
+            __result = String.Compare(left.FormatTitle(), right.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
         }
-
-        __result = String.Compare(left.FormatTitle(), right.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
     }
 }

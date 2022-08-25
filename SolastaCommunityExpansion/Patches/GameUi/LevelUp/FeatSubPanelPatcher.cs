@@ -13,17 +13,18 @@ using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp;
 
-// avoids a restart when enabling / disabling feats on the Mod UI panel
 [HarmonyPatch(typeof(FeatSubPanel), "Bind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FeatSubPanel_Bind
 {
     internal static void Prefix([NotNull] FeatSubPanel __instance)
     {
+        //PATCH: avoids a restart when enabling / disabling feats on the Mod UI panel
         var dbFeatDefinition = DatabaseRepository.GetDatabase<FeatDefinition>();
 
         __instance.relevantFeats.SetRange(dbFeatDefinition.Where(x => !x.GuiPresentation.Hidden));
 
+        //PATCH: sorts the feats panel by Title
         if (Main.Settings.EnableSortingFeats)
         {
             __instance.relevantFeats.Sort((a, b) =>
@@ -42,7 +43,7 @@ internal static class FeatSubPanel_Bind
     }
 }
 
-// enforce feat selection panel to always display same-width columns for easy selection
+// PATCH: enforces the feat selection panel to always display same-width columns
 [HarmonyPatch(typeof(FeatSubPanel), "SetState")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FeatSubPanel_SetState
@@ -73,7 +74,6 @@ internal static class FeatSubPanel_SetState
         if (active && Main.Settings.EnableSameWidthFeatSelection)
         {
             var hero = Global.ActiveLevelUpHero;
-
             var buildingData = hero?.GetHeroBuildingData();
 
             if (buildingData == null)
