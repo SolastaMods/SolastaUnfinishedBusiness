@@ -73,4 +73,60 @@ internal static class FightingStyleContext
 
         UpdateStyleVisibility(fightingStyleDefinition);
     }
+
+    internal static void RefreshFightingStylesPatch(RulesetCharacterHero hero)
+    {
+        foreach (var trainedFightingStyle in hero.trainedFightingStyles)
+        {
+            switch (trainedFightingStyle.Condition)
+            {
+                // Make hand crossbows benefit from Archery Fighting Style
+                case FightingStyleDefinition.TriggerCondition.RangedWeaponAttack:
+                    var rulesetInventorySlot =
+                        hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
+
+                    if (rulesetInventorySlot.EquipedItem != null
+                        && rulesetInventorySlot.EquipedItem.ItemDefinition.IsWeapon
+                        && rulesetInventorySlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType ==
+                        "CEHandXbowType")
+                    {
+                        hero.ActiveFightingStyles.Add(trainedFightingStyle);
+                    }
+
+                    break;
+
+                // Make Shield Expert benefit from Two Weapon Fighting Style
+                case FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded:
+                    var hasShieldExpert = hero.TrainedFeats.Any(x => x.Name == "FeatShieldExpert");
+                    var mainHandSlot =
+                        hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
+                    var offHandSlot =
+                        hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
+
+                    if (hasShieldExpert
+                        && mainHandSlot.EquipedItem != null
+                        && mainHandSlot.EquipedItem.ItemDefinition.IsWeapon)
+                    {
+                        var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>();
+                        var weaponType = mainHandSlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType;
+
+                        if (dbWeaponTypeDefinition.GetElement(weaponType).WeaponProximity ==
+                            RuleDefinitions.AttackProximity.Melee
+                            && offHandSlot.EquipedItem != null
+                            && offHandSlot.EquipedItem.ItemDefinition.IsArmor)
+                        {
+                            hero.ActiveFightingStyles.Add(trainedFightingStyle);
+                        }
+                    }
+
+                    break;
+
+                case FightingStyleDefinition.TriggerCondition.WearingArmor:
+                case FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon:
+                case FightingStyleDefinition.TriggerCondition.TwoHandedMeleeWeapon:
+                case FightingStyleDefinition.TriggerCondition.ShieldEquiped:
+                    break;
+            }
+        }
+    }
 }
