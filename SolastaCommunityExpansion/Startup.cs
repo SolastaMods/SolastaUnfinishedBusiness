@@ -1,22 +1,19 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using HarmonyLib;
 using I2.Loc;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 #if DEBUG
-using SolastaCommunityExpansion.Patches.Diagnostic;
+using SolastaCommunityExpansion.DataMiner;
 #endif
 
-namespace SolastaCommunityExpansion.Patches;
+namespace SolastaCommunityExpansion;
 
-[HarmonyPatch(typeof(GameManager), "BindPostDatabase")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameManager_BindPostDatabase
+//TODO: find better place for this code
+internal static class Startup
 {
     private static readonly HashSet<string> SupportedLanguages = new() {"zh-CN"};
 
-    internal static void Postfix()
+    public static void Load()
     {
 #if DEBUG
         ItemDefinitionVerification.Load();
