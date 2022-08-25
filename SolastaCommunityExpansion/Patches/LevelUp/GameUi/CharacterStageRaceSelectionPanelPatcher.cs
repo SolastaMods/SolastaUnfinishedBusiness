@@ -5,7 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp;
+namespace SolastaCommunityExpansion.Patches.LevelUp.GameUi;
 
 [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "Compare")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

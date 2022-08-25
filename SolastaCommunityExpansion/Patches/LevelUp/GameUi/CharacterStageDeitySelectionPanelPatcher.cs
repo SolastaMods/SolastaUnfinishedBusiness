@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp;
+namespace SolastaCommunityExpansion.Patches.LevelUp.GameUi;
 
 [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "Compare", typeof(DeityDefinition),
     typeof(DeityDefinition))]
