@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
+//PATCH: filters out features already taken on class display (MULTICLASS)
 [HarmonyPatch(typeof(HigherLevelFeaturesModal), "Bind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class HigherLevelFeaturesModal_Bind

@@ -8,13 +8,13 @@ using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
+//PATCH: sorts the races panel by Title
 [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "Compare")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageRaceSelectionPanel_Compare
 {
     internal static void Postfix(CharacterRaceDefinition left, CharacterRaceDefinition right, ref int __result)
     {
-        //PATCH: sorts the races panel by Title
         if (Main.Settings.EnableSortingRaces)
         {
             __result = String.Compare(left.FormatTitle(), right.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
@@ -22,14 +22,14 @@ internal static class CharacterStageRaceSelectionPanel_Compare
     }
 }
 
-// TODO: consolidate this patch with one below this
+//TODO: consolidate this patch with one below this
 [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "OnBeginShow")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageRaceSelectionPanel_OnBeginShow_1
 {
     internal static void Prefix([NotNull] CharacterStageRaceSelectionPanel __instance)
     {
-        // PATCH: avoids a restart when enabling / disabling races on the Mod UI panel
+        //PATCH: avoids a restart when enabling / disabling races on the Mod UI panel
         var visibleRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
             .Where(x => !x.GuiPresentation.Hidden);
         var characterRaceDefinitions = visibleRaces as CharacterRaceDefinition[] ?? visibleRaces.ToArray();

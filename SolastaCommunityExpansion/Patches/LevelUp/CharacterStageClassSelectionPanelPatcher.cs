@@ -12,13 +12,13 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
+//PATCH: sorts the class panel by Title
 [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Compare")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageClassSelectionPanel_Compare
 {
     internal static void Postfix(CharacterClassDefinition left, CharacterClassDefinition right, ref int __result)
     {
-        //PATCH: sorts the class panel by Title
         if (Main.Settings.EnableSortingClasses)
         {
             __result = String.Compare(left.FormatTitle(), right.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
@@ -26,7 +26,7 @@ internal static class CharacterStageClassSelectionPanel_Compare
     }
 }
 
-// flag displaying the class panel / apply in/out logic
+//PATCH: flags displaying the class panel / apply in/out logic (MULTICLASS)
 [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageClassSelectionPanel_OnBeginShow
@@ -44,9 +44,9 @@ internal static class CharacterStageClassSelectionPanel_OnBeginShow
         }
 
         LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, true);
-        // MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(__instance.currentHero,
-        //     __instance.compatibleClasses,
-        //     out __instance.selectedClass);
+        MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(__instance.currentHero,
+            __instance.compatibleClasses,
+            out __instance.selectedClass);
 
         var commonData = __instance.CommonData;
 
@@ -64,7 +64,7 @@ internal static class CharacterStageClassSelectionPanel_OnBeginShow
     }
 }
 
-// reset IsClassSelectionStage for hero
+//PATCH: resets IsClassSelectionStage for hero (MULTICLASS)
 [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnEndHide")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageClassSelectionPanel_OnEndHide
@@ -78,7 +78,7 @@ internal static class CharacterStageClassSelectionPanel_OnEndHide
     }
 }
 
-// hide the features list for already acquired classes
+//PATCH: hides the features list for already acquired classes (MULTICLASS)
 [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageClassSelectionPanel_FillClassFeatures
@@ -135,7 +135,7 @@ internal static class CharacterStageClassSelectionPanel_FillClassFeatures
     }
 }
 
-// hide the equipment panel group
+//PATCH: hides the equipment panel group (MULTICLASS)
 [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageClassSelectionPanel_Refresh

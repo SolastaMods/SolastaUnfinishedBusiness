@@ -7,6 +7,7 @@ using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
+//TODO: Still required?
 [HarmonyPatch(typeof(FeatureDefinitionFeatureSet), "FormatDescription")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FeatureDefinitionFeatureSet_FormatDescription

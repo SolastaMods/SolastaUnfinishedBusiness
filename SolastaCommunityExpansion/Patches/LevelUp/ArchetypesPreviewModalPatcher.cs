@@ -8,7 +8,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
-//PATCH: filters features already taken on subclass display
+//PATCH: filters out features already taken on subclass display (MULTICLASS)
 [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class ArchetypesPreviewModal_Refresh
@@ -56,7 +56,7 @@ internal static class ArchetypesPreviewModal_Refresh
     }
 }
 
-//PATCH: only presents the subclass already taken
+//PATCH: only presents the subclass already taken if one was already selected for this class (MULTICLASS)
 [HarmonyPatch(typeof(ArchetypesPreviewModal), "Show")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class ArchetypesPreviewModal_Show

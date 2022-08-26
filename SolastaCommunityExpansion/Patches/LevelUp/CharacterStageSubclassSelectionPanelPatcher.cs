@@ -48,6 +48,7 @@ internal static class CharacterStageSubclassSelectionPanel_OnBeginShow
     }
 }
 
+//PATCH: updates this panel relevance (MULTICLASS)
 [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "UpdateRelevance")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageSubclassSelectionPanel_UpdateRelevance

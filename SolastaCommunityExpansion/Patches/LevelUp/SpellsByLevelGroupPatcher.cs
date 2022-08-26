@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
-// filters how spells are displayed during level up
+//PATCH: filters how spells are displayed during level up
 [HarmonyPatch(typeof(SpellsByLevelGroup), "BindLearning")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class SpellsByLevelGroup_BindLearning

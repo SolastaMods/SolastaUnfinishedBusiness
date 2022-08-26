@@ -43,7 +43,7 @@ internal static class FeatSubPanel_Bind
     }
 }
 
-// PATCH: enforces the feat selection panel to always display same-width columns
+//PATCH: enforces the feat selection panel to always display same-width columns
 [HarmonyPatch(typeof(FeatSubPanel), "SetState")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FeatSubPanel_SetState

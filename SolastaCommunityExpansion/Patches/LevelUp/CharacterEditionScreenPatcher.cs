@@ -6,7 +6,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
-//PATCH: adds the Multiclass class selection panel to the level up screen
+//PATCH: adds the Multiclass class selection panel to the level up screen (MULTICLASS)
 [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterEditionScreen_LoadStagePanels
@@ -83,6 +83,7 @@ internal static class CharacterEditionScreen_LoadStagePanels
     }
 }
 
+//PATCH: Unregisters hero from level up context (MULTICLASS)
 [HarmonyPatch(typeof(CharacterEditionScreen), "DoAbort")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterEditionScreen_DoAbort

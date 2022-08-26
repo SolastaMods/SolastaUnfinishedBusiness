@@ -5,7 +5,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
-// tag spells learned from other caster classes as Multiclass
+//PATCH: tag spells learned from other caster classes as Multiclass (MULTICLASS)
 [HarmonyPatch(typeof(SpellBox), "Refresh")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class SpellBox_Refresh

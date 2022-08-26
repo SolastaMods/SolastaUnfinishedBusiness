@@ -8,7 +8,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
-// patches the method to get my own class and level for level up
+//PATCH: gets my own class and level for level up (MULTICLASS)
 [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "EnterStage")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageLevelGainsPanel_EnterStage
@@ -56,7 +56,7 @@ internal static class CharacterStageLevelGainsPanel_EnterStage
     }
 }
 
-// only displays spell casting features from the current class
+//PATCH: only displays spell casting features from the current class (MULTICLASS)
 [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "RefreshSpellcastingFeatures")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageLevelGainsPanel_RefreshSpellcastingFeatures
