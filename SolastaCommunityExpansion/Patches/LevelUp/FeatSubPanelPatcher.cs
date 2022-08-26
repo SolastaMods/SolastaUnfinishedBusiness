@@ -11,7 +11,7 @@ using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.LevelUp.GameUi;
+namespace SolastaCommunityExpansion.Patches.LevelUp;
 
 [HarmonyPatch(typeof(FeatSubPanel), "Bind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
