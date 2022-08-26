@@ -32,7 +32,7 @@ internal static class FlexibleRacesContext
         {"HalfOrc", AttributeChoiceThree},
         // unofficial races
         {"BolgrifRace", AttributeChoiceThree},
-        {"GnomeRace", AttributeChoiceThree},
+        // {"GnomeRace", AttributeChoiceThree},
         {"HalfElfVariant", AttributeChoiceFour}
     };
 
@@ -60,13 +60,13 @@ internal static class FlexibleRacesContext
         },
         {"DarkelfRace", new List<string> {"AttributeModifierDarkelfCharismaAbilityScoreIncrease"}},
         {"HalfElfVariant", new List<string> {"FeatureSetHalfElfAbilityScoreIncrease"}},
-        {
-            "GnomeRace",
-            new List<string>
-            {
-                "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease"
-            }
-        },
+        // {
+        //     "GnomeRace",
+        //     new List<string>
+        //     {
+        //         "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease"
+        //     }
+        // },
         {"GrayDwarfRace", new List<string> {"AttributeModifierGrayDwarfStrengthAbilityScoreIncrease"}}
     };
 

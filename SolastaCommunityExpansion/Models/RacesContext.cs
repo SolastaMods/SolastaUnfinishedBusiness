@@ -46,7 +46,8 @@ internal static class RacesContext
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
-            SortRacesFeatures();
+            //TODO: Check why this is causing 2 exceptions during load
+            // SortRacesFeatures();
         }
 
         RaceScaleMap[BolgrifRaceBuilder.BolgrifRace] = 8.8f / 6.4f;
