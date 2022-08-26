@@ -46,7 +46,7 @@ internal static class CeContentPackContext
         }
         else // Not all CE spells are registered in SpellsContext
         {
-            AddCESpellTag(spell, tags);
+            AddCETag(spell, tags);
         }
     }
 
