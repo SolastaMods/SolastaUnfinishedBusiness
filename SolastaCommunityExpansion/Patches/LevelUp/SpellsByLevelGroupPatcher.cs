@@ -182,8 +182,8 @@ internal static class SpellsByLevelGroup_BindLearning
                 __instance.autoPreparedSpells);
         }
 
-        // __instance.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
-        //     allSpells, null, __instance.autoPreparedSpells, unlearnedSpells, autoPrepareTag, tooltipAnchor, anchorMode);
+        __instance.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
+            allSpells, null, null, __instance.autoPreparedSpells, unlearnedSpells, autoPrepareTag, __instance.extraSpellsMap, tooltipAnchor, anchorMode);
 
         if (unlearn)
         {
