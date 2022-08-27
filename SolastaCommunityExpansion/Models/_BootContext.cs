@@ -7,6 +7,7 @@ using I2.Loc;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
 
