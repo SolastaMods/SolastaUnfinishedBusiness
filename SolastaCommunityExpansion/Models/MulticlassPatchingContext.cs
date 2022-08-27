@@ -40,13 +40,6 @@ internal static class MulticlassPatchingContext
         },
         {Druid, new List<FeatureDefinition> {PointPoolDruidSkillPoints, ProficiencyDruidSavingThrow}},
         {Fighter, new List<FeatureDefinition> {PointPoolFighterSkillPoints, ProficiencyFighterSavingThrow}},
-        {
-            Monk,
-            new List<FeatureDefinition>
-            {
-                ProficiencyMonkWeapon, PointPoolMonkSkillPoints, ProficiencyMonkSavingThrow
-            }
-        },
         {Monk, new List<FeatureDefinition> {PointPoolMonkSkillPoints, ProficiencyMonkSavingThrow}},
         {Paladin, new List<FeatureDefinition> {PointPoolPaladinSkillPoints, ProficiencyPaladinSavingThrow}},
         {Ranger, new List<FeatureDefinition> {ProficiencyRangerSavingThrow}},

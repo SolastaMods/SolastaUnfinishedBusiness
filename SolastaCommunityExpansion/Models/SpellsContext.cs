@@ -112,13 +112,13 @@ internal static class SpellsContext
         }
 
         // register spells
-        // AceHighSpells.Register();
-        // BazouSpells.Register();
-        // HolicSpells.Register();
-        // SrdSpells.Register();
-        // EwSpells.Register();
-        // HouseSpellTweaks.Register();
-        // SgSpells.Register();
+        AceHighSpells.Register();
+        BazouSpells.Register();
+        HolicSpells.Register();
+        SrdSpells.Register();
+        EwSpells.Register();
+        HouseSpellTweaks.Register();
+        SgSpells.Register();
 
         // caches which spells are toggleable per spell list
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();

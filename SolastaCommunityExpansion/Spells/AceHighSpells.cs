@@ -2,73 +2,15 @@
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Properties;
-using SolastaCommunityExpansion.Utils;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 
 namespace SolastaCommunityExpansion.Spells;
 
 internal static class AceHighSpells
 {
-    private static SpellDefinition _pactMarkSpell;
-    private static SpellDefinition _hellishRebuke;
-    internal static SpellDefinition PactMarkSpell => _pactMarkSpell ??= PactMarkSpellBuilder.CreateAndAddToDB();
-    internal static SpellDefinition HellishRebukeSpell => _hellishRebuke ??= BuildHellishRebuke();
-
     internal static void Register()
     {
-
-    }
-
-    private static SpellDefinition BuildHellishRebuke()
-    {
-        return SpellDefinitionBuilder
-            .Create("AHHellishRebuke", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Spell,
-                CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Resources.HellishRebuke,
-                    128, 128))
-            .SetSpellLevel(1)
-            .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetCustomSubFeatures(CustomReactionsContext.AlwaysReactToDamaged)
-            .SetCastingTime(RuleDefinitions.ActivationTime.Reaction)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)
-                .SetTargetingData(
-                    RuleDefinitions.Side.Enemy,
-                    RuleDefinitions.RangeType.Distance,
-                    12,
-                    RuleDefinitions.TargetType.Individuals
-                )
-                .SetSavingThrowData(
-                    true,
-                    false,
-                    AttributeDefinitions.Dexterity,
-                    true,
-                    RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Charisma
-                )
-                .SetEffectAdvancement(
-                    RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
-                    additionalDicePerIncrement: 1
-                )
-                .SetEffectForms(new EffectFormBuilder()
-                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                    .SetDamageForm(
-                        false,
-                        RuleDefinitions.DieType.D10,
-                        RuleDefinitions.DamageTypeFire,
-                        0,
-                        RuleDefinitions.DieType.D10,
-                        2
-                    )
-                    .Build()
-                )
-                .Build()
-            )
-            .AddToDB();
+        RegisterSpell(PactMarkSpellBuilder.CreateAndAddToDB(), 0, DatabaseHelper.SpellListDefinitions.SpellListWarlock);
     }
 
     private sealed class PactMarkSpellBuilder : SpellDefinitionBuilder

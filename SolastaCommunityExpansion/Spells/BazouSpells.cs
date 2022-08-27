@@ -20,43 +20,14 @@ internal static class BazouSpells
 {
     private static readonly Guid BazouSpellsBaseGuid = new("91384db5-6659-4384-bf2c-3a41160343f4");
 
-    private static SpellDefinition _eldritchOrb;
-
-    private static SpellDefinition _findFamiliar;
-
-    private static SpellDefinition _frenzy;
-
-    private static SpellDefinition _minorLifesteal;
-
-    private static SpellDefinition _petalStorm;
-
-    private static SpellDefinition _protectThreshold;
-    [NotNull] internal static SpellDefinition EldritchOrb => _eldritchOrb ??= BuildEldritchOrb();
-    [NotNull] internal static SpellDefinition FindFamiliar => _findFamiliar ??= BuildFindFamiliar();
-    [NotNull] internal static SpellDefinition Frenzy => _frenzy ??= BuildFrenzy();
-    [NotNull] internal static SpellDefinition MinorLifesteal => _minorLifesteal ??= BuildMinorLifesteal();
-    [NotNull] internal static SpellDefinition PetalStorm => _petalStorm ??= BuildPetalStorm();
-    [NotNull] internal static SpellDefinition ProtectThreshold => _protectThreshold ??= BuildProtectThreshold();
-
-    // don't need since spells are created when first referenced/used
-    /*        internal static void AddToDB()
-            {
-                _ = EldritchOrb;
-                _ = FindFamiliar;
-                _ = Frenzy;
-                _ = MinorLifesteal;
-                _ = PetalStorm;
-                _ = ProtectThreshold;
-            }
-    */
     internal static void Register()
     {
-        // RegisterSpell(EldritchOrb, 1, WitchSpellList, WarlockSpellList);
-        // RegisterSpell(FindFamiliar, 1, WitchSpellList, SpellListWizard, WarlockSpellList);
-        // RegisterSpell(Frenzy, 1, WitchSpellList, WarlockSpellList, SpellListWizard, SpellListSorcerer);
-        // RegisterSpell(MinorLifesteal, 1, WitchSpellList, SpellListWizard);
-        // RegisterSpell(PetalStorm, 1, WitchSpellList, SpellListDruid);
-        // RegisterSpell(ProtectThreshold, 1, WitchSpellList, SpellListCleric, SpellListDruid, SpellListPaladin);
+        RegisterSpell(BuildEldritchOrb(), 0, SpellListWarlock);
+        RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildFrenzy(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
+        RegisterSpell(BuildMinorLifesteal(), 0, SpellListWizard);
+        RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
+        RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
     }
 
     [NotNull]
@@ -72,8 +43,6 @@ internal static class BazouSpells
             .SetSpellLevel(0)
             .AddToDB();
 
-        // Not sure if I prefer copying and editing existing effect description
-        // or creating one from scratch through API
         spell.EffectDescription
             .SetRangeType(RuleDefinitions.RangeType.Distance)
             .SetRangeParameter(12)

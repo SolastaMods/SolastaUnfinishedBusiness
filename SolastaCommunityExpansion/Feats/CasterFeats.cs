@@ -224,7 +224,7 @@ internal static class CasterFeats
         // flame touched
 
         var flameTouchedGroup =
-            BuildSpellGroup(0, BurningHands, AceHighSpells.HellishRebukeSpell, ScorchingRay);
+            BuildSpellGroup(0, BurningHands, HellishRebuke, ScorchingRay);
 
         var learnFlameTouchedPresentation =
             GuiPresentationBuilder.Build("PowerFlameTouchedFromFeat", Category.Feat);

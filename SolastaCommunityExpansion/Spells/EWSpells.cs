@@ -8,21 +8,18 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Utils;
 using UnityEngine;
 using static ConditionOperationDescription;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
+using static SolastaCommunityExpansion.Models.SpellsContext;
 using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Spells;
 
 internal static class EwSpells
 {
-    private static SpellDefinition _sunlightBlade, _resonatingStrike;
-    private static SpellDefinition SunlightBlade => _sunlightBlade ??= BuildSunlightBlade();
-    internal static SpellDefinition ResonatingStrike => _resonatingStrike ??= BuildResonatingStrike();
-
-
     internal static void Register()
     {
-        // RegisterSpell(SunlightBlade, 0, WarlockSpellList, SpellListWizard, SpellListSorcerer);
-        // RegisterSpell(ResonatingStrike, 0, WarlockSpellList, SpellListWizard, SpellListSorcerer);
+        RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
+        RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
     }
 
     private static SpellDefinition BuildSunlightBlade()
