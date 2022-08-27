@@ -13,9 +13,6 @@ internal static class FighterBuilder
     {
         Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(AttributeModifierFighterIndomitableAdd, 13),
-            new(FeatureSetAbilityScoreChoice, 14),
-            new(FeatureSetAbilityScoreChoice, 16),
             new(PowerFighterActionSurge2, 17),
             new(AttributeModifierFighterIndomitableAdd, 17),
             new(FeatureSetAbilityScoreChoice, 19),

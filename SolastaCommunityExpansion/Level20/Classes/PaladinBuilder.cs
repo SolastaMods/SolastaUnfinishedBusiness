@@ -14,8 +14,6 @@ internal static class PaladinBuilder
     internal static void Load()
     {
         Paladin.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(PowerPaladinCleansingTouchBuilder.PowerPaladinCleansingTouch, 14),
-            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
             new FeatureUnlockByLevel(PowerPaladinAuraOfCourage18Builder.Instance, 18),
             new FeatureUnlockByLevel(PowerPaladinAuraOfProtection18Builder.Instance, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)

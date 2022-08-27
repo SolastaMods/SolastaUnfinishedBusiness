@@ -22,6 +22,7 @@ internal static class MulticlassPatchingContext
         {ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass},
         {ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass},
         {ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass},
+        {PointPoolBardSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass},
         {PointPoolRangerSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass},
         {PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass}
     };
@@ -46,6 +47,7 @@ internal static class MulticlassPatchingContext
                 ProficiencyMonkWeapon, PointPoolMonkSkillPoints, ProficiencyMonkSavingThrow
             }
         },
+        {Monk, new List<FeatureDefinition> {PointPoolMonkSkillPoints, ProficiencyMonkSavingThrow}},
         {Paladin, new List<FeatureDefinition> {PointPoolPaladinSkillPoints, ProficiencyPaladinSavingThrow}},
         {Ranger, new List<FeatureDefinition> {ProficiencyRangerSavingThrow}},
         {Rogue, new List<FeatureDefinition> {ProficiencyRogueWeapon, ProficiencyRogueSavingThrow}},

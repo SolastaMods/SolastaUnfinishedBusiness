@@ -16,8 +16,6 @@ internal static class ClericBuilder
     {
         Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(PowerClericTurnUndead14, 14),
-            new(FeatureSetAbilityScoreChoice, 16),
             new(PowerClericTurnUndead17, 17),
             new(AttributeModifierClericChannelDivinityAdd, 18),
             new(FeatureSetAbilityScoreChoice, 19)

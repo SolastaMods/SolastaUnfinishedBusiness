@@ -15,7 +15,6 @@ internal static class SorcererBuilder
         // add missing progression
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(FeatureSetAbilityScoreChoice, 16),
             new(PointPoolSorcererAdditionalMetamagic, 17),
             new(FeatureSetAbilityScoreChoice, 19),
             new(SorcerousRestorationBuilder.SorcerousRestoration, 20)

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using static SolastaCommunityExpansion.Level20.Features.RangerFeralSensesBuilder;
-using static SolastaCommunityExpansion.Level20.Features.RangerVanishActionBuilder;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -16,9 +15,6 @@ internal static class RangerBuilder
     {
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(AdditionalDamageRangerFavoredEnemyChoice, 14),
-            new(RangerVanishAction, 14),
-            new(FeatureSetAbilityScoreChoice, 16),
             new(RangerFeralSenses, 18),
             new(FeatureSetAbilityScoreChoice, 19)
             //new FeatureUnlockByLevel(FeatureSetRangerFoeSlayer, 20)

@@ -13,8 +13,6 @@ internal static class BarbarianBuilder
     {
         Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 15: Persistent Rage
-            new(FeatureSetAbilityScoreChoice, 16),
             new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
             new(FeatureDefinitionIndomitableMight, 18),
             new(FeatureSetAbilityScoreChoice, 19),
