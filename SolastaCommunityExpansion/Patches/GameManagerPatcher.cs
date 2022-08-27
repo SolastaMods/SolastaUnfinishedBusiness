@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -12,7 +13,7 @@ internal static class GameManagerPatcher
         internal static void Postfix()
         {
             //PATCH: loads all mod contexts
-            Startup.Load();
+            BootContext.Startup();
         }
     }
 }
