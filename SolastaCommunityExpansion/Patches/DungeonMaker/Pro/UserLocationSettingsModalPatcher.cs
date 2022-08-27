@@ -8,7 +8,7 @@ using static SolastaCommunityExpansion.Models.DmProEditorContext;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
 
-// unlocks visual moods across all environments
+//PATCH: unlocks visual moods across all environments
 [HarmonyPatch(typeof(UserLocationSettingsModal), "RefreshVisualMoods")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class UserLocationSettingsModal_RefreshVisualMoods
@@ -36,7 +36,7 @@ internal static class UserLocationSettingsModal_RefreshVisualMoods
     }
 }
 
-// adds custom dungeons sizes
+//PATCH: adds custom dungeons sizes
 [HarmonyPatch(typeof(UserLocationSettingsModal), "RuntimeLoaded")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class UserLocationSettingsModal_RuntimeLoaded

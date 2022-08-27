@@ -5,6 +5,7 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor;
 
+//PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro
 [HarmonyPatch(typeof(UserGadget), "PostLoadJson")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class UserGadget_PostLoadJson

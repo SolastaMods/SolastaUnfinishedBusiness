@@ -3,7 +3,7 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
 
-// ensures custom props display the proper icon
+//PATCH: ensures custom props display the proper icon
 [HarmonyPatch(typeof(BaseBlueprint), "GetAssetKey")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class BaseBlueprint_GetAssetKey

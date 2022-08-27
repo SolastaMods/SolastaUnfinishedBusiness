@@ -8,9 +8,10 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Level20;
 
-[HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMinLevelEndEdit")]
+//PATCH: Allows locations to be created with min level 20 requirement
+[HarmonyPatch(typeof(UserLocationSettingsModal), "OnMinLevelEndEdit")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-public static class UserCampaignEditorScreen_OnMinLevelEndEdit
+public static class UserLocationSettingsModal_OnMinLevelEndEdit
 {
     [NotNull]
     internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -28,9 +29,10 @@ public static class UserCampaignEditorScreen_OnMinLevelEndEdit
     }
 }
 
-[HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMaxLevelEndEdit")]
+//PATCH: Allows locations to be created with max level 20 requirement
+[HarmonyPatch(typeof(UserLocationSettingsModal), "OnMaxLevelEndEdit")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-public static class UserCampaignEditorScreen_OnMaxLevelEndEdit
+public static class UserLocationSettingsModal_OnMaxLevelEndEdit
 {
     [NotNull]
     internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)

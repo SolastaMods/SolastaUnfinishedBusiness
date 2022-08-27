@@ -8,10 +8,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.ContentBackup;
 
-// this patch allows the last X campaign files to be backed up in the mod folder
-//
-// this patch shouldn't be protected
-//
+//PATCH: this patch allows the last X campaign files to be backed up in the mod folder
 [HarmonyPatch(typeof(UserCampaignPoolManager), "SaveUserCampaign")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class UserCampaignPoolManager_SaveUserCampaign

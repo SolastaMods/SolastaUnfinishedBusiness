@@ -4,12 +4,12 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.EditorSort;
 
-// better rooms sorting
-[HarmonyPatch(typeof(RoomBlueprintSelectionPanel), "Compare")]
+//PATCH: better props sorting
+[HarmonyPatch(typeof(PropBlueprintSelectionPanel), "Compare")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RoomBlueprintSelectionPanel_Compare
+internal static class PropBlueprintSelectionPanel_Compare
 {
-    internal static bool Prefix(RoomBlueprint left, RoomBlueprint right, ref int __result)
+    internal static bool Prefix(PropBlueprint left, PropBlueprint right, ref int __result)
     {
         if (!Main.Settings.EnableSortingDungeonMakerAssets)
         {

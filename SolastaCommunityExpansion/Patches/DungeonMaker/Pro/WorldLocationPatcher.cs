@@ -7,14 +7,11 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
 
-// changes how the location / rooms are instantiated
+//PATCH: changes how the location / rooms are instantiated
 [HarmonyPatch(typeof(WorldLocation), "BuildFromUserLocation")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class WorldLocation_BuildFromUserLocation
 {
-    //
-    // IMPORTANT: this transpiler only works in BETA. we need to change lines 38-39 and 44-45 from 8,4 to 4,2 in PRODUCTION RELEASE
-    //
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
         if (!Main.Settings.EnableDungeonMakerPro)
