@@ -23,8 +23,7 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
         [NotNull] List<FeatureDefinition> grantedFeatures,
         string tag)
     {
-        // TODO: What is this for?
-        var spellTag = CustomFeaturesContext.GetSpellLearningTag(heroBuildingData.HeroCharacter, tag);
+        var spellTag = tag;
 
         foreach (FeatureDefinition grantedFeature in grantedFeatures)
         {
@@ -33,7 +32,7 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                 case FeatureDefinitionCastSpell spell:
                     __instance.SetupSpellPointPools(heroBuildingData, spell, spellTag);
 
-                    break;
+                    break; //PATCH: this was `return` in original code, leading to game skipping granting some features
                 case FeatureDefinitionBonusCantrips cantrips:
                     using (List<SpellDefinition>.Enumerator enumerator = cantrips.BonusCantrips.GetEnumerator())
                     {
@@ -314,40 +313,6 @@ internal static class CharacterBuildingManager_ClearPrevious
 
         //TODO: check if other places where this is called require same prefix/postfix treatment
         CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, ToRemove);
-    }
-}
-
-//TODO: Still required?
-[HarmonyPatch(typeof(CharacterBuildingManager), "UnacquireBonusCantrips")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterBuildingManager_UnacquireBonusCantrips
-{
-    internal static void Prefix(CharacterHeroBuildingData heroBuildingData, [CanBeNull] string tag)
-    {
-        if (string.IsNullOrEmpty(tag))
-        {
-            return;
-        }
-
-        if (!CustomFeaturesContext.IsCustomTag(tag))
-        {
-            return;
-        }
-
-        if (!heroBuildingData.BonusCantrips.ContainsKey(tag))
-        {
-            return;
-        }
-
-        var spellTag = CustomFeaturesContext.UnCustomizeTag(tag);
-        if (!heroBuildingData.BonusCantrips.ContainsKey(spellTag))
-        {
-            return;
-        }
-
-        var customCantrips = heroBuildingData.BonusCantrips[tag];
-        var cantrips = heroBuildingData.BonusCantrips[spellTag];
-        cantrips.RemoveAll(c => customCantrips.Contains(c));
     }
 }
 
@@ -634,75 +599,6 @@ internal static class CharacterBuildingManager_UpgradeSpellPointPools
         }
 
         return false;
-    }
-}
-
-//TODO: Still required?
-[HarmonyPatch(typeof(CharacterBuildingManager), "ApplyFeatureCastSpell")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterBuildingManager_ApplyFeatureCastSpell
-{
-    internal static void Postfix(CharacterBuildingManager __instance,
-        CharacterHeroBuildingData heroBuildingData,
-        FeatureDefinition feature)
-    {
-        if (feature is not FeatureDefinitionCastSpell spellCasting) { return; }
-
-        var castingOrigin = spellCasting.SpellCastingOrigin;
-        if (castingOrigin != CastingOrigin.Class && castingOrigin != CastingOrigin.Subclass)
-        {
-            return;
-        }
-
-        var hero = heroBuildingData.HeroCharacter;
-        __instance.GetLastAssignedClassAndLevel(hero, out var lastClassDefinition, out var level);
-        var hasSubclass = hero.ClassesAndSubclasses.TryGetValue(lastClassDefinition, out var subclassDefinition);
-
-        var classTag = AttributeDefinitions.GetClassTag(lastClassDefinition, level);
-        var subclassTag = hasSubclass && subclassDefinition != null
-            ? AttributeDefinitions.GetSubclassTag(lastClassDefinition, level, subclassDefinition)
-            : string.Empty;
-
-        //
-        // BUGFIX: correctly apply bonus cantrips
-        //
-
-        if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip) &&
-            heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(classTag))
-        {
-            //Reduce by pool amount - any relevant pool bonuses would be added below
-            var activePool = heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip]
-                .ActivePools[classTag];
-            heroBuildingData.TempAcquiredCantripsNumber -= activePool.MaxPoints;
-        }
-
-
-        // special case when these bonus cantrips get granted from a sub class (i.e.: Druid Circle of Land)
-        if (subclassTag != string.Empty
-            && __instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip) &&
-            heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools
-                .ContainsKey(subclassTag))
-        {
-            //Reduce by pool amount - any relevant pool bonuses would be added below
-            var activePool = heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip]
-                .ActivePools[subclassTag];
-            heroBuildingData.TempAcquiredCantripsNumber -= activePool.MaxPoints;
-        }
-
-        var selectedClassName = LevelUpContext.GetSelectedClass(hero)?.Name;
-
-        var bonusPools = hero.GetTaggedFeaturesByType<FeatureDefinitionPointPool>()
-            .Where(x => x.Item2.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
-            .Select(x => x.Item2)
-            .Sum(x => x.PoolAmount);
-
-        var bonusCantrips = hero.GetTaggedFeaturesByType<FeatureDefinitionBonusCantrips>()
-            .Where(x => selectedClassName != null && x.Item1 != classTag && x.Item1 != subclassTag &&
-                        x.Item1.Contains(selectedClassName))
-            .Select(x => x.Item2)
-            .Sum(x => x.BonusCantrips.Count);
-
-        heroBuildingData.TempAcquiredCantripsNumber += bonusPools + bonusCantrips;
     }
 }
 

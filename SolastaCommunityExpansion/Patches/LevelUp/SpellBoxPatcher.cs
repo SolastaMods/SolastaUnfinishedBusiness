@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
+//TODO: this can be replaced by adding proper spells to `extraSpells` map in `SpellsByLevelGroup`
 //PATCH: tag spells learned from other caster classes as Multiclass (MULTICLASS)
 [HarmonyPatch(typeof(SpellBox), "Refresh")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

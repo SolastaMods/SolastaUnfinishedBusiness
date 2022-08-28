@@ -163,7 +163,7 @@ public static class CustomFeaturesContext
             hero.SpellRepertoires.FirstOrDefault(x =>
                 LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
         var buildingData = hero.GetHeroBuildingData();
-        var spellTag = GetSpellLearningTag(hero, tag);
+        var spellTag = tag;
 
         foreach (var featureDefinition in featuresToRemove)
         {
@@ -228,42 +228,6 @@ public static class CustomFeaturesContext
 
                     break;
             }
-        }
-    }
-
-    public static void ActuallyRemoveCharacterFeature([NotNull] RulesetCharacterHero hero, FeatureDefinition feature)
-    {
-        if (feature is FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union} set)
-        {
-            foreach (var f in set.FeatureSet)
-            {
-                ActuallyRemoveCharacterFeature(hero, f);
-            }
-        }
-
-        var selectedClass = LevelUpContext.GetSelectedClass(hero);
-        foreach (var e in hero.ActiveFeatures)
-        {
-            var tag = e.Key;
-            var features = e.Value;
-
-            if (!features.Contains(feature))
-            {
-                continue;
-            }
-
-            var featuresToRemove = new List<FeatureDefinition> {feature};
-
-            RecursiveRemoveCustomFeatures(hero, tag, featuresToRemove, false);
-
-            if (selectedClass != null)
-            {
-                RemoveFeatures(hero, selectedClass, tag, featuresToRemove);
-            }
-
-            features.Remove(feature);
-
-            break;
         }
     }
 
@@ -533,55 +497,5 @@ public static class CustomFeaturesContext
             .ToList();
 
         return errors.Empty();
-    }
-
-    [NotNull]
-    public static string UnCustomizeTag([NotNull] string tag)
-    {
-        return tag.Replace("[Custom]", "");
-    }
-
-    [NotNull]
-    public static string CustomizeTag([NotNull] string tag)
-    {
-        return UnCustomizeTag(tag) + "[Custom]";
-    }
-
-    public static bool IsCustomTag([CanBeNull] string tag)
-    {
-        return tag != null && tag.Contains("[Custom]");
-    }
-
-    public static string GetSpellLearningTag(RulesetCharacterHero hero, [CanBeNull] string tag)
-    {
-        if (tag == null)
-        {
-            return null;
-        }
-
-        var isClassTag = tag.StartsWith(AttributeDefinitions.TagClass);
-        var isSubclassTag = tag.StartsWith(AttributeDefinitions.TagSubclass);
-
-        if (!isClassTag && !isSubclassTag)
-        {
-            return tag;
-        }
-
-        ServiceRepository.GetService<ICharacterBuildingService>()
-            .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
-
-        if (LevelDownContext.IsLevelDown)
-        {
-            classLevel -= 1;
-        }
-
-        if (classLevel <= 0)
-        {
-            return tag;
-        }
-
-        return isSubclassTag && hero.ClassesAndSubclasses.ContainsKey(lastClass)
-            ? AttributeDefinitions.GetSubclassTag(lastClass, classLevel, hero.ClassesAndSubclasses[lastClass])
-            : AttributeDefinitions.GetClassTag(lastClass, classLevel);
     }
 }

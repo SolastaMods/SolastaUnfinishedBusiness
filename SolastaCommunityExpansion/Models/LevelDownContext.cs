@@ -71,11 +71,9 @@ internal static class LevelDownContext
         if (subclassTag != classTag)
         {
             RemoveFeaturesByTag(hero, characterClassDefinition, subclassTag);
-            RemoveFeaturesByTag(hero, characterClassDefinition, CustomFeaturesContext.CustomizeTag(subclassTag));
         }
 
         RemoveFeaturesByTag(hero, characterClassDefinition, classTag);
-        RemoveFeaturesByTag(hero, characterClassDefinition, CustomFeaturesContext.CustomizeTag(classTag));
 
         hero.RemoveClassLevel();
 
