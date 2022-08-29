@@ -7,12 +7,14 @@
       "abilityScoreName": "Wisdom",
       "proficiencyName": "Perception",
       "affinity": "Disadvantage",
+      "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 0,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "None",
       "lightingContext": "BrightLight"
     }
   ],
+  "substractBardicDieRoll": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

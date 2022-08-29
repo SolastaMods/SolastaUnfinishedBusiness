@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Constitution",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinityBarbarianRage:5ad2d2b8a7e2501409720849c9f886c3",

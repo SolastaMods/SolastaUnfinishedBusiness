@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Dexterity",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierSwiftBladeBladeDance:79d091104a511e34c92c90f6839fc450"

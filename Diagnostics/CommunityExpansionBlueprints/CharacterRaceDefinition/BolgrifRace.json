@@ -25,17 +25,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyBolgrifLanguages:dc03c8d7-5098-4dec-9f60-46e3af0d63c9",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "featureDefinition": "Definition:BolgrifInvisibilityPower:36dcb055-372c-4abf-83b7-4405475d9295",
       "level": 1
     },
     {
@@ -45,7 +35,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BolgrifInvisibilityPower:36dcb055-372c-4abf-83b7-4405475d9295",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyBolgrifLanguages:dc03c8d7-5098-4dec-9f60-46e3af0d63c9",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
     }
   ],
@@ -68,6 +68,8 @@
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Dwarf",
+    "armorAssetPrefix": "Dwarf",
+    "helmetAssetPrefix": "Dwarf",
     "morphotypeAssetPrefix": "Dwarf",
     "maleNameOptions": [
       "Race/&DwarfMaleName1Title",
@@ -101,8 +103,23 @@
       "Race/&DwarfSurName6Title",
       "Race/&DwarfSurName7Title"
     ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
     "needBeard": false,
-    "canModifyMusculature": false,
+    "defaultMusculature": 0,
     "originOptions": [
       "Origin_NonHuman"
     ],
@@ -190,6 +207,18 @@
       "HairShape_Z",
       "HairShape_AA"
     ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
     "maleBeardShapeOptions": [
       "BeardShape_A",
       "BeardShape_B",
@@ -207,6 +236,9 @@
       "BeardShape_P",
       "BeardShape_None"
     ],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL2",
     "femaleVoiceDefinition": "FEM1",

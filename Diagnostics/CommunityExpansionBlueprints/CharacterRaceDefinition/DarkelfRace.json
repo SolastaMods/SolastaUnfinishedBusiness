@@ -15,11 +15,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityDarkelfLightSensitivity:707231ea-e34d-4e26-9af8-4e52c0cb85c3",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DarkelfMagic:0271c652-b4aa-4346-806d-9711e634271b",
       "level": 1
     },
@@ -31,6 +26,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetElfHighLanguages:752c07b8faab19c43af3b28543d9f15d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityDarkelfLightSensitivity:707231ea-e34d-4e26-9af8-4e52c0cb85c3",
       "level": 1
     },
     {
@@ -69,6 +69,8 @@
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Elf",
+    "armorAssetPrefix": "Elf",
+    "helmetAssetPrefix": "Elf",
     "morphotypeAssetPrefix": "Elf",
     "maleNameOptions": [
       "Race/&ElfMaleName1Title",
@@ -110,8 +112,23 @@
       "Race/&DarkelfSurName4Title",
       "Race/&DarkelfSurName5Title"
     ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
     "needBeard": false,
-    "canModifyMusculature": true,
+    "defaultMusculature": 0,
     "originOptions": [
       "Origin_NonHuman"
     ],
@@ -210,7 +227,22 @@
       "HairShape_G",
       "HairShape_None"
     ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
     "maleBeardShapeOptions": [],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM2",

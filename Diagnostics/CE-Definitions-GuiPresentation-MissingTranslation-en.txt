@@ -1,0 +1,6 @@
+ConditionFrenzied	Title='Condition/&FrenziedTitle'.
+ConditionFrenzied	Description='Condition/&FrenziedDescription'.
+Debilitated	Title='Condition/&DebilitatedConditionTitle'.
+Debilitated	Description='Condition/&DebilitatedConditionDescription'.
+ReactionAttackFeatSentinel	Title='Reaction/&ReactionAttackFeatSentinelTitle'.
+ReactionAttackFeatSentinel	Description='Reaction/&ReactionAttackFeatSentinelDescription'.

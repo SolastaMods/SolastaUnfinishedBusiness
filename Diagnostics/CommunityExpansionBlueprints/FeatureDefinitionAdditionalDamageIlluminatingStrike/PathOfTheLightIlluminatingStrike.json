@@ -1,7 +1,8 @@
 {
   "$type": "SolastaCommunityExpansion.Subclasses.Barbarian.PathOfTheLight+FeatureDefinitionAdditionalDamageIlluminatingStrike, SolastaCommunityExpansion",
   "notificationTag": "BarbarianPathOfTheLightIlluminatingStrike",
-  "limitedUsage": "OnceInMyturn",
+  "limitedUsage": "OnceInMyTurn",
+  "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
   "requiredProperty": "None",
   "attackModeOnly": false,
@@ -9,6 +10,7 @@
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
   "damageDieType": "D6",
   "damageDiceNumber": 1,
@@ -114,6 +116,7 @@
   "savingThrowAbility": "Dexterity",
   "dcComputation": "FixedValue",
   "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
   "conditionOperations": [
     {

@@ -8,6 +8,7 @@
     "Definition:AutoPreparedSpellsSorcererDivineHeartPakri:0ea97f67-392d-518a-862c-32139665249b"
   ],
   "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 1,
   "uniqueChoices": false,
   "enumerateInDescription": false,

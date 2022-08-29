@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Dexterity",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AdditionalDamageRoguishHoodlumNonFinesseSneakAttack:5535efe6afb0e14468c2820183e9e94d",

@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Dexterity",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinityMarksmanReactionShot:2cc507e7e520afa48980281b818828bc"

@@ -5,6 +5,7 @@
     "Definition:RoguishRavenRangeAttackAffinity:71c20dd5-111e-5f59-ac37-0c593f901b9d"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

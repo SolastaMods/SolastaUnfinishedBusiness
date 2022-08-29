@@ -18,6 +18,7 @@
     "Definition:AdditionalDamageRangerFavoredEnemyUndead:97c1aa3907924a147b9dbbbd99f752bb"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

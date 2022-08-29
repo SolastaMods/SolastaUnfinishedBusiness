@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": true,
   "armorProficiencyCategory": "ShieldCategory",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ShieldExpertAttack:d7b98665-57ad-5ca0-bc61-f78e3a604ea2",

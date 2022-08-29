@@ -15,22 +15,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityGrayDwarfLightSensitivity:bd08ba96-7e2a-587a-a9c7-949d4b8a0cad",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetGrayDwarfAncestry:b866f6a1-816f-5bbd-a4f5-7cf416947f9d",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyDwarfLanguages:bc18fab78e7b7414590755243ca5b6d3",
+      "featureDefinition": "Definition:LightAffinityGrayDwarfLightSensitivity:bd08ba96-7e2a-587a-a9c7-949d4b8a0cad",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDwarfLanguages:bc18fab78e7b7414590755243ca5b6d3",
       "level": 1
     },
     {
@@ -58,6 +58,8 @@
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Dwarf",
+    "armorAssetPrefix": "Dwarf",
+    "helmetAssetPrefix": "Dwarf",
     "morphotypeAssetPrefix": "Dwarf",
     "maleNameOptions": [],
     "femaleNameOptions": [],
@@ -72,8 +74,23 @@
       "Race/&DwarfSurName6Title",
       "Race/&DwarfSurName7Title"
     ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
     "needBeard": false,
-    "canModifyMusculature": false,
+    "defaultMusculature": 0,
     "originOptions": [
       "Origin_NonHuman"
     ],
@@ -161,9 +178,24 @@
       "HairShape_Z",
       "HairShape_AA"
     ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
     "maleBeardShapeOptions": [
       "BeardShape_None"
     ],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL2",
     "femaleVoiceDefinition": "FEM1",

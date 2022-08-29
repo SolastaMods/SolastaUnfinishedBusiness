@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Charisma",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierSorcererSorceryPointsBonus2:94de12b7-820d-5d74-ab92-813d409a29c0",

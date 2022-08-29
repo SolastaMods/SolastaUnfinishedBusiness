@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Dexterity",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinityRogueCunningAction:1db5972af0c18804882b2f8de86e9b1a",

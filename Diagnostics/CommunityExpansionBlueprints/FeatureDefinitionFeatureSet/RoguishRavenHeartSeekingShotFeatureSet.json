@@ -5,6 +5,7 @@
     "Definition:TurnOffHeartSeekingShotPower:447602b2-00e4-5c49-9ae7-903b68b0556f"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

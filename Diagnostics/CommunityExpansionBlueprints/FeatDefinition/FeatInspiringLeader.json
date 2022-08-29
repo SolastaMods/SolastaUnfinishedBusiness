@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Charisma",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:PowerInspiringLeaderFeat:4c92757e-27bd-5efc-bfac-d4055e875ee8"

@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Wisdom",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:PowerWisePrecision:0684f40d-2985-5d8c-996a-bfaf338c8a02"

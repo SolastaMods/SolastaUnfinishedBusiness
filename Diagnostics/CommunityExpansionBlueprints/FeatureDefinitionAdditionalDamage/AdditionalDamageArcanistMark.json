@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "ArcanistMark",
   "limitedUsage": "None",
+  "otherSimilarAdditionalDamages": [],
   "triggerCondition": "TargetDoesNotHaveCondition",
   "requiredProperty": "None",
   "attackModeOnly": true,
@@ -9,6 +10,7 @@
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
   "damageDieType": "D6",
   "damageDiceNumber": 0,
@@ -23,6 +25,7 @@
   "savingThrowAbility": "Dexterity",
   "dcComputation": "FixedValue",
   "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
   "conditionOperations": [
     {

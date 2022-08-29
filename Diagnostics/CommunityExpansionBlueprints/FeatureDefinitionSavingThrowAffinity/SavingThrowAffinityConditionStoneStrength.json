@@ -14,11 +14,12 @@
       "restrictedSchools": [],
       "restrictedSpells": [],
       "restrictedPowers": [],
-      "savingThrowContext": "None"
+      "savingThrowContext": 5
     }
   ],
   "indomitableSavingThrows": 0,
   "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

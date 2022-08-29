@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": true,
   "armorProficiencyCategory": "HeavyArmorCategory",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",

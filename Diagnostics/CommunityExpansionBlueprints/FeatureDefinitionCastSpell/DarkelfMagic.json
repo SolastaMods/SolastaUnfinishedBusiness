@@ -11,6 +11,7 @@
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "AtWill",
+  "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
   "knownCantrips": [
     1,
@@ -115,6 +116,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -122,6 +125,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 2,
       "slots": [
+        0,
+        0,
         0,
         0,
         0,
@@ -141,6 +146,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -148,6 +155,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "slots": [
+        0,
+        0,
         0,
         0,
         0,
@@ -167,6 +176,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -174,6 +185,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 6,
       "slots": [
+        0,
+        0,
         0,
         0,
         0,
@@ -193,6 +206,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -200,6 +215,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 8,
       "slots": [
+        0,
+        0,
         0,
         0,
         0,
@@ -219,6 +236,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -226,6 +245,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 10,
       "slots": [
+        0,
+        0,
         0,
         0,
         0,
@@ -245,6 +266,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -252,6 +275,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 12,
       "slots": [
+        0,
+        0,
         0,
         0,
         0,
@@ -271,6 +296,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -278,6 +305,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 14,
       "slots": [
+        0,
+        0,
         0,
         0,
         0,
@@ -297,6 +326,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -304,6 +335,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 16,
       "slots": [
+        0,
+        0,
         0,
         0,
         0,
@@ -323,6 +356,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -330,6 +365,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 18,
       "slots": [
+        0,
+        0,
         0,
         0,
         0,
@@ -349,6 +386,8 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     },
@@ -362,11 +401,14 @@
         0,
         0,
         0,
+        0,
+        0,
         0
       ]
     }
   ],
   "focusType": "Arcane",
+  "hasAccessToInvocations": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
