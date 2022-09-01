@@ -1,6 +1,11 @@
-﻿using HarmonyLib;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
+using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -81,6 +86,34 @@ internal static class CharacterActionCastSpellPatcher
                     filters: spellEffectDescription.EffectFormFilters);
 
             return false;
+        }
+    }
+    
+    [HarmonyPatch(typeof(CharacterActionCastSpell), "GetAdvancementData")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GetAdvancementData_Patch
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: Multicass: enforces cantrips to be cast at character level 
+            //replaces repertoire's SpellCastingLevel with character level for cantrips
+            var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
+            var SpellCastingLevel =
+                new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassPatchingContext.SpellCastingLevel)
+                    .Method;
+
+            foreach (var instruction in instructions)
+            {
+                if (instruction.Calls(spellCastingLevelMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0); // this
+                    yield return new CodeInstruction(OpCodes.Call, SpellCastingLevel);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
         }
     }
 }

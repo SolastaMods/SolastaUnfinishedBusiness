@@ -511,4 +511,25 @@ internal static class MulticlassPatchingContext
         StagePanel,
         InformationPanel
     }
+
+    internal static int SpellCastingLevel(RulesetSpellRepertoire repertoire, RulesetEffectSpell rulesetEffect)
+    {
+        return SpellCastingLevel(repertoire, rulesetEffect.Caster, rulesetEffect.SpellDefinition);
+    }
+
+    internal static int SpellCastingLevel(RulesetSpellRepertoire repertoire,
+        CharacterActionCastSpell action)
+    {
+        return SpellCastingLevel(repertoire, action.ActingCharacter.RulesetActor, action.ActiveSpell.SpellDefinition);
+    }
+
+    private static int SpellCastingLevel(RulesetSpellRepertoire repertoire, RulesetActor caster, SpellDefinition spell)
+    {
+        if (caster is RulesetCharacterHero hero && spell.SpellLevel == 0)
+        {
+            return hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        }
+
+        return repertoire.SpellCastingLevel;
+    }
 }
