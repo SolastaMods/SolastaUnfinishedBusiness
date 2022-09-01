@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 9,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:LevitateBoots:4f1152330fc8ab441bbaccf535f105a2",
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Invocation/&AscendantStepTitle",
+    "description": "Invocation/&AscendantStepDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "75ac2cfe12c47e641a88af22d491189d",
+  "contentPack": "BaseGame",
+  "name": "AscendantStep"
+}

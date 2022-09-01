@@ -1,0 +1,54 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolCollegeLoreBonusSkills:a43794a774c9b4a40b7b4c84fdfeb80a",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCollegeLoreCuttingWords:9c76270c07f31f94a9b1b1422b5c75e1",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolCollegeLoreAdditionalMagicalSecrets:ad99f4051ed6b8e4b917a7c71a51542f",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityCollegeLorePeerlessSkill:849a64faba69a1145800d3e1aae4fc65",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&CollegeOfLoreTitle",
+    "description": "Subclass/&CollegeOfLoreDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a2392b8a6fa1bfc4fbbb740dda250f45",
+      "m_SubObjectName": "Bard_Lore",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "8b16f6f5c136ccf46b338149aaf46faf",
+  "contentPack": "InnerStrength",
+  "name": "CollegeOfLore"
+}

@@ -1,0 +1,34 @@
+{
+  "$type": "FightingStyleDefinition, Assembly-CSharp",
+  "features": [
+    "Definition:AttackModifierFightingStyleTwoWeapon:7c09a00b60b6a624a8be9012202d7007"
+  ],
+  "condition": "TwoMeleeWeaponsWielded",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&TwoWeaponTitle",
+    "description": "FightingStyle/&TwoWeaponDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e10b549bb899c694d85c7cc09d7387db",
+      "m_SubObjectName": "TwoWeapon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 5,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3e6ba1dc766f59f47b182f81b88cff8c",
+  "contentPack": "BaseGame",
+  "name": "TwoWeapon"
+}

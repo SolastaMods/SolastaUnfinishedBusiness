@@ -1,0 +1,73 @@
+{
+  "$type": "ActionDefinition, Assembly-CSharp",
+  "id": "SongOfHope",
+  "actionType": "Main",
+  "actionScope": "All",
+  "pairedActionId": "NoAction",
+  "usesPerTurn": -1,
+  "classNameOverride": "UsePower",
+  "requiresAuthorization": true,
+  "stealthBreakerBehavior": "Roll",
+  "feedbackOnHoverType": "None",
+  "iterativeTargeting": false,
+  "canTriggerBattle": false,
+  "parameter": "ActivatePower",
+  "formType": "Large",
+  "overrideGuiActionType": false,
+  "overridenGuiActionType": "Main",
+  "focusCameraOnAction": true,
+  "addedConditionName": "",
+  "removedConditionName": "",
+  "preventsSerialization": false,
+  "activatedPower": "Definition:PowerBardHopeSingSongOfHope:1c6f69d8990b8874b98db3a7e4f2e277",
+  "displayPowerTooltip": false,
+  "dieType": "D1",
+  "abilityScore": "Charisma",
+  "addLevel": false,
+  "maxCells": 1,
+  "targetType": "Sphere",
+  "targetParameter": 1,
+  "matchingCondition": "",
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Action/&SongOfHopeTitle",
+    "description": "Action/&SongOfHopeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2f3d7288f5e8813438d2d7766f8fa779",
+      "m_SubObjectName": "SongOfHope",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 35,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "84693d1c011677747b5810173232c04d",
+  "contentPack": "BaseGame",
+  "name": "SongOfHope"
+}

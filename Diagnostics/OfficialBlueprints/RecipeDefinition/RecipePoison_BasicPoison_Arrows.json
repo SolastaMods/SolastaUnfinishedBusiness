@@ -1,0 +1,63 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Arrow_Poisoned_BasicPoison:e03479fbbed75684ebaa44106f2f7d56",
+  "stackCount": 5,
+  "craftingHours": 16,
+  "craftingDC": 12,
+  "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Skarn:e97f0c5417a96c3439e8aaf66a58d342"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_BloodDaffodil:7d3fe4ee8c57f7f45bbc5be4e279b115"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_GallivanAmaranth:be5e78503dbad8d488b327ca8cd342ba"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 5,
+      "itemDefinition": "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Poison_Basic_Arrow_Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f4b4d2502276d93439ce6e4f30e56182",
+  "contentPack": "BaseGame",
+  "name": "RecipePoison_BasicPoison_Arrows"
+}

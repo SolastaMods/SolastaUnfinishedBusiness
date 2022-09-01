@@ -1,0 +1,170 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "isPremade": false,
+  "premadeFilename": "",
+  "firstName": "Race/&HumanSurName1Title",
+  "surName": "Race/&HumanSurName2Title",
+  "abilityScores": [
+    15,
+    16,
+    15,
+    15,
+    13,
+    16
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:Elf:143998b174becf84682ae849dfe9d757",
+  "subRace": "Definition:ElfHigh:4e42d1b55900cff4ab62dbfbd88f9b24",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkin_11",
+  "musculatureMorphotypeValue": 25.0,
+  "ageMorphotypeValue": 20.0,
+  "faceShapeMorphotype": "FaceShape_D",
+  "hairShapeMorphotype": "HairShape_None",
+  "hairColorMorphotype": "HairColorSilver",
+  "beardShapeMorphotype": "",
+  "eyeColorMorphotype": "EyeColorBlue",
+  "eyeMorphotype": "Eye_SorcererDraconic",
+  "bodyDecorationMorphotype": "BodyDecoration_SorcererDraconic",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
+  "mainClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+  "subClass": "Definition:SorcerousDraconicBloodline:f3ff002265fd37f48adf21641715592d",
+  "deity": null,
+  "background": "Definition:Lowlife:05f5b783f6a05a74a90f0aa645d10aab",
+  "backgroundPersonalityFlag1": "Selfishness",
+  "backgroundPersonalityFlag2": "Friendliness",
+  "alignment": "ChaoticNeutral",
+  "alignmentPersonalityFlag1": "Cynicism",
+  "alignmentPersonalityFlag2": "Selfishness",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Backpack_Handy_Haversack:9ec2d5fa8a78a6540aec55cbaa2e30f1",
+    "Definition:ComponentPouch:792f520ab845d5e4e99248603ab0ffd8",
+    "Definition:Enchanted_ChainShirt_Empress_war_garb:061fffb2999ccb54aadee652bf0a53e5",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:DungeoneerPack:6286cf8295c47af42bca166999993f2b",
+    "Definition:Sigil_Ring_Necromancy:699fe4d0dd68c1644a8d254e86fe47e4",
+    "Definition:RingOfTheLordInquisitor:d289758b4450ebf478db8ce28b3dd220",
+    "Definition:EnchantingTool:2c890151b586b0146a0296be9b1dd5de",
+    "Definition:HerbalismKit:074f1654b516bab49b8cf7bd96ecfe9e",
+    "Definition:Quarterstaff+2:08badee677dcee24cab3aff4fccba39e"
+  ],
+  "startingMoney": [
+    0,
+    4000,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Arcana",
+    "Intimidation"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "invocationsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [
+    "Language_Common",
+    "Language_Draconic",
+    "Language_Elvish",
+    "Language_Dwarvish"
+  ],
+  "metamagicOverride": [
+    "MetamagicCarefullSpell",
+    "MetamagicEmpoweredSpell",
+    "MetamagicTwinnedSpell"
+  ],
+  "characterLevel": 12,
+  "knownRaceCantrips": [
+    "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab"
+  ],
+  "knownClassCantrips": [
+    "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+    "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+    "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e",
+    "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+    "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+    "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+    "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+    "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b",
+    "Definition:Knock:7b59b8af31053a843a006d0e375dbd89",
+    "Definition:Shatter:acb96b651384a47428da7c0c32ab359e",
+    "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83",
+    "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
+    "Definition:Daylight:73762817061cfec47b824d2f3a9fc3f6",
+    "Definition:DimensionDoor:c85120485a4cc914eb81b7b75e9e7bbc",
+    "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7",
+    "Definition:WallOfFire:c44e8ec6d1e888e47bbd40981b7a605d",
+    "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
+    "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
+    "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16",
+    "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
+  ],
+  "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 30,
+  "preferredAncestry": null,
+  "featurePreferences": [],
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Quarterstaff+2:08badee677dcee24cab3aff4fccba39e",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&HumanSurName1Title",
+    "description": "Race/&HumanSurName2Title",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3b5272914a5d5ab4bbe21d27124428ca",
+      "m_SubObjectName": "HectorRos",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b766a59c44e432748a86ec8173108426",
+  "contentPack": "PalaceOfIce",
+  "name": "Level12_COTM_a"
+}

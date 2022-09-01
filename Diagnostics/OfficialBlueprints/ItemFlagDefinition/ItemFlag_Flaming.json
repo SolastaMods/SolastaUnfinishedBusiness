@@ -1,0 +1,30 @@
+{
+  "$type": "ItemFlagDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "Equipment/&ItemFlag_Flaming_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e006d03deea6b2b4f97e3eb3927719dd",
+      "m_SubObjectName": "Arrow_Flaming",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "909eb0d56efb2164b96f5042b02f72c5",
+  "contentPack": "BaseGame",
+  "name": "ItemFlag_Flaming"
+}

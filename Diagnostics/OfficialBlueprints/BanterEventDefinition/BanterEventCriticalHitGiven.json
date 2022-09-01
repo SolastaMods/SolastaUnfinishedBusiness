@@ -1,0 +1,182 @@
+{
+  "$type": "BanterEventDefinition, Assembly-CSharp",
+  "eventTrigger": "CriticalHitGiven",
+  "searchKey": "Critical_Hit_Given",
+  "eventProbability": 1.0,
+  "selfProbability": 0.5,
+  "playbackDelay": 1.0,
+  "canUseWhileCautious": false,
+  "eventVariants": [
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical1_Critical_Hit_Given_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical2_Critical_Hit_Given_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical3_Critical_Hit_Given_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical1_Critical_Hit_Given_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical2_Critical_Hit_Given_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical3_Critical_Hit_Given_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious1_Critical_Hit_Given_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious2_Critical_Hit_Given_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious3_Critical_Hit_Given_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious1_Critical_Hit_Given_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious2_Critical_Hit_Given_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious3_Critical_Hit_Given_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic1_Critical_Hit_Given_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic2_Critical_Hit_Given_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic3_Critical_Hit_Given_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic1_Critical_Hit_Given_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic2_Critical_Hit_Given_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic3_Critical_Hit_Given_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal1_Critical_Hit_Given_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal2_Critical_Hit_Given_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal3_Critical_Hit_Given_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal1_Critical_Hit_Given_Other",
+      "list": "Formal",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal2_Critical_Hit_Given_Other",
+      "list": "Formal",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal3_Critical_Hit_Given_Other",
+      "list": "Formal",
+      "mode": "Other"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "7d584cfff352d8748b86912a17a88dae",
+  "contentPack": "BaseGame",
+  "name": "BanterEventCriticalHitGiven"
+}

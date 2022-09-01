@@ -1,0 +1,36 @@
+{
+  "$type": "RestActivityDefinition, Assembly-CSharp",
+  "restStage": "AfterRest",
+  "restType": "LongRest",
+  "condition": "CanUsePower",
+  "functor": "UsePower",
+  "stringParameter": "PowerMarksmanRecycler",
+  "checkConsciousness": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&MarksmanRecyclerTitle",
+    "description": "Feature/&MarksmanRecyclerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 2,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "118b931ed4896ee46a39e3c9731ae663",
+  "contentPack": "BaseGame",
+  "name": "MarksmanRecyclerLongRest"
+}

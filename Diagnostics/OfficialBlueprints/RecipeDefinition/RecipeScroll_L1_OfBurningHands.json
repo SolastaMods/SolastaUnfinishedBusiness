@@ -1,0 +1,48 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:ScrollBurningHands:5113cba42c953f64790aec094024c87e",
+  "stackCount": 1,
+  "craftingHours": 8,
+  "craftingDC": 13,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_BloodDaffodil:7d3fe4ee8c57f7f45bbc5be4e279b115"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_GallivanAmaranth:be5e78503dbad8d488b327ca8cd342ba"
+    }
+  ],
+  "spellDefinition": "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollBurningHandsTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "52872ba258ec5c74a8290d0b7f79be7f",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L1_OfBurningHands"
+}

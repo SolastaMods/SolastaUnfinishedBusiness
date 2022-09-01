@@ -1,0 +1,63 @@
+{
+  "$type": "MorphotypeElementDefinition, Assembly-CSharp",
+  "playerSelectable": true,
+  "category": "HairColor",
+  "mainColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.327778131,
+    "g": 0.158960864,
+    "b": 0.0953074843,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.325999945,
+    "g": 0.2377083,
+    "b": 0.183374941,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.325999945,
+    "g": 0.2377083,
+    "b": 0.183374941,
+    "a": 1.0
+  },
+  "replaceEyeColorMask": false,
+  "bodyDecorationType": "Tattoo",
+  "bodyDecorationBlendFactor": 1.0,
+  "minMaxValue": {
+    "$type": "TA.RangedFloat, Assembly-CSharp",
+    "minValue": 0.0,
+    "maxValue": 100.0
+  },
+  "originAllowed": [],
+  "subClassFilterMask": "All",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "BodyColor/&HairColor_22",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.607843161,
+      "g": 0.435294151,
+      "b": 0.34117648,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 13,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "0048dbb2db0a56e4badf5f41bb5cbaa5",
+  "contentPack": "BaseGame",
+  "name": "HairColor_37"
+}

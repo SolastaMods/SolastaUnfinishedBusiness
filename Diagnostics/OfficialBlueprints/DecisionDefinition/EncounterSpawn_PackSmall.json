@@ -1,0 +1,116 @@
+{
+  "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
+  "decision": {
+    "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
+    "description": "Teleport on a node, trying to pack 3 by 3.",
+    "scorer": {
+      "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
+      "scorer": {
+        "$type": "TA.AI.ActivityScorer, Assembly-CSharp",
+        "considerations": [
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "IsValidPlacementDestination",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "IsValidPlacementDestination"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "InfluenceAllyProximity",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 5.0,
+                "intParameter": 2,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "FavorAllyProximityAtPosition"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "InfluenceAllyCount",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 6.0,
+                "intParameter": 10,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "PenalisePackMediumAtPosition"
+            },
+            "weight": 1.0
+          }
+        ]
+      },
+      "name": "EncounterPositionScorer_PackSmall"
+    },
+    "activityType": "TeleportOnNode",
+    "stringParameter": "",
+    "stringSecParameter": "",
+    "boolParameter": false,
+    "boolSecParameter": false,
+    "floatParameter": 0.0,
+    "enumParameter": 0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "13874ef6bb4109846b6dbdb0fe6a7cd3",
+  "contentPack": "BaseGame",
+  "name": "EncounterSpawn_PackSmall"
+}

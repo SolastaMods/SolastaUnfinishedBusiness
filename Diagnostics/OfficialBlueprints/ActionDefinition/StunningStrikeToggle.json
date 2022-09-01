@@ -1,0 +1,73 @@
+{
+  "$type": "ActionDefinition, Assembly-CSharp",
+  "id": "StunningStrikeToggle",
+  "actionType": "NoCost",
+  "actionScope": "Battle",
+  "pairedActionId": "NoAction",
+  "usesPerTurn": -1,
+  "classNameOverride": "",
+  "requiresAuthorization": true,
+  "stealthBreakerBehavior": "None",
+  "feedbackOnHoverType": "None",
+  "iterativeTargeting": false,
+  "canTriggerBattle": false,
+  "parameter": "TogglePower",
+  "formType": "Large",
+  "overrideGuiActionType": false,
+  "overridenGuiActionType": "Main",
+  "focusCameraOnAction": false,
+  "addedConditionName": "",
+  "removedConditionName": "",
+  "preventsSerialization": false,
+  "activatedPower": "Definition:PowerMonkStunningStrike:5e112de763b0d40428c65e6b825a2f74",
+  "displayPowerTooltip": false,
+  "dieType": "D10",
+  "abilityScore": "Dexterity",
+  "addLevel": false,
+  "maxCells": 1,
+  "targetType": "Sphere",
+  "targetParameter": 1,
+  "matchingCondition": "",
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&MonkStunningStrikeToggleTitle",
+    "description": "Feature/&MonkStunningStrikeToggleDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c96c94289a0d7a849b86cab1efff714f",
+      "m_SubObjectName": "StunnningStrikeToggle",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 29,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "82bc4f29d544d024a8dccb47521f2d62",
+  "contentPack": "InnerStrength",
+  "name": "StunningStrikeToggle"
+}

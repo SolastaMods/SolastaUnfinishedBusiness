@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerRangerHunterStandAgainstTheTide:b8ddb7d7f79145a48898acdd3e29518a",
+    "Definition:SavingThrowAffinityRangerHunterEvasion:0455e5762c1184841b3c53448ed6fb9e",
+    "Definition:ActionAffinityUncannyDodge:140a220d8a81e0c49880c50863ef88aa"
+  ],
+  "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "defaultSelection": 0,
+  "uniqueChoices": true,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRangerHunterSuperiorHuntersDefenseChoiceTitle",
+    "description": "Feature/&FeatureSetRangerHunterSuperiorHuntersDefenseChoiceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "77c666af9821d354d9e46109b7fda344",
+  "contentPack": "PalaceOfIce",
+  "name": "FeatureSetRangerHunterSuperiorHuntersDefenseChoice"
+}

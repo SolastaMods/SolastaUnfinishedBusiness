@@ -1,0 +1,120 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 9,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:AcidSplash:98ea9fff39f7c054ba171c32b00a90e6",
+        "Definition:AnnoyingBee:d380ed36cd287394d8ddc88115fd8fa1",
+        "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+        "Definition:DancingLights:ca63de70121df1b46ae3c1f8c183f941",
+        "Definition:Dazzle:dc9e69f2397e0d541a8821fe4e4cf6ba",
+        "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
+        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
+        "Definition:Guidance:94ed96edd24acbe4f87e72375221868a",
+        "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+        "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e",
+        "Definition:ProduceFlame:99a59d41bc8a00a458199a4c2e7d9571",
+        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+        "Definition:Resistance:384dce9da39ad4e4b82106fa7829c17c",
+        "Definition:SacredFlame:e49182bcdd6632e428a185bd55ef8355",
+        "Definition:ShadowArmor:2542a6717952164479079fcad2ed60f9",
+        "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab",
+        "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d",
+        "Definition:Shine:5581bdee6e264364cb9b10558010dddf",
+        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb",
+        "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf",
+        "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44",
+        "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8",
+        "Definition:VenomousSpike:804bffd98d2384c4b9c01ebb30f3cbee",
+        "Definition:ViciousMockery:001568c9862db2f449b64db4cdbb127f"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
+    }
+  ],
+  "compositeSpellList": true,
+  "sourceSpellLists": [
+    "Definition:SpellListBard:73378bcb8a4d12c418b336ee97b062c8",
+    "Definition:SpellListCleric:e728ae4e4306da44983db43e2889e53b",
+    "Definition:SpellListDruid:f192117ea9cbe334cba0849993779ae8",
+    "Definition:SpellListPaladin:1f7cd298d2c69194a9b04259cb39829d",
+    "Definition:SpellListRanger:7ef3d506682fd8c49a5b911c55e05880",
+    "Definition:SpellListSorcerer:d6922d6bd72f7fa42b89475449744641",
+    "Definition:SpellListWarlock:4916ffc0bd81f214e9752b68511ed553",
+    "Definition:SpellListWizard:ebbe572795f1e2e499bf55d00df9547f"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SpellList/&SpellListAllSpellsTitle",
+    "description": "SpellList/&SpellListAllSpellsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "d2d90930dfc4e9244b0b8cefaf93f49c",
+  "contentPack": "BaseGame",
+  "name": "SpellListAllCantrips"
+}

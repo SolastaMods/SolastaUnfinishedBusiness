@@ -1,0 +1,49 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "weight": 2.0,
+        "cooldown": 2,
+        "dynamicCooldown": true
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_AggressiveLightSensitive_Legendary_Defiler:bf924198ba7d79141a7a7d371702f936",
+        "weight": 2.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "100f4dcc57544ad4e9f5c049ea47874f",
+  "contentPack": "BaseGame",
+  "name": "LegendarySorakAttack_TouchOfDarkness"
+}

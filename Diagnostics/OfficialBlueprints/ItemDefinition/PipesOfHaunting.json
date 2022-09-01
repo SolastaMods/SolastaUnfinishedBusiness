@@ -1,0 +1,255 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "merchantCategory": "MagicDevice",
+  "weight": 0.5,
+  "slotTypes": [
+    "UtilitySlot",
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [
+    "UtilitySlot"
+  ],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": false,
+  "stackSize": 10,
+  "defaultStackCount": -1,
+  "costs": [
+    0,
+    1900,
+    0,
+    0,
+    0
+  ],
+  "itemTags": [
+    "Wood"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": true,
+  "requiresAttunement": true,
+  "requiresIdentification": true,
+  "requiredAttunementClasses": [
+    "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb"
+  ],
+  "itemRarity": "Uncommon",
+  "incompatibleWithMonkReturnMissile": false,
+  "staticProperties": [],
+  "isArmor": false,
+  "isWeapon": false,
+  "isAmmunition": false,
+  "isUsableDevice": true,
+  "usableDeviceDescription": {
+    "$type": "UsableDeviceDescription, Assembly-CSharp",
+    "usage": "Charges",
+    "chargesCapital": "Fixed",
+    "chargesCapitalNumber": 3,
+    "chargesCapitalDie": "D1",
+    "chargesCapitalBonus": 0,
+    "rechargeRate": "Dawn",
+    "rechargeNumber": 1,
+    "rechargeDie": "D3",
+    "rechargeBonus": 0,
+    "outOfChargesConsequence": "Persist",
+    "magicAttackBonus": 0,
+    "saveDC": 15,
+    "deviceFunctions": [
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
+        "useAmount": 1,
+        "rechargeRate": "Dawn",
+        "durationType": "Hour",
+        "canOverchargeSpell": false,
+        "type": "Spell",
+        "spellDefinition": "Definition:Fear:cff391ef9dd8106448ed464270dcc9c4",
+        "featureDefinitionPower": null
+      }
+    ],
+    "usableDeviceTags": [],
+    "onUseParticle": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "isTool": false,
+  "isMusicalInstrument": true,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "FluteType"
+  },
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": true,
+  "focusItemDefinition": {
+    "$type": "FocusItemDescription, Assembly-CSharp",
+    "focusType": "MusicalInstrument",
+    "shownAsFocus": true
+  },
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": false,
+  "isFood": false,
+  "isFactionRelic": false,
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": {
+    "$type": "SoundEffectDescription, Assembly-CSharp",
+    "startEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "startSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "soundEffectOnHitDescriptionOverride": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "itemPresentation": {
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "Equipment/&PipesOfHauntingUnidentifiedTitle",
+    "unidentifiedDescription": "Equipment/&PipesOfHauntingUnidentifiedDescription",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "1110be87443300f46976c1b313fa6d8e",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": false,
+    "armorAddressableName": "",
+    "useCustomArmorMaterial": false,
+    "customArmorMaterial": "",
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": true,
+    "maleBodyPartBehaviours": [],
+    "femaleBodyPartBehaviours": [],
+    "itemFlags": [],
+    "serializedVersion": 1
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&PipesOfHauntingDrumsTitle",
+    "description": "Equipment/&PipesOfHauntingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6e112e8a73c5cae40be6a6d8b2ab161b",
+      "m_SubObjectName": "DLC2.5-PipesOfHaunting",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "8a003329450dd824fb3b3788389c31d8",
+  "contentPack": "BaseGame",
+  "name": "PipesOfHaunting"
+}

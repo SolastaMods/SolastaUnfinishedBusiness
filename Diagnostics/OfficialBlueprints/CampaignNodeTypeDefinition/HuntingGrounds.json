@@ -1,0 +1,36 @@
+{
+  "$type": "CampaignNodeTypeDefinition, Assembly-CSharp",
+  "graphicsCampaignNodeReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "5ca14dd9cce99e442bc433c5cd16b0d8",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "360969fea885bf34280128ea1b025167",
+  "contentPack": "BaseGame",
+  "name": "HuntingGrounds"
+}

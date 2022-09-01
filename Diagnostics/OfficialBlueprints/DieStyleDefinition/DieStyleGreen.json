@@ -1,0 +1,73 @@
+{
+  "$type": "DieStyleDefinition, Assembly-CSharp",
+  "d4MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "d1e2462bad2fde341a468935e8261aa0",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d6MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "bb6d09818b8013844b34163d96ce3010",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d8MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "05916fcadf337784ca69626d2c80b37b",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d10MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "9ff9acf60a448d84c9020a5a8563e8b3",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d12MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "492d4e0e9d9dd8a4581d6919c350ae7b",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d20MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "e8664261b46503e418a3e993f2361ec6",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlePrefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "useMetallicLayer": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "DieStyle/&DieStyleGreenTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1b72ca8a09431fe4e9966b1bd1398653",
+      "m_SubObjectName": "DieStyleGreen",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.410377383,
+      "g": 1.0,
+      "b": 0.425577551,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 2,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c11fce2593f840e419c7abd78a006486",
+  "contentPack": "BaseGame",
+  "name": "DieStyleGreen"
+}

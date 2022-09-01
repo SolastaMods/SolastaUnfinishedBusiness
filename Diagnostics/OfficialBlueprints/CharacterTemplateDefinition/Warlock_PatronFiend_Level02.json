@@ -1,0 +1,142 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
+  "firstName": "Warlock2",
+  "surName": "Fiend",
+  "abilityScores": [
+    10,
+    15,
+    16,
+    12,
+    12,
+    18
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:HalfElf:bf7685e7b813d8c46a7d903080d23541",
+  "subRace": null,
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_HalfElf_D",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlond",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
+  "mainClass": "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916",
+  "subClass": "Definition:PatronFiend:6f4a40075c00bd04e9d0b8b013caed2d",
+  "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
+  "background": "Definition:Wanderer:6e2e429b693317945887cb99508990df",
+  "backgroundPersonalityFlag1": "Self-Preservation",
+  "backgroundPersonalityFlag2": "Pragmatism",
+  "alignment": "ChaoticGood",
+  "alignmentPersonalityFlag1": "Cynicism",
+  "alignmentPersonalityFlag2": "Selfishness",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",
+    "Definition:ArcaneFocusOrb:9ea374b3079d52a4d882e271157e040b",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941"
+  ],
+  "startingMoney": [
+    0,
+    98,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Deception",
+    "Religion"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "invocationsOverride": [
+    "AgonizingBlast",
+    "ArmorOfShadows"
+  ],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 2,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
+    "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
+    "Definition:HellishRebuke:ce1fe7c80c29bfc438c6f8150658083b",
+    "Definition:Malediction:1aeeac9ea6f521b46892438da2948664"
+  ],
+  "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 30,
+  "preferredAncestry": null,
+  "featurePreferences": [],
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "FEM1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Warlock",
+    "description": "Fiend",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "ef3be013783f32442807a5503e2a3347",
+      "m_SubObjectName": "Garrad",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a062c288592e7d746b60dc5daea305fd",
+  "contentPack": "BaseGame",
+  "name": "Warlock_PatronFiend_Level02"
+}

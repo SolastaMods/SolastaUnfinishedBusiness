@@ -1,0 +1,53 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:ScrollProtectionFromEvilandGood:ad398ab03eb39054781ef037d5c37a45",
+  "stackCount": 1,
+  "craftingHours": 8,
+  "craftingDC": 13,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Acid:bd7e07506aad3a244807052e95004020"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Skarn:e97f0c5417a96c3439e8aaf66a58d342"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_TrollAcanthus:0e10275170f3d184eb54ff094f889077"
+    }
+  ],
+  "spellDefinition": "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollProtectionFromEvilandGoodTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9b4db705168b911409befe060ea3a37b",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L1_ProtectionFromEvilandGood"
+}

@@ -1,0 +1,142 @@
+{
+  "$type": "GadgetBlueprint, Assembly-CSharp",
+  "parameters": [
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "TargetGadgets",
+      "type": "GadgetList",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": false,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "DurationType",
+      "type": "DurationType",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": false,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "DurationValue",
+      "type": "DurationValue",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": false,
+      "intDefaultValue": 1,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_Repeating",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": false,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_DefaultAsEnabled",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": false,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    }
+  ],
+  "interactionNodes": [],
+  "canBeActivated": true,
+  "customizableDimensions": false,
+  "minCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "maxCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "campaignOnly": false,
+  "groundPlacement": true,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": true,
+  "openingPlacement": true,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": true,
+  "lightSources": [],
+  "category": "Activators",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "70cc7f2e4cc49284ba034582c3db2a66",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Gadget/&ActivatorTimedTitle",
+    "description": "Gadget/&ActivatorTimedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b3633fb0f222e6b4fb08d5890a6d16c1",
+      "m_SubObjectName": "ActivatorTimed",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f7bc161d339addb488469511c5fb922a",
+  "contentPack": "BaseGame",
+  "name": "ActivatorTimed"
+}

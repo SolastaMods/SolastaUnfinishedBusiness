@@ -1,0 +1,47 @@
+{
+  "$type": "MonsterPresentationDefinition, Assembly-CSharp",
+  "prefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "04dfcec8c8afb8642a80c1116de218d4",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "sex": "Male",
+  "modelScale": 1.0,
+  "useCustomMaterials": true,
+  "customMaterials": [
+    {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "1a0c85cef47c11d47a49b99b2b5681c2",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "27770e14ddb64b344a8fde8db51af380",
+  "contentPack": "BaseGame",
+  "name": "Redeemer_Presentation_Juggernaut"
+}

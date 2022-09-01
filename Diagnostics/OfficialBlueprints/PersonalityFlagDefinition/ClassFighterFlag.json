@@ -1,0 +1,38 @@
+{
+  "$type": "PersonalityFlagDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "dialog": true,
+  "anchor": {
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 0.0
+  },
+  "type": "Class",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Class/&FighterTitle",
+    "description": "Class/&FighterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "537fbdf9cae3f754a8e5117f2aa5eb6c",
+  "contentPack": "BaseGame",
+  "name": "ClassFighterFlag"
+}

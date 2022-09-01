@@ -1,0 +1,105 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_DPS_LifeLeech_SingleTarget:f92dbef0d0c1a6a4b9f841e067a3d744",
+        "weight": 5.0,
+        "cooldown": 2,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_DPS_AoE:1574fe0b89cfdfb438968fe5dfb92c52",
+        "weight": 3.5,
+        "cooldown": 2,
+        "dynamicCooldown": true
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Debuff_AoE:9c9aeadc97b416e4f9a63fe1a64bf601",
+        "weight": 3.5,
+        "cooldown": 3,
+        "dynamicCooldown": true
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_DPS_SingleTarget:a03b2b9514d7dfa489be3748a07a43e9",
+        "weight": 2.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Debuff_SingleTarget:fe74c0437c1069a42b609a74cb09de60",
+        "weight": 2.5,
+        "cooldown": 2,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_Caster_Multitarget:8820cfcfad8d4a4488e36136009e06aa",
+        "weight": 2.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:RangedAttack_Default:a96934f6775237944a7beb403b13c731",
+        "weight": 1.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "weight": 1.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:LongRangePathToEnemyOnlyIfNoAction_Dash:f8cf5d9e693665a4b9c02d2503814034",
+        "weight": 0.1,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Emote_Angry:49a443454bcd2674d892c5880bd3f43c",
+        "weight": 0.05,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "d0a912f74e3ab5f448b47059d023ee9e",
+  "contentPack": "BaseGame",
+  "name": "SkeletonSorcererCombatDecisions"
+}

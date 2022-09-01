@@ -1,0 +1,42 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:591d02e0db5debf4ca9d29ffe8a26f00",
+        "weight": 1.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "c80d21582cba9af45af18c8b417c2af3",
+  "contentPack": "BaseGame",
+  "name": "EncounterSpawn_PackSmall_PenalizeAltitude"
+}

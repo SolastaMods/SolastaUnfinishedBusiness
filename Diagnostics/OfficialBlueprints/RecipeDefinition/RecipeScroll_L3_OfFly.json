@@ -1,0 +1,48 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:ScrollFly:ee195999a17fbeb499cc04a1b3218b53",
+  "stackCount": 1,
+  "craftingHours": 32,
+  "craftingDC": 15,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_DwarvenPrimrose:48e03ca4a5f3b8a47bcb385a8d6e3b22"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c"
+    }
+  ],
+  "spellDefinition": "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollFlyTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "d3fcef4872b3f204897cd9da545d4730",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L3_OfFly"
+}

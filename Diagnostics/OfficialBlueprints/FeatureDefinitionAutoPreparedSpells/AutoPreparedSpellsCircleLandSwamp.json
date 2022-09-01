@@ -1,0 +1,67 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Circle",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 3,
+      "spellsList": [
+        "Definition:Darkness:b8d5ac9f43f55be479da08cd37744584",
+        "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b",
+        "Definition:StinkingCloud:b62f452e6a757124da5eef6ca9fd46e9"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 7,
+      "spellsList": [
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837",
+        "Definition:FreedomOfMovement:7c93b80e19d0f3e47843e96bd06d026c"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:Contagion:13567fa6f3f984347b5b6c4347fac6e8",
+        "Definition:InsectPlague:f74938dd8dd25294b97663330c8e293e"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Druid:df2da915a153d7a48a896041cf318953",
+  "affinityRace": "Definition:HalflingMarsh:7d54ea787abc11642a15214c750157f3",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TerrainType/&SwampTitle",
+    "description": "Feature/&DomainSpellsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a9d2e3a27ccd26642ac29972156d2e88",
+  "contentPack": "BaseGame",
+  "name": "AutoPreparedSpellsCircleLandSwamp"
+}

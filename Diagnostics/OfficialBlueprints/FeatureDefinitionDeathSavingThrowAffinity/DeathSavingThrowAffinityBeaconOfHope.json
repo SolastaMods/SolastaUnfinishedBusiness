@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionDeathSavingThrowAffinity, Assembly-CSharp",
+  "advantageType": "Advantage",
+  "regainHitDieOnStabilize": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "082130537655d7447865f52e8c19d5b1",
+  "contentPack": "BaseGame",
+  "name": "DeathSavingThrowAffinityBeaconOfHope"
+}

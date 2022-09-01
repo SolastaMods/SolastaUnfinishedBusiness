@@ -1,0 +1,36 @@
+{
+  "$type": "NotificationDefinition, Assembly-CSharp",
+  "displayType": "None",
+  "contextualImageSize": {
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 78.0,
+    "y": 78.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Notification/&LocationRevealedTitle",
+    "description": "Notification/&LocationRevealedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f9fcbb3eeb11b224eaa5badb65386ca2",
+      "m_SubObjectName": "LocationTypeSwamp",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.9607844,
+      "g": 0.7058824,
+      "b": 0.5254902,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2915579532923254b8d058759201df96",
+  "contentPack": "BaseGame",
+  "name": "LocationRevealedSwamp"
+}

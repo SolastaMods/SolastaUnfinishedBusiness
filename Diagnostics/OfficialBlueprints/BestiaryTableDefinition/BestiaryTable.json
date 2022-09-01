@@ -1,0 +1,39 @@
+{
+  "$type": "BestiaryTableDefinition, Assembly-CSharp",
+  "cellHeight": 310.0,
+  "cellWidth": 281.0,
+  "areaWidth": 1569.0,
+  "spacing": 40.0,
+  "maxEntries": -1,
+  "maxSerializedEntries": -1,
+  "layout": "Grid",
+  "offsetX": 2.0,
+  "offsetY": 2.0,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4038551699094fe49bb72ee6a9f7da6b",
+  "contentPack": "BaseGame",
+  "name": "BestiaryTable"
+}

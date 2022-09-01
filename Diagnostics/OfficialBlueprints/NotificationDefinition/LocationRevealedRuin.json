@@ -1,0 +1,36 @@
+{
+  "$type": "NotificationDefinition, Assembly-CSharp",
+  "displayType": "None",
+  "contextualImageSize": {
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 78.0,
+    "y": 78.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Notification/&LocationRevealedTitle",
+    "description": "Notification/&LocationRevealedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a8773a1a07e602848a2d7a1c6c4a3e40",
+      "m_SubObjectName": "LocationTypeRuin",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.9607844,
+      "g": 0.7058824,
+      "b": 0.5254902,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3be38a39dc2b13742a6ad104b11b4745",
+  "contentPack": "BaseGame",
+  "name": "LocationRevealedRuin"
+}

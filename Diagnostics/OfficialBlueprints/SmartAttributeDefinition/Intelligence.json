@@ -1,0 +1,31 @@
+{
+  "$type": "SmartAttributeDefinition, Assembly-CSharp",
+  "modifiedAttributes": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Attribute/&IntelligenceTitle",
+    "description": "Attribute/&IntelligenceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "b82ba808ed8ac7a4c8604ecbfd380b9a",
+  "contentPack": "BaseGame",
+  "name": "Intelligence"
+}

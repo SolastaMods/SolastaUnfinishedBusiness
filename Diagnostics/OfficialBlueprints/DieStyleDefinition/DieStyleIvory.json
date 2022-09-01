@@ -1,0 +1,73 @@
+{
+  "$type": "DieStyleDefinition, Assembly-CSharp",
+  "d4MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "f694afd9fc5ea414491087d0b48f3dbb",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d6MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "1cd5f6f909ecd6e418d4730c35eccf87",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d8MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "0fc1ad7e6082e93458656bf1ad72ef64",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d10MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "3a7657c9c9f9d894eaee174d17c3c917",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d12MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "b5c6c39d74051ad498872dd44cd9db8c",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d20MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "b698ed3c1b1f79145aa2785807a7d11e",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlePrefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "useMetallicLayer": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "DieStyle/&DieStyleIvoryTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "49e3e5f749d1e3c439f506fcb2197cf1",
+      "m_SubObjectName": "DieStyleIvory",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "37a78def2b5a5a746851689c92ffff31",
+  "contentPack": "BaseGame",
+  "name": "DieStyleIvory"
+}

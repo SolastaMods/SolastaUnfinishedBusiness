@@ -1,0 +1,49 @@
+{
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Skill",
+  "poolAmount": 3,
+  "restrictedChoices": [
+    "Acrobatics",
+    "AnimalHandling",
+    "Arcana",
+    "Athletics",
+    "Deception",
+    "History",
+    "Insight",
+    "Intimidation",
+    "Investigation"
+  ],
+  "uniqueChoices": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&BardSkillPointsTitle",
+    "description": "Feature/&SkillGainAnyPluralDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "76d1562c4e823814984a0ab2d47f1e30",
+  "contentPack": "InnerStrength",
+  "name": "PointPoolBardSkillPoints"
+}

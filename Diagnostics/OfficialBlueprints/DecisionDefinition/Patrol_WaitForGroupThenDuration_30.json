@@ -1,0 +1,72 @@
+{
+  "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
+  "decision": {
+    "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
+    "description": "Wait at the node until all the group has gathered.\nThen count down duration.",
+    "scorer": {
+      "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
+      "scorer": {
+        "$type": "TA.AI.ActivityScorer, Assembly-CSharp",
+        "considerations": [
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "Constant",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "Constant"
+            },
+            "weight": 1.0
+          }
+        ]
+      },
+      "name": "PatrolScorer"
+    },
+    "activityType": "PatrolWait",
+    "stringParameter": "",
+    "stringSecParameter": "",
+    "boolParameter": true,
+    "boolSecParameter": false,
+    "floatParameter": 30.0,
+    "enumParameter": 0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "204ca017ef548804696828bbdd398bb6",
+  "contentPack": "BaseGame",
+  "name": "Patrol_WaitForGroupThenDuration_30"
+}

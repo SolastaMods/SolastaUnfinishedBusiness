@@ -1,0 +1,32 @@
+{
+  "$type": "LanguageDefinition, Assembly-CSharp",
+  "personalityFlag": false,
+  "personalityAdditiveBase": 10,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Language/&InfernalTitle",
+    "description": "Language/&InfernalDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": true,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "aab78a38dbf69fc44ad923f9388e22b6",
+  "contentPack": "BaseGame",
+  "name": "Language_Infernal"
+}

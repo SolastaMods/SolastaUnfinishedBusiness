@@ -1,0 +1,171 @@
+{
+  "$type": "GadgetBlueprint, Assembly-CSharp",
+  "parameters": [
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_Locked",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "Param_HardLocked",
+      "conditionalMatch": false,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_HardLocked",
+      "type": "GenericBool",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Locked",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Unlock_DC",
+      "type": "DifficultyClass",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_HardLocked",
+      "conditionalMatch": false,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "KeyItem",
+      "type": "Item",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Locked",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_DefaultAsOpened",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "Param_Locked",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    }
+  ],
+  "interactionNodes": [
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": -0.5000001,
+        "y": -0.99999994
+      },
+      "orientation": "North"
+    },
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.5000003,
+        "y": 1.00000024
+      },
+      "orientation": "South"
+    }
+  ],
+  "canBeActivated": true,
+  "customizableDimensions": false,
+  "minCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "maxCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "campaignOnly": false,
+  "groundPlacement": true,
+  "groundLowPlacement": true,
+  "groundHighPlacement": false,
+  "wallPlacement": false,
+  "openingPlacement": true,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
+  "lightSources": [],
+  "category": "Openings",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Sewers",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "b8f944b4343fee049bceea2be50c2e12",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Catacombs",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "bc998575168a0414288b811b511f0f6c",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Gadget/&GrateDoorTitle",
+    "description": "Gadget/&GrateDoorDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f58974c77564f3149971228c3847b75e",
+      "m_SubObjectName": "DoubleDoor",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "107a2ea6782fa56478b018cea34ed24c",
+  "contentPack": "BaseGame",
+  "name": "GrateDoor"
+}

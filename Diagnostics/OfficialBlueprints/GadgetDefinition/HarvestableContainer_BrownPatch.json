@@ -1,0 +1,31 @@
+{
+  "$type": "GadgetDefinition, Assembly-CSharp",
+  "armorClass": 10,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ContainerHarvestable_BrownPatch_Title",
+    "description": "Equipment/&ContainerHarvestable_BrownPatch_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "945df247f7c6a844d990dc4de07a3a3f",
+  "contentPack": "BaseGame",
+  "name": "HarvestableContainer_BrownPatch"
+}

@@ -1,0 +1,159 @@
+{
+  "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
+  "notificationTag": "FrightfulStrike",
+  "limitedUsage": "OncePerTurn",
+  "otherSimilarAdditionalDamages": [],
+  "triggerCondition": "Raging",
+  "requiredProperty": "MeleeWeapon",
+  "attackModeOnly": true,
+  "requiredTargetCondition": null,
+  "requiredTargetSenseType": "Darkvision",
+  "requiredTargetCreatureTag": "",
+  "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
+  "damageValueDetermination": "None",
+  "damageDieType": "D6",
+  "damageDiceNumber": 1,
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "DamageCold",
+  "damageAdvancement": "None",
+  "diceByRankTable": [
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 1,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 2,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 3,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 4,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 5,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 6,
+      "diceNumber": 3
+    }
+  ],
+  "familiesWithAdditionalDice": [],
+  "familiesDiceNumber": 1,
+  "ignoreCriticalDoubleDice": false,
+  "hasSavingThrow": true,
+  "savingThrowAbility": "Wisdom",
+  "dcComputation": "CustomAbilityModifierAndProficiency",
+  "savingThrowDC": 15,
+  "savingThrowDCAbilityModifier": "Strength",
+  "damageSaveAffinity": "HalfDamage",
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": true,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionFrightenedFearEndOfNextTurn:9a680035ff5e74b49a03ef7daf0bc08d",
+      "saveAffinity": "Negates",
+      "canSaveToCancel": false,
+      "saveOccurence": "StartOfTurn"
+    }
+  ],
+  "addLightSource": false,
+  "lightSourceForm": {
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false
+  },
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlesBasedOnAncestryDamageType": false,
+  "acidImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "coldImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "fireImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "lightningImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "poisonImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "computeDescription": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&BarbarianClawFrightfulStrikeTitle",
+    "description": "Feature/&BarbarianClawFrightfulStrikeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "8c690a9783ed66341b0ab88e59d55e80",
+  "contentPack": "BaseGame",
+  "name": "AdditionalDamageBarbarianClawFrightfulStrike"
+}

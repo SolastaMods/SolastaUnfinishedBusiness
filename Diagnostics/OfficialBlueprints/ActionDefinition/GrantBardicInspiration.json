@@ -1,0 +1,73 @@
+{
+  "$type": "ActionDefinition, Assembly-CSharp",
+  "id": "GrantBardicInspiration",
+  "actionType": "Bonus",
+  "actionScope": "All",
+  "pairedActionId": "NoAction",
+  "usesPerTurn": -1,
+  "classNameOverride": "",
+  "requiresAuthorization": true,
+  "stealthBreakerBehavior": "None",
+  "feedbackOnHoverType": "None",
+  "iterativeTargeting": false,
+  "canTriggerBattle": false,
+  "parameter": "ActivatePower",
+  "formType": "Large",
+  "overrideGuiActionType": false,
+  "overridenGuiActionType": "Main",
+  "focusCameraOnAction": true,
+  "addedConditionName": "",
+  "removedConditionName": "",
+  "preventsSerialization": false,
+  "activatedPower": "Definition:PowerBardGiveBardicInspiration:88ab025d44d800b47ad76e552cb349a3",
+  "displayPowerTooltip": true,
+  "dieType": "D10",
+  "abilityScore": "Dexterity",
+  "addLevel": false,
+  "maxCells": 1,
+  "targetType": "Sphere",
+  "targetParameter": 1,
+  "matchingCondition": "",
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerBardGiveBardicInspirationTitle",
+    "description": "Feature/&PowerBardGiveBardicInspirationDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "80ab2cbb353b4df4fa57328bc0d9802b",
+      "m_SubObjectName": "GrantBardicInspiration",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 29,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "23282e927765e9f4f9866a51d5ed8d78",
+  "contentPack": "BaseGame",
+  "name": "GrantBardicInspiration"
+}

@@ -1,0 +1,32 @@
+{
+  "$type": "CharacterFamilyDefinition, Assembly-CSharp",
+  "features": [],
+  "extraplanar": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterFamily/&UndeadTitle",
+    "description": "CharacterFamily/&UndeadDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "cf4a5824ba8fe6242aea3944e58e47f3",
+  "contentPack": "BaseGame",
+  "name": "Undead"
+}

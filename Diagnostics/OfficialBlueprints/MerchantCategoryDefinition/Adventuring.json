@@ -1,0 +1,31 @@
+{
+  "$type": "MerchantCategoryDefinition, Assembly-CSharp",
+  "assignableToItem": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "MerchantCategory/&AdventuringTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "efc6aa5b045fff2498ddbca9ffe46d67",
+      "m_SubObjectName": "CategoryAdventuring",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 4,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "70268efdf216dcf489c31259092c4fb7",
+  "contentPack": "BaseGame",
+  "name": "Adventuring"
+}

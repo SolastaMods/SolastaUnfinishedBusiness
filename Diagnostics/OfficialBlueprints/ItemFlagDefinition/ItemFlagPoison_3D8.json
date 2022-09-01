@@ -1,0 +1,30 @@
+{
+  "$type": "ItemFlagDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "Equipment/&ItemFlagPoison_3D8_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0c9e3e94855027f408676caa7cb4d4f5",
+      "m_SubObjectName": "Poison_3D8",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f6e7c1a59ad6dd741bb4560a734ef5c8",
+  "contentPack": "BaseGame",
+  "name": "ItemFlagPoison_3D8"
+}

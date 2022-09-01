@@ -1,0 +1,37 @@
+{
+  "$type": "EnvironmentDefinition, Assembly-CSharp",
+  "outdoor": true,
+  "sceneReferenceOverride": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "5387ebc395c240546a0fd4ad2e003a3f",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Environment/&JungleTitle",
+    "description": "Environment/&JungleDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "96539c090fc72574cab61a2a99a685c0",
+      "m_SubObjectName": "RandomEncounter_DLC1_Jungle_River",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 9,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "96062eae980fff6439c6d673771ac577",
+  "contentPack": "LostValley",
+  "name": "Jungle"
+}

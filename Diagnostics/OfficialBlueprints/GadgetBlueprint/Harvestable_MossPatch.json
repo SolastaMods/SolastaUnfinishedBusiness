@@ -1,0 +1,86 @@
+{
+  "$type": "GadgetBlueprint, Assembly-CSharp",
+  "parameters": [],
+  "interactionNodes": [
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.0,
+        "y": -1.0
+      },
+      "orientation": "North"
+    }
+  ],
+  "canBeActivated": false,
+  "customizableDimensions": false,
+  "minCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "maxCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "campaignOnly": false,
+  "groundPlacement": true,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": false,
+  "openingPlacement": true,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
+  "lightSources": [],
+  "category": "Harvestable",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "LavaCaves",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "c4463c2db73fbc0458bafed1c5003579",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Sewers",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "10ef67b6bb2560e4689a5e0352c42d56",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ContainerHarvestable_Mosspatch_Title",
+    "description": "Equipment/&ContainerHarvestable_Mosspatch_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "54da9389884c5604f998f5f2fa503824",
+      "m_SubObjectName": "HarvestableB",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f3caa0e5dcab22c429420d4a88dec1d3",
+  "contentPack": "BaseGame",
+  "name": "Harvestable_MossPatch"
+}

@@ -1,0 +1,47 @@
+{
+  "$type": "MonsterPresentationDefinition, Assembly-CSharp",
+  "prefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "cc36634f504fa7049a4499a91749d7d5",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "sex": "Male",
+  "modelScale": 0.7,
+  "useCustomMaterials": true,
+  "customMaterials": [
+    {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "88f69f6822ed78d40b1356e6cec8d82f",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ec84ae826743b7e4fbaba4ca5c0e27c2",
+  "contentPack": "BaseGame",
+  "name": "Badlands_Bear_Presentation"
+}

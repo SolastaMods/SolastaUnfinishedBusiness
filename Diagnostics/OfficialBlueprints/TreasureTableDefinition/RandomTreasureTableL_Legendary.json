@@ -1,0 +1,116 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:StaffOfFire:e1b08f5199cc7bd4ea614e42b7aec067",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:BeltOfGiantStone:3d2cfce8a01be0149b8567afd582a7e7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:WandOfLightningBolts:ed39d2c184af32e448f0cf956d2af68b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:WandFear:c0423f6606b2ff440b2e095b7e7d17fc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:MantleOfSpellResistance:7b7085e21b0ebfc40887480b8b57040f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:NecklaceOfFireballs:2532888b20611b3489a4bc5ce3873bff",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:StaffOfHealing:040870100e615394fb6795c61214de3b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Manual_Of_Bodily_Health:5513b23d1ad926e439a6104306637750",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Manual_Of_Gainful_Exercise:4b7141621a7307343be1e7e52bab107c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Manual_Of_Quickness_of_Action:7d55a8d368982d045b492a83a71d82d2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Tome_Of_LeadershipAndInfluence:a74e89b383af6b242af50323a1fe0013",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Tome_Of_QuickThought:90ce7ceb1a9937d4fa47283bf503ea71",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Tome_Of_Understanding:93c1970027905014b9c5d5ecb2f35027",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:WandMagicMissile:7617927d5593fac4982b711a9b9643ec",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "389b4cc748a4bd14ea38a77d8eafe86e",
+  "contentPack": "BaseGame",
+  "name": "RandomTreasureTableL_Legendary"
+}

@@ -1,0 +1,56 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:LongRangePathToEnemy_Dash:4e5f0f365b7acb54d81b527719d373d1",
+        "weight": 5.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "weight": 3.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_AggressiveSingleTargetAndPack:c5e5bc9d61c6a0c458abea634844ad85",
+        "weight": 2.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "77a3ff0e3e333d644b7139f85f1eeb99",
+  "contentPack": "BaseGame",
+  "name": "WolfCombatDecisions"
+}

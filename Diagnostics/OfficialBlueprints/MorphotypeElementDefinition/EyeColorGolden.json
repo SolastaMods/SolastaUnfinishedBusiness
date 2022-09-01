@@ -1,0 +1,63 @@
+{
+  "$type": "MorphotypeElementDefinition, Assembly-CSharp",
+  "playerSelectable": true,
+  "category": "EyeColor",
+  "mainColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.8773585,
+    "g": 0.403581619,
+    "b": 0.07035423,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "replaceEyeColorMask": false,
+  "bodyDecorationType": "Tattoo",
+  "bodyDecorationBlendFactor": 1.0,
+  "minMaxValue": {
+    "$type": "TA.RangedFloat, Assembly-CSharp",
+    "minValue": 0.0,
+    "maxValue": 100.0
+  },
+  "originAllowed": [],
+  "subClassFilterMask": "All",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "BodyColor/&EyesGoldenTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.9450981,
+      "g": 0.6666667,
+      "b": 0.294117659,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "cce8b7caf621f214a9ba814c7e0ff810",
+  "contentPack": "BaseGame",
+  "name": "EyeColorGolden"
+}

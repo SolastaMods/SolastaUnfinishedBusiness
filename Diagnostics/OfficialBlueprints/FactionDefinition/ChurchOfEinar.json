@@ -1,0 +1,48 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 0,
+  "attackingPenalty": 0,
+  "killingPenalty": 0,
+  "prominentMembers": [
+    "Definition:Beric_Sunblaze:8930f51e0b559ee42ad0e93a30fe9921",
+    "Definition:Dalon_Lark:e0b8a0da3bcb37046a5a01bc76f56e78"
+  ],
+  "smallSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "a064bb0a6b702a146ab065090822dff8",
+    "m_SubObjectName": "ChurchOfEinarFlagSmall",
+    "m_SubObjectType": ""
+  },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Faction/&ChurchOfEinarTitle",
+    "description": "Faction/&ChurchOfEinarDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "46a49216707f28141b99072bb139dc11",
+      "m_SubObjectName": "ChurchOfEinarFlag",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "766e3e395551fb54bbaf66a2c43763e2",
+  "contentPack": "BaseGame",
+  "name": "ChurchOfEinar"
+}

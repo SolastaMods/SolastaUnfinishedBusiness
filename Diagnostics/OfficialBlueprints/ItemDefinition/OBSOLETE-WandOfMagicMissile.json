@@ -1,0 +1,273 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "merchantCategory": "MagicDevice",
+  "weight": 0.5,
+  "slotTypes": [
+    "UtilitySlot",
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [
+    "MainHandSlot",
+    "OffHandSlot",
+    "UtilitySlot"
+  ],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": false,
+  "stackSize": 10,
+  "defaultStackCount": -1,
+  "costs": [
+    0,
+    750,
+    0,
+    0,
+    0
+  ],
+  "itemTags": [
+    "Wood"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": true,
+  "requiresAttunement": true,
+  "requiresIdentification": false,
+  "requiredAttunementClasses": [
+    "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb",
+    "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
+    "Definition:Druid:df2da915a153d7a48a896041cf318953",
+    "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
+    "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40",
+    "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+    "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916",
+    "Definition:Wizard:a279003a65f95a64eb58fcc71463c734"
+  ],
+  "itemRarity": "VeryRare",
+  "incompatibleWithMonkReturnMissile": false,
+  "staticProperties": [
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": false,
+      "type": "Feature",
+      "featureDefinition": "Definition:AbilityCheckAffinityBeltOfDwarvenkind:54af4a8560ae55444a52f5aea3370b48",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "ActiveAndVisible"
+    }
+  ],
+  "isArmor": false,
+  "isWeapon": false,
+  "isAmmunition": false,
+  "isUsableDevice": true,
+  "usableDeviceDescription": {
+    "$type": "UsableDeviceDescription, Assembly-CSharp",
+    "usage": "Charges",
+    "chargesCapital": "Fixed",
+    "chargesCapitalNumber": 7,
+    "chargesCapitalDie": "D1",
+    "chargesCapitalBonus": 0,
+    "rechargeRate": "Dawn",
+    "rechargeNumber": 1,
+    "rechargeDie": "D6",
+    "rechargeBonus": 1,
+    "outOfChargesConsequence": "DestroyOnRoll1",
+    "magicAttackBonus": 0,
+    "saveDC": 0,
+    "deviceFunctions": [
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
+        "useAmount": 1,
+        "rechargeRate": "Dawn",
+        "durationType": "Hour",
+        "canOverchargeSpell": true,
+        "type": "Spell",
+        "spellDefinition": "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+        "featureDefinitionPower": null
+      }
+    ],
+    "usableDeviceTags": [],
+    "onUseParticle": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": true,
+  "focusItemDefinition": {
+    "$type": "FocusItemDescription, Assembly-CSharp",
+    "focusType": "Arcane",
+    "shownAsFocus": true
+  },
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": false,
+  "isFood": false,
+  "isFactionRelic": false,
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": {
+    "$type": "SoundEffectDescription, Assembly-CSharp",
+    "startEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "startSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "soundEffectOnHitDescriptionOverride": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "itemPresentation": {
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "Equipment/&WandSpecialTitle",
+    "unidentifiedDescription": "Equipment/&WandSpecialDescription",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": false,
+    "armorAddressableName": "",
+    "useCustomArmorMaterial": false,
+    "customArmorMaterial": "",
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": true,
+    "maleBodyPartBehaviours": [],
+    "femaleBodyPartBehaviours": [],
+    "itemFlags": [],
+    "serializedVersion": 1
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&DLC2.5_Item_WandOfMagicMissile_Title",
+    "description": "Equipment/&DLC2.5_Item_WandOfMagicMissile_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "99f5e6021bff7994bb5b9f6832f8145a",
+      "m_SubObjectName": "WandOfMagicMissiles",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "4e649201b125cea409d359209d1259e6",
+  "contentPack": "InnerStrength",
+  "name": "OBSOLETE-WandOfMagicMissile"
+}
