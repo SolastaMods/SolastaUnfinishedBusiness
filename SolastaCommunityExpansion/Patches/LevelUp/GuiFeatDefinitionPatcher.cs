@@ -10,7 +10,7 @@ using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
 
-[HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
+[HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMatchingPrerequisites")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
 {
