@@ -13,43 +13,6 @@ public static class ExtraAttacksOnActionPanel
     /**
      * Patch implementation
      * Used to allow multiple attacks on action panel
-     * Uses attack mode from cursor's ActionParams, instead of first one matching action type
-     * Without this when you click on any attack in actions panel targeting would work as if you clicked on the 1st
-     */
-    public static void ApplyCursorLocationSelectTargetTranspile(List<CodeInstruction> instructions)
-    {
-        var insertionIndex = instructions.FindIndex(x => x.opcode == OpCodes.Ldloc_2);
-
-        if (insertionIndex <= 0)
-        {
-            return;
-        }
-
-        var method = new Func<RulesetAttackMode, CursorLocationSelectTarget, RulesetAttackMode>(
-            GetAttackModeFromCursorActionParams).Method;
-
-        instructions.InsertRange(insertionIndex + 1,
-            new[]
-            {
-                new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Call, method),
-                new CodeInstruction(OpCodes.Stloc_2), new CodeInstruction(OpCodes.Ldloc_2)
-            });
-    }
-
-    private static RulesetAttackMode GetAttackModeFromCursorActionParams(RulesetAttackMode def,
-        CursorLocationSelectTarget cursor)
-    {
-        if (cursor == null)
-        {
-            return def;
-        }
-
-        return cursor.ActionParams?.AttackMode ?? def;
-    }
-
-    /**
-     * Patch implementation
-     * Used to allow multiple attacks on action panel
      * Adds extra items to the action panel if character has more than 1 attack mode available for action type of this panel
      */
     public static void AddExtraAttackItems(CharacterActionPanel panel)
