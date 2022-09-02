@@ -36,7 +36,7 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
                 return -1;
             }
 
-            var subPowers = PowerBundleContext.GetBundle(masterPower)?.SubPowers;
+            var subPowers = masterPower.GetBundle()?.SubPowers;
             return subPowers?.FindIndex(p => p == power) ?? -1;
         }
     }

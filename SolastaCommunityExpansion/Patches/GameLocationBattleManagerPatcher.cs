@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -6,6 +7,7 @@ using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
+using TA;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -50,6 +52,115 @@ internal static class GameLocationBattleManagerPatcher
             {
                 __result = canAttack(attackParams.attacker, attackParams.defender);
             }
+        }
+    }
+    
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMoveStart")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleCharacterMoveStart_Patch
+    {
+        internal static void Prefix(GameLocationBattleManager __instance,
+            GameLocationCharacter mover,
+            int3 destination
+        )
+        {
+            //PATCH: support for Polearm Expert AoO
+            //Stores character movements to be processed later
+            AttacksOfOpportunity.ProcessOnCharacterMoveStart(mover, destination);
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMoveEnd")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleCharacterMoveEnd_Patch
+    {
+        internal static void Prefix(GameLocationCharacter mover)
+        {
+            //PATCH: support for conditions that trigger on movement end
+            //Mostly for Magus's `Rupture Strike`
+            //TODO: move this code to separate file
+            
+            if (mover.RulesetCharacter.isDeadOrDyingOrUnconscious)
+            {
+                return;
+            }
+
+            var matchingOccurenceConditions = new List<RulesetCondition>();
+            foreach (var item2 in mover.RulesetCharacter.ConditionsByCategory
+                         .SelectMany(item => item.Value))
+            {
+                switch (item2.endOccurence)
+                {
+                    case (RuleDefinitions.TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd:
+                        matchingOccurenceConditions.Add(item2);
+                        break;
+                }
+            }
+
+            var effectManager =
+                ServiceRepository.GetService<IWorldLocationSpecialEffectsService>() as
+                    WorldLocationSpecialEffectsManager;
+
+            foreach (var condition in matchingOccurenceConditions)
+            {
+                Main.Log($"source character GUID {condition.sourceGuid}");
+
+                if (effectManager != null)
+                {
+                    effectManager.ConditionAdded(mover.RulesetCharacter, condition, true);
+                    mover.RulesetActor.ExecuteRecurrentForms(condition);
+                    effectManager.ConditionRemoved(mover.RulesetCharacter, condition);
+                }
+
+                if (condition.HasFinished && !condition.IsDurationDefinedByEffect())
+                {
+                    mover.RulesetActor.RemoveCondition(condition);
+                    mover.RulesetActor.ProcessConditionDurationEnded(condition);
+                }
+                else if (condition.CanSaveToCancel && condition.HasSaveOverride)
+                {
+                    mover.RulesetActor.SaveToCancelCondition(condition);
+                }
+                else
+                {
+                    mover.RulesetActor.ConditionOccurenceReached?.Invoke(mover.RulesetActor, condition);
+                }
+            }
+        }
+
+        internal static IEnumerator Postfix(
+            IEnumerator __result,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter mover
+        )
+        {
+            //PATCH: support for Polearm Expert AoO
+            //processes saved movenent to trigger AoO when appropriate
+            
+            while (__result.MoveNext())
+            {
+                yield return __result.Current;
+            }
+
+            var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
+
+            while (extraEvents.MoveNext())
+            {
+                yield return extraEvents.Current;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "PrepareBattleEnd")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class PrepareBattleEnd_Patch
+    {
+        internal static void Prefix(GameLocationBattleManager __instance)
+        {
+            //PATCH: support for Polearm Expert AoO
+            //clears movement cache on battle end
+            
+            AttacksOfOpportunity.CleanMovingCache();
         }
     }
 }

@@ -251,4 +251,53 @@ internal static class RulesetCharacterPatcher
             Global.ElvenAccuracyHero = null;
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "IsSubjectToAttackOfOpportunity")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class IsSubjectToAttackOfOpportunity_Patch
+    {
+        // ReSharper disable once RedundantAssignment
+        internal static void Postfix(RulesetCharacter __instance, ref bool __result, RulesetCharacter attacker)
+        {
+            //PATCH: allows custom exceptions for attack of opportunity triggering
+            //Mostly for Sentinel feat
+            __result = AttacksOfOpportunity.IsSubjectToAttackOfOpportunity(__instance, attacker, __result);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "ComputeSpellAttackBonus")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ComputeSpellAttackBonus_Patch
+    {
+        // ReSharper disable once RedundantAssignment
+        internal static void Postfix(RulesetCharacter __instance, ref int __result)
+        {
+            //PATCH: support for `IIncreaseSpellAttackRoll`
+            //Adds extra modifiers to spell attack
+            
+            var features = __instance.GetSubFeaturesByType<IIncreaseSpellAttackRoll>();
+            foreach (var feature in features)
+            {
+                var modifer = feature.GetSpellAttackRollModifier(__instance);
+                __result += modifer;
+                __instance.magicAttackTrends.Add(new RuleDefinitions.TrendInfo(modifer, feature.sourceType,
+                    feature.sourceName, null));
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "ComputeSaveDC")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ComputeSaveDC_Patch
+    {
+        // ReSharper disable once RedundantAssignment
+        internal static void Postfix(RulesetCharacter __instance, ref int __result)
+        {
+            //PATCH: support for `IIncreaseSpellDC`
+            //Adds extra modifiers to spell DC
+            
+            var features = __instance.GetSubFeaturesByType<IIncreaseSpellDC>();
+            __result += features.Where(feature => feature != null).Sum(feature => feature.GetSpellModifier(__instance));
+        }
+    }
 }
