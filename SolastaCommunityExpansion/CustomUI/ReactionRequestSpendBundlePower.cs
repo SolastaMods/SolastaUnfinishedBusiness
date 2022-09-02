@@ -54,10 +54,10 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
 
         var actingCharacter = ReactionParams.ActingCharacter;
         var rulesetCharacter = actingCharacter.RulesetCharacter;
-        var subPowers = masterPower.GetBundleSubPowers();
+        var bundle = masterPower.GetBundle();
         var selected = false;
 
-        if (subPowers == null)
+        if (bundle == null)
         {
             return;
         }
@@ -66,7 +66,7 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
 
         var i = 0;
 
-        foreach (var p in subPowers)
+        foreach (var p in bundle.SubPowers)
         {
             var canUsePower = CanUsePower(rulesetCharacter, p);
             Main.Log($"Can use {p.Name} = {canUsePower}");

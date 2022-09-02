@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 
@@ -32,21 +33,13 @@ public static class PowerBundleContext
             throw new Exception($"Bundle '{masterPower.name}' already registered!");
         }
 
-        var bundle = new Bundle();
-        bundle.SubPowers.AddRange(subPowers);
-        bundle.TerminateAll = terminateAll;
-
+        var bundle = new Bundle(masterPower, subPowers, terminateAll);
         Bundles.Add(masterPower, bundle);
-
-        var masterSpell = RegisterPower(masterPower);
-        var subSpells = bundle.SubPowers.Select(RegisterPower).ToList();
-
-        masterSpell.SubspellsList.AddRange(subSpells);
     }
 
 
     [CanBeNull]
-    public static Bundle GetBundle([CanBeNull] FeatureDefinitionPower master)
+    public static Bundle GetBundle([CanBeNull] this FeatureDefinitionPower master)
     {
         if (master == null)
         {
@@ -86,7 +79,7 @@ public static class PowerBundleContext
             return Powers2Spells[power];
         }
 
-        var spell = SpellDefinitionBuilder.Create("Spell" + power.name, GuidNamespace)
+        var spell = SpellDefinitionBuilder.Create($"CEPowerBundle_{power.name}_Spell", GuidNamespace)
             .SetGuiPresentation(power.GuiPresentation)
             .AddToDB();
         Spells2Powers[spell] = power;
@@ -103,7 +96,7 @@ public static class PowerBundleContext
     [CanBeNull]
     public static FeatureDefinitionPower GetPower(string name)
     {
-        return Powers2Spells.Keys.FirstOrDefault(p => p.Name == name);
+        return Bundles.Keys.FirstOrDefault(p => p.Name == name);
     }
 
     [NotNull]
@@ -174,9 +167,32 @@ public static class PowerBundleContext
          * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
          * from this bundle can be in effect
          */
-        public bool TerminateAll { get; internal set; }
+        public bool TerminateAll { get; }
 
-        public List<FeatureDefinitionPower> SubPowers { get; } = new();
+        public List<FeatureDefinitionPower> SubPowers { get; }
+
+        // public FeatureDefinitionPower MasterPower { get; }
+
+        //May be needed to hold powers for some native widgets
+        // public FeatureDefinitionFeatureSet PowerSet { get; }
+
+        public RulesetSpellRepertoire Repertoire { get; }
+
+        public Bundle(FeatureDefinitionPower masterPower, IEnumerable<FeatureDefinitionPower> subPowers,
+            bool terminateAll)
+        {
+            // MasterPower = masterPower;
+            SubPowers = new List<FeatureDefinitionPower>(subPowers);
+            TerminateAll = terminateAll;
+
+            var subSpells = SubPowers.Select(RegisterPower).ToList();
+
+            Repertoire = new RulesetSpellRepertoire();
+            Repertoire.KnownSpells.AddRange(subSpells);
+
+            var masterSpell = RegisterPower(masterPower);
+            masterSpell.SubspellsList.AddRange(subSpells);
+        }
     }
 
     /**
@@ -188,7 +204,8 @@ public static class PowerBundleContext
     {
         var masterPower = box.usablePower.PowerDefinition;
 
-        if (GetBundle(masterPower) == null)
+        var bundle = GetBundle(masterPower);
+        if (bundle == null)
         {
             return true;
         }
@@ -198,94 +215,21 @@ public static class PowerBundleContext
             return true;
         }
 
-        var masterSpell = GetSpell(masterPower);
-
-        if (masterSpell == null)
+        var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+        subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, power =>
         {
-            return true;
-        }
-
-        var repertoire = new RulesetSpellRepertoire();
-        repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
-
-        //TODO: find a way to re-use same widget, but without resorting to fake spells creation
-        var subspellSelectionModalScreen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
-        subspellSelectionModalScreen.Bind(masterSpell, box.activator, repertoire, (_, spell, _) =>
-        {
-            var power = GetPower(spell);
-            var engagedHandler = box.powerEngaged;
-            var activator = box.activator;
-
-            engagedHandler(UsablePowersProvider.Get(power, activator));
-        }, 0, box.RectTransform);
-        subspellSelectionModalScreen.Show();
+            //Note: ideal solution would be to patch `Unbind` of `UsablePowerBox` to auto close selector, instead of this check
+            if (box != null && box.powerEngaged != null)
+            {
+                box.powerEngaged(power);
+            }
+        }, box.RectTransform);
+        subpowerSelectionModal.Show();
 
         return false;
     }
 
-    /**
-     * Patch implementation
-     * Replaces tooltip and name on the item with ones from actual sub-power that is being substituted
-     */
-    internal static bool ModifySubspellItemBind(
-        SubspellItem __instance,
-        RulesetCharacter caster,
-        SpellDefinition spellDefinition,
-        int index,
-        SubspellItem.OnActivateHandler onActivate)
-    {
-        var power = GetPower(spellDefinition);
-
-        if (power == null)
-        {
-            return true;
-        }
-
-        __instance.index = index;
-
-        var guiPowerDefinition =
-            ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
-        __instance.spellTitle.Text = guiPowerDefinition.Title;
-
-        //add info about remaining spell slots if powers consume them
-        // var usablePower = caster.GetPowerFromDefinition(power);
-        // if (usablePower != null && power.rechargeRate == RuleDefinitions.RechargeRate.SpellSlot)
-        // {
-        //     var power_info = Helpers.Accessors.getNumberOfSpellsFromRepertoireOfSpecificSlotLevelAndFeature(power.costPerUse, caster, power.spellcastingFeature);
-        //     instance.spellTitle.Text += $"   [{power_info.remains}/{power_info.total}]";
-        // }
-
-        __instance.tooltip.TooltipClass = guiPowerDefinition.TooltipClass;
-        __instance.tooltip.Content = power.GuiPresentation.Description;
-        __instance.tooltip.DataProvider = guiPowerDefinition;
-        __instance.tooltip.Context = caster;
-
-        __instance.onActivate = onActivate;
-
-        return false;
-    }
-
-    /**
-     * Patch implementation
-     * Replaces how subspell activates for bundled powers
-     */
-    internal static bool CheckSubSpellActivated(SubspellSelectionModal selection, int index)
-    {
-        var masterPower = GetPower(selection.masterSpell);
-
-        if (masterPower == null || selection.spellCastEngaged == null)
-        {
-            return true;
-        }
-
-        var repertoire = selection.spellRepertoire;
-        selection.spellCastEngaged(repertoire, repertoire.KnownSpells[index], selection.slotLevel);
-
-        selection.Hide();
-
-        return false;
-    }
-
+    //TODO: decide if we need this, or can re-use native method of rest bundle powers
     /**
      * Patch implementation
      * Makes after rest action activation show sub-power selection for bundled powers
@@ -305,31 +249,22 @@ public static class PowerBundleContext
         }
 
         var masterPower = GetPower(activity.StringParameter);
-        var masterSpell = masterPower ? GetSpell(masterPower) : null;
+        var bundle = masterPower ? masterPower.GetBundle() : null;
 
-        if (!masterSpell)
+        if (bundle == null)
         {
             return true;
         }
 
-        var repertoire = new RulesetSpellRepertoire();
-        var subspellSelectionModalScreen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
-        var handler = new SpellsByLevelBox.SpellCastEngagedHandler((_, spell, _) =>
+        var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+        subpowerSelectionModal.Bind(bundle.SubPowers, instance.Hero, rulesetPower =>
         {
             instance.button.interactable = false;
 
-            var power = GetPower(spell)?.Name;
-            if (power != null)
-            {
-                ServiceRepository.GetService<IGameRestingService>()
-                    .ExecuteAsync(ExecuteAsync(instance, power), power);
-            }
-        });
-
-        repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
-
-        subspellSelectionModalScreen.Bind(masterSpell, instance.Hero, repertoire, handler, 0, instance.RectTransform);
-        subspellSelectionModalScreen.Show();
+            var power = rulesetPower.powerDefinition.Name;
+            ServiceRepository.GetService<IGameRestingService>().ExecuteAsync(ExecuteAsync(instance, power), power);
+        }, instance.RectTransform);
+        subpowerSelectionModal.Show();
 
         return false;
     }

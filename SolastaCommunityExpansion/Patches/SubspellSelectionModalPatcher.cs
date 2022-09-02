@@ -2,7 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.SrdAndHouseRules;
 using UnityEngine;
 
@@ -17,13 +16,7 @@ internal static class SubspellSelectionModalPatcher
         internal static bool Prefix(SubspellSelectionModal __instance, int index)
         {
             //PATCH: customizes subspell activation for upcasted elementals/fey
-            if (!UpcastConjureElementalAndFey.CheckSubSpellActivated(__instance, index))
-            {
-                return false;
-            }
-
-            //PATCH: customizes subspell activation for power bundles
-            return PowerBundleContext.CheckSubSpellActivated(__instance, index);
+            return UpcastConjureElementalAndFey.CheckSubSpellActivated(__instance, index);
         }
     }
 
