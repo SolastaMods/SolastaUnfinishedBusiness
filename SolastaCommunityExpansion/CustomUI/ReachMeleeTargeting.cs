@@ -38,9 +38,7 @@ public static class ReachMeleeTargeting
         RulesetAttackMode attackMode)
     {
         var reachRange = attackMode.ReachRange;
-        var validDestinations =
-            cursor.validDestinations;
-
+        var validDestinations = cursor.validDestinations;
         if (cursor.BattleService.IsWithinXCells(actor, target, reachRange) || validDestinations.Empty())
         {
             return true;
@@ -55,18 +53,32 @@ public static class ReachMeleeTargeting
 
         foreach (var destination in validDestinations)
         {
-            if (!battleBoundingBox.Contains(destination.position) || (foundDestination &&
-                                                                      destination.moveCost >= current.moveCost &&
-                                                                      (destination.moveCost != current.moveCost ||
-                                                                       !((destination.position - actorPosition)
-                                                                           .magnitudeSqr < distance))))
+            if (battleBoundingBox.Contains(destination.position))
             {
-                continue;
-            }
+                bool better;
+                if (foundDestination && destination.moveCost >= current.moveCost)
+                {
+                    if (destination.moveCost == current.moveCost)
+                    {
+                        better = (destination.position - actorPosition).magnitudeSqr < distance;
+                    }
+                    else
+                    {
+                        better = false;
+                    }
+                }
+                else
+                {
+                    better = true;
+                }
 
-            current = destination;
-            distance = (current.position - actorPosition).magnitudeSqr;
-            foundDestination = true;
+                if (better)
+                {
+                    current = destination;
+                    distance = (current.position - actorPosition).magnitudeSqr;
+                    foundDestination = true;
+                }
+            }
         }
 
         if (foundDestination)
