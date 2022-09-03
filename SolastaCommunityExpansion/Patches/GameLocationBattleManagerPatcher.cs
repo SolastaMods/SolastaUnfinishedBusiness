@@ -163,4 +163,32 @@ internal static class GameLocationBattleManagerPatcher
             AttacksOfOpportunity.CleanMovingCache();
         }
     }
+    
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackFinished")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleCharacterAttackFinished
+    {
+        internal static IEnumerator Postfix(
+            IEnumerator __result,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode
+        )
+        {
+            while (__result.MoveNext())
+            {
+                yield return __result.Current;
+            }
+
+            var extraEvents =
+                AttacksOfOpportunity.ProcessOnCharacterAttackFinished(__instance, attacker, defender,
+                    attackerAttackMode);
+
+            while (extraEvents.MoveNext())
+            {
+                yield return extraEvents.Current;
+            }
+        }
+    }
 }
