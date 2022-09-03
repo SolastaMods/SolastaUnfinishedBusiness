@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 
@@ -238,7 +239,7 @@ internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
             .SetUsesFixed(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
             .SetShowCasting(false)
-            .SetCustomSubFeatures(CharacterValidators.OffHandHasLightSource)
+            .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.OffHandHasLightSource))
             .AddToDB();
     }
 }
