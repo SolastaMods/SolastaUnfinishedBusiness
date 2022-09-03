@@ -123,8 +123,7 @@ public static class CharacterValidators
                 var offItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
                     .EquipedItem;
 
-                return offItem != null && offItem.ItemDefinition != null && offItem.ItemDefinition.IsLightSourceItem
-                    ;
+                return offItem != null && offItem.ItemDefinition != null && offItem.ItemDefinition.IsLightSourceItem;
             }
             default:
                 return false;
