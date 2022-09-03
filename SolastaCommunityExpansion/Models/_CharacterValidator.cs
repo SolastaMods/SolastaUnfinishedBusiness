@@ -111,4 +111,23 @@ public static class CharacterValidators
                    hero.activeFeatures.Any(item => item.Value.Contains(feature));
         };
     }
+
+    public static readonly CharacterValidator OffHandHasLightSource = character =>
+    {
+        switch (character)
+        {
+            case null:
+                return false;
+            case RulesetCharacterHero hero:
+            {
+                var offItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
+                    .EquipedItem;
+
+                return offItem != null && offItem.ItemDefinition != null && offItem.ItemDefinition.IsLightSourceItem
+                    ;
+            }
+            default:
+                return false;
+        }
+    };
 }
