@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel;
+namespace SolastaCommunityExpansion.Patches;
 
 internal static class PowerSelectionPanelPatcher
 {

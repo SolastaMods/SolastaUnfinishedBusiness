@@ -5,6 +5,8 @@ using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 
 namespace SolastaCommunityExpansion.Feats;
@@ -229,7 +231,7 @@ internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
         burnDescription.EffectForms.Clear();
         burnDescription.EffectForms.Add(burnEffect);
 
-        return FeatureDefinitionConditionalPowerBuilder
+        return FeatureDefinitionPowerBuilder
             .Create("PowerTorchbearer", TorchbearerGuid)
             .SetGuiPresentation(Category.Feature)
             .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
@@ -237,19 +239,7 @@ internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
             .SetUsesFixed(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
             .SetShowCasting(false)
-            .SetIsActive(IsActive).AddToDB();
-    }
-
-    private static bool IsActive([CanBeNull] RulesetCharacterHero hero)
-    {
-        if (hero == null)
-        {
-            return false;
-        }
-
-        var offItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
-            .EquipedItem;
-
-        return offItem != null && offItem.ItemDefinition != null && offItem.ItemDefinition.IsLightSourceItem;
+            .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.OffHandHasLightSource))
+            .AddToDB();
     }
 }
