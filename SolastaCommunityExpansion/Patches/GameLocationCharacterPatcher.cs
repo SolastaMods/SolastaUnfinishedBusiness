@@ -80,6 +80,7 @@ internal static class GameLocationCharacterPatcher
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
+            //PATCH: support for `IOnAttackHitEffect` - calls before attack handlers
             var character = __instance.RulesetCharacter;
 
             if (character == null)
@@ -108,6 +109,7 @@ internal static class GameLocationCharacterPatcher
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
+            //PATCH: support for `IOnAttackHitEffect` - calls after attack handlers
             var character = __instance.RulesetCharacter;
             if (character == null)
             {

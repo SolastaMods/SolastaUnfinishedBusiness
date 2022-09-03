@@ -176,6 +176,7 @@ internal static class GameLocationBattleManagerPatcher
             RulesetAttackMode attackerAttackMode
         )
         {
+            //PATCH: support for Sentinel feat - allows reaction attack on enemy atatcking ally 
             while (__result.MoveNext())
             {
                 yield return __result.Current;
