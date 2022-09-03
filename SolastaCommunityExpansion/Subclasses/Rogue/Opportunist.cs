@@ -23,25 +23,34 @@ internal sealed class Opportunist : AbstractSubclass
         return CreateOpportunist();
     }
 
-    private static void QuickStrikeOnAttackDelegate([CanBeNull] GameLocationCharacter attacker,
-        [CanBeNull] GameLocationCharacter defender,
-        ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
+    private static void QuickStrikeOnAttackDelegate(
+        RulesetCharacter attacker,
+        ref RulesetAttackMode attackMode,
+        RulesetActor target,
+        BaseDefinition attackMethod, // usually the weapon use to attack
+        ref List<RuleDefinitions.TrendInfo> toHitTrends,
+        bool ignoreAdvantage,
+        ref List<RuleDefinitions.TrendInfo> advantageTrends,
+        bool opportunity,
+        int rollModifier)
     {
-        // melee attack only
-        if (attacker == null || defender == null)
+        Main.Log($"{advantageTrends}", true);
+        if (attacker == null || target == null)
         {
             return;
         }
 
+        var hero = GameLocationCharacter.GetFromActor(attacker);
+        var defender = GameLocationCharacter.GetFromActor(target);
+
         // grant advantage if attacker is performing an opportunity attack or has higher initiative.
-        if (attacker.LastInitiative > defender.LastInitiative ||
-            (attackerAttackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
-             attacker.GetActionStatus(ActionDefinitions.Id.AttackOpportunity,
-                 ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available))
+        if ((hero.LastInitiative <= defender.LastInitiative) && !opportunity)
         {
-            attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1,
-                RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", attacker));
+            return;
         }
+        
+        advantageTrends.Add(new RuleDefinitions.TrendInfo(1,
+            RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", attacker));
     }
 
     private static CharacterSubclassDefinition CreateOpportunist()
@@ -50,10 +59,10 @@ internal sealed class Opportunist : AbstractSubclass
 
         // Grant advantage when attack enemies whose initiative is lower than your
         // or when perform an attack of opportunity.
-        var quickStrike = FeatureDefinitionOnAttackEffectBuilder
+        var quickStrike = FeatureDefinitionOnRollAttackModeBuilder
             .Create("RoguishOppotunistQuickStrike", subclassNamespace)
             .SetGuiPresentation("OpportunistQuickStrike", Category.Feature)
-            .SetOnAttackDelegates(QuickStrikeOnAttackDelegate, null)
+            .SetOnRollAttackModeDelegate(QuickStrikeOnAttackDelegate)
             .AddToDB();
 
         var debilitatingStrikeEffectBuilder = new EffectDescriptionBuilder()

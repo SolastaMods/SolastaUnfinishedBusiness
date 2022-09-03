@@ -161,7 +161,34 @@ internal static class RulesetCharacterPatcher
     [HarmonyPatch(typeof(RulesetCharacter), "RollAttackMode")]
     internal static class RollAttackMode_Patch
     {
+        // PATCH: support IOnRollAttackMode
+        // Basically everything that can modify to hit attack and advantage trends should come here
         internal static void Prefix(
+            RulesetCharacter __instance,
+            ref RulesetAttackMode attackMode,
+            RulesetActor target,
+            BaseDefinition attackMethod, // usually the weapon use to attack
+            ref List<RuleDefinitions.TrendInfo> toHitTrends,
+            bool ignoreAdvantage,
+            ref List<RuleDefinitions.TrendInfo> advantageTrends,
+            bool opportunity,
+            int rollModifier,
+            bool testMode)
+        {
+            // I don't know why TA think embedding testMode flag to their code is a good idea.
+            if (!testMode)
+            {
+                return;
+            }
+            
+            var features = __instance.GetSubFeaturesByType<IOnRollAttackMode>();
+            foreach (var feature in features)
+            {
+                feature.OnRollAttackMode(__instance, ref attackMode, target, attackMethod, ref toHitTrends, ignoreAdvantage, ref advantageTrends, opportunity, rollModifier);
+            }
+        }
+        
+        /*internal static void Prefix(
             RulesetCharacter __instance,
             RulesetAttackMode attackMode,
             bool ignoreAdvantage,
@@ -193,7 +220,7 @@ internal static class RulesetCharacterPatcher
             {
                 Global.ElvenAccuracyHero = hero;
             }
-        }
+        }*/
 
         internal static void Postfix(ref int __result)
         {

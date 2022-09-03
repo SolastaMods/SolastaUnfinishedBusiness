@@ -27,7 +27,7 @@ internal static class RulesetActorPatcher
         }
     }
     
-     [HarmonyPatch(typeof(RulesetActor), "RollDie")]
+    [HarmonyPatch(typeof(RulesetActor), "RollDie")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RollDie_Patch
     {
@@ -70,7 +70,7 @@ internal static class RulesetActorPatcher
 
             var flag = rollAlterationScore != 0.0;
             var rolls = new int[3];
-
+            
             rolls[0] = flag
                 ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
                 : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);

@@ -26,25 +26,34 @@ internal sealed class TitanFighting : AbstractFightingStyle
 
     internal override FightingStyleDefinition GetStyle()
     {
-        void TitanFightingOnAttackDelegate([CanBeNull] GameLocationCharacter attacker,
-            [CanBeNull] GameLocationCharacter defender,
-            ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
+        void TitanFightingRollAttackMode(
+            RulesetCharacter attacker,
+            ref RulesetAttackMode attackMode, 
+            RulesetActor target,
+            BaseDefinition attackMethod,
+            ref List<RuleDefinitions.TrendInfo> toHitTrends,
+            bool ignoreAdvantage, 
+            ref List<RuleDefinitions.TrendInfo> advantageTrends,
+            bool opportunity, 
+            int rollModifier)
         {
             // melee attack only
-            if (attacker == null || defender == null)
+            if (attacker == null || target == null)
             {
                 return;
             }
 
+            var defender = GameLocationCharacter.GetFromActor(target);
             // grant +2 hit if defender is large or bigger
+            // temporary disable for debug
             if (defender.RulesetCharacter.SizeDefinition != Large && defender.RulesetCharacter.SizeDefinition != Huge &&
                 defender.RulesetCharacter.SizeDefinition != Gargantuan)
             {
                 return;
             }
-
-            attackerAttackMode.toHitBonus += 2;
-            attackModifier.AttacktoHitTrends.Add(
+            
+            attackMode.toHitBonus += 2;
+            toHitTrends.Add(
                 new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle,
                     "TitanFighting", this));
         }
@@ -54,10 +63,10 @@ internal sealed class TitanFighting : AbstractFightingStyle
             return instance;
         }
 
-        var titanFightingAttackModifier = FeatureDefinitionOnAttackEffectBuilder
+        var titanFightingAttackModifier = FeatureDefinitionOnRollAttackModeBuilder
             .Create("TitanFightingAttackModifier", titanFightingBaseGuid)
             .SetGuiPresentationNoContent()
-            .SetOnAttackDelegates(TitanFightingOnAttackDelegate, null)
+            .SetOnRollAttackModeDelegate(TitanFightingRollAttackMode)
             .AddToDB();
 
         instance = CustomizableFightingStyleBuilder
