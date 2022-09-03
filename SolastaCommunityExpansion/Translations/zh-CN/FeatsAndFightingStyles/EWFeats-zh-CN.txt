@@ -6,3 +6,7 @@ Feat/&FeatRangedExpertDescription=你擅于使用远程武器，获得以下增�
 Feat/&FeatRangedExpertTitle=远程武器大师
 Feat/&FeatSentinelDescription=你掌握的技术使你在击破敌人防御时占尽优势，获得以下增益：\n• 当你借机攻击命中一个生物时，其在本回合剩余时间内移动速度降至0\n• 生物即使执行撤离动作离开你的触及范围也会引发你的借机攻击\n•=处于你触及范围内的生物（其无本专长）对除你外的目标发动攻击后，你能以反应对此攻击者发动一次近战攻击
 Feat/&FeatSentinelTitle=哨兵
+Reaction/&ReactionAttackFeatSentinelDescription={0}攻击了你的盟友，你能以反应攻击
+Reaction/&ReactionAttackFeatSentinelReactDescription=以反应攻击
+Reaction/&ReactionAttackFeatSentinelReactTitle=攻击
+Reaction/&ReactionAttackFeatSentinelTitle=哨兵反应

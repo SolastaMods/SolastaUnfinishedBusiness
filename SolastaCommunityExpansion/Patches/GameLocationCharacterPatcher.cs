@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.CustomUI;
@@ -67,7 +68,63 @@ internal static class GameLocationCharacterPatcher
             __result = ExtraAttacksOnActionPanel.FindExtraActionAttackModes(__instance, __result, actionId);
         }
     }
-    
+
+    [HarmonyPatch(typeof(GameLocationCharacter), "AttackOn")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class AttackOn
+    {
+        internal static void Prefix(
+            [NotNull] GameLocationCharacter __instance,
+            GameLocationCharacter target,
+            RuleDefinitions.RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            //PATCH: support for `IOnAttackHitEffect` - calls before attack handlers
+            var character = __instance.RulesetCharacter;
+
+            if (character == null)
+            {
+                return;
+            }
+
+            var features = character.GetSubFeaturesByType<IOnAttackHitEffect>();
+
+            foreach (var effect in features)
+            {
+                effect.BeforeOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), "AttackImpactOn")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class AttackImpactOn
+    {
+        internal static void Prefix(
+            [NotNull] GameLocationCharacter __instance,
+            GameLocationCharacter target,
+            RuleDefinitions.RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            //PATCH: support for `IOnAttackHitEffect` - calls after attack handlers
+            var character = __instance.RulesetCharacter;
+            if (character == null)
+            {
+                return;
+            }
+
+            var features = character.GetSubFeaturesByType<IOnAttackHitEffect>();
+            foreach (var effect in features)
+            {
+                effect.AfterOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
+            }
+        }
+    }
+
     // Yes the actual game typos this it is "OnPower" and not the expected "OnePower"
     //
     // this patch shouldn't be protected
@@ -81,6 +138,7 @@ internal static class GameLocationCharacterPatcher
         internal static void Postfix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType,
             ref bool __result, bool accountDelegatedPowers)
         {
+            //PATCH: hide power that doesnt meet IPowerUseValidity 
             var rulesetCharacter = __instance.RulesetCharacter;
             if (__result)
             {
@@ -106,6 +164,7 @@ internal static class GameLocationCharacterPatcher
             }
 
             {
+                //TODO: review if this is neccessary
                 if (!rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
                         rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
                         CanUsePower(rulesetCharacter, rulesetUsablePower) &&

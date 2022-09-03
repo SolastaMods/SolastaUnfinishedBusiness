@@ -8,6 +8,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomUI;
+using SolastaCommunityExpansion.Utils;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches;
@@ -33,13 +34,16 @@ internal static class CharacterReactionItemPatcher
 
             var bindIndex = codes.FindIndex(x => x.Calls(bind));
 
-            if (bindIndex <= 0)
+            if (bindIndex > 0)
             {
-                return codes.AsEnumerable();
+                codes[bindIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
+                codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_1));
             }
 
-            codes[bindIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
-            codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_1));
+            //PATCH: removes Trace.Assert() that checks if character has any spell repertoires
+            //this assert was added in 1.4.5 and triggers if non-spell caster does AoO
+            //happens because we replaced default AoO reaction with warcaster one, so they would merge properly when several are triggered at once
+            Transpile.RemoveBoolAsserts(codes);
 
             return codes.AsEnumerable();
         }

@@ -121,4 +121,18 @@ internal static class RulesetCharacterHeroPatcher
             FightingStyleContext.RefreshFightingStylesPatch(__instance);
         }
     }
+    
+    [HarmonyPatch(typeof(RulesetCharacterHero), "AcknowledgeAttackUse")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class AcknowledgeAttackUse
+    {
+        // ReSharper disable once RedundantAssignment
+        internal static void Prefix(RulesetCharacterHero __instance,
+            RulesetAttackMode mode)
+        {
+            //PATCH: supports turning Produced Flame into a weapon
+            //destroys Produced Flame after attacking with it
+            CustomWeaponsContext.ProcessProducedFlameAttack(__instance, mode);
+        }
+    }
 }
