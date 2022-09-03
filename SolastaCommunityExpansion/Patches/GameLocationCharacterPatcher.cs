@@ -125,7 +125,7 @@ internal static class GameLocationCharacterPatcher
             }
         }
     }
-    
+
     // Yes the actual game typos this it is "OnPower" and not the expected "OnePower"
     //
     // this patch shouldn't be protected
@@ -140,43 +140,27 @@ internal static class GameLocationCharacterPatcher
             ref bool __result, bool accountDelegatedPowers)
         {
             var rulesetCharacter = __instance.RulesetCharacter;
-            if (__result)
-            {
-                if (rulesetCharacter == null)
-                {
-                    return;
-                }
-
-                if (!rulesetCharacter.UsablePowers
-                        .Any(rulesetUsablePower => CanUsePower(rulesetCharacter, rulesetUsablePower)))
-                {
-                    __result = false;
-
-                    return;
-                }
-
-                __result = true;
-            }
-
             if (rulesetCharacter == null)
             {
                 return;
             }
 
+            if (__result)
             {
-                if (!rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
-                        rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
-                        CanUsePower(rulesetCharacter, rulesetUsablePower) &&
-                        (accountDelegatedPowers || !rulesetUsablePower.PowerDefinition.DelegatedToAction) &&
-                        !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
-                        actionType == ActionDefinitions.ActionType.Main &&
-                        rulesetUsablePower.PowerDefinition.ActivationTime is RuleDefinitions.ActivationTime.Minute1
-                            or RuleDefinitions.ActivationTime.Minute10 or RuleDefinitions.ActivationTime.Hours1
-                            or RuleDefinitions.ActivationTime.Hours24))
+                //PATCH: hide use power button if characvter has no valid powers
+                if (!rulesetCharacter.UsablePowers
+                        .Any(rulesetUsablePower => CanUsePower(rulesetCharacter, rulesetUsablePower)))
                 {
-                    return;
+                    __result = false;
                 }
-
+            }
+            //PATCH: force show power use button during exploration if it has at least one usable power
+            else if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress
+                     && actionType == ActionDefinitions.ActionType.Main
+                     && rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
+                         rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
+                         CanUsePower(rulesetCharacter, rulesetUsablePower)))
+            {
                 __result = true;
             }
         }
