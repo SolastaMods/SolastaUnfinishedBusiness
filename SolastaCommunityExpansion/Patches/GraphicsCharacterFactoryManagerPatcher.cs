@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.Insertion;
+namespace SolastaCommunityExpansion.Patches;
 
 public class GraphicsCharacterFactoryManagerPatcher
 {
@@ -18,6 +18,9 @@ public class GraphicsCharacterFactoryManagerPatcher
             RulesetItem rulesetItem,
             string slotName)
         {
+            //PATCH: Support for custom scaling of equipped items.
+            //Used to scale reach weapons and hand crossbows
+            
             var feature = rulesetItem.itemDefinition.GetFirstSubFeatureOfType<CustomScale>();
             if (feature == null)
             {
