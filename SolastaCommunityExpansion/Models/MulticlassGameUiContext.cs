@@ -1,16 +1,16 @@
 ﻿// using System;
-// using System.Collections.Generic;
-// using System.Linq;
+using System.Collections.Generic;
+using System.Linq;
 // using System.Text;
-// using JetBrains.Annotations;
-// using SolastaCommunityExpansion.Api.Infrastructure;
-// using UnityEngine;
+using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using UnityEngine;
 // using UnityEngine.UI;
-//
-// namespace SolastaCommunityExpansion.Models;
-//
-// public static class MulticlassGameUiContext
-// {
+
+namespace SolastaCommunityExpansion.Models;
+
+public static class MulticlassGameUiContext
+{
 //     private static readonly Color LightGreenSlot = new(0f, 1f, 0f, 1f);
 //     private static readonly Color WhiteSlot = new(1f, 1f, 1f, 1f);
 //     private static readonly float[] FontSizes = {17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f};
@@ -267,6 +267,240 @@
 //
 //         return builder.Remove(builder.Length - 1, 1).ToString();
 //     }
+
+    public static void SpellsByLevelGroupBindLearning(
+        [NotNull] SpellsByLevelGroup group,
+        [NotNull] ICharacterBuildingService characterBuildingService,
+        [NotNull] SpellListDefinition spellListDefinition,
+        List<string> restrictedSchools,
+        bool ritualOnly,
+        int spellLevel,
+        SpellBox.SpellBoxChangedHandler spellBoxChanged,
+        List<SpellDefinition> knownSpells,
+        List<SpellDefinition> unlearnedSpells,
+        [NotNull] string spellTag,
+        bool canAcquireSpells,
+        bool unlearn,
+        RectTransform tooltipAnchor,
+        TooltipDefinitions.AnchorMode anchorMode,
+        CharacterStageSpellSelectionPanel panel)
+    {
+        var localHeroCharacter = characterBuildingService.CurrentLocalHeroCharacter;
+        var heroBuildingData = localHeroCharacter.GetHeroBuildingData();
+        var pointPool = GetCurrentPool(panel, heroBuildingData);
+
+        group.extraSpellsMap.Clear();
+        group.spellsTable.gameObject.SetActive(true);
+        group.slotStatusTable.gameObject.SetActive(true);
+        group.SpellLevel = spellLevel;
+
+        var allSpells = spellListDefinition.SpellsByLevel[spellListDefinition.HasCantrips ? spellLevel : spellLevel - 1]
+            .Spells
+            .Where(spell => restrictedSchools.Count == 0 || restrictedSchools.Contains(spell.SchoolOfMagic))
+            .Where(spell => !ritualOnly || spell.Ritual)
+            .ToList();
+
+        allSpells.AddRange(characterBuildingService
+            .EnumerateKnownAndAcquiredSpells(heroBuildingData, string.Empty)
+            .Where(s => s.SpellLevel == spellLevel && !allSpells.Contains(s))
+        );
+
+        if (!spellTag.Contains(AttributeDefinitions.TagRace)) // this is a patch over original TA code
+        {
+            localHeroCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(group.features);
+
+            foreach (var spell in from FeatureDefinitionMagicAffinity feature in @group.features
+                     where feature.ExtendedSpellList != null
+                     from spell in feature.ExtendedSpellList
+                         .SpellsByLevel[spellListDefinition.HasCantrips ? spellLevel : spellLevel - 1].Spells
+                     where !allSpells.Contains(spell) &&
+                           (restrictedSchools.Count == 0 || restrictedSchools.Contains(spell.SchoolOfMagic))
+                     select spell)
+            {
+                allSpells.Add(spell);
+            }
+        }
+
+        var autoPrepareTag = string.Empty;
+
+        group.autoPreparedSpells.Clear();
+
+        if (group.SpellLevel > 0)
+        {
+            localHeroCharacter
+                .EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(group.features);
+
+            foreach (var feature in group.features.OfType<FeatureDefinitionAutoPreparedSpells>())
+            {
+                autoPrepareTag = feature.AutoPreparedTag;
+
+                foreach (var spells in from preparedSpellsGroup in feature.AutoPreparedSpellsGroups
+                         from spells in preparedSpellsGroup.SpellsList
+                         where spells.SpellLevel == @group.SpellLevel
+                         select spells)
+                {
+                    group.autoPreparedSpells.Add(spells);
+                }
+
+                foreach (var autoPreparedSpell in group.autoPreparedSpells.Where(autoPreparedSpell =>
+                             !allSpells.Contains(autoPreparedSpell)))
+                {
+                    allSpells.Add(autoPreparedSpell);
+                }
+            }
+        }
+
+        var service = ServiceRepository.GetService<IGamingPlatformService>();
+
+        for (var index = allSpells.Count - 1; index >= 0; --index)
+        {
+            if (!service.IsContentPackAvailable(allSpells[index].ContentPack))
+            {
+                allSpells.RemoveAt(index);
+            }
+        }
+
+        if (!spellTag.Contains(AttributeDefinitions.TagRace)) // this is a patch over original TA code
+        {
+            CollectAllAutoPreparedSpells(group, localHeroCharacter, allSpells, group.autoPreparedSpells);
+
+            FilterMulticlassBleeding(group, localHeroCharacter, allSpells, group.autoPreparedSpells, pointPool,
+                group.extraSpellsMap);
+        }
+
+        group.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
+            allSpells, null, null, group.autoPreparedSpells, unlearnedSpells, autoPrepareTag,
+            group.extraSpellsMap, tooltipAnchor, anchorMode);
+
+        if (unlearn)
+        {
+            group.RefreshUnlearning(characterBuildingService, knownSpells, unlearnedSpells, spellTag,
+                canAcquireSpells && spellLevel > 0);
+        }
+        else
+        {
+            group.RefreshLearning(characterBuildingService, knownSpells, unlearnedSpells, spellTag,
+                canAcquireSpells);
+        }
+
+        group.slotStatusTable.Bind(null, spellLevel, false, null, false);
+    }
+
+    private static PointPool GetCurrentPool(CharacterStageSpellSelectionPanel panel,
+        CharacterHeroBuildingData heroBuildingData)
+    {
+        var tag = string.Empty;
+        for (var index = 0; index < panel.learnStepsTable.childCount; ++index)
+        {
+            var child = panel.learnStepsTable.GetChild(index);
+            if (child.gameObject.activeSelf)
+            {
+                var component = child.GetComponent<LearnStepItem>();
+                var status = index != panel.currentLearnStep
+                    ? (index != panel.currentLearnStep - 1
+                        ? LearnStepItem.Status.Locked
+                        : LearnStepItem.Status.Previous)
+                    : LearnStepItem.Status.InProgress;
+                if (status == LearnStepItem.Status.InProgress)
+                    tag = component.Tag;
+            }
+        }
+
+        HeroDefinitions.PointsPoolType poolType;
+        if (panel.IsFinalStep)
+        {
+            tag = panel.allTags[panel.allTags.Count - 1];
+            poolType = panel.GetPoolTypeOfIndex(panel.currentLearnStep - 1);
+        }
+        else
+        {
+            poolType = panel.GetPoolTypeOfIndex(panel.currentLearnStep);
+        }
+
+        return ServiceRepository.GetService<ICharacterBuildingService>()
+            .GetPointPoolOfTypeAndTag(heroBuildingData, poolType, tag);
+    }
+
+    private static void FilterMulticlassBleeding(
+        [NotNull] SpellsByLevelGroup __instance,
+        [NotNull] RulesetCharacterHero caster,
+        [NotNull] List<SpellDefinition> allSpells,
+        [NotNull] List<SpellDefinition> autoPreparedSpells,
+        PointPool pointPool,
+        Dictionary<SpellDefinition, string> extraSpellsMap)
+    {
+        var spellsOverriden = pointPool.spellListOverride != null;
+        var spellLevel = __instance.SpellLevel;
+
+        // avoids auto prepared spells from other classes to bleed in
+        var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(caster)
+            .Where(x => x.SpellLevel == spellLevel).ToList();
+
+        autoPreparedSpells.SetRange(allowedAutoPreparedSpells);
+
+        //Select allowed spells - all spells if list is overriden by the pool, or all allowed spells of current level
+        var allowedSpells = spellsOverriden
+            ? new List<SpellDefinition>(allSpells)
+            : LevelUpContext.GetAllowedSpells(caster).Where(x => x.SpellLevel == spellLevel).ToList();
+
+        // displays known spells from other classes
+        if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
+        {
+            var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(caster)
+                .Where(x => x.SpellLevel == spellLevel).ToList();
+
+            allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Contains(x));
+
+            foreach (var spell in otherClassesKnownSpells)
+            {
+                if (!allSpells.Contains(spell))
+                {
+                    allSpells.Add(spell);
+                    if (!extraSpellsMap.ContainsKey(spell))
+                    {
+                        extraSpellsMap.Add(spell, "Multiclass");
+                    }
+                }
+
+                if (!Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(spell))
+                {
+                    autoPreparedSpells.TryAdd(spell);
+                }
+            }
+        }
+        // remove spells bleed from other classes
+        else
+        {
+            allSpells.RemoveAll(x => !allowedSpells.Contains(x));
+        }
+    }
+
+    private static void CollectAllAutoPreparedSpells(
+        [NotNull] SpellsByLevelGroup __instance,
+        [NotNull] RulesetActor hero,
+        [NotNull] List<SpellDefinition> allSpells,
+        [NotNull] ICollection<SpellDefinition> auToPreparedSpells)
+    {
+        // Collect all the auto prepared spells.
+        // Also filter the prepped spells by level this group is displaying.
+        hero.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(hero.FeaturesToBrowse);
+
+        foreach (var autoPreparedSpells in hero.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>())
+        {
+            foreach (var spell in from preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups
+                     from spell in preparedSpellsGroup.SpellsList
+                     let flag = !auToPreparedSpells.Contains(spell) && __instance.SpellLevel == spell.SpellLevel
+                     where flag
+                     select spell)
+            {
+                auToPreparedSpells.Add(spell);
+
+                // If a spell is not in all spells it won't be shown in the UI.
+                // Add the auto prepared spells here to make sure the user sees them.
+                allSpells.TryAdd(spell);
+            }
+        }
+    }
 //
 //     [CanBeNull]
 //     public static string GetLevelAndExperienceTooltip([NotNull] GuiCharacter character)
@@ -325,4 +559,4 @@
 //
 //         return builder.ToString();
 //     }
-// }
+}
