@@ -17,8 +17,10 @@ internal static class CeContentPackContext
     {
         var sprite = CustomIcons.CreateAssetReferenceSprite("ContentPack", Resources.ContentPack, 128);
 
+        //TODO: figure out how to fix CeContentPack being transfromed into '9999' by ToString in `FeatureDefinitionItem`
+        //it uses ToString on value cast to base enum (ContentPack) and since it doesn't have value for our 9999, it just returns it as number
         return ContentPackDefinitionBuilder
-            .Create("CommunityExpansionPack", DefinitionBuilder.CENamespaceGuid)
+            .Create(CeContentPack.ToString(), DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.ContentPack, sprite)
             .AddToDB();
     }
