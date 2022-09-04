@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Spells;
 
 namespace SolastaCommunityExpansion.Models;
@@ -140,6 +142,15 @@ internal static class SpellsContext
         }
 
         Spells.Add(spellDefinition);
+
+        //Add spells to `All Spells` list, so that Warlock's `Book of Anciant Secrets` and Bard's `Magic Secrets` would see them
+        DatabaseHelper.SpellListDefinitions.SpellListAllSpells.AddSpell(spellDefinition);
+
+        //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
+        if (spellDefinition.SpellLevel == 0)
+        {
+            DatabaseHelper.SpellListDefinitions.SpellListAllCantrips.AddSpell(spellDefinition);
+        }
 
         for (var i = 0; i < registeredSpellLists.Length; i++)
         {
