@@ -60,7 +60,6 @@ ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color>xport c
 ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableCtrlClickBypassAttackReactionPanel=Enable <color=#1E81B0>CTRL</color> click on attacks to ignore any reaction panel
 ModUi/&EnableCtrlClickBypassMetamagicPanel=Enable <color=#1E81B0>CTRL</color> click on spells to ignore the <color=#D89555>Sorcerer</color> metamagic panel
-ModUi/&EnableCtrlClickOnlySwapsMainHand=Enable <color=#1E81B0>CTRL</color> click to keep off hand items when swapping wielded configurations
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments\nyou must have at least one outdoor room if you pick an outdoor environment
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 6, 10 and 14

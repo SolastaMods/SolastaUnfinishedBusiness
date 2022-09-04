@@ -17,8 +17,7 @@ internal static class KeyboardAndMouseDisplay
         Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView &&
         Main.Settings.InvertAltBehaviorOnTooltips &&
         Main.Settings.EnableCtrlClickBypassMetamagicPanel &&
-        Main.Settings.EnableCtrlClickBypassAttackReactionPanel &
-        Main.Settings.EnableCtrlClickOnlySwapsMainHand;
+        Main.Settings.EnableCtrlClickBypassAttackReactionPanel;
 
     private static void UpdateSettings(bool flag)
     {
@@ -35,7 +34,6 @@ internal static class KeyboardAndMouseDisplay
         Main.Settings.EnableCtrlClickBypassMetamagicPanel = flag;
         Main.Settings.EnableCtrlClickBypassAttackReactionPanel = flag;
         Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = flag;
-        Main.Settings.EnableCtrlClickOnlySwapsMainHand = flag;
     }
 
     internal static void DisplayKeyboardAndMouse()
@@ -162,13 +160,6 @@ internal static class KeyboardAndMouseDisplay
             {
                 Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = toggle;
             }
-        }
-
-        toggle = Main.Settings.EnableCtrlClickOnlySwapsMainHand;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCtrlClickOnlySwapsMainHand"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCtrlClickOnlySwapsMainHand = toggle;
-            SelectAll = false;
         }
 
         #endregion

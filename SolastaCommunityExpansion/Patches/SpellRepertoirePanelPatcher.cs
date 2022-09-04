@@ -5,9 +5,9 @@ using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection;
+namespace SolastaCommunityExpansion.Patches;
 
-// allows prepared spell casters to take metamagic feats and have a working UI [otherwise sorcery points get off screen]
+//PATCH: allows prepared spell casters to take metamagic feats and have a working UI [otherwise sorcery points get off screen]
 [HarmonyPatch(typeof(SpellRepertoirePanel), "OnBeginShow")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class SpellRepertoirePanel_OnBeginShow
@@ -23,12 +23,12 @@ internal static class SpellRepertoirePanel_OnBeginShow
 
         rectTransform.sizeDelta = new Vector2(275, 32);
         __instance.sorceryPointsBox.localPosition = new Vector3(-920, 38, 0);
-
         __instance.RefreshNow();
     }
 }
 
-// // filters how spells and slots are displayed on inspection
+//TODO: Review this patch once spells UI stabilize in beta
+// filters how spells and slots are displayed on inspection
 // [HarmonyPatch(typeof(SpellRepertoirePanel), "Bind")]
 // [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class SpellRepertoirePanel_Bind

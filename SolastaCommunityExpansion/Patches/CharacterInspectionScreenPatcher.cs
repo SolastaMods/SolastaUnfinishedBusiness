@@ -3,9 +3,9 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection;
+namespace SolastaCommunityExpansion.Patches;
 
-// set the inspection context for MC heroes
+//PATCH: set the inspection context for MC heroes and get more real state for the toggles on top (Multiclass)
 [HarmonyPatch(typeof(CharacterInspectionScreen), "Bind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterInspectionScreen_Bind
@@ -16,30 +16,28 @@ internal static class CharacterInspectionScreen_Bind
 
         var transform = __instance.toggleGroup.transform;
 
-        // get more real state for the toggles on top (required for MC)
         transform.position = new Vector3(__instance.characterPlate.transform.position.x / 2f, transform.position.y, 0);
     }
 }
 
-// reset the inspection context for MC heroes
+//PATCH: resets the inspection context for MC heroes
+//PATCH: Enable Inventory Filtering and Sorting
 [HarmonyPatch(typeof(CharacterInspectionScreen), "Unbind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterInspectionScreen_Unbind
 {
     internal static void Prefix()
     {
-        if (Main.Settings.EnableInventoryFilteringAndSorting
-            && !Main.Settings.EnableGamepad
-            && !Global.IsMultiplayer)
+        Global.InspectedHero = null;
+        
+        if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer)
         {
             InventoryManagementContext.ResetControls();
         }
-
-        Global.InspectedHero = null;
     }
 }
 
-// reset the inspection context for MC heroes
+//PATCH: reset the inspection context for MC heroes
 [HarmonyPatch(typeof(CharacterInspectionScreen), "DoClose")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterInspectionScreen_DoClose

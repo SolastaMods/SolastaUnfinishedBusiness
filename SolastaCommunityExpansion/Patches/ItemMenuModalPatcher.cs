@@ -4,9 +4,9 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection;
+namespace SolastaCommunityExpansion.Patches;
 
-// allows mark deity to work with MC heroes
+//PATCH: allows mark deity to work with MC heroes (Multiclass)
 [HarmonyPatch(typeof(ItemMenuModal), "SetupFromItem")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class ItemMenuModal_SetupFromItem

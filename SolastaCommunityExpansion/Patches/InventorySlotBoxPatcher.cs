@@ -3,8 +3,9 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: Enable inventory taint non proficient items in red (paint them red)
 [HarmonyPatch(typeof(InventorySlotBox), "RefreshState")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class InventorySlotBox_RefreshState
@@ -16,9 +17,7 @@ internal static class InventorySlotBox_RefreshState
             return;
         }
 
-        if (!Main.Settings.EnableInventoryFilteringAndSorting
-            || Global.IsMultiplayer
-            || !Main.Settings.EnableInventoryTaintNonProficientItemsRed)
+        if (!Main.Settings.EnableInventoryTaintNonProficientItemsRed || Global.IsMultiplayer)
         {
             return;
         }
@@ -37,6 +36,7 @@ internal static class InventorySlotBox_RefreshState
     }
 }
 
+//PATCH: Enable inventory taint non proficient items in red (paint them back white)
 [HarmonyPatch(typeof(InventorySlotBox), "Unbind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class InventorySlotBox_Unbind
