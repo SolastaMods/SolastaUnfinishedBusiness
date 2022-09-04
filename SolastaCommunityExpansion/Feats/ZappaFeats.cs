@@ -198,6 +198,7 @@ internal static class ZappaFeats
                 .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(ValidateElvenAccuracy)
+                .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
         // Elven Accuracy (Intelligence)
@@ -207,6 +208,7 @@ internal static class ZappaFeats
                 .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(ValidateElvenAccuracy)
+                .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
         // Elven Accuracy (Wisdom)
@@ -216,6 +218,7 @@ internal static class ZappaFeats
                 .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(ValidateElvenAccuracy)
+                .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
         // Elven Accuracy (Charisma)
@@ -225,6 +228,7 @@ internal static class ZappaFeats
                 .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(ValidateElvenAccuracy)
+                .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
         // Fast Hands
@@ -655,4 +659,9 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 
         MetamagicTrained = false;
     }
+}
+
+internal sealed class ElvenPrecisionContext
+{
+    public bool Qualified { get; set; } = false;
 }

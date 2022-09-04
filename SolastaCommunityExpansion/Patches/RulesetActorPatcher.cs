@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using TA;
 using UnityEngine;
@@ -27,7 +28,7 @@ internal static class RulesetActorPatcher
         }
     }
     
-     [HarmonyPatch(typeof(RulesetActor), "RollDie")]
+    [HarmonyPatch(typeof(RulesetActor), "RollDie")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RollDie_Patch
     {
@@ -40,6 +41,8 @@ internal static class RulesetActorPatcher
             {
                 if (instruction.Calls(rollDieMethod))
                 {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0); // this (RulesetActor)
+                    yield return new CodeInstruction(OpCodes.Ldarg_2); // rollContext
                     yield return new CodeInstruction(OpCodes.Call, myRollDieMethod);
                 }
                 else
@@ -49,28 +52,43 @@ internal static class RulesetActorPatcher
             }
         }
 
-        // ReSharper disable once UnusedMember.Global
         public static int RollDie(
-            RuleDefinitions.DieType diceType,
+            RuleDefinitions.DieType dieType,
             RuleDefinitions.AdvantageType advantageType,
             out int firstRoll,
             out int secondRoll,
-            float rollAlterationScore)
+            float rollAlterationScore,
+            RulesetActor actor,
+            RuleDefinitions.RollContext rollContext
+            )
         {
-            //PATCH: support for `Elven Accuracy` feat
-            //rerolls dice when appropriate
-            
-            var hero = Global.ElvenAccuracyHero;
-
-            if (hero == null)
+            if (rollContext == RuleDefinitions.RollContext.AttackRoll &&
+                advantageType == RuleDefinitions.AdvantageType.Advantage && IsElvenPrecisionContextQualified(actor))
             {
-                return RuleDefinitions.RollDie(diceType, advantageType, out firstRoll, out secondRoll,
-                    rollAlterationScore);
+                return Roll3DicesAndKeepBest(actor.Name, dieType, out firstRoll, out secondRoll, rollAlterationScore);
             }
+            
+            return RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
+                rollAlterationScore);
+        }
 
+        private static bool IsElvenPrecisionContextQualified(RulesetActor actor)
+        {
+            var character = GameLocationCharacter.GetFromActor(actor);
+            return character.RulesetCharacter is RulesetCharacterHero hero && (from feat in hero.TrainedFeats where feat.Name.Contains(ZappaFeats.ElvenAccuracyTag) select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>() into context where context != null select context).Any(sub => sub.Qualified);
+        }
+
+        private static int Roll3DicesAndKeepBest(
+            string roller,
+            RuleDefinitions.DieType diceType,
+            out int firstRoll,
+            out int secondRoll,
+            float rollAlterationScore
+            )
+        {
             var flag = rollAlterationScore != 0.0;
             var rolls = new int[3];
-
+            
             rolls[0] = flag
                 ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
                 : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);
@@ -84,7 +102,7 @@ internal static class RulesetActorPatcher
             Array.Sort(rolls);
 
             var line = Gui.Format("Feedback/&ElvenAccuracyTriggered",
-                hero.name, rolls[2].ToString(), rolls[1].ToString(),
+                roller, rolls[2].ToString(), rolls[1].ToString(),
                 rolls[0].ToString());
 
             Gui.Game.GameConsole.LogSimpleLine(line);
@@ -94,7 +112,7 @@ internal static class RulesetActorPatcher
 
             return Mathf.Max(firstRoll, secondRoll);
         }
-
+        
         // TODO: make this more generic
         internal static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
             ref bool enumerateFeatures, ref bool canRerollDice)

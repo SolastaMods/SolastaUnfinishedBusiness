@@ -53,29 +53,30 @@ internal static class KnowYourEnemyBuilder
             : 0;
     }
 
-    private static void KnowYourEnemyOnAttackDelegate(GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        [CanBeNull] ActionModifier attackModifier,
-        [CanBeNull] RulesetAttackMode attackerAttackMode)
+    private static void KnowYourEnemyComputeAttackModifier(
+        RulesetCharacter myself, 
+        RulesetCharacter defender, 
+        RulesetAttackMode attackMode, 
+        ref ActionModifier attackModifier)
     {
         // no spell attack
-        if (attackerAttackMode == null || attackModifier == null)
+        if (attackMode == null || defender == null)
         {
             return;
         }
-
-        var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender.RulesetCharacter);
-        attackerAttackMode.toHitBonus += knowledgeLevelOfEnemy;
-        attackModifier.AttacktoHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
+        
+        var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender);
+        attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
+        attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
             FeatureSourceType.CharacterFeature, "KnowYourEnemy", null));
     }
 
     internal static FeatureDefinitionFeatureSet BuildKnowYourEnemyFeatureSet()
     {
-        var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnAttackEffectBuilder
+        var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnComputeAttackModifierBuilder
             .Create("KnowYourEnemyAttackHitModifier", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentation("FighterMarshalKnowYourEnemyFeatureSet", Category.Feature)
-            .SetOnAttackDelegates(KnowYourEnemyOnAttackDelegate, null)
+            .SetOnComputeAttackModifierDelegate(KnowYourEnemyComputeAttackModifier)
             .AddToDB();
 
         var additionalDamageRangerFavoredEnemyHumanoid = FeatureDefinitionAdditionalDamageBuilder

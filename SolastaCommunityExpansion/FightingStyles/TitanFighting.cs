@@ -26,25 +26,27 @@ internal sealed class TitanFighting : AbstractFightingStyle
 
     internal override FightingStyleDefinition GetStyle()
     {
-        void TitanFightingOnAttackDelegate([CanBeNull] GameLocationCharacter attacker,
-            [CanBeNull] GameLocationCharacter defender,
-            ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
+        void TitanFightingComputeAttackModifier(
+            RulesetCharacter myself, 
+            RulesetCharacter defender, 
+            RulesetAttackMode attackMode, 
+            ref ActionModifier attackModifier)
         {
             // melee attack only
-            if (attacker == null || defender == null)
+            if (attackMode == null || defender == null)
             {
                 return;
             }
-
+            
             // grant +2 hit if defender is large or bigger
-            if (defender.RulesetCharacter.SizeDefinition != Large && defender.RulesetCharacter.SizeDefinition != Huge &&
-                defender.RulesetCharacter.SizeDefinition != Gargantuan)
+            if (defender.SizeDefinition != Large && defender.SizeDefinition != Huge &&
+                defender.SizeDefinition != Gargantuan)
             {
                 return;
             }
-
-            attackerAttackMode.toHitBonus += 2;
-            attackModifier.AttacktoHitTrends.Add(
+            
+            attackModifier.attackRollModifier += 2;
+            attackModifier.attackToHitTrends.Add(
                 new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle,
                     "TitanFighting", this));
         }
@@ -54,10 +56,10 @@ internal sealed class TitanFighting : AbstractFightingStyle
             return instance;
         }
 
-        var titanFightingAttackModifier = FeatureDefinitionOnAttackEffectBuilder
+        var titanFightingAttackModifier = FeatureDefinitionOnComputeAttackModifierBuilder
             .Create("TitanFightingAttackModifier", titanFightingBaseGuid)
             .SetGuiPresentationNoContent()
-            .SetOnAttackDelegates(TitanFightingOnAttackDelegate, null)
+            .SetOnComputeAttackModifierDelegate(TitanFightingComputeAttackModifier)
             .AddToDB();
 
         instance = CustomizableFightingStyleBuilder

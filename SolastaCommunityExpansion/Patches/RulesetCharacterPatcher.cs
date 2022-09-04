@@ -157,101 +157,6 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-
-    [HarmonyPatch(typeof(RulesetCharacter), "RollAttackMode")]
-    internal static class RollAttackMode_Patch
-    {
-        internal static void Prefix(
-            RulesetCharacter __instance,
-            RulesetAttackMode attackMode,
-            bool ignoreAdvantage,
-            List<RuleDefinitions.TrendInfo> advantageTrends,
-            bool testMode)
-        {
-            //PATCH: support for `Elven Accuracy` feat
-            //sets up this character as elven accuracy hero for `RolDie` patch to modify rolls
-
-            Global.ElvenAccuracyHero = null;
-
-            if (ignoreAdvantage
-                || !testMode
-                || attackMode.abilityScore is AttributeDefinitions.Strength or AttributeDefinitions.Constitution)
-            {
-                return;
-            }
-
-            var advantageType = RuleDefinitions.ComputeAdvantage(advantageTrends);
-
-            if (advantageType != RuleDefinitions.AdvantageType.Advantage)
-            {
-                return;
-            }
-
-            var hero = __instance as RulesetCharacterHero ?? __instance.OriginalFormCharacter as RulesetCharacterHero;
-
-            if (hero != null && hero.TrainedFeats.Any(x => x.Name.Contains(ZappaFeats.ElvenAccuracyTag)))
-            {
-                Global.ElvenAccuracyHero = hero;
-            }
-        }
-
-        internal static void Postfix(ref int __result)
-        {
-            //PATCH: support for `Elven Accuracy` feat
-            //clears this character from being marked for die roll modification
-            Global.ElvenAccuracyHero = null;
-
-            //PATCH: support for Magus's Spell Strike
-            //TODO: can we get rid of this global variable?
-            if (Global.IsSpellStrike)
-            {
-                Global.SpellStrikeDieRoll = __result;
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacter), "RollMagicAttack")]
-    internal static class RollMagicAttack_Patch
-    {
-        internal static bool Prefix(
-            RulesetCharacter __instance,
-            ref int __result,
-            List<RuleDefinitions.TrendInfo> advantageTrends,
-            ref RuleDefinitions.RollOutcome outcome,
-            bool testMode)
-        {
-            //PATCH: support for `Elven Accuracy` feat
-            //sets up this character as elven accuracy hero for `RolDie` patch to modify rolls
-
-            Global.ElvenAccuracyHero = null;
-
-            if (testMode)
-            {
-                var advantageType = RuleDefinitions.ComputeAdvantage(advantageTrends);
-
-                if (advantageType == RuleDefinitions.AdvantageType.Advantage)
-                {
-                    var hero = __instance as RulesetCharacterHero ??
-                               __instance.OriginalFormCharacter as RulesetCharacterHero;
-
-                    if (hero != null && hero.TrainedFeats.Any(x => x.Name.Contains(ZappaFeats.ElvenAccuracyTag)))
-                    {
-                        Global.ElvenAccuracyHero = hero;
-                    }
-                }
-            }
-
-            return true;
-        }
-
-        internal static void Postfix()
-        {
-            //PATCH: support for `Elven Accuracy` feat
-            //clears this character from being marked for die roll modification
-            Global.ElvenAccuracyHero = null;
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacter), "IsSubjectToAttackOfOpportunity")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class IsSubjectToAttackOfOpportunity_Patch
@@ -262,27 +167,6 @@ internal static class RulesetCharacterPatcher
             //PATCH: allows custom exceptions for attack of opportunity triggering
             //Mostly for Sentinel feat
             __result = AttacksOfOpportunity.IsSubjectToAttackOfOpportunity(__instance, attacker, __result);
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacter), "ComputeSpellAttackBonus")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ComputeSpellAttackBonus_Patch
-    {
-        // ReSharper disable once RedundantAssignment
-        internal static void Postfix(RulesetCharacter __instance, ref int __result)
-        {
-            //PATCH: support for `IIncreaseSpellAttackRoll`
-            //Adds extra modifiers to spell attack
-            
-            var features = __instance.GetSubFeaturesByType<IIncreaseSpellAttackRoll>();
-            foreach (var feature in features)
-            {
-                var modifer = feature.GetSpellAttackRollModifier(__instance);
-                __result += modifer;
-                __instance.magicAttackTrends.Add(new RuleDefinitions.TrendInfo(modifer, feature.sourceType,
-                    feature.sourceName, null));
-            }
         }
     }
 
@@ -300,4 +184,6 @@ internal static class RulesetCharacterPatcher
             __result += features.Where(feature => feature != null).Sum(feature => feature.GetSpellModifier(__instance));
         }
     }
+    
+    
 }

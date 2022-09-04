@@ -359,54 +359,6 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
 //
 // this patch shouldn't be protected
 //
-[HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackHitConfirmed")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameLocationBattleManager_HandleCharacterAttackHitConfirmed
-{
-    internal static IEnumerator Postfix(
-        IEnumerator values,
-        GameLocationBattleManager __instance,
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier attackModifier,
-        RulesetAttackMode attackMode,
-        bool rangedAttack,
-        RuleDefinitions.AdvantageType advantageType,
-        List<EffectForm> actualEffectForms,
-        RulesetEffect rulesetEffect,
-        bool criticalHit,
-        bool firstTarget)
-    {
-        Main.Logger.Log("HandleCharacterAttackHitConfirmed");
-
-        var rulesetCharacter = attacker.RulesetCharacter;
-
-        if (rulesetCharacter != null)
-        {
-            foreach (var feature in rulesetCharacter.GetSubFeaturesByType<IOnAttackEffect>())
-            {
-                feature.BeforeOnAttack(attacker, defender, attackModifier, attackMode);
-            }
-        }
-
-        while (values.MoveNext())
-        {
-            yield return values.Current;
-        }
-
-        if (rulesetCharacter != null)
-        {
-            foreach (var feature in rulesetCharacter.GetSubFeaturesByType<IOnAttackEffect>())
-            {
-                feature.AfterOnAttack(attacker, defender, attackModifier, attackMode);
-            }
-        }
-    }
-}
-
-//
-// this patch shouldn't be protected
-//
 //
 // TODO: REVIEW THIS PATCH
 //
