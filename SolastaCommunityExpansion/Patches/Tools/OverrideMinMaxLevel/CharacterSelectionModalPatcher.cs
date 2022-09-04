@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker;
+namespace SolastaCommunityExpansion.Patches.Tools.OverrideMinMaxLevel;
 
 //PATCH: this patch changes the min/max requirements on locations or campaigns
 [HarmonyPatch(typeof(CharacterSelectionModal), "SelectFromPool")]
