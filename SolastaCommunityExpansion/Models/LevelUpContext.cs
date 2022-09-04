@@ -310,22 +310,34 @@ public static class LevelUpContext
     private static HashSet<SpellDefinition> CacheOtherClassesKnownSpells([NotNull] RulesetCharacterHero hero)
     {
         var selectedRepertoire = GetSelectedClassOrSubclassRepertoire(hero);
-        var otherClassesKnownSpells = new List<SpellDefinition>();
+        var knownSpells = new List<SpellDefinition>();
 
         foreach (var spellRepertoire in hero.SpellRepertoires
                      .Where(x => x != selectedRepertoire))
         {
-            otherClassesKnownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
-            otherClassesKnownSpells.AddRange(spellRepertoire.KnownCantrips);
-            otherClassesKnownSpells.AddRange(spellRepertoire.KnownSpells);
+            var castingFeature = spellRepertoire.SpellCastingFeature;
 
-            if (spellRepertoire.SpellCastingClass == Wizard)
+            switch (castingFeature.spellKnowledge)
             {
-                otherClassesKnownSpells.AddRange(spellRepertoire.EnumerateAvailableScribedSpells());
+                case RuleDefinitions.SpellKnowledge.WholeList:
+                    knownSpells.AddRange(castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells));
+                    break;
+                case RuleDefinitions.SpellKnowledge.Selection:
+                    knownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
+                    knownSpells.AddRange(spellRepertoire.KnownCantrips);
+                    knownSpells.AddRange(spellRepertoire.KnownSpells);
+                    break;
+                case RuleDefinitions.SpellKnowledge.Spellbook:
+                    //TODO: check if we need to get known spells, or they all are in the spellbook
+                    knownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
+                    knownSpells.AddRange(spellRepertoire.KnownCantrips);
+                    knownSpells.AddRange(spellRepertoire.KnownSpells);
+                    knownSpells.AddRange(spellRepertoire.EnumerateAvailableScribedSpells());
+                    break;
             }
         }
 
-        return otherClassesKnownSpells.ToHashSet();
+        return knownSpells.ToHashSet();
     }
 
     public static void CacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
