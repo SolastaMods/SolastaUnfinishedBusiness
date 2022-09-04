@@ -7,6 +7,7 @@ using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
+using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 using TA;
 
@@ -218,6 +219,9 @@ internal static class GameLocationBattleManagerPatcher
                 return;
             }
 
+            // Support elven precision feat
+            CheckElvenPrecisionContext(attacker, attackParams.attackMode);
+
             switch (attackParams.attackProximity)
             {
                 case BattleDefinitions.AttackProximity.PhysicalRange or BattleDefinitions.AttackProximity.PhysicalReach:
@@ -244,6 +248,26 @@ internal static class GameLocationBattleManagerPatcher
                     }
 
                     break;
+            }
+        }
+
+        private static void CheckElvenPrecisionContext(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (character is not RulesetCharacterHero hero || attackMode == null)
+            {
+                return;
+            }
+
+            foreach (ElvenPrecisionContext sub in from feat in hero.TrainedFeats
+                     where feat.Name.Contains(ZappaFeats.ElvenAccuracyTag)
+                     select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>()
+                     into context
+                     where context != null
+                     select context)
+            {
+                sub.Qualified = false ||
+                                (attackMode.abilityScore != DatabaseHelper.SmartAttributeDefinitions.Strength.ToString() ||
+                                 attackMode.abilityScore != DatabaseHelper.SmartAttributeDefinitions.Constitution.ToString());
             }
         }
     }
