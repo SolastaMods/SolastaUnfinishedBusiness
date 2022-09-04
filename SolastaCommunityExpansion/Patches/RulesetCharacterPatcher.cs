@@ -158,33 +158,22 @@ internal static class RulesetCharacterPatcher
     }
 
 
-    [HarmonyPatch(typeof(RulesetCharacter), "RollAttackMode")]
+    /*[HarmonyPatch(typeof(RulesetCharacter), "ComputeAttackModifier")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RollAttackMode_Patch
     {
-        // PATCH: support IOnRollAttackMode
+        // PATCH: support IOnComputeAttackModifier
         // Basically everything that can modify to hit attack and advantage trends should come here
-        internal static void Prefix(
-            RulesetCharacter __instance,
-            ref RulesetAttackMode attackMode,
-            RulesetActor target,
-            BaseDefinition attackMethod, // usually the weapon use to attack
-            ref List<RuleDefinitions.TrendInfo> toHitTrends,
-            bool ignoreAdvantage,
-            ref List<RuleDefinitions.TrendInfo> advantageTrends,
-            bool opportunity,
-            int rollModifier,
-            bool testMode)
+        internal static void Postfix(
+            RulesetCharacter __instance, 
+            RulesetCharacter defender, 
+            RulesetAttackMode attackMode, 
+            ActionModifier attackModifier)
         {
-            // I don't know why TA think embedding testMode flag to their code is a good idea.
-            if (!testMode)
-            {
-                return;
-            }
-            
-            var features = __instance.GetSubFeaturesByType<IOnRollAttackMode>();
+            var features = __instance.GetSubFeaturesByType<IOnComputeAttackModifier>();
             foreach (var feature in features)
             {
-                feature.OnRollAttackMode(__instance, ref attackMode, target, attackMethod, ref toHitTrends, ignoreAdvantage, ref advantageTrends, opportunity, rollModifier);
+                feature.ComputeAttackModifier(__instance, defender, attackMode, ref attackModifier);
             }
         }
         
@@ -220,9 +209,9 @@ internal static class RulesetCharacterPatcher
             {
                 Global.ElvenAccuracyHero = hero;
             }
-        }*/
+        }#1#
 
-        internal static void Postfix(ref int __result)
+        /*internal static void Postfix(ref int __result)
         {
             //PATCH: support for `Elven Accuracy` feat
             //clears this character from being marked for die roll modification
@@ -234,8 +223,8 @@ internal static class RulesetCharacterPatcher
             {
                 Global.SpellStrikeDieRoll = __result;
             }
-        }
-    }
+        }#1#
+    }*/
 
     [HarmonyPatch(typeof(RulesetCharacter), "RollMagicAttack")]
     internal static class RollMagicAttack_Patch
@@ -292,27 +281,6 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), "ComputeSpellAttackBonus")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ComputeSpellAttackBonus_Patch
-    {
-        // ReSharper disable once RedundantAssignment
-        internal static void Postfix(RulesetCharacter __instance, ref int __result)
-        {
-            //PATCH: support for `IIncreaseSpellAttackRoll`
-            //Adds extra modifiers to spell attack
-            
-            var features = __instance.GetSubFeaturesByType<IIncreaseSpellAttackRoll>();
-            foreach (var feature in features)
-            {
-                var modifer = feature.GetSpellAttackRollModifier(__instance);
-                __result += modifer;
-                __instance.magicAttackTrends.Add(new RuleDefinitions.TrendInfo(modifer, feature.sourceType,
-                    feature.sourceName, null));
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeSaveDC")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ComputeSaveDC_Patch
@@ -327,4 +295,6 @@ internal static class RulesetCharacterPatcher
             __result += features.Where(feature => feature != null).Sum(feature => feature.GetSpellModifier(__instance));
         }
     }
+    
+    
 }

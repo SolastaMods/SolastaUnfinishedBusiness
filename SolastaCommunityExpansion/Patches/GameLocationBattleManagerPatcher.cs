@@ -6,6 +6,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using TA;
 
@@ -27,7 +28,7 @@ internal static class GameLocationBattleManagerPatcher
             return codes.AsEnumerable();
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "IsValidAttackForReadiedAction")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class IsValidAttackForReadiedAction_Patch
@@ -40,7 +41,7 @@ internal static class GameLocationBattleManagerPatcher
         {
             //PATCH: Checks if attack cantrip is valid to be cast as readied action on a target
             // Used to properly check if melee cantrip can hit target when used for readied action
-            
+
             if (!DatabaseHelper.TryGetDefinition<SpellDefinition>(attackParams.effectName, null, out var cantrip))
             {
                 return;
@@ -54,7 +55,7 @@ internal static class GameLocationBattleManagerPatcher
             }
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMoveStart")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleCharacterMoveStart_Patch
@@ -79,7 +80,7 @@ internal static class GameLocationBattleManagerPatcher
             //PATCH: support for conditions that trigger on movement end
             //Mostly for Magus's `Rupture Strike`
             //TODO: move this code to separate file
-            
+
             if (mover.RulesetCharacter.isDeadOrDyingOrUnconscious)
             {
                 return;
@@ -136,7 +137,7 @@ internal static class GameLocationBattleManagerPatcher
         {
             //PATCH: support for Polearm Expert AoO
             //processes saved movenent to trigger AoO when appropriate
-            
+
             while (__result.MoveNext())
             {
                 yield return __result.Current;
@@ -159,11 +160,11 @@ internal static class GameLocationBattleManagerPatcher
         {
             //PATCH: support for Polearm Expert AoO
             //clears movement cache on battle end
-            
+
             AttacksOfOpportunity.CleanMovingCache();
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackFinished")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleCharacterAttackFinished
@@ -189,6 +190,60 @@ internal static class GameLocationBattleManagerPatcher
             while (extraEvents.MoveNext())
             {
                 yield return extraEvents.Current;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "CanAttack")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CanAttack
+    {
+        internal static void Postfix(
+            GameLocationBattleManager __instance,
+            BattleDefinitions.AttackEvaluationParams attackParams,
+            bool __result
+        )
+        {
+            //PATCH: add modifier or advantage/disadvantage for physical and spell attack
+
+            if (!__result)
+            {
+                return;
+            }
+
+            var attacker = attackParams.attacker.RulesetCharacter;
+            var defender = attackParams.defender.RulesetCharacter;
+            if (attacker == null)
+            {
+                return;
+            }
+
+            switch (attackParams.attackProximity)
+            {
+                case BattleDefinitions.AttackProximity.PhysicalRange or BattleDefinitions.AttackProximity.PhysicalReach:
+                    // handle physical attack roll
+                    var attackModifiers = attacker.GetSubFeaturesByType<IOnComputeAttackModifier>();
+                    foreach (var feature in attackModifiers)
+                    {
+                        feature.ComputeAttackModifier(attacker, defender, attackParams.attackMode,
+                            ref attackParams.attackModifier);
+                    }
+
+                    break;
+
+                case BattleDefinitions.AttackProximity.MagicRange or BattleDefinitions.AttackProximity.MagicReach:
+                    // handle magic attack roll
+                    var magicAttackModifiers = attacker.GetSubFeaturesByType<IIncreaseSpellAttackRoll>();
+                    foreach (var feature in magicAttackModifiers)
+                    {
+                        var modifier = feature.GetSpellAttackRollModifier(attacker);
+                        attackParams.attackModifier.attackRollModifier += modifier;
+                        attackParams.attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(modifier,
+                            feature.sourceType,
+                            feature.sourceName, null));
+                    }
+
+                    break;
             }
         }
     }

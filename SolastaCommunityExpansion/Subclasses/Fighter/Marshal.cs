@@ -53,37 +53,30 @@ internal static class KnowYourEnemyBuilder
             : 0;
     }
 
-    private static void KnowYourEnemyRollAttackMode(
-        RulesetCharacter attacker,
-        ref RulesetAttackMode attackMode,
-        RulesetActor target,
-        BaseDefinition attackMethod, // usually the weapon use to attack
-        ref List<TrendInfo> toHitTrends,
-        bool ignoreAdvantage,
-        ref List<TrendInfo> advantageTrends,
-        bool opportunity,
-        int rollModifier)
+    private static void KnowYourEnemyComputeAttackModifier(
+        RulesetCharacter myself, 
+        RulesetCharacter defender, 
+        RulesetAttackMode attackMode, 
+        ref ActionModifier attackModifier)
     {
         // no spell attack
-        if (attackMode == null || target == null)
+        if (attackMode == null || defender == null)
         {
             return;
         }
-
-        var defender = GameLocationCharacter.GetFromActor(target);
         
-        var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender.RulesetCharacter);
-        attackMode.toHitBonus += knowledgeLevelOfEnemy;
-        toHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
+        var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender);
+        attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
+        attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
             FeatureSourceType.CharacterFeature, "KnowYourEnemy", null));
     }
 
     internal static FeatureDefinitionFeatureSet BuildKnowYourEnemyFeatureSet()
     {
-        var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnRollAttackModeBuilder
+        var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnComputeAttackModifierBuilder
             .Create("KnowYourEnemyAttackHitModifier", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentation("FighterMarshalKnowYourEnemyFeatureSet", Category.Feature)
-            .SetOnRollAttackModeDelegate(KnowYourEnemyRollAttackMode)
+            .SetOnComputeAttackModifierDelegate(KnowYourEnemyComputeAttackModifier)
             .AddToDB();
 
         var additionalDamageRangerFavoredEnemyHumanoid = FeatureDefinitionAdditionalDamageBuilder

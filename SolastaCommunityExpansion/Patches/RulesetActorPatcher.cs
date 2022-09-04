@@ -95,6 +95,16 @@ internal static class RulesetActorPatcher
             return Mathf.Max(firstRoll, secondRoll);
         }
 
+        /*internal static int Roll3DicesAndKeepBest(
+            RuleDefinitions.DieType diceType,
+            out int firstRoll,
+            out int secondRoll,
+            float rollAlterationScore
+            )
+        {
+            
+        }*/
+        
         // TODO: make this more generic
         internal static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
             ref bool enumerateFeatures, ref bool canRerollDice)

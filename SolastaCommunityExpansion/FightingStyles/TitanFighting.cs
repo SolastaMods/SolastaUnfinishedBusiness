@@ -26,34 +26,27 @@ internal sealed class TitanFighting : AbstractFightingStyle
 
     internal override FightingStyleDefinition GetStyle()
     {
-        void TitanFightingRollAttackMode(
-            RulesetCharacter attacker,
-            ref RulesetAttackMode attackMode, 
-            RulesetActor target,
-            BaseDefinition attackMethod,
-            ref List<RuleDefinitions.TrendInfo> toHitTrends,
-            bool ignoreAdvantage, 
-            ref List<RuleDefinitions.TrendInfo> advantageTrends,
-            bool opportunity, 
-            int rollModifier)
+        void TitanFightingComputeAttackModifier(
+            RulesetCharacter myself, 
+            RulesetCharacter defender, 
+            RulesetAttackMode attackMode, 
+            ref ActionModifier attackModifier)
         {
             // melee attack only
-            if (attacker == null || target == null)
-            {
-                return;
-            }
-
-            var defender = GameLocationCharacter.GetFromActor(target);
-            // grant +2 hit if defender is large or bigger
-            // temporary disable for debug
-            if (defender.RulesetCharacter.SizeDefinition != Large && defender.RulesetCharacter.SizeDefinition != Huge &&
-                defender.RulesetCharacter.SizeDefinition != Gargantuan)
+            if (attackMode == null || defender == null)
             {
                 return;
             }
             
-            attackMode.toHitBonus += 2;
-            toHitTrends.Add(
+            // grant +2 hit if defender is large or bigger
+            if (defender.SizeDefinition != Large && defender.SizeDefinition != Huge &&
+                defender.SizeDefinition != Gargantuan)
+            {
+                return;
+            }
+            
+            attackModifier.attackRollModifier += 2;
+            attackModifier.attackToHitTrends.Add(
                 new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle,
                     "TitanFighting", this));
         }
@@ -63,10 +56,10 @@ internal sealed class TitanFighting : AbstractFightingStyle
             return instance;
         }
 
-        var titanFightingAttackModifier = FeatureDefinitionOnRollAttackModeBuilder
+        var titanFightingAttackModifier = FeatureDefinitionOnComputeAttackModifierBuilder
             .Create("TitanFightingAttackModifier", titanFightingBaseGuid)
             .SetGuiPresentationNoContent()
-            .SetOnRollAttackModeDelegate(TitanFightingRollAttackMode)
+            .SetOnComputeAttackModifierDelegate(TitanFightingComputeAttackModifier)
             .AddToDB();
 
         instance = CustomizableFightingStyleBuilder

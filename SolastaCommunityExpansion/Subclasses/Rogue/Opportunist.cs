@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using UnityEngine;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
@@ -23,34 +24,28 @@ internal sealed class Opportunist : AbstractSubclass
         return CreateOpportunist();
     }
 
-    private static void QuickStrikeOnAttackDelegate(
-        RulesetCharacter attacker,
-        ref RulesetAttackMode attackMode,
-        RulesetActor target,
-        BaseDefinition attackMethod, // usually the weapon use to attack
-        ref List<RuleDefinitions.TrendInfo> toHitTrends,
-        bool ignoreAdvantage,
-        ref List<RuleDefinitions.TrendInfo> advantageTrends,
-        bool opportunity,
-        int rollModifier)
+    private static void QuickStrikeOnComputeAttackModifier(
+        RulesetCharacter myself, 
+        RulesetCharacter defender, 
+        RulesetAttackMode attackMode, 
+        ref ActionModifier attackModifier)
     {
-        Main.Log($"{advantageTrends}", true);
-        if (attacker == null || target == null)
+        if (attackMode == null || defender == null)
         {
             return;
         }
 
-        var hero = GameLocationCharacter.GetFromActor(attacker);
-        var defender = GameLocationCharacter.GetFromActor(target);
+        var hero = GameLocationCharacter.GetFromActor(myself);
+        var target = GameLocationCharacter.GetFromActor(defender);
 
         // grant advantage if attacker is performing an opportunity attack or has higher initiative.
-        if ((hero.LastInitiative <= defender.LastInitiative) && !opportunity)
+        if ((hero.LastInitiative <= target.LastInitiative) && (attackMode.actionType != ActionDefinitions.ActionType.Reaction))
         {
             return;
         }
         
-        advantageTrends.Add(new RuleDefinitions.TrendInfo(1,
-            RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", attacker));
+        attackModifier.attackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1,
+            RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", null));
     }
 
     private static CharacterSubclassDefinition CreateOpportunist()
@@ -59,10 +54,10 @@ internal sealed class Opportunist : AbstractSubclass
 
         // Grant advantage when attack enemies whose initiative is lower than your
         // or when perform an attack of opportunity.
-        var quickStrike = FeatureDefinitionOnRollAttackModeBuilder
+        var quickStrike = FeatureDefinitionOnComputeAttackModifierBuilder
             .Create("RoguishOppotunistQuickStrike", subclassNamespace)
             .SetGuiPresentation("OpportunistQuickStrike", Category.Feature)
-            .SetOnRollAttackModeDelegate(QuickStrikeOnAttackDelegate)
+            .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
             .AddToDB();
 
         var debilitatingStrikeEffectBuilder = new EffectDescriptionBuilder()
