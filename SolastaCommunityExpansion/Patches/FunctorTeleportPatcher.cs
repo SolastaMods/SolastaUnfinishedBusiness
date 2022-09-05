@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Location;
+namespace SolastaCommunityExpansion.Patches;
 
 /// <summary>
 ///     Currently when a character is teleported off screen the camera doesn't follow.

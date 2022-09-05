@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool;
+namespace SolastaCommunityExpansion.Patches;
 
 //
 // this patch shouldn't be protected

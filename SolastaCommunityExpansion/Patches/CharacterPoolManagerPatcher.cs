@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool;
+namespace SolastaCommunityExpansion.Patches;
 
 [HarmonyPatch(typeof(CharacterPoolManager), "SaveCharacter")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

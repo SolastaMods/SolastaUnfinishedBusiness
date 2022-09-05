@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Location;
+namespace SolastaCommunityExpansion.Patches;
 
 // this patch prevents game from receive input if Mod UI is open / handles all hotkeys defined in the mod
 [HarmonyPatch(typeof(GameLocationBaseScreen), "HandleInput")]

@@ -3,11 +3,11 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool;
+namespace SolastaCommunityExpansion.Patches;
 
 // ensures MC heroes are correctly offered on adventures with min/max caps on character level
-[HarmonyPatch(typeof(CharacterSelectionModal), "EnumeratePlates")]
-internal static class CharacterSelectionModal_EnumeratePlates
+[HarmonyPatch(typeof(CharacterFilteringGroup), "Compare")]
+internal static class CharacterFilteringGroup_Compare
 {
     public static int MyLevels(int[] levels)
     {
@@ -17,7 +17,7 @@ internal static class CharacterSelectionModal_EnumeratePlates
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
         var bypass = 0;
-        var myLevelMethod = typeof(CharacterSelectionModal_EnumeratePlates).GetMethod("MyLevels");
+        var myLevelMethod = typeof(CharacterFilteringGroup_Compare).GetMethod("MyLevels");
         var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
 
         foreach (var instruction in instructions)

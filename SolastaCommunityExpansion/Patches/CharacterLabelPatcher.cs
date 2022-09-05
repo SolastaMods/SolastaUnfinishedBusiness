@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Location;
+namespace SolastaCommunityExpansion.Patches;
 
 // allows certain conditions to report on hero label
 [HarmonyPatch(typeof(CharacterLabel), "ConditionAdded")]

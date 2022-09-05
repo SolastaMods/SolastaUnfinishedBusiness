@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using HarmonyLib;
 using UnityModManagerNet;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Location;
+namespace SolastaCommunityExpansion.Patches;
 
 [HarmonyPatch(typeof(UnityModManager.UI), "ToggleWindow", typeof(bool))]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

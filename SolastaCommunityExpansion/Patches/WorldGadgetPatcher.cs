@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Models;
 using TA;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov;
+namespace SolastaCommunityExpansion.Patches;
 
 // disables item highlights not in party field of view
 [HarmonyPatch(typeof(WorldGadget), "SetHighlightVisibility")]
