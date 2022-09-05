@@ -2,8 +2,9 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.Encounters;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: EnableEnemiesControlledByPlayer
 [HarmonyPatch(typeof(GameLocationBattle), "GetMyContenders")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationBattle_GetMyContenders
@@ -25,6 +26,7 @@ internal static class GameLocationBattle_GetMyContenders
     }
 }
 
+//PATCH: EnableEnemiesControlledByPlayer
 [HarmonyPatch(typeof(GameLocationBattle), "GetOpposingContenders")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationBattle_GetOpposingContenders

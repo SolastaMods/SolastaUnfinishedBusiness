@@ -3,8 +3,9 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Battle;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: FasterTimeModifier
 [HarmonyPatch(typeof(GameTime), "SetTimeScale")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameTime_SetTimeScale

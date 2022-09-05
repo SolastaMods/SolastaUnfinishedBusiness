@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ScaleMerchantPricesCorrectly;
+namespace SolastaCommunityExpansion.Patches;
 //Original method - if cost is say '1' and the multiplier is less than one, it ends up as zero.
 //For the Spear it starts out costing 1gp and ends up costing 0gp.
 
@@ -14,6 +14,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ScaleMerchantPrices
     }
     */
 
+//PATCH: ScaleMerchantPricesCorrectly
 [HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class EquipmentDefinitions_ScaleAndRoundCosts

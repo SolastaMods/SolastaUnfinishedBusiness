@@ -3,16 +3,17 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Monsters;
+namespace SolastaCommunityExpansion.Patches;
 
-/// <summary>
-///     This mods the horizontal gauge in the monster tooltip.
-///     The gauge now shows health in steps instead of a continuous value.
-/// </summary>
+//PATCH: HideMonsterHitPoints
 [HarmonyPatch(typeof(HealthGaugeGroup), "Refresh")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class HealthGaugeGroup_Refresh
 {
+    /// <summary>
+    ///     This mods the horizontal gauge in the monster tooltip.
+    ///     The gauge now shows health in steps instead of a continuous value.
+    /// </summary>
     internal static void Postfix(HealthGaugeGroup __instance)
     {
         if (!Main.Settings.HideMonsterHitPoints)

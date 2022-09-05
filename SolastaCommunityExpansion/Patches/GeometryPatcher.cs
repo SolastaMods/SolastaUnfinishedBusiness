@@ -6,8 +6,9 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: UseHeightOneCylinderEffect
 [HarmonyPatch(typeof(CursorLocationGeometricShape), "UpdateGeometricShape")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CursorLocationGeometricShape_UpdateGeometricShape
@@ -117,6 +118,7 @@ internal static class GeometricShape_UpdateCylinderPosition
 }
 #endif
 
+//PATCH: UseHeightOneCylinderEffect
 [HarmonyPatch(typeof(GameLocationTargetingManager), "BuildAABB")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationTargetingManager_BuildAABB
@@ -180,6 +182,7 @@ internal static class GameLocationTargetingManager_BuildAABB
     }
 }
 
+//PATCH: UseHeightOneCylinderEffect
 [HarmonyPatch(typeof(GameLocationTargetingManager), "DoesShapeContainPoint")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationTargetingManager_DoesShapeContainPoint

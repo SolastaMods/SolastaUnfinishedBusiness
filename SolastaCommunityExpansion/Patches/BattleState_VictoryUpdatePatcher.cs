@@ -1,8 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Battle;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: AutoPauseOnVictory
 [HarmonyPatch(typeof(BattleState_Victory), "Update")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class BattleState_Victory_Update
@@ -21,7 +22,7 @@ internal static class BattleState_Victory_Update
 
         if (ServiceRepository.GetService<INarrativeDirectionService>()?.CurrentSequence != null)
         {
-            // Don't pause in the middle of a narrative sequence it hangs the game.
+            // Don't pause in the middle of a narrative sequence as it hangs the game.
             // For example during the tutorial shoving the rock to destroy the bridge transitions
             // directly into a narrative sequence. I believe there are several other battle ->
             // narrative transitions in the game (like the crown vision paladin fight).

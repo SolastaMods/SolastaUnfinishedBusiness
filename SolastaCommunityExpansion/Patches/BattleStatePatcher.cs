@@ -2,8 +2,9 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.Encounters;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
 [HarmonyPatch(typeof(BattleState_TurnInitialize), "Begin")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class BattleState_TurnInitialize_Begin
@@ -14,6 +15,7 @@ internal static class BattleState_TurnInitialize_Begin
     }
 }
 
+//PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
 [HarmonyPatch(typeof(BattleState_TurnEnd), "Begin")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class BattleState_TurnEnd_Begin
@@ -24,6 +26,7 @@ internal static class BattleState_TurnEnd_Begin
     }
 }
 
+//PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
 [HarmonyPatch(typeof(BattleState_Victory), "Begin")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class BattleState_Victory_Begin
