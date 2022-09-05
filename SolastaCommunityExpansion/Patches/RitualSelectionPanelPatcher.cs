@@ -6,9 +6,9 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualCasting;
+namespace SolastaCommunityExpansion.Patches;
 
-// ensures ritual spells from all spell repertoires are made available
+//PATCH: ensures ritual spells from all spell repertoires are made available (Multiclass)
 [HarmonyPatch(typeof(RitualSelectionPanel), "Bind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RitualSelectionPanel_Bind

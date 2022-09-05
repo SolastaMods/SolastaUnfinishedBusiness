@@ -3,8 +3,9 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.Races;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: Allows custom races with different scales
 [HarmonyPatch(typeof(GraphicsCharacter), "ResetScale")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal class GraphicsCharacter_ResetScale

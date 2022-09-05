@@ -2,11 +2,13 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.SrdAndHouseRules;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -201,4 +203,103 @@ internal static class RulesetCharacterPatcher
             __result += features.Where(feature => feature != null).Sum(feature => feature.GetSpellModifier(__instance));
         }
     }
+
+//PATCH: ensures that the wildshape heroes or heroes under rage cannot cast any spells (Multiclass)
+[HarmonyPatch(typeof(RulesetCharacter), "CanCastSpells")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacter_CanCastSpells
+{
+    internal static void Postfix(RulesetCharacter __instance, ref bool __result)
+    {
+        // wildshape
+        if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+        {
+            __result = false;
+        }
+
+        // raging
+        if (__instance.AllConditions
+            .Any(x => x.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionRaging))
+        {
+            __result = false;
+        }
+    }
+}
+
+//PATCH: ensures that the wildshape hero has access to spell repertoires for calculating slot related features (Multiclass)
+[HarmonyPatch(typeof(RulesetCharacter), "SpellRepertoires", MethodType.Getter)]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacter_SpellRepertoires
+{
+    internal static void Postfix(RulesetCharacter __instance, ref List<RulesetSpellRepertoire> __result)
+    {
+        if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+        {
+            __result = hero.SpellRepertoires;
+        }
+    }
+}
+
+//PATCH: ensures that original character sorcery point pool is in sync with substitute (Multiclass)
+[HarmonyPatch(typeof(RulesetCharacter), "CreateSorceryPoints")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacter_CreateSorceryPoints
+{
+    internal static void Postfix(RulesetCharacter __instance, int slotLevel, RulesetSpellRepertoire repertoire)
+    {
+        if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+        {
+            hero.CreateSorceryPoints(slotLevel, repertoire);
+        }
+    }
+}
+
+//PATCH: ensures that original character sorcery point pool is in sync with substitute (Multiclass)
+[HarmonyPatch(typeof(RulesetCharacter), "GainSorceryPoints")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacter_GainSorceryPoints
+{
+    internal static void Postfix(RulesetCharacter __instance, int sorceryPointsGain)
+    {
+        if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+        {
+            hero.GainSorceryPoints(sorceryPointsGain);
+        }
+    }
+}
+
+//PATCH: ensures that original character rage pool is in sync with substitute (Multiclass)
+[HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacter_UsePower
+{
+    internal static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
+    {
+        if (usablePower.PowerDefinition == PowerBarbarianRageStart
+            && __instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+        {
+            hero.SpendRagePoint();
+        }
+    }
+}
+
+//PATCH: ensures ritual spells work correctly when MC (Multiclass)
+[HarmonyPatch(typeof(RulesetCharacter), "CanCastAnyRitualSpell")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacter_CanCastAnyRitualSpell
+{
+    internal static bool Prefix(RulesetCharacter __instance, ref bool __result)
+    {
+        if (__instance is not RulesetCharacterHero)
+        {
+            return true;
+        }
+
+        RitualSelectionPanel_Bind.EnumerateUsableRitualSpells(__instance, RuleDefinitions.RitualCasting.None,
+            __instance.usableSpells);
+        __result = __instance.usableSpells.Count > 0;
+
+        return false;
+    }
+}
 }

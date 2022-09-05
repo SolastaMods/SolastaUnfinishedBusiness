@@ -4,9 +4,9 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape;
+namespace SolastaCommunityExpansion.Patches;
 
-// ensures that wildshape get all original character pools and current powers states
+//PATCH: ensures that wildshape get all original character pools and current powers states
 [HarmonyPatch(typeof(RulesetCharacterMonster), "FinalizeMonster")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacterMonster_FinalizeMonster

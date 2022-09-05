@@ -2,9 +2,9 @@
 using HarmonyLib;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape;
+namespace SolastaCommunityExpansion.Patches;
 
-// uses class level when offering wildshape
+//PATCH: uses class level when offering wildshape
 [HarmonyPatch(typeof(ShapeOptionItem), "Bind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class ShapeOptionItem_Bind
