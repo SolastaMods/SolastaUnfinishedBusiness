@@ -81,7 +81,7 @@ public static class StackedMaterialComponent
             {
                 item.RulesetItem,
                 item.Cost,
-                StackCountRequired = (int) Math.Ceiling(spell.SpecificMaterialComponentCostGp / (double) item.Cost)
+                StackCountRequired = (int)Math.Ceiling(spell.SpecificMaterialComponentCostGp / (double)item.Cost)
             })
             .Where(item => item.StackCountRequired <= item.RulesetItem.StackCount)
             .Select(item => new

@@ -14,61 +14,64 @@ namespace SolastaCommunityExpansion.Patches;
     }
     */
 
-//PATCH: ScaleMerchantPricesCorrectly
-[HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class EquipmentDefinitions_ScaleAndRoundCosts
+internal static class EquipmentDefinitionsPatcher
 {
-    internal static bool Prefix(float priceMultiplier, int[] baseCosts, int[] scaledCosts)
+    //PATCH: ScaleMerchantPricesCorrectly
+    [HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class EquipmentDefinitions_ScaleAndRoundCosts
     {
-        if (!Main.Settings.ScaleMerchantPricesCorrectly)
+        internal static bool Prefix(float priceMultiplier, int[] baseCosts, int[] scaledCosts)
         {
-            return true;
-        }
+            if (!Main.Settings.ScaleMerchantPricesCorrectly)
+            {
+                return true;
+            }
 
-        // convert to copper
-        var cp =
-            (1000 * baseCosts[0]) + // platinum
-            (100 * baseCosts[1]) + // gold
-            (50 * baseCosts[2]) + // electrum?
-            (10 * baseCosts[3]) + // silver
-            baseCosts[4]; // copper
+            // convert to copper
+            var cp =
+                (1000 * baseCosts[0]) + // platinum
+                (100 * baseCosts[1]) + // gold
+                (50 * baseCosts[2]) + // electrum?
+                (10 * baseCosts[3]) + // silver
+                baseCosts[4]; // copper
 
-        // scale
-        var scaledCopper = priceMultiplier * cp;
+            // scale
+            var scaledCopper = priceMultiplier * cp;
 
-        if (scaledCopper < 1 && cp >= 1)
-        {
-            // it's always worth at least 1cp
-            scaledCopper = 1;
-        }
+            if (scaledCopper < 1 && cp >= 1)
+            {
+                // it's always worth at least 1cp
+                scaledCopper = 1;
+            }
 
-        // scaled as gold
-        var scaledGold = scaledCopper / 100.0;
+            // scaled as gold
+            var scaledGold = scaledCopper / 100.0;
 
-        scaledGold = scaledGold > 10 ? Math.Round(scaledGold, MidpointRounding.AwayFromZero) : scaledGold.Round(2);
+            scaledGold = scaledGold > 10 ? Math.Round(scaledGold, MidpointRounding.AwayFromZero) : scaledGold.Round(2);
 
-        // convert back to cp
-        var scaledAndRoundedCopper = (int)(scaledGold * 100);
+            // convert back to cp
+            var scaledAndRoundedCopper = (int)(scaledGold * 100);
 
-        // convert back to 5 digit array
-        scaledCosts[4] = scaledAndRoundedCopper % 10;
-        scaledCosts[3] = (scaledAndRoundedCopper - scaledCosts[4]) / 10 % 10;
-        // scaledCosts[2] always zero?
-        scaledCosts[1] = (scaledAndRoundedCopper - (scaledCosts[3] * 10) - scaledCosts[4]) / 100 % 10;
-        scaledCosts[0] =
-            (scaledAndRoundedCopper - (scaledCosts[1] * 100) - (scaledCosts[3] * 10) - scaledCosts[4]) / 1000;
+            // convert back to 5 digit array
+            scaledCosts[4] = scaledAndRoundedCopper % 10;
+            scaledCosts[3] = (scaledAndRoundedCopper - scaledCosts[4]) / 10 % 10;
+            // scaledCosts[2] always zero?
+            scaledCosts[1] = (scaledAndRoundedCopper - (scaledCosts[3] * 10) - scaledCosts[4]) / 100 % 10;
+            scaledCosts[0] =
+                (scaledAndRoundedCopper - (scaledCosts[1] * 100) - (scaledCosts[3] * 10) - scaledCosts[4]) / 1000;
 
-        // only show platinum if baseCosts had platinum
-        if (baseCosts[0] != 0)
-        {
+            // only show platinum if baseCosts had platinum
+            if (baseCosts[0] != 0)
+            {
+                return false;
+            }
+
+            scaledCosts[1] += 10 * scaledCosts[0];
+            scaledCosts[0] = 0;
+
             return false;
         }
-
-        scaledCosts[1] += 10 * scaledCosts[0];
-        scaledCosts[0] = 0;
-
-        return false;
     }
 }
 

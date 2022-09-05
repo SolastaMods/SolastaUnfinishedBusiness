@@ -36,7 +36,6 @@ internal static class UpcastConjureElementalAndFey
         _filteredSubspells.Clear();
 
         return false;
-
     }
 
     /**

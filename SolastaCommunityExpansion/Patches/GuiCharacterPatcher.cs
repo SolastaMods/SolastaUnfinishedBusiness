@@ -136,7 +136,7 @@ internal static class GuiCharacter_FormatHealthGauge
             return; // health wasn't dirty so healthGauge hasn't been updated
         }
 
-        if (__instance.RulesetCharacterMonster is not {Side: RuleDefinitions.Side.Enemy})
+        if (__instance.RulesetCharacterMonster is not { Side: RuleDefinitions.Side.Enemy })
         {
             return;
         }

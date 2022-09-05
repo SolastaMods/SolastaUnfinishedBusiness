@@ -146,7 +146,7 @@ internal static class RulesetCharacterHeroPatcher
             __result = (int)((100f - Main.Settings.TotalCraftingTimeModifier) / 100 * __result);
         }
     }
-    
+
     //PATCH: DisableAutoEquip
     [HarmonyPatch(typeof(RulesetCharacterHero), "GrantItem")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

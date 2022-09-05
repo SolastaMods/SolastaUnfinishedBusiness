@@ -21,7 +21,7 @@ internal static class HealthGaugeGroup_Refresh
             return;
         }
 
-        if (__instance.GuiCharacter.RulesetCharacterMonster is not {Side: RuleDefinitions.Side.Enemy})
+        if (__instance.GuiCharacter.RulesetCharacterMonster is not { Side: RuleDefinitions.Side.Enemy })
         {
             return;
         }

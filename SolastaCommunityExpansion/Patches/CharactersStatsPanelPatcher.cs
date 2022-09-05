@@ -4,21 +4,24 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: Format hit dice box to support Multiclass scenarios
-[HarmonyPatch(typeof(CharacterStatsPanel), "Refresh")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterStatsPanel_Refresh
+internal static class CharacterStatsPanelPatcher
 {
-    internal static void Postfix(CharacterStatsPanel __instance)
+    //PATCH: Format hit dice box to support Multiclass scenarios
+    [HarmonyPatch(typeof(CharacterStatsPanel), "Refresh")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Refresh_Patch
     {
-        if (!__instance.hitDiceBox.Activated ||
-            __instance.guiCharacter.RulesetCharacterHero.ClassesAndLevels.Count <= 1)
+        internal static void Postfix(CharacterStatsPanel __instance)
         {
-            return;
-        }
+            if (!__instance.hitDiceBox.Activated ||
+                __instance.guiCharacter.RulesetCharacterHero.ClassesAndLevels.Count <= 1)
+            {
+                return;
+            }
 
-        __instance.hitDiceBox.ValueLabel.Text =
-            MulticlassGameUiContext.GetAllClassesHitDiceLabel(__instance.guiCharacter, out var dieTypeCount);
-        __instance.hitDiceBox.ValueLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(dieTypeCount);
+            __instance.hitDiceBox.ValueLabel.Text =
+                MulticlassGameUiContext.GetAllClassesHitDiceLabel(__instance.guiCharacter, out var dieTypeCount);
+            __instance.hitDiceBox.ValueLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(dieTypeCount);
+        }
     }
 }

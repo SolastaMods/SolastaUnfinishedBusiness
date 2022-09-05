@@ -122,7 +122,7 @@ internal static class CharacterActionCastSpellPatcher
     //PATCH: BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove
     [HarmonyPatch(typeof(CharacterActionCastSpell), "StartConcentrationAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterActionCastSpell_StartConcentrationAsNeeded
+    internal static class StartConcentrationAsNeeded_Patch
     {
         public static bool Prefix(CharacterActionCastSpell __instance)
         {
