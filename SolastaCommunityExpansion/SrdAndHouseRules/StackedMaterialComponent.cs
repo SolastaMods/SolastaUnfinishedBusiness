@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComponent;
+namespace SolastaCommunityExpansion.SrdAndHouseRules;
 
 /// <summary>
 ///     Allow spells that require consumption of a material component (e.g. a gem of value >= 1000gp) use a stack
@@ -14,19 +12,20 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComp
 ///     different types of items with the tag 'gem'.
 ///     TODO: if anyone requests it we can improve with GroupBy etc...
 /// </summary>
-[HarmonyPatch(typeof(RulesetCharacter), "IsComponentMaterialValid")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetCharacter_IsComponentMaterialValid
+public static class StackedMaterialComponent
 {
-    public static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition, ref string failure,
-        ref bool __result)
+    public static void IsComponentMaterialValid(
+        RulesetCharacter character,
+        SpellDefinition spellDefinition,
+        ref string failure,
+        ref bool result)
     {
         if (!Main.Settings.AllowStackedMaterialComponent)
         {
             return;
         }
 
-        if (__result)
+        if (result)
         {
             return;
         }
@@ -34,50 +33,43 @@ internal static class RulesetCharacter_IsComponentMaterialValid
         // Repeats the last section of the original method but adds 'approximateCostInGold * item.StackCount'
         var items = new List<RulesetItem>();
 
-        __instance.CharacterInventory.EnumerateAllItems(items);
+        character.CharacterInventory.EnumerateAllItems(items);
 
-        if (!(from item in items
+        if ((from item in items
                 let approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs)
                 where item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) &&
                       approximateCostInGold * item.StackCount >= spellDefinition.SpecificMaterialComponentCostGp
                 select item).Any())
         {
-            return;
+            result = true;
+            failure = string.Empty;
         }
-
-        __result = true;
-        failure = string.Empty;
     }
-}
 
-[HarmonyPatch(typeof(RulesetCharacter), "SpendSpellMaterialComponentAsNeeded")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetCharacter_SpendSpellMaterialComponentAsNeeded
-{
-    // Modify original code to spend enough of a stack to meet component cost
-    public static bool Prefix(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
+    //Modify original code to spend enough of a stack to meet component cost
+    public static bool SpendSpellMaterialComponentAsNeeded(RulesetCharacter character, RulesetEffectSpell activeSpell)
     {
         if (!Main.Settings.AllowStackedMaterialComponent)
         {
             return true;
         }
 
-        var spellDefinition = activeSpell.SpellDefinition;
-        if (spellDefinition.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific
-            || !spellDefinition.SpecificMaterialComponentConsumed
-            || string.IsNullOrEmpty(spellDefinition.SpecificMaterialComponentTag)
-            || spellDefinition.SpecificMaterialComponentCostGp <= 0
-            || __instance.CharacterInventory == null)
+        var spell = activeSpell.SpellDefinition;
+        if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific
+            || !spell.SpecificMaterialComponentConsumed
+            || string.IsNullOrEmpty(spell.SpecificMaterialComponentTag)
+            || spell.SpecificMaterialComponentCostGp <= 0
+            || character.CharacterInventory == null)
         {
             return false;
         }
 
         var items = new List<RulesetItem>();
 
-        __instance.CharacterInventory.EnumerateAllItems(items);
+        character.CharacterInventory.EnumerateAllItems(items);
 
         var itemToUse = items
-            .Where(item => item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag))
+            .Where(item => item.ItemDefinition.ItemTags.Contains(spell.SpecificMaterialComponentTag))
             .Select(item => new
             {
                 RulesetItem = item,
@@ -89,8 +81,7 @@ internal static class RulesetCharacter_SpendSpellMaterialComponentAsNeeded
             {
                 item.RulesetItem,
                 item.Cost,
-                StackCountRequired =
-                    (int)Math.Ceiling(spellDefinition.SpecificMaterialComponentCostGp / (double)item.Cost)
+                StackCountRequired = (int) Math.Ceiling(spell.SpecificMaterialComponentCostGp / (double) item.Cost)
             })
             .Where(item => item.StackCountRequired <= item.RulesetItem.StackCount)
             .Select(item => new
@@ -114,13 +105,13 @@ internal static class RulesetCharacter_SpendSpellMaterialComponentAsNeeded
 
         Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
 
-        var componentConsumed = __instance.SpellComponentConsumed;
+        var componentConsumed = character.SpellComponentConsumed;
 
         if (componentConsumed != null)
         {
             for (var i = 0; i < itemToUse.StackCountRequired; i++)
             {
-                componentConsumed(__instance, spellDefinition, itemToUse.RulesetItem);
+                componentConsumed(character, spell, itemToUse.RulesetItem);
             }
         }
 
@@ -137,7 +128,7 @@ internal static class RulesetCharacter_SpendSpellMaterialComponentAsNeeded
         {
             Main.Log("Destroy item");
 
-            __instance.CharacterInventory.DestroyItem(rulesetItem);
+            character.CharacterInventory.DestroyItem(rulesetItem);
         }
 
         return false;

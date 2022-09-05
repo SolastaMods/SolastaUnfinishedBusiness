@@ -6,6 +6,7 @@ using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.SrdAndHouseRules;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -101,6 +102,10 @@ internal static class RulesetCharacterPatcher
         internal static void Postfix(RulesetCharacter __instance, ref bool __result,
             SpellDefinition spellDefinition, ref string failure)
         {
+            //PATCH: Allow spells to statisfy material components by using stack of equal or greater value
+            StackedMaterialComponent.IsComponentMaterialValid(__instance, spellDefinition, ref failure, ref __result);
+
+            //TODO: move to separate file
             //PATCH: Allows spells to satisfy specific material components by actual active tags on an item that are not directly defined in ItemDefinition (like "Melee")
             //Used mostly for melee cantrips requiring melee weapon to cast
             if (__result || spellDefinition.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific)
@@ -129,6 +134,19 @@ internal static class RulesetCharacterPatcher
                 __result = true;
                 failure = string.Empty;
             }
+        }
+    }
+
+
+    [HarmonyPatch(typeof(RulesetCharacter), "SpendSpellMaterialComponentAsNeeded")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class SpendSpellMaterialComponentAsNeeded_Patch
+    {
+        // 
+        public static bool Prefix(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
+        {
+            //PATCH: Modify original code to spend enough of a stack to meet component cost
+            return StackedMaterialComponent.SpendSpellMaterialComponentAsNeeded(__instance, activeSpell);
         }
     }
 
