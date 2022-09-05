@@ -9,6 +9,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
+using UnityEngine;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
@@ -173,27 +174,28 @@ internal static class StudyYourEnemyBuilder
 
             if (entry == null)
             {
+                return;
             }
 
-            // var checkModifier = new ActionModifier();
-            // var roller = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
-            //
-            // roller.RollAbilityCheck(AttributeDefinitions.Wisdom, SkillDefinitions.Survival,
-            //     10 + Mathf.FloorToInt(entry.MonsterDefinition.ChallengeRating), AdvantageType.None, checkModifier,
-            //     false, -1, out var outcome, true);
-            //
-            // var level = entry.KnowledgeLevelDefinition.Level;
-            // var num = level;
-            //
-            // if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            // {
-            //     var num2 = outcome == RollOutcome.Success ? 1 : 2;
-            //     num = Mathf.Min(entry.KnowledgeLevelDefinition.Level + num2, 4);
-            //     manager.LearnMonsterKnowledge(entry.MonsterDefinition, manager.Bestiary.SortedKnowledgeLevels[num]);
-            // }
-            //
-            // gameLocationCharacter.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
-            //     gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
+            var checkModifier = new ActionModifier();
+            var roller = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
+
+            roller.RollAbilityCheck(AttributeDefinitions.Wisdom, SkillDefinitions.Survival,
+                10 + Mathf.FloorToInt(entry.MonsterDefinition.ChallengeRating), AdvantageType.None, checkModifier,
+                false, -1, out var outcome, out _, true);
+
+            var level = entry.KnowledgeLevelDefinition.Level;
+            var num = level;
+
+            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                var num2 = outcome == RollOutcome.Success ? 1 : 2;
+                num = Mathf.Min(entry.KnowledgeLevelDefinition.Level + num2, 4);
+                manager.LearnMonsterKnowledge(entry.MonsterDefinition, manager.Bestiary.SortedKnowledgeLevels[num]);
+            }
+
+            gameLocationCharacter.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
+                gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
         }
 
         public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)

@@ -1,24 +1,33 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomDefinitions;
+using JetBrains.Annotations;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches;
 
 internal static class RulesetImplementationManagerPatcher
 {
-    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsSituationalContextValid")]
-    [HarmonyPatch(new[] { typeof(RulesetImplementationDefinitions.SituationalContextParams) })]
+    [HarmonyPatch(typeof(RulesetImplementationManager), "ApplyEffectForms")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class IsSituationalContextValid_Patch
+    internal static class ApplyEffectForms_Patch
     {
-        internal static void Postfix(
-            ref bool __result,
-            RulesetImplementationDefinitions.SituationalContextParams contextParams)
+        public static void Postfix( 
+            List<EffectForm> effectForms,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+            List<string> effectiveDamageTypes,
+            bool retargeting,
+            bool proxyOnly,
+            bool forceSelfConditionOnly,
+            RuleDefinitions.EffectApplication effectApplication,
+            List<EffectFormFilter> filters)
         {
-            //PATCH: supports custom situational context
-            //used to twean `Reckless` feat to properly work with reach weapons
-            //and for Blade Dancer subclass features
-            __result = CustomSituationalContext.IsContextValid(contextParams, __result);
+            foreach (var customEffect in effectForms.OfType<CustomDefinitions.CustomEffectForm>())
+            {
+                customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly, effectApplication,
+                    filters);
+            }
         }
     }
 }
