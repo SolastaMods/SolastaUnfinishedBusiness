@@ -5,8 +5,9 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using static RuleDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.OfficialAdvantageDisadvantageRules;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
 [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RuleDefinitions_ComputeAdvantage

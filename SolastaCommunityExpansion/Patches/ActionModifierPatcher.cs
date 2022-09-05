@@ -2,13 +2,14 @@
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.OfficialAdvantageDisadvantageRules;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
 [HarmonyPatch(typeof(ActionModifier), "AttackAdvantageTrend", MethodType.Getter)]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class ActionModifier_AttackAdvantageTrend_Getter
 {
-    public static bool Prefix(ActionModifier __instance, ref int __result)
+    internal static bool Prefix(ActionModifier __instance, ref int __result)
     {
         if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
         {
