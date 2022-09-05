@@ -197,13 +197,6 @@ internal static class ItemCraftingContext
 
     internal static void FilterRecipes(ref List<RecipeDefinition> knownRecipes)
     {
-        if (Main.Settings.EnableGamepad)
-        {
-            FilterGuiDropdown.gameObject.SetActive(false);
-
-            return;
-        }
-
         switch (FilterGuiDropdown.value)
         {
             case 0: // all

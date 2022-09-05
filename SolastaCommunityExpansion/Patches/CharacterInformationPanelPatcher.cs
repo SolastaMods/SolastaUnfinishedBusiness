@@ -130,7 +130,7 @@ internal static class CharacterInformationPanel_Bind
 
     internal static void Postfix(CharacterInformationPanel __instance)
     {
-        if (!Main.Settings.EnableEnhancedCharacterInspection || Main.Settings.EnableGamepad)
+        if (!Main.Settings.EnableEnhancedCharacterInspection)
         {
             return;
         }

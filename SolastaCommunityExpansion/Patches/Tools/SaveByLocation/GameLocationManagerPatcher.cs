@@ -12,7 +12,7 @@ internal static class GameLocationManager_LoadLocationAsync
     public static void Prefix(GameLocationManager __instance,
         string locationDefinitionName, string userLocationName, string userCampaignName)
     {
-        if (!Main.Settings.EnableSaveByLocation || Main.Settings.EnableGamepad)
+        if (!Main.Settings.EnableSaveByLocation)
         {
             return;
         }

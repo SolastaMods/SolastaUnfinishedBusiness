@@ -108,7 +108,7 @@ ModUi/&House=<color=#F0DAA0>House:</color>
 ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far away]</color></i>
 ModUi/&IncreaseSenseNormalVisionHelp=<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&InitialChoices=<color=#F0DAA0>Initial choices:</color>
-ModUi/&Input=Gamepad, Keyboard & Mouse
+ModUi/&Input=Keyboard & Mouse
 ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventory and items:</color>
 ModUi/&InvertAltBehaviorOnTooltips=Invert <color=#1E81B0>ALT</color> key behavior on tooltips

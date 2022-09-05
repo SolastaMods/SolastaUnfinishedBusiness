@@ -63,18 +63,6 @@ internal static class GameUiContext
         // Zoom Camera
         inputService.RegisterCommand(Hotkeys.CtrlShiftZ, (int)KeyCode.Z, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-
-        SwitchControlScheme();
-    }
-
-    internal static void SwitchControlScheme()
-    {
-        var inputManager = ServiceRepository.GetService<IInputService>();
-        var controlScheme = Main.Settings.EnableGamepad
-            ? InputDefinitions.ControlSchemeGamepad
-            : InputDefinitions.ControlSchemeKeyboardMouse;
-
-        inputManager.SwitchControlScheme(controlScheme);
     }
 
     internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
