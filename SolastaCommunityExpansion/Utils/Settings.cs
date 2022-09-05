@@ -290,10 +290,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableTeleportParty { get; set; }
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool InvertAltBehaviorOnTooltips { get; set; }
-    public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
-    public bool EnableCtrlClickBypassAttackReactionPanel { get; set; }
-    public bool EnableIgnoreCtrlClickOnCriticalHit { get; set; }
-    public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
 
     //
     // Interface - Translations

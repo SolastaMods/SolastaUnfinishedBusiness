@@ -13,9 +13,7 @@ internal static class KeyboardAndMouseDisplay
         Main.Settings.EnableHotkeyZoomCamera &&
         Main.Settings.EnableTeleportParty &&
         Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView &&
-        Main.Settings.InvertAltBehaviorOnTooltips &&
-        Main.Settings.EnableCtrlClickBypassMetamagicPanel &&
-        Main.Settings.EnableCtrlClickBypassAttackReactionPanel;
+        Main.Settings.InvertAltBehaviorOnTooltips;
 
     private static void UpdateSettings(bool flag)
     {
@@ -28,9 +26,6 @@ internal static class KeyboardAndMouseDisplay
         Main.Settings.EnableTeleportParty = flag;
         Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = flag;
         Main.Settings.InvertAltBehaviorOnTooltips = flag;
-        Main.Settings.EnableCtrlClickBypassMetamagicPanel = flag;
-        Main.Settings.EnableCtrlClickBypassAttackReactionPanel = flag;
-        Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = flag;
     }
 
     internal static void DisplayKeyboardAndMouse()
@@ -120,32 +115,6 @@ internal static class KeyboardAndMouseDisplay
         {
             Main.Settings.InvertAltBehaviorOnTooltips = toggle;
             SelectAll = false;
-        }
-
-        UI.Label("");
-
-        toggle = Main.Settings.EnableCtrlClickBypassMetamagicPanel;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCtrlClickBypassMetamagicPanel"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCtrlClickBypassMetamagicPanel = toggle;
-            SelectAll = false;
-        }
-
-        toggle = Main.Settings.EnableCtrlClickBypassAttackReactionPanel;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCtrlClickBypassAttackReactionPanel"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCtrlClickBypassAttackReactionPanel = toggle;
-            Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = toggle;
-            SelectAll = false;
-        }
-
-        if (Main.Settings.EnableCtrlClickBypassAttackReactionPanel)
-        {
-            toggle = Main.Settings.EnableIgnoreCtrlClickOnCriticalHit;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableIgnoreCtrlClickOnCriticalHit"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = toggle;
-            }
         }
 
         #endregion
