@@ -11,7 +11,7 @@ internal static class CharacterActionAttackPatcher
 {
     [HarmonyPatch(typeof(CharacterActionAttack), "ExecuteImpl")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterActionAttack_ExecuteImpl
+    internal static class ExecuteImpl_Patch
     {
         internal static IEnumerator Postfix([NotNull] IEnumerator values, [NotNull] CharacterActionAttack __instance)
         {

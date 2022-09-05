@@ -6,69 +6,72 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: extends the cost buy table to enable `EpicPointsAndArray`
-[HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Reset")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterStageAbilityScoresPanel_Reset
+internal static class CharacterStageAbilityScoresPanelPatcher
 {
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    //PATCH: extends the cost buy table to enable `EpicPointsAndArray`
+    [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Reset")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Reset_Patch
     {
-        foreach (var instruction in instructions)
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            if (Main.Settings.EnableEpicPointsAndArray)
+            foreach (var instruction in instructions)
             {
-                if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
-                    InitialChoicesContext.GameBuyPoints.ToString())
+                if (Main.Settings.EnableEpicPointsAndArray)
                 {
-                    yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.ModBuyPoints);
+                    if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
+                        InitialChoicesContext.GameBuyPoints.ToString())
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.ModBuyPoints);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
                 }
                 else
                 {
                     yield return instruction;
                 }
-            }
-            else
-            {
-                yield return instruction;
             }
         }
     }
-}
 
 //PATCH: extends the cost buy table to enable `EpicPointsAndArray`
-[HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Refresh")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterStageAbilityScoresPanel_Refresh
-{
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Refresh")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Refresh_Patch
     {
-        foreach (var instruction in instructions)
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            if (Main.Settings.EnableEpicPointsAndArray)
+            foreach (var instruction in instructions)
             {
-                if (instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() ==
-                    InitialChoicesContext.GameBuyPoints.ToString())
+                if (Main.Settings.EnableEpicPointsAndArray)
                 {
-                    yield return new CodeInstruction(OpCodes.Ldc_R4, 1f * InitialChoicesContext.ModBuyPoints);
-                }
-                else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
-                         InitialChoicesContext.GameBuyPoints.ToString())
-                {
-                    yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.ModBuyPoints);
-                }
-                else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
-                         InitialChoicesContext.GameMaxAttribute.ToString())
-                {
-                    yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.ModMaxAttribute);
+                    if (instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() ==
+                        InitialChoicesContext.GameBuyPoints.ToString())
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldc_R4, 1f * InitialChoicesContext.ModBuyPoints);
+                    }
+                    else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
+                             InitialChoicesContext.GameBuyPoints.ToString())
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.ModBuyPoints);
+                    }
+                    else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
+                             InitialChoicesContext.GameMaxAttribute.ToString())
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.ModMaxAttribute);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
                 }
                 else
                 {
                     yield return instruction;
                 }
-            }
-            else
-            {
-                yield return instruction;
             }
         }
     }

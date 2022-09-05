@@ -7,7 +7,7 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches;
 
-internal static class FeatureDefinitionMagicAffinityPatcher
+internal static class FeatureDefinitionAutoPreparedSpellsPatcher
 {
     private static string FormatSpellLevel(int level)
     {
@@ -17,7 +17,7 @@ internal static class FeatureDefinitionMagicAffinityPatcher
     //PATCH: formats spell list into list with spell levels, instead of 1 line of all spells like default does
     [HarmonyPatch(typeof(FeatureDefinitionAutoPreparedSpells), "FormatDescription")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FeatureDefinitionAutoPreparedSpells_FormatDescription
+    internal static class FormatDescription_Patch
     {
         internal static bool Prefix(FeatureDefinitionAutoPreparedSpells __instance, ref string __result)
         {
@@ -54,11 +54,19 @@ internal static class FeatureDefinitionMagicAffinityPatcher
             return false;
         }
     }
+}
+
+internal static class FeatureDefinitionMagicAffinityPatcher
+{
+    private static string FormatSpellLevel(int level)
+    {
+        return Gui.Colorize(level == 0 ? "0" : Gui.ToRoman(level), Gui.ColorHighEmphasis);
+    }
 
     //PATCH: formats spell list into list with spell levels, instead of 1 line of all spells like default does
     [HarmonyPatch(typeof(FeatureDefinitionMagicAffinity), "FormatDescription")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FeatureDefinitionMagicAffinity_FormatDescription
+    internal static class FormatDescription_Patch
     {
         public static string FormatSpellList(FeatureDefinitionMagicAffinity instance)
         {
@@ -104,7 +112,7 @@ internal static class FeatureDefinitionMagicAffinityPatcher
 
             var formatMethod = typeof(Gui).GetMethod("Format", BindingFlags.Static | BindingFlags.Public);
             var myFormatMethod =
-                typeof(FeatureDefinitionMagicAffinity_FormatDescription).GetMethod("FormatSpellList");
+                typeof(FormatDescription_Patch).GetMethod("FormatSpellList");
             var found = 0;
 
             foreach (var instruction in instructions)

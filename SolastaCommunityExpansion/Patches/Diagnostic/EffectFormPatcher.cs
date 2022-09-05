@@ -6,7 +6,7 @@ using static SolastaCommunityExpansion.DataMiner.EffectFormVerification;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
 
-//PATCH: These patches are for efefct form usage diagnostics
+//PATCH: These patches are for effect form usage diagnostics
 internal static class EffectFormPatcher
 {
     [HarmonyPatch(typeof(EffectForm), "DamageForm", MethodType.Getter)]

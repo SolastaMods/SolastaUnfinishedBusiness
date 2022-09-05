@@ -4,28 +4,31 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches;
 
-[HarmonyPatch(typeof(CharacterReactionSubitem), "Unbind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class Unbind_Patch
+internal static class CharacterReactionSubitemPatcher
 {
-    internal static void Prefix(CharacterReactionSubitem __instance)
+    [HarmonyPatch(typeof(CharacterReactionSubitem), "Unbind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Unbind_Patch
     {
-        //PATCH: disables tooltip on Unbind.
-        //Default implementation doesn't use tooltips, so we are cleaning after custom warcaster and bundled power binds
-
-        var toggle = __instance.toggle.GetComponent<RectTransform>();
-        toggle.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 34);
-
-        var background = toggle.FindChildRecursive("Background");
-
-        if (background == null)
+        internal static void Prefix(CharacterReactionSubitem __instance)
         {
-            return;
-        }
+            //PATCH: disables tooltip on Unbind.
+            //Default implementation doesn't use tooltips, so we are cleaning after custom warcaster and bundled power binds
 
-        if (background.TryGetComponent<GuiTooltip>(out var tooltip))
-        {
-            tooltip.Disabled = true;
+            var toggle = __instance.toggle.GetComponent<RectTransform>();
+            toggle.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 34);
+
+            var background = toggle.FindChildRecursive("Background");
+
+            if (background == null)
+            {
+                return;
+            }
+
+            if (background.TryGetComponent<GuiTooltip>(out var tooltip))
+            {
+                tooltip.Disabled = true;
+            }
         }
     }
 }

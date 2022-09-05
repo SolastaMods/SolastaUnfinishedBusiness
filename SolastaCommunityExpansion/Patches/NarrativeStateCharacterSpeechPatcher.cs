@@ -1,8 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.DialoguesOnConsole;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: EnableLogDialoguesToConsole
 [HarmonyPatch(typeof(NarrativeStateCharacterSpeech), "RecordSpeechLine")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class NarrativeStateCharacterSpeech_RecordSpeechLine_Getter

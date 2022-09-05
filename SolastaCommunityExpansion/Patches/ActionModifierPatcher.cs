@@ -4,23 +4,26 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
-[HarmonyPatch(typeof(ActionModifier), "AttackAdvantageTrend", MethodType.Getter)]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class ActionModifier_AttackAdvantageTrend_Getter
+internal static class ActionModifierPatcher
 {
-    internal static bool Prefix(ActionModifier __instance, ref int __result)
+    //PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
+    [HarmonyPatch(typeof(ActionModifier), "AttackAdvantageTrend", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class AttackAdvantageTrend_Getter_Patch
     {
-        if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
+        internal static bool Prefix(ActionModifier __instance, ref int __result)
         {
-            return true;
+            if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
+            {
+                return true;
+            }
+
+            var advantage = __instance.attackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
+            var disadvantage = __instance.attackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;
+
+            __result = advantage + disadvantage;
+
+            return false;
         }
-
-        var advantage = __instance.attackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
-        var disadvantage = __instance.attackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;
-
-        __result = advantage + disadvantage;
-
-        return false;
     }
 }

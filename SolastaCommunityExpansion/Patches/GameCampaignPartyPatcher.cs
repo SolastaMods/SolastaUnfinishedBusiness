@@ -6,29 +6,32 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: Correctly updates the level cap under Level 20 scenarios
-[HarmonyPatch(typeof(GameCampaignParty), "UpdateLevelCaps")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameCampaignParty_UpdateLevelCaps
+internal static class GameCampaignPartyPatcher
 {
-    internal static bool Prefix([NotNull] GameCampaignParty __instance, int levelCap)
+    //PATCH: Correctly updates the level cap under Level 20 scenarios
+    [HarmonyPatch(typeof(GameCampaignParty), "UpdateLevelCaps")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class UpdateLevelCaps_Patch
     {
-        var max = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : Level20Context.GameMaxLevel;
-
-        levelCap = Main.Settings.OverrideMinMaxLevel ? Level20Context.ModMaxLevel : levelCap;
-
-        foreach (var character in __instance.CharactersList)
+        internal static bool Prefix([NotNull] GameCampaignParty __instance, int levelCap)
         {
-            var characterLevel = character.RulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel);
-            var experience = character.RulesetCharacter.GetAttribute(AttributeDefinitions.Experience);
+            var max = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : Level20Context.GameMaxLevel;
 
-            characterLevel.MaxValue = levelCap > 0 ? Mathf.Min(levelCap, max) : max;
-            characterLevel.Refresh();
+            levelCap = Main.Settings.OverrideMinMaxLevel ? Level20Context.ModMaxLevel : levelCap;
 
-            experience.MaxValue = HeroDefinitions.MaxHeroExperience(characterLevel.MaxValue);
-            experience.Refresh();
+            foreach (var character in __instance.CharactersList)
+            {
+                var characterLevel = character.RulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel);
+                var experience = character.RulesetCharacter.GetAttribute(AttributeDefinitions.Experience);
+
+                characterLevel.MaxValue = levelCap > 0 ? Mathf.Min(levelCap, max) : max;
+                characterLevel.Refresh();
+
+                experience.MaxValue = HeroDefinitions.MaxHeroExperience(characterLevel.MaxValue);
+                experience.Refresh();
+            }
+
+            return false;
         }
-
-        return false;
     }
 }
