@@ -1,15 +1,15 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip;
+namespace SolastaCommunityExpansion.Patches;
 
-// always alt
 [HarmonyPatch(typeof(TooltipPanel), "SetupFeatures")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class TooltipPanel_SetupFeatures
+internal static class SetupFeatures_Patch
 {
     internal static void Prefix(ref TooltipDefinitions.Scope scope)
     {
+        //PATCH: swaps holding ALT behavior for tooltips
         if (!Main.Settings.InvertAltBehaviorOnTooltips)
         {
             return;
