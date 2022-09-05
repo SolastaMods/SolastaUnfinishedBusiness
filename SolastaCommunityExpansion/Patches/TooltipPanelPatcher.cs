@@ -3,23 +3,26 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches;
 
-[HarmonyPatch(typeof(TooltipPanel), "SetupFeatures")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class SetupFeatures_Patch
+internal static class TooltipPanelPatcher
 {
-    internal static void Prefix(ref TooltipDefinitions.Scope scope)
+    [HarmonyPatch(typeof(TooltipPanel), "SetupFeatures")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class SetupFeatures_Patch
     {
-        //PATCH: swaps holding ALT behavior for tooltips
-        if (!Main.Settings.InvertAltBehaviorOnTooltips)
+        internal static void Prefix(ref TooltipDefinitions.Scope scope)
         {
-            return;
-        }
+            //PATCH: swaps holding ALT behavior for tooltips
+            if (!Main.Settings.InvertAltBehaviorOnTooltips)
+            {
+                return;
+            }
 
-        scope = scope switch
-        {
-            TooltipDefinitions.Scope.Simplified => TooltipDefinitions.Scope.Detailed,
-            TooltipDefinitions.Scope.Detailed => TooltipDefinitions.Scope.Simplified,
-            _ => scope
-        };
+            scope = scope switch
+            {
+                TooltipDefinitions.Scope.Simplified => TooltipDefinitions.Scope.Detailed,
+                TooltipDefinitions.Scope.Detailed => TooltipDefinitions.Scope.Simplified,
+                _ => scope
+            };
+        }
     }
 }

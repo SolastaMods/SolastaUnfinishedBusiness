@@ -20,17 +20,17 @@ internal static class PowerSelectionPanelPatcher
     // second line bind
     [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class PowerSelectionPanel_Bind
+    internal static class Bind_Patch
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = instructions.ToList();
-            var power_canceled_handler = codes.FindIndex(x =>
+            var powerCanceledHandler = codes.FindIndex(x =>
                 x.opcode == OpCodes.Call && x.operand.ToString().Contains("PowerCancelled"));
 
             var removePowersMethod = new Action<PowerSelectionPanel, RulesetCharacter>(RemoveInvalidPowers).Method;
 
-            codes.InsertRange(power_canceled_handler + 1,
+            codes.InsertRange(powerCanceledHandler + 1,
                 new List<CodeInstruction>
                 {
                     new(OpCodes.Ldarg_0), new(OpCodes.Ldarg_1), new(OpCodes.Call, removePowersMethod)
@@ -115,7 +115,7 @@ internal static class PowerSelectionPanelPatcher
     // second line unbind
     [HarmonyPatch(typeof(PowerSelectionPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class PowerSelectionPanel_Unbind
+    internal static class Unbind_Patch
     {
         internal static void Postfix()
         {

@@ -19,7 +19,7 @@ internal static class RulesetActorPatcher
 {
     [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetActor_ProcessConditionsMatchingOccurenceType
+    internal static class ProcessConditionsMatchingOccurenceType_Patch
     {
         internal static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
         {

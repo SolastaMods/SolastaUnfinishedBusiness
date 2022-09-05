@@ -6,12 +6,12 @@ using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Patches;
 
-internal static class RulesetImplementationManagerLocation_Patcher
+internal static class RulesetImplementationManagerLocationPatcher
 {
     //PATCH: fix twinned spells offering
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsMetamagicOptionAvailable")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetImplementationManagerLocation_IsMetamagicOptionAvailable
+    internal static class IsMetamagicOptionAvailable_Patch
     {
         private static readonly string[] NotAllowedSpells = { "EWSunlightBlade" };
 
@@ -122,5 +122,4 @@ internal static class RulesetImplementationManagerLocation_Patcher
             __result = CustomSituationalContext.IsContextValid(contextParams, __result);
         }
     }
-    
 }

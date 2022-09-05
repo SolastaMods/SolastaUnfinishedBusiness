@@ -4,27 +4,30 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefiniti
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: uses class level when offering wildshape
-[HarmonyPatch(typeof(ShapeOptionItem), "Bind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class ShapeOptionItem_Bind
+internal static class ShapeOptionItemPatcher
 {
-    internal static void Postfix(
-        ShapeOptionItem __instance,
-        RulesetCharacter shifter,
-        int requiredLevel)
+    //PATCH: uses class level when offering wildshape
+    [HarmonyPatch(typeof(ShapeOptionItem), "Bind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ShapeOptionItem_Bind
     {
-        if (shifter is not RulesetCharacterHero rulesetCharacterHero ||
-            !rulesetCharacterHero.ClassesAndLevels.TryGetValue(Druid, out var levels))
+        internal static void Postfix(
+            ShapeOptionItem __instance,
+            RulesetCharacter shifter,
+            int requiredLevel)
         {
-            return;
+            if (shifter is not RulesetCharacterHero rulesetCharacterHero ||
+                !rulesetCharacterHero.ClassesAndLevels.TryGetValue(Druid, out var levels))
+            {
+                return;
+            }
+
+            var isShapeOptionAvailable = requiredLevel <= levels;
+
+            __instance.levelLabel.TMP_Text.color =
+                isShapeOptionAvailable ? __instance.validLevelColor : __instance.invalidLevelColor;
+            __instance.toggle.interactable = isShapeOptionAvailable;
+            __instance.canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
         }
-
-        var isShapeOptionAvailable = requiredLevel <= levels;
-
-        __instance.levelLabel.TMP_Text.color =
-            isShapeOptionAvailable ? __instance.validLevelColor : __instance.invalidLevelColor;
-        __instance.toggle.interactable = isShapeOptionAvailable;
-        __instance.canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
     }
 }

@@ -6,35 +6,38 @@ using static SolastaCommunityExpansion.Models.CharacterExportContext;
 
 namespace SolastaCommunityExpansion.Patches;
 
-// uses this patch to offer an input field when in the context of character export which is set if message content equals to \n\n\n
-[HarmonyPatch(typeof(MessageModal), "OnEndShow")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class MessageModal_OnEndShow
+internal static class MessageModalPatcher
 {
-    internal static void Postfix(MessageModal __instance)
+    //PATCH: offers an input field when in the context of character export which is set if message content equals to \n\n\n
+    [HarmonyPatch(typeof(MessageModal), "OnEndShow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class OnEndShow_Patch
     {
-        if (!Main.Settings.EnableCharacterExport || __instance.contentLabel.Text != InputModalMark)
+        internal static void Postfix(MessageModal __instance)
         {
-            if (InputField != null)
+            if (!Main.Settings.EnableCharacterExport || __instance.contentLabel.Text != InputModalMark)
             {
-                InputField.gameObject.SetActive(false);
+                if (InputField != null)
+                {
+                    InputField.gameObject.SetActive(false);
+                }
+
+                return;
             }
 
-            return;
+            // add this check here to avoid a restart required on this UI toggle
+            if (InputField == null)
+            {
+                Load();
+            }
+
+            __instance.contentLabel.TMP_Text.alignment = TextAlignmentOptions.BottomLeft;
+
+            InputField.gameObject.SetActive(true);
+            InputField.ActivateInputField();
+            InputField.text = string.Empty;
+
+            EventSystem.current.SetSelectedGameObject(InputField.gameObject);
         }
-
-        // add this check here to avoid a restart required on this UI toggle
-        if (InputField == null)
-        {
-            Load();
-        }
-
-        __instance.contentLabel.TMP_Text.alignment = TextAlignmentOptions.BottomLeft;
-
-        InputField.gameObject.SetActive(true);
-        InputField.ActivateInputField();
-        InputField.text = string.Empty;
-
-        EventSystem.current.SetSelectedGameObject(InputField.gameObject);
     }
 }

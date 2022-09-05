@@ -5,50 +5,53 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: Enable inventory taint non proficient items in red (paint them red)
-[HarmonyPatch(typeof(InventorySlotBox), "RefreshState")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class InventorySlotBox_RefreshState
+internal static class InventorySlotBoxPatcher
 {
-    internal static void Postfix(InventorySlotBox __instance)
+    //PATCH: Enable inventory taint non proficient items in red (paint them red)
+    [HarmonyPatch(typeof(InventorySlotBox), "RefreshState")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class InventorySlotBox_RefreshState
     {
-        if (Global.InspectedHero == null)
+        internal static void Postfix(InventorySlotBox __instance)
         {
-            return;
-        }
+            if (Global.InspectedHero == null)
+            {
+                return;
+            }
 
-        if (!Main.Settings.EnableInventoryTaintNonProficientItemsRed || Global.IsMultiplayer)
-        {
-            return;
-        }
+            if (!Main.Settings.EnableInventoryTaintNonProficientItemsRed || Global.IsMultiplayer)
+            {
+                return;
+            }
 
-        if (__instance.InventorySlot?.EquipedItem == null || __instance.equipedItemImage == null)
-        {
-            return;
-        }
+            if (__instance.InventorySlot?.EquipedItem == null || __instance.equipedItemImage == null)
+            {
+                return;
+            }
 
-        var itemDefinition = __instance.InventorySlot.EquipedItem.ItemDefinition;
+            var itemDefinition = __instance.InventorySlot.EquipedItem.ItemDefinition;
 
-        if (!Global.InspectedHero.IsProficientWithItem(itemDefinition))
-        {
-            __instance.equipedItemImage.color = Color.red;
+            if (!Global.InspectedHero.IsProficientWithItem(itemDefinition))
+            {
+                __instance.equipedItemImage.color = Color.red;
+            }
         }
     }
-}
 
-//PATCH: Enable inventory taint non proficient items in red (paint them back white)
-[HarmonyPatch(typeof(InventorySlotBox), "Unbind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class InventorySlotBox_Unbind
-{
-    // this should not have any protection to keep the house clean
-    internal static void Prefix(InventorySlotBox __instance)
+    //PATCH: Enable inventory taint non proficient items in red (paint them back white)
+    [HarmonyPatch(typeof(InventorySlotBox), "Unbind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class InventorySlotBox_Unbind
     {
-        if (__instance.equipedItemImage == null)
+        // this should not have any protection to keep the house clean
+        internal static void Prefix(InventorySlotBox __instance)
         {
-            return;
-        }
+            if (__instance.equipedItemImage == null)
+            {
+                return;
+            }
 
-        __instance.equipedItemImage.color = new Color(1, 1, 1);
+            __instance.equipedItemImage.color = new Color(1, 1, 1);
+        }
     }
 }

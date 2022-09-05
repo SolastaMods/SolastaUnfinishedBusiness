@@ -5,39 +5,42 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: FullyControlConjurations
-[HarmonyPatch(typeof(NarrativeDirectionManager), "PrepareDialogSequence")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class NarrativeDirectionManager_StartDialogSequence_Patch
+internal static class NarrativeDirectionManagerPatcher
 {
-    internal static void Prefix(List<GameLocationCharacter> involvedGameCharacters)
+    //PATCH: FullyControlConjurations
+    [HarmonyPatch(typeof(NarrativeDirectionManager), "PrepareDialogSequence")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class PrepareDialogSequence_Patch
     {
-        if (!Main.Settings.FullyControlConjurations)
+        internal static void Prefix(List<GameLocationCharacter> involvedGameCharacters)
         {
-            return;
-        }
+            if (!Main.Settings.FullyControlConjurations)
+            {
+                return;
+            }
 
-        involvedGameCharacters.RemoveAll(
-            x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
-                 && ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster
-                     .MonsterDefinition));
+            involvedGameCharacters.RemoveAll(
+                x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
+                     && ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster
+                         .MonsterDefinition));
+        }
     }
-}
 
-//PATCH: EnableLogDialoguesToConsole
-[HarmonyPatch(typeof(NarrativeDirectionManager), "StartDialogSequence")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class NarrativeDirectionManager_StartDialogSequence
-{
-    internal static void Postfix()
+    //PATCH: EnableLogDialoguesToConsole
+    [HarmonyPatch(typeof(NarrativeDirectionManager), "StartDialogSequence")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class StartDialogSequence_Patch
     {
-        if (!Main.Settings.EnableLogDialoguesToConsole)
+        internal static void Postfix()
         {
-            return;
+            if (!Main.Settings.EnableLogDialoguesToConsole)
+            {
+                return;
+            }
+
+            var screen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
+
+            screen.Show();
         }
-
-        var screen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
-
-        screen.Show();
     }
 }

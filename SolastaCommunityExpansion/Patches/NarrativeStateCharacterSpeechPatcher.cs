@@ -3,18 +3,21 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: EnableLogDialoguesToConsole
-[HarmonyPatch(typeof(NarrativeStateCharacterSpeech), "RecordSpeechLine")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class NarrativeStateCharacterSpeech_RecordSpeechLine_Getter
+internal static class NarrativeStateCharacterSpeechPatcher
 {
-    internal static void Postfix(string speakerName, string textLine)
+    //PATCH: EnableLogDialoguesToConsole
+    [HarmonyPatch(typeof(NarrativeStateCharacterSpeech), "RecordSpeechLine")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RecordSpeechLine_Patch
     {
-        if (!Main.Settings.EnableLogDialoguesToConsole)
+        internal static void Postfix(string speakerName, string textLine)
         {
-            return;
-        }
+            if (!Main.Settings.EnableLogDialoguesToConsole)
+            {
+                return;
+            }
 
-        Gui.Game.GameConsole.LogSimpleLine($"<b><color=yellow>{speakerName}:</color></b> {textLine}");
+            Gui.Game.GameConsole.LogSimpleLine($"<b><color=yellow>{speakerName}:</color></b> {textLine}");
+        }
     }
 }

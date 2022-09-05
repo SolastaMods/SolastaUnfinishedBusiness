@@ -7,32 +7,35 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
-[HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RuleDefinitions_ComputeAdvantage
+internal static class RuleDefinitionsPatcher
 {
-    public static void Postfix([NotNull] List<TrendInfo> trends, ref AdvantageType __result)
+    //PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
+    [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ComputeAdvantage_Patch
     {
-        if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
+        public static void Postfix([NotNull] List<TrendInfo> trends, ref AdvantageType __result)
         {
-            return;
-        }
+            if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
+            {
+                return;
+            }
 
-        var hasAdvantage = trends.Any(t => t.value > 0);
-        var hasDisadvantage = trends.Any(t => t.value < 0);
+            var hasAdvantage = trends.Any(t => t.value > 0);
+            var hasDisadvantage = trends.Any(t => t.value < 0);
 
-        if (!(hasAdvantage ^ hasDisadvantage))
-        {
-            __result = AdvantageType.None;
-        }
-        else if (hasAdvantage)
-        {
-            __result = AdvantageType.Advantage;
-        }
-        else
-        {
-            __result = AdvantageType.Disadvantage;
+            if (!(hasAdvantage ^ hasDisadvantage))
+            {
+                __result = AdvantageType.None;
+            }
+            else if (hasAdvantage)
+            {
+                __result = AdvantageType.Advantage;
+            }
+            else
+            {
+                __result = AdvantageType.Disadvantage;
+            }
         }
     }
 }

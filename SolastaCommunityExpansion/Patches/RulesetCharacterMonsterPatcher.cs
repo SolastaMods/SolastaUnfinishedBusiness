@@ -6,46 +6,49 @@ using SolastaCommunityExpansion.Subclasses.Wizard;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: ensures that wildshape get all original character pools and current powers states
-[HarmonyPatch(typeof(RulesetCharacterMonster), "FinalizeMonster")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetCharacterMonster_FinalizeMonster
+internal static class RulesetCharacterMonsterPatcher
 {
-    // remaining pools must be added beforehand to avoid a null pointer exception
-    internal static void Prefix(RulesetCharacterMonster __instance)
+    //PATCH: ensures that wildshape get all original character pools and current powers states
+    [HarmonyPatch(typeof(RulesetCharacterMonster), "FinalizeMonster")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class FinalizeMonster_Patch
     {
-        if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
+        // remaining pools must be added beforehand to avoid a null pointer exception
+        internal static void Prefix(RulesetCharacterMonster __instance)
         {
-            return;
+            if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
+            {
+                return;
+            }
+
+            foreach (var attribute in hero.Attributes.Where(x => !__instance.Attributes.ContainsKey(x.Key)))
+            {
+                __instance.Attributes.Add(attribute.Key, attribute.Value);
+            }
         }
 
-        foreach (var attribute in hero.Attributes.Where(x => !__instance.Attributes.ContainsKey(x.Key)))
+        // usable powers must be added after hand to overwrite default values from game
+        internal static void Postfix(RulesetCharacterMonster __instance)
         {
-            __instance.Attributes.Add(attribute.Key, attribute.Value);
-        }
-    }
+            //
+            // TODO: Consider creating an interface / delegate for this if really necessary
+            //
+            DeadMaster.OnMonsterCreated(__instance);
 
-    // usable powers must be added after hand to overwrite default values from game
-    internal static void Postfix(RulesetCharacterMonster __instance)
-    {
-        //
-        // TODO: Consider creating an interface / delegate for this if really necessary
-        //
-        DeadMaster.OnMonsterCreated(__instance);
+            if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
+            {
+                return;
+            }
 
-        if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
-        {
-            return;
-        }
+            __instance.UsablePowers.SetRange(hero.UsablePowers);
 
-        __instance.UsablePowers.SetRange(hero.UsablePowers);
+            // sync rage points
+            var count = hero.UsedRagePoints;
 
-        // sync rage points
-        var count = hero.UsedRagePoints;
-
-        while (count-- > 0)
-        {
-            __instance.SpendRagePoint();
+            while (count-- > 0)
+            {
+                __instance.SpendRagePoint();
+            }
         }
     }
 }

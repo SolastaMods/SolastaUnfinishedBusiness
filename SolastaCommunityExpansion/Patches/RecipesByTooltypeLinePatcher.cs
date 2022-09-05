@@ -6,26 +6,29 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: sort the recipes by crafted item title
-[HarmonyPatch(typeof(RecipesByTooltypeLine), "Load")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RecipesByTooltypeLine_Load
+internal static class RecipesByTooltypeLinePatcher
 {
-    internal static void Prefix(List<RecipeDefinition> recipes)
+    //PATCH: sort the recipes by crafted item title
+    [HarmonyPatch(typeof(RecipesByTooltypeLine), "Load")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Load_Patch
     {
-        recipes.Sort((a, b) =>
-            String.Compare(a.CraftedItem.FormatTitle(), b.CraftedItem.FormatTitle(),
-                StringComparison.CurrentCultureIgnoreCase));
+        internal static void Prefix(List<RecipeDefinition> recipes)
+        {
+            recipes.Sort((a, b) =>
+                String.Compare(a.CraftedItem.FormatTitle(), b.CraftedItem.FormatTitle(),
+                    StringComparison.CurrentCultureIgnoreCase));
+        }
     }
-}
 
-//PATCH: adds a filter to the crafting panel screen
-[HarmonyPatch(typeof(RecipesByTooltypeLine), "Refresh")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RecipesByTooltypeLine_Refresh
-{
-    internal static void Prefix(ref List<RecipeDefinition> knownRecipes)
+    //PATCH: adds a filter to the crafting panel screen
+    [HarmonyPatch(typeof(RecipesByTooltypeLine), "Refresh")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Refresh_Patch
     {
-        ItemCraftingContext.FilterRecipes(ref knownRecipes);
+        internal static void Prefix(ref List<RecipeDefinition> knownRecipes)
+        {
+            ItemCraftingContext.FilterRecipes(ref knownRecipes);
+        }
     }
 }

@@ -8,7 +8,7 @@ internal static class ReadyActionSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(ReadyActionSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ReadyActionSelectionPanel_Bind
+    internal static class Bind_Patch
     {
         internal static void Prefix(ReadyActionSelectionPanel __instance)
         {

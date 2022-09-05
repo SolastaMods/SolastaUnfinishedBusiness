@@ -150,7 +150,7 @@ internal static class RulesetCharacterHeroPatcher
     //PATCH: DisableAutoEquip
     [HarmonyPatch(typeof(RulesetCharacterHero), "GrantItem")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacterHero_GrantItem
+    internal static class GrantItem_Patch
     {
         internal static void Prefix(RulesetCharacterHero __instance, ref bool tryToEquip)
         {

@@ -7,69 +7,72 @@ using JetBrains.Annotations;
 namespace SolastaCommunityExpansion.Patches;
 //TODO: modify "Screen/&CastLightButtonDescription"
 
-//PATCH: QuickCastLightCantripOnWornItemsFirst
-[HarmonyPatch(typeof(InventoryShortcutsPanel), "OnCastLightCb")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class InventoryShortcutsPanel_OnCastLightCb
+internal static class InventoryShortcutsPanelPatcher
 {
-    public static bool MyTryFindTargetWieldedItem([NotNull] RulesetCharacterHero rulesetCharacterHero,
-        out RulesetItem targetItem)
+    //PATCH: QuickCastLightCantripOnWornItemsFirst
+    [HarmonyPatch(typeof(InventoryShortcutsPanel), "OnCastLightCb")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class InventoryShortcutsPanel_OnCastLightCb
     {
-        if (!Main.Settings.QuickCastLightCantripOnWornItemsFirst)
+        public static bool MyTryFindTargetWieldedItem([NotNull] RulesetCharacterHero rulesetCharacterHero,
+            out RulesetItem targetItem)
         {
-            return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
-        }
-
-        var characterInventory = rulesetCharacterHero.CharacterInventory;
-
-        // Head
-        var rulesetInventorySlot1 = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeHead];
-        if (rulesetInventorySlot1.EquipedItem != null)
-        {
-            targetItem = rulesetInventorySlot1.EquipedItem;
-            return true;
-        }
-
-        // Neck
-        var rulesetInventorySlot2 = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeNeck];
-        if (rulesetInventorySlot1.EquipedItem != null)
-        {
-            targetItem = rulesetInventorySlot2.EquipedItem;
-            return true;
-        }
-
-        // Torso
-        var rulesetInventorySlote = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso];
-
-        if (rulesetInventorySlot2.EquipedItem == null)
-        {
-            return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
-        }
-
-        targetItem = rulesetInventorySlote.EquipedItem;
-
-        return true;
-
-        // Other...
-
-        // Else default MainHand, OffHand
-    }
-
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-    {
-        var tryFindTargetWieldedItemMethod = typeof(RulesetCharacter).GetMethod("TryFindTargetWieldedItem");
-        var myTryFindTargetWieldedItemMethod =
-            typeof(InventoryShortcutsPanel_OnCastLightCb).GetMethod("MyTryFindTargetWieldedItem");
-
-        foreach (var instruction in instructions)
-        {
-            if (instruction.Calls(tryFindTargetWieldedItemMethod))
+            if (!Main.Settings.QuickCastLightCantripOnWornItemsFirst)
             {
-                yield return new CodeInstruction(OpCodes.Call, myTryFindTargetWieldedItemMethod);
+                return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
             }
-            else
+
+            var characterInventory = rulesetCharacterHero.CharacterInventory;
+
+            // Head
+            var rulesetInventorySlot1 = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeHead];
+            if (rulesetInventorySlot1.EquipedItem != null)
             {
-                yield return instruction;
+                targetItem = rulesetInventorySlot1.EquipedItem;
+                return true;
+            }
+
+            // Neck
+            var rulesetInventorySlot2 = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeNeck];
+            if (rulesetInventorySlot1.EquipedItem != null)
+            {
+                targetItem = rulesetInventorySlot2.EquipedItem;
+                return true;
+            }
+
+            // Torso
+            var rulesetInventorySlote = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso];
+
+            if (rulesetInventorySlot2.EquipedItem == null)
+            {
+                return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
+            }
+
+            targetItem = rulesetInventorySlote.EquipedItem;
+
+            return true;
+
+            // Other...
+
+            // Else default MainHand, OffHand
+        }
+
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var tryFindTargetWieldedItemMethod = typeof(RulesetCharacter).GetMethod("TryFindTargetWieldedItem");
+            var myTryFindTargetWieldedItemMethod =
+                typeof(InventoryShortcutsPanel_OnCastLightCb).GetMethod("MyTryFindTargetWieldedItem");
+
+            foreach (var instruction in instructions)
+            {
+                if (instruction.Calls(tryFindTargetWieldedItemMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, myTryFindTargetWieldedItemMethod);
+                }
+                else
+                {
+                    yield return instruction;
+                }
             }
         }
     }

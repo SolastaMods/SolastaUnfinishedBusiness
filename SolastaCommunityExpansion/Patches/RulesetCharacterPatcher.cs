@@ -283,7 +283,7 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-//PATCH: ensures ritual spells work correctly when MC (Multiclass)
+    //PATCH: ensures ritual spells work correctly when MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "CanCastAnyRitualSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_CanCastAnyRitualSpell
@@ -295,8 +295,11 @@ internal static class RulesetCharacterPatcher
                 return true;
             }
 
-            RitualSelectionPanel_Bind.EnumerateUsableRitualSpells(__instance, RuleDefinitions.RitualCasting.None,
-                __instance.usableSpells);
+            RitualSelectionPanelPatcher.Bind_Patch
+                .EnumerateUsableRitualSpells(
+                    __instance,
+                    RuleDefinitions.RitualCasting.None,
+                    __instance.usableSpells);
             __result = __instance.usableSpells.Count > 0;
 
             return false;

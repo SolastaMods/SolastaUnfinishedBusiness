@@ -4,20 +4,23 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: overrides the max experience allowed under Level 20 scenarios
-[HarmonyPatch(typeof(HeroDefinitions), "MaxHeroExperience")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class HeroDefinitions_MaxHeroExperience
+internal static class HeroDefinitionsPatcher
 {
-    internal static bool Prefix(ref int __result)
+    //PATCH: overrides the max experience allowed under Level 20 scenarios
+    [HarmonyPatch(typeof(HeroDefinitions), "MaxHeroExperience")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class MaxHeroExperience_Patch
     {
-        if (!Main.Settings.EnableLevel20)
+        internal static bool Prefix(ref int __result)
         {
-            return true;
+            if (!Main.Settings.EnableLevel20)
+            {
+                return true;
+            }
+
+            __result = ModMaxExperience;
+
+            return false;
         }
-
-        __result = ModMaxExperience;
-
-        return false;
     }
 }
