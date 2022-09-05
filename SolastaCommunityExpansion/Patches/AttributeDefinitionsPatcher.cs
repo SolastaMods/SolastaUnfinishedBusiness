@@ -2,9 +2,9 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBuy;
+namespace SolastaCommunityExpansion.Patches;
 
-// extends the cost buy table
+//PATCH: extends the cost buy table to enable `EpicPointsAndArray`
 [HarmonyPatch(typeof(AttributeDefinitions), "ComputeCostToRaiseAbility")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class AttributeDefinitions_ComputeCostToRaiseAbility

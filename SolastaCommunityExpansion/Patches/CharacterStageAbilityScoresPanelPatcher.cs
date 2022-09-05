@@ -4,9 +4,9 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBuy;
+namespace SolastaCommunityExpansion.Patches;
 
-// enables epic points
+//PATCH: extends the cost buy table to enable `EpicPointsAndArray`
 [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Reset")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageAbilityScoresPanel_Reset
@@ -35,7 +35,7 @@ internal static class CharacterStageAbilityScoresPanel_Reset
     }
 }
 
-// enables epic points
+//PATCH: extends the cost buy table to enable `EpicPointsAndArray`
 [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Refresh")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageAbilityScoresPanel_Refresh
