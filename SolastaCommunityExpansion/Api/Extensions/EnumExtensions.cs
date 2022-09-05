@@ -47,20 +47,6 @@ public enum ExtraOriginOfAmount
     SourceClassLevel = 9002
 }
 
-public enum ExtraAttributeModifierOperation
-{
-    Set = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-    Additive = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-    Multiplicative = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Multiplicative,
-    MultiplyByClassLevel = FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel,
-    MultiplyByCharacterLevel = FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel,
-    ForceForceAnyway = FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway,
-    AddAbilityScoreBonus = FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus,
-    AddConditionAmount = FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
-    AddSurroundingEnemies = FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddSurroundingEnemies,
-    AdditiveAtEnd = 9000
-}
-
 public enum ExtraTurnOccurenceType
 {
     StartOfTurn = TurnOccurenceType.StartOfTurn,

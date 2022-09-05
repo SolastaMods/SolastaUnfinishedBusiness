@@ -287,8 +287,7 @@ internal static class ZappaFeats
                 ZappaFeatNamespace)
             .SetGuiPresentationNoContent(true)
             .SetModifier(
-                (FeatureDefinitionAttributeModifier.AttributeModifierOperation)ExtraAttributeModifierOperation
-                    .AdditiveAtEnd, AttributeDefinitions.SorceryPoints, 2)
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.SorceryPoints, 2)
             .AddToDB();
 
         // Metamagic Adept (Careful)
