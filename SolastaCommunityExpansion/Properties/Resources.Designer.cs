@@ -362,16 +362,6 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] HellishRebuke {
-            get {
-                object obj = ResourceManager.GetObject("HellishRebuke", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] LongMace {
             get {
                 object obj = ResourceManager.GetObject("LongMace", resourceCulture);

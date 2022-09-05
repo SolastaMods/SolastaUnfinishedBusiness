@@ -119,18 +119,18 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="AcidClaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AcidClawsSpell.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Spells\AcidClaws.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AirBlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AirBlastSpell.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Spells\AirBlast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Bolgrif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BolgrifRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Races\BolgrifRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BurstOfRadiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BurstOfRadianceSpell.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Spells\BurstOfRadiance.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ContentPack" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -138,31 +138,31 @@
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Darkelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DarkelfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Races\DarkelfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="EarthTremor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EarthTremorSpell.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Spells\EarthTremor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Entry" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Entry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Map\Entry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Map\Fire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
    <data name="GrayDwarf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GrayDwarfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Races\GrayDwarfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data> 
   <data name="Teleport" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Teleport.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Map\Teleport.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WinterBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WinterBreathSpell.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Spells\WinterBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -182,11 +182,11 @@
       Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SunlightBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SunlightBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Spells\SunlightBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ResonatingStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ResonatingStrike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Spells\ResonatingStrike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerAttackConcentrationIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -204,64 +204,64 @@
     <value>..\Resources\DeadeyeIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Halberd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Halberd.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\Halberd.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HalberdLightning" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HalberdLightning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\HalberdLightning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HalberdPrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HalberdPrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\HalberdPrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Halberd_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Halberd+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\Halberd+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Halberd_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Halberd+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\Halberd+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LongMace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\LongMace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMacePrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LongMacePrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\LongMacePrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMaceThunder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LongMaceThunder.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\LongMaceThunder.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMace_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LongMace+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\LongMace+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMace_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LongMace+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\LongMace+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Pike" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\Pike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PikePrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PikePrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\PikePrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PikePsychic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PikePsychic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\PikePsychic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Pike_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pike+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\Pike+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Pike_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pike+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\Pike+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HandXbow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\HandXbow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbowAcid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HandXbowAcid.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\HandXbowAcid.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbowPrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HandXbowPrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\HandXbowPrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbow_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HandXbow+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\HandXbow+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbow_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HandXbow+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Items\HandXbow+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Translations" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -270,18 +270,18 @@
     <value>..\Resources\Names.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HalfDarkelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HalfDarkelfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Races\HalfDarkelfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HalfHighElf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HalfHighElfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Races\HalfHighElfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HalfSylvanElf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HalfSylvanElfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Races\HalfSylvanElfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProducedFlameThrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ProducedFlameThrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Spells\ProducedFlameThrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CreateDead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AnimateDeadSpell.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Spells\AnimateDead.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>  
 </root>

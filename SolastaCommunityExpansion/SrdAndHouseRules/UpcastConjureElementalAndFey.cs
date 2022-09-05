@@ -10,8 +10,7 @@ namespace SolastaCommunityExpansion.SrdAndHouseRules;
 
 internal static class UpcastConjureElementalAndFey
 {
-    private static List<SpellDefinition> FilteredSubspells;
-
+    private static List<SpellDefinition> _filteredSubspells;
 
     /**
      * Patch implementation
@@ -19,22 +18,25 @@ internal static class UpcastConjureElementalAndFey
      */
     internal static bool CheckSubSpellActivated(SubspellSelectionModal __instance, int index)
     {
-        if (Main.Settings.EnableUpcastConjureElementalAndFey && FilteredSubspells is { Count: > 0 })
+        if (!Main.Settings.EnableUpcastConjureElementalAndFey || _filteredSubspells is not { Count: > 0 })
         {
-            if (FilteredSubspells.Count > index)
-            {
-                __instance.spellCastEngaged?.Invoke(__instance.spellRepertoire, FilteredSubspells[index],
-                    __instance.slotLevel);
-
-                __instance.Hide();
-
-                FilteredSubspells.Clear();
-
-                return false;
-            }
+            return true;
         }
 
-        return true;
+        if (_filteredSubspells.Count <= index)
+        {
+            return true;
+        }
+
+        __instance.spellCastEngaged?.Invoke(__instance.spellRepertoire, _filteredSubspells[index],
+            __instance.slotLevel);
+
+        __instance.Hide();
+
+        _filteredSubspells.Clear();
+
+        return false;
+
     }
 
     /**
@@ -111,10 +113,10 @@ internal static class UpcastConjureElementalAndFey
             ? subspellsGroupedAndFilteredByCR.Take(1).ToList()
             : subspellsGroupedAndFilteredByCR;
 
-        FilteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
+        _filteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
-        FilteredSubspells.ForEach(s => Main.Log($"{Gui.Localize(s.GuiPresentation.Title)}"));
+        _filteredSubspells.ForEach(s => Main.Log($"{Gui.Localize(s.GuiPresentation.Title)}"));
 
-        return FilteredSubspells;
+        return _filteredSubspells;
     }
 }
