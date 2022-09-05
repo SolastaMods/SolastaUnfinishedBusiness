@@ -48,7 +48,7 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAttackMode")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class R1efreshAttackMode_Patch
+    internal static class RefreshAttackMode_Patch
     {
         //TODO: remove unused arguments
         internal static void Postfix(RulesetCharacterHero __instance,
@@ -124,7 +124,7 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "AcknowledgeAttackUse")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class AcknowledgeAttackUse
+    internal static class AcknowledgeAttackUse_Patch
     {
         // ReSharper disable once RedundantAssignment
         internal static void Prefix(RulesetCharacterHero __instance,
@@ -133,6 +133,17 @@ internal static class RulesetCharacterHeroPatcher
             //PATCH: supports turning Produced Flame into a weapon
             //destroys Produced Flame after attacking with it
             CustomWeaponsContext.ProcessProducedFlameAttack(__instance, mode);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeCraftingDurationHours")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ComputeCraftingDurationHours_Patch
+    {
+        internal static void Postfix(ref int __result)
+        {
+            //PATCH: reduces the total crafting time by a given percentage
+            __result = (int)((100f - Main.Settings.TotalCraftingTimeModifier) / 100 * __result);
         }
     }
 }
