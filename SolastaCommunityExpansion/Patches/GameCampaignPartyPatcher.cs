@@ -4,8 +4,9 @@ using JetBrains.Annotations;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.Level20;
+namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: Correctly updates the level cap under Level 20 scenarios
 [HarmonyPatch(typeof(GameCampaignParty), "UpdateLevelCaps")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameCampaignParty_UpdateLevelCaps
