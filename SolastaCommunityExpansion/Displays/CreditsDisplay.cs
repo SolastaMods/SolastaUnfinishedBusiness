@@ -15,13 +15,13 @@ internal static class CreditsDisplay
 
     private static readonly Dictionary<string, string> ThanksTable = new()
     {
-        {"Tactical Adventures", "early access to DLC builds and community support"},
-        {"JetBrains", "one year Rider IDE subscription for 3 developers"},
-        {"", ""},
-        {"Critical Hit", "<b>M. Miller</b>, <b>C. Alvarez</b>, <b>J. Cohen</b>, <b>L. Goldiner</b>"},
-        {"D20", "D. Fenter, B. Amorsen, B. Lane, J. Loustaunau"},
-        {"D12", "E. Antonio, C. Aardappel, M. Klepac"},
-        {"D8", "R. Baker, R. Maxim, D. Boggs, P. Marreck"},
+        { "Tactical Adventures", "early access to DLC builds and community support" },
+        { "JetBrains", "one year Rider IDE subscription for 3 developers" },
+        { "", "" },
+        { "Critical Hit", "<b>M. Miller</b>, <b>C. Alvarez</b>, <b>J. Cohen</b>, <b>L. Goldiner</b>" },
+        { "D20", "D. Fenter, B. Amorsen, B. Lane, J. Loustaunau" },
+        { "D12", "E. Antonio, C. Aardappel, M. Klepac" },
+        { "D8", "R. Baker, R. Maxim, D. Boggs, P. Marreck" },
         {
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, J. Bendoski, M. Oliveira, M. Harck\n" +
                   "D. Schoop, K. Cooper, M. Thompson, L. Johnson, M. Piotrowski, E. Meyers, R. Garcia, R. Name\n" +
@@ -99,7 +99,7 @@ internal static class CreditsDisplay
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 url = url.Replace("&", "^&");
-                Process.Start(new ProcessStartInfo(url) {UseShellExecute = true});
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {

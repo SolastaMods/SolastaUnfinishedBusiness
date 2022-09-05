@@ -21,7 +21,8 @@ internal static class CharacterStageClassSelectionPanel_Compare
     {
         if (Main.Settings.EnableSortingClasses)
         {
-            __result = String.Compare(left.FormatTitle(), right.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
+            __result = String.Compare(left.FormatTitle(), right.FormatTitle(),
+                StringComparison.CurrentCultureIgnoreCase);
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿#if DEBUG
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using static SolastaCommunityExpansion.DataMiner.ItemDefinitionVerification;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
 

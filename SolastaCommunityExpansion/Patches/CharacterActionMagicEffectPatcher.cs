@@ -1,11 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
@@ -33,7 +30,7 @@ internal static class CharacterActionMagicEffectPatcher
         {
             //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
             // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
-            
+
             while (!Global.IsSpellStrike && __result.MoveNext())
             {
                 yield return __result.Current;

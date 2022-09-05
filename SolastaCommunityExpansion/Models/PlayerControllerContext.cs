@@ -10,7 +10,7 @@ public static class PlayerControllerContext
 
     private static readonly Dictionary<GameLocationCharacter, int> ControllersChoices = new();
 
-    internal static readonly string[] Controllers = {"Human", "AI"};
+    internal static readonly string[] Controllers = { "Human", "AI" };
 
     // ReSharper disable once InconsistentNaming
     private static int[] playerCharactersChoices { get; set; }

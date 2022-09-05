@@ -2,7 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using static EffectForm.EffectFormType;
-using static SolastaCommunityExpansion.DataMiner.EffectFormVerification;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
 

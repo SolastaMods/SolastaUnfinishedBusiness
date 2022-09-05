@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
@@ -13,17 +12,17 @@ public sealed class FeatureDefinitionOnComputeAttackModifier : FeatureDefinition
 {
     private OnComputeAttackModifier afterComputeAttackModifier;
 
-    internal void SetOnRollAttackModeDelegate([CanBeNull] OnComputeAttackModifier del = null)
-    {
-        afterComputeAttackModifier = del;
-    }
-
     public void ComputeAttackModifier(
-        RulesetCharacter myself, 
-        RulesetCharacter defender, 
-        RulesetAttackMode attackMode, 
+        RulesetCharacter myself,
+        RulesetCharacter defender,
+        RulesetAttackMode attackMode,
         ref ActionModifier attackModifier)
     {
         afterComputeAttackModifier?.Invoke(myself, defender, attackMode, ref attackModifier);
+    }
+
+    internal void SetOnRollAttackModeDelegate([CanBeNull] OnComputeAttackModifier del = null)
+    {
+        afterComputeAttackModifier = del;
     }
 }

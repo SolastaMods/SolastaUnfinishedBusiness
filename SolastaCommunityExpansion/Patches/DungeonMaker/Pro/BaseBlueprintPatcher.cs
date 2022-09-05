@@ -23,7 +23,7 @@ internal static class BaseBlueprint_GetAssetKey
             return true;
         }
 
-        var a = propBlueprint.Name.Split(new[] {'~'}, 3);
+        var a = propBlueprint.Name.Split(new[] { '~' }, 3);
 
         if (a.Length != 3)
         {

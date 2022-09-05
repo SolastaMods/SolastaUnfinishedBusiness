@@ -28,7 +28,7 @@ internal static class ConditionRemovedOnSourceTurnStartPatch
         }
 
         foreach (var contender in battleService.Battle.AllContenders
-                     .Where(x => x is {destroying: false, destroyedBody: false, RulesetActor: { }}))
+                     .Where(x => x is { destroying: false, destroyedBody: false, RulesetActor: { } }))
         {
             var conditionsToRemove = (from keyValuePair in contender.RulesetActor.ConditionsByCategory
                 from rulesetCondition in keyValuePair.Value

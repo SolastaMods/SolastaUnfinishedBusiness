@@ -12,7 +12,7 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder()
     {
-        var effectAdvancement = new EffectAdvancement {incrementMultiplier = 1};
+        var effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 };
         var particleParams = new EffectParticleParameters();
 
         particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);

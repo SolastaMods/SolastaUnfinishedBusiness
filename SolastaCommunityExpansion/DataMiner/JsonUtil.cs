@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.DataMiner
                     .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)));
 
             IEnumerable<MemberInfo> nameProperty = objectType == typeof(Object)
-                ? new MemberInfo[] {objectType.GetProperty("name")}
+                ? new MemberInfo[] { objectType.GetProperty("name") }
                 : Array.Empty<MemberInfo>();
 
             return privateFields

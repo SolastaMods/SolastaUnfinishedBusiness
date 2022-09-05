@@ -17,7 +17,7 @@ internal static class GuiItemDefinitionPatcher
 
             //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
             CustomWeaponsContext.AddCustomTags(item, tags);
-            
+
             //PATCH: adds `Community Expansion` tag to all CE items
             CeContentPackContext.AddCETag(item, tags);
         }

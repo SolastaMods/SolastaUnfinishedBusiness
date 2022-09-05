@@ -16,7 +16,7 @@ internal static class CharacterActionAttackPatcher
         internal static IEnumerator Postfix([NotNull] IEnumerator values, [NotNull] CharacterActionAttack __instance)
         {
             //PATCH: adds support for `IReactToAttackFinished` by calling `HandleReactToAttackFinished` on features
-            
+
             var actingCharacter = __instance.ActingCharacter;
             var character = actingCharacter.RulesetCharacter;
             var found = false;

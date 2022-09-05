@@ -27,9 +27,9 @@ internal sealed class TitanFighting : AbstractFightingStyle
     internal override FightingStyleDefinition GetStyle()
     {
         void TitanFightingComputeAttackModifier(
-            RulesetCharacter myself, 
-            RulesetCharacter defender, 
-            RulesetAttackMode attackMode, 
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
             // melee attack only
@@ -37,14 +37,14 @@ internal sealed class TitanFighting : AbstractFightingStyle
             {
                 return;
             }
-            
+
             // grant +2 hit if defender is large or bigger
             if (defender.SizeDefinition != Large && defender.SizeDefinition != Huge &&
                 defender.SizeDefinition != Gargantuan)
             {
                 return;
             }
-            
+
             attackModifier.attackRollModifier += 2;
             attackModifier.attackToHitTrends.Add(
                 new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle,

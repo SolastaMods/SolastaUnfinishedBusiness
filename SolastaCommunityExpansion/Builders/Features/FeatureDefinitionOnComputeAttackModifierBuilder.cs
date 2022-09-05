@@ -4,10 +4,12 @@ using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
-public class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefinitionBuilder<FeatureDefinitionOnComputeAttackModifier,
+public class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefinitionBuilder<
+    FeatureDefinitionOnComputeAttackModifier,
     FeatureDefinitionOnComputeAttackModifierBuilder>
 {
-    public FeatureDefinitionOnComputeAttackModifierBuilder SetOnComputeAttackModifierDelegate(OnComputeAttackModifier del)
+    public FeatureDefinitionOnComputeAttackModifierBuilder SetOnComputeAttackModifierDelegate(
+        OnComputeAttackModifier del)
     {
         Definition.SetOnRollAttackModeDelegate(del);
         return this;
@@ -15,7 +17,8 @@ public class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefinition
 
     #region Constructors
 
-    protected FeatureDefinitionOnComputeAttackModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    protected FeatureDefinitionOnComputeAttackModifierBuilder(string name, Guid namespaceGuid) : base(name,
+        namespaceGuid)
     {
     }
 
@@ -24,12 +27,14 @@ public class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefinition
     {
     }
 
-    protected FeatureDefinitionOnComputeAttackModifierBuilder(FeatureDefinitionOnComputeAttackModifier original, string name,
+    protected FeatureDefinitionOnComputeAttackModifierBuilder(FeatureDefinitionOnComputeAttackModifier original,
+        string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
 
-    protected FeatureDefinitionOnComputeAttackModifierBuilder(FeatureDefinitionOnComputeAttackModifier original, string name,
+    protected FeatureDefinitionOnComputeAttackModifierBuilder(FeatureDefinitionOnComputeAttackModifier original,
+        string name,
         string definitionGuid) : base(original, name, definitionGuid)
     {
     }

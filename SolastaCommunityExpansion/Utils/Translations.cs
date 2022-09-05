@@ -20,7 +20,7 @@ public static class Translations
 
     private static readonly Dictionary<string, string> TranslationsCache = new();
 
-    internal static readonly string[] AvailableLanguages = {"de", "en", "fr", "pt", "ru", "zh-CN"};
+    internal static readonly string[] AvailableLanguages = { "de", "en", "fr", "pt", "ru", "zh-CN" };
 
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 
@@ -116,7 +116,7 @@ public static class Translations
         {
             try
             {
-                var columns = line.Split(new[] {'='}, 2);
+                var columns = line.Split(new[] { '=' }, 2);
 
                 words.Add(columns[0], columns[1]);
             }
@@ -165,7 +165,7 @@ public static class Translations
                 continue;
             }
 
-            var split = line.Split(new[] {'='}, 2);
+            var split = line.Split(new[] { '=' }, 2);
 
             if (split.Length != 2)
             {

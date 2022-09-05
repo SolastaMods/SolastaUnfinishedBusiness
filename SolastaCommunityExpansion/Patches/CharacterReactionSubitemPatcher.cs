@@ -12,7 +12,7 @@ internal static class Unbind_Patch
     {
         //PATCH: disables tooltip on Unbind.
         //Default implementation doesn't use tooltips, so we are cleaning after custom warcaster and bundled power binds
-        
+
         var toggle = __instance.toggle.GetComponent<RectTransform>();
         toggle.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 34);
 

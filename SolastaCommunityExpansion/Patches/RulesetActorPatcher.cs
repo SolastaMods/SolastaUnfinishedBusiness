@@ -27,7 +27,7 @@ internal static class RulesetActorPatcher
             ConditionRemovedOnSourceTurnStartPatch.RemoveConditionIfNeeded(__instance, occurenceType);
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetActor), "RollDie")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RollDie_Patch
@@ -60,14 +60,14 @@ internal static class RulesetActorPatcher
             float rollAlterationScore,
             RulesetActor actor,
             RuleDefinitions.RollContext rollContext
-            )
+        )
         {
             if (rollContext == RuleDefinitions.RollContext.AttackRoll &&
                 advantageType == RuleDefinitions.AdvantageType.Advantage && IsElvenPrecisionContextQualified(actor))
             {
                 return Roll3DicesAndKeepBest(actor.Name, dieType, out firstRoll, out secondRoll, rollAlterationScore);
             }
-            
+
             return RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
                 rollAlterationScore);
         }
@@ -75,7 +75,12 @@ internal static class RulesetActorPatcher
         private static bool IsElvenPrecisionContextQualified(RulesetActor actor)
         {
             var character = GameLocationCharacter.GetFromActor(actor);
-            return character.RulesetCharacter is RulesetCharacterHero hero && (from feat in hero.TrainedFeats where feat.Name.Contains(ZappaFeats.ElvenAccuracyTag) select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>() into context where context != null select context).Any(sub => sub.Qualified);
+            return character.RulesetCharacter is RulesetCharacterHero hero && (from feat in hero.TrainedFeats
+                where feat.Name.Contains(ZappaFeats.ElvenAccuracyTag)
+                select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>()
+                into context
+                where context != null
+                select context).Any(sub => sub.Qualified);
         }
 
         private static int Roll3DicesAndKeepBest(
@@ -84,20 +89,20 @@ internal static class RulesetActorPatcher
             out int firstRoll,
             out int secondRoll,
             float rollAlterationScore
-            )
+        )
         {
             var flag = rollAlterationScore != 0.0;
             var rolls = new int[3];
-            
+
             rolls[0] = flag
                 ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
-                : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);
+                : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
             rolls[1] = flag
                 ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
-                : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);
+                : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
             rolls[2] = flag
                 ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
-                : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);
+                : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
 
             Array.Sort(rolls);
 
@@ -112,13 +117,13 @@ internal static class RulesetActorPatcher
 
             return Mathf.Max(firstRoll, secondRoll);
         }
-        
+
         // TODO: make this more generic
         internal static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
             ref bool enumerateFeatures, ref bool canRerollDice)
         {
             //PATCH: support for `Raven` Rogue subclass
-            
+
             if (!__instance.HasSubFeatureOfType<Raven.RavenRerollAnyDamageDieMarker>() ||
                 rollContext != RuleDefinitions.RollContext.AttackDamageValueRoll)
             {

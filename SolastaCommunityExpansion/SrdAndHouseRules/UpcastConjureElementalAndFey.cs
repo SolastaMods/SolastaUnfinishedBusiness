@@ -19,7 +19,7 @@ internal static class UpcastConjureElementalAndFey
      */
     internal static bool CheckSubSpellActivated(SubspellSelectionModal __instance, int index)
     {
-        if (Main.Settings.EnableUpcastConjureElementalAndFey && FilteredSubspells is {Count: > 0})
+        if (Main.Settings.EnableUpcastConjureElementalAndFey && FilteredSubspells is { Count: > 0 })
         {
             if (FilteredSubspells.Count > index)
             {

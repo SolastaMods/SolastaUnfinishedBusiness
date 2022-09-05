@@ -94,7 +94,8 @@ public enum ExtraAdvancementDuration
 
 internal static class EnumImplementation
 {
-    internal static bool ComputeExtraAdvancementDuration([NotNull] EffectDescription effect, int slotLevel, ref int result)
+    internal static bool ComputeExtraAdvancementDuration([NotNull] EffectDescription effect, int slotLevel,
+        ref int result)
     {
         //
         // BUGFIX: dominate spells

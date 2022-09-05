@@ -41,7 +41,7 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
 
     public ItemDefinitionBuilder SetGold(int gold)
     {
-        Definition.costs = new[] {0, gold, 0, 0, 0};
+        Definition.costs = new[] { 0, gold, 0, 0, 0 };
         return this;
     }
 

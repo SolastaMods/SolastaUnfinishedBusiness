@@ -23,9 +23,9 @@ public static class SharedSpellsContext
 {
     public static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
     {
-        {"PowerCircleLandNaturalRecovery", Druid},
-        {"PowerWizardArcaneRecovery", Wizard},
-        {"PowerSpellMasterBonusRecovery", Wizard}
+        { "PowerCircleLandNaturalRecovery", Druid },
+        { "PowerWizardArcaneRecovery", Wizard },
+        { "PowerSpellMasterBonusRecovery", Wizard }
         // added during load
         //{ "TinkererSpellStoringItem", TinkererClass },
         //{ "ArtificerInfusionSpellRefuelingRing", TinkererClass },
@@ -34,12 +34,12 @@ public static class SharedSpellsContext
 
     private static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
     {
-        {Cleric, CasterType.Full},
-        {Druid, CasterType.Full},
-        {Sorcerer, CasterType.Full},
-        {Wizard, CasterType.Full},
-        {Paladin, CasterType.Half},
-        {Ranger, CasterType.Half}
+        { Cleric, CasterType.Full },
+        { Druid, CasterType.Full },
+        { Sorcerer, CasterType.Full },
+        { Wizard, CasterType.Full },
+        { Paladin, CasterType.Half },
+        { Ranger, CasterType.Half }
         // added during load
         //{ TinkererClass, CasterType.HalfRoundUp },
         //{ WitchClass, CasterType.Full },
@@ -47,7 +47,7 @@ public static class SharedSpellsContext
 
     private static Dictionary<CharacterSubclassDefinition, CasterType> SubclassCasterType { get; } = new()
     {
-        {MartialSpellblade, CasterType.OneThird}, {RoguishShadowCaster, CasterType.OneThird}
+        { MartialSpellblade, CasterType.OneThird }, { RoguishShadowCaster, CasterType.OneThird }
         // added during load
         //{ ConArtistSubclass, CasterType.OneThird }, // ChrisJohnDigital
         //{ SpellShieldSubclass, CasterType.OneThird } // ChrisJohnDigital
@@ -80,7 +80,7 @@ public static class SharedSpellsContext
             var gameCampaignCharacter =
                 gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
 
-            if (gameCampaignCharacter is {RulesetCharacter: RulesetCharacterHero rulesetCharacterHero})
+            if (gameCampaignCharacter is { RulesetCharacter: RulesetCharacterHero rulesetCharacterHero })
             {
                 return rulesetCharacterHero;
             }
@@ -245,11 +245,11 @@ public static class SharedSpellsContext
         {
             levels = new Dictionary<CasterType, int>
             {
-                {CasterType.None, 0},
-                {CasterType.Full, 0},
-                {CasterType.Half, 0},
-                {CasterType.HalfRoundUp, 0},
-                {CasterType.OneThird, 0}
+                { CasterType.None, 0 },
+                { CasterType.Full, 0 },
+                { CasterType.Half, 0 },
+                { CasterType.HalfRoundUp, 0 },
+                { CasterType.OneThird, 0 }
             };
         }
 

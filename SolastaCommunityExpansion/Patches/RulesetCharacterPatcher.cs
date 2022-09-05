@@ -5,7 +5,6 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
@@ -179,11 +178,9 @@ internal static class RulesetCharacterPatcher
         {
             //PATCH: support for `IIncreaseSpellDC`
             //Adds extra modifiers to spell DC
-            
+
             var features = __instance.GetSubFeaturesByType<IIncreaseSpellDC>();
             __result += features.Where(feature => feature != null).Sum(feature => feature.GetSpellModifier(__instance));
         }
     }
-    
-    
 }

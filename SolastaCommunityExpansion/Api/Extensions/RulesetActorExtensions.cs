@@ -94,7 +94,7 @@ public static class RulesetActorExtensions
         //TODO: should we add FeatureDefinitionFeatureSetCustom flattening too?
         return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
             ? FlattenFeatureList(set.FeatureSet)
-            : new List<FeatureDefinition> {f});
+            : new List<FeatureDefinition> { f });
     }
 
     [NotNull]

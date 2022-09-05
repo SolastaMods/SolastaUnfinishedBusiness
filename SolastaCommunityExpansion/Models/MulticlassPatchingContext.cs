@@ -19,18 +19,20 @@ internal static class MulticlassPatchingContext
     // these features will be replaced to comply to SRD multiclass rules
     private static readonly Dictionary<FeatureDefinition, FeatureDefinition> FeaturesToReplace = new()
     {
-        {ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass},
-        {ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass},
-        {ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass},
-        {PointPoolBardSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass},
-        {PointPoolRangerSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass},
-        {PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass}
+        { ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass },
+        { ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass },
+        { ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass },
+        { PointPoolBardSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass },
+        { PointPoolRangerSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass },
+        { PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass }
     };
 
     // these features will be removed to comply with SRD multiclass rules
     private static readonly Dictionary<CharacterClassDefinition, List<FeatureDefinition>> FeaturesToExclude = new()
     {
-        {Barbarian, new List<FeatureDefinition> {PointPoolBarbarianrSkillPoints, ProficiencyBarbarianSavingThrow}},
+        {
+            Barbarian, new List<FeatureDefinition> { PointPoolBarbarianrSkillPoints, ProficiencyBarbarianSavingThrow }
+        },
         {
             Cleric,
             new List<FeatureDefinition>
@@ -38,12 +40,12 @@ internal static class MulticlassPatchingContext
                 ProficiencyClericWeapon, PointPoolClericSkillPoints, ProficiencyClericSavingThrow
             }
         },
-        {Druid, new List<FeatureDefinition> {PointPoolDruidSkillPoints, ProficiencyDruidSavingThrow}},
-        {Fighter, new List<FeatureDefinition> {PointPoolFighterSkillPoints, ProficiencyFighterSavingThrow}},
-        {Monk, new List<FeatureDefinition> {PointPoolMonkSkillPoints, ProficiencyMonkSavingThrow}},
-        {Paladin, new List<FeatureDefinition> {PointPoolPaladinSkillPoints, ProficiencyPaladinSavingThrow}},
-        {Ranger, new List<FeatureDefinition> {ProficiencyRangerSavingThrow}},
-        {Rogue, new List<FeatureDefinition> {ProficiencyRogueWeapon, ProficiencyRogueSavingThrow}},
+        { Druid, new List<FeatureDefinition> { PointPoolDruidSkillPoints, ProficiencyDruidSavingThrow } },
+        { Fighter, new List<FeatureDefinition> { PointPoolFighterSkillPoints, ProficiencyFighterSavingThrow } },
+        { Monk, new List<FeatureDefinition> { PointPoolMonkSkillPoints, ProficiencyMonkSavingThrow } },
+        { Paladin, new List<FeatureDefinition> { PointPoolPaladinSkillPoints, ProficiencyPaladinSavingThrow } },
+        { Ranger, new List<FeatureDefinition> { ProficiencyRangerSavingThrow } },
+        { Rogue, new List<FeatureDefinition> { ProficiencyRogueWeapon, ProficiencyRogueSavingThrow } },
         {
             Sorcerer,
             new List<FeatureDefinition>
@@ -500,18 +502,6 @@ internal static class MulticlassPatchingContext
         return filteredFeatureUnlockByLevels;
     }
 
-    //
-    // FeatureUnlocks patching support
-    //
-
-    private enum HeroContext
-    {
-        BuildingManager,
-        CharacterHero,
-        StagePanel,
-        InformationPanel
-    }
-
     internal static int SpellCastingLevel(RulesetSpellRepertoire repertoire, RulesetEffectSpell rulesetEffect)
     {
         return SpellCastingLevel(repertoire, rulesetEffect.Caster, rulesetEffect.SpellDefinition);
@@ -531,5 +521,17 @@ internal static class MulticlassPatchingContext
         }
 
         return repertoire.SpellCastingLevel;
+    }
+
+    //
+    // FeatureUnlocks patching support
+    //
+
+    private enum HeroContext
+    {
+        BuildingManager,
+        CharacterHero,
+        StagePanel,
+        InformationPanel
     }
 }

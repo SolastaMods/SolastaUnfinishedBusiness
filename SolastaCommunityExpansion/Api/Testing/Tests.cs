@@ -77,7 +77,7 @@ namespace SolastaCommunityExpansion.Api.Testing
                     .Where(t => t.Namespace == "SolastaModApi.Extensions")
                     .Where(t => t.Name.EndsWith("Extensions"))
                     .Where(t => t.CustomAttributes.Any(a => a.AttributeType == typeof(TargetTypeAttribute)))
-                    .Select(t => new {Type = t, t.GetCustomAttributes<TargetTypeAttribute>().First().TargetType})
+                    .Select(t => new { Type = t, t.GetCustomAttributes<TargetTypeAttribute>().First().TargetType })
                     .OrderBy(t => t.Type.Name)
                     .ToList();
 
@@ -127,13 +127,13 @@ namespace SolastaCommunityExpansion.Api.Testing
                                             {
                                                 setter
                                                     .MakeGenericMethod(extension.TargetType)
-                                                    .Invoke(null, new[] {instance, GetDefaultValue()});
+                                                    .Invoke(null, new[] { instance, GetDefaultValue() });
                                             }
                                             else
                                             {
                                                 // sealed type extensions aren't generic
                                                 setter
-                                                    .Invoke(null, new[] {instance, GetDefaultValue()});
+                                                    .Invoke(null, new[] { instance, GetDefaultValue() });
                                             }
 
                                             methodsSucceeded++;

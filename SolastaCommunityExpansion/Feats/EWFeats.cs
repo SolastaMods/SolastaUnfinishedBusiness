@@ -53,7 +53,7 @@ public static class EwFeats
                         return;
                     }
 
-                    if (mode is not {ActionType: ActionDefinitions.ActionType.Reaction})
+                    if (mode is not { ActionType: ActionDefinitions.ActionType.Reaction })
                     {
                         return;
                     }

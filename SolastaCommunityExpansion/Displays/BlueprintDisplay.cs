@@ -39,7 +39,7 @@ public static class BlueprintDisplay
     // search selection
     private static ToggleState _searchExpanded;
 
-    private static readonly GUIStyle ButtonStyle = new(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
+    private static readonly GUIStyle ButtonStyle = new(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
 
     private static IEnumerable<BaseDefinition> GetBlueprints()
     {
@@ -81,7 +81,7 @@ public static class BlueprintDisplay
 
     private static void RefreshTypeNames()
     {
-        _bpTypes = new Type[] {null}
+        _bpTypes = new Type[] { null }
             .Concat(GetBlueprints().Select(bp => bp.GetType()).Distinct().OrderBy(type => type.Name)).ToArray();
 
         if (!string.IsNullOrEmpty(_selectionSearchText))

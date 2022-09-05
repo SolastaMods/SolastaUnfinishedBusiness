@@ -92,7 +92,7 @@ public static class GUIHelper
             _fillTexture = new Texture2D(1, 1);
         }
 
-        var divStyle = new GUIStyle {fixedHeight = 1};
+        var divStyle = new GUIStyle { fixedHeight = 1 };
         _fillTexture.SetPixel(0, 0, color);
         _fillTexture.Apply();
         divStyle.normal.background = _fillTexture;

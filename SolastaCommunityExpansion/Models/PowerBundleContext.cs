@@ -133,7 +133,7 @@ public static class PowerBundleContext
     public static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)
     {
         var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
-        if (activePower is not {OriginItem: null})
+        if (activePower is not { OriginItem: null })
         {
             return;
         }
@@ -159,40 +159,6 @@ public static class PowerBundleContext
     {
         ServiceRepository.GetService<IFunctorService>()
             .RegisterFunctor(UseCustomRestPowerFunctorName, new FunctorUseCustomRestPower());
-    }
-
-    public sealed class Bundle
-    {
-        /**
-         * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
-         * from this bundle can be in effect
-         */
-        public bool TerminateAll { get; }
-
-        public List<FeatureDefinitionPower> SubPowers { get; }
-
-        // public FeatureDefinitionPower MasterPower { get; }
-
-        //May be needed to hold powers for some native widgets
-        // public FeatureDefinitionFeatureSet PowerSet { get; }
-
-        public RulesetSpellRepertoire Repertoire { get; }
-
-        public Bundle(FeatureDefinitionPower masterPower, IEnumerable<FeatureDefinitionPower> subPowers,
-            bool terminateAll)
-        {
-            // MasterPower = masterPower;
-            SubPowers = new List<FeatureDefinitionPower>(subPowers);
-            TerminateAll = terminateAll;
-
-            var subSpells = SubPowers.Select(RegisterPower).ToList();
-
-            Repertoire = new RulesetSpellRepertoire();
-            Repertoire.KnownSpells.AddRange(subSpells);
-
-            var masterSpell = RegisterPower(masterPower);
-            masterSpell.SubspellsList.AddRange(subSpells);
-        }
     }
 
     /**
@@ -273,7 +239,7 @@ public static class PowerBundleContext
     {
         item.executing = true;
 
-        var parameters = new FunctorParametersDescription {RestingHero = item.Hero, StringParameter = powerName};
+        var parameters = new FunctorParametersDescription { RestingHero = item.Hero, StringParameter = powerName };
         var gameRestingService = ServiceRepository.GetService<IGameRestingService>();
 
         yield return ServiceRepository.GetService<IFunctorService>()
@@ -309,6 +275,40 @@ public static class PowerBundleContext
         {
             button.interactable = true;
         }
+    }
+
+    public sealed class Bundle
+    {
+        public Bundle(FeatureDefinitionPower masterPower, IEnumerable<FeatureDefinitionPower> subPowers,
+            bool terminateAll)
+        {
+            // MasterPower = masterPower;
+            SubPowers = new List<FeatureDefinitionPower>(subPowers);
+            TerminateAll = terminateAll;
+
+            var subSpells = SubPowers.Select(RegisterPower).ToList();
+
+            Repertoire = new RulesetSpellRepertoire();
+            Repertoire.KnownSpells.AddRange(subSpells);
+
+            var masterSpell = RegisterPower(masterPower);
+            masterSpell.SubspellsList.AddRange(subSpells);
+        }
+
+        /**
+         * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
+         * from this bundle can be in effect
+         */
+        public bool TerminateAll { get; }
+
+        public List<FeatureDefinitionPower> SubPowers { get; }
+
+        // public FeatureDefinitionPower MasterPower { get; }
+
+        //May be needed to hold powers for some native widgets
+        // public FeatureDefinitionFeatureSet PowerSet { get; }
+
+        public RulesetSpellRepertoire Repertoire { get; }
     }
 }
 

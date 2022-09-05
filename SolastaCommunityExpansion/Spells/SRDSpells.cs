@@ -322,7 +322,7 @@ public static class SrdSpells
 
     private static SpellDefinition BuildPowerWordKill()
     {
-        var killForm = new KillForm {killCondition = RuleDefinitions.KillCondition.UnderHitPoints, hitPoints = 100};
+        var killForm = new KillForm { killCondition = RuleDefinitions.KillCondition.UnderHitPoints, hitPoints = 100 };
 
         var effectForm = new EffectForm
         {

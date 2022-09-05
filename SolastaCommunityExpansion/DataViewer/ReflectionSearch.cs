@@ -112,7 +112,7 @@ public class ReflectionSearch : MonoBehaviour
             return;
         }
 
-        var todo = new List<Node> {node};
+        var todo = new List<Node> { node };
 
         searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updator, resultRoot);
         StartCoroutine(searchCoroutine);

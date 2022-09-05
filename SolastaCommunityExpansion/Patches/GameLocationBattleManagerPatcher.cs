@@ -258,7 +258,7 @@ internal static class GameLocationBattleManagerPatcher
                 return;
             }
 
-            foreach (ElvenPrecisionContext sub in from feat in hero.TrainedFeats
+            foreach (var sub in from feat in hero.TrainedFeats
                      where feat.Name.Contains(ZappaFeats.ElvenAccuracyTag)
                      select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>()
                      into context
@@ -266,8 +266,10 @@ internal static class GameLocationBattleManagerPatcher
                      select context)
             {
                 sub.Qualified = false ||
-                                (attackMode.abilityScore != DatabaseHelper.SmartAttributeDefinitions.Strength.ToString() ||
-                                 attackMode.abilityScore != DatabaseHelper.SmartAttributeDefinitions.Constitution.ToString());
+                                attackMode.abilityScore !=
+                                DatabaseHelper.SmartAttributeDefinitions.Strength.ToString() ||
+                                attackMode.abilityScore !=
+                                DatabaseHelper.SmartAttributeDefinitions.Constitution.ToString();
             }
         }
     }

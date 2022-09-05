@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using UnityEngine;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
@@ -25,9 +23,9 @@ internal sealed class Opportunist : AbstractSubclass
     }
 
     private static void QuickStrikeOnComputeAttackModifier(
-        RulesetCharacter myself, 
-        RulesetCharacter defender, 
-        RulesetAttackMode attackMode, 
+        RulesetCharacter myself,
+        RulesetCharacter defender,
+        RulesetAttackMode attackMode,
         ref ActionModifier attackModifier)
     {
         if (attackMode == null || defender == null)
@@ -39,11 +37,12 @@ internal sealed class Opportunist : AbstractSubclass
         var target = GameLocationCharacter.GetFromActor(defender);
 
         // grant advantage if attacker is performing an opportunity attack or has higher initiative.
-        if ((hero.LastInitiative <= target.LastInitiative) && (attackMode.actionType != ActionDefinitions.ActionType.Reaction))
+        if (hero.LastInitiative <= target.LastInitiative &&
+            attackMode.actionType != ActionDefinitions.ActionType.Reaction)
         {
             return;
         }
-        
+
         attackModifier.attackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1,
             RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", null));
     }

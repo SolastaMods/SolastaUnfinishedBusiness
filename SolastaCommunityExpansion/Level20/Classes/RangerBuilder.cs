@@ -15,8 +15,7 @@ internal static class RangerBuilder
     {
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(RangerFeralSenses, 18),
-            new(FeatureSetAbilityScoreChoice, 19)
+            new(RangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
             //new FeatureUnlockByLevel(FeatureSetRangerFoeSlayer, 20)
         });
 

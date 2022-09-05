@@ -643,7 +643,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
             return;
         }
 
-        hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> {MetamagicOption});
+        hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
 
         MetamagicTrained = true;
     }

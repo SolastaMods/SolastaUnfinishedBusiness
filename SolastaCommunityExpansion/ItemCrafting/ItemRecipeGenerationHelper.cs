@@ -144,7 +144,9 @@ internal static class ItemRecipeGenerationHelper
                 DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Crystal_Of_Winter,
                 DatabaseHelper.ItemDefinitions._100_GP_Pearl
             },
-            {DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Blood_Gem, DatabaseHelper.ItemDefinitions._500_GP_Ruby},
+            {
+                DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Blood_Gem, DatabaseHelper.ItemDefinitions._500_GP_Ruby
+            },
             {
                 DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Soul_Gem,
                 DatabaseHelper.ItemDefinitions._1000_GP_Diamond
@@ -157,7 +159,9 @@ internal static class ItemRecipeGenerationHelper
                 DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Cloud_Diamond,
                 DatabaseHelper.ItemDefinitions._1000_GP_Diamond
             },
-            {DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Stardust, DatabaseHelper.ItemDefinitions._100_GP_Pearl},
+            {
+                DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Stardust, DatabaseHelper.ItemDefinitions._100_GP_Pearl
+            },
             {
                 DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Doom_Gem,
                 DatabaseHelper.ItemDefinitions._50_GP_Sapphire
@@ -194,7 +198,10 @@ internal static class ItemRecipeGenerationHelper
                 DatabaseHelper.ItemDefinitions.Ingredient_Enchant_PurpleAmber,
                 DatabaseHelper.ItemDefinitions._50_GP_Sapphire
             },
-            {DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Heartstone, DatabaseHelper.ItemDefinitions._300_GP_Opal},
+            {
+                DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Heartstone,
+                DatabaseHelper.ItemDefinitions._300_GP_Opal
+            },
             {
                 DatabaseHelper.ItemDefinitions.Ingredient_Enchant_SpiderQueen_Venom,
                 DatabaseHelper.ItemDefinitions.Ingredient_BadlandsSpiderVenomGland
@@ -242,33 +249,33 @@ internal static class ItemRecipeGenerationHelper
 
         var primedToBase = new Dictionary<ItemDefinition, ItemDefinition>
         {
-            {DatabaseHelper.ItemDefinitions.Primed_Battleaxe, DatabaseHelper.ItemDefinitions.Battleaxe},
-            {DatabaseHelper.ItemDefinitions.Primed_Breastplate, DatabaseHelper.ItemDefinitions.Breastplate},
-            {DatabaseHelper.ItemDefinitions.Primed_ChainMail, DatabaseHelper.ItemDefinitions.ChainMail},
-            {DatabaseHelper.ItemDefinitions.Primed_ChainShirt, DatabaseHelper.ItemDefinitions.ChainShirt},
-            {DatabaseHelper.ItemDefinitions.Primed_Dagger, DatabaseHelper.ItemDefinitions.Dagger},
-            {DatabaseHelper.ItemDefinitions.Primed_Greataxe, DatabaseHelper.ItemDefinitions.Greataxe},
-            {DatabaseHelper.ItemDefinitions.Primed_Greatsword, DatabaseHelper.ItemDefinitions.Greatsword},
-            {DatabaseHelper.ItemDefinitions.Primed_HalfPlate, DatabaseHelper.ItemDefinitions.HalfPlate},
-            {DatabaseHelper.ItemDefinitions.Primed_HeavyCrossbow, DatabaseHelper.ItemDefinitions.HeavyCrossbow},
-            {DatabaseHelper.ItemDefinitions.Primed_HideArmor, DatabaseHelper.ItemDefinitions.HideArmor},
-            {DatabaseHelper.ItemDefinitions.Primed_LeatherDruid, DatabaseHelper.ItemDefinitions.LeatherDruid},
-            {DatabaseHelper.ItemDefinitions.Primed_Leather_Armor, DatabaseHelper.ItemDefinitions.Leather},
-            {DatabaseHelper.ItemDefinitions.Primed_LightCrossbow, DatabaseHelper.ItemDefinitions.LightCrossbow},
-            {DatabaseHelper.ItemDefinitions.Primed_Longbow, DatabaseHelper.ItemDefinitions.Longbow},
-            {DatabaseHelper.ItemDefinitions.Primed_Longsword, DatabaseHelper.ItemDefinitions.Longsword},
-            {DatabaseHelper.ItemDefinitions.Primed_Mace, DatabaseHelper.ItemDefinitions.Mace},
-            {DatabaseHelper.ItemDefinitions.Primed_Maul, DatabaseHelper.ItemDefinitions.Maul},
-            {DatabaseHelper.ItemDefinitions.Primed_Morningstar, DatabaseHelper.ItemDefinitions.Morningstar},
-            {DatabaseHelper.ItemDefinitions.Primed_Plate, DatabaseHelper.ItemDefinitions.Plate},
-            {DatabaseHelper.ItemDefinitions.Primed_Rapier, DatabaseHelper.ItemDefinitions.Rapier},
-            {DatabaseHelper.ItemDefinitions.Primed_ScaleMail, DatabaseHelper.ItemDefinitions.ScaleMail},
-            {DatabaseHelper.ItemDefinitions.Primed_Scimitar, DatabaseHelper.ItemDefinitions.Scimitar},
-            {DatabaseHelper.ItemDefinitions.Primed_Shortbow, DatabaseHelper.ItemDefinitions.Shortbow},
-            {DatabaseHelper.ItemDefinitions.Primed_Shortsword, DatabaseHelper.ItemDefinitions.Shortsword},
-            {DatabaseHelper.ItemDefinitions.Primed_Spear, DatabaseHelper.ItemDefinitions.Spear},
-            {DatabaseHelper.ItemDefinitions.Primed_StuddedLeather, DatabaseHelper.ItemDefinitions.StuddedLeather},
-            {DatabaseHelper.ItemDefinitions.Primed_Warhammer, DatabaseHelper.ItemDefinitions.Warhammer}
+            { DatabaseHelper.ItemDefinitions.Primed_Battleaxe, DatabaseHelper.ItemDefinitions.Battleaxe },
+            { DatabaseHelper.ItemDefinitions.Primed_Breastplate, DatabaseHelper.ItemDefinitions.Breastplate },
+            { DatabaseHelper.ItemDefinitions.Primed_ChainMail, DatabaseHelper.ItemDefinitions.ChainMail },
+            { DatabaseHelper.ItemDefinitions.Primed_ChainShirt, DatabaseHelper.ItemDefinitions.ChainShirt },
+            { DatabaseHelper.ItemDefinitions.Primed_Dagger, DatabaseHelper.ItemDefinitions.Dagger },
+            { DatabaseHelper.ItemDefinitions.Primed_Greataxe, DatabaseHelper.ItemDefinitions.Greataxe },
+            { DatabaseHelper.ItemDefinitions.Primed_Greatsword, DatabaseHelper.ItemDefinitions.Greatsword },
+            { DatabaseHelper.ItemDefinitions.Primed_HalfPlate, DatabaseHelper.ItemDefinitions.HalfPlate },
+            { DatabaseHelper.ItemDefinitions.Primed_HeavyCrossbow, DatabaseHelper.ItemDefinitions.HeavyCrossbow },
+            { DatabaseHelper.ItemDefinitions.Primed_HideArmor, DatabaseHelper.ItemDefinitions.HideArmor },
+            { DatabaseHelper.ItemDefinitions.Primed_LeatherDruid, DatabaseHelper.ItemDefinitions.LeatherDruid },
+            { DatabaseHelper.ItemDefinitions.Primed_Leather_Armor, DatabaseHelper.ItemDefinitions.Leather },
+            { DatabaseHelper.ItemDefinitions.Primed_LightCrossbow, DatabaseHelper.ItemDefinitions.LightCrossbow },
+            { DatabaseHelper.ItemDefinitions.Primed_Longbow, DatabaseHelper.ItemDefinitions.Longbow },
+            { DatabaseHelper.ItemDefinitions.Primed_Longsword, DatabaseHelper.ItemDefinitions.Longsword },
+            { DatabaseHelper.ItemDefinitions.Primed_Mace, DatabaseHelper.ItemDefinitions.Mace },
+            { DatabaseHelper.ItemDefinitions.Primed_Maul, DatabaseHelper.ItemDefinitions.Maul },
+            { DatabaseHelper.ItemDefinitions.Primed_Morningstar, DatabaseHelper.ItemDefinitions.Morningstar },
+            { DatabaseHelper.ItemDefinitions.Primed_Plate, DatabaseHelper.ItemDefinitions.Plate },
+            { DatabaseHelper.ItemDefinitions.Primed_Rapier, DatabaseHelper.ItemDefinitions.Rapier },
+            { DatabaseHelper.ItemDefinitions.Primed_ScaleMail, DatabaseHelper.ItemDefinitions.ScaleMail },
+            { DatabaseHelper.ItemDefinitions.Primed_Scimitar, DatabaseHelper.ItemDefinitions.Scimitar },
+            { DatabaseHelper.ItemDefinitions.Primed_Shortbow, DatabaseHelper.ItemDefinitions.Shortbow },
+            { DatabaseHelper.ItemDefinitions.Primed_Shortsword, DatabaseHelper.ItemDefinitions.Shortsword },
+            { DatabaseHelper.ItemDefinitions.Primed_Spear, DatabaseHelper.ItemDefinitions.Spear },
+            { DatabaseHelper.ItemDefinitions.Primed_StuddedLeather, DatabaseHelper.ItemDefinitions.StuddedLeather },
+            { DatabaseHelper.ItemDefinitions.Primed_Warhammer, DatabaseHelper.ItemDefinitions.Warhammer }
         };
         var recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(baseGuid, primedToBase[item], item));
 
@@ -356,7 +363,7 @@ internal static class ItemRecipeGenerationHelper
                 DatabaseHelper.ItemDefinitions.ABJURATION_TOWER_ElvenWars,
                 DatabaseHelper.ItemDefinitions.Ingredient_BloodDaffodil
             },
-            {DatabaseHelper.ItemDefinitions.CAERLEM_Daliat_Document, DatabaseHelper.ItemDefinitions.Ingredient_Skarn}
+            { DatabaseHelper.ItemDefinitions.CAERLEM_Daliat_Document, DatabaseHelper.ItemDefinitions.Ingredient_Skarn }
         };
 
         foreach (var item in scrollForgeries.Keys)

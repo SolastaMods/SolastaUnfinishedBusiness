@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using HarmonyLib;
-using SolastaCommunityExpansion.Api;
+﻿using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using UnityEngine;
 

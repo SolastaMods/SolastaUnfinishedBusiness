@@ -66,7 +66,7 @@ public class EffectFormBuilder
 
     public EffectFormBuilder SetAlterationForm(AlterationForm.Type alterationType)
     {
-        var alterationForm = new AlterationForm {alterationType = alterationType};
+        var alterationForm = new AlterationForm { alterationType = alterationType };
 
         effectForm.alterationForm = alterationForm;
         effectForm.FormType = EffectForm.EffectFormType.Alteration;
@@ -262,7 +262,7 @@ public class EffectFormBuilder
 
     public EffectFormBuilder SetMotionForm(MotionForm.MotionType motionType, int motionDistance)
     {
-        var motionForm = new MotionForm {type = motionType, distance = motionDistance};
+        var motionForm = new MotionForm { type = motionType, distance = motionDistance };
 
         effectForm.motionForm = motionForm;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
@@ -378,7 +378,7 @@ public class EffectFormBuilder
     public EffectFormBuilder SetTopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
     {
         var topologyForm =
-            new TopologyForm {changeType = changeType, impactsFlyingCharacters = impactsFlyingCharacters};
+            new TopologyForm { changeType = changeType, impactsFlyingCharacters = impactsFlyingCharacters };
 
         effectForm.topologyForm = topologyForm;
         effectForm.FormType = EffectForm.EffectFormType.Topology;

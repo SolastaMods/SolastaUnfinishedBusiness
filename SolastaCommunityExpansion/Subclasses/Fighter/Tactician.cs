@@ -48,7 +48,7 @@ internal static class KnockDownPowerBuilder
         var proneMotionEffect = new EffectForm
         {
             formType = EffectForm.EffectFormType.Motion,
-            motionForm = new MotionForm {type = MotionForm.MotionType.FallProne, distance = 1},
+            motionForm = new MotionForm { type = MotionForm.MotionType.FallProne, distance = 1 },
             savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
         };
 

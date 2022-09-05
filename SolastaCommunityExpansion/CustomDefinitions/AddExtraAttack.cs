@@ -138,7 +138,7 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             isUnarmedWeapon ? mainHandItem : null
         );
 
-        return new List<RulesetAttackMode> {attackMode};
+        return new List<RulesetAttackMode> { attackMode };
     }
 }
 
@@ -178,7 +178,7 @@ public sealed class AddExtraMainHandAttack : AddExtraAttackBase
             mainHandItem
         );
 
-        return new List<RulesetAttackMode> {attackMode};
+        return new List<RulesetAttackMode> { attackMode };
     }
 }
 
@@ -344,7 +344,7 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         if (bonus == 0)
         {
-            return new List<RulesetAttackMode> {attackMode};
+            return new List<RulesetAttackMode> { attackMode };
         }
 
         var damage = attackMode.EffectDescription?.FindFirstDamageForm();
@@ -355,12 +355,12 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         if (damage == null)
         {
-            return new List<RulesetAttackMode> {attackMode};
+            return new List<RulesetAttackMode> { attackMode };
         }
 
         damage.BonusDamage += bonus;
         damage.DamageBonusTrends.Add(trendInfo);
 
-        return new List<RulesetAttackMode> {attackMode};
+        return new List<RulesetAttackMode> { attackMode };
     }
 }

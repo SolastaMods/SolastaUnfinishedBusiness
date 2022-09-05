@@ -21,38 +21,38 @@ internal static class ItemCraftingContext
 
     public static readonly Dictionary<string, string> RecipeTitles = new()
     {
-        {"PrimedItems", Gui.Localize("ModUi/&PrimedItems")},
-        {"EnchantingIngredients", Gui.Localize("Tooltip/&IngredientsHeaderTitle")},
-        {"RelicForgeries", Gui.Localize("ModUi/&RelicForgeries")},
-        {"LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle")},
-        {"HeavyCrossbow", Gui.Localize("Equipment/&HeavyCrossbowTypeTitle")},
-        {"Handaxe", Gui.Localize("Equipment/&HandaxeTypeTitle")},
-        {"Javelin", Gui.Localize("Equipment/&JavelinTypeTitle")},
-        {"Dart", Gui.Localize("Equipment/&DartTypeTitle")},
-        {"Club", Gui.Localize("Equipment/&ClubTypeTitle")},
-        {"Maul", Gui.Localize("Equipment/&MaulTypeTitle")},
-        {"Warhammer", Gui.Localize("Equipment/&WarhammerTypeTitle")},
-        {"Quarterstaff", Gui.Localize("Equipment/&QuarterstaffTypeTitle")},
-        {"Rapier", Gui.Localize("Equipment/&RapierTypeTitle")},
-        {"Greataxe", Gui.Localize("Equipment/&GreataxeTypeTitle")},
-        {"Greatsword", Gui.Localize("Equipment/&GreatswordTypeTitle")},
-        {"Spear", Gui.Localize("Equipment/&SpearTypeTitle")},
-        {"Scimitar", Gui.Localize("Equipment/&ScimitarTypeTitle")},
-        {"Shield_Wooden", Gui.Localize("Equipment/&Shield_Wooden_Title")},
-        {"Shield", Gui.Localize("Equipment/&ShieldCategoryTitle")},
-        {"HideArmor", Gui.Localize("Equipment/&Armor_HideTitle")},
-        {"LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title")},
-        {"StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle")},
-        {"ChainShirt", Gui.Localize("Equipment/&Armor_ChainShirtTitle")},
-        {"PaddedLeather", Gui.Localize("Equipment/&Armor_PaddedLeatherTitle")},
-        {"Leather", Gui.Localize("Equipment/&Armor_LeatherTitle")},
-        {"ScaleMail", Gui.Localize("Equipment/&Armor_ScaleMailTitle")},
-        {"Breastplate", Gui.Localize("Equipment/&Armor_BreastplateTitle")},
-        {"HalfPlate", Gui.Localize("Equipment/&Armor_HalfPlateTitle")},
-        {"Ringmail", Gui.Localize("Equipment/&Armor_RingmailTitle")},
-        {"ChainMail", Gui.Localize("Equipment/&Armor_ChainMailTitle")},
-        {"SplintArmor", Gui.Localize("Equipment/&Armor_SplintmailTitle")},
-        {"Plate", Gui.Localize("Equipment/&Armor_PlateTitle")}
+        { "PrimedItems", Gui.Localize("ModUi/&PrimedItems") },
+        { "EnchantingIngredients", Gui.Localize("Tooltip/&IngredientsHeaderTitle") },
+        { "RelicForgeries", Gui.Localize("ModUi/&RelicForgeries") },
+        { "LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle") },
+        { "HeavyCrossbow", Gui.Localize("Equipment/&HeavyCrossbowTypeTitle") },
+        { "Handaxe", Gui.Localize("Equipment/&HandaxeTypeTitle") },
+        { "Javelin", Gui.Localize("Equipment/&JavelinTypeTitle") },
+        { "Dart", Gui.Localize("Equipment/&DartTypeTitle") },
+        { "Club", Gui.Localize("Equipment/&ClubTypeTitle") },
+        { "Maul", Gui.Localize("Equipment/&MaulTypeTitle") },
+        { "Warhammer", Gui.Localize("Equipment/&WarhammerTypeTitle") },
+        { "Quarterstaff", Gui.Localize("Equipment/&QuarterstaffTypeTitle") },
+        { "Rapier", Gui.Localize("Equipment/&RapierTypeTitle") },
+        { "Greataxe", Gui.Localize("Equipment/&GreataxeTypeTitle") },
+        { "Greatsword", Gui.Localize("Equipment/&GreatswordTypeTitle") },
+        { "Spear", Gui.Localize("Equipment/&SpearTypeTitle") },
+        { "Scimitar", Gui.Localize("Equipment/&ScimitarTypeTitle") },
+        { "Shield_Wooden", Gui.Localize("Equipment/&Shield_Wooden_Title") },
+        { "Shield", Gui.Localize("Equipment/&ShieldCategoryTitle") },
+        { "HideArmor", Gui.Localize("Equipment/&Armor_HideTitle") },
+        { "LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title") },
+        { "StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle") },
+        { "ChainShirt", Gui.Localize("Equipment/&Armor_ChainShirtTitle") },
+        { "PaddedLeather", Gui.Localize("Equipment/&Armor_PaddedLeatherTitle") },
+        { "Leather", Gui.Localize("Equipment/&Armor_LeatherTitle") },
+        { "ScaleMail", Gui.Localize("Equipment/&Armor_ScaleMailTitle") },
+        { "Breastplate", Gui.Localize("Equipment/&Armor_BreastplateTitle") },
+        { "HalfPlate", Gui.Localize("Equipment/&Armor_HalfPlateTitle") },
+        { "Ringmail", Gui.Localize("Equipment/&Armor_RingmailTitle") },
+        { "ChainMail", Gui.Localize("Equipment/&Armor_ChainMailTitle") },
+        { "SplintArmor", Gui.Localize("Equipment/&Armor_SplintmailTitle") },
+        { "Plate", Gui.Localize("Equipment/&Armor_PlateTitle") }
     };
 
     private static readonly List<string> ItemCategories = new()
@@ -106,7 +106,7 @@ internal static class ItemCraftingContext
     {
         foreach (var item in RecipeBooks.Values.SelectMany(items => items))
         {
-            item.costs = new[] {0, Main.Settings.RecipeCost, 0, 0, 0};
+            item.costs = new[] { 0, Main.Settings.RecipeCost, 0, 0, 0 };
         }
     }
 
@@ -189,7 +189,7 @@ internal static class ItemCraftingContext
         FilterGuiDropdown.ClearOptions();
         FilterGuiDropdown.onValueChanged.AddListener(delegate { craftingPanel.Refresh(); });
 
-        ItemCategories.ForEach(x => filterOptions.Add(new GuiDropdown.OptionDataAdvanced {text = x}));
+        ItemCategories.ForEach(x => filterOptions.Add(new GuiDropdown.OptionDataAdvanced { text = x }));
 
         FilterGuiDropdown.AddOptions(filterOptions);
         FilterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);

@@ -87,7 +87,7 @@ internal sealed class Arcanist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        return new FeatureDefinition[] {preparedSpells, arcanistAffinity};
+        return new FeatureDefinition[] { preparedSpells, arcanistAffinity };
     }
 
     private static FeatureDefinitionAdditionalDamage CreateArcanistMark()

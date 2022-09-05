@@ -155,7 +155,7 @@ internal static class BazouSpells
         spell.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
         spell.EffectDescription.EffectForms.Clear();
 
-        var summonForm = new SummonForm {monsterDefinitionName = familiarMonster.name, decisionPackage = null};
+        var summonForm = new SummonForm { monsterDefinitionName = familiarMonster.name, decisionPackage = null };
 
         var effectForm = new EffectForm
         {

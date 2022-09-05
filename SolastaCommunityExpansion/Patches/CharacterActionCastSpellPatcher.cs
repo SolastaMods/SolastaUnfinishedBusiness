@@ -88,7 +88,7 @@ internal static class CharacterActionCastSpellPatcher
             return false;
         }
     }
-    
+
     [HarmonyPatch(typeof(CharacterActionCastSpell), "GetAdvancementData")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GetAdvancementData_Patch
@@ -99,7 +99,8 @@ internal static class CharacterActionCastSpellPatcher
             //replaces repertoire's SpellCastingLevel with character level for cantrips
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
             var SpellCastingLevel =
-                new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassPatchingContext.SpellCastingLevel)
+                new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassPatchingContext
+                        .SpellCastingLevel)
                     .Method;
 
             foreach (var instruction in instructions)

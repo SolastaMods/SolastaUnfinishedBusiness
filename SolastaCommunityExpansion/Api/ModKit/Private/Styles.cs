@@ -14,7 +14,7 @@ public static partial class UI
     private static GUIStyle _divStyle;
 
     private static GUIStyle ToggleStyle =>
-        _toggleStyle ??= new GUIStyle(GUI.skin.label) {alignment = TextAnchor.MiddleLeft};
+        _toggleStyle ??= new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
 
     private static int Point(this int x)
     {
@@ -28,7 +28,7 @@ public static partial class UI
             _fillTexture = new Texture2D(1, 1);
         }
 
-        _divStyle = new GUIStyle {fixedHeight = 1};
+        _divStyle = new GUIStyle { fixedHeight = 1 };
         _fillTexture.SetPixel(0, 0, color);
         _fillTexture.Apply();
         _divStyle.normal.background = _fillTexture;

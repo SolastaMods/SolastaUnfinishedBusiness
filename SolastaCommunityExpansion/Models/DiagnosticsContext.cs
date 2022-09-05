@@ -56,7 +56,7 @@ internal static class DiagnosticsContext
 
     internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
 
-    internal static List<string> KnownDuplicateDefinitionNames { get; } = new() {"SummonProtectorConstruct"};
+    internal static List<string> KnownDuplicateDefinitionNames { get; } = new() { "SummonProtectorConstruct" };
 
     [NotNull]
     private static string GetDiagnosticsFolder()
@@ -219,7 +219,7 @@ internal static class DiagnosticsContext
                     continue;
                 }
 
-                var columns = line.Split(new[] {'\t', ' '}, 2);
+                var columns = line.Split(new[] { '\t', ' ' }, 2);
 
                 terms.Add(columns[0], columns[1]);
             }
@@ -283,8 +283,8 @@ internal static class DiagnosticsContext
         var allLines = baseDefinitions
             .Select(d => new[]
             {
-                new {d.Name, Key = d.GuiPresentation?.Title, Type = "Title"},
-                new {d.Name, Key = d.GuiPresentation?.Description, Type = "Description"}
+                new { d.Name, Key = d.GuiPresentation?.Title, Type = "Title" },
+                new { d.Name, Key = d.GuiPresentation?.Description, Type = "Description" }
             })
             .SelectMany(d => d)
             .Where(d => !d.Name.StartsWith("Telema", StringComparison.OrdinalIgnoreCase))

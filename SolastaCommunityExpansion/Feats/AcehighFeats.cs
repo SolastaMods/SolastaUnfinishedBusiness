@@ -161,8 +161,8 @@ internal static class AcehighFeats
                 ActionDefinitions.Id.PowerNoCost)
             {
                 SkipAnimationsAndVFX = true,
-                TargetCharacters = {locationCharacter},
-                ActionModifiers = {new ActionModifier()},
+                TargetCharacters = { locationCharacter },
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = rules.InstantiateEffectPower(character, usable, true)
             };
 
@@ -384,7 +384,7 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (attackMode is not {Reach: false, Ranged: true})
+            if (attackMode is not { Reach: false, Ranged: true })
             {
                 return;
             }

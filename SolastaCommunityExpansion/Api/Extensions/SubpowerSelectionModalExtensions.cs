@@ -59,7 +59,7 @@ internal static class SubpowerSelectionModalExtensions
         var fourCornersArray = new Vector3[4];
         attachment.GetWorldCorners(fourCornersArray);
         mainPanel.RectTransform.position =
-            0.5f * (fourCornersArray[1] + fourCornersArray[2]) + new Vector3(0.0f, 4f, 0.0f);
+            (0.5f * (fourCornersArray[1] + fourCornersArray[2])) + new Vector3(0.0f, 4f, 0.0f);
         instance.gameObject.SetActive(wasActive);
         mainPanel.gameObject.SetActive(wasActive);
     }

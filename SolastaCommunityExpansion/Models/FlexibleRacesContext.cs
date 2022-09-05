@@ -25,30 +25,30 @@ internal static class FlexibleRacesContext
 
     private static readonly Dictionary<string, FeatureUnlockByLevel> AddedFeatures = new()
     {
-        {"Dwarf", AttributeChoiceThree},
-        {"Elf", AttributeChoiceThree},
-        {"Halfling", AttributeChoiceThree},
-        {"HalfElf", AttributeChoiceFour},
-        {"HalfOrc", AttributeChoiceThree},
+        { "Dwarf", AttributeChoiceThree },
+        { "Elf", AttributeChoiceThree },
+        { "Halfling", AttributeChoiceThree },
+        { "HalfElf", AttributeChoiceFour },
+        { "HalfOrc", AttributeChoiceThree },
         // unofficial races
-        {"BolgrifRace", AttributeChoiceThree},
+        { "BolgrifRace", AttributeChoiceThree },
         // {"GnomeRace", AttributeChoiceThree},
-        {"HalfElfVariant", AttributeChoiceFour}
+        { "HalfElfVariant", AttributeChoiceFour }
     };
 
     private static readonly Dictionary<string, List<string>> RemovedFeatures = new()
     {
-        {"Dwarf", new List<string> {"AttributeModifierDwarfAbilityScoreIncrease"}},
-        {"Elf", new List<string> {"AttributeModifierElfAbilityScoreIncrease"}},
-        {"Halfling", new List<string> {"AttributeModifierHalflingAbilityScoreIncrease"}},
-        {"HalfElf", new List<string> {"FeatureSetHalfElfAbilityScoreIncrease"}},
-        {"DwarfHill", new List<string> {"AttributeModifierDwarfHillAbilityScoreIncrease"}},
-        {"DwarfSnow", new List<string> {"AttributeModifierDwarfSnowAbilityScoreIncrease"}},
-        {"ElfHigh", new List<string> {"AttributeModifierElfHighAbilityScoreIncrease"}},
-        {"ElfSylvan", new List<string> {"AttributeModifierElfSylvanAbilityScoreIncrease"}},
-        {"HalflingIsland", new List<string> {"AttributeModifierHalflingIslandAbilityScoreIncrease"}},
-        {"HalflingMarsh", new List<string> {"AttributeModifierHalflingMarshAbilityScoreIncrease"}},
-        {"HalfOrc", new List<string> {"FeatureSetHalfOrcAbilityScoreIncrease"}},
+        { "Dwarf", new List<string> { "AttributeModifierDwarfAbilityScoreIncrease" } },
+        { "Elf", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
+        { "Halfling", new List<string> { "AttributeModifierHalflingAbilityScoreIncrease" } },
+        { "HalfElf", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
+        { "DwarfHill", new List<string> { "AttributeModifierDwarfHillAbilityScoreIncrease" } },
+        { "DwarfSnow", new List<string> { "AttributeModifierDwarfSnowAbilityScoreIncrease" } },
+        { "ElfHigh", new List<string> { "AttributeModifierElfHighAbilityScoreIncrease" } },
+        { "ElfSylvan", new List<string> { "AttributeModifierElfSylvanAbilityScoreIncrease" } },
+        { "HalflingIsland", new List<string> { "AttributeModifierHalflingIslandAbilityScoreIncrease" } },
+        { "HalflingMarsh", new List<string> { "AttributeModifierHalflingMarshAbilityScoreIncrease" } },
+        { "HalfOrc", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
         // unofficial races
         {
             "BolgrifRace",
@@ -58,8 +58,8 @@ internal static class FlexibleRacesContext
                 "AttributeModifierBolgrifWisdomAbilityScoreIncrease"
             }
         },
-        {"DarkelfRace", new List<string> {"AttributeModifierDarkelfCharismaAbilityScoreIncrease"}},
-        {"HalfElfVariant", new List<string> {"FeatureSetHalfElfAbilityScoreIncrease"}},
+        { "DarkelfRace", new List<string> { "AttributeModifierDarkelfCharismaAbilityScoreIncrease" } },
+        { "HalfElfVariant", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
         // {
         //     "GnomeRace",
         //     new List<string>
@@ -67,7 +67,7 @@ internal static class FlexibleRacesContext
         //         "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease"
         //     }
         // },
-        {"GrayDwarfRace", new List<string> {"AttributeModifierGrayDwarfStrengthAbilityScoreIncrease"}}
+        { "GrayDwarfRace", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } }
     };
 
     private static void RemoveMatchingFeature([NotNull] List<FeatureUnlockByLevel> unlocks, BaseDefinition toRemove)

@@ -23,7 +23,7 @@ public static class LevelUpContext
         bool levelingUp = false)
     {
         LevelUpTab.TryAdd(rulesetCharacterHero,
-            new LevelUpData {SelectedClass = lastClass, SelectedSubclass = lastSubclass, IsLevelingUp = levelingUp});
+            new LevelUpData { SelectedClass = lastClass, SelectedSubclass = lastSubclass, IsLevelingUp = levelingUp });
 
         // fixes max level and exp in case level 20 gets enabled after a campaign starts
         var characterLevelAttribute = rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel);
@@ -253,7 +253,7 @@ public static class LevelUpContext
                     allowedAutoPreparedSpells.AddRange(
                         featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
                     break;
-                case FeatureDefinitionFeatureSet {uniqueChoices: false} featureDefinitionFeatureSet:
+                case FeatureDefinitionFeatureSet { uniqueChoices: false } featureDefinitionFeatureSet:
                     allowedAutoPreparedSpells.AddRange(
                         CacheAllowedAutoPreparedSpells(featureDefinitionFeatureSet.FeatureSet));
                     break;
@@ -273,7 +273,7 @@ public static class LevelUpContext
         {
             switch (featureDefinition)
             {
-                case FeatureDefinitionFeatureSet {uniqueChoices: false} featureDefinitionFeatureSet:
+                case FeatureDefinitionFeatureSet { uniqueChoices: false } featureDefinitionFeatureSet:
                     allowedSpells.AddRange(
                         CacheAllowedSpells(featureDefinitionFeatureSet.FeatureSet));
                     break;
@@ -289,7 +289,7 @@ public static class LevelUpContext
                         featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(x => x.Spells));
                     break;
 
-                case FeatureDefinitionBonusCantrips {BonusCantrips: { }} featureDefinitionBonusCantrips:
+                case FeatureDefinitionBonusCantrips { BonusCantrips: { } } featureDefinitionBonusCantrips:
                     allowedSpells.AddRange(featureDefinitionBonusCantrips.BonusCantrips);
                     break;
 

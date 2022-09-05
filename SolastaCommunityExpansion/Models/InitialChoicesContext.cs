@@ -56,8 +56,8 @@ internal static class InitialChoicesContext
     private static void LoadEpicArray()
     {
         AttributeDefinitions.PredeterminedRollScores = Main.Settings.EnableEpicPointsAndArray
-            ? new[] {17, 15, 13, 12, 10, 8}
-            : new[] {15, 14, 13, 12, 10, 8};
+            ? new[] { 17, 15, 13, 12, 10, 8 }
+            : new[] { 15, 14, 13, 12, 10, 8 };
     }
 
     private static void LoadVision()
@@ -97,7 +97,7 @@ internal static class InitialChoicesContext
 
     internal static void SwitchEvenLevelFeats()
     {
-        var levels = new[] {2, 6, 10, 14};
+        var levels = new[] { 2, 6, 10, 14 };
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
         var pointPool2BonusFeats = dbFeatureDefinitionPointPool.GetElement("PointPool2BonusFeats");

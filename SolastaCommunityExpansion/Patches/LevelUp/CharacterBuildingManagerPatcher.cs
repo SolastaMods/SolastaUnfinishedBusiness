@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
 using TA;
 using static FeatureDefinitionCastSpell;
@@ -25,7 +24,7 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
     {
         var spellTag = tag;
 
-        foreach (FeatureDefinition grantedFeature in grantedFeatures)
+        foreach (var grantedFeature in grantedFeatures)
         {
             switch (grantedFeature)
             {
@@ -34,13 +33,15 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
 
                     break; //PATCH: this was `return` in original code, leading to game skipping granting some features
                 case FeatureDefinitionBonusCantrips cantrips:
-                    using (List<SpellDefinition>.Enumerator enumerator = cantrips.BonusCantrips.GetEnumerator())
+                    using (var enumerator = cantrips.BonusCantrips.GetEnumerator())
                     {
                         while (enumerator.MoveNext())
                         {
-                            SpellDefinition current = enumerator.Current;
+                            var current = enumerator.Current;
                             if (current != null)
+                            {
                                 __instance.AcquireBonusCantrip(heroBuildingData, current, spellTag);
+                            }
                         }
                     }
 
@@ -48,13 +49,13 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                 case FeatureDefinitionProficiency definitionProficiency:
                     if (definitionProficiency.ProficiencyType == RuleDefinitions.ProficiencyType.FightingStyle)
                     {
-                        using List<string>.Enumerator enumerator = definitionProficiency.Proficiencies.GetEnumerator();
+                        using var enumerator = definitionProficiency.Proficiencies.GetEnumerator();
 
                         while (enumerator.MoveNext())
                         {
                             var current = enumerator.Current;
 
-                            FightingStyleDefinition element = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(current);
+                            var element = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(current);
                             __instance.AcquireBonusFightingStyle(heroBuildingData, element, spellTag);
                         }
                     }
@@ -62,7 +63,10 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                     break;
                 case FeatureDefinitionFeatureSet definitionFeatureSet:
                     if (definitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                        __instance.BrowseGrantedFeaturesHierarchically(heroBuildingData, definitionFeatureSet.FeatureSet, spellTag);
+                    {
+                        __instance.BrowseGrantedFeaturesHierarchically(heroBuildingData,
+                            definitionFeatureSet.FeatureSet, spellTag);
+                    }
 
                     break;
             }

@@ -231,19 +231,19 @@ internal sealed class BladeDancer : AbstractSubclass
         if (hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDance.Name))
         {
             hero.RemoveConditionOfCategory("11Effect",
-                new RulesetCondition {conditionDefinition = ConditionBladeDance});
+                new RulesetCondition { conditionDefinition = ConditionBladeDance });
         }
 
         if (hero.HasConditionOfCategoryAndType("11Effect", ConditionDanceOfDefense.Name))
         {
             hero.RemoveConditionOfCategory("11Effect",
-                new RulesetCondition {conditionDefinition = ConditionDanceOfDefense});
+                new RulesetCondition { conditionDefinition = ConditionDanceOfDefense });
         }
 
         if (hero.HasConditionOfCategoryAndType("11Effect", ConditionDanceOfVictory.Name))
         {
             hero.RemoveConditionOfCategory("11Effect",
-                new RulesetCondition {conditionDefinition = ConditionDanceOfVictory});
+                new RulesetCondition { conditionDefinition = ConditionDanceOfVictory });
         }
     }
 

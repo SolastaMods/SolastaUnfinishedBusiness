@@ -16,11 +16,11 @@ internal static class AdditionalNamesContext
         }
 
         var payload = Resources.Names;
-        var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
+        var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
 
         foreach (var line in lines)
         {
-            var columns = line.Split(new[] {'\t'}, 3);
+            var columns = line.Split(new[] { '\t' }, 3);
 
             if (columns.Length != 3)
             {

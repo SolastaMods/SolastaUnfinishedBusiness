@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.CustomUI;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -17,7 +14,7 @@ internal static class CursorLocationSelectTargetPatcher
         {
             //PATCH: suport for target spell filtering based on custom spell filters
             // used for melee cantrips to limit targets to weapon attack range
-            
+
             if (!__result)
             {
                 return;

@@ -49,7 +49,7 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
             image.sprite = null;
         }
 
-        if (_guiPresentation is {SpriteReference: { }} && _guiPresentation.SpriteReference.RuntimeKeyIsValid())
+        if (_guiPresentation is { SpriteReference: { } } && _guiPresentation.SpriteReference.RuntimeKeyIsValid())
         {
             image.gameObject.SetActive(true);
             image.sprite = Gui.LoadAssetSync<Sprite>(_guiPresentation.SpriteReference);

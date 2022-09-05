@@ -9,7 +9,6 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
-using UnityEngine;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
@@ -54,9 +53,9 @@ internal static class KnowYourEnemyBuilder
     }
 
     private static void KnowYourEnemyComputeAttackModifier(
-        RulesetCharacter myself, 
-        RulesetCharacter defender, 
-        RulesetAttackMode attackMode, 
+        RulesetCharacter myself,
+        RulesetCharacter defender,
+        RulesetAttackMode attackMode,
         ref ActionModifier attackModifier)
     {
         // no spell attack
@@ -64,7 +63,7 @@ internal static class KnowYourEnemyBuilder
         {
             return;
         }
-        
+
         var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender);
         attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
         attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
@@ -174,7 +173,6 @@ internal static class StudyYourEnemyBuilder
 
             if (entry == null)
             {
-                return;
             }
 
             // var checkModifier = new ActionModifier();
@@ -410,7 +408,7 @@ internal static class EternalComradeBuilder
 
     internal static FeatureDefinitionFeatureSet BuildEternalComradeFeatureSet()
     {
-        var summonForm = new SummonForm {monsterDefinitionName = EternalComrade.Name};
+        var summonForm = new SummonForm { monsterDefinitionName = EternalComrade.Name };
 
         var effectForm = new EffectForm
         {

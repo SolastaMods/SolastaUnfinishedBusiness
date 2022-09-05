@@ -207,7 +207,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                     durationType = RuleDefinitions.DurationType.Round,
                     durationParameter = 1,
                     endOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn,
-                    effectAdvancement = new EffectAdvancement {incrementMultiplier = 1},
+                    effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
                     effectForms = new List<EffectForm>
                     {
                         new EffectFormBuilder()

@@ -22,7 +22,7 @@ internal static class GameLocationManager_LoadLocationAsync
 
         var sessionService = ServiceRepository.GetService<ISessionService>();
 
-        if (sessionService is {Session: { }})
+        if (sessionService is { Session: { } })
         {
             // Record which campaign/location the latest load game belongs to
 

@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomUI;
 
@@ -14,7 +13,7 @@ public sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 
         var hero = actionParams.ActingCharacter.RulesetCharacter as RulesetCharacterHero;
         var spellRepertoire = ReactionParams.SpellRepertoire;
-        int selected = 0;
+        var selected = 0;
 
         // if (actionParams.StringParameter == "EldritchSmite")
         // {

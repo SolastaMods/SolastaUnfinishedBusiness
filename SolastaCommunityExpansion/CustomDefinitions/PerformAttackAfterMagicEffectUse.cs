@@ -98,7 +98,7 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
         }
 
         var attackActionParams =
-            new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) {AttackMode = attackMode};
+            new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
 
         attackActionParams.TargetCharacters.Add(target);
         attackActionParams.ActionModifiers.Add(attackModifier);

@@ -75,7 +75,7 @@ internal static class ArchetypesPreviewModal_Show
         if (selectedClass != null
             && hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
         {
-            subclasses = new List<string> {characterSubclassDefinition.Name};
+            subclasses = new List<string> { characterSubclassDefinition.Name };
         }
 
         var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();

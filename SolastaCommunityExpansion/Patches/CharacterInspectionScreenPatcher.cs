@@ -29,7 +29,7 @@ internal static class CharacterInspectionScreen_Unbind
     internal static void Prefix()
     {
         Global.InspectedHero = null;
-        
+
         if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer)
         {
             InventoryManagementContext.ResetControls();

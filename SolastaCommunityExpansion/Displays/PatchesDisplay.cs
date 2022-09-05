@@ -21,7 +21,7 @@ internal static class PatchesDisplay
 
     internal static void DisplayPatches()
     {
-        _buttonStyle ??= new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
+        _buttonStyle ??= new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
 
         if (_firstTime)
         {

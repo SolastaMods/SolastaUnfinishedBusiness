@@ -16,7 +16,8 @@ internal static class CharacterStageDeitySelectionPanel_Compare_DeityDefinition
     {
         if (Main.Settings.EnableSortingDeities)
         {
-            __result = String.Compare(left.FormatTitle(), right.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
+            __result = String.Compare(left.FormatTitle(), right.FormatTitle(),
+                StringComparison.CurrentCultureIgnoreCase);
         }
     }
 }
@@ -34,7 +35,8 @@ internal static class CharacterStageDeitySelectionPanel_Compare_CharacterSubclas
     {
         if (Main.Settings.EnableSortingDeities)
         {
-            __result = String.Compare(left.FormatTitle(), right.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
+            __result = String.Compare(left.FormatTitle(), right.FormatTitle(),
+                StringComparison.CurrentCultureIgnoreCase);
         }
     }
 }

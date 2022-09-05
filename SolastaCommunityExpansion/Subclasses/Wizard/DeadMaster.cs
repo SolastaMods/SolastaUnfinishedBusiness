@@ -26,9 +26,9 @@ internal sealed class DeadMaster : AbstractSubclass
 
     private static readonly Dictionary<int, List<MonsterDefinition>> CreateDeadSpellMonsters = new()
     {
-        {3, new List<MonsterDefinition> {Zombie, Skeleton, Skeleton_Archer}},
-        {5, new List<MonsterDefinition> {Ghoul, Skeleton_Enforcer}},
-        {7, new List<MonsterDefinition> {Skeleton_Knight, Skeleton_Marksman, Skeleton_Sorcerer}}
+        { 3, new List<MonsterDefinition> { Zombie, Skeleton, Skeleton_Archer } },
+        { 5, new List<MonsterDefinition> { Ghoul, Skeleton_Enforcer } },
+        { 7, new List<MonsterDefinition> { Skeleton_Knight, Skeleton_Marksman, Skeleton_Sorcerer } }
     };
 
     internal DeadMaster()
@@ -93,7 +93,7 @@ internal sealed class DeadMaster : AbstractSubclass
 
         var commandUndeadEffect = powerCommandUndead.EffectDescription;
 
-        commandUndeadEffect.restrictedCreatureFamilies = new List<string> {CharacterFamilyDefinitions.Undead.Name};
+        commandUndeadEffect.restrictedCreatureFamilies = new List<string> { CharacterFamilyDefinitions.Undead.Name };
         commandUndeadEffect.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
         commandUndeadEffect.savingThrowAbility = AttributeDefinitions.Charisma;
         commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
@@ -260,7 +260,7 @@ internal sealed class DeadMaster : AbstractSubclass
             var autoPreparedSpellsGroup =
                 new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
                 {
-                    ClassLevel = level, SpellsList = new List<SpellDefinition> {spell}
+                    ClassLevel = level, SpellsList = new List<SpellDefinition> { spell }
                 };
 
             result.Add(autoPreparedSpellsGroup);

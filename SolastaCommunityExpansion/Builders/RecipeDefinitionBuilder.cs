@@ -34,7 +34,7 @@ public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Recip
 
     public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient)
     {
-        var description = new IngredientOccurenceDescription {itemDefinition = ingredient, amount = 1};
+        var description = new IngredientOccurenceDescription { itemDefinition = ingredient, amount = 1 };
         Definition.Ingredients.Add(description);
         return this;
     }

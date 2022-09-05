@@ -6,7 +6,6 @@ using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Spells;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
@@ -364,7 +363,7 @@ internal static class CasterFeats
         return classes
             .Select(klass =>
                 BuildAutoPreparedSpells(
-                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> {spellGroup},
+                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> { spellGroup },
                     klass,
                     namePrefix + klass.Name,
                     autoPrepTag,

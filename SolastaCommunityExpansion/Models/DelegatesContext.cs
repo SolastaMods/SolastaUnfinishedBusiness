@@ -933,7 +933,8 @@ internal static class DelegatesContext
         List<RuleDefinitions.TrendInfo> toHitTrends,
         List<RuleDefinitions.TrendInfo> advantageTrends,
         bool opportunity = false,
-        ActionDefinitions.ReactionCounterAttackType reactionCounterAttackType = ActionDefinitions.ReactionCounterAttackType.None)
+        ActionDefinitions.ReactionCounterAttackType reactionCounterAttackType =
+            ActionDefinitions.ReactionCounterAttackType.None)
     {
         Main.Logger.Log("AttackRolled");
     }

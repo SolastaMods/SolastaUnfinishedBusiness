@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class BootContext
 {
-    private static readonly HashSet<string> SupportedLanguages = new() {"zh-CN"};
+    private static readonly HashSet<string> SupportedLanguages = new() { "zh-CN" };
 
     public static void Startup()
     {
@@ -200,7 +200,7 @@ internal static class BootContext
     {
         const string BASE_URL = "https://github.com/SolastaMods/SolastaCommunityExpansion";
 
-        var destFiles = new[] {"Info.json", "SolastaCommunityExpansion.dll"};
+        var destFiles = new[] { "Info.json", "SolastaCommunityExpansion.dll" };
 
         using var wc = new WebClient();
 

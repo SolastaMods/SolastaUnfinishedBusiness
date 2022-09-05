@@ -45,7 +45,7 @@ internal static class RulesetEffectSpellPatcher
         {
             //PATCH: Multicass: enforces cantrips to be cast at character level 
             //replaces repertoire's SpellCastingLevel with character level for cantrips
-            
+
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
             var SpellCastingLevel =
                 new Func<RulesetSpellRepertoire, RulesetEffectSpell, int>(MulticlassPatchingContext.SpellCastingLevel)

@@ -31,16 +31,16 @@ internal static class CeContentPackContext
 
         GamingPlatformManager.automaticallyUnlockedContentPacks.Add(CeContentPack);
     }
-    
-    public static void AddCETag(BaseDefinition item, Dictionary<string,TagsDefinitions.Criticity> tags)
+
+    public static void AddCETag(BaseDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
         if (DiagnosticsContext.IsCeDefinition(item))
         {
             tags.TryAdd(CeTag, TagsDefinitions.Criticity.Normal);
         }
     }
-    
-    public static void AddCESpellTag(SpellDefinition spell, Dictionary<string,TagsDefinitions.Criticity> tags)
+
+    public static void AddCESpellTag(SpellDefinition spell, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
         if (SpellsContext.Spells.TryGetValue(spell, out _))
         {

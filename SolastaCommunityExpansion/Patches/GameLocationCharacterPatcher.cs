@@ -68,7 +68,7 @@ internal static class GameLocationCharacterPatcher
             __result = ExtraAttacksOnActionPanel.FindExtraActionAttackModes(__instance, __result, actionId);
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationCharacter), "AttackOn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class AttackOn

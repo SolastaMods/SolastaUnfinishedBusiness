@@ -81,7 +81,7 @@ internal sealed class SpriteResourceLocator : IResourceLocator
                 LocationsCache.Add(id, location);
             }
 
-            locations = new List<IResourceLocation> {location};
+            locations = new List<IResourceLocation> { location };
             return true;
         }
 

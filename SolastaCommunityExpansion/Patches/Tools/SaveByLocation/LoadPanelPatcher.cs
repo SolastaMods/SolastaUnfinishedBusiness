@@ -66,16 +66,16 @@ internal static class LoadPanel_OnBeginShow
         // add them together - each block sorted - can we have separators?
         var userContentList =
             allCampaigns
-                .Select(l => new {LocationType = LocationType.CustomCampaign, l.Title})
+                .Select(l => new { LocationType = LocationType.CustomCampaign, l.Title })
                 .OrderBy(l => l.Title)
                 .Concat(allLocations
-                    .Select(l => new {LocationType = LocationType.UserLocation, l.Title})
+                    .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
                     .OrderBy(l => l.Title)
                 )
                 .ToList();
 
         guiDropdown.AddOptions(
-            Enumerable.Repeat(new {LocationType = LocationType.StandardCampaign, Title = "Standard campaigns"}, 1)
+            Enumerable.Repeat(new { LocationType = LocationType.StandardCampaign, Title = "Standard campaigns" }, 1)
                 .Union(userContentList)
                 .Select(opt => new
                 {
@@ -100,7 +100,7 @@ internal static class LoadPanel_OnBeginShow
 
         var option = guiDropdown.options
             .Cast<LocationOptionData>()
-            .Select((o, i) => new {o.CampaignOrLocation, o.LocationType, Index = i})
+            .Select((o, i) => new { o.CampaignOrLocation, o.LocationType, Index = i })
             .Where(opt => opt.LocationType == selectedCampaign.LocationType)
             .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 

@@ -17,7 +17,8 @@ internal static class CharacterStageRaceSelectionPanel_Compare
     {
         if (Main.Settings.EnableSortingRaces)
         {
-            __result = String.Compare(left.FormatTitle(), right.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
+            __result = String.Compare(left.FormatTitle(), right.FormatTitle(),
+                StringComparison.CurrentCultureIgnoreCase);
         }
     }
 }
@@ -64,7 +65,7 @@ internal static class CharacterStageRaceSelectionPanel_OnBeginShow
         __instance.sortedSubRaces.Clear();
 
         foreach (var characterRaceDefinition in allRaces
-                     .Where(x => x.SubRaces is {Count: > 0}))
+                     .Where(x => x.SubRaces is { Count: > 0 }))
         {
             if (characterRaceDefinition.SubRaces.Count > __instance.maxSubRacesPerRace)
             {

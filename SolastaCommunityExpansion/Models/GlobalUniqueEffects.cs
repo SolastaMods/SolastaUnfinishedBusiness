@@ -94,7 +94,7 @@ public static class GlobalUniqueEffects
         TerminatePowers(character, power, powers);
         TerminateSpells(character, null, spells);
     }
-    
+
     /**
      * Used in the patch to terminate all matching powers and spells of same group
      */
@@ -106,7 +106,7 @@ public static class GlobalUniqueEffects
         TerminatePowers(character, null, powers);
         TerminateSpells(character, spell, spells);
     }
-    
+
     private static void TerminatePowers(RulesetCharacter character, FeatureDefinitionPower exclude,
         IEnumerable<FeatureDefinitionPower> powers)
     {

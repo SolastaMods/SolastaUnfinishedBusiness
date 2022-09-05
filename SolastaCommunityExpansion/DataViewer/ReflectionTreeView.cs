@@ -79,9 +79,9 @@ public class ReflectionTreeView
             return;
         }
 
-        _buttonStyle ??= new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft, stretchHeight = true};
+        _buttonStyle ??= new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft, stretchHeight = true };
 
-        _valueStyle ??= new GUIStyle(GUI.skin.box) {alignment = TextAnchor.MiddleLeft, stretchHeight = true};
+        _valueStyle ??= new GUIStyle(GUI.skin.box) { alignment = TextAnchor.MiddleLeft, stretchHeight = true };
 
         var startIndexUBound = Math.Max(0, _nodesCount - MaxRows);
 
