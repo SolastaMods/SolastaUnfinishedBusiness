@@ -4,9 +4,10 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantripOnWornItemsFirst;
-// TODO: modify "Screen/&CastLightButtonDescription"
+namespace SolastaCommunityExpansion.Patches;
+//TODO: modify "Screen/&CastLightButtonDescription"
 
+//PATCH: QuickCastLightCantripOnWornItemsFirst
 [HarmonyPatch(typeof(InventoryShortcutsPanel), "OnCastLightCb")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class InventoryShortcutsPanel_OnCastLightCb

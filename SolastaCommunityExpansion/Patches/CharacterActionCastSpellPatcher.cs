@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
@@ -115,6 +116,27 @@ internal static class CharacterActionCastSpellPatcher
                     yield return instruction;
                 }
             }
+        }
+    }
+
+    //PATCH: BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove
+    [HarmonyPatch(typeof(CharacterActionCastSpell), "StartConcentrationAsNeeded")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterActionCastSpell_StartConcentrationAsNeeded
+    {
+        public static bool Prefix(CharacterActionCastSpell __instance)
+        {
+            if (!Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove)
+            {
+                return true;
+            }
+
+            // Per SRD - Bestow Curse does not need concentration when cast with slot level 5 or above.
+            // If the active spell is a sub-spell of Bestow Curse and the slot level is >= 5 don't run StartConcentrationAsNeeded.
+            return
+                !__instance.ActiveSpell.SpellDefinition.IsSubSpellOf(DatabaseHelper.SpellDefinitions
+                    .BestowCurse)
+                || __instance.ActiveSpell.SlotLevel < 5;
         }
     }
 }

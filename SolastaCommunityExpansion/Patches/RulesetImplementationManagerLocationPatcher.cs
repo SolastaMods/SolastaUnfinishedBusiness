@@ -3,9 +3,9 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogic;
+namespace SolastaCommunityExpansion.Patches;
 
-// fix twinned spells offering
+//PATCH: fix twinned spells offering
 [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsMetamagicOptionAvailable")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetImplementationManagerLocation_IsMetamagicOptionAvailable
