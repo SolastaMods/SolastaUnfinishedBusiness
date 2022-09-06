@@ -14,10 +14,10 @@ namespace SolastaCommunityExpansion.Patches;
 
 internal static class PowerSelectionPanelPatcher
 {
-    private static RectTransform secondRow;
-    private static RectTransform thirdRow;
+    private static RectTransform _secondRow;
+    private static RectTransform _thirdRow;
 
-    // second line bind
+    //PATCH: add additional rows to powers (EnableMultiLinePowerPanel)
     [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
@@ -65,24 +65,24 @@ internal static class PowerSelectionPanelPatcher
             var powersTable = __instance.powersTable;
             if (powerBoxes.Count > 14)
             {
-                if (thirdRow == null)
+                if (_thirdRow == null)
                 {
-                    thirdRow = Object.Instantiate(powersTable);
+                    _thirdRow = Object.Instantiate(powersTable);
                 }
 
                 var toStayCount = powersTable.childCount * 2 / 3;
-                MovePowersToRow(powersTable, thirdRow, toStayCount, 200);
+                MovePowersToRow(powersTable, _thirdRow, toStayCount, 200);
             }
 
             if (powerBoxes.Count > 7)
             {
-                if (secondRow == null)
+                if (_secondRow == null)
                 {
-                    secondRow = Object.Instantiate(powersTable);
+                    _secondRow = Object.Instantiate(powersTable);
                 }
 
                 var toStayCount = powersTable.childCount / 2;
-                MovePowersToRow(powersTable, secondRow, toStayCount, 80);
+                MovePowersToRow(powersTable, _secondRow, toStayCount, 80);
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(powersTable);
@@ -112,7 +112,7 @@ internal static class PowerSelectionPanelPatcher
         }
     }
 
-    // second line unbind
+    //PATCH: add additional rows to powers (EnableMultiLinePowerPanel)
     [HarmonyPatch(typeof(PowerSelectionPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Unbind_Patch
@@ -124,19 +124,19 @@ internal static class PowerSelectionPanelPatcher
                 return;
             }
 
-            if (secondRow != null && secondRow.gameObject.activeSelf)
+            if (_secondRow != null && _secondRow.gameObject.activeSelf)
             {
-                Gui.ReleaseChildrenToPool(secondRow);
-                secondRow.gameObject.SetActive(false);
+                Gui.ReleaseChildrenToPool(_secondRow);
+                _secondRow.gameObject.SetActive(false);
             }
 
-            if (thirdRow == null || !thirdRow.gameObject.activeSelf)
+            if (_thirdRow == null || !_thirdRow.gameObject.activeSelf)
             {
                 return;
             }
 
-            Gui.ReleaseChildrenToPool(thirdRow);
-            thirdRow.gameObject.SetActive(false);
+            Gui.ReleaseChildrenToPool(_thirdRow);
+            _thirdRow.gameObject.SetActive(false);
         }
     }
 }

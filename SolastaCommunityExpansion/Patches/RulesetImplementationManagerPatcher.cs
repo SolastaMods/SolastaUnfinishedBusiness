@@ -2,18 +2,18 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using JetBrains.Annotations;
-using UnityEngine;
+using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Patches;
 
 internal static class RulesetImplementationManagerPatcher
 {
+    //PATCH: Applies custom effect forms
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplyEffectForms")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ApplyEffectForms_Patch
     {
-        public static void Postfix( 
+        public static void Postfix(
             List<EffectForm> effectForms,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             List<string> effectiveDamageTypes,
@@ -23,7 +23,7 @@ internal static class RulesetImplementationManagerPatcher
             RuleDefinitions.EffectApplication effectApplication,
             List<EffectFormFilter> filters)
         {
-            foreach (var customEffect in effectForms.OfType<CustomDefinitions.CustomEffectForm>())
+            foreach (var customEffect in effectForms.OfType<CustomEffectForm>())
             {
                 customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly, effectApplication,
                     filters);
@@ -31,114 +31,110 @@ internal static class RulesetImplementationManagerPatcher
         }
     }
 
-// Call parts of the stuff `RulesetImplementationManagerLocation` does for `RulesetImplementationManagerCampaign`
-// This makes light and item effects correctly terminate when resting during world travel
-// The code is prettified decompiled code from `RulesetImplementationManagerLocation`
-[HarmonyPatch(typeof(RulesetImplementationManager), "TerminateEffect")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetImplementationManager_TerminateEffect
-{
-    internal static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
+    //PATCH:
+    // Call parts of the stuff `RulesetImplementationManagerLocation` does for `RulesetImplementationManagerCampaign`
+    // This makes light and item effects correctly terminate when resting during world travel
+    // The code is prettified decompiled code from `RulesetImplementationManagerLocation`
+    [HarmonyPatch(typeof(RulesetImplementationManager), "TerminateEffect")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class TerminateEffect_Patch
     {
-        //
-        // BUGFIX: correctly terminate effects on world travel
-        //
-
-        if (__instance is not RulesetImplementationManagerCampaign)
+        internal static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
         {
-            return;
-        }
-
-        if (activeEffect is {TrackedLightSourceGuids.Count: > 0})
-        {
-            var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
-            foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids)
+            if (__instance is not RulesetImplementationManagerCampaign)
             {
-                var rulesetLightSource = (RulesetLightSource)null;
-                ref var local = ref rulesetLightSource;
+                return;
+            }
 
-                if (!RulesetEntity.TryGetEntity(trackedLightSourceGuid, out local) || rulesetLightSource == null)
+            if (activeEffect is { TrackedLightSourceGuids.Count: > 0 })
+            {
+                var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
+                foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids)
+                {
+                    var rulesetLightSource = (RulesetLightSource)null;
+                    ref var local = ref rulesetLightSource;
+
+                    if (!RulesetEntity.TryGetEntity(trackedLightSourceGuid, out local) || rulesetLightSource == null)
+                    {
+                        continue;
+                    }
+
+                    rulesetLightSource.LightSourceExtinguished -= activeEffect.LightSourceExtinguished;
+                    RulesetCharacter bearer;
+                    if (rulesetLightSource.TargetItemGuid != 0UL &&
+                        RulesetEntity.TryGetEntity(rulesetLightSource.TargetItemGuid, out RulesetItem rulesetItem))
+                    {
+                        if (RulesetEntity.TryGetEntity(rulesetItem.BearerGuid, out bearer) &&
+                            bearer is { CharacterInventory: { } })
+                        {
+                            bearer.CharacterInventory.ItemAltered?.Invoke(bearer.CharacterInventory,
+                                bearer.CharacterInventory.FindSlotHoldingItem(rulesetItem), rulesetItem);
+                        }
+
+                        var fromActor = GameLocationCharacter.GetFromActor(bearer);
+                        service?.RemoveCharacterLightSource(fromActor, rulesetItem.RulesetLightSource);
+                        rulesetItem.RulesetLightSource?.Unregister();
+                        rulesetItem.RulesetLightSource = null;
+                    }
+                    else if (rulesetLightSource.TargetGuid != 0UL &&
+                             RulesetEntity.TryGetEntity(rulesetLightSource.TargetGuid, out bearer))
+                    {
+                        var fromActor = GameLocationCharacter.GetFromActor(bearer);
+                        service?.RemoveCharacterLightSource(fromActor, rulesetLightSource);
+                        if (rulesetLightSource.UseSpecificLocationPosition)
+                        {
+                            if (bearer is RulesetCharacterEffectProxy proxy)
+                            {
+                                proxy.RemoveAdditionalPersonalLightSource(rulesetLightSource);
+                            }
+                        }
+                        else if (bearer != null)
+                        {
+                            bearer.PersonalLightSource = null;
+                        }
+                    }
+                }
+
+                activeEffect.TrackedLightSourceGuids.Clear();
+            }
+
+            if (activeEffect is not { TrackedItemPropertyGuids.Count: > 0 })
+            {
+                return;
+            }
+
+            foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids)
+            {
+                var rulesetItemProperty = (RulesetItemProperty)null;
+                ref var local = ref rulesetItemProperty;
+                if (!RulesetEntity.TryGetEntity(itemPropertyGuid, out local) || rulesetItemProperty == null)
                 {
                     continue;
                 }
 
-                rulesetLightSource.LightSourceExtinguished -= activeEffect.LightSourceExtinguished;
-                RulesetCharacter bearer;
-                if (rulesetLightSource.TargetItemGuid != 0UL &&
-                    RulesetEntity.TryGetEntity(rulesetLightSource.TargetItemGuid, out RulesetItem rulesetItem))
+                if (!RulesetEntity.TryGetEntity(rulesetItemProperty.TargetItemGuid,
+                        out RulesetItem rulesetItem) || rulesetItem == null)
                 {
-                    if (RulesetEntity.TryGetEntity(rulesetItem.BearerGuid, out bearer) &&
-                        bearer is {CharacterInventory: { }})
-                    {
-                        bearer.CharacterInventory.ItemAltered?.Invoke(bearer.CharacterInventory,
-                            bearer.CharacterInventory.FindSlotHoldingItem(rulesetItem), rulesetItem);
-                    }
-
-                    var fromActor = GameLocationCharacter.GetFromActor(bearer);
-                    service?.RemoveCharacterLightSource(fromActor, rulesetItem.RulesetLightSource);
-                    rulesetItem.RulesetLightSource?.Unregister();
-                    rulesetItem.RulesetLightSource = null;
+                    continue;
                 }
-                else if (rulesetLightSource.TargetGuid != 0UL &&
-                         RulesetEntity.TryGetEntity(rulesetLightSource.TargetGuid, out bearer))
+
+                rulesetItem.ItemPropertyRemoved -= activeEffect.ItemPropertyRemoved;
+                rulesetItem.RemoveDynamicProperty(rulesetItemProperty);
+
+                if (!RulesetEntity.TryGetEntity(rulesetItem.BearerGuid,
+                        out RulesetCharacter rulesetItemBearer) || rulesetItemBearer == null)
                 {
-                    var fromActor = GameLocationCharacter.GetFromActor(bearer);
-                    service?.RemoveCharacterLightSource(fromActor, rulesetLightSource);
-                    if (rulesetLightSource.UseSpecificLocationPosition)
-                    {
-                        if (bearer is RulesetCharacterEffectProxy proxy)
-                        {
-                            proxy.RemoveAdditionalPersonalLightSource(rulesetLightSource);
-                        }
-                    }
-                    else if (bearer != null)
-                    {
-                        bearer.PersonalLightSource = null;
-                    }
+                    continue;
                 }
+
+                var characterInventory = rulesetItemBearer.CharacterInventory;
+
+                characterInventory?.ItemAltered?.Invoke(characterInventory,
+                    characterInventory.FindSlotHoldingItem(rulesetItem),
+                    rulesetItem);
+
+                rulesetItemBearer.RefreshAll();
             }
-
-            activeEffect.TrackedLightSourceGuids.Clear();
-        }
-
-        if (activeEffect is not {TrackedItemPropertyGuids.Count: > 0})
-        {
-            return;
-        }
-
-        foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids)
-        {
-            var rulesetItemProperty = (RulesetItemProperty)null;
-            ref var local = ref rulesetItemProperty;
-            if (!RulesetEntity.TryGetEntity(itemPropertyGuid, out local) || rulesetItemProperty == null)
-            {
-                continue;
-            }
-
-            if (!RulesetEntity.TryGetEntity(rulesetItemProperty.TargetItemGuid,
-                    out RulesetItem rulesetItem) || rulesetItem == null)
-            {
-                continue;
-            }
-
-            rulesetItem.ItemPropertyRemoved -= activeEffect.ItemPropertyRemoved;
-            rulesetItem.RemoveDynamicProperty(rulesetItemProperty);
-
-            if (!RulesetEntity.TryGetEntity(rulesetItem.BearerGuid,
-                    out RulesetCharacter rulesetItemBearer) || rulesetItemBearer == null)
-            {
-                continue;
-            }
-
-            var characterInventory = rulesetItemBearer.CharacterInventory;
-
-            characterInventory?.ItemAltered?.Invoke(characterInventory,
-                characterInventory.FindSlotHoldingItem(rulesetItem),
-                rulesetItem);
-
-            rulesetItemBearer.RefreshAll();
         }
     }
-}
-
 }

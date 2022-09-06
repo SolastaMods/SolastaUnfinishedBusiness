@@ -10,7 +10,7 @@ internal static class UnityModManagerUIPatcher
     //PATCH: this patch prevents game from receive input if Mod UI is open
     [HarmonyPatch(typeof(UnityModManager.UI), "ToggleWindow", typeof(bool))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UnityModManager_UI_ToggleWindow
+    internal static class ToggleWindow_Patch
     {
 #pragma warning disable S3168 // "async" methods should not return "void"
         internal static async void Postfix(bool open)

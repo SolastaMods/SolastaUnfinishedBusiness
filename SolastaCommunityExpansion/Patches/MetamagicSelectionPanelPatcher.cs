@@ -4,16 +4,16 @@ using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Patches;
 
-[HarmonyPatch(typeof(MetamagicSelectionPanel), "Unbind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class MetamagicSelectionPanel_Unbind
+internal static class MetamagicSelectionPanelPatcher
 {
-    internal static void Prefix([NotNull] MetamagicSelectionPanel __instance)
+    //BUGFIX: leaked metamagic panel
+    [HarmonyPatch(typeof(MetamagicSelectionPanel), "Unbind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Unbind_Patch
     {
-        //
-        // BUGFIX: leaked metamagic panel
-        //
-
-        Gui.ReleaseChildrenToPool(__instance.metamagicOptionsTable.transform);
+        internal static void Prefix([NotNull] MetamagicSelectionPanel __instance)
+        {
+            Gui.ReleaseChildrenToPool(__instance.metamagicOptionsTable.transform);
+        }
     }
 }

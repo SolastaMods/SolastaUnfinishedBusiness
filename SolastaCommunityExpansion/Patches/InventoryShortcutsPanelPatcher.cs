@@ -12,7 +12,7 @@ internal static class InventoryShortcutsPanelPatcher
     //PATCH: QuickCastLightCantripOnWornItemsFirst
     [HarmonyPatch(typeof(InventoryShortcutsPanel), "OnCastLightCb")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class InventoryShortcutsPanel_OnCastLightCb
+    internal static class OnCastLightCb_Patch
     {
         public static bool MyTryFindTargetWieldedItem([NotNull] RulesetCharacterHero rulesetCharacterHero,
             out RulesetItem targetItem)
@@ -61,7 +61,7 @@ internal static class InventoryShortcutsPanelPatcher
         {
             var tryFindTargetWieldedItemMethod = typeof(RulesetCharacter).GetMethod("TryFindTargetWieldedItem");
             var myTryFindTargetWieldedItemMethod =
-                typeof(InventoryShortcutsPanel_OnCastLightCb).GetMethod("MyTryFindTargetWieldedItem");
+                typeof(OnCastLightCb_Patch).GetMethod("MyTryFindTargetWieldedItem");
 
             foreach (var instruction in instructions)
             {

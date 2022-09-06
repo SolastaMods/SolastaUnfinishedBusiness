@@ -9,7 +9,7 @@ internal static class ShapeOptionItemPatcher
     //PATCH: uses class level when offering wildshape
     [HarmonyPatch(typeof(ShapeOptionItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ShapeOptionItem_Bind
+    internal static class Bind_Patch
     {
         internal static void Postfix(
             ShapeOptionItem __instance,

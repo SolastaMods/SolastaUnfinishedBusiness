@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
+//PATCH: Keeps last level up hero selected
 [HarmonyPatch(typeof(CharacterPoolManager), "SaveCharacter")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterPoolManager_SaveCharacter

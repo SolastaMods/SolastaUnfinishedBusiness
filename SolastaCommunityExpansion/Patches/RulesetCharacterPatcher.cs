@@ -139,12 +139,10 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-
     [HarmonyPatch(typeof(RulesetCharacter), "SpendSpellMaterialComponentAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpendSpellMaterialComponentAsNeeded_Patch
     {
-        // 
         public static bool Prefix(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
         {
             //PATCH: Modify original code to spend enough of a stack to meet component cost
@@ -154,7 +152,7 @@ internal static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "IsValidReadyCantrip")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_IsValidReadyCantrip
+    internal static class IsValidReadyCantrip_Patch
     {
         internal static void Postfix(RulesetCharacter __instance, ref bool __result,
             SpellDefinition cantrip)
@@ -193,7 +191,6 @@ internal static class RulesetCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ComputeSaveDC_Patch
     {
-        // ReSharper disable once RedundantAssignment
         internal static void Postfix(RulesetCharacter __instance, ref int __result)
         {
             //PATCH: support for `IIncreaseSpellDC`
@@ -204,10 +201,10 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-//PATCH: ensures that the wildshape heroes or heroes under rage cannot cast any spells (Multiclass)
+    //PATCH: ensures that the wildshape heroes or heroes under rage cannot cast any spells (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "CanCastSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_CanCastSpells
+    internal static class CanCastSpells_Patch
     {
         internal static void Postfix(RulesetCharacter __instance, ref bool __result)
         {
@@ -226,10 +223,10 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-//PATCH: ensures that the wildshape hero has access to spell repertoires for calculating slot related features (Multiclass)
+    //PATCH: ensures that the wildshape hero has access to spell repertoires for calculating slot related features (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "SpellRepertoires", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_SpellRepertoires
+    internal static class SpellRepertoires_Patch
     {
         internal static void Postfix(RulesetCharacter __instance, ref List<RulesetSpellRepertoire> __result)
         {
@@ -240,10 +237,10 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-//PATCH: ensures that original character sorcery point pool is in sync with substitute (Multiclass)
+    //PATCH: ensures that original character sorcery point pool is in sync with substitute (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "CreateSorceryPoints")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_CreateSorceryPoints
+    internal static class CreateSorceryPoints_Patch
     {
         internal static void Postfix(RulesetCharacter __instance, int slotLevel, RulesetSpellRepertoire repertoire)
         {
@@ -254,10 +251,10 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-//PATCH: ensures that original character sorcery point pool is in sync with substitute (Multiclass)
+    //PATCH: ensures that original character sorcery point pool is in sync with substitute (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "GainSorceryPoints")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_GainSorceryPoints
+    internal static class GainSorceryPoints_Patch
     {
         internal static void Postfix(RulesetCharacter __instance, int sorceryPointsGain)
         {
@@ -268,10 +265,10 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-//PATCH: ensures that original character rage pool is in sync with substitute (Multiclass)
+    //PATCH: ensures that original character rage pool is in sync with substitute (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_UsePower
+    internal static class UsePower_Patch
     {
         internal static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
         {
@@ -286,7 +283,7 @@ internal static class RulesetCharacterPatcher
     //PATCH: ensures ritual spells work correctly when MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "CanCastAnyRitualSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_CanCastAnyRitualSpell
+    internal static class CanCastAnyRitualSpell_Patch
     {
         internal static bool Prefix(RulesetCharacter __instance, ref bool __result)
         {

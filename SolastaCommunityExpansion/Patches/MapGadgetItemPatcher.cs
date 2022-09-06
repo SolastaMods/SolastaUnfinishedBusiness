@@ -10,7 +10,7 @@ internal static class MapGadgetItemPatcher
     //PATCH: EnableAdditionalIconsOnLevelMap
     [HarmonyPatch(typeof(MapGadgetItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class MapGadgetItem_Bind
+    internal static class Bind_Patch
     {
         internal static bool Prefix(
             MapGadgetItem __instance,

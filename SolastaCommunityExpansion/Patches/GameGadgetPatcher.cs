@@ -57,7 +57,7 @@ internal static class GameGadget_ComputeIsRevealed
 
             if (worldGadget != null)
             {
-                GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget,
+                GameLocationManagerPatcher.ReadyLocation_Patch.SetTeleporterGadgetActiveAnimation(worldGadget,
                     isEnabled && !isInvisible);
             }
 
@@ -114,7 +114,7 @@ internal static class GameGadget_SetCondition
 
             Main.Log($"GameGadget_SetCondition-setting-animation {__instance.UniqueNameId}: {state}");
 
-            GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, state);
+            GameLocationManagerPatcher.ReadyLocation_Patch.SetTeleporterGadgetActiveAnimation(worldGadget, state);
         }
         else
         {
