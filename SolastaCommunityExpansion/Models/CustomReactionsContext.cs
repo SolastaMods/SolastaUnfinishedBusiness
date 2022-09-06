@@ -1,31 +1,24 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
-using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Feats;
 using UnityEngine;
 using static ActionDefinitions;
-using static ActionDefinitions.ActionStatus;
 using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Models;
 
 public static class CustomReactionsContext
 {
-    private static IDamagedReactionSpell _alwaysReact;
 
     private static bool ForcePreferredCantrip; //used by actual feature
     private static bool ForcePreferredCantripUI; //used for local UI state
-
-    [NotNull]
-    public static IDamagedReactionSpell AlwaysReactToDamaged => _alwaysReact ??= new AlwaysReactToDamagedImpl();
 
     public static void Load()
     {
@@ -43,56 +36,7 @@ public static class CustomReactionsContext
             .AddToDB();
     }
 
-    public static IEnumerator TryReactingToDamageWithSpell(
-        [NotNull] GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier attackModifier,
-        RulesetAttackMode attackMode,
-        bool rangedAttack,
-        RuleDefinitions.AdvantageType advantageType,
-        List<EffectForm> actualEffectForms,
-        RulesetEffect rulesetEffect,
-        bool criticalHit,
-        bool firstTarget)
-    {
-        var ruleCaster = attacker.RulesetCharacter;
-
-        // Wildshape heroes shouldn't be able to cast react spells
-        if (ruleCaster.IsSubstitute)
-        {
-            yield break;
-        }
-
-        var ruleDefender = defender.RulesetCharacter;
-
-        if (ruleDefender == null)
-        {
-            yield break;
-        }
-
-        if (defender.GetActionTypeStatus(ActionType.Reaction) != Available
-            || defender.GetActionStatus(Id.CastReaction, ActionScope.Battle, Available) != Available)
-        {
-            yield break;
-        }
-
-        ruleDefender.EnumerateUsableSpells();
-
-        var spells = ruleDefender.UsableSpells
-            .Select(s => (s, s.GetAllSubFeaturesOfType<IDamagedReactionSpell>()))
-            .Where(e => e.Item2 != null && !e.Item2.Empty())
-            .ToList();
-
-        foreach (var (spell, reactions) in spells)
-        {
-            if (reactions.Any(r => r.CanReact(attacker, defender, attackModifier, attackMode, rangedAttack,
-                    advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget)))
-            {
-                yield return ReactWithSpell(spell, defender, attacker);
-            }
-        }
-    }
-
+    //leaving this in case we need react with spell functionality
     private static IEnumerator ReactWithSpell(SpellDefinition spell, GameLocationCharacter caster,
         GameLocationCharacter target)
     {
@@ -254,24 +198,5 @@ public static class CustomReactionsContext
 
         readied.RemoveAll(c => c != preferred);
         return !readied.Empty();
-    }
-
-    public interface IDamagedReactionSpell
-    {
-        bool CanReact(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier attackModifier,
-            RulesetAttackMode attackMode, bool rangedAttack, RuleDefinitions.AdvantageType advantageType,
-            List<EffectForm> actualEffectForms, RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget);
-    }
-
-    private sealed class AlwaysReactToDamagedImpl : IDamagedReactionSpell
-    {
-        public bool CanReact(GameLocationCharacter attacker, GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode, bool rangedAttack, RuleDefinitions.AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
-        {
-            return true;
-        }
     }
 }
