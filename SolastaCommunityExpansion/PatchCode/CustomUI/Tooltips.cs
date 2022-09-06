@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Models;
+﻿using System.Linq;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.PatchCode.CustomUI;
 
@@ -58,5 +59,37 @@ internal static class Tooltips
         var maxUses = CustomFeaturesContext.GetMaxUsesForPool(usablePower, character);
         var remainingUses = character.GetRemainingUsesOfPower(usablePower);
         return $"{remainingUses}/{maxUses}";
+    }
+
+    public static void UpdateCraftingTooltip(TooltipFeatureDescription description, ITooltip tooltip)
+    {
+        if (!Main.Settings.ShowCraftingRecipeInDetailedTooltips)
+        {
+            return;
+        }
+
+        if (tooltip.DataProvider is not IItemDefinitionProvider itemDefinitionProvider)
+        {
+            return;
+        }
+
+        var item = itemDefinitionProvider.ItemDefinition;
+
+        if (!item.IsDocument || item.DocumentDescription.LoreType != RuleDefinitions.LoreType.CraftingRecipe)
+        {
+            return;
+        }
+
+        var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
+
+        foreach (var contentFragmentDescription in item.DocumentDescription.ContentFragments
+                     .Where(x => x.Type == ContentFragmentDescription.FragmentType.Body))
+        {
+            var guiRecipeDefinition =
+                guiWrapperService.GetGuiRecipeDefinition(item.DocumentDescription.RecipeDefinition.Name);
+
+            description.DescriptionLabel.Text = Gui.Format(contentFragmentDescription.Text,
+                guiRecipeDefinition.Title, guiRecipeDefinition.IngredientsText);
+        }
     }
 }
