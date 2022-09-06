@@ -184,7 +184,7 @@ public class ReactionRequestWarcaster : ReactionRequest
             {
                 reactionParams.TargetCharacters.Add(target);
                 // Technically casts after first might need to have different mods, but not by much since we attacking same target.
-                reactionParams.ActionModifiers.Add(mod);
+                reactionParams.ActionModifiers.Add(mod.Clone());
             }
         }
     }
