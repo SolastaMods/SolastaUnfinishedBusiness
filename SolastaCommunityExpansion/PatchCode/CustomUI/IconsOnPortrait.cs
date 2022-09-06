@@ -1,25 +1,21 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using HarmonyLib;
-using SolastaCommunityExpansion.Api.Extensions;
+﻿using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomUI;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel;
+namespace SolastaCommunityExpansion.PatchCode.CustomUI;
 
-[HarmonyPatch(typeof(ActiveCharacterPanel), "Refresh")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class ActiveCharacterPanel_Refresh
+internal static class IconsOnPortrait
 {
-    internal static void Postfix(ActiveCharacterPanel __instance)
+    internal static void CharacterPanelRefresh(ActiveCharacterPanel panel)
     {
-        var character = __instance.GuiCharacter?.RulesetCharacter;
+        var character = panel.GuiCharacter?.RulesetCharacter;
         if (character == null)
         {
             return;
         }
 
-        var poolPrefab = __instance.sorceryPointsBox.gameObject;
-        var concentrationPrefab = __instance.concentrationGroup.gameObject;
-        var layout = __instance.transform.Find("RightLayout");
+        var poolPrefab = panel.sorceryPointsBox.gameObject;
+        var concentrationPrefab = panel.concentrationGroup.gameObject;
+        var layout = panel.transform.Find("RightLayout");
 
         // Hide all custom controls
         for (var i = 0; i < layout.childCount; i++)
