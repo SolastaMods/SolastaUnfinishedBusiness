@@ -6,7 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 
-namespace SolastaCommunityExpansion.SrdAndHouseRules;
+namespace SolastaCommunityExpansion.PatchCode.SrdAndHouseRules;
 
 internal static class UpcastConjureElementalAndFey
 {

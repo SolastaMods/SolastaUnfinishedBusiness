@@ -10,7 +10,6 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.PatchCode.SrdAndHouseRules;
-using SolastaCommunityExpansion.SrdAndHouseRules;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Patches;

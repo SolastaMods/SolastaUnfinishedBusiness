@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaCommunityExpansion.SrdAndHouseRules;
+namespace SolastaCommunityExpansion.PatchCode.SrdAndHouseRules;
 
 /// <summary>
 ///     Allow spells that require consumption of a material component (e.g. a gem of value >= 1000gp) use a stack
