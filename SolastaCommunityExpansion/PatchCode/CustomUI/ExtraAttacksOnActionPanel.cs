@@ -217,4 +217,22 @@ public static class ExtraAttacksOnActionPanel
 
         return result;
     }
+
+    //Applies skipping of attack modes when item form refresh starts, so UI would display proper attack mode data
+    public static void StartSkipping(CharacterActionItemForm action)
+    {
+        if (action.GuiCharacterAction is CustomGuiCharacterAction custom)
+        {
+            custom.ApplySkip();
+        }
+    }
+
+    //Stops skipping of attack modes when item form refresh ends, so UI would display proper attack mode data
+    public static void StopSkipping(CharacterActionItemForm action)
+    {
+        if (action.GuiCharacterAction is CustomGuiCharacterAction custom)
+        {
+            custom.RemoveSkip();
+        }
+    }
 }
