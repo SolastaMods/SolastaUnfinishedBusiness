@@ -4,13 +4,16 @@ using SolastaCommunityExpansion.PatchCode.CustomUI;
 
 namespace SolastaCommunityExpansion.Patches;
 
-[HarmonyPatch(typeof(ActiveCharacterPanel), "Refresh")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class Refresh_Patch
+internal static class ActiveCharacterPanelPatcher
 {
-    internal static void Postfix(ActiveCharacterPanel __instance)
+    [HarmonyPatch(typeof(ActiveCharacterPanel), "Refresh")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Refresh_Patch
     {
-        //PATCH: support for custom point pools and concentration powers on portrait
-        IconsOnPortrait.CharacterPanelRefresh(__instance);
+        internal static void Postfix(ActiveCharacterPanel __instance)
+        {
+            //PATCH: support for custom point pools and concentration powers on portrait
+            IconsOnPortrait.CharacterPanelRefresh(__instance);
+        }
     }
 }
