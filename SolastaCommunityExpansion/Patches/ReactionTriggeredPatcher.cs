@@ -3,7 +3,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions;
+namespace SolastaCommunityExpansion.Patches;
 
 [HarmonyPatch(typeof(ReactionModal), "ReactionTriggered")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -11,17 +11,6 @@ internal static class ReactionModal_ReactionTriggered
 {
     public static bool Prefix(ReactionRequest request)
     {
-        var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
-
-        if (Main.Settings.EnableCtrlClickBypassAttackReactionPanel
-            && isCtrlPressed
-            && (!Main.Settings.EnableIgnoreCtrlClickOnCriticalHit || !Global.CriticalHit))
-        {
-            ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
-
-            return false;
-        }
-
         //
         // wildshape heroes should not be able to cast spells
         //
