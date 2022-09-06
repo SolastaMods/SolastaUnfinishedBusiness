@@ -5,7 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 
-namespace SolastaCommunityExpansion.Patches.Bugfix;
+namespace SolastaCommunityExpansion.Patches;
 
 // ensure conjured units teleport with the party
 [HarmonyPatch(typeof(Functor), "SelectCharacters")]

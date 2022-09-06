@@ -5,7 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.BugFix;
+namespace SolastaCommunityExpansion.Patches;
 
 /// <summary>
 ///     Issue: WieldedConfigurationSelector.Bind passes character=null to mainHandSlotBox.Bind and offHandSlotBox.Bind
