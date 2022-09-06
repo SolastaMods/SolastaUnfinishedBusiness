@@ -106,4 +106,11 @@ public static class RulesetCharacterHeroExtensions
 
         return false;
     }
+
+    public static int GetClassLevel(this RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+    {
+        return classDefinition != null && hero.ClassesAndLevels.TryGetValue(classDefinition, out var classLevel)
+            ? classLevel
+            : 0;
+    }
 }

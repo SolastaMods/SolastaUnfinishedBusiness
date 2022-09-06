@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Text.RegularExpressions;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
@@ -12,6 +13,7 @@ using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using TA;
 using UnityEngine;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -132,6 +134,87 @@ internal static class RulesetActorPatcher
 
             enumerateFeatures = true;
             canRerollDice = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), "RefreshAttributes")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RefreshAttributes_Patch
+    {
+        private static void RefrestClassModifiers(RulesetActor actor)
+        {
+            if (actor is not RulesetCharacterHero hero)
+            {
+                return;
+            }
+
+            foreach (var attribute in hero.Attributes)
+            {
+                foreach (var modifier in attribute.Value.ActiveModifiers)
+                {
+                    switch (modifier.Operation)
+                    {
+                        case AttributeModifierOperation.MultiplyByClassLevel:
+                        case AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions:
+                            if (attribute.Key == AttributeDefinitions.SorceryPoints)
+                            {
+                                var level = hero.GetClassLevel(GetClassByTags(modifier.tags));
+                                if (level > 0)
+                                {
+                                    modifier.Value = level;
+                                }
+                            }
+
+                            break;
+                    }
+                }
+            }
+        }
+
+        private static readonly Regex classPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
+
+        private static CharacterClassDefinition GetClassByTags(List<string> tags)
+        {
+            foreach (var tag in tags)
+            {
+                var matches = classPattern.Matches(tag);
+                if (matches.Count <= 0)
+                {
+                    continue;
+                }
+
+                var match = matches[0];
+                if (match.Groups.Count < 2)
+                {
+                    continue;
+                }
+
+                return DatabaseRepository
+                    .GetDatabase<CharacterClassDefinition>()
+                    .GetElement(match.Groups[1].Value, true);
+            }
+
+            return null;
+        }
+
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: enforce class level dependend modifiers use proper values for MC
+            //neede for sorcery points and healing pools to be of proper sizes when multiclassed
+            //adds custom method right before the end that recalculates modifier values specifically for class-level modifiers
+            var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
+            var custom = new Action<RulesetActor>(RefrestClassModifiers).Method;
+
+            foreach (var instruction in instructions)
+            {
+                if (instruction.Calls(refreshAttributes))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Call, custom);
+                }
+
+                yield return instruction;
+            }
         }
     }
 }
