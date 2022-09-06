@@ -7,7 +7,7 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel;
+namespace SolastaCommunityExpansion.Patches;
 
 internal static class SpellSelectionPanelPatcher
 {
@@ -18,24 +18,31 @@ internal static class SpellSelectionPanelPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellSelectionPanel_Bind
     {
-        internal static void Prefix(GameLocationCharacter caster, ref bool cantripOnly,
+        internal static void Prefix(GuiCharacter caster, ref bool cantripOnly,
             ActionDefinitions.ActionType actionType)
         {
-            if (caster.RulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>() &&
-                caster.UsedMainAttacks > 0 && actionType == ActionDefinitions.ActionType.Main)
+            //PATCH: support for `IReplaceAttackWithCantrip`
+            var glCaster = caster.GameLocationCharacter;
+            if (glCaster.RulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>() &&
+                glCaster.UsedMainAttacks > 0 && actionType == ActionDefinitions.ActionType.Main)
             {
                 cantripOnly = true;
             }
         }
 
-        internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster,
+        internal static void Postfix(SpellSelectionPanel __instance, GuiCharacter caster,
             SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType,
             bool cantripOnly)
         {
+            
+            //PATCH: show spell selection on multiple rows
+            //TODO: check if we still need this, as vanilla already splits selection onto several rows
             if (!Main.Settings.EnableMultiLineSpellPanel)
             {
                 return;
             }
+
+            var glCaster = caster.GameLocationCharacter;
 
             var spellRepertoireLines = __instance.spellRepertoireLines;
             var spellRepertoireSecondaryLine =
@@ -94,7 +101,7 @@ internal static class SpellSelectionPanelPatcher
                         continue;
                     }
 
-                    curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType,
+                    curTable = AddActiveSpellsToLine(__instance, glCaster, spellCastEngaged, actionType,
                         cantripOnly, spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires,
                         needNewLine, lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel, level);
                     startLevel = level + 1;
@@ -109,7 +116,7 @@ internal static class SpellSelectionPanelPatcher
                     continue;
                 }
 
-                curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType, cantripOnly,
+                curTable = AddActiveSpellsToLine(__instance, glCaster, spellCastEngaged, actionType, cantripOnly,
                     spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires, needNewLine,
                     lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel,
                     rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel);
@@ -151,8 +158,8 @@ internal static class SpellSelectionPanelPatcher
             }
 
             var curLine = SetUpNewLine(indexOfLine, spellRepertoireLinesTable, spellRepertoireLines, __instance);
-            curLine.Bind(caster.RulesetCharacter, rulesetSpellRepertoire, spellRepertoires.Count > 1,
-                spellCastEngaged, slotAdvancementPanel, actionType, cantripOnly, startLevel, level);
+            curLine.Bind(__instance.Caster, rulesetSpellRepertoire, spellRepertoires.Count > 1,
+                spellCastEngaged, slotAdvancementPanel, actionType, cantripOnly, startLevel, level, false);
             return spellRepertoireLinesTable;
         }
 
@@ -218,6 +225,8 @@ internal static class SpellSelectionPanelPatcher
     {
         internal static void Postfix()
         {
+            //PATCH: show spell selection on multiple rows
+            //TODO: check if we still need this, as vanilla already splits selection onto several rows
             if (!Main.Settings.EnableMultiLineSpellPanel)
             {
                 return;
