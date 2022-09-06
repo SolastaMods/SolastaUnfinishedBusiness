@@ -1,30 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
-using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttributeModifiers;
+namespace SolastaCommunityExpansion.PatchCode.SrdAndHouseRules;
 
-// non stacked AC
-[HarmonyPatch(typeof(RulesetAttribute), "Refresh")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetAttribute_Refresh
+internal static class ArmorClassStacking
 {
-    internal static bool Prefix([NotNull] RulesetAttribute __instance)
+    
+    //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
+    public static void AddCustomTagsToModifierBuilder(List<CodeInstruction> codes)
     {
-        if (__instance.Name != AttributeDefinitions.ArmorClass)
+        var method = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string, RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
+
+        var index = codes.FindIndex(c => c.Calls(method));
+
+        if (index <= 0)
+        {
+            return;
+        }
+
+        var custom = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string, FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
+
+        codes[index] = new CodeInstruction(OpCodes.Call, custom); //replace call with custom method
+        codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_1)); // load 'feature' as last argument
+    }
+
+    private static RulesetAttributeModifier CustomBuildAttributeModifier(
+        FeatureDefinitionAttributeModifier.AttributeModifierOperation operationType,
+        float modifierValue,
+        string tag,
+        string sourceAbility,
+        FeatureDefinitionAttributeModifier feature)
+    {
+        var modifier = RulesetAttributeModifier.BuildAttributeModifier(operationType, modifierValue, tag);
+        if (feature.HasSubFeatureOfType<ExclusiveArmorClassBonus>())
+        {
+            modifier.Tags.Add(ExclusiveArmorClassBonus.Tag);
+        }
+
+        return modifier;
+    }
+
+    public static bool UnstackAC(RulesetAttribute attribute)
+    {
+        if (attribute.Name != AttributeDefinitions.ArmorClass)
         {
             return true;
         }
 
-        var currentValue = __instance.BaseValue;
-        var activeModifiers = __instance.ActiveModifiers;
+        var currentValue = attribute.BaseValue;
+        var activeModifiers = attribute.ActiveModifiers;
         var minModValue = int.MinValue;
         var setValue = 10;
 
@@ -57,7 +87,8 @@ internal static class RulesetAttribute_Refresh
                 case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter:
                 case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfWorse:
                 case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation
+                    .MultiplyByClassLevelBeforeAdditions:
                 default:
                 {
                     if (modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag))
@@ -82,61 +113,18 @@ internal static class RulesetAttribute_Refresh
             currentValue = currentValue + (10 - setValue) + exclusiveAc;
         }
 
-        var realMaxValue = __instance.MaxEditableValue > 0
-            ? __instance.MaxEditableValue
-            : __instance.MaxValue;
+        var realMaxValue = attribute.MaxEditableValue > 0
+            ? attribute.MaxEditableValue
+            : attribute.MaxValue;
 
         currentValue = minModValue <= currentValue
-            ? Mathf.Clamp(currentValue, __instance.MinValue, realMaxValue)
+            ? Mathf.Clamp(currentValue, attribute.MinValue, realMaxValue)
             : minModValue;
 
-        __instance.currentValue = currentValue;
-        __instance.upToDate = true;
-        __instance.AttributeRefreshed?.Invoke();
+        attribute.currentValue = currentValue;
+        attribute.upToDate = true;
+        attribute.AttributeRefreshed?.Invoke();
 
         return false;
-    }
-}
-
-[HarmonyPatch(typeof(RulesetCharacter), "RefreshArmorClassInFeatures")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetCharacter_RefreshArmorClassInFeatures
-{
-    [NotNull]
-    public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
-    {
-        var codes = instructions.ToList();
-        // var method = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation,
-        //     float, string, RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
-        //
-        // var index = codes.FindIndex(c => c.Calls(method));
-        //
-        // if (index <= 0)
-        // {
-        //     return codes.AsEnumerable();
-        // }
-        //
-        // var custom = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation,
-        //     float, string, FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuild).Method;
-        //
-        // codes[index] = new CodeInstruction(OpCodes.Call, custom);
-        // codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_2));
-
-        return codes.AsEnumerable();
-    }
-
-    private static RulesetAttributeModifier CustomBuild(
-        FeatureDefinitionAttributeModifier.AttributeModifierOperation operationType,
-        float modifierValue,
-        string tag,
-        FeatureDefinitionAttributeModifier feature)
-    {
-        var modifier = RulesetAttributeModifier.BuildAttributeModifier(operationType, modifierValue, tag);
-        if (feature.HasSubFeatureOfType<ExclusiveArmorClassBonus>())
-        {
-            modifier.Tags.Add(ExclusiveArmorClassBonus.Tag);
-        }
-
-        return modifier;
     }
 }

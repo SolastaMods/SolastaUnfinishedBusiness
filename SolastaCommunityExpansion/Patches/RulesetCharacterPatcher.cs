@@ -2,11 +2,13 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.PatchCode.SrdAndHouseRules;
 using SolastaCommunityExpansion.SrdAndHouseRules;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
@@ -300,6 +302,24 @@ internal static class RulesetCharacterPatcher
             __result = __instance.usableSpells.Count > 0;
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "RefreshArmorClassInFeatures")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RefreshArmorClassInFeatures_Patch
+    {
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var codes = instructions.ToList();
+
+            //PATCH: support for exclusivity tags in AC modifiers  
+            //used to prevent various extra defence feats (like arcane defense or wise defense) from stacking
+            //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
+            ArmorClassStacking.AddCustomTagsToModifierBuilder(codes);
+
+            return codes;
         }
     }
 }
