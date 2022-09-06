@@ -67,9 +67,6 @@ ModUi/&EnableCancelEditOnRightMouseClick=Enable	cancel action with right-mouse c
 ModUi/&EnableCharacterChecker=Enable	the character checker screen
 ModUi/&EnableCharacterExport=Enable	<color=#1E81B0>CTRL-SHIFT-(E)</color>xport character <i><color=#F0DAA0>[on character inspection screen only]</color></i>
 ModUi/&EnableCheatMenu=Enable	the cheats menu
-ModUi/&EnableCtrlClickBypassAttackReactionPanel=Enable	<color=#1E81B0>CTRL</color> click on attacks to ignore any reaction panel
-ModUi/&EnableCtrlClickBypassMetamagicPanel=Enable	<color=#1E81B0>CTRL</color> click on spells to ignore the <color=#D89555>Sorcerer</color> metamagic panel
-ModUi/&EnableCtrlClickOnlySwapsMainHand=Enable	<color=#1E81B0>CTRL</color> click to keep off hand items when swapping wielded configurations
 ModUi/&EnableDungeonMakerModdedContent=Enable	Dungeon Maker Pro <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments\nyou must have at least one outdoor room if you pick an outdoor environment
 ModUi/&EnableEpicPointsAndArray=Enable	an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable	feats selection at class levels 2, 6, 10 and 14
@@ -79,7 +76,6 @@ ModUi/&EnableHotkeyDebugOverlay=Enable	<color=#1E81B0>CTRL-SHIFT-(D)</color>ebug
 ModUi/&EnableHotkeyToggleHud=Enable	<color=#1E81B0>CTRL-SHIFT-(H)</color>ud to toggle all UI panels visibility
 ModUi/&EnableHotkeyToggleIndividualHud=Enable	<color=#1E81B0>CTRL-SHIFT-(C)</color>ontrol Panel, <color=#1E81B0>CTRL-SHIFT-(L)</color>og, <color=#1E81B0>CTRL-SHIFT-(M)</color>ap and <color=#1E81B0>CTRL-SHIFT-(P)</color>arty to toggle each UI panels visibility
 ModUi/&EnableHotkeyZoomCamera=Enable	<color=#1E81B0>CTRL-SHIFT-(Z)</color>oom camera <i><color=#F0DAA0>[useful when taking dungeon screenshots for publishing]</color></i>
-ModUi/&EnableIgnoreCtrlClickOnCriticalHit=<i>+	only bypass if not a critical hit</i>
 ModUi/&EnableInventoryFilteringAndSorting=Enable	inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+	Taint in red any item the hero isn't proficient with</i>
 ModUi/&EnableInvisibleCrownOfTheMagister=Hide	the <color=#D89555>Crown of the Magister</color> on game UI
@@ -112,7 +108,7 @@ ModUi/&HiderArmor=Hide	Armor
 ModUi/&IncreaseSenseNormalVision=<color=white>Increase	<color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far away]</color></i>
 ModUi/&IncreaseSenseNormalVisionHelp=<b><i><color=#C04040E0>[Requires	Restart]</color></i></b>
 ModUi/&InitialChoices=<color=#F0DAA0>Initial	choices:</color>
-ModUi/&Input=Gamepad,	Keyboard & Mouse
+ModUi/&Input=Keyboard	& Mouse
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventory	and items:</color>
 ModUi/&InvertAltBehaviorOnTooltips=Invert	<color=#1E81B0>ALT</color> key behavior on tooltips
 ModUi/&ItemInDm=Items	in DM
@@ -435,6 +431,9 @@ Feat/&FeatPolearmExpertTitle=Polearm	Expert
 Feat/&FeatRangedExpertDescription=Your	expert training with ranged weapons grants you these benefits:\n• You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.\n• If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
 Feat/&FeatRangedExpertTitle=Ranged	Expert
 Feat/&FeatSentinelDescription=You	have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n• When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n• Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n• When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
+Reaction/&ReactionAttackFeatSentinelDescription={0}	attacked one of your allies, in response you can use your reaction to attack.
+Reaction/&ReactionAttackFeatSentinelReactDescription=Use	reaction to attack.
+Reaction/&ReactionAttackFeatSentinelTitle=Sentinel	Reaction
 Condition/&HelpActionDescription=This	creature has been distracted.
 Feat/&DeadeyeFeatDescription=You	have mastered ranged weapons and can make shots that others find impossible.\n• Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\n• Your ranged weapon attacks ignore half cover and three-quarters cover.\n• You can choose to take a -5 penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 10 damage of the weapon's type.
 Feat/&PickPocketFeatDescription=You	gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
@@ -1039,7 +1038,7 @@ Reaction/&CastSpellInRetributionReactTitle=Cast	Spell
 Reaction/&CastSpellInRetributionTitle=Cast	Reaction Spell
 Reaction/&SpendSpellSlot{0}Description=Spend	Spell {0}
 Reaction/&SpendSpellSlot{0}Title=Spend	Spell {0}
-Screen/&MulticlassSpellDescription=You	know this spell from other repertoire.
+Screen/&MulticlassExtraSpellDescription=You	know this spell from other repertoire.
 Screen/&SpellSlotsUsedLongDescription=You	have expended {0} spell slot(s) at this level.
 Screen/&SpellSlotsUsedShortDescription=You	have expended {0} pact magic slot(s).
 Screen/&SpellSlotsUsedShortLongDescription=You	have expended {0} pact magic slot(s) and {1} spell slot(s) at this level.

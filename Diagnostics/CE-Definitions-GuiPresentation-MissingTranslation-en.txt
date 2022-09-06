@@ -1,6 +1,6 @@
+9999	Title='ContentPack/&9999Title'.
+9999	Description='ContentPack/&9999Description'.
 ConditionFrenzied	Title='Condition/&FrenziedTitle'.
 ConditionFrenzied	Description='Condition/&FrenziedDescription'.
 Debilitated	Title='Condition/&DebilitatedConditionTitle'.
 Debilitated	Description='Condition/&DebilitatedConditionDescription'.
-ReactionAttackFeatSentinel	Title='Reaction/&ReactionAttackFeatSentinelTitle'.
-ReactionAttackFeatSentinel	Description='Reaction/&ReactionAttackFeatSentinelDescription'.

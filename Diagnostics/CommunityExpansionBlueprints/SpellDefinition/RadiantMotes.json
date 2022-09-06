@@ -126,9 +126,9 @@
           "dimAdditionalRange": 4,
           "color": {
             "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-            "r": 1.0,
-            "g": 0.990625,
-            "b": 0.8,
+            "r": 0.8,
+            "g": 0.9849781,
+            "b": 1.0,
             "a": 1.0
           },
           "graphicsPrefabReference": {

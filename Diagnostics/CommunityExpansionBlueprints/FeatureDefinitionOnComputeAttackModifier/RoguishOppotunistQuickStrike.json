@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOnAttackEffect, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOnComputeAttackModifier, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FighterMarshalKnowYourEnemyFeatureSetTitle",
-    "description": "Feature/&FighterMarshalKnowYourEnemyFeatureSetDescription",
+    "title": "Feature/&OpportunistQuickStrikeTitle",
+    "description": "Feature/&OpportunistQuickStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eb59edd1-62f8-5460-80b3-d222f8d0e917",
+  "guid": "71568c9b-772c-5494-bc43-2ab27c67a3b9",
   "contentPack": 9999,
-  "name": "KnowYourEnemyAttackHitModifier"
+  "name": "RoguishOppotunistQuickStrike"
 }
