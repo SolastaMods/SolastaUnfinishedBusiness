@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomUI;
 
@@ -24,7 +25,7 @@ public sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
         // }
         // else
         // {
-        //     selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
+        selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
         // }
 
         if (selected >= 0)
