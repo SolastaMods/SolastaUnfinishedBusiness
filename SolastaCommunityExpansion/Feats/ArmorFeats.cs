@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -13,37 +12,31 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class ArmorFeats
 {
-    private static readonly Guid ArmorNamespace = new("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
-
     public static void CreateArmorFeats([NotNull] List<FeatDefinition> feats)
     {
-        var lightArmorProficiency = BuildProficiency("FeatLightArmorProficiency",
+        var lightArmorProficiency = BuildProficiency("ProficiencyFeatLightArmor",
             ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory);
-
-        var mediumArmorProficiency = BuildProficiency("FeatMediumArmorProficiency",
-            ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
-
         var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, AttributeModifierCreed_Of_Misaye);
-
-        // Note: medium armor feats have pre-req of light armor
-        var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory, mediumArmorProficiency,
-            AttributeModifierCreed_Of_Misaye);
-        var mediumStrengthArmorFeat = BuildFeat("FeatMediumArmorStrength", LightArmorCategory,
+        
+        var mediumArmorProficiency = BuildProficiency("ProficiencyFeatMediumArmor",
+            ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
+        var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory,
+            mediumArmorProficiency, AttributeModifierCreed_Of_Misaye);
+        var mediumStrArmorFeat = BuildFeat("FeatMediumArmorStr", LightArmorCategory,
             mediumArmorProficiency, AttributeModifierCreed_Of_Einar);
-
-        // Note: heavy armor master has pre-req of heavy armor
-        var heavyArmorMasterFeat = BuildFeat("FeatHeavyArmorMasterClass", HeavyArmorCategory,
+        
+        var heavyArmorMasterFeat = BuildFeat("FeatHeavyArmorMaster", HeavyArmorCategory,
             DamageAffinityBludgeoningResistance, DamageAffinitySlashingResistance,
             DamageAffinityPiercingResistance);
 
-        feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrengthArmorFeat, heavyArmorMasterFeat);
+        feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrArmorFeat, heavyArmorMasterFeat);
     }
 
     private static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite,
         params FeatureDefinition[] features)
     {
         return FeatDefinitionBuilder
-            .Create(name, ArmorNamespace)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(features)
             .SetArmorProficiencyPrerequisite(prerequisite)
@@ -53,7 +46,7 @@ internal static class ArmorFeats
     private static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
     {
         return FeatDefinitionBuilder
-            .Create(name, ArmorNamespace)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(features)
             .AddToDB();
@@ -63,8 +56,8 @@ internal static class ArmorFeats
         params string[] proficiencies)
     {
         return FeatureDefinitionProficiencyBuilder
-            .Create(name, ArmorNamespace)
-            .SetGuiPresentation(Category.Feat)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(type, proficiencies)
             .AddToDB();
     }

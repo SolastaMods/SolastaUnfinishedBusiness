@@ -40,7 +40,7 @@ internal static class FightingStyleFeats
             .Create($"FeatFightingStyle{style}", FightingStyleFeatsNamespace)
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
-                    .Create($"FeatFightingStyle{style}Proficiency", FightingStyleFeatsNamespace)
+                    .Create($"ProficiencyFeatFightingStyle{style}", FightingStyleFeatsNamespace)
                     .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, style)
                     .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
                     .AddToDB()
@@ -73,7 +73,7 @@ internal static class FightingStyleFeats
             .Create($"Feat{fightingStyle.Name}", FightingStyleFeatsNamespace)
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
-                    .Create($"Feat{fightingStyle.Name}Proficiency", FightingStyleFeatsNamespace)
+                    .Create($"ProficiencyFeat{fightingStyle.Name}", FightingStyleFeatsNamespace)
                     .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, fightingStyle.Name)
                     .SetGuiPresentation(fightingStyle.GuiPresentation)
                     .AddToDB()
