@@ -197,7 +197,7 @@ internal static class GameLocationBattleManagerPatcher
 
     [HarmonyPatch(typeof(GameLocationBattleManager), "CanAttack")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CanAttack
+    internal static class CanAttack_Patch
     {
         internal static void Postfix(
             GameLocationBattleManager __instance,
@@ -205,11 +205,19 @@ internal static class GameLocationBattleManagerPatcher
             bool __result
         )
         {
-            //PATCH: 
+            //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
             
+            //PATCH: Support elven precision feat
+            CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter, attackParams.attackMode);
+            
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
+            ApplyCustomMoidifiers(attackParams, __result);
+        }
 
+        //TODO: move this somewhere else and maybe split?
+        private static void ApplyCustomMoidifiers(BattleDefinitions.AttackEvaluationParams attackParams, bool __result)
+        {
             if (!__result)
             {
                 return;
@@ -221,9 +229,6 @@ internal static class GameLocationBattleManagerPatcher
             {
                 return;
             }
-
-            // Support elven precision feat
-            CheckElvenPrecisionContext(attacker, attackParams.attackMode);
 
             switch (attackParams.attackProximity)
             {
@@ -254,9 +259,10 @@ internal static class GameLocationBattleManagerPatcher
             }
         }
 
-        private static void CheckElvenPrecisionContext(RulesetCharacter character, RulesetAttackMode attackMode)
+        //TODO: move this somewhere else
+        private static void CheckElvenPrecisionContext(bool result, RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (character is not RulesetCharacterHero hero || attackMode == null)
+            if (!result || character is not RulesetCharacterHero hero || attackMode == null)
             {
                 return;
             }
