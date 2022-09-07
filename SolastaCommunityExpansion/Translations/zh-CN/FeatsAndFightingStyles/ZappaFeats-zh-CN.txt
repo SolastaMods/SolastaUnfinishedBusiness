@@ -10,6 +10,8 @@ Feat/&FeatCharismaticPrecisionDescription=你能以附赠动作在武器上激�
 Feat/&FeatCharismaticPrecisionTitle=诡魅精准
 Feat/&FeatDualWeaponDefenseDescription=当你双手都持用单独的近战武器时，你的AC获得+1加值
 Feat/&FeatDualWeaponDefenseTitle=双武器防御
+Feat/&FeatElvenAccuracyBaseDescription=Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
+Feat/&FeatElvenAccuracyBaseTitle=Elven Precision
 Feat/&FeatElvenAccuracyCharismaDescription=你有不可思议的瞄准能力，攻击时依靠精确度而非蛮力。魅力+1，最高20点\n每当你在依赖敏捷、智力、感知或魅力的攻击骰上具有优势时，你能重掷其中一个骰子1次
 Feat/&FeatElvenAccuracyCharismaTitle=精灵之准【魅力】
 Feat/&FeatElvenAccuracyDexterityDescription=你有不可思议的瞄准能力，攻击时依靠精确度而非蛮力。敏捷+1，最高20点\n每当你在依赖敏捷、智力、感知或魅力的攻击骰上具有优势时，你能重掷其中一个骰子1次
@@ -52,7 +54,7 @@ Feat/&FeatWisePrecisionDescription=你能以附赠动作在武器上激活。其
 Feat/&FeatWisePrecisionTitle=直觉精准
 Feature/&AdditionalDamageFeatShadySneakAttackDescription=每回合一次，你能对一名符合游荡者偷袭目标的生物造成额外1d6点伤害。在12级时，这个伤害骰增至2d6，20级时增至4d6。其能与游荡者的偷袭叠加
 Feature/&AdditionalDamageFeatShadySneakAttackTitle=背刺攻击
-Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color>触发<color=white>精灵之准</color>。保留{1}、{2}，重掷{3}.
+Feedback/&ElvenAccuracyTriggered={0} uses {1} to keep {2} and re-roll {3} to {4}.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=未学习{0}
 Tooltip/&FeatPrerequisiteHasStealthAttack=具有偷袭
 Tooltip/&FeatPrerequisiteIs=为{0}

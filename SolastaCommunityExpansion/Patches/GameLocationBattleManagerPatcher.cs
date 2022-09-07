@@ -268,11 +268,8 @@ internal static class GameLocationBattleManagerPatcher
                      where context != null
                      select context)
             {
-                sub.Qualified = false ||
-                                attackMode.abilityScore !=
-                                DatabaseHelper.SmartAttributeDefinitions.Strength.ToString() ||
-                                attackMode.abilityScore !=
-                                DatabaseHelper.SmartAttributeDefinitions.Constitution.ToString();
+                sub.Qualified =
+                    attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
             }
         }
     }

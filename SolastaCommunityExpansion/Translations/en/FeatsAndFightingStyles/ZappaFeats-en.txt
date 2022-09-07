@@ -10,6 +10,8 @@ Feat/&FeatCharismaticPrecisionDescription=You can use a bonus action to select a
 Feat/&FeatCharismaticPrecisionTitle=Charismatic Precision
 Feat/&FeatDualWeaponDefenseDescription=You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
 Feat/&FeatDualWeaponDefenseTitle=Dual Weapon Defense
+Feat/&FeatElvenAccuracyBaseDescription=Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
+Feat/&FeatElvenAccuracyBaseTitle=Elven Precision
 Feat/&FeatElvenAccuracyCharismaDescription=You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Charisma by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 Feat/&FeatElvenAccuracyCharismaTitle=Elven Precision [Cha]
 Feat/&FeatElvenAccuracyDexterityDescription=You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
@@ -52,7 +54,7 @@ Feat/&FeatWisePrecisionDescription=You can use a bonus action to select a weapon
 Feat/&FeatWisePrecisionTitle=Wise Precision
 Feature/&AdditionalDamageFeatShadySneakAttackDescription=Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
 Feature/&AdditionalDamageFeatShadySneakAttackTitle=Shady Sneak Attack
-Feedback/&ElvenAccuracyTriggered=<color=#4fc0ff>{0}</color> triggers <color=white>ELVEN PRECISION</color>. Keeps {1}, {2} and discards {3}.
+Feedback/&ElvenAccuracyTriggered={0} uses {1} to keep {2} and re-roll {3} to {4}.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Doesn't know {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack=Has stealth attack
 Tooltip/&FeatPrerequisiteIs=Is {0}

@@ -13,6 +13,7 @@ using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using TA;
 using UnityEngine;
+using static ConsoleStyleDuplet;
 using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaCommunityExpansion.Patches;
@@ -93,29 +94,36 @@ internal static class RulesetActorPatcher
             float rollAlterationScore
         )
         {
-            var flag = rollAlterationScore != 0.0;
-            var rolls = new int[3];
+            var karmic = rollAlterationScore != 0.0;
 
-            rolls[0] = flag
-                ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
-                : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
-            rolls[1] = flag
-                ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
-                : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
-            rolls[2] = flag
-                ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
-                : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
+            int DoRoll()
+            {
+                return karmic
+                    ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
+                    : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);
+            }
 
-            Array.Sort(rolls);
+            var roll1 = DoRoll();
+            var roll2 = DoRoll();
+            var roll3 = DoRoll();
 
-            var line = Gui.Format("Feedback/&ElvenAccuracyTriggered",
-                roller, rolls[2].ToString(), rolls[1].ToString(),
-                rolls[0].ToString());
+            var kept = Math.Max(roll1, roll2);
+            var replaced = Math.Min(roll1, roll2);
 
-            Gui.Game.GameConsole.LogSimpleLine(line);
+            var entry = new GameConsoleEntry("Feedback/&ElvenAccuracyTriggered",
+                Gui.Game.GameConsole.consoleTableDefinition);
 
-            firstRoll = rolls[1];
-            secondRoll = rolls[2];
+            entry.AddParameter(ParameterType.Player, roller);
+            entry.AddParameter(ParameterType.AttackSpellPower, "Feat/&FeatElvenAccuracyBaseTitle",
+                tooltipContent: "Feat/&FeatElvenAccuracyBaseDescription");
+            entry.AddParameter(ParameterType.AbilityInfo, kept.ToString());
+            entry.AddParameter(ParameterType.AbilityInfo, replaced.ToString());
+            entry.AddParameter(ParameterType.AbilityInfo, roll3.ToString());
+
+            Gui.Game.GameConsole.AddEntry(entry);
+
+            firstRoll = kept;
+            secondRoll = roll3;
 
             return Mathf.Max(firstRoll, secondRoll);
         }
