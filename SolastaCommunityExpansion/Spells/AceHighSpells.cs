@@ -68,7 +68,7 @@ internal static class AceHighSpells
 
     private sealed class PactMarkPactMarkConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string PactMarkPactMarkConditionName = "AHPactMarkPactMarkCondition";
+        private const string PactMarkPactMarkConditionName = "PactMarkPactMarkCondition";
 
         public static readonly ConditionDefinition PactMarkCondition =
             CreateAndAddToDB(PactMarkPactMarkConditionName);
@@ -76,8 +76,8 @@ internal static class AceHighSpells
         private PactMarkPactMarkConditionBuilder(string name) : base(
             DatabaseHelper.ConditionDefinitions.ConditionHuntersMark, name, CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&AHPactMarkPactMarkConditionTitle";
-            Definition.GuiPresentation.Description = "Spell/&AHPactMarkPactMarkConditionDescription";
+            Definition.GuiPresentation.Title = "Spell/&PactMarkPactMarkConditionTitle";
+            Definition.GuiPresentation.Description = "Spell/&PactMarkPactMarkConditionDescription";
             Definition.Features.Clear();
             Definition.Features.Add(PactMarkAdditionalDamageBuilder.PactMarkAdditionalDamage);
         }
@@ -90,7 +90,7 @@ internal static class AceHighSpells
 
     private sealed class PactMarkMarkedByPactConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string PactMarkMarkedByPactConditionName = "AHPactMarkMarkedByPactCondition";
+        private const string PactMarkMarkedByPactConditionName = "PactMarkMarkedByPactCondition";
 
         public static readonly ConditionDefinition MarkedByPactCondition =
             CreateAndAddToDB(PactMarkMarkedByPactConditionName);
@@ -98,8 +98,8 @@ internal static class AceHighSpells
         private PactMarkMarkedByPactConditionBuilder(string name) : base(
             DatabaseHelper.ConditionDefinitions.ConditionMarkedByHunter, name, CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&AHPactMarkMarkedByPactConditionTitle";
-            Definition.GuiPresentation.Description = "Spell/&AHPactMarkMarkedByPactConditionDescription";
+            Definition.GuiPresentation.Title = "Spell/&PactMarkMarkedByPactConditionTitle";
+            Definition.GuiPresentation.Description = "Spell/&PactMarkMarkedByPactConditionDescription";
         }
 
         private static ConditionDefinition CreateAndAddToDB(string name)
@@ -110,7 +110,7 @@ internal static class AceHighSpells
 
     private sealed class PactMarkAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
     {
-        private const string PactMarkAdditionalDamageBuilderName = "AHPactMarkAdditionalDamage";
+        private const string PactMarkAdditionalDamageBuilderName = "PactMarkAdditionalDamage";
 
         public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage =
             CreateAndAddToDB(PactMarkAdditionalDamageBuilderName);
@@ -118,8 +118,8 @@ internal static class AceHighSpells
         private PactMarkAdditionalDamageBuilder(string name) : base(
             DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark, name, CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&AHPactMarkAdditionalDamageTitle";
-            Definition.GuiPresentation.Description = "Spell/&AHPactMarkAdditionalDamageDescription";
+            Definition.GuiPresentation.Title = "Spell/&PactMarkAdditionalDamageTitle";
+            Definition.GuiPresentation.Description = "Spell/&PactMarkAdditionalDamageDescription";
             Definition.attackModeOnly = false;
             Definition.requiredTargetCondition = PactMarkMarkedByPactConditionBuilder.MarkedByPactCondition;
             Definition.notificationTag = "PactMarked";

@@ -61,15 +61,15 @@ internal static class PowersContext
         effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
         var helpPowerCondition = ConditionDefinitionBuilder
-            .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionHelpPower",
+            .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly",
                 DefinitionBuilder.CENamespaceGuid)
-            .SetOrUpdateGuiPresentation("HelpAction", Category.Condition)
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
 
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = helpPowerCondition;
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
-            .Create("HelpAction", BazouPowersBaseGuid)
+            .Create("PowerHelp", BazouPowersBaseGuid)
             .SetGuiPresentation(Category.Power, Aid.GuiPresentation.SpriteReference)
             .Configure(
                 1,

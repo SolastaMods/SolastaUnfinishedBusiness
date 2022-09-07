@@ -1,11 +1,9 @@
-Condition/&HelpActionDescription=This creature has been distracted.
-Condition/&HelpActionTitle=Distracted
-Feat/&PickPocketFeatDescription=You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
-Feat/&PickPocketFeatTitle=Pickpocket
-Feat/&RecklessFuryFeatDescription=You gain the ability to enter a rage for one minute once per day without any armor restrictions.\nYou can attack recklessly, gaining advantage on your melee attacks while giving advantage to your attackers until the start of your next turn.
-Feat/&RecklessFuryFeatTitle=Reckless Fury
-Power/&HelpActionDescription=You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-Power/&HelpActionTitle=Help
+Condition/&ConditionDistractedByAllyDescription=This creature has been distracted.
+Condition/&ConditionDistractedByAllyTitle=Distracted
+Feat/&FeatPickPocketDescription=You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
+Feat/&FeatPickPocketTitle=Pickpocket
+Power/&PowerHelpDescription=You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+Power/&PowerHelpTitle=Help
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle=Doesn't know {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack=Has stealth attack
 Tooltip/&FeatPrerequisiteIs=Is {0}

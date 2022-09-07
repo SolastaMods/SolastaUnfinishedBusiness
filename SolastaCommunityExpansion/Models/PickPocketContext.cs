@@ -20,7 +20,7 @@ public static class PickPocketContext
         var pickpocketCheckAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker,
                 "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038")
-            .SetGuiPresentation("PickPocketFeat", Category.Feat)
+            .SetGuiPresentation("FeatPickPocket", Category.Feat)
             .AddToDB();
 
         var pickpocketAbilityCheckAffinityGroup = new AbilityCheckAffinityGroup
