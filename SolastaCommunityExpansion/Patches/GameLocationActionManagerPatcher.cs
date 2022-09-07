@@ -1,7 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
 
@@ -87,6 +90,36 @@ internal static class GameLocationActionManagerPatcher
             }
 
             return true;
+        }
+    }
+    
+    [HarmonyPatch(typeof(GameLocationActionManager), "ExecuteActionAsync")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ExecuteActionAsync_Patch
+    {
+        internal static IEnumerator Postfix(
+            [NotNull] IEnumerator values,
+            [NotNull] CharacterAction action)
+        {
+            Main.Logger.Log(action.ActionDefinition.Name);
+
+            //PATCH: calls handlers for `ICustomOnActionFeature`
+            var features = action.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<ICustomOnActionFeature>();
+
+            foreach (var feature in features)
+            {
+                feature.OnBeforeAction(action);
+            }
+
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            foreach (var feature in features)
+            {
+                feature.OnAfterAction(action);
+            }
         }
     }
 }
