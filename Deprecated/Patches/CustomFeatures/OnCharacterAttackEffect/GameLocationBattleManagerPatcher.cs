@@ -745,6 +745,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                             melee = true;
                         }
                         //CUSTOM CODE ---- START
+                        //TODO: check if this is still necessary - had shield bash trigger smite without this patch on 1.4.7
                         //Count shield bashing as melee
                         if (!melee && ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
                         {
