@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -31,6 +32,10 @@ public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
     {
     }
 
+    protected CustomizableFightingStyleBuilder(string name, Guid guid) : base(name, guid)
+    {
+    }
+    
     [NotNull]
     public CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
     {
