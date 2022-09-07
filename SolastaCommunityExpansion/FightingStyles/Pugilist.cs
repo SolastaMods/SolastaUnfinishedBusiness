@@ -6,6 +6,7 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using static ActionDefinitions;
+using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
@@ -32,16 +33,6 @@ internal sealed class Pugilist : AbstractFightingStyle
         {
             return instance;
         }
-
-        var offhandEffect = new EffectDescriptionBuilder();
-
-        offhandEffect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.MeleeHit, 1,
-            RuleDefinitions.TargetType.Individuals);
-        offhandEffect.AddEffectForm(new EffectFormBuilder().CreatedByCharacter()
-            .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
-            .SetDamageForm(false, RuleDefinitions.DieType.D10, "DamageBludgeoning", 1,
-                RuleDefinitions.DieType.D8, 1,
-                RuleDefinitions.HealFromInflictedDamage.Never, new List<RuleDefinitions.TrendInfo>()).Build());
 
         var gui = GuiPresentationBuilder.Build("PugilistFighting", Category.FightingStyle,
             PathBerserker.GuiPresentation.SpriteReference);
@@ -79,16 +70,16 @@ internal sealed class Pugilist : AbstractFightingStyle
             }
 
             var effectDescription = attackMode.EffectDescription;
-            var k = effectDescription.EffectForms
-                .FindIndex(form => form.FormType == EffectForm.EffectFormType.Damage);
+            var damage = effectDescription.FindFirstDamageForm();
+            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
 
-            if (k < 0)
+            if (k < 0 || damage == null)
             {
                 return;
             }
 
             var additionalDice = new EffectFormBuilder()
-                .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4)
+                .SetDamageForm(diceNumber: 1, dieType: DieType.D4, damageType: damage.damageType)
                 .Build();
 
             effectDescription.EffectForms.Insert(k + 1, additionalDice);
