@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.FightingStyles;
 
 namespace SolastaCommunityExpansion.Models;
@@ -78,9 +79,11 @@ internal static class FightingStyleContext
     {
         foreach (var trainedFightingStyle in hero.trainedFightingStyles)
         {
+            bool? isActive = null;
             switch (trainedFightingStyle.Condition)
             {
                 // Make hand crossbows benefit from Archery Fighting Style
+                //TODO: check what happens with off-hand
                 case FightingStyleDefinition.TriggerCondition.RangedWeaponAttack:
                     var rulesetInventorySlot =
                         hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
@@ -90,7 +93,7 @@ internal static class FightingStyleContext
                         && rulesetInventorySlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType ==
                         "CEHandXbowType")
                     {
-                        hero.ActiveFightingStyles.Add(trainedFightingStyle);
+                        isActive = true;
                     }
 
                     break;
@@ -115,17 +118,30 @@ internal static class FightingStyleContext
                             && offHandSlot.EquipedItem != null
                             && offHandSlot.EquipedItem.ItemDefinition.IsArmor)
                         {
-                            hero.ActiveFightingStyles.Add(trainedFightingStyle);
+                            isActive = true;
                         }
                     }
 
                     break;
+            }
 
-                case FightingStyleDefinition.TriggerCondition.WearingArmor:
-                case FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon:
-                case FightingStyleDefinition.TriggerCondition.TwoHandedMeleeWeapon:
-                case FightingStyleDefinition.TriggerCondition.ShieldEquiped:
-                    break;
+            if (trainedFightingStyle is ICustomFightingStyle customFightingStyle)
+            {
+                isActive = customFightingStyle.IsActive(hero);
+            }
+
+            if (isActive == null)
+            {
+                continue;
+            }
+
+            if (isActive.Value)
+            {
+                hero.activeFightingStyles.TryAdd(trainedFightingStyle);
+            }
+            else
+            {
+                hero.activeFightingStyles.Remove(trainedFightingStyle);
             }
         }
     }
