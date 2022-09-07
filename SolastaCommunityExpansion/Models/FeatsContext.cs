@@ -14,7 +14,6 @@ internal static class FeatsContext
         var feats = new List<FeatDefinition>();
 
         // Generate feats here and fill the list
-        AcehighFeats.CreateFeats(feats);
         ArmorFeats.CreateArmorFeats(feats);
         CasterFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);

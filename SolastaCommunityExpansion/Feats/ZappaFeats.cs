@@ -7,7 +7,10 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using static SolastaCommunityExpansion.Feats.FeatsValidations;
+using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
+using static SolastaCommunityExpansion.Feats.FeatsValidators;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -287,7 +290,8 @@ internal static class ZappaFeats
                 ZappaFeatNamespace)
             .SetGuiPresentationNoContent(true)
             .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.SorceryPoints, 2)
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.SorceryPoints, 2)
             .AddToDB();
 
         // Metamagic Adept (Careful)
@@ -565,7 +569,8 @@ internal static class ZappaFeats
             primalStrength,
             shady,
             wiseDefense,
-            wisePrecision);
+            wisePrecision,
+            DeadeyeFeatBuilder.DeadeyeFeat);
     }
 }
 
@@ -663,4 +668,205 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 internal sealed class ElvenPrecisionContext
 {
     public bool Qualified { get; set; } = false;
+}
+
+internal sealed class DeadeyeIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
+{
+    private const string DeadeyeIgnoreDefenderName = "DeadeyeIgnoreDefender";
+    private const string DeadeyeIgnoreDefenderGuid = "38940e1f-fc62-4a1a-aebe-b4cb7064050d";
+
+    public static readonly FeatureDefinition DeadeyeIgnoreDefender
+        = CreateAndAddToDB(DeadeyeIgnoreDefenderName, DeadeyeIgnoreDefenderGuid);
+
+    private DeadeyeIgnoreDefenderBuilder(string name, string guid) : base(name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
+        Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
+
+        Definition.ignoreCover = true;
+        Definition.SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(WeaponValidators.AlwaysValid));
+    }
+
+    private static FeatureDefinition CreateAndAddToDB(string name, string guid)
+    {
+        return new DeadeyeIgnoreDefenderBuilder(name, guid).AddToDB();
+    }
+}
+
+internal sealed class DeadeyeAttackModifierBuilder : FeatureDefinitionBuilder
+{
+    private const string DeadeyeAttackModifierName = "DeadeyeAttackModifier";
+    private const string DeadeyeAttackModifierGuid = "473f6ab6-af46-4717-b55e-ff9e31d909e2";
+
+    public static readonly FeatureDefinition DeadeyeAttackModifier
+        = CreateAndAddToDB(DeadeyeAttackModifierName, DeadeyeAttackModifierGuid);
+
+    private DeadeyeAttackModifierBuilder(string name, string guid) : base(name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
+        Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
+
+        Definition.SetCustomSubFeatures(new ModifyDeadeyeAttackPower());
+    }
+
+    private static FeatureDefinition CreateAndAddToDB(string name, string guid)
+    {
+        return new DeadeyeAttackModifierBuilder(name, guid).AddToDB();
+    }
+}
+
+internal sealed class DeadeyeConditionBuilder : ConditionDefinitionBuilder
+{
+    private const string DeadeyeConditionName = "DeadeyeCondition";
+    private const string DeadeyeConditionNameGuid = "a0d24e21-3469-43af-ad63-729552120314";
+
+    public static readonly ConditionDefinition DeadeyeCondition =
+        CreateAndAddToDB(DeadeyeConditionName, DeadeyeConditionNameGuid);
+
+    private DeadeyeConditionBuilder(string name, string guid) : base(
+        ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
+        Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
+
+        Definition.allowMultipleInstances = false;
+        Definition.Features.Clear();
+        Definition.Features.Add(DeadeyeAttackModifierBuilder.DeadeyeAttackModifier);
+
+        Definition.durationType = RuleDefinitions.DurationType.Round;
+        Definition.durationParameter = 0;
+        Definition.CancellingConditions.Clear();
+        Definition.CancellingConditions.Add(Definition);
+    }
+
+    private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+    {
+        return new DeadeyeConditionBuilder(name, guid).AddToDB();
+    }
+}
+
+internal sealed class DeadeyeFeatBuilder : FeatDefinitionBuilder
+{
+    private const string DeadeyeFeatName = "DeadeyeFeat";
+    private const string DeadeyeFeatNameGuid = "d2ca939a-465e-4e43-8e9b-6469177e1839";
+
+    internal static readonly FeatDefinition DeadeyeFeat =
+        CreateAndAddToDB(DeadeyeFeatName, DeadeyeFeatNameGuid);
+
+    private DeadeyeFeatBuilder(string name, string guid) : base(
+        FeatDefinitions.FollowUpStrike, name, guid)
+    {
+        var concentrationProvider = new EwFeats.StopPowerConcentrationProvider("Deadeye",
+            "Tooltip/&DeadeyeConcentration",
+            CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
+                Resources.DeadeyeConcentrationIcon, 64, 64));
+
+        var triggerCondition = ConditionDefinitionBuilder
+            .Create("DeadeyeTriggerCondition", CENamespaceGuid)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetDuration(RuleDefinitions.DurationType.Permanent)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("DeadeyeTriggerFeature", CENamespaceGuid)
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(concentrationProvider)
+                    .AddToDB())
+            .AddToDB();
+
+        var turnOnPower = FeatureDefinitionPowerBuilder
+            .Create("Deadeye", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
+            .SetGuiPresentation("DeadeyeFeat", Category.Feat,
+                CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
+                    Resources.DeadeyeIcon, 128, 64))
+            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetUsesFixed(1)
+            .SetCostPerUse(0)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
+                    RuleDefinitions.TargetType.Self)
+                .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                .SetEffectForms(
+                    new EffectFormBuilder()
+                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    new EffectFormBuilder()
+                        .SetConditionForm(DeadeyeConditionBuilder.DeadeyeCondition,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+            .AddToDB();
+
+        PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
+
+        var turnOffPower = FeatureDefinitionPowerBuilder
+            .Create("TurnOffDeadeyePower", CENamespaceGuid)
+            .SetGuiPresentationNoContent(true)
+            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetUsesFixed(1)
+            .SetCostPerUse(0)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
+                    RuleDefinitions.TargetType.Self)
+                .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
+                .SetEffectForms(
+                    new EffectFormBuilder()
+                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
+                        .Build(),
+                    new EffectFormBuilder()
+                        .SetConditionForm(DeadeyeConditionBuilder.DeadeyeCondition,
+                            ConditionForm.ConditionOperation.Remove)
+                        .Build())
+                .Build())
+            .AddToDB();
+
+        PowersContext.PowersThatIgnoreInterruptions.Add(turnOffPower);
+        concentrationProvider.StopPower = turnOffPower;
+
+        Definition.GuiPresentation.Title = "Feat/&DeadeyeFeatTitle";
+        Definition.GuiPresentation.Description = "Feat/&DeadeyeFeatDescription";
+
+        Definition.Features.Clear();
+        Definition.Features.Add(turnOnPower);
+        Definition.Features.Add(turnOffPower);
+        Definition.Features.Add(DeadeyeIgnoreDefenderBuilder.DeadeyeIgnoreDefender);
+        Definition.minimalAbilityScorePrerequisite = false;
+    }
+
+    private static FeatDefinition CreateAndAddToDB(string name, string guid)
+    {
+        return new DeadeyeFeatBuilder(name, guid).AddToDB();
+    }
+}
+
+internal sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
+{
+    public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+        RulesetItem weapon)
+    {
+        var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+        if (damage == null)
+        {
+            return;
+        }
+
+        if (attackMode is not { Reach: false, Ranged: true })
+        {
+            return;
+        }
+
+        const int TO_HIT = -5;
+        const int TO_DAMAGE = 10;
+
+        attackMode.ToHitBonus += TO_HIT;
+        attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_HIT,
+            RuleDefinitions.FeatureSourceType.Power, "Deadeye", null));
+
+        damage.BonusDamage += TO_DAMAGE;
+        damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_DAMAGE,
+            RuleDefinitions.FeatureSourceType.Power, "Deadeye", null));
+    }
 }

@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 
 namespace SolastaCommunityExpansion.Feats;
 
-internal static class FeatsValidations
+internal static class FeatsValidators
 {
     //
     // validation routines for FeatDefinitionWithPrerequisites

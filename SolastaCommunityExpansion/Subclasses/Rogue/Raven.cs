@@ -25,7 +25,7 @@ internal sealed class Raven : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
     {
-        var concentrationProvider = new AcehighFeats.StopPowerConcentrationProvider("HeartSeekingShot",
+        var concentrationProvider = new EwFeats.StopPowerConcentrationProvider("HeartSeekingShot",
             "Tooltip/&HeartSeekingShotConcentration",
             CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
