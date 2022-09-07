@@ -32,7 +32,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddBleedingToLesserRestoration = toggle;
-            HouseSpellTweaks.AddBleedingToRestoration();
+            SrdAndHouseRulesContext.AddBleedingToRestoration();
         }
 
         toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
@@ -108,14 +108,14 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeSleetStormToCube = toggle;
-            HouseSpellTweaks.UseCubeOnSleetStorm();
+            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
         }
 
         toggle = Main.Settings.UseHeightOneCylinderEffect;
         if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseHeightOneCylinderEffect = toggle;
-            HouseSpellTweaks.UseHeightOneCylinderEffect();
+            SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
         }
 
         toggle = Main.Settings.RemoveConcentrationRequirementsFromAnySpell;

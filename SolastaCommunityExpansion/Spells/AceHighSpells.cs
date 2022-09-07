@@ -15,13 +15,13 @@ internal static class AceHighSpells
 
     private sealed class PactMarkSpellBuilder : SpellDefinitionBuilder
     {
-        private const string PactMarkSpellName = "AHPactMarkSpell";
+        private const string PactMarkSpellName = "PactMarkSpell";
 
         private PactMarkSpellBuilder(string name) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name,
             CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&AHPactMarkSpellTitle";
-            Definition.GuiPresentation.Description = "Spell/&AHPactMarkSpellDescription";
+            Definition.GuiPresentation.Title = "Spell/&PactMarkSpellTitle";
+            Definition.GuiPresentation.Description = "Spell/&PactMarkSpellDescription";
             Definition.spellLevel = 1;
             Definition.somaticComponent = true;
             Definition.verboseComponent = true;

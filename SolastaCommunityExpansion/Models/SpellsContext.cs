@@ -113,15 +113,23 @@ internal static class SpellsContext
             Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
         }
 
-        // register spells
+        // registers unofficial spells
         AceHighSpells.Register();
         BazouSpells.Register();
         HolicSpells.Register();
         SrdSpells.Register();
         EwSpells.Register();
-        HouseSpellTweaks.Register();
         SgSpells.Register();
 
+        // official spells tweaks
+        SrdAndHouseRulesContext.AddBleedingToRestoration();
+        SrdAndHouseRulesContext.UseCubeOnSleetStorm();
+        SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
+        SrdAndHouseRulesContext.MinorFixes();
+        SrdAndHouseRulesContext.RemoveConcentrationRequirementsFromAnySpell();
+        SrdAndHouseRulesContext.RemoveHumanoidFilterOnHideousLaughter();
+        SrdAndHouseRulesContext.RemoveRecurringEffectOnEntangle();
+        
         // caches which spells are toggleable per spell list
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
 
