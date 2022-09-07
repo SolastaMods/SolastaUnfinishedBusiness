@@ -34,11 +34,11 @@ internal sealed class Pugilist : AbstractFightingStyle
             return instance;
         }
 
-        var gui = GuiPresentationBuilder.Build("PugilistFighting", Category.FightingStyle,
+        var gui = GuiPresentationBuilder.Build("Pugilist", Category.FightingStyle,
             PathBerserker.GuiPresentation.SpriteReference);
 
-        var pugilistAdditionalDamage = FeatureDefinitionActionAffinityBuilder
-            .Create("AdditionalDamagePugilist", "36d24b2e-8ef4-4037-a82f-05e63d56f3d2")
+        var actionAffinityPugilist = FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityPugilist", "36d24b2e-8ef4-4037-a82f-05e63d56f3d2")
             .SetGuiPresentation(gui)
             .SetDefaultAllowedActonTypes()
             .SetAuthorizedActions(Id.ShoveBonus)
@@ -49,10 +49,9 @@ internal sealed class Pugilist : AbstractFightingStyle
             )
             .AddToDB();
 
-
         instance = CustomizableFightingStyleBuilder
-            .Create("PugilistFightingStlye", "b14f91dc-8706-498b-a9a0-d583b7b00d09")
-            .SetFeatures(pugilistAdditionalDamage)
+            .Create("Pugilist", DefinitionBuilder.CENamespaceGuid)
+            .SetFeatures(actionAffinityPugilist)
             .SetGuiPresentation(gui)
             .SetIsActive(_ => true)
             .AddToDB();

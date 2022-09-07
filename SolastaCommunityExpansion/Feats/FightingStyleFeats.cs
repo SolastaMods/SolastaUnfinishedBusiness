@@ -37,10 +37,10 @@ internal static class FightingStyleFeats
             .GetElement(style);
 
         return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-            .Create($"FeatFightingStyle{style}", FightingStyleFeatsNamespace)
+            .Create($"Feat{style}", FightingStyleFeatsNamespace)
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
-                    .Create($"ProficiencyFeatFightingStyle{style}", FightingStyleFeatsNamespace)
+                    .Create($"ProficiencyFeat{style}", FightingStyleFeatsNamespace)
                     .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, style)
                     .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
                     .AddToDB()

@@ -12,7 +12,6 @@ namespace SolastaCommunityExpansion.FightingStyles;
 
 internal sealed class TitanFighting : AbstractFightingStyle
 {
-    private readonly Guid titanFightingBaseGuid = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
     private FightingStyleDefinitionCustomizable instance;
 
     [NotNull]
@@ -48,7 +47,7 @@ internal sealed class TitanFighting : AbstractFightingStyle
             attackModifier.attackRollModifier += 2;
             attackModifier.attackToHitTrends.Add(
                 new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle,
-                    "TitanFighting", this));
+                    "Titan", this));
         }
 
         if (instance != null)
@@ -57,14 +56,14 @@ internal sealed class TitanFighting : AbstractFightingStyle
         }
 
         var titanFightingAttackModifier = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("TitanFightingAttackModifier", titanFightingBaseGuid)
+            .Create("AttackModifierTitan", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetOnComputeAttackModifierDelegate(TitanFightingComputeAttackModifier)
             .AddToDB();
 
         instance = CustomizableFightingStyleBuilder
-            .Create("TitanFighting", "edc2a2d1-9f72-4825-b204-d810e911ed12")
-            .SetGuiPresentation("TitanFighting", Category.FightingStyle,
+            .Create("Titan", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.FightingStyle,
                 PathBerserker.GuiPresentation.SpriteReference)
             .SetFeatures(titanFightingAttackModifier)
             .AddToDB();
