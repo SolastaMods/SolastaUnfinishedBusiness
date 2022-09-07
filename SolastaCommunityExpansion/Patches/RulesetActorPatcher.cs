@@ -114,8 +114,8 @@ internal static class RulesetActorPatcher
                 Gui.Game.GameConsole.consoleTableDefinition);
 
             entry.AddParameter(ParameterType.Player, roller);
-            entry.AddParameter(ParameterType.AttackSpellPower, "Feat/&FeatElvenAccuracyBaseTitle",
-                tooltipContent: "Feat/&FeatElvenAccuracyBaseDescription");
+            entry.AddParameter(ParameterType.AttackSpellPower, "Tooltip/&FeatElvenAccuracyBaseTitle",
+                tooltipContent: "Tooltip/&FeatElvenAccuracyBaseDescription");
             entry.AddParameter(ParameterType.AbilityInfo, kept.ToString());
             entry.AddParameter(ParameterType.AbilityInfo, replaced.ToString());
             entry.AddParameter(ParameterType.AbilityInfo, roll3.ToString());

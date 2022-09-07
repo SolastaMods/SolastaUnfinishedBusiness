@@ -35,7 +35,7 @@ public static class PickPocketContext
         var pickpocketProficiency = FeatureDefinitionProficiencyBuilder
             .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
                 "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848")
-            .SetGuiPresentation("PickPocketFeat", Category.Feat)
+            .SetGuiPresentation("FeatPickPocket", Category.Feat)
             .AddToDB();
 
         pickpocketProficiency.proficiencyType = ProficiencyType.SkillOrExpertise;
@@ -43,7 +43,7 @@ public static class PickPocketContext
         pickpocketProficiency.Proficiencies.Add(SkillDefinitions.SleightOfHand);
 
         var pickPocketFeat = FeatDefinitionBuilder
-            .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "PickPocketFeat",
+            .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "FeatPickPocket",
                 "947a31fc-4990-45a5-bcfd-6c478b4dff8a")
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
