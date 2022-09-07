@@ -13,20 +13,20 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:FlameTouchedAutoPrepBarbarian:1198f33b-0ad2-5056-a195-a3b3554ac288",
-    "Definition:FlameTouchedAutoPrepBard:f53cec7d-e660-53d1-af14-388c64f7e261",
-    "Definition:FlameTouchedAutoPrepCleric:08dd9981-83b6-5870-8f92-3f255f282ecc",
-    "Definition:FlameTouchedAutoPrepDruid:bf86ede6-2ec0-5a89-8bbd-835a2bb455a1",
-    "Definition:FlameTouchedAutoPrepFighter:7558759f-102b-5d99-b648-6ee90723d0e6",
-    "Definition:FlameTouchedAutoPrepMonk:60b665df-ac8c-53d7-9f12-c2e7748c7e66",
-    "Definition:FlameTouchedAutoPrepPaladin:a9776b70-9297-5446-b93f-dff3a432219a",
-    "Definition:FlameTouchedAutoPrepRanger:3e9f2e6b-7237-5bdd-8878-df14499c3ace",
-    "Definition:FlameTouchedAutoPrepRogue:aa5dc38b-a34c-5a48-b0a5-a71b4308bfd3",
-    "Definition:FlameTouchedAutoPrepSorcerer:dce8b8cf-e3c3-577b-b3d9-4af7c0fe9989",
-    "Definition:FlameTouchedAutoPrepWarlock:89cb7d14-d0fe-5e06-92de-ff9f86424080",
-    "Definition:FlameTouchedAutoPrepWizard:99556dcb-d2d9-511c-a920-dbeaee82f2a2",
-    "Definition:PowerBurningHandsWisFromFeat:112bcb6f-4411-5ebd-88e0-0f9cf2a4b831",
-    "Definition:PowerScorchingRayWisFromFeat:e1d80b72-a808-5b61-9341-401a5a05ef5f"
+    "Definition:FlameTouchedAutoPrepBarbarian:0d886afb-68b9-5c90-b3db-643b4b3b0e0c",
+    "Definition:FlameTouchedAutoPrepBard:fc34b443-c5e8-56b2-9fe1-cf81c3fad45f",
+    "Definition:FlameTouchedAutoPrepCleric:e25b94dc-81e0-588e-afdc-6fc660fed11d",
+    "Definition:FlameTouchedAutoPrepDruid:f7ba6ff4-f701-5f11-b999-4e824494eb7f",
+    "Definition:FlameTouchedAutoPrepFighter:034ac48c-5cc7-5519-bf74-440f2bd89914",
+    "Definition:FlameTouchedAutoPrepMonk:8315dc97-1d2b-55c4-bf20-49dedf0209bf",
+    "Definition:FlameTouchedAutoPrepPaladin:10b98366-ee37-5031-9848-94d9b38d6e36",
+    "Definition:FlameTouchedAutoPrepRanger:74072abb-8909-59ba-883f-ac99080ccb8b",
+    "Definition:FlameTouchedAutoPrepRogue:9b653ee6-0834-5228-9bbe-5871d3236504",
+    "Definition:FlameTouchedAutoPrepSorcerer:2331cf4b-f5e5-55c7-92cb-9397d456dd5c",
+    "Definition:FlameTouchedAutoPrepWarlock:147566ad-c70f-5099-8f20-85336ae14b7b",
+    "Definition:FlameTouchedAutoPrepWizard:52d1f523-e073-5e32-9d07-bace62f4d8bc",
+    "Definition:PowerBurningHandsWisFromFeat:f4760732-adcd-5a66-b899-09d1fe83b07d",
+    "Definition:PowerScorchingRayWisFromFeat:ab8e89bf-194e-5515-b924-5001a8f59467"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -52,7 +52,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d82718ad-770f-5091-80f4-af5b89473a5d",
+  "guid": "7c1afda8-9afa-5237-a0e0-b1b0dccfca78",
   "contentPack": 9999,
   "name": "FeatFlameTouchedWis"
 }

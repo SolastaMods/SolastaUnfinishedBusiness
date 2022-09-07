@@ -13,8 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:PowerTelekineticChaPull:9a1e58e1-e996-5d7b-8cf5-540d01f9cdba",
-    "Definition:PowerTelekineticChaPush:c421d0a5-6f51-5513-a173-cf8d6575c416"
+    "Definition:PowerTelekineticChaPull:90caf86a-21ef-5bf1-99ed-5679cb4caa93",
+    "Definition:PowerTelekineticChaPush:7b4accae-1808-50fd-9ad4-6f70238af164"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fd7c8d77-b047-51e9-8829-ec45e5bf8e07",
+  "guid": "99a338f5-493f-5dd3-bf48-a560dea37458",
   "contentPack": 9999,
   "name": "FeatTelekineticCha"
 }

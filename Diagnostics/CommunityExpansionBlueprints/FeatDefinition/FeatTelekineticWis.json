@@ -13,8 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:PowerTelekineticWisPull:ddd0fc6d-f0ff-556e-8854-b40c54b63c7f",
-    "Definition:PowerTelekineticWisPush:0c396538-d91f-5d84-aee4-fefeb85d6f54"
+    "Definition:PowerTelekineticWisPull:804ea0e8-7311-560e-81b2-c7e6e8a392e1",
+    "Definition:PowerTelekineticWisPush:88d580cf-b89f-5f92-b6af-51b9257ea7a4"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d96de6eb-65fe-5f9c-9360-50a926d698fe",
+  "guid": "9a6bc3e0-f1f1-59ee-82ce-132630209a97",
   "contentPack": 9999,
   "name": "FeatTelekineticWis"
 }

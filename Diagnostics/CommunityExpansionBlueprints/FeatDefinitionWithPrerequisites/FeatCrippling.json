@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatCripplingProficiency:3eced00c-f36e-5833-8902-95d526404b64"
+    "Definition:ProficiencyFeatCrippling:84db4a80-d4ec-5456-a47f-52c898401f26"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

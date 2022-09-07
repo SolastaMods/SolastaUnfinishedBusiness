@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
-    "Definition:FeatLightArmorProficiency:e66cc74d-9764-56a1-a66a-5c2e2fae0f5e"
+    "Definition:ProficiencyFeatLightArmor:57af6350-be7f-508e-84db-aedabd3d6fd7"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4ef552f9-17ca-5956-84c4-828466e3fb90",
+  "guid": "207faf5e-83e0-53d3-8536-ae654561b208",
   "contentPack": 9999,
   "name": "FeatLightArmor"
 }

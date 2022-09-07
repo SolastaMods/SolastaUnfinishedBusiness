@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatMercilessProficiency:86759d98-2e83-58c0-b6c9-299830e2a2af"
+    "Definition:ProficiencyFeatMerciless:34e09dfd-3ec2-56b4-b8a1-f348f99062ec"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -13,21 +13,21 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:CelestialTouchedAutoPrepBarbarian:db233f23-db9d-556c-9ac6-067b2b778e1b",
-    "Definition:CelestialTouchedAutoPrepBard:af40fb9d-16b8-563b-b142-0b77f503cc61",
-    "Definition:CelestialTouchedAutoPrepCleric:b5de6e49-cf7b-5854-ab18-281d1f27a280",
-    "Definition:CelestialTouchedAutoPrepDruid:c117b8df-1e9c-5317-8c70-4a23e770c683",
-    "Definition:CelestialTouchedAutoPrepFighter:b066c19b-3898-540d-859e-3f2d64bf71fa",
-    "Definition:CelestialTouchedAutoPrepMonk:b3592834-2cb3-5956-b7b3-e8566b217dde",
-    "Definition:CelestialTouchedAutoPrepPaladin:6ec036e4-b32d-5604-b1cd-3de08df8afaf",
-    "Definition:CelestialTouchedAutoPrepRanger:aa6bc6b2-1758-551b-bd28-3b94b0018511",
-    "Definition:CelestialTouchedAutoPrepRogue:9b97f469-8e03-563d-92cf-52baed0f0fd4",
-    "Definition:CelestialTouchedAutoPrepSorcerer:deb0f4c9-5c7b-5263-86ef-6399dc2d76d0",
-    "Definition:CelestialTouchedAutoPrepWarlock:03c9f398-3d4f-5e39-ac74-b8365ee6f375",
-    "Definition:CelestialTouchedAutoPrepWizard:22624bb6-0e90-53ff-88b7-99d36159076d",
-    "Definition:PowerCureWoundsFromFeat:ddfc4f71-83be-599a-8943-7758b353b861",
-    "Definition:PowerHealingWordFromFeat:7699582f-87b6-5ee8-963b-19ea52652bf2",
-    "Definition:PowerLesserRestorationFromFeat:3332c262-4295-54b6-8325-a47dfd5d8155"
+    "Definition:CelestialTouchedAutoPrepBarbarian:3250a489-9f34-5e9d-bcba-d2fec20f66e6",
+    "Definition:CelestialTouchedAutoPrepBard:1b89f0e3-3919-56d6-a533-d964c95a4651",
+    "Definition:CelestialTouchedAutoPrepCleric:811cfebc-3c48-516e-aacb-0facfbd3562c",
+    "Definition:CelestialTouchedAutoPrepDruid:7c0ee509-13bd-585b-bb23-c00b862050e2",
+    "Definition:CelestialTouchedAutoPrepFighter:2c6be886-32e7-5cd7-b26b-df71eaadedb4",
+    "Definition:CelestialTouchedAutoPrepMonk:faf6b1c2-572e-5f11-a790-696fffe7d7bf",
+    "Definition:CelestialTouchedAutoPrepPaladin:161ff41d-3144-54e4-94a1-321e6c5daf36",
+    "Definition:CelestialTouchedAutoPrepRanger:9144e1d6-7436-55d4-9084-bd934c982712",
+    "Definition:CelestialTouchedAutoPrepRogue:ff838bfa-e229-560c-acd6-87091b735380",
+    "Definition:CelestialTouchedAutoPrepSorcerer:09b3dd54-d3ea-50b2-b6b3-cacfdf2406a3",
+    "Definition:CelestialTouchedAutoPrepWarlock:30cf05f0-4036-5b4c-8798-29eb801267b1",
+    "Definition:CelestialTouchedAutoPrepWizard:56cce278-727e-59fd-9372-a43bcd2259ed",
+    "Definition:PowerCureWoundsFromFeat:8277b328-cb7b-58e9-ac21-90116debd1e2",
+    "Definition:PowerHealingWordFromFeat:465d9489-25d3-5c2f-9dc5-5b56f3a4defd",
+    "Definition:PowerLesserRestorationFromFeat:1dc6b7e3-8514-5c5f-8ecb-e282a3aa721f"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -53,7 +53,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "737e778d-2978-5623-99fa-2d1915208534",
+  "guid": "b2bdd560-b1d8-5038-86db-b0d9d1fa5955",
   "contentPack": 9999,
   "name": "FeatCelestialTouchedWis"
 }

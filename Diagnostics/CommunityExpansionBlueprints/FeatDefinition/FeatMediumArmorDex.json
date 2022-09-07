@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
-    "Definition:FeatMediumArmorProficiency:db8a30f1-72a3-55ae-b8dd-ff9aa8a21f1c"
+    "Definition:ProficiencyFeatMediumArmor:ed422a81-c767-56b0-a455-ad1c88d88869"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "16141d58-f69a-5454-a78b-e8ee67ab03cf",
+  "guid": "5cf08c9e-126a-5d79-b085-21952bb07102",
   "contentPack": 9999,
   "name": "FeatMediumArmorDex"
 }

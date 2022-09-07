@@ -13,21 +13,21 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:PowerFalseLifeFromFeat:83c00463-e193-5b37-8983-2dafeb789772",
-    "Definition:PowerInflictWoundsWisFromFeat:f454baf0-d76e-50c0-beee-083d87d0853b",
-    "Definition:PowerInvisibilityFromFeat:b0baf5f2-42f4-554a-b807-3cf4be82af25",
-    "Definition:ShadowTouchedAutoPrepBarbarian:b7acf706-9bbc-514b-b378-4bb805007d32",
-    "Definition:ShadowTouchedAutoPrepBard:3149306f-1c15-5759-9dad-d79d300e9cc9",
-    "Definition:ShadowTouchedAutoPrepCleric:f6467972-bed2-52e5-b110-c62209c9a6d1",
-    "Definition:ShadowTouchedAutoPrepDruid:2d7ac948-e904-59ff-b600-6ccdd5cbf3cc",
-    "Definition:ShadowTouchedAutoPrepFighter:bff027a0-8d8d-5c79-a168-4fde7d8e261d",
-    "Definition:ShadowTouchedAutoPrepMonk:e66783dc-d7d6-5b4d-ba2c-ac96ba1f7431",
-    "Definition:ShadowTouchedAutoPrepPaladin:c9c22360-c603-50cd-90c5-1ac7532dc66c",
-    "Definition:ShadowTouchedAutoPrepRanger:29358b66-329f-5546-890d-a7f1a4354fef",
-    "Definition:ShadowTouchedAutoPrepRogue:6b280ce2-71f0-5403-be98-02b591dc04ed",
-    "Definition:ShadowTouchedAutoPrepSorcerer:778c7686-ed1a-5845-9cb3-b542fc60a72f",
-    "Definition:ShadowTouchedAutoPrepWarlock:1ae3594a-8fd4-52b8-93d5-4d05655bef34",
-    "Definition:ShadowTouchedAutoPrepWizard:d0b88e6a-94e9-5379-a64d-916f70fe19c6"
+    "Definition:PowerFalseLifeFromFeat:9e09c176-b322-5e1d-b453-6ef1b79ea5fd",
+    "Definition:PowerInflictWoundsWisFromFeat:49f02085-f1aa-5da9-8d54-5396ab9801f6",
+    "Definition:PowerInvisibilityFromFeat:395738bc-3012-55c7-91c0-c6b3ee6f716b",
+    "Definition:ShadowTouchedAutoPrepBarbarian:e0481b71-0f4b-5c89-a650-b5cb40c1b06c",
+    "Definition:ShadowTouchedAutoPrepBard:57ef27f0-2d1b-5766-be05-77b2dbdaf7cc",
+    "Definition:ShadowTouchedAutoPrepCleric:8a2c93e9-3798-5467-ab9e-431855813640",
+    "Definition:ShadowTouchedAutoPrepDruid:66acda8c-78e1-51e8-aac0-8eb1623b7fb3",
+    "Definition:ShadowTouchedAutoPrepFighter:8dc981f3-0a77-550c-b1e4-fdd1af2b363b",
+    "Definition:ShadowTouchedAutoPrepMonk:de5ad3b6-d980-5e18-88a7-84ecab8b16af",
+    "Definition:ShadowTouchedAutoPrepPaladin:b679bb93-e736-51df-bf1e-92a6b47d5f04",
+    "Definition:ShadowTouchedAutoPrepRanger:f179e903-4928-5378-8033-880b0b2e875b",
+    "Definition:ShadowTouchedAutoPrepRogue:6a4a5d94-b1ce-5628-83c6-439cb7dfa72c",
+    "Definition:ShadowTouchedAutoPrepSorcerer:518c83bd-6a37-52b8-8cbd-270d97894869",
+    "Definition:ShadowTouchedAutoPrepWarlock:d2bc5b72-b5ab-51bf-8e50-a89694a20e11",
+    "Definition:ShadowTouchedAutoPrepWizard:7afdbc03-41a3-5c58-a728-13b9083003f4"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -53,7 +53,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6a478a0c-16bd-5723-a033-569bc6f51b65",
+  "guid": "19acb877-4540-5570-9223-72393d215b12",
   "contentPack": 9999,
   "name": "FeatShadowTouchedWis"
 }
