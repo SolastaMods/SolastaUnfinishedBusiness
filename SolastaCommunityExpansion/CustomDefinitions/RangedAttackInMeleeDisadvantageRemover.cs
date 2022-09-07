@@ -37,65 +37,33 @@ public class RangedAttackInMeleeDisadvantageRemover
     }
 
     /**
-         * Patches `GameLocationBattleManager.CanAttack`
-         * Replaces starting value of a disadvantage on a ranged attack in melee flag from `true`
-         * with a result of a call of custom method
-         */
-    public static void ApplyTranspile([NotNull] List<CodeInstruction> instructions)
-    {
-        var foundConscious = false;
-        var insertionIndex = -1;
-
-        for (var i = 0; i < instructions.Count; i++)
-        {
-            var instruction = instructions[i];
-
-            if (foundConscious)
-            {
-                if (instruction.opcode != OpCodes.Ldc_I4_1)
-                {
-                    continue;
-                }
-
-                insertionIndex = i;
-                break;
-            }
-
-            if (instruction.opcode == OpCodes.Call
-                && instruction.operand != null
-                && instruction.operand.ToString().Contains("IsConsciousCharacterOfSideNextToCharacter"))
-            {
-                foundConscious = true;
-            }
-        }
-
-        if (insertionIndex <= 0)
-        {
-            return;
-        }
-
-        var method = new Func<BattleDefinitions.AttackEvaluationParams, bool>(HasDisadvantage).Method;
-
-        instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
-        instructions.Insert(insertionIndex, new CodeInstruction(OpCodes.Ldarg_1));
-    }
-
-    private static bool HasDisadvantage(BattleDefinitions.AttackEvaluationParams attackParams)
+     * Patches `GameLocationBattleManager.CanAttack`
+     * Removes ranged attack in melee disadvantage if there's specific feature present and active
+     */
+    public static void CheckToRemoveRangedDisadvantage(BattleDefinitions.AttackEvaluationParams attackParams)
     {
         if (attackParams.attackProximity != BattleDefinitions.AttackProximity.PhysicalRange)
         {
-            return true;
+            return;
         }
 
         var character = attackParams.attacker?.RulesetCharacter;
 
         if (character == null)
         {
-            return true;
+            return;
         }
 
         var features = character.GetSubFeaturesByType<RangedAttackInMeleeDisadvantageRemover>();
 
-        return !features.Any(f => f.CanApply(character, attackParams.attackMode));
+        if (!features.Any(f => f.CanApply(character, attackParams.attackMode)))
+        {
+            return;
+        }
+
+        attackParams.attackModifier.attackAdvantageTrends.RemoveAll(t =>
+            t.value == -1
+            && t.sourceType == RuleDefinitions.FeatureSourceType.Proximity
+            && t.sourceName == RuleDefinitions.ProximityRangeEnemyNearby);
     }
 }

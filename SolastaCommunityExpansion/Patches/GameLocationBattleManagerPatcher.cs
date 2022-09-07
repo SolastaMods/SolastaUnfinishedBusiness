@@ -205,6 +205,9 @@ internal static class GameLocationBattleManagerPatcher
             bool __result
         )
         {
+            //PATCH: 
+            RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
+            
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
 
             if (!__result)
