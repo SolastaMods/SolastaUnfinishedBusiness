@@ -440,35 +440,35 @@ internal static class EternalComradeBuilder
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, summonEternalComradePower);
 
         var acConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternarlComradeAC",
+            .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternalComradeAC",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var stConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondSavingThrows, "ConditionMarshalEternarlComradeST",
+            .Create(ConditionKindredSpiritBondSavingThrows, "ConditionMarshalEternalComradeST",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var damageConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondMeleeDamage, "ConditionMarshalEternarlComradeDamage",
+            .Create(ConditionKindredSpiritBondMeleeDamage, "ConditionMarshalEternalComradeDamage",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var hitConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondMeleeAttack, "ConditionMarshalEternarlComradeHit",
+            .Create(ConditionKindredSpiritBondMeleeAttack, "ConditionMarshalEternalComradeHit",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var hpConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternarlComradeHP",
+            .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
