@@ -139,7 +139,7 @@ internal static class RulesetImplementationManagerPatcher
             }
         }
     }
-    
+
     // handles Sorcerer wildshape scenarios / enforces sorcerer class level / correctly handle slots recovery scenarios
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySpellSlotsForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -214,7 +214,8 @@ internal static class RulesetImplementationManagerPatcher
                 {
                     var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
-                    Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(substituteHero, spellRepertoire,
+                    Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(substituteHero,
+                        spellRepertoire,
                         spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
                     break;
                 }

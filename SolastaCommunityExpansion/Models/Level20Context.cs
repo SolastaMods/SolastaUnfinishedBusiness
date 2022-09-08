@@ -235,22 +235,22 @@ internal static class Level20Context
         CastSpellWizard.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
         CastSpellWizard.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
     }
-    
+
     private static void MartialSpellBladeLoad()
     {
         CastSpellMartialSpellBlade.spellCastingLevel = 4;
 
-        CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(Models.SpellsHelper.OneThirdCastingSlots);
+        CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
 
-        CastSpellMartialSpellBlade.ReplacedSpells.SetRange(Models.SpellsHelper.OneThirdCasterReplacedSpells);
+        CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
     }
-    
+
     private static void ShadowcasterLoad()
     {
         CastSpellShadowcaster.spellCastingLevel = 4;
 
-        CastSpellShadowcaster.SlotsPerLevels.SetRange(Models.SpellsHelper.OneThirdCastingSlots);
+        CastSpellShadowcaster.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
 
-        CastSpellShadowcaster.ReplacedSpells.SetRange(Models.SpellsHelper.OneThirdCasterReplacedSpells);
+        CastSpellShadowcaster.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
     }
 }

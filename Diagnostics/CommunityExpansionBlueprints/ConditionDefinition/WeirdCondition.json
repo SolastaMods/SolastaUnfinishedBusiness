@@ -1,18 +1,9 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
-  "conditionType": "Beneficial",
-  "features": [
-    "Definition:AbilityCheckAffinityConditionBearsEndurance:332e770b56e36854e8522cc182367764",
-    "Definition:AbilityCheckAffinityConditionBullsStrength:13255fed7a1ac724f8e71c4fb83fb09a",
-    "Definition:AbilityCheckAffinityConditionCatsGrace:ca8c0d43027b0e64fbbd7258a069b91e",
-    "Definition:AbilityCheckAffinityConditionEaglesSplendor:7df2e154f78a6174586f910fbc97eca8",
-    "Definition:AbilityCheckAffinityConditionFoxsCunning:5ebc3d44ca243dd48b6e5782ebb60c66",
-    "Definition:AbilityCheckAffinityConditionOwlsWisdom:591e7675adc79604eb2a081a98810a3f",
-    "Definition:CombatAffinityStealthy:2f667d087401b6045a212d845c809c71",
-    "Definition:SavingThrowAffinityShelteringBreeze:39752493a2437224ea5a5f305db60d9d"
-  ],
+  "parentCondition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
+  "conditionType": "Detrimental",
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -29,14 +20,47 @@
   "interruptionSavingThrowAbility": "",
   "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": false,
-  "conditionTags": [
-    "Buff"
+  "conditionTags": [],
+  "recurrentEffectForms": [
+    {
+      "$type": "EffectForm, Assembly-CSharp",
+      "formType": "Damage",
+      "addBonusMode": "None",
+      "applyLevel": "No",
+      "levelType": "ClassLevel",
+      "levelMultiplier": 0,
+      "diceByLevelTable": [],
+      "createdByCharacter": false,
+      "createdByCondition": true,
+      "hasSavingThrow": false,
+      "savingThrowAffinity": "None",
+      "dcModifier": 0,
+      "canSaveToCancel": false,
+      "saveOccurence": "StartOfTurn",
+      "damageForm": {
+        "$type": "DamageForm, Assembly-CSharp",
+        "versatile": false,
+        "diceNumber": 4,
+        "dieType": "D10",
+        "overrideWithBardicInspirationDie": false,
+        "versatileDieType": "D1",
+        "bonusDamage": 0,
+        "damageType": "DamagePsychic",
+        "healFromInflictedDamage": "Never",
+        "hitPointsFloor": 0,
+        "forceKillOnZeroHp": false,
+        "specialDeathCondition": null,
+        "ignoreFlyingCharacters": false,
+        "ignoreCriticalDoubleDice": false
+      },
+      "hasFilterId": false,
+      "filterId": 0
+    }
   ],
-  "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
-  "additionalDamageType": "",
+  "additionalDamageType": "DamageAcid",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
   "additionalDamageDieNumber": 1,
@@ -53,13 +77,13 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "40ab6dfd54701724ab98b3f91c846a41",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "09122c24b2751d34a89764b8407ef696",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -192,7 +216,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -205,8 +229,8 @@
   "effectFormsOnRemoved": [],
   "forceBehavior": false,
   "fearSource": false,
-  "battlePackage": null,
-  "explorationPackage": null,
+  "battlePackage": "Definition:Fear:67e55218421c6034d8ec7952695e5831",
+  "explorationPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
   "refundReceivedDamageWhenRemoved": false,
@@ -234,12 +258,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ForesightSpellTitle",
-    "description": "Condition/&ForesightSpellDescription",
+    "title": "Condition/&WeirdTitle",
+    "description": "Condition/&WeirdDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
-      "m_SubObjectName": "ConditionEnhancedAbility",
+      "m_AssetGUID": "6999cc364fd0b374a8acf35bac34d694",
+      "m_SubObjectName": "ConditionFrightened",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -255,7 +279,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4615c639-95f2-4c04-b904-e79f5b916b68",
+  "guid": "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08",
   "contentPack": 9999,
-  "name": "ForesightSpellcondition"
+  "name": "WeirdCondition"
 }

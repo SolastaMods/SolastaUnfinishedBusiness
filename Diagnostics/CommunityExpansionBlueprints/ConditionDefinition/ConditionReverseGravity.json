@@ -2,14 +2,15 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Neutral",
   "features": [
-    "Definition:AttributeModifierKindredSpiritBondAC:89ca7a71713439d468c333761b1b292b"
+    "Definition:MovementAffinityConditionLevitate:32fdd2daba519764da7e9d78eb7b0e37",
+    "Definition:MoveModeFly2:0196408f7a256674d8272106dfa74a0a"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
-  "terminateWhenRemoved": false,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
+  "terminateWhenRemoved": true,
   "specialDuration": false,
   "durationType": "Hour",
   "durationParameterDie": "D4",
@@ -22,7 +23,9 @@
   "interruptionSavingThrowAbility": "",
   "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": false,
-  "conditionTags": [],
+  "conditionTags": [
+    "Verticality"
+  ],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
@@ -184,7 +187,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": 9000,
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -225,13 +228,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Condition/&ReverseGravityTitle",
+    "description": "Condition/&ReverseGravityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "77cdd4e7a89c9c04c934505ffedebdfa",
+      "m_SubObjectName": "ConditionPositiveAirborne",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -246,7 +249,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1ed663b5-4879-580d-89d9-27fc2f3f090a",
+  "guid": "809f1cef-6bdc-4b5a-93bf-275af8ab0b36",
   "contentPack": 9999,
-  "name": "ConditionMarshalEternarlComradeAC"
+  "name": "ConditionReverseGravity"
 }

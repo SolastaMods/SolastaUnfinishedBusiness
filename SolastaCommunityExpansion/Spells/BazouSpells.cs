@@ -1,5 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
@@ -199,7 +198,8 @@ internal static class BazouSpells
 
         // Some methods are missing like SetField or Copy
         var actionAffinity = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied", DefinitionBuilder.CENamespaceGuid)
+            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied",
+                DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
 
         actionAffinity.RandomBehaviourOptions.Clear();

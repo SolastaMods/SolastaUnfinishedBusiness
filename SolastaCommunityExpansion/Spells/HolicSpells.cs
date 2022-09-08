@@ -1,5 +1,4 @@
-﻿using System;
-using SolastaCommunityExpansion.Api.Extensions;
+﻿using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Properties;

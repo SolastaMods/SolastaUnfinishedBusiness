@@ -4,14 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ConditionAffinityCharmImmunity:a631ef6239aa7764db463cf3f29d65fb",
-    "Definition:ConditionAffinityCharmImmunityHypnoticPattern:566f797ed2499ed46afb4754192b65f1",
-    "Definition:ConditionAffinityCalmEmotionCharmedImmunity:7f9cfd9f309debf4988ec184b56b7faf",
-    "Definition:DamageAffinityPsychicImmunity:b52cfcbb789ae27428958d10a45529ac"
+    "Definition:SavingThrowAffinityKindredSpiritBond:76a6959f08c4e1443b237f41e9b1517b"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -25,9 +22,7 @@
   "interruptionSavingThrowAbility": "",
   "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": false,
-  "conditionTags": [
-    "Buff"
-  ],
+  "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
@@ -189,7 +184,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": true,
-  "amountOrigin": "None",
+  "amountOrigin": 9000,
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -230,13 +225,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&MindBlankTitle",
-    "description": "Condition/&MindBlankDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
-      "m_SubObjectName": "ConditionEnhancedAbility",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -251,7 +246,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869",
+  "guid": "28ec91d3-7774-540b-9e1d-d4b4ec393495",
   "contentPack": 9999,
-  "name": "MindBlankcondition"
+  "name": "ConditionMarshalEternalComradeST"
 }

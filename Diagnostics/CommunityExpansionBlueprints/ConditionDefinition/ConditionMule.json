@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:EquipmentAffinityConditionMule:43780a70-d817-5f16-bfb0-f8a9939dcfcf",
-    "Definition:MovementAffinityConditionMule:46896fc3-49ee-5b62-a3a6-0e4ad79c2de2"
+    "Definition:EquipmentAffinityConditionMule:3ecce055-ebe1-5e17-8f27-48b2232ba905",
+    "Definition:MovementAffinityConditionMule:6e463252-a1f3-53fe-9176-fa12e836bfb9"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -147,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "aa75e73e-4527-579b-84b8-3133a3c89fcc",
+  "guid": "bbb0c83b-8606-5e1c-896a-c542969ba582",
   "contentPack": 9999,
   "name": "ConditionMule"
 }

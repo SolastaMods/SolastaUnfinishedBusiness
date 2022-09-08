@@ -87,8 +87,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ReverseGravitycondition",
-          "conditionDefinition": "Definition:ReverseGravitycondition:809f1cef-6bdc-4b5a-93bf-275af8ab0b36",
+          "conditionDefinitionName": "ConditionReverseGravity",
+          "conditionDefinition": "Definition:ConditionReverseGravity:809f1cef-6bdc-4b5a-93bf-275af8ab0b36",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

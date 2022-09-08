@@ -9,7 +9,7 @@ using System;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Level20;
+using SolastaCommunityExpansion.Models;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -45,7 +45,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetSpellKnowledge(SpellKnowledge.Selection) // you learn new spells at certain levels
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest) // Spell slots back at long rest
-            .SetReplacedSpells(Models.SpellsHelper.OneThirdCasterReplacedSpells)
+            .SetReplacedSpells(SpellsHelper.OneThirdCasterReplacedSpells)
             .SetKnownCantrips(2, 3,
                 FeatureDefinitionCastSpellBuilder.CasterProgression
                     .THIRD_CASTER) // know 2 cantrips at level 3, gain at rate of third caster

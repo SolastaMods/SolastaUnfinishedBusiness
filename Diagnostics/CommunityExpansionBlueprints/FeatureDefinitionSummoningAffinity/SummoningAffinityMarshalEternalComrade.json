@@ -2,12 +2,12 @@
   "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
   "requiredMonsterTag": "MarshalEternalComrade",
   "addedConditions": [
-    "Definition:ConditionMarshalEternarlComradeAC:1ed663b5-4879-580d-89d9-27fc2f3f090a",
-    "Definition:ConditionMarshalEternarlComradeDamage:b0306148-eee0-59a6-b5dd-91976721638a",
-    "Definition:ConditionMarshalEternarlComradeHit:98a013d4-c421-587b-86a8-70016b8ea77c",
-    "Definition:ConditionMarshalEternarlComradeHP:75577a02-c4bb-57d5-abfc-de724fb0f7e4",
-    "Definition:ConditionMarshalEternarlComradeHP:75577a02-c4bb-57d5-abfc-de724fb0f7e4",
-    "Definition:ConditionMarshalEternarlComradeST:169665de-381c-5e56-bd52-29dbf315c267"
+    "Definition:ConditionMarshalEternalComradeAC:70fdfca4-aac0-5b74-9340-4242b3525a1a",
+    "Definition:ConditionMarshalEternalComradeDamage:abce9365-12a2-5a32-893e-a7082cf0db26",
+    "Definition:ConditionMarshalEternalComradeHit:c6a5e4f9-dfe2-52f9-ad1b-c4065bc61381",
+    "Definition:ConditionMarshalEternalComradeHP:85ed6c79-2cef-563e-aa41-2d5fd4cfc939",
+    "Definition:ConditionMarshalEternalComradeHP:85ed6c79-2cef-563e-aa41-2d5fd4cfc939",
+    "Definition:ConditionMarshalEternalComradeST:28ec91d3-7774-540b-9e1d-d4b4ec393495"
   ],
   "effectOnConjuredDeath": true,
   "effectForms": [],

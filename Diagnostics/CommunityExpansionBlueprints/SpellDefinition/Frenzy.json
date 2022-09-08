@@ -88,7 +88,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionFrenzied:09a5ca8a-6f64-51f0-ae67-ec6da8c0204e",
+          "conditionDefinition": "Definition:ConditionFrenzied:6b212437-1d65-5122-808c-517e9af733de",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -325,7 +325,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "74c02289-00b5-5b12-906d-56cff4687601",
+  "guid": "595f4c4c-b318-5abd-b627-4fac32fe48ae",
   "contentPack": 9999,
   "name": "Frenzy"
 }

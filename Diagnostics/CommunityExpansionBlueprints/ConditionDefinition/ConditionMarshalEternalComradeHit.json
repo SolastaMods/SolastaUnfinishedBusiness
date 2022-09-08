@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SavingThrowAffinityKindredSpiritBond:76a6959f08c4e1443b237f41e9b1517b"
+    "Definition:AttackModifierKindredSpiritBondMeleeAttack:c5149d196dc61974a8263939922b9e7f"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -246,7 +246,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "169665de-381c-5e56-bd52-29dbf315c267",
+  "guid": "c6a5e4f9-dfe2-52f9-ad1b-c4065bc61381",
   "contentPack": 9999,
-  "name": "ConditionMarshalEternarlComradeST"
+  "name": "ConditionMarshalEternalComradeHit"
 }

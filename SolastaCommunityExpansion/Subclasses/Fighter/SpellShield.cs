@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.Level20;
+using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
@@ -37,7 +37,7 @@ internal sealed class SpellShield : AbstractSubclass
             .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
-            .SetReplacedSpells(Models.SpellsHelper.OneThirdCasterReplacedSpells)
+            .SetReplacedSpells(SpellsHelper.OneThirdCasterReplacedSpells)
             .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
             .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
             .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);

@@ -76,7 +76,7 @@ internal static class RulesetImplementationManagerLocationPatcher
             __result = CustomSituationalContext.IsContextValid(contextParams, __result);
         }
     }
-    
+
     //PATCH: Implements ExtraOriginOfAmount
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -85,9 +85,9 @@ internal static class RulesetImplementationManagerLocationPatcher
         public static RulesetCondition ExtendInflictCondition(
             RulesetActor rulesetActor,
             string conditionDefinitionName,
-            RuleDefinitions.DurationType durationType,
+            DurationType durationType,
             int durationParameter,
-            RuleDefinitions.TurnOccurenceType endOccurence,
+            TurnOccurenceType endOccurence,
             string tag,
             ulong sourceGuid,
             string sourceFaction,
@@ -96,7 +96,7 @@ internal static class RulesetImplementationManagerLocationPatcher
             int sourceAmount,
             int sourceAbilityBonus,
             int sourceProficiencyBonus,
-            RuleDefinitions.DieType bardicInspirationDie,
+            DieType bardicInspirationDie,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             ConditionDefinition addedCondition)
         {
@@ -128,7 +128,8 @@ internal static class RulesetImplementationManagerLocationPatcher
             }
 
             return rulesetActor.InflictCondition(conditionDefinitionName, durationType, durationParameter, endOccurence,
-                tag, sourceGuid, sourceFaction, effectLevel, effectDefinitionName, sourceAmount, sourceAbilityBonus, sourceProficiencyBonus, bardicInspirationDie);
+                tag, sourceGuid, sourceFaction, effectLevel, effectDefinitionName, sourceAmount, sourceAbilityBonus,
+                sourceProficiencyBonus, bardicInspirationDie);
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

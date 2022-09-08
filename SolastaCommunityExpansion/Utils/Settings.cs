@@ -279,7 +279,7 @@ public class Settings : UnityModManager.ModSettings
     //
     // Interface - Keyboard & Mouse
     //
-    
+
     public bool EnableHotkeyToggleHud { get; set; }
     public bool EnableHotkeyToggleIndividualHud { get; set; }
     public bool EnableCharacterExport { get; set; }

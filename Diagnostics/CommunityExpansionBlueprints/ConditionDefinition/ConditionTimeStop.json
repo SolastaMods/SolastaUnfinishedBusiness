@@ -2,13 +2,14 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Neutral",
   "features": [
-    "Definition:AttackModifierKindredSpiritBondMeleeAttack:c5149d196dc61974a8263939922b9e7f"
+    "Definition:ActionAffinityConditionIncapacitated:0a38f5c8f6d13a0479249a8e935f64c0",
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -16,11 +17,14 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Attacked",
+    "Damaged"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
-  "interruptionDamageThreshold": 0,
+  "interruptionDamageThreshold": 1,
   "keepConditionIfSavingThrowSucceeds": false,
   "conditionTags": [],
   "recurrentEffectForms": [],
@@ -38,19 +42,19 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "14c7cbd4107c3da46bf04c894e4a61be",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "2493405866ecdfb4290d962e2ee3ab92",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "211c37507a1ae35419d899c49a2712a3",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -183,8 +187,8 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
-  "amountOrigin": 9000,
+  "possessive": false,
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -225,13 +229,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Condition/&TimeStopTitle",
+    "description": "Condition/&TimeStopDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "cfdf2152d04bcff41aab30fd13412ad6",
+      "m_SubObjectName": "ConditionIncapacitated",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -246,7 +250,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "98a013d4-c421-587b-86a8-70016b8ea77c",
+  "guid": "f00e592f-61c3-4cbf-a800-97596e83028d",
   "contentPack": 9999,
-  "name": "ConditionMarshalEternarlComradeHit"
+  "name": "ConditionTimeStop"
 }

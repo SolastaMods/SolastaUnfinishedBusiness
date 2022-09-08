@@ -87,8 +87,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "TimeStopCondition",
-          "conditionDefinition": "Definition:TimeStopCondition:f00e592f-61c3-4cbf-a800-97596e83028d",
+          "conditionDefinitionName": "ConditionTimeStop",
+          "conditionDefinition": "Definition:ConditionTimeStop:f00e592f-61c3-4cbf-a800-97596e83028d",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

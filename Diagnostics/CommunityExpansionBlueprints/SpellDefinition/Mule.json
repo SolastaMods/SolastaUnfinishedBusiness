@@ -88,7 +88,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionMule",
-          "conditionDefinition": "Definition:ConditionMule:aa75e73e-4527-579b-84b8-3133a3c89fcc",
+          "conditionDefinition": "Definition:ConditionMule:bbb0c83b-8606-5e1c-896a-c542969ba582",
           "operation": "Add",
           "conditionsList": [
             null
@@ -337,7 +337,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "48051a77-c481-59eb-aba5-d827358438ef",
+  "guid": "f75f3d44-3b86-5879-931a-30a8a9407d57",
   "contentPack": 9999,
   "name": "Mule"
 }

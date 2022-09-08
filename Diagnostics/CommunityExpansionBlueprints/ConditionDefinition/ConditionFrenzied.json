@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:ActionAffinityConditionFrenzied:33b6da06-adb3-56d9-ba2d-5eecd7d1f934"
+    "Definition:ActionAffinityConditionFrenzied:83659d6f-a3de-5a88-8ab7-3b817bfa26eb"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -246,7 +246,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "09a5ca8a-6f64-51f0-ae67-ec6da8c0204e",
+  "guid": "6b212437-1d65-5122-808c-517e9af733de",
   "contentPack": 9999,
   "name": "ConditionFrenzied"
 }

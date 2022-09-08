@@ -87,8 +87,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "MindBlankcondition",
-          "conditionDefinition": "Definition:MindBlankcondition:74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869",
+          "conditionDefinitionName": "ConditionMindBlank",
+          "conditionDefinition": "Definition:ConditionMindBlank:74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

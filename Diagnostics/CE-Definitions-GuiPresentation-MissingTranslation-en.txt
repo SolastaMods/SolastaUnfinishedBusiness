@@ -2,7 +2,17 @@
 9999	Description='ContentPack/&9999Description'.
 BarbarianPrimalChampion	Title='Feature/&BarbarianPrimalChampionTitle'.
 BarbarianPrimalChampion	Description='Feature/&BarbarianPrimalChampionDescription'.
+ConditionForesight	Title='Condition/&ForesightTitle'.
+ConditionForesight	Description='Condition/&ForesightDescription'.
 ConditionFrenzied	Title='Condition/&FrenziedTitle'.
 ConditionFrenzied	Description='Condition/&FrenziedDescription'.
+ConditionMindBlank	Title='Condition/&MindBlankTitle'.
+ConditionMindBlank	Description='Condition/&MindBlankDescription'.
+ConditionReverseGravity	Title='Condition/&ReverseGravityTitle'.
+ConditionReverseGravity	Description='Condition/&ReverseGravityDescription'.
+ConditionTimeStop	Title='Condition/&TimeStopTitle'.
+ConditionTimeStop	Description='Condition/&TimeStopDescription'.
 Debilitated	Title='Condition/&DebilitatedConditionTitle'.
 Debilitated	Description='Condition/&DebilitatedConditionDescription'.
+WeirdCondition	Title='Condition/&WeirdTitle'.
+WeirdCondition	Description='Condition/&WeirdDescription'.
