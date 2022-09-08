@@ -181,11 +181,11 @@ internal static class RulesetCharacterPatcher
     internal static class IsSubjectToAttackOfOpportunity_Patch
     {
         // ReSharper disable once RedundantAssignment
-        internal static void Postfix(RulesetCharacter __instance, ref bool __result, RulesetCharacter attacker)
+        internal static void Postfix(RulesetCharacter __instance, ref bool __result, RulesetCharacter attacker, float distance)
         {
             //PATCH: allows custom exceptions for attack of opportunity triggering
             //Mostly for Sentinel feat
-            __result = AttacksOfOpportunity.IsSubjectToAttackOfOpportunity(__instance, attacker, __result);
+            __result = AttacksOfOpportunity.IsSubjectToAttackOfOpportunity(__instance, attacker, __result, distance);
         }
     }
 

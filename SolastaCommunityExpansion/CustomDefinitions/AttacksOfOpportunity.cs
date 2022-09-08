@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions;
 
 public interface ICanIgnoreAoOImmunity
 {
-    bool CanIgnoreAoOImmunity(RulesetCharacter character, RulesetCharacter attacker);
+    bool CanIgnoreAoOImmunity(RulesetCharacter character, RulesetCharacter attacker, float distance);
 }
 
 public static class AttacksOfOpportunity
@@ -191,16 +191,16 @@ public static class AttacksOfOpportunity
     }
 
     public static bool IsSubjectToAttackOfOpportunity(RulesetCharacter character, RulesetCharacter attacker,
-        bool def)
+        bool def, float distance)
     {
         return def || attacker.GetSubFeaturesByType<ICanIgnoreAoOImmunity>()
-            .Any(f => f.CanIgnoreAoOImmunity(character, attacker));
+            .Any(f => f.CanIgnoreAoOImmunity(character, attacker, distance));
     }
 }
 
 internal sealed class CanIgnoreDisengage : ICanIgnoreAoOImmunity
 {
-    public bool CanIgnoreAoOImmunity([NotNull] RulesetCharacter character, RulesetCharacter attacker)
+    public bool CanIgnoreAoOImmunity([NotNull] RulesetCharacter character, RulesetCharacter attacker, float distance)
     {
         var featuresToBrowse = new List<FeatureDefinition>();
         character.EnumerateFeaturesToBrowse<ICombatAffinityProvider>(featuresToBrowse);
@@ -215,7 +215,7 @@ internal sealed class CanIgnoreDisengage : ICanIgnoreAoOImmunity
                         affinityProvider.SituationalContext, attacker,
                         character, service.FindSourceIdOfFeature(character, feature),
                         affinityProvider.RequiredCondition, false, null))
-                && affinityProvider.IsImmuneToOpportunityAttack(character, attacker, 0))
+                && affinityProvider.IsImmuneToOpportunityAttack(character, attacker, distance))
             {
                 return false;
             }
