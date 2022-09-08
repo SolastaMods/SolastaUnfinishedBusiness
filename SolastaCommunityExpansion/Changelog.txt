@@ -1,7 +1,3 @@
-﻿You can contribute to this work with any financial amount
-The donation button is under Mod UI > Credits & Diagnostics
+﻿CHANGES:
 
-CHANGES:
-
-- Add additional armor recipes
-- Fix a null exception on Raven subclass
+- Support for latest Bard, Monk and Warlock DLC
