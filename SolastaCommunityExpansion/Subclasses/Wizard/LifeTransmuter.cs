@@ -5,7 +5,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses;
+namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
 internal sealed class LifeTransmuter : AbstractSubclass
 {

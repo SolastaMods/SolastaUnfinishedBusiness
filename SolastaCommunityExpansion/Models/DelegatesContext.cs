@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.Subclasses;
+using SolastaCommunityExpansion.Subclasses.Wizard;
 using TA;
 
 namespace SolastaCommunityExpansion.Models;

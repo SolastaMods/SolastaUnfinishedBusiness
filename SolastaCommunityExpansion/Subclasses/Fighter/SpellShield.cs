@@ -8,7 +8,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses;
+namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
 internal sealed class SpellShield : AbstractSubclass
 {

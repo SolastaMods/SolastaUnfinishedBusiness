@@ -8,7 +8,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FightingStyleDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses;
+namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
 internal sealed class RoyalKnight : AbstractSubclass
 {

@@ -2,7 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Infrastructure;
-using SolastaCommunityExpansion.Subclasses;
+using SolastaCommunityExpansion.Subclasses.Wizard;
 
 namespace SolastaCommunityExpansion.Patches;
 

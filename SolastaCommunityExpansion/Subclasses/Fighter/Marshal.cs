@@ -26,7 +26,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static RuleDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses;
+namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
 internal sealed class Marshal : AbstractSubclass
 {
