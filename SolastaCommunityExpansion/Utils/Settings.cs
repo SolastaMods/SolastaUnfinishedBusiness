@@ -62,7 +62,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableEnhancedCharacterInspection { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
-    public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
 
     //
     // Character - General
@@ -280,8 +279,7 @@ public class Settings : UnityModManager.ModSettings
     //
     // Interface - Keyboard & Mouse
     //
-
-    public bool EnableCancelEditOnRightMouseClick { get; set; }
+    
     public bool EnableHotkeyToggleHud { get; set; }
     public bool EnableHotkeyToggleIndividualHud { get; set; }
     public bool EnableCharacterExport { get; set; }

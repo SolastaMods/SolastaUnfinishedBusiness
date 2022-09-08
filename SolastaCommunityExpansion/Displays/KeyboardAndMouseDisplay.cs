@@ -5,7 +5,6 @@ namespace SolastaCommunityExpansion.Displays;
 internal static class KeyboardAndMouseDisplay
 {
     private static bool SelectAll { get; set; } =
-        Main.Settings.EnableCancelEditOnRightMouseClick &&
         Main.Settings.EnableHotkeyToggleIndividualHud &&
         Main.Settings.EnableHotkeyToggleHud &&
         Main.Settings.EnableCharacterExport &&
@@ -17,7 +16,6 @@ internal static class KeyboardAndMouseDisplay
 
     private static void UpdateSettings(bool flag)
     {
-        Main.Settings.EnableCancelEditOnRightMouseClick = flag;
         Main.Settings.EnableHotkeyToggleIndividualHud = flag;
         Main.Settings.EnableHotkeyToggleHud = flag;
         Main.Settings.EnableCharacterExport = flag;
@@ -46,15 +44,6 @@ internal static class KeyboardAndMouseDisplay
         UI.Label("");
 
         // NO NEED TO TRANSLATE THIS
-        toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCancelEditOnRightMouseClick = toggle;
-            SelectAll = false;
-        }
-
-        UI.Label("");
-
         toggle = Main.Settings.EnableHotkeyToggleIndividualHud;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyToggleIndividualHud"), ref toggle, UI.AutoWidth()))
         {
