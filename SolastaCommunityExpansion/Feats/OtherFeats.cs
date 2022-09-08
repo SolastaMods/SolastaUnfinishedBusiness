@@ -12,28 +12,11 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class OtherFeats
 {
-    private static readonly Guid OtherFeatNamespace = new("655e8588-4d6e-42f3-9564-69e7345d5620");
-
-    public static FeatDefinition Warcaster = FeatDefinitionBuilder
-        .Create("FeatWarCaster", OtherFeatNamespace)
-        .SetFeatures(
-            FeatureDefinitionMagicAffinityBuilder
-                .Create("MagicAffinityWarCasterFeat", OtherFeatNamespace)
-                .SetGuiPresentation("FeatWarCaster", Category.Feat)
-                .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
-                    RuleDefinitions.SpellParamsModifierType.None, false, false, false)
-                .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
-                .SetHandsFullCastingModifiers(true, true, true)
-                .AddToDB())
-        .SetGuiPresentation(Category.Feat)
-        .SetMustCastSpellsPrerequisite()
-        .AddToDB();
-
     public static void CreateFeats(List<FeatDefinition> feats)
     {
         // Savage Attacker
         var savageAttacker = FeatDefinitionBuilder
-            .Create("FeatSavageAttacker", OtherFeatNamespace)
+            .Create("FeatSavageAttacker", DefinitionBuilder.CENamespaceGuid)
             .SetFeatures(
                 BuildDieRollModifier("DieRollModifierFeatSavageAttacker",
                     AttackDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */),
@@ -42,13 +25,13 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
-        // Improved critical
+        // Improved Critical
         var improvedCritical = FeatDefinitionBuilder
-            .Create("FeatImprovedCritical", OtherFeatNamespace)
+            .Create("FeatImprovedCritical", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierImprovedCriticalFeat", OtherFeatNamespace)
+                    .Create("AttributeModifierFeatImprovedCritical", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation("FeatImprovedCritical", Category.Feat)
                     .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 19)
                     .AddToDB())
@@ -56,10 +39,10 @@ internal static class OtherFeats
 
         // Tough
         var tough = FeatDefinitionBuilder
-            .Create("FeatTough", OtherFeatNamespace)
+            .Create("FeatTough", DefinitionBuilder.CENamespaceGuid)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierToughFeat", OtherFeatNamespace)
+                    .Create("AttributeModifierFeatTough", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation("FeatTough", Category.Feat)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
                     .AddToDB())
@@ -68,15 +51,15 @@ internal static class OtherFeats
 
         // Shield Expert
         var shieldExpert = FeatDefinitionBuilder
-            .Create("FeatShieldExpert", OtherFeatNamespace)
+            .Create("FeatShieldExpert", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                    .Create("ShieldExpertAttack", OtherFeatNamespace)
+                    .Create("FeatShieldExpertBonusShieldAttack", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new AddBonusShieldAttack())
                     .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
-                    .Create("ShieldExpertShove", OtherFeatNamespace)
+                    .Create("ActionAffinityFeatShieldExpertShove", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentationNoContent(true)
                     .SetDefaultAllowedActonTypes()
                     // Shove as bonus action seems too OP for this feat
@@ -99,14 +82,30 @@ internal static class OtherFeats
             .SetArmorProficiencyPrerequisite(DatabaseHelper.ArmorCategoryDefinitions.ShieldCategory)
             .AddToDB();
 
-        feats.AddRange(savageAttacker, tough, Warcaster, improvedCritical, shieldExpert);
+        // War Caster
+        var warcaster = FeatDefinitionBuilder
+            .Create("FeatWarCaster", DefinitionBuilder.CENamespaceGuid)
+            .SetFeatures(
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create("MagicAffinityFeatWarCaster", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation("FeatWarCaster", Category.Feat)
+                    .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
+                        RuleDefinitions.SpellParamsModifierType.None, false, false, false)
+                    .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
+                    .SetHandsFullCastingModifiers(true, true, true)
+                    .AddToDB())
+            .SetGuiPresentation(Category.Feat)
+            .SetMustCastSpellsPrerequisite()
+            .AddToDB();
+        
+        feats.AddRange(savageAttacker, tough, warcaster, improvedCritical, shieldExpert);
     }
 
     private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
         RuleDefinitions.RollContext context, int rerollCount, int minRerollValue)
     {
         return FeatureDefinitionDieRollModifierBuilder
-            .Create(name, OtherFeatNamespace)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetModifiers(context, rerollCount, minRerollValue, "Feat/&FeatSavageAttackerReroll")
             .SetGuiPresentation("FeatSavageAttacker", Category.Feat)
             .AddToDB();
