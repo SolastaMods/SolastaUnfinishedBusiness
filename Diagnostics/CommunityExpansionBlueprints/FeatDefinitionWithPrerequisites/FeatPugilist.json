@@ -12,18 +12,18 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ProficiencyFeatPugilist:af164ba6-fca7-5e96-81ee-621f9b99c2db"
+    "Definition:ProficiencyFeatPugilist:a213f59d-9130-5168-a0ac-0ae7f54fcdb1"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatPugilistTitle",
-    "description": "Feat/&FeatPugilistDescription",
+    "title": "FightingStyle/&PugilistTitle",
+    "description": "FightingStyle/&PugilistDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "aa99d934a7dfe064191c9a18e4822595",
+      "m_SubObjectName": "Barbarian_Path_Berserker",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ce093fc7-c0d5-5db9-972f-32b075b586d7",
+  "guid": "1393682a-f456-5f0e-b45f-f79a1cef8a1c",
   "contentPack": 9999,
   "name": "FeatPugilist"
 }

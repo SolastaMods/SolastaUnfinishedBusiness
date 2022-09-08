@@ -7,7 +7,7 @@
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&TitanTitle",
     "description": "FightingStyle/&TitanDescription",
     "spriteReference": {
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3f227230-3c2c-5a23-a29e-55bd97e4837c",
+  "guid": "4d1820d3-5218-5bc0-8eee-b23881416b36",
   "contentPack": 9999,
   "name": "ProficiencyFeatTitan"
 }

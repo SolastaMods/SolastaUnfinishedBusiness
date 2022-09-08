@@ -7,7 +7,7 @@
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&CripplingTitle",
     "description": "FightingStyle/&CripplingDescription",
     "spriteReference": {
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "84db4a80-d4ec-5456-a47f-52c898401f26",
+  "guid": "09f32614-c172-5b6b-8796-e5a14721bc11",
   "contentPack": 9999,
   "name": "ProficiencyFeatCrippling"
 }

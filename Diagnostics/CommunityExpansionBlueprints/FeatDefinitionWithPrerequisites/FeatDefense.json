@@ -12,18 +12,18 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ProficiencyFeatDefense:576b9baa-e0a1-5016-abf4-34f96c46d2a2"
+    "Definition:ProficiencyFeatDefense:04ce489e-4e42-53cf-b8ef-476a21a43f15"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatDefenseTitle",
-    "description": "Feat/&FeatDefenseDescription",
+    "title": "FightingStyle/&DefenseTitle",
+    "description": "FightingStyle/&DefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "204f9387786340a42bbbadd75d56cc98",
+      "m_SubObjectName": "Defense",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -33,12 +33,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 1,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "44341b8c-49f7-54d3-baf1-1abe1becb1c8",
+  "guid": "a13f121b-4a09-50e7-867a-334ae5354112",
   "contentPack": 9999,
   "name": "FeatDefense"
 }

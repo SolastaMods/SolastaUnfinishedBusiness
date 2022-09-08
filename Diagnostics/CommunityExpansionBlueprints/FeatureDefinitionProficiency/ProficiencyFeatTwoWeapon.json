@@ -7,14 +7,14 @@
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FightingStyleTwoWeaponTitle",
-    "description": "Feat/&FightingStyleTwoWeaponDescription",
+    "hidden": true,
+    "title": "FightingStyle/&TwoWeaponTitle",
+    "description": "FightingStyle/&TwoWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "e10b549bb899c694d85c7cc09d7387db",
+      "m_SubObjectName": "TwoWeapon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -24,12 +24,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 5,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4b86af61-7d08-5128-85f1-cc5c73f0d8b9",
+  "guid": "b425cfb2-ec6e-55da-827e-918ba44628d7",
   "contentPack": 9999,
   "name": "ProficiencyFeatTwoWeapon"
 }

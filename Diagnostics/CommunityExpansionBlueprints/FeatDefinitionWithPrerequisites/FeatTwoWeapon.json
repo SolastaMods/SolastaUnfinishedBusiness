@@ -12,18 +12,18 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ProficiencyFeatTwoWeapon:4b86af61-7d08-5128-85f1-cc5c73f0d8b9"
+    "Definition:ProficiencyFeatTwoWeapon:b425cfb2-ec6e-55da-827e-918ba44628d7"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatTwoWeaponTitle",
-    "description": "Feat/&FeatTwoWeaponDescription",
+    "title": "FightingStyle/&TwoWeaponTitle",
+    "description": "FightingStyle/&TwoWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "e10b549bb899c694d85c7cc09d7387db",
+      "m_SubObjectName": "TwoWeapon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -33,12 +33,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 5,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d457ee65-bc88-5d4c-9e2b-1847afacc813",
+  "guid": "9d67e893-6904-509c-8a8e-19a3f44b9ca3",
   "contentPack": 9999,
   "name": "FeatTwoWeapon"
 }

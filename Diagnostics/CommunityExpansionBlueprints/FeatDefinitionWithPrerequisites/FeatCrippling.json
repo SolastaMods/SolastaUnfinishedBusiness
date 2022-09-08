@@ -12,18 +12,18 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ProficiencyFeatCrippling:84db4a80-d4ec-5456-a47f-52c898401f26"
+    "Definition:ProficiencyFeatCrippling:09f32614-c172-5b6b-8796-e5a14721bc11"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatCripplingTitle",
-    "description": "Feat/&FeatCripplingDescription",
+    "title": "FightingStyle/&CripplingTitle",
+    "description": "FightingStyle/&CripplingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "e2e75a8dfa5339a4486b00747f23310e",
+      "m_SubObjectName": "Ranger_Shadow_Tamer",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "34491e3d-f213-57a3-93ee-8ab5a23c9ce0",
+  "guid": "e8a4e510-0e2e-5293-965e-2b29971004b1",
   "contentPack": 9999,
   "name": "FeatCrippling"
 }

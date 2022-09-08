@@ -21,7 +21,7 @@
   "randomBehaviourOptions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&PugilistTitle",
     "description": "FightingStyle/&PugilistDescription",
     "spriteReference": {

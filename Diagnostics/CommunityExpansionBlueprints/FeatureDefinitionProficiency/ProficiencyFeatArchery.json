@@ -7,14 +7,14 @@
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FightingStyleArcheryTitle",
-    "description": "Feat/&FightingStyleArcheryDescription",
+    "hidden": true,
+    "title": "FightingStyle/&ArcheryTitle",
+    "description": "FightingStyle/&ArcheryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "3caab56a24cd00d4ebd7d90b1142eea6",
+      "m_SubObjectName": "Archery",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5c416c62-76c9-5c45-9073-dbc83d94ae41",
+  "guid": "2f481252-0c16-5606-8c23-28be3fc0eefe",
   "contentPack": 9999,
   "name": "ProficiencyFeatArchery"
 }

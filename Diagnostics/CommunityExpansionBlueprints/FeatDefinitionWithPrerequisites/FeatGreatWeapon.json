@@ -12,18 +12,18 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ProficiencyFeatGreatWeapon:d4720902-97b1-5a78-830e-9b1d364e1409"
+    "Definition:ProficiencyFeatGreatWeapon:bb71f888-76fb-5bfb-907f-52e7c40a1940"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGreatWeaponTitle",
-    "description": "Feat/&FeatGreatWeaponDescription",
+    "title": "FightingStyle/&GreatWeaponTitle",
+    "description": "FightingStyle/&GreatWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "1219ae912ec913e4fac04ff4b0249bc0",
+      "m_SubObjectName": "GreatWeapon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -33,12 +33,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 3,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "81e878e8-f6cd-5123-bb40-9229beb3c5bf",
+  "guid": "96cb0fa7-ea6c-51a7-9eb6-84fc602d9501",
   "contentPack": 9999,
   "name": "FeatGreatWeapon"
 }

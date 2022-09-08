@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
@@ -12,8 +11,6 @@ namespace SolastaCommunityExpansion.Feats;
 
 internal static class FightingStyleFeats
 {
-    private static readonly Guid FightingStyleFeatsNamespace = new("db157827-0f8a-4fbb-bb87-6d54689a587a");
-
     public static void CreateFeats(List<FeatDefinition> feats)
     {
         feats.AddRange(
@@ -25,9 +22,7 @@ internal static class FightingStyleFeats
             BuildFightingStyleFeat("Archery")
         );
 
-        feats.AddRange(
-            FightingStyleContext.FightingStyles
-                .Select(BuildFightingStyleFeat));
+        feats.AddRange(FightingStyleContext.FightingStyles.Select(BuildFightingStyleFeat));
     }
 
     private static FeatDefinition BuildFightingStyleFeat(string style)
@@ -36,44 +31,16 @@ internal static class FightingStyleFeats
             .GetDatabase<FightingStyleDefinition>()
             .GetElement(style);
 
-        return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-            .Create($"Feat{style}", FightingStyleFeatsNamespace)
-            .SetFeatures(
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"ProficiencyFeat{style}", FightingStyleFeatsNamespace)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, style)
-                    .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
-                    .AddToDB()
-            )
-            .SetValidators((_, hero) =>
-            {
-                var hasFightingStyle = hero.TrainedFightingStyles
-                    .Any(x => x.Name == style);
-
-                if (!hasFightingStyle)
-                {
-                    return (true,
-                        Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
-                            fightingStyle.FormatTitle()));
-                }
-
-                return (false,
-                    Gui.Colorize(
-                        Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
-                            fightingStyle.FormatTitle()),
-                        "EA7171"));
-            })
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
+        return BuildFightingStyleFeat(fightingStyle);
     }
 
     private static FeatDefinition BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)
     {
         return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-            .Create($"Feat{fightingStyle.Name}", FightingStyleFeatsNamespace)
+            .Create($"Feat{fightingStyle.Name}", DefinitionBuilder.CENamespaceGuid)
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
-                    .Create($"ProficiencyFeat{fightingStyle.Name}", FightingStyleFeatsNamespace)
+                    .Create($"ProficiencyFeat{fightingStyle.Name}", DefinitionBuilder.CENamespaceGuid)
                     .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, fightingStyle.Name)
                     .SetGuiPresentation(fightingStyle.GuiPresentation)
                     .AddToDB()
@@ -96,7 +63,7 @@ internal static class FightingStyleFeats
                             fightingStyle.FormatTitle()),
                         "EA7171"));
             })
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(fightingStyle.GuiPresentation)
             .AddToDB();
     }
 }
