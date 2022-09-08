@@ -269,7 +269,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Primal Rage [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
-[*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+[*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
 If you have free hand, you can shove as a bonus action.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:

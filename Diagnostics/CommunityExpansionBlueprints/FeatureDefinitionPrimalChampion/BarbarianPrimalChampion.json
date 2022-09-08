@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaCommunityExpansion.Level20.Features.FeatureDefinitionPrimalChampion, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.Level20.FeatureDefinitionPrimalChampion, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PrimalChampionTitle",
-    "description": "Feature/&PrimalChampionDescription",
+    "title": "Feature/&BarbarianPrimalChampionTitle",
+    "description": "Feature/&BarbarianPrimalChampionDescription",
     "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -21,5 +21,5 @@
   "contentCopyright": "UserContent",
   "guid": "118a5ea1-8a19-4bee-9db1-7a2464c8e7b5",
   "contentPack": 9999,
-  "name": "ZSPrimalChampion"
+  "name": "BarbarianPrimalChampion"
 }

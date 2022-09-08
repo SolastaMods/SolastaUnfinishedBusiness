@@ -24,6 +24,7 @@
       "condition": "Definition:ConditionConfusedAttack:5abe994a151fff24f92ef7a490cb35b2"
     }
   ],
+  "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

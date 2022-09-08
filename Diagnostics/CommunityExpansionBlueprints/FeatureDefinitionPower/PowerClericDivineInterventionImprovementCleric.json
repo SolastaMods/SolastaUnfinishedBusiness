@@ -282,6 +282,7 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
@@ -346,5 +347,5 @@
   "contentCopyright": "UserContent",
   "guid": "cc4303e4-114e-43aa-a7ee-e197c9f8ef40",
   "contentPack": 9999,
-  "name": "ZSPowerClericDivineInterventionImprovementCleric"
+  "name": "PowerClericDivineInterventionImprovementCleric"
 }

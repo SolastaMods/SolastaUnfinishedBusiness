@@ -1,5 +1,7 @@
 9999	Title='ContentPack/&9999Title'.
 9999	Description='ContentPack/&9999Description'.
+BarbarianPrimalChampion	Title='Feature/&BarbarianPrimalChampionTitle'.
+BarbarianPrimalChampion	Description='Feature/&BarbarianPrimalChampionDescription'.
 ConditionFrenzied	Title='Condition/&FrenziedTitle'.
 ConditionFrenzied	Description='Condition/&FrenziedDescription'.
 Debilitated	Title='Condition/&DebilitatedConditionTitle'.

@@ -15,10 +15,10 @@ Feature/&ProficiencyRogueSlipperyMindTitle=Slippery	Mind
 Feature/&RangerFeralSensesDescription=You	gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
 Feature/&RangerFeralSensesTitle=Feral	Senses
 Feature/&RangerVanishActionDescription=Starting	at 14th level, you can use the Hide action as a bonus action on your turn.
-Feature/&ZSPowerPaladinCleansingTouchDescription=Remove	spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
-Feature/&ZSPowerPaladinCleansingTouchTitle=Cleansing	Touch
-RestActivity/&ZSSorcerousRestorationDescription=Regain	4 sorcery points during a short rest.
-RestActivity/&ZSSorcerousRestorationTitle=Sorcerous	Restoration
+Feature/&PowerPaladinCleansingTouchDescription=Remove	spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
+Feature/&PowerPaladinCleansingTouchTitle=Cleansing	Touch
+RestActivity/&SorcerousRestorationDescription=Regain	4 sorcery points during a short rest.
+RestActivity/&SorcerousRestorationTitle=Sorcerous	Restoration
 ModUi/&AddAllToStore=Add	all to store
 ModUi/&AddBleedingToLesserRestoration=Add	the <color=#D89555>Bleeding</color> condition to the conditions removed by <color=#D89555>Greater and Lesser Restoration</color>
 ModUi/&AddHelpActionToAllRaces=Add	the <color=#D89555>Help</color> action to all races
@@ -219,7 +219,7 @@ Reaction/&Use{0}Description=Use	{0}
 Reaction/&Use{0}Title=Use	{0}
 Requirement/&FeatureSelectionRequireCharacterLevel=Level	{0}
 Requirement/&FeatureSelectionRequireClassLevel=Level	{0} of {1}
-RestActivity/&ZSRespecDescription=Respec	this Hero.
+RestActivity/&RespecDescription=Respec	this Hero.
 Screen/&EditorLocationSize3Title=Huge	[MODDED]
 Screen/&EditorLocationSize4Title=Gargantuan	[MODDED]
 Screen/&MulticlassExtraSpellDescription=You	know this spell from other repertoire.
