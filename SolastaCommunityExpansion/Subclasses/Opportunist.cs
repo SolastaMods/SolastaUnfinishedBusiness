@@ -6,7 +6,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses.Rogue;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class Opportunist : AbstractSubclass
 {

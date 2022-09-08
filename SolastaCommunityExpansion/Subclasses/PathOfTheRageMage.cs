@@ -14,7 +14,7 @@ using static RuleDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses.Barbarian;
+namespace SolastaCommunityExpansion.Subclasses;
 
 // creating subclass Class, don't forget to add subclass to Models/SubclassesContext.cs and create a txt file in Translations
 internal sealed class PathOfTheRageMage : AbstractSubclass

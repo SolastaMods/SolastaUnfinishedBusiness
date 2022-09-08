@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
-namespace SolastaCommunityExpansion.Subclasses.Paladin;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class OathOfRetribution : AbstractSubclass
 {

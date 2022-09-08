@@ -7,7 +7,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses.Rogue;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class ConArtist : AbstractSubclass
 {

@@ -7,7 +7,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses.Sorcerer;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class DivineHeart : AbstractSubclass
 {

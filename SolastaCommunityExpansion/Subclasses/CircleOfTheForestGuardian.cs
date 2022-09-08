@@ -10,7 +10,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses.Druid;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 {

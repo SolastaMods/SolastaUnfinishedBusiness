@@ -6,7 +6,7 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses.Wizard;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class ArcaneFighter : AbstractSubclass
 {

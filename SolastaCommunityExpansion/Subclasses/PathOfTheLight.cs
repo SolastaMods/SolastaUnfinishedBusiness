@@ -12,7 +12,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
-namespace SolastaCommunityExpansion.Subclasses.Barbarian;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class PathOfTheLight : AbstractSubclass
 {

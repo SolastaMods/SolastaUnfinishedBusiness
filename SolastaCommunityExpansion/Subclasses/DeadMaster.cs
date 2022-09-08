@@ -15,7 +15,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses.Wizard;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class DeadMaster : AbstractSubclass
 {

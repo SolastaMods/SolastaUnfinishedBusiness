@@ -3,14 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Subclasses;
-using SolastaCommunityExpansion.Subclasses.Barbarian;
-using SolastaCommunityExpansion.Subclasses.Druid;
-using SolastaCommunityExpansion.Subclasses.Fighter;
-using SolastaCommunityExpansion.Subclasses.Paladin;
-using SolastaCommunityExpansion.Subclasses.Ranger;
-using SolastaCommunityExpansion.Subclasses.Rogue;
-using SolastaCommunityExpansion.Subclasses.Sorcerer;
-using SolastaCommunityExpansion.Subclasses.Wizard;
 
 namespace SolastaCommunityExpansion.Models;
 

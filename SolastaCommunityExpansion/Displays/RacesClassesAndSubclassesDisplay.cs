@@ -1,7 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Subclasses.Rogue;
-using SolastaCommunityExpansion.Subclasses.Wizard;
+using SolastaCommunityExpansion.Subclasses;
 using static SolastaCommunityExpansion.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Displays;

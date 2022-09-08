@@ -13,7 +13,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionMagic
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses.Ranger;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class Arcanist : AbstractSubclass
 {

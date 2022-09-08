@@ -9,7 +9,7 @@ using SolastaCommunityExpansion.Utils;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
-namespace SolastaCommunityExpansion.Subclasses.Rogue;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class Raven : AbstractSubclass
 {

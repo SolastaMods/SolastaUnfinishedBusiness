@@ -5,7 +5,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
-namespace SolastaCommunityExpansion.Subclasses.Wizard;
+namespace SolastaCommunityExpansion.Subclasses;
 
 internal sealed class SpellMaster : AbstractSubclass
 {
