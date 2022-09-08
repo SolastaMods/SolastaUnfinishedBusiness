@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Level20;
 
 internal sealed class PowerClericTurnUndeadBuilder : FeatureDefinitionPowerBuilder
 {
-    private const string PowerClericTurnUndead17Name = "ZSPowerClericTurnUndead17";
+    private const string PowerClericTurnUndead17Name = "PowerClericTurnUndead17";
     private const string PowerClericTurnUndead17Guid = "b0ef65ba1e784628b1c5b4af75d4f395";
 
     internal static readonly FeatureDefinitionPower PowerClericTurnUndead17 =

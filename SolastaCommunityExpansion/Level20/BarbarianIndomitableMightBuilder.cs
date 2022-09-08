@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Level20;
 internal sealed class FeatureDefinitionIndomitableMightBuilder : FeatureDefinitionBuilder<
     FeatureDefinitionIndomitableMight, FeatureDefinitionIndomitableMightBuilder>
 {
-    private const string IndomitableMightName = "ZSBarbarianIndomitableMight";
+    private const string IndomitableMightName = "BarbarianIndomitableMight";
     private const string IndomitableMightGuid = "2a0e9082-c81d-4d02-800a-92f04fbe85dc";
 
     internal static readonly FeatureDefinition FeatureDefinitionIndomitableMight =

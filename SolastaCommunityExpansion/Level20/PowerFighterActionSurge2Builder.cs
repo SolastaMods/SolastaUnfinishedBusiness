@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Level20;
 
 internal sealed class PowerFighterActionSurge2Builder : FeatureDefinitionPowerBuilder
 {
-    private const string PowerFighterActionSurgeName = "ZSPowerFighterActionSurge2";
+    private const string PowerFighterActionSurgeName = "PowerFighterActionSurge2";
     private const string PowerFighterActionSurgeGuid = "a20a3955a66142e5ba9d2580a71b6c36";
 
     internal static readonly FeatureDefinitionPower PowerFighterActionSurge2 =

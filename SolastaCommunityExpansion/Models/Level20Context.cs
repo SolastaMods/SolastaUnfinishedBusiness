@@ -8,7 +8,6 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAutoP
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaCommunityExpansion.Level20.AttributeModifierFighterIndomitableBuilder;
 using static SolastaCommunityExpansion.Level20.PowerClericDivineInterventionImprovementBuilder;
 using static SolastaCommunityExpansion.Level20.PowerClericTurnUndeadBuilder;
 using static SolastaCommunityExpansion.Level20.PowerFighterActionSurge2Builder;
@@ -111,7 +110,7 @@ internal static class Level20Context
         Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(PowerFighterActionSurge2, 17),
-            new(AttributeModifierFighterIndomitableAdd, 17),
+            new(AttributeModifierFighterIndomitableAdd1, 17),
             new(FeatureSetAbilityScoreChoice, 19),
             new(AttributeModifierFighterExtraAttack, 20)
         });

@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Level20;
 
 internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilder
 {
-    private const string SorcerousRestorationName = "ZSSorcerousRestoration";
+    private const string SorcerousRestorationName = "SorcerousRestoration";
     private const string SorcerousRestorationGuid = "a524f8eb-8d30-4614-819d-a8f7df84f73e";
 
     internal static readonly FeatureDefinitionPower SorcerousRestoration =
@@ -36,7 +36,7 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
         Definition.effectDescription = restoration.Build();
 
         var gui = new GuiPresentationBuilder(
-            "RestActivity/&ZSSorcerousRestorationTitle", "RestActivity/&ZSSorcerousRestorationDescription",
+            "RestActivity/&SorcerousRestorationTitle", "RestActivity/&SorcerousRestorationDescription",
             DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation
                 .SpriteReference);
         Definition.guiPresentation = gui.Build();
@@ -51,7 +51,7 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
 
     private sealed class RestActivityBuilder : RestActivityDefinitionBuilder
     {
-        private const string SorcerousRestorationRestName = "ZSSorcerousRestorationRest";
+        private const string SorcerousRestorationRestName = "SorcerousRestorationRest";
         private const string SorcerousRestorationRestGuid = "5ee0315b-43b6-4dd9-8dd4-1eeded1cdb0e";
 
         // An alternative pattern for lazily creating definition.
@@ -60,8 +60,8 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
         private RestActivityBuilder(string name, string guid) : base(
             DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name, guid)
         {
-            Definition.GuiPresentation.Title = "RestActivity/&ZSSorcerousRestorationTitle";
-            Definition.GuiPresentation.Description = "RestActivity/&ZSSorcerousRestorationDescription";
+            Definition.GuiPresentation.Title = "RestActivity/&SorcerousRestorationTitle";
+            Definition.GuiPresentation.Description = "RestActivity/&SorcerousRestorationDescription";
             Definition.stringParameter = SorcerousRestorationName;
         }
 

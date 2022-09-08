@@ -25,7 +25,7 @@ public static class RespecContext
 
     private static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
         .Create(RespecName, "40824029eb224fb581f0d4e5989b6735")
-        .SetGuiPresentation("RestActivity/&ZSRespecTitle", "RestActivity/&ZSRespecDescription")
+        .SetGuiPresentation("RestActivity/&RespecTitle", "RestActivity/&RespecDescription")
         .SetRestData(
             RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
             RestActivityDefinition.ActivityCondition.None, RespecName, string.Empty)
@@ -72,7 +72,7 @@ public static class RespecContext
             {
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Informative1,
-                    "RestActivity/&ZSRespecTitle", "Message/&RespecMultiplayerAbortDescription",
+                    "RestActivity/&RespecTitle", "Message/&RespecMultiplayerAbortDescription",
                     "Message/&MessageOkTitle", string.Empty,
                     null, null);
 

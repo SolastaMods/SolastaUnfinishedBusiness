@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Level20;
 
 internal sealed class PowerPaladinAuraOfCourage18Builder : FeatureDefinitionPowerBuilder
 {
-    private const string PowerPaladinAuraOfCourage18Name = "ZSPowerPaladinAuraOfCourage18";
+    private const string PowerPaladinAuraOfCourage18Name = "PowerPaladinAuraOfCourage18";
     private const string PowerPaladinAuraOfCourage18Guid = "d68c46024ea8432b981506a13ae35ecd";
     private static FeatureDefinitionPower _instance;
 

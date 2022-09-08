@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Level20;
 internal sealed class
     RangerFeralSensesBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, RangerFeralSensesBuilder>
 {
-    private const string RangerFeralSensesName = "ZSRangerFeralSenses";
+    private const string RangerFeralSensesName = "RangerFeralSenses";
     private const string RangerFeralSensesGuid = "0e3207505ac04a499477ca1185287117";
 
     internal static readonly FeatureDefinitionSense RangerFeralSenses =
