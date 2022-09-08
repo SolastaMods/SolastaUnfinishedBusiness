@@ -12,13 +12,13 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerTorchbearer:22c560c7-1dc9-5de0-946f-5e63033a902c"
+    "Definition:OnAttackDamageEffectDualFlurry:48febc81-0d09-5666-a16d-93e22a5a7490"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&TorchbearerTitle",
-    "description": "Feat/&TorchbearerDescription",
+    "title": "Feat/&DualFlurryTitle",
+    "description": "Feat/&DualFlurryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9c7afc75-b518-59f9-bc24-b01b24ec305f",
+  "guid": "f4bb3c01-6a7e-56a7-bcbf-639a37fc3000",
   "contentPack": 9999,
-  "name": "TorchbearerFeat"
+  "name": "FeatDualFlurry"
 }

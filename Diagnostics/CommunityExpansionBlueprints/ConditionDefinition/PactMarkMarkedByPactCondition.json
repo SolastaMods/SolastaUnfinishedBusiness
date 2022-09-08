@@ -2,13 +2,11 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
-  "features": [
-    "Definition:AHPactMarkAdditionalDamage:56d09ac0-8691-502f-9175-2d9a39e76545"
-  ],
+  "conditionType": "Detrimental",
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Round",
@@ -16,9 +14,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "None"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -29,7 +25,7 @@
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
-  "additionalDamageType": "",
+  "additionalDamageType": "DamageAcid",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
   "additionalDamageDieNumber": 1,
@@ -185,7 +181,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -226,14 +222,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Spell/&AHPactMarkPactMarkConditionTitle",
-    "description": "Spell/&AHPactMarkPactMarkConditionDescription",
+    "hidden": false,
+    "title": "Spell/&PactMarkMarkedByPactConditionTitle",
+    "description": "Spell/&PactMarkMarkedByPactConditionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",
+      "m_SubObjectName": "ConditionTargeted",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -248,7 +244,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c17bef75-6fc9-5e5b-8ed8-396b1fe86199",
+  "guid": "9fcd9591-8b9c-590f-b496-77d2de5e234e",
   "contentPack": 9999,
-  "name": "AHPactMarkPactMarkCondition"
+  "name": "PactMarkMarkedByPactCondition"
 }

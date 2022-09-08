@@ -15,23 +15,23 @@ internal static class ElAntoniousFeats
 {
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        feats.Add(DualFlurryFeatBuilder.DualFlurryFeat);
-        feats.Add(TorchbearerFeatBuilder.TorchbearerFeat);
+        feats.Add(FeatDualFlurryBuilder.FeatDualFlurry);
+        feats.Add(FeatTorchbearerBuilder.FeatTorchbearer);
     }
 }
 
-internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
+internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
 {
-    private const string DualFlurryFeatName = "DualFlurryFeat";
+    private const string FeatDualFlurryName = "FeatDualFlurry";
     public static readonly Guid DualFlurryGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
 
-    private static readonly string DualFlurryFeatNameGuid =
-        GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
+    private static readonly string FeatDualFlurryNameGuid =
+        GuidHelper.Create(DualFlurryGuid, FeatDualFlurryName).ToString();
 
-    public static readonly FeatDefinition DualFlurryFeat =
-        CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
+    public static readonly FeatDefinition FeatDualFlurry =
+        CreateAndAddToDB(FeatDualFlurryName, FeatDualFlurryNameGuid);
 
-    private DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
+    private FeatDualFlurryBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
         name, guid)
     {
         Definition.GuiPresentation.Title = "Feat/&DualFlurryTitle";
@@ -45,13 +45,13 @@ internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
 
     private static FeatDefinition CreateAndAddToDB(string name, string guid)
     {
-        return new DualFlurryFeatBuilder(name, guid).AddToDB();
+        return new FeatDualFlurryBuilder(name, guid).AddToDB();
     }
 
     private static FeatureDefinition BuildFeatureDualFlurry()
     {
         return FeatureDefinitionOnAttackDamageEffectBuilder
-            .Create("FeatureDualFlurry", DualFlurryGuid)
+            .Create("OnAttackDamageEffectDualFlurry", DualFlurryGuid)
             .SetGuiPresentation("DualFlurry", Category.Feat)
             .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
             .AddToDB();
@@ -107,7 +107,7 @@ internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuild
     private static ConditionDefinition CreateAndAddToDB()
     {
         return new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply",
-                GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString())
+                GuidHelper.Create(FeatDualFlurryBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString())
             .AddToDB();
     }
 
@@ -116,7 +116,7 @@ internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuild
     {
         var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
         return db.TryGetElement("ConditionDualFlurryApply",
-                   GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply")
+                   GuidHelper.Create(FeatDualFlurryBuilder.DualFlurryGuid, "ConditionDualFlurryApply")
                        .ToString()) ??
                CreateAndAddToDB();
     }
@@ -146,7 +146,7 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
     private static ConditionDefinition CreateAndAddToDB()
     {
         return new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant",
-                GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString())
+                GuidHelper.Create(FeatDualFlurryBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString())
             .AddToDB();
     }
 
@@ -155,7 +155,7 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
     {
         var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
         return db.TryGetElement("ConditionDualFlurryGrant",
-                   GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant")
+                   GuidHelper.Create(FeatDualFlurryBuilder.DualFlurryGuid, "ConditionDualFlurryGrant")
                        .ToString()) ??
                CreateAndAddToDB();
     }
@@ -163,7 +163,7 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
     private static FeatureDefinition BuildAdditionalActionDualFlurry()
     {
         return FeatureDefinitionAdditionalActionBuilder
-            .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry", DualFlurryFeatBuilder.DualFlurryGuid)
+            .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry", FeatDualFlurryBuilder.DualFlurryGuid)
             .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain.GuiPresentation.SpriteReference)
             .SetActionType(ActionDefinitions.ActionType.Bonus)
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
@@ -171,18 +171,18 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
     }
 }
 
-internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
+internal sealed class FeatTorchbearerBuilder : FeatDefinitionBuilder
 {
-    private const string TorchbearerFeatName = "TorchbearerFeat";
+    private const string FeatTorchbearerName = "FeatTorchbearer";
     private static readonly Guid TorchbearerGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
 
-    private static readonly string TorchbearerFeatNameGuid =
-        GuidHelper.Create(TorchbearerGuid, TorchbearerFeatName).ToString();
+    private static readonly string FeatTorchbearerNameGuid =
+        GuidHelper.Create(TorchbearerGuid, FeatTorchbearerName).ToString();
 
-    public static readonly FeatDefinition TorchbearerFeat =
-        CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
+    public static readonly FeatDefinition FeatTorchbearer =
+        CreateAndAddToDB(FeatTorchbearerName, FeatTorchbearerNameGuid);
 
-    private TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
+    private FeatTorchbearerBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
         name, guid)
     {
         Definition.GuiPresentation.Title = "Feat/&TorchbearerTitle";
@@ -196,7 +196,7 @@ internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
 
     private static FeatDefinition CreateAndAddToDB(string name, string guid)
     {
-        return new TorchbearerFeatBuilder(name, guid).AddToDB();
+        return new FeatTorchbearerBuilder(name, guid).AddToDB();
     }
 
     private static FeatureDefinition BuildFeatureTorchbearer()

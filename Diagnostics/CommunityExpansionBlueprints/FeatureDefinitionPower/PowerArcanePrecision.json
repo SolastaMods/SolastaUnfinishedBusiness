@@ -79,7 +79,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:FeatureAttackModifierArcanePrecision:183f5f66-4e69-5405-b8fa-a4e743db5d0b",
+              "featureDefinition": "Definition:AttackModifierArcanePrecision:91523255-4639-5af5-a32c-a73bc17891f5",
               "level": 0
             }
           ],
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3cf024db-f8c6-5a98-80e9-4a69e6c15282",
+  "guid": "8e253993-16ba-55de-81a4-f61ad2b09f7f",
   "contentPack": 9999,
   "name": "PowerArcanePrecision"
 }

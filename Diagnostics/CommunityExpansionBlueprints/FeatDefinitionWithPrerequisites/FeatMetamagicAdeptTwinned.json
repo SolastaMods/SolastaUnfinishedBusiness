@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:94de12b7-820d-5d74-ab92-813d409a29c0",
+    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
     "Definition:MetamagicLearnTwinned:84572060-3187-41f7-abad-30ad4a217511"
   ],
   "guiPresentation": {
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "73389655-933c-5da2-b224-32e96bbf4863",
+  "guid": "0612a255-5850-5494-a484-3259ecbd364c",
   "contentPack": 9999,
   "name": "FeatMetamagicAdeptTwinned"
 }

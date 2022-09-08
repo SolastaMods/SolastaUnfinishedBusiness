@@ -12,13 +12,13 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatureDualFlurry:baf864a5-d9d9-5e5f-aa36-a65360b41cf3"
+    "Definition:PowerTorchbearer:22c560c7-1dc9-5de0-946f-5e63033a902c"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&DualFlurryTitle",
-    "description": "Feat/&DualFlurryDescription",
+    "title": "Feat/&TorchbearerTitle",
+    "description": "Feat/&TorchbearerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4e75dbb0-5fdb-5866-bd2b-05113ddd7bf8",
+  "guid": "cccb7e16-d940-5f5c-b0c3-8f4acfe06097",
   "contentPack": 9999,
-  "name": "DualFlurryFeat"
+  "name": "FeatTorchbearer"
 }

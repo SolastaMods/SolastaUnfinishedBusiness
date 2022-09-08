@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:94de12b7-820d-5d74-ab92-813d409a29c0",
+    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
     "Definition:MetamagicLearnExtended:944b8533-3821-496d-a200-ae5e5a0a82a9"
   ],
   "guiPresentation": {
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b1fb70ec-a938-531a-8ce2-8c5e53fca801",
+  "guid": "bb1d4191-0b83-5c0a-adbd-2286bff15cbb",
   "contentPack": 9999,
   "name": "FeatMetamagicAdeptExtended"
 }

@@ -279,7 +279,7 @@ If you have a free hand, you can shove as a bonus action.
 • You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
 [*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
-[*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when you roll a 1 (This does not reroll dice from all damage sources. For example, sneak attack and smite damage is not rerolled).
+[*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when you roll a 1 (This does not reroll dice from all damage sources. For example, sneak attack and smite damage is not re-rolled).
 [*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.

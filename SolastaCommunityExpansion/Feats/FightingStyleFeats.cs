@@ -63,7 +63,7 @@ internal static class FightingStyleFeats
                             fightingStyle.FormatTitle()),
                         "EA7171"));
             })
-            .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
+            .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
 

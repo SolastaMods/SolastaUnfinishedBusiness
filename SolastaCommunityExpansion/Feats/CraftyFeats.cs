@@ -74,7 +74,7 @@ public static class CraftyFeats
 
         var craftyBows = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyBows", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ProficiencyCraftyBowsTitle", "Feat/&ProficiencyCraftyBowsDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftyBowsTitle", "Feature/&ProficiencyCraftyBowsDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, ShortbowType.Name, LongbowType.Name,
                 LightCrossbowType.Name,
                 HeavyCrossbowType.Name)

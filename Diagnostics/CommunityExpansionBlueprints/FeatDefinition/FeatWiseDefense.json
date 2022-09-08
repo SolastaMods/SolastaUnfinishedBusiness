@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:AttributeModifierFeatWiseDefenseAdd:c0f4229b-ed2a-59c1-be61-f16cd5568870"
+    "Definition:AttributeModifierFeatWiseDefenseAdd:c2efccfb-1144-59c1-83b7-593f1972dfba"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "831c7293-2c16-5c24-9024-f12118c8110b",
+  "guid": "e462dc4b-d1fb-5fbd-80a9-1ae6b4ef3398",
   "contentPack": 9999,
   "name": "FeatWiseDefense"
 }

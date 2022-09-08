@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatCharismaticPrecisionTitle",
-    "description": "Feat/&FeatCharismaticPrecisionDescription",
+    "title": "Feat/&FeatArcanePrecisionTitle",
+    "description": "Feat/&FeatArcanePrecisionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5f42de79-e2d1-5e92-ad51-2bc370ff3736",
+  "guid": "91523255-4639-5af5-a32c-a73bc17891f5",
   "contentPack": 9999,
-  "name": "FeatureAttackModifierCharismaticPrecision"
+  "name": "AttackModifierArcanePrecision"
 }

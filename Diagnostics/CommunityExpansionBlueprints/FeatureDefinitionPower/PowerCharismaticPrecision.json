@@ -79,7 +79,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:FeatureAttackModifierCharismaticPrecision:5f42de79-e2d1-5e92-ad51-2bc370ff3736",
+              "featureDefinition": "Definition:AttackModifierCharismaticPrecision:ce7708f2-dec6-5e71-a5a8-e744327fa8ec",
               "level": 0
             }
           ],
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "15ec8d63-ebba-5b70-a7f9-88bd8f22d208",
+  "guid": "3da14336-48a9-512e-8602-210aa3569201",
   "contentPack": 9999,
   "name": "PowerCharismaticPrecision"
 }

@@ -6,7 +6,7 @@
   "triggerCondition": "TargetHasConditionCreatedByMe",
   "requiredProperty": "None",
   "attackModeOnly": false,
-  "requiredTargetCondition": "Definition:AHPactMarkMarkedByPactCondition:d6c4664d-535d-5309-99f8-73f2a402da84",
+  "requiredTargetCondition": "Definition:PactMarkMarkedByPactCondition:9fcd9591-8b9c-590f-b496-77d2de5e234e",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
@@ -90,8 +90,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&AHPactMarkAdditionalDamageTitle",
-    "description": "Spell/&AHPactMarkAdditionalDamageDescription",
+    "title": "Spell/&PactMarkAdditionalDamageTitle",
+    "description": "Spell/&PactMarkAdditionalDamageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -111,7 +111,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "56d09ac0-8691-502f-9175-2d9a39e76545",
+  "guid": "4074a580-c9d1-5db4-9386-192b158afa9f",
   "contentPack": 9999,
-  "name": "AHPactMarkAdditionalDamage"
+  "name": "PactMarkAdditionalDamage"
 }

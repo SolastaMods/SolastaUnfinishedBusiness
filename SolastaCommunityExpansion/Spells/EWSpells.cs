@@ -29,7 +29,7 @@ internal static class EwSpells
             hasSavingThrow = false,
             operation = ConditionOperation.Add,
             conditionDefinition = ConditionDefinitionBuilder
-                .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "EWSunlightBladeHighlighted",
+                .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "SunlightBladeHighlighted",
                     DefinitionBuilder.CENamespaceGuid)
                 .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
                 .SetDuration(RuleDefinitions.DurationType.Round, 1)
@@ -49,7 +49,7 @@ internal static class EwSpells
         };
 
         return SpellDefinitionBuilder
-            .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)
+            .Create("SunlightBlade", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell,
                 CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Resources.SunlightBlade, 128,
                     128))
@@ -89,14 +89,14 @@ internal static class EwSpells
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("EWSunlightBladeDamage", DefinitionBuilder.CENamespaceGuid)
+                            .Create("SunlightBladeDamage", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(Category.Condition)
                             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacks)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                             .SetDuration(RuleDefinitions.DurationType.Round, 1)
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create("EWSunlightBladeDamageBonus", DefinitionBuilder.CENamespaceGuid)
+                                .Create("SunlightBladeDamageBonus", DefinitionBuilder.CENamespaceGuid)
                                 .Configure(
                                     "SunlightBlade",
                                     RuleDefinitions.FeatureLimitedUsage.None,
@@ -151,7 +151,7 @@ internal static class EwSpells
             .Build();
 
         var resonanceLeap = SpellDefinitionBuilder
-            .Create("EWResonatingStrikeLeap", DefinitionBuilder.CENamespaceGuid)
+            .Create("ResonatingStrikeLeap", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetSpellLevel(1)
             .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
@@ -183,7 +183,7 @@ internal static class EwSpells
 
 
         return SpellDefinitionBuilder
-            .Create("EWResonatingStrike", DefinitionBuilder.CENamespaceGuid)
+            .Create("ResonatingStrike", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell,
                 CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Resources.ResonatingStrike,
                     128, 128)) //TODO: replace sprite with actual image
@@ -226,14 +226,14 @@ internal static class EwSpells
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("EWResonatingStrikeDamage", DefinitionBuilder.CENamespaceGuid)
+                            .Create("ResonatingStrikeDamage", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(Category.Condition)
                             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacks)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                             .SetDuration(RuleDefinitions.DurationType.Round, 1)
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create("EWResonatingStrikeDamageBonus", DefinitionBuilder.CENamespaceGuid)
+                                .Create("ResonatingStrikeDamageBonus", DefinitionBuilder.CENamespaceGuid)
                                 .Configure(
                                     "ResonatingStrike",
                                     RuleDefinitions.FeatureLimitedUsage.None,

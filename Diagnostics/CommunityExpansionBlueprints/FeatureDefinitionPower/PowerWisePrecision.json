@@ -79,7 +79,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierWisePrecision:7f5b4c3c-3058-5f1c-a524-b4b738ecf132",
+              "featureDefinition": "Definition:AttackModifierWisePrecision:75531868-bc6a-574c-b08f-74db00fe6215",
               "level": 0
             }
           ],
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0684f40d-2985-5d8c-996a-bfaf338c8a02",
+  "guid": "b17877a0-5dcf-5c4b-be38-2401c5596258",
   "contentPack": 9999,
   "name": "PowerWisePrecision"
 }

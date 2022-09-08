@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
-    "Definition:AttributeModifierFeatArcaneDefenseAdd:d4b40bc7-2251-5c67-8453-b374ee858979"
+    "Definition:AttributeModifierFeatArcaneDefenseAdd:254a38f0-cac9-51c5-8972-4924da9d2bb4"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dee83982-8c53-55b8-8f03-5178898b3d36",
+  "guid": "cfc34cc9-97b0-5eec-a3ae-2014c544e1e8",
   "contentPack": 9999,
   "name": "FeatArcaneDefense"
 }

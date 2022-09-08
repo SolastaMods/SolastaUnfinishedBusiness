@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "SunlightBlade",
+  "notificationTag": "ResonatingStrike",
   "limitedUsage": "None",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
@@ -15,7 +15,7 @@
   "damageDieType": "D8",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamageRadiant",
+  "specificDamageType": "DamageThunder",
   "damageAdvancement": "SlotLevel",
   "diceByRankTable": [
     {
@@ -121,46 +121,16 @@
   ],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
-  "ignoreCriticalDoubleDice": false,
+  "ignoreCriticalDoubleDice": true,
   "hasSavingThrow": false,
   "savingThrowAbility": "Dexterity",
   "dcComputation": "FixedValue",
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
-  "conditionOperations": [
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": false,
-      "operation": "Add",
-      "conditionName": "",
-      "conditionDefinition": "Definition:EWSunlightBladeHighlighted:77d7e56c-8b5d-5f95-9a5a-b57fce73b0cc",
-      "saveAffinity": "None",
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn"
-    }
-  ],
-  "addLightSource": true,
-  "lightSourceForm": {
-    "$type": "LightSourceForm, Assembly-CSharp",
-    "lightSourceType": "Basic",
-    "brightRange": 0,
-    "dimAdditionalRange": 2,
-    "color": {
-      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.9,
-      "g": 0.8,
-      "b": 0.4,
-      "a": 1.0
-    },
-    "graphicsPrefabReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "fc7cb53da57a8fb40a278d62a885ce58",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "applyToSelf": false
-  },
+  "conditionOperations": [],
+  "addLightSource": false,
+  "lightSourceForm": null,
   "impactParticleReference": null,
   "particlesBasedOnAncestryDamageType": false,
   "acidImpactParticleReference": null,
@@ -188,7 +158,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a63c2b93-2a11-5742-b23b-791a93e0bfae",
+  "guid": "848aa912-5a7d-56a3-81c3-ee00e2de31da",
   "contentPack": 9999,
-  "name": "EWSunlightBladeDamageBonus"
+  "name": "ResonatingStrikeDamageBonus"
 }

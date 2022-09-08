@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:EWSunlightBladeDamageBonus:a63c2b93-2a11-5742-b23b-791a93e0bfae"
+    "Definition:SunlightBladeDamageBonus:43232653-cd80-5f3f-95f1-06b048150d87"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -127,8 +127,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&EWSunlightBladeDamageTitle",
-    "description": "Condition/&EWSunlightBladeDamageDescription",
+    "title": "Condition/&SunlightBladeDamageTitle",
+    "description": "Condition/&SunlightBladeDamageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e1a488e5-fcf5-5272-8fc9-db219aa17e1c",
+  "guid": "b2cda689-fc89-5e3d-861f-8809c071e1ea",
   "contentPack": 9999,
-  "name": "EWSunlightBladeDamage"
+  "name": "SunlightBladeDamage"
 }

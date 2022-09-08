@@ -18,8 +18,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&PickPocketFeatTitle",
-    "description": "Feat/&PickPocketFeatDescription",
+    "title": "Feat/&FeatPickPocketTitle",
+    "description": "Feat/&FeatPickPocketDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,5 +41,5 @@
   "contentCopyright": "UserContent",
   "guid": "947a31fc-4990-45a5-bcfd-6c478b4dff8a",
   "contentPack": 9999,
-  "name": "PickPocketFeat"
+  "name": "FeatPickPocket"
 }

@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:EWResonatingStrikeDamageBonus:4c966c34-fc19-5bc1-abf0-e96916eb4aa9"
+    "Definition:ResonatingStrikeDamageBonus:848aa912-5a7d-56a3-81c3-ee00e2de31da"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -127,8 +127,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&EWResonatingStrikeDamageTitle",
-    "description": "Condition/&EWResonatingStrikeDamageDescription",
+    "title": "Condition/&ResonatingStrikeDamageTitle",
+    "description": "Condition/&ResonatingStrikeDamageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "07e61a8b-8de8-5a52-b605-b83d5a459031",
+  "guid": "8c70b022-8059-56ce-84ac-dc251d602f3d",
   "contentPack": 9999,
-  "name": "EWResonatingStrikeDamage"
+  "name": "ResonatingStrikeDamage"
 }

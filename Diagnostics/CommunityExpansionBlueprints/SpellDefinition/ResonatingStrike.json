@@ -13,18 +13,18 @@
   "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 1,
+    "rangeType": "Distance",
+    "rangeParameter": 5,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 2,
     "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
-    "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "requiresTargetProximity": true,
+    "targetProximityDistance": 1,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -87,8 +87,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "EWSunlightBladeDamage",
-          "conditionDefinition": "Definition:EWSunlightBladeDamage:e1a488e5-fcf5-5272-8fc9-db219aa17e1c",
+          "conditionDefinitionName": "ResonatingStrikeDamage",
+          "conditionDefinition": "Definition:ResonatingStrikeDamage:8c70b022-8059-56ce-84ac-dc251d602f3d",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -313,11 +313,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&EWSunlightBladeTitle",
-    "description": "Spell/&EWSunlightBladeDescription",
+    "title": "Spell/&ResonatingStrikeTitle",
+    "description": "Spell/&ResonatingStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "be056650f9ad5dc398e9acd10c9c362d",
+      "m_AssetGUID": "0b77d7d8cada50c98e0d8dbb46184739",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c029fa17-9c85-5e1b-950c-e0a9cd958d40",
+  "guid": "c8ecadb8-8b2a-57dd-93dd-41f6557ef52d",
   "contentPack": 9999,
-  "name": "EWSunlightBlade"
+  "name": "ResonatingStrike"
 }

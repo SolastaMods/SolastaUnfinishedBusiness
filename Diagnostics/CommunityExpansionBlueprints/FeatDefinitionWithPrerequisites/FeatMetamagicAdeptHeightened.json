@@ -12,8 +12,8 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:94de12b7-820d-5d74-ab92-813d409a29c0",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:94de12b7-820d-5d74-ab92-813d409a29c0",
+    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
+    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
     "Definition:MetamagicLearnHeightened:8a74dca9-b0a7-4519-aa84-d682a0272e7c"
   ],
   "guiPresentation": {
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8420d5d0-e5e6-575a-9ae7-6ebc8bd454bd",
+  "guid": "ea1bfbbe-f79e-5668-9852-a59867cfb984",
   "contentPack": 9999,
   "name": "FeatMetamagicAdeptHeightened"
 }
