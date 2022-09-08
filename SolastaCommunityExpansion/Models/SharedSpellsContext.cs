@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using static FeatureDefinitionCastSpell;
-using static SolastaCommunityExpansion.Level20.SpellsHelper;
+using static SolastaCommunityExpansion.Models.SpellsHelper;
 using static SolastaCommunityExpansion.Models.IntegrationContext;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;

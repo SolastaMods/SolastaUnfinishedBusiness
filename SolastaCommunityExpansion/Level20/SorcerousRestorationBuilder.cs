@@ -2,7 +2,7 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 
-namespace SolastaCommunityExpansion.Level20.Features;
+namespace SolastaCommunityExpansion.Level20;
 
 internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilder
 {

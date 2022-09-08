@@ -1,7 +1,7 @@
 ﻿using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionSenses;
 
-namespace SolastaCommunityExpansion.Level20.Features;
+namespace SolastaCommunityExpansion.Level20;
 
 internal sealed class
     RangerFeralSensesBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, RangerFeralSensesBuilder>

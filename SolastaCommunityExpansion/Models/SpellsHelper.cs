@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using static FeatureDefinitionCastSpell;
 
-namespace SolastaCommunityExpansion.Level20;
+namespace SolastaCommunityExpansion.Models;
 
 // keep public as CE:MC depends on it
 public static class SpellsHelper

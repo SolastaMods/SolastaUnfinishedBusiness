@@ -45,7 +45,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetSpellKnowledge(SpellKnowledge.Selection) // you learn new spells at certain levels
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest) // Spell slots back at long rest
-            .SetReplacedSpells(SpellsHelper.OneThirdCasterReplacedSpells)
+            .SetReplacedSpells(Models.SpellsHelper.OneThirdCasterReplacedSpells)
             .SetKnownCantrips(2, 3,
                 FeatureDefinitionCastSpellBuilder.CasterProgression
                     .THIRD_CASTER) // know 2 cantrips at level 3, gain at rate of third caster
