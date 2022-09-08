@@ -153,7 +153,7 @@ public static class SrdSpells
                 .Build());
 
         return SpellDefinitionBuilder
-            .Create("ForesightSpell", DhBaseGuid)
+            .Create("Foresight", DhBaseGuid)
             .SetGuiPresentation(Category.Spell, TrueSeeing.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -408,7 +408,7 @@ public static class SrdSpells
             .SetParticleEffectParameters(PowerDruidWildShape.EffectDescription.EffectParticleParameters);
 
         return SpellDefinitionBuilder
-            .Create("ShapechangeSpell", DhBaseGuid)
+            .Create("Shapechange", DhBaseGuid)
             .SetGuiPresentation(Category.Spell, PowerDruidWildShape.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -559,10 +559,10 @@ public static class SrdSpells
 
     private sealed class ForesightConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "ForesightSpellcondition";
+        private const string Name = "Foresightcondition";
         private const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
-        private const string TitleString = "Condition/&ForesightSpellTitle";
-        private const string DescriptionString = "Condition/&ForesightSpellDescription";
+        private const string TitleString = "Condition/&ForesightTitle";
+        private const string DescriptionString = "Condition/&ForesightDescription";
 
         internal static readonly ConditionDefinition ForesightCondition = CreateAndAddToDB(Name, Guid);
 

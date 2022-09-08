@@ -10,18 +10,18 @@ internal static class AceHighSpells
 {
     internal static void Register()
     {
-        RegisterSpell(PactMarkSpellBuilder.CreateAndAddToDB(), 0, DatabaseHelper.SpellListDefinitions.SpellListWarlock);
+        RegisterSpell(PactMarkBuilder.CreateAndAddToDB(), 0, DatabaseHelper.SpellListDefinitions.SpellListWarlock);
     }
 
-    private sealed class PactMarkSpellBuilder : SpellDefinitionBuilder
+    private sealed class PactMarkBuilder : SpellDefinitionBuilder
     {
-        private const string PactMarkSpellName = "PactMarkSpell";
+        private const string PactMarkName = "PactMark";
 
-        private PactMarkSpellBuilder(string name) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name,
+        private PactMarkBuilder(string name) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name,
             CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&PactMarkSpellTitle";
-            Definition.GuiPresentation.Description = "Spell/&PactMarkSpellDescription";
+            Definition.GuiPresentation.Title = "Spell/&PactMarkTitle";
+            Definition.GuiPresentation.Description = "Spell/&PactMarkDescription";
             Definition.spellLevel = 1;
             Definition.somaticComponent = true;
             Definition.verboseComponent = true;
@@ -62,7 +62,7 @@ internal static class AceHighSpells
 
         public static SpellDefinition CreateAndAddToDB()
         {
-            return new PactMarkSpellBuilder(PactMarkSpellName).AddToDB();
+            return new PactMarkBuilder(PactMarkName).AddToDB();
         }
     }
 
