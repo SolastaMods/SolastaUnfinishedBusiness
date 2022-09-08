@@ -87,8 +87,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "MindBlankSpellcondition",
-          "conditionDefinition": "Definition:MindBlankSpellcondition:74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869",
+          "conditionDefinitionName": "MindBlankcondition",
+          "conditionDefinition": "Definition:MindBlankcondition:74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -303,8 +303,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&MindBlankSpellTitle",
-    "description": "Spell/&MindBlankSpellDescription",
+    "title": "Spell/&MindBlankTitle",
+    "description": "Spell/&MindBlankDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "103b7a580be6c5a4fa005c983245afcb",
@@ -324,7 +324,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c6b22b6d-a3e0-538a-b72e-29849fa28129",
+  "guid": "55464b0c-3704-5e9b-a8c8-72aa601af4cf",
   "contentPack": 9999,
-  "name": "MindBlankSpell"
+  "name": "MindBlank"
 }

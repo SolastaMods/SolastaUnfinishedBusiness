@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FightingStyleGreatWeaponTitle",
-    "description": "Feat/&FightingStyleGreatWeaponDescription",
+    "title": "Feat/&FeatGreatWeaponTitle",
+    "description": "Feat/&FeatGreatWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

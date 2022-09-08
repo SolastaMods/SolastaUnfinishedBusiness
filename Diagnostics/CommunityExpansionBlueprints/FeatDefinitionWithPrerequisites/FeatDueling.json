@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FightingStyleDuelingTitle",
-    "description": "Feat/&FightingStyleDuelingDescription",
+    "title": "Feat/&FeatDuelingTitle",
+    "description": "Feat/&FeatDuelingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

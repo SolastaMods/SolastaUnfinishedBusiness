@@ -1,11 +1,11 @@
 Condition/&HelpActionDescription=此生物分心了
 Condition/&HelpActionTitle=分心
-Feat/&DeadeyeFeatDescription=你熟练掌握远程武器，看似不可能的射击都能成功命中\n• 攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势\n• 你的远程武器攻击忽视半身掩护和四分之三掩护状态\n•=你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10熟练加值
-Feat/&DeadeyeFeatTitle=神射手
+Feat/&FeatDeadeyeDescription=你熟练掌握远程武器，看似不可能的射击都能成功命中\n• 攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势\n• 你的远程武器攻击忽视半身掩护和四分之三掩护状态\n•=你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10熟练加值
+Feat/&FeatDeadeyeTitle=神射手
 Feat/&PickPocketFeatDescription=你熟练或专精于巧手熟练项。你在巧手检定上有优势
 Feat/&PickPocketFeatTitle=扒窃
-Feat/&PowerAttackFeatDescription=你学会了用准确性换取致命的打击。当你使用近战武器攻击时，你能选择使此攻击检定承受-3减值，以额外造成3+熟练加值点伤害
-Feat/&PowerAttackFeatTitle=猛力攻击
+Feat/&FeatPowerAttackDescription=你学会了用准确性换取致命的打击。当你使用近战武器攻击时，你能选择使此攻击检定承受-3减值，以额外造成3+熟练加值点伤害
+Feat/&FeatPowerAttackTitle=猛力攻击
 Feat/&RecklessFuryFeatDescription=你获得无护甲限制地进入狂怒的能力，持续1分钟，每天1次\n你能鲁莽攻击，近战攻击具有优势，同时使对你的攻击具有优势，持续至你下回合开始
 Feat/&RecklessFuryFeatTitle=鲁莽狂怒
 Feature/&DeadeyeDescription=攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10加值

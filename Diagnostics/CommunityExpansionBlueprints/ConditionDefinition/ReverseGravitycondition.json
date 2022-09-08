@@ -228,8 +228,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ReverseGravitySpellTitle",
-    "description": "Condition/&ReverseGravitySpellDescription",
+    "title": "Condition/&ReverseGravityTitle",
+    "description": "Condition/&ReverseGravityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "77cdd4e7a89c9c04c934505ffedebdfa",
@@ -251,5 +251,5 @@
   "contentCopyright": "UserContent",
   "guid": "809f1cef-6bdc-4b5a-93bf-275af8ab0b36",
   "contentPack": 9999,
-  "name": "ReverseGravitySpellcondition"
+  "name": "ReverseGravitycondition"
 }

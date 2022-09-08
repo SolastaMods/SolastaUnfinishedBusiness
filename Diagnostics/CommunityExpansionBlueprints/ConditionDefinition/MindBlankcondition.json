@@ -230,8 +230,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&MindBlankSpellTitle",
-    "description": "Condition/&MindBlankSpellDescription",
+    "title": "Condition/&MindBlankTitle",
+    "description": "Condition/&MindBlankDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
@@ -253,5 +253,5 @@
   "contentCopyright": "UserContent",
   "guid": "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869",
   "contentPack": 9999,
-  "name": "MindBlankSpellcondition"
+  "name": "MindBlankcondition"
 }

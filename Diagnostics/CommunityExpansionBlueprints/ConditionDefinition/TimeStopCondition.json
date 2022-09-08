@@ -229,8 +229,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&TimeStopSpellTitle",
-    "description": "Condition/&TimeStopSpellDescription",
+    "title": "Condition/&TimeStopTitle",
+    "description": "Condition/&TimeStopDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "cfdf2152d04bcff41aab30fd13412ad6",
@@ -252,5 +252,5 @@
   "contentCopyright": "UserContent",
   "guid": "f00e592f-61c3-4cbf-a800-97596e83028d",
   "contentPack": 9999,
-  "name": "TimeStopSpellCondition"
+  "name": "TimeStopCondition"
 }

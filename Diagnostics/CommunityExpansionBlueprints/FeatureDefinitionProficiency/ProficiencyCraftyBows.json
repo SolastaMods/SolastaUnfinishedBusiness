@@ -12,7 +12,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&ProficiencyCraftyBowsTitle",
-    "description": "Feat/&ProficiencyCraftyBowsDescription",
+    "description": "Feature/&ProficiencyCraftyBowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

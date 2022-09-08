@@ -568,7 +568,7 @@ internal static class ZappaFeats
             shady,
             wiseDefense,
             wisePrecision,
-            DeadeyeFeatBuilder.DeadeyeFeat);
+            FeatDeadeyeBuilder.FeatDeadeye);
     }
 }
 
@@ -743,15 +743,15 @@ internal sealed class DeadeyeConditionBuilder : ConditionDefinitionBuilder
     }
 }
 
-internal sealed class DeadeyeFeatBuilder : FeatDefinitionBuilder
+internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
 {
-    private const string DeadeyeFeatName = "DeadeyeFeat";
-    private const string DeadeyeFeatNameGuid = "d2ca939a-465e-4e43-8e9b-6469177e1839";
+    private const string FeatDeadeyeName = "FeatDeadeye";
+    private const string FeatDeadeyeNameGuid = "d2ca939a-465e-4e43-8e9b-6469177e1839";
 
-    internal static readonly FeatDefinition DeadeyeFeat =
-        CreateAndAddToDB(DeadeyeFeatName, DeadeyeFeatNameGuid);
+    internal static readonly FeatDefinition FeatDeadeye =
+        CreateAndAddToDB(FeatDeadeyeName, FeatDeadeyeNameGuid);
 
-    private DeadeyeFeatBuilder(string name, string guid) : base(
+    private FeatDeadeyeBuilder(string name, string guid) : base(
         FeatDefinitions.FollowUpStrike, name, guid)
     {
         var concentrationProvider = new EwFeats.StopPowerConcentrationProvider("Deadeye",
@@ -774,7 +774,7 @@ internal sealed class DeadeyeFeatBuilder : FeatDefinitionBuilder
 
         var turnOnPower = FeatureDefinitionPowerBuilder
             .Create("Deadeye", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
-            .SetGuiPresentation("DeadeyeFeat", Category.Feat,
+            .SetGuiPresentation("FeatDeadeye", Category.Feat,
                 CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
                     Resources.DeadeyeIcon, 128, 64))
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
@@ -823,8 +823,8 @@ internal sealed class DeadeyeFeatBuilder : FeatDefinitionBuilder
         PowersContext.PowersThatIgnoreInterruptions.Add(turnOffPower);
         concentrationProvider.StopPower = turnOffPower;
 
-        Definition.GuiPresentation.Title = "Feat/&DeadeyeFeatTitle";
-        Definition.GuiPresentation.Description = "Feat/&DeadeyeFeatDescription";
+        Definition.GuiPresentation.Title = "Feat/&FeatDeadeyeTitle";
+        Definition.GuiPresentation.Description = "Feat/&FeatDeadeyeDescription";
 
         Definition.Features.Clear();
         Definition.Features.Add(turnOnPower);
@@ -835,7 +835,7 @@ internal sealed class DeadeyeFeatBuilder : FeatDefinitionBuilder
 
     private static FeatDefinition CreateAndAddToDB(string name, string guid)
     {
-        return new DeadeyeFeatBuilder(name, guid).AddToDB();
+        return new FeatDeadeyeBuilder(name, guid).AddToDB();
     }
 }
 

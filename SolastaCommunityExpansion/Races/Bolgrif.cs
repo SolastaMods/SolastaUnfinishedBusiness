@@ -61,7 +61,7 @@ internal static class BolgrifRaceBuilder
             .AddToDB();
 
         var bolgrifDruidicMagicSpellList = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListDruid, "BolgrifDruidicMagicSpellList",
+            .Create(SpellListDefinitions.SpellListDruid, "BolgrifMagicSpellList",
                 "3ac97eec-8d09-4ce3-8d29-40ea8b423798")
             .SetGuiPresentationNoContent()
             .ClearSpells()

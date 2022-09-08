@@ -38,7 +38,7 @@ public static class SrdSpells
 
     private static SpellDefinition BuildReverseGravity()
     {
-        const string TEXT = "ReverseGravitySpell";
+        const string TEXT = "ReverseGravity";
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -119,7 +119,7 @@ public static class SrdSpells
         );
 
         return SpellDefinitionBuilder
-            .Create("MindBlankSpell", DhBaseGuid)
+            .Create("MindBlank", DhBaseGuid)
             .SetGuiPresentation(Category.Spell, MindTwist.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(8)
@@ -189,7 +189,7 @@ public static class SrdSpells
                 .Build());
 
         return SpellDefinitionBuilder
-            .Create("MassHealSpell", DhBaseGuid)
+            .Create("MassHeal", DhBaseGuid)
             .SetGuiPresentation(Category.Spell, Heal.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -252,7 +252,7 @@ public static class SrdSpells
             .SetParticleEffectParameters(FlameStrike.EffectDescription.EffectParticleParameters);
 
         return SpellDefinitionBuilder
-            .Create("MeteorSwarmSingleTargetSpell", DhBaseGuid)
+            .Create("MeteorSwarmSingleTarget", DhBaseGuid)
             .SetGuiPresentation(Category.Spell, FlamingSphere.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -308,7 +308,7 @@ public static class SrdSpells
                 .Build());
 
         return SpellDefinitionBuilder
-            .Create("PowerWordHealSpell", DhBaseGuid)
+            .Create("PowerWordHeal", DhBaseGuid)
             .SetGuiPresentation(Category.Spell, HealingWord.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -347,7 +347,7 @@ public static class SrdSpells
             .AddEffectForm(effectForm);
 
         return SpellDefinitionBuilder
-            .Create("PowerWordKillSpell", DhBaseGuid)
+            .Create("PowerWordKill", DhBaseGuid)
             .SetGuiPresentation(Category.Spell, Disintegrate.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -445,7 +445,7 @@ public static class SrdSpells
             .ExcludeCaster();
 
         return SpellDefinitionBuilder
-            .Create("TimeStopSpell", DhBaseGuid)
+            .Create("TimeStop", DhBaseGuid)
             .SetGuiPresentation(Category.Spell, PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -508,7 +508,7 @@ public static class SrdSpells
 
     private sealed class ReverseGravityConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "ReverseGravitySpellcondition";
+        private const string Name = "ReverseGravitycondition";
         private const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
 
         internal static readonly ConditionDefinition ReverseGravityCondition = CreateAndAddToDB(Name, Guid);
@@ -526,17 +526,17 @@ public static class SrdSpells
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
             return new ReverseGravityConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("ReverseGravitySpell", Category.Condition)
+                .SetOrUpdateGuiPresentation("ReverseGravity", Category.Condition)
                 .AddToDB();
         }
     }
 
     private sealed class MindBlankConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "MindBlankSpellcondition";
+        private const string Name = "MindBlankcondition";
         private const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
-        private const string TitleString = "Condition/&MindBlankSpellTitle";
-        private const string DescriptionString = "Condition/&MindBlankSpellDescription";
+        private const string TitleString = "Condition/&MindBlankTitle";
+        private const string DescriptionString = "Condition/&MindBlankDescription";
 
         internal static readonly ConditionDefinition MindBlankCondition = CreateAndAddToDB(Name, Guid);
 
@@ -591,10 +591,10 @@ public static class SrdSpells
 
     private sealed class TimeStopConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "TimeStopSpellCondition";
+        private const string Name = "TimeStopCondition";
         private const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
-        private const string TitleString = "Condition/&TimeStopSpellTitle";
-        private const string DescriptionString = "Condition/&TimeStopSpellDescription";
+        private const string TitleString = "Condition/&TimeStopTitle";
+        private const string DescriptionString = "Condition/&TimeStopDescription";
 
         internal static readonly ConditionDefinition TimeStopCondition = CreateAndAddToDB(Name, Guid);
 

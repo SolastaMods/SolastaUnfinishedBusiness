@@ -169,7 +169,7 @@ public static class EwFeats
 
         var powerAttackPower = FeatureDefinitionPowerBuilder
             .Create("PowerAttack", "0a3e6a7d-4628-4189-b91d-d7146d774bb6")
-            .SetGuiPresentation("PowerAttackFeat", Category.Feat,
+            .SetGuiPresentation("FeatPowerAttack", Category.Feat,
                 CustomIcons.CreateAssetReferenceSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
             .SetUsesFixed(1)
@@ -218,7 +218,7 @@ public static class EwFeats
         concentrationProvider.StopPower = turnOffPowerAttackPower;
 
         return FeatDefinitionBuilder
-            .Create("PowerAttackFeat", "88f1fb27-66af-49c6-b038-a38142b1083e")
+            .Create("FeatPowerAttack", "88f1fb27-66af-49c6-b038-a38142b1083e")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerAttackPower,

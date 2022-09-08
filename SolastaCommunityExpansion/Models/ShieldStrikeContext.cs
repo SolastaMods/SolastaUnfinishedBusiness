@@ -45,7 +45,7 @@ public static class ShieldStrikeContext
     {
         var shieldType = new WeaponTypeDefinitionBuilder(
                 WeaponTypeDefinitions.UnarmedStrikeType,
-                "ShieldStrikeType",
+                "CEShieldStrikeType",
                 DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
 

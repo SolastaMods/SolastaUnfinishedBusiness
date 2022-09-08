@@ -341,8 +341,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&PowerAttackFeatTitle",
-    "description": "Feat/&PowerAttackFeatDescription",
+    "title": "Feat/&FeatPowerAttackTitle",
+    "description": "Feat/&FeatPowerAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "09a7e454274f5b56af1c156b29b9ae52",

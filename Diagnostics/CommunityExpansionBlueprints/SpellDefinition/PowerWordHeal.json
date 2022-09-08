@@ -13,19 +13,19 @@
   "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Cylinder",
+    "targetType": "Individuals",
     "itemSelectionType": "None",
-    "targetParameter": 20,
-    "targetParameter2": 10,
+    "targetParameter": 1,
+    "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
     "targetProximityDistance": 6,
-    "targetExcludeCaster": true,
+    "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
@@ -40,9 +40,9 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "All",
-    "durationType": "Round",
-    "durationParameter": 3,
+    "targetSide": "Ally",
+    "durationType": "Instantaneous",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -72,6 +72,33 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Healing",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "healingForm": {
+          "$type": "HealingForm, Assembly-CSharp",
+          "healingComputation": "Dice",
+          "diceNumber": 0,
+          "dieType": "D1",
+          "bonusHealing": 700,
+          "variablePool": false,
+          "healingCap": "MaximumHitPoints"
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
         "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
@@ -87,10 +114,23 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "TimeStopSpellCondition",
-          "conditionDefinition": "Definition:TimeStopSpellCondition:f00e592f-61c3-4cbf-a800-97596e83028d",
-          "operation": "Add",
-          "conditionsList": [],
+          "conditionDefinitionName": "ConditionParalyzed",
+          "conditionDefinition": "Definition:ConditionParalyzed:a775cb208dcfe8244bc724c2af40b4fa",
+          "operation": "RemoveDetrimentalAll",
+          "conditionsList": [
+            "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
+            "Definition:ConditionCharmedByHypnoticPattern:5396f18314418ed449b0cd42f887aae1",
+            "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
+            "Definition:ConditionFrightenedFear:d4b01db5ba28522458248ba9859cbe84",
+            "Definition:ConditionFrightenedPhantasmalKiller:68dbf6f96b39e594681a3b9f92222b45",
+            "Definition:ConditionParalyzed:a775cb208dcfe8244bc724c2af40b4fa",
+            "Definition:ConditionParalyzed_CrimsonSpiderVenom:ac4c1efb47060f448a7be16ee46b04b8",
+            "Definition:ConditionParalyzed_GhoulsCaress:feb0f3f4b605db4478d2f446f527d4f6",
+            "Definition:ConditionStunned:126115c02838c1a4ca7d25682af5ddb0",
+            "Definition:ConditionStunned_MutantApeSlam:0120f37b21830004da1291cf5b34be55",
+            "Definition:ConditionStunnedConjuredDeath:a270f5d6fa09e63408c0e351a0b41e1e",
+            "Definition:ConditionProne:c792a1e7b09cf9d4897b31e663a9ebfb"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -303,12 +343,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&TimeStopSpellTitle",
-    "description": "Spell/&TimeStopSpellDescription",
+    "title": "Spell/&PowerWordHealTitle",
+    "description": "Spell/&PowerWordHealDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d3db6dabf02f425468982fff3e1030e9",
-      "m_SubObjectName": "WordOfLaw",
+      "m_AssetGUID": "1b13c9ff1006ea1489bdbcb09ca7a31d",
+      "m_SubObjectName": "HealingWord",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -324,7 +364,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5ef55a7c-b9dd-5a2c-98bc-8f860b2909ab",
+  "guid": "db24d28e-0c54-5cf8-bf68-be673e7ee532",
   "contentPack": 9999,
-  "name": "TimeStopSpell"
+  "name": "PowerWordHeal"
 }

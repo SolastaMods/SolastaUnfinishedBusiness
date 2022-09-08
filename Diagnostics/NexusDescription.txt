@@ -173,6 +173,7 @@ You gain proficiency with herbalism kit and Arcana, or expertise if already prof
 [*][b]Arcane Defense[/b]: Increase your Intelligence by 1, to a maximum of 20.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
 [*][b]Arcane Precision[/b]: You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used twice per long rest.
+[*][b]Archery [FS][/b]: You gain a +2 bonus to attack rolls with ranged weapons.
 [*][b]Brutal Thug[/b]: You land powerful blows in the right places.
 You gain simple and martial weapon proficiencies.
 You can sneak attack using martial weapons.
@@ -196,25 +197,17 @@ Once a day, you may spend an hour to cook treats that provide temporary HP when 
 • Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.
 • Your ranged weapon attacks ignore half cover and three-quarters cover.
 • You can choose to take a -5 penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 10 damage of the weapon's type.
+[*][b]Defense [FS][/b]: While you are wearing armor, you gain a +1 bonus to AC.
 [*][b]Dual Flurry[/b]: You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
 [*][b]Dual Weapon Defense[/b]: You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
+[*][b]Dueling [FS][/b]: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
 [*][b]Elven Precision [Cha][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Charisma by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Dex][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Int][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Wis][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Fast Hands[/b]: You gain Cunning Action. You can use the Hide or Disengage actions as a bonus action.
 You can use your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to Disarm a trap or open a lock, or take the Use an Object action.
-[*][b]Feat/&FeatCraftyScribeTitle[/b]: Feat/&FeatCraftyScribeDescription
-[*][b]Feat/&FeatManacalonCrafterTitle[/b]: Feat/&FeatManacalonCrafterDescription
 [*][b]Feat/&FeatTitanTitle[/b]: You gain a +2 to hit against creatures of Large size or bigger.
-[*][b]Feat/&FeatToxicologistIntTitle[/b]: Feat/&FeatToxicologistIntDescription
-[*][b]Feat/&FeatToxicologistWisTitle[/b]: Feat/&FeatToxicologistWisDescription
-[*][b]Feat/&FightingStyleArcheryTitle[/b]: Feat/&FightingStyleArcheryDescription
-[*][b]Feat/&FightingStyleDefenseTitle[/b]: Feat/&FightingStyleDefenseDescription
-[*][b]Feat/&FightingStyleDuelingTitle[/b]: Feat/&FightingStyleDuelingDescription
-[*][b]Feat/&FightingStyleGreatWeaponTitle[/b]: Feat/&FightingStyleGreatWeaponDescription
-[*][b]Feat/&FightingStyleProtectionTitle[/b]: Feat/&FightingStyleProtectionDescription
-[*][b]Feat/&FightingStyleTwoWeaponTitle[/b]: Feat/&FightingStyleTwoWeaponDescription
 [*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
@@ -237,12 +230,16 @@ You gain the ability to cast the burning hands and scorching ray spells once per
 [*][b]Fletcher[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with smith's tools, or expertise if you are already proficient.
  You gain proficiency with all bows and crossbows.
+[*][b]Great Weapon [FS][/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Defense Mastery[/b]: You gain resistance to bludgeoning, slashing, and piercing damage.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: Once per short rest, you can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 [*][b]Light Armor[/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with light armor.
+[*][b]Manacalon Crafter[/b]: Increase your Intelligence by 1, to a maximum of 20.
+You gain proficiency with manacalon rosary and Arcana, or expertise if already proficient.
+Requires the ability to cast spells.
 [*][b]Marksman[/b]: When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
 [*][b]Medium Armor [Dex][/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
@@ -273,6 +270,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Primal Rage [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
+[*][b]Protection [FS][/b]: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
 [*][b]Pugilist [FS][/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
 If you have a free hand, you can shove as a bonus action.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
@@ -280,6 +278,9 @@ If you have a free hand, you can shove as a bonus action.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
 [*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 [*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when you roll a 1 (This does not reroll dice from all damage sources. For example, sneak attack and smite damage is not re-rolled).
+[*][b]Scribe[/b]: Increase your Intelligence by 1, to a maximum of 20.
+You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
+Requires the ability to cast spells.
 [*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
@@ -302,6 +303,11 @@ As a bonus action, you can telekinetically push or pull one creature you can see
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
 [*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
+[*][b]Toxicologist [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
+You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
+[*][b]Toxicologist [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
+You gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
+[*][b]Two Weapon [FS][/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 [*][b]War Caster[/b]: You gain advantage on checks to maintain concentration.
 You gain the ability to perform the somatic component of spells even with both hands full.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
