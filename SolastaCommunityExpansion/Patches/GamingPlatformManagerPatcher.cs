@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.Diagnostic;
+namespace SolastaCommunityExpansion.Patches;
 
 internal static class GamingPlatformManagerPatcher
 {

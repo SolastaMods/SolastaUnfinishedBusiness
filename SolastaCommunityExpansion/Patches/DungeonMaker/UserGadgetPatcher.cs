@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor;
+namespace SolastaCommunityExpansion.Patches.DungeonMaker;
 
 //PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro
 [HarmonyPatch(typeof(UserGadget), "PostLoadJson")]

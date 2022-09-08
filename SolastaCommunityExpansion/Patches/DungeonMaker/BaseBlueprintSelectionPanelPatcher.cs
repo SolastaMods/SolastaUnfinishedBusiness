@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
+namespace SolastaCommunityExpansion.Patches.DungeonMaker;
 
 //PATCH: open DM content folded
 [HarmonyPatch(typeof(BaseBlueprintSelectionPanel), "Bind")]

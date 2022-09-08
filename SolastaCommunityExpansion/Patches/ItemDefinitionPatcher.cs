@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using static SolastaCommunityExpansion.DataMiner.ItemDefinitionVerification;
 
-namespace SolastaCommunityExpansion.Patches.Diagnostic;
+namespace SolastaCommunityExpansion.Patches;
 
 //PATCH: These patches are for item usage diagnostics
 internal static class ItemDefinitionPatcher

@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.EditorSort;
+namespace SolastaCommunityExpansion.Patches.DungeonMaker;
 
 //PATCH: better props sorting
 [HarmonyPatch(typeof(PropBlueprintSelectionPanel), "Compare")]

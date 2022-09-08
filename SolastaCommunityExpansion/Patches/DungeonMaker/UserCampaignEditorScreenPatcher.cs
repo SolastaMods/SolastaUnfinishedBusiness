@@ -6,7 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.Level20;
+namespace SolastaCommunityExpansion.Patches.DungeonMaker;
 
 //PATCH: Allows Campaigns to be created with min level 20 requirement
 [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMinLevelEndEdit")]

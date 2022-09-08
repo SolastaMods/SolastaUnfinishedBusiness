@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor;
+namespace SolastaCommunityExpansion.Patches.DungeonMaker;
 
 //PATCH: Bypasses prop overlap check if CTRL is pressed
 [HarmonyPatch(typeof(UserLocationViewPanel), "PropOverlap", MethodType.Getter)]

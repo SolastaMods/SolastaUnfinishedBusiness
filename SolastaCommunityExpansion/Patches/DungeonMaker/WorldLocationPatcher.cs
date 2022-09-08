@@ -5,7 +5,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
+namespace SolastaCommunityExpansion.Patches.DungeonMaker;
 
 //PATCH: changes how the location / rooms are instantiated
 [HarmonyPatch(typeof(WorldLocation), "BuildFromUserLocation")]

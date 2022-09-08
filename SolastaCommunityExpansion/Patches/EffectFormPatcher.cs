@@ -4,7 +4,7 @@ using HarmonyLib;
 using static EffectForm.EffectFormType;
 using static SolastaCommunityExpansion.DataMiner.EffectFormVerification;
 
-namespace SolastaCommunityExpansion.Patches.Diagnostic;
+namespace SolastaCommunityExpansion.Patches;
 
 //PATCH: These patches are for effect form usage diagnostics
 internal static class EffectFormPatcher

@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
+using static SolastaCommunityExpansion.Models.Level20Context;
 using static SolastaCommunityExpansion.Models.DmProEditorContext;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
+namespace SolastaCommunityExpansion.Patches.DungeonMaker;
 
 //PATCH: unlocks visual moods across all environments
 [HarmonyPatch(typeof(UserLocationSettingsModal), "RefreshVisualMoods")]
@@ -59,5 +61,47 @@ internal static class UserLocationSettingsModal_RuntimeLoaded
                 TooltipContent = string.Empty
             });
         }
+    }
+}
+
+//PATCH: Allows locations to be created with min level 20 requirement
+[HarmonyPatch(typeof(UserLocationSettingsModal), "OnMinLevelEndEdit")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+public static class UserLocationSettingsModal_OnMinLevelEndEdit
+{
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    {
+        var code = new List<CodeInstruction>(instructions);
+
+        if (Main.Settings.AllowDungeonsMaxLevel20)
+        {
+            code
+                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel)
+                .ForEach(x => x.operand = ModMaxLevel);
+        }
+
+        return code;
+    }
+}
+
+//PATCH: Allows locations to be created with max level 20 requirement
+[HarmonyPatch(typeof(UserLocationSettingsModal), "OnMaxLevelEndEdit")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+public static class UserLocationSettingsModal_OnMaxLevelEndEdit
+{
+    [NotNull]
+    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    {
+        var code = new List<CodeInstruction>(instructions);
+
+        if (Main.Settings.AllowDungeonsMaxLevel20)
+        {
+            code
+                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel)
+                .ForEach(x => x.operand = ModMaxLevel);
+        }
+
+        return code;
     }
 }

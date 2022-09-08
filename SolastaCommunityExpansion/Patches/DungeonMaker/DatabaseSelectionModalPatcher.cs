@@ -2,7 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor;
+namespace SolastaCommunityExpansion.Patches.DungeonMaker;
 
 //PATCH: this patch unleashes all NPC definitions to be used as monsters
 [HarmonyPatch(typeof(DatabaseSelectionModal), "BuildMonsters")]

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro;
+namespace SolastaCommunityExpansion.Patches.DungeonMaker;
 
 //PATCH: ensures custom props display the proper icon
 [HarmonyPatch(typeof(BaseBlueprint), "GetAssetKey")]
