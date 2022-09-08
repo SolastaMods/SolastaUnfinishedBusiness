@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaCommunityExpansion",
   "features": [
-    "Definition:AttackModifierTitan:9e50cc62-c3a4-58e3-ae49-d360711d1045"
+    "Definition:OnComputeAttackModifierTitan:d33dd821-6a19-516a-b9bc-4c3055d1c75c"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {

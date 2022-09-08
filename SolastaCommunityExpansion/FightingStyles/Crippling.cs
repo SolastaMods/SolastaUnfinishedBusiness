@@ -12,7 +12,6 @@ namespace SolastaCommunityExpansion.FightingStyles;
 
 internal sealed class Crippling : AbstractFightingStyle
 {
-    private readonly Guid guidNamespace = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
     private FightingStyleDefinitionCustomizable instance;
 
     [NotNull]
@@ -36,7 +35,7 @@ internal sealed class Crippling : AbstractFightingStyle
         //+ Must be a successful melee attack
         //+ NO LIMIT per round (wow!)
         var conditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionHindered_By_Frost, "CripplingConditionDefinition", guidNamespace)
+            .Create(ConditionHindered_By_Frost, "ConditionCrippling", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
 
         conditionDefinition.allowMultipleInstances = true;
@@ -53,8 +52,8 @@ internal sealed class Crippling : AbstractFightingStyle
 
         var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageCircleBalanceColdEmbrace,
-                "CripplingAdditionalDamage", guidNamespace)
-            .SetGuiPresentation(Category.Modifier)
+                "AdditionalDamageCrippling", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
             .SetDamageDice(RuleDefinitions.DieType.D1, 0)
             .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
             .SetNotificationTag("CripplingFightingStyle")
@@ -64,8 +63,9 @@ internal sealed class Crippling : AbstractFightingStyle
             .AddToDB();
 
         instance = CustomizableFightingStyleBuilder
-            .Create("Crippling", "b570d166-c65c-4a68-ab78-aeb16d491fce")
-            .SetGuiPresentation("Crippling", Category.FightingStyle,
+            .Create("Crippling", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(
+                Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.RangerShadowTamer.GuiPresentation.SpriteReference)
             .SetFeatures(additionalDamage)
             .AddToDB();

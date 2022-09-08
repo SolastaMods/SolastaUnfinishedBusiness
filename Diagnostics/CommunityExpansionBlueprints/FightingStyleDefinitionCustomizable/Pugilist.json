@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaCommunityExpansion",
   "features": [
-    "Definition:ActionAffinityPugilist:36d24b2e-8ef4-4037-a82f-05e63d56f3d2"
+    "Definition:ActionAffinityPugilist:791565ac-03df-5ab0-8301-a792c9b8a503"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {

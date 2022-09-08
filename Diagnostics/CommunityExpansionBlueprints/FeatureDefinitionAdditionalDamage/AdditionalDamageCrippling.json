@@ -33,7 +33,7 @@
       "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:CripplingConditionDefinition:61599007-57a3-5686-810d-58ca00bbe671",
+      "conditionDefinition": "Definition:ConditionCrippling:a78b51f2-36ab-59e9-a82c-7afa77c9395d",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -101,8 +101,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Modifier/&CripplingAdditionalDamageTitle",
-    "description": "Modifier/&CripplingAdditionalDamageDescription",
+    "title": "Feature/&AdditionalDamageCripplingTitle",
+    "description": "Feature/&AdditionalDamageCripplingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -122,7 +122,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "93583bcb-0031-5240-abbf-2c25297ba4ad",
+  "guid": "3a68707a-e9fb-5657-9956-5cb90bf16aa7",
   "contentPack": 9999,
-  "name": "CripplingAdditionalDamage"
+  "name": "AdditionalDamageCrippling"
 }

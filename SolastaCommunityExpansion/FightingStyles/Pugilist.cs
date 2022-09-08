@@ -38,7 +38,7 @@ internal sealed class Pugilist : AbstractFightingStyle
             PathBerserker.GuiPresentation.SpriteReference);
 
         var actionAffinityPugilist = FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityPugilist", "36d24b2e-8ef4-4037-a82f-05e63d56f3d2")
+            .Create("ActionAffinityPugilist", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(gui)
             .SetDefaultAllowedActonTypes()
             .SetAuthorizedActions(Id.ShoveBonus)

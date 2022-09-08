@@ -6,5 +6,5 @@ FightingStyle/&PugilistDescription=Your unarmed strikes deal an additional 1d4 b
 FightingStyle/&PugilistTitle=Pugilist
 FightingStyle/&TitanDescription=You gain a +2 hit against creatures of size Large or bigger.
 FightingStyle/&TitanTitle=Titan Fighting
-Modifier/&CripplingAdditionalDamageDescription=Crippling Damage.
-Modifier/&CripplingAdditionalDamageTitle=Crippling
+Feature/&AdditionalDamageCripplingDescription=Crippling Damage.
+Feature/&AdditionalDamageCripplingTitle=Crippling

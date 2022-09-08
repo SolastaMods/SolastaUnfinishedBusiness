@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOnComputeAttackModifier, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOnCharacterKill, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9e50cc62-c3a4-58e3-ae49-d360711d1045",
+  "guid": "cb5ba16c-93bc-52e1-9d82-2c52bf8df90d",
   "contentPack": 9999,
-  "name": "AttackModifierTitan"
+  "name": "OnCharacterKillMerciless"
 }

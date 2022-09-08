@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaCommunityExpansion",
   "features": [
-    "Definition:CripplingAdditionalDamage:93583bcb-0031-5240-abbf-2c25297ba4ad"
+    "Definition:AdditionalDamageCrippling:3a68707a-e9fb-5657-9956-5cb90bf16aa7"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
@@ -28,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b570d166-c65c-4a68-ab78-aeb16d491fce",
+  "guid": "1883dae0-9ef0-550b-a3b9-d169594d4d46",
   "contentPack": 9999,
   "name": "Crippling"
 }

@@ -1,8 +1,8 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaCommunityExpansion",
   "features": [
-    "Definition:AdditionalActionMerciless:e4e2c1ac-261a-567d-8fa8-479e5420454a",
-    "Definition:FeatureMerciless:7e3cd1ee-dae8-539a-a1bc-4e39f7e024d6"
+    "Definition:AdditionalActionMerciless:5a7ad45a-3df5-562d-b332-f075ac348e81",
+    "Definition:OnCharacterKillMerciless:cb5ba16c-93bc-52e1-9d82-2c52bf8df90d"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f570d166-c65c-4a68-ab78-aeb16d491fce",
+  "guid": "6d7a4f67-8035-55e2-823e-619534487125",
   "contentPack": 9999,
   "name": "Merciless"
 }

@@ -17,7 +17,6 @@ namespace SolastaCommunityExpansion.FightingStyles;
 internal sealed class Merciless : AbstractFightingStyle
 {
     private static FeatureDefinitionPower _powerMerciless;
-    private readonly Guid guidNamespace = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a401fc");
     private FightingStyleDefinitionCustomizable instance;
 
     [NotNull]
@@ -37,7 +36,7 @@ internal sealed class Merciless : AbstractFightingStyle
         }
 
         _powerMerciless = FeatureDefinitionPowerBuilder
-            .Create("PowerMerciless", guidNamespace)
+            .Create("PowerMerciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("Fear", Category.Spell)
             .Configure(
                 1,
@@ -58,18 +57,18 @@ internal sealed class Merciless : AbstractFightingStyle
         _powerMerciless.effectDescription.effectForms[0].canSaveToCancel = false;
 
         var additionalActionMerciless = FeatureDefinitionAdditionalActionBuilder
-            .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionMerciless", guidNamespace)
+            .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionMerciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .AddToDB();
 
         var onCharacterKillMerciless = FeatureDefinitionOnCharacterKillBuilder
-            .Create("FeatureMerciless", guidNamespace)
+            .Create("OnCharacterKillMerciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetOnCharacterKill(OnMercilessKill)
             .AddToDB();
 
         instance = CustomizableFightingStyleBuilder
-            .Create("Merciless", "f570d166-c65c-4a68-ab78-aeb16d491fce")
+            .Create("Merciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
             .SetFeatures(additionalActionMerciless, onCharacterKillMerciless)
