@@ -207,10 +207,10 @@ internal static class GameLocationBattleManagerPatcher
         {
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
-            
+
             //PATCH: Support elven precision feat
             CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter, attackParams.attackMode);
-            
+
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomMoidifiers(attackParams, __result);
         }
@@ -260,7 +260,8 @@ internal static class GameLocationBattleManagerPatcher
         }
 
         //TODO: move this somewhere else
-        private static void CheckElvenPrecisionContext(bool result, RulesetCharacter character, RulesetAttackMode attackMode)
+        private static void CheckElvenPrecisionContext(bool result, RulesetCharacter character,
+            RulesetAttackMode attackMode)
         {
             if (!result || character is not RulesetCharacterHero hero || attackMode == null)
             {

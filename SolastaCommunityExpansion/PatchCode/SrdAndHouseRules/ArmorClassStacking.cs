@@ -11,11 +11,12 @@ namespace SolastaCommunityExpansion.PatchCode.SrdAndHouseRules;
 
 internal static class ArmorClassStacking
 {
-    
     //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
     public static void AddCustomTagsToModifierBuilder(List<CodeInstruction> codes)
     {
-        var method = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string, RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
+        var method =
+            new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string,
+                RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
 
         var index = codes.FindIndex(c => c.Calls(method));
 
@@ -24,7 +25,9 @@ internal static class ArmorClassStacking
             return;
         }
 
-        var custom = new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string, FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
+        var custom =
+            new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string,
+                FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
 
         codes[index] = new CodeInstruction(OpCodes.Call, custom); //replace call with custom method
         codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_1)); // load 'feature' as last argument

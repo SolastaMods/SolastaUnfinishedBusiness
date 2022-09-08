@@ -35,7 +35,7 @@ public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
     protected CustomizableFightingStyleBuilder(string name, Guid guid) : base(name, guid)
     {
     }
-    
+
     [NotNull]
     public CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
     {

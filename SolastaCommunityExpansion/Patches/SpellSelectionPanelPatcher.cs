@@ -34,7 +34,6 @@ internal static class SpellSelectionPanelPatcher
             SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType,
             bool cantripOnly)
         {
-            
             //PATCH: show spell selection on multiple rows
             //TODO: check if we still need this, as vanilla already splits selection onto several rows
             if (!Main.Settings.EnableMultiLineSpellPanel)

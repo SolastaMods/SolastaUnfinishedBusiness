@@ -12,8 +12,8 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ShieldExpertAttack:d7b98665-57ad-5ca0-bc61-f78e3a604ea2",
-    "Definition:ShieldExpertShove:e01c8f38-6a03-5286-9a30-fbba4aabe8b5"
+    "Definition:ActionAffinityFeatShieldExpertShove:46b40fc4-fa25-5781-b7a0-0d513d4d0773",
+    "Definition:FeatShieldExpertBonusShieldAttack:2beb624d-6e50-523d-a63d-ec10c9266181"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "439d3216-d764-5322-acd1-e6de960f9530",
+  "guid": "75c0d5b6-2fcf-56ef-8a01-aed0adc45084",
   "contentPack": 9999,
   "name": "FeatShieldExpert"
 }

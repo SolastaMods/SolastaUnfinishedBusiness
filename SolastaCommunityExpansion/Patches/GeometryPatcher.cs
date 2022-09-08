@@ -28,11 +28,11 @@ internal static class CursorLocationGeometricShapePatcher
             if (!Main.Settings.UseHeightOneCylinderEffect)
             {
 #if DEBUG
-            var t = __instance.cubeRenderer.transform;
-            var p1 = t.position;
-            var s1 = t.localScale;
-            Main.Log(
-                $"Cube: origin=({origin.x}, {origin.y}, {origin.z}) position=({p1.x},{p1.y},{p1.z}), scale=({s1.x},{s1.y},{s1.z})");
+                var t = __instance.cubeRenderer.transform;
+                var p1 = t.position;
+                var s1 = t.localScale;
+                Main.Log(
+                    $"Cube: origin=({origin.x}, {origin.y}, {origin.z}) position=({p1.x},{p1.y},{p1.z}), scale=({s1.x},{s1.y},{s1.z})");
 #endif
                 return;
             }
@@ -71,10 +71,10 @@ internal static class CursorLocationGeometricShapePatcher
             transform.localScale = new Vector3(edgeSize, height, edgeSize);
 
 #if DEBUG
-        var p = transform.position;
-        var s = transform.localScale;
-        Main.Log(
-            $"SquareCylinder: origin=({origin.x}, {origin.y}, {origin.z}) position=({p.x},{p.y},{p.z}), scale=({s.x},{s.y},{s.z})");
+            var p = transform.position;
+            var s = transform.localScale;
+            Main.Log(
+                $"SquareCylinder: origin=({origin.x}, {origin.y}, {origin.z}) position=({p.x},{p.y},{p.z}), scale=({s.x},{s.y},{s.z})");
 #endif
         }
 
@@ -105,19 +105,19 @@ internal static class CursorLocationGeometricShapePatcher
 
 #if DEBUG
 // For comparison - can be removed when working
-[HarmonyPatch(typeof(GeometricShape), "UpdateCylinderPosition")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GeometricShape_UpdateCylinderPosition
-{
-    public static void Postfix(GeometricShape __instance, Vector3 origin)
+    [HarmonyPatch(typeof(GeometricShape), "UpdateCylinderPosition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GeometricShape_UpdateCylinderPosition
     {
-        var transform = __instance.cylinderRenderer.transform;
-        var p = transform.position;
-        var s = transform.localScale;
-        Main.Log(
-            $"Cylinder: origin=({origin.x}, {origin.y}, {origin.z}) position=({p.x},{p.y},{p.z}), scale=({s.x},{s.y},{s.z})");
+        public static void Postfix(GeometricShape __instance, Vector3 origin)
+        {
+            var transform = __instance.cylinderRenderer.transform;
+            var p = transform.position;
+            var s = transform.localScale;
+            Main.Log(
+                $"Cylinder: origin=({origin.x}, {origin.y}, {origin.z}) position=({p.x},{p.y},{p.z}), scale=({s.x},{s.y},{s.z})");
+        }
     }
-}
 #endif
 
 //PATCH: UseHeightOneCylinderEffect
@@ -130,10 +130,10 @@ internal static class GeometricShape_UpdateCylinderPosition
             if (!Main.Settings.UseHeightOneCylinderEffect)
             {
 #if DEBUG
-            var min1 = __instance.bounds.min;
-            var max1 = __instance.bounds.max;
-            Main.Log(
-                $"BuildAAAB {__instance.shapeType} min({min1.x}, {min1.y}, {min1.z}), max({max1.x}, {max1.y}, {max1.z})");
+                var min1 = __instance.bounds.min;
+                var max1 = __instance.bounds.max;
+                Main.Log(
+                    $"BuildAAAB {__instance.shapeType} min({min1.x}, {min1.y}, {min1.z}), max({max1.x}, {max1.y}, {max1.z})");
 #endif
                 return;
             }
@@ -177,9 +177,9 @@ internal static class GeometricShape_UpdateCylinderPosition
 
             __instance.bounds = new Bounds(__instance.origin + vector, new Vector3(edgeSize, height, edgeSize));
 #if DEBUG
-        var min = __instance.bounds.min;
-        var max = __instance.bounds.max;
-        Main.Log($"BuildAAAB min({min.x}, {min.y}, {min.z}), max({max.x}, {max.y}, {max.z})");
+            var min = __instance.bounds.min;
+            var max = __instance.bounds.max;
+            Main.Log($"BuildAAAB min({min.x}, {min.y}, {min.z}), max({max.x}, {max.y}, {max.z})");
 #endif
         }
     }
@@ -275,17 +275,17 @@ internal static class GeometricShape_UpdateCylinderPosition
 
 #if DEBUG
 // For comparison - can be removed when working
-[HarmonyPatch(typeof(GeometryUtils), "CylinderContainsPoint")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GeometryUtils_CylinderContainsPoint
-{
-    public static void Postfix(
-        Vector3 cylinderOrigin, /*Vector3 cylinderDirection,*/ float cylinderLength, float cylinderDiameter,
-        Vector3 point, ref bool __result)
+    [HarmonyPatch(typeof(GeometryUtils), "CylinderContainsPoint")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GeometryUtils_CylinderContainsPoint
     {
-        Main.Log(
-            $"GeometryUtils_CylinderContainsPoint: diameter={cylinderDiameter}, height/length={cylinderLength}, origin=({cylinderOrigin.x}, {cylinderOrigin.y}, {cylinderOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
+        public static void Postfix(
+            Vector3 cylinderOrigin, /*Vector3 cylinderDirection,*/ float cylinderLength, float cylinderDiameter,
+            Vector3 point, ref bool __result)
+        {
+            Main.Log(
+                $"GeometryUtils_CylinderContainsPoint: diameter={cylinderDiameter}, height/length={cylinderLength}, origin=({cylinderOrigin.x}, {cylinderOrigin.y}, {cylinderOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
+        }
     }
-}
 #endif
 }

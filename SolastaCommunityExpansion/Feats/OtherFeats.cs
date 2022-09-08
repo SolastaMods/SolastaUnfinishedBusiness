@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
@@ -97,7 +96,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feat)
             .SetMustCastSpellsPrerequisite()
             .AddToDB();
-        
+
         feats.AddRange(savageAttacker, tough, warcaster, improvedCritical, shieldExpert);
     }
 

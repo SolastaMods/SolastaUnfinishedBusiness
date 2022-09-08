@@ -129,7 +129,7 @@ internal static class SpellsContext
         SrdAndHouseRulesContext.RemoveConcentrationRequirementsFromAnySpell();
         SrdAndHouseRulesContext.RemoveHumanoidFilterOnHideousLaughter();
         SrdAndHouseRulesContext.RemoveRecurringEffectOnEntangle();
-        
+
         // caches which spells are toggleable per spell list
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
 

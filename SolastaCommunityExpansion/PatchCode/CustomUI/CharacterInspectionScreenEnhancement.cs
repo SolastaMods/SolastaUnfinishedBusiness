@@ -12,6 +12,8 @@ namespace SolastaCommunityExpansion.PatchCode.CustomUI;
 
 internal static class CharacterInspectionScreenEnhancement
 {
+    private static Transform ClassSelector { get; set; }
+
     private static bool TryFindChoiceFeature(
         CharacterInformationPanel panel,
         FeatureDefinition subFeature,
@@ -112,8 +114,6 @@ internal static class CharacterInspectionScreenEnhancement
 
         return false;
     }
-
-    private static Transform ClassSelector { get; set; }
 
     public static void SwapClassAndbackground(CharacterInformationPanel panel)
     {

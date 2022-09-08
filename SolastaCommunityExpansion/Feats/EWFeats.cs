@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -138,7 +137,7 @@ public static class EwFeats
     {
         return WeaponValidators.IsRanged(weapon) && WeaponValidators.IsOneHanded(weapon);
     }
-    
+
     private static FeatDefinition BuildPowerAttack()
     {
         var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
@@ -149,7 +148,7 @@ public static class EwFeats
             .Create("PowerAttackTriggerCondition", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetDuration(RuleDefinitions.DurationType.Permanent)
+            .SetDuration(DurationType.Permanent)
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("PowerAttackTriggerFeature", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent(true)
@@ -160,25 +159,25 @@ public static class EwFeats
         var powerAttackCondition = ConditionDefinitionBuilder
             .Create("PowerAttackCondition", "c125b7b9-e668-4c6f-a742-63c065ad2292")
             .SetGuiPresentation("PowerAttack", Category.Feature,
-                DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
+                ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAllowMultipleInstances(false)
             .SetFeatures(PowerAttackOneHandedAttackModifierBuilder.PowerAttackAttackModifier)
-            .SetDuration(RuleDefinitions.DurationType.Round, 1)
+            .SetDuration(DurationType.Round, 1)
             .AddToDB();
 
         var powerAttackPower = FeatureDefinitionPowerBuilder
             .Create("PowerAttack", "0a3e6a7d-4628-4189-b91d-d7146d774bb6")
             .SetGuiPresentation("FeatPowerAttack", Category.Feat,
                 CustomIcons.CreateAssetReferenceSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)
             .SetCostPerUse(0)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RechargeRate.AtWill)
             .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self)
-                .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1,
+                    TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     new EffectFormBuilder()
                         .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Add)
@@ -195,14 +194,14 @@ public static class EwFeats
             // Reusing old two-handed power id - we need to keep this id anyway, so old characters won't crash
             .Create("PowerAttackTwoHanded", "b45b8467-7caa-428e-b4b5-ba3c4a153f07")
             .SetGuiPresentationNoContent(true)
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)
             .SetCostPerUse(0)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RechargeRate.AtWill)
             .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self)
-                .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1,
+                    TargetType.Self)
+                .SetDurationData(DurationType.Round, 0, false)
                 .SetEffectForms(
                     new EffectFormBuilder()
                         .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
@@ -310,12 +309,12 @@ public static class EwFeats
             var toDamage = 3 + proficiency;
 
             attackMode.ToHitBonus += TO_HIT;
-            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_HIT,
-                RuleDefinitions.FeatureSourceType.Power, "PowerAttack", null));
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT,
+                FeatureSourceType.Power, "PowerAttack", null));
 
             damage.BonusDamage += toDamage;
-            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
-                RuleDefinitions.FeatureSourceType.Power, "PowerAttack", null));
+            damage.DamageBonusTrends.Add(new TrendInfo(toDamage,
+                FeatureSourceType.Power, "PowerAttack", null));
         }
     }
 }

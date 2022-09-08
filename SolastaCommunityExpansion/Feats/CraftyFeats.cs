@@ -25,7 +25,8 @@ public static class CraftyFeats
 
         var craftyMedicine = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyMedicine", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle", "Feature/&ProficiencyCraftyMedicineDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle",
+                "Feature/&ProficiencyCraftyMedicineDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise,
                 DatabaseHelper.SkillDefinitions.Medecine.Name)
             .AddToDB();
@@ -39,35 +40,40 @@ public static class CraftyFeats
 
         var craftyHerbalismKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyHerbalismKit", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
+                "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.HerbalismKitType.Name)
             .AddToDB();
 
         var craftyManacalonRosary = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyManacalonRosary", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
+                "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.EnchantingToolType.Name)
             .AddToDB();
 
         var craftyPoisonersKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyPoisonersKit", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
+                "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.PoisonersKitType.Name)
             .AddToDB();
 
         var craftyScrollKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyScrollKit", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ProficiencyCraftyScribeTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftyScribeTitle",
+                "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.ScrollKitType.Name)
             .AddToDB();
 
         var craftySmithsTools = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftySmithsTools", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
+                "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
             .AddToDB();

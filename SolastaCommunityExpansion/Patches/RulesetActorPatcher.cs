@@ -100,7 +100,7 @@ internal static class RulesetActorPatcher
             {
                 return karmic
                     ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
-                    : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int) diceType]);
+                    : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
             }
 
             var roll1 = DoRoll();
@@ -149,6 +149,8 @@ internal static class RulesetActorPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RefreshAttributes_Patch
     {
+        private static readonly Regex classPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
+
         private static void RefrestClassModifiers(RulesetActor actor)
         {
             if (actor is not RulesetCharacterHero hero)
@@ -178,8 +180,6 @@ internal static class RulesetActorPatcher
                 }
             }
         }
-
-        private static readonly Regex classPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
 
         private static CharacterClassDefinition GetClassByTags(List<string> tags)
         {

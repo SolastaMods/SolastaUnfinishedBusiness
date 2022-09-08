@@ -17,14 +17,14 @@ internal static class ArmorFeats
         var lightArmorProficiency = BuildProficiency("ProficiencyFeatLightArmor",
             ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory);
         var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, AttributeModifierCreed_Of_Misaye);
-        
+
         var mediumArmorProficiency = BuildProficiency("ProficiencyFeatMediumArmor",
             ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
         var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory,
             mediumArmorProficiency, AttributeModifierCreed_Of_Misaye);
         var mediumStrArmorFeat = BuildFeat("FeatMediumArmorStr", LightArmorCategory,
             mediumArmorProficiency, AttributeModifierCreed_Of_Einar);
-        
+
         var heavyArmorMasterFeat = BuildFeat("FeatHeavyArmorMaster", HeavyArmorCategory,
             DamageAffinityBludgeoningResistance, DamageAffinitySlashingResistance,
             DamageAffinityPiercingResistance);

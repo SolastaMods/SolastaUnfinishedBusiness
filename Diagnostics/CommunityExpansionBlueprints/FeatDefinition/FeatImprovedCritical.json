@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierImprovedCriticalFeat:ac76c410-bc5f-5d8c-9eb4-f82b470b8862"
+    "Definition:AttributeModifierFeatImprovedCritical:26272f91-3c5e-516d-b5bf-b8cf359eb2e0"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "14c20c23-3887-5408-a146-71f84209d6ab",
+  "guid": "597848f3-18fb-5372-a54b-994c4bc9b65f",
   "contentPack": 9999,
   "name": "FeatImprovedCritical"
 }

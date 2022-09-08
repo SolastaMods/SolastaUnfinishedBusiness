@@ -16,7 +16,6 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class CustomReactionsContext
 {
-
     private static bool ForcePreferredCantrip; //used by actual feature
     private static bool ForcePreferredCantripUI; //used for local UI state
 

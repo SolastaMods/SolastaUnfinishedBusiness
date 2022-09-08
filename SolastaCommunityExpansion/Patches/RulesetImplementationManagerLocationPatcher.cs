@@ -14,7 +14,7 @@ internal static class RulesetImplementationManagerLocationPatcher
     internal static class IsMetamagicOptionAvailable_Patch
     {
         //TODO: improve sunlight blade so it can properly work when twinned
-        private static readonly string[] NotAllowedSpells = {"SunlightBlade"};
+        private static readonly string[] NotAllowedSpells = { "SunlightBlade" };
 
         internal static void Postfix(
             ref bool __result,

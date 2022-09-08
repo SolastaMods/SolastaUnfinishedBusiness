@@ -64,10 +64,10 @@ internal static class GameLocationActionManagerPatcher
         {
             //PATCH: Make cantrips that have more than 1 target hit same target more than once when used as readied action. 
             // Only Eldritch Blast and its variants should be affected
-            
+
             // For some reason TA do not set reactionParams.ReadyActionType to ReadyActionType.Cantrip
             // So we manually detect it as casting spell level 0
-            if (reactionParams.RulesetEffect is not RulesetEffectSpell {SlotLevel: 0} spell)
+            if (reactionParams.RulesetEffect is not RulesetEffectSpell { SlotLevel: 0 } spell)
             {
                 return true;
             }
@@ -92,7 +92,7 @@ internal static class GameLocationActionManagerPatcher
             return true;
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationActionManager), "ExecuteActionAsync")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ExecuteActionAsync_Patch

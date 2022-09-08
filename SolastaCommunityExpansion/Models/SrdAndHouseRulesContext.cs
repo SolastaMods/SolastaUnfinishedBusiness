@@ -43,7 +43,7 @@ internal static class SrdAndHouseRulesContext
     /// </summary>
     internal static void AllowTargetingSelectionWhenCastingChainLightningSpell()
     {
-        var spell = DatabaseHelper.SpellDefinitions.ChainLightning.EffectDescription;
+        var spell = ChainLightning.EffectDescription;
 
         if (Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell)
         {
@@ -88,11 +88,11 @@ internal static class SrdAndHouseRulesContext
             foodForagedSrdWeight.weight = 3.0f;
         }
     }
-    
+
     //
     //
     //
-    
+
     internal static void RemoveConcentrationRequirementsFromAnySpell()
     {
         if (!Main.Settings.RemoveConcentrationRequirementsFromAnySpell)
