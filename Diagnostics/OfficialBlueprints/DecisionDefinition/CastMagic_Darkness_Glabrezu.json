@@ -2,7 +2,7 @@
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
-    "description": "Shambling mounds can eat people except if they have already swallowed someone.",
+    "description": "Cast Darkness on self if we have enemies in melee, and a global high enemy influence in the area.",
     "scorer": {
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
@@ -14,63 +14,85 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "TargetHasCondition",
-                "curve": {
-                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-                },
-                "stringParameter": "ConditionDying",
-                "floatParameter": 2.0,
-                "intParameter": 2,
-                "byteParameter": 0,
-                "boolParameter": true,
-                "boolSecParameter": false,
-                "boolTerParameter": false
-              },
-              "name": "TargetIsNotDying"
-            },
-            "weight": 1.0
-          },
-          {
-            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
-            "consideration": {
-              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
-              "consideration": {
-                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "HasCondition",
-                "curve": {
-                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-                },
-                "stringParameter": "ConditionSwallowingShamblingMound",
-                "floatParameter": 2.0,
-                "intParameter": 2,
-                "byteParameter": 0,
-                "boolParameter": true,
-                "boolSecParameter": false,
-                "boolTerParameter": false
-              },
-              "name": "NotHasConditionSwallowingShamblingMound"
-            },
-            "weight": 1.0
-          },
-          {
-            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
-            "consideration": {
-              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
-              "consideration": {
-                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "DistanceFromMe",
+                "considerationType": "Random",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
-                "floatParameter": 20.0,
+                "floatParameter": 0.0,
                 "intParameter": 0,
                 "byteParameter": 0,
                 "boolParameter": false,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "IsCloseFromMe"
+              "name": "RandomModerateImpact"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "CharacterHealth",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "MyHealthIsLow75"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "InfluenceEnemyProximity",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 3.0,
+                "intParameter": 2,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "HasSomeEnemiesNearby"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "HasEnemiesInMeleeRange",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.9,
+                "intParameter": 1,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": true,
+                "boolTerParameter": false
+              },
+              "name": "HasEnemyInMeleeRange"
             },
             "weight": 1.0
           },
@@ -92,43 +114,21 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "CanCastMagic_PreferAdvantage"
-            },
-            "weight": 1.0
-          },
-          {
-            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
-            "consideration": {
-              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
-              "consideration": {
-                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "TargetThreat",
-                "curve": {
-                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-                },
-                "stringParameter": "",
-                "floatParameter": 0.0,
-                "intParameter": 0,
-                "byteParameter": 0,
-                "boolParameter": false,
-                "boolSecParameter": false,
-                "boolTerParameter": false
-              },
-              "name": "TargetHasHighThreat"
+              "name": "CanCastMagic_IgnoreAdvantage"
             },
             "weight": 1.0
           }
         ]
       },
-      "name": "CastMagic_ShamblingMound_Engulf"
+      "name": "CastMagic_Darkness_Glabrezu"
     },
     "activityType": "CastMagic",
-    "stringParameter": "PowerMarilithTail",
+    "stringParameter": "Darkness",
     "stringSecParameter": "",
     "boolParameter": false,
     "boolSecParameter": false,
     "floatParameter": 0.0,
-    "enumParameter": 138
+    "enumParameter": 512
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -154,7 +154,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
-  "guid": "dbf1fce182cdef44bb286dcb8ba6a3f6",
+  "guid": "2153d14d65a9daf4b975bc7fa041b755",
   "contentPack": "BaseGame",
-  "name": "CastMagic_MarilithTail"
+  "name": "CastMagic_Darkness_Glabrezu"
 }

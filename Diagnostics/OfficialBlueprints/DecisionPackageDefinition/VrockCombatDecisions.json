@@ -6,7 +6,21 @@
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:LongRangePathToEnemy_Dash:4e5f0f365b7acb54d81b527719d373d1",
+        "weight": 6.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_VrockScreech:8827ba0032659e1418c613470bb252e9",
         "weight": 5.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_VrockSpores:21757168ea1c4ed49ac36167850a1909",
+        "weight": 4.0,
         "cooldown": 0,
         "dynamicCooldown": false
       },
@@ -19,7 +33,7 @@
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:Move_AggressiveSingleTarget:e2b9994460da27b4693612d277ae67d5",
+        "decision": "Definition:Move_Aggressive:9e365323e03739e4ab849327563a6679",
         "weight": 2.0,
         "cooldown": 0,
         "dynamicCooldown": false
@@ -28,20 +42,6 @@
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:RangedAttack_Default:a96934f6775237944a7beb403b13c731",
         "weight": 1.0,
-        "cooldown": 0,
-        "dynamicCooldown": false
-      },
-      {
-        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_VrockScreech:8827ba0032659e1418c613470bb252e9",
-        "weight": 4.5,
-        "cooldown": 0,
-        "dynamicCooldown": false
-      },
-      {
-        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_VrockSpores:21757168ea1c4ed49ac36167850a1909",
-        "weight": 4.0,
         "cooldown": 0,
         "dynamicCooldown": false
       }

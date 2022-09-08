@@ -78,7 +78,7 @@
       },
       "previousTargetRelatedMalus": 0.1
     },
-    "name": "PrioritizeNooneButFocus"
+    "name": "PrioritizeDpsRangedAndFocusAttacks"
   },
   "languages": [
     "Language_Abyssal"
@@ -103,8 +103,10 @@
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6",
+    "Definition:ActionAffinityReactive:854f270500ab55f4bb62380075fa7907",
     "Definition:PowerPhaseMarilithTeleport:bd5e55fd2ab911844ad1373ba9ac67e7",
-    "Definition:PowerMarilithTail:eea9e36c449e37d41a1f52d338348566"
+    "Definition:PowerMarilithTail:eea9e36c449e37d41a1f52d338348566",
+    "Definition:PowerMarilithParry:2e4f2a002e84b284ca55e171446f8cea"
   ],
   "attackIterations": [
     {

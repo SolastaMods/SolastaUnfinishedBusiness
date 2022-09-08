@@ -24,6 +24,7 @@
   "situationalContext": "TargetHasCondition",
   "requiredCondition": "Definition:ConditionLightSensitive:ca49770be06152b44aca3d6df2678a81",
   "nullifiedBySenses": [],
+  "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,
   "multiAttackDefenseValue": 0,
   "readyAttackAdvantage": "None",

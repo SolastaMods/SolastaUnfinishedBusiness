@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
   "damageType": "DamageAcid",
+  "associatedFaceAndSkinColor": "FaceAndSkin_Dragonborn_30",
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
@@ -28,6 +29,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "61ee2b2f89217874e8eb235b7c8f152d",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "AncestryDragonbornDraconicBlack"
 }

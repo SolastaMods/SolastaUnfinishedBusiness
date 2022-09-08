@@ -5,15 +5,22 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_PepareDemonicInfluence_Flying:59f9daa1fd1ff4b4eace9f53781948d7",
+        "weight": 6.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:CastMagic_Incubus_DemonicInfluence:4d136e5e6c27430498a0675091bfa1e9",
-        "weight": 2.5,
-        "cooldown": 3,
+        "weight": 5.0,
+        "cooldown": 0,
         "dynamicCooldown": false
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:CastMagic_Incubus_Drain:a24ff8df7f489bd428dde4d0d600a611",
-        "weight": 2.5,
+        "weight": 3.0,
         "cooldown": 0,
         "dynamicCooldown": false
       },
@@ -33,7 +40,7 @@
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_Teleport_Reposition:8a3c8a64e2ea39744a4a07c79b2defc0",
+        "decision": "Definition:CastMagic_Teleport_Reposition_NoMelee:911ae13fa2d4a8b46a9ec1348b628439",
         "weight": 1.5,
         "cooldown": 0,
         "dynamicCooldown": false

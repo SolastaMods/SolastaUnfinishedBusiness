@@ -5,14 +5,14 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:Move_Leap_Bulette:84ca3082d875286498019cb078e203d2",
+        "decision": "Definition:Move_Leap_TriggerPower:84ca3082d875286498019cb078e203d2",
         "weight": 5.0,
         "cooldown": 0,
         "dynamicCooldown": false
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:Move_Leap_Aggressive_Bulette:02ed8f8361934573803e76bb67125788",
+        "decision": "Definition:Move_Leap_TriggerPower_Risky:02ed8f8361934573803e76bb67125788",
         "weight": 5.0,
         "cooldown": 2,
         "dynamicCooldown": false

@@ -35,7 +35,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:PeaksAbominationDecisions:f1850cf3950458d48ab8911ba98127fc",
+  "defaultBattleDecisionPackage": "Definition:PeaksAbominationCombatDecisions:f1850cf3950458d48ab8911ba98127fc",
   "threatEvaluatorDefinition": null,
   "languages": [],
   "audioSwitches": [],

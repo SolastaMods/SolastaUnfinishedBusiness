@@ -24,6 +24,7 @@
   "situationalContext": "AttackerNextToTarget",
   "requiredCondition": null,
   "nullifiedBySenses": [],
+  "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,
   "multiAttackDefenseValue": 0,
   "readyAttackAdvantage": "None",

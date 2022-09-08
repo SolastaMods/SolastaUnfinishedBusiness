@@ -61,8 +61,8 @@
     "description": "!PH! ElevatorEngineer",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2465694b9c581044ab3ad1eaa17fab20",
-      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Gilmar_Goldentongue",
+      "m_AssetGUID": "c05916173b550554bae47a284810d8c8",
+      "m_SubObjectName": "NPC_Presentation_DLC3_WhiteCity_ElevatorEngineer",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

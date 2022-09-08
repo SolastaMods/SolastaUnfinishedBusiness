@@ -13,6 +13,13 @@
               "itemReference": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
               "defaultChoice": "",
               "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "AmmoPack",
+              "itemReference": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+              "defaultChoice": "",
+              "number": 1
             }
           ]
         },

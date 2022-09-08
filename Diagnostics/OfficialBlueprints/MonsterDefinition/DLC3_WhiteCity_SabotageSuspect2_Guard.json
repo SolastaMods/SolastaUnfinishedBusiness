@@ -137,7 +137,7 @@
     "hasUniqueName": false,
     "uniqueNameTitle": "",
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_WhiteCity_SabotageSuspect1_Guard:90f987b5574b0ac4d86c70bfbc45cc45"
+      "Definition:NPC_Presentation_DLC3_WhiteCity_SabotageSuspect2_Guard:2759828127671e04a8cfb82bd97da603"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -231,12 +231,12 @@
   "followFloorAngle": false,
   "groupAttacks": false,
   "isUnique": true,
-  "uniqueNameId": "Suspect1_Guard",
+  "uniqueNameId": "Suspect2_Guard",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "!PH! Suspect1_Guard",
-    "description": "!PH! Suspect1_Guard",
+    "title": "!PH! Suspect2_Guard",
+    "description": "!PH! Suspect2_Guard",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

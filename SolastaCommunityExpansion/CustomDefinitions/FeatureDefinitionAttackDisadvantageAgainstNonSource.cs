@@ -24,7 +24,7 @@ public sealed class FeatureDefinitionAttackDisadvantageAgainstNonSource : Featur
     public bool ShoveOnReadyAttackHit { get; }
 
     public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode,
-        ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin, int bardicDieRoll)
+        ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin, int bardicDieRoll, float distance)
     {
         if (!myself.ConditionsByCategory.SelectMany(keyValuePair => keyValuePair.Value).Any(rulesetCondition =>
                 rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName) &&
@@ -39,18 +39,18 @@ public sealed class FeatureDefinitionAttackDisadvantageAgainstNonSource : Featur
 
     public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks,
         bool defenderAlreadyAttackedByAttackerThisTurn, ActionModifier attackModifier,
-        RuleDefinitions.FeatureOrigin featureOrigin)
+        RuleDefinitions.FeatureOrigin featureOrigin, float distance)
     {
         // Intentionally empty?
     }
 
     public RuleDefinitions.AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself,
-        RulesetCharacter attacker)
+        RulesetCharacter attacker, float distance)
     {
         return RuleDefinitions.AdvantageType.None;
     }
 
-    public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, RulesetCharacter attacker)
+    public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, RulesetCharacter attacker, float distance)
     {
         return false;
     }

@@ -48,27 +48,11 @@
       "bonus": 6
     }
   ],
-  "legendaryCreature": true,
+  "legendaryCreature": false,
   "maxLegendaryResistances": 2,
   "maxLegendaryActionPoints": 1,
   "differentActionEachTurn": false,
-  "legendaryActionOptions": [
-    {
-      "$type": "LegendaryActionDescription, Assembly-CSharp",
-      "cost": 1,
-      "subaction": "Power",
-      "monsterAttackDefinition": null,
-      "featureDefinitionPower": null,
-      "spellDefinition": null,
-      "magicAttackBonus": 0,
-      "saveDC": 0,
-      "magicAbilityBonus": 0,
-      "canMove": false,
-      "moveMode": null,
-      "noOpportunityAttack": false,
-      "decisionPackage": null
-    }
-  ],
+  "legendaryActionOptions": [],
   "defaultBattleDecisionPackage": "Definition:SorakAssassinCombatDecisions:2d5d8f9fc60d3964d8e171c6b72127a9",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",

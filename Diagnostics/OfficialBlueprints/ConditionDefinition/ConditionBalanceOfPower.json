@@ -38,7 +38,7 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "5bc14425ce64f4d4188a93e21209019d",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -50,7 +50,7 @@
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "eb18fce1ed470d04a9d0e37331520c1f",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },

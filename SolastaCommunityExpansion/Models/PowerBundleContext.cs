@@ -182,7 +182,7 @@ public static class PowerBundleContext
         }
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
-        subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, power =>
+        subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (power, _) =>
         {
             //Note: ideal solution would be to patch `Unbind` of `UsablePowerBox` to auto close selector, instead of this check
             if (box != null && box.powerEngaged != null)
@@ -223,7 +223,7 @@ public static class PowerBundleContext
         }
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
-        subpowerSelectionModal.Bind(bundle.SubPowers, instance.Hero, rulesetPower =>
+        subpowerSelectionModal.Bind(bundle.SubPowers, instance.Hero, (rulesetPower, _) =>
         {
             instance.button.interactable = false;
 

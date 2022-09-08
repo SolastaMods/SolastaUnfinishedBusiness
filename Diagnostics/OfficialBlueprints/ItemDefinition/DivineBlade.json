@@ -242,7 +242,7 @@
         },
         "impactParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-          "m_AssetGUID": "",
+          "m_AssetGUID": "5cdd6944009a9f14eae5a1f5e9bc0a82",
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
@@ -360,6 +360,7 @@
         "aoeScoreMultiplier": 1.0,
         "cooldownForCaster": 0,
         "cooldownForBattle": 0,
+        "sortingScoreMultiplier": 1.0,
         "dynamicCooldown": false
       },
       "animationMagicEffect": "Animation0",

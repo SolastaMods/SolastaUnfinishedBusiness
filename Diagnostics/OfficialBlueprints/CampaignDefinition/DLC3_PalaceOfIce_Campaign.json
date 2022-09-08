@@ -1153,7 +1153,279 @@
     },
     {
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_WhiteCity_Elevator_Engineer_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_WhiteCity_Witness1_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_WhiteCity_Witness2_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "DLC3_Campaign_HowManyPillarsSeen",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_MetInnKeeperKaupaa",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_WhiteCity_YoungDwarf_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_03_Butler_Not_At_Gate",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_03_Butler_Not_At_Inn",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_03_Butler_Not_At_Keep",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_03_Butler_Not_At_Clanhouse",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_04_Temple_Gate_Active",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_04_Storehouse_Key_Found",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_WhiteCity_YoungDwarf_InParty_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_WhiteCity_YoungDwarf_TooLate_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_End_WhiteCity_Undercover Heddlon_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC_Campaign_Count_Keskainen_Denounciations",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Vigdis",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Gilmar",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Estorgath",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Marduk",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Blunt",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_PlayerVoteChoice",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteVigdis",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteGilmar",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteEstorgath",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteHuman",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteNorthern",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteVigdis",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteGilmar",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteBlunt",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteAshdown",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteBlunt",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteMarduk",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteRolf",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteEstorgath",
       "type": "Int",
       "boolValue": false,
       "intValue": 0,
@@ -1232,6 +1504,41 @@
     {
       "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Skeleton_Archer:40a8be3274f0999499fc7734b30b78f4",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Abomination:33d203ab6a1b5944785e5cbe2b1d3980",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Acolyte_of_Sorr-Tarr:42a7d5d78cd593549bdc58619f6fa79e",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Assassin:d1fca5bca23d2a04c8b5e1e12a294568",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Saboteur:3a3de4e622ed5f34d9b941e1d33ff5aa",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Shikkath:de59cb16776e20647a7ed74ba95d2f90",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Skirmisher:f68a7a00b3d553d4c92a1ced5bd3ea1e",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Warrior:8b150ec99b2f2f04bb9a136296903ceb",
       "knowledgeLevel": "Mastered4"
     }
   ],

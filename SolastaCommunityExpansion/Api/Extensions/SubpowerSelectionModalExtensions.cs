@@ -37,12 +37,13 @@ internal static class SubpowerSelectionModalExtensions
             if (i < powers.Count)
             {
                 child.gameObject.SetActive(true);
+                var i1 = i;
                 component.Bind(caster, instance.powerDefinitions[i], i, index =>
                 {
                     if (instance.subpowerEngaged != null)
                     {
                         var usablePower = UsablePowersProvider.Get(instance.powerDefinitions[index], instance.caster);
-                        instance.subpowerEngaged(usablePower);
+                        instance.subpowerEngaged(usablePower, i1);
                     }
 
                     instance.Hide();

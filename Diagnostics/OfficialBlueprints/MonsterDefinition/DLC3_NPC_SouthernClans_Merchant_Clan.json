@@ -123,18 +123,7 @@
     "Definition:CastSpell_DLC3_Vigdis:cf833df47f362f947b1311458f89dd49",
     "Definition:PowerDomainBattleHeraldOfBattle:efe7d4d84e723ed47bdbf24c27f64966"
   ],
-  "attackIterations": [
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_DLC3_Vigdis_Hammer:b55716e9dd501fe499b6dcdf1b4db4c9"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_DLC3_Vigdis_Crossbow:e05cb53051307b24b8071fa072045266"
-    }
-  ],
+  "attackIterations": [],
   "sneakStance": "Stealth",
   "patrolStance": "SlowWalk",
   "interceptStance": "Run",

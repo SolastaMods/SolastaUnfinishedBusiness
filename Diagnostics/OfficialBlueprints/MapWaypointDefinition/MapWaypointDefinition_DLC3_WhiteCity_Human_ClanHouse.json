@@ -10,7 +10,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Map/&DLC3_WhiteCity_Human_ClanHouse",
+    "title": "Map/&MapWaypointDefinition_DLC3_WhiteCity_Human_ClanHouse",
     "description": "",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

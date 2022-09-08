@@ -56,7 +56,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "defaultBattleDecisionPackage": "Definition:GlabrezuCombatDecisions:f24a8c2d38354c64d83893418b687c02",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -78,7 +78,7 @@
       },
       "previousTargetRelatedMalus": 0.1
     },
-    "name": "PrioritizeNooneButFocus"
+    "name": "PrioritizeDamageDealers"
   },
   "languages": [
     "Language_Abyssal"
@@ -94,6 +94,7 @@
   "features": [
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6",
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
     "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
     "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",

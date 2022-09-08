@@ -57,7 +57,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DefaultRangeWithBackupMeleeDecisions:a938084b17b2aad46bffadc07456119a",
+  "defaultBattleDecisionPackage": "Definition:IncubusCombatDecisions:fda404e76d1308b49807889c7947b14a",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -77,9 +77,9 @@
       "meleeVsRangedResponse": {
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
-      "previousTargetRelatedMalus": 0.1
+      "previousTargetRelatedMalus": 0.0
     },
-    "name": "PrioritizeHurtMeatyDamageDealers"
+    "name": "PrioritizeDamageDealers_Ranged"
   },
   "languages": [
     "Language_Common",
@@ -103,7 +103,9 @@
     "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
     "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
     "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:PowerPhaseIncubusTeleport:03745cdc8906a63459d41fe8ee07a1f9"
+    "Definition:PowerPhaseIncubusTeleport:03745cdc8906a63459d41fe8ee07a1f9",
+    "Definition:PowerIncubusDemonicInfluence:60f8b289fa22ade4b9d045379baa06fe",
+    "Definition:PowerIncubus_Drain:80cb221b036d0e54389b0558191e6424"
   ],
   "attackIterations": [
     {

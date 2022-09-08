@@ -19,7 +19,7 @@
   "scarsMorphotype": "Scars_15",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "ClothesCommon_Valley",
+  "armorDefinition": "StuddedLeather",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": false,
@@ -39,9 +39,9 @@
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.410377353,
-    "g": 0.48061958,
-    "b": 0.5471698,
+    "r": 0.140174389,
+    "g": 0.310672253,
+    "b": 0.4716981,
     "a": 1.0
   },
   "fourthColor": {
@@ -61,8 +61,8 @@
     "description": "NPC/&DLC3_NPC_SouthernClans_Merchant_General_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6f8048418449c474497c916418fbb5f1",
-      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_Merchant_General",
+      "m_AssetGUID": "cd8824a6e8767ef47ab4dd9eee5f54f1",
+      "m_SubObjectName": "NPC_Presentation_DLC3_SouthernClans_Merchant_General",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

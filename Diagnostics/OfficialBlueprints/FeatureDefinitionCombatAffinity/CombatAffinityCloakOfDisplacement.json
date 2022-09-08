@@ -26,6 +26,7 @@
   "nullifiedBySenses": [
     "Truesight"
   ],
+  "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,
   "multiAttackDefenseValue": 0,
   "readyAttackAdvantage": "None",

@@ -2,7 +2,7 @@
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
-    "description": "Try to leech life from an ally if health is low.",
+    "description": "Single target damage offensive spells. Target someone according to advantages during attack, threat, and distance to caster. Only available after having used main attacks.",
     "scorer": {
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
@@ -14,19 +14,41 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "IsSelf",
+                "considerationType": "ActionTypeStatus",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
-                "floatParameter": 5.0,
-                "intParameter": 3,
+                "floatParameter": 1.0,
+                "intParameter": 0,
                 "byteParameter": 0,
-                "boolParameter": false,
+                "boolParameter": true,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "NotSelf"
+              "name": "MainActionConsumed"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "AttackTypeUsed",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 1.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "MainAttackUsed"
             },
             "weight": 1.0
           },
@@ -49,28 +71,6 @@
                 "boolTerParameter": false
               },
               "name": "TargetIsNotDying"
-            },
-            "weight": 1.0
-          },
-          {
-            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
-            "consideration": {
-              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
-              "consideration": {
-                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "CharacterHealth",
-                "curve": {
-                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-                },
-                "stringParameter": "",
-                "floatParameter": 0.0,
-                "intParameter": 0,
-                "byteParameter": 0,
-                "boolParameter": false,
-                "boolSecParameter": false,
-                "boolTerParameter": false
-              },
-              "name": "MyHealthIsLessThan80"
             },
             "weight": 1.0
           },
@@ -117,10 +117,32 @@
               "name": "CanCastMagic_PreferAdvantage"
             },
             "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "TargetThreat",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "TargetHasHighThreat"
+            },
+            "weight": 1.0
           }
         ]
       },
-      "name": "CastMagic_DPS_SingleTarget_LifeLeechOnAlly_SpiderQueen"
+      "name": "CastMagic_DPS_SingleTarget_AfterMainAttack"
     },
     "activityType": "CastMagic",
     "stringParameter": "",
@@ -128,7 +150,7 @@
     "boolParameter": false,
     "boolSecParameter": false,
     "floatParameter": 0.0,
-    "enumParameter": 2092
+    "enumParameter": 42
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -154,7 +176,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
-  "guid": "440e0c9ddf7159847b7801fc752c1faf",
+  "guid": "e84c873e115173244b374763484af485",
   "contentPack": "BaseGame",
-  "name": "CastMagic_DPS_LifeLeech_SingleTargetOnAlly_SpiderQueen"
+  "name": "CastMagic_DPS_SingleTarget_AfterMainAttack"
 }

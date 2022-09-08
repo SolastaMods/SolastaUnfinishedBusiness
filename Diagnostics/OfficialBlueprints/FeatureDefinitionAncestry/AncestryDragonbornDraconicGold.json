@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
   "damageType": "DamageFire",
+  "associatedFaceAndSkinColor": "FaceAndSkin_Dragonborn_04",
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
@@ -28,6 +29,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "44e10b05bc6a49f4297207e6c1af3ddb",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "AncestryDragonbornDraconicGold"
 }

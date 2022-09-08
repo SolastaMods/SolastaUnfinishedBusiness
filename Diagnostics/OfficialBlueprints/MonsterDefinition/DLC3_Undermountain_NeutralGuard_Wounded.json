@@ -141,14 +141,7 @@
     "hasUniqueName": false,
     "uniqueNameTitle": "",
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Female_01:e1fa56dcf50b4ba4790b8e53ac101375",
-      "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Female_02:80cb39a2b061b9b4aa0fbc0aaaee03f8",
-      "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Female_03:ed650e2a2f739af438b28e0c660f6810",
-      "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Female_04:2a0b0a9186c34444ca754a65a483e2e1",
-      "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Male_01:e54d55639234f91448e536ac778f9e72",
-      "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Male_02:0525f43d70eadb041a0cc30f5c2fbdba",
-      "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Male_03:0bf12d2d1b623e14ca0a7d409405cad1",
-      "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Male_04:161d3f3e908168f43b585451db03d297"
+      "Definition:NPC_Presentation_DLC3_Undermountain_EttivenGuard_Female_01:4ef25bd24a94d5743ac5fec24dd17d79"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

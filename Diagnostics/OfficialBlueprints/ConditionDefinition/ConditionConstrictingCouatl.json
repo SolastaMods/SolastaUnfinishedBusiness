@@ -8,13 +8,15 @@
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": true,
-  "specialDuration": true,
+  "specialDuration": false,
   "durationType": "Permanent",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Moved"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",

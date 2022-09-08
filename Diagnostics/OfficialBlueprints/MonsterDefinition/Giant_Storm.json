@@ -71,7 +71,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:GiantDefaultCombatDecisions:fab51e461a5de8f4591fccf4e19bb205",
+  "defaultBattleDecisionPackage": "Definition:GiantStormCombatDecisions:02a3d66435b3dda4c9b4ef68f6d84e8f",
   "threatEvaluatorDefinition": null,
   "languages": [
     "Language_Common",

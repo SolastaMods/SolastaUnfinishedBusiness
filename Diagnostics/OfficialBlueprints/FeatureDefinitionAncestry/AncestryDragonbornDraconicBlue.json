@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
   "damageType": "DamageLightning",
+  "associatedFaceAndSkinColor": "FaceAndSkin_Dragonborn_09",
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
@@ -28,6 +29,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "6fb28284f3de3f442a6c5a6fecff1fa1",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "AncestryDragonbornDraconicBlue"
 }

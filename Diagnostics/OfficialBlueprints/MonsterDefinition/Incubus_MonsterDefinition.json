@@ -77,9 +77,9 @@
       "meleeVsRangedResponse": {
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
-      "previousTargetRelatedMalus": 0.1
+      "previousTargetRelatedMalus": 0.0
     },
-    "name": "PrioritizeHurtMeatyDamageDealers"
+    "name": "PrioritizeDamageDealers_Ranged"
   },
   "languages": [
     "Language_Common",

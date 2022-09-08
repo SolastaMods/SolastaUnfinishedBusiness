@@ -24,6 +24,7 @@
   "situationalContext": "TargetHasCondition",
   "requiredCondition": "Definition:ConditionRoguishHoodlumMenacingSource:63c862d4676035248b86f9e49a1f7fcf",
   "nullifiedBySenses": [],
+  "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,
   "multiAttackDefenseValue": 0,
   "readyAttackAdvantage": "None",

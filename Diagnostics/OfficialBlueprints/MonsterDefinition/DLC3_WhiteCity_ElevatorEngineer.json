@@ -137,7 +137,7 @@
     "hasUniqueName": false,
     "uniqueNameTitle": "",
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_Gilmar_Goldentongue:5814d4dccde60314d97480d3de29298f"
+      "Definition:NPC_Presentation_DLC3_WhiteCity_ElevatorEngineer:dbe07ae2c88198441835355bbb67a19f"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -235,8 +235,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "!PH! Gilmar",
-    "description": "!PH! Gilmar",
+    "title": "!PH! ElevatorEngineer",
+    "description": "!PH! ElevatorEngineer",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

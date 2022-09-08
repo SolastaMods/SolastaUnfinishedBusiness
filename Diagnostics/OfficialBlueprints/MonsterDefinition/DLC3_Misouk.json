@@ -270,8 +270,8 @@
     "description": "NPC/&DLC3_Misouk_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a5d2f0021d0d71b4b8e379286e9af6f6",
-      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_Misouk",
+      "m_AssetGUID": "6ba5e55d0f782b944a34c1f95fcc84f7",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Misouk",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

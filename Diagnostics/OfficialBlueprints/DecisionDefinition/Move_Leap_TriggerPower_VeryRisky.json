@@ -108,13 +108,13 @@
                 },
                 "stringParameter": "",
                 "floatParameter": 0.9,
-                "intParameter": 2,
+                "intParameter": 3,
                 "byteParameter": 0,
                 "boolParameter": false,
                 "boolSecParameter": false,
                 "boolTerParameter": true
               },
-              "name": "NotHasMoreThanOneOpportunityAttackerInMeleeRange"
+              "name": "NotHasMoreThanTwoOpportunityAttackersInMeleeRange"
             },
             "weight": 1.0
           },
@@ -252,7 +252,7 @@
           }
         ]
       },
-      "name": "MoveScorer_Leap_Aggressive_Bulette"
+      "name": "MoveScorer_Leap_TriggerPower_VeryRisky"
     },
     "activityType": "SpecialMove",
     "stringParameter": "",
@@ -286,7 +286,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
-  "guid": "02ed8f8361934573803e76bb67125788",
+  "guid": "b73c53558a2a47b4b9d210834f7a4e0d",
   "contentPack": "BaseGame",
-  "name": "Move_Leap_Aggressive_Bulette"
+  "name": "Move_Leap_TriggerPower_VeryRisky"
 }

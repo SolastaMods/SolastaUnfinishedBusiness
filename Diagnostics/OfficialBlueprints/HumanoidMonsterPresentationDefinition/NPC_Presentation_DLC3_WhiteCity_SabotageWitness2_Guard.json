@@ -62,7 +62,7 @@
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4f07ea13eac5d0643a7853cb0a5dec70",
-      "m_SubObjectName": "NPC_Presentation_DLC3_SabotageWitness2_Guard",
+      "m_SubObjectName": "NPC_Presentation_DLC3_WhiteCity_SabotageWitness2_Guard",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -79,6 +79,6 @@
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
   "guid": "c37b15a3656cc4d4f961cc7e82d998d6",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "NPC_Presentation_DLC3_WhiteCity_SabotageWitness2_Guard"
 }

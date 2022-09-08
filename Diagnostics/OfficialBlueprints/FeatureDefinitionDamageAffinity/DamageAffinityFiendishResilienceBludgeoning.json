@@ -9,7 +9,8 @@
   "flatDamageReductionOnlyAppliesToFirstDamageForm": true,
   "tagsIgnoringAffinity": [
     "Silver",
-    "MagicalWeapon"
+    "MagicalWeapon",
+    "MagicalEffect"
   ],
   "situationalContext": "None",
   "healsBack": false,

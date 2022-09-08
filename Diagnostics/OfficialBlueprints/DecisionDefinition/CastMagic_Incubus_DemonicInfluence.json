@@ -14,7 +14,7 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "Random",
+                "considerationType": "IsPartyMember",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
@@ -26,7 +26,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "RandomMediumChance"
+              "name": "TargetIsPartyMemberExcludingGuests"
             },
             "weight": 1.0
           },
@@ -49,6 +49,28 @@
                 "boolTerParameter": false
               },
               "name": "TargetIsNotDying"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "CountHeroAllySided",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 4,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "HasMoreThanOneAllyHero"
             },
             "weight": 1.0
           },
@@ -120,7 +142,7 @@
           }
         ]
       },
-      "name": "CastMagic_Debuff_SingleTarget"
+      "name": "CastMagic_DemonicInfluence_SingleTarget_NoRandom"
     },
     "activityType": "CastMagic",
     "stringParameter": "PowerIncubusDemonicInfluence",

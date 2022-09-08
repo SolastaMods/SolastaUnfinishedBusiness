@@ -37,7 +37,7 @@
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
-    "grantedConditionOnSave": null,
+    "grantedConditionOnSave": "Definition:ConditionFrightenedByDragonImmunity:327b8f12731d98f4ab7bea8b5c0cd1b6",
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionBlessed",
-          "conditionDefinition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
+          "conditionDefinition": "Definition:ConditionFrightenedByDragon:b23ec7a1b181e254e8f925eab73acb52",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -279,6 +279,7 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation1",

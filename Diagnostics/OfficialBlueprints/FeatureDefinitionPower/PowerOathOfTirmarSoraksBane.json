@@ -279,6 +279,7 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
@@ -290,7 +291,7 @@
   "activationTime": "OnAttackHitSoraksBaneAuto",
   "autoActivationRequiredTargetSenseType": "Darkvision, SuperiorDarkvision",
   "autoActivationRequiredTargetCreatureTag": "Shapechanger",
-  "autoActivationPowerTag": "",
+  "autoActivationPowerTag": "None",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",

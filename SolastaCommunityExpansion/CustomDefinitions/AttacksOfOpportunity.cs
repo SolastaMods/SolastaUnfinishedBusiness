@@ -215,7 +215,7 @@ internal sealed class CanIgnoreDisengage : ICanIgnoreAoOImmunity
                         affinityProvider.SituationalContext, attacker,
                         character, service.FindSourceIdOfFeature(character, feature),
                         affinityProvider.RequiredCondition, false, null))
-                && affinityProvider.IsImmuneToOpportunityAttack(character, attacker))
+                && affinityProvider.IsImmuneToOpportunityAttack(character, attacker, 0))
             {
                 return false;
             }

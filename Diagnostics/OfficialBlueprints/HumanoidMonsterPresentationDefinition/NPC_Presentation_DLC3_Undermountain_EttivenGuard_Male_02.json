@@ -19,15 +19,15 @@
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "Enchanted_ChainmailOfSturdiness",
+  "armorDefinition": "ChainMail",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": false,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.498039216,
-    "b": 1.0,
+    "r": 0.6415094,
+    "g": 0.6415094,
+    "b": 0.6415094,
     "a": 0.0
   },
   "secondColor": {
@@ -39,16 +39,16 @@
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
+    "r": 0.5943396,
+    "g": 0.585929155,
+    "b": 0.585929155,
     "a": 0.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.498039216,
-    "b": 1.0,
+    "r": 0.6981132,
+    "g": 0.310597479,
+    "b": 0.181114167,
     "a": 0.0
   },
   "overrideWieldedItems": false,
@@ -57,12 +57,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "!PH! Undermountain_PernnelevinGuard_Male_02",
-    "description": "!PH!",
+    "title": "NPC/&DLC3_NPC_UndermountainGuard_Title",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a810e72c96b1bbe42808c0ebd0561b3e",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Undermountain_EttivenGuard_Male_01",
+      "m_AssetGUID": "e5ab278a51c66b7479a772dfad393688",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Undermountain_EttivenGuard_Male_02",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

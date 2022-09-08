@@ -59,7 +59,29 @@
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
   "defaultBattleDecisionPackage": "Definition:SorakGruntCombatDecisions:b5a26b1bbe0788d4f9759d581f6d07c9",
-  "threatEvaluatorDefinition": null,
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeFragileDamageDealers_Ranged"
+  },
   "languages": [],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],

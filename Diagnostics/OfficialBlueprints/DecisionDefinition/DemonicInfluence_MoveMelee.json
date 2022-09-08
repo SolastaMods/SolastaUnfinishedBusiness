@@ -2,7 +2,7 @@
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
-    "description": "Jump on as many people as possible, only if we still have our action to make, and if we have no opportunity attacker in melee range. This isn't risky for self preservation, so it should not have a cooldown.",
+    "description": "Move if we havent moved yet (means that we didn't move to melee attack someone).",
     "scorer": {
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
@@ -23,32 +23,10 @@
                 "intParameter": 0,
                 "byteParameter": 0,
                 "boolParameter": true,
-                "boolSecParameter": true,
-                "boolTerParameter": false
-              },
-              "name": "NoActionSoFar"
-            },
-            "weight": 1.0
-          },
-          {
-            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
-            "consideration": {
-              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
-              "consideration": {
-                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "RemainingMoveStatus",
-                "curve": {
-                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-                },
-                "stringParameter": "",
-                "floatParameter": 0.6,
-                "intParameter": 0,
-                "byteParameter": 0,
-                "boolParameter": false,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "HasEnoughRemainingMove"
+              "name": "MainActionNotFullyConsumed"
             },
             "weight": 1.0
           },
@@ -58,7 +36,7 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "IsValidSpecialMoveDestination",
+                "considerationType": "IsValidMoveDestination",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
@@ -66,11 +44,11 @@
                 "floatParameter": 0.0,
                 "intParameter": 0,
                 "byteParameter": 0,
-                "boolParameter": true,
+                "boolParameter": false,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "IsValidSpecialMoveDestination"
+              "name": "IsValidMoveDestination"
             },
             "weight": 1.0
           },
@@ -92,7 +70,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "ForbidDash"
+              "name": "PenalizeDash"
             },
             "weight": 1.0
           },
@@ -102,19 +80,41 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "HasEnemiesInMeleeRange",
+                "considerationType": "MoveCost",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
-                "floatParameter": 0.9,
-                "intParameter": 1,
+                "floatParameter": 0.0,
+                "intParameter": 0,
                 "byteParameter": 0,
                 "boolParameter": false,
                 "boolSecParameter": false,
-                "boolTerParameter": true
+                "boolTerParameter": false
               },
-              "name": "NotHasOpportunityAttackerInMeleeRange"
+              "name": "FavorCurrentPosition_Melee"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "AltitudeAdvantage",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 4,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "FavorHigherPosition_Melee"
             },
             "weight": 1.0
           },
@@ -190,77 +190,33 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "CanStandOnCell",
+                "considerationType": "InfluenceAttackableEnemy",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
-                "floatParameter": 0.0,
-                "intParameter": 0,
-                "byteParameter": 0,
+                "floatParameter": 1.5,
+                "intParameter": 2,
+                "byteParameter": 1,
                 "boolParameter": true,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "CanStandOnCellIgnoreOccupants"
-            },
-            "weight": 1.0
-          },
-          {
-            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
-            "consideration": {
-              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
-              "consideration": {
-                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "HasEnemiesInBox",
-                "curve": {
-                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-                },
-                "stringParameter": "",
-                "floatParameter": 0.9,
-                "intParameter": 3,
-                "byteParameter": 0,
-                "boolParameter": true,
-                "boolSecParameter": false,
-                "boolTerParameter": false
-              },
-              "name": "HasEnemiesInBoxAtPosition"
-            },
-            "weight": 1.0
-          },
-          {
-            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
-            "consideration": {
-              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
-              "consideration": {
-                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "CanPerceiveCell",
-                "curve": {
-                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-                },
-                "stringParameter": "",
-                "floatParameter": 0.0,
-                "intParameter": 0,
-                "byteParameter": 0,
-                "boolParameter": false,
-                "boolSecParameter": false,
-                "boolTerParameter": false
-              },
-              "name": "CanPerceiveCell"
+              "name": "FavorAttackableEnemyWithReachAtPosition"
             },
             "weight": 1.0
           }
         ]
       },
-      "name": "MoveScorer_Leap_Bulette"
+      "name": "DemonicInfluence_MoveScorer_Aggressive"
     },
-    "activityType": "SpecialMove",
+    "activityType": "Move",
     "stringParameter": "",
     "stringSecParameter": "",
     "boolParameter": false,
-    "boolSecParameter": true,
-    "floatParameter": 3.0,
-    "enumParameter": 3
+    "boolSecParameter": false,
+    "floatParameter": 0.0,
+    "enumParameter": 1
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -286,7 +242,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
-  "guid": "84ca3082d875286498019cb078e203d2",
+  "guid": "22626bbba5164794aa01854357f07213",
   "contentPack": "BaseGame",
-  "name": "Move_Leap_Bulette"
+  "name": "DemonicInfluence_MoveMelee"
 }

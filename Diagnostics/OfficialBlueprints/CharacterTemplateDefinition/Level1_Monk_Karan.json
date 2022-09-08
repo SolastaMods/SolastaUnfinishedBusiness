@@ -6,12 +6,12 @@
   "firstName": "Race/&DragonbornMaleName9Title",
   "surName": "Race/&DragonbornSurName1Title",
   "abilityScores": [
-    12,
+    10,
     18,
     14,
     10,
     15,
-    8
+    7
   ],
   "automateAbilityScoreIncreases": false,
   "mainRace": "Definition:Dragonborn:863fd0fc96274bb42874b6d16fd7622b",

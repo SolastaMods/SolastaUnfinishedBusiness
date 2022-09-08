@@ -165,12 +165,12 @@
   },
   "locationPresentation": {
     "$type": "LocationPresentation, Assembly-CSharp",
-    "unchartedTitle": "Map/&Location_Presentation_DLC3_IceHenge_Title",
-    "unchartedDescription": "Map/&Location_Presentation_DLC3_IceHenge_Description",
-    "knownTitle": "Map/&Location_Presentation_DLC3_IceHenge_Title",
-    "knownDescription": "Map/&Location_Presentation_DLC3_IceHenge_Description",
-    "exploredTitle": "Map/&Location_Presentation_DLC3_IceHenge_Title",
-    "exploredDescription": "Map/&Location_Presentation_DLC3_IceHenge_Description"
+    "unchartedTitle": "Maps/&Location_Presentation_DLC3_Undermountain_Title",
+    "unchartedDescription": "Maps/&Location_Presentation_DLC3_Undermountain_Description",
+    "knownTitle": "Maps/&Location_Presentation_DLC3_Undermountain_Title",
+    "knownDescription": "Maps/&Location_Presentation_DLC3_Undermountain_Description",
+    "exploredTitle": "Maps/&Location_Presentation_DLC3_Undermountain_Title",
+    "exploredDescription": "Maps/&Location_Presentation_DLC3_Undermountain_Description"
   },
   "challengeRating": 1,
   "focusWhenRevealed": false,
@@ -188,12 +188,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Map/&Location_Presentation_DLC3_IceHenge_Title",
-    "description": "Map/&Location_Presentation_DLC3_IceHenge_Description",
+    "title": "Maps/&Location_Presentation_DLC3_Undermountain_Title",
+    "description": "Maps/&Location_Presentation_DLC3_Undermountain_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "530e49daef4ba354d9e8951e5c9232b7",
-      "m_SubObjectName": "DLC3_Encounter_Icehenge",
+      "m_AssetGUID": "edfc074809178684c80a14bd12df1a42",
+      "m_SubObjectName": "DLC3_Undermountain",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

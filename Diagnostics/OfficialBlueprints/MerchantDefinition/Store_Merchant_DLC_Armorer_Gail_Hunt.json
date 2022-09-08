@@ -1241,6 +1241,20 @@
       "reassortRateValue": 3,
       "requiredFaction": "",
       "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Primed_Warhammer:e492559642e89ae43a31931a27ff2ce1",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 3,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
     }
   ],
   "guiPresentation": {

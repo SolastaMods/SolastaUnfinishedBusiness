@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
   "damageType": "DamagePoison",
+  "associatedFaceAndSkinColor": "",
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

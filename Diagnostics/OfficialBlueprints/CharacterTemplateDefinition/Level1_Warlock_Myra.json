@@ -6,12 +6,12 @@
   "firstName": "Race/&DragonbornFemaleName10Title",
   "surName": "Race/&DragonbornSurName10Title",
   "abilityScores": [
-    12,
+    10,
     14,
     15,
     13,
     11,
-    19
+    18
   ],
   "automateAbilityScoreIncreases": false,
   "mainRace": "Definition:Dragonborn:863fd0fc96274bb42874b6d16fd7622b",
@@ -27,7 +27,7 @@
   "eyeColorMorphotype": "EyeColorSilver",
   "eyeMorphotype": "Eye_Dragonborn",
   "bodyDecorationMorphotype": "BodyDecoration_None",
-  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_10",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_A",
   "tailMorphotype": "Tail_A",
@@ -42,6 +42,7 @@
   "alignmentPersonalityFlag2": "Pragmatism",
   "fightingStyle": null,
   "equipment": [
+    "Definition:Warlock_Armor:899d2c68ed186cc4382856a2ca3ed611",
     "Definition:ComponentPouch:792f520ab845d5e4e99248603ab0ffd8",
     "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
     "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
@@ -49,7 +50,8 @@
     "Definition:ScholarPack:703d461b7ed1eea49b9df30e1a178707",
     "Definition:Spear:f188e2e2e3e6ab04ba786bcaca6e8bd9",
     "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
-    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e"
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a"
   ],
   "startingMoney": [
     0,
@@ -70,7 +72,10 @@
   "featsOverride": [],
   "invocationsOverride": [],
   "expertisesOverride": [],
-  "languagesOverride": [],
+  "languagesOverride": [
+    "Language_Draconic",
+    "Language_Elvish"
+  ],
   "metamagicOverride": [],
   "characterLevel": 1,
   "knownRaceCantrips": [],

@@ -343,6 +343,7 @@
       "aoeScoreMultiplier": 1.5,
       "cooldownForCaster": 0,
       "cooldownForBattle": 4,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": true
     },
     "animationMagicEffect": "Animation0",

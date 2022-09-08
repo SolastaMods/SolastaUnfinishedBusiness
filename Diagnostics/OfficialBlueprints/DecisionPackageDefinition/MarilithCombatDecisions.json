@@ -5,6 +5,20 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Teleport_Stranded:1ae7c33164b0a7a478ad2204da3f04b5",
+        "weight": 6.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Teleport_Reposition_LongRange:b5aa1ca0af291e24abc2b2143d5dd34a",
+        "weight": 5.5,
+        "cooldown": 2,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:LongRangePathToEnemy_Dash:4e5f0f365b7acb54d81b527719d373d1",
         "weight": 5.0,
         "cooldown": 0,
@@ -12,22 +26,15 @@
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_MarilithTail:dbf1fce182cdef44bb286dcb8ba6a3f6",
-        "weight": 4.5,
-        "cooldown": 0,
+        "decision": "Definition:CastMagic_DPS_SingleTarget_AfterMainAttack:e84c873e115173244b374763484af485",
+        "weight": 4.0,
+        "cooldown": 1,
         "dynamicCooldown": false
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
         "weight": 3.0,
-        "cooldown": 0,
-        "dynamicCooldown": false
-      },
-      {
-        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_Teleport_Aggressive:5908cf5285daf2b4495d2ef88b607cf3",
-        "weight": 2.0,
         "cooldown": 0,
         "dynamicCooldown": false
       },

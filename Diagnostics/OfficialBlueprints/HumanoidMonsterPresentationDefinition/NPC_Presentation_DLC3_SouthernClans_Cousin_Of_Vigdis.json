@@ -14,42 +14,42 @@
   "beardShapeMorphotype": "",
   "eyeMorphotype": "Eye_Default",
   "eyeColorMorphotype": "EyeColor_013",
-  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_10",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_11",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "Dwarven_Plate",
+  "armorDefinition": "Enchanted_LeatherArmorOfSurvival",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": false,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
-    "g": 0.372641474,
-    "b": 0.372641474,
-    "a": 1.0
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.8443396,
-    "g": 0.971698,
-    "b": 1.0,
-    "a": 1.0
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.7640174,
-    "g": 0.7640174,
-    "b": 0.9150943,
-    "a": 1.0
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
-    "g": 1.0,
-    "b": 1.0,
-    "a": 1.0
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,
@@ -61,8 +61,8 @@
     "description": "NPC/&NPC_DLC3_Ragnhild_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a9d9b474d0b4a89498af6afdbcdc5690",
-      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_Cousin_Of_Vigdis",
+      "m_AssetGUID": "c967e8f692b8f714a96589a9cd74fef1",
+      "m_SubObjectName": "NPC_Presentation_DLC3_SouthernClans_Cousin_Of_Vigdis",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

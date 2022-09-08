@@ -51,10 +51,10 @@
       "bonus": 9
     }
   ],
-  "legendaryCreature": false,
+  "legendaryCreature": true,
   "maxLegendaryResistances": 3,
   "maxLegendaryActionPoints": 3,
-  "differentActionEachTurn": true,
+  "differentActionEachTurn": false,
   "legendaryActionOptions": [
     {
       "$type": "LegendaryActionDescription, Assembly-CSharp",
@@ -69,7 +69,7 @@
       "canMove": false,
       "moveMode": null,
       "noOpportunityAttack": false,
-      "decisionPackage": null
+      "decisionPackage": "Definition:GlabrezuGeneral_LegendaryAoE_Debuff:8a48b2014cd93ba41a0726324201d558"
     },
     {
       "$type": "LegendaryActionDescription, Assembly-CSharp",
@@ -84,14 +84,14 @@
       "canMove": true,
       "moveMode": "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
       "noOpportunityAttack": true,
-      "decisionPackage": null
+      "decisionPackage": "Definition:GlabrezuGeneral_LegendaryAttack:686f7cb02dc4d344ca2ac5957ce9b525"
     },
     {
       "$type": "LegendaryActionDescription, Assembly-CSharp",
-      "cost": 1,
+      "cost": 2,
       "subaction": "Power",
       "monsterAttackDefinition": "Definition:Attack_Glabrezu_General_Pincer:5e3da8378a122164eb95a72800fe42df",
-      "featureDefinitionPower": null,
+      "featureDefinitionPower": "Definition:PowerBreath_GlabrezuGeneral:e84e6438e249ef3428b4064260235ceb",
       "spellDefinition": "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
       "magicAttackBonus": 0,
       "saveDC": 0,
@@ -99,10 +99,10 @@
       "canMove": false,
       "moveMode": "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
       "noOpportunityAttack": false,
-      "decisionPackage": null
+      "decisionPackage": "Definition:GlabrezuGeneral_LegendaryAoE_DpS:dfa5a5199b901924480510f47cfb5ae0"
     }
   ],
-  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "defaultBattleDecisionPackage": "Definition:GlabrezuGeneralCombatDecisions:fcae02ec1a50dcc429c1c0ff348d774b",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -151,8 +151,7 @@
     "Definition:CastSpellGlabrezu:817cb3026dfe938479f1b31f76a1446b",
     "Definition:LightAffinity_DemonGeneral:5e7b8cc1efb2b78409be2ec7d95aa6c5",
     "Definition:PowerGlabrezuGeneralShadowEscape_at_will:97735a30e774a304ca3f3781cf5a0116",
-    "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
-    "Definition:PowerBreath_GlabrezuGeneral:e84e6438e249ef3428b4064260235ceb"
+    "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3"
   ],
   "attackIterations": [
     {

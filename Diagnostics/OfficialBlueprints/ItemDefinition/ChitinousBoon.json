@@ -40,7 +40,7 @@
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": true,
+      "appliesOnItemOnly": false,
       "type": "Feature",
       "featureDefinition": "Definition:MagicAffinityChitinousBoonAdditionalSpellSlot:173a617f7bacda346abcec147f1a5a60",
       "conditionDefinition": null,

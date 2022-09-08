@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Neutral",
   "features": [
-    "Definition:CombatAffinityHeavilyObscured:37285cb4ed0361e45aadf367f6e8c421"
+    "Definition:CombatAffinityHeavilyObscured:37285cb4ed0361e45aadf367f6e8c421",
+    "Definition:CombatAffinityHeavilyObscuredSelf:aae97210db8374b4a989d29458f316ff"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

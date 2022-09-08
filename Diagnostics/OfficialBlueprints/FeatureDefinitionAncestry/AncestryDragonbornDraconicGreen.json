@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
   "damageType": "DamagePoison",
+  "associatedFaceAndSkinColor": "FaceAndSkin_Dragonborn_21",
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
@@ -28,6 +29,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "e9da5ee9072b8a147925fdef59789905",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "AncestryDragonbornDraconicGreen"
 }

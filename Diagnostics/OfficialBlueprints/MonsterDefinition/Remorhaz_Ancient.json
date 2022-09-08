@@ -42,7 +42,7 @@
       "canMove": true,
       "moveMode": "Definition:MoveModeBurrow16:c3c9ed37d46582a478900ee0808b7f41",
       "noOpportunityAttack": true,
-      "decisionPackage": null
+      "decisionPackage": "Definition:LegendaryRemorhazAttack:024d3712b34de9a4bb6556fcf8fb52ff"
     },
     {
       "$type": "LegendaryActionDescription, Assembly-CSharp",
@@ -57,7 +57,7 @@
       "canMove": false,
       "moveMode": null,
       "noOpportunityAttack": false,
-      "decisionPackage": null
+      "decisionPackage": "Definition:LegendaryRemorhazAoE_DpS:7820976e487380345a70779bdd16ec91"
     },
     {
       "$type": "LegendaryActionDescription, Assembly-CSharp",
@@ -72,7 +72,7 @@
       "canMove": true,
       "moveMode": "Definition:MoveModeBurrow16:c3c9ed37d46582a478900ee0808b7f41",
       "noOpportunityAttack": true,
-      "decisionPackage": null
+      "decisionPackage": "Definition:LegendaryRemorhazStunningAttack:6e81f52916a25064c91dee9531e2a4f7"
     }
   ],
   "defaultBattleDecisionPackage": "Definition:RemorhazCombatDecisions:10a6ff6a19c0cc840a08ede7578eed35",

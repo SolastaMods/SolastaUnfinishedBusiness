@@ -19,7 +19,7 @@
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "ClothesCommon_Valley",
+  "armorDefinition": "Enchanted_LeatherArmorOfRobustness",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": false,
@@ -32,24 +32,24 @@
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.7169812,
-    "g": 0.7169812,
-    "b": 0.6121395,
+    "r": 0.9339623,
+    "g": 0.9339623,
+    "b": 0.9339623,
     "a": 1.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.410377353,
-    "g": 0.48061958,
-    "b": 0.5471698,
+    "r": 0.452830136,
+    "g": 0.452830136,
+    "b": 0.452830136,
     "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 1.0,
-    "g": 0.913522,
-    "b": 0.8443396,
-    "a": 1.0
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,
@@ -61,8 +61,8 @@
     "description": "NPC/&DLC3_NPC_SouthernClans_Merchant_Weapons_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8a779461057a31a46aaff08e39de058c",
-      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_Merchant_Weapons",
+      "m_AssetGUID": "c3cf4bf635e3b2f4c847eebd700886bd",
+      "m_SubObjectName": "NPC_Presentation_DLC3_SouthernClans_Merchant_Weapons",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

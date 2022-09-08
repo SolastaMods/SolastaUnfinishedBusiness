@@ -286,13 +286,14 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
-  "surrogateToSpell": null,
+  "surrogateToSpell": "Definition:CallLightning:bbb46df8e1040014ea6bdaf36cc1e82b",
   "triggeredBySpecialMove": false,
   "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",

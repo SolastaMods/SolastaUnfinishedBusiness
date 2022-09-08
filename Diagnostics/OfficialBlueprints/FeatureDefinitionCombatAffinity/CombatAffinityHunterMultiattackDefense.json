@@ -24,6 +24,7 @@
   "situationalContext": "None",
   "requiredCondition": null,
   "nullifiedBySenses": [],
+  "nullifiedBySelfSenses": [],
   "multiAttackAffinity": true,
   "multiAttackDefenseValue": 4,
   "readyAttackAdvantage": "None",

@@ -35,7 +35,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:PeaksTerrorDecisions:40a151d6ef35db74eaf226156526accf",
+  "defaultBattleDecisionPackage": "Definition:PeaksTerrorCombatDecisions:40a151d6ef35db74eaf226156526accf",
   "threatEvaluatorDefinition": null,
   "languages": [],
   "audioSwitches": [],

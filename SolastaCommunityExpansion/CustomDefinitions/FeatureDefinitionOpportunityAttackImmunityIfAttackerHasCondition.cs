@@ -14,6 +14,14 @@ public sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondi
 {
     public string ConditionName { get; set; }
 
+    public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks,
+        bool defenderAlreadyAttackedByAttackerThisTurn, ActionModifier attackModifier,
+        RuleDefinitions.FeatureOrigin featureOrigin,
+        float distance)
+    {
+        throw new NotImplementedException();
+    }
+
     public RuleDefinitions.SituationalContext SituationalContext => RuleDefinitions.SituationalContext.None;
     public bool CanRageToOvercomeSurprise => false;
     public bool AutoCritical => false;
@@ -25,9 +33,23 @@ public sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondi
     public bool ShoveOnReadyAttackHit { get; }
 
     public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode,
-        ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin, int bardicDieRoll)
+        ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin, int bardicDieRoll, float distance)
     {
         // Intentionally empty?
+    }
+
+    public RuleDefinitions.AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself,
+        RulesetCharacter attacker, float distance)
+    {
+        return RuleDefinitions.AdvantageType.None;
+    }
+
+    public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, [NotNull] RulesetCharacter attacker,
+        float distance)
+    {
+        return attacker.ConditionsByCategory.SelectMany(keyValuePair => keyValuePair.Value).Any(rulesetCondition =>
+            rulesetCondition.SourceGuid == myself.Guid &&
+            rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName));
     }
 
     public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks,
@@ -35,19 +57,6 @@ public sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondi
         RuleDefinitions.FeatureOrigin featureOrigin)
     {
         // Intentionally empty?
-    }
-
-    public RuleDefinitions.AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself,
-        RulesetCharacter attacker)
-    {
-        return RuleDefinitions.AdvantageType.None;
-    }
-
-    public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, [NotNull] RulesetCharacter attacker)
-    {
-        return attacker.ConditionsByCategory.SelectMany(keyValuePair => keyValuePair.Value).Any(rulesetCondition =>
-            rulesetCondition.SourceGuid == myself.Guid &&
-            rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName));
     }
 }
 

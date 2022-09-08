@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
   "damageType": "DamageCold",
+  "associatedFaceAndSkinColor": "FaceAndSkin_Dragonborn_01",
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
@@ -28,6 +29,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "b2cf7162e98ebe54fbca0fb23f66be49",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "AncestryDragonbornDraconicSilver"
 }

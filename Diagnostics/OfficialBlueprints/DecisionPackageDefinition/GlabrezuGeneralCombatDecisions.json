@@ -5,6 +5,13 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Fly_Self_OnlyIfStranded:aa44ea8d57830c74e9ff52657234ca09",
+        "weight": 5.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:LongRangePathToEnemy_Dash:4e5f0f365b7acb54d81b527719d373d1",
         "weight": 5.0,
         "cooldown": 0,
@@ -12,35 +19,42 @@
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_DPS_AoE:1574fe0b89cfdfb438968fe5dfb92c52",
+        "decision": "Definition:BreakConcentration_FlyingInMelee:8fa3dfd59224db5409e3c5afea6ca363",
         "weight": 5.0,
-        "cooldown": 2,
-        "dynamicCooldown": true
-      },
-      {
-        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:Move_Leap_Aggressive_Bulette:02ed8f8361934573803e76bb67125788",
-        "weight": 4.2,
         "cooldown": 0,
         "dynamicCooldown": false
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:ShoveDown_Default:96539282bfa8ee1448e20ab0a19aaedb",
+        "decision": "Definition:CastMagic_Teleport_Reposition:8a3c8a64e2ea39744a4a07c79b2defc0",
+        "weight": 4.5,
+        "cooldown": 2,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Darkness_Glabrezu:2153d14d65a9daf4b975bc7fa041b755",
         "weight": 4.0,
         "cooldown": 3,
         "dynamicCooldown": false
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:ShoveBack_Default:fd641a2fe08864d4297599a7c508d53d",
-        "weight": 4.0,
-        "cooldown": 3,
+        "decision": "Definition:CastMagic_Debuff_SingleTarget:fe74c0437c1069a42b609a74cb09de60",
+        "weight": 3.5,
+        "cooldown": 0,
         "dynamicCooldown": false
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "weight": 3.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Debuff_AoE_LowHP:9ea1067361586024799651eff7ddd05f",
         "weight": 3.0,
         "cooldown": 0,
         "dynamicCooldown": false
@@ -57,6 +71,13 @@
         "decision": "Definition:RangedAttack_Default:a96934f6775237944a7beb403b13c731",
         "weight": 1.0,
         "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_WordOfDarknessExtinguishLights:dd942e9515dd3f7468a63a54d6a58a9f",
+        "weight": 1.0,
+        "cooldown": 3,
         "dynamicCooldown": false
       }
     ]
@@ -85,7 +106,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
-  "guid": "f1850cf3950458d48ab8911ba98127fc",
+  "guid": "fcae02ec1a50dcc429c1c0ff348d774b",
   "contentPack": "BaseGame",
-  "name": "PeaksAbominationDecisions"
+  "name": "GlabrezuGeneralCombatDecisions"
 }

@@ -61,8 +61,8 @@
     "description": "NPC/&NPC_DLC3_SouthernClans_GuardCaptain_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "40ef43a27bcc8eb4eaf501e808507499",
-      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_GuardCaptain",
+      "m_AssetGUID": "0b49127b3a2e8334792267495fc8eea4",
+      "m_SubObjectName": "NPC_Presentation_DLC3_SouthernClans_GuardCaptain",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

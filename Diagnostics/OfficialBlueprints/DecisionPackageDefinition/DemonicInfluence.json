@@ -1,0 +1,84 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DemonicInfluence_CastMagic_DPS_AoE:ac6d2de555387d14f80880ba6f16e5d8",
+        "weight": 6.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DemonicInfluence_AttackRanged:40374bbad197d7143a941c361483293a",
+        "weight": 5.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DemonicInfluence_CastMagic_DPS_SingleTarget:39b7df5d8b7faf84386d975f71493957",
+        "weight": 5.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DemonicInfluence_Attack:276fcf56faa4d4e43b9ccb3975753296",
+        "weight": 3.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DemonicInfluence_MoveMelee:22626bbba5164794aa01854357f07213",
+        "weight": 2.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DemonicInfluence_MoveRanged:e4de6c003ff966648ad9708084e800ff",
+        "weight": 1.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:LongRangePathToEnemyOnlyIfNoAction_Dash:f8cf5d9e693665a4b9c02d2503814034",
+        "weight": 1.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1691ecfc69f50a04b8548fa3c47ca0d0",
+  "contentPack": "BaseGame",
+  "name": "DemonicInfluence"
+}

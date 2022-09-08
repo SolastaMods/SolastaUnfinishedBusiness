@@ -113,7 +113,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "44e0218874006be4e8fc51460c7fbb8e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -246,7 +246,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "eef89d37d8438c948918e7b81d549eb1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -258,7 +258,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "5e54744fd287f094dbcdac34331d9849",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -279,6 +279,7 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",

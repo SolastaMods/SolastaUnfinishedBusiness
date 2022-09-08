@@ -2,7 +2,7 @@
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
-    "description": "Debuff surrounding enemies if lit.",
+    "description": "Single target damage offensive spells. Target someone according to advantages during attack, threat, and distance to caster.",
     "scorer": {
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
@@ -14,7 +14,29 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "IlluminationValue",
+                "considerationType": "TargetHasCondition",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "ConditionDying",
+                "floatParameter": 2.0,
+                "intParameter": 2,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "TargetIsNotDying"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "TargetThreat",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
@@ -26,7 +48,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "IsLit"
+              "name": "TargetHasHighThreat"
             },
             "weight": 1.0
           },
@@ -36,19 +58,19 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "InfluenceEnemyProximity",
+                "considerationType": "DistanceFromMe",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
-                "floatParameter": 7.0,
-                "intParameter": 1,
+                "floatParameter": 20.0,
+                "intParameter": 0,
                 "byteParameter": 0,
                 "boolParameter": false,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "HasEnemyNearby7"
+              "name": "IsCloseFromMe"
             },
             "weight": 1.0
           },
@@ -63,28 +85,28 @@
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
-                "floatParameter": 1.0,
+                "floatParameter": 0.0,
                 "intParameter": 0,
                 "byteParameter": 0,
                 "boolParameter": false,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "CanCastMagic_AoE_AnyEnemy"
+              "name": "CanCastMagic_PreferAdvantage"
             },
             "weight": 1.0
           }
         ]
       },
-      "name": "CastMagic_ExtinguishLightNearbyEnemiesIfLit"
+      "name": "DemonicInfluence_CastMagic_DPS_SingleTarget"
     },
     "activityType": "CastMagic",
-    "stringParameter": "PowerSorakWordOfDarkness",
+    "stringParameter": "",
     "stringSecParameter": "",
     "boolParameter": false,
     "boolSecParameter": false,
     "floatParameter": 0.0,
-    "enumParameter": 658
+    "enumParameter": 42
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -110,7 +132,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
-  "guid": "dd942e9515dd3f7468a63a54d6a58a9f",
+  "guid": "39b7df5d8b7faf84386d975f71493957",
   "contentPack": "BaseGame",
-  "name": "CastMagic_SorakExtinguishLights"
+  "name": "DemonicInfluence_CastMagic_DPS_SingleTarget"
 }

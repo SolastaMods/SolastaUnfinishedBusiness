@@ -46,17 +46,17 @@
       "bonus": 6
     }
   ],
-  "legendaryCreature": false,
+  "legendaryCreature": true,
   "maxLegendaryResistances": 3,
   "maxLegendaryActionPoints": 3,
-  "differentActionEachTurn": true,
+  "differentActionEachTurn": false,
   "legendaryActionOptions": [
     {
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 2,
       "subaction": "Power",
       "monsterAttackDefinition": null,
-      "featureDefinitionPower": "Definition:PowerSpiderQueenEatFriends:3c60bb7dfd57c0844955f11ec95e1d9e",
+      "featureDefinitionPower": "Definition:PowerHezrouEatFriends:354ad00f2983efd4396b89ec9a57a9a5",
       "spellDefinition": null,
       "magicAttackBonus": 0,
       "saveDC": 0,
@@ -64,13 +64,13 @@
       "canMove": false,
       "moveMode": null,
       "noOpportunityAttack": false,
-      "decisionPackage": null
+      "decisionPackage": "Definition:LegendaryHezrouLifeLeechAlly:26f446698a06be54bad9b7e39ab2b83c"
     },
     {
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 1,
       "subaction": "MonsterAttack",
-      "monsterAttackDefinition": null,
+      "monsterAttackDefinition": "Definition:Attack_Hezrou_General_Bite:e7959423843504e4b980effcf75a3121",
       "featureDefinitionPower": "Definition:PowerSpiderQueenEatFriends:3c60bb7dfd57c0844955f11ec95e1d9e",
       "spellDefinition": null,
       "magicAttackBonus": 0,
@@ -79,7 +79,7 @@
       "canMove": true,
       "moveMode": "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
       "noOpportunityAttack": true,
-      "decisionPackage": null
+      "decisionPackage": "Definition:LegendaryHezrouAttackAndMove:c9efa508a4c9b2340a0917d4f40b8f67"
     },
     {
       "$type": "LegendaryActionDescription, Assembly-CSharp",
@@ -94,10 +94,10 @@
       "canMove": false,
       "moveMode": "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
       "noOpportunityAttack": true,
-      "decisionPackage": null
+      "decisionPackage": "Definition:LegendaryHezrouAttack:9080bc381e3cb664baae7be2b83add2e"
     }
   ],
-  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "defaultBattleDecisionPackage": "Definition:HezrouGeneralCombatDecisions:fddd22853aa5f89488292711c433ff80",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -119,7 +119,7 @@
       },
       "previousTargetRelatedMalus": 0.1
     },
-    "name": "PrioritizeNooneButFocus"
+    "name": "PrioritizeDamageDealers"
   },
   "languages": [
     "Language_Abyssal"

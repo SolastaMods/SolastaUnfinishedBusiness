@@ -21,20 +21,20 @@
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,
-  "hasSavingThrow": false,
-  "savingThrowAbility": "Dexterity",
-  "dcComputation": "FixedValue",
+  "hasSavingThrow": true,
+  "savingThrowAbility": "Charisma",
+  "dcComputation": "SpellCastingFeature",
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
   "conditionOperations": [
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": false,
+      "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
       "conditionDefinition": "Definition:ConditionPatronHiveWeakeningPheromones:85924a75d2fa7bd4f979d38817a79dcf",
-      "saveAffinity": "None",
+      "saveAffinity": "Negates",
       "canSaveToCancel": false,
       "saveOccurence": "StartOfTurn"
     }

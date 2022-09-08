@@ -39,12 +39,6 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 4,
-      "itemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
       "itemDefinition": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
       "amount": 1
