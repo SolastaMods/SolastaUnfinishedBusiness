@@ -15,8 +15,6 @@ namespace SolastaCommunityExpansion.Spells;
 
 internal static class HolicSpells
 {
-    private static readonly Guid HolicSpellsBaseGuid = new("9e55f5f8-4c71-47c2-8a55-2a2cf06d8ce5");
-
     private static readonly SpellDefinition AcidClaw = BuildAcidClaw();
     private static readonly SpellDefinition AirBlast = BuildAirBlast();
     private static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
@@ -55,7 +53,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME, HolicSpellsBaseGuid)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -96,7 +94,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME, HolicSpellsBaseGuid)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -134,7 +132,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME, HolicSpellsBaseGuid)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -173,7 +171,7 @@ internal static class HolicSpells
         effectDescription.SetTargetExcludeCaster(true);
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME, HolicSpellsBaseGuid)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -226,7 +224,7 @@ internal static class HolicSpells
                 e.formType == EffectFormType.Topology));
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME, HolicSpellsBaseGuid)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -268,7 +266,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME, HolicSpellsBaseGuid)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)

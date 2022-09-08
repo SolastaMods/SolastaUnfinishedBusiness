@@ -18,8 +18,6 @@ namespace SolastaCommunityExpansion.Spells;
 
 internal static class BazouSpells
 {
-    private static readonly Guid BazouSpellsBaseGuid = new("91384db5-6659-4384-bf2c-3a41160343f4");
-
     internal static void Register()
     {
         RegisterSpell(BuildEldritchOrb(), 0, SpellListWarlock);
@@ -34,7 +32,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildEldritchOrb()
     {
         var spell = SpellDefinitionBuilder
-            .Create(MagicMissile, "EldritchOrb", BazouSpellsBaseGuid)
+            .Create(MagicMissile, "EldritchOrb", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
@@ -92,7 +90,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildFindFamiliar()
     {
         var familiarMonsterBuilder = MonsterDefinitionBuilder
-            .Create(Eagle_Matriarch, "Owl", BazouSpellsBaseGuid)
+            .Create(Eagle_Matriarch, "Owl", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("OwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
             .SetFeatures(
                 FeatureDefinitionSenses.SenseNormalVision,
@@ -134,7 +132,7 @@ internal static class BazouSpells
 
         var familiarMonster = familiarMonsterBuilder.AddToDB();
 
-        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar", BazouSpellsBaseGuid)
+        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
@@ -173,7 +171,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildFrenzy()
     {
         var spell = SpellDefinitionBuilder
-            .Create(Confusion, "Frenzy", BazouSpellsBaseGuid)
+            .Create(Confusion, "Frenzy", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, Confusion.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
@@ -195,13 +193,13 @@ internal static class BazouSpells
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
         var conditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionConfused, "ConditionFrenzied", BazouSpellsBaseGuid)
+            .Create(ConditionConfused, "ConditionFrenzied", DefinitionBuilder.CENamespaceGuid)
             .SetOrUpdateGuiPresentation("Frenzied", Category.Condition)
             .AddToDB();
 
         // Some methods are missing like SetField or Copy
         var actionAffinity = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied", BazouSpellsBaseGuid)
+            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
 
         actionAffinity.RandomBehaviourOptions.Clear();
@@ -228,7 +226,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildMinorLifesteal()
     {
         var spell = SpellDefinitionBuilder
-            .Create(VampiricTouch, "MinorLifesteal", BazouSpellsBaseGuid)
+            .Create(VampiricTouch, "MinorLifesteal", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
@@ -270,7 +268,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildPetalStorm()
     {
         var spell = SpellDefinitionBuilder
-            .Create(InsectPlague, "PetalStorm", BazouSpellsBaseGuid)
+            .Create(InsectPlague, "PetalStorm", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
@@ -308,7 +306,7 @@ internal static class BazouSpells
         //spell.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
 
         var effectProxyDefinition = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm", BazouSpellsBaseGuid)
+            .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("PetalStorm", Category.Spell, WindWall.GuiPresentation.SpriteReference)
             .SetCanMove()
             .SetPortrait(WindWall.GuiPresentation.SpriteReference)
@@ -329,7 +327,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildProtectThreshold()
     {
         var spell = SpellDefinitionBuilder
-            .Create(SpikeGrowth, "ProtectThreshold", BazouSpellsBaseGuid)
+            .Create(SpikeGrowth, "ProtectThreshold", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
@@ -372,7 +370,7 @@ internal static class BazouSpells
         const string PROXY_PROTECT_THRESHOLD = "ProxyProtectThreshold";
 
         EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxySpikeGrowth, PROXY_PROTECT_THRESHOLD, BazouSpellsBaseGuid)
+            .Create(EffectProxyDefinitions.ProxySpikeGrowth, PROXY_PROTECT_THRESHOLD, DefinitionBuilder.CENamespaceGuid)
             .SetOrUpdateGuiPresentation("ProtectThreshold", Category.Spell)
             .AddToDB();
 

@@ -493,7 +493,7 @@ public static class SrdSpells
                 .Build());
 
         return SpellDefinitionBuilder
-            .Create("WeirdSpell", DhBaseGuid)
+            .Create("Weird", DhBaseGuid)
             .SetGuiPresentation(Category.Spell, PhantasmalKiller.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -508,7 +508,7 @@ public static class SrdSpells
 
     private sealed class ReverseGravityConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "ReverseGravitycondition";
+        private const string Name = "ConditionReverseGravity";
         private const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
 
         internal static readonly ConditionDefinition ReverseGravityCondition = CreateAndAddToDB(Name, Guid);
@@ -533,17 +533,13 @@ public static class SrdSpells
 
     private sealed class MindBlankConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "MindBlankcondition";
+        private const string Name = "ConditionMindBlank";
         private const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
-        private const string TitleString = "Condition/&MindBlankTitle";
-        private const string DescriptionString = "Condition/&MindBlankDescription";
 
         internal static readonly ConditionDefinition MindBlankCondition = CreateAndAddToDB(Name, Guid);
 
         private MindBlankConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
         {
-            Definition.GuiPresentation.Title = TitleString;
-            Definition.GuiPresentation.Description = DescriptionString;
             Definition.Features.SetRange(
                 FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
@@ -553,23 +549,21 @@ public static class SrdSpells
 
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new MindBlankConditionBuilder(name, guid).AddToDB();
+            return new MindBlankConditionBuilder(name, guid)
+                .SetOrUpdateGuiPresentation("MindBlank", Category.Condition)
+                .AddToDB();
         }
     }
 
     private sealed class ForesightConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "Foresightcondition";
+        private const string Name = "ConditionForesight";
         private const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
-        private const string TitleString = "Condition/&ForesightTitle";
-        private const string DescriptionString = "Condition/&ForesightDescription";
 
         internal static readonly ConditionDefinition ForesightCondition = CreateAndAddToDB(Name, Guid);
 
         private ForesightConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
         {
-            Definition.GuiPresentation.Title = TitleString;
-            Definition.GuiPresentation.Description = DescriptionString;
             Definition.Features.SetRange
             (
                 FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
@@ -585,23 +579,21 @@ public static class SrdSpells
 
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new ForesightConditionBuilder(name, guid).AddToDB();
+            return new ForesightConditionBuilder(name, guid)
+                .SetOrUpdateGuiPresentation("Foresight", Category.Condition)
+                .AddToDB();
         }
     }
 
     private sealed class TimeStopConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "TimeStopCondition";
+        private const string Name = "ConditionTimeStop";
         private const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
-        private const string TitleString = "Condition/&TimeStopTitle";
-        private const string DescriptionString = "Condition/&TimeStopDescription";
 
         internal static readonly ConditionDefinition TimeStopCondition = CreateAndAddToDB(Name, Guid);
 
         private TimeStopConditionBuilder(string name, string guid) : base(ConditionIncapacitated, name, guid)
         {
-            Definition.GuiPresentation.Title = TitleString;
-            Definition.GuiPresentation.Description = DescriptionString;
             Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Attacked);
             Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
             Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Attacked);
@@ -612,31 +604,30 @@ public static class SrdSpells
 
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new TimeStopConditionBuilder(name, guid).AddToDB();
+            return new TimeStopConditionBuilder(name, guid)
+                .SetOrUpdateGuiPresentation("TimeStop", Category.Condition)
+                .AddToDB();
         }
     }
 
     private sealed class WeirdConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "WeirdSpellCondition";
+        private const string Name = "WeirdCondition";
         private const string Guid = "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08";
-        private const string TitleString = "Condition/&WeirdSpellTitle";
-        private const string DescriptionString = "Condition/&WeirdSpellDescription";
 
         internal static readonly ConditionDefinition WeirdCondition = CreateAndAddToDB(Name, Guid);
 
         private WeirdConditionBuilder(string name, string guid) : base(ConditionFrightenedPhantasmalKiller, name,
             guid)
         {
-            Definition.GuiPresentation.Title = TitleString;
-            Definition.GuiPresentation.Description = DescriptionString;
-
             // weird condition is the same as phantasma killer condition, just for more people
         }
 
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new WeirdConditionBuilder(name, guid).AddToDB();
+            return new WeirdConditionBuilder(name, guid)
+                .SetOrUpdateGuiPresentation("Weird", Category.Condition)
+                .AddToDB();
         }
     }
 }
