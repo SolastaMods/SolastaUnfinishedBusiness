@@ -29,11 +29,12 @@ public static class SharedSpellsContext
         // added during load
         //{ "TinkererSpellStoringItem", TinkererClass },
         //{ "ArtificerInfusionSpellRefuelingRing", TinkererClass },
-        //{ "PowerAlchemistSpellBonusRecovery", TinkererClass },
+        //{ "PowerAlchemistSpellBonusRecovery", TinkererClass }
     };
 
     private static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
     {
+        { Bard, CasterType.Full },
         { Cleric, CasterType.Full },
         { Druid, CasterType.Full },
         { Sorcerer, CasterType.Full },
@@ -41,8 +42,7 @@ public static class SharedSpellsContext
         { Paladin, CasterType.Half },
         { Ranger, CasterType.Half }
         // added during load
-        //{ TinkererClass, CasterType.HalfRoundUp },
-        //{ WitchClass, CasterType.Full },
+        //{ TinkererClass, CasterType.HalfRoundUp }
     };
 
     private static Dictionary<CharacterSubclassDefinition, CasterType> SubclassCasterType { get; } = new()
@@ -89,9 +89,8 @@ public static class SharedSpellsContext
         // otherwise gets hero from level up
         var hero = Global.ActiveLevelUpHero;
 
-        return hero ?? Global.InspectedHero;
-
         // finally falls back to inspection [when browsing hero in char pool]
+        return hero ?? Global.InspectedHero;
     }
 
     public static bool IsWarlock(CharacterClassDefinition characterClassDefinition)
