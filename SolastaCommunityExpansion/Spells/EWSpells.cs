@@ -29,7 +29,7 @@ internal static class EwSpells
             hasSavingThrow = false,
             operation = ConditionOperation.Add,
             conditionDefinition = ConditionDefinitionBuilder
-                .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "SunlightBladeHighlighted",
+                .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "ConditionSunlightBladeHighlighted",
                     DefinitionBuilder.CENamespaceGuid)
                 .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
                 .SetDuration(RuleDefinitions.DurationType.Round, 1)
@@ -96,7 +96,7 @@ internal static class EwSpells
                             .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                             .SetDuration(RuleDefinitions.DurationType.Round, 1)
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create("SunlightBladeDamageBonus", DefinitionBuilder.CENamespaceGuid)
+                                .Create("AdditionalDamageSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                                 .Configure(
                                     "SunlightBlade",
                                     RuleDefinitions.FeatureLimitedUsage.None,
@@ -233,7 +233,7 @@ internal static class EwSpells
                             .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                             .SetDuration(RuleDefinitions.DurationType.Round, 1)
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create("ResonatingStrikeDamageBonus", DefinitionBuilder.CENamespaceGuid)
+                                .Create("AdditionalDamageResonatingStrike", DefinitionBuilder.CENamespaceGuid)
                                 .Configure(
                                     "ResonatingStrike",
                                     RuleDefinitions.FeatureLimitedUsage.None,

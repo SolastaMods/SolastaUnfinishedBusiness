@@ -79,7 +79,7 @@ internal static class AceHighSpells
             Definition.GuiPresentation.Title = "Spell/&PactMarkPactMarkConditionTitle";
             Definition.GuiPresentation.Description = "Spell/&PactMarkPactMarkConditionDescription";
             Definition.Features.Clear();
-            Definition.Features.Add(PactMarkAdditionalDamageBuilder.PactMarkAdditionalDamage);
+            Definition.Features.Add(AdditionalDamagePactMarkBuilder.AdditionalDamagePactMark);
         }
 
         private static ConditionDefinition CreateAndAddToDB(string name)
@@ -108,18 +108,18 @@ internal static class AceHighSpells
         }
     }
 
-    private sealed class PactMarkAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
+    private sealed class AdditionalDamagePactMarkBuilder : FeatureDefinitionAdditionalDamageBuilder
     {
-        private const string PactMarkAdditionalDamageBuilderName = "PactMarkAdditionalDamage";
+        private const string AdditionalDamagePactMarkBuilderName = "AdditionalDamagePactMark";
 
-        public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage =
-            CreateAndAddToDB(PactMarkAdditionalDamageBuilderName);
+        public static readonly FeatureDefinitionAdditionalDamage AdditionalDamagePactMark =
+            CreateAndAddToDB(AdditionalDamagePactMarkBuilderName);
 
-        private PactMarkAdditionalDamageBuilder(string name) : base(
+        private AdditionalDamagePactMarkBuilder(string name) : base(
             DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark, name, CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&PactMarkAdditionalDamageTitle";
-            Definition.GuiPresentation.Description = "Spell/&PactMarkAdditionalDamageDescription";
+            Definition.GuiPresentation.Title = "Spell/&AdditionalDamagePactMarkTitle";
+            Definition.GuiPresentation.Description = "Spell/&AdditionalDamagePactMarkDescription";
             Definition.attackModeOnly = false;
             Definition.requiredTargetCondition = PactMarkMarkedByPactConditionBuilder.MarkedByPactCondition;
             Definition.notificationTag = "PactMarked";
@@ -127,7 +127,7 @@ internal static class AceHighSpells
 
         private static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name)
         {
-            return new PactMarkAdditionalDamageBuilder(name).AddToDB();
+            return new AdditionalDamagePactMarkBuilder(name).AddToDB();
         }
     }
 }

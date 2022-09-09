@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:PactMarkAdditionalDamage:4074a580-c9d1-5db4-9386-192b158afa9f"
+    "Definition:AdditionalDamagePactMark:6b67d4c4-1033-59ed-b1e9-f47d8f59cd3d"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

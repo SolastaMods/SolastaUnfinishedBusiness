@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BladeDancerMartialWeaponProficiency:4570a121-162c-57c0-90ba-91a8c735f1b8",
+      "featureDefinition": "Definition:ProficiencyBladeDancerMartialWeapon:3add7786-a1fd-5d23-a9cc-c923334ebd7d",
       "level": 2
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BladeDancerReplaceAttackWithCantrip:1896baad-7864-583a-9ecd-f2d43e2db073",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripBladeDancer:9e5fefa9-0258-556d-9fba-e05ec57bfac2",
       "level": 6
     },
     {
@@ -33,7 +33,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureDanceOfVictorySet:c03618f0-561f-5482-858c-f58d3a5b5d68",
+      "featureDefinition": "Definition:AttackModifierDanceOfVictorySet:783917a1-6c71-520a-855e-344c416484b6",
       "level": 14
     }
   ],

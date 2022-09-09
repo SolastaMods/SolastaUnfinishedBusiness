@@ -37,10 +37,10 @@ internal static class RacesContext
     {
         Morphotypes.Load();
 
-        LoadRace(BolgrifRaceBuilder.BolgrifRace);
+        LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(DarkelfSubraceBuilder.DarkelfSubrace);
         LoadRace(GrayDwarfSubraceBuilder.GrayDwarfSubrace);
-        LoadRace(HalfElfVariantRaceBuilder.HalfElfVariantRace); // depends on DarkElf sub race
+        LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariantRace); // depends on DarkElf sub race
 
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
 
@@ -50,7 +50,7 @@ internal static class RacesContext
             // SortRacesFeatures();
         }
 
-        RaceScaleMap[BolgrifRaceBuilder.BolgrifRace] = 8.8f / 6.4f;
+        RaceScaleMap[RaceBolgrifBuilder.RaceBolgrif] = 8.8f / 6.4f;
     }
 
     private static void LoadRace([NotNull] CharacterRaceDefinition characterRaceDefinition)

@@ -73,7 +73,7 @@ internal sealed class SpellShield : AbstractSubclass
 
         // replace attack with cantrip
         var replaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
-            .Create("SpellShieldReplaceAttackWithCantrip", DefinitionBuilder.CENamespaceGuid)
+            .Create("ReplaceAttackWithCantripSpellShield", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass)
             .AddToDB();
 

@@ -105,11 +105,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "PowerAttackCondition",
-          "conditionDefinition": "Definition:PowerAttackCondition:c125b7b9-e668-4c6f-a742-63c065ad2292",
+          "conditionDefinitionName": "ConditionPowerAttack",
+          "conditionDefinition": "Definition:ConditionPowerAttack:c125b7b9-e668-4c6f-a742-63c065ad2292",
           "operation": "Remove",
           "conditionsList": [
-            "Definition:PowerAttackCondition:c125b7b9-e668-4c6f-a742-63c065ad2292"
+            "Definition:ConditionPowerAttack:c125b7b9-e668-4c6f-a742-63c065ad2292"
           ],
           "applyToSelf": false,
           "forceOnSelf": false

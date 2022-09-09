@@ -22,7 +22,7 @@ internal sealed class ConArtist : AbstractSubclass
     {
         // Make Con Artist subclass
         var abilityAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityAffinityRogueConArtist", SubclassNamespace)
+            .Create("RogueConArtistAbilityCheckAffinity", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
                 RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, RuleDefinitions.DieType.D8, 0,
@@ -59,7 +59,7 @@ internal sealed class ConArtist : AbstractSubclass
                 15);
 
         var condition = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "RogueConArtistFeintCondition", SubclassNamespace)
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionRogueConArtistFeint", SubclassNamespace)
             .SetGuiPresentation(Category.Feature,
                 ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
@@ -84,7 +84,7 @@ internal sealed class ConArtist : AbstractSubclass
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder
-            .Create("RoguishConArtistMentalSavingThrows", SubclassNamespace)
+            .Create("ProficiencyRoguishConArtistMentalSavingThrows", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Wisdom)

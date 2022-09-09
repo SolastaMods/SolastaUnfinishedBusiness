@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:RoyalEnvoyAbilityCheckAffinity:b16f8b68-0dab-49e5-b1a2-6fdfd8836849",
+    "Definition:AbilityCheckAffinityRoyalEnvoy:b16f8b68-0dab-49e5-b1a2-6fdfd8836849",
     "Definition:SavingThrowAffinityCreedOfSolasta:684c3cc4950cbc4448e2f9534c17adf3"
   ],
   "mode": "Union",

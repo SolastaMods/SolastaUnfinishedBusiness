@@ -16,7 +16,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
     internal OathOfRetribution()
     {
         var paladinOathOfRetributionAutoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("PaladinOathOfRetributionAutoPreparedSpells", SubclassNamespace)
+            .Create("AutoPreparedPaladinOathOfRetribution", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Paladin)
             .SetPreparedSpellGroups(

@@ -242,7 +242,7 @@ internal static class GrayDwarfSubraceBuilder
         grayDwarfRacePresentation.preferedHairColors = new RangedInt(35, 41);
 
         var grayDwarf = CharacterRaceDefinitionBuilder
-            .Create(DwarfHill, "GrayDwarfRace", GrayDwarfNamespace)
+            .Create(DwarfHill, "RaceGrayDwarf", GrayDwarfNamespace)
             .SetGuiPresentation(Category.Race, grayDwarfSpriteReference)
             .SetRacePresentation(grayDwarfRacePresentation)
             .SetFeaturesAtLevel(1,

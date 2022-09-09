@@ -37,7 +37,7 @@ internal sealed class MasterManipulator : AbstractSubclass
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder
-            .Create("ManipulatorMentalSavingThrows", SubclassNamespace)
+            .Create("ProficiencyManipulatorMentalSavingThrows", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)

@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:ProficiencyRoguishRavenRangeWeapon:a1fc7442-a311-52ea-8e80-615a22939b5a",
-    "Definition:RoguishRavenRangeAttackAffinity:71c20dd5-111e-5f59-ac37-0c593f901b9d"
+    "Definition:CombatAffinityRoguishRavenRangeAttack:a1b12804-bbfe-5f13-9091-ae6fdc1be6b1"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

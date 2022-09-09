@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ArcaneFighterAdditionalAction:f4c14d99-a831-52bd-a354-7ade44ee417d",
+      "featureDefinition": "Definition:AdditionalActionArcaneFighter:e4e0f523-674b-5411-8b58-2271e778df71",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ArcaneFighterBonusWeaponDamage:7992f290-70ea-5fe6-90da-966962d0ad5f",
+      "featureDefinition": "Definition:AdditionalDamageArcaneFighterBonusWeapon:83ddb1a0-1f85-5a40-8adc-ec2f7999d669",
       "level": 14
     }
   ],

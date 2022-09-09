@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SpellShieldReplaceAttackWithCantrip:5f4bf62c-407d-5bd6-b8da-62f7a39defc6",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripSpellShield:8425b3e4-37ce-553a-8c46-db31230aa21b",
       "level": 7
     },
     {

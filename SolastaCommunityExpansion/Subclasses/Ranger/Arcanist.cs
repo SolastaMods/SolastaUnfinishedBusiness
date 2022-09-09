@@ -71,7 +71,7 @@ internal sealed class Arcanist : AbstractSubclass
     private static FeatureDefinition[] CreateRangerArcanistMagic()
     {
         var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("ArcanistAutoPreparedSpells", RaBaseGuid)
+            .Create("AutoPreparedSpellsArcanist", RaBaseGuid)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(

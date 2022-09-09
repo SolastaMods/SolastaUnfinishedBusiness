@@ -102,7 +102,7 @@ internal static class DarkelfSubraceBuilder
         }
 
         var darkelfMagicSpellList = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListWizard, "DarkelfMagicSpellList",
+            .Create(SpellListDefinitions.SpellListWizard, "CastSpellDarkelfMagicSpellList",
                 "7e84092e-8b26-4870-8244-ce435a95b67f")
             .SetGuiPresentationNoContent()
             .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
@@ -110,7 +110,7 @@ internal static class DarkelfSubraceBuilder
             .AddToDB();
 
         var darkelfDarkMagic = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "DarkelfMagic",
+            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDarkelfMagic",
                 "0271c652-b4aa-4346-806d-9711e634271b")
             .SetGuiPresentation(Category.Feature)
             .SetSpellList(darkelfMagicSpellList)
@@ -175,7 +175,7 @@ internal static class DarkelfSubraceBuilder
         darkelfRacePresentation.preferedHairColors = new RangedInt(48, 53);
 
         var darkelf = CharacterRaceDefinitionBuilder
-            .Create(ElfHigh, "DarkelfRace", "7f44816c-d076-4513-bf8f-22dc6582f7d5")
+            .Create(ElfHigh, "RaceDarkelf", "7f44816c-d076-4513-bf8f-22dc6582f7d5")
             .SetGuiPresentation(Category.Race, darkelfSpriteReference)
             .SetRacePresentation(darkelfRacePresentation)
             .SetFeaturesAtLevel(1,

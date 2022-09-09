@@ -11,8 +11,8 @@ internal static class IntegrationContext
 
     // Sentinel blueprints to avoid a bunch of null check in code
 
-    private static CharacterClassDefinition DummyClass { get; } = CharacterClassDefinitionBuilder
-        .Create("DummyClass", "d223ce4c8ee34c59a04e38cb5d668b0d")
+    private static CharacterClassDefinition ClassDummy { get; } = CharacterClassDefinitionBuilder
+        .Create("ClassDummy", "d223ce4c8ee34c59a04e38cb5d668b0d")
         .SetGuiPresentationNoContent(true)
         .AddToDB();
 
@@ -21,7 +21,7 @@ internal static class IntegrationContext
         .SetGuiPresentationNoContent(true)
         .AddToDB();
 
-    internal static CharacterClassDefinition TinkererClass { get; private set; } = DummyClass;
+    internal static CharacterClassDefinition TinkererClass { get; private set; } = ClassDummy;
 
     internal static CharacterSubclassDefinition ConArtistSubclass { get; private set; } = DummySubclass;
     internal static CharacterSubclassDefinition SpellShieldSubclass { get; private set; } = DummySubclass;
@@ -40,7 +40,7 @@ internal static class IntegrationContext
 
         // NOTE: don't use ?? here which bypasses Unity object lifetime check
 
-        TinkererClass = unofficialTinkerer ? unofficialTinkerer : DummyClass;
+        TinkererClass = unofficialTinkerer ? unofficialTinkerer : ClassDummy;
 
         ConArtistSubclass = unofficialConArtist ? unofficialConArtist : DummySubclass;
         SpellShieldSubclass = unofficialSpellShield ? unofficialSpellShield : DummySubclass;

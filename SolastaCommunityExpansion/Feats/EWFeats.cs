@@ -38,7 +38,7 @@ public static class EwFeats
         var restrained = ConditionDefinitions.ConditionRestrained;
 
         var stopMovementCondition = ConditionDefinitionBuilder
-            .Create("SentinelStopMovementCondition", Guid)
+            .Create("ConditionSentinelStopMovement", Guid)
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization, restrained.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
@@ -157,7 +157,7 @@ public static class EwFeats
             .AddToDB();
 
         var powerAttackCondition = ConditionDefinitionBuilder
-            .Create("PowerAttackCondition", "c125b7b9-e668-4c6f-a742-63c065ad2292")
+            .Create("ConditionPowerAttack", "c125b7b9-e668-4c6f-a742-63c065ad2292")
             .SetGuiPresentation("PowerAttack", Category.Feature,
                 ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)

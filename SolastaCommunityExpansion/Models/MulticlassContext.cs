@@ -14,9 +14,9 @@ internal static class MulticlassContext
     internal static void Load()
     {
         // ensure these are always referenced here for diagnostics dump
-        _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
-        _ = ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass;
-        _ = ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass;
+        _ = ArmorProficiencyMulticlassBuilder.ProficiencyBarbarianArmorMulticlass;
+        _ = ArmorProficiencyMulticlassBuilder.ProficiencyFighterArmorMulticlass;
+        _ = ArmorProficiencyMulticlassBuilder.ProficiencyPaladinArmorMulticlass;
 
         _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolBardSkillPointsMulticlass;
         _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass;
@@ -74,31 +74,31 @@ internal static class MulticlassContext
 
 public sealed class ArmorProficiencyMulticlassBuilder : FeatureDefinitionProficiencyBuilder
 {
-    private const string BarbarianArmorProficiencyMulticlassName = "BarbarianArmorProficiencyMulticlass";
-    private const string BarbarianArmorProficiencyMulticlassGuid = "86558227b0cd4771b42978a60dc610db";
+    private const string ProficiencyBarbarianArmorMulticlassName = "ProficiencyBarbarianArmorMulticlass";
+    private const string ProficiencyBarbarianArmorMulticlassGuid = "86558227b0cd4771b42978a60dc610db";
 
-    private const string FighterArmorProficiencyMulticlassName = "FighterArmorProficiencyMulticlass";
-    private const string FighterArmorProficiencyMulticlassGuid = "5df5ec907a424fccbfec103344421b51";
+    private const string ProficiencyFighterArmorMulticlassName = "ProficiencyFighterArmorMulticlass";
+    private const string ProficiencyFighterArmorMulticlassGuid = "5df5ec907a424fccbfec103344421b51";
 
-    private const string PaladinArmorProficiencyMulticlassName = "PaladinArmorProficiencyMulticlass";
-    private const string PaladinArmorProficiencyMulticlassGuid = "69b18e44aabd4acca702c05f9d6c7fcb";
+    private const string ProficiencyPaladinArmorMulticlassName = "ProficiencyPaladinArmorMulticlass";
+    private const string ProficiencyPaladinArmorMulticlassGuid = "69b18e44aabd4acca702c05f9d6c7fcb";
 
-    public static readonly FeatureDefinitionProficiency BarbarianArmorProficiencyMulticlass =
-        CreateAndAddToDB(BarbarianArmorProficiencyMulticlassName, BarbarianArmorProficiencyMulticlassGuid,
+    public static readonly FeatureDefinitionProficiency ProficiencyBarbarianArmorMulticlass =
+        CreateAndAddToDB(ProficiencyBarbarianArmorMulticlassName, ProficiencyBarbarianArmorMulticlassGuid,
             "Feature/&BarbarianArmorProficiencyTitle",
             EquipmentDefinitions.ShieldCategory
         );
 
-    public static readonly FeatureDefinitionProficiency FighterArmorProficiencyMulticlass =
-        CreateAndAddToDB(FighterArmorProficiencyMulticlassName, FighterArmorProficiencyMulticlassGuid,
+    public static readonly FeatureDefinitionProficiency ProficiencyFighterArmorMulticlass =
+        CreateAndAddToDB(ProficiencyFighterArmorMulticlassName, ProficiencyFighterArmorMulticlassGuid,
             "Feature/&FighterArmorProficiencyTitle",
             EquipmentDefinitions.LightArmorCategory,
             EquipmentDefinitions.MediumArmorCategory,
             EquipmentDefinitions.ShieldCategory
         );
 
-    public static readonly FeatureDefinitionProficiency PaladinArmorProficiencyMulticlass =
-        CreateAndAddToDB(PaladinArmorProficiencyMulticlassName, PaladinArmorProficiencyMulticlassGuid,
+    public static readonly FeatureDefinitionProficiency ProficiencyPaladinArmorMulticlass =
+        CreateAndAddToDB(ProficiencyPaladinArmorMulticlassName, ProficiencyPaladinArmorMulticlassGuid,
             "Feature/&PaladinArmorProficiencyTitle",
             EquipmentDefinitions.LightArmorCategory,
             EquipmentDefinitions.MediumArmorCategory,

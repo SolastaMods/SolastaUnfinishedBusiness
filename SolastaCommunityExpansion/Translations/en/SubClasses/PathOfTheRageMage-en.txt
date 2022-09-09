@@ -1,5 +1,5 @@
-Feature/&arcaneExplosionPathOfTheMageRageDescription= Your arcane power now erupts out of you while raging. On your first hit while raging, you deal an extra 1d6 Force damage.
-Feature/&arcaneExplosionPathOfTheMageRageTitle=Arcane Explosion
+Feature/&AdditionalDamagePathOfTheMageRageArcaneExplosionDescription= Your arcane power now erupts out of you while raging. On your first hit while raging, you deal an extra 1d6 Force damage.
+Feature/&AdditionalDamagePathOfTheMageRageArcaneExplosionTitle=Arcane Explosion
 Feature/&BarbarianPathOfTheRageMageSpellcastingDescription=Your rage manifests as a surge of arcane power, allowing you to cast spells. Charisma is your spellcasting modifier. You have access to spells on the Sorcerer spell list. You use your weapon as an arcane focus. You cannot cast spells while raging.
 Feature/&BarbarianPathOfTheRageMageSpellcastingTitle=Spellcasting
 Feature/&enhancedArcaneExplosionPathOfTheMageRageDescription= Your arcane power now EXPLODES out of you while raging. On your first hit while raging, your Arcane Explosion feature deals 2d6 damage now.

@@ -668,15 +668,15 @@ internal sealed class ElvenPrecisionContext
     public bool Qualified { get; set; } = false;
 }
 
-internal sealed class DeadeyeIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
+internal sealed class CombatAffinityDeadeyeIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
 {
-    private const string DeadeyeIgnoreDefenderName = "DeadeyeIgnoreDefender";
-    private const string DeadeyeIgnoreDefenderGuid = "38940e1f-fc62-4a1a-aebe-b4cb7064050d";
+    private const string CombatAffinityDeadeyeIgnoreDefenderName = "CombatAffinityDeadeyeIgnoreDefender";
+    private const string CombatAffinityDeadeyeIgnoreDefenderGuid = "38940e1f-fc62-4a1a-aebe-b4cb7064050d";
 
-    public static readonly FeatureDefinition DeadeyeIgnoreDefender
-        = CreateAndAddToDB(DeadeyeIgnoreDefenderName, DeadeyeIgnoreDefenderGuid);
+    public static readonly FeatureDefinition CombatAffinityDeadeyeIgnoreDefender
+        = CreateAndAddToDB(CombatAffinityDeadeyeIgnoreDefenderName, CombatAffinityDeadeyeIgnoreDefenderGuid);
 
-    private DeadeyeIgnoreDefenderBuilder(string name, string guid) : base(name, guid)
+    private CombatAffinityDeadeyeIgnoreDefenderBuilder(string name, string guid) : base(name, guid)
     {
         Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
         Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
@@ -687,7 +687,7 @@ internal sealed class DeadeyeIgnoreDefenderBuilder : FeatureDefinitionCombatAffi
 
     private static FeatureDefinition CreateAndAddToDB(string name, string guid)
     {
-        return new DeadeyeIgnoreDefenderBuilder(name, guid).AddToDB();
+        return new CombatAffinityDeadeyeIgnoreDefenderBuilder(name, guid).AddToDB();
     }
 }
 
@@ -713,15 +713,15 @@ internal sealed class DeadeyeAttackModifierBuilder : FeatureDefinitionBuilder
     }
 }
 
-internal sealed class DeadeyeConditionBuilder : ConditionDefinitionBuilder
+internal sealed class ConditionDeadeyeBuilder : ConditionDefinitionBuilder
 {
-    private const string DeadeyeConditionName = "DeadeyeCondition";
-    private const string DeadeyeConditionNameGuid = "a0d24e21-3469-43af-ad63-729552120314";
+    private const string ConditionDeadeyeName = "ConditionDeadeye";
+    private const string ConditionDeadeyeNameGuid = "a0d24e21-3469-43af-ad63-729552120314";
 
-    public static readonly ConditionDefinition DeadeyeCondition =
-        CreateAndAddToDB(DeadeyeConditionName, DeadeyeConditionNameGuid);
+    public static readonly ConditionDefinition ConditionDeadeye =
+        CreateAndAddToDB(ConditionDeadeyeName, ConditionDeadeyeNameGuid);
 
-    private DeadeyeConditionBuilder(string name, string guid) : base(
+    private ConditionDeadeyeBuilder(string name, string guid) : base(
         ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
     {
         Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
@@ -739,7 +739,7 @@ internal sealed class DeadeyeConditionBuilder : ConditionDefinitionBuilder
 
     private static ConditionDefinition CreateAndAddToDB(string name, string guid)
     {
-        return new DeadeyeConditionBuilder(name, guid).AddToDB();
+        return new ConditionDeadeyeBuilder(name, guid).AddToDB();
     }
 }
 
@@ -790,7 +790,7 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
                         .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Add)
                         .Build(),
                     new EffectFormBuilder()
-                        .SetConditionForm(DeadeyeConditionBuilder.DeadeyeCondition,
+                        .SetConditionForm(ConditionDeadeyeBuilder.ConditionDeadeye,
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
@@ -814,7 +814,7 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
                         .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
                         .Build(),
                     new EffectFormBuilder()
-                        .SetConditionForm(DeadeyeConditionBuilder.DeadeyeCondition,
+                        .SetConditionForm(ConditionDeadeyeBuilder.ConditionDeadeye,
                             ConditionForm.ConditionOperation.Remove)
                         .Build())
                 .Build())
@@ -829,7 +829,7 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
         Definition.Features.Clear();
         Definition.Features.Add(turnOnPower);
         Definition.Features.Add(turnOffPower);
-        Definition.Features.Add(DeadeyeIgnoreDefenderBuilder.DeadeyeIgnoreDefender);
+        Definition.Features.Add(CombatAffinityDeadeyeIgnoreDefenderBuilder.CombatAffinityDeadeyeIgnoreDefender);
         Definition.minimalAbilityScorePrerequisite = false;
     }
 

@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CounterStrikePower:88c294ce-14fa-4f7e-8b81-ea4d289e3d8b",
+      "featureDefinition": "Definition:PowerSharedPoolCounterStrike:88c294ce-14fa-4f7e-8b81-ea4d289e3d8b",
       "level": 3
     },
     {
@@ -13,12 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InspirePower:163c28de-48e5-4f75-bdd0-d42374a75ef8",
+      "featureDefinition": "Definition:PowerSharedPoolInspirePower:163c28de-48e5-4f75-bdd0-d42374a75ef8",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:KnockDownPower:90dd5e81-40d7-4824-89b4-45bcf4c05218",
+      "featureDefinition": "Definition:PowerSharedPoolKnockDown:90dd5e81-40d7-4824-89b4-45bcf4c05218",
       "level": 3
     },
     {

@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ArcanistAutoPreparedSpells:ef85a838-7fb5-5133-bc27-78ccbe2af98a",
+      "featureDefinition": "Definition:AutoPreparedSpellsArcanist:62e68d95-d3b0-5e8c-bdd4-3a0654b02e09",
       "level": 3
     },
     {

@@ -42,7 +42,7 @@ internal sealed class ArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var bonusSpell = FeatureDefinitionAdditionalActionBuilder
-            .Create("ArcaneFighterAdditionalAction", SubclassNamespace)
+            .Create("AdditionalActionArcaneFighter", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.CastMain)
@@ -51,9 +51,9 @@ internal sealed class ArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var bonusWeaponDamage = FeatureDefinitionAdditionalDamageBuilder
-            .Create("ArcaneFighterBonusWeaponDamage", SubclassNamespace)
+            .Create("AdditionalDamageArcaneFighterBonusWeapon", SubclassNamespace)
             .Configure(
-                "ArcaneFighterBonusWeaponDamage",
+                "AdditionalDamageArcaneFighterBonusWeapon",
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
                 RuleDefinitions.AdditionalDamageValueDetermination.Die,
                 RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,

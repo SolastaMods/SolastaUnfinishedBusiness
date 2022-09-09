@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard;
 internal sealed class DeadMaster : AbstractSubclass
 {
     private const string CreateDeadSpellPrefix = "CreateDead";
-    private const string FeatureUndeadChainsAttackModifierPrefix = "FeatureUndeadChainsAttackModifier";
+    private const string AttackModifierUndeadChainsPrefix = "AttackModifierUndeadChains";
 
     private static readonly Guid SubclassNamespace = new("58ce31d8-6a37-4d6e-ffea-b9b60658a3ef");
 
@@ -63,7 +63,7 @@ internal sealed class DeadMaster : AbstractSubclass
         for (var i = 2; i < 7; i++)
         {
             _ = FeatureDefinitionAttackModifierBuilder
-                .Create($"{FeatureUndeadChainsAttackModifierPrefix}{i}", SubclassNamespace)
+                .Create($"{AttackModifierUndeadChainsPrefix}{i}", SubclassNamespace)
                 .SetGuiPresentation("FeatureUndeadChains", Category.Feature)
                 .Configure(RuleDefinitions.AttackModifierMethod.FlatValue, i)
                 .AddToDB();
@@ -158,7 +158,7 @@ internal sealed class DeadMaster : AbstractSubclass
         monster.GetAttribute(AttributeDefinitions.HitPoints).BaseValue += casterLevel;
 
         if (dbFeatureDefinitionAttackModifier
-            .TryGetElement($"{FeatureUndeadChainsAttackModifierPrefix}{proficiencyBonus}",
+            .TryGetElement($"{AttackModifierUndeadChainsPrefix}{proficiencyBonus}",
                 out var featureDefinitionAttackModifier))
         {
             monster.ActiveFeatures.Add(featureDefinitionAttackModifier);

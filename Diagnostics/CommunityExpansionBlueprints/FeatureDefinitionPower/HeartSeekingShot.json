@@ -76,11 +76,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "HeartSeekingShotTriggerCondition",
-          "conditionDefinition": "Definition:HeartSeekingShotTriggerCondition:3935fa68-0140-51fe-b235-f2428e87a2db",
+          "conditionDefinitionName": "ConditionHeartSeekingShotTrigger",
+          "conditionDefinition": "Definition:ConditionHeartSeekingShotTrigger:e91d738f-ab93-5655-97e2-b8bb85746301",
           "operation": "Add",
           "conditionsList": [
-            "Definition:HeartSeekingShotTriggerCondition:3935fa68-0140-51fe-b235-f2428e87a2db"
+            "Definition:ConditionHeartSeekingShotTrigger:e91d738f-ab93-5655-97e2-b8bb85746301"
           ],
           "applyToSelf": false,
           "forceOnSelf": false

@@ -23,14 +23,14 @@ internal sealed class BladeDancer : AbstractSubclass
             .AddToDB();
 
         var martialWeaponProficiency = FeatureDefinitionProficiencyBuilder
-            .Create("BladeDancerMartialWeaponProficiency", SubclassNamespace)
+            .Create("ProficiencyBladeDancerMartialWeapon", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
                 RuleDefinitions.ProficiencyType.Weapon, WeaponCategoryDefinitions.MartialWeaponCategory.Name)
             .AddToDB();
 
         var featureReplaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
-            .Create("BladeDancerReplaceAttackWithCantrip", SubclassNamespace)
+            .Create("ReplaceAttackWithCantripBladeDancer", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -144,7 +144,7 @@ internal sealed class BladeDancer : AbstractSubclass
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
-                    .Create("FeatureDanceOfVictory", SubclassNamespace)
+                    .Create("AttackModifierDanceOfVictory", SubclassNamespace)
                     .SetGuiPresentation(Category.Feature)
                     .Configure(
                         RuleDefinitions.AttackModifierMethod.None,
@@ -189,8 +189,8 @@ internal sealed class BladeDancer : AbstractSubclass
             .AddToDB();
 
         var featureDanceOfVictorySet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureDanceOfVictorySet", SubclassNamespace)
-            .SetGuiPresentation("FeatureDanceOfVictory", Category.Feature)
+            .Create("AttackModifierDanceOfVictorySet", SubclassNamespace)
+            .SetGuiPresentation("AttackModifierDanceOfVictory", Category.Feature)
             .SetFeatureSet(powerDanceOfVictory)
             .AddToDB();
 

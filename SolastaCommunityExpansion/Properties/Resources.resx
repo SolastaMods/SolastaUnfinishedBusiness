@@ -126,7 +126,7 @@
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Bolgrif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Races\BolgrifRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Races\Bolgrif.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BurstOfRadiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -138,7 +138,7 @@
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Darkelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Races\DarkelfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Races\Darkelf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="EarthTremor" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -154,7 +154,7 @@
       PublicKeyToken=b77a5c561934e089</value>
   </data>
    <data name="GrayDwarf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Races\GrayDwarfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Races\GrayDwarf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data> 
   <data name="Teleport" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -254,13 +254,13 @@
     <value>..\Resources\Names.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HalfDarkelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Races\HalfDarkelfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Races\HalfDarkelf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HalfHighElf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Races\HalfHighElfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Races\HalfHighElf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HalfSylvanElf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Races\HalfSylvanElfRace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Races\HalfSylvanElf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProducedFlameThrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\ProducedFlameThrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

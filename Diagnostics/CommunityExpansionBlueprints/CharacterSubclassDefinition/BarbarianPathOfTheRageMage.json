@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:arcaneExplosionPathOfTheMageRage:0c6e8471-ade2-56bf-b12d-cd508aaa626e",
+      "featureDefinition": "Definition:AdditionalDamagePathOfTheMageRageArcaneExplosion:aeb43ba2-0cfa-567c-b803-777249e48977",
       "level": 6
     },
     {

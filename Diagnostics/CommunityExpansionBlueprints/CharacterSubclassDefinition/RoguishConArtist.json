@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AbilityAffinityRogueConArtist:955c0ca4-3428-5bd8-8eee-be4ebdd85731",
+      "featureDefinition": "Definition:RogueConArtistAbilityCheckAffinity:5379c0ce-366b-5669-ae7c-bb9a3e3f2bd4",
       "level": 3
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RoguishConArtistMentalSavingThrows:f2be4d53-1cc4-5146-a822-1c94456266f2",
+      "featureDefinition": "Definition:ProficiencyRoguishConArtistMentalSavingThrows:7fef9dca-4f6f-5ecb-bf99-4982715193da",
       "level": 17
     }
   ],

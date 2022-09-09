@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PaladinOathOfRetributionAutoPreparedSpells:cfa18d85-fd06-5051-a295-c37cf4dcbd84",
+      "featureDefinition": "Definition:AutoPreparedPaladinOathOfRetribution:b7c036c4-7be8-592e-ad99-e616d513ba60",
       "level": 3
     },
     {

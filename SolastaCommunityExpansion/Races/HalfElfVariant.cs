@@ -13,17 +13,17 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPoint
 
 namespace SolastaCommunityExpansion.Races;
 
-internal static class HalfElfVariantRaceBuilder
+internal static class RaceHalfElfVariantRaceBuilder
 {
     private static readonly Guid RaceNamespace = new("f5efd735-ff95-4256-ba17-dde585aec5e2");
 
-    internal static CharacterRaceDefinition HalfElfVariantRace { get; } = BuildHalfElfVariant();
+    internal static CharacterRaceDefinition RaceHalfElfVariantRace { get; } = BuildRaceHalfElfVariant();
 
     [NotNull]
-    private static CharacterRaceDefinition BuildHalfElfVariant()
+    private static CharacterRaceDefinition BuildRaceHalfElfVariant()
     {
         var darkelfDarkMagic = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
-            .GetElement("DarkelfMagic");
+            .GetElement("CastSpellDarkelfMagic");
 
         var darkelfFaerieFire = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
             .GetElement("PowerDarkelfFaerieFire");
@@ -35,7 +35,7 @@ internal static class HalfElfVariantRaceBuilder
             CustomIcons.CreateAssetReferenceSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
 
         var halfElfDarkElf = CharacterRaceDefinitionBuilder
-            .Create(DarkelfSubraceBuilder.DarkelfSubrace, "HalfElfDarkElfRace", RaceNamespace)
+            .Create(DarkelfSubraceBuilder.DarkelfSubrace, "RaceHalfElfDarkElf", RaceNamespace)
             .SetGuiPresentation(Category.Race, halfDarkelfSpriteReference)
             .SetFeaturesAtLevel(1,
                 darkelfDarkMagic,
@@ -48,13 +48,13 @@ internal static class HalfElfVariantRaceBuilder
             CustomIcons.CreateAssetReferenceSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
         var castSpellHalfElfHigh = FeatureDefinitionCastSpellBuilder
-            .Create(CastSpellElfHigh, "HalfElfHighCastSpell", RaceNamespace)
+            .Create(CastSpellElfHigh, "CastSpellHalfElfHigh", RaceNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .AddToDB();
 
         var halfElfHighElf = CharacterRaceDefinitionBuilder
-            .Create(ElfHigh, "HalfElfHighElfRace", RaceNamespace)
+            .Create(ElfHigh, "RaceHalfElfHighElf", RaceNamespace)
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)
             .SetFeaturesAtLevel(1,
                 Main.Settings.HalfHighElfUseCharisma ? castSpellHalfElfHigh : CastSpellElfHigh,
@@ -65,14 +65,14 @@ internal static class HalfElfVariantRaceBuilder
             CustomIcons.CreateAssetReferenceSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
 
         var halfElfSylvanElf = CharacterRaceDefinitionBuilder
-            .Create(ElfSylvan, "HalfElfSylvanElfRace", RaceNamespace)
+            .Create(ElfSylvan, "RaceHalfElfSylvanElf", RaceNamespace)
             .SetGuiPresentation(Category.Race, halfSylvanSpriteReference)
             .SetFeaturesAtLevel(1,
                 MoveModeMove7)
             .AddToDB();
 
         var halfElfVariant = CharacterRaceDefinitionBuilder
-            .Create(HalfElf, "HalfElfVariant", RaceNamespace)
+            .Create(HalfElf, "RaceHalfElfVariant", RaceNamespace)
             .SetGuiPresentation(
                 "Race/&HalfElfTitle",
                 "Race/&HalfElfDescription",

@@ -105,11 +105,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "DeadeyeCondition",
-          "conditionDefinition": "Definition:DeadeyeCondition:a0d24e21-3469-43af-ad63-729552120314",
+          "conditionDefinitionName": "ConditionDeadeye",
+          "conditionDefinition": "Definition:ConditionDeadeye:a0d24e21-3469-43af-ad63-729552120314",
           "operation": "Add",
           "conditionsList": [
-            "Definition:DeadeyeCondition:a0d24e21-3469-43af-ad63-729552120314"
+            "Definition:ConditionDeadeye:a0d24e21-3469-43af-ad63-729552120314"
           ],
           "applyToSelf": false,
           "forceOnSelf": false

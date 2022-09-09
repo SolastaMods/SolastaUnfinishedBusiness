@@ -22,7 +22,7 @@ internal sealed class RoyalKnight : AbstractSubclass
         var royalEnvoyAbilityCheckAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(
                 AbilityCheckAffinityChampionRemarkableAthlete,
-                "RoyalEnvoyAbilityCheckAffinity",
+                "AbilityCheckAffinityRoyalEnvoy",
                 "b16f8b68-0dab-49e5-b1a2-6fdfd8836849")
             .SetAffinityGroups(new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
             {

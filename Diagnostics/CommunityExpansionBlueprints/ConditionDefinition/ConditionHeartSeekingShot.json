@@ -4,9 +4,9 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:HeartSeekingShotAdditionalDamage:84161265-e360-53ce-9ec4-3f26bc4ba369",
-    "Definition:HeartSeekingShotAttackModifier:10e56f33-5caa-5dc1-99ea-907894e468fc",
-    "Definition:HeartSeekingShotCriticalThresholdModifier:ae593bc1-5b11-5cbd-a0ef-b598e44b39b2"
+    "Definition:AdditionalDamageHeartSeekingShot:c73e56a2-4e67-5e20-b02b-459af230ca90",
+    "Definition:AttackModifierHeartSeekingShot:7960e839-c2e8-582e-a030-201432b5588b",
+    "Definition:AttributeModifierHeartSeekingShotCriticalThreshold:c1e8eed8-96e3-5821-86d1-f87ecf610bf8"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

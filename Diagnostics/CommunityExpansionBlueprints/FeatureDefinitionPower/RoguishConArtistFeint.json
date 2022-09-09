@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "RogueConArtistFeintCondition",
-          "conditionDefinition": "Definition:RogueConArtistFeintCondition:74adf4f4-b8ff-54d6-988e-3736b143bd80",
+          "conditionDefinitionName": "ConditionRogueConArtistFeint",
+          "conditionDefinition": "Definition:ConditionRogueConArtistFeint:657906dc-1cc7-56ec-b98e-e0cec4cd2445",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

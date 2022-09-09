@@ -31,7 +31,7 @@ internal sealed class Raven : AbstractSubclass
                 Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var triggerCondition = ConditionDefinitionBuilder
-            .Create("HeartSeekingShotTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+            .Create("ConditionHeartSeekingShotTrigger", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetDuration(RuleDefinitions.DurationType.Permanent)
@@ -49,18 +49,18 @@ internal sealed class Raven : AbstractSubclass
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("HeartSeekingShotCriticalThresholdModifier", DefinitionBuilder.CENamespaceGuid)
+                    .Create("AttributeModifierHeartSeekingShotCriticalThreshold", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
-                    .Create("HeartSeekingShotAttackModifier", DefinitionBuilder.CENamespaceGuid)
+                    .Create("AttackModifierHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .Configure(RuleDefinitions.AttackModifierMethod.FlatValue, -4)
                     .AddToDB(),
                 FeatureDefinitionAdditionalDamageBuilder
-                    .Create("HeartSeekingShotAdditionalDamage", DefinitionBuilder.CENamespaceGuid)
+                    .Create("AdditionalDamageHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
                     .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
@@ -166,7 +166,7 @@ internal sealed class Raven : AbstractSubclass
                         WeaponTypeDefinitions.LongbowType.Name)
                     .AddToDB(),
                 FeatureDefinitionCombatAffinityBuilder
-                    .Create("RoguishRavenRangeAttackAffinity", DefinitionBuilder.CENamespaceGuid)
+                    .Create("CombatAffinityRoguishRavenRangeAttack", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentationNoContent(true)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(WeaponValidators.AlwaysValid))
@@ -178,7 +178,7 @@ internal sealed class Raven : AbstractSubclass
         // killing spree 
         // bonus range attack from main and can sneak attack after killing an enemies
         var killingSpree = FeatureDefinitionAdditionalActionBuilder
-            .Create("RoguishRavenKillingSpree", DefinitionBuilder.CENamespaceGuid)
+            .Create("AdditionalActionRoguishRavenKillingSpree", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
             .SetActionType(ActionDefinitions.ActionType.Main)

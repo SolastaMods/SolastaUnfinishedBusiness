@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DruidForestGuardianBarkWard:04b52ec8-fb06-5e97-973a-eced177266b1",
+      "featureDefinition": "Definition:PowerSharedPoolDruidForestGuardianBarkWard:f2e9950e-84cd-5e3d-bbcc-b2e1bea75f6b",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ForestGuardianAutoPreparedSpells:4ced2165-f8e5-545b-af7c-34cbd0f4d7ff",
+      "featureDefinition": "Definition:AutoPreparedSpellsForestGuardian:f75d4050-f225-5696-9871-a9946c821a24",
       "level": 2
     },
     {
@@ -28,12 +28,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DruidForestGuardianImprovedBarkWard:be211a95-38be-58c3-94ac-d749abfba601",
+      "featureDefinition": "Definition:DruidForestGuardianConditionImprovedBarkWard:31c6e567-70a2-5220-81b3-fd2828c8e998",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DruidForestGuardianSuperiorBarkWard:159ecf17-62de-5b17-82c1-4c040e24daae",
+      "featureDefinition": "Definition:DruidForestGuardianConditionSuperiorBarkWard:80998b76-9e51-5473-84ca-f7755498e128",
       "level": 14
     }
   ],

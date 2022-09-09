@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SunlightBladeDamageBonus:43232653-cd80-5f3f-95f1-06b048150d87"
+    "Definition:AdditionalDamageSunlightBlade:1bd17141-b9ba-5502-a83b-00a846cf4c39"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

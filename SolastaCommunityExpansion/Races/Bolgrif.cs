@@ -9,9 +9,9 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Races;
 
-internal static class BolgrifRaceBuilder
+internal static class RaceBolgrifBuilder
 {
-    internal static CharacterRaceDefinition BolgrifRace { get; } = BuildBolgrif();
+    internal static CharacterRaceDefinition RaceBolgrif { get; } = BuildBolgrif();
 
     [NotNull]
     private static CharacterRaceDefinition BuildBolgrif()
@@ -70,7 +70,7 @@ internal static class BolgrifRaceBuilder
             .AddToDB();
 
         var bolgrifDruidicMagic = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "BolgrifDruidicMagic",
+            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellBolgrifMagic",
                 "ea2a9c8e-6ca9-490b-a056-d768182b5cd2")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
@@ -92,7 +92,7 @@ internal static class BolgrifRaceBuilder
         bolgrifRacePresentation.MaleBeardShapeOptions.Add(MorphotypeElementDefinitions.BeardShape_None.Name);
 
         var bolgrif = CharacterRaceDefinitionBuilder
-            .Create(CharacterRaceDefinitions.Human, "BolgrifRace", "346b7f90-973f-425f-8342-d534759e65aa")
+            .Create(CharacterRaceDefinitions.Human, "RaceBolgrif", "346b7f90-973f-425f-8342-d534759e65aa")
             .SetGuiPresentation(Category.Race, bolgrifSpriteReference)
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetRacePresentation(bolgrifRacePresentation)

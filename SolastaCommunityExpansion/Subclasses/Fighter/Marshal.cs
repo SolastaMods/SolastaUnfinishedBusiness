@@ -80,7 +80,7 @@ internal static class KnowYourEnemyBuilder
             .AddToDB();
 
         var additionalDamageRangerFavoredEnemyHumanoid = FeatureDefinitionAdditionalDamageBuilder
-            .Create("MarshalAdditionalDamageFavoredEnemyHumanoid",
+            .Create("AdditionalDamageMarshalFavoredEnemyHumanoid",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
             .SetNotificationTag("FavoredEnemy")
