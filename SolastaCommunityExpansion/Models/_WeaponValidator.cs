@@ -83,7 +83,7 @@ public static class WeaponValidators
                weapon.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
     }
 
-    
+
     public static bool IsThrownWeapon([CanBeNull] RulesetItem weapon)
     {
         var weaponDescription = weapon?.ItemDefinition.WeaponDescription;

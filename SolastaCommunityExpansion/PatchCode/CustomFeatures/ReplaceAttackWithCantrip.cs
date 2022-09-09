@@ -75,7 +75,7 @@ internal static class ReplaceAttackWithCantrip
 
         //increment used attacks to count cantrip as attack
         __instance.usedMainAttacks++;
-        
+
         //if still attacks left - refund main action
         if (__instance.usedMainAttacks < num)
         {

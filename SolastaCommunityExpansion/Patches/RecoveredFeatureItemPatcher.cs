@@ -17,4 +17,3 @@ internal static class RecoveredFeatureItemPatcher
         }
     }
 }
-

@@ -25,6 +25,5 @@ internal static class GameLocationBaseScreenPatcher
 
             return true;
         }
-    }  
+    }
 }
-

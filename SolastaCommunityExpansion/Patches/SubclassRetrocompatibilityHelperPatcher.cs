@@ -16,6 +16,5 @@ internal static class SubclassRetrocompatibilityHelperPatcher
         {
             return hero.ClassesAndLevels.Count == 1;
         }
-    } 
+    }
 }
-

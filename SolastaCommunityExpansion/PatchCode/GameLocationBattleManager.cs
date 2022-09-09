@@ -10,17 +10,20 @@ internal static class GameLocationBattleManagerTweaks
      * This method is almost completely original game source provided by TA
      * All changes made by CE mod should be clearly marked to easy future updates
      */
-     public static void ComputeAndNotifyAdditionalDamage(GameLocationBattleManager instance, GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamageProvider provider, List<EffectForm> actualEffectForms, CharacterActionParams reactionParams, RulesetAttackMode attackMode, bool criticalHit)
+    public static void ComputeAndNotifyAdditionalDamage(GameLocationBattleManager instance,
+        GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamageProvider provider,
+        List<EffectForm> actualEffectForms, CharacterActionParams reactionParams, RulesetAttackMode attackMode,
+        bool criticalHit)
     {
-        DamageForm additionalDamageForm = DamageForm.Get();
-        FeatureDefinition featureDefinition = provider as FeatureDefinition;
-        
+        var additionalDamageForm = DamageForm.Get();
+        var featureDefinition = provider as FeatureDefinition;
+
         /*
          * ######################################
          * [CE] EDIT START
          * Support for wild-shaped characters
          */
-                
+
         //[CE] Store original RulesetCharacterHero for future use
         var hero = attacker.RulesetCharacter as RulesetCharacterHero ??
                    attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
@@ -34,7 +37,7 @@ internal static class GameLocationBattleManagerTweaks
         // What is the method to determine the amount of damage?
         if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.Die)
         {
-            int diceNumber = provider.DamageDiceNumber;
+            var diceNumber = provider.DamageDiceNumber;
 
             if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
             {
@@ -44,16 +47,16 @@ internal static class GameLocationBattleManagerTweaks
                  * [CE] EDIT START
                  * Support for wild-shaped characters
                  */
-                
+
                 // [CE] comment-out this local variable, so that one declared above, which accounts for wild-shape, is used
                 // RulesetCharacterHero hero = attacker.RulesetCharacter as RulesetCharacterHero;
-                
+
                 // [CE] commented-out original code
                 //CharacterClassDefinition classDefinition = hero.FindClassHoldingFeature(featureDefinition);
-                
+
                 // Use null-coalescing operator to ward against possible `NullReferenceException`
                 var classDefinition = hero?.FindClassHoldingFeature(featureDefinition);
-                
+
                 /*
                  * Support for wild-shaped characters
                  * [CE] EDIT END
@@ -61,7 +64,7 @@ internal static class GameLocationBattleManagerTweaks
                  */
                 if (classDefinition != null)
                 {
-                    int classLevel = hero.ClassesAndLevels[classDefinition];
+                    var classLevel = hero.ClassesAndLevels[classDefinition];
                     diceNumber = provider.GetDiceOfRank(classLevel);
                 }
             }
@@ -70,7 +73,7 @@ internal static class GameLocationBattleManagerTweaks
              * [CE] EDIT START
              * Support for `CharacterLevel` damage progression
              */
-            else if ((ExtraAdditionalDamageAdvancement) provider.DamageAdvancement ==
+            else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
                      ExtraAdditionalDamageAdvancement.CharacterLevel)
             {
                 var rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero ??
@@ -96,7 +99,8 @@ internal static class GameLocationBattleManagerTweaks
                 }
                 else
                 {
-                    RulesetCondition condition = attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
+                    var condition =
+                        attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
                     if (condition != null)
                     {
                         diceNumber = provider.GetDiceOfRank(condition.EffectLevel);
@@ -105,7 +109,8 @@ internal static class GameLocationBattleManagerTweaks
             }
 
             // Some specific families may receive more dice (example paladin smiting undead/fiends)
-            if (defender.RulesetCharacter != null && provider.FamiliesWithAdditionalDice.Count > 0 && provider.FamiliesWithAdditionalDice.Contains(defender.RulesetCharacter.CharacterFamily))
+            if (defender.RulesetCharacter != null && provider.FamiliesWithAdditionalDice.Count > 0 &&
+                provider.FamiliesWithAdditionalDice.Contains(defender.RulesetCharacter.CharacterFamily))
             {
                 diceNumber += provider.FamiliesDiceNumber;
             }
@@ -113,46 +118,52 @@ internal static class GameLocationBattleManagerTweaks
             additionalDamageForm.DieType = provider.DamageDieType;
             additionalDamageForm.DiceNumber = diceNumber;
         }
-
         /*
         * ######################################
         * [CE] EDIT START
         * Support for wild-shaped characters
         */
-        
+
         //Commented out original check
         //else if (attacker.RulesetCharacter is RulesetCharacterHero &&
-        
+
         //check previously saved hero variable to allow wild-shaped heroes to count for these bonuses
         else if (hero != null &&
-        
-        /*
-         * Support for wild-shaped characters
-         * [CE] EDIT END
-         * ######################################
-         */
-            (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus
-            || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus
-            || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus
-            || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.RageDamage))
+                 /*
+                  * Support for wild-shaped characters
+                  * [CE] EDIT END
+                  * ######################################
+                  */
+                 (provider.DamageValueDetermination ==
+                  RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus
+                  || provider.DamageValueDetermination ==
+                  RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus
+                  || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
+                      .ProficiencyBonusAndSpellcastingBonus
+                  || provider.DamageValueDetermination ==
+                  RuleDefinitions.AdditionalDamageValueDetermination.RageDamage))
         {
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
             additionalDamageForm.BonusDamage = 0;
 
-            if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus)
+            if (provider.DamageValueDetermination ==
+                RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus ||
+                provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
+                    .ProficiencyBonusAndSpellcastingBonus)
             {
                 /*
                  * ######################################
                  * [CE] EDIT START
                  * Support for wild-shaped characters
                  */
-                
+
                 //Commented out original check
                 // additionalDamageForm.BonusDamage += (attacker.RulesetCharacter as RulesetCharacterHero).GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
 
                 //use previously saved original RulesetCharacterHero
-                additionalDamageForm.BonusDamage += hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+                additionalDamageForm.BonusDamage +=
+                    hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
 
                 /*
                  * Support for wild-shaped characters
@@ -161,16 +172,21 @@ internal static class GameLocationBattleManagerTweaks
                  */
             }
 
-            if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus)
+            if (provider.DamageValueDetermination ==
+                RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus ||
+                provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
+                    .ProficiencyBonusAndSpellcastingBonus)
             {
                 // Look for the Spell Repertoire
-                int spellBonus = 0;
-                foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                var spellBonus = 0;
+                foreach (var spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
                 {
-                    spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
+                    spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
+                        .GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
 
                     // Stop if this is a class repertoire
-                    if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
+                    if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
+                        FeatureDefinitionCastSpell.CastingOrigin.Class)
                     {
                         break;
                     }
@@ -181,19 +197,24 @@ internal static class GameLocationBattleManagerTweaks
 
             if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.RageDamage)
             {
-                additionalDamageForm.BonusDamage = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.RageDamage);
+                additionalDamageForm.BonusDamage =
+                    attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.RageDamage);
             }
         }
-        else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusOfSource)
+        else if (provider.DamageValueDetermination ==
+                 RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusOfSource)
         {
             // Try to find the condition granting the provider
-            RulesetCondition holdingCondition = attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
+            var holdingCondition =
+                attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
             RulesetCharacter sourceCharacter = null;
-            if (holdingCondition != null && RulesetEntity.TryGetEntity<RulesetCharacter>(holdingCondition.SourceGuid, out sourceCharacter))
+            if (holdingCondition != null &&
+                RulesetEntity.TryGetEntity(holdingCondition.SourceGuid, out sourceCharacter))
             {
                 additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
                 additionalDamageForm.DiceNumber = 0;
-                additionalDamageForm.BonusDamage = sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                additionalDamageForm.BonusDamage =
+                    sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             }
         }
         /*
@@ -201,45 +222,53 @@ internal static class GameLocationBattleManagerTweaks
          * [CE] EDIT START
          * Support for wild-shaped characters
          */
-                
+
         //Commented out original check
         // else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.TargetKnowledgeLevel && attacker.RulesetCharacter is RulesetCharacterHero && defender.RulesetCharacter is RulesetCharacterMonster)
-        
+
         // [CE] use previously saved hero variable to check if attacker is actually a  hero, this allows for wild-shaped charaters to count
-        else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.TargetKnowledgeLevel && hero != null && defender.RulesetCharacter is RulesetCharacterMonster)
-            
-        /*
-         * Support for wild-shaped characters
-         * [CE] EDIT END
-         * ######################################
-         */
+        else if (provider.DamageValueDetermination ==
+                 RuleDefinitions.AdditionalDamageValueDetermination.TargetKnowledgeLevel && hero != null &&
+                 defender.RulesetCharacter is RulesetCharacterMonster)
+            /*
+             * Support for wild-shaped characters
+             * [CE] EDIT END
+             * ######################################
+             */
         {
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
-            additionalDamageForm.BonusDamage = ServiceRepository.GetService<IGameLoreService>().GetCreatureKnowledgeLevel(defender.RulesetCharacter).AdditionalDamage;
+            additionalDamageForm.BonusDamage = ServiceRepository.GetService<IGameLoreService>()
+                .GetCreatureKnowledgeLevel(defender.RulesetCharacter).AdditionalDamage;
         }
-        else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.BrutalCriticalDice)
+        else if (provider.DamageValueDetermination ==
+                 RuleDefinitions.AdditionalDamageValueDetermination.BrutalCriticalDice)
         {
-            bool useVersatileDamage = attackMode != null && attackMode.UseVersatileDamage;
-            DamageForm damageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
+            var useVersatileDamage = attackMode != null && attackMode.UseVersatileDamage;
+            var damageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
             additionalDamageForm.DieType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
-            additionalDamageForm.DiceNumber = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.BrutalCriticalDice);
+            additionalDamageForm.DiceNumber =
+                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.BrutalCriticalDice);
             additionalDamageForm.BonusDamage = 0;
         }
-        else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+        else if (provider.DamageValueDetermination ==
+                 RuleDefinitions.AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
         {
-            bool useVersatileDamage = attackMode != null && attackMode.UseVersatileDamage;
-            DamageForm damageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
+            var useVersatileDamage = attackMode != null && attackMode.UseVersatileDamage;
+            var damageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
             additionalDamageForm.DieType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
             additionalDamageForm.DiceNumber = 1;
             additionalDamageForm.BonusDamage = 0;
         }
-        else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.HalfAbilityScoreBonus)
+        else if (provider.DamageValueDetermination ==
+                 RuleDefinitions.AdditionalDamageValueDetermination.HalfAbilityScoreBonus)
         {
             if (attackMode != null)
             {
-                string abilityScore = attackMode.AbilityScore;
-                int halfUp = Mathf.CeilToInt(0.5f * (float)AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.TryGetAttributeValue(abilityScore)));
+                var abilityScore = attackMode.AbilityScore;
+                var halfUp = Mathf.CeilToInt(0.5f *
+                                             AttributeDefinitions.ComputeAbilityScoreModifier(
+                                                 attacker.RulesetCharacter.TryGetAttributeValue(abilityScore)));
                 if (halfUp > 0)
                 {
                     additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
@@ -281,12 +310,14 @@ internal static class GameLocationBattleManagerTweaks
                     break;
 
                 case RuleDefinitions.AdditionalDamageType.AncestryDamageType:
-                    attacker.RulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionAncestry>(FeatureDefinitionAncestry.FeaturesToBrowse, null);
+                    attacker.RulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionAncestry>(
+                        FeatureDefinitionAncestry.FeaturesToBrowse);
 
                     // Pick the first one
                     if (FeatureDefinitionAncestry.FeaturesToBrowse.Count > 0)
                     {
-                        additionalDamageForm.DamageType = (FeatureDefinitionAncestry.FeaturesToBrowse[0] as FeatureDefinitionAncestry).DamageType;
+                        additionalDamageForm.DamageType =
+                            (FeatureDefinitionAncestry.FeaturesToBrowse[0] as FeatureDefinitionAncestry).DamageType;
                     }
 
                     break;
@@ -294,11 +325,13 @@ internal static class GameLocationBattleManagerTweaks
 
             // For ancestry damage, add to the existing / matching damage, instead of add a new effect form
             if (provider.AdditionalDamageType == RuleDefinitions.AdditionalDamageType.AncestryDamageType
-                && provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus)
+                && provider.DamageValueDetermination ==
+                RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus)
             {
-                foreach (EffectForm effectForm in actualEffectForms)
+                foreach (var effectForm in actualEffectForms)
                 {
-                    if (effectForm.FormType == EffectForm.EffectFormType.Damage && effectForm.DamageForm.DamageType == additionalDamageForm.DamageType)
+                    if (effectForm.FormType == EffectForm.EffectFormType.Damage &&
+                        effectForm.DamageForm.DamageType == additionalDamageForm.DamageType)
                     {
                         effectForm.DamageForm.BonusDamage += additionalDamageForm.BonusDamage;
                     }
@@ -307,16 +340,19 @@ internal static class GameLocationBattleManagerTweaks
             else
             {
                 // Add a new effect form
-                EffectForm newEffectForm = EffectForm.GetFromDamageForm(additionalDamageForm);
+                var newEffectForm = EffectForm.GetFromDamageForm(additionalDamageForm);
 
                 // Specific saving throw?
                 if (provider.HasSavingThrow)
                 {
                     // This additional damage will override the saving throw for the whole attack
                     newEffectForm.SavingThrowAffinity = provider.DamageSaveAffinity;
-                    IRulesetImplementationService rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-                    int saveDC = rulesetImplementationService.ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
-                    newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility, saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
+                    var rulesetImplementationService =
+                        ServiceRepository.GetService<IRulesetImplementationService>();
+                    var saveDC =
+                        rulesetImplementationService.ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
+                    newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
+                        saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
                 }
 
                 actualEffectForms.Add(newEffectForm);
@@ -326,42 +362,53 @@ internal static class GameLocationBattleManagerTweaks
             if (attacker.RulesetCharacter.AdditionalDamageGenerated != null)
             {
                 // We want to include doubling the dice for a critical hit
-                int diceNumber = additionalDamageForm.DiceNumber;
-                if (additionalDamageForm.DieType != RuleDefinitions.DieType.D1 && criticalHit && !additionalDamageForm.IgnoreCriticalDoubleDice)
+                var diceNumber = additionalDamageForm.DiceNumber;
+                if (additionalDamageForm.DieType != RuleDefinitions.DieType.D1 && criticalHit &&
+                    !additionalDamageForm.IgnoreCriticalDoubleDice)
                 {
                     diceNumber *= 2;
                 }
 
                 // Handle bardic inspiration die override
-                if (additionalDamageForm.OverrideWithBardicInspirationDie && attacker.RulesetCharacter.GetBardicInspirationDieValue() != RuleDefinitions.DieType.D1)
+                if (additionalDamageForm.OverrideWithBardicInspirationDie &&
+                    attacker.RulesetCharacter.GetBardicInspirationDieValue() != RuleDefinitions.DieType.D1)
                 {
                     additionalDamageForm.DieType = attacker.RulesetCharacter.GetBardicInspirationDieValue();
                 }
 
-                attacker.RulesetCharacter.AdditionalDamageGenerated.Invoke(attacker.RulesetCharacter, defender.RulesetActor, additionalDamageForm.DieType, diceNumber, additionalDamageForm.BonusDamage, provider.NotificationTag);
+                attacker.RulesetCharacter.AdditionalDamageGenerated.Invoke(attacker.RulesetCharacter,
+                    defender.RulesetActor, additionalDamageForm.DieType, diceNumber,
+                    additionalDamageForm.BonusDamage, provider.NotificationTag);
             }
         }
 
         // Do I need to perform condition operations?
         if (provider.ConditionOperations.Count > 0)
         {
-            foreach (ConditionOperationDescription conditionOperation in provider.ConditionOperations)
+            foreach (var conditionOperation in provider.ConditionOperations)
             {
-                EffectForm newEffectForm = new EffectForm();
+                var newEffectForm = new EffectForm();
                 newEffectForm.FormType = EffectForm.EffectFormType.Condition;
                 newEffectForm.ConditionForm = new ConditionForm();
                 newEffectForm.ConditionForm.ConditionDefinition = conditionOperation.ConditionDefinition;
-                newEffectForm.ConditionForm.Operation = conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add ? ConditionForm.ConditionOperation.Add : ConditionForm.ConditionOperation.Remove;
+                newEffectForm.ConditionForm.Operation =
+                    conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add
+                        ? ConditionForm.ConditionOperation.Add
+                        : ConditionForm.ConditionOperation.Remove;
                 newEffectForm.CanSaveToCancel = conditionOperation.CanSaveToCancel;
                 newEffectForm.SaveOccurence = conditionOperation.SaveOccurence;
 
-                if (conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add && provider.HasSavingThrow)
+                if (conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add &&
+                    provider.HasSavingThrow)
                 {
                     // This additional damage will override the saving throw for the whole attack
                     newEffectForm.SavingThrowAffinity = conditionOperation.SaveAffinity;
-                    IRulesetImplementationService rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-                    int saveDC = rulesetImplementationService.ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
-                    newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility, saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
+                    var rulesetImplementationService =
+                        ServiceRepository.GetService<IRulesetImplementationService>();
+                    var saveDC =
+                        rulesetImplementationService.ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
+                    newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
+                        saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
                 }
 
                 actualEffectForms.Add(newEffectForm);
@@ -369,13 +416,14 @@ internal static class GameLocationBattleManagerTweaks
         }
 
         // Do I need to add a light source?
-        if (provider.AddLightSource && defender.RulesetCharacter != null && defender.RulesetCharacter.PersonalLightSource == null)
+        if (provider.AddLightSource && defender.RulesetCharacter != null &&
+            defender.RulesetCharacter.PersonalLightSource == null)
         {
-            LightSourceForm lightSourceForm = provider.LightSourceForm;
+            var lightSourceForm = provider.LightSourceForm;
 
-            IGameLocationVisibilityService visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-            float brightRange = (float)lightSourceForm.BrightRange;
-            float dimRange = brightRange + (float)lightSourceForm.DimAdditionalRange;
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+            float brightRange = lightSourceForm.BrightRange;
+            var dimRange = brightRange + lightSourceForm.DimAdditionalRange;
             defender.RulesetCharacter.PersonalLightSource = new RulesetLightSource(
                 lightSourceForm.Color,
                 brightRange,
@@ -383,16 +431,18 @@ internal static class GameLocationBattleManagerTweaks
                 lightSourceForm.GraphicsPrefabAssetGUID,
                 lightSourceForm.LightSourceType,
                 featureDefinition.Name,
-                targetGuid: defender.RulesetCharacter.Guid);
+                defender.RulesetCharacter.Guid);
             defender.RulesetCharacter.PersonalLightSource.Register(true);
 
             visibilityService.AddCharacterLightSource(defender, defender.RulesetCharacter.PersonalLightSource);
 
-            RulesetCondition holdingCondition = attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
+            var holdingCondition =
+                attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
             if (holdingCondition != null)
             {
-                RulesetEffect effect = attacker.RulesetCharacter.FindEffectTrackingCondition(holdingCondition);
-                effect.TrackLightSource(defender.RulesetCharacter, defender.Guid, string.Empty, defender.RulesetCharacter.PersonalLightSource);
+                var effect = attacker.RulesetCharacter.FindEffectTrackingCondition(holdingCondition);
+                effect.TrackLightSource(defender.RulesetCharacter, defender.Guid, string.Empty,
+                    defender.RulesetCharacter.PersonalLightSource);
             }
         }
 

@@ -71,7 +71,7 @@ internal static class GameGadgetPatcher
             }
         }
     }
-    
+
     //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
     [HarmonyPatch(typeof(GameGadget), "SetCondition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -90,9 +90,9 @@ internal static class GameGadgetPatcher
 
                 Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: {param} state = {state}");
 
-    #if DEBUG
+#if DEBUG
                 //Main.Log("GameGadget_SetCondition: " + string.Join(",", __instance.conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
-    #endif
+#endif
 
                 if ((param != GameGadgetExtensions.Enabled && param != GameGadgetExtensions.ParamEnabled) ||
                     !__instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))

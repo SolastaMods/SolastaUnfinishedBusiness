@@ -41,5 +41,4 @@ internal static class ReactionModalPatcher
             return false;
         }
     }
-
 }
