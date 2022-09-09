@@ -1,9 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
+using SolastaCommunityExpansion.PatchCode.CustomFeatures;
 using SolastaCommunityExpansion.PatchCode.CustomUI;
 
 namespace SolastaCommunityExpansion.Patches;
@@ -168,6 +170,41 @@ internal static class GameLocationCharacterPatcher
         {
             var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IPowerUseValidity>();
             return validator == null || validator.CanUsePower(character);
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), "GetActionStatus")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GetActionStatus_Patch
+    {
+        [NotNull]
+        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var codes = instructions.ToList();
+
+            //PATCH: Support for Pugilist Fighting Style
+            // Removes check that makes `ShoveBonus` action unavailable if character has no shield
+            PugilistFightingStyle.RemoveShieldRequiredForBonusPush(codes);
+
+            return codes.AsEnumerable();
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), "RefreshActionPerformances")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RefreshActionPerformances_Patch
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var codes = instructions.ToList();
+
+            //PATCH: SUpport for `IFeatureApplicationValidator`
+            FeatureApplicationValidation.ValidateActionPerformaceProviders(codes);
+
+            //PATCH: SUpport for `IFeatureApplicationValidator`
+            FeatureApplicationValidation.ValidateAdditionalActionProviders(codes);
+
+            return codes.AsEnumerable();
         }
     }
 }
