@@ -19,29 +19,8 @@ internal static class RulesetSpellRepertoirePatcher
         return heroWithSpellRepertoire == null || SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire);
     }
 
-    // ensures MC Warlocks are treated before SC ones
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GetMaxSlotsNumberOfAllLevels_Patch
-    {
-        internal static bool Prefix(
-            RulesetSpellRepertoire __instance,
-            ref int __result)
-        {
-            if (ShouldNotRun(__instance))
-            {
-                return true;
-            }
-
-            // handles SC Warlock
-            __instance.spellsSlotCapacities.TryGetValue(1, out __result);
-
-            return false;
-        }
-    }
-
     // ensures MC Warlocks get a proper list of upcast slots under a MC scenario
-    // [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_CanUpcastSpell
     {
@@ -80,63 +59,7 @@ internal static class RulesetSpellRepertoirePatcher
             }
         }
     }
-
-    // ensures MC Warlocks are treated before SC ones
-    //[HarmonyPatch(typeof(RulesetSpellRepertoire), "GetRemainingSlotsNumberOfAllLevels")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_GetRemainingSlotsNumberOfAllLevels
-    {
-        internal static bool Prefix(
-            RulesetSpellRepertoire __instance,
-            ref int __result)
-        {
-            if (ShouldNotRun(__instance))
-            {
-                return true;
-            }
-
-            // handles SC Warlock
-            __instance.spellsSlotCapacities.TryGetValue(1, out var max);
-            __instance.usedSpellsSlots.TryGetValue(1, out var used);
-            __result = max - used;
-
-            return false;
-        }
-    }
-
-    // handles all different scenarios to determine slots numbers
-    //[HarmonyPatch(typeof(RulesetSpellRepertoire), "GetSlotsNumber")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_GetSlotsNumber
-    {
-        internal static bool Prefix(
-            RulesetSpellRepertoire __instance,
-            int spellLevel,
-            ref int remaining,
-            ref int max)
-        {
-            if (ShouldNotRun(__instance))
-            {
-                return true;
-            }
-
-            // handles SC Warlock
-            max = 0;
-            remaining = 0;
-
-            if (spellLevel > __instance.MaxSpellLevelOfSpellCastingLevel)
-            {
-                return false;
-            }
-
-            __instance.spellsSlotCapacities.TryGetValue(1, out max);
-            __instance.usedSpellsSlots.TryGetValue(1, out var used);
-            remaining = max - used;
-
-            return false;
-        }
-    }
-
+    
     // handles all different scenarios of spell slots consumption (casts, smites, point buys)
     // [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -276,7 +199,7 @@ internal static class RulesetSpellRepertoirePatcher
         }
     }
 
-    // handles all different scenarios to determine max spell level
+    //PATCH: handles all different scenarios to determine max spell level
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_MaxSpellLevelOfSpellCastingLevel_Getter
@@ -303,7 +226,7 @@ internal static class RulesetSpellRepertoirePatcher
         }
     }
 
-// handles Arcane Recovery granted spells on short rests
+    //PATCH: handles Arcane Recovery granted spells on short rests
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "RecoverMissingSlots")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_RecoverMissingSlots
