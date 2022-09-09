@@ -77,6 +77,13 @@ public static class WeaponValidators
         return IsUnarmedWeapon(null, weapon, null);
     }
 
+    public static bool IsTwoHanded(RulesetItem weapon)
+    {
+        return weapon != null && weapon.itemDefinition.isWeapon &&
+               weapon.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
+    }
+
+    
     public static bool IsThrownWeapon([CanBeNull] RulesetItem weapon)
     {
         var weaponDescription = weapon?.ItemDefinition.WeaponDescription;

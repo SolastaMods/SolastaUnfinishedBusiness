@@ -64,8 +64,11 @@ public static class CharacterValidators
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
 
-        return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
-               || WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+        var main = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+        var off = slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+
+        return WeaponValidators.IsUnarmedWeapon(main)
+               || (!WeaponValidators.IsTwoHanded(main) && WeaponValidators.IsUnarmedWeapon(off));
     };
 
     public static readonly CharacterValidator UsedAllMainAttacks = character =>
