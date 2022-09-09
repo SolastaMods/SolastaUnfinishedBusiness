@@ -10,6 +10,9 @@ using static SolastaCommunityExpansion.Models.SpellsHelper;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells;
 
+//
+// TODO: might not need this anymore
+//
 [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacter_ApplyRest
