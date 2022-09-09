@@ -214,7 +214,7 @@ public static class SharedSpellsContext
 
     public static int GetClassSpellLevel([CanBeNull] RulesetSpellRepertoire spellRepertoire)
     {
-        if (spellRepertoire?.SpellCastingFeature.SlotsPerLevels == null)
+        if (spellRepertoire?.SpellCastingFeature.SlotsPerLevels == null || spellRepertoire.SpellCastingLevel <= 0)
         {
             return 0;
         }
