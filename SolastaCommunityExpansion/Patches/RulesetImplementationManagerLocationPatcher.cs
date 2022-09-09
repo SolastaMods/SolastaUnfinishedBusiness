@@ -51,14 +51,15 @@ internal static class RulesetImplementationManagerLocationPatcher
             }
 
             var effectDescription = spellDefinition.effectDescription;
-            if (effectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique)
+
+            if (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique) ||
+                rulesetEffectSpell.ComputeTargetParameter() == 1)
             {
-                if (rulesetEffectSpell.ComputeTargetParameter() != 1)
-                {
-                    failure = FailureFlagInvalidSingleTarget;
-                    __result = false;
-                }
+                return;
             }
+
+            failure = FailureFlagInvalidSingleTarget;
+            __result = false;
         }
     }
 

@@ -10,7 +10,7 @@ internal static class GameLocationScreenMapPatcher
     //PATCH: displays the location of campfires, entrances and exits on the game location screen map (level map)
     [HarmonyPatch(typeof(GameLocationScreenMap), "BindGadgets")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationScreenMap_BindGadgets
+    internal static class BindGadgets_Patch
     {
         internal static bool Prefix(GameLocationScreenMap __instance)
         {

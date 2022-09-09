@@ -15,15 +15,13 @@ internal static class RulesetSpellRepertoirePatcher
     {
         var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
 
-        return heroWithSpellRepertoire == null
-               || SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire)
-               || !SharedSpellsContext.IsWarlock(__instance.SpellCastingClass);
+        return heroWithSpellRepertoire == null || SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire);
     }
 
     // ensures MC Warlocks are treated before SC ones
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_GetMaxSlotsNumberOfAllLevels
+    internal static class GetMaxSlotsNumberOfAllLevels_Patch
     {
         internal static bool Prefix(
             RulesetSpellRepertoire __instance,

@@ -10,7 +10,7 @@ public class GraphicsCharacterFactoryManagerPatcher
 {
     [HarmonyPatch(typeof(GraphicsCharacterFactoryManager), "InstantiateWieldedItemAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class AttackOn
+    internal static class InstantiateWieldedItemAsNeeded_Patch
     {
         internal static void Postfix(GraphicsCharacterFactoryManager __instance,
             GraphicsCharacter graphicsCharacter,

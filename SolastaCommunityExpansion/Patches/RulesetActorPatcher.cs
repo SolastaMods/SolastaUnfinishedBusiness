@@ -151,7 +151,7 @@ internal static class RulesetActorPatcher
     {
         private static readonly Regex classPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
 
-        private static void RefrestClassModifiers(RulesetActor actor)
+        private static void RefreshClassModifiers(RulesetActor actor)
         {
             if (actor is not RulesetCharacterHero hero)
             {
@@ -207,11 +207,11 @@ internal static class RulesetActorPatcher
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            //PATCH: enforce class level dependend modifiers use proper values for MC
-            //neede for sorcery points and healing pools to be of proper sizes when multiclassed
+            //PATCH: enforce class level dependant modifiers use proper values for MC
+            //needed for sorcery points and healing pools to be of proper sizes when multiclassed
             //adds custom method right before the end that recalculates modifier values specifically for class-level modifiers
             var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
-            var custom = new Action<RulesetActor>(RefrestClassModifiers).Method;
+            var custom = new Action<RulesetActor>(RefreshClassModifiers).Method;
 
             foreach (var instruction in instructions)
             {

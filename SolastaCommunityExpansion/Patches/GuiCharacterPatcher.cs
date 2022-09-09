@@ -57,7 +57,7 @@ internal static class GuiCharacterPatcher
     //PATCH: Changes Game UI to support Multiclass
     [HarmonyPatch(typeof(GuiCharacter), "LevelAndExperienceTooltip", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class LevelAndExperienceTooltip_Getter
+    internal static class LevelAndExperienceTooltip_Getter_Patch
     {
         internal static void Postfix(GuiCharacter __instance, ref string __result)
         {
@@ -244,7 +244,7 @@ internal static class GuiCharacterPatcher
     //PATCH: EnableStatsOnHeroTooltip
     [HarmonyPatch(typeof(CharacterPlateGame), "OnPointerEnter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterPlateGame_OnPointerEnter
+    internal static class OnPointerEnter_Patch
     {
         internal static void Prefix(CharacterPlateGame __instance)
         {

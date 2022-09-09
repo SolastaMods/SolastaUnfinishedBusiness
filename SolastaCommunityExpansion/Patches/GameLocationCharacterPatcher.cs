@@ -73,7 +73,7 @@ internal static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "AttackOn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class AttackOn
+    internal static class AttackOn_Patch
     {
         internal static void Prefix(
             [NotNull] GameLocationCharacter __instance,
@@ -102,7 +102,7 @@ internal static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "AttackImpactOn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class AttackImpactOn
+    internal static class AttackImpactOn_Patch
     {
         internal static void Prefix(
             [NotNull] GameLocationCharacter __instance,
@@ -133,7 +133,7 @@ internal static class GameLocationCharacterPatcher
     //
     [HarmonyPatch(typeof(GameLocationCharacter), "CanUseAtLeastOnPower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationCharacter_CanUseAtLeastOnPower
+    internal static class CanUseAtLeastOnPower_Patch
     {
         // This makes it so that if a character only has powers that take longer than an action to activate the "Use Power" button is available.
         // But only not during a battle.

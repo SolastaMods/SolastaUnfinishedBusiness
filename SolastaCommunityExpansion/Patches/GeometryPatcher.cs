@@ -120,10 +120,10 @@ internal static class CursorLocationGeometricShapePatcher
     }
 #endif
 
-//PATCH: UseHeightOneCylinderEffect
+    //PATCH: UseHeightOneCylinderEffect
     [HarmonyPatch(typeof(GameLocationTargetingManager), "BuildAABB")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationTargetingManager_BuildAABB
+    internal static class BuildAABB_Patch
     {
         public static void Postfix(GameLocationTargetingManager __instance)
         {
@@ -184,10 +184,10 @@ internal static class CursorLocationGeometricShapePatcher
         }
     }
 
-//PATCH: UseHeightOneCylinderEffect
+    //PATCH: UseHeightOneCylinderEffect
     [HarmonyPatch(typeof(GameLocationTargetingManager), "DoesShapeContainPoint")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationTargetingManager_DoesShapeContainPoint
+    internal static class DoesShapeContainPoint_Patch
     {
         public static bool MyCubeContainsPoint_Regular(
             Vector3 cubeOrigin,
@@ -255,7 +255,7 @@ internal static class CursorLocationGeometricShapePatcher
                     BindingFlags.Instance | BindingFlags.NonPublic);
             var cubeContainsPoint_RegularMethod = typeof(GeometryUtils).GetMethod("CubeContainsPoint_Regular");
             var myCubeContainsPoint_RegularMethod =
-                typeof(GameLocationTargetingManager_DoesShapeContainPoint).GetMethod("MyCubeContainsPoint_Regular");
+                typeof(DoesShapeContainPoint_Patch).GetMethod("MyCubeContainsPoint_Regular");
 
             foreach (var instruction in instructions)
             {
@@ -277,7 +277,7 @@ internal static class CursorLocationGeometricShapePatcher
 // For comparison - can be removed when working
     [HarmonyPatch(typeof(GeometryUtils), "CylinderContainsPoint")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GeometryUtils_CylinderContainsPoint
+    internal static class CylinderContainsPoint_Patch
     {
         public static void Postfix(
             Vector3 cylinderOrigin, /*Vector3 cylinderDirection,*/ float cylinderLength, float cylinderDiameter,

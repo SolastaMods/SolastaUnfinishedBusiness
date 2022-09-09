@@ -4,23 +4,27 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
-[HarmonyPatch(typeof(GameLocationBaseScreen), "HandleInput")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameLocationBaseScreen_HandleInput
+internal static class GameLocationBaseScreenPatcher
 {
-    internal static bool Prefix(GameLocationBaseScreen __instance, InputCommands.Id command, ref bool __result)
+    [HarmonyPatch(typeof(GameLocationBaseScreen), "HandleInput")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleInput_Patch
     {
-        //PATCH: prevents game from receive input if Mod UI is open
-        if (UnityModManagerUIPatcher.ModManagerUI.IsOpen)
+        internal static bool Prefix(GameLocationBaseScreen __instance, InputCommands.Id command, ref bool __result)
         {
-            __result = true;
+            //PATCH: prevents game from receive input if Mod UI is open
+            if (UnityModManagerUIPatcher.ModManagerUI.IsOpen)
+            {
+                __result = true;
 
-            return false;
+                return false;
+            }
+
+            //PATCH: handles all hotkeys defined in the mod
+            GameUiContext.HandleInput(__instance, command);
+
+            return true;
         }
-
-        //PATCH: handles all hotkeys defined in the mod
-        GameUiContext.HandleInput(__instance, command);
-
-        return true;
-    }
+    }  
 }
+

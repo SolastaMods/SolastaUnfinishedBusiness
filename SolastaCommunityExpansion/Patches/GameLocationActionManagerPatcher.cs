@@ -58,7 +58,7 @@ internal static class GameLocationActionManagerPatcher
 
     [HarmonyPatch(typeof(GameLocationActionManager), "ReactForReadiedAction")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationActionManager_ReactForReadiedAction
+    internal static class ReactForReadiedAction_Patch
     {
         internal static bool Prefix([NotNull] CharacterActionParams reactionParams)
         {

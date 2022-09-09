@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Patches;
 
 internal static class RulesetAttributePatcher
 {
-// non stacked AC
+    // non stacked AC
     [HarmonyPatch(typeof(RulesetAttribute), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Refresh_Patch

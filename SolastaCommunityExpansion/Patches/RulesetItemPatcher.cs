@@ -13,9 +13,7 @@ internal static class RulesetItemPatcher
     {
         public static void Postfix(
             RulesetItem __instance,
-            Dictionary<string, TagsDefinitions.Criticity> tagsMap,
-            object context,
-            bool active = false)
+            Dictionary<string, TagsDefinitions.Criticity> tagsMap)
         {
             var item = __instance.itemDefinition;
 

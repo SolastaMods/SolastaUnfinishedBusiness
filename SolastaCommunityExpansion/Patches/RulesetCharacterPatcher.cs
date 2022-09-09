@@ -75,7 +75,7 @@ internal static class RulesetCharacterPatcher
             SpellDefinition spellDefinition, ref string failure)
         {
             //PATCH: Allows valid Somatic component if specific material component is held in main hand or off hand slots
-            // allows casting somatic spells with full hands if one of the hands holds metarial component for the spell
+            // allows casting somatic spells with full hands if one of the hands holds material component for the spell
             if (__result || spellDefinition.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific)
             {
                 return;
@@ -107,7 +107,7 @@ internal static class RulesetCharacterPatcher
         internal static void Postfix(RulesetCharacter __instance, ref bool __result,
             SpellDefinition spellDefinition, ref string failure)
         {
-            //PATCH: Allow spells to statisfy material components by using stack of equal or greater value
+            //PATCH: Allow spells to satisfy material components by using stack of equal or greater value
             StackedMaterialComponent.IsComponentMaterialValid(__instance, spellDefinition, ref failure, ref __result);
 
             //TODO: move to separate file
@@ -324,10 +324,8 @@ internal static class RulesetCharacterPatcher
             return codes;
         }
     }
-
-//
-// IChangeAbilityCheck
-//
+    
+    //PATCH: IChangeAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), "RollAbilityCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_RollAbilityCheck
@@ -360,9 +358,7 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-//
-// IChangeAbilityCheck
-//
+    //PATCH: IChangeAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), "ResolveContestCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_ResolveContestCheck
@@ -456,9 +452,7 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-//
-// INotifyConditionRemoval
-//
+    //PATCH: INotifyConditionRemoval
     [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_Kill
@@ -476,12 +470,12 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-    // logic to correctly offer / calculate spell slots on all different scenarios
+    //PATCH: logic to correctly offer / calculate spell slots on all different scenarios
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshSpellRepertoires")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_RefreshSpellRepertoires
     {
-        private static readonly Dictionary<int, int> affinityProviderAdditionalSlots = new();
+        private static readonly Dictionary<int, int> AffinityProviderAdditionalSlots = new();
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
@@ -525,7 +519,7 @@ internal static class RulesetCharacterPatcher
             }
 
             // calculates additional slots from features
-            affinityProviderAdditionalSlots.Clear();
+            AffinityProviderAdditionalSlots.Clear();
 
             foreach (var spellCastingAffinityProvider in rulesetCharacter.FeaturesToBrowse
                          .OfType<ISpellCastingAffinityProvider>())
@@ -534,8 +528,8 @@ internal static class RulesetCharacterPatcher
                 {
                     var slotLevel = additionalSlot.SlotLevel;
 
-                    affinityProviderAdditionalSlots.TryAdd(slotLevel, 0);
-                    affinityProviderAdditionalSlots[slotLevel] += additionalSlot.SlotsNumber;
+                    AffinityProviderAdditionalSlots.TryAdd(slotLevel, 0);
+                    AffinityProviderAdditionalSlots[slotLevel] += additionalSlot.SlotsNumber;
                 }
             }
 
@@ -565,7 +559,7 @@ internal static class RulesetCharacterPatcher
                 }
 
                 // adds affinity provider slots collected in my custom compute spell slots
-                foreach (var slot in affinityProviderAdditionalSlots)
+                foreach (var slot in AffinityProviderAdditionalSlots)
                 {
                     spellsSlotCapacities.TryAdd(slot.Key, 0);
                     spellsSlotCapacities[slot.Key] += slot.Value;

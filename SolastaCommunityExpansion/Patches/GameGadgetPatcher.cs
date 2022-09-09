@@ -7,118 +7,123 @@ using TA;
 
 namespace SolastaCommunityExpansion.Patches;
 
-// hides certain element from the map on custom dungeons unless already discovered
-[HarmonyPatch(typeof(GameGadget), "ComputeIsRevealed")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameGadget_ComputeIsRevealed
+internal static class GameGadgetPatcher
 {
-    internal static void Postfix(GameGadget __instance, ref bool __result)
+    //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
+    //hides certain element from the map on custom dungeons unless already discovered
+    [HarmonyPatch(typeof(GameGadget), "ComputeIsRevealed")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ComputeIsRevealed_Patch
     {
-        if (!__instance.Revealed || Gui.GameLocation.UserLocation == null ||
-            !Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered)
+        internal static void Postfix(GameGadget __instance, ref bool __result)
         {
-            return;
-        }
-
-        var userGadget = Gui.GameLocation.UserLocation.UserRooms
-            .SelectMany(a => a.UserGadgets)
-            .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);
-
-        if (userGadget == null || !GameUiContext.IsGadgetExit(userGadget.GadgetBlueprint))
-        {
-            return;
-        }
-
-        // reverts the revealed state and recalculates it
-        __instance.revealed = false;
-        __result = false;
-
-        var x = (int)__instance.FeedbackPosition.x;
-        var y = (int)__instance.FeedbackPosition.z;
-
-        var feedbackPosition = new int3(x, 0, y);
-        var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
-
-        var gridAccessor = GridAccessor.Default;
-
-        foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
-        {
-            if (!gridAccessor.Visited(position))
+            if (!__instance.Revealed || Gui.GameLocation.UserLocation == null ||
+                !Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered)
             {
-                continue;
+                return;
             }
 
-            var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
-            var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
-            var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
+            var userGadget = Gui.GameLocation.UserLocation.UserRooms
+                .SelectMany(a => a.UserGadgets)
+                .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);
 
-            var isInvisible = __instance.IsInvisible();
-            var isEnabled = __instance.IsEnabled();
-
-            if (worldGadget != null)
+            if (userGadget == null || !GameUiContext.IsGadgetExit(userGadget.GadgetBlueprint))
             {
-                GameLocationManagerPatcher.ReadyLocation_Patch.SetTeleporterGadgetActiveAnimation(worldGadget,
-                    isEnabled && !isInvisible);
+                return;
             }
 
-            __instance.revealed = true;
-            __result = true;
+            // reverts the revealed state and recalculates it
+            __instance.revealed = false;
+            __result = false;
 
-            break;
+            var x = (int)__instance.FeedbackPosition.x;
+            var y = (int)__instance.FeedbackPosition.z;
+
+            var feedbackPosition = new int3(x, 0, y);
+            var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
+
+            var gridAccessor = GridAccessor.Default;
+
+            foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
+            {
+                if (!gridAccessor.Visited(position))
+                {
+                    continue;
+                }
+
+                var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
+                var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
+                var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
+
+                var isInvisible = __instance.IsInvisible();
+                var isEnabled = __instance.IsEnabled();
+
+                if (worldGadget != null)
+                {
+                    GameLocationManagerPatcher.ReadyLocation_Patch.SetTeleporterGadgetActiveAnimation(worldGadget,
+                        isEnabled && !isInvisible);
+                }
+
+                __instance.revealed = true;
+                __result = true;
+
+                break;
+            }
         }
     }
-}
-
-[HarmonyPatch(typeof(GameGadget), "SetCondition")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameGadget_SetCondition
-{
-    internal static void Postfix(GameGadget __instance, int conditionIndex, bool state)
+    
+    //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
+    [HarmonyPatch(typeof(GameGadget), "SetCondition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class SetCondition_Patch
     {
-        if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered)
+        internal static void Postfix(GameGadget __instance, int conditionIndex, bool state)
         {
-            return;
-        }
-
-        if (conditionIndex >= 0 && conditionIndex < __instance.conditionNames.Count)
-        {
-            var param = __instance.conditionNames[conditionIndex];
-
-            Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: {param} state = {state}");
-
-#if DEBUG
-            //Main.Log("GameGadget_SetCondition: " + string.Join(",", __instance.conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
-#endif
-
-            if ((param != GameGadgetExtensions.Enabled && param != GameGadgetExtensions.ParamEnabled) ||
-                !__instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))
+            if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered)
             {
                 return;
             }
 
-            var service = ServiceRepository.GetService<IGameLocationService>();
-
-            if (service == null)
+            if (conditionIndex >= 0 && conditionIndex < __instance.conditionNames.Count)
             {
-                return;
+                var param = __instance.conditionNames[conditionIndex];
+
+                Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: {param} state = {state}");
+
+    #if DEBUG
+                //Main.Log("GameGadget_SetCondition: " + string.Join(",", __instance.conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
+    #endif
+
+                if ((param != GameGadgetExtensions.Enabled && param != GameGadgetExtensions.ParamEnabled) ||
+                    !__instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))
+                {
+                    return;
+                }
+
+                var service = ServiceRepository.GetService<IGameLocationService>();
+
+                if (service == null)
+                {
+                    return;
+                }
+
+                var worldGadget = service.WorldLocation.WorldSectors
+                    .SelectMany(ws => ws.WorldGadgets)
+                    .FirstOrDefault(wg => wg.GameGadget == __instance);
+
+                if (worldGadget == null)
+                {
+                    return;
+                }
+
+                Main.Log($"GameGadget_SetCondition-setting-animation {__instance.UniqueNameId}: {state}");
+
+                GameLocationManagerPatcher.ReadyLocation_Patch.SetTeleporterGadgetActiveAnimation(worldGadget, state);
             }
-
-            var worldGadget = service.WorldLocation.WorldSectors
-                .SelectMany(ws => ws.WorldGadgets)
-                .FirstOrDefault(wg => wg.GameGadget == __instance);
-
-            if (worldGadget == null)
+            else
             {
-                return;
+                Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: condition index out of range.");
             }
-
-            Main.Log($"GameGadget_SetCondition-setting-animation {__instance.UniqueNameId}: {state}");
-
-            GameLocationManagerPatcher.ReadyLocation_Patch.SetTeleporterGadgetActiveAnimation(worldGadget, state);
-        }
-        else
-        {
-            Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: condition index out of range.");
         }
     }
 }

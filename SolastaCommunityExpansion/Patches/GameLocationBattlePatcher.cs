@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Patches;
 //PATCH: EnableEnemiesControlledByPlayer
 [HarmonyPatch(typeof(GameLocationBattle), "GetMyContenders")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameLocationBattle_GetMyContenders
+internal static class GetMyContenders_Patch
 {
     internal static void Postfix(GameLocationBattle __instance, ref List<GameLocationCharacter> __result)
     {
@@ -29,7 +29,7 @@ internal static class GameLocationBattle_GetMyContenders
 //PATCH: EnableEnemiesControlledByPlayer
 [HarmonyPatch(typeof(GameLocationBattle), "GetOpposingContenders")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameLocationBattle_GetOpposingContenders
+internal static class GetOpposingContenders_Patch
 {
     internal static void Postfix(GameLocationBattle __instance, ref List<GameLocationCharacter> __result)
     {

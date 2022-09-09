@@ -4,18 +4,22 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
-//PATCH: Keeps last level up hero selected
-[HarmonyPatch(typeof(GuiPanel), "Show")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GuiPanel_Show
+internal static class GuiPanelPatcher
 {
-    internal static void Postfix(GuiPanel __instance)
+    //PATCH: Keeps last level up hero selected
+    [HarmonyPatch(typeof(GuiPanel), "Show")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Show_Patch
     {
-        if (__instance is not MainMenuScreen mainMenuScreen || Global.LastLevelUpHeroName == null)
+        internal static void Postfix(GuiPanel __instance)
         {
-            return;
-        }
+            if (__instance is not MainMenuScreen mainMenuScreen || Global.LastLevelUpHeroName == null)
+            {
+                return;
+            }
 
-        mainMenuScreen.charactersPanel.Show();
+            mainMenuScreen.charactersPanel.Show();
+        }
     }
 }
+
