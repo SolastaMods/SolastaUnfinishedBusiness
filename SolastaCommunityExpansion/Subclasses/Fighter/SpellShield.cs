@@ -91,7 +91,7 @@ internal sealed class SpellShield : AbstractSubclass
             .Create("ConditionSpellShieldArcaneDeflection", SubclassNamespace)
             .SetGuiPresentation(Category.Subclass)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeSpellShieldArcaneDeflection", SubclassNamespace)
+                .Create("AttributeModifierSpellShieldArcaneDeflection", SubclassNamespace)
                 .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     AttributeDefinitions.ArmorClass, 3)
                 .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Subclass,

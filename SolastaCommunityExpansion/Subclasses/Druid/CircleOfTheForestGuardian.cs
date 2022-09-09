@@ -196,7 +196,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 .AddToDB();
 
             var improvedBarkWardDamage = FeatureDefinitionDamageAffinityBuilder
-                .Create("ConditionImprovedBarkWardRetaliationDamage", BaseGuid)
+                .Create("DamageAffinityImprovedBarkWardRetaliation", BaseGuid)
                 .SetGuiPresentationNoContent()
                 .SetDamageAffinityType(DamageAffinityType.None)
                 .SetDamageType(DamageTypePoison)
@@ -237,7 +237,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 .AddToDB();
 
             var superiorBarkWardRetaliateDamageAffinity = FeatureDefinitionDamageAffinityBuilder
-                .Create("ConditionSuperiorBarkWardRetaliationDamage", BaseGuid)
+                .Create("DamageAffinitySuperiorBarkWardRetaliation", BaseGuid)
                 .SetGuiPresentationNoContent()
                 .SetDamageAffinityType(DamageAffinityType.Immunity)
                 .SetDamageType(DamageTypePoison)

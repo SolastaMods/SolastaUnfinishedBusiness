@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TraditionSpellMasterBonusCantrips:367307e8-0f6a-5ef1-8d6d-2ee36a74cfef",
+      "featureDefinition": "Definition:PointPoolTraditionSpellMasterBonusCantrips:ee2b90d6-feec-5e25-a8f0-dbe01423f395",
       "level": 6
     },
     {

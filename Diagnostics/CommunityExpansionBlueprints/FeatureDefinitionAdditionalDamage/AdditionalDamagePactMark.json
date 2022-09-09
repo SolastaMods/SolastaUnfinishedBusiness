@@ -6,7 +6,7 @@
   "triggerCondition": "TargetHasConditionCreatedByMe",
   "requiredProperty": "None",
   "attackModeOnly": false,
-  "requiredTargetCondition": "Definition:PactMarkMarkedByPactCondition:9fcd9591-8b9c-590f-b496-77d2de5e234e",
+  "requiredTargetCondition": "Definition:ConditionPactMarkMarkedByPact:7df017d5-ccba-5bf5-8d50-6fdc50462f5c",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,

@@ -143,7 +143,7 @@ internal sealed class Raven : AbstractSubclass
         concentrationProvider.StopPower = turnOffPower;
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create("RoguishRavenHeartSeekingShotFeatureSet", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatureSetRoguishRavenHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(turnOnPower, turnOffPower)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -155,7 +155,7 @@ internal sealed class Raven : AbstractSubclass
         // proficient with all two handed range weapons
         // ignore cover and long range disadvantage
         var sharpShooter = FeatureDefinitionFeatureSetBuilder
-            .Create("RoguishRavenSharpShooter", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatureSetRoguishRavenSharpShooter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
                 FeatureDefinitionProficiencyBuilder
@@ -197,10 +197,10 @@ internal sealed class Raven : AbstractSubclass
         // pain maker
         // reroll any 1 when roll damage but need to use the new roll
         var painMaker = FeatureDefinitionDieRollModifierBuilder
-            .Create("RoguishRavenPainMaker", DefinitionBuilder.CENamespaceGuid)
+            .Create("DieRollModifierRoguishRavenPainMaker", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetModifiers(RuleDefinitions.RollContext.AttackDamageValueRoll, 1, 1,
-                "Feature/&RoguishRavenPainMakerReroll")
+                "Feature/&DieRollModifierRoguishRavenPainMakerReroll")
             .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
 

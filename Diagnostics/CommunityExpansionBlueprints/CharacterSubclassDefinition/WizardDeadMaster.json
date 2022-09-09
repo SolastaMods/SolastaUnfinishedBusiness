@@ -8,17 +8,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureStarkHarvest:79c04946-20f2-5ec3-8ca6-ffadaee0aeb7",
+      "featureDefinition": "Definition:OnCharacterKillStarkHarvest:28181bf0-3bba-58a8-95b9-bb43c71081e6",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureUndeadChains:5655e52b-594c-54ab-8c48-47f0b7190ca1",
+      "featureDefinition": "Definition:OnCharacterKillUndeadChains:c006d5cf-6a37-5832-98c3-f2486b3b8e78",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureHardenToNecrotic:3a80c34a-50b9-5a71-8551-d8035e58a420",
+      "featureDefinition": "Definition:DamageAffinityHardenToNecrotic:e95abe86-8af5-5d0b-8a9e-e3a9b85da74d",
       "level": 10
     },
     {

@@ -89,7 +89,7 @@ internal static class EwSpells
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("SunlightBladeDamage", DefinitionBuilder.CENamespaceGuid)
+                            .Create("ConditionSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(Category.Condition)
                             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacks)
                             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -226,7 +226,7 @@ internal static class EwSpells
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ResonatingStrikeDamage", DefinitionBuilder.CENamespaceGuid)
+                            .Create("ConditionResonatingStrike", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(Category.Condition)
                             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacks)
                             .SetSilent(Silent.WhenAddedOrRemoved)

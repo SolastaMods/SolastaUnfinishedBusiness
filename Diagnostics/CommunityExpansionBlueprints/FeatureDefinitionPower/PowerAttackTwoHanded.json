@@ -76,11 +76,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "PowerAttackTriggerCondition",
-          "conditionDefinition": "Definition:PowerAttackTriggerCondition:967b0467-17c5-5c88-bff4-2b74861a6cf4",
+          "conditionDefinitionName": "ConditionPowerAttackTrigger",
+          "conditionDefinition": "Definition:ConditionPowerAttackTrigger:6239f107-6462-5445-85bc-8fe5ffabbf5e",
           "operation": "Remove",
           "conditionsList": [
-            "Definition:PowerAttackTriggerCondition:967b0467-17c5-5c88-bff4-2b74861a6cf4"
+            "Definition:ConditionPowerAttackTrigger:6239f107-6462-5445-85bc-8fe5ffabbf5e"
           ],
           "applyToSelf": false,
           "forceOnSelf": false

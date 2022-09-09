@@ -33,7 +33,7 @@ internal sealed class RoyalKnight : AbstractSubclass
 
         var royalEnvoyFeatureSet = FeatureDefinitionFeatureSetBuilder
             .Create(
-                "RoyalEnvoyFeature",
+                "FeatureSetRoyalEnvoy",
                 "c8299685-d806-4e20-aff0-ca3dd4000e05")
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(royalEnvoyAbilityCheckAffinity,

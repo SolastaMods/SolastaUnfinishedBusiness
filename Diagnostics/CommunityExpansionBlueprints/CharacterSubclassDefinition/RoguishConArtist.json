@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RogueConArtistAbilityCheckAffinity:5379c0ce-366b-5669-ae7c-bb9a3e3f2bd4",
+      "featureDefinition": "Definition:AbilityCheckAffinityRogueConArtist:e977ad33-bef5-5b12-96c3-110a4a237967",
       "level": 3
     },
     {

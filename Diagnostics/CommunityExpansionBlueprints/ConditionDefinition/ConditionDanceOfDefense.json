@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AbilityCheckBladeDanceAcrobatics:bbb819ce-7e31-50a2-8edf-6d89b6b32ade",
-    "Definition:AbilityCheckBladeDanceConstitution:694d3dca-a6c5-5188-bb3b-1328ac2e4c92",
+    "Definition:AbilityCheckAffinityBladeDanceAcrobatics:b5471df9-ca06-595d-9372-44dc116d241f",
+    "Definition:AbilityCheckAffinityBladeDanceConstitution:708a5f28-dff6-5f8f-952e-ad7eb099d51c",
     "Definition:AttributeModifierBladeDance:3e2ce621-bc66-55b1-ba23-87589b012414",
     "Definition:MovementAffinityBarbarianFastMovement:b46d47bd558a34d48911656bd4b088c7",
     "Definition:ReduceDamageDanceOfDefense:10d8c23a-9b86-5664-bc93-7c1384e0975b"

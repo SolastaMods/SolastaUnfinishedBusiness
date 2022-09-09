@@ -34,7 +34,7 @@ internal static class RaceBolgrifBuilder
             .AddToDB();
 
         var bolgrifPowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
-            .Create(FeatureDefinitionEquipmentAffinitys.EquipmentAffinityFeatHauler, "BolgrifPowerfulBuild",
+            .Create(FeatureDefinitionEquipmentAffinitys.EquipmentAffinityFeatHauler, "EquipmentAffinityBolgrifPowerfulBuild",
                 "3f635935-28a3-4bfd-8f51-77417ad7eb8a")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();

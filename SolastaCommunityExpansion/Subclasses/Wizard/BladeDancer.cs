@@ -53,10 +53,10 @@ internal sealed class BladeDancer : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
-                        "AbilityCheckBladeDanceAcrobatics", SubclassNamespace)
+                        "AbilityCheckAffinityBladeDanceAcrobatics", SubclassNamespace)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create("AbilityCheckBladeDanceConstitution", SubclassNamespace)
+                    .Create("AbilityCheckAffinityBladeDanceConstitution", SubclassNamespace)
                     .BuildAndSetAffinityGroups(
                         RuleDefinitions.CharacterAbilityCheckAffinity.None,
                         RuleDefinitions.DieType.D1,
@@ -177,19 +177,19 @@ internal sealed class BladeDancer : AbstractSubclass
         //
 
         var featureBladeDanceSet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureBladeDanceSet", SubclassNamespace)
+            .Create("FeatureSetBladeDance", SubclassNamespace)
             .SetGuiPresentation("FeatureBladeDance", Category.Feature)
             .SetFeatureSet(powerBladeDance)
             .AddToDB();
 
         var featureDanceOfDefenseSet = FeatureDefinitionFeatureSetBuilder
-            .Create("ReduceDamageDanceOfDefenseSet", SubclassNamespace)
+            .Create("FeatureSetReduceDamageDanceOfDefense", SubclassNamespace)
             .SetGuiPresentation("ReduceDamageDanceOfDefense", Category.Feature)
             .SetFeatureSet(powerDanceOfDefense)
             .AddToDB();
 
         var featureDanceOfVictorySet = FeatureDefinitionFeatureSetBuilder
-            .Create("AttackModifierDanceOfVictorySet", SubclassNamespace)
+            .Create("FeatureSetDanceOfVictory", SubclassNamespace)
             .SetGuiPresentation("AttackModifierDanceOfVictory", Category.Feature)
             .SetFeatureSet(powerDanceOfVictory)
             .AddToDB();

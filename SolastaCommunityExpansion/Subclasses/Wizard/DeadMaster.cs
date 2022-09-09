@@ -50,13 +50,13 @@ internal sealed class DeadMaster : AbstractSubclass
             .AddToDB();
 
         var featureStarkHarvest = FeatureDefinitionOnCharacterKillBuilder
-            .Create("FeatureStarkHarvest", SubclassNamespace)
+            .Create("OnCharacterKillStarkHarvest", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetOnCharacterKill(OnStarkHarvestKill)
             .AddToDB();
 
         var featureUndeadChains = FeatureDefinitionOnCharacterKillBuilder
-            .Create("FeatureUndeadChains", SubclassNamespace)
+            .Create("OnCharacterKillUndeadChains", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -64,13 +64,13 @@ internal sealed class DeadMaster : AbstractSubclass
         {
             _ = FeatureDefinitionAttackModifierBuilder
                 .Create($"{AttackModifierUndeadChainsPrefix}{i}", SubclassNamespace)
-                .SetGuiPresentation("FeatureUndeadChains", Category.Feature)
+                .SetGuiPresentation("OnCharacterKillUndeadChains", Category.Feature)
                 .Configure(RuleDefinitions.AttackModifierMethod.FlatValue, i)
                 .AddToDB();
         }
 
         var featureHardenToNecrotic = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityNecroticImmunity, "FeatureHardenToNecrotic", SubclassNamespace)
+            .Create(DamageAffinityNecroticImmunity, "DamageAffinityHardenToNecrotic", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

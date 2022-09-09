@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatSentinelFeature:7d68563b-2ecb-528c-8bf5-7627793c2ad7"
+    "Definition:OnAttackHitEffectFeatSentinel:7cb73625-7f22-57cd-a3ce-74287ba0bdc9"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

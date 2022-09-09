@@ -25,12 +25,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BolgrifPowerfulBuild:3f635935-28a3-4bfd-8f51-77417ad7eb8a",
+      "featureDefinition": "Definition:CastSpellBolgrifMagic:ea2a9c8e-6ca9-490b-a056-d768182b5cd2",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellBolgrifMagic:ea2a9c8e-6ca9-490b-a056-d768182b5cd2",
+      "featureDefinition": "Definition:EquipmentAffinityBolgrifPowerfulBuild:3f635935-28a3-4bfd-8f51-77417ad7eb8a",
       "level": 1
     },
     {

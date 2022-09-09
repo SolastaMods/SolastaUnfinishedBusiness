@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeSpellShieldArcaneDeflection:f6ccc8d6-db4d-535d-b324-b3b0ac585c9f"
+    "Definition:AttributeModifierSpellShieldArcaneDeflection:8fb40ba6-322b-5751-b151-5c69acb7e394"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

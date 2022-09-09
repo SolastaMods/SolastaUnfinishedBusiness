@@ -51,7 +51,7 @@ public static class EwFeats
             .Create(SentinelFeat, Guid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionOnAttackHitEffectBuilder
-                .Create("FeatSentinelFeature", Guid)
+                .Create("OnAttackHitEffectFeatSentinel", Guid)
                 .SetGuiPresentationNoContent(true)
                 .SetOnAttackHitDelegates(null, (attacker, defender, outcome, _, mode, _) =>
                 {
@@ -145,7 +145,7 @@ public static class EwFeats
                 Resources.PowerAttackConcentrationIcon, 64, 64));
 
         var triggerCondition = ConditionDefinitionBuilder
-            .Create("PowerAttackTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+            .Create("ConditionPowerAttackTrigger", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetDuration(DurationType.Permanent)

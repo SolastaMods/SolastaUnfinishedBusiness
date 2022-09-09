@@ -17,7 +17,7 @@ internal static class IntegrationContext
         .AddToDB();
 
     private static CharacterSubclassDefinition DummySubclass { get; } = CharacterSubclassDefinitionBuilder
-        .Create("DummySubClass", "97425bff55404677a24fe6a4fe137aa2")
+        .Create("SubClassDummy", "97425bff55404677a24fe6a4fe137aa2")
         .SetGuiPresentationNoContent(true)
         .AddToDB();
 

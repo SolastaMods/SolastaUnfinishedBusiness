@@ -22,7 +22,7 @@ internal sealed class ConArtist : AbstractSubclass
     {
         // Make Con Artist subclass
         var abilityAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("RogueConArtistAbilityCheckAffinity", SubclassNamespace)
+            .Create("AbilityCheckAffinityRogueConArtist", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
                 RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, RuleDefinitions.DieType.D8, 0,

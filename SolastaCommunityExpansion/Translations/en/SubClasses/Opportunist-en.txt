@@ -4,5 +4,5 @@ Feature/&OpportunistQuickStrikeDescription=You have advantage when attack an ene
 Feature/&OpportunistQuickStrikeTitle=Quick Strike
 Subclass/&OpportunistDescription=Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 Subclass/&OpportunistTitle=Opportunist
-Condition/&DebilitatedConditionDescription=Suffer from one of following conditions: blinded, bane, bleeding or stunned.
-Condition/&DebilitatedConditionTitle=Debilitated
+Condition/&ConditionDebilitatedDescription=Suffer from one of following conditions: blinded, bane, bleeding or stunned.
+Condition/&ConditionDebilitatedTitle=Debilitated

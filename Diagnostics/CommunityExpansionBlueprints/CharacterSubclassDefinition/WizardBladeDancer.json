@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureBladeDanceSet:2fec4cf0-8728-5519-961f-126cc01e51e0",
+      "featureDefinition": "Definition:FeatureSetBladeDance:bfc34e6a-1262-53e5-8364-ce0a9ae25633",
       "level": 2
     },
     {
@@ -28,12 +28,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ReduceDamageDanceOfDefenseSet:b49749fa-0722-50dd-b5b9-3cb47683e459",
+      "featureDefinition": "Definition:FeatureSetReduceDamageDanceOfDefense:5431a606-9dad-5330-9454-53468af7351d",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttackModifierDanceOfVictorySet:783917a1-6c71-520a-855e-344c416484b6",
+      "featureDefinition": "Definition:FeatureSetDanceOfVictory:db3615b4-6a3f-5e9e-b937-e42833b026a0",
       "level": 14
     }
   ],

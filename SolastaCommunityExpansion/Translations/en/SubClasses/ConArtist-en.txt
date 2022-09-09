@@ -1,5 +1,5 @@
-Feature/&RogueConArtistAbilityCheckAffinityDescription=Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
-Feature/&RogueConArtistAbilityCheckAffinityTitle=Manipulative
+Feature/&AbilityCheckAffinityRogueConArtistDescription=Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
+Feature/&AbilityCheckAffinityRogueConArtistTitle=Manipulative
 Feature/&CastSpellConArtistDescription=Cast Wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
 Feature/&CastSpellConArtistTitle=Spellcasting
 Feature/&MagicAffinityRoguishConArtistDCDescription=Your spell save DC increases by {0}.

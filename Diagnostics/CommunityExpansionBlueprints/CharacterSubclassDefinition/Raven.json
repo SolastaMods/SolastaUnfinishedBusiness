@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RoguishRavenHeartSeekingShotFeatureSet:4e1eb561-8771-5a67-aab5-5f42486f39f0",
+      "featureDefinition": "Definition:FeatureSetRoguishRavenHeartSeekingShot:89017bbc-0f14-5405-9bfe-f1a1b6c31794",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RoguishRavenSharpShooter:38ce030d-a079-5834-9cd7-3b25ec7811cf",
+      "featureDefinition": "Definition:FeatureSetRoguishRavenSharpShooter:ad5d77f4-d6c8-5e84-99b8-6057dae35ee4",
       "level": 3
     },
     {
@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RoguishRavenPainMaker:b7de23ed-71fe-5719-b84e-3c262f41ea4c",
+      "featureDefinition": "Definition:DieRollModifierRoguishRavenPainMaker:d55a8608-5e4c-516a-b80f-325026079525",
       "level": 9
     }
   ],

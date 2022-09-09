@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ConditionImprovedBarkWardRetaliationDamage:12551930-8859-5cb1-afde-2470754f7ca8"
+    "Definition:DamageAffinityImprovedBarkWardRetaliation:51384a1d-ebd3-5b6d-be65-596050fb8e1a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

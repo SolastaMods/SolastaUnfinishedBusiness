@@ -87,8 +87,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "SunlightBladeDamage",
-          "conditionDefinition": "Definition:SunlightBladeDamage:b2cda689-fc89-5e3d-861f-8809c071e1ea",
+          "conditionDefinitionName": "ConditionSunlightBlade",
+          "conditionDefinition": "Definition:ConditionSunlightBlade:6ac4b1f4-8f80-5e90-8e86-e66db308a40a",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

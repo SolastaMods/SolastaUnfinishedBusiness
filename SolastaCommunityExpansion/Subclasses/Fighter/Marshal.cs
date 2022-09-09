@@ -44,7 +44,7 @@ internal sealed class Marshal : AbstractSubclass
     }
 }
 
-internal static class KnowYourEnemyBuilder
+internal static class FeatureSetKnowYourEnemyBuilder
 {
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)
     {
@@ -53,7 +53,7 @@ internal static class KnowYourEnemyBuilder
             : 0;
     }
 
-    private static void KnowYourEnemyComputeAttackModifier(
+    private static void FeatureSetKnowYourEnemyComputeAttackModifier(
         RulesetCharacter myself,
         RulesetCharacter defender,
         RulesetAttackMode attackMode,
@@ -68,15 +68,15 @@ internal static class KnowYourEnemyBuilder
         var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender);
         attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
         attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
-            FeatureSourceType.CharacterFeature, "KnowYourEnemy", null));
+            FeatureSourceType.CharacterFeature, "FeatureSetKnowYourEnemy", null));
     }
 
-    internal static FeatureDefinitionFeatureSet BuildKnowYourEnemyFeatureSet()
+    internal static FeatureDefinitionFeatureSet BuildFeatureSetKnowYourEnemyFeatureSet()
     {
         var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("KnowYourEnemyAttackHitModifier", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalKnowYourEnemyFeatureSet", Category.Feature)
-            .SetOnComputeAttackModifierDelegate(KnowYourEnemyComputeAttackModifier)
+            .Create("FeatureSetOnComputeAttackModifierKnowYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
+            .SetGuiPresentation("FighterMarshalFeatureSetKnowYourEnemyFeatureSet", Category.Feature)
+            .SetOnComputeAttackModifierDelegate(FeatureSetKnowYourEnemyComputeAttackModifier)
             .AddToDB();
 
         var additionalDamageRangerFavoredEnemyHumanoid = FeatureDefinitionAdditionalDamageBuilder
@@ -92,8 +92,8 @@ internal static class KnowYourEnemyBuilder
         additionalDamageRangerFavoredEnemyHumanoid.requiredCharacterFamily = CharacterFamilyDefinitions.Humanoid;
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create("KnowYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalKnowYourEnemyFeatureSet", Category.Feature)
+            .Create("FeatureSetKnowYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
+            .SetGuiPresentation("FighterMarshalFeatureSetKnowYourEnemyFeatureSet", Category.Feature)
             .AddFeatureSet(
                 knowYourEnemiesAttackHitModifier,
                 AdditionalDamageRangerFavoredEnemyAberration,
@@ -408,7 +408,7 @@ internal static class EternalComradeBuilder
             .AddToDB();
     }
 
-    internal static FeatureDefinitionFeatureSet BuildEternalComradeFeatureSet()
+    internal static FeatureDefinitionFeatureSet BuildFeatureSetEternalComrade()
     {
         var summonForm = new SummonForm { monsterDefinitionName = EternalComrade.Name };
 
@@ -492,26 +492,26 @@ internal static class EternalComradeBuilder
 
         return FeatureDefinitionFeatureSetBuilder
             .Create(
-                "EternalComradeFeatureSet",
+                "FeatureSetEternalComrade",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentation(
-                "FighterMarshalEternalComradeFeatureSet",
+                "FighterMarshalFeatureSetEternalComrade",
                 Category.Feature)
             .SetFeatureSet(summoningAffinity, summonEternalComradePower)
             .AddToDB();
     }
 }
 
-internal static class FearlessCommanderBuilder
+internal static class FeatureSetFearlessCommanderBuilder
 {
-    internal static FeatureDefinitionFeatureSet BuildFearlessCommander()
+    internal static FeatureDefinitionFeatureSet BuildFeatureSetFearlessCommander()
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create("FearlessCommander", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
+            .Create("FeatureSetFearlessCommander", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetFeatureSet(ConditionAffinityFrightenedImmunity)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetGuiPresentation(
-                "FighterMarshalFearlessCommanderFeatureSet",
+                "FighterMarshalFeatureSetFearlessCommanderFeatureSet",
                 Category.Feature)
             .AddToDB();
     }
@@ -578,17 +578,17 @@ internal static class MarshalFighterSubclassBuilder
         CoordinatedAttackBuilder.BuildCoordinatedAttack();
 
     private static readonly FeatureDefinitionFeatureSet KnowYourEnemies =
-        KnowYourEnemyBuilder.BuildKnowYourEnemyFeatureSet();
+        FeatureSetKnowYourEnemyBuilder.BuildFeatureSetKnowYourEnemyFeatureSet();
 
     private static readonly FeatureDefinitionPower StudyYourEnemy = StudyYourEnemyBuilder.BuildStudyEnemyPower();
 
-    private static readonly FeatureDefinitionFeatureSet FearlessCommander =
-        FearlessCommanderBuilder.BuildFearlessCommander();
+    private static readonly FeatureDefinitionFeatureSet FeatureSetFearlessCommander =
+        FeatureSetFearlessCommanderBuilder.BuildFeatureSetFearlessCommander();
 
     private static readonly FeatureDefinitionPower Encourage = EncourageBuilder.BuildEncourage();
 
     private static readonly FeatureDefinitionFeatureSet EternalComrade =
-        EternalComradeBuilder.BuildEternalComradeFeatureSet();
+        EternalComradeBuilder.BuildFeatureSetEternalComrade();
 
     internal static CharacterSubclassDefinition BuildAndAddSubclass()
     {
@@ -599,7 +599,7 @@ internal static class MarshalFighterSubclassBuilder
             .AddFeatureAtLevel(KnowYourEnemies, 3)
             .AddFeatureAtLevel(StudyYourEnemy, 3)
             .AddFeatureAtLevel(EternalComrade, 7)
-            .AddFeatureAtLevel(FearlessCommander, 10)
+            .AddFeatureAtLevel(FeatureSetFearlessCommander, 10)
             .AddFeatureAtLevel(Encourage, 10)
             .AddToDB();
     }

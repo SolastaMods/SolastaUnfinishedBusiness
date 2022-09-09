@@ -1,7 +1,7 @@
-﻿Condition/&ResonatingStrikeDamageDescription=At 5th level, attacks triggered by this cantrip deals an additional 1d8 thunder damage. The damage further increases by 1d8 at 11th and 17th levels.
-Condition/&ResonatingStrikeDamageTitle=Resonance
-Condition/&SunlightBladeDamageDescription=At 5th level, attacks triggered by this cantrip deals an additional 1d8 radiant damage. The damage further increases by 1d8 at 11th and 17th levels.
-Condition/&SunlightBladeDamageTitle=Sunlit Blade's burn
+﻿Condition/&ConditionResonatingStrikeDescription=At 5th level, attacks triggered by this cantrip deals an additional 1d8 thunder damage. The damage further increases by 1d8 at 11th and 17th levels.
+Condition/&ConditionResonatingStrikeTitle=Resonance
+Condition/&ConditionSunlightBladeDescription=At 5th level, attacks triggered by this cantrip deals an additional 1d8 radiant damage. The damage further increases by 1d8 at 11th and 17th levels.
+Condition/&ConditionSunlightBladeTitle=Sunlit Blade's burn
 Feedback/&AdditionalDamageSunlightBladeFormat=Sunlit Blade!
 Feedback/&AdditionalDamageSunlightBladeLine={0} burns {1} with Sunlit Blade! (+{2})
 Feedback/&AdditionalDamageResonatingStrikeFormat=Resonating Strike!

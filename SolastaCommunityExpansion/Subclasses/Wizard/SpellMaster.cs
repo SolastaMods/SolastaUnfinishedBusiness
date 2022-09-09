@@ -45,7 +45,7 @@ internal sealed class SpellMaster : AbstractSubclass
             .AddToDB();
 
         var bonusCantrips = FeatureDefinitionPointPoolBuilder
-            .Create("TraditionSpellMasterBonusCantrips", SubclassNamespace)
+            .Create("PointPoolTraditionSpellMasterBonusCantrips", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
             .OnlyUniqueChoices()

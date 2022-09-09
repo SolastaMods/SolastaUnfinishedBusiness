@@ -1,2 +1,2 @@
-MagicAffinityMasterManipulatorDC	Description='It is harder for opponents to resist your spells. The save DC increases by 2.'.
+MagicAffinityMasterManipulatorDC	Description='It is harder for opponents to resist your spells. The save DC increases by 3.'.
 MagicAffinityRoguishConArtistDC	Description='Your spell save DC increases by 3.'.

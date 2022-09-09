@@ -760,7 +760,7 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
                 Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var triggerCondition = ConditionDefinitionBuilder
-            .Create("DeadeyeTriggerCondition", CENamespaceGuid)
+            .Create("ConditionDeadeyeTrigger", CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetDuration(RuleDefinitions.DurationType.Permanent)

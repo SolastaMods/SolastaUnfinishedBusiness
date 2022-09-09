@@ -54,7 +54,7 @@ internal sealed class Opportunist : AbstractSubclass
         // Grant advantage when attack enemies whose initiative is lower than your
         // or when perform an attack of opportunity.
         var quickStrike = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("RoguishOppotunistQuickStrike", subclassNamespace)
+            .Create("OnComputeAttackModifierRoguishOppotunistQuickStrike", subclassNamespace)
             .SetGuiPresentation("OpportunistQuickStrike", Category.Feature)
             .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
             .AddToDB();

@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RoyalEnvoyFeature:c8299685-d806-4e20-aff0-ca3dd4000e05",
+      "featureDefinition": "Definition:FeatureSetRoyalEnvoy:c8299685-d806-4e20-aff0-ca3dd4000e05",
       "level": 7
     },
     {

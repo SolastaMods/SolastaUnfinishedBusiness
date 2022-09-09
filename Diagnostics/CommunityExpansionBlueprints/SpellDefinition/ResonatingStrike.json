@@ -87,8 +87,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ResonatingStrikeDamage",
-          "conditionDefinition": "Definition:ResonatingStrikeDamage:8c70b022-8059-56ce-84ac-dc251d602f3d",
+          "conditionDefinitionName": "ConditionResonatingStrike",
+          "conditionDefinition": "Definition:ConditionResonatingStrike:fee957a4-e400-5b35-980f-a481680512f7",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

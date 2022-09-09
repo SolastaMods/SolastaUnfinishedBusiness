@@ -88,7 +88,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:PactMarkMarkedByPactCondition:9fcd9591-8b9c-590f-b496-77d2de5e234e",
+          "conditionDefinition": "Definition:ConditionPactMarkMarkedByPact:7df017d5-ccba-5bf5-8d50-6fdc50462f5c",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -115,7 +115,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:PactMarkPactMarkCondition:1822e3cb-e9d0-5485-b107-4d4e384e493b",
+          "conditionDefinition": "Definition:ConditionPactMarkPactMark:629a154e-d9d8-5a3d-8033-e5709f256c6b",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

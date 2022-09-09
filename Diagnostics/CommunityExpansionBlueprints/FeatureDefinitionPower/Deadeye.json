@@ -76,11 +76,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "DeadeyeTriggerCondition",
-          "conditionDefinition": "Definition:DeadeyeTriggerCondition:1d3549c6-fdba-530f-9c3e-156a96837560",
+          "conditionDefinitionName": "ConditionDeadeyeTrigger",
+          "conditionDefinition": "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf",
           "operation": "Add",
           "conditionsList": [
-            "Definition:DeadeyeTriggerCondition:1d3549c6-fdba-530f-9c3e-156a96837560"
+            "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
