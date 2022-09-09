@@ -52,12 +52,14 @@ public static class Global
     // true if not in game
     public static bool IsOffGame => Gui.Game == null;
 
+    /* Deprecating Magus-related flags
     public static bool IsSpellStrike { get; set; }
 
     public static RuleDefinitions.RollOutcome SpellStrikeRollOutcome { get; set; } =
         RuleDefinitions.RollOutcome.Neutral;
 
     public static int SpellStrikeDieRoll { get; set; } = 10;
+    */
 
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
@@ -65,9 +67,11 @@ public static class Global
         ActivePlayerCharacter = characterAction.ActingCharacter;
         CastedSpellRepertoire = null;
         CastedSpell = null;
+        /* Deprecating Magus-related flags
         IsSpellStrike = false;
         SpellStrikeRollOutcome = RuleDefinitions.RollOutcome.Neutral;
         SpellStrikeDieRoll = -1;
+        */
 
         switch (characterAction)
         {

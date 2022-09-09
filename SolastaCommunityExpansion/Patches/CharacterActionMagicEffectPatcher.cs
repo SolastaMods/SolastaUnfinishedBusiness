@@ -3,7 +3,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -31,7 +30,7 @@ internal static class CharacterActionMagicEffectPatcher
             //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
             // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
 
-            while (!Global.IsSpellStrike && __result.MoveNext())
+            while (/*!Global.IsSpellStrike && */__result.MoveNext())
             {
                 yield return __result.Current;
             }
@@ -73,6 +72,7 @@ internal static class CharacterActionMagicEffectPatcher
 
             var saveRangeType = __instance.actionParams.activeEffect.EffectDescription.rangeType;
 
+            /* Deprecating Magus-related flags
             if (Global.IsSpellStrike)
             {
                 if (attackOutcome is not (RuleDefinitions.RollOutcome.Success
@@ -84,6 +84,7 @@ internal static class CharacterActionMagicEffectPatcher
 
                 Global.SpellStrikeRollOutcome = attackOutcome;
             }
+            */
 
             while (__result.MoveNext())
             {
