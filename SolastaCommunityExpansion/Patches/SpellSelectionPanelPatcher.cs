@@ -16,7 +16,7 @@ internal static class SpellSelectionPanelPatcher
     // second line bind
     [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SpellSelectionPanel_Bind
+    internal static class Bind_Patch
     {
         internal static void Prefix(GuiCharacter caster, ref bool cantripOnly,
             ActionDefinitions.ActionType actionType)
@@ -220,7 +220,7 @@ internal static class SpellSelectionPanelPatcher
     // second line unbind
     [HarmonyPatch(typeof(SpellSelectionPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SpellSelectionPanel_Unbind
+    internal static class Unbind_Patch
     {
         internal static void Postfix()
         {

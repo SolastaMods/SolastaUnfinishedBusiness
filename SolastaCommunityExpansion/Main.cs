@@ -93,22 +93,4 @@ internal static class Main
 
         return true;
     }
-
-    // private static void LoadSidecars(string currentAssemblyName)
-    // {
-    //     foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
-    //     {
-    //         var filename = Path.GetFileName(path);
-    //
-    //         if (filename.StartsWith(currentAssemblyName))
-    //         {
-    //             continue;
-    //         }
-    //
-    //         var sidecarAssembly = Assembly.LoadFile(path);
-    //         var harmony = new Harmony(sidecarAssembly.GetName().Name);
-    //
-    //         harmony.PatchAll(sidecarAssembly);
-    //     }
-    // }
 }

@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches;
 
 internal static class WieldedConfigurationSelectorPatcher
 {
-    //PATCH: WieldedConfigurationSelector.Bind passes character=null to mainHandSlotBox.Bind and offHandSlotBox.Bind
+    //PATCH: WieldedConfigurationSelector.Bind passes wieldedConfigurationSelectorGuiCharacter to mainHandSlotBox.Bind and offHandSlotBox.Bind
     [HarmonyPatch(typeof(WieldedConfigurationSelector), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
