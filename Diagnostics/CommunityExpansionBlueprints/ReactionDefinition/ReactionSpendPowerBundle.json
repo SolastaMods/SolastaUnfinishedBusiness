@@ -1,19 +1,18 @@
 {
-  "$type": "FeatureDefinitionSense, Assembly-CSharp",
-  "senseType": "DetectInvisibility",
-  "senseRange": 6,
-  "stealthBreakerRange": 6,
-  "revealsHiddenObjects": false,
+  "$type": "ReactionDefinition, Assembly-CSharp",
+  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
+  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
+  "validationDismissesSimilarReactions": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&RangerFeralSensesTitle",
-    "description": "Feature/&RangerFeralSensesDescription",
+    "title": "Reaction/&ReactionSpendPowerBundleTitle",
+    "description": "Reaction/&ReactionSpendPowerBundleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -28,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0e3207505ac04a499477ca1185287117",
+  "guid": "59c7d7ad-440d-5b79-81d1-7d46f8076eef",
   "contentPack": 9999,
-  "name": "RangerFeralSenses"
+  "name": "ReactionSpendPowerBundle"
 }

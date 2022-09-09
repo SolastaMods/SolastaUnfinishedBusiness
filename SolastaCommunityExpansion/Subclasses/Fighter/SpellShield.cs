@@ -78,7 +78,7 @@ internal sealed class SpellShield : AbstractSubclass
             .AddToDB();
 
         var vigor = FeatureDefinitionMagicAffinityBuilder
-            .Create("SpellShieldVigor", DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinitySpellShieldVigor", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass)
             .SetCustomSubFeatures(new VigorSpellDCModifier(),
                 new VigorSpellAttackModifier

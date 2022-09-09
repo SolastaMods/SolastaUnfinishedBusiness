@@ -229,8 +229,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&TimeStopTitle",
-    "description": "Condition/&TimeStopDescription",
+    "title": "Condition/&ConditionTimeStopTitle",
+    "description": "Condition/&ConditionTimeStopDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "cfdf2152d04bcff41aab30fd13412ad6",

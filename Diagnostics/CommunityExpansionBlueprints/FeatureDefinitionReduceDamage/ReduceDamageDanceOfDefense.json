@@ -1,13 +1,10 @@
 {
-  "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
-  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
-  "validationDismissesSimilarReactions": false,
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionReduceDamage, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&WarcasterReactionTitle",
-    "description": "Reaction/&WarcasterReactionDescription",
+    "title": "Feature/&ReduceDamageDanceOfDefenseTitle",
+    "description": "Feature/&ReduceDamageDanceOfDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "23df1c39-8b0a-5144-b482-3234bb4ca99d",
+  "guid": "10d8c23a-9b86-5664-bc93-7c1384e0975b",
   "contentPack": 9999,
-  "name": "WarcasterReaction"
+  "name": "ReduceDamageDanceOfDefense"
 }

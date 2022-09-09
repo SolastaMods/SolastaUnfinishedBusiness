@@ -16,7 +16,7 @@ internal sealed class BladeDancer : AbstractSubclass
     internal BladeDancer()
     {
         var lightArmorProficiency = FeatureDefinitionProficiencyBuilder
-            .Create("BladeDancerLightArmorProficiency", SubclassNamespace)
+            .Create("ProficiencyBladeDancerLightArmor", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
                 RuleDefinitions.ProficiencyType.Armor, ArmorCategoryDefinitions.LightArmorCategory.Name)
@@ -112,12 +112,12 @@ internal sealed class BladeDancer : AbstractSubclass
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
                 FeatureDefinitionReduceDamageBuilder
-                    .Create("FeatureDanceOfDefense", SubclassNamespace)
+                    .Create("ReduceDamageDanceOfDefense", SubclassNamespace)
                     .SetGuiPresentation(Category.Feature)
                     .SetNotificationTag("DanceOfDefense")
                     .SetReducedDamage(-5)
                     .SetSourceType(RuleDefinitions.FeatureSourceType.CharacterFeature)
-                    .SetSourceName("FeatureDanceOfDefense")
+                    .SetSourceName("ReduceDamageDanceOfDefense")
                     .AddToDB())
             .AddToDB();
 
@@ -183,8 +183,8 @@ internal sealed class BladeDancer : AbstractSubclass
             .AddToDB();
 
         var featureDanceOfDefenseSet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureDanceOfDefenseSet", SubclassNamespace)
-            .SetGuiPresentation("FeatureDanceOfDefense", Category.Feature)
+            .Create("ReduceDamageDanceOfDefenseSet", SubclassNamespace)
+            .SetGuiPresentation("ReduceDamageDanceOfDefense", Category.Feature)
             .SetFeatureSet(powerDanceOfDefense)
             .AddToDB();
 

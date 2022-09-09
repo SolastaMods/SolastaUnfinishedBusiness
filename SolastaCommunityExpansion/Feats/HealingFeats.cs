@@ -82,7 +82,7 @@ internal static class HealingFeats
             "PowerStabilizeHealerFeat", stabilizePresentation);
 
         FeatureDefinition medicineKnowledge = FeatureDefinitionProficiencyBuilder
-            .Create("FeatHealerMedicineProficiency", HealingFeatNamespace)
+            .Create("ProficiencyFeatHealerMedicine", HealingFeatNamespace)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .SetGuiPresentation("ProfHealerMedicine", Category.Feat)
             .AddToDB();

@@ -87,8 +87,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "WeirdCondition",
-          "conditionDefinition": "Definition:WeirdCondition:0f76e7e1-4490-4ee8-a13f-a4a967ba1c08",
+          "conditionDefinitionName": "ConditionWeird",
+          "conditionDefinition": "Definition:ConditionWeird:0f76e7e1-4490-4ee8-a13f-a4a967ba1c08",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

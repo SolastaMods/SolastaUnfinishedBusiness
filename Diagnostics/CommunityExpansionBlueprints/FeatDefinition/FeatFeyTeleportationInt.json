@@ -25,8 +25,8 @@
     "Definition:FeyTeleportationAutoPrepMistySorcerer:2899c323-def8-52f0-b2fa-1a598b7f4500",
     "Definition:FeyTeleportationAutoPrepMistyWarlock:269d038d-787b-5a34-8479-d2d27a693ae1",
     "Definition:FeyTeleportationAutoPrepMistyWizard:1ec28a86-ab83-5c5a-8bd3-e8038d2b15f0",
-    "Definition:FeyTeleportationLanguageTirmarian:4e22b934-6c0e-52de-8b1a-d66b1e9df47b",
-    "Definition:PowerMistyStepFromFeat:57af6eee-9eee-52d3-aad8-7722336b5620"
+    "Definition:PowerMistyStepFromFeat:57af6eee-9eee-52d3-aad8-7722336b5620",
+    "Definition:ProficiencyFeatFeyTeleportationTirmarian:9cdd9f9d-6d92-51aa-acf7-3e56efcfa083"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

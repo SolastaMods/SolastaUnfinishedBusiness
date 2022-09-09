@@ -228,8 +228,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ReverseGravityTitle",
-    "description": "Condition/&ReverseGravityDescription",
+    "title": "Condition/&ConditionReverseGravityTitle",
+    "description": "Condition/&ConditionReverseGravityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "77cdd4e7a89c9c04c934505ffedebdfa",

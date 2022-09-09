@@ -52,7 +52,7 @@ internal sealed class SpellMaster : AbstractSubclass
             .AddToDB();
 
         var spellResistance = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("TraditionSpellMasterSpellResistance", SubclassNamespace)
+            .Create("SavingThrowAffinitySpellMasterSpellResistance", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .SetAffinities(
                 RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,

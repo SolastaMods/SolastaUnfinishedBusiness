@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SpellShieldVigor:c5711d5e-d160-532e-9969-60e5d2cf0798",
+      "featureDefinition": "Definition:MagicAffinitySpellShieldVigor:02b723f3-05a0-5fb4-a4a7-403858f5039c",
       "level": 10
     },
     {

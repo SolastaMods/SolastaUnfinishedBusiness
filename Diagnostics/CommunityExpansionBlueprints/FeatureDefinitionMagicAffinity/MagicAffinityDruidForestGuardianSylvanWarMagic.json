@@ -52,8 +52,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DruidForestGuardianSylvanWarMagicTitle",
-    "description": "Feature/&DruidForestGuardianSylvanWarMagicDescription",
+    "title": "Feature/&MagicAffinityDruidForestGuardianSylvanWarMagicTitle",
+    "description": "Feature/&MagicAffinityDruidForestGuardianSylvanWarMagicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -73,7 +73,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1edd7942-b88d-54e6-b7f1-65adb8009def",
+  "guid": "df504c9d-d7ad-5b11-8394-cb3b3cbe7732",
   "contentPack": 9999,
-  "name": "DruidForestGuardianSylvanWarMagic"
+  "name": "MagicAffinityDruidForestGuardianSylvanWarMagic"
 }

@@ -125,22 +125,21 @@ internal sealed class Opportunist : AbstractSubclass
 
     private sealed class DebilitatedConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "Debilitated";
-        private const string TitleString = "Condition/&DebilitatedConditionTitle";
-        private const string DescriptionString = "Condition/&DebilitatedConditionDescription";
+        private const string Name = "ConditionDebilitated";
 
         internal static readonly ConditionDefinition DebilitatedCondition =
             CreateAndAddToDB(Name, SubclassNamespace.ToString());
 
         private DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
         {
-            Definition.GuiPresentation.Title = TitleString;
-            Definition.GuiPresentation.Description = DescriptionString;
+
         }
 
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new DebilitatedConditionBuilder(name, guid).AddToDB();
+            return new DebilitatedConditionBuilder(name, guid)
+                .SetOrUpdateGuiPresentation("ConditionDebilitated", Category.Condition)
+                .AddToDB();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.CustomUI;
 
 public sealed class ReactionRequestSpendBundlePower : ReactionRequest
 {
-    public const string Name = "SpendPowerBundle";
+    public const string Name = "ReactionSpendPowerBundle";
     private readonly GuiCharacter guiCharacter;
     private readonly FeatureDefinitionPower masterPower;
     private readonly ActionModifier modifier;
@@ -165,24 +165,24 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
 
     public override string FormatTitle()
     {
-        return Gui.Localize($"Reaction/&SpendPowerBundle{ReactionParams.StringParameter}Title");
+        return Gui.Localize($"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}Title");
     }
 
     public override string FormatDescription()
     {
-        var format = $"Reaction/&SpendPowerBundle{ReactionParams.StringParameter}Description";
+        var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}Description";
         return Gui.Format(format, guiCharacter.Name);
     }
 
     public override string FormatReactTitle()
     {
-        var format = $"Reaction/&SpendPowerBundle{ReactionParams.StringParameter}ReactTitle";
+        var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}ReactTitle";
         return Gui.Format(format, guiCharacter.Name);
     }
 
     public override string FormatReactDescription()
     {
-        var format = $"Reaction/&SpendPowerBundle{ReactionParams.StringParameter}ReactDescription";
+        var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}ReactDescription";
         return Gui.Format(format, guiCharacter.Name);
     }
 

@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BladeDancerLightArmorProficiency:b3a4e8af-9fd7-5f97-aefc-5f81c5cfb603",
+      "featureDefinition": "Definition:ProficiencyBladeDancerLightArmor:79e718a8-5440-5c01-abcb-173bc76276c0",
       "level": 2
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureDanceOfDefenseSet:fb888615-bd1b-58a4-bfef-e5672a198e95",
+      "featureDefinition": "Definition:ReduceDamageDanceOfDefenseSet:b49749fa-0722-50dd-b5b9-3cb47683e459",
       "level": 10
     },
     {

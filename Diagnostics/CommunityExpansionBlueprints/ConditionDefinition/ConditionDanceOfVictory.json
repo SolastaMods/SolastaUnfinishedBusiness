@@ -7,9 +7,9 @@
     "Definition:AbilityCheckBladeDanceAcrobatics:bbb819ce-7e31-50a2-8edf-6d89b6b32ade",
     "Definition:AbilityCheckBladeDanceConstitution:694d3dca-a6c5-5188-bb3b-1328ac2e4c92",
     "Definition:AttributeModifierBladeDance:3e2ce621-bc66-55b1-ba23-87589b012414",
-    "Definition:FeatureDanceOfDefense:8d764054-a0f2-594a-8b2e-722ea6448891",
     "Definition:FeatureDanceOfVictory:9aefff51-d375-50d9-aa8b-b9b96ed44b98",
-    "Definition:MovementAffinityBarbarianFastMovement:b46d47bd558a34d48911656bd4b088c7"
+    "Definition:MovementAffinityBarbarianFastMovement:b46d47bd558a34d48911656bd4b088c7",
+    "Definition:ReduceDamageDanceOfDefense:10d8c23a-9b86-5664-bc93-7c1384e0975b"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

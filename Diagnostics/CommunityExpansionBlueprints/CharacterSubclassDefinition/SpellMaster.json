@@ -33,7 +33,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TraditionSpellMasterSpellResistance:b26e83cf-eef2-5ae5-ac8c-fd49c42fa7d6",
+      "featureDefinition": "Definition:SavingThrowAffinitySpellMasterSpellResistance:0328f256-66a7-5a0d-ad05-a6e5bb4a5f94",
       "level": 14
     }
   ],

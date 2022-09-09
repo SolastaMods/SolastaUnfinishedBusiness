@@ -1,19 +1,15 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:PowerDanceOfDefense:d950e847-a9b4-5b0e-a4c8-fb830c744c14"
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "SkillOrExpertise",
+  "proficiencies": [
+    "Medecine"
   ],
-  "mode": "Union",
-  "ancestryDamageTypeMap": [],
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureDanceOfDefenseTitle",
-    "description": "Feature/&FeatureDanceOfDefenseDescription",
+    "title": "Feat/&ProfHealerMedicineTitle",
+    "description": "Feat/&ProfHealerMedicineDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fb888615-bd1b-58a4-bfef-e5672a198e95",
+  "guid": "d8a3d161-267d-5e81-a7fe-6fbafa4014b2",
   "contentPack": 9999,
-  "name": "FeatureDanceOfDefenseSet"
+  "name": "ProficiencyFeatHealerMedicine"
 }

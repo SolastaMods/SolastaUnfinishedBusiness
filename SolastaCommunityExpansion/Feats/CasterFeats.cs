@@ -130,7 +130,7 @@ internal static class CasterFeats
             "PowerMistyStepFromFeat", MistyStep.GuiPresentation);
 
         var feyTeleportationLanguage = FeatureDefinitionProficiencyBuilder
-            .Create("FeyTeleportationLanguageTirmarian", DefinitionBuilder.CENamespaceGuid)
+            .Create("ProficiencyFeatFeyTeleportationTirmarian", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetProficiencies(
                 RuleDefinitions.ProficiencyType.Language,

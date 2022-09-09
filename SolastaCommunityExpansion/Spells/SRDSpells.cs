@@ -526,7 +526,7 @@ public static class SrdSpells
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
             return new ReverseGravityConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("ReverseGravity", Category.Condition)
+                .SetOrUpdateGuiPresentation("ConditionReverseGravity", Category.Condition)
                 .AddToDB();
         }
     }
@@ -550,7 +550,7 @@ public static class SrdSpells
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
             return new MindBlankConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("MindBlank", Category.Condition)
+                .SetOrUpdateGuiPresentation("ConditionMindBlank", Category.Condition)
                 .AddToDB();
         }
     }
@@ -580,7 +580,7 @@ public static class SrdSpells
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
             return new ForesightConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("Foresight", Category.Condition)
+                .SetOrUpdateGuiPresentation("ConditionForesight", Category.Condition)
                 .AddToDB();
         }
     }
@@ -605,14 +605,14 @@ public static class SrdSpells
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
             return new TimeStopConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("TimeStop", Category.Condition)
+                .SetOrUpdateGuiPresentation("ConditionTimeStop", Category.Condition)
                 .AddToDB();
         }
     }
 
     private sealed class WeirdConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "WeirdCondition";
+        private const string Name = "ConditionWeird";
         private const string Guid = "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08";
 
         internal static readonly ConditionDefinition WeirdCondition = CreateAndAddToDB(Name, Guid);
@@ -626,7 +626,7 @@ public static class SrdSpells
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
             return new WeirdConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("Weird", Category.Condition)
+                .SetOrUpdateGuiPresentation("ConditionWeird", Category.Condition)
                 .AddToDB();
         }
     }

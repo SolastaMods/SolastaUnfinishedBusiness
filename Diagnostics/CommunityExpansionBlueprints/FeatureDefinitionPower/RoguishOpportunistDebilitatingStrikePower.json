@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "Debilitated",
-          "conditionDefinition": "Definition:Debilitated:2db81c3c-a9e2-4829-b27b-47af3ba42c76",
+          "conditionDefinitionName": "ConditionDebilitated",
+          "conditionDefinition": "Definition:ConditionDebilitated:2db81c3c-a9e2-4829-b27b-47af3ba42c76",
           "operation": "AddRandom",
           "conditionsList": [
             "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",

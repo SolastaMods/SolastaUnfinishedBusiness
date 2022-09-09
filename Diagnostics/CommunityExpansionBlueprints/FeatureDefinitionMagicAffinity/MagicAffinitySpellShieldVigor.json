@@ -52,8 +52,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&SpellShieldVigorTitle",
-    "description": "Subclass/&SpellShieldVigorDescription",
+    "title": "Subclass/&MagicAffinitySpellShieldVigorTitle",
+    "description": "Subclass/&MagicAffinitySpellShieldVigorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -73,7 +73,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c5711d5e-d160-532e-9969-60e5d2cf0798",
+  "guid": "02b723f3-05a0-5fb4-a4a7-403858f5039c",
   "contentPack": 9999,
-  "name": "SpellShieldVigor"
+  "name": "MagicAffinitySpellShieldVigor"
 }

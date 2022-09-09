@@ -1,16 +1,14 @@
 {
-  "$type": "RestActivityDefinition, Assembly-CSharp",
-  "restStage": "AfterRest",
-  "restType": "ShortRest",
-  "condition": "CanUsePower",
-  "functor": "UsePower",
-  "stringParameter": "SorcerousRestoration",
-  "checkConsciousness": true,
+  "$type": "FeatureDefinitionSense, Assembly-CSharp",
+  "senseType": "DetectInvisibility",
+  "senseRange": 6,
+  "stealthBreakerRange": 6,
+  "revealsHiddenObjects": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "RestActivity/&SorcerousRestorationTitle",
-    "description": "RestActivity/&SorcerousRestorationDescription",
+    "title": "Feature/&SenseRangerFeralSensesTitle",
+    "description": "Feature/&SenseRangerFeralSensesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -25,12 +23,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 1,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5ee0315b-43b6-4dd9-8dd4-1eeded1cdb0e",
+  "guid": "0e3207505ac04a499477ca1185287117",
   "contentPack": 9999,
-  "name": "SorcerousRestorationRest"
+  "name": "SenseRangerFeralSenses"
 }

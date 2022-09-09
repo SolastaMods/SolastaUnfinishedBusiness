@@ -20,5 +20,5 @@ Subclass/&PowerSpellShieldWarMagicDescription=You can use your bonus action to a
 Subclass/&PowerSpellShieldWarMagicTitle=War Magic
 Subclass/&SpellShieldReplaceAttackWithCantripDescription=You can replace one of your attack with a cantrip.
 Subclass/&SpellShieldReplaceAttackWithCantripTitle=Quick Cantrip
-Subclass/&SpellShieldVigorDescription=You add your STR or DEX modifier (whichever higher) to your spell saving throw DC and spell attack roll.
-Subclass/&SpellShieldVigorTitle=Vigor
+Subclass/&MagicAffinitySpellShieldVigorDescription=You add your STR or DEX modifier (whichever higher) to your spell saving throw DC and spell attack roll.
+Subclass/&MagicAffinitySpellShieldVigorTitle=Vigor

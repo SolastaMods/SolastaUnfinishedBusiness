@@ -1,13 +1,15 @@
 {
-  "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
-  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
-  "validationDismissesSimilarReactions": false,
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Armor",
+  "proficiencies": [
+    "LightArmorCategory"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&SpendPowerBundleTitle",
-    "description": "Reaction/&SpendPowerBundleDescription",
+    "title": "Feature/&ProficiencyBladeDancerLightArmorTitle",
+    "description": "Feature/&ProficiencyBladeDancerLightArmorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1a878824-bc28-5d2f-9987-bac4db4beaa9",
+  "guid": "79e718a8-5440-5c01-abcb-173bc76276c0",
   "contentPack": 9999,
-  "name": "SpendPowerBundle"
+  "name": "ProficiencyBladeDancerLightArmor"
 }

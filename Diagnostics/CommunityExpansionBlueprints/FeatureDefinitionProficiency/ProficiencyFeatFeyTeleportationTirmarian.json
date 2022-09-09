@@ -1,15 +1,15 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "SkillOrExpertise",
+  "proficiencyType": "Language",
   "proficiencies": [
-    "Medecine"
+    "Language_Tirmarian"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&ProfHealerMedicineTitle",
-    "description": "Feat/&ProfHealerMedicineDescription",
+    "title": "Feat/&ProficiencyFeatFeyTeleportationTirmarianTitle",
+    "description": "Feat/&ProficiencyFeatFeyTeleportationTirmarianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "48661b00-6c58-5c97-adc6-7d3e885de1f3",
+  "guid": "9cdd9f9d-6d92-51aa-acf7-3e56efcfa083",
   "contentPack": 9999,
-  "name": "FeatHealerMedicineProficiency"
+  "name": "ProficiencyFeatFeyTeleportationTirmarian"
 }

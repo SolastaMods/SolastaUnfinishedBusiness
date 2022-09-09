@@ -1,15 +1,19 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Language",
-  "proficiencies": [
-    "Language_Tirmarian"
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerDanceOfDefense:d950e847-a9b4-5b0e-a4c8-fb830c744c14"
   ],
-  "forbiddenItemTags": [],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeyTeleportationLanguageTirmarianTitle",
-    "description": "Feat/&FeyTeleportationLanguageTirmarianDescription",
+    "title": "Feature/&ReduceDamageDanceOfDefenseTitle",
+    "description": "Feature/&ReduceDamageDanceOfDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4e22b934-6c0e-52de-8b1a-d66b1e9df47b",
+  "guid": "b49749fa-0722-50dd-b5b9-3cb47683e459",
   "contentPack": 9999,
-  "name": "FeyTeleportationLanguageTirmarian"
+  "name": "ReduceDamageDanceOfDefenseSet"
 }

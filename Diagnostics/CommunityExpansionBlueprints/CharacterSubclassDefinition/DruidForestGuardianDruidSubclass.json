@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DruidForestGuardianSylvanWarMagic:1edd7942-b88d-54e6-b7f1-65adb8009def",
+      "featureDefinition": "Definition:MagicAffinityDruidForestGuardianSylvanWarMagic:df504c9d-d7ad-5b11-8394-cb3b3cbe7732",
       "level": 2
     },
     {

@@ -159,7 +159,7 @@ internal sealed class Raven : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
                 FeatureDefinitionProficiencyBuilder
-                    .Create("RoguishRavenRangeWeaponProficiency", DefinitionBuilder.CENamespaceGuid)
+                    .Create("ProficiencyRoguishRavenRangeWeapon", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentationNoContent(true)
                     .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
                         WeaponTypeDefinitions.HeavyCrossbowType.Name,

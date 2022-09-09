@@ -144,8 +144,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&TraditionSpellMasterSpellResistanceTitle",
-    "description": "Feature/&TraditionSpellMasterSpellResistanceDescription",
+    "title": "Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle",
+    "description": "Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -165,7 +165,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b26e83cf-eef2-5ae5-ac8c-fd49c42fa7d6",
+  "guid": "0328f256-66a7-5a0d-ad05-a6e5bb4a5f94",
   "contentPack": 9999,
-  "name": "TraditionSpellMasterSpellResistance"
+  "name": "SavingThrowAffinitySpellMasterSpellResistance"
 }

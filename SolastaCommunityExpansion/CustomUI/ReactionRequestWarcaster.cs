@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.CustomUI;
 
 public class ReactionRequestWarcaster : ReactionRequest
 {
-    public const string Name = "WarcasterReaction";
+    public const string Name = "ReactionWarcaster";
     private readonly GuiCharacter guiTarget;
 
     private readonly string type;

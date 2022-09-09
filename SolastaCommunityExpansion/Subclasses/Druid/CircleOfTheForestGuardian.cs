@@ -57,7 +57,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         // Create Sylvan War Magic
         var sylvanWarMagic = FeatureDefinitionMagicAffinityBuilder
-            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic, "DruidForestGuardianSylvanWarMagic",
+            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic, "MagicAffinityDruidForestGuardianSylvanWarMagic",
                 BaseGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();

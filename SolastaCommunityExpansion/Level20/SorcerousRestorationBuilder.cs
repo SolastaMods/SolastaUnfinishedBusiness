@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Level20;
 
 internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilder
 {
-    private const string SorcerousRestorationName = "SorcerousRestoration";
+    private const string SorcerousRestorationName = "PowerSorcerousRestoration";
     private const string SorcerousRestorationGuid = "a524f8eb-8d30-4614-819d-a8f7df84f73e";
 
     internal static readonly FeatureDefinitionPower SorcerousRestoration =
@@ -51,8 +51,8 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
 
     private sealed class RestActivityBuilder : RestActivityDefinitionBuilder
     {
-        private const string SorcerousRestorationRestName = "SorcerousRestorationRest";
-        private const string SorcerousRestorationRestGuid = "5ee0315b-43b6-4dd9-8dd4-1eeded1cdb0e";
+        private const string SorcerousRestorationName = "SorcerousRestoration";
+        private const string SorcerousRestorationGuid = "5ee0315b-43b6-4dd9-8dd4-1eeded1cdb0e";
 
         // An alternative pattern for lazily creating definition.
         private static RestActivityDefinition _restActivityRestoration;
@@ -68,6 +68,6 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
         // get only property
         public static RestActivityDefinition RestActivityRestoration =>
             _restActivityRestoration ??=
-                new RestActivityBuilder(SorcerousRestorationRestName, SorcerousRestorationRestGuid).AddToDB();
+                new RestActivityBuilder(SorcerousRestorationName, SorcerousRestorationGuid).AddToDB();
     }
 }

@@ -2,16 +2,15 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Weapon",
   "proficiencies": [
-    "CEHandXbowType",
-    "RapierType",
-    "ShortswordType"
+    "HeavyCrossbowType",
+    "LongbowType"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&DarkelfWeaponTrainingTitle",
-    "description": "Feature/&DarkelfWeaponTrainingDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ec6e4a4a-5635-4378-a370-5a5ab7dab2ea",
+  "guid": "a1fc7442-a311-52ea-8e80-615a22939b5a",
   "contentPack": 9999,
-  "name": "DarkelfWeaponTraining"
+  "name": "ProficiencyRoguishRavenRangeWeapon"
 }

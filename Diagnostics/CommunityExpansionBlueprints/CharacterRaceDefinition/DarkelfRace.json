@@ -20,11 +20,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DarkelfWeaponTraining:ec6e4a4a-5635-4378-a370-5a5ab7dab2ea",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetElfHighLanguages:752c07b8faab19c43af3b28543d9f15d",
       "level": 1
     },
@@ -36,6 +31,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDarkelfWeaponTraining:ec6e4a4a-5635-4378-a370-5a5ab7dab2ea",
       "level": 1
     },
     {

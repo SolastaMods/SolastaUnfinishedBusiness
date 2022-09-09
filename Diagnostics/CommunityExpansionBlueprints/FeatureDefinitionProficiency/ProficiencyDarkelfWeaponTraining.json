@@ -1,10 +1,17 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionReduceDamage, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "CEHandXbowType",
+    "RapierType",
+    "ShortswordType"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureDanceOfDefenseTitle",
-    "description": "Feature/&FeatureDanceOfDefenseDescription",
+    "title": "Feature/&ProficiencyDarkelfWeaponTrainingTitle",
+    "description": "Feature/&ProficiencyDarkelfWeaponTrainingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8d764054-a0f2-594a-8b2e-722ea6448891",
+  "guid": "ec6e4a4a-5635-4378-a370-5a5ab7dab2ea",
   "contentPack": 9999,
-  "name": "FeatureDanceOfDefense"
+  "name": "ProficiencyDarkelfWeaponTraining"
 }

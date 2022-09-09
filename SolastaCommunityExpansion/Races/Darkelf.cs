@@ -150,7 +150,7 @@ internal static class DarkelfSubraceBuilder
         darkelfDarknessPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         var darkelfWeaponTraining = FeatureDefinitionProficiencyBuilder
-            .Create("DarkelfWeaponTraining", "ec6e4a4a-5635-4378-a370-5a5ab7dab2ea")
+            .Create("ProficiencyDarkelfWeaponTraining", "ec6e4a4a-5635-4378-a370-5a5ab7dab2ea")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
                 CustomWeaponsContext.HandXbowWeaponType.Name,

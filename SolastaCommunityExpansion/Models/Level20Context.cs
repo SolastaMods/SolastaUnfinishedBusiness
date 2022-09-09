@@ -11,7 +11,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaCommunityExpansion.Level20.PowerClericDivineInterventionImprovementBuilder;
 using static SolastaCommunityExpansion.Level20.PowerClericTurnUndeadBuilder;
 using static SolastaCommunityExpansion.Level20.PowerFighterActionSurge2Builder;
-using static SolastaCommunityExpansion.Level20.RangerFeralSensesBuilder;
+using static SolastaCommunityExpansion.Level20.SenseRangerFeralSensesBuilder;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPointPools;
 
 namespace SolastaCommunityExpansion.Models;
@@ -39,6 +39,8 @@ internal static class Level20Context
         WizardLoad();
         MartialSpellBladeLoad();
         ShadowcasterLoad();
+
+        CastSpellWarlock.uniqueLevelSlots = false;
     }
 
     internal static void LateLoad()
@@ -183,7 +185,7 @@ internal static class Level20Context
     {
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(RangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
+            new(SenseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
             //new FeatureUnlockByLevel(FeatureSetRangerFoeSlayer, 20)
         });
 
