@@ -188,6 +188,13 @@ internal static class GameLocationCharacterPatcher
 
             return codes.AsEnumerable();
         }
+
+        internal static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId,
+            ActionDefinitions.ActionScope scope, ref ActionDefinitions.ActionStatus __result)
+        {
+            //PATCH: support for `IReplaceAttackWithCantrip` - allows `CastMain` action if character used attack
+            ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
+        }
     }
 
     [HarmonyPatch(typeof(GameLocationCharacter), "RefreshActionPerformances")]
@@ -205,6 +212,20 @@ internal static class GameLocationCharacterPatcher
             FeatureApplicationValidation.ValidateAdditionalActionProviders(codes);
 
             return codes.AsEnumerable();
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), "HandleActionExecution")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleActionExecution_Patch
+    {
+        internal static void Postfix(
+            GameLocationCharacter __instance,
+            CharacterActionParams actionParams,
+            ActionDefinitions.ActionScope scope)
+        {
+            //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
+            ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
         }
     }
 }
