@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
@@ -567,6 +568,57 @@ internal static class RulesetCharacterPatcher
 
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
             }
+
+
+            // collects warlock and non warlock repertoires for consolidation
+            var warlockRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
+            var anySharedRepertoire = heroWithSpellRepertoire.SpellRepertoires.Find(sr =>
+                !SharedSpellsContext.IsWarlock(sr.SpellCastingClass) &&
+                sr.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Class
+                    or FeatureDefinitionCastSpell.CastingOrigin.Subclass);
+
+            // combines the Shared Slot System and Warlock Pact Magic
+            if (warlockRepertoire == null || anySharedRepertoire == null)
+            {
+                return;
+            }
+            
+            var warlockSlotsCapacities =
+                    warlockRepertoire.spellsSlotCapacities; // TODO: CHANGE THIS TO MY OWN SLOTS CAPACITIES
+            var anySharedSlotsCapacities =
+                anySharedRepertoire.spellsSlotCapacities;
+
+            // first consolidates under Warlock repertoire
+            for (var i = 1; i <= Math.Max(warlockSlotsCapacities.Count, anySharedSlotsCapacities.Count); i++)
+            {
+                warlockSlotsCapacities.TryAdd(i, 0);
+
+                if (anySharedSlotsCapacities.ContainsKey(i))
+                {
+                    warlockSlotsCapacities[i] += anySharedSlotsCapacities[i];
+                }
+            }
+
+            // then copy over Warlock repertoire to all others
+            foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
+                         .Where(x => x.SpellCastingRace == null &&
+                                     x.SpellCastingClass != DatabaseHelper.CharacterClassDefinitions.Warlock))
+            {
+                var spellsSlotCapacities =
+                    spellRepertoire.spellsSlotCapacities;
+
+                spellsSlotCapacities.Clear();
+
+                foreach (var warlockSlotCapacities in warlockSlotsCapacities)
+                {
+                    spellsSlotCapacities[warlockSlotCapacities.Key] = warlockSlotCapacities.Value;
+                }
+
+                spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
+            }
+
+            warlockRepertoire?.RepertoireRefreshed?.Invoke(warlockRepertoire);
         }
     }
 }
+    

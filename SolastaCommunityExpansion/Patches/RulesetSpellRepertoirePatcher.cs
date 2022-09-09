@@ -81,17 +81,7 @@ internal static class RulesetSpellRepertoirePatcher
 
             if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
-                // handles SC Warlock
-                if (!SharedSpellsContext.IsWarlock(__instance.SpellCastingClass))
-                {
-                    return true;
-                }
-
-                SpendWarlockSlots(__instance, heroWithSpellRepertoire);
-
-                return false;
-
-                // handles SC non-Warlock
+                return true;
             }
 
             var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
