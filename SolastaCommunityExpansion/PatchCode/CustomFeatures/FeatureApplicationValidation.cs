@@ -48,13 +48,6 @@ internal static class FeatureApplicationValidation
         features.RemoveAll(f =>
         {
             var validator = f.GetFirstSubFeatureOfType<IFeatureApplicationValidator>();
-
-            if (validator != null)
-            {
-                var valid = validator.IsValid(character);
-                Main.Log2($"EnumerateActionPreformanceProviders [{character.Name}] <{f.Name}> valid: {valid} ", true);
-            }
-
             return validator != null && !validator.IsValid(character);
         });
     }
