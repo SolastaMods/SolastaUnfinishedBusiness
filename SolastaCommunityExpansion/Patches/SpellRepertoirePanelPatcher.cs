@@ -31,8 +31,8 @@ internal static class SpellRepertoirePanelPatcher
 
 //TODO: Review this patch once spells UI stabilize in beta
 // filters how spells and slots are displayed on inspection
-[HarmonyPatch(typeof(SpellRepertoirePanel), "Bind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [HarmonyPatch(typeof(SpellRepertoirePanel), "Bind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
     {
         private static void RebuildSlotsTable(

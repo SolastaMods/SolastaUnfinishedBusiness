@@ -14,7 +14,7 @@
   "retaliateWhenHit": true,
   "retaliateProximity": "Melee",
   "retaliateRangeCells": 1,
-  "retaliatePower": "Definition:superiorBarkWardRetaliate:9c73fb21-aa7d-5b58-9d87-1d940755f80e",
+  "retaliatePower": "Definition:PowerSuperiorBarkWardRetaliate:ecf24ffa-a595-5994-9bd2-18fc8ceae3c1",
   "retaliateFromSource": false,
   "knockOutAffinity": "None",
   "knockOutOccurencesNumber": 1,

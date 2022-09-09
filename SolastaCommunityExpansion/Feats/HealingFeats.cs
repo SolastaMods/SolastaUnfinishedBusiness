@@ -110,7 +110,7 @@ internal static class HealingFeats
             AttributeDefinitions.Wisdom,
             RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.None, false, false,
             AttributeDefinitions.Wisdom,
-            treatEffect, "ChefTreatEatPower", treatEatPresentation);
+            treatEffect, "PowerChefTreatEat", treatEatPresentation);
 
         // define treats
         var treat = ItemDefinitionBuilder
@@ -151,33 +151,19 @@ internal static class HealingFeats
             false, false, AttributeDefinitions.Wisdom, shortRestFeastEffect,
             "FeatChefShortRestFeast", shortRestFeastPresentation);
 
-        FeatureDefinition conIncrement =
-            BuildAdditiveAttributeModifier("FeatChefConIncrement", AttributeDefinitions.Constitution, 1);
-        FeatureDefinition wisIncrement =
-            BuildAdditiveAttributeModifier("FeatChefWisIncrement", AttributeDefinitions.Wisdom, 1);
-
         feats.Add(FeatDefinitionBuilder
             .Create("FeatChefCon", HealingFeatNamespace)
-            .SetFeatures(conIncrement, shortRestFeast, cookTreatsPower)
+            .SetFeatures(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
+                shortRestFeast, cookTreatsPower)
             .SetGuiPresentation("ChefCon", Category.Feat)
             .AddToDB());
 
         feats.Add(FeatDefinitionBuilder
             .Create("FeatChefWis", HealingFeatNamespace)
-            .SetFeatures(wisIncrement, shortRestFeast, cookTreatsPower)
+            .SetFeatures(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
+                shortRestFeast, cookTreatsPower)
             .SetGuiPresentation("ChefWis", Category.Feat)
             .AddToDB());
-
-        static FeatureDefinitionAttributeModifier BuildAdditiveAttributeModifier(string name, string attribute,
-            int amount)
-        {
-            return FeatureDefinitionAttributeModifierBuilder
-                .Create(name, HealingFeatNamespace)
-                .SetGuiPresentation(Category.Feat)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, attribute,
-                    amount)
-                .AddToDB();
-        }
     }
 
     private static FeatureDefinitionPower BuildPowerFromEffectDescription(int usesPerRecharge,

@@ -132,9 +132,9 @@ internal static class RulesetActorPatcher
         internal static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
             ref bool enumerateFeatures, ref bool canRerollDice)
         {
-            //PATCH: support for `Raven` Rogue subclass
+            //PATCH: support for `RoguishRaven` Rogue subclass
 
-            if (!__instance.HasSubFeatureOfType<Raven.RavenRerollAnyDamageDieMarker>() ||
+            if (!__instance.HasSubFeatureOfType<RoguishRaven.RavenRerollAnyDamageDieMarker>() ||
                 rollContext != RuleDefinitions.RollContext.AttackDamageValueRoll)
             {
                 return;

@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:CastSpellDarkelfMagicSpellList:7e84092e-8b26-4870-8244-ce435a95b67f",
+  "spellListDefinition": "Definition:SpellListDarkelfMagic:7e84092e-8b26-4870-8244-ce435a95b67f",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",

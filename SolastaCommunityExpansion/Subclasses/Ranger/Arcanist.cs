@@ -17,9 +17,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger;
 
 internal sealed class Arcanist : AbstractSubclass
 {
-    private const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
+    private const string RangerArcanistGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
 
-    private static readonly Guid RaBaseGuid = new(RangerArcanistRangerSubclassGuid);
+    private static readonly Guid RaBaseGuid = new(RangerArcanistGuid);
 
     private static ConditionDefinition _markedByArcanist;
 
@@ -53,10 +53,10 @@ internal sealed class Arcanist : AbstractSubclass
         var arcanistMark = CreateArcanistMark();
         var arcaneDetonation = CreateArcaneDetonation();
         var arcaneDetonationUpgrade = CreateArcaneDetonationUpgrade();
-        var (arcanePulseAction, arcanePulseUpgradeAction) = CreateArcanePulsePowers();
+        var (arcanePulseAction, arcanePulseUpgradeAction) = CreatePowerArcanePulsePowers();
 
         return CharacterSubclassDefinitionBuilder
-            .Create("RangerArcanistRangerSubclass", RangerArcanistRangerSubclassGuid)
+            .Create("RangerArcanist", RangerArcanistGuid)
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3, rangerArcanistMagic)
             .AddFeatureAtLevel(arcanistMark, 3)
@@ -170,7 +170,7 @@ internal sealed class Arcanist : AbstractSubclass
     }
 
     private static (FeatureDefinitionPower arcane_pulse_action, FeatureDefinitionPower arcane_pulse_upgrade_action)
-        CreateArcanePulsePowers()
+        CreatePowerArcanePulsePowers()
     {
         var markedEffect = new EffectForm
         {
@@ -203,17 +203,17 @@ internal sealed class Arcanist : AbstractSubclass
             SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
         };
 
-        var arcanePulseAction = CreateArcanePulse("ArcanePulse", "ArcanePulse",
+        var arcanePulseAction = CreatePowerArcanePulse("PowerArcanePulse", "PowerArcanePulse",
             markedEffect, damageEffect);
 
-        var arcanePulseUpgradeAction = CreateArcanePulse("ArcanePulseUpgrade", "ArcanePulse",
+        var arcanePulseUpgradeAction = CreatePowerArcanePulse("PowerPowerArcanePulseUpgrade", "PowerArcanePulse",
             markedEffect, damageUpgradeEffect);
         arcanePulseUpgradeAction.overriddenPower = arcanePulseAction;
 
         return (arcanePulseAction, arcanePulseUpgradeAction);
     }
 
-    private static FeatureDefinitionPower CreateArcanePulse(
+    private static FeatureDefinitionPower CreatePowerArcanePulse(
         string name,
         string term,
         EffectForm markedEffect,

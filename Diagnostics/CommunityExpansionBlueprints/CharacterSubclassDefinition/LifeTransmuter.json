@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModiferTransmuterHealingPool:05db2be3-bf2e-5443-92f7-a15b4241dc02",
+      "featureDefinition": "Definition:PowerTransmuterHealingPool:bf81e77d-1863-5fbc-abad-a968591d9b7a",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModiferTransmuterHealingPoolExtra:47a2abe8-0d72-5137-a59d-170ecb638f39",
+      "featureDefinition": "Definition:PowerPoolModifierTransmuterHealingPoolExtra:398f84c1-f44a-586e-8ecd-99a431ae6a73",
       "level": 10
     },
     {
@@ -48,7 +48,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModiferTransmuterHealingPoolBonus:36d3a2e4-b630-5d7d-b23d-eb2013b57c09",
+      "featureDefinition": "Definition:PowerPoolModifierTransmuterHealingPoolBonus:3174d39e-b3e4-5e0e-bd9f-108658acdf74",
       "level": 14
     },
     {

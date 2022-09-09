@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:SummoningAffinityMarshalEternalComrade:df5b9a5b-1c1b-5fa5-a16e-540efccb4f5a",
-    "Definition:SummonEternalComrade:7edb6d41-2e6a-5f78-94d5-bb496dc5d2c8"
+    "Definition:PowerSummonEternalComrade:ace1f436-d422-5f0b-80f4-33ce256cce1e"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

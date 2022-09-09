@@ -11,7 +11,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefin
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue;
 
-internal sealed class Raven : AbstractSubclass
+internal sealed class RoguishRaven : AbstractSubclass
 {
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
@@ -205,7 +205,7 @@ internal sealed class Raven : AbstractSubclass
             .AddToDB();
 
         return CharacterSubclassDefinitionBuilder
-            .Create("Raven", DefinitionBuilder.CENamespaceGuid)
+            .Create("RoguishRaven", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(sharpShooter, 3)
             .AddFeatureAtLevel(BuildHeartSeekingShot(), 3)

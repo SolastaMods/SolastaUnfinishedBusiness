@@ -1,0 +1,69 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolDruidForestGuardianBarkWard:f2e9950e-84cd-5e3d-bbcc-b2e1bea75f6b",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsForestGuardian:f75d4050-f225-5696-9871-a9946c821a24",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierDruidForestGuardianSylvanDurability:00c2095b-95a3-540c-a521-2628ff457aa9",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityDruidForestGuardianSylvanWarMagic:df504c9d-d7ad-5b11-8394-cb3b3cbe7732",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierDruidForestGuardianExtraAttack:559b3bcb-76fe-545c-b5c3-3b31325f0f4b",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedForestGuardianImprovedBarkWard:1df3fb31-391a-5dcf-bea6-a02de634916a",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedForestGuardianSuperiorBarkWard:44de1453-4646-5db0-bd26-3fa0a1d6e40d",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DruidForestGuardianTitle",
+    "description": "Subclass/&DruidForestGuardianDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "66614872ccbd31747b1555dcb689b144",
+      "m_SubObjectName": "Mountaineer",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "28f5e65a-3f10-5925-8faa-7b2db288169d",
+  "contentPack": 9999,
+  "name": "DruidForestGuardian"
+}

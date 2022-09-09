@@ -1,4 +1,2 @@
-ConditionDebilitated	Title='Condition/&ConditionDebilitatedTitle'.
-ConditionDebilitated	Description='Condition/&ConditionDebilitatedDescription'.
 ConditionFrenzied	Title='Condition/&ConditionFrenziedTitle'.
 ConditionFrenzied	Description='Condition/&ConditionFrenziedDescription'.

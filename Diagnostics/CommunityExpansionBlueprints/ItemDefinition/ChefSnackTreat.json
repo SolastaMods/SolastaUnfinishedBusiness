@@ -68,7 +68,7 @@
         "canOverchargeSpell": false,
         "type": "Power",
         "spellDefinition": null,
-        "featureDefinitionPower": "Definition:ChefTreatEatPower:31ea87c9-f446-59ba-a422-6855c1b372bf"
+        "featureDefinitionPower": "Definition:PowerChefTreatEat:33aa3bdc-3ad7-54a4-9d93-c9909cc43ab0"
       }
     ],
     "usableDeviceTags": [],

@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:BolgrifMagicSpellList:3ac97eec-8d09-4ce3-8d29-40ea8b423798",
+  "spellListDefinition": "Definition:SpellListBolgrifMagic:3ac97eec-8d09-4ce3-8d29-40ea8b423798",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",

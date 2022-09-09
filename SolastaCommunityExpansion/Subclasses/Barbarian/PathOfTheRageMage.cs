@@ -27,7 +27,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
     internal PathOfTheRageMage()
     {
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder // Adds some rules for magic
-            .Create("MagicAffinityBarbarianPathOfTheRageMage", SubclassNamespace)
+            .Create("MagicAffinityPathOfTheRageMage", SubclassNamespace)
             .SetHandsFullCastingModifiers(true, true,
                 true) // lets character cast spells without somatic components and sets weapon as focus
             .SetGuiPresentationNoContent(true) // prevents anything from showing on GUI
@@ -38,7 +38,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var spellCasting = FeatureDefinitionCastSpellBuilder // allows spell casting
             .Create("CastSpellPathOfTheRageMage", SubclassNamespace)
-            .SetGuiPresentation("BarbarianPathOfTheRageMageSpellcasting", Category.Feature)
+            .SetGuiPresentation("PathOfTheRageMageSpellcasting", Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma) // Charisma is Spellcasting modifier
             .SetSpellList(SpellListDefinitions.SpellListSorcerer) // all spells from Sorcerer list
@@ -167,13 +167,13 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetSpecificDamageType(DamageTypeForce).AddToDB();
 
         var enhancedArcaneExplosion = FeatureDefinitionPowerBuilder // dummy feature to include in GUI
-            .Create("enhancedArcaneExplosionPathOfTheMageRage", SubclassNamespace)
+            .Create("PathOfTheMageRageEnhancedArcaneExplosion", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         Subclass =
             CharacterSubclassDefinitionBuilder // adds all of the above features to the subclass at respective levels
-                .Create("BarbarianPathOfTheRageMage", SubclassNamespace)
+                .Create("PathOfTheRageMage", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
                 .AddFeatureAtLevel(magicAffinity, 3)

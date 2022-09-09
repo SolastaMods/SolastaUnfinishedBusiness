@@ -14,25 +14,25 @@ public static class FlexibleBackgroundsContext
     private static readonly Guid FlexBackBaseGuid = new(FlexibleBackgroundsGuid);
 
     private static readonly FeatureDefinition SkillThree = FeatureDefinitionPointPoolBuilder
-        .Create("BackgroundSkillSelect3", "e6f2ed65-a44e-4314-b38c-393abb4ad900")
+        .Create("PointPoolBackgroundSkillSelect3", "e6f2ed65-a44e-4314-b38c-393abb4ad900")
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .SetPool(HeroDefinitions.PointsPoolType.Skill, 3)
         .AddToDB();
 
     private static readonly FeatureDefinition SkillTwo = FeatureDefinitionPointPoolBuilder
-        .Create("BackgroundSkillSelect2", "77d6eb2c-d99f-4256-9bb6-c6395e440629")
+        .Create("PointPoolBackgroundSkillSelect2", "77d6eb2c-d99f-4256-9bb6-c6395e440629")
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
         .AddToDB();
 
     private static readonly FeatureDefinition ToolChoice = FeatureDefinitionPointPoolBuilder
-        .Create("BackgroundToolSelect", "989ddb03-b915-42cc-9612-bc8be96b7476")
+        .Create("PointPoolBackgroundToolSelect", "989ddb03-b915-42cc-9612-bc8be96b7476")
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
         .AddToDB();
 
     private static readonly FeatureDefinition ToolChoiceTwo = FeatureDefinitionPointPoolBuilder
-        .Create("BackgroundToolSelect2", "07d30e58-eddc-43eb-a24c-71f107b8d76a")
+        .Create("PointPoolPointPoolBackgroundToolSelect2", "07d30e58-eddc-43eb-a24c-71f107b8d76a")
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .SetPool(HeroDefinitions.PointsPoolType.Tool, 2)
         .AddToDB();

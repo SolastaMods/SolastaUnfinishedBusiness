@@ -31,7 +31,7 @@ internal static class CharacterReactionSubitemPatcher
                 __instance.slotStatusTable);
         }
     }
-    
+
     [HarmonyPatch(typeof(CharacterReactionSubitem), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Unbind_Patch

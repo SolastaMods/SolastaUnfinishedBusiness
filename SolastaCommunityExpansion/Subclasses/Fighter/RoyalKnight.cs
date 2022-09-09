@@ -50,10 +50,10 @@ internal sealed class RoyalKnight : AbstractSubclass
         var rallyingCryPower = FeatureDefinitionPowerBuilder
             .Create(
                 FeatureDefinitionPowers.PowerDomainLifePreserveLife,
-                "RallyingCryPower",
+                "PowerRallyingCry",
                 "cabe94a7-7e51-4231-ae6d-e8e6e3954611")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
-            .SetShortTitle("Feature/&RallyingCryPowerTitle")
+            .SetShortTitle("Feature/&PowerRallyingCryTitle")
             .SetOverriddenPower(FeatureDefinitionPowers.PowerFighterSecondWind)
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
             .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
@@ -91,13 +91,13 @@ internal sealed class RoyalKnight : AbstractSubclass
         var inspiringSurgePower = FeatureDefinitionPowerBuilder
             .Create(
                 FeatureDefinitionPowers.PowerDomainLifePreserveLife,
-                "InspiringSurgePower",
+                "PowerInspiringSurge",
                 "c2930ad2-dd02-4ff3-bad8-46d93e328fbd")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism.GuiPresentation.SpriteReference)
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
             .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
             .SetEffectDescription(inspiringSurgeEffectDescription)
-            .SetShortTitle("Feature/&InspiringSurgePowerTitle")
+            .SetShortTitle("Feature/&PowerInspiringSurgeTitle")
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

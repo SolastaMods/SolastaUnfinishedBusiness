@@ -352,8 +352,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&BarbarianPathOfTheRageMageSpellcastingTitle",
-    "description": "Feature/&BarbarianPathOfTheRageMageSpellcastingDescription",
+    "title": "Feature/&PathOfTheRageMageSpellcastingTitle",
+    "description": "Feature/&PathOfTheRageMageSpellcastingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

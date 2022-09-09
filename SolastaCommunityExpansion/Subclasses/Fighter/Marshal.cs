@@ -74,7 +74,8 @@ internal static class FeatureSetKnowYourEnemyBuilder
     internal static FeatureDefinitionFeatureSet BuildFeatureSetKnowYourEnemyFeatureSet()
     {
         var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("FeatureSetOnComputeAttackModifierKnowYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
+            .Create("OnComputeAttackModifierKnowYourEnemy",
+                MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentation("FighterMarshalFeatureSetKnowYourEnemyFeatureSet", Category.Feature)
             .SetOnComputeAttackModifierDelegate(FeatureSetKnowYourEnemyComputeAttackModifier)
             .AddToDB();
@@ -116,7 +117,7 @@ internal static class FeatureSetKnowYourEnemyBuilder
     }
 }
 
-internal static class StudyYourEnemyBuilder
+internal static class PowerStudyYourEnemyBuilder
 {
     public static FeatureDefinitionPower BuildStudyEnemyPower()
     {
@@ -132,8 +133,8 @@ internal static class StudyYourEnemyBuilder
             .SetEffectForms(new StudyEnemyEffectDescription());
 
         return FeatureDefinitionPowerBuilder
-            .Create("StudyYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalStudyYourEnemyPower", Category.Power,
+            .Create("PowerStudyYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
+            .SetGuiPresentation("FighterMarshalPowerStudyYourEnemyPower", Category.Power,
                 IdentifyCreatures.GuiPresentation.SpriteReference)
             .SetFixedUsesPerRecharge(2)
             .SetCostPerUse(1)
@@ -420,8 +421,8 @@ internal static class EternalComradeBuilder
         // TODO: make this use concentration and reduce the duration to may be 3 rounds
         // TODO: increase the number of use to 2 and recharge per long rest
         var summonEternalComradePower = FeatureDefinitionPowerBuilder
-            .Create("SummonEternalComrade", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalSummonEternalComradePower", Category.Power,
+            .Create("PowerSummonEternalComrade", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
+            .SetGuiPresentation("FighterMarshalPowerSummonEternalComradePower", Category.Power,
                 Bane.GuiPresentation.SpriteReference)
             .SetCostPerUse(1)
             .SetUsesFixed(1)
@@ -571,7 +572,7 @@ internal static class EncourageBuilder
 
 internal static class MarshalFighterSubclassBuilder
 {
-    private const string MarshalFighterSubclassName = "MarshalFighter";
+    private const string MarshalFighterSubclassName = "FighterMarshal";
     internal static readonly Guid MarshalFighterSubclassNameGuid = new("79608b4e-8293-452e-bd1a-9cf0d0e9d077");
 
     private static readonly FeatureDefinition CoordinatedAttack =
@@ -580,7 +581,8 @@ internal static class MarshalFighterSubclassBuilder
     private static readonly FeatureDefinitionFeatureSet KnowYourEnemies =
         FeatureSetKnowYourEnemyBuilder.BuildFeatureSetKnowYourEnemyFeatureSet();
 
-    private static readonly FeatureDefinitionPower StudyYourEnemy = StudyYourEnemyBuilder.BuildStudyEnemyPower();
+    private static readonly FeatureDefinitionPower PowerStudyYourEnemy =
+        PowerStudyYourEnemyBuilder.BuildStudyEnemyPower();
 
     private static readonly FeatureDefinitionFeatureSet FeatureSetFearlessCommander =
         FeatureSetFearlessCommanderBuilder.BuildFeatureSetFearlessCommander();
@@ -597,7 +599,7 @@ internal static class MarshalFighterSubclassBuilder
             .SetGuiPresentation("FighterMarshal", Category.Subclass, OathOfJugement.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(CoordinatedAttack, 3)
             .AddFeatureAtLevel(KnowYourEnemies, 3)
-            .AddFeatureAtLevel(StudyYourEnemy, 3)
+            .AddFeatureAtLevel(PowerStudyYourEnemy, 3)
             .AddFeatureAtLevel(EternalComrade, 7)
             .AddFeatureAtLevel(FeatureSetFearlessCommander, 10)
             .AddFeatureAtLevel(Encourage, 10)

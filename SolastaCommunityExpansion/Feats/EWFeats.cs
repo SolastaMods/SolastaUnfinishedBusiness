@@ -192,7 +192,7 @@ public static class EwFeats
 
         var turnOffPowerAttackPower = FeatureDefinitionPowerBuilder
             // Reusing old two-handed power id - we need to keep this id anyway, so old characters won't crash
-            .Create("PowerAttackTwoHanded", "b45b8467-7caa-428e-b4b5-ba3c4a153f07")
+            .Create("TurnOffPowerAttack", "b45b8467-7caa-428e-b4b5-ba3c4a153f07")
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)

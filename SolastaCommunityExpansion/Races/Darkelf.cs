@@ -102,7 +102,7 @@ internal static class DarkelfSubraceBuilder
         }
 
         var darkelfMagicSpellList = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListWizard, "CastSpellDarkelfMagicSpellList",
+            .Create(SpellListDefinitions.SpellListWizard, "SpellListDarkelfMagic",
                 "7e84092e-8b26-4870-8244-ce435a95b67f")
             .SetGuiPresentationNoContent()
             .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)

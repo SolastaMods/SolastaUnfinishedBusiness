@@ -34,7 +34,8 @@ internal static class RaceBolgrifBuilder
             .AddToDB();
 
         var bolgrifPowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
-            .Create(FeatureDefinitionEquipmentAffinitys.EquipmentAffinityFeatHauler, "EquipmentAffinityBolgrifPowerfulBuild",
+            .Create(FeatureDefinitionEquipmentAffinitys.EquipmentAffinityFeatHauler,
+                "EquipmentAffinityBolgrifPowerfulBuild",
                 "3f635935-28a3-4bfd-8f51-77417ad7eb8a")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
@@ -51,7 +52,7 @@ internal static class RaceBolgrifBuilder
         bolgrifInvisibilityEffect.EffectAdvancement.Clear();
 
         var bolgrifInvisibilityPower = FeatureDefinitionPowerBuilder
-            .Create("BolgrifInvisibilityPower", "36dcb055-372c-4abf-83b7-4405475d9295")
+            .Create("PowerBolgrifInvisibility", "36dcb055-372c-4abf-83b7-4405475d9295")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
             .SetEffectDescription(bolgrifInvisibilityEffect)
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -61,7 +62,7 @@ internal static class RaceBolgrifBuilder
             .AddToDB();
 
         var bolgrifDruidicMagicSpellList = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListDruid, "BolgrifMagicSpellList",
+            .Create(SpellListDefinitions.SpellListDruid, "SpellListBolgrifMagic",
                 "3ac97eec-8d09-4ce3-8d29-40ea8b423798")
             .SetGuiPresentationNoContent()
             .ClearSpells()

@@ -101,8 +101,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "BarkWard",
-          "conditionDefinition": "Definition:BarkWard:2d27674c-26d3-5d01-b35b-8595f0f7eb52",
+          "conditionDefinitionName": "ConditionBarkWard",
+          "conditionDefinition": "Definition:ConditionBarkWard:258ec149-70de-5ede-a751-a27fe7c42750",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

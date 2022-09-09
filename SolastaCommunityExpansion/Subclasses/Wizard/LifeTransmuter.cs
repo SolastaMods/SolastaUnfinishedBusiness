@@ -32,7 +32,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
 
         // Add transmuter stone like abilities.
         var transmuteForce = FeatureDefinitionPowerPoolBuilder
-            .Create("AttributeModiferTransmuterHealingPool", SubclassNamespace)
+            .Create("PowerTransmuterHealingPool", SubclassNamespace)
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.RechargeRate.LongRest)
             .SetGuiPresentation(Category.Feature)
@@ -102,7 +102,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var transmuteForceExtra = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferTransmuterHealingPoolExtra", SubclassNamespace)
+            .Create("PowerPoolModifierTransmuterHealingPoolExtra", SubclassNamespace)
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)
@@ -135,7 +135,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferTransmuterHealingPoolBonus", SubclassNamespace)
+            .Create("PowerPoolModifierTransmuterHealingPoolBonus", SubclassNamespace)
             .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)

@@ -75,7 +75,7 @@ internal sealed class ConArtist : AbstractSubclass
                 .Build());
 
         var feint = FeatureDefinitionPowerBuilder
-            .Create("RoguishConArtistFeint", SubclassNamespace)
+            .Create("PowerRoguishConArtistFeint", SubclassNamespace)
             .SetGuiPresentation(Category.Feature)
             .Configure(
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma,

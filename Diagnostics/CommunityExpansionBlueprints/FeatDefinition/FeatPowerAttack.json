@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:PowerAttack:0a3e6a7d-4628-4189-b91d-d7146d774bb6",
-    "Definition:PowerAttackTwoHanded:b45b8467-7caa-428e-b4b5-ba3c4a153f07"
+    "Definition:TurnOffPowerAttack:b45b8467-7caa-428e-b4b5-ba3c4a153f07"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
