@@ -14,6 +14,22 @@ internal static class GameLocationBattleManagerTweaks
     {
         DamageForm additionalDamageForm = DamageForm.Get();
         FeatureDefinition featureDefinition = provider as FeatureDefinition;
+        
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for wild-shaped characters
+         */
+                
+        //[CE] Store original RulesetCharacterHero for future use
+        var hero = attacker.RulesetCharacter as RulesetCharacterHero ??
+                   attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+        /*
+         * Support for wild-shaped characters
+         * [CE] EDIT END
+         * ######################################
+         */
 
         // What is the method to determine the amount of damage?
         if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.Die)
@@ -23,8 +39,26 @@ internal static class GameLocationBattleManagerTweaks
             if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
             {
                 // Find the character class which triggered this
-                RulesetCharacterHero hero = attacker.RulesetCharacter as RulesetCharacterHero;
-                CharacterClassDefinition classDefinition = hero.FindClassHoldingFeature(featureDefinition);
+                /*
+                 * ######################################
+                 * [CE] EDIT START
+                 * Support for wild-shaped characters
+                 */
+                
+                // [CE] comment-out this local variable, so that one declared above, which accounts for wild-shape, is used
+                // RulesetCharacterHero hero = attacker.RulesetCharacter as RulesetCharacterHero;
+                
+                // [CE] commented-out original code
+                //CharacterClassDefinition classDefinition = hero.FindClassHoldingFeature(featureDefinition);
+                
+                // Use null-coalescing operator to ward against possible `NullReferenceException`
+                var classDefinition = hero?.FindClassHoldingFeature(featureDefinition);
+                
+                /*
+                 * Support for wild-shaped characters
+                 * [CE] EDIT END
+                 * ######################################
+                 */
                 if (classDefinition != null)
                 {
                     int classLevel = hero.ClassesAndLevels[classDefinition];
@@ -79,7 +113,24 @@ internal static class GameLocationBattleManagerTweaks
             additionalDamageForm.DieType = provider.DamageDieType;
             additionalDamageForm.DiceNumber = diceNumber;
         }
-        else if (attacker.RulesetCharacter is RulesetCharacterHero &&
+
+        /*
+        * ######################################
+        * [CE] EDIT START
+        * Support for wild-shaped characters
+        */
+        
+        //Commented out original check
+        //else if (attacker.RulesetCharacter is RulesetCharacterHero &&
+        
+        //check previously saved hero variable to allow wild-shaped heroes to count for these bonuses
+        else if (hero != null &&
+        
+        /*
+         * Support for wild-shaped characters
+         * [CE] EDIT END
+         * ######################################
+         */
             (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus
             || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus
             || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus
@@ -91,7 +142,23 @@ internal static class GameLocationBattleManagerTweaks
 
             if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus)
             {
-                additionalDamageForm.BonusDamage += (attacker.RulesetCharacter as RulesetCharacterHero).GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+                /*
+                 * ######################################
+                 * [CE] EDIT START
+                 * Support for wild-shaped characters
+                 */
+                
+                //Commented out original check
+                // additionalDamageForm.BonusDamage += (attacker.RulesetCharacter as RulesetCharacterHero).GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+
+                //use previously saved original RulesetCharacterHero
+                additionalDamageForm.BonusDamage += hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+
+                /*
+                 * Support for wild-shaped characters
+                 * [CE] EDIT END
+                 * ######################################
+                 */
             }
 
             if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus)
@@ -129,7 +196,23 @@ internal static class GameLocationBattleManagerTweaks
                 additionalDamageForm.BonusDamage = sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             }
         }
-        else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.TargetKnowledgeLevel && attacker.RulesetCharacter is RulesetCharacterHero && defender.RulesetCharacter is RulesetCharacterMonster)
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for wild-shaped characters
+         */
+                
+        //Commented out original check
+        // else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.TargetKnowledgeLevel && attacker.RulesetCharacter is RulesetCharacterHero && defender.RulesetCharacter is RulesetCharacterMonster)
+        
+        // [CE] use previously saved hero variable to check if attacker is actually a  hero, this allows for wild-shaped charaters to count
+        else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.TargetKnowledgeLevel && hero != null && defender.RulesetCharacter is RulesetCharacterMonster)
+            
+        /*
+         * Support for wild-shaped characters
+         * [CE] EDIT END
+         * ######################################
+         */
         {
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
