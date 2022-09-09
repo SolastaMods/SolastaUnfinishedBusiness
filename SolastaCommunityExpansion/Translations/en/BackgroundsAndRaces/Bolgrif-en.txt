@@ -10,7 +10,5 @@ Feature/&EquipmentAffinityBolgrifPowerfulBuildDescription=You count your size as
 Feature/&EquipmentAffinityBolgrifPowerfulBuildTitle=Powerful Build
 Feature/&ProficiencyBolgrifLanguagesDescription=Common, Elvish and Giant.
 Feature/&ProficiencyBolgrifLanguagesTitle=Language
-Language/&AbyssalDescription=Abyssal language was the form of primordial language which has been wrapped and twisted by the evil of the abyss.
-Language/&AbyssalTitle=Abyssal
 Race/&RaceBolgrifDescription=Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 Race/&RaceBolgrifTitle=Bolgrif

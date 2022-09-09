@@ -1,6 +1,5 @@
 Equipment/&ArcaneStaffDescription=This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
 Equipment/&ArcaneStaffTitle=Arcane Staff
-Equipment/&Armor_HideTitle=Hide
 Equipment/&Armor_Noble_ClothesTitle_Cherry=Cherry Noble's Clothes
 Equipment/&Armor_Noble_ClothesTitle_Green=Green Noble's Clothes
 Equipment/&Armor_Noble_ClothesTitle_Orange=Orange Noble's Clothes
