@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Extensions;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.PatchCode;
@@ -30,6 +31,29 @@ internal static class GameLocationBattleManagerTweaks
                     diceNumber = provider.GetDiceOfRank(classLevel);
                 }
             }
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for `CharacterLevel` damage progression
+             */
+            else if ((ExtraAdditionalDamageAdvancement) provider.DamageAdvancement ==
+                     ExtraAdditionalDamageAdvancement.CharacterLevel)
+            {
+                var rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero ??
+                                       attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+                if (rulesetCharacter != null)
+                {
+                    var characterLevel =
+                        rulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                    diceNumber = provider.GetDiceOfRank(characterLevel);
+                }
+            }
+            /*
+             * Support for `CharacterLevel` damage progression
+             * [CE] EDIT END
+             * ######################################
+             */
             else if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.SlotLevel)
             {
                 if (reactionParams != null)
