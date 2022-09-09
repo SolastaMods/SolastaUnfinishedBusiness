@@ -50,6 +50,14 @@ public class FeatureDefinitionAttackModifierBuilder
         return This();
     }
 
+    public FeatureDefinitionAttackModifierBuilder SetRequiredProperty(
+        RuleDefinitions.RestrictedContextRequiredProperty property)
+    {
+        Definition.requiredProperty = property;
+
+        return This();
+    }
+
     #region Constructors
 
     protected FeatureDefinitionAttackModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

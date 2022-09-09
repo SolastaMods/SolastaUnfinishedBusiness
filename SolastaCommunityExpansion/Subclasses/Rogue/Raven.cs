@@ -58,17 +58,19 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .Create("AttackModifierHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .Configure(RuleDefinitions.AttackModifierMethod.FlatValue, -4)
+                    .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.RangeWeapon)
                     .AddToDB(),
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
-                    .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
+                    .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit)
                     .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.SameAsBaseDamage)
+                    .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.RangeWeapon)
                     .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
                     .SetDamageDice(RuleDefinitions.DieType.D6, 1)
                     .SetAdvancement(
-                        (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
+                        (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ClassLevel,
                         (3, 2),
                         (4, 2),
                         (5, 2),
