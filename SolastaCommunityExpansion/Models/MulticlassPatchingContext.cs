@@ -22,7 +22,7 @@ internal static class MulticlassPatchingContext
         { ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass },
         { ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass },
         { ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass },
-        { PointPoolBardSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass },
+        { PointPoolBardSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolBardSkillPointsMulticlass },
         { PointPoolRangerSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass },
         { PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass }
     };
@@ -33,6 +33,7 @@ internal static class MulticlassPatchingContext
         {
             Barbarian, new List<FeatureDefinition> { PointPoolBarbarianrSkillPoints, ProficiencyBarbarianSavingThrow }
         },
+        { Bard, new List<FeatureDefinition> { ProficiencyBardWeapon, ProficiencyBardSavingThrow } },
         {
             Cleric,
             new List<FeatureDefinition>
@@ -76,26 +77,26 @@ internal static class MulticlassPatchingContext
         PatchClassLevel();
         PatchEquipmentAssignment();
         PatchFeatureUnlocks();
-        AddNonOfficialBlueprintsToFeaturesCollections();
+        // AddNonOfficialBlueprintsToFeaturesCollections();
     }
 
-    private static void AddNonOfficialBlueprintsToFeaturesCollections()
-    {
-        var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
-        var dbFeatureDefinitionProficiency = DatabaseRepository.GetDatabase<FeatureDefinitionProficiency>();
-
-        //
-        // add these later as need to wait for these blueprints to be instantiated and not willing to publicise CE
-        //
-
-        // FeaturesToExclude.Add(TinkererClass,
-        //     new List<FeatureDefinition>
-        //     {
-        //         dbFeatureDefinitionPointPool.GetElement("PointPoolTinkererSkillPoints"),
-        //         dbFeatureDefinitionProficiency.GetElement("ProficiencyWeaponTinkerer"),
-        //         dbFeatureDefinitionProficiency.GetElement("ProficiencyTinkererSavingThrow")
-        //     });
-    }
+    // private static void AddNonOfficialBlueprintsToFeaturesCollections()
+    // {
+    //     var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
+    //     var dbFeatureDefinitionProficiency = DatabaseRepository.GetDatabase<FeatureDefinitionProficiency>();
+    //
+    //     //
+    //     // add these later as need to wait for these blueprints to be instantiated and not willing to publicise CE
+    //     //
+    //
+    //     FeaturesToExclude.Add(TinkererClass,
+    //         new List<FeatureDefinition>
+    //         {
+    //             dbFeatureDefinitionPointPool.GetElement("PointPoolTinkererSkillPoints"),
+    //             dbFeatureDefinitionProficiency.GetElement("ProficiencyWeaponTinkerer"),
+    //             dbFeatureDefinitionProficiency.GetElement("ProficiencyTinkererSavingThrow")
+    //         });
+    // }
 
     //
     // ClassLevel patching support

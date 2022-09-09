@@ -21,7 +21,7 @@ internal static class RulesetSpellRepertoirePatcher
     }
 
     // ensures MC Warlocks are treated before SC ones
-    // [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_GetMaxSlotsNumberOfAllLevels
     {
@@ -83,7 +83,7 @@ internal static class RulesetSpellRepertoirePatcher
     }
 
     // ensures MC Warlocks are treated before SC ones
-    // [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetRemainingSlotsNumberOfAllLevels")]
+    //[HarmonyPatch(typeof(RulesetSpellRepertoire), "GetRemainingSlotsNumberOfAllLevels")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_GetRemainingSlotsNumberOfAllLevels
     {
@@ -106,7 +106,7 @@ internal static class RulesetSpellRepertoirePatcher
     }
 
     // handles all different scenarios to determine slots numbers
-    // [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetSlotsNumber")]
+    //[HarmonyPatch(typeof(RulesetSpellRepertoire), "GetSlotsNumber")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_GetSlotsNumber
     {
