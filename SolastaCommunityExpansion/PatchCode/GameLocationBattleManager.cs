@@ -457,7 +457,7 @@ internal static class GameLocationBattleManagerTweaks
      * All changes made by CE mod should be clearly marked for easy future updates
      * This is for both physical and magical attacks
      */
-    private static IEnumerator HandleAdditionalDamageOnCharacterAttackHitConfirmed(
+    public static IEnumerator HandleAdditionalDamageOnCharacterAttackHitConfirmed(
         GameLocationBattleManager instance,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -483,6 +483,21 @@ internal static class GameLocationBattleManagerTweaks
                 instance.featuresToBrowseItem.Clear();
             }
         }
+        
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for extra types of Smite (like eldritch smite)
+         */
+        
+        // store ruleset service for further use
+        var rulesetImplementation = ServiceRepository.GetService<IRulesetImplementationService>();
+
+        /*
+         * Support for extra types of Smite (like eldritch smite)
+         * [CE] EDIT END
+         * ######################################
+         */
 
         foreach (FeatureDefinition featureDefinition in instance.featuresToBrowseReaction)
         {
@@ -554,7 +569,28 @@ internal static class GameLocationBattleManagerTweaks
             }
 
             CharacterActionParams reactionParams = null;
-            if (validUses)
+            
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for extra types of Smite (like eldritch smite)
+             */
+            bool validProperty = true;
+            
+            if (attackMode != null && validUses && provider.RequiredProperty != RuleDefinitions.RestrictedContextRequiredProperty.None)
+            {
+                validProperty = rulesetImplementation.IsValidContextForRestrictedContextProvider(provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
+            }
+            //[CE] try checking triggers only if context is valid, to prevent SpendSpellSlot showing popup on incorrect context
+            if (validUses && validProperty)
+            //commented-out original code
+            // if (validUses)
+            
+            /*
+             * Support for extra types of Smite (like eldritch smite)
+             * [CE] EDIT END
+             * ######################################
+             */
             {
                 switch (provider.TriggerCondition)
                 {
@@ -571,11 +607,27 @@ internal static class GameLocationBattleManagerTweaks
 
                             break;
                         }
-
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot
-                        when attackModifier != null
-                             && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee:
+                    /*
+                     * ######################################
+                     * [CE] EDIT START
+                     * Support for extra types of Smite (like eldritch smite)
+                     */
+                    
+                    // [CE] remove melee check, so that other types of smites can be made
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot:
+                    
+                    // commented-out original code
+                    // case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot
+                    //     when attackModifier != null
+                    //          && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee:
+                    
+                    /*
+                     * Support for extra types of Smite (like eldritch smite)
+                     * [CE] EDIT END
+                     * ######################################
+                     */
                         {
+                            //TODO: implement wild-shape, MC and warlock spell slot tweaks 
                             // This is used for Divine Smite
                             // Look for the spellcasting feature holding the smite
                             RulesetCharacterHero hero = attacker.RulesetCharacter as RulesetCharacterHero;
@@ -792,14 +844,27 @@ internal static class GameLocationBattleManagerTweaks
                 }
             }
 
-            // Check required properties for physical attacks if needed
-            IRulesetImplementationService rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
-            bool validProperty = true;
-            if (attackMode != null && validTrigger && provider.RequiredProperty != RuleDefinitions.RestrictedContextRequiredProperty.None)
-            {
-                validProperty = rulesetImplementationService.IsValidContextForRestrictedContextProvider(provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
-            }
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for extra types of Smite (like eldritch smite)
+             */
+            
+            //Commented-out original code. Actual check moved up, to make sure Reaction popups (like SpendSpellSlot) won't be shown if context is not valid.
+            // // Check required properties for physical attacks if needed
+            // IRulesetImplementationService rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            //
+            // bool validProperty = true;
+            // if (attackMode != null && validTrigger && provider.RequiredProperty != RuleDefinitions.RestrictedContextRequiredProperty.None)
+            // {
+            //     validProperty = rulesetImplementationService.IsValidContextForRestrictedContextProvider(provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
+            // }
+            
+            /*
+            * Support for extra types of Smite (like eldritch smite)
+            * [CE] EDIT END
+            * ######################################
+            */
 
             if (validTrigger && validProperty)
             {

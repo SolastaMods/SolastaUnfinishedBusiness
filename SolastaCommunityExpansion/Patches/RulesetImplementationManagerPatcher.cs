@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.PatchCode.CustomFeatures;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Patches;
@@ -243,6 +244,18 @@ internal static class RulesetImplementationManagerPatcher
             }
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetImplementationManager), "IsValidContextForRestrictedContextProvider")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class IsValidContextForRestrictedContextProvider_Patch
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: support for shield counting as melee
+            //replaces calls to ItemDefinition's isWeapon and Wea[ponDescription getter with custom ones that account for shield
+            return ShieldAttack.MakeShieldCountAsMelee(instructions);
         }
     }
 }

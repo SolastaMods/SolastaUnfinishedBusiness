@@ -9,6 +9,7 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.PatchCode;
 using TA;
 
 namespace SolastaCommunityExpansion.Patches;
@@ -278,6 +279,33 @@ internal static class GameLocationBattleManagerPatcher
                 sub.Qualified =
                     attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleAdditionalDamageOnCharacterAttackHitConfirmed")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleAdditionalDamageOnCharacterAttackHitConfirmed_Patch
+    {
+        internal static bool Prefix(
+            GameLocationBattleManager __instance,
+            out IEnumerator __result,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            RuleDefinitions.AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            //PATCH: Completely replace this method to suppoort several features. Modified method based on TA provided sources.
+            __result = GameLocationBattleManagerTweaks.HandleAdditionalDamageOnCharacterAttackHitConfirmed(__instance,
+                attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms,
+                rulesetEffect, criticalHit, firstTarget);
+
+            return false;
         }
     }
 
