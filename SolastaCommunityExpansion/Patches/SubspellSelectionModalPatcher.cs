@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion.PatchCode.SrdAndHouseRules;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches;

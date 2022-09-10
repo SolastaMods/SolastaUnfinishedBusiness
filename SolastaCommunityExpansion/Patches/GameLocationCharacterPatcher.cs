@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.PatchCode.CustomFeatures;
-using SolastaCommunityExpansion.PatchCode.CustomUI;
+using SolastaCommunityExpansion.CustomUI;
 
 namespace SolastaCommunityExpansion.Patches;
 
@@ -206,7 +206,7 @@ internal static class GameLocationCharacterPatcher
             var codes = instructions.ToList();
 
             //PATCH: SUpport for `IFeatureApplicationValidator`
-            FeatureApplicationValidation.ValidateActionPerformaceProviders(codes);
+            FeatureApplicationValidation.ValidateActionPerformanceProviders(codes);
 
             //PATCH: SUpport for `IFeatureApplicationValidator`
             FeatureApplicationValidation.ValidateAdditionalActionProviders(codes);

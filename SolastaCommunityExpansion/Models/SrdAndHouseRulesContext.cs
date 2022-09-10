@@ -1,8 +1,13 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
+using UnityEngine;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
@@ -291,3 +296,370 @@ internal static class SrdAndHouseRulesContext
         }
     }
 }
+
+internal static class ArmorClassStacking
+{
+    //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
+    public static void AddCustomTagsToModifierBuilder(List<CodeInstruction> codes)
+    {
+        var method =
+            new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string,
+                RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
+
+        var index = codes.FindIndex(c => c.Calls(method));
+
+        if (index <= 0)
+        {
+            return;
+        }
+
+        var custom =
+            new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string,
+                FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
+
+        codes[index] = new CodeInstruction(OpCodes.Call, custom); //replace call with custom method
+        codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_1)); // load 'feature' as last argument
+    }
+
+    private static RulesetAttributeModifier CustomBuildAttributeModifier(
+        FeatureDefinitionAttributeModifier.AttributeModifierOperation operationType,
+        float modifierValue,
+        string tag,
+        string sourceAbility,
+        FeatureDefinitionAttributeModifier feature)
+    {
+        var modifier = RulesetAttributeModifier.BuildAttributeModifier(operationType, modifierValue, tag);
+        if (feature.HasSubFeatureOfType<ExclusiveArmorClassBonus>())
+        {
+            modifier.Tags.Add(ExclusiveArmorClassBonus.Tag);
+        }
+
+        return modifier;
+    }
+
+    public static bool UnstackAC(RulesetAttribute attribute)
+    {
+        if (attribute.Name != AttributeDefinitions.ArmorClass)
+        {
+            return true;
+        }
+
+        var currentValue = attribute.BaseValue;
+        var activeModifiers = attribute.ActiveModifiers;
+        var minModValue = int.MinValue;
+        var setValue = 10;
+
+        var exclusives = new List<RulesetAttributeModifier>();
+
+        foreach (var modifier in activeModifiers)
+        {
+            switch (modifier.Operation)
+            {
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway:
+                    minModValue = Mathf.RoundToInt(modifier.Value);
+                    break;
+
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set:
+                    setValue = Main.Settings.UseMoreRestrictiveAcStacking
+                               || modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag)
+                        ? Mathf.RoundToInt(modifier.Value)
+                        : 10;
+                    currentValue = modifier.ApplyOnValue(currentValue);
+
+                    break;
+
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Multiplicative:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddSurroundingEnemies:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfWorse:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus:
+                case FeatureDefinitionAttributeModifier.AttributeModifierOperation
+                    .MultiplyByClassLevelBeforeAdditions:
+                default:
+                {
+                    if (modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag))
+                    {
+                        exclusives.Add(modifier);
+                    }
+                    else
+                    {
+                        currentValue = modifier.ApplyOnValue(currentValue);
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        if (!exclusives.Empty())
+        {
+            var exclusiveAc = exclusives
+                .Select(modifier => modifier.ApplyOnValue(currentValue)).Prepend(setValue).Max() - currentValue;
+
+            currentValue = currentValue + (10 - setValue) + exclusiveAc;
+        }
+
+        var realMaxValue = attribute.MaxEditableValue > 0
+            ? attribute.MaxEditableValue
+            : attribute.MaxValue;
+
+        currentValue = minModValue <= currentValue
+            ? Mathf.Clamp(currentValue, attribute.MinValue, realMaxValue)
+            : minModValue;
+
+        attribute.currentValue = currentValue;
+        attribute.upToDate = true;
+        attribute.AttributeRefreshed?.Invoke();
+
+        return false;
+    }
+}
+
+/// <summary>
+///     Allow spells that require consumption of a material component (e.g. a gem of value >= 1000gp) use a stack
+///     of lesser value components (e.g. 4 x 300gp diamonds).
+///     Note that this implementation will only work with identical components - e.g. 'all diamonds', it won't consider
+///     combining
+///     different types of items with the tag 'gem'.
+///     TODO: if anyone requests it we can improve with GroupBy etc...
+/// </summary>
+public static class StackedMaterialComponent
+{
+    public static void IsComponentMaterialValid(
+        RulesetCharacter character,
+        SpellDefinition spellDefinition,
+        ref string failure,
+        ref bool result)
+    {
+        if (!Main.Settings.AllowStackedMaterialComponent)
+        {
+            return;
+        }
+
+        if (result)
+        {
+            return;
+        }
+
+        // Repeats the last section of the original method but adds 'approximateCostInGold * item.StackCount'
+        var items = new List<RulesetItem>();
+
+        character.CharacterInventory.EnumerateAllItems(items);
+
+        if ((from item in items
+                let approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs)
+                where item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) &&
+                      approximateCostInGold * item.StackCount >= spellDefinition.SpecificMaterialComponentCostGp
+                select item).Any())
+        {
+            result = true;
+            failure = string.Empty;
+        }
+    }
+
+    //Modify original code to spend enough of a stack to meet component cost
+    public static bool SpendSpellMaterialComponentAsNeeded(RulesetCharacter character, RulesetEffectSpell activeSpell)
+    {
+        if (!Main.Settings.AllowStackedMaterialComponent)
+        {
+            return true;
+        }
+
+        var spell = activeSpell.SpellDefinition;
+        if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific
+            || !spell.SpecificMaterialComponentConsumed
+            || string.IsNullOrEmpty(spell.SpecificMaterialComponentTag)
+            || spell.SpecificMaterialComponentCostGp <= 0
+            || character.CharacterInventory == null)
+        {
+            return false;
+        }
+
+        var items = new List<RulesetItem>();
+
+        character.CharacterInventory.EnumerateAllItems(items);
+
+        var itemToUse = items
+            .Where(item => item.ItemDefinition.ItemTags.Contains(spell.SpecificMaterialComponentTag))
+            .Select(item => new
+            {
+                RulesetItem = item,
+                // Note original code is "int cost = rulesetItem2.ItemDefinition.Costs[1];" which doesn't agree with IsComponentMaterialValid which
+                // uses GetApproximateCostInGold
+                Cost = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs)
+            })
+            .Select(item => new
+            {
+                item.RulesetItem,
+                item.Cost,
+                StackCountRequired = (int)Math.Ceiling(spell.SpecificMaterialComponentCostGp / (double)item.Cost)
+            })
+            .Where(item => item.StackCountRequired <= item.RulesetItem.StackCount)
+            .Select(item => new
+            {
+                item.RulesetItem,
+                item.Cost,
+                item.StackCountRequired,
+                TotalCost = item.StackCountRequired * item.Cost
+            })
+            .Where(item => item.TotalCost >= activeSpell.SpellDefinition.SpecificMaterialComponentCostGp)
+            .OrderBy(item => item.TotalCost) // min total cost used
+            .ThenBy(item => item.StackCountRequired) // min items used
+            .FirstOrDefault();
+
+        if (itemToUse == null)
+        {
+            Main.Log("Didn't find item.");
+
+            return false;
+        }
+
+        Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
+
+        var componentConsumed = character.SpellComponentConsumed;
+
+        if (componentConsumed != null)
+        {
+            for (var i = 0; i < itemToUse.StackCountRequired; i++)
+            {
+                componentConsumed(character, spell, itemToUse.RulesetItem);
+            }
+        }
+
+        var rulesetItem = itemToUse.RulesetItem;
+
+        if (rulesetItem.ItemDefinition.CanBeStacked && rulesetItem.StackCount > 1 &&
+            itemToUse.StackCountRequired < rulesetItem.StackCount)
+        {
+            Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
+
+            rulesetItem.SpendStack(itemToUse.StackCountRequired);
+        }
+        else
+        {
+            Main.Log("Destroy item");
+
+            character.CharacterInventory.DestroyItem(rulesetItem);
+        }
+
+        return false;
+    }
+}
+
+internal static class UpcastConjureElementalAndFey
+{
+    private static List<SpellDefinition> _filteredSubspells;
+
+    /**
+     * Patch implementation
+     * Replaces subspell activation with custom code for upcasted elementals/fey
+     */
+    internal static bool CheckSubSpellActivated(SubspellSelectionModal __instance, int index)
+    {
+        if (!Main.Settings.EnableUpcastConjureElementalAndFey || _filteredSubspells is not { Count: > 0 })
+        {
+            return true;
+        }
+
+        if (_filteredSubspells.Count <= index)
+        {
+            return true;
+        }
+
+        __instance.spellCastEngaged?.Invoke(__instance.spellRepertoire, _filteredSubspells[index],
+            __instance.slotLevel);
+
+        __instance.Hide();
+
+        _filteredSubspells.Clear();
+
+        return false;
+    }
+
+    /**
+     * Patch implementation
+     * Replaces calls to masterSpell.SubspellsList getter with custom method that adds extra options for upcasted elementals/fey
+     */
+    internal static IEnumerable<CodeInstruction> ReplaceSubSpellList(IEnumerable<CodeInstruction> instructions)
+    {
+        var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
+        var getSpellList = new Func<SpellDefinition, int, List<SpellDefinition>>(SubspellsList);
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(subspellsListMethod))
+            {
+                yield return new CodeInstruction(OpCodes.Ldarg, 5); // slotLevel
+                yield return new CodeInstruction(OpCodes.Call, getSpellList.Method);
+            }
+            else
+            {
+                yield return instruction;
+            }
+        }
+    }
+
+    [CanBeNull]
+    private static List<SpellDefinition> SubspellsList([NotNull] SpellDefinition masterSpell, int slotLevel)
+    {
+        var subspellsList = masterSpell.SubspellsList;
+        var mySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
+                          || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
+            ? slotLevel
+            : -1;
+
+        if (!Main.Settings.EnableUpcastConjureElementalAndFey || mySlotLevel < 0 || subspellsList == null ||
+            subspellsList.Count == 0)
+        {
+            return subspellsList;
+        }
+
+        var subspellsGroupedAndFilteredByCR = subspellsList
+            .Select(s =>
+                new
+                {
+                    SpellDefinition = s,
+                    s.EffectDescription
+                        .GetFirstFormOfType(EffectForm.EffectFormType.Summon)
+                        .SummonForm
+                        .MonsterDefinitionName
+                }
+            )
+            .Select(s => new
+            {
+                s.SpellDefinition,
+                s.MonsterDefinitionName,
+                ChallengeRating =
+                    DatabaseRepository.GetDatabase<MonsterDefinition>()
+                        .TryGetElement(s.MonsterDefinitionName, out var monsterDefinition)
+                        ? monsterDefinition.ChallengeRating
+                        : int.MaxValue
+            })
+            .GroupBy(s => s.ChallengeRating)
+            .Select(g => new
+            {
+                ChallengeRating = g.Key,
+                SpellDefinitions = g.Select(s => s.SpellDefinition)
+                    .OrderBy(s => Gui.Localize(s.GuiPresentation.Title))
+            })
+            .Where(s => s.ChallengeRating <= mySlotLevel)
+            .OrderByDescending(s => s.ChallengeRating)
+            .ToList();
+
+        var allOrMostPowerful = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey
+            ? subspellsGroupedAndFilteredByCR.Take(1).ToList()
+            : subspellsGroupedAndFilteredByCR;
+
+        _filteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
+
+        _filteredSubspells.ForEach(s => Main.Log($"{Gui.Localize(s.GuiPresentation.Title)}"));
+
+        return _filteredSubspells;
+    }
+}
+

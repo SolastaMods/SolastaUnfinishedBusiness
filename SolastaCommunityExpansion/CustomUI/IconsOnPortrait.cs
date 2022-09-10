@@ -1,7 +1,7 @@
 ﻿using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomUI;
 
-namespace SolastaCommunityExpansion.PatchCode.CustomUI;
+namespace SolastaCommunityExpansion.CustomUI;
 
 internal static class IconsOnPortrait
 {

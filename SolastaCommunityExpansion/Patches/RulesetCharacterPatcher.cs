@@ -12,7 +12,6 @@ using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.PatchCode.SrdAndHouseRules;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaCommunityExpansion.Models.SpellsSlotsContext;
 

@@ -9,13 +9,13 @@ namespace SolastaCommunityExpansion.PatchCode.CustomFeatures;
 
 internal static class FeatureApplicationValidation
 {
-    public static void ValidateActionPerformaceProviders(List<CodeInstruction> codes)
+    public static void ValidateActionPerformanceProviders(List<CodeInstruction> codes)
     {
         var enumerate = new Action<
             RulesetActor,
             List<FeatureDefinition>,
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-        >(EnumerateActionPreformanceProviders).Method;
+        >(EnumerateActionPerformanceProviders).Method;
 
 
         var bindIndex = codes.FindIndex(x =>
@@ -36,7 +36,7 @@ internal static class FeatureApplicationValidation
         }
     }
 
-    private static void EnumerateActionPreformanceProviders(RulesetActor actor, List<FeatureDefinition> features,
+    private static void EnumerateActionPerformanceProviders(RulesetActor actor, List<FeatureDefinition> features,
         Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
     {
         actor.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(features);

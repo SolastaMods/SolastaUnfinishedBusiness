@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomUI;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.PatchCode.CustomUI;
+namespace SolastaCommunityExpansion.CustomUI;
 
 public static class ExtraAttacksOnActionPanel
 {

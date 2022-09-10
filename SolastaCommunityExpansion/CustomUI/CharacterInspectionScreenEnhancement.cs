@@ -8,7 +8,7 @@ using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.PatchCode.CustomUI;
+namespace SolastaCommunityExpansion.CustomUI;
 
 internal static class CharacterInspectionScreenEnhancement
 {

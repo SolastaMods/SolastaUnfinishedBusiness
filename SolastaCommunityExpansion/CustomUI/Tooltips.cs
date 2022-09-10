@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.PatchCode.CustomUI;
+namespace SolastaCommunityExpansion.CustomUI;
 
 internal static class Tooltips
 {
