@@ -9,79 +9,90 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class FlexibleBackgroundsContext
 {
-    private const string FlexibleBackgroundsGuid = "f7713746-2028-410d-9df6-20f261f4d6aa";
-
-    private static readonly Guid FlexBackBaseGuid = new(FlexibleBackgroundsGuid);
-
     private static readonly FeatureDefinition SkillThree = FeatureDefinitionPointPoolBuilder
-        .Create("PointPoolBackgroundSkillSelect3", "e6f2ed65-a44e-4314-b38c-393abb4ad900")
+        .Create("PointPoolBackgroundSkillSelect3", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .SetPool(HeroDefinitions.PointsPoolType.Skill, 3)
         .AddToDB();
 
     private static readonly FeatureDefinition SkillTwo = FeatureDefinitionPointPoolBuilder
-        .Create("PointPoolBackgroundSkillSelect2", "77d6eb2c-d99f-4256-9bb6-c6395e440629")
+        .Create("PointPoolBackgroundSkillSelect2", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
         .AddToDB();
 
     private static readonly FeatureDefinition ToolChoice = FeatureDefinitionPointPoolBuilder
-        .Create("PointPoolBackgroundToolSelect", "989ddb03-b915-42cc-9612-bc8be96b7476")
+        .Create("PointPoolBackgroundToolSelect", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
         .AddToDB();
 
     private static readonly FeatureDefinition ToolChoiceTwo = FeatureDefinitionPointPoolBuilder
-        .Create("PointPoolPointPoolBackgroundToolSelect2", "07d30e58-eddc-43eb-a24c-71f107b8d76a")
+        .Create("PointPoolPointPoolBackgroundToolSelect2", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .SetPool(HeroDefinitions.PointsPoolType.Tool, 2)
         .AddToDB();
 
     private static readonly FeatureDefinition AcademicSuggestedSkills = FeatureDefinitionBuilder
-        .Create("AcademicBackgroundSuggestedSkills", FlexBackBaseGuid)
-        .SetGuiPresentation("AcademicBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+        .Create("AcademicBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition AcolyteSuggestedSkills = FeatureDefinitionBuilder
-        .Create("AcolyteBackgroundSuggestedSkills", FlexBackBaseGuid)
-        .SetGuiPresentation("AcolyteBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+        .Create("AcolyteBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition AristocratSuggestedSkills = FeatureDefinitionBuilder
-        .Create("AristocratBackgroundSuggestedSkills", FlexBackBaseGuid)
-        .SetGuiPresentation("AristocratBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+        .Create("AristocratBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition LawkeeperSuggestedSkills = FeatureDefinitionBuilder
-        .Create("LawkeeperBackgroundSuggestedSkills", FlexBackBaseGuid)
-        .SetGuiPresentation("LawkeeperBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+        .Create("LawkeeperBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition LowlifeSuggestedSkills = FeatureDefinitionBuilder
-        .Create("LowlifeBackgroundSuggestedSkills", FlexBackBaseGuid)
-        .SetGuiPresentation("LowlifeBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+        .Create("LowlifeBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition PhilosopherSuggestedSkills = FeatureDefinitionBuilder
-        .Create("PhilosopherBackgroundSuggestedSkills", FlexBackBaseGuid)
-        .SetGuiPresentation("PhilosopherBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+        .Create("PhilosopherBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition SellswordSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SellswordBackgroundSuggestedSkills", FlexBackBaseGuid)
-        .SetGuiPresentation("SellswordBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+        .Create("SellswordBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition SpySuggestedSkills = FeatureDefinitionBuilder
-        .Create("SpyBackgroundSuggestedSkills", FlexBackBaseGuid)
-        .SetGuiPresentation("SpyBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+        .Create("SpyBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition WandererSuggestedSkills = FeatureDefinitionBuilder
-        .Create("WandererBackgroundSuggestedSkills", FlexBackBaseGuid)
-        .SetGuiPresentation("WandererBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+        .Create("WandererBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
+    private static readonly FeatureDefinition AesceticSuggestedSkills = FeatureDefinitionBuilder
+        .Create("AesceticBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
+        .AddToDB();
+    
+    private static readonly FeatureDefinition ArtistSuggestedSkills = FeatureDefinitionBuilder
+        .Create("ArtistBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
+        .AddToDB();
+    
+    private static readonly FeatureDefinition OccultistSuggestedSkills = FeatureDefinitionBuilder
+        .Create("OccultistBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .SetGuiPresentation(Category.FlexibleBackgrounds)
+        .AddToDB();
+    
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> AddedFeatures = new()
     {
         { Academic, new List<FeatureDefinition> { SkillThree, AcademicSuggestedSkills, ToolChoice } },
@@ -92,7 +103,10 @@ public static class FlexibleBackgroundsContext
         { Philosopher, new List<FeatureDefinition> { SkillTwo, PhilosopherSuggestedSkills, ToolChoice } },
         { SellSword, new List<FeatureDefinition> { SkillTwo, SellswordSuggestedSkills, ToolChoice } },
         { Spy, new List<FeatureDefinition> { SkillThree, SpySuggestedSkills, ToolChoice } },
-        { Wanderer, new List<FeatureDefinition> { SkillTwo, WandererSuggestedSkills, ToolChoiceTwo } }
+        { Wanderer, new List<FeatureDefinition> { SkillTwo, WandererSuggestedSkills, ToolChoiceTwo } },
+        { Aescetic_Background, new List<FeatureDefinition> { SkillTwo, AesceticSuggestedSkills, ToolChoice } },
+        { Artist_Background, new List<FeatureDefinition> { SkillThree, ArtistSuggestedSkills } },
+        { Occultist_Background, new List<FeatureDefinition> { SkillTwo, OccultistSuggestedSkills, ToolChoice } },
     };
 
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> RemovedFeatures =
@@ -109,7 +123,10 @@ public static class FlexibleBackgroundsContext
             },
             { SellSword, new List<FeatureDefinition> { ProficiencySellSwordSkills, ProficiencySmithTools } },
             { Spy, new List<FeatureDefinition> { ProficiencySpySkills, ProficienctSpySkillsTool } },
-            { Wanderer, new List<FeatureDefinition> { ProficiencyWandererSkills, ProficiencyWandererTools } }
+            { Wanderer, new List<FeatureDefinition> { ProficiencyWandererSkills, ProficiencyWandererTools } },
+            { Aescetic_Background, new List<FeatureDefinition> { ProficiencyAesceticSkills, ProficiencyAesceticToolsSkills } },
+            { Artist_Background, new List<FeatureDefinition> { ProficiencyArtistSkills } },
+            { Occultist_Background, new List<FeatureDefinition> { ProficiencyOccultistSkills, ProficiencyOccultistToolsSkills } },
         };
 
     internal static void Switch()

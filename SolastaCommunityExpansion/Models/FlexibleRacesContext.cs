@@ -9,7 +9,7 @@ internal static class FlexibleRacesContext
 {
     private static readonly FeatureUnlockByLevel AttributeChoiceThree = new(
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolAbilityScore3", "89708d7d-a16a-44a1-b480-733d1ae932a4")
+            .Create("PointPoolAbilityScore3", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.FlexibleRaces)
             .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 3)
             .AddToDB(),
@@ -17,7 +17,7 @@ internal static class FlexibleRacesContext
 
     private static readonly FeatureUnlockByLevel AttributeChoiceFour = new(
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolAbilityScore4", "dcdd35a8-f1ca-475a-b5a4-a0426292688c")
+            .Create("PointPoolAbilityScore4", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.FlexibleRaces)
             .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 4)
             .AddToDB(),
@@ -25,6 +25,7 @@ internal static class FlexibleRacesContext
 
     private static readonly Dictionary<string, FeatureUnlockByLevel> AddedFeatures = new()
     {
+        { "Dragonborn", AttributeChoiceThree },
         { "Dwarf", AttributeChoiceThree },
         { "Elf", AttributeChoiceThree },
         { "Halfling", AttributeChoiceThree },
@@ -32,12 +33,12 @@ internal static class FlexibleRacesContext
         { "HalfOrc", AttributeChoiceThree },
         // unofficial races
         { "RaceBolgrif", AttributeChoiceThree },
-        // {"GnomeRace", AttributeChoiceThree},
         { "RaceHalfElfVariant", AttributeChoiceFour }
     };
 
     private static readonly Dictionary<string, List<string>> RemovedFeatures = new()
     {
+        { "Dragonborn", new List<string> { "FeatureSetDragonbornAbilityScoreIncrease" } },
         { "Dwarf", new List<string> { "AttributeModifierDwarfAbilityScoreIncrease" } },
         { "Elf", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
         { "Halfling", new List<string> { "AttributeModifierHalflingAbilityScoreIncrease" } },
@@ -60,13 +61,6 @@ internal static class FlexibleRacesContext
         },
         { "RaceDarkelf", new List<string> { "AttributeModifierDarkelfCharismaAbilityScoreIncrease" } },
         { "RaceHalfElfVariant", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
-        // {
-        //     "GnomeRace",
-        //     new List<string>
-        //     {
-        //         "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease"
-        //     }
-        // },
         { "RaceGrayDwarf", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } }
     };
 
