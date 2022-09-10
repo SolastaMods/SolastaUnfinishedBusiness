@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionHeartSeekingShotDescription=You aim at vital spot of an enemy. When you make an attack with ranged weapon your attack suffer a -4 penalty to the attack roll but your critical threat range is increased by 2. In addition, your attack deal an extra 2d6 damage on critical strikes. The extra damage increases by 1d6 every 4 Rogue levels.
 Condition/&ConditionHeartSeekingShotTitle=Sniping
-Feature/&AdditionalActionRoguishRavenKillingSpreeDescription=On your turn if you killed an enemy with an two handed range weapon you can make another attack with the same weapon. You can trigger sneak attack with this attack.
+Feature/&AdditionalActionRoguishRavenKillingSpreeDescription=First time you kill an emey on your turn you can make another attack. In addition each time you kill an enemy your sneak attack can be used again this turn.
 Feature/&AdditionalActionRoguishRavenKillingSpreeTitle=Killing Spree
 Feature/&AdditionalDamageHeartSeekingShotDescription=Your attack deals additional 2d6 damage to the target. The damage increase by 1d6 every 4 levels.
 Feature/&AdditionalDamageHeartSeekingShotTitle=Heart Seeking Shot

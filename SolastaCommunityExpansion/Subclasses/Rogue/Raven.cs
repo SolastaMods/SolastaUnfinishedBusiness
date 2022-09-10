@@ -1,7 +1,9 @@
-﻿using SolastaCommunityExpansion.Api.Extensions;
+﻿using System.Collections;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
@@ -70,7 +72,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
                     .SetDamageDice(RuleDefinitions.DieType.D6, 1)
                     .SetAdvancement(
-                        (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ClassLevel,
+                        (RuleDefinitions.AdditionalDamageAdvancement) ExtraAdditionalDamageAdvancement.ClassLevel,
                         (3, 2),
                         (4, 2),
                         (5, 2),
@@ -186,14 +188,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
             .SetMaxAttacksNumber(1)
-            .SetCustomSubFeatures(new FeatureApplicationValidator(character =>
-            {
-                // hack to refresh sneak attack
-                var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
-                gameLocationCharacter?.UsedSpecialFeatures.Remove(FeatureDefinitionAdditionalDamages
-                    .AdditionalDamageRogueSneakAttack.Name);
-                return true;
-            }))
+            .SetCustomSubFeatures(new RefreshSneakAttckOnKill())
             .AddToDB();
 
         // pain maker
@@ -219,5 +214,20 @@ internal sealed class RoguishRaven : AbstractSubclass
     // marker to reroll any damage die including sneak attack
     public sealed class RavenRerollAnyDamageDieMarker
     {
+    }
+    
+    private sealed class RefreshSneakAttckOnKill: ITargetReducedToZeroHP
+    {
+        public IEnumerator HandleCharacterReducedToZeroHP(GameLocationCharacter attacker, GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode, RulesetEffect activeEffect)
+        {
+            if (attacker.IsOppositeSide(downedCreature.Side))
+            {
+                attacker.UsedSpecialFeatures.Remove(FeatureDefinitionAdditionalDamages
+                    .AdditionalDamageRogueSneakAttack.Name);
+            }
+
+            yield break;
+        }
     }
 }
