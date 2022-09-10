@@ -69,8 +69,8 @@ internal static class Level20Context
 
         CastSpellCleric.spellCastingLevel = 9;
 
-        CastSpellCleric.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-        CastSpellCleric.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
+        CastSpellCleric.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
+        CastSpellCleric.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
 
         DomainBattle.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin,
             20));
@@ -101,8 +101,8 @@ internal static class Level20Context
 
         CastSpellDruid.spellCastingLevel = 9;
 
-        CastSpellDruid.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-        CastSpellDruid.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
+        CastSpellDruid.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
+        CastSpellDruid.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
     }
 
     private static void FighterLoad()
@@ -175,8 +175,8 @@ internal static class Level20Context
 
         CastSpellPaladin.spellCastingLevel = 5;
 
-        CastSpellPaladin.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
-        CastSpellPaladin.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
+        CastSpellPaladin.SlotsPerLevels.SetRange(SpellsSlotsContext.HalfCastingSlots);
+        CastSpellPaladin.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
     }
 
     private static void RangerLoad()
@@ -189,8 +189,8 @@ internal static class Level20Context
 
         CastSpellRanger.spellCastingLevel = 5;
 
-        CastSpellRanger.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
-        CastSpellRanger.ReplacedSpells.SetRange(SpellsHelper.HalfCasterReplacedSpells);
+        CastSpellRanger.SlotsPerLevels.SetRange(SpellsSlotsContext.HalfCastingSlots);
+        CastSpellRanger.ReplacedSpells.SetRange(SpellsSlotsContext.HalfCasterReplacedSpells);
     }
 
     private static void RogueLoad()
@@ -215,9 +215,9 @@ internal static class Level20Context
 
         CastSpellSorcerer.spellCastingLevel = 9;
 
-        CastSpellSorcerer.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-        CastSpellSorcerer.ReplacedSpells.SetRange(SpellsHelper.FullCasterReplacedSpells);
-        CastSpellSorcerer.KnownSpells.SetRange(SpellsHelper.SorcererKnownSpells);
+        CastSpellSorcerer.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
+        CastSpellSorcerer.ReplacedSpells.SetRange(SpellsSlotsContext.FullCasterReplacedSpells);
+        CastSpellSorcerer.KnownSpells.SetRange(SpellsSlotsContext.SorcererKnownSpells);
     }
 
     private static void WizardLoad()
@@ -232,25 +232,25 @@ internal static class Level20Context
 
         CastSpellWizard.spellCastingLevel = 9;
 
-        CastSpellWizard.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-        CastSpellWizard.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
+        CastSpellWizard.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
+        CastSpellWizard.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
     }
 
     private static void MartialSpellBladeLoad()
     {
         CastSpellMartialSpellBlade.spellCastingLevel = 4;
 
-        CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
+        CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SpellsSlotsContext.OneThirdCastingSlots);
 
-        CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
+        CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SpellsSlotsContext.OneThirdCasterReplacedSpells);
     }
 
     private static void ShadowcasterLoad()
     {
         CastSpellShadowcaster.spellCastingLevel = 4;
 
-        CastSpellShadowcaster.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
+        CastSpellShadowcaster.SlotsPerLevels.SetRange(SpellsSlotsContext.OneThirdCastingSlots);
 
-        CastSpellShadowcaster.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
+        CastSpellShadowcaster.ReplacedSpells.SetRange(SpellsSlotsContext.OneThirdCasterReplacedSpells);
     }
 }

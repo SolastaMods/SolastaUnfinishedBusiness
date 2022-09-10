@@ -42,7 +42,7 @@ internal sealed class ConArtist : AbstractSubclass
             .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
-            .SetReplacedSpells(SpellsHelper.OneThirdCasterReplacedSpells)
+            .SetReplacedSpells(SpellsSlotsContext.OneThirdCasterReplacedSpells)
             .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
             .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
             .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);

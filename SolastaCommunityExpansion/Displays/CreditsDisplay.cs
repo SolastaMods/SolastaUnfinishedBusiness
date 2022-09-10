@@ -34,51 +34,29 @@ internal static class CreditsDisplay
     // used in DEBUG mode (don't make private)
     internal static readonly List<(string, string)> CreditsTable = new()
     {
-        ("AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"),
-        ("Bazou", "Witch class, fighting styles"),
-        ("Boofat", "alwaysAlt"),
-        (
-            "ChrisJohnDigital",
-            "Tinkerer class, crafting, faction relations, feats, fighting styles, items, subclasses, progression"
-        ),
-        ("DemonSlayer730", "Path of the Rage Mage subclass"),
+        ("AceHigh", "Tactician subclass"),
+        ("Bazou", "fighting styles, spells"),
+        ("ChrisJohnDigital", "Tinkerer class, gameplay, feats, fighting styles, subclasses"),
+        ("DemonSlayer730", "Rage Mage subclass"),
         ("Dreadmaker", "Forest Guardian subclass"),
-        (
-            "DubhHerder",
-            "high level spells, feats, bug models replacement, high level monsters, Warlock class and subclasses"
-        ),
+        ("DubhHerder", "spells, quality of life"),
         ("ElAntonious", "Arcanist subclass, feats"),
         ("exsonics01", "Oath of Retribution subclass"),
-        ("Holic75", "SolastaModHelpers, SolastaExtraContent"),
-        (
-            "ImpPhil",
-            "adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map"
-        ),
-        ("Nd", "Magus class, Marshal and Opportunist subclasses"),
-        ("RedOrca", "Path of the Light subclass, Indomitable Might"),
-        (
-            "SilverGriffon",
-            "pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, Dark Elf race, Divine Heart subclass"
-        ),
-        (
-            "TPABOBAP",
-            "Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration"
-        ),
-        ("View619", "Darkvision, Superior Dark Vision"),
-        ("Vylantze", "English terms review, tweaks, bug fixes"),
-        (
-            "Zappastuff",
-            "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Dead Master, Blade Dancer, Holic75's code integration"
-        ),
-        ("", ""),
-        ("Esker", "ruleset support, classes design, quality assurance"),
-        ("Lyraele", "ruleset support, classes design, quality assurance"),
+        ("Holic75", "spells"),
+        ("ImpPhil", "gameplay, SRD and house rules, quality of life, tools, infrastructure"),
+        ("Nd", "Marshal, Opportunist and Raven subclasses"),
+        ("RedOrca", "Path of the Light subclass"),
+        ("SilverGriffon",
+            "gameplay, quality of life, spells, Dark Elf and Grey Dwarf races, Divine Heart subclass"),
+        ("TPABOBAP", "gameplay, quality of life, feats, spells, infrastructure"),
+        ("Zappastuff",
+            "multiclass, gameplay, SRD and house rules, quality of life, tools, infrastructure, feats, Half-elf subraces, Dead Master and Blade Dancer subclasses"),
+        ("Esker", "ruleset support, quality assurance"),
+        ("Lyraele", "ruleset support, quality assurance"),
         ("PraiseThyBus", "quality assurance"),
-        ("", ""),
         ("Nyowwww", "Chinese translations"),
         ("Prioritizer", "Russian translations"),
-        ("Narria", "modKit creator, developer"),
-        ("Sinai-dev", "Unity Explorer UI standalone")
+        ("Narria", "modKit creator, developer")
     };
 
     private static readonly bool IsUnityExplorerInstalled =
