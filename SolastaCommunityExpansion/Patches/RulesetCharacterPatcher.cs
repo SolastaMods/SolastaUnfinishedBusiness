@@ -8,6 +8,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
@@ -475,156 +476,57 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-    //TODO: Fix in progress to consider new Warlock...
-    //PATCH: logic to correctly offer / calculate spell slots on all different scenarios
+    //PATCH: logic to correctly calculate spell slots under MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshSpellRepertoires")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_RefreshSpellRepertoires
+    internal static class RefreshSpellRepertoires_Patch
     {
-        private static readonly Dictionary<int, int> AffinityProviderAdditionalSlots = new();
-
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static void Postfix(RulesetCharacter rulesetCharacter)
         {
-            var computeSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("ComputeSpellSlots");
-            var myComputeSpellSlotsMethod =
-                typeof(RulesetCharacter_RefreshSpellRepertoires).GetMethod("ComputeSpellSlots");
-            var finishRepertoiresRefreshMethod =
-                typeof(RulesetCharacter_RefreshSpellRepertoires).GetMethod("FinishRepertoiresRefresh");
-
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(computeSpellSlotsMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Pop); // featureDefinitions
-                    yield return new CodeInstruction(OpCodes.Call, myComputeSpellSlotsMethod);
-                }
-                else if (instruction.opcode == OpCodes.Brtrue_S)
-                {
-                    yield return instruction;
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Call, finishRepertoiresRefreshMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
-        }
-
-        public static void ComputeSpellSlots(RulesetSpellRepertoire spellRepertoire)
-        {
-            // will calculate additional slots from features later
-            spellRepertoire.ComputeSpellSlots(null);
-        }
-
-        public static void FinishRepertoiresRefresh(RulesetCharacter rulesetCharacter)
-        {
-            if (rulesetCharacter is not RulesetCharacterHero heroWithSpellRepertoire)
+            if (rulesetCharacter is not RulesetCharacterHero hero || !SharedSpellsContext.IsMulticaster(hero))
             {
                 return;
             }
 
-            // calculates additional slots from features
-            AffinityProviderAdditionalSlots.Clear();
+            var slots = new Dictionary<int, int>();
 
-            foreach (var spellCastingAffinityProvider in rulesetCharacter.FeaturesToBrowse
-                         .OfType<ISpellCastingAffinityProvider>())
+            // adds features slots
+            foreach (var additionalSlot in rulesetCharacter.FeaturesToBrowse
+                         .OfType<ISpellCastingAffinityProvider>()
+                         .SelectMany(x => x.AdditionalSlots))
             {
-                foreach (var additionalSlot in spellCastingAffinityProvider.AdditionalSlots)
-                {
-                    var slotLevel = additionalSlot.SlotLevel;
-
-                    AffinityProviderAdditionalSlots.TryAdd(slotLevel, 0);
-                    AffinityProviderAdditionalSlots[slotLevel] += additionalSlot.SlotsNumber;
-                }
+                slots[additionalSlot.SlotLevel] = additionalSlot.SlotsNumber;
             }
 
-            // calculates shared slots system across all repertoires except for Race and Warlock
-            var isSharedCaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
+            // adds spell slots
+            var sharedCasterLevel = SharedSpellsContext.GetSharedCasterLevel(hero);
+            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
 
-            foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                         .Where(x => x.SpellCastingRace == null &&
-                                     x.SpellCastingClass != DatabaseHelper.CharacterClassDefinitions.Warlock))
+            for (var i = 1; i <= sharedSpellLevel; i++)
             {
-                var spellsSlotCapacities =
-                    spellRepertoire.spellsSlotCapacities;
+                slots.TryAdd(i, 0);
+                slots[i] += FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
+            }
 
-                // replaces standard caster slots with shared slots system
-                if (isSharedCaster)
-                {
-                    var sharedCasterLevel = SharedSpellsContext.GetSharedCasterLevel(heroWithSpellRepertoire);
-                    var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
+            // adds warlock slots
+            var warlockCasterLevel = SharedSpellsContext.GetWarlockCasterLevel(hero);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
-                    spellsSlotCapacities.Clear();
+            for (var i = 1; i <= warlockSpellLevel; i++)
+            {
+                slots.TryAdd(i, 0);
+                slots[i] += FullCastingSlots[warlockCasterLevel - 1].Slots[i - 1];
+            }
 
-                    // adds shared slots
-                    for (var i = 1; i <= sharedSpellLevel; i++)
-                    {
-                        spellsSlotCapacities[i] = FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
-                    }
-                }
-
-                // adds affinity provider slots collected in my custom compute spell slots
-                foreach (var slot in AffinityProviderAdditionalSlots)
-                {
-                    spellsSlotCapacities.TryAdd(slot.Key, 0);
-                    spellsSlotCapacities[slot.Key] += slot.Value;
-                }
-
+            // reassign slots back to repertoires except for race ones
+            foreach (var spellRepertoire in hero.SpellRepertoires
+                         .Where(x => x.SpellCastingRace == null))
+            {
+                spellRepertoire.spellsSlotCapacities = slots.DeepCopy();
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
             }
-
-            // collects warlock and non warlock repertoires for consolidation
-            var warlockRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
-            var anySharedRepertoire = heroWithSpellRepertoire.SpellRepertoires.Find(sr =>
-                !SharedSpellsContext.IsWarlock(sr.SpellCastingClass) &&
-                sr.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Class
-                    or FeatureDefinitionCastSpell.CastingOrigin.Subclass);
-
-            // combines the Shared Slot System and Warlock Pact Magic
-            if (warlockRepertoire == null || anySharedRepertoire == null)
-            {
-                return;
-            }
-            
-            var warlockSlotsCapacities =
-                    warlockRepertoire.spellsSlotCapacities; // TODO: CHANGE THIS TO MY OWN SLOTS CAPACITIES
-            var anySharedSlotsCapacities =
-                anySharedRepertoire.spellsSlotCapacities;
-
-            // first consolidates under Warlock repertoire
-            for (var i = 1; i <= Math.Max(warlockSlotsCapacities.Count, anySharedSlotsCapacities.Count); i++)
-            {
-                warlockSlotsCapacities.TryAdd(i, 0);
-
-                if (anySharedSlotsCapacities.ContainsKey(i))
-                {
-                    warlockSlotsCapacities[i] += anySharedSlotsCapacities[i];
-                }
-            }
-
-            // then copy over Warlock repertoire to all others
-            foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                         .Where(x => x.SpellCastingRace == null &&
-                                     x.SpellCastingClass != DatabaseHelper.CharacterClassDefinitions.Warlock))
-            {
-                var spellsSlotCapacities =
-                    spellRepertoire.spellsSlotCapacities;
-
-                spellsSlotCapacities.Clear();
-
-                foreach (var warlockSlotCapacities in warlockSlotsCapacities)
-                {
-                    spellsSlotCapacities[warlockSlotCapacities.Key] = warlockSlotCapacities.Value;
-                }
-
-                spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
-            }
-
-            warlockRepertoire?.RepertoireRefreshed?.Invoke(warlockRepertoire);
         }
     }
-
 
     [HarmonyPatch(typeof(RulesetCharacter), "RechargePowersForTurnStart")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

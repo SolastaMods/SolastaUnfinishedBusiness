@@ -116,7 +116,7 @@ public static class SharedSpellsContext
     }
 
     // need the null check for companions who don't have repertoires
-    private static int GetWarlockLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static int GetWarlockCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (rulesetCharacterHero == null)
         {
@@ -136,14 +136,14 @@ public static class SharedSpellsContext
 
     public static int GetWarlockSpellLevel(RulesetCharacterHero rulesetCharacterHero)
     {
-        var warlockLevel = GetWarlockLevel(rulesetCharacterHero);
+        var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
 
         return warlockLevel > 0 ? 0 : 0; //WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0) : 0;
     }
 
     public static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
     {
-        var warlockLevel = GetWarlockLevel(rulesetCharacterHero);
+        var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
 
         return warlockLevel > 0 ? 0 : 0; //WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
     }
