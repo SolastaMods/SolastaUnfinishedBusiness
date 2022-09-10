@@ -8,8 +8,8 @@ namespace SolastaCommunityExpansion.PatchCode;
 internal static class GameLocationBattleManagerTweaks
 {
     /**
-     * This method is almost completely original game source provided by TA
-     * All changes made by CE mod should be clearly marked to easy future updates
+     * This method is almost completely original game source provided by TA (1.4.8)
+     * All changes made by CE mod should be clearly marked for easy future updates
      */
     public static void ComputeAndNotifyAdditionalDamage(GameLocationBattleManager instance,
         GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamageProvider provider,
@@ -453,8 +453,8 @@ internal static class GameLocationBattleManagerTweaks
     
     
     /**
-     * This method is almost completely original game source provided by TA
-     * All changes made by CE mod should be clearly marked to easy future updates
+     * This method is almost completely original game source provided by TA (1.4.8)
+     * All changes made by CE mod should be clearly marked for easy future updates
      * This is for both physical and magical attacks
      */
     private static IEnumerator HandleAdditionalDamageOnCharacterAttackHitConfirmed(
