@@ -314,4 +314,50 @@ internal static class GameLocationBattleManagerPatcher
             }
         }
     }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMagicalAttackDamage")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleCharacterMagicalAttackDamage_Patch
+    {
+        internal static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            Main.Logger.Log("HandleCharacterMagicalAttackDamage");
+
+            //PATCH: set critical strike global variable
+            Global.CriticalHit = criticalHit;
+
+            //PATCH: support for `IOnMagicalAttackDamageEffect`
+            var features = attacker.RulesetActor.GetSubFeaturesByType<IOnMagicalAttackDamageEffect>();
+
+            //call all before handlers
+            foreach (var feature in features)
+            {
+                feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
+                    actualEffectForms, firstTarget, criticalHit);
+            }
+
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //call all after handlers
+            foreach (var feature in features)
+            {
+                feature.AfterOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
+                    actualEffectForms, firstTarget, criticalHit);
+            }
+
+            Global.CriticalHit = false;
+        }
+    }
 }
