@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
-using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
+using static SolastaCommunityExpansion.Models.ItemCraftingContext;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 
@@ -17,7 +17,7 @@ internal static class HandaxeData
             BaseGuid = new Guid("16757d1b-518f-4669-af43-1ddf5d23c223"),
             BaseWeapons = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Handaxe },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Primed_Dagger },
-            MagicToCopy = new List<MagicItemDataHolder>
+            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 // Same as +1
                 new("Acuteness", DatabaseHelper.ItemDefinitions.Enchanted_Dagger_of_Acuteness,

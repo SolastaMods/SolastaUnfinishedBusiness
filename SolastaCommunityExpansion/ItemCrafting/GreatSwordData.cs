@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
-using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
+using static SolastaCommunityExpansion.Models.ItemCraftingContext;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 
@@ -18,7 +18,7 @@ internal static class GreatSwordData
             BaseWeapons =
                 new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Greatsword },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Battleaxe },
-            MagicToCopy = new List<MagicItemDataHolder>
+            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 new("Punisher", DatabaseHelper.ItemDefinitions.Enchanted_Battleaxe_Punisher,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_BattleaxePunisher)

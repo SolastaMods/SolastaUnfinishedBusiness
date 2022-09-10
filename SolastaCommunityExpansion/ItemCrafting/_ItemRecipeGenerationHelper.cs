@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Models;
+using static SolastaCommunityExpansion.Models.ItemCraftingContext;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 

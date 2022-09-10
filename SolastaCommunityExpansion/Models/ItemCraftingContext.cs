@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
@@ -6,6 +7,7 @@ using SolastaCommunityExpansion.ItemCrafting;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 #if DEBUG
 using System.Text;
 #endif
@@ -14,6 +16,29 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class ItemCraftingContext
 {
+    internal sealed class ItemCollection
+    {
+        public Guid BaseGuid;
+        public List<ItemDefinition> BaseWeapons;
+        public List<MagicItemDataHolder> MagicToCopy;
+        public int NumProduced = 1;
+        public List<ItemDefinition> PossiblePrimedItemsToReplace;
+
+        public struct MagicItemDataHolder
+        {
+            public readonly string Name;
+            public readonly ItemDefinition Item;
+            public readonly RecipeDefinition Recipe;
+
+            public MagicItemDataHolder(string name, ItemDefinition item, RecipeDefinition recipe)
+            {
+                Name = name;
+                Item = item;
+                Recipe = recipe;
+            }
+        }
+    }
+    
     public static readonly List<string> BaseGameItemsCategories = new()
     {
         "PrimedItems", "EnchantingIngredients", "RelicForgeries"

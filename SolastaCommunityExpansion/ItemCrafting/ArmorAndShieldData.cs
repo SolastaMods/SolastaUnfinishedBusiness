@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
-using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
+using static SolastaCommunityExpansion.Models.ItemCraftingContext;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 
@@ -42,7 +42,7 @@ internal static class ArmorAndShieldData
                 DatabaseHelper.ItemDefinitions.Primed_ScaleMail,
                 DatabaseHelper.ItemDefinitions.Primed_Breastplate
             },
-            MagicToCopy = new List<MagicItemDataHolder>
+            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 new("Sturdiness", DatabaseHelper.ItemDefinitions.Enchanted_HalfPlateOfSturdiness,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_HalfplateOfSturdiness),

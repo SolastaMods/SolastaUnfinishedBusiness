@@ -9,7 +9,7 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using static SolastaCommunityExpansion.Feats.FeatsValidators;
+using static SolastaCommunityExpansion.Models.FeatsValidators;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;

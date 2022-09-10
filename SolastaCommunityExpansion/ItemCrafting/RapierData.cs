@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
-using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
+using static SolastaCommunityExpansion.Models.ItemCraftingContext;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 
@@ -24,7 +24,7 @@ internal static class RapierData
                 DatabaseHelper.ItemDefinitions.Primed_Dagger,
                 DatabaseHelper.ItemDefinitions.Primed_Morningstar
             },
-            MagicToCopy = new List<MagicItemDataHolder>
+            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 new("Stormblade", DatabaseHelper.ItemDefinitions.Enchanted_Longsword_Stormblade,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_LongswordStormblade),

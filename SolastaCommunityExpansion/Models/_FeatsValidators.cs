@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 
-namespace SolastaCommunityExpansion.Feats;
+namespace SolastaCommunityExpansion.Models;
 
 internal static class FeatsValidators
 {

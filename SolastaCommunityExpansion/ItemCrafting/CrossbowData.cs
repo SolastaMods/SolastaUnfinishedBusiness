@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
-using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
+using static SolastaCommunityExpansion.Models.ItemCraftingContext;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 
@@ -24,7 +24,7 @@ internal static class CrossbowData
             {
                 DatabaseHelper.ItemDefinitions.Primed_Longbow, DatabaseHelper.ItemDefinitions.Primed_Shortbow
             },
-            MagicToCopy = new List<MagicItemDataHolder>
+            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 // Same as +1
                 new("Accuracy", DatabaseHelper.ItemDefinitions.Enchanted_Longbow_Of_Accurary,

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
-using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
+using static SolastaCommunityExpansion.Models.ItemCraftingContext;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 
@@ -20,7 +20,7 @@ internal static class SpearData
             {
                 DatabaseHelper.ItemDefinitions.Primed_Rapier, DatabaseHelper.ItemDefinitions.Primed_Shortsword
             },
-            MagicToCopy = new List<MagicItemDataHolder>
+            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 new("BlackViper", DatabaseHelper.ItemDefinitions.Enchanted_Rapier_Blackadder,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_RapierBlackAdder),

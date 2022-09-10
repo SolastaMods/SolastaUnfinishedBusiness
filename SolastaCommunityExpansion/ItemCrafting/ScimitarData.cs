@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
-using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
+using static SolastaCommunityExpansion.Models.ItemCraftingContext;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 
@@ -23,7 +23,7 @@ internal static class ScimitarData
                 DatabaseHelper.ItemDefinitions.Primed_Shortsword,
                 DatabaseHelper.ItemDefinitions.Primed_Dagger
             },
-            MagicToCopy = new List<MagicItemDataHolder>
+            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 new("Stormblade", DatabaseHelper.ItemDefinitions.Enchanted_Longsword_Stormblade,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_LongswordStormblade),
