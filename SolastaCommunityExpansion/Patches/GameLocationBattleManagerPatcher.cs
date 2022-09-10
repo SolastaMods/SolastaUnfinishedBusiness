@@ -315,9 +315,9 @@ internal static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMagicalAttackDamage")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMagicalAttackHitConfirmed")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class HandleCharacterMagicalAttackDamage_Patch
+    internal static class HandleCharacterMagicalAttackHitConfirmed_Patch
     {
         internal static IEnumerator Postfix(
             IEnumerator values,
