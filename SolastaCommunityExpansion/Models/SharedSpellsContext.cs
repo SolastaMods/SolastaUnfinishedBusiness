@@ -138,14 +138,14 @@ public static class SharedSpellsContext
     {
         var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
 
-        return warlockLevel > 0 ? 0 : 0; //WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0) : 0;
+        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0) : 0;
     }
 
     public static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
     {
         var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
 
-        return warlockLevel > 0 ? 0 : 0; //WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
+        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
     }
 
     public static int GetWarlockUsedSlots([NotNull] RulesetCharacterHero rulesetCharacterHero)
@@ -157,12 +157,9 @@ public static class SharedSpellsContext
             return 0;
         }
 
-        return 0;
-
-        // repertoire.usedSpellsSlots
-        //     .TryGetValue(PactMagicSlotTabIndex, out var warlockUsedSlots);
-        //
-        // return warlockUsedSlots;
+        repertoire.usedSpellsSlots.TryGetValue(-1, out var warlockUsedSlots);
+        
+        return warlockUsedSlots;
     }
 
     [CanBeNull]

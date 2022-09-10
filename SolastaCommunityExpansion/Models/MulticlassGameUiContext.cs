@@ -35,13 +35,12 @@ public static class MulticlassGameUiContext
         var pactSlotsRemainingCount = 0;
         var pactSlotsUsedCount = 0;
 
-        //TODO: Check how to integrate pact slots
-        // if (warlockSpellRepertoire != null)
-        // {
-        //     pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-        //     pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
-        //     pactSlotsRemainingCount = pactSlotsCount - pactSlotsUsedCount;
-        // }
+        if (warlockSpellRepertoire != null)
+        {
+            pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
+            pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
+            pactSlotsRemainingCount = pactSlotsCount - pactSlotsUsedCount;
+        }
 
         var spellSlotsCount = totalSlotsCount - pactSlotsCount;
         var spellSlotsRemainingCount = totalSlotsRemainingCount - pactSlotsRemainingCount;

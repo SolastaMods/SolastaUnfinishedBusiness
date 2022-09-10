@@ -481,9 +481,9 @@ internal static class RulesetCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RefreshSpellRepertoires_Patch
     {
-        public static void Postfix(RulesetCharacter rulesetCharacter)
+        public static void Postfix(RulesetCharacter __instance)
         {
-            if (rulesetCharacter is not RulesetCharacterHero hero || !SharedSpellsContext.IsMulticaster(hero))
+            if (__instance is not RulesetCharacterHero hero || !SharedSpellsContext.IsMulticaster(hero))
             {
                 return;
             }
@@ -491,7 +491,7 @@ internal static class RulesetCharacterPatcher
             var slots = new Dictionary<int, int>();
 
             // adds features slots
-            foreach (var additionalSlot in rulesetCharacter.FeaturesToBrowse
+            foreach (var additionalSlot in hero.FeaturesToBrowse
                          .OfType<ISpellCastingAffinityProvider>()
                          .SelectMany(x => x.AdditionalSlots))
             {
