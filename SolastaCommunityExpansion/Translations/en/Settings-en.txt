@@ -1,7 +1,7 @@
 ModUi/&AddAllToStore=Add all to store
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the conditions removed by <color=#D89555>Greater and Lesser Restoration</color>
-ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all races
-ModUi/&AddNewBrightEyeColors=Add new bright eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races
+ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore=Add to store
@@ -104,7 +104,7 @@ ModUi/&HiderArmor=Hide Armor
 ModUi/&House=<color=#F0DAA0>House:</color>
 ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far away]</color></i>
 ModUi/&IncreaseSenseNormalVisionHelp=<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&InitialChoices=<color=#F0DAA0>Initial choices:</color>
+ModUi/&InitialChoices=<color=#F0DAA0>Creation:</color>
 ModUi/&Input=Keyboard & Mouse
 ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventory and items:</color>
@@ -186,7 +186,7 @@ ModUi/&UnleashNpcAsEnemy=Unleash monsters selection <b><i><color=#C04040E0>[Requ
 ModUi/&UnlockAllNpcFaces=Unlock all NPC faces
 ModUi/&UnlockEyeStyles=Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all markings and tattoos
-ModUi/&UnlockGlowingEyeColors=Add glowing eye colors <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&UnlockGlowingEyeColors=Add glowing eye colors
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UseHeightOneCylinderEffect=Display a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> (square) and <color=#D89555>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules

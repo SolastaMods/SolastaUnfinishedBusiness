@@ -33,11 +33,10 @@ internal static class CharacterDisplay
 
         UI.Label("");
 
-        toggle = Main.Settings.EnableAlternateHuman;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableEpicPointsAndArray;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableAlternateHuman = toggle;
-            InitialChoicesContext.SwitchFirstLevelTotalFeats();
+            Main.Settings.EnableEpicPointsAndArray = toggle;
         }
 
         toggle = Main.Settings.EnableFlexibleBackgrounds;
@@ -54,10 +53,11 @@ internal static class CharacterDisplay
             FlexibleRacesContext.Switch();
         }
 
-        toggle = Main.Settings.EnableEpicPointsAndArray;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableAlternateHuman;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableEpicPointsAndArray = toggle;
+            Main.Settings.EnableAlternateHuman = toggle;
+            InitialChoicesContext.SwitchFirstLevelTotalFeats();
         }
 
         UI.Label("");
