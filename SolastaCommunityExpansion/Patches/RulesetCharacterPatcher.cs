@@ -515,7 +515,7 @@ internal static class RulesetCharacterPatcher
             for (var i = 1; i <= warlockSpellLevel; i++)
             {
                 slots.TryAdd(i, 0);
-                slots[i] += FullCastingSlots[warlockCasterLevel - 1].Slots[i - 1];
+                slots[i] += WarlockCastingSlots[warlockCasterLevel - 1].Slots[i - 1];
             }
 
             // reassign slots back to repertoires except for race ones
@@ -617,6 +617,62 @@ internal static class RulesetCharacterPatcher
             codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_0));
 
             return codes.AsEnumerable();
+        }
+    }
+
+    //PATCH: Correctly solve short rests for Warlocks under MC (Multiclass)
+    [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacter_ApplyRest
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
+            var myRestoreAllSpellSlotsMethod = typeof(RulesetCharacter_ApplyRest).GetMethod("RestoreAllSpellSlots");
+
+            foreach (var instruction in instructions)
+            {
+                if (instruction.Calls(restoreAllSpellSlotsMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0); // rulesetCharacter
+                    yield return new CodeInstruction(OpCodes.Ldarg_1); // restType
+                    yield return new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+
+        public static void RestoreAllSpellSlots(RulesetSpellRepertoire __instance, RulesetCharacter rulesetCharacter,
+            RuleDefinitions.RestType restType)
+        {
+            if (restType == RuleDefinitions.RestType.LongRest
+                || rulesetCharacter is not RulesetCharacterHero hero
+                || !SharedSpellsContext.IsMulticaster(hero))
+            {
+                rulesetCharacter.RestoreAllSpellSlots();
+
+                return;
+            }
+
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+            var warlockUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
+
+            foreach (var spellRepertoire in hero.SpellRepertoires
+                         .Where(x => x.SpellCastingRace == null))
+            {
+                for (var i = -1; i <= warlockSpellLevel; i++)
+                {
+                    if (spellRepertoire.usedSpellsSlots.ContainsKey(i))
+                    {
+                        spellRepertoire.usedSpellsSlots[i] -= warlockUsedSlots;
+                    }
+                }
+
+                spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
+            }
         }
     }
 }

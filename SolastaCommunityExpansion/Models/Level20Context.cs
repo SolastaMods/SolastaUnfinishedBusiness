@@ -40,7 +40,7 @@ internal static class Level20Context
         MartialSpellBladeLoad();
         ShadowcasterLoad();
 
-        //CastSpellWarlock.uniqueLevelSlots = false;
+        CastSpellWarlock.uniqueLevelSlots = false;
     }
 
     internal static void LateLoad()

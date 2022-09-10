@@ -63,8 +63,8 @@ internal static class RulesetSpellRepertoirePatcher
         }
     }
     
-    // handles all different scenarios of spell slots consumption (casts, smites, point buys)
-    // [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
+    //PATCH: handles all different scenarios of spell slots consumption (casts, smites, point buys)
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_SpendSpellSlot
     {
