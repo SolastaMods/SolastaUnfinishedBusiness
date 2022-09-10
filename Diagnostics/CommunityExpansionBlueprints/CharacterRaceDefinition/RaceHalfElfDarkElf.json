@@ -10,7 +10,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellDarkelfMagic:0271c652-b4aa-4346-806d-9711e634271b",
+      "featureDefinition": "Definition:CastSpellDarkelfMagic:6e220b82-738f-5b16-a85a-0b60414bf155",
       "level": 1
     },
     {
@@ -20,12 +20,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDarkelfFaerieFire:68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a",
+      "featureDefinition": "Definition:PowerDarkelfFaerieFire:806f7d2c-db3a-505c-a149-a4906450a590",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDarkelfDarkness:0c413f86-2fa8-4f3d-999a-89e6c7b5b14d",
+      "featureDefinition": "Definition:PowerDarkelfDarkness:30150825-3c9a-5003-aa20-81bbb95e098d",
       "level": 5
     }
   ],
@@ -262,7 +262,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0f3eec02-7fec-570b-ba04-8fb7c637370b",
+  "guid": "210f46be-9314-52a0-b8a2-e53fd73f9696",
   "contentPack": 9999,
   "name": "RaceHalfElfDarkElf"
 }

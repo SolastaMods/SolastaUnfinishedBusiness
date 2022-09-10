@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle",
-    "description": "FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription",
+    "title": "FlexibleBackgrounds/&ArtistBackgroundSuggestedSkillsTitle",
+    "description": "FlexibleBackgrounds/&ArtistBackgroundSuggestedSkillsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "577bf5d8-c209-5986-bce8-6ab67dc0f43f",
+  "guid": "2598f170-c76d-5633-b8eb-a63d3eeee5dd",
   "contentPack": 9999,
-  "name": "AcademicBackgroundSuggestedSkills"
+  "name": "ArtistBackgroundSuggestedSkills"
 }

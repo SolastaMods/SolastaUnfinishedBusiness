@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle",
-    "description": "FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription",
+    "title": "FlexibleBackgrounds/&OccultistBackgroundSuggestedSkillsTitle",
+    "description": "FlexibleBackgrounds/&OccultistBackgroundSuggestedSkillsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "577bf5d8-c209-5986-bce8-6ab67dc0f43f",
+  "guid": "04559187-6a32-5605-b21e-6efe561fbed5",
   "contentPack": 9999,
-  "name": "AcademicBackgroundSuggestedSkills"
+  "name": "OccultistBackgroundSuggestedSkills"
 }

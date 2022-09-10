@@ -15,7 +15,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellDarkelfMagic:0271c652-b4aa-4346-806d-9711e634271b",
+      "featureDefinition": "Definition:CastSpellDarkelfMagic:6e220b82-738f-5b16-a85a-0b60414bf155",
       "level": 1
     },
     {
@@ -25,7 +25,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityDarkelfLightSensitivity:707231ea-e34d-4e26-9af8-4e52c0cb85c3",
+      "featureDefinition": "Definition:LightAffinityDarkelfLightSensitivity:3c201ed4-9197-5ddd-9045-ecec590dd752",
       "level": 1
     },
     {
@@ -35,7 +35,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyDarkelfWeaponTraining:ec6e4a4a-5635-4378-a370-5a5ab7dab2ea",
+      "featureDefinition": "Definition:ProficiencyDarkelfWeaponTraining:b04688d6-0f45-5c9a-986e-12ee78715f36",
       "level": 1
     },
     {
@@ -45,12 +45,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDarkelfFaerieFire:68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a",
+      "featureDefinition": "Definition:PowerDarkelfFaerieFire:806f7d2c-db3a-505c-a149-a4906450a590",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDarkelfDarkness:0c413f86-2fa8-4f3d-999a-89e6c7b5b14d",
+      "featureDefinition": "Definition:PowerDarkelfDarkness:30150825-3c9a-5003-aa20-81bbb95e098d",
       "level": 5
     }
   ],
@@ -287,7 +287,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7f44816c-d076-4513-bf8f-22dc6582f7d5",
+  "guid": "263d391a-ecb7-56e4-8613-a9e0f2915eb9",
   "contentPack": 9999,
   "name": "RaceDarkelf"
 }

@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionStoneStrength:55ca65d7-abdb-5b1c-8608-577702dd1bbf",
+          "conditionDefinition": "Definition:ConditionStoneStrength:06dbc72f-7c59-52e9-a6e5-ac84ce8f376a",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4161b904-55b3-5b54-9b27-6f576bff5922",
+  "guid": "a3310dbb-532e-56a8-ba7d-cb855cabe127",
   "contentPack": 9999,
   "name": "PowerGrayDwarfStoneStrength"
 }

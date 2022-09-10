@@ -4,7 +4,7 @@
     {
       "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
       "lightingState": "Bright",
-      "condition": "Definition:ConditionGrayDwarfLightSensitive:cc7eb494-14b9-5a62-b373-993ac9972263",
+      "condition": "Definition:ConditionGrayDwarfLightSensitive:b99aa396-78c6-5a7b-9d88-8b4a29ffddd6",
       "effect": null
     }
   ],
@@ -34,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bd08ba96-7e2a-587a-a9c7-949d4b8a0cad",
+  "guid": "ef40a203-fd0c-51f2-ae44-41af7bc114df",
   "contentPack": 9999,
   "name": "LightAffinityGrayDwarfLightSensitivity"
 }

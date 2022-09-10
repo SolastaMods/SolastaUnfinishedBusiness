@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:AbilityCheckAffinityDarkelfLightSensitivity:a4f82743-0d75-4178-ba25-b3707420e17e",
-    "Definition:CombatAffinityDarkelfLightSensitivity:a4f82743-0d75-4178-ba25-b3707420e170"
+    "Definition:AbilityCheckAffinityDarkelfLightSensitivity:b46d6896-1306-559a-960a-914fb6645f45",
+    "Definition:CombatAffinityDarkelfLightSensitivity:01682c40-11c3-59f2-940e-ea483cf6bc1b"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -147,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8c7cb851-6810-4101-8a6a-e932e9cc3896",
+  "guid": "e4449b6a-1db4-5bb1-a2c0-03bf595a0eaa",
   "contentPack": 9999,
   "name": "ConditionDarkelfLightSensitive"
 }

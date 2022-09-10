@@ -31,7 +31,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&BardSkillsTitle",
+    "title": "Feature/&BardSkillPointsTitle",
     "description": "Feature/&SkillGainChoicesPluralDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

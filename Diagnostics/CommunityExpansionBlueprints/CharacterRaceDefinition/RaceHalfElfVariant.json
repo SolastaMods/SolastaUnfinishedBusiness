@@ -35,9 +35,9 @@
     }
   ],
   "subRaces": [
-    "Definition:RaceHalfElfDarkElf:0f3eec02-7fec-570b-ba04-8fb7c637370b",
-    "Definition:RaceHalfElfHighElf:7ac59aeb-d308-5e6c-933d-6b30a933a078",
-    "Definition:RaceHalfElfSylvanElf:a53131ef-554b-5f45-a0f3-4f2897d0f23e"
+    "Definition:RaceHalfElfDarkElf:210f46be-9314-52a0-b8a2-e53fd73f9696",
+    "Definition:RaceHalfElfHighElf:39192023-5cb2-57f3-87fa-b1ed777b6647",
+    "Definition:RaceHalfElfSylvanElf:9ba7fc63-69d4-5468-80c5-15d829d61794"
   ],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
@@ -268,7 +268,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "605d269f-b565-5fdf-b0ac-5cad801261ad",
+  "guid": "a961963e-97cd-527e-b193-8428e391ee93",
   "contentPack": 9999,
   "name": "RaceHalfElfVariant"
 }

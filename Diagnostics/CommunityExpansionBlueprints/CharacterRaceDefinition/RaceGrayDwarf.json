@@ -10,17 +10,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierGrayDwarfStrengthAbilityScoreIncrease:975c77f4-45be-57ad-91be-1aa37ca4f628",
+      "featureDefinition": "Definition:AttributeModifierGrayDwarfStrengthAbilityScoreIncrease:25954e3c-a310-5775-84b7-1c936d815cca",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetGrayDwarfAncestry:b866f6a1-816f-5bbd-a4f5-7cf416947f9d",
+      "featureDefinition": "Definition:FeatureSetGrayDwarfAncestry:48f08b34-9ff9-5055-accb-d2d8adc27cb4",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityGrayDwarfLightSensitivity:bd08ba96-7e2a-587a-a9c7-949d4b8a0cad",
+      "featureDefinition": "Definition:LightAffinityGrayDwarfLightSensitivity:ef40a203-fd0c-51f2-ae44-41af7bc114df",
       "level": 1
     },
     {
@@ -40,12 +40,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerGrayDwarfStoneStrength:4161b904-55b3-5b54-9b27-6f576bff5922",
+      "featureDefinition": "Definition:PowerGrayDwarfStoneStrength:a3310dbb-532e-56a8-ba7d-cb855cabe127",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerGrayDwarfInvisibility:caaf411b-a096-5776-b36c-2908b438f7bf",
+      "featureDefinition": "Definition:PowerGrayDwarfInvisibility:c4864fef-ecc0-5cf5-bb63-638addf6e90a",
       "level": 5
     }
   ],
@@ -240,7 +240,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e5d71b6b-8128-5fb9-be10-33f163284ae5",
+  "guid": "c1b69f2c-e1ce-5142-81d0-19e950d68a7e",
   "contentPack": 9999,
   "name": "RaceGrayDwarf"
 }

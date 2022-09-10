@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:AbilityCheckAffinityGrayDwarfLightSensitivity:d38b00bc-51fd-5c34-a441-7962b42b99c5",
-    "Definition:CombatAffinityGrayDwarfLightSensitivity:5a96817b-9e4e-5a74-b8ec-bb650a9536a0"
+    "Definition:AbilityCheckAffinityGrayDwarfLightSensitivity:3c48f43d-59d5-57fe-a709-a4f913d70da7",
+    "Definition:CombatAffinityGrayDwarfLightSensitivity:9c70c7fb-58d4-51cf-b202-3c529542b26e"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -147,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cc7eb494-14b9-5a62-b373-993ac9972263",
+  "guid": "b99aa396-78c6-5a7b-9d88-8b4a29ffddd6",
   "contentPack": 9999,
   "name": "ConditionGrayDwarfLightSensitive"
 }

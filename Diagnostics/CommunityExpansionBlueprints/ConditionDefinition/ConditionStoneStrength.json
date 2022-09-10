@@ -4,9 +4,9 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AbilityCheckAffinityConditionStoneStrength:92027003-8978-5dfc-b2f2-2c399f711eee",
-    "Definition:AdditionalDamageConditionStoneStrength:793b240e-4fd9-5a04-8f85-446e1155f6a0",
-    "Definition:SavingThrowAffinityConditionStoneStrength:ea720706-261e-53af-9f32-f9330b2af801"
+    "Definition:AbilityCheckAffinityConditionStoneStrength:ff2b6c7c-d7c8-5d73-9ec2-322f8a1da218",
+    "Definition:AdditionalDamageConditionStoneStrength:de2fdd88-5772-502b-95bb-25ea186bd4f9",
+    "Definition:SavingThrowAffinityConditionStoneStrength:c5952331-f797-5d91-903f-d73b1cb57b35"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -250,7 +250,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "55ca65d7-abdb-5b1c-8608-577702dd1bbf",
+  "guid": "06dbc72f-7c59-52e9-a6e5-ac84ce8f376a",
   "contentPack": 9999,
   "name": "ConditionStoneStrength"
 }

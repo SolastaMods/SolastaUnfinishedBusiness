@@ -15,8 +15,6 @@ namespace SolastaCommunityExpansion.Races;
 
 internal static class RaceHalfElfVariantRaceBuilder
 {
-    private static readonly Guid RaceNamespace = new("f5efd735-ff95-4256-ba17-dde585aec5e2");
-
     internal static CharacterRaceDefinition RaceHalfElfVariantRace { get; } = BuildRaceHalfElfVariant();
 
     [NotNull]
@@ -35,7 +33,7 @@ internal static class RaceHalfElfVariantRaceBuilder
             CustomIcons.CreateAssetReferenceSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
 
         var halfElfDarkElf = CharacterRaceDefinitionBuilder
-            .Create(DarkelfSubraceBuilder.DarkelfSubrace, "RaceHalfElfDarkElf", RaceNamespace)
+            .Create(DarkelfSubraceBuilder.DarkelfSubrace, "RaceHalfElfDarkElf", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Race, halfDarkelfSpriteReference)
             .SetFeaturesAtLevel(1,
                 darkelfDarkMagic,
@@ -48,13 +46,13 @@ internal static class RaceHalfElfVariantRaceBuilder
             CustomIcons.CreateAssetReferenceSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
         var castSpellHalfElfHigh = FeatureDefinitionCastSpellBuilder
-            .Create(CastSpellElfHigh, "CastSpellHalfElfHigh", RaceNamespace)
+            .Create(CastSpellElfHigh, "CastSpellHalfElfHigh", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .AddToDB();
 
         var halfElfHighElf = CharacterRaceDefinitionBuilder
-            .Create(ElfHigh, "RaceHalfElfHighElf", RaceNamespace)
+            .Create(ElfHigh, "RaceHalfElfHighElf", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)
             .SetFeaturesAtLevel(1,
                 Main.Settings.HalfHighElfUseCharisma ? castSpellHalfElfHigh : CastSpellElfHigh,
@@ -65,14 +63,14 @@ internal static class RaceHalfElfVariantRaceBuilder
             CustomIcons.CreateAssetReferenceSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
 
         var halfElfSylvanElf = CharacterRaceDefinitionBuilder
-            .Create(ElfSylvan, "RaceHalfElfSylvanElf", RaceNamespace)
+            .Create(ElfSylvan, "RaceHalfElfSylvanElf", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Race, halfSylvanSpriteReference)
             .SetFeaturesAtLevel(1,
                 MoveModeMove7)
             .AddToDB();
 
         var halfElfVariant = CharacterRaceDefinitionBuilder
-            .Create(HalfElf, "RaceHalfElfVariant", RaceNamespace)
+            .Create(HalfElf, "RaceHalfElfVariant", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(
                 "Race/&HalfElfTitle",
                 "Race/&HalfElfDescription",

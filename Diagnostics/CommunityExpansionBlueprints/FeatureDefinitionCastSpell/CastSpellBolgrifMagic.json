@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:SpellListBolgrifMagic:3ac97eec-8d09-4ce3-8d29-40ea8b423798",
+  "spellListDefinition": "Definition:SpellListBolgrifMagic:772c4d81-c0e7-530b-a128-a677d28bd5e8",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",
@@ -433,7 +433,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ea2a9c8e-6ca9-490b-a056-d768182b5cd2",
+  "guid": "a0279437-8ed9-52b7-90a0-8a83973943a9",
   "contentPack": 9999,
   "name": "CastSpellBolgrifMagic"
 }
