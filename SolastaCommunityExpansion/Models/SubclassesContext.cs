@@ -55,7 +55,6 @@ internal static class SubclassesContext
         LoadSubclass(new Opportunist());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheRageMage());
-        LoadSubclass(new RoyalKnight());
         LoadSubclass(new SpellMaster());
         LoadSubclass(new SpellShield());
         LoadSubclass(new Tactician());
