@@ -16,18 +16,14 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefin
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian;
 
-// creating subclass Class, don't forget to add subclass to Models/SubclassesContext.cs and create a txt file in Translations
 internal sealed class PathOfTheRageMage : AbstractSubclass
 {
-    private static readonly Guid
-        SubclassNamespace = new("6a9ec115-29db-40b4-9b1d-ad55abede214"); // GUID generated online
-
     private readonly CharacterSubclassDefinition Subclass;
 
     internal PathOfTheRageMage()
     {
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder // Adds some rules for magic
-            .Create("MagicAffinityPathOfTheRageMage", SubclassNamespace)
+            .Create("MagicAffinityPathOfTheRageMage", DefinitionBuilder.CENamespaceGuid)
             .SetHandsFullCastingModifiers(true, true,
                 true) // lets character cast spells without somatic components and sets weapon as focus
             .SetGuiPresentationNoContent(true) // prevents anything from showing on GUI
@@ -37,7 +33,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .AddToDB();
 
         var spellCasting = FeatureDefinitionCastSpellBuilder // allows spell casting
-            .Create("CastSpellPathOfTheRageMage", SubclassNamespace)
+            .Create("CastSpellPathOfTheRageMage", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("PathOfTheRageMageSpellcasting", Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma) // Charisma is Spellcasting modifier
@@ -57,20 +53,20 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                     .THIRD_CASTER); // gain spell slots at rate of third caster
 
         var skillProf = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencySkillPathOfTheRageMage", SubclassNamespace)
+            .Create("ProficiencySkillPathOfTheRageMage", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Arcana) // gain proficiency in Arcana
             .AddToDB();
 
         var supernaturalExploits =
             FeatureDefinitionBuilder // A general definition of the Supernatural Exploits feature at level up
-                .Create("PathOfTheRagemageSupernaturalExploits", SubclassNamespace)
+                .Create("PathOfTheRagemageSupernaturalExploits", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB();
 
         var supernaturalExploitsDarkvision =
             FeatureDefinitionPowerBuilder // lets you cast Darkvision once per long rest
-                .Create("supernaturalExploitsDarkvisionPathOfTheRagemage", SubclassNamespace)
+                .Create("supernaturalExploitsDarkvisionPathOfTheRagemage", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetGuiPresentation(Category.Feature,
                     SpellDefinitions.Darkvision.GuiPresentation
@@ -86,7 +82,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var supernaturalExploitsFeatherfall =
             FeatureDefinitionPowerBuilder // lets you cast Featherfall once per long rest
-                .Create("supernaturalExploitsFeatherfallPathOfTheRagemage", SubclassNamespace)
+                .Create("supernaturalExploitsFeatherfallPathOfTheRagemage", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature,
                     SpellDefinitions.FeatherFall.GuiPresentation
                         .SpriteReference) // setting sprite of power to that of Featherfall spell
@@ -100,7 +96,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 .AddToDB();
 
         var supernaturalExploitsJump = FeatureDefinitionPowerBuilder // lets you cast Jump once per long rest
-            .Create("supernaturalExploitsJumpPathOfTheRagemage", SubclassNamespace)
+            .Create("supernaturalExploitsJumpPathOfTheRagemage", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
                 SpellDefinitions.Jump.GuiPresentation.SpriteReference) // setting sprite of power to that of Jump spell
             .SetEffectDescription(SpellDefinitions.Jump.EffectDescription.Copy()) // copies the effect of Jump spell
@@ -113,7 +109,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var supernaturalExploitsSeeInvisibility =
             FeatureDefinitionPowerBuilder // lets you cast See Invisibility once per long rest
-                .Create("supernaturalExploitsSeeInvisibilityPathOfTheRagemage", SubclassNamespace)
+                .Create("supernaturalExploitsSeeInvisibilityPathOfTheRagemage", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature,
                     SpellDefinitions.SeeInvisibility.GuiPresentation
                         .SpriteReference) // setting sprite of power to that of See Invisibility spell
@@ -141,7 +137,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
              .AddToDB(); */
 
         var arcaneExplosion = FeatureDefinitionAdditionalDamageBuilder // deal additional damage while raging
-            .Create("AdditionalDamagePathOfTheMageRageArcaneExplosion", SubclassNamespace)
+            .Create("AdditionalDamagePathOfTheMageRageArcaneExplosion", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("AdditionalDamagePathOfTheMageRageArcaneExplosion")
             .SetDamageDice(DieType.D6, 1) // deal 1d6 force damage while raging
@@ -167,13 +163,13 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetSpecificDamageType(DamageTypeForce).AddToDB();
 
         var enhancedArcaneExplosion = FeatureDefinitionPowerBuilder // dummy feature to include in GUI
-            .Create("PathOfTheMageRageEnhancedArcaneExplosion", SubclassNamespace)
+            .Create("PathOfTheMageRageEnhancedArcaneExplosion", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         Subclass =
             CharacterSubclassDefinitionBuilder // adds all of the above features to the subclass at respective levels
-                .Create("PathOfTheRageMage", SubclassNamespace)
+                .Create("PathOfTheRageMage", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
                 .AddFeatureAtLevel(magicAffinity, 3)

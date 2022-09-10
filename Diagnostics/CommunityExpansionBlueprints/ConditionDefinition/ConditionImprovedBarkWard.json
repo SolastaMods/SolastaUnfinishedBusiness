@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityImprovedBarkWardRetaliation:51384a1d-ebd3-5b6d-be65-596050fb8e1a"
+    "Definition:DamageAffinityImprovedBarkWardRetaliation:02c6c875-6c15-59ac-b3a7-74726f10ab1e"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -225,8 +225,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionConditionImprovedBarkWardTitle",
-    "description": "Condition/&ConditionConditionImprovedBarkWardDescription",
+    "title": "Condition/&ConditionImprovedBarkWardTitle",
+    "description": "Condition/&ConditionImprovedBarkWardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
@@ -246,7 +246,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "570a793d-f2bb-5f3f-afe7-c4e49fc00132",
+  "guid": "18f2b65e-9fd4-5bea-b062-a67b1cd08bb7",
   "contentPack": 9999,
   "name": "ConditionImprovedBarkWard"
 }

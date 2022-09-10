@@ -125,7 +125,7 @@ public static class SkillProficiencyPointPoolSkillsBuilder
         FeatureDefinitionPointPoolBuilder
             .Create("PointPoolBardSkillPointsMulticlass", "a69b2527569b4893abe57ad1f80e97ed")
             // Non-standard pattern?
-            .SetGuiPresentation("Feature/&BardSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
+            .SetGuiPresentation("Feature/&BardSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
             .RestrictChoices(
                 SkillDefinitions.Acrobatics,

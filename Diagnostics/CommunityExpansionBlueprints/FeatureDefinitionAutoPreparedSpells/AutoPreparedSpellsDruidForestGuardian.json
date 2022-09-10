@@ -48,8 +48,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DruidForestGuardianMagicTitle",
-    "description": "Feature/&DruidForestGuardianMagicDescription",
+    "title": "Feature/&AutoPreparedSpellsDruidForestGuardianTitle",
+    "description": "Feature/&AutoPreparedSpellsDruidForestGuardianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -69,7 +69,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f75d4050-f225-5696-9871-a9946c821a24",
+  "guid": "082d261a-96f7-5328-b0af-35d17f662c82",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsForestGuardian"
+  "name": "AutoPreparedSpellsDruidForestGuardian"
 }

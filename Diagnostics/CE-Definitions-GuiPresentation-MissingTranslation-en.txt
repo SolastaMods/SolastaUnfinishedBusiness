@@ -1,2 +1,0 @@
-ConditionFrenzied	Title='Condition/&ConditionFrenziedTitle'.
-ConditionFrenzied	Description='Condition/&ConditionFrenziedDescription'.

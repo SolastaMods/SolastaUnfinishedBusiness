@@ -102,7 +102,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionBarkWard",
-          "conditionDefinition": "Definition:ConditionBarkWard:258ec149-70de-5ede-a751-a27fe7c42750",
+          "conditionDefinition": "Definition:ConditionBarkWard:3ade78af-7d67-5868-99f2-2c890b242103",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -357,7 +357,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f2e9950e-84cd-5e3d-bbcc-b2e1bea75f6b",
+  "guid": "10a26f6a-ad9c-57a9-b0c4-22951b72eaf0",
   "contentPack": 9999,
   "name": "PowerSharedPoolDruidForestGuardianBarkWard"
 }

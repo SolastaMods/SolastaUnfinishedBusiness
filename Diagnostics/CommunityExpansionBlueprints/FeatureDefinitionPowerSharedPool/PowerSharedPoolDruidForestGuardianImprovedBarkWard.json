@@ -101,8 +101,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionSuperiorBarkWard",
-          "conditionDefinition": "Definition:ConditionSuperiorBarkWard:0ab52348-75db-50ac-8125-780023957f30",
+          "conditionDefinitionName": "ConditionImprovedBarkWard",
+          "conditionDefinition": "Definition:ConditionImprovedBarkWard:18f2b65e-9fd4-5bea-b062-a67b1cd08bb7",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -331,13 +331,13 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerSharedForestGuardianImprovedBarkWard:1df3fb31-391a-5dcf-bea6-a02de634916a",
+  "overriddenPower": "Definition:PowerSharedPoolDruidForestGuardianBarkWard:10a26f6a-ad9c-57a9-b0c4-22951b72eaf0",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedForestGuardianSuperiorBarkWardTitle",
-    "description": "Feature/&PowerSharedForestGuardianSuperiorBarkWardDescription",
+    "title": "Feature/&PowerSharedPoolDruidForestGuardianImprovedBarkWardTitle",
+    "description": "Feature/&PowerSharedPoolDruidForestGuardianImprovedBarkWardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "957eec7a8104a44469ea221963733af8",
@@ -357,7 +357,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "44de1453-4646-5db0-bd26-3fa0a1d6e40d",
+  "guid": "99aa6ba3-fd2c-55c1-b828-982273225b2c",
   "contentPack": 9999,
-  "name": "PowerSharedForestGuardianSuperiorBarkWard"
+  "name": "PowerSharedPoolDruidForestGuardianImprovedBarkWard"
 }

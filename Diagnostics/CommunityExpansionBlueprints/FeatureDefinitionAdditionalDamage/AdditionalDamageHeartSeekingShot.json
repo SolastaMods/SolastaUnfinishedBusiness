@@ -3,8 +3,8 @@
   "notificationTag": "HeartSeekingShot",
   "limitedUsage": "None",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": "AlwaysActive",
-  "requiredProperty": "None",
+  "triggerCondition": "CriticalHit",
+  "requiredProperty": "RangeWeapon",
   "attackModeOnly": false,
   "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
@@ -16,7 +16,7 @@
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
   "specificDamageType": "Radiant",
-  "damageAdvancement": 9000,
+  "damageAdvancement": "ClassLevel",
   "diceByRankTable": [
     {
       "$type": "DiceByRank, Assembly-CSharp",

@@ -3,52 +3,52 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencySkillPathOfTheRageMage:062e3986-f2ed-534d-a88d-12e4d48d843a",
+      "featureDefinition": "Definition:ProficiencySkillPathOfTheRageMage:a9d53e44-e0d2-5d36-9fc1-cadac75b236e",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityPathOfTheRageMage:6331a25a-e0d7-50c7-8371-eef098c836f6",
+      "featureDefinition": "Definition:MagicAffinityPathOfTheRageMage:e6e7207e-b251-57fa-af36-cee08ad0df82",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellPathOfTheRageMage:d01deaa6-7216-5c84-937e-28fe4f813480",
+      "featureDefinition": "Definition:CastSpellPathOfTheRageMage:bcb161a0-1b80-5893-bbb8-d901a1d65c8f",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamagePathOfTheMageRageArcaneExplosion:aeb43ba2-0cfa-567c-b803-777249e48977",
+      "featureDefinition": "Definition:AdditionalDamagePathOfTheMageRageArcaneExplosion:fb564764-58a3-5e38-ad56-07abc999a051",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:supernaturalExploitsDarkvisionPathOfTheRagemage:01c46bb9-82e8-5c65-9e75-8493a3a96fdf",
+      "featureDefinition": "Definition:supernaturalExploitsDarkvisionPathOfTheRagemage:c6f3a231-84fe-5275-a181-4be73a721a14",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:supernaturalExploitsFeatherfallPathOfTheRagemage:3dbf0cf8-7f57-5428-938b-050ec8cbdebb",
+      "featureDefinition": "Definition:supernaturalExploitsFeatherfallPathOfTheRagemage:c14bec39-240d-579f-ad2f-a46098777a4c",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:supernaturalExploitsJumpPathOfTheRagemage:7b69dd69-4445-50cb-b1ea-4f9cad29de2b",
+      "featureDefinition": "Definition:supernaturalExploitsJumpPathOfTheRagemage:7f02afc7-3f44-5d5a-8917-195b9521e3ba",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:supernaturalExploitsSeeInvisibilityPathOfTheRagemage:97a9b1ee-75b5-5364-9f3c-60befe2c0978",
+      "featureDefinition": "Definition:supernaturalExploitsSeeInvisibilityPathOfTheRagemage:e6b4865d-51da-522b-a3b0-56e7a991fa23",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheRagemageSupernaturalExploits:62370698-b98f-566d-887c-f1be8ae25a29",
+      "featureDefinition": "Definition:PathOfTheRagemageSupernaturalExploits:073e1ccb-f2fc-5edf-a057-2cb780f830a2",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheMageRageEnhancedArcaneExplosion:bad0f39a-3631-5c0d-91a3-2755983ba120",
+      "featureDefinition": "Definition:PathOfTheMageRageEnhancedArcaneExplosion:e1da8b42-688b-5f2c-a281-e2ab89ac84ab",
       "level": 14
     }
   ],
@@ -78,7 +78,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b49a23c7-8f3a-574d-bf9d-c5ed97df61c5",
+  "guid": "818a46f6-8174-5c09-923c-5978c94f79c2",
   "contentPack": 9999,
   "name": "PathOfTheRageMage"
 }
