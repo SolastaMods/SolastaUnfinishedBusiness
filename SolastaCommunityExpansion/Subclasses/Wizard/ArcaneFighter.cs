@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -10,8 +9,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
 internal sealed class ArcaneFighter : AbstractSubclass
 {
-    private static readonly Guid SubclassNamespace = new("cab151dd-cc94-4c4c-bfba-a712b9a0b53d");
-
     private static FeatureDefinitionPower _enchantWeapon;
 
     // ReSharper disable once InconsistentNaming
@@ -22,27 +19,30 @@ internal sealed class ArcaneFighter : AbstractSubclass
         // Make Melee Wizard subclass
 
         var weaponProf = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyWeaponArcaneFighter", SubclassNamespace)
+            .Create("ProficiencyWeaponArcaneFighter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory,
+            .SetProficiencies(
+                RuleDefinitions.ProficiencyType.Weapon,
+                EquipmentDefinitions.SimpleWeaponCategory,
                 EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
         var concentrationAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityMeleeWizardConcentration", SubclassNamespace)
+            .Create("MagicAffinityConcentrationArcaneFighter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
-            .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, -1)
+            .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage)
             .AddToDB();
 
         var extraAttack = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierMeleeWizardExtraAttack", SubclassNamespace)
+            .Create("AttributeModifierExtraAttackArcaneFighter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+            .SetModifier(
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.AttacksNumber, 1)
             .AddToDB();
 
         var bonusSpell = FeatureDefinitionAdditionalActionBuilder
-            .Create("AdditionalActionArcaneFighter", SubclassNamespace)
+            .Create("AdditionalActionArcaneFighter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.CastMain)
@@ -51,22 +51,26 @@ internal sealed class ArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var bonusWeaponDamage = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageArcaneFighterBonusWeapon", SubclassNamespace)
+            .Create("AdditionalDamageArcaneFighterBonusWeapon", DefinitionBuilder.CENamespaceGuid)
             .Configure(
                 "AdditionalDamageArcaneFighterBonusWeapon",
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
                 RuleDefinitions.AdditionalDamageValueDetermination.Die,
                 RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,
                 RuleDefinitions.RestrictedContextRequiredProperty.None,
-                true /* attack only */, RuleDefinitions.DieType.D8, 1 /* dice number */,
-                RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "",
-                RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())
+                true /* attack only */,
+                RuleDefinitions.DieType.D8,
+                1 /* dice number */,
+                RuleDefinitions.AdditionalDamageType.SameAsBaseDamage,
+                string.Empty,
+                RuleDefinitions.AdditionalDamageAdvancement.None,
+                new List<DiceByRank>())
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("ArcaneFighter", SubclassNamespace)
-            .SetGuiPresentation("TraditionArcaneFighter", Category.Subclass,
+            .Create("WizardArcaneFighter", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass,
                 MartialSpellblade.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(2, weaponProf, EnchantWeapon)
             .AddFeatureAtLevel(concentrationAffinity, 2)
@@ -91,8 +95,8 @@ internal sealed class ArcaneFighter : AbstractSubclass
     private static FeatureDefinitionPower BuildEnchantWeapon()
     {
         var weaponUseIntModifier = FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierMeleeWizard", SubclassNamespace)
-            .SetGuiPresentation("AttackModifierMeleeWizardArcaneWeapon", Category.Feature,
+            .Create("AttackModifierWeaponArcaneFighter", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
             .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
@@ -115,8 +119,8 @@ internal sealed class ArcaneFighter : AbstractSubclass
             .Build();
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerMeleeWizardArcaneWeapon", SubclassNamespace)
-            .SetGuiPresentation("AttackModifierMeleeWizardArcaneWeapon", Category.Feature,
+            .Create("PowerWeaponArcaneFighter", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("AttackModifierWeaponArcaneFighter", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,

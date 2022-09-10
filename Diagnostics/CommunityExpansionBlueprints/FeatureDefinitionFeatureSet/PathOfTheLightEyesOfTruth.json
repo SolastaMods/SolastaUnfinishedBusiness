@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PathOfTheLightEyesOfTruthPower:3ffe8a5b-968b-50e9-ba96-8eae57dfc5de"
+    "Definition:PathOfTheLightEyesOfTruthPower:904c2ba0-cdcf-5874-bd01-8acde96cf04e"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b9dfa978-a406-5b1b-80ea-e1e1764f7524",
+  "guid": "7f99a07f-bcd2-5583-82e8-e517104842b6",
   "contentPack": 9999,
   "name": "PathOfTheLightEyesOfTruth"
 }

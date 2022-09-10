@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:PathOfTheLightIlluminatingStrike:6cf534e4-d124-50f4-803a-7cfd0b277e5f"
+    "Definition:PathOfTheLightIlluminatingStrike:c0834846-acdb-5a34-ae0b-90c0360732bb"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2be6d208-f746-5db9-9133-a87baa1b5fac",
+  "guid": "4cba27cc-f171-53fb-9937-b6bc37b120da",
   "contentPack": 9999,
   "name": "PathOfTheLightIlluminatingStrikeInitiatorCondition"
 }

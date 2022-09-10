@@ -163,7 +163,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPoolModifierTransmuterHealingPoolExtra:398f84c1-f44a-586e-8ecd-99a431ae6a73",
+  "overriddenPower": "Definition:PowerPoolModifierTransmuterHealingPoolExtra:b2823ad0-c1ea-5db3-9300-309d918ab042",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -189,7 +189,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "398f84c1-f44a-586e-8ecd-99a431ae6a73",
+  "guid": "b2823ad0-c1ea-5db3-9300-309d918ab042",
   "contentPack": 9999,
   "name": "PowerPoolModifierTransmuterHealingPoolExtra"
 }

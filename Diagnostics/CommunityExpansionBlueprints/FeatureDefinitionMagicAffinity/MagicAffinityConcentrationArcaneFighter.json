@@ -52,8 +52,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityMeleeWizardConcentrationTitle",
-    "description": "Feature/&MagicAffinityMeleeWizardConcentrationDescription",
+    "title": "Feature/&MagicAffinityConcentrationArcaneFighterTitle",
+    "description": "Feature/&MagicAffinityConcentrationArcaneFighterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -73,7 +73,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "391e082e-73e0-5768-bc4a-79e56ca6e23a",
+  "guid": "6ef34f78-b786-5e72-8bfe-a8a557b56763",
   "contentPack": 9999,
-  "name": "MagicAffinityMeleeWizardConcentration"
+  "name": "MagicAffinityConcentrationArcaneFighter"
 }

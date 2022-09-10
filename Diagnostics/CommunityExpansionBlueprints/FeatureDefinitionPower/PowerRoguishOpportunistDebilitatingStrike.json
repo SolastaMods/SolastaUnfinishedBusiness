@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionDebilitated",
-          "conditionDefinition": "Definition:ConditionDebilitated:2db81c3c-a9e2-4829-b27b-47af3ba42c76",
+          "conditionDefinition": "Definition:ConditionDebilitated:b1ffaca7-4824-486e-a74a-68d45e6b1925",
           "operation": "AddRandom",
           "conditionsList": [
             "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
@@ -337,7 +337,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1808c4f0-4cc3-5314-b299-d98008e11790",
+  "guid": "78f2cc86-ecbb-5ae4-b0b4-326f8cb07037",
   "contentPack": 9999,
   "name": "PowerRoguishOpportunistDebilitatingStrike"
 }

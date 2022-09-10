@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DieRollModifierDivineHeartEmpoweredHealing:62b7a47a-3852-56a3-8f84-4aa4053528b6"
+    "Definition:DieRollModifierDivineHeartEmpoweredHealing:dc266e71-5aa1-5cf2-baa6-84bf5a0b952a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -246,7 +246,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "594183f6-ec94-5cd3-9569-84adb0b834ed",
+  "guid": "4b5739b9-b86f-5ccd-8c4c-bffacf816521",
   "contentPack": 9999,
   "name": "ConditionDivineHeartEmpoweredHealing"
 }

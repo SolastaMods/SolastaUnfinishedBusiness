@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerDanceOfDefense:d950e847-a9b4-5b0e-a4c8-fb830c744c14"
+    "Definition:PowerDanceOfDefense:0f0cab39-84bc-5d5d-adbe-3b34cd395480"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5431a606-9dad-5330-9454-53468af7351d",
+  "guid": "c0eca03f-4ccd-51c0-bebe-c58abde90cc9",
   "contentPack": 9999,
   "name": "FeatureSetReduceDamageDanceOfDefense"
 }

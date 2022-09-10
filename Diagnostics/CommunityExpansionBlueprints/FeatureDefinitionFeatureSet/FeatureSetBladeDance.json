@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerBladeDance:9b28dff7-c398-5373-a395-1940d42f83b6"
+    "Definition:PowerBladeDance:483dcb75-a0d9-5bac-baeb-a530238e7d25"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bfc34e6a-1262-53e5-8364-ce0a9ae25633",
+  "guid": "56a7a75e-d4f7-569e-9545-27b4d60c57c8",
   "contentPack": 9999,
   "name": "FeatureSetBladeDance"
 }

@@ -111,7 +111,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionMarkedByArcanist:2c45ce76-761a-5335-83ce-f380422be675",
+          "conditionDefinition": "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -340,7 +340,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "Arcane Pulse",
-  "overriddenPower": "Definition:PowerArcanePulse:65ff92a0-d532-594a-ab43-6ba8084c83fa",
+  "overriddenPower": "Definition:PowerArcanePulse:602cf3d4-0acd-55fd-a7f5-9e267060bb96",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -366,7 +366,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "596024c0-0968-5f4a-a59a-ba401d306d56",
+  "guid": "21463995-3934-5733-b64c-f9899e169b54",
   "contentPack": 9999,
   "name": "PowerPowerArcanePulseUpgrade"
 }

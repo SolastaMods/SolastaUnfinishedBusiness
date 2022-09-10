@@ -79,7 +79,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierMeleeWizard:d48630de-f568-5b70-aad7-58bf675602ba",
+              "featureDefinition": "Definition:AttackModifierWeaponArcaneFighter:534ac5e5-02a6-5742-b142-51466f93cd88",
               "level": 0
             }
           ],
@@ -314,8 +314,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttackModifierMeleeWizardArcaneWeaponTitle",
-    "description": "Feature/&AttackModifierMeleeWizardArcaneWeaponDescription",
+    "title": "Feature/&AttackModifierWeaponArcaneFighterTitle",
+    "description": "Feature/&AttackModifierWeaponArcaneFighterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",
@@ -335,7 +335,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a42e34d9-f1c2-519d-9e9d-b3365cd92547",
+  "guid": "6c759c3b-4d3c-5093-8b2c-3fa6588768fc",
   "contentPack": 9999,
-  "name": "PowerMeleeWizardArcaneWeapon"
+  "name": "PowerWeaponArcaneFighter"
 }

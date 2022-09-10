@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PathOfTheLightIlluminatingStrikeInitiator:a775e624-1729-5209-839f-f598c791a95e"
+    "Definition:PathOfTheLightIlluminatingStrikeInitiator:66e1d62a-6f00-5fd7-a3b2-2e1fcc55187c"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e4ba61d8-8696-5665-a1bc-82452204a669",
+  "guid": "f1bd50bb-9cb6-57a1-9f77-c7a72ce1f1ac",
   "contentPack": 9999,
   "name": "PathOfTheLightIlluminatingStrikeFeatureSet"
 }

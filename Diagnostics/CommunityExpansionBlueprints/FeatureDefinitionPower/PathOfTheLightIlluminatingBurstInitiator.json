@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:PathOfTheLightIlluminatingBurstSuppressedCondition:a52f0e2a-51ff-51c7-9a55-8976e68154bb",
+          "conditionDefinition": "Definition:PathOfTheLightIlluminatingBurstSuppressedCondition:56b87e70-b323-547d-92af-054160c149eb",
           "operation": "Remove",
           "conditionsList": [],
           "applyToSelf": false,
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e8ad8505-17d7-57fe-8684-258798a382b6",
+  "guid": "846527a4-c530-5a79-b10c-8103aeb9f8d6",
   "contentPack": 9999,
   "name": "PathOfTheLightIlluminatingBurstInitiator"
 }

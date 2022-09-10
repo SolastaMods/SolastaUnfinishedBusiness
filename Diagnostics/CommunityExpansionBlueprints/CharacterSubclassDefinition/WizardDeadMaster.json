@@ -3,27 +3,27 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsWizardDeadMaster:c50445c6-6b99-5d98-a6a5-9db7f74088bf",
+      "featureDefinition": "Definition:AutoPreparedSpellsWizardDeadMaster:cc1c7743-d128-520b-8faf-0166b9026d47",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:OnCharacterKillStarkHarvest:28181bf0-3bba-58a8-95b9-bb43c71081e6",
+      "featureDefinition": "Definition:OnCharacterKillStarkHarvest:4bc072a2-3c48-5de4-adcd-3327bcbfe67d",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:OnCharacterKillUndeadChains:c006d5cf-6a37-5832-98c3-f2486b3b8e78",
+      "featureDefinition": "Definition:OnCharacterKillUndeadChains:05f0c597-e4fc-595f-8cca-4701d2f1638b",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityHardenToNecrotic:e95abe86-8af5-5d0b-8a9e-e3a9b85da74d",
+      "featureDefinition": "Definition:DamageAffinityHardenToNecrotic:c9e75bea-3f06-528d-87d4-5adc88e4796d",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerCommandUndead:edea18b3-b5ce-53af-a379-3ac82c49abae",
+      "featureDefinition": "Definition:PowerCommandUndead:2c3bd937-3907-5f7f-9a83-3007df33bf5b",
       "level": 14
     }
   ],
@@ -53,7 +53,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d014b7eb-5eb3-5d0f-bace-d9982fbf5adc",
+  "guid": "65804f40-eb6b-5e26-bb1e-f5ef0ba6ee3e",
   "contentPack": 9999,
   "name": "WizardDeadMaster"
 }

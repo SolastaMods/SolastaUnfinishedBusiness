@@ -6,7 +6,7 @@
   "triggerCondition": "TargetHasConditionCreatedByMe",
   "requiredProperty": "None",
   "attackModeOnly": true,
-  "requiredTargetCondition": "Definition:ConditionMarkedByArcanist:2c45ce76-761a-5335-83ce-f380422be675",
+  "requiredTargetCondition": "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
@@ -134,7 +134,7 @@
       "hasSavingThrow": false,
       "operation": "Remove",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionMarkedByArcanist:2c45ce76-761a-5335-83ce-f380422be675",
+      "conditionDefinition": "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -223,7 +223,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2c2fd5c6-ea16-5ae6-92d2-4e1357d35c50",
+  "guid": "8c776e5a-f4da-5fa2-b607-6ac9ce765e48",
   "contentPack": 9999,
   "name": "AdditionalDamageArcaneDetonation"
 }

@@ -3,32 +3,32 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerMeleeWizardArcaneWeapon:a42e34d9-f1c2-519d-9e9d-b3365cd92547",
+      "featureDefinition": "Definition:PowerWeaponArcaneFighter:6c759c3b-4d3c-5093-8b2c-3fa6588768fc",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityMeleeWizardConcentration:391e082e-73e0-5768-bc4a-79e56ca6e23a",
+      "featureDefinition": "Definition:MagicAffinityConcentrationArcaneFighter:6ef34f78-b786-5e72-8bfe-a8a557b56763",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWeaponArcaneFighter:5450b412-3f29-549a-ae04-7eca337d58d1",
+      "featureDefinition": "Definition:ProficiencyWeaponArcaneFighter:31e71364-814e-5409-8cba-98cc4c1c458e",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierMeleeWizardExtraAttack:51476c8a-052b-56a6-9152-3f65ef323d42",
+      "featureDefinition": "Definition:AttributeModifierExtraAttackArcaneFighter:924b6014-e6c2-5a81-93c0-3406617912c5",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalActionArcaneFighter:e4e0f523-674b-5411-8b58-2271e778df71",
+      "featureDefinition": "Definition:AdditionalActionArcaneFighter:0d60d541-d5cc-57be-a95d-2fe38e53298c",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageArcaneFighterBonusWeapon:83ddb1a0-1f85-5a40-8adc-ec2f7999d669",
+      "featureDefinition": "Definition:AdditionalDamageArcaneFighterBonusWeapon:173ff646-05c7-5827-b06c-940b98f046d0",
       "level": 14
     }
   ],
@@ -37,8 +37,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&TraditionArcaneFighterTitle",
-    "description": "Subclass/&TraditionArcaneFighterDescription",
+    "title": "Subclass/&WizardArcaneFighterTitle",
+    "description": "Subclass/&WizardArcaneFighterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7b10e54d6037d314e93fd7e7f81c4798",
@@ -58,7 +58,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "781e7978-cae9-51b0-9d07-44b249c19ac6",
+  "guid": "fc598ba8-b1be-54b9-bc0e-757151d3e54e",
   "contentPack": 9999,
-  "name": "ArcaneFighter"
+  "name": "WizardArcaneFighter"
 }

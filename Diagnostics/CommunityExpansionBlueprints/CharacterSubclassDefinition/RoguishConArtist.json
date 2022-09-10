@@ -3,27 +3,27 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AbilityCheckAffinityRogueConArtist:e977ad33-bef5-5b12-96c3-110a4a237967",
+      "featureDefinition": "Definition:AbilityCheckAffinityRogueConArtist:8fc61768-fb38-573a-8b52-29f1f54b4b03",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellConArtist:20a1a155-6992-5137-98aa-17ad091038bc",
+      "featureDefinition": "Definition:CastSpellConArtist:5e6e287f-f177-5264-a99a-e9baa97f2871",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRoguishConArtistFeint:fe7e1abb-85fa-5c77-aa73-35fd351b3296",
+      "featureDefinition": "Definition:PowerRoguishConArtistFeint:5fcc2251-0318-515c-9ddd-b9aa38354909",
       "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityRoguishConArtistDC:e309fa24-5044-55dd-89f1-420adc5b30ca",
+      "featureDefinition": "Definition:MagicAffinityRoguishConArtistDC:5f5805bb-5f84-5f99-9c12-883fccd26e7d",
       "level": 13
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyRoguishConArtistMentalSavingThrows:7fef9dca-4f6f-5ecb-bf99-4982715193da",
+      "featureDefinition": "Definition:ProficiencyRoguishConArtistMentalSavingThrows:18d80c88-7649-5c81-9c01-fadb5c31f347",
       "level": 17
     }
   ],
@@ -53,7 +53,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4ecda6fe-699e-549a-8a53-8ca394062b66",
+  "guid": "b2af8c2f-4e46-5047-872b-8b3a74821a14",
   "contentPack": 9999,
   "name": "RoguishConArtist"
 }

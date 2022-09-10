@@ -19,8 +19,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
     private const string IlluminatedConditionName = "PathOfTheLightIlluminatedCondition";
     private const string IlluminatingStrikeName = "PathOfTheLightIlluminatingStrike";
     private const string IlluminatingBurstName = "PathOfTheLightIlluminatingBurst";
-    private static readonly Guid SubclassNamespace = new("c2067110-5086-45c0-b0c2-4c140599605c");
-
     private static readonly List<ConditionDefinition> InvisibleConditions =
         new() { ConditionInvisibleBase, ConditionInvisible, ConditionInvisibleGreater };
 
@@ -66,7 +64,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     private static ConditionDefinition _illuminatingBurstSuppressedCondition;
 
     private CharacterSubclassDefinition Subclass { get; } = CharacterSubclassDefinitionBuilder
-        .Create("PathOfTheLight", SubclassNamespace)
+        .Create("PathOfTheLight",  DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation("BarbarianPathOfTheLight", Category.Subclass, DomainSun.GuiPresentation.SpriteReference)
         .AddFeatureAtLevel(IlluminatingStrike, 3)
         .AddFeatureAtLevel(PierceTheDarkness, 3)
@@ -78,7 +76,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     private static ConditionDefinitionIlluminated IlluminatedCondition => _illuminatedCondition ??=
         ConditionDefinitionIlluminatedBuilder
-            .Create(IlluminatedConditionName, SubclassNamespace)
+            .Create(IlluminatedConditionName,  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass,
                 ConditionBranded.GuiPresentation.SpriteReference)
             .SetAllowMultipleInstances(true)
@@ -90,25 +88,25 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .AddToDB();
 
     private static FeatureDefinition IlluminatingStrike => _illuminatingStrike ??= FeatureDefinitionFeatureSetBuilder
-        .Create("PathOfTheLightIlluminatingStrikeFeatureSet", SubclassNamespace)
+        .Create("PathOfTheLightIlluminatingStrikeFeatureSet",  DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrike", Category.Subclass)
         .SetEnumerateInDescription(false)
         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
         .SetUniqueChoices(false)
         .AddFeatureSet(IlluminatingStrikeInitiatorBuilder
-            .Create("PathOfTheLightIlluminatingStrikeInitiator", SubclassNamespace, IlluminatedCondition)
+            .Create("PathOfTheLightIlluminatingStrikeInitiator",  DefinitionBuilder.CENamespaceGuid, IlluminatedCondition)
             .SetGuiPresentationNoContent(true)
             .AddToDB())
         .AddToDB();
 
     private static FeatureDefinition IlluminatingStrikeImprovement => _illuminatingStrikeImprovement ??=
         FeatureDefinitionBuilder
-            .Create("PathOfTheLightIlluminatingStrikeImprovement", SubclassNamespace)
+            .Create("PathOfTheLightIlluminatingStrikeImprovement",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrikeImprovement", Category.Subclass)
             .AddToDB();
 
     private static FeatureDefinition PierceTheDarkness => _pierceTheDarkness ??= FeatureDefinitionFeatureSetBuilder
-        .Create("PathOfTheLightPierceTheDarkness", SubclassNamespace)
+        .Create("PathOfTheLightPierceTheDarkness",  DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation("BarbarianPathOfTheLightPierceTheDarkness", Category.Subclass)
         .SetEnumerateInDescription(false)
         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -117,14 +115,14 @@ internal sealed class PathOfTheLight : AbstractSubclass
         .AddToDB();
 
     private static FeatureDefinition LightsProtection => _lightsProtection ??= FeatureDefinitionFeatureSetBuilder
-        .Create("PathOfTheLightLightsProtection", SubclassNamespace)
+        .Create("PathOfTheLightLightsProtection",  DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation("BarbarianPathOfTheLightLightsProtection", Category.Subclass)
         .SetEnumerateInDescription(false)
         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
         .SetUniqueChoices(false)
         .AddFeatureSet(
             FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
-                .Create("PathOfTheLightLightsProtectionOpportunityAttackImmunity", SubclassNamespace)
+                .Create("PathOfTheLightLightsProtectionOpportunityAttackImmunity",  DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent()
                 .SetConditionName(IlluminatedConditionName)
                 .AddToDB())
@@ -133,19 +131,19 @@ internal sealed class PathOfTheLight : AbstractSubclass
     private static FeatureDefinition EyesOfTruth => _eyesOfTruth ??= CreateEyesOfTruth();
 
     private static FeatureDefinition IlluminatingBurst => _illuminatingBurst ??= FeatureDefinitionFeatureSetBuilder
-        .Create("PathOfTheLightIlluminatingBurstFeatureSet", SubclassNamespace)
+        .Create("PathOfTheLightIlluminatingBurstFeatureSet",  DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurst", Category.Subclass)
         .SetEnumerateInDescription(false)
         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
         .SetUniqueChoices(false)
         .SetFeatureSet(
             IlluminatingBurstInitiatorBuilder
-                .Create("PathOfTheLightIlluminatingBurstInitiator", SubclassNamespace,
+                .Create("PathOfTheLightIlluminatingBurstInitiator",  DefinitionBuilder.CENamespaceGuid,
                     IlluminatingBurstSuppressedCondition)
                 .SetGuiPresentationNoContent(true)
                 .AddToDB(),
             PowerIlluminatingBurstBuilder
-                .Create(IlluminatingBurstName, SubclassNamespace, IlluminatedCondition,
+                .Create(IlluminatingBurstName,  DefinitionBuilder.CENamespaceGuid, IlluminatedCondition,
                     IlluminatingBurstSuppressedCondition)
                 .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurstPower", Category.Subclass,
                     PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference)
@@ -156,7 +154,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     private static FeatureDefinitionAttackDisadvantageAgainstNonSource DisadvantageAgainstNonSource =>
         _disadvantageAgainstNonSource ??=
             FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
-                .Create("PathOfTheLightIlluminatedDisadvantage", SubclassNamespace)
+                .Create("PathOfTheLightIlluminatedDisadvantage",  DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("Feature/&NoContentTitle",
                     "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription")
                 .SetConditionName(IlluminatedConditionName)
@@ -164,7 +162,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     private static FeatureDefinition PreventInvisibility => _preventInvisibility ??=
         FeatureDefinitionFeatureSetBuilder
-            .Create("PathOfTheLightIlluminatedPreventInvisibility", SubclassNamespace)
+            .Create("PathOfTheLightIlluminatedPreventInvisibility",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("Feature/&NoContentTitle",
                 "Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription")
             .SetEnumerateInDescription(false)
@@ -172,7 +170,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetUniqueChoices(false)
             .AddFeatureSet(InvisibleConditions
                 .Select(ic => FeatureDefinitionConditionAffinityBuilder
-                    .Create("PathOfTheLightIlluminatedPreventInvisibility" + ic.Name, SubclassNamespace)
+                    .Create("PathOfTheLightIlluminatedPreventInvisibility" + ic.Name,  DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentationNoContent()
                     .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
                     .SetConditionType(ic)
@@ -181,7 +179,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     private static ConditionDefinition IlluminatingBurstSuppressedCondition =>
         _illuminatingBurstSuppressedCondition ??= ConditionDefinitionBuilder
-            .Create("PathOfTheLightIlluminatingBurstSuppressedCondition", SubclassNamespace)
+            .Create("PathOfTheLightIlluminatingBurstSuppressedCondition",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetAllowMultipleInstances(false)
             .SetConditionType(RuleDefinitions.ConditionType.Neutral)
@@ -229,7 +227,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     private static FeatureDefinition CreateEyesOfTruth()
     {
         var seeingInvisibleCondition = ConditionDefinitionBuilder
-            .Create("PathOfTheLightEyesOfTruthSeeingInvisible", SubclassNamespace)
+            .Create("PathOfTheLightEyesOfTruthSeeingInvisible",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("BarbarianPathOfTheLightSeeingInvisibleCondition", Category.Subclass,
                 ConditionSeeInvisibility.GuiPresentation.SpriteReference)
             .SetAllowMultipleInstances(false)
@@ -258,7 +256,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .AddEffectForm(seeInvisibleConditionForm);
 
         var seeInvisiblePower = FeatureDefinitionPowerBuilder
-            .Create("PathOfTheLightEyesOfTruthPower", SubclassNamespace)
+            .Create("PathOfTheLightEyesOfTruthPower",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("BarbarianPathOfTheLightEyesOfTruth", Category.Subclass,
                 SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
             .SetShowCasting(false)
@@ -268,7 +266,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create("PathOfTheLightEyesOfTruth", SubclassNamespace)
+            .Create("PathOfTheLightEyesOfTruth",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("BarbarianPathOfTheLightEyesOfTruth", Category.Subclass)
             .SetEnumerateInDescription(false)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -303,7 +301,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .Build();
 
         return FeatureDefinitionPowerBuilder
-            .Create("PathOfTheLightIlluminatingBurstSuppressor", SubclassNamespace)
+            .Create("PathOfTheLightIlluminatingBurstSuppressor",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(RuleDefinitions.ActivationTime.Permanent)
             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
@@ -496,7 +494,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         private static EffectDescription CreatePowerEffect(ConditionDefinition illuminatedCondition)
         {
             var initiatorCondition = ConditionDefinitionBuilder
-                .Create("PathOfTheLightIlluminatingStrikeInitiatorCondition", SubclassNamespace)
+                .Create("PathOfTheLightIlluminatingStrikeInitiatorCondition",  DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent(true)
                 .SetAllowMultipleInstances(false)
                 .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
@@ -506,7 +504,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.RageStop)
                 .SetFeatures(
                     IlluminatingStrikeFeatureBuilder
-                        .Create(IlluminatingStrikeName, SubclassNamespace, illuminatedCondition)
+                        .Create(IlluminatingStrikeName,  DefinitionBuilder.CENamespaceGuid, illuminatedCondition)
                         .SetGuiPresentationNoContent(AdditionalDamageDomainLifeDivineStrike.GuiPresentation
                             .SpriteReference)
                         .AddToDB())
@@ -578,7 +576,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             };
 
             var illuminatedByBurstCondition = ConditionDefinitionIlluminatedByBurstBuilder
-                .Create("PathOfTheLightIlluminatedByBurstCondition", SubclassNamespace)
+                .Create("PathOfTheLightIlluminatedByBurstCondition",  DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass,
                     ConditionBranded.GuiPresentation.SpriteReference)
                 .SetAllowMultipleInstances(true)

@@ -3,37 +3,37 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityRangerArcanist:63372bfb-ca38-554c-a8ee-3476a34fc7b6",
+      "featureDefinition": "Definition:MagicAffinityRangerArcanist:4b70f6e4-c7bc-57fe-a53a-08a2b276036f",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageArcaneDetonation:2c2fd5c6-ea16-5ae6-92d2-4e1357d35c50",
+      "featureDefinition": "Definition:AdditionalDamageArcaneDetonation:8c776e5a-f4da-5fa2-b607-6ac9ce765e48",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageArcanistMark:4240bb3c-8a2d-5ab9-bd2d-c8fc7d79ded5",
+      "featureDefinition": "Definition:AdditionalDamageArcanistMark:63e97e06-1a84-5fa6-8381-fc53d620fd4b",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsArcanist:62e68d95-d3b0-5e8c-bdd4-3a0654b02e09",
+      "featureDefinition": "Definition:AutoPreparedSpellsArcanist:82245fef-4569-5ac9-8e11-8447d946aa5c",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerArcanePulse:65ff92a0-d532-594a-ab43-6ba8084c83fa",
+      "featureDefinition": "Definition:PowerArcanePulse:602cf3d4-0acd-55fd-a7f5-9e267060bb96",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageArcaneDetonationUpgrade:30eb8943-0b75-5d3d-b42f-ff0a0076bc31",
+      "featureDefinition": "Definition:AdditionalDamageArcaneDetonationUpgrade:603aa347-b704-537f-b940-5c76070a594e",
       "level": 11
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPowerArcanePulseUpgrade:596024c0-0968-5f4a-a59a-ba401d306d56",
+      "featureDefinition": "Definition:PowerPowerArcanePulseUpgrade:21463995-3934-5733-b64c-f9899e169b54",
       "level": 15
     }
   ],
@@ -63,7 +63,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5ABD870D-9ABD-4953-A2EC-E2109324FAB9",
+  "guid": "d85de819-aaa0-5459-94fe-0882fe3edad8",
   "contentPack": 9999,
   "name": "RangerArcanist"
 }

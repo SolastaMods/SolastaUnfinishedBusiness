@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerDanceOfVictory:13e1034a-9532-5761-94fe-47ac3f695663"
+    "Definition:PowerDanceOfVictory:b972d44f-0952-5606-9899-37f3588c9b01"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "db3615b4-6a3f-5e9e-b937-e42833b026a0",
+  "guid": "47e36645-9df4-5c82-aebb-78265d626c5d",
   "contentPack": 9999,
   "name": "FeatureSetDanceOfVictory"
 }

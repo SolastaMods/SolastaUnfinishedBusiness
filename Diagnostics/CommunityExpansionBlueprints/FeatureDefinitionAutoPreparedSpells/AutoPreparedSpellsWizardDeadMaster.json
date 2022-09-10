@@ -6,21 +6,21 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 3,
       "spellsList": [
-        "Definition:CreateDead3:6a232ca3-77d5-5eb3-b819-61bdbed06eb6"
+        "Definition:CreateDead3:acea4743-d459-5f30-85bb-1995b6c8062f"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 5,
       "spellsList": [
-        "Definition:CreateDead5:8a5dcb53-bfd8-5ecc-801a-43ff62b7f8bd"
+        "Definition:CreateDead5:a994feb1-22e1-576a-88a6-8d7585f5edf1"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 7,
       "spellsList": [
-        "Definition:CreateDead7:b882cca6-efe9-5733-b360-16d0564b91a7"
+        "Definition:CreateDead7:f41faac4-2d8e-56ea-a622-c86460555e63"
       ]
     }
   ],
@@ -50,7 +50,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c50445c6-6b99-5d98-a6a5-9db7f74088bf",
+  "guid": "cc1c7743-d128-520b-8faf-0166b9026d47",
   "contentPack": 9999,
   "name": "AutoPreparedSpellsWizardDeadMaster"
 }

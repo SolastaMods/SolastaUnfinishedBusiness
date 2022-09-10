@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttackModifierMeleeWizardArcaneWeaponTitle",
-    "description": "Feature/&AttackModifierMeleeWizardArcaneWeaponDescription",
+    "title": "Feature/&AttackModifierWeaponArcaneFighterTitle",
+    "description": "Feature/&AttackModifierWeaponArcaneFighterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d48630de-f568-5b70-aad7-58bf675602ba",
+  "guid": "534ac5e5-02a6-5742-b142-51466f93cd88",
   "contentPack": 9999,
-  "name": "AttackModifierMeleeWizard"
+  "name": "AttackModifierWeaponArcaneFighter"
 }

@@ -124,7 +124,7 @@
       "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:PathOfTheLightIlluminatedCondition:b5040325-e269-5ecd-9f50-e29989b0d938",
+      "conditionDefinition": "Definition:PathOfTheLightIlluminatedCondition:7ef47cc1-227c-507c-b0c3-48d658d495a0",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -213,7 +213,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6cf534e4-d124-50f4-803a-7cfd0b277e5f",
+  "guid": "c0834846-acdb-5a34-ae0b-90c0360732bb",
   "contentPack": 9999,
   "name": "PathOfTheLightIlluminatingStrike"
 }

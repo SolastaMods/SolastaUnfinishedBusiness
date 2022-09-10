@@ -77,10 +77,10 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionBladeDance",
-          "conditionDefinition": "Definition:ConditionBladeDance:e2bf4022-b761-5170-8e2e-175e7df3fcd0",
+          "conditionDefinition": "Definition:ConditionBladeDance:8268f0ff-11cc-5f8a-8900-7eba6bfa3e4a",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionBladeDance:e2bf4022-b761-5170-8e2e-175e7df3fcd0"
+            "Definition:ConditionBladeDance:8268f0ff-11cc-5f8a-8900-7eba6bfa3e4a"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -344,7 +344,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9b28dff7-c398-5373-a395-1940d42f83b6",
+  "guid": "483dcb75-a0d9-5bac-baeb-a530238e7d25",
   "contentPack": 9999,
   "name": "PowerBladeDance"
 }

@@ -2,8 +2,8 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": true,
   "subspellsList": [
-    "Definition:CreateDeadGhoul:493048dc-ee0d-5e18-97d5-9cebaa1dca46",
-    "Definition:CreateDeadSkeleton_Enforcer:2dd41415-dba4-53de-a5e6-f7af37d2e996"
+    "Definition:CreateDeadGhoul:bda6f0ca-c70b-5f8b-9b89-f8d6537568ad",
+    "Definition:CreateDeadSkeleton_Enforcer:171dcc7e-2899-5552-8774-1c7bb1c3f858"
   ],
   "implemented": true,
   "schoolOfMagic": "SchoolNecromancy",
@@ -300,7 +300,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8a5dcb53-bfd8-5ecc-801a-43ff62b7f8bd",
+  "guid": "a994feb1-22e1-576a-88a6-8d7585f5edf1",
   "contentPack": 9999,
   "name": "CreateDead5"
 }

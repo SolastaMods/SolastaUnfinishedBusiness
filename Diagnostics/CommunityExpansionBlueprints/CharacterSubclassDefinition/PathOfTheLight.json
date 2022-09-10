@@ -3,32 +3,32 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheLightIlluminatingStrikeFeatureSet:e4ba61d8-8696-5665-a1bc-82452204a669",
+      "featureDefinition": "Definition:PathOfTheLightIlluminatingStrikeFeatureSet:f1bd50bb-9cb6-57a1-9f77-c7a72ce1f1ac",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheLightPierceTheDarkness:c9a6bd92-bebc-5e6d-a0e8-a0f9896b9ebc",
+      "featureDefinition": "Definition:PathOfTheLightPierceTheDarkness:361c612c-5612-5ea5-8738-1e08f63bbea4",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheLightLightsProtection:d9ff8401-7b25-5e78-8bdb-1b6c0ee3fa51",
+      "featureDefinition": "Definition:PathOfTheLightLightsProtection:6ef15022-33e7-5ba6-b2fa-58cc7b51007c",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheLightEyesOfTruth:b9dfa978-a406-5b1b-80ea-e1e1764f7524",
+      "featureDefinition": "Definition:PathOfTheLightEyesOfTruth:7f99a07f-bcd2-5583-82e8-e517104842b6",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheLightIlluminatingStrikeImprovement:7218770d-3acb-5f2a-977e-07cfccae974c",
+      "featureDefinition": "Definition:PathOfTheLightIlluminatingStrikeImprovement:e9c3be2e-9cec-5d8e-a343-a39280b037c3",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheLightIlluminatingBurstFeatureSet:5ca3e3fc-f90d-5998-8bc3-dec3f0221e9d",
+      "featureDefinition": "Definition:PathOfTheLightIlluminatingBurstFeatureSet:6153dae1-d893-5401-80ee-af655af35216",
       "level": 14
     }
   ],
@@ -58,7 +58,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "69b21a8d-8f7a-5cda-b600-c68a44b6b280",
+  "guid": "7cdff290-0fc5-543b-8980-e47c32976f98",
   "contentPack": 9999,
   "name": "PathOfTheLight"
 }

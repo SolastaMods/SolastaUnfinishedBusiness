@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionActingCunningly",
-          "conditionDefinition": "Definition:ConditionDivineHeartEmpoweredHealing:594183f6-ec94-5cd3-9569-84adb0b834ed",
+          "conditionDefinition": "Definition:ConditionDivineHeartEmpoweredHealing:4b5739b9-b86f-5ccd-8c4c-bffacf816521",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -342,7 +342,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1305386c-47da-54e1-81c6-870405a6733c",
+  "guid": "8b3b0411-a9ea-5550-966a-c6f052345ef9",
   "contentPack": 9999,
   "name": "PowerDivineHeartEmpoweredHealing"
 }

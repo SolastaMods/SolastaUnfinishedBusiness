@@ -1,11 +1,11 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AutoPreparedSpellsSorcererDivineHeartArun:758190d7-cb73-5f0f-bd8f-b20cd2abb84a",
-    "Definition:AutoPreparedSpellsSorcererDivineHeartEinar:01f4409b-c758-57af-8c64-fecb7bc67587",
-    "Definition:AutoPreparedSpellsSorcererDivineHeartMariake:9524b4bf-ace3-583d-be33-41226f05a7cd",
-    "Definition:AutoPreparedSpellsSorcererDivineHeartMisaye:38df9259-caeb-55eb-b02b-c3841a384db2",
-    "Definition:AutoPreparedSpellsSorcererDivineHeartPakri:0ea97f67-392d-518a-862c-32139665249b"
+    "Definition:AutoPreparedSpellsSorcererDivineHeartArun:15a3921d-46f7-53da-97de-62328a92fa51",
+    "Definition:AutoPreparedSpellsSorcererDivineHeartEinar:6ec55a44-d5ee-52e7-b088-98587da5783b",
+    "Definition:AutoPreparedSpellsSorcererDivineHeartMariake:8893ed6b-28f1-5c21-a38d-5fa18415a946",
+    "Definition:AutoPreparedSpellsSorcererDivineHeartMisaye:9b444a55-aee8-559e-a5d8-0ffec7cea8ec",
+    "Definition:AutoPreparedSpellsSorcererDivineHeartPakri:7c8ed936-1b0a-544b-918a-bf92832d3cbd"
   ],
   "mode": "Exclusion",
   "ancestryDamageTypeMap": [],
@@ -37,7 +37,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "617dd561-4aea-5cfd-a10a-e8d1b0aafa62",
+  "guid": "50c4bac9-edbc-5b51-96f3-5fd8a1d106dd",
   "contentPack": 9999,
   "name": "FeatureSetDivineHeartDeityChoice"
 }

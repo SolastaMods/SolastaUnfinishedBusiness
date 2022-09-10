@@ -77,10 +77,10 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionDanceOfDefense",
-          "conditionDefinition": "Definition:ConditionDanceOfDefense:f1d3f1cc-c8c7-5604-8335-c0b10423f8c0",
+          "conditionDefinition": "Definition:ConditionDanceOfDefense:cace9eee-40a5-5f8f-b376-fd8475637f57",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionDanceOfDefense:f1d3f1cc-c8c7-5604-8335-c0b10423f8c0"
+            "Definition:ConditionDanceOfDefense:cace9eee-40a5-5f8f-b376-fd8475637f57"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -308,7 +308,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerBladeDance:9b28dff7-c398-5373-a395-1940d42f83b6",
+  "overriddenPower": "Definition:PowerBladeDance:483dcb75-a0d9-5bac-baeb-a530238e7d25",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d950e847-a9b4-5b0e-a4c8-fb830c744c14",
+  "guid": "0f0cab39-84bc-5d5d-adbe-3b34cd395480",
   "contentPack": 9999,
   "name": "PowerDanceOfDefense"
 }

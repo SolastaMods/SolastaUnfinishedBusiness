@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityFighterSpellShield:88d441bc-25ac-5610-872f-87f0a102499c",
+      "featureDefinition": "Definition:MagicAffinityFighterSpellShield:25ff14ce-31cd-5d27-96d1-01fc9d1a0b15",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellSpellShield:09aac17f-37c6-5456-adf1-6578251f8359",
+      "featureDefinition": "Definition:CastSpellSpellShield:c21ae50c-0e59-54f4-b9f2-b4d91e0bbdad",
       "level": 3
     },
     {
@@ -28,12 +28,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSpellShieldArcaneDeflection:75778ecf-eb93-5937-b63c-923262236985",
+      "featureDefinition": "Definition:PowerSpellShieldArcaneDeflection:52e64530-4aec-5d0f-a053-4676e7ac6dde",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ActionAffinitySpellShieldRangedDefense:ea79f85e-4454-5b6d-87b7-70c1557c932c",
+      "featureDefinition": "Definition:ActionAffinitySpellShieldRangedDefense:cc7a8cde-d4d4-5b3b-bba0-78c87c1f0489",
       "level": 18
     }
   ],
@@ -63,7 +63,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d2d44af7-423a-5001-88b8-de5ecd9fe60e",
+  "guid": "3282eb5e-d4ab-5aa3-80d8-c808aab743b6",
   "contentPack": 9999,
   "name": "FighterSpellShield"
 }

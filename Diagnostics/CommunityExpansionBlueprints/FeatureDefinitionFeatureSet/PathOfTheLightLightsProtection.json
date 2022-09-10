@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PathOfTheLightLightsProtectionOpportunityAttackImmunity:49fc3330-cdd0-5d1d-8de7-d99b752f765d"
+    "Definition:PathOfTheLightLightsProtectionOpportunityAttackImmunity:2dfa673e-df78-56ca-9aa5-06ee5cbb1ebb"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d9ff8401-7b25-5e78-8bdb-1b6c0ee3fa51",
+  "guid": "6ef15022-33e7-5ba6-b2fa-58cc7b51007c",
   "contentPack": 9999,
   "name": "PathOfTheLightLightsProtection"
 }

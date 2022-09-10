@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:PathOfTheLightIlluminatingStrikeInitiatorCondition:2be6d208-f746-5db9-9133-a87baa1b5fac",
+          "conditionDefinition": "Definition:PathOfTheLightIlluminatingStrikeInitiatorCondition:4cba27cc-f171-53fb-9937-b6bc37b120da",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a775e624-1729-5209-839f-f598c791a95e",
+  "guid": "66e1d62a-6f00-5fd7-a3b2-2e1fcc55187c",
   "contentPack": 9999,
   "name": "PathOfTheLightIlluminatingStrikeInitiator"
 }

@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionPowerTransmuteDarkvision",
-          "conditionDefinition": "Definition:ConditionPowerTransmuteDarkvision:88e5ac08-cc10-530c-94f2-e28a41d5bf85",
+          "conditionDefinition": "Definition:ConditionPowerTransmuteDarkvision:f0eeee6a-f34a-5807-af1a-873fdc5bfcdf",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a969b92d-699a-52ec-94d1-ece582ec54fa",
+  "guid": "80c01596-b160-5440-810a-05d5c8989f4b",
   "contentPack": 9999,
   "name": "PowerTransmuteDarkvision"
 }

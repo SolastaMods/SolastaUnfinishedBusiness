@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionRogueConArtistFeint",
-          "conditionDefinition": "Definition:ConditionRogueConArtistFeint:657906dc-1cc7-56ec-b98e-e0cec4cd2445",
+          "conditionDefinition": "Definition:ConditionRogueConArtistFeint:37b5df56-7007-5231-9205-228c22e4c4c5",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fe7e1abb-85fa-5c77-aa73-35fd351b3296",
+  "guid": "5fcc2251-0318-515c-9ddd-b9aa38354909",
   "contentPack": 9999,
   "name": "PowerRoguishConArtistFeint"
 }

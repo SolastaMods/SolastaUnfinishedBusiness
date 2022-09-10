@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierSpellShieldArcaneDeflection:8fb40ba6-322b-5751-b151-5c69acb7e394"
+    "Definition:AttributeModifierSpellShieldArcaneDeflection:0fb7e2de-703b-5950-9c2f-01424b936e01"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -146,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3a1982dd-3a02-5746-88dc-2ef0be504f77",
+  "guid": "7580a117-7912-5b1d-bd1c-552ff726506b",
   "contentPack": 9999,
   "name": "ConditionSpellShieldArcaneDeflection"
 }

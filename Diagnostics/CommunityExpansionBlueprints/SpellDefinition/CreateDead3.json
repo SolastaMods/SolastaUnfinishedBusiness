@@ -2,9 +2,9 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": true,
   "subspellsList": [
-    "Definition:CreateDeadZombie:dd2d89bf-9845-5b20-a769-cbf6adbd368b",
-    "Definition:CreateDeadSkeleton:33d2d737-a52c-5d59-8172-059b328ebed9",
-    "Definition:CreateDeadSkeleton_Archer:a547f0d0-263c-5720-9cbc-d8eb972faffb"
+    "Definition:CreateDeadZombie:905a4d92-11a3-5759-8161-2558149009db",
+    "Definition:CreateDeadSkeleton:c2cd2cd6-0c2a-5e24-9058-95542e3474e6",
+    "Definition:CreateDeadSkeleton_Archer:1edbee5f-2a3b-517a-a484-140adf645cd6"
   ],
   "implemented": true,
   "schoolOfMagic": "SchoolNecromancy",
@@ -301,7 +301,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6a232ca3-77d5-5eb3-b819-61bdbed06eb6",
+  "guid": "acea4743-d459-5f30-85bb-1995b6c8062f",
   "contentPack": 9999,
   "name": "CreateDead3"
 }

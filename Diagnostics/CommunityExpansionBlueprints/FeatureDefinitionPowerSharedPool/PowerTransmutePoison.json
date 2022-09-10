@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionPowerTransmutePoison",
-          "conditionDefinition": "Definition:ConditionPowerTransmutePoison:2cbaf2df-504d-5e2e-be5d-a3e3d7a686a1",
+          "conditionDefinition": "Definition:ConditionPowerTransmutePoison:e11fe0f9-da7c-5b7e-aee0-43d52bbf2627",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "394c3455-693e-5b31-85d5-fef1ff038a90",
+  "guid": "794c2635-5959-5f21-9a9f-1181d5a998b7",
   "contentPack": 9999,
   "name": "PowerTransmutePoison"
 }

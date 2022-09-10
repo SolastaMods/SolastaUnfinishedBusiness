@@ -9,33 +9,27 @@ This is a collection of work from the Solasta modding community. It includes mul
 
 [list]
 
-[*][b]AceHigh[/b]: SoulBlade subclass, Tactician subclass, feats, no identification
-[*][b]Bazou[/b]: Witch class, fighting styles
-[*][b]Boofat[/b]: alwaysAlt
-[*][b]ChrisJohnDigital[/b]: Tinkerer class, crafting, faction relations, feats, fighting styles, items, subclasses, progression
-[*][b]DemonSlayer730[/b]: Path of the Rage Mage subclass
+[*][b]AceHigh[/b]: Tactician subclass
+[*][b]Bazou[/b]: fighting styles, spells
+[*][b]ChrisJohnDigital[/b]: Tinkerer class, gameplay, feats, fighting styles, subclasses
+[*][b]DemonSlayer730[/b]: Rage Mage subclass
 [*][b]Dreadmaker[/b]: Forest Guardian subclass
-[*][b]DubhHerder[/b]: high level spells, feats, bug models replacement, high level monsters, Warlock class and subclasses
+[*][b]DubhHerder[/b]: spells, quality of life
 [*][b]ElAntonious[/b]: Arcanist subclass, feats
 [*][b]exsonics01[/b]: Oath of Retribution subclass
-[*][b]Holic75[/b]: SolastaModHelpers, SolastaExtraContent
-[*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
-[*][b]Nd[/b]: Magus class, Marshal and Opportunist subclasses
-[*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
-[*][b]SilverGriffon[/b]: pick pocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, Dark Elf race, Divine Heart subclass
-[*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration
-[*][b]View619[/b]: Darkvision, Superior Dark Vision
-[*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
-[*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Half-elf Variants, Dead Master, Blade Dancer, Holic75's code integration
-[*][b][/b]: 
-[*][b]Esker[/b]: ruleset support, classes design, quality assurance
-[*][b]Lyraele[/b]: ruleset support, classes design, quality assurance
+[*][b]Holic75[/b]: spells
+[*][b]ImpPhil[/b]: gameplay, SRD and house rules, quality of life, tools, infrastructure
+[*][b]Nd[/b]: Marshal, Opportunist and Raven subclasses
+[*][b]RedOrca[/b]: Path of the Light subclass
+[*][b]SilverGriffon[/b]: gameplay, quality of life, spells, Dark Elf and Grey Dwarf races, Divine Heart subclass
+[*][b]TPABOBAP[/b]: gameplay, quality of life, feats, spells, infrastructure
+[*][b]Zappastuff[/b]: multiclass, gameplay, SRD and house rules, quality of life, tools, infrastructure, feats, Half-elf subraces, Dead Master and Blade Dancer subclasses
+[*][b]Esker[/b]: ruleset support, quality assurance
+[*][b]Lyraele[/b]: ruleset support, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance
-[*][b][/b]: 
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]Narria[/b]: modKit creator, developer
-[*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [/list]
 
 [size=4][b]How to Install - Windows[/b][/size]

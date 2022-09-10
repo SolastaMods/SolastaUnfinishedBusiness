@@ -6,7 +6,7 @@
   "triggerCondition": "TargetDoesNotHaveCondition",
   "requiredProperty": "None",
   "attackModeOnly": true,
-  "requiredTargetCondition": "Definition:ConditionMarkedByArcanist:2c45ce76-761a-5335-83ce-f380422be675",
+  "requiredTargetCondition": "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
@@ -33,7 +33,7 @@
       "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionMarkedByArcanist:2c45ce76-761a-5335-83ce-f380422be675",
+      "conditionDefinition": "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -122,7 +122,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4240bb3c-8a2d-5ab9-bd2d-c8fc7d79ded5",
+  "guid": "63e97e06-1a84-5fa6-8381-fc53d620fd4b",
   "contentPack": 9999,
   "name": "AdditionalDamageArcanistMark"
 }

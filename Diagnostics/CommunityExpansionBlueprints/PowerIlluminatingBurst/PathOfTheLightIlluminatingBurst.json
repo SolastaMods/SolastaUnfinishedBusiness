@@ -111,7 +111,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:PathOfTheLightIlluminatedByBurstCondition:d7f66413-6f21-57c0-ad11-78cfabb68cf9",
+          "conditionDefinition": "Definition:PathOfTheLightIlluminatedByBurstCondition:5f4e72e1-2b65-50b4-ba65-f8388a4b9b85",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -371,7 +371,7 @@
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
-  "disableIfConditionIsOwned": "Definition:PathOfTheLightIlluminatingBurstSuppressedCondition:a52f0e2a-51ff-51c7-9a55-8976e68154bb",
+  "disableIfConditionIsOwned": "Definition:PathOfTheLightIlluminatingBurstSuppressedCondition:56b87e70-b323-547d-92af-054160c149eb",
   "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "OneMinute",
   "costPerUse": 1,
@@ -414,7 +414,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "afeb14b1-308c-56e6-9680-5942aca31ee5",
+  "guid": "3f57bf5f-a398-5d63-a24c-4a287961050c",
   "contentPack": 9999,
   "name": "PathOfTheLightIlluminatingBurst"
 }

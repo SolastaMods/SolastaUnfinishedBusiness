@@ -3,22 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityControlHeightened:af0d6b9d-6b6c-562e-a515-ced5b24ab1c2",
+      "featureDefinition": "Definition:MagicAffinityControlHeightened:b7f819c7-c8f5-503d-b8c1-896b6399626b",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityMasterManipulatorDC:80f89684-165f-51d8-b986-2f3972dce1e8",
+      "featureDefinition": "Definition:MagicAffinityMasterManipulatorDC:f969bd09-435a-5502-b6cd-d147f107f9a6",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyManipulatorMentalSavingThrows:f620ff98-f0ce-5ec5-89f7-adb9de1c3888",
+      "featureDefinition": "Definition:ProficiencyManipulatorMentalSavingThrows:4d4b941b-1da8-5e73-b2db-e2667a62f7ac",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerManipulatorDominatePerson:c6cf9af7-960e-55f8-bc35-95fc08ce1ec3",
+      "featureDefinition": "Definition:PowerManipulatorDominatePerson:2b89a4bc-cc85-53b2-9748-081e7afdbba6",
       "level": 14
     }
   ],
@@ -48,7 +48,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4d428614-7b2b-5789-8b59-755c90b981b0",
+  "guid": "79047f4d-ebe7-5134-9476-f3604cd78fc7",
   "contentPack": 9999,
   "name": "MasterManipulator"
 }

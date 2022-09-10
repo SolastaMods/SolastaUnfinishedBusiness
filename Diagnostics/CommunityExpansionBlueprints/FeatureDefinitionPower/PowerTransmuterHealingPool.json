@@ -163,7 +163,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerTransmuterHealingPool:bf81e77d-1863-5fbc-abad-a968591d9b7a",
+  "overriddenPower": "Definition:PowerTransmuterHealingPool:29a58780-77a8-53f6-9674-05d51cb3b584",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -189,7 +189,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bf81e77d-1863-5fbc-abad-a968591d9b7a",
+  "guid": "29a58780-77a8-53f6-9674-05d51cb3b584",
   "contentPack": 9999,
   "name": "PowerTransmuterHealingPool"
 }

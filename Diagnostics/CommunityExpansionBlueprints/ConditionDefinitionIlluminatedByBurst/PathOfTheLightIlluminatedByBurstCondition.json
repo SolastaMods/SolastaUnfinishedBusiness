@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.Subclasses.Barbarian.PathOfTheLight+ConditionDefinitionIlluminatedByBurst, SolastaCommunityExpansion",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:PathOfTheLightIlluminatedCondition:b5040325-e269-5ecd-9f50-e29989b0d938",
+  "parentCondition": "Definition:PathOfTheLightIlluminatedCondition:7ef47cc1-227c-507c-b0c3-48d658d495a0",
   "conditionType": "Detrimental",
   "features": [],
   "allowMultipleInstances": true,
@@ -144,7 +144,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d7f66413-6f21-57c0-ad11-78cfabb68cf9",
+  "guid": "5f4e72e1-2b65-50b4-ba65-f8388a4b9b85",
   "contentPack": 9999,
   "name": "PathOfTheLightIlluminatedByBurstCondition"
 }

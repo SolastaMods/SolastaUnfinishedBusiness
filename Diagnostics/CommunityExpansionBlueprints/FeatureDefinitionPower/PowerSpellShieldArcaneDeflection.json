@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionSpellShieldArcaneDeflection",
-          "conditionDefinition": "Definition:ConditionSpellShieldArcaneDeflection:3a1982dd-3a02-5746-88dc-2ef0be504f77",
+          "conditionDefinition": "Definition:ConditionSpellShieldArcaneDeflection:7580a117-7912-5b1d-bd1c-552ff726506b",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "75778ecf-eb93-5937-b63c-923262236985",
+  "guid": "52e64530-4aec-5d0f-a053-4676e7ac6dde",
   "contentPack": 9999,
   "name": "PowerSpellShieldArcaneDeflection"
 }

@@ -2,9 +2,9 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": true,
   "subspellsList": [
-    "Definition:CreateDeadSkeleton_Knight:6cdc8ae2-d372-5c73-9b14-88dd55d6aac0",
-    "Definition:CreateDeadSkeleton_Marksman:81ab4d92-06c5-5ca5-98d0-8de2e43a1194",
-    "Definition:CreateDeadSkeleton_Sorcerer:5cb58911-7a4f-561a-ae1c-fb243323b6fc"
+    "Definition:CreateDeadSkeleton_Knight:899dfd79-120d-56c4-b7b9-1ed09c2c809a",
+    "Definition:CreateDeadSkeleton_Marksman:e93c1c74-a34e-55ea-a59d-a065bc8ed585",
+    "Definition:CreateDeadSkeleton_Sorcerer:aeebef71-97ee-50e7-88b9-a94240ae357e"
   ],
   "implemented": true,
   "schoolOfMagic": "SchoolNecromancy",
@@ -301,7 +301,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b882cca6-efe9-5733-b360-16d0564b91a7",
+  "guid": "f41faac4-2d8e-56ea-a622-c86460555e63",
   "contentPack": 9999,
   "name": "CreateDead7"
 }

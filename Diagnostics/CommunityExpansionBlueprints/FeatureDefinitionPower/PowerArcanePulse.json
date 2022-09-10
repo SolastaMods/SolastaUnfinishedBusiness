@@ -111,7 +111,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionMarkedByArcanist:2c45ce76-761a-5335-83ce-f380422be675",
+          "conditionDefinition": "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -366,7 +366,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "65ff92a0-d532-594a-ab43-6ba8084c83fa",
+  "guid": "602cf3d4-0acd-55fd-a7f5-9e267060bb96",
   "contentPack": 9999,
   "name": "PowerArcanePulse"
 }

@@ -22,8 +22,6 @@ internal sealed class DeadMaster : AbstractSubclass
     private const string CreateDeadSpellPrefix = "CreateDead";
     private const string AttackModifierUndeadChainsPrefix = "AttackModifierUndeadChains";
 
-    private static readonly Guid SubclassNamespace = new("58ce31d8-6a37-4d6e-ffea-b9b60658a3ef");
-
     private static readonly Dictionary<int, List<MonsterDefinition>> CreateDeadSpellMonsters = new()
     {
         { 3, new List<MonsterDefinition> { Zombie, Skeleton, Skeleton_Archer } },
@@ -43,39 +41,39 @@ internal sealed class DeadMaster : AbstractSubclass
         //     .SetSpellLevel(7);
 
         var autoPreparedSpellsWizardDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsWizardDeadMaster", SubclassNamespace)
+            .Create("AutoPreparedSpellsWizardDeadMaster",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Wizard)
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups(spriteReference))
             .AddToDB();
 
         var featureStarkHarvest = FeatureDefinitionOnCharacterKillBuilder
-            .Create("OnCharacterKillStarkHarvest", SubclassNamespace)
+            .Create("OnCharacterKillStarkHarvest",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetOnCharacterKill(OnStarkHarvestKill)
             .AddToDB();
 
         var featureUndeadChains = FeatureDefinitionOnCharacterKillBuilder
-            .Create("OnCharacterKillUndeadChains", SubclassNamespace)
+            .Create("OnCharacterKillUndeadChains",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         for (var i = 2; i < 7; i++)
         {
             _ = FeatureDefinitionAttackModifierBuilder
-                .Create($"{AttackModifierUndeadChainsPrefix}{i}", SubclassNamespace)
+                .Create($"{AttackModifierUndeadChainsPrefix}{i}",  DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("OnCharacterKillUndeadChains", Category.Feature)
                 .Configure(RuleDefinitions.AttackModifierMethod.FlatValue, i)
                 .AddToDB();
         }
 
         var featureHardenToNecrotic = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityNecroticImmunity, "DamageAffinityHardenToNecrotic", SubclassNamespace)
+            .Create(DamageAffinityNecroticImmunity, "DamageAffinityHardenToNecrotic",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var powerCommandUndead = FeatureDefinitionPowerBuilder
-            .Create("PowerCommandUndead", SubclassNamespace)
+            .Create("PowerCommandUndead",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power)
             .Configure(
                 0,
@@ -102,7 +100,7 @@ internal sealed class DeadMaster : AbstractSubclass
         commandUndeadEffect.fixedSavingThrowDifficultyClass = 8;
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardDeadMaster", SubclassNamespace)
+            .Create("WizardDeadMaster",  DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(autoPreparedSpellsWizardDeadMaster, 2)
             .AddFeatureAtLevel(featureStarkHarvest, 2)
@@ -215,7 +213,7 @@ internal sealed class DeadMaster : AbstractSubclass
             foreach (var monster in monsters)
             {
                 var subSpell = SpellDefinitionBuilder
-                    .Create(ConjureFey, $"CreateDead{monster.name}", SubclassNamespace)
+                    .Create(ConjureFey, $"CreateDead{monster.name}",  DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(monster.GuiPresentation.Title, monster.GuiPresentation.Description,
                         spriteReference)
                     .SetSchoolOfMagic(SchoolNecromancy)
@@ -239,7 +237,7 @@ internal sealed class DeadMaster : AbstractSubclass
             }
 
             var spell = SpellDefinitionBuilder
-                .Create(ConjureFey, $"CreateDead{level}", SubclassNamespace)
+                .Create(ConjureFey, $"CreateDead{level}",  DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell, spriteReference)
                 .SetSchoolOfMagic(SchoolNecromancy)
                 .SetSpellLevel(level)

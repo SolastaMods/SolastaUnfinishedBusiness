@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetBladeDance:bfc34e6a-1262-53e5-8364-ce0a9ae25633",
+      "featureDefinition": "Definition:FeatureSetBladeDance:56a7a75e-d4f7-569e-9545-27b4d60c57c8",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyBladeDancerLightArmor:79e718a8-5440-5c01-abcb-173bc76276c0",
+      "featureDefinition": "Definition:ProficiencyBladeDancerLightArmor:4b8ce8e0-5f9e-521a-8381-cac664825a68",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyBladeDancerMartialWeapon:3add7786-a1fd-5d23-a9cc-c923334ebd7d",
+      "featureDefinition": "Definition:ProficiencyBladeDancerMartialWeapon:739123c0-6051-5b37-a49d-b4c4b4e737b0",
       "level": 2
     },
     {
@@ -23,17 +23,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ReplaceAttackWithCantripBladeDancer:9e5fefa9-0258-556d-9fba-e05ec57bfac2",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripBladeDancer:76d4e568-ee87-5e94-b391-7e235e6fae99",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetReduceDamageDanceOfDefense:5431a606-9dad-5330-9454-53468af7351d",
+      "featureDefinition": "Definition:FeatureSetReduceDamageDanceOfDefense:c0eca03f-4ccd-51c0-bebe-c58abde90cc9",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDanceOfVictory:db3615b4-6a3f-5e9e-b937-e42833b026a0",
+      "featureDefinition": "Definition:FeatureSetDanceOfVictory:47e36645-9df4-5c82-aebb-78265d626c5d",
       "level": 14
     }
   ],
@@ -63,7 +63,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c8dbeabe-4fb6-5a86-8366-c3fb2a4ae569",
+  "guid": "15937e32-9b71-5036-9d45-3cef7070a64a",
   "contentPack": 9999,
   "name": "WizardBladeDancer"
 }

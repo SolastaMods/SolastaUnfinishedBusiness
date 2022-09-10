@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierMeleeWizardExtraAttackTitle",
-    "description": "Feature/&AttributeModifierMeleeWizardExtraAttackDescription",
+    "title": "Feature/&AttributeModifierExtraAttackArcaneFighterTitle",
+    "description": "Feature/&AttributeModifierExtraAttackArcaneFighterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "51476c8a-052b-56a6-9152-3f65ef323d42",
+  "guid": "924b6014-e6c2-5a81-93c0-3406617912c5",
   "contentPack": 9999,
-  "name": "AttributeModifierMeleeWizardExtraAttack"
+  "name": "AttributeModifierExtraAttackArcaneFighter"
 }
