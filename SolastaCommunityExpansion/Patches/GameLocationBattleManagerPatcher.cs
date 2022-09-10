@@ -93,7 +93,7 @@ internal static class GameLocationBattleManagerPatcher
             {
                 switch (item2.endOccurence)
                 {
-                    case (RuleDefinitions.TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd:
+                    case (RuleDefinitions.TurnOccurenceType) ExtraTurnOccurenceType.OnMoveEnd:
                         matchingOccurenceConditions.Add(item2);
                         break;
                 }
@@ -277,6 +277,40 @@ internal static class GameLocationBattleManagerPatcher
             {
                 sub.Qualified =
                     attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleTargetReducedToZeroHP")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleTargetReducedToZeroHP_Patch
+    {
+        internal static IEnumerator Postfix(
+            IEnumerator __result,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode rulesetAttackMode,
+            RulesetEffect activeEffect
+        )
+        {
+            //PATCH: Support for `ITargetReducedToZeroHP` feature
+            while (__result.MoveNext())
+            {
+                yield return __result.Current;
+            }
+
+            var features = attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHP>();
+
+            foreach (var feature in features)
+            {
+                var extraEvents =
+                    feature.HandleCharacterReducedToZeroHP(attacker, downedCreature, rulesetAttackMode, activeEffect);
+
+                while (extraEvents.MoveNext())
+                {
+                    yield return extraEvents.Current;
+                }
             }
         }
     }
