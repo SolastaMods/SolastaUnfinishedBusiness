@@ -309,6 +309,28 @@ internal static class GameLocationBattleManagerPatcher
         }
     }
 
+    [HarmonyPatch(typeof(GameLocationBattleManager), "ComputeAndNotifyAdditionalDamage")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ComputeAndNotifyAdditionalDamage_Patch
+    {
+        internal static bool Prefix(
+            GameLocationBattleManager __instance,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            IAdditionalDamageProvider provider,
+            List<EffectForm> actualEffectForms,
+            CharacterActionParams reactionParams,
+            RulesetAttackMode attackMode,
+            bool criticalHit)
+        {
+            //PATCH: Completely replace this method to suppoort several features. Modified method based on TA provided sources.
+            GameLocationBattleManagerTweaks.ComputeAndNotifyAdditionalDamage(__instance, attacker, defender, provider,
+                actualEffectForms, reactionParams, attackMode, criticalHit);
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleTargetReducedToZeroHP")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleTargetReducedToZeroHP_Patch
