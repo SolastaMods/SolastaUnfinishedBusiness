@@ -25,15 +25,8 @@ internal static class InitialChoicesContext
 
     internal static void Load()
     {
-        // keep this outside loop for backward compatibility
-        _ = FeatureDefinitionPointPoolBuilder
-            .Create("PointPool2BonusFeats", "dbec86c7-468f-4569-917b-2d96d21f9ddf")
-            .SetGuiPresentation("PointPoolSelect2Feats", Category.Race)
-            .SetPool(HeroDefinitions.PointsPoolType.Feat, 2)
-            .AddToDB();
-
-        // 11 here as need to count the Alternate Human Feat
-        for (var i = 3; i <= 11; i++)
+        // +1 here as need to count the Alternate Human Feat
+        for (var i = 2; i <= MaxInitialFeats + 1; i++)
         {
             _ = FeatureDefinitionPointPoolBuilder
                 .Create($"PointPool{i}BonusFeats", DefinitionBuilder.CENamespaceGuid)

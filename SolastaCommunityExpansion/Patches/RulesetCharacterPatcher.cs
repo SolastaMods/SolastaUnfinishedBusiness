@@ -471,6 +471,7 @@ internal static class RulesetCharacterPatcher
         }
     }
 
+    //TODO: Fix in progress to consider new Warlock...
     //PATCH: logic to correctly offer / calculate spell slots on all different scenarios
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshSpellRepertoires")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -568,7 +569,6 @@ internal static class RulesetCharacterPatcher
 
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
             }
-
 
             // collects warlock and non warlock repertoires for consolidation
             var warlockRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);

@@ -19,8 +19,11 @@ internal static class RulesetSpellRepertoirePatcher
         return heroWithSpellRepertoire == null || SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire);
     }
 
+    //
+    // TODO: Check if still need this one...
+    //
     // ensures MC Warlocks get a proper list of upcast slots under a MC scenario
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
+    //[HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_CanUpcastSpell
     {

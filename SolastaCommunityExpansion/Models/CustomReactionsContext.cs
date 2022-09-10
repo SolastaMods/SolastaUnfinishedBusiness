@@ -16,8 +16,8 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class CustomReactionsContext
 {
-    private static bool ForcePreferredCantrip; //used by actual feature
-    private static bool ForcePreferredCantripUI; //used for local UI state
+    private static bool _forcePreferredCantrip; //used by actual feature
+    private static bool _forcePreferredCantripUI; //used for local UI state
 
     public static void Load()
     {
@@ -89,7 +89,7 @@ public static class CustomReactionsContext
     {
         if (actionParams != null && readyActionType == ReadyActionType.Cantrip)
         {
-            actionParams.BoolParameter4 = ForcePreferredCantripUI;
+            actionParams.BoolParameter4 = _forcePreferredCantripUI;
         }
     }
 
@@ -97,7 +97,7 @@ public static class CustomReactionsContext
     {
         if (actionParams is { ReadyActionType: ReadyActionType.Cantrip })
         {
-            ForcePreferredCantrip = actionParams.BoolParameter4;
+            _forcePreferredCantrip = actionParams.BoolParameter4;
         }
     }
 
@@ -136,7 +136,7 @@ public static class CustomReactionsContext
             toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
             toggle.PersonalityFlagSelected = (_, _, state) =>
             {
-                ForcePreferredCantripUI = state;
+                _forcePreferredCantripUI = state;
                 tooltip.Content = "UI/&ForcePreferredCantripDescription";
             };
         }
@@ -145,7 +145,7 @@ public static class CustomReactionsContext
             toggle = parent.FindChildRecursive("ForcePreferredToggle").GetComponent<PersonalityFlagToggle>();
         }
 
-        toggle.Refresh(ForcePreferredCantripUI, true);
+        toggle.Refresh(_forcePreferredCantripUI, true);
         toggle.tooltip.Content = "UI/&ForcePreferredCantripDescription";
     }
 
@@ -155,7 +155,7 @@ public static class CustomReactionsContext
             new Func<List<SpellDefinition>, SpellDefinition, bool>(CheckAndModifyCantrips).Method;
 
         var containsIndex = -1;
-        //TODO: is there a better way to detect proper placament?
+        //TODO: is there a better way to detect proper placement?
         for (var i = 0; i < codes.Count; i++)
         {
             if (i < 1)
@@ -190,7 +190,7 @@ public static class CustomReactionsContext
     private static bool CheckAndModifyCantrips(List<SpellDefinition> readied,
         SpellDefinition preferred)
     {
-        if (!ForcePreferredCantrip)
+        if (!_forcePreferredCantrip)
         {
             return readied.Contains(preferred);
         }
