@@ -1,7 +1,9 @@
-﻿You can contribute to this work with any financial amount
-The donation button is under Mod UI > Credits & Diagnostics
+﻿ATTENTION:
 
-CHANGES:
+- Last update before Tactical Adventures releases Bard, Monk and Warlock
+- NONE of your heroes or save games will be compatible with CE3
+- Gentle reminder to delete them as well as uninstall this mod
 
-- Add additional armor recipes
-- Fix a null exception on Raven subclass
+Sincerely, 
+
+The Central Scrutinizer
