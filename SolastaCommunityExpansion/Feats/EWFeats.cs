@@ -22,7 +22,6 @@ public static class EwFeats
     private const string PolearmExpertFeat = "FeatPolearmExpert";
     private const string RangedExpertFeat = "FeatRangedExpert";
     private const string RecklessAttackFeat = "FeatRecklessAttack";
-    private static readonly Guid Guid = new("B4ED480F-2D06-4EB1-8732-9A721D80DD1A");
 
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
@@ -38,7 +37,7 @@ public static class EwFeats
         var restrained = ConditionDefinitions.ConditionRestrained;
 
         var stopMovementCondition = ConditionDefinitionBuilder
-            .Create("ConditionSentinelStopMovement", Guid)
+            .Create("ConditionSentinelStopMovement", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization, restrained.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
@@ -48,10 +47,10 @@ public static class EwFeats
             .AddToDB();
 
         return FeatDefinitionBuilder
-            .Create(SentinelFeat, Guid)
+            .Create(SentinelFeat, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionOnAttackHitEffectBuilder
-                .Create("OnAttackHitEffectFeatSentinel", Guid)
+                .Create("OnAttackHitEffectFeatSentinel", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent(true)
                 .SetOnAttackHitDelegates(null, (attacker, defender, outcome, _, mode, _) =>
                 {
@@ -93,10 +92,10 @@ public static class EwFeats
     private static FeatDefinition BuildPolearmExpert()
     {
         return FeatDefinitionBuilder
-            .Create(PolearmExpertFeat, Guid)
+            .Create(PolearmExpertFeat, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create("PolearmFeatFeature", Guid)
+                .Create("PolearmFeatFeature", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new CanMakeAoOOnReachEntered(CharacterValidators.HasPolearm),
@@ -109,10 +108,10 @@ public static class EwFeats
     private static FeatDefinition BuildRangedExpert()
     {
         return FeatDefinitionBuilder
-            .Create(RangedExpertFeat, Guid)
+            .Create(RangedExpertFeat, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatRangedExpertFeature", Guid)
+                .Create("FeatRangedExpertFeature", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
@@ -126,7 +125,7 @@ public static class EwFeats
     private static FeatDefinition BuildRecklessAttack()
     {
         return FeatDefinitionWithPrerequisitesBuilder
-            .Create(RecklessAttackFeat, Guid)
+            .Create(RecklessAttackFeat, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("RecklessAttack", Category.Action)
             .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityBarbarianRecklessAttack)
             .SetValidators(FeatsValidators.ValidateNotClass(CharacterClassDefinitions.Barbarian))
@@ -191,8 +190,7 @@ public static class EwFeats
         PowersContext.PowersThatIgnoreInterruptions.Add(powerAttackPower);
 
         var turnOffPowerAttackPower = FeatureDefinitionPowerBuilder
-            // Reusing old two-handed power id - we need to keep this id anyway, so old characters won't crash
-            .Create("TurnOffPowerAttack", "b45b8467-7caa-428e-b4b5-ba3c4a153f07")
+            .Create("TurnOffPowerAttack", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)
@@ -217,7 +215,7 @@ public static class EwFeats
         concentrationProvider.StopPower = turnOffPowerAttackPower;
 
         return FeatDefinitionBuilder
-            .Create("FeatPowerAttack", "88f1fb27-66af-49c6-b038-a38142b1083e")
+            .Create("FeatPowerAttack", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerAttackPower,
