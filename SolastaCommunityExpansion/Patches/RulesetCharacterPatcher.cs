@@ -573,7 +573,11 @@ internal static class RulesetCharacterPatcher
             CustomFeaturesContext.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
         }
     }
-
+    
+    //
+    //TODO: Consolidate below
+    //
+    
     [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ApplyRest_Patch
@@ -622,12 +626,12 @@ internal static class RulesetCharacterPatcher
     //PATCH: Correctly solve short rests for Warlocks under MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_ApplyRest
+    internal static class ApplyRest_Patch_2
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
-            var myRestoreAllSpellSlotsMethod = typeof(RulesetCharacter_ApplyRest).GetMethod("RestoreAllSpellSlots");
+            var myRestoreAllSpellSlotsMethod = typeof(ApplyRest_Patch).GetMethod("RestoreAllSpellSlots");
 
             foreach (var instruction in instructions)
             {

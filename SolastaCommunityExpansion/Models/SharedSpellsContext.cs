@@ -47,7 +47,7 @@ public static class SharedSpellsContext
 
     private static Dictionary<CharacterSubclassDefinition, CasterType> SubclassCasterType { get; } = new()
     {
-        { MartialSpellblade, CasterType.OneThird }, { RoguishShadowCaster, CasterType.OneThird }
+        { MartialSpellblade, CasterType.OneThird }, { RoguishShadowCaster, CasterType.OneThird }, { TraditionLight, CasterType.OneThird }
         // added during load
         //{ ConArtistSubclass, CasterType.OneThird }, // ChrisJohnDigital
         //{ SpellShieldSubclass, CasterType.OneThird } // ChrisJohnDigital
