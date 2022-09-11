@@ -61,7 +61,7 @@ internal static class Level20Context
         RoguishShadowcasterLoad();
         TraditionLightLoad();
 
-        CastSpellWarlock.uniqueLevelSlots = false;
+        //CastSpellWarlock.uniqueLevelSlots = false;
     }
 
     internal static void LateLoad()

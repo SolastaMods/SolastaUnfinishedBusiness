@@ -631,7 +631,7 @@ internal static class RulesetCharacterPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
-            var myRestoreAllSpellSlotsMethod = typeof(ApplyRest_Patch).GetMethod("RestoreAllSpellSlots");
+            var myRestoreAllSpellSlotsMethod = typeof(ApplyRest_Patch_2).GetMethod("RestoreAllSpellSlots");
 
             foreach (var instruction in instructions)
             {
