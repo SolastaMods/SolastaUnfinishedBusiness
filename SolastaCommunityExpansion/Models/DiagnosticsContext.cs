@@ -203,7 +203,7 @@ internal static class DiagnosticsContext
 
         CreateDefinitionDiagnostics(_ceBaseDefinitions, BASE_FILENAME);
 
-        CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{BASE_FILENAME}-Translations-OrphanedTerms-en.txt"));
+        //CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{BASE_FILENAME}-Translations-OrphanedTerms-en.txt"));
     }
 
     private static void CheckOrphanedTerms([NotNull] string outputFile)
