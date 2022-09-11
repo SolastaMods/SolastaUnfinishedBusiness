@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOnAttackDamageEffect, SolastaCommunityExpansion",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionOnAttackDamageEffect, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

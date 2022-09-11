@@ -1,6 +1,6 @@
-# Solasta Community Expansion
+# Solasta Unfinished Business
 
-This is a [collection of work](https://github.com/SolastaMods/SolastaCommunityExpansion/wiki) from the Solasta modding community. It includes multiclass, feats, classes, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
+This is a [collection of work](https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki) from the Solasta modding community. It includes multiclass, feats, classes, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 # How to contribute
 

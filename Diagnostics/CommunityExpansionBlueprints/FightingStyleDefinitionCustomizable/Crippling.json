@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaCommunityExpansion",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaUnfinishedBusiness",
   "features": [
     "Definition:AdditionalDamageCrippling:3a68707a-e9fb-5657-9956-5cb90bf16aa7"
   ],

@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.Feats.FeatureDefinitionMetamagicOption, SolastaCommunityExpansion",
+  "$type": "SolastaUnfinishedBusiness.Feats.FeatureDefinitionMetamagicOption, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

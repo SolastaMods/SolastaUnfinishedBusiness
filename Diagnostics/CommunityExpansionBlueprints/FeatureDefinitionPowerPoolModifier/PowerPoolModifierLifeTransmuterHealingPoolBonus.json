@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPowerPoolModifier, SolastaCommunityExpansion",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerPoolModifier, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
