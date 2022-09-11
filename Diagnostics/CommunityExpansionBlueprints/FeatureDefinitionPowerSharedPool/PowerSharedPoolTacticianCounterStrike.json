@@ -318,8 +318,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolCounterStrikeTitle",
-    "description": "Feature/&PowerSharedPoolCounterStrikeDescription",
+    "title": "Feature/&PowerSharedPoolTacticianCounterStrikeTitle",
+    "description": "Feature/&PowerSharedPoolTacticianCounterStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "bd766c705f7771040960fdd1ceecf414",
@@ -341,5 +341,5 @@
   "contentCopyright": "UserContent",
   "guid": "88c294ce-14fa-4f7e-8b81-ea4d289e3d8b",
   "contentPack": 9999,
-  "name": "PowerSharedPoolCounterStrike"
+  "name": "PowerSharedPoolTacticianCounterStrike"
 }

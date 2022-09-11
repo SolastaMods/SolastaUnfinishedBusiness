@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolCounterStrike:88c294ce-14fa-4f7e-8b81-ea4d289e3d8b",
+      "featureDefinition": "Definition:PowerSharedPoolTacticianCounterStrike:88c294ce-14fa-4f7e-8b81-ea4d289e3d8b",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:GambitResourcePool:00da2b27-139a-4ca0-a285-aaa70d108bc8",
+      "featureDefinition": "Definition:PowerPoolTacticianGambit:00da2b27-139a-4ca0-a285-aaa70d108bc8",
       "level": 3
     },
     {
@@ -28,17 +28,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierGambitResourcePoolAdd10:52b74360-eecf-407c-9445-4515cbb372f3",
+      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd10:52b74360-eecf-407c-9445-4515cbb372f3",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierGambitResourcePoolAdd15:b4307074-cd80-4376-96f0-46f7a3a79b5a",
+      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd15:b4307074-cd80-4376-96f0-46f7a3a79b5a",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierGambitResourcePoolAdd18:c7ced45a-572f-4af0-8ec5-2add074dd7c3",
+      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd18:c7ced45a-572f-4af0-8ec5-2add074dd7c3",
       "level": 18
     }
   ],
@@ -47,8 +47,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&TactitionFighterSubclassTitle",
-    "description": "Subclass/&TactitionFighterSubclassDescription",
+    "title": "Subclass/&MartialTacticianTitle",
+    "description": "Subclass/&MartialTacticianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
@@ -70,5 +70,5 @@
   "contentCopyright": "UserContent",
   "guid": "9d32577d-d3ec-4859-b66d-451d071bb117",
   "contentPack": 9999,
-  "name": "FighterTactician"
+  "name": "MartialTactician"
 }

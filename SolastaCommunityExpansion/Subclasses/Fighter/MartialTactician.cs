@@ -39,7 +39,7 @@ internal static class PowerSharedPoolKnockDownBuilder
                 DiceNumber = 1,
                 DieType = RuleDefinitions.DieType.D6,
                 BonusDamage = 2,
-                DamageType = "DamageBludgeoning"
+                DamageType = RuleDefinitions.DamageTypeBludgeoning
             },
             SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
         };
@@ -65,7 +65,7 @@ internal static class PowerSharedPoolKnockDownBuilder
 
         var builder = new FeatureDefinitionPowerSharedPoolBuilder(
             name, guid,
-            TacticianFighterSubclassBuilder.GambitResourcePool,
+            TacticianFighterSubclassBuilder.PowerPoolTacticianGambit,
             RuleDefinitions.RechargeRate.ShortRest,
             RuleDefinitions.ActivationTime.OnAttackHit,
             1,
@@ -79,6 +79,8 @@ internal static class PowerSharedPoolKnockDownBuilder
                 .Build(),
             false);
 
+        builder.SetShortTitle("Feature/&PowerSharedPoolKnockDownTitle");
+        
         return builder.AddToDB();
     }
 
@@ -121,7 +123,7 @@ internal static class PowerSharedPoolInspirePowerBuilder
 
         var builder = new FeatureDefinitionPowerSharedPoolBuilder(
             name, guid,
-            TacticianFighterSubclassBuilder.GambitResourcePool,
+            TacticianFighterSubclassBuilder.PowerPoolTacticianGambit,
             RuleDefinitions.RechargeRate.ShortRest,
             RuleDefinitions.ActivationTime.BonusAction,
             1,
@@ -146,10 +148,10 @@ internal static class PowerSharedPoolInspirePowerBuilder
     }
 }
 
-internal static class PowerSharedPoolCounterStrikeBuilder
+internal static class PowerSharedPoolTacticianCounterStrikeBuilder
 {
-    private const string PowerSharedPoolCounterStrikeName = "PowerSharedPoolCounterStrike";
-    private const string PowerSharedPoolCounterStrikeNameGuid = "88c294ce-14fa-4f7e-8b81-ea4d289e3d8b";
+    private const string PowerSharedPoolTacticianCounterStrikeName = "PowerSharedPoolTacticianCounterStrike";
+    private const string PowerSharedPoolTacticianCounterStrikeNameGuid = "88c294ce-14fa-4f7e-8b81-ea4d289e3d8b";
 
     private static FeatureDefinitionPowerSharedPool Build(string name, string guid)
     {
@@ -161,7 +163,7 @@ internal static class PowerSharedPoolCounterStrikeBuilder
                 DiceNumber = 1,
                 DieType = RuleDefinitions.DieType.D6,
                 BonusDamage = 2,
-                DamageType = "DamageBludgeoning"
+                DamageType = RuleDefinitions.DamageTypeBludgeoning
             },
             savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
         };
@@ -174,7 +176,7 @@ internal static class PowerSharedPoolCounterStrikeBuilder
 
         var builder = new FeatureDefinitionPowerSharedPoolBuilder(
             name, guid,
-            TacticianFighterSubclassBuilder.GambitResourcePool,
+            TacticianFighterSubclassBuilder.PowerPoolTacticianGambit,
             RuleDefinitions.RechargeRate.ShortRest,
             RuleDefinitions.ActivationTime.Reaction,
             1,
@@ -182,8 +184,8 @@ internal static class PowerSharedPoolCounterStrikeBuilder
             true,
             AttributeDefinitions.Strength,
             newEffectDescription,
-            new GuiPresentationBuilder("Feature/&PowerSharedPoolCounterStrikeTitle",
-                    "Feature/&PowerSharedPoolCounterStrikeDescription")
+            new GuiPresentationBuilder("Feature/&PowerSharedPoolTacticianCounterStrikeTitle",
+                    "Feature/&PowerSharedPoolTacticianCounterStrikeDescription")
                 .SetSpriteReference(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.GuiPresentation
                     .SpriteReference).Build(),
             false);
@@ -195,20 +197,20 @@ internal static class PowerSharedPoolCounterStrikeBuilder
 
     internal static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
     {
-        return Build(PowerSharedPoolCounterStrikeName, PowerSharedPoolCounterStrikeNameGuid);
+        return Build(PowerSharedPoolTacticianCounterStrikeName, PowerSharedPoolTacticianCounterStrikeNameGuid);
     }
 }
 
-internal static class GambitResourcePoolAddBuilder
+internal static class PowerPoolTacticianGambitAddBuilder
 {
-    private const string PowerPoolModifierGambitResourcePoolAdd10Name = "PowerPoolModifierGambitResourcePoolAdd10";
-    private const string PowerPoolModifierGambitResourcePoolAdd10Guid = "52b74360-eecf-407c-9445-4515cbb372f3";
+    private const string PowerPoolModifierTacticianGambitAdd10Name = "PowerPoolModifierTacticianGambitAdd10";
+    private const string PowerPoolModifierTacticianGambitAdd10Guid = "52b74360-eecf-407c-9445-4515cbb372f3";
 
-    private const string PowerPoolModifierGambitResourcePoolAdd15Name = "PowerPoolModifierGambitResourcePoolAdd15";
-    private const string PowerPoolModifierGambitResourcePoolAdd15Guid = "b4307074-cd80-4376-96f0-46f7a3a79b5a";
+    private const string PowerPoolModifierTacticianGambitAdd15Name = "PowerPoolModifierTacticianGambitAdd15";
+    private const string PowerPoolModifierTacticianGambitAdd15Guid = "b4307074-cd80-4376-96f0-46f7a3a79b5a";
 
-    private const string PowerPoolModifierGambitResourcePoolAdd18Name = "PowerPoolModifierGambitResourcePoolAdd18";
-    private const string PowerPoolModifierGambitResourcePoolAdd18Guid = "c7ced45a-572f-4af0-8ec5-2add074dd7c3";
+    private const string PowerPoolModifierTacticianGambitAdd18Name = "PowerPoolModifierTacticianGambitAdd18";
+    private const string PowerPoolModifierTacticianGambitAdd18Guid = "c7ced45a-572f-4af0-8ec5-2add074dd7c3";
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
     {
@@ -217,38 +219,38 @@ internal static class GambitResourcePoolAddBuilder
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Dexterity,
-                TacticianFighterSubclassBuilder.GambitResourcePool)
-            .SetGuiPresentation(new GuiPresentationBuilder("Feature/&GambitResourcePoolAddTitle",
-                "Feature/&GambitResourcePoolAddDescription").Build())
+                TacticianFighterSubclassBuilder.PowerPoolTacticianGambit)
+            .SetGuiPresentation(new GuiPresentationBuilder("Feature/&PowerPoolTacticianGambitAddTitle",
+                "Feature/&PowerPoolTacticianGambitAddDescription").Build())
             .AddToDB();
     }
 
-    internal static FeatureDefinitionPower PowerPoolModifierGambitResourcePoolAdd10()
+    internal static FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd10()
     {
-        return CreateAndAddToDB(PowerPoolModifierGambitResourcePoolAdd10Name,
-            PowerPoolModifierGambitResourcePoolAdd10Guid);
+        return CreateAndAddToDB(PowerPoolModifierTacticianGambitAdd10Name,
+            PowerPoolModifierTacticianGambitAdd10Guid);
     }
 
-    internal static FeatureDefinitionPower PowerPoolModifierGambitResourcePoolAdd15()
+    internal static FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd15()
     {
-        return CreateAndAddToDB(PowerPoolModifierGambitResourcePoolAdd15Name,
-            PowerPoolModifierGambitResourcePoolAdd15Guid);
+        return CreateAndAddToDB(PowerPoolModifierTacticianGambitAdd15Name,
+            PowerPoolModifierTacticianGambitAdd15Guid);
     }
 
-    internal static FeatureDefinitionPower PowerPoolModifierGambitResourcePoolAdd18()
+    internal static FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd18()
     {
-        return CreateAndAddToDB(PowerPoolModifierGambitResourcePoolAdd18Name,
-            PowerPoolModifierGambitResourcePoolAdd18Guid);
+        return CreateAndAddToDB(PowerPoolModifierTacticianGambitAdd18Name,
+            PowerPoolModifierTacticianGambitAdd18Guid);
     }
 }
 
 internal static class TacticianFighterSubclassBuilder
 {
-    private const string TacticianFighterSubclassName = "FighterTactician";
+    private const string TacticianFighterSubclassName = "MartialTactician";
     private const string TacticianFighterSubclassNameGuid = "9d32577d-d3ec-4859-b66d-451d071bb117";
 
-    internal static readonly FeatureDefinitionPower GambitResourcePool = FeatureDefinitionPowerPoolBuilder
-        .Create("GambitResourcePool", "00da2b27-139a-4ca0-a285-aaa70d108bc8")
+    internal static readonly FeatureDefinitionPower PowerPoolTacticianGambit = FeatureDefinitionPowerPoolBuilder
+        .Create("PowerPoolTacticianGambit", "00da2b27-139a-4ca0-a285-aaa70d108bc8")
         .Configure(
             4,
             RuleDefinitions.UsesDetermination.Fixed,
@@ -257,14 +259,14 @@ internal static class TacticianFighterSubclassBuilder
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerPoolModifierGambitResourcePoolAdd10 =
-        GambitResourcePoolAddBuilder.PowerPoolModifierGambitResourcePoolAdd10();
+    private static readonly FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd10 =
+        PowerPoolTacticianGambitAddBuilder.PowerPoolModifierTacticianGambitAdd10();
 
-    private static readonly FeatureDefinitionPower PowerPoolModifierGambitResourcePoolAdd15 =
-        GambitResourcePoolAddBuilder.PowerPoolModifierGambitResourcePoolAdd15();
+    private static readonly FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd15 =
+        PowerPoolTacticianGambitAddBuilder.PowerPoolModifierTacticianGambitAdd15();
 
-    private static readonly FeatureDefinitionPower PowerPoolModifierGambitResourcePoolAdd18 =
-        GambitResourcePoolAddBuilder.PowerPoolModifierGambitResourcePoolAdd18();
+    private static readonly FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd18 =
+        PowerPoolTacticianGambitAddBuilder.PowerPoolModifierTacticianGambitAdd18();
 
     private static readonly FeatureDefinitionPowerSharedPool PowerSharedPoolKnockDown =
         PowerSharedPoolKnockDownBuilder.CreateAndAddToDB();
@@ -272,23 +274,23 @@ internal static class TacticianFighterSubclassBuilder
     private static readonly FeatureDefinitionPowerSharedPool PowerSharedPoolInspirePower =
         PowerSharedPoolInspirePowerBuilder.CreateAndAddToDB();
 
-    private static readonly FeatureDefinitionPowerSharedPool PowerSharedPoolCounterStrike =
-        PowerSharedPoolCounterStrikeBuilder.CreateAndAddToDB();
+    private static readonly FeatureDefinitionPowerSharedPool PowerSharedPoolTacticianCounterStrike =
+        PowerSharedPoolTacticianCounterStrikeBuilder.CreateAndAddToDB();
 
     internal static CharacterSubclassDefinition BuildAndAddSubclass()
     {
         return CharacterSubclassDefinitionBuilder
             .Create(TacticianFighterSubclassName, TacticianFighterSubclassNameGuid)
-            .SetGuiPresentation("TactitionFighterSubclass", Category.Subclass,
+            .SetGuiPresentation(Category.Subclass,
                 RoguishShadowCaster.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(GambitResourcePool, 3)
+            .AddFeatureAtLevel(PowerPoolTacticianGambit, 3)
             .AddFeatureAtLevel(PowerSharedPoolKnockDown, 3)
             .AddFeatureAtLevel(PowerSharedPoolInspirePower, 3)
-            .AddFeatureAtLevel(PowerSharedPoolCounterStrike, 3)
+            .AddFeatureAtLevel(PowerSharedPoolTacticianCounterStrike, 3)
             .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, 7)
-            .AddFeatureAtLevel(PowerPoolModifierGambitResourcePoolAdd10, 10)
-            .AddFeatureAtLevel(PowerPoolModifierGambitResourcePoolAdd15, 15)
-            .AddFeatureAtLevel(PowerPoolModifierGambitResourcePoolAdd18, 18)
+            .AddFeatureAtLevel(PowerPoolModifierTacticianGambitAdd10, 10)
+            .AddFeatureAtLevel(PowerPoolModifierTacticianGambitAdd15, 15)
+            .AddFeatureAtLevel(PowerPoolModifierTacticianGambitAdd18, 18)
             .AddToDB();
     }
 }

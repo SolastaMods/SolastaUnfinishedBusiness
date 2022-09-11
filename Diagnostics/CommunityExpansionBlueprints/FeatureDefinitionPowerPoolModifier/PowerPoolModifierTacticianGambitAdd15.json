@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPowerPoolModifier, SolastaCommunityExpansion",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -148,13 +148,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Dexterity",
-  "fixedUsesPerRecharge": 4,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -163,13 +163,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:GambitResourcePool:00da2b27-139a-4ca0-a285-aaa70d108bc8",
+  "overriddenPower": "Definition:PowerPoolModifierTacticianGambitAdd15:b4307074-cd80-4376-96f0-46f7a3a79b5a",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitResourcePoolTitle",
-    "description": "Feature/&GambitResourcePoolDescription",
+    "title": "Feature/&PowerPoolTacticianGambitAddTitle",
+    "description": "Feature/&PowerPoolTacticianGambitAddDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -189,7 +189,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "00da2b27-139a-4ca0-a285-aaa70d108bc8",
+  "guid": "b4307074-cd80-4376-96f0-46f7a3a79b5a",
   "contentPack": 9999,
-  "name": "GambitResourcePool"
+  "name": "PowerPoolModifierTacticianGambitAdd15"
 }

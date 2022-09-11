@@ -1,0 +1,2 @@
+CircleOfTheForestGuardian	Title='Subclass/&CircleOfTheForestGuardianTitle'.
+CircleOfTheForestGuardian	Description='Subclass/&CircleOfTheForestGuardianDescription'.

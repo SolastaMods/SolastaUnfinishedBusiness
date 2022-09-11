@@ -163,13 +163,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPoolModifierGambitResourcePoolAdd15:b4307074-cd80-4376-96f0-46f7a3a79b5a",
+  "overriddenPower": "Definition:PowerPoolModifierTacticianGambitAdd10:52b74360-eecf-407c-9445-4515cbb372f3",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitResourcePoolAddTitle",
-    "description": "Feature/&GambitResourcePoolAddDescription",
+    "title": "Feature/&PowerPoolTacticianGambitAddTitle",
+    "description": "Feature/&PowerPoolTacticianGambitAddDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -189,7 +189,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b4307074-cd80-4376-96f0-46f7a3a79b5a",
+  "guid": "52b74360-eecf-407c-9445-4515cbb372f3",
   "contentPack": 9999,
-  "name": "PowerPoolModifierGambitResourcePoolAdd15"
+  "name": "PowerPoolModifierTacticianGambitAdd10"
 }

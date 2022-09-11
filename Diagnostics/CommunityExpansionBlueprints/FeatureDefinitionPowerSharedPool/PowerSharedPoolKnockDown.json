@@ -335,7 +335,7 @@
   "proficiencyBonusToAttack": true,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "",
+  "shortTitleOverride": "Feature/&PowerSharedPoolKnockDownTitle",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
