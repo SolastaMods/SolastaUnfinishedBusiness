@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageArcaneDetonation:8c776e5a-f4da-5fa2-b607-6ac9ce765e48",
+      "featureDefinition": "Definition:AdditionalDamageArcanistArcaneDetonation:911c2325-0931-5f7c-bc64-e4b4dc92ee93",
       "level": 3
     },
     {
@@ -23,17 +23,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerArcanePulse:602cf3d4-0acd-55fd-a7f5-9e267060bb96",
+      "featureDefinition": "Definition:PowerArcanistArcanePulse:583aedcb-4613-5108-9c22-afc4ce8ef7ad",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageArcaneDetonationUpgrade:603aa347-b704-537f-b940-5c76070a594e",
+      "featureDefinition": "Definition:AdditionalDamageArcanistArcaneDetonationUpgrade:4d45788b-57e8-58eb-8f14-1ee97ae6d93a",
       "level": 11
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPowerArcanePulseUpgrade:21463995-3934-5733-b64c-f9899e169b54",
+      "featureDefinition": "Definition:PowerPowerArcanistArcanePulseUpgrade:955d42fd-980e-5897-8f80-94595468ed10",
       "level": 15
     }
   ],

@@ -14,7 +14,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger;
 
-internal sealed class Arcanist : AbstractSubclass
+internal sealed class RangerArcanist : AbstractSubclass
 {
     private static ConditionDefinition _markedByArcanist;
 
@@ -49,7 +49,7 @@ internal sealed class Arcanist : AbstractSubclass
         var arcanistMark = CreateArcanistMark();
         var arcaneDetonation = CreateArcaneDetonation();
         var arcaneDetonationUpgrade = CreateArcaneDetonationUpgrade();
-        var (arcanePulseAction, arcanePulseUpgradeAction) = CreatePowerArcanePulsePowers();
+        var (arcanePulseAction, arcanePulseUpgradeAction) = CreatePowerArcanistArcanePulsePowers();
 
         return CharacterSubclassDefinitionBuilder
             .Create("RangerArcanist", DefinitionBuilder.CENamespaceGuid)
@@ -90,7 +90,7 @@ internal sealed class Arcanist : AbstractSubclass
     {
         return FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ArcanistMark", Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 0)
             .SetNotificationTag("ArcanistMark")
@@ -115,8 +115,8 @@ internal sealed class Arcanist : AbstractSubclass
         assetReference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
         return FeatureDefinitionAdditionalDamageBuilder
-            .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcaneDetonation", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ArcaneDetonation", Category.Feature)
+            .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 1)
             .SetNotificationTag("ArcanistMark")
@@ -161,13 +161,13 @@ internal sealed class Arcanist : AbstractSubclass
     {
         // This is a blank feature. It does nothing except create a description for what happens at level 11.
         return FeatureDefinitionBuilder
-            .Create("AdditionalDamageArcaneDetonationUpgrade", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ArcaneDetonationUpgrade", Category.Feature)
+            .Create("AdditionalDamageArcanistArcaneDetonationUpgrade", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
     }
 
     private static (FeatureDefinitionPower arcane_pulse_action, FeatureDefinitionPower arcane_pulse_upgrade_action)
-        CreatePowerArcanePulsePowers()
+        CreatePowerArcanistArcanePulsePowers()
     {
         var markedEffect = new EffectForm
         {
@@ -200,17 +200,22 @@ internal sealed class Arcanist : AbstractSubclass
             SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
         };
 
-        var arcanePulseAction = CreatePowerArcanePulse("PowerArcanePulse", "PowerArcanePulse",
-            markedEffect, damageEffect);
+        var arcanePulseAction = CreatePowerArcanistArcanePulse(
+            "PowerArcanistArcanePulse",
+            "PowerArcanistArcanePulse",
+            markedEffect,
+            damageEffect);
 
-        var arcanePulseUpgradeAction = CreatePowerArcanePulse("PowerPowerArcanePulseUpgrade", "PowerArcanePulse",
+        var arcanePulseUpgradeAction = CreatePowerArcanistArcanePulse(
+            "PowerArcanistArcanePulseUpgrade",
+            "PowerArcanistArcanePulse",
             markedEffect, damageUpgradeEffect);
         arcanePulseUpgradeAction.overriddenPower = arcanePulseAction;
 
         return (arcanePulseAction, arcanePulseUpgradeAction);
     }
 
-    private static FeatureDefinitionPower CreatePowerArcanePulse(
+    private static FeatureDefinitionPower CreatePowerArcanistArcanePulse(
         string name,
         string term,
         EffectForm markedEffect,

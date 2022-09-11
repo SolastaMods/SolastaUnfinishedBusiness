@@ -45,19 +45,19 @@ internal static class SubclassesContext
 
     internal static void Load()
     {
-        LoadSubclass(new Arcanist());
-        LoadSubclass(new BladeDancer());
         LoadSubclass(new CircleOfTheForestGuardian());
         LoadSubclass(new Marshal());
+        LoadSubclass(new SpellShield());
+        LoadSubclass(new Tactician());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheRageMage());
+        LoadSubclass(new RangerArcanist());
         LoadSubclass(new RoguishConArtist());
         LoadSubclass(new RoguishOpportunist());
         LoadSubclass(new RoguishRaven());
         LoadSubclass(new SorcerousDivineHeart());
-        LoadSubclass(new SpellShield());
-        LoadSubclass(new Tactician());
         LoadSubclass(new WizardArcaneFighter());
+        LoadSubclass(new BladeDancer());
         LoadSubclass(new WizardDeadMaster());
         LoadSubclass(new WizardLifeTransmuter());
         LoadSubclass(new WizardMasterManipulator());

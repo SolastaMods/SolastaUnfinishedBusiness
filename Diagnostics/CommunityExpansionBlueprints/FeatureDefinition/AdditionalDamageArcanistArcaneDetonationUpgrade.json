@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ArcaneDetonationUpgradeTitle",
-    "description": "Feature/&ArcaneDetonationUpgradeDescription",
+    "title": "Feature/&AdditionalDamageArcanistArcaneDetonationUpgradeTitle",
+    "description": "Feature/&AdditionalDamageArcanistArcaneDetonationUpgradeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "603aa347-b704-537f-b940-5c76070a594e",
+  "guid": "4d45788b-57e8-58eb-8f14-1ee97ae6d93a",
   "contentPack": 9999,
-  "name": "AdditionalDamageArcaneDetonationUpgrade"
+  "name": "AdditionalDamageArcanistArcaneDetonationUpgrade"
 }
