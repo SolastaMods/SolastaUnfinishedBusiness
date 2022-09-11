@@ -223,8 +223,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Condition/&ConditionDebilitatedTitle",
-    "description": "Condition/&ConditionDebilitatedDescription",
+    "title": "Condition/&ConditionRoguishOpportunistDebilitatedTitle",
+    "description": "Condition/&ConditionRoguishOpportunistDebilitatedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "528c4c4294a392f4ea92355a38238b31",
@@ -244,7 +244,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b1ffaca7-4824-486e-a74a-68d45e6b1925",
+  "guid": "0962e8e8-b7d9-46cf-b017-75da61d81d03",
   "contentPack": 9999,
-  "name": "ConditionDebilitated"
+  "name": "ConditionRoguishOpportunistDebilitated"
 }

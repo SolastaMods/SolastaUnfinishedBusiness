@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDebilitated",
-          "conditionDefinition": "Definition:ConditionDebilitated:b1ffaca7-4824-486e-a74a-68d45e6b1925",
+          "conditionDefinitionName": "ConditionRoguishOpportunistDebilitated",
+          "conditionDefinition": "Definition:ConditionRoguishOpportunistDebilitated:0962e8e8-b7d9-46cf-b017-75da61d81d03",
           "operation": "AddRandom",
           "conditionsList": [
             "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
@@ -316,8 +316,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OpportunistDebilitatingStrikeTitle",
-    "description": "Feature/&OpportunistDebilitatingStrikeDescription",
+    "title": "Feature/&PowerRoguishOpportunistDebilitatingStrikeTitle",
+    "description": "Feature/&PowerRoguishOpportunistDebilitatingStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

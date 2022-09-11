@@ -8,7 +8,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue;
 
-internal sealed class Opportunist : AbstractSubclass
+internal sealed class RoguishOpportunist : AbstractSubclass
 {
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
@@ -47,13 +47,11 @@ internal sealed class Opportunist : AbstractSubclass
 
     private static CharacterSubclassDefinition CreateOpportunist()
     {
-        var subclassNamespace = new Guid("b217342c-5b1b-46eb-9f2f-86239c3088bf");
-
         // Grant advantage when attack enemies whose initiative is lower than your
         // or when perform an attack of opportunity.
         var quickStrike = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("OnComputeAttackModifierRoguishOppotunistQuickStrike", subclassNamespace)
-            .SetGuiPresentation("OpportunistQuickStrike", Category.Feature)
+            .Create("OnComputeAttackModifierRoguishOpportunistQuickStrike", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
             .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
             .AddToDB();
 
@@ -109,11 +107,11 @@ internal sealed class Opportunist : AbstractSubclass
                 AttributeDefinitions.Dexterity,
                 debilitatingStrikeEffectBuilder.Build()
             )
-            .SetGuiPresentation("OpportunistDebilitatingStrike", Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         return CharacterSubclassDefinitionBuilder
-            .Create("Opportunist", subclassNamespace)
+            .Create("RoguishOpportunist", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, MartialCommander.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(quickStrike, 3)
             .AddFeatureAtLevel(debilitatingStrikePower, 9)
@@ -123,11 +121,10 @@ internal sealed class Opportunist : AbstractSubclass
 
     private sealed class DebilitatedConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "ConditionDebilitated";
+        private const string Name = "ConditionRoguishOpportunistDebilitated";
 
-        //TODO: Need to fix GUID below
         internal static readonly ConditionDefinition DebilitatedCondition =
-            CreateAndAddToDB(Name, CENamespaceGuid.ToString());
+            CreateAndAddToDB(Name, "0962e8e8-b7d9-46cf-b017-75da61d81d03");
 
         private DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
         {
@@ -136,7 +133,7 @@ internal sealed class Opportunist : AbstractSubclass
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
             return new DebilitatedConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("ConditionDebilitated", Category.Condition)
+                .SetOrUpdateGuiPresentation(Category.Condition)
                 .AddToDB();
         }
     }

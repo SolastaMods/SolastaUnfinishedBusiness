@@ -45,23 +45,23 @@ internal static class SubclassesContext
 
     internal static void Load()
     {
-        LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new Arcanist());
+        LoadSubclass(new BladeDancer());
         LoadSubclass(new CircleOfTheForestGuardian());
-        LoadSubclass(new RoguishConArtist());
-        LoadSubclass(new WizardLifeTransmuter());
+        LoadSubclass(new DeadMaster());
         LoadSubclass(new Marshal());
-        LoadSubclass(new WizardMasterManipulator());
-        LoadSubclass(new Opportunist());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheRageMage());
+        LoadSubclass(new RoguishConArtist());
+        LoadSubclass(new RoguishOpportunist());
+        LoadSubclass(new RoguishRaven());
+        LoadSubclass(new SorcerousDivineHeart());
         LoadSubclass(new SpellMaster());
         LoadSubclass(new SpellShield());
         LoadSubclass(new Tactician());
-        LoadSubclass(new SorcerousDivineHeart());
-        LoadSubclass(new DeadMaster());
-        LoadSubclass(new BladeDancer());
-        LoadSubclass(new RoguishRaven());
+        LoadSubclass(new WizardArcaneFighter());
+        LoadSubclass(new WizardLifeTransmuter());
+        LoadSubclass(new WizardMasterManipulator());
 
         Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
 
