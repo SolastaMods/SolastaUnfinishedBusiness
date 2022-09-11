@@ -29,7 +29,7 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
         Definition.somaticWithWeaponOrShield = weaponOrShield;
         Definition.somaticWithWeapon = weapon;
         Definition.canUseProficientWeaponAsFocus = weaponAsFocus;
-        
+
         return this;
     }
 
@@ -49,7 +49,7 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
         Definition.saveDCModifier = dcModifier;
         Definition.cantripRetribution = cantripRetribution;
         Definition.forceHalfDamageOnCantrips = halfDamageCantrips;
-        
+
         return this;
     }
 
@@ -68,7 +68,7 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
         Definition.warListSlotBonus = levelBonus;
         Definition.WarListSpells.AddRange(spells.Select(s => s.Name));
         Definition.WarListSpells.Sort();
-        
+
         return this;
     }
 
@@ -84,21 +84,21 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
         Definition.additionalScribedSpells = additionalScribedSpells;
         Definition.scribeAdvantageType = scribeAdvantage;
         Definition.preparedSpellModifier = preparedModifier;
-        
+
         return this;
     }
 
     public FeatureDefinitionMagicAffinityBuilder SetRitualCasting(RuleDefinitions.RitualCasting ritualCasting)
     {
         Definition.ritualCasting = ritualCasting;
-        
+
         return this;
     }
 
     public FeatureDefinitionMagicAffinityBuilder SetExtendedSpellList(SpellListDefinition spellListDefinition)
     {
         Definition.extendedSpellList = spellListDefinition;
-        
+
         return this;
     }
 

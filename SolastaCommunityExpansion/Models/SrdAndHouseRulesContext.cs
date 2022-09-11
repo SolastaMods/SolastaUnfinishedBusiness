@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using UnityEngine;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
@@ -72,6 +72,8 @@ internal static class SrdAndHouseRulesContext
     private static void ApplyAcNonStackingRules()
     {
         DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
+            .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
+        DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierMonkUnarmoredDefense
             .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
         DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierSorcererDraconicResilienceAC
             .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
@@ -303,8 +305,7 @@ internal static class ArmorClassStacking
     public static void AddCustomTagsToModifierBuilder(List<CodeInstruction> codes)
     {
         var method =
-            new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string,
-                RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
+            new Func<AttributeModifierOperation, float, string, string, RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
 
         var index = codes.FindIndex(c => c.Calls(method));
 
@@ -314,15 +315,14 @@ internal static class ArmorClassStacking
         }
 
         var custom =
-            new Func<FeatureDefinitionAttributeModifier.AttributeModifierOperation, float, string, string,
-                FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
+            new Func<AttributeModifierOperation, float, string, string, FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
 
         codes[index] = new CodeInstruction(OpCodes.Call, custom); //replace call with custom method
         codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_1)); // load 'feature' as last argument
     }
 
     private static RulesetAttributeModifier CustomBuildAttributeModifier(
-        FeatureDefinitionAttributeModifier.AttributeModifierOperation operationType,
+        AttributeModifierOperation operationType,
         float modifierValue,
         string tag,
         string sourceAbility,
@@ -337,86 +337,84 @@ internal static class ArmorClassStacking
         return modifier;
     }
 
-    public static bool UnstackAC(RulesetAttribute attribute)
+    // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
+    // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
+    public static IEnumerable<CodeInstruction> UnstackACTranspile(IEnumerable<CodeInstruction> instructions)
     {
-        if (attribute.Name != AttributeDefinitions.ArmorClass)
+        var sort = new Action<
+            List<RulesetAttributeModifier>
+        >(RulesetAttributeModifier.SortAttributeModifiersList).Method;
+
+        var unstack = new Action<
+            List<RulesetAttributeModifier>
+        >(UnstackAC).Method;
+
+        foreach (var instruction in instructions)
         {
-            return true;
-        }
-
-        var currentValue = attribute.BaseValue;
-        var activeModifiers = attribute.ActiveModifiers;
-        var minModValue = int.MinValue;
-        var setValue = 10;
-
-        var exclusives = new List<RulesetAttributeModifier>();
-
-        foreach (var modifier in activeModifiers)
-        {
-            switch (modifier.Operation)
+            if (instruction.Calls(sort))
             {
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway:
-                    minModValue = Mathf.RoundToInt(modifier.Value);
-                    break;
+                yield return new CodeInstruction(OpCodes.Call, unstack);
+            }
+            else
+            {
+                yield return instruction;
+            }
+        }
+    }
+    
+    public static void UnstackAC(List<RulesetAttributeModifier> modifiers)
+    {
+        var attributes = new List<RulesetAttributeModifier>();
+        var sets = new List<RulesetAttributeModifier>();
 
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set:
-                    setValue = Main.Settings.UseMoreRestrictiveAcStacking
-                               || modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag)
-                        ? Mathf.RoundToInt(modifier.Value)
-                        : 10;
-                    currentValue = modifier.ApplyOnValue(currentValue);
+        foreach (var modifier in modifiers)
+        {
+            if (!modifier.tags.Contains(ExclusiveArmorClassBonus.Tag))
+            {
+                continue;
+            }
 
-                    break;
+            if (modifier.operation == AttributeModifierOperation.Set)
+            {
+                sets.Add(modifier);
+            }
 
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Multiplicative:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddSurroundingEnemies:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfWorse:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus:
-                case FeatureDefinitionAttributeModifier.AttributeModifierOperation
-                    .MultiplyByClassLevelBeforeAdditions:
-                default:
-                {
-                    if (modifier.Tags.Contains(ExclusiveArmorClassBonus.Tag))
-                    {
-                        exclusives.Add(modifier);
-                    }
-                    else
-                    {
-                        currentValue = modifier.ApplyOnValue(currentValue);
-                    }
-
-                    break;
-                }
+            if (modifier.operation == AttributeModifierOperation.AddAbilityScoreBonus)
+            {
+                attributes.Add(modifier);
             }
         }
 
-        if (!exclusives.Empty())
-        {
-            var exclusiveAc = exclusives
-                .Select(modifier => modifier.ApplyOnValue(currentValue)).Prepend(setValue).Max() - currentValue;
+        //sort modifiers so that biggest is first
+        attributes.Sort((left, right) => -left.value.CompareTo(right.value));
+        sets.Sort((left, right) => -left.value.CompareTo(right.value));
 
-            currentValue = currentValue + (10 - setValue) + exclusiveAc;
+        //get best modifiers
+        var bestAttributeBonusMod = attributes.Count > 0 ? attributes[0] : null;
+        var bestSetMod = sets.Count > 0 ? sets[0] : null;
+
+        //we have both exclusive attribute (Wise Defense) and exclusive set mods (Dragon Resilience AC bonus)
+        //we need to leave only one that grants best results
+        if (bestSetMod != null && bestAttributeBonusMod != null)
+        {
+            if (bestSetMod.value > bestAttributeBonusMod.value + 10)
+            {
+                //remove biggest set mod, so it will remain in final list
+                sets.RemoveAt(0);
+            }
+            else
+            {
+                //remove biggest attribute bonus mod, so it will remain in final list
+                attributes.RemoveAt(0);
+            }
+
+            //remove all exclusive mods
+            modifiers.RemoveAll(m => attributes.Contains(m));
+            modifiers.RemoveAll(m => sets.Contains(m));
         }
 
-        var realMaxValue = attribute.MaxEditableValue > 0
-            ? attribute.MaxEditableValue
-            : attribute.MaxValue;
-
-        currentValue = minModValue <= currentValue
-            ? Mathf.Clamp(currentValue, attribute.MinValue, realMaxValue)
-            : minModValue;
-
-        attribute.currentValue = currentValue;
-        attribute.upToDate = true;
-        attribute.AttributeRefreshed?.Invoke();
-
-        return false;
+        //sort modifiers
+        RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
 }
 
@@ -608,8 +606,8 @@ internal static class UpcastConjureElementalAndFey
     private static List<SpellDefinition> SubspellsList([NotNull] SpellDefinition masterSpell, int slotLevel)
     {
         var subspellsList = masterSpell.SubspellsList;
-        var mySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
-                          || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
+        var mySlotLevel = masterSpell.Name == ConjureElemental.Name
+                          || masterSpell.Name == ConjureFey.Name
             ? slotLevel
             : -1;
 
@@ -662,4 +660,3 @@ internal static class UpcastConjureElementalAndFey
         return _filteredSubspells;
     }
 }
-

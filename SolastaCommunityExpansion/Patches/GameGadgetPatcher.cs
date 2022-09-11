@@ -126,7 +126,7 @@ internal static class GameGadgetPatcher
             }
         }
     }
-    
+
     //TODO: Check if this patch is still required
 #if false
     [HarmonyPatch(typeof(GameGadget), "SetCondition")]

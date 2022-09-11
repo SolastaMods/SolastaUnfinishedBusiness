@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class DelegatesContext
 {
-    internal static void Load()
+    internal static void LateLoad()
     {
         var gameService = ServiceRepository.GetService<IGameService>();
 

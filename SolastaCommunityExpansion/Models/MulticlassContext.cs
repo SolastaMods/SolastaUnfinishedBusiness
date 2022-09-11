@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class MulticlassContext
 {
-    internal const int MaxClasses = 6;
+    internal const int MaxClasses = 3;
 
     internal static void Load()
     {
@@ -123,7 +123,7 @@ public static class SkillProficiencyPointPoolSkillsBuilder
 {
     public static readonly FeatureDefinitionPointPool PointPoolBardSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolBardSkillPointsMulticlass", "a69b2527569b4893abe57ad1f80e97ed")
+            .Create("PointPoolBardSkillPointsMulticlass", DefinitionBuilder.CENamespaceGuid)
             // Non-standard pattern?
             .SetGuiPresentation("Feature/&BardSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
@@ -151,7 +151,7 @@ public static class SkillProficiencyPointPoolSkillsBuilder
 
     public static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolRangerSkillPointsMulticlass", "096e4e01b52b490e807cf8d458845aa5")
+            .Create("PointPoolRangerSkillPointsMulticlass", DefinitionBuilder.CENamespaceGuid)
             // Non-standard pattern?
             .SetGuiPresentation("Feature/&RangerSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
@@ -169,7 +169,7 @@ public static class SkillProficiencyPointPoolSkillsBuilder
 
     public static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolRogueSkillPointsMulticlass", "451259da8c5c41f4b1b363f00b01be4e")
+            .Create("PointPoolRogueSkillPointsMulticlass", DefinitionBuilder.CENamespaceGuid)
             // Non-standard pattern?
             .SetGuiPresentation("Feature/&RogueSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)

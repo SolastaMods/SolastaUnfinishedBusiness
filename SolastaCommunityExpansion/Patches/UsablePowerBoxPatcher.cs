@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.CustomUI;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches;
 

@@ -15,9 +15,11 @@ public class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilde
         return this;
     }
 
-    public FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(string abilityScore)
+    public FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(string abilityScore, bool minimum1 = false)
     {
         Definition.modifierAbilityScore = abilityScore;
+        Definition.modifierOperation = AttributeModifierOperation.AddAbilityScoreBonus;
+        Definition.minimum1 = minimum1;
         return this;
     }
 

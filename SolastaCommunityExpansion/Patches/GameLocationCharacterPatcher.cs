@@ -5,8 +5,8 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.PatchCode.CustomFeatures;
 using SolastaCommunityExpansion.CustomUI;
+using SolastaCommunityExpansion.PatchCode.CustomFeatures;
 
 namespace SolastaCommunityExpansion.Patches;
 

@@ -40,7 +40,7 @@ internal static class CustomizedSubFeatureDefinitions
     internal static List<T> GetAllSubFeaturesOfType<T>([CanBeNull] this BaseDefinition definition) where T : class
     {
         var results = new List<T>();
-        
+
         if (definition == null)
         {
             return results;

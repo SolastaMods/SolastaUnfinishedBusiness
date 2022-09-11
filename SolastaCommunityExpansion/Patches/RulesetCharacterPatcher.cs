@@ -573,11 +573,11 @@ internal static class RulesetCharacterPatcher
             CustomFeaturesContext.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
         }
     }
-    
+
     //
     //TODO: Consolidate below
     //
-    
+
     [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ApplyRest_Patch
@@ -631,7 +631,7 @@ internal static class RulesetCharacterPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
-            var myRestoreAllSpellSlotsMethod = typeof(ApplyRest_Patch).GetMethod("RestoreAllSpellSlots");
+            var myRestoreAllSpellSlotsMethod = typeof(ApplyRest_Patch_2).GetMethod("RestoreAllSpellSlots");
 
             foreach (var instruction in instructions)
             {

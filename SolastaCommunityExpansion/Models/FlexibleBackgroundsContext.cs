@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterBackgroundDefinitions;
@@ -82,17 +81,17 @@ public static class FlexibleBackgroundsContext
         .Create("AesceticBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
-    
+
     private static readonly FeatureDefinition ArtistSuggestedSkills = FeatureDefinitionBuilder
         .Create("ArtistBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
-    
+
     private static readonly FeatureDefinition OccultistSuggestedSkills = FeatureDefinitionBuilder
         .Create("OccultistBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
-    
+
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> AddedFeatures = new()
     {
         { Academic, new List<FeatureDefinition> { SkillThree, AcademicSuggestedSkills, ToolChoice } },
@@ -106,7 +105,7 @@ public static class FlexibleBackgroundsContext
         { Wanderer, new List<FeatureDefinition> { SkillTwo, WandererSuggestedSkills, ToolChoiceTwo } },
         { Aescetic_Background, new List<FeatureDefinition> { SkillTwo, AesceticSuggestedSkills, ToolChoice } },
         { Artist_Background, new List<FeatureDefinition> { SkillThree, ArtistSuggestedSkills } },
-        { Occultist_Background, new List<FeatureDefinition> { SkillTwo, OccultistSuggestedSkills, ToolChoice } },
+        { Occultist_Background, new List<FeatureDefinition> { SkillTwo, OccultistSuggestedSkills, ToolChoice } }
     };
 
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> RemovedFeatures =
@@ -124,9 +123,15 @@ public static class FlexibleBackgroundsContext
             { SellSword, new List<FeatureDefinition> { ProficiencySellSwordSkills, ProficiencySmithTools } },
             { Spy, new List<FeatureDefinition> { ProficiencySpySkills, ProficienctSpySkillsTool } },
             { Wanderer, new List<FeatureDefinition> { ProficiencyWandererSkills, ProficiencyWandererTools } },
-            { Aescetic_Background, new List<FeatureDefinition> { ProficiencyAesceticSkills, ProficiencyAesceticToolsSkills } },
+            {
+                Aescetic_Background,
+                new List<FeatureDefinition> { ProficiencyAesceticSkills, ProficiencyAesceticToolsSkills }
+            },
             { Artist_Background, new List<FeatureDefinition> { ProficiencyArtistSkills } },
-            { Occultist_Background, new List<FeatureDefinition> { ProficiencyOccultistSkills, ProficiencyOccultistToolsSkills } },
+            {
+                Occultist_Background,
+                new List<FeatureDefinition> { ProficiencyOccultistSkills, ProficiencyOccultistToolsSkills }
+            }
         };
 
     internal static void Switch()

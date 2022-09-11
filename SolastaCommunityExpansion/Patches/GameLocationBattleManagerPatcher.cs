@@ -94,7 +94,7 @@ internal static class GameLocationBattleManagerPatcher
             {
                 switch (item2.endOccurence)
                 {
-                    case (RuleDefinitions.TurnOccurenceType) ExtraTurnOccurenceType.OnMoveEnd:
+                    case (RuleDefinitions.TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd:
                         matchingOccurenceConditions.Add(item2);
                         break;
                 }

@@ -1,5 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
@@ -17,7 +16,7 @@ internal sealed class MasterManipulator : AbstractSubclass
     {
         // Make Control Master subclass
         var arcaneControlAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityControlHeightened",  DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinityControlHeightened", DefinitionBuilder.CENamespaceGuid)
             .SetWarList(1,
                 CharmPerson, // enchantment
                 Sleep, // enchantment
@@ -35,14 +34,14 @@ internal sealed class MasterManipulator : AbstractSubclass
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyManipulatorMentalSavingThrows",  DefinitionBuilder.CENamespaceGuid)
+            .Create("ProficiencyManipulatorMentalSavingThrows", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();
 
         var powerDominate = FeatureDefinitionPowerBuilder
-            .Create("PowerManipulatorDominatePerson",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerManipulatorDominatePerson", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power, DominatePerson.GuiPresentation.SpriteReference)
             .Configure(0,
                 RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
@@ -54,7 +53,7 @@ internal sealed class MasterManipulator : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("MasterManipulator",  DefinitionBuilder.CENamespaceGuid)
+            .Create("MasterManipulator", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("TraditionMasterManipulator", Category.Subclass,
                 RoguishShadowCaster.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(arcaneControlAffinity, 2)
@@ -97,7 +96,7 @@ internal sealed class MasterManipulator : AbstractSubclass
         RuleDefinitions.SpellParamsModifierType dcModifierType, string name, GuiPresentation guiPresentation)
     {
         return FeatureDefinitionMagicAffinityBuilder
-            .Create(name,  DefinitionBuilder.CENamespaceGuid)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(guiPresentation)
             .SetCastingModifiers(attackModifier, attackModifierType, dcModifier, dcModifierType, false, false,
                 false)

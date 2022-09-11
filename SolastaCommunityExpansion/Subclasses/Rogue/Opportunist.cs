@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue;
 
 internal sealed class Opportunist : AbstractSubclass
 {
-     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
         return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
     }
@@ -96,7 +96,7 @@ internal sealed class Opportunist : AbstractSubclass
         // Enemies struck by your sneak attack suffered from one of the following condition (Baned, Blinded, Bleed, Stunned)
         // if they fail a CON save against the DC of 8 + your DEX mod + your prof.
         var debilitatingStrikePower = FeatureDefinitionPowerBuilder
-            .Create("PowerRoguishOpportunistDebilitatingStrike",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerRoguishOpportunistDebilitatingStrike", DefinitionBuilder.CENamespaceGuid)
             .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
@@ -127,7 +127,7 @@ internal sealed class Opportunist : AbstractSubclass
 
         //TODO: Need to fix GUID below
         internal static readonly ConditionDefinition DebilitatedCondition =
-            CreateAndAddToDB(Name,  DefinitionBuilder.CENamespaceGuid.ToString());
+            CreateAndAddToDB(Name, CENamespaceGuid.ToString());
 
         private DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
         {

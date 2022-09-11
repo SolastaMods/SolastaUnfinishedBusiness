@@ -123,14 +123,14 @@ internal static class BootContext
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();
 
+            // Register mod delegates
+            DelegatesContext.LateLoad();
+
             // Recache all gui collections
             GuiWrapperContext.Recache();
 
             // Cache CE definitions for diagnostics and export
             DiagnosticsContext.CacheCeDefinitions();
-
-            // Register mod delegates
-            DelegatesContext.Load();
 
             // Manages update or welcome messages
             Load();

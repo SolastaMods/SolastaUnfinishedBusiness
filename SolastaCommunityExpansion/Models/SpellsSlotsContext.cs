@@ -1326,7 +1326,7 @@ internal static class SpellsSlotsContext
         15,
         15
     };
-    
+
     internal static IEnumerable<int> WarlockKnownSpells { get; } = new List<int>
     {
         2,

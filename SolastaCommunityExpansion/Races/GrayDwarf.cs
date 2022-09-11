@@ -1,5 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -176,7 +175,8 @@ internal static class GrayDwarfSubraceBuilder
             .AddToDB();
 
         var grayDwarfConditionStoneStrength = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBullsStrength, "ConditionStoneStrength", DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionDefinitions.ConditionBullsStrength, "ConditionStoneStrength",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(
                 Category.Condition,
                 ConditionDefinitions.ConditionStoneResilience.GuiPresentation.SpriteReference)
