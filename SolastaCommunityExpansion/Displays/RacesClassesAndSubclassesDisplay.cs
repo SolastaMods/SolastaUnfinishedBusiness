@@ -30,7 +30,7 @@ internal static class RacesClassesAndSubclassesDisplay
                 ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter = toggle;
-            ArcaneFighter.UpdateEnchantWeapon();
+            WizardArcaneFighter.UpdateEnchantWeapon();
         }
 
         toggle = Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster;

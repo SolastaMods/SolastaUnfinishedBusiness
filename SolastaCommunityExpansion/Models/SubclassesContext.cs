@@ -45,7 +45,7 @@ internal static class SubclassesContext
 
     internal static void Load()
     {
-        LoadSubclass(new ArcaneFighter());
+        LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new Arcanist());
         LoadSubclass(new CircleOfTheForestGuardian());
         LoadSubclass(new RoguishConArtist());
@@ -70,7 +70,7 @@ internal static class SubclassesContext
             SortSubclassesFeatures();
         }
 
-        ArcaneFighter.UpdateEnchantWeapon();
+        WizardArcaneFighter.UpdateEnchantWeapon();
         RoguishConArtist.UpdateSpellDcBoost();
         MasterManipulator.UpdateSpellDcBoost();
         SpellMaster.UpdateBonusRecovery();

@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttackModifierWeaponArcaneFighterTitle",
-    "description": "Feature/&AttackModifierWeaponArcaneFighterDescription",
+    "title": "Feature/&AttackModifierArcaneFighterIntBonusTitle",
+    "description": "Feature/&AttackModifierArcaneFighterIntBonusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "534ac5e5-02a6-5742-b142-51466f93cd88",
+  "guid": "db532d78-0c3f-5c19-b8c6-a68b5ce75ae5",
   "contentPack": 9999,
-  "name": "AttackModifierWeaponArcaneFighter"
+  "name": "AttackModifierArcaneFighterIntBonus"
 }

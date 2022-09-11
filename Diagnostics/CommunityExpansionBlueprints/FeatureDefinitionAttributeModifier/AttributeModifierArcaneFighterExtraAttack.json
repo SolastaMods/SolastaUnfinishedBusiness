@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierExtraAttackArcaneFighterTitle",
-    "description": "Feature/&AttributeModifierExtraAttackArcaneFighterDescription",
+    "title": "Feature/&AttributeModifierArcaneFighterExtraAttackTitle",
+    "description": "Feature/&AttributeModifierArcaneFighterExtraAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "924b6014-e6c2-5a81-93c0-3406617912c5",
+  "guid": "1c358d22-ca8a-5331-8cee-7af0efbfbed1",
   "contentPack": 9999,
-  "name": "AttributeModifierExtraAttackArcaneFighter"
+  "name": "AttributeModifierArcaneFighterExtraAttack"
 }

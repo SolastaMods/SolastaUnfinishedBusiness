@@ -79,7 +79,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierWeaponArcaneFighter:534ac5e5-02a6-5742-b142-51466f93cd88",
+              "featureDefinition": "Definition:AttackModifierArcaneFighterIntBonus:db532d78-0c3f-5c19-b8c6-a68b5ce75ae5",
               "level": 0
             }
           ],
@@ -314,8 +314,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttackModifierWeaponArcaneFighterTitle",
-    "description": "Feature/&AttackModifierWeaponArcaneFighterDescription",
+    "title": "Feature/&AttackModifierArcaneFighterIntBonusTitle",
+    "description": "Feature/&AttackModifierArcaneFighterIntBonusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",
@@ -335,7 +335,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6c759c3b-4d3c-5093-8b2c-3fa6588768fc",
+  "guid": "a2fba7df-4985-59fd-8ff8-4d4c645ccc73",
   "contentPack": 9999,
-  "name": "PowerWeaponArcaneFighter"
+  "name": "PowerArcaneFighterEnchantWeapon"
 }

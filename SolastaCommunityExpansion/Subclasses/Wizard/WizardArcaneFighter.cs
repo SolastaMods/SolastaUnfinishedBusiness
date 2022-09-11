@@ -7,19 +7,19 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefin
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
-internal sealed class ArcaneFighter : AbstractSubclass
+internal sealed class WizardArcaneFighter : AbstractSubclass
 {
     private static FeatureDefinitionPower _enchantWeapon;
 
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
-    internal ArcaneFighter()
+    internal WizardArcaneFighter()
     {
         // Make Melee Wizard subclass
 
         var weaponProf = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyWeaponArcaneFighter", DefinitionBuilder.CENamespaceGuid)
+            .Create("ProficiencyArcaneFighterSimpleWeapons", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
                 RuleDefinitions.ProficiencyType.Weapon,
@@ -28,13 +28,13 @@ internal sealed class ArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var concentrationAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityConcentrationArcaneFighter", DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinityArcaneFighterConcentrationAdvantage", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage)
             .AddToDB();
 
         var extraAttack = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierExtraAttackArcaneFighter", DefinitionBuilder.CENamespaceGuid)
+            .Create("AttributeModifierArcaneFighterExtraAttack", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetModifier(
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
@@ -95,7 +95,7 @@ internal sealed class ArcaneFighter : AbstractSubclass
     private static FeatureDefinitionPower BuildEnchantWeapon()
     {
         var weaponUseIntModifier = FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierWeaponArcaneFighter", DefinitionBuilder.CENamespaceGuid)
+            .Create("AttackModifierArcaneFighterIntBonus", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
             .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
@@ -119,8 +119,8 @@ internal sealed class ArcaneFighter : AbstractSubclass
             .Build();
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerWeaponArcaneFighter", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("AttackModifierWeaponArcaneFighter", Category.Feature,
+            .Create("PowerArcaneFighterEnchantWeapon", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
