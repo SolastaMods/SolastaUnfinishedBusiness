@@ -3,18 +3,13 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityFighterSpellShield:25ff14ce-31cd-5d27-96d1-01fc9d1a0b15",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CastSpellSpellShield:c21ae50c-0e59-54f4-b9f2-b4d91e0bbdad",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ReplaceAttackWithCantripSpellShield:8425b3e4-37ce-553a-8c46-db31230aa21b",
-      "level": 7
+      "featureDefinition": "Definition:MagicAffinitySpellShieldConcentrationAdvantage:61fde703-712e-58c4-af0c-087f96fa07a0",
+      "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -23,7 +18,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinitySpellShieldVigor:02b723f3-05a0-5fb4-a4a7-403858f5039c",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripSpellShield:8425b3e4-37ce-553a-8c46-db31230aa21b",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinitySpellShieldConcentrationAdvantageVigor:3d4e97a6-443e-59bc-876e-27e3762d734f",
       "level": 10
     },
     {
@@ -42,8 +42,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&FighterSpellShieldTitle",
-    "description": "Subclass/&FighterSpellShieldDescription",
+    "title": "Subclass/&MartialSpellShieldTitle",
+    "description": "Subclass/&MartialSpellShieldDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a934d22a89555934da76c63cc0346839",
@@ -63,7 +63,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3282eb5e-d4ab-5aa3-80d8-c808aab743b6",
+  "guid": "e1ca6ab9-13e1-5378-b021-c3b9b425b5ea",
   "contentPack": 9999,
-  "name": "FighterSpellShield"
+  "name": "MartialSpellShield"
 }

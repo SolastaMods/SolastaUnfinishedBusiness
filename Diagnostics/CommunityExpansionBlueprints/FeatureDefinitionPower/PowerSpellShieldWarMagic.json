@@ -313,8 +313,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&PowerSpellShieldWarMagicTitle",
-    "description": "Subclass/&PowerSpellShieldWarMagicDescription",
+    "title": "Feature/&PowerSpellShieldWarMagicTitle",
+    "description": "Feature/&PowerSpellShieldWarMagicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

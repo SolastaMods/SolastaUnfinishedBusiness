@@ -23,8 +23,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&PowerSpellShieldRangedDeflectionTitle",
-    "description": "Subclass/&PowerSpellShieldRangedDeflectionDescription",
+    "title": "Feature/&PowerSpellShieldRangedDeflectionTitle",
+    "description": "Feature/&PowerSpellShieldRangedDeflectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

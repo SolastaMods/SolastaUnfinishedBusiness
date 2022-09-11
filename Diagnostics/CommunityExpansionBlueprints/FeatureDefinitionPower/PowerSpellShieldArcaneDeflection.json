@@ -311,8 +311,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&PowerSpellShieldArcaneDeflectionTitle",
-    "description": "Subclass/&PowerSpellShieldArcaneDeflectionDescription",
+    "title": "Feature/&PowerSpellShieldArcaneDeflectionTitle",
+    "description": "Feature/&PowerSpellShieldArcaneDeflectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "869bb1641c1c46242931a9fb5819c792",

@@ -18,8 +18,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
     internal MartialSpellShield()
     {
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityFighterSpellShield", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass)
+            .Create("MagicAffinitySpellShieldConcentrationAdvantage", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
             .SetHandsFullCastingModifiers(true, true, true)
             .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, 0,
@@ -28,7 +28,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         var spellCasting = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellSpellShield", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("FighterSpellShieldSpellcasting", Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellList(SpellListDefinitions.SpellListWizard)
@@ -63,7 +63,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         var warMagicPower = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldWarMagic", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
             .SetEffectDescription(effect)
             .SetActivationTime(RuleDefinitions.ActivationTime.OnSpellCast)
@@ -72,13 +72,13 @@ internal sealed class MartialSpellShield : AbstractSubclass
         // replace attack with cantrip
         var replaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
             .Create("ReplaceAttackWithCantripSpellShield", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var vigor = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellShieldVigor", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass)
-            .SetCustomSubFeatures(new VigorSpellDCModifier(),
+            .Create("MagicAffinitySpellShieldConcentrationAdvantageVigor", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new VigorSpellDcModifier(),
                 new VigorSpellAttackModifier
                 {
                     sourceName = "VigorSpell", sourceType = RuleDefinitions.FeatureSourceType.ExplicitFeature
@@ -87,12 +87,12 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         var deflectionCondition = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldArcaneDeflection", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass)
+            .SetGuiPresentation(Category.Condition)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierSpellShieldArcaneDeflection", DefinitionBuilder.CENamespaceGuid)
                 .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     AttributeDefinitions.ArmorClass, 3)
-                .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Subclass,
+                .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Condition,
                     ConditionShielded.GuiPresentation.SpriteReference)
                 .AddToDB())
             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
@@ -113,7 +113,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         var arcaneDeflectionPower = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldArcaneDeflection", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, ConditionShielded.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, ConditionShielded.GuiPresentation.SpriteReference)
             .Configure(
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.Reaction, 0, RuleDefinitions.RechargeRate.AtWill,
@@ -123,13 +123,13 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder
             .Create(FeatureDefinitionActionAffinitys.ActionAffinityTraditionGreenMageLeafScales,
                 "ActionAffinitySpellShieldRangedDefense", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("PowerSpellShieldRangedDeflection", Category.Subclass)
+            .SetGuiPresentation("PowerSpellShieldRangedDeflection", Category.Feature)
             .AddToDB();
 
         // Make Spell Shield subclass
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("FighterSpellShield", DefinitionBuilder.CENamespaceGuid)
+            .Create("MartialSpellShield", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(magicAffinity, 3)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
@@ -166,7 +166,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
         return Math.Max(strModifier, dexModifier);
     }
 
-    private sealed class VigorSpellDCModifier : IIncreaseSpellDC
+    private sealed class VigorSpellDcModifier : IIncreaseSpellDC
     {
         public int GetSpellModifier(RulesetCharacter caster)
         {

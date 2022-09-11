@@ -6,7 +6,7 @@ internal static class IntegrationContext
 {
     private const string ClassTinkerer = "ClassTinkerer";
     private const string SubclassConartist = "RoguishConArtist";
-    private const string SubclassSpellshield = "FighterSpellShield";
+    private const string SubclassSpellshield = "SpellShield";
     private const string SubclassPathOfTheRageMage = "PathOfTheRageMage";
 
     // Sentinel blueprints to avoid a bunch of null check in code
