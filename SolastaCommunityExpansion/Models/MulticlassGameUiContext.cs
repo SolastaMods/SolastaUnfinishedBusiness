@@ -445,33 +445,31 @@ public static class MulticlassGameUiContext
             ? new List<SpellDefinition>(allSpells)
             : LevelUpContext.GetAllowedSpells(caster).Where(x => x.SpellLevel == spellLevel).ToList();
 
-        // displays known spells from other classes
-        if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
+        var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(caster)
+            .Where(x => x.SpellLevel == spellLevel).ToList();
+
+        allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Contains(x));
+
+        foreach (var spell in otherClassesKnownSpells)
         {
-            var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(caster)
-                .Where(x => x.SpellLevel == spellLevel).ToList();
+            //Add multiclass tag to spells known from other classes
+            extraSpellsMap.TryAdd(spell, "Multiclass");
 
-            allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Contains(x));
-
-            foreach (var spell in otherClassesKnownSpells)
+            // displays known spells from other classes
+            if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
             {
-                if (!allSpells.Contains(spell))
-                {
-                    allSpells.Add(spell);
-                    if (!extraSpellsMap.ContainsKey(spell))
-                    {
-                        extraSpellsMap.Add(spell, "Multiclass");
-                    }
-                }
+                allSpells.TryAdd(spell);
 
+                //allow re-learning already known spells from other classes
                 if (!Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(spell))
                 {
                     autoPreparedSpells.TryAdd(spell);
                 }
             }
         }
+
         // remove spells bleed from other classes
-        else
+        if (!Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
         {
             allSpells.RemoveAll(x => !allowedSpells.Contains(x));
         }
