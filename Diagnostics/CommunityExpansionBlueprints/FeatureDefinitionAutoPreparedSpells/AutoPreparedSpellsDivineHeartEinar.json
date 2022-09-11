@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AutoPreparedSpellsSorcererDivineHeartEinarTitle",
-    "description": "Feature/&AutoPreparedSpellsSorcererDivineHeartEinarDescription",
+    "title": "Feature/&AutoPreparedSpellsDivineHeartEinarTitle",
+    "description": "Feature/&AutoPreparedSpellsDivineHeartEinarDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6ec55a44-d5ee-52e7-b088-98587da5783b",
+  "guid": "055782f1-0576-5962-9c5c-84e9ae656730",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsSorcererDivineHeartEinar"
+  "name": "AutoPreparedSpellsDivineHeartEinar"
 }

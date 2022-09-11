@@ -6,7 +6,7 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 1,
       "spellsList": [
-        "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8"
+        "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39"
       ]
     }
   ],
@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AutoPreparedSpellsSorcererDivineHeartPakriTitle",
-    "description": "Feature/&AutoPreparedSpellsSorcererDivineHeartPakriDescription",
+    "title": "Feature/&AutoPreparedSpellsDivineHeartArunTitle",
+    "description": "Feature/&AutoPreparedSpellsDivineHeartArunDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7c8ed936-1b0a-544b-918a-bf92832d3cbd",
+  "guid": "40d3415b-32be-5e52-9869-c1717e412066",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsSorcererDivineHeartPakri"
+  "name": "AutoPreparedSpellsDivineHeartArun"
 }

@@ -58,7 +58,7 @@ internal static class SubclassesContext
         LoadSubclass(new SpellMaster());
         LoadSubclass(new SpellShield());
         LoadSubclass(new Tactician());
-        LoadSubclass(new DivineHeart());
+        LoadSubclass(new SorcerousDivineHeart());
         LoadSubclass(new DeadMaster());
         LoadSubclass(new BladeDancer());
         LoadSubclass(new RoguishRaven());

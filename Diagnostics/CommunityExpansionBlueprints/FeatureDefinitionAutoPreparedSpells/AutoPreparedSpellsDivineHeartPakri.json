@@ -6,7 +6,7 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 1,
       "spellsList": [
-        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863"
+        "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8"
       ]
     }
   ],
@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeTitle",
-    "description": "Feature/&AutoPreparedSpellsSorcererDivineHeartMariakeDescription",
+    "title": "Feature/&AutoPreparedSpellsDivineHeartPakriTitle",
+    "description": "Feature/&AutoPreparedSpellsDivineHeartPakriDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8893ed6b-28f1-5c21-a38d-5fa18415a946",
+  "guid": "4b0c1952-613e-52a7-b1d5-bc42f5a5d900",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsSorcererDivineHeartMariake"
+  "name": "AutoPreparedSpellsDivineHeartPakri"
 }

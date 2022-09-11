@@ -6,7 +6,7 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 1,
       "spellsList": [
-        "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356"
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863"
       ]
     }
   ],
@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeTitle",
-    "description": "Feature/&AutoPreparedSpellsSorcererDivineHeartMisayeDescription",
+    "title": "Feature/&AutoPreparedSpellsDivineHeartMariakeTitle",
+    "description": "Feature/&AutoPreparedSpellsDivineHeartMariakeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9b444a55-aee8-559e-a5d8-0ffec7cea8ec",
+  "guid": "e285cfe3-2565-5873-b989-fac1778b68c7",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsSorcererDivineHeartMisaye"
+  "name": "AutoPreparedSpellsDivineHeartMariake"
 }
