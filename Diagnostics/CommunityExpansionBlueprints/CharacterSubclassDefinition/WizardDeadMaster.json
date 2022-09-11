@@ -3,27 +3,27 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsWizardDeadMaster:cc1c7743-d128-520b-8faf-0166b9026d47",
+      "featureDefinition": "Definition:AutoPreparedSpellsDeadMaster:fb2d7ec3-4662-5ee2-b5d8-3dee24f34d64",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:OnCharacterKillStarkHarvest:4bc072a2-3c48-5de4-adcd-3327bcbfe67d",
+      "featureDefinition": "Definition:OnCharacterKillDeadMasterStarkHarvest:e55e0567-88dd-5bfb-96c3-6fc3643bcf93",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:OnCharacterKillUndeadChains:05f0c597-e4fc-595f-8cca-4701d2f1638b",
+      "featureDefinition": "Definition:OnCharacterKillDeadMasterUndeadChains:71e76e05-c94c-5404-936c-f85fec89d6b1",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityHardenToNecrotic:c9e75bea-3f06-528d-87d4-5adc88e4796d",
+      "featureDefinition": "Definition:DamageAffinityDeadMasterHardenToNecrotic:93b6c812-5d43-5976-9eec-69c9b7745e90",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerCommandUndead:2c3bd937-3907-5f7f-9a83-3007df33bf5b",
+      "featureDefinition": "Definition:PowerDeadMasterCommandUndead:9f289f69-cb71-51db-a752-16b26f902eef",
       "level": 14
     }
   ],

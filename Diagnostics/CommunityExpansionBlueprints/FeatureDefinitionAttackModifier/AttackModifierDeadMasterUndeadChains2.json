@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OnCharacterKillUndeadChainsTitle",
-    "description": "Feature/&OnCharacterKillUndeadChainsDescription",
+    "title": "Feature/&OnCharacterKillDeadMasterUndeadChainsTitle",
+    "description": "Feature/&OnCharacterKillDeadMasterUndeadChainsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b5d31f13-4a8e-5e23-90dc-93ab52d1a812",
+  "guid": "f8354347-a9d5-5d62-bf70-006ac2b1cd65",
   "contentPack": 9999,
-  "name": "AttackModifierUndeadChains2"
+  "name": "AttackModifierDeadMasterUndeadChains2"
 }

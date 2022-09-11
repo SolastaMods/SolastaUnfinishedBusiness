@@ -16,10 +16,10 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SchoolOfMagicDefinitio
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
-internal sealed class DeadMaster : AbstractSubclass
+internal sealed class WizardDeadMaster : AbstractSubclass
 {
     private const string CreateDeadSpellPrefix = "CreateDead";
-    private const string AttackModifierUndeadChainsPrefix = "AttackModifierUndeadChains";
+    private const string AttackModifierDeadMasterUndeadChainsPrefix = "AttackModifierDeadMasterUndeadChains";
 
     private static readonly Dictionary<int, List<MonsterDefinition>> CreateDeadSpellMonsters = new()
     {
@@ -28,7 +28,7 @@ internal sealed class DeadMaster : AbstractSubclass
         { 7, new List<MonsterDefinition> { Skeleton_Knight, Skeleton_Marksman, Skeleton_Sorcerer } }
     };
 
-    internal DeadMaster()
+    internal WizardDeadMaster()
     {
         var spriteReference =
             CustomIcons.CreateAssetReferenceSprite("CreateDead", Resources.CreateDead, 128, 128);
@@ -39,40 +39,40 @@ internal sealed class DeadMaster : AbstractSubclass
         //     .SetSchoolOfMagic(SchoolNecromancy)
         //     .SetSpellLevel(7);
 
-        var autoPreparedSpellsWizardDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsWizardDeadMaster", DefinitionBuilder.CENamespaceGuid)
+        var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsDeadMaster", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Wizard)
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups(spriteReference))
             .AddToDB();
 
         var featureStarkHarvest = FeatureDefinitionOnCharacterKillBuilder
-            .Create("OnCharacterKillStarkHarvest", DefinitionBuilder.CENamespaceGuid)
+            .Create("OnCharacterKillDeadMasterStarkHarvest", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetOnCharacterKill(OnStarkHarvestKill)
             .AddToDB();
 
         var featureUndeadChains = FeatureDefinitionOnCharacterKillBuilder
-            .Create("OnCharacterKillUndeadChains", DefinitionBuilder.CENamespaceGuid)
+            .Create("OnCharacterKillDeadMasterUndeadChains", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         for (var i = 2; i < 7; i++)
         {
             _ = FeatureDefinitionAttackModifierBuilder
-                .Create($"{AttackModifierUndeadChainsPrefix}{i}", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("OnCharacterKillUndeadChains", Category.Feature)
+                .Create($"{AttackModifierDeadMasterUndeadChainsPrefix}{i}", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation("OnCharacterKillDeadMasterUndeadChains", Category.Feature)
                 .Configure(RuleDefinitions.AttackModifierMethod.FlatValue, i)
                 .AddToDB();
         }
 
         var featureHardenToNecrotic = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityNecroticImmunity, "DamageAffinityHardenToNecrotic", DefinitionBuilder.CENamespaceGuid)
+            .Create(DamageAffinityNecroticImmunity, "DamageAffinityDeadMasterHardenToNecrotic", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var powerCommandUndead = FeatureDefinitionPowerBuilder
-            .Create("PowerCommandUndead", DefinitionBuilder.CENamespaceGuid)
+        var powerDeadMasterCommandUndead = FeatureDefinitionPowerBuilder
+            .Create("PowerDeadMasterCommandUndead", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power)
             .Configure(
                 0,
@@ -88,7 +88,7 @@ internal sealed class DeadMaster : AbstractSubclass
             .SetAbilityScoreDetermination(RuleDefinitions.AbilityScoreDetermination.Explicit)
             .AddToDB();
 
-        var commandUndeadEffect = powerCommandUndead.EffectDescription;
+        var commandUndeadEffect = powerDeadMasterCommandUndead.EffectDescription;
 
         commandUndeadEffect.restrictedCreatureFamilies = new List<string> { CharacterFamilyDefinitions.Undead.Name };
         commandUndeadEffect.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
@@ -101,11 +101,11 @@ internal sealed class DeadMaster : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardDeadMaster", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(autoPreparedSpellsWizardDeadMaster, 2)
+            .AddFeatureAtLevel(autoPreparedSpellsDeadMaster, 2)
             .AddFeatureAtLevel(featureStarkHarvest, 2)
             .AddFeatureAtLevel(featureUndeadChains, 6)
             .AddFeatureAtLevel(featureHardenToNecrotic, 10)
-            .AddFeatureAtLevel(powerCommandUndead, 14)
+            .AddFeatureAtLevel(powerDeadMasterCommandUndead, 14)
             .AddToDB();
 
         EnableCommandAllUndead();
@@ -155,7 +155,7 @@ internal sealed class DeadMaster : AbstractSubclass
         monster.GetAttribute(AttributeDefinitions.HitPoints).BaseValue += casterLevel;
 
         if (dbFeatureDefinitionAttackModifier
-            .TryGetElement($"{AttackModifierUndeadChainsPrefix}{proficiencyBonus}",
+            .TryGetElement($"{AttackModifierDeadMasterUndeadChainsPrefix}{proficiencyBonus}",
                 out var featureDefinitionAttackModifier))
         {
             monster.ActiveFeatures.Add(featureDefinitionAttackModifier);
@@ -228,9 +228,6 @@ internal sealed class DeadMaster : AbstractSubclass
                 subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod =
                     RuleDefinitions.EffectIncrementMethod.None;
                 subSpell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;
-                // subSpell.EffectDescription.EffectAdvancement.additionalSummonsPerIncrement = 1;
-                // subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod =
-                //     RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel;
 
                 spells.Add(subSpell);
             }
@@ -250,9 +247,6 @@ internal sealed class DeadMaster : AbstractSubclass
             spell.EffectDescription.EffectAdvancement.effectIncrementMethod =
                 RuleDefinitions.EffectIncrementMethod.None;
             spell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;
-            // spell.EffectDescription.EffectAdvancement.additionalSummonsPerIncrement = 1;
-            // spell.EffectDescription.EffectAdvancement.effectIncrementMethod =
-            //     RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel;
 
             var autoPreparedSpellsGroup =
                 new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup

@@ -30,10 +30,8 @@ internal static class RulesetCharacterMonsterPatcher
         // usable powers must be added after hand to overwrite default values from game
         internal static void Postfix(RulesetCharacterMonster __instance)
         {
-            //
-            // TODO: Consider creating an interface / delegate for this if really necessary
-            //
-            DeadMaster.OnMonsterCreated(__instance);
+            //TODO: Consider creating an interface for this if really necessary
+            WizardDeadMaster.OnMonsterCreated(__instance);
 
             if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
             {

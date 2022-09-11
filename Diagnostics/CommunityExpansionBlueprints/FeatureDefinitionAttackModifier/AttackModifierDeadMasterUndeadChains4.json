@@ -4,7 +4,7 @@
   "requiredProperty": "None",
   "attackRollModifierMethod": "FlatValue",
   "attackRollUseCasterBonus": false,
-  "attackRollModifier": 5,
+  "attackRollModifier": 4,
   "attackRollAbilityScore": "",
   "damageRollModifierMethod": "None",
   "damageRollUseCasterBonus": false,
@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OnCharacterKillUndeadChainsTitle",
-    "description": "Feature/&OnCharacterKillUndeadChainsDescription",
+    "title": "Feature/&OnCharacterKillDeadMasterUndeadChainsTitle",
+    "description": "Feature/&OnCharacterKillDeadMasterUndeadChainsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "53d3d7f1-4e35-579e-bbd6-8f6904a599dc",
+  "guid": "000369fd-85b8-57f2-8e33-0c9fe8b0d311",
   "contentPack": 9999,
-  "name": "AttackModifierUndeadChains5"
+  "name": "AttackModifierDeadMasterUndeadChains4"
 }

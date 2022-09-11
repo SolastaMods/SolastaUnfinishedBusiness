@@ -48,7 +48,6 @@ internal static class SubclassesContext
         LoadSubclass(new Arcanist());
         LoadSubclass(new BladeDancer());
         LoadSubclass(new CircleOfTheForestGuardian());
-        LoadSubclass(new DeadMaster());
         LoadSubclass(new Marshal());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheRageMage());
@@ -59,6 +58,7 @@ internal static class SubclassesContext
         LoadSubclass(new SpellShield());
         LoadSubclass(new Tactician());
         LoadSubclass(new WizardArcaneFighter());
+        LoadSubclass(new WizardDeadMaster());
         LoadSubclass(new WizardLifeTransmuter());
         LoadSubclass(new WizardMasterManipulator());
         LoadSubclass(new WizardSpellMaster());

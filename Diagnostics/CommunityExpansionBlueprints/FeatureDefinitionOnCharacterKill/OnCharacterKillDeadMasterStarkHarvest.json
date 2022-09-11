@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OnCharacterKillStarkHarvestTitle",
-    "description": "Feature/&OnCharacterKillStarkHarvestDescription",
+    "title": "Feature/&OnCharacterKillDeadMasterStarkHarvestTitle",
+    "description": "Feature/&OnCharacterKillDeadMasterStarkHarvestDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4bc072a2-3c48-5de4-adcd-3327bcbfe67d",
+  "guid": "e55e0567-88dd-5bfb-96c3-6fc3643bcf93",
   "contentPack": 9999,
-  "name": "OnCharacterKillStarkHarvest"
+  "name": "OnCharacterKillDeadMasterStarkHarvest"
 }

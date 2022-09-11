@@ -313,8 +313,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerCommandUndeadTitle",
-    "description": "Power/&PowerCommandUndeadDescription",
+    "title": "Power/&PowerDeadMasterCommandUndeadTitle",
+    "description": "Power/&PowerDeadMasterCommandUndeadDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2c3bd937-3907-5f7f-9a83-3007df33bf5b",
+  "guid": "9f289f69-cb71-51db-a752-16b26f902eef",
   "contentPack": 9999,
-  "name": "PowerCommandUndead"
+  "name": "PowerDeadMasterCommandUndead"
 }
