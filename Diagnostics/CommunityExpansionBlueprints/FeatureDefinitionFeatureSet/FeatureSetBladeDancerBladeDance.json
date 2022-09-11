@@ -1,17 +1,19 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "AddAbilityScoreBonus",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Intelligence",
-  "situationalContext": 1001,
-  "minimum1": true,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerBladeDancerBladeDance:1a71a9ed-64c1-52ec-9251-85bd0ef5acaa"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierBladeDanceTitle",
-    "description": "Feature/&AttributeModifierBladeDanceDescription",
+    "title": "Feature/&FeatureBladeDanceTitle",
+    "description": "Feature/&FeatureBladeDanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a5f38a29-8891-59af-ba15-414f5ad14a8b",
+  "guid": "9b607616-747c-5a9b-83ea-fdcde0466dec",
   "contentPack": 9999,
-  "name": "AttributeModifierBladeDance"
+  "name": "FeatureSetBladeDancerBladeDance"
 }

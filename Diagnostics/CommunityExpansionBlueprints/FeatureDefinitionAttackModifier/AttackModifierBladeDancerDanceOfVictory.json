@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttackModifierDanceOfVictoryTitle",
-    "description": "Feature/&AttackModifierDanceOfVictoryDescription",
+    "title": "Feature/&AttackModifierBladeDancerDanceOfVictoryTitle",
+    "description": "Feature/&AttackModifierBladeDancerDanceOfVictoryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "908db26c-f9cc-5e24-8609-25a7832aa007",
+  "guid": "e360c5b3-a39b-5193-af80-f4d30b1b9662",
   "contentPack": 9999,
-  "name": "AttackModifierDanceOfVictory"
+  "name": "AttackModifierBladeDancerDanceOfVictory"
 }

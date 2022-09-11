@@ -76,11 +76,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDanceOfDefense",
-          "conditionDefinition": "Definition:ConditionDanceOfDefense:cace9eee-40a5-5f8f-b376-fd8475637f57",
+          "conditionDefinitionName": "ConditionBladeDancerDanceOfVictory",
+          "conditionDefinition": "Definition:ConditionBladeDancerDanceOfVictory:a8c93a65-5c51-5bc2-91e9-b733f19dfd43",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionDanceOfDefense:cace9eee-40a5-5f8f-b376-fd8475637f57"
+            "Definition:ConditionBladeDancerDanceOfVictory:a8c93a65-5c51-5bc2-91e9-b733f19dfd43"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -308,13 +308,13 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerBladeDance:483dcb75-a0d9-5bac-baeb-a530238e7d25",
+  "overriddenPower": "Definition:PowerBladeDancerDanceOfDefense:af4722ff-c78e-5fe8-b253-b0684ccbb5e8",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&FeatureBladeDanceTitle",
-    "description": "Condition/&ConditionBladeDanceDescription",
+    "description": "Condition/&ConditionBladeDancerBladeDanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ea79df3f1484389419d393d46ac7862d",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0f0cab39-84bc-5d5d-adbe-3b34cd395480",
+  "guid": "8f613859-6c67-5813-91cd-d356ebe8a5cc",
   "contentPack": 9999,
-  "name": "PowerDanceOfDefense"
+  "name": "PowerBladeDancerDanceOfVictory"
 }

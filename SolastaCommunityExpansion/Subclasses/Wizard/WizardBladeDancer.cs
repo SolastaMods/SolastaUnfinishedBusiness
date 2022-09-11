@@ -32,8 +32,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        ConditionBladeDance = ConditionDefinitionBuilder
-            .Create("ConditionBladeDance", DefinitionBuilder.CENamespaceGuid)
+        ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
+            .Create("ConditionBladeDancerBladeDance", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .Configure(
@@ -42,7 +42,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 false,
                 FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierBladeDance", DefinitionBuilder.CENamespaceGuid)
+                    .Create("AttributeModifierBladeDancerBladeDance", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
                     .SetModifierAbilityScore(AttributeDefinitions.Intelligence, true)
@@ -51,10 +51,10 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
-                        "AbilityCheckAffinityBladeDanceAcrobatics", DefinitionBuilder.CENamespaceGuid)
+                        "AbilityCheckAffinityBladeDancerBladeDanceAcrobatics", DefinitionBuilder.CENamespaceGuid)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create("AbilityCheckAffinityBladeDanceConstitution", DefinitionBuilder.CENamespaceGuid)
+                    .Create("AbilityCheckAffinityBladeDancerBladeDanceConstitution", DefinitionBuilder.CENamespaceGuid)
                     .BuildAndSetAffinityGroups(
                         RuleDefinitions.CharacterAbilityCheckAffinity.None,
                         RuleDefinitions.DieType.D1,
@@ -78,16 +78,16 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .AddEffectForm(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(ConditionBladeDance, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(ConditionBladeDancerBladeDance, ConditionForm.ConditionOperation.Add)
                     .Build()
             )
             .Build();
 
         var powerBladeDance = FeatureDefinitionPowerBuilder
-            .Create("PowerBladeDance", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerBladeDancerBladeDance", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(
                 "Feature/&FeatureBladeDanceTitle",
-                "Condition/&ConditionBladeDanceDescription",
+                "Condition/&ConditionBladeDancerBladeDanceDescription",
                 FeatureDefinitionPowers.PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
             .Configure(
                 0, RuleDefinitions.UsesDetermination.ProficiencyBonus,
@@ -104,9 +104,9 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 new PowerUseValidity(IsBladeDanceValid))
             .AddToDB();
 
-        ConditionDanceOfDefense = ConditionDefinitionBuilder
-            .Create(ConditionBladeDance, "ConditionDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ConditionBladeDance", Category.Condition,
+        ConditionBladeDancerDanceOfDefense = ConditionDefinitionBuilder
+            .Create(ConditionBladeDancerBladeDance, "ConditionBladeDancerDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
                 FeatureDefinitionReduceDamageBuilder
@@ -125,24 +125,24 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .AddEffectForm(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(ConditionDanceOfDefense, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(ConditionBladeDancerDanceOfDefense, ConditionForm.ConditionOperation.Add)
                     .Build()
             )
             .Build();
 
         var powerDanceOfDefense = FeatureDefinitionPowerBuilder
-            .Create(powerBladeDance, "PowerDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
+            .Create(powerBladeDance, "PowerBladeDancerDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
             .SetEffectDescription(effectDanceOfDefense)
             .SetOverriddenPower(powerBladeDance)
             .AddToDB();
 
-        ConditionDanceOfVictory = ConditionDefinitionBuilder
-            .Create(ConditionDanceOfDefense, "ConditionDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ConditionBladeDance", Category.Condition,
+        ConditionBladeDancerDanceOfVictory = ConditionDefinitionBuilder
+            .Create(ConditionBladeDancerDanceOfDefense, "ConditionBladeDancerDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
-                    .Create("AttackModifierDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
+                    .Create("AttackModifierBladeDancerDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .Configure(
                         RuleDefinitions.AttackModifierMethod.None,
@@ -159,13 +159,13 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .AddEffectForm(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(ConditionDanceOfVictory, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(ConditionBladeDancerDanceOfVictory, ConditionForm.ConditionOperation.Add)
                     .Build()
             )
             .Build();
 
         var powerDanceOfVictory = FeatureDefinitionPowerBuilder
-            .Create(powerBladeDance, "PowerDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
+            .Create(powerBladeDance, "PowerBladeDancerDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
             .SetEffectDescription(effectDanceOfVictory)
             .SetOverriddenPower(powerDanceOfDefense)
             .AddToDB();
@@ -175,20 +175,20 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         //
 
         var featureBladeDanceSet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetBladeDance", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatureSetBladeDancerBladeDance", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("FeatureBladeDance", Category.Feature)
             .SetFeatureSet(powerBladeDance)
             .AddToDB();
 
         var featureDanceOfDefenseSet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetReduceDamageDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatureSetBladeDancerReduceDamageDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ReduceDamageDanceOfDefense", Category.Feature)
             .SetFeatureSet(powerDanceOfDefense)
             .AddToDB();
 
         var featureDanceOfVictorySet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("AttackModifierDanceOfVictory", Category.Feature)
+            .Create("FeatureSetBladeDancerDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("AttackModifierBladeDancerDanceOfVictory", Category.Feature)
             .SetFeatureSet(powerDanceOfVictory)
             .AddToDB();
 
@@ -203,11 +203,11 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .AddToDB();
     }
 
-    private static ConditionDefinition ConditionBladeDance { get; set; }
+    private static ConditionDefinition ConditionBladeDancerBladeDance { get; set; }
 
-    private static ConditionDefinition ConditionDanceOfDefense { get; set; }
+    private static ConditionDefinition ConditionBladeDancerDanceOfDefense { get; set; }
 
-    private static ConditionDefinition ConditionDanceOfVictory { get; set; }
+    private static ConditionDefinition ConditionBladeDancerDanceOfVictory { get; set; }
 
     private static CharacterSubclassDefinition Subclass { get; set; }
 
@@ -226,22 +226,22 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             return;
         }
 
-        if (hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDance.Name))
+        if (hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDancerBladeDance.Name))
         {
             hero.RemoveConditionOfCategory("11Effect",
-                new RulesetCondition { conditionDefinition = ConditionBladeDance });
+                new RulesetCondition { conditionDefinition = ConditionBladeDancerBladeDance });
         }
 
-        if (hero.HasConditionOfCategoryAndType("11Effect", ConditionDanceOfDefense.Name))
+        if (hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDancerDanceOfDefense.Name))
         {
             hero.RemoveConditionOfCategory("11Effect",
-                new RulesetCondition { conditionDefinition = ConditionDanceOfDefense });
+                new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfDefense });
         }
 
-        if (hero.HasConditionOfCategoryAndType("11Effect", ConditionDanceOfVictory.Name))
+        if (hero.HasConditionOfCategoryAndType("11Effect", ConditionBladeDancerDanceOfVictory.Name))
         {
             hero.RemoveConditionOfCategory("11Effect",
-                new RulesetCondition { conditionDefinition = ConditionDanceOfVictory });
+                new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfVictory });
         }
     }
 

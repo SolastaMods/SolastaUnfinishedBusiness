@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerLifeTransmuterConstitution:4976fa46-775d-5566-a3cb-3030cba7281b",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterConstitution:5916834c-698f-5d00-b567-01c35d92b78b",
       "level": 6
     },
     {
@@ -43,7 +43,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerLifeTransmuterRevive:95776641-5345-5a64-bb02-500b6f5f559b",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterRevive:fc5a773d-4ac0-50d3-b0dc-bc60943e05fe",
       "level": 10
     },
     {

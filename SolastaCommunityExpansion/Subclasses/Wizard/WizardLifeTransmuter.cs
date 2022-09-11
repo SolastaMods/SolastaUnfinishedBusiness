@@ -93,7 +93,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None,
                 RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, constitutionProficiency,
-                "PowerLifeTransmuterConstitution")
+                "PowerSharedPoolLifeTransmuterConstitution")
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionPowers.PowerPaladinAuraOfCourage.GuiPresentation.SpriteReference)
             .AddToDB();
@@ -124,7 +124,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerRevive = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerLifeTransmuterRevive", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerSharedPoolLifeTransmuterRevive", DefinitionBuilder.CENamespaceGuid)
             .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
                 Revivify.EffectDescription, false /* unique instance */)

@@ -188,8 +188,8 @@ public static class EwFeats
 
         PowersContext.PowersThatIgnoreInterruptions.Add(powerAttackPower);
 
-        var turnOffPowerAttackPower = FeatureDefinitionPowerBuilder
-            .Create("TurnOffPowerAttack", DefinitionBuilder.CENamespaceGuid)
+        var PowerTurnOffPowerAttackPower = FeatureDefinitionPowerBuilder
+            .Create("PowerTurnOffPowerAttack", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)
@@ -210,15 +210,15 @@ public static class EwFeats
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(turnOffPowerAttackPower);
-        concentrationProvider.StopPower = turnOffPowerAttackPower;
+        PowersContext.PowersThatIgnoreInterruptions.Add(PowerTurnOffPowerAttackPower);
+        concentrationProvider.StopPower = PowerTurnOffPowerAttackPower;
 
         return FeatDefinitionBuilder
             .Create("FeatPowerAttack", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerAttackPower,
-                turnOffPowerAttackPower
+                PowerTurnOffPowerAttackPower
             )
             .AddToDB();
     }

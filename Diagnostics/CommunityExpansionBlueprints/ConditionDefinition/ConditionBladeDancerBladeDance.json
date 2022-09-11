@@ -5,9 +5,9 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:MovementAffinityBarbarianFastMovement:b46d47bd558a34d48911656bd4b088c7",
-    "Definition:AttributeModifierBladeDance:a5f38a29-8891-59af-ba15-414f5ad14a8b",
-    "Definition:AbilityCheckAffinityBladeDanceAcrobatics:9e3c6ca1-0467-52fa-a3e5-3642efbaa29d",
-    "Definition:AbilityCheckAffinityBladeDanceConstitution:b0cdaf2c-e846-5efc-b746-5a8030da41d6"
+    "Definition:AttributeModifierBladeDancerBladeDance:a0e1c313-2185-5f2b-b1cb-e6433b272707",
+    "Definition:AbilityCheckAffinityBladeDancerBladeDanceAcrobatics:9ad0158a-0879-5f58-baf0-c5f04ccc4615",
+    "Definition:AbilityCheckAffinityBladeDancerBladeDanceConstitution:0a2b2db5-be50-5edf-8136-c541bfe1ba3c"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -228,8 +228,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionBladeDanceTitle",
-    "description": "Condition/&ConditionBladeDanceDescription",
+    "title": "Condition/&ConditionBladeDancerBladeDanceTitle",
+    "description": "Condition/&ConditionBladeDancerBladeDanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1a46ee54048826c49a3a039097db1745",
@@ -249,7 +249,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8268f0ff-11cc-5f8a-8900-7eba6bfa3e4a",
+  "guid": "3034268e-3881-5845-ac11-11481d2d4155",
   "contentPack": 9999,
-  "name": "ConditionBladeDance"
+  "name": "ConditionBladeDancerBladeDance"
 }

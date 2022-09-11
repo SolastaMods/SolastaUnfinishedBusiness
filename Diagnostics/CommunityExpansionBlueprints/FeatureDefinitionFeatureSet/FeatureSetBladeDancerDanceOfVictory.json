@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerBladeDance:483dcb75-a0d9-5bac-baeb-a530238e7d25"
+    "Definition:PowerBladeDancerDanceOfVictory:8f613859-6c67-5813-91cd-d356ebe8a5cc"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -12,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureBladeDanceTitle",
-    "description": "Feature/&FeatureBladeDanceDescription",
+    "title": "Feature/&AttackModifierBladeDancerDanceOfVictoryTitle",
+    "description": "Feature/&AttackModifierBladeDancerDanceOfVictoryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "56a7a75e-d4f7-569e-9545-27b4d60c57c8",
+  "guid": "1d6ff276-fdd0-5257-bddb-1b2cb08c1123",
   "contentPack": 9999,
-  "name": "FeatureSetBladeDance"
+  "name": "FeatureSetBladeDancerDanceOfVictory"
 }

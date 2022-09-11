@@ -792,7 +792,7 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
         PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
 
         var turnOffPower = FeatureDefinitionPowerBuilder
-            .Create("TurnOffDeadeyePower", CENamespaceGuid)
+            .Create("PowerTurnOffDeadeye", CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
             .SetUsesFixed(1)

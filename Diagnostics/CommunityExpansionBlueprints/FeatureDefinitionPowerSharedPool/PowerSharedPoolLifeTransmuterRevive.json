@@ -1,22 +1,22 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaCommunityExpansion",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 1,
+    "rangeType": "Touch",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
-    "itemSelectionType": "None",
+    "targetType": "IndividualsUnique",
+    "itemSelectionType": "Equiped",
     "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -28,9 +28,9 @@
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
-    "targetConditionAsset": null,
+    "targetConditionAsset": "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477",
     "targetSide": "Ally",
-    "durationType": "Minute",
+    "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -61,29 +61,26 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Revive",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 1,
+        "levelMultiplier": 0,
         "diceByLevelTable": [],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBladeDance",
-          "conditionDefinition": "Definition:ConditionBladeDance:8268f0ff-11cc-5f8a-8900-7eba6bfa3e4a",
-          "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionBladeDance:8268f0ff-11cc-5f8a-8900-7eba6bfa3e4a"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "saveOccurence": "StartOfTurn",
+        "reviveForm": {
+          "$type": "ReviveForm, Assembly-CSharp",
+          "maxSecondsSinceDeath": 60,
+          "reviveHitPoints": "One",
+          "removedConditions": [
+            "Definition:ConditionLifeDrained:ce10be38f182d7046bca13becd0e6bf6"
+          ]
         },
         "hasFilterId": false,
         "filterId": 0
@@ -115,7 +112,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "7b3b48710ec53e0469ef86876ed968d1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -133,13 +130,13 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "efab587ac80b70a46b9c16c19a71e189",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "7ce3a0a8c5cbb274e9aa0829b28da532",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -158,8 +155,8 @@
       "beforeImpactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
-        "m_SubObjectName": null,
-        "m_SubObjectType": null
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -170,8 +167,8 @@
       "activeEffectImpactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
-        "m_SubObjectName": null,
-        "m_SubObjectType": null
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
       },
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -306,16 +303,16 @@
   "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "ProficiencyBonus",
+  "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Intelligence",
-  "fixedUsesPerRecharge": 0,
+  "usesAbilityScoreName": "Charisma",
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -323,12 +320,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureBladeDanceTitle",
-    "description": "Condition/&ConditionBladeDanceDescription",
+    "title": "Feature/&PowerSharedPoolLifeTransmuterReviveTitle",
+    "description": "Feature/&PowerSharedPoolLifeTransmuterReviveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ea79df3f1484389419d393d46ac7862d",
-      "m_SubObjectName": "DivineIntervention",
+      "m_AssetGUID": "24436746e9ef52b40ac3fdc3dd866fc7",
+      "m_SubObjectName": "Revivify",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -344,7 +341,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "483dcb75-a0d9-5bac-baeb-a530238e7d25",
+  "guid": "fc5a773d-4ac0-50d3-b0dc-bc60943e05fe",
   "contentPack": 9999,
-  "name": "PowerBladeDance"
+  "name": "PowerSharedPoolLifeTransmuterRevive"
 }

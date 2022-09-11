@@ -2,14 +2,14 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 1,
+    "rangeType": "Distance",
+    "rangeParameter": 10,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "Individuals",
     "itemSelectionType": "None",
-    "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetParameter": 4,
+    "targetParameter2": 0,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -30,7 +30,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Round",
+    "durationType": "Permanent",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -40,7 +40,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": false,
+    "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
@@ -61,58 +61,27 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Healing",
         "addBonusMode": "None",
         "applyLevel": "No",
-        "levelType": "ClassLevel",
+        "levelType": "CharacterLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDeadeyeTrigger",
-          "conditionDefinition": "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf",
-          "operation": "Remove",
-          "conditionsList": [
-            "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDeadeye",
-          "conditionDefinition": "Definition:ConditionDeadeye:a0d24e21-3469-43af-ad63-729552120314",
-          "operation": "Remove",
-          "conditionsList": [
-            "Definition:ConditionDeadeye:a0d24e21-3469-43af-ad63-729552120314"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "healingForm": {
+          "$type": "HealingForm, Assembly-CSharp",
+          "healingComputation": "Dice",
+          "diceNumber": 1,
+          "dieType": "D8",
+          "bonusHealing": 0,
+          "variablePool": false,
+          "healingCap": "MaximumHitPoints"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -309,7 +278,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "Hours1",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -322,14 +291,14 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
-  "costPerUse": 0,
+  "rechargeRate": "ShortRest",
+  "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
+  "usesAbilityScoreName": "Wisdom",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
+  "abilityScore": "Wisdom",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
@@ -341,14 +310,14 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feat/&ChefShortRestFeastTitle",
+    "description": "Feat/&ChefShortRestFeastDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "f1bdcecf239f83b43950f6ebed06e530",
+      "m_SubObjectName": "UseGoodBerries",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -363,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bd08cec9-86a6-5b72-802f-1dccd77b24b2",
+  "guid": "cadcb937-b18e-577d-b1f9-09bcbb9ef803",
   "contentPack": 9999,
-  "name": "TurnOffDeadeyePower"
+  "name": "PowerFeatChefShortRestFeast"
 }

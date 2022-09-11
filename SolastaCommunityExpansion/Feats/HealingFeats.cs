@@ -133,7 +133,7 @@ internal static class HealingFeats
             AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Hours1, 1,
             RuleDefinitions.RechargeRate.LongRest,
             false, false, AttributeDefinitions.Wisdom, cookTreatsEffect,
-            "FeatChefCookTreats", treatCookPresentation);
+            "PowerFeatChefCookTreats", treatCookPresentation);
 
         // short rest activated ability to heal 1d8 (limit number of times this can be done)
         var shortRestFeastPresentation = GuiPresentationBuilder.Build(
@@ -149,7 +149,7 @@ internal static class HealingFeats
             AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Hours1, 1,
             RuleDefinitions.RechargeRate.ShortRest,
             false, false, AttributeDefinitions.Wisdom, shortRestFeastEffect,
-            "FeatChefShortRestFeast", shortRestFeastPresentation);
+            "PowerFeatChefShortRestFeast", shortRestFeastPresentation);
 
         feats.Add(FeatDefinitionBuilder
             .Create("FeatChefCon", HealingFeatNamespace)
