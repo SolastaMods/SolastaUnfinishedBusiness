@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:AttributeModifierFeatWiseDefenseAdd:c2efccfb-1144-59c1-83b7-593f1972dfba"
+    "Definition:AttributeModifierMonkUnarmoredDefense:d508c64aff29e3b478f08bd67d2d430f"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
