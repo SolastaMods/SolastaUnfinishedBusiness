@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatRangedExpertFeature:66c051c7-d56d-5c42-a0f4-47c8aa267d2a"
+    "Definition:FeatRangedExpertFeature:8d278596-e2fc-5b4a-b8c1-b8487c56495d"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "70fc7b8f-bcf6-5d7e-8576-b4dbdd9c96ff",
+  "guid": "a13403e7-c25e-5242-8b71-df05c7e8a48c",
   "contentPack": 9999,
   "name": "FeatRangedExpert"
 }

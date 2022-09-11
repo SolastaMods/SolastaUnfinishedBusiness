@@ -51,7 +51,7 @@ internal static class SubclassesContext
         LoadSubclass(new RoguishConArtist());
         LoadSubclass(new LifeTransmuter());
         LoadSubclass(new Marshal());
-        LoadSubclass(new MasterManipulator());
+        LoadSubclass(new WizardMasterManipulator());
         LoadSubclass(new Opportunist());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheRageMage());
@@ -69,11 +69,11 @@ internal static class SubclassesContext
         {
             SortSubclassesFeatures();
         }
-
-        WizardArcaneFighter.UpdateEnchantWeapon();
+        
         RoguishConArtist.UpdateSpellDcBoost();
-        MasterManipulator.UpdateSpellDcBoost();
         SpellMaster.UpdateBonusRecovery();
+        WizardArcaneFighter.UpdateEnchantWeapon();
+        WizardMasterManipulator.UpdateSpellDcBoost();
     }
 
     private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)

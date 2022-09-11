@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PolearmFeatFeature:543884a6-8747-546f-b632-7220eff08c14"
+    "Definition:PolearmFeatFeature:c1d1022d-6525-56c6-a8a6-ce5f8affab44"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f2ca18d7-564e-5b5f-8a83-4c25872cacb3",
+  "guid": "cb389132-d8dc-597c-a510-15ee95d029e7",
   "contentPack": 9999,
   "name": "FeatPolearmExpert"
 }

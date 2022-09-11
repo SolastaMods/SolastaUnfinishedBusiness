@@ -9,8 +9,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ProficiencyManipulatorMentalSavingThrowsTitle",
-    "description": "Feature/&ProficiencyManipulatorMentalSavingThrowsDescription",
+    "title": "Feature/&ProficiencyMasterManipulatorMentalSavingThrowsTitle",
+    "description": "Feature/&ProficiencyMasterManipulatorMentalSavingThrowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4d4b941b-1da8-5e73-b2db-e2667a62f7ac",
+  "guid": "60dbf28f-e2ac-5906-8c0a-279ef897842b",
   "contentPack": 9999,
-  "name": "ProficiencyManipulatorMentalSavingThrows"
+  "name": "ProficiencyMasterManipulatorMentalSavingThrows"
 }

@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:OnAttackHitEffectFeatSentinel:7cb73625-7f22-57cd-a3ce-74287ba0bdc9"
+    "Definition:OnAttackHitEffectFeatSentinel:1a2abf93-483e-5e6e-8408-bc553864469f"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "20536a2f-de3c-5333-82ae-08dc0a1d38f3",
+  "guid": "3682aea3-2741-538a-9471-d8d00bf2cd0f",
   "contentPack": 9999,
   "name": "FeatSentinel"
 }

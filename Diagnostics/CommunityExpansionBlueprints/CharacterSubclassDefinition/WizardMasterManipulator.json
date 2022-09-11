@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityControlHeightened:b7f819c7-c8f5-503d-b8c1-896b6399626b",
+      "featureDefinition": "Definition:MagicAffinityMasterManipulatorControlHeightened:5e6a1757-c138-55da-ad3e-a3c325e014d8",
       "level": 2
     },
     {
@@ -13,12 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyManipulatorMentalSavingThrows:4d4b941b-1da8-5e73-b2db-e2667a62f7ac",
+      "featureDefinition": "Definition:ProficiencyMasterManipulatorMentalSavingThrows:60dbf28f-e2ac-5906-8c0a-279ef897842b",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerManipulatorDominatePerson:2b89a4bc-cc85-53b2-9748-081e7afdbba6",
+      "featureDefinition": "Definition:PowerMasterManipulatorDominatePerson:2ef56632-f1a9-5c39-b7fa-9b4a08c03778",
       "level": 14
     }
   ],
@@ -27,8 +27,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&TraditionMasterManipulatorTitle",
-    "description": "Subclass/&TraditionMasterManipulatorDescription",
+    "title": "Subclass/&WizardMasterManipulatorTitle",
+    "description": "Subclass/&WizardMasterManipulatorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
@@ -48,7 +48,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "79047f4d-ebe7-5134-9476-f3604cd78fc7",
+  "guid": "5e9cc162-078a-50d6-9c28-19d93c1dd8b8",
   "contentPack": 9999,
-  "name": "MasterManipulator"
+  "name": "WizardMasterManipulator"
 }

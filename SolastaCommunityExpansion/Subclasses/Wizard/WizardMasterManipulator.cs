@@ -7,16 +7,16 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
-internal sealed class MasterManipulator : AbstractSubclass
+internal sealed class WizardMasterManipulator : AbstractSubclass
 {
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
-    internal MasterManipulator()
+    internal WizardMasterManipulator()
     {
         // Make Control Master subclass
         var arcaneControlAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityControlHeightened", DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinityMasterManipulatorControlHeightened", DefinitionBuilder.CENamespaceGuid)
             .SetWarList(1,
                 CharmPerson, // enchantment
                 Sleep, // enchantment
@@ -34,14 +34,14 @@ internal sealed class MasterManipulator : AbstractSubclass
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyManipulatorMentalSavingThrows", DefinitionBuilder.CENamespaceGuid)
+            .Create("ProficiencyMasterManipulatorMentalSavingThrows", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();
 
         var powerDominate = FeatureDefinitionPowerBuilder
-            .Create("PowerManipulatorDominatePerson", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerMasterManipulatorDominatePerson", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power, DominatePerson.GuiPresentation.SpriteReference)
             .Configure(0,
                 RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
@@ -53,8 +53,8 @@ internal sealed class MasterManipulator : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("MasterManipulator", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("TraditionMasterManipulator", Category.Subclass,
+            .Create("WizardMasterManipulator", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass,
                 RoguishShadowCaster.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(arcaneControlAffinity, 2)
             .AddFeatureAtLevel(DcIncreaseAffinity, 6)

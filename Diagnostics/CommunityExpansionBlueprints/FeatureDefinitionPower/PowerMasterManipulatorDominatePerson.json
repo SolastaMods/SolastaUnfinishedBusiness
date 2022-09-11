@@ -313,8 +313,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerManipulatorDominatePersonTitle",
-    "description": "Power/&PowerManipulatorDominatePersonDescription",
+    "title": "Power/&PowerMasterManipulatorDominatePersonTitle",
+    "description": "Power/&PowerMasterManipulatorDominatePersonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "99a1671811467f54fb597e307e6d0a47",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2b89a4bc-cc85-53b2-9748-081e7afdbba6",
+  "guid": "2ef56632-f1a9-5c39-b7fa-9b4a08c03778",
   "contentPack": 9999,
-  "name": "PowerManipulatorDominatePerson"
+  "name": "PowerMasterManipulatorDominatePerson"
 }

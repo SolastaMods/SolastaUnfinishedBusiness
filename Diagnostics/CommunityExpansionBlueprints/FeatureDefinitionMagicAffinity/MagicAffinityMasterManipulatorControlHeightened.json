@@ -65,8 +65,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityControlHeightenedTitle",
-    "description": "Feature/&MagicAffinityControlHeightenedDescription",
+    "title": "Feature/&MagicAffinityMasterManipulatorControlHeightenedTitle",
+    "description": "Feature/&MagicAffinityMasterManipulatorControlHeightenedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -86,7 +86,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b7f819c7-c8f5-503d-b8c1-896b6399626b",
+  "guid": "5e6a1757-c138-55da-ad3e-a3c325e014d8",
   "contentPack": 9999,
-  "name": "MagicAffinityControlHeightened"
+  "name": "MagicAffinityMasterManipulatorControlHeightened"
 }

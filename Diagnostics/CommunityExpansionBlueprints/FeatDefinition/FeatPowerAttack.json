@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:PowerAttack:0a3e6a7d-4628-4189-b91d-d7146d774bb6",
-    "Definition:TurnOffPowerAttack:b45b8467-7caa-428e-b4b5-ba3c4a153f07"
+    "Definition:TurnOffPowerAttack:23094a95-4063-5a1a-99d9-a408ee91ae49"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "88f1fb27-66af-49c6-b038-a38142b1083e",
+  "guid": "f957d0a6-8443-5818-8549-34ee8df3bd5f",
   "contentPack": 9999,
   "name": "FeatPowerAttack"
 }
