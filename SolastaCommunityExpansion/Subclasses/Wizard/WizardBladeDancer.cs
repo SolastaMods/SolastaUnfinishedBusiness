@@ -9,9 +9,9 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefin
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
-internal sealed class BladeDancer : AbstractSubclass
+internal sealed class WizardBladeDancer : AbstractSubclass
 {
-    internal BladeDancer()
+    internal WizardBladeDancer()
     {
         var lightArmorProficiency = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBladeDancerLightArmor", DefinitionBuilder.CENamespaceGuid)

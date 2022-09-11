@@ -115,7 +115,8 @@ internal sealed class RangerArcanist : AbstractSubclass
         assetReference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
         return FeatureDefinitionAdditionalDamageBuilder
-            .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation", DefinitionBuilder.CENamespaceGuid)
+            .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 1)

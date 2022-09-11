@@ -12,7 +12,8 @@ namespace SolastaCommunityExpansion.Patches;
 internal static class SlotStatusTable_Bind
 {
     //PATCH: Warlock unique case under MC (Multiclass)
-    public static bool UniqueLevelSlots(RulesetSpellRepertoire rulesetSpellRepertoire, FeatureDefinitionCastSpell featureDefinitionCastSpell)
+    public static bool UniqueLevelSlots(RulesetSpellRepertoire rulesetSpellRepertoire,
+        FeatureDefinitionCastSpell featureDefinitionCastSpell)
     {
         return false;
 
@@ -32,12 +33,12 @@ internal static class SlotStatusTable_Bind
         //
         // return featureDefinitionCastSpell.UniqueLevelSlots && !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire);
     }
-    
+
     internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var uniqueLevelSlotsMethod = typeof(FeatureDefinitionCastSpell).GetMethod("get_UniqueLevelSlots");
         var myUniqueLevelSlotsMethod = typeof(SlotStatusTable_Bind).GetMethod("UniqueLevelSlots");
-    
+
         foreach (var instruction in instructions)
         {
             if (instruction.Calls(uniqueLevelSlotsMethod))
@@ -51,7 +52,7 @@ internal static class SlotStatusTable_Bind
             }
         }
     }
-    
+
     //PATCH: creates different slots colors and pop up messages depending on slot types
     public static void Postfix(
         SlotStatusTable __instance,

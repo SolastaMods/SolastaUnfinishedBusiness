@@ -305,7 +305,8 @@ internal static class ArmorClassStacking
     public static void AddCustomTagsToModifierBuilder(List<CodeInstruction> codes)
     {
         var method =
-            new Func<AttributeModifierOperation, float, string, string, RulesetAttributeModifier>(RulesetAttributeModifier.BuildAttributeModifier).Method;
+            new Func<AttributeModifierOperation, float, string, string, RulesetAttributeModifier>(
+                RulesetAttributeModifier.BuildAttributeModifier).Method;
 
         var index = codes.FindIndex(c => c.Calls(method));
 
@@ -315,7 +316,8 @@ internal static class ArmorClassStacking
         }
 
         var custom =
-            new Func<AttributeModifierOperation, float, string, string, FeatureDefinitionAttributeModifier, RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
+            new Func<AttributeModifierOperation, float, string, string, FeatureDefinitionAttributeModifier,
+                RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
 
         codes[index] = new CodeInstruction(OpCodes.Call, custom); //replace call with custom method
         codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_1)); // load 'feature' as last argument
@@ -361,7 +363,7 @@ internal static class ArmorClassStacking
             }
         }
     }
-    
+
     public static void UnstackAC(List<RulesetAttributeModifier> modifiers)
     {
         var attributes = new List<RulesetAttributeModifier>();

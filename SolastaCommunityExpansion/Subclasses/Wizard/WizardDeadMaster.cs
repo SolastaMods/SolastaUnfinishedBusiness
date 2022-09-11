@@ -67,7 +67,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
 
         var featureHardenToNecrotic = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityNecroticImmunity, "DamageAffinityDeadMasterHardenToNecrotic", DefinitionBuilder.CENamespaceGuid)
+            .Create(DamageAffinityNecroticImmunity, "DamageAffinityDeadMasterHardenToNecrotic",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

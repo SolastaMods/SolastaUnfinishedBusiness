@@ -10,12 +10,12 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
-internal sealed class SpellShield : AbstractSubclass
+internal sealed class MartialSpellShield : AbstractSubclass
 {
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
-    internal SpellShield()
+    internal MartialSpellShield()
     {
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityFighterSpellShield", DefinitionBuilder.CENamespaceGuid)

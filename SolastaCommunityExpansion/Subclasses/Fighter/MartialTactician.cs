@@ -8,7 +8,7 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefin
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
-internal sealed class Tactician : AbstractSubclass
+internal sealed class MartialTactician : AbstractSubclass
 {
     // ReSharper disable once InconsistentNaming
     private CharacterSubclassDefinition Subclass;

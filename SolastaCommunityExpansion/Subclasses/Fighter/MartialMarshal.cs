@@ -28,7 +28,7 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
-internal sealed class Marshal : AbstractSubclass
+internal sealed class MartialMarshal : AbstractSubclass
 {
     // ReSharper disable once InconsistentNaming
     private CharacterSubclassDefinition Subclass;

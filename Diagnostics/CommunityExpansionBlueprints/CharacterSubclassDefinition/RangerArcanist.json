@@ -33,7 +33,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPowerArcanistArcanePulseUpgrade:955d42fd-980e-5897-8f80-94595468ed10",
+      "featureDefinition": "Definition:PowerArcanistArcanePulseUpgrade:9c836559-a968-5067-ae37-a0cf680c074f",
       "level": 15
     }
   ],

@@ -365,7 +365,7 @@ internal static class DelegatesContext
     {
         Main.Logger.Log($"{hero.Name} Item Equipped Hero");
 
-        BladeDancer.OnItemEquipped(hero, item);
+        WizardBladeDancer.OnItemEquipped(hero, item);
     }
 
     //

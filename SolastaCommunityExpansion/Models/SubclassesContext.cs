@@ -46,9 +46,9 @@ internal static class SubclassesContext
     internal static void Load()
     {
         LoadSubclass(new CircleOfTheForestGuardian());
-        LoadSubclass(new Marshal());
-        LoadSubclass(new SpellShield());
-        LoadSubclass(new Tactician());
+        LoadSubclass(new MartialMarshal());
+        LoadSubclass(new MartialSpellShield());
+        LoadSubclass(new MartialTactician());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheRageMage());
         LoadSubclass(new RangerArcanist());
@@ -57,7 +57,7 @@ internal static class SubclassesContext
         LoadSubclass(new RoguishRaven());
         LoadSubclass(new SorcerousDivineHeart());
         LoadSubclass(new WizardArcaneFighter());
-        LoadSubclass(new BladeDancer());
+        LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
         LoadSubclass(new WizardLifeTransmuter());
         LoadSubclass(new WizardMasterManipulator());
@@ -69,7 +69,7 @@ internal static class SubclassesContext
         {
             SortSubclassesFeatures();
         }
-        
+
         RoguishConArtist.UpdateSpellDcBoost();
         WizardSpellMaster.UpdateBonusRecovery();
         WizardArcaneFighter.UpdateEnchantWeapon();
