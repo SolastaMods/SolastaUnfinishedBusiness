@@ -52,7 +52,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityRoguishConArtistDCTitle",
+    "title": "Feature/&MagicAffinityConArtistDCTitle",
     "description": "Your spell save DC increases by 3.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -73,7 +73,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5f5805bb-5f84-5f99-9c12-883fccd26e7d",
+  "guid": "34c4dd6c-614a-5335-b920-46961e73ce60",
   "contentPack": 9999,
-  "name": "MagicAffinityRoguishConArtistDC"
+  "name": "MagicAffinityConArtistDC"
 }

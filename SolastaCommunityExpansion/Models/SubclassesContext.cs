@@ -48,7 +48,7 @@ internal static class SubclassesContext
         LoadSubclass(new ArcaneFighter());
         LoadSubclass(new Arcanist());
         LoadSubclass(new CircleOfTheForestGuardian());
-        LoadSubclass(new ConArtist());
+        LoadSubclass(new RoguishConArtist());
         LoadSubclass(new LifeTransmuter());
         LoadSubclass(new Marshal());
         LoadSubclass(new MasterManipulator());
@@ -71,7 +71,7 @@ internal static class SubclassesContext
         }
 
         ArcaneFighter.UpdateEnchantWeapon();
-        ConArtist.UpdateSpellDcBoost();
+        RoguishConArtist.UpdateSpellDcBoost();
         MasterManipulator.UpdateSpellDcBoost();
         SpellMaster.UpdateBonusRecovery();
     }

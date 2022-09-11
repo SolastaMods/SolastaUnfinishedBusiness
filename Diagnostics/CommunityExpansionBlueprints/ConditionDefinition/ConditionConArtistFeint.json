@@ -227,8 +227,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ConditionRogueConArtistFeintTitle",
-    "description": "Feature/&ConditionRogueConArtistFeintDescription",
+    "title": "Feature/&ConditionConArtistFeintTitle",
+    "description": "Feature/&ConditionConArtistFeintDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
@@ -248,7 +248,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "37b5df56-7007-5231-9205-228c22e4c4c5",
+  "guid": "cddfd048-81a3-51e4-a3db-d483de9c46e0",
   "contentPack": 9999,
-  "name": "ConditionRogueConArtistFeint"
+  "name": "ConditionConArtistFeint"
 }

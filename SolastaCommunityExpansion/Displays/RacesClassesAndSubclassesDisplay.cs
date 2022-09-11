@@ -47,7 +47,7 @@ internal static class RacesClassesAndSubclassesDisplay
         if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
         {
             Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc = intValue;
-            ConArtist.UpdateSpellDcBoost();
+            RoguishConArtist.UpdateSpellDcBoost();
         }
 
         UI.Label("");

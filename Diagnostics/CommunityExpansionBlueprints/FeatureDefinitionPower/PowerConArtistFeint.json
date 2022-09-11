@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionRogueConArtistFeint",
-          "conditionDefinition": "Definition:ConditionRogueConArtistFeint:37b5df56-7007-5231-9205-228c22e4c4c5",
+          "conditionDefinitionName": "ConditionConArtistFeint",
+          "conditionDefinition": "Definition:ConditionConArtistFeint:cddfd048-81a3-51e4-a3db-d483de9c46e0",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -311,8 +311,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRoguishConArtistFeintTitle",
-    "description": "Feature/&PowerRoguishConArtistFeintDescription",
+    "title": "Feature/&PowerConArtistFeintTitle",
+    "description": "Feature/&PowerConArtistFeintDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5fcc2251-0318-515c-9ddd-b9aa38354909",
+  "guid": "af50016d-a4d2-5737-a9fd-50a8836227b2",
   "contentPack": 9999,
-  "name": "PowerRoguishConArtistFeint"
+  "name": "PowerConArtistFeint"
 }

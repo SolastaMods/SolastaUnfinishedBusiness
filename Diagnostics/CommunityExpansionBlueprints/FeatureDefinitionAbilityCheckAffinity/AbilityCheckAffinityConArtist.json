@@ -53,8 +53,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AbilityCheckAffinityRogueConArtistTitle",
-    "description": "Feature/&AbilityCheckAffinityRogueConArtistDescription",
+    "title": "Feature/&AbilityCheckAffinityConArtistTitle",
+    "description": "Feature/&AbilityCheckAffinityConArtistDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -74,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8fc61768-fb38-573a-8b52-29f1f54b4b03",
+  "guid": "3cd62ffa-737f-59ff-96e7-ac80cda443f4",
   "contentPack": 9999,
-  "name": "AbilityCheckAffinityRogueConArtist"
+  "name": "AbilityCheckAffinityConArtist"
 }
