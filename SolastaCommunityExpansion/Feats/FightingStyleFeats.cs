@@ -13,25 +13,9 @@ internal static class FightingStyleFeats
 {
     public static void CreateFeats(List<FeatDefinition> feats)
     {
-        feats.AddRange(
-            BuildFightingStyleFeat("TwoWeapon"),
-            BuildFightingStyleFeat("Protection"),
-            BuildFightingStyleFeat("GreatWeapon"),
-            BuildFightingStyleFeat("Dueling"),
-            BuildFightingStyleFeat("Defense"),
-            BuildFightingStyleFeat("Archery")
-        );
-
-        feats.AddRange(FightingStyleContext.FightingStyles.Select(BuildFightingStyleFeat));
-    }
-
-    private static FeatDefinition BuildFightingStyleFeat(string style)
-    {
-        var fightingStyle = DatabaseRepository
+        feats.AddRange(DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
-            .GetElement(style);
-
-        return BuildFightingStyleFeat(fightingStyle);
+            .Select(BuildFightingStyleFeat));
     }
 
     private static FeatDefinition BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)
