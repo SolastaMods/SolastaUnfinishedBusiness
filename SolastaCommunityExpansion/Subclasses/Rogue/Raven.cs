@@ -61,6 +61,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetGuiPresentation(Category.Feature)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
+                    .SetCustomSubFeatures(new RavenExtendCriticalRangeMarker())
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
@@ -156,7 +157,6 @@ internal sealed class RoguishRaven : AbstractSubclass
             .Create("FeatureSetRoguishRavenHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(turnOnPower, _heartSeekerTurnOffPower)
-            .SetCustomSubFeatures(new RavenExtendCriticalRangeMarker())
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
     }
@@ -227,9 +227,11 @@ internal sealed class RoguishRaven : AbstractSubclass
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
         {
+            Main.Log("DEBUG HERE", true);
             // terminate heart seeking strike if equiped non two-handed range-weapon
             if (CharacterValidators.HasTwoHandedRangeWeapon(character))
             {
+                Main.Log("DEBUG 111111111111111111111", true);
                 return;
             }
             _heartSeekerStopPowerConcentrationProvider.Stop(character);
