@@ -1,5 +1,4 @@
-﻿using System;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -15,42 +14,42 @@ internal sealed class SpellMaster : AbstractSubclass
     internal SpellMaster()
     {
         var prepared = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterPrepared",  DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinitySpellMasterPrepared", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None,
                 RuleDefinitions.PreparedSpellsModifier.ProficiencyBonus)
             .AddToDB();
 
         var extraPrepared = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterExtraPrepared",  DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinitySpellMasterExtraPrepared", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None,
                 RuleDefinitions.PreparedSpellsModifier.SpellcastingAbilityBonus)
             .AddToDB();
 
         var extraKnown = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterKnowledge",  DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinitySpellMasterKnowledge", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 1, RuleDefinitions.AdvantageType.None,
                 RuleDefinitions.PreparedSpellsModifier.None)
             .AddToDB();
 
         var knowledgeAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterScriber",  DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinitySpellMasterScriber", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(0.25f, 0.25f, 0, RuleDefinitions.AdvantageType.Advantage,
                 RuleDefinitions.PreparedSpellsModifier.None)
             .AddToDB();
 
         var bonusCantrips = FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolTraditionSpellMasterBonusCantrips",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PointPoolTraditionSpellMasterBonusCantrips", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
             .OnlyUniqueChoices()
             .AddToDB();
 
         var spellResistance = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("SavingThrowAffinitySpellMasterSpellResistance",  DefinitionBuilder.CENamespaceGuid)
+            .Create("SavingThrowAffinitySpellMasterSpellResistance", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetAffinities(
                 RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
@@ -76,7 +75,8 @@ internal sealed class SpellMaster : AbstractSubclass
             .SetParticleEffectParameters(effectParticleParameters)
             .Build();
 
-        BonusRecovery = FeatureDefinitionPowerBuilder.Create("PowerSpellMasterBonusRecovery",  DefinitionBuilder.CENamespaceGuid)
+        BonusRecovery = FeatureDefinitionPowerBuilder
+            .Create("PowerSpellMasterBonusRecovery", DefinitionBuilder.CENamespaceGuid)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.Rest, 1,
                 RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence,
@@ -87,7 +87,7 @@ internal sealed class SpellMaster : AbstractSubclass
 
         // Make Spell Master subclass
         var spellMaster = CharacterSubclassDefinitionBuilder
-            .Create("SpellMaster",  DefinitionBuilder.CENamespaceGuid)
+            .Create("SpellMaster", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("TraditionSpellMaster", Category.Subclass,
                 DomainInsight.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(prepared, 2)
@@ -100,7 +100,7 @@ internal sealed class SpellMaster : AbstractSubclass
             .AddToDB();
 
         RestActivityDefinitionBuilder
-            .Create("ArcaneDepth",  DefinitionBuilder.CENamespaceGuid)
+            .Create("ArcaneDepth", DefinitionBuilder.CENamespaceGuid)
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name)

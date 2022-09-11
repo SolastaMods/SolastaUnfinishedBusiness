@@ -29,7 +29,7 @@ internal static class SpellRepertoirePanelPatcher
             __instance.RefreshNow();
         }
     }
-    
+
     //PATCH: filters how spells and slots are displayed on inspection (Multiclass)
     [HarmonyPatch(typeof(SpellRepertoirePanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

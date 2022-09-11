@@ -16,29 +16,6 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class ItemCraftingContext
 {
-    internal sealed class ItemCollection
-    {
-        public Guid BaseGuid;
-        public List<ItemDefinition> BaseWeapons;
-        public List<MagicItemDataHolder> MagicToCopy;
-        public int NumProduced = 1;
-        public List<ItemDefinition> PossiblePrimedItemsToReplace;
-
-        public struct MagicItemDataHolder
-        {
-            public readonly string Name;
-            public readonly ItemDefinition Item;
-            public readonly RecipeDefinition Recipe;
-
-            public MagicItemDataHolder(string name, ItemDefinition item, RecipeDefinition recipe)
-            {
-                Name = name;
-                Item = item;
-                Recipe = recipe;
-            }
-        }
-    }
-    
     public static readonly List<string> BaseGameItemsCategories = new()
     {
         "PrimedItems", "EnchantingIngredients", "RelicForgeries"
@@ -279,4 +256,26 @@ internal static class ItemCraftingContext
         return outString.ToString();
     }
 #endif
+    internal sealed class ItemCollection
+    {
+        public Guid BaseGuid;
+        public List<ItemDefinition> BaseWeapons;
+        public List<MagicItemDataHolder> MagicToCopy;
+        public int NumProduced = 1;
+        public List<ItemDefinition> PossiblePrimedItemsToReplace;
+
+        public struct MagicItemDataHolder
+        {
+            public readonly string Name;
+            public readonly ItemDefinition Item;
+            public readonly RecipeDefinition Recipe;
+
+            public MagicItemDataHolder(string name, ItemDefinition item, RecipeDefinition recipe)
+            {
+                Name = name;
+                Item = item;
+                Recipe = recipe;
+            }
+        }
+    }
 }

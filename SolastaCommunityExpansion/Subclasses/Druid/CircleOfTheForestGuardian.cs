@@ -1,5 +1,4 @@
-﻿using System;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
@@ -180,7 +179,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         {
             var damageEffect = EffectFormBuilder
                 .Create()
-                .SetDamageForm(false, DieType.D8, RuleDefinitions.DamageTypePiercing, 0, DieType.D8, 2)
+                .SetDamageForm(false, DieType.D8, DamageTypePiercing, 0, DieType.D8, 2)
                 .CreatedByCondition()
                 .Build();
 
@@ -208,7 +207,8 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 .AddToDB();
 
             return ConditionDefinitionBuilder
-                .Create(ConditionDefinitions.ConditionBarkskin, "ConditionImprovedBarkWard", DefinitionBuilder.CENamespaceGuid)
+                .Create(ConditionDefinitions.ConditionBarkskin, "ConditionImprovedBarkWard",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Condition)
                 .SetAllowMultipleInstances(false)
                 .SetDuration(DurationType.Minute, 10)
@@ -221,7 +221,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         {
             var damageEffect = EffectFormBuilder
                 .Create()
-                .SetDamageForm(false, DieType.D8, RuleDefinitions.DamageTypePiercing, 0, DieType.D8, 3)
+                .SetDamageForm(false, DieType.D8, DamageTypePiercing, 0, DieType.D8, 3)
                 .CreatedByCondition()
                 .Build();
 
@@ -249,7 +249,8 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 .AddToDB();
 
             return ConditionDefinitionBuilder
-                .Create(ConditionDefinitions.ConditionBarkskin, "ConditionSuperiorBarkWard", DefinitionBuilder.CENamespaceGuid)
+                .Create(ConditionDefinitions.ConditionBarkskin, "ConditionSuperiorBarkWard",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Condition)
                 .SetFeatures(powerSuperiorBarkWardRetaliateDamageAffinity)
                 .SetAllowMultipleInstances(false)

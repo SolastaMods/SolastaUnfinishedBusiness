@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Level20;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -26,6 +30,22 @@ internal static class Level20Context
     public const int ModMaxExperience = 355000;
     public const int GameMaxExperience = 100000;
 
+    [NotNull]
+    // ReSharper disable once UnusedMember.Global
+    public static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    {
+        var code = new List<CodeInstruction>(instructions);
+
+        if (Main.Settings.EnableLevel20)
+        {
+            code
+                .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GameMaxLevel)
+                .ForEach(x => x.operand = ModMaxLevel);
+        }
+
+        return code;
+    }
+
     internal static void Load()
     {
         BarbarianLoad();
@@ -38,14 +58,42 @@ internal static class Level20Context
         SorcererLoad();
         WizardLoad();
         MartialSpellBladeLoad();
-        ShadowcasterLoad();
+        RoguishShadowcasterLoad();
+        TraditionLightLoad();
 
         CastSpellWarlock.uniqueLevelSlots = false;
     }
 
     internal static void LateLoad()
     {
-        Level20PatchingContext.Load();
+        const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
+
+        var harmony = new Harmony("SolastaCommunityExpansion");
+        var transpiler = typeof(Level20Context).GetMethod("Level20Transpiler");
+        var methods = new[]
+        {
+            typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding),
+            typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"),
+            typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding),
+            typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"),
+            typeof(HigherLevelFeaturesModal).GetMethod("Bind"),
+            typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"),
+            typeof(RulesetCharacterHero).GetMethod("SerializeAttributes"),
+            typeof(RulesetCharacterHero).GetMethod("SerializeElements"),
+            typeof(RulesetEntity).GetMethod("SerializeElements")
+        };
+
+        foreach (var method in methods)
+        {
+            try
+            {
+                harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+            }
+            catch
+            {
+                Main.Error("cannot fully patch Level 20");
+            }
+        }
     }
 
     private static void BarbarianLoad()
@@ -69,39 +117,37 @@ internal static class Level20Context
             // Solasta handles divine intervention on the subclasses, added below.
         });
 
-        CastSpellCleric.spellCastingLevel = 9;
-
         CastSpellCleric.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
         CastSpellCleric.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
 
-        DomainBattle.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin,
-            20));
+        DomainBattle.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
         DomainElementalCold.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainElementalFire.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainElementalLighting.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
-        DomainInsight.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric,
-            20));
-        DomainLaw.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
-        DomainLife.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
-        DomainOblivion.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric,
-            20));
-        DomainSun.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
+        DomainInsight.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
+        DomainLaw.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
+        DomainLife.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
+        DomainOblivion.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
+        DomainSun.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
     }
 
     private static void DruidLoad()
     {
-        // add missing progression
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             // TODO 18: BEAST SPELLS
             new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: ARCHDRUID
+            // TODO 20: ARCH DRUID
         });
-
-        CastSpellDruid.spellCastingLevel = 9;
 
         CastSpellDruid.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
         CastSpellDruid.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
@@ -126,13 +172,6 @@ internal static class Level20Context
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
         );
 
-        //// Oath of Devotion
-        AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
-            new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = 13, SpellsList = new List<SpellDefinition> { FreedomOfMovement, GuardianOfFaith }
-            });
-
         AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
             new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
@@ -144,29 +183,10 @@ internal static class Level20Context
                 }
             });
 
-        //// Oath of Motherlands
-        AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
-            new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = 13, SpellsList = new List<SpellDefinition> { WallOfFire, Stoneskin }
-            });
-
         AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
             new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 17, SpellsList = new List<SpellDefinition> { FlameStrike }
-            });
-
-        //// Oath of Tirmar
-        AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
-            new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = 13,
-                SpellsList = new List<SpellDefinition>
-                {
-                    Banishment
-                    // Compulsion
-                }
             });
 
         AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
@@ -174,8 +194,6 @@ internal static class Level20Context
             {
                 ClassLevel = 17, SpellsList = new List<SpellDefinition> { WallOfForce, HoldMonster }
             });
-
-        CastSpellPaladin.spellCastingLevel = 5;
 
         CastSpellPaladin.SlotsPerLevels.SetRange(SpellsSlotsContext.HalfCastingSlots);
         CastSpellPaladin.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
@@ -186,10 +204,7 @@ internal static class Level20Context
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(SenseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
-            //new FeatureUnlockByLevel(FeatureSetRangerFoeSlayer, 20)
         });
-
-        CastSpellRanger.spellCastingLevel = 5;
 
         CastSpellRanger.SlotsPerLevels.SetRange(SpellsSlotsContext.HalfCastingSlots);
         CastSpellRanger.ReplacedSpells.SetRange(SpellsSlotsContext.HalfCasterReplacedSpells);
@@ -207,15 +222,12 @@ internal static class Level20Context
 
     private static void SorcererLoad()
     {
-        // add missing progression
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(PointPoolSorcererAdditionalMetamagic, 17),
             new(FeatureSetAbilityScoreChoice, 19),
             new(SorcerousRestorationBuilder.SorcerousRestoration, 20)
         });
-
-        CastSpellSorcerer.spellCastingLevel = 9;
 
         CastSpellSorcerer.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
         CastSpellSorcerer.ReplacedSpells.SetRange(SpellsSlotsContext.FullCasterReplacedSpells);
@@ -224,7 +236,6 @@ internal static class Level20Context
 
     private static void WizardLoad()
     {
-        // add missing progression
         Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             // TODO 18: Spell Mastery
@@ -232,27 +243,25 @@ internal static class Level20Context
             // TODO 20: Signature Spells
         });
 
-        CastSpellWizard.spellCastingLevel = 9;
-
         CastSpellWizard.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
         CastSpellWizard.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
     }
 
     private static void MartialSpellBladeLoad()
     {
-        CastSpellMartialSpellBlade.spellCastingLevel = 4;
-
         CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SpellsSlotsContext.OneThirdCastingSlots);
-
         CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SpellsSlotsContext.OneThirdCasterReplacedSpells);
     }
 
-    private static void ShadowcasterLoad()
+    private static void RoguishShadowcasterLoad()
     {
-        CastSpellShadowcaster.spellCastingLevel = 4;
-
         CastSpellShadowcaster.SlotsPerLevels.SetRange(SpellsSlotsContext.OneThirdCastingSlots);
-
         CastSpellShadowcaster.ReplacedSpells.SetRange(SpellsSlotsContext.OneThirdCasterReplacedSpells);
+    }
+
+    private static void TraditionLightLoad()
+    {
+        CastSpellTraditionLight.SlotsPerLevels.SetRange(SpellsSlotsContext.OneThirdCastingSlots);
+        CastSpellTraditionLight.ReplacedSpells.SetRange(SpellsSlotsContext.OneThirdCasterReplacedSpells);
     }
 }

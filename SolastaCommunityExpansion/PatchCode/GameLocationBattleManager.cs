@@ -450,8 +450,8 @@ internal static class GameLocationBattleManagerTweaks
         //CHANGE: replaced `this` with `instance`
         instance.AdditionalDamageProviderActivated?.Invoke(attacker, defender, provider);
     }
-    
-    
+
+
     /**
      * This method is almost completely original game source provided by TA (1.4.8)
      * All changes made by CE mod should be clearly marked for easy future updates
@@ -471,7 +471,8 @@ internal static class GameLocationBattleManagerTweaks
         bool firstTarget)
     {
         instance.triggeredAdditionalDamageTags.Clear();
-        attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(instance.featuresToBrowseReaction);
+        attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(
+            instance.featuresToBrowseReaction);
 
         // Add item properties?
         if (attacker.RulesetCharacter.CharacterInventory != null)
@@ -483,13 +484,13 @@ internal static class GameLocationBattleManagerTweaks
                 instance.featuresToBrowseItem.Clear();
             }
         }
-        
+
         /*
          * ######################################
          * [CE] EDIT START
          * Support for extra types of Smite (like eldritch smite)
          */
-        
+
         // store ruleset service for further use
         var rulesetImplementation = ServiceRepository.GetService<IRulesetImplementationService>();
 
@@ -499,10 +500,10 @@ internal static class GameLocationBattleManagerTweaks
          * ######################################
          */
 
-        foreach (FeatureDefinition featureDefinition in instance.featuresToBrowseReaction)
+        foreach (var featureDefinition in instance.featuresToBrowseReaction)
         {
-            IAdditionalDamageProvider provider = featureDefinition as IAdditionalDamageProvider;
-            FeatureDefinitionAdditionalDamage additionalDamage = provider as FeatureDefinitionAdditionalDamage;
+            var provider = featureDefinition as IAdditionalDamageProvider;
+            var additionalDamage = provider as FeatureDefinitionAdditionalDamage;
 
             // Some additional damage only work with attack modes (Hunter's Mark)
             if (provider.AttackModeOnly && attackMode == null)
@@ -511,36 +512,40 @@ internal static class GameLocationBattleManagerTweaks
             }
 
             // Trigger method
-            bool validTrigger = false;
-            bool validUses = true;
+            var validTrigger = false;
+            var validUses = true;
             if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
             {
                 switch (provider.LimitedUsage)
                 {
-                    case RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) || (instance.Battle != null && instance.Battle.ActiveContender != attacker):
-                    case RuleDefinitions.FeatureLimitedUsage.OncePerTurn when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name):
+                    case RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn
+                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) ||
+                             (instance.Battle != null && instance.Battle.ActiveContender != attacker):
+                    case RuleDefinitions.FeatureLimitedUsage.OncePerTurn
+                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name):
                         validUses = false;
                         break;
 
                     default:
+                    {
+                        if (attacker.UsedSpecialFeatures.Count > 0)
                         {
-                            if (attacker.UsedSpecialFeatures.Count > 0)
+                            // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228)
+                            foreach (var kvp in attacker.UsedSpecialFeatures)
                             {
-                                // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228)
-                                foreach (KeyValuePair<string, int> kvp in attacker.UsedSpecialFeatures)
+                                if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
+                                    .TryGetElement(kvp.Key, out var previousFeature))
                                 {
-                                    if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>().TryGetElement(kvp.Key, out FeatureDefinitionAdditionalDamage previousFeature))
+                                    if (previousFeature.NotificationTag == provider.NotificationTag)
                                     {
-                                        if (previousFeature.NotificationTag == provider.NotificationTag)
-                                        {
-                                            validUses = false;
-                                        }
+                                        validUses = false;
                                     }
                                 }
                             }
-
-                            break;
                         }
+
+                        break;
+                    }
                 }
             }
 
@@ -550,9 +555,10 @@ internal static class GameLocationBattleManagerTweaks
                 && attacker.UsedSpecialFeatures.Count > 0)
             {
                 // Check if there is not already a used feature of the same "family"
-                foreach (KeyValuePair<string, int> kvp in attacker.UsedSpecialFeatures)
+                foreach (var kvp in attacker.UsedSpecialFeatures)
                 {
-                    if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>().TryGetElement(kvp.Key, out FeatureDefinitionAdditionalDamage previousFeature))
+                    if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
+                        .TryGetElement(kvp.Key, out var previousFeature))
                     {
                         if (additionalDamage.OtherSimilarAdditionalDamages.Contains(previousFeature))
                         {
@@ -565,32 +571,35 @@ internal static class GameLocationBattleManagerTweaks
             ItemDefinition itemDefinition = null;
             if (attackMode != null)
             {
-                itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
+                itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>()
+                    .GetElement(attackMode.SourceDefinition.Name, true);
             }
 
             CharacterActionParams reactionParams = null;
-            
+
             /*
              * ######################################
              * [CE] EDIT START
              * Support for extra types of Smite (like eldritch smite)
              */
-            bool validProperty = true;
-            
-            if (attackMode != null && validUses && provider.RequiredProperty != RuleDefinitions.RestrictedContextRequiredProperty.None)
+            var validProperty = true;
+
+            if (attackMode != null && validUses &&
+                provider.RequiredProperty != RuleDefinitions.RestrictedContextRequiredProperty.None)
             {
-                validProperty = rulesetImplementation.IsValidContextForRestrictedContextProvider(provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
+                validProperty = rulesetImplementation.IsValidContextForRestrictedContextProvider(provider,
+                    attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
             }
+
             //[CE] try checking triggers only if context is valid, to prevent SpendSpellSlot showing popup on incorrect context
             if (validUses && validProperty)
-            //commented-out original code
-            // if (validUses)
-            
-            /*
-             * Support for extra types of Smite (like eldritch smite)
-             * [CE] EDIT END
-             * ######################################
-             */
+                //commented-out original code
+                // if (validUses)
+                /*
+                 * Support for extra types of Smite (like eldritch smite)
+                 * [CE] EDIT END
+                 * ######################################
+                 */
             {
                 switch (provider.TriggerCondition)
                 {
@@ -598,249 +607,278 @@ internal static class GameLocationBattleManagerTweaks
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly
                         when attackMode != null
                              || (rulesetEffect != null
-                                 && provider.RequiredProperty == RuleDefinitions.RestrictedContextRequiredProperty.SpellWithAttackRoll):
+                                 && provider.RequiredProperty == RuleDefinitions.RestrictedContextRequiredProperty
+                                     .SpellWithAttackRoll):
+                    {
+                        if (advantageType == RuleDefinitions.AdvantageType.Advantage ||
+                            (advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
+                             instance.IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker)))
                         {
-                            if (advantageType == RuleDefinitions.AdvantageType.Advantage || (advantageType != RuleDefinitions.AdvantageType.Disadvantage && instance.IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker)))
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
                     /*
                      * ######################################
                      * [CE] EDIT START
                      * Support for extra types of Smite (like eldritch smite)
                      */
-                    
+
                     // [CE] remove melee check, so that other types of smites can be made
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot:
-                    
-                    // commented-out original code
-                    // case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot
-                    //     when attackModifier != null
-                    //          && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee:
-                    
-                    /*
-                     * Support for extra types of Smite (like eldritch smite)
-                     * [CE] EDIT END
-                     * ######################################
-                     */
+
+                        // commented-out original code
+                        // case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot
+                        //     when attackModifier != null
+                        //          && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee:
+
+                        /*
+                         * Support for extra types of Smite (like eldritch smite)
+                         * [CE] EDIT END
+                         * ######################################
+                         */
+                    {
+                        //TODO: implement wild-shape, MC and warlock spell slot tweaks 
+                        // This is used for Divine Smite
+                        // Look for the spellcasting feature holding the smite
+                        var hero = attacker.RulesetCharacter as RulesetCharacterHero;
+                        if (hero == null && attacker.RulesetCharacter.OriginalFormCharacter != null)
                         {
-                            //TODO: implement wild-shape, MC and warlock spell slot tweaks 
-                            // This is used for Divine Smite
-                            // Look for the spellcasting feature holding the smite
-                            RulesetCharacterHero hero = attacker.RulesetCharacter as RulesetCharacterHero;
-                            if (hero == null && attacker.RulesetCharacter.OriginalFormCharacter != null)
-                            {
-                                hero = attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-                            }
-
-                            CharacterClassDefinition classDefinition = hero.FindClassHoldingFeature(featureDefinition);
-                            RulesetSpellRepertoire selectedSpellRepertoire = null;
-                            foreach (RulesetSpellRepertoire spellRepertoire in hero.SpellRepertoires)
-                            {
-                                if (spellRepertoire.SpellCastingClass != classDefinition)
-                                {
-                                    continue;
-                                }
-
-                                bool atLeastOneSpellSlotAvailable = false;
-                                for (int spellLevel = 1; spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel; spellLevel++)
-                                {
-                                    spellRepertoire.GetSlotsNumber(spellLevel, out int remaining, out int dummy);
-                                    if (remaining <= 0)
-                                    {
-                                        continue;
-                                    }
-
-                                    selectedSpellRepertoire = spellRepertoire;
-                                    atLeastOneSpellSlotAvailable = true;
-                                    break;
-                                }
-
-                                if (!atLeastOneSpellSlotAvailable)
-                                {
-                                    continue;
-                                }
-
-                                reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendSpellSlot);
-                                reactionParams.ActionModifiers.Add(new ActionModifier());
-                                yield return instance.PrepareAndReactWithSpellUsingSpellSlot(attacker, selectedSpellRepertoire, provider.NotificationTag, reactionParams);
-                                validTrigger = reactionParams.ReactionValidated;
-                            }
-
-                            break;
+                            hero = attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
                         }
+
+                        var classDefinition = hero.FindClassHoldingFeature(featureDefinition);
+                        RulesetSpellRepertoire selectedSpellRepertoire = null;
+                        foreach (var spellRepertoire in hero.SpellRepertoires)
+                        {
+                            if (spellRepertoire.SpellCastingClass != classDefinition)
+                            {
+                                continue;
+                            }
+
+                            var atLeastOneSpellSlotAvailable = false;
+                            for (var spellLevel = 1;
+                                 spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                                 spellLevel++)
+                            {
+                                spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out var dummy);
+                                if (remaining <= 0)
+                                {
+                                    continue;
+                                }
+
+                                selectedSpellRepertoire = spellRepertoire;
+                                atLeastOneSpellSlotAvailable = true;
+                                break;
+                            }
+
+                            if (!atLeastOneSpellSlotAvailable)
+                            {
+                                continue;
+                            }
+
+                            reactionParams =
+                                new CharacterActionParams(attacker, ActionDefinitions.Id.SpendSpellSlot);
+                            reactionParams.ActionModifiers.Add(new ActionModifier());
+                            yield return instance.PrepareAndReactWithSpellUsingSpellSlot(attacker,
+                                selectedSpellRepertoire, provider.NotificationTag, reactionParams);
+                            validTrigger = reactionParams.ReactionValidated;
+                        }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe:
+                    {
+                        if (defender.RulesetActor.HasConditionOfTypeAndSource(provider.RequiredTargetCondition,
+                                attacker.Guid))
                         {
-                            if (defender.RulesetActor.HasConditionOfTypeAndSource(provider.RequiredTargetCondition, attacker.Guid))
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCondition:
+                    {
+                        if (defender == null)
                         {
-                            if (defender == null)
-                            {
-                                break;
-                            }
-
-                            if (provider.RequiredTargetCondition == null)
-                            {
-                                Trace.LogError("Provider trigger condition is TargetHasCondition, but no condition given");
-                                break;
-                            }
-
-                            if (defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition.Name))
-                            {
-                                validTrigger = true;
-                            }
-
                             break;
                         }
+
+                        if (provider.RequiredTargetCondition == null)
+                        {
+                            Trace.LogError(
+                                "Provider trigger condition is TargetHasCondition, but no condition given");
+                            break;
+                        }
+
+                        if (defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition.Name))
+                        {
+                            validTrigger = true;
+                        }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition:
+                    {
+                        if (defender == null)
                         {
-                            if (defender == null)
-                            {
-                                break;
-                            }
-
-                            if (provider.RequiredTargetCondition == null)
-                            {
-                                Trace.LogError("Provider trigger condition is TargetDoesNotHaveCondition, but no condition given");
-                                break;
-                            }
-
-                            if (!defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition.Name))
-                            {
-                                validTrigger = true;
-                            }
-
                             break;
                         }
+
+                        if (provider.RequiredTargetCondition == null)
+                        {
+                            Trace.LogError(
+                                "Provider trigger condition is TargetDoesNotHaveCondition, but no condition given");
+                            break;
+                        }
+
+                        if (!defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition.Name))
+                        {
+                            validTrigger = true;
+                        }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetIsWounded:
+                    {
+                        if (defender?.RulesetCharacter != null && defender.RulesetCharacter.CurrentHitPoints <
+                            defender.RulesetCharacter.GetAttribute(AttributeDefinitions.HitPoints).CurrentValue)
                         {
-                            if (defender?.RulesetCharacter != null && defender.RulesetCharacter.CurrentHitPoints < defender.RulesetCharacter.GetAttribute(AttributeDefinitions.HitPoints).CurrentValue)
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasSenseType:
+                    {
+                        if (defender?.RulesetCharacter != null &&
+                            defender.RulesetCharacter.HasSenseType(provider.RequiredTargetSenseType))
                         {
-                            if (defender?.RulesetCharacter != null && defender.RulesetCharacter.HasSenseType(provider.RequiredTargetSenseType))
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCreatureTag:
+                    {
+                        if (defender?.RulesetCharacter != null &&
+                            defender.RulesetCharacter.HasTag(provider.RequiredTargetCreatureTag))
                         {
-                            if (defender?.RulesetCharacter != null && defender.RulesetCharacter.HasTag(provider.RequiredTargetCreatureTag))
-                            {
-                                validTrigger = true;
-                            }
+                            validTrigger = true;
+                        }
 
+                        break;
+                    }
+
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.RangeAttackFromHigherGround
+                        when attackMode != null:
+                    {
+                        if (defender == null)
+                        {
                             break;
                         }
 
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.RangeAttackFromHigherGround when attackMode != null:
+                        if (attacker.LocationPosition.y > defender.LocationPosition.y)
                         {
-                            if (defender == null)
+                            if (itemDefinition != null
+                                && itemDefinition.IsWeapon)
                             {
-                                break;
-                            }
-
-                            if (attacker.LocationPosition.y > defender.LocationPosition.y)
-                            {
-                                if (itemDefinition != null
-                                    && itemDefinition.IsWeapon)
+                                var weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
+                                    .GetElement(itemDefinition.WeaponDescription.WeaponType);
+                                if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Range)
                                 {
-                                    WeaponTypeDefinition weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
-                                    if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Range)
-                                    {
-                                        validTrigger = true;
-                                    }
+                                    validTrigger = true;
                                 }
                             }
-
-                            break;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily:
+                    {
+                        if (defender?.RulesetCharacter != null && defender.RulesetCharacter.CharacterFamily ==
+                            provider.RequiredCharacterFamily.Name)
                         {
-                            if (defender?.RulesetCharacter != null && defender.RulesetCharacter.CharacterFamily == provider.RequiredCharacterFamily.Name)
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit:
                         validTrigger = criticalHit;
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage when firstTarget && rulesetEffect is RulesetEffectSpell && (rulesetEffect as RulesetEffectSpell).SpellDefinition.SchoolOfMagic == RuleDefinitions.SchoolEvocation:
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage when firstTarget && rulesetEffect is RulesetEffectPower && (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell != null && (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell.SchoolOfMagic == RuleDefinitions.SchoolEvocation:
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry when firstTarget && rulesetEffect is RulesetEffectSpell && attacker.RulesetCharacter.HasAncestryMatchingDamageType(actualEffectForms):
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage when firstTarget &&
+                        rulesetEffect is RulesetEffectSpell &&
+                        (rulesetEffect as RulesetEffectSpell).SpellDefinition.SchoolOfMagic ==
+                        RuleDefinitions.SchoolEvocation:
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage when firstTarget &&
+                        rulesetEffect is RulesetEffectPower &&
+                        (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell != null &&
+                        (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell.SchoolOfMagic ==
+                        RuleDefinitions.SchoolEvocation:
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry
+                        when firstTarget && rulesetEffect is RulesetEffectSpell &&
+                             attacker.RulesetCharacter.HasAncestryMatchingDamageType(actualEffectForms):
                         validTrigger = true;
                         break;
 
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget when firstTarget && rulesetEffect is RulesetEffectSpell:
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget
+                        when firstTarget && rulesetEffect is RulesetEffectSpell:
+                    {
+                        // This check is for Warlock / invocation / agonizing blast
+                        if (provider.RequiredSpecificSpell == null || provider.RequiredSpecificSpell ==
+                            (rulesetEffect as RulesetEffectSpell).SpellDefinition)
                         {
-                            // This check is for Warlock / invocation / agonizing blast
-                            if (provider.RequiredSpecificSpell == null || provider.RequiredSpecificSpell == (rulesetEffect as RulesetEffectSpell).SpellDefinition)
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
+                    {
+                        if (attacker.RulesetCharacter != null && !attacker.RulesetCharacter.IsWearingHeavyArmor())
                         {
-                            if (attacker.RulesetCharacter != null && !attacker.RulesetCharacter.IsWearingHeavyArmor())
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive:
                         validTrigger = true;
                         break;
 
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster when defender?.RulesetCharacter != null:
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster
+                        when defender?.RulesetCharacter != null:
+                    {
+                        if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging) &&
+                            defender.RulesetCharacter.SpellRepertoires.Count > 0)
                         {
-                            if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging) && defender.RulesetCharacter.SpellRepertoires.Count > 0)
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.Raging:
+                    {
+                        if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging))
                         {
-                            if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging))
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
                 }
             }
 
@@ -849,7 +887,7 @@ internal static class GameLocationBattleManagerTweaks
              * [CE] EDIT START
              * Support for extra types of Smite (like eldritch smite)
              */
-            
+
             //Commented-out original code. Actual check moved up, to make sure Reaction popups (like SpendSpellSlot) won't be shown if context is not valid.
             // // Check required properties for physical attacks if needed
             // IRulesetImplementationService rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
@@ -859,7 +897,7 @@ internal static class GameLocationBattleManagerTweaks
             // {
             //     validProperty = rulesetImplementationService.IsValidContextForRestrictedContextProvider(provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
             // }
-            
+
             /*
             * Support for extra types of Smite (like eldritch smite)
             * [CE] EDIT END
@@ -868,10 +906,10 @@ internal static class GameLocationBattleManagerTweaks
 
             if (validTrigger && validProperty)
             {
-                instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit);
+                instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms,
+                    reactionParams, attackMode, criticalHit);
                 instance.triggeredAdditionalDamageTags.Add(provider.NotificationTag);
             }
         }
     }
-    
 }

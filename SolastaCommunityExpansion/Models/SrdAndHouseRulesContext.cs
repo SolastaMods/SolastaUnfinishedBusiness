@@ -608,8 +608,8 @@ internal static class UpcastConjureElementalAndFey
     private static List<SpellDefinition> SubspellsList([NotNull] SpellDefinition masterSpell, int slotLevel)
     {
         var subspellsList = masterSpell.SubspellsList;
-        var mySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
-                          || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
+        var mySlotLevel = masterSpell.Name == ConjureElemental.Name
+                          || masterSpell.Name == ConjureFey.Name
             ? slotLevel
             : -1;
 
@@ -662,4 +662,3 @@ internal static class UpcastConjureElementalAndFey
         return _filteredSubspells;
     }
 }
-

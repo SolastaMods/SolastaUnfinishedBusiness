@@ -41,12 +41,12 @@ internal static class ItemRecipeGenerationHelper
                     newRecipe, Main.Settings.RecipeCost,
                     DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb.GuiPresentation);
 
-                if (!ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
+                if (!RecipeBooks.ContainsKey(baseItem.Name))
                 {
-                    ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
+                    RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
                 }
 
-                ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
+                RecipeBooks[baseItem.Name].Add(craftingManual);
 
                 if (!Main.Settings.CraftingInStore.Contains(baseItem.Name))
                 {
@@ -93,12 +93,12 @@ internal static class ItemRecipeGenerationHelper
                     newRecipe, Main.Settings.RecipeCost,
                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
-                if (!ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
+                if (!RecipeBooks.ContainsKey(baseItem.Name))
                 {
-                    ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
+                    RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
                 }
 
-                ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
+                RecipeBooks[baseItem.Name].Add(craftingManual);
 
                 if (!Main.Settings.CraftingInStore.Contains(baseItem.Name))
                 {
@@ -222,14 +222,14 @@ internal static class ItemRecipeGenerationHelper
         }
 
         const string GROUP_KEY = "EnchantingIngredients";
-        ItemCraftingContext.RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
+        RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
 
         foreach (var craftingManual in recipes.Select(recipe => ItemBuilder.BuilderCopyFromItemSetRecipe(
                      DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
                      recipe, Main.Settings.RecipeCost,
                      DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation)))
         {
-            ItemCraftingContext.RecipeBooks[GROUP_KEY].Add(craftingManual);
+            RecipeBooks[GROUP_KEY].Add(craftingManual);
 
             if (!Main.Settings.CraftingInStore.Contains(GROUP_KEY))
             {
@@ -281,7 +281,7 @@ internal static class ItemRecipeGenerationHelper
         var recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(baseGuid, primedToBase[item], item));
 
         const string GROUP_KEY = "PrimedItems";
-        ItemCraftingContext.RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
+        RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
 
         foreach (var recipe in recipes)
         {
@@ -291,7 +291,7 @@ internal static class ItemRecipeGenerationHelper
                 recipe, Main.Settings.RecipeCost,
                 DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden.GuiPresentation);
 
-            ItemCraftingContext.RecipeBooks[GROUP_KEY].Add(craftingManual);
+            RecipeBooks[GROUP_KEY].Add(craftingManual);
 
             if (!Main.Settings.CraftingInStore.Contains(GROUP_KEY))
             {
@@ -380,14 +380,14 @@ internal static class ItemRecipeGenerationHelper
 
         const string GROUP_KEY = "RelicForgeries";
 
-        ItemCraftingContext.RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
+        RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
 
         foreach (var craftingManual in recipes.Select(recipe => ItemBuilder.BuilderCopyFromItemSetRecipe(
                      DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
                      recipe, Main.Settings.RecipeCost,
                      DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation)))
         {
-            ItemCraftingContext.RecipeBooks[GROUP_KEY].Add(craftingManual);
+            RecipeBooks[GROUP_KEY].Add(craftingManual);
 
             if (!Main.Settings.CraftingInStore.Contains(GROUP_KEY))
             {

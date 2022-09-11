@@ -1,5 +1,4 @@
-﻿using System;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -15,7 +14,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
     internal LifeTransmuter()
     {
         var lifeTransmuterAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityLifeTransmuterHeightened",  DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinityLifeTransmuterHeightened", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetWarList(2,
                 FalseLife, // necromancy
@@ -30,7 +29,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
 
         // Add transmuter stone like abilities.
         var transmuteForce = FeatureDefinitionPowerPoolBuilder
-            .Create("PowerTransmuterHealingPool",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerTransmuterHealingPool", DefinitionBuilder.CENamespaceGuid)
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.RechargeRate.LongRest)
             .SetGuiPresentation(Category.Feature)
@@ -100,7 +99,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var transmuteForceExtra = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("PowerPoolModifierTransmuterHealingPoolExtra",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerPoolModifierTransmuterHealingPoolExtra", DefinitionBuilder.CENamespaceGuid)
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)
@@ -116,7 +115,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerHeal = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerTransmuteHeal",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerTransmuteHeal", DefinitionBuilder.CENamespaceGuid)
             .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction,
                 1, false, false, AttributeDefinitions.Intelligence,
@@ -125,7 +124,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerRevive = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerTransmuteRevive",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerTransmuteRevive", DefinitionBuilder.CENamespaceGuid)
             .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
                 Revivify.EffectDescription, false /* unique instance */)
@@ -133,14 +132,14 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("PowerPoolModifierTransmuterHealingPoolBonus",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerPoolModifierTransmuterHealingPoolBonus", DefinitionBuilder.CENamespaceGuid)
             .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("LifeTransmuter",  DefinitionBuilder.CENamespaceGuid)
+            .Create("LifeTransmuter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("TraditionLifeTransmuter", Category.Subclass,
                 RoguishDarkweaver.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(lifeTransmuterAffinity, 2)
@@ -172,7 +171,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
         string name, params FeatureDefinition[] conditionFeatures)
     {
         return ConditionDefinitionBuilder
-            .Create(name,  DefinitionBuilder.CENamespaceGuid)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetFeatures(conditionFeatures)
             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
@@ -210,7 +209,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .Build();
 
         return FeatureDefinitionPowerSharedPoolBuilder
-            .Create(name,  DefinitionBuilder.CENamespaceGuid)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .Configure(poolPower, recharge, activationTime, costPerUse, false, false, abilityScore,
                 effectDescription, false /* unique instance */);
     }

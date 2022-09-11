@@ -1,5 +1,4 @@
-﻿using System;
-using SolastaCommunityExpansion.Api.Extensions;
+﻿using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -16,7 +15,7 @@ internal sealed class DivineHeart : AbstractSubclass
     internal DivineHeart()
     {
         var divineHeartArun = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsSorcererDivineHeartArun",  DefinitionBuilder.CENamespaceGuid)
+            .Create("AutoPreparedSpellsSorcererDivineHeartArun", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
@@ -24,7 +23,7 @@ internal sealed class DivineHeart : AbstractSubclass
             .AddToDB();
 
         var divineHeartEinar = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsSorcererDivineHeartEinar",  DefinitionBuilder.CENamespaceGuid)
+            .Create("AutoPreparedSpellsSorcererDivineHeartEinar", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
@@ -32,7 +31,7 @@ internal sealed class DivineHeart : AbstractSubclass
             .AddToDB();
 
         var divineHeartMariake = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsSorcererDivineHeartMariake",  DefinitionBuilder.CENamespaceGuid)
+            .Create("AutoPreparedSpellsSorcererDivineHeartMariake", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
@@ -40,7 +39,7 @@ internal sealed class DivineHeart : AbstractSubclass
             .AddToDB();
 
         var divineHeartMisaye = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsSorcererDivineHeartMisaye",  DefinitionBuilder.CENamespaceGuid)
+            .Create("AutoPreparedSpellsSorcererDivineHeartMisaye", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
@@ -48,7 +47,7 @@ internal sealed class DivineHeart : AbstractSubclass
             .AddToDB();
 
         var divineHeartPakri = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsSorcererDivineHeartPakri",  DefinitionBuilder.CENamespaceGuid)
+            .Create("AutoPreparedSpellsSorcererDivineHeartPakri", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
@@ -69,20 +68,20 @@ internal sealed class DivineHeart : AbstractSubclass
 
         var divineHeartDivineFortitude = FeatureDefinitionAttributeModifierBuilder
             .Create(FeatureDefinitionAttributeModifiers.AttributeModifierDwarfHillToughness,
-                "AttributeModifierDivineHeartDivineFortitude",  DefinitionBuilder.CENamespaceGuid)
+                "AttributeModifierDivineHeartDivineFortitude", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var magicAffinityDivineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
             .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
-                "MagicAffinityDivineHeartClericSpellsList",  DefinitionBuilder.CENamespaceGuid)
+                "MagicAffinityDivineHeartClericSpellsList", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetExtendedSpellList(SpellListDefinitions.SpellListCleric)
             .AddToDB();
 
         var divineHeartEmpoweredHealingModifier = FeatureDefinitionDieRollModifierBuilder
             .Create(FeatureDefinitionDieRollModifiers.DieRollModifierEmpoweredSpell,
-                "DieRollModifierDivineHeartEmpoweredHealing",  DefinitionBuilder.CENamespaceGuid)
+                "DieRollModifierDivineHeartEmpoweredHealing", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("Feature/&PowerDivineHeartEmpoweredHealingTitle",
                 "Feature/&PowerDivineHeartEmpoweredHealingDescription")
             .AddToDB();
@@ -107,7 +106,7 @@ internal sealed class DivineHeart : AbstractSubclass
             divineHeartEmpoweredHealingCondition;
 
         var divineHeartPlanarPortalPower = FeatureDefinitionPowerBuilder
-            .Create("PowerDivineHeartPlanarPortal",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerDivineHeartPlanarPortal", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
             .SetEffectDescription(DimensionDoor.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
@@ -118,7 +117,7 @@ internal sealed class DivineHeart : AbstractSubclass
             .AddToDB();
 
         var divineHeartDivineRecoveryPower = FeatureDefinitionPowerBuilder
-            .Create("PowerDivineHeartDivineRecovery",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerDivineHeartDivineRecovery", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, Heal.GuiPresentation.SpriteReference)
             .SetEffectDescription(Heal.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -131,7 +130,7 @@ internal sealed class DivineHeart : AbstractSubclass
         divineHeartDivineRecoveryPower.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("DivineHeart",  DefinitionBuilder.CENamespaceGuid)
+            .Create("DivineHeart", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("SorcerousDivineHeart", Category.Subclass,
                 DomainLife.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(divineHeartDeityChoice, 1)

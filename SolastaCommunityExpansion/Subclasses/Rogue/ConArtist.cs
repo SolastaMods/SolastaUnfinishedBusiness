@@ -1,5 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
@@ -20,7 +19,7 @@ internal sealed class ConArtist : AbstractSubclass
     {
         // Make Con Artist subclass
         var abilityAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityRogueConArtist",  DefinitionBuilder.CENamespaceGuid)
+            .Create("AbilityCheckAffinityRogueConArtist", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
                 RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, RuleDefinitions.DieType.D8, 0,
@@ -31,7 +30,7 @@ internal sealed class ConArtist : AbstractSubclass
             .AddToDB();
 
         var spellCasting = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellConArtist",  DefinitionBuilder.CENamespaceGuid)
+            .Create("CastSpellConArtist", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
@@ -57,7 +56,8 @@ internal sealed class ConArtist : AbstractSubclass
                 15);
 
         var condition = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionRogueConArtistFeint",  DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionRogueConArtistFeint",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
                 ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
@@ -73,7 +73,7 @@ internal sealed class ConArtist : AbstractSubclass
                 .Build());
 
         var feint = FeatureDefinitionPowerBuilder
-            .Create("PowerRoguishConArtistFeint",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerRoguishConArtistFeint", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .Configure(
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma,
@@ -82,7 +82,7 @@ internal sealed class ConArtist : AbstractSubclass
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyRoguishConArtistMentalSavingThrows",  DefinitionBuilder.CENamespaceGuid)
+            .Create("ProficiencyRoguishConArtistMentalSavingThrows", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Wisdom)
@@ -90,7 +90,7 @@ internal sealed class ConArtist : AbstractSubclass
 
         // add subclass to db and add subclass to rogue class
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("RoguishConArtist",  DefinitionBuilder.CENamespaceGuid)
+            .Create("RoguishConArtist", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(abilityAffinity, 3)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
@@ -101,7 +101,7 @@ internal sealed class ConArtist : AbstractSubclass
 
     private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
         FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityRoguishConArtistDC",  DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinityRoguishConArtistDC", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(GetSpellDcPresentation().Build())
             .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
                 Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,

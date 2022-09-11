@@ -5,7 +5,6 @@
  * 07/08/2022 (MM/DD/YYYY)
  */
 
-using System;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;

@@ -18,7 +18,7 @@ internal sealed class SpellShield : AbstractSubclass
     internal SpellShield()
     {
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityFighterSpellShield",  DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinityFighterSpellShield", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass)
             .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
             .SetHandsFullCastingModifiers(true, true, true)
@@ -27,7 +27,7 @@ internal sealed class SpellShield : AbstractSubclass
             .AddToDB();
 
         var spellCasting = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellSpellShield",  DefinitionBuilder.CENamespaceGuid)
+            .Create("CastSpellSpellShield", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("FighterSpellShieldSpellcasting", Category.Subclass)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
@@ -86,10 +86,10 @@ internal sealed class SpellShield : AbstractSubclass
             .AddToDB();
 
         var deflectionCondition = ConditionDefinitionBuilder
-            .Create("ConditionSpellShieldArcaneDeflection",  DefinitionBuilder.CENamespaceGuid)
+            .Create("ConditionSpellShieldArcaneDeflection", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierSpellShieldArcaneDeflection",  DefinitionBuilder.CENamespaceGuid)
+                .Create("AttributeModifierSpellShieldArcaneDeflection", DefinitionBuilder.CENamespaceGuid)
                 .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     AttributeDefinitions.ArmorClass, 3)
                 .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Subclass,
@@ -112,7 +112,7 @@ internal sealed class SpellShield : AbstractSubclass
             .Build();
 
         var arcaneDeflectionPower = FeatureDefinitionPowerBuilder
-            .Create("PowerSpellShieldArcaneDeflection",  DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerSpellShieldArcaneDeflection", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, ConditionShielded.GuiPresentation.SpriteReference)
             .Configure(
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
@@ -122,14 +122,14 @@ internal sealed class SpellShield : AbstractSubclass
 
         var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder
             .Create(FeatureDefinitionActionAffinitys.ActionAffinityTraditionGreenMageLeafScales,
-                "ActionAffinitySpellShieldRangedDefense",  DefinitionBuilder.CENamespaceGuid)
+                "ActionAffinitySpellShieldRangedDefense", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("PowerSpellShieldRangedDeflection", Category.Subclass)
             .AddToDB();
 
         // Make Spell Shield subclass
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("FighterSpellShield",  DefinitionBuilder.CENamespaceGuid)
+            .Create("FighterSpellShield", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(magicAffinity, 3)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)

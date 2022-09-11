@@ -573,11 +573,11 @@ internal static class RulesetCharacterPatcher
             CustomFeaturesContext.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
         }
     }
-    
+
     //
     //TODO: Consolidate below
     //
-    
+
     [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ApplyRest_Patch

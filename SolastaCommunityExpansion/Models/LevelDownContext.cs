@@ -8,8 +8,6 @@ namespace SolastaCommunityExpansion.Models;
 
 internal static class LevelDownContext
 {
-    public static bool IsLevelDown { get; private set; }
-
     internal static void ConfirmAndExecute(string filename)
     {
         var service = ServiceRepository.GetService<ICharacterPoolService>();
@@ -45,8 +43,6 @@ internal static class LevelDownContext
         var classLevel = hero.ClassesAndLevels[characterClassDefinition];
         var classTag = AttributeDefinitions.GetClassTag(characterClassDefinition, classLevel);
         var subclassTag = string.Empty;
-
-        IsLevelDown = true;
 
         var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
@@ -117,8 +113,6 @@ internal static class LevelDownContext
         {
             ServiceRepository.GetService<ICharacterPoolService>().SaveCharacter(hero, true);
         }
-
-        IsLevelDown = false;
     }
 
     private static void UnlearnSpells([NotNull] RulesetCharacterHero hero, int indexLevel)

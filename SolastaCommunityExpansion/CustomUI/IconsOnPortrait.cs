@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Api.Extensions;
-using SolastaCommunityExpansion.CustomUI;
 
 namespace SolastaCommunityExpansion.CustomUI;
 
