@@ -134,7 +134,7 @@ internal static class PowerStudyYourEnemyBuilder
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerStudyYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalPowerStudyYourEnemyPower", Category.Power,
+            .SetGuiPresentation("FighterMarshalPowerStudyYourEnemyPower", Category.Feature,
                 IdentifyCreatures.GuiPresentation.SpriteReference)
             .SetFixedUsesPerRecharge(2)
             .SetCostPerUse(1)
@@ -422,7 +422,7 @@ internal static class EternalComradeBuilder
         // TODO: increase the number of use to 2 and recharge per long rest
         var summonEternalComradePower = FeatureDefinitionPowerBuilder
             .Create("PowerSummonEternalComrade", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FighterMarshalPowerSummonEternalComradePower", Category.Power,
+            .SetGuiPresentation("FighterMarshalPowerSummonEternalComradePower", Category.Feature,
                 Bane.GuiPresentation.SpriteReference)
             .SetCostPerUse(1)
             .SetUsesFixed(1)
@@ -528,7 +528,7 @@ internal static class EncourageBuilder
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentation(
                 "FighterMarshalEncouragementPower",
-                Category.Power,
+                Category.Feature,
                 ConditionBlessed.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
@@ -564,7 +564,7 @@ internal static class EncourageBuilder
                 ActivationTime.PermanentUnlessIncapacitated, 1,
                 RechargeRate.AtWill, false, false, AttributeDefinitions.Charisma, effect)
             .SetShowCasting(false)
-            .SetGuiPresentation("FighterMarshalEncouragementPower", Category.Power,
+            .SetGuiPresentation("FighterMarshalEncouragementPower", Category.Feature,
                 Bless.GuiPresentation.SpriteReference)
             .AddToDB();
     }

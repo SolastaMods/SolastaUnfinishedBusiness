@@ -38,7 +38,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         // Make a power that grants darkvision
         var superiorDarkvision = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
                 1, "ConditionLifeTransmuterDarkvision", FeatureDefinitionSenses.SenseSuperiorDarkvision)
-            .SetGuiPresentation("PowerLifeTransmuterDarkvision", Category.Power,
+            .SetGuiPresentation("PowerLifeTransmuterDarkvision", Category.Feature,
                 ConditionDefinitions.ConditionDarkvision.GuiPresentation.SpriteReference)
             .AddToDB();
 
@@ -49,7 +49,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, superiorDarkvision,
                 "PowerLifeTransmuterDarkvision")
-            .SetGuiPresentation(Category.Power,
+            .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference)
             .AddToDB();
 
@@ -75,7 +75,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, poisonResistance,
                 "PowerLifeTransmuterPoison")
-            .SetGuiPresentation("PowerLifeTransmuterElementalResistance", Category.Power,
+            .SetGuiPresentation("PowerLifeTransmuterElementalResistance", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
             .AddToDB();
 
@@ -94,7 +94,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, constitutionProficiency,
                 "PowerTransmuteConstitution")
-            .SetGuiPresentation(Category.Power,
+            .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionPowers.PowerPaladinAuraOfCourage.GuiPresentation.SpriteReference)
             .AddToDB();
 
@@ -111,7 +111,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence,
                 ConditionDefinitions.ConditionFlying12, "PowerLifeTransmuterFly")
-            .SetGuiPresentation(Category.Power, Fly.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Fly.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var powerHeal = FeatureDefinitionPowerSharedPoolBuilder
@@ -120,7 +120,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 RuleDefinitions.ActivationTime.BonusAction,
                 1, false, false, AttributeDefinitions.Intelligence,
                 MassHealingWord.EffectDescription, false /* unique instance */)
-            .SetGuiPresentation(Category.Power, MassHealingWord.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, MassHealingWord.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var powerRevive = FeatureDefinitionPowerSharedPoolBuilder
@@ -128,7 +128,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
                 Revivify.EffectDescription, false /* unique instance */)
-            .SetGuiPresentation(Category.Power, Revivify.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Revivify.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder

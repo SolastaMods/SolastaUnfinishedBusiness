@@ -74,7 +74,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
         var powerDeadMasterCommandUndead = FeatureDefinitionPowerBuilder
             .Create("PowerDeadMasterCommandUndead", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Power)
+            .SetGuiPresentation(Category.Feature)
             .Configure(
                 0,
                 RuleDefinitions.UsesDetermination.ProficiencyBonus,

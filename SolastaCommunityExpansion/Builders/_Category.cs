@@ -7,7 +7,6 @@ public enum Category
 {
     None = 0,
     Action,
-    AttributeModifier,
     Class,
     Condition,
     ContentPack,
@@ -18,15 +17,9 @@ public enum Category
     FlexibleBackgrounds,
     FlexibleRaces,
     Item,
-    Language,
-    Modifier,
     Monster,
-    MonsterAttack,
-    Power,
     Race,
     Reaction,
-    Rules,
     Spell,
-    SpellList,
     Subclass
 }

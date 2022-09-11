@@ -172,7 +172,7 @@ public static class CustomWeaponsContext
         //     .AddFunctions(new DeviceFunctionDescriptionBuilder()
         //         .SetPower(FeatureDefinitionPowerBuilder
         //             .Create("PowerFunctionHandwrapsOfPulling", Monk.Guid)
-        //             .SetGuiPresentation(Category.Power)
+        //             .SetGuiPresentation(Category.Feature)
         //             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
         //             .SetUsesFixed(1)
         //             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)

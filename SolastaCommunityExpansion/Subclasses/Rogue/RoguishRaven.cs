@@ -98,7 +98,7 @@ internal sealed class RoguishRaven : AbstractSubclass
 
         var turnOnPower = FeatureDefinitionPowerBuilder
             .Create("HeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("HeartSeekingShot", Category.Power,
+            .SetGuiPresentation("HeartSeekingShot", Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
                     Resources.DeadeyeIcon, 128, 64))
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)

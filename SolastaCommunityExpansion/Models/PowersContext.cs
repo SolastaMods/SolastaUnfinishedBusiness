@@ -70,7 +70,7 @@ internal static class PowersContext
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp", BazouPowersBaseGuid)
-            .SetGuiPresentation(Category.Power, Aid.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Aid.GuiPresentation.SpriteReference)
             .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
