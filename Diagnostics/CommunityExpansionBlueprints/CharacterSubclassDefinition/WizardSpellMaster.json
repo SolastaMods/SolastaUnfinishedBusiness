@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PointPoolTraditionSpellMasterBonusCantrips:afc70e93-4dc0-5e1a-b056-d8b1f92e2c70",
+      "featureDefinition": "Definition:PointPoolSpellMasterBonusCantrips:04019140-cb72-5190-b298-69924eb4ee44",
       "level": 6
     },
     {
@@ -42,8 +42,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&TraditionSpellMasterTitle",
-    "description": "Subclass/&TraditionSpellMasterDescription",
+    "title": "Subclass/&WizardSpellMasterTitle",
+    "description": "Subclass/&WizardSpellMasterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e20d6cdf94ce68f4b8c0dfbeb0a3bbb6",
@@ -63,7 +63,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dfe4e93c-429a-5a7d-955b-c1909a2cc95f",
+  "guid": "cc0d6899-e1fa-5ea4-ad06-5f026449b17d",
   "contentPack": 9999,
-  "name": "SpellMaster"
+  "name": "WizardSpellMaster"
 }

@@ -56,12 +56,12 @@ internal static class SubclassesContext
         LoadSubclass(new RoguishOpportunist());
         LoadSubclass(new RoguishRaven());
         LoadSubclass(new SorcerousDivineHeart());
-        LoadSubclass(new SpellMaster());
         LoadSubclass(new SpellShield());
         LoadSubclass(new Tactician());
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardLifeTransmuter());
         LoadSubclass(new WizardMasterManipulator());
+        LoadSubclass(new WizardSpellMaster());
 
         Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
 
@@ -71,7 +71,7 @@ internal static class SubclassesContext
         }
         
         RoguishConArtist.UpdateSpellDcBoost();
-        SpellMaster.UpdateBonusRecovery();
+        WizardSpellMaster.UpdateBonusRecovery();
         WizardArcaneFighter.UpdateEnchantWeapon();
         WizardMasterManipulator.UpdateSpellDcBoost();
     }

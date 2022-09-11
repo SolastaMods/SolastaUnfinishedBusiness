@@ -6,12 +6,12 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPower
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
-internal sealed class SpellMaster : AbstractSubclass
+internal sealed class WizardSpellMaster : AbstractSubclass
 {
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
-    internal SpellMaster()
+    internal WizardSpellMaster()
     {
         var prepared = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellMasterPrepared", DefinitionBuilder.CENamespaceGuid)
@@ -42,7 +42,7 @@ internal sealed class SpellMaster : AbstractSubclass
             .AddToDB();
 
         var bonusCantrips = FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolTraditionSpellMasterBonusCantrips", DefinitionBuilder.CENamespaceGuid)
+            .Create("PointPoolSpellMasterBonusCantrips", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
             .OnlyUniqueChoices()
@@ -87,8 +87,8 @@ internal sealed class SpellMaster : AbstractSubclass
 
         // Make Spell Master subclass
         var spellMaster = CharacterSubclassDefinitionBuilder
-            .Create("SpellMaster", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("TraditionSpellMaster", Category.Subclass,
+            .Create("WizardSpellMaster", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass,
                 DomainInsight.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(prepared, 2)
             .AddFeatureAtLevel(extraKnown, 2)
@@ -100,7 +100,7 @@ internal sealed class SpellMaster : AbstractSubclass
             .AddToDB();
 
         RestActivityDefinitionBuilder
-            .Create("ArcaneDepth", DefinitionBuilder.CENamespaceGuid)
+            .Create("SpellMasterArcaneDepth", DefinitionBuilder.CENamespaceGuid)
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name)

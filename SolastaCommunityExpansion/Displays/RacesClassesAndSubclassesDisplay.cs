@@ -38,7 +38,7 @@ internal static class RacesClassesAndSubclassesDisplay
                 ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster = toggle;
-            SpellMaster.UpdateBonusRecovery();
+            WizardSpellMaster.UpdateBonusRecovery();
         }
 
         UI.Label("");
