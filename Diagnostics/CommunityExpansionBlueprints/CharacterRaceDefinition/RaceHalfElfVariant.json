@@ -35,9 +35,9 @@
     }
   ],
   "subRaces": [
-    "Definition:RaceHalfElfDarkElf:210f46be-9314-52a0-b8a2-e53fd73f9696",
-    "Definition:RaceHalfElfHighElf:39192023-5cb2-57f3-87fa-b1ed777b6647",
-    "Definition:RaceHalfElfSylvanElf:9ba7fc63-69d4-5468-80c5-15d829d61794"
+    "Definition:RaceHalfElfDark:c1b0effd-683a-5a5b-a088-d7bcb4e5adfa",
+    "Definition:RaceHalfElfHigh:3c9b6628-be66-5f1a-bb4d-fba8560e8fe3",
+    "Definition:RaceHalfElfSylvan:e0236015-e2fc-585d-a1b9-6db5ee88c3c8"
   ],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [

@@ -55,8 +55,8 @@ internal static class DarkelfSubraceBuilder
         var darkelfConditionLightSensitive = ConditionDefinitionBuilder
             .Create("ConditionDarkelfLightSensitive", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(
-                "Feature/&LightAffinityDarkelfLightSensitivityTitle",
-                "Feature/&LightAffinityDarkelfLightSensitivityDescription",
+                "LightAffinityDarkelfLightSensitivity",
+                Category.Feature,
                 ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive(true)

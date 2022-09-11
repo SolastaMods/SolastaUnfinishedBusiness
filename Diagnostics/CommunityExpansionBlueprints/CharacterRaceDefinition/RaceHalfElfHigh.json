@@ -6,17 +6,28 @@
   "minimalAge": 0,
   "maximalAge": 0,
   "baseHeight": 63,
-  "baseWeight": 100,
+  "baseWeight": 90,
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
+      "featureDefinition": "Definition:CastSpellElfHigh:af29de11ba0046743bc46559b557e32a",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
       "level": 1
     }
   ],
   "subRaces": [],
   "inventoryDefinition": null,
-  "personalityFlagOccurences": [],
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 2,
+      "personalityFlag": "GpSpellcaster"
+    }
+  ],
   "languageAutolearnPreference": [],
   "audioSwitches": [],
   "audioRaceRTPCValue": 3.0,
@@ -27,42 +38,56 @@
     "helmetAssetPrefix": "",
     "morphotypeAssetPrefix": "",
     "maleNameOptions": [
-      "Race/&SylvanElfMaleName1Title",
-      "Race/&SylvanElfMaleName2Title",
-      "Race/&SylvanElfMaleName3Title",
-      "Race/&SylvanElfMaleName4Title",
-      "Race/&SylvanElfMaleName5Title",
-      "Race/&SylvanElfMaleName6Title",
-      "Race/&SylvanElfMaleName7Title",
-      "Race/&SylvanElfMaleName8Title",
-      "Race/&SylvanElfMaleName9Title",
-      "Race/&SylvanElfMaleName10Title"
+      "Race/&ElfMaleName1Title",
+      "Race/&ElfMaleName2Title",
+      "Race/&ElfMaleName3Title",
+      "Race/&ElfMaleName4Title",
+      "Race/&ElfMaleName5Title",
+      "Race/&ElfMaleName6Title",
+      "Race/&ElfMaleName7Title",
+      "Race/&ElfMaleName8Title",
+      "Race/&ElfMaleName9Title",
+      "Race/&ElfMaleName10Title",
+      "Race/&ElfMaleName11Title",
+      "Race/&ElfMaleName12Title",
+      "Race/&ElfMaleName13Title"
     ],
     "femaleNameOptions": [
-      "Race/&SylvanElfFemaleName1Title",
-      "Race/&SylvanElfFemaleName2Title",
-      "Race/&SylvanElfFemaleName3Title",
-      "Race/&SylvanElfFemaleName4Title",
-      "Race/&SylvanElfFemaleName5Title",
-      "Race/&SylvanElfFemaleName6Title",
-      "Race/&SylvanElfFemaleName7Title",
-      "Race/&SylvanElfFemaleName8Title",
-      "Race/&SylvanElfFemaleName9Title",
-      "Race/&SylvanElfFemaleName10Title"
+      "Race/&ElfFemaleName1Title",
+      "Race/&ElfFemaleName2Title",
+      "Race/&ElfFemaleName3Title",
+      "Race/&ElfFemaleName4Title",
+      "Race/&ElfFemaleName5Title",
+      "Race/&ElfFemaleName6Title",
+      "Race/&ElfFemaleName7Title",
+      "Race/&ElfFemaleName8Title",
+      "Race/&ElfFemaleName9Title",
+      "Race/&ElfFemaleName10Title",
+      "Race/&ElfFemaleName11Title",
+      "Race/&ElfFemaleName12Title",
+      "Race/&ElfFemaleName13Title",
+      "Race/&ElfFemaleName14Title"
     ],
     "hasSurName": true,
     "surNameTitle": "Race/&ElfSurNameTitle",
     "surNameOptions": [
-      "Race/&SylvanElfSurName1Title",
-      "Race/&SylvanElfSurName2Title",
-      "Race/&SylvanElfSurName3Title",
-      "Race/&SylvanElfSurName4Title",
-      "Race/&SylvanElfSurName5Title",
-      "Race/&SylvanElfSurName6Title",
-      "Race/&SylvanElfSurName7Title",
-      "Race/&SylvanElfSurName8Title",
-      "Race/&SylvanElfSurName9Title",
-      "Race/&SylvanElfSurName10Title"
+      "Race/&ElfSurName1Title",
+      "Race/&ElfSurName2Title",
+      "Race/&ElfSurName3Title",
+      "Race/&ElfSurName4Title",
+      "Race/&ElfSurName5Title",
+      "Race/&ElfSurName6Title",
+      "Race/&ElfSurName7Title",
+      "Race/&ElfSurName8Title",
+      "Race/&ElfSurName9Title",
+      "Race/&ElfSurName10Title",
+      "Race/&ElfSurName11Title",
+      "Race/&ElfSurName12Title",
+      "Race/&ElfSurName13Title",
+      "Race/&ElfSurName14Title",
+      "Race/&ElfSurName15Title",
+      "Race/&ElfSurName16Title",
+      "Race/&ElfSurName17Title"
     ],
     "availableMorphotypeCategories": [
       "FaceShape",
@@ -117,11 +142,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&RaceHalfElfSylvanElfTitle",
-    "description": "Race/&RaceHalfElfSylvanElfDescription",
+    "title": "Race/&RaceHalfElfHighTitle",
+    "description": "Race/&RaceHalfElfHighDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "21efaa1da5a15b538a50a8d66a88dd66",
+      "m_AssetGUID": "52168f8215fb561db1a83cced5250c1d",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -138,7 +163,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9ba7fc63-69d4-5468-80c5-15d829d61794",
+  "guid": "3c9b6628-be66-5f1a-bb4d-fba8560e8fe3",
   "contentPack": 9999,
-  "name": "RaceHalfElfSylvanElf"
+  "name": "RaceHalfElfHigh"
 }

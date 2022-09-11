@@ -241,8 +241,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&RaceHalfElfDarkElfTitle",
-    "description": "Race/&RaceHalfElfDarkElfDescription",
+    "title": "Race/&RaceHalfElfDarkTitle",
+    "description": "Race/&RaceHalfElfDarkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e4f5dcde84f2559c812170d55fe6658c",
@@ -262,7 +262,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "210f46be-9314-52a0-b8a2-e53fd73f9696",
+  "guid": "c1b0effd-683a-5a5b-a088-d7bcb4e5adfa",
   "contentPack": 9999,
-  "name": "RaceHalfElfDarkElf"
+  "name": "RaceHalfElfDark"
 }

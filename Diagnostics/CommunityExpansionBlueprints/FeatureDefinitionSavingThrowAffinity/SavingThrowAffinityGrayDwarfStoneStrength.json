@@ -1,25 +1,30 @@
 {
-  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
-  "useControllerAbilityChecks": false,
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
   "affinityGroups": [
     {
-      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Strength",
-      "proficiencyName": "",
       "affinity": "Advantage",
-      "abilityCheckGroupOperation": "AddDie",
-      "abilityCheckModifierDiceNumber": 0,
-      "abilityCheckModifierDieType": "D1",
-      "abilityCheckContext": "None",
-      "lightingContext": "Irrelevant"
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": 5
     }
   ],
-  "substractBardicDieRoll": false,
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
@@ -41,7 +46,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ff2b6c7c-d7c8-5d73-9ec2-322f8a1da218",
+  "guid": "a05ffebc-50da-5db7-a48c-e789b7d2216c",
   "contentPack": 9999,
-  "name": "AbilityCheckAffinityConditionStoneStrength"
+  "name": "SavingThrowAffinityGrayDwarfStoneStrength"
 }

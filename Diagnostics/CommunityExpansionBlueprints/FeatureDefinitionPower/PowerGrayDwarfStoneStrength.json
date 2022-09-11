@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionStoneStrength:06dbc72f-7c59-52e9-a6e5-ac84ce8f376a",
+          "conditionDefinition": "Definition:ConditionGrayDwarfStoneStrength:589ea78b-5040-5d01-9537-dbe11d38c032",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

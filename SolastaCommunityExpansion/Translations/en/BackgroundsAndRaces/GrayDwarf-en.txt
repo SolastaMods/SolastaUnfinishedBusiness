@@ -1,5 +1,5 @@
-Condition/&ConditionStoneStrengthDescription=Advantage on Strength checks and saving throws. +1d4 damage with melee Strength weapons
-Condition/&ConditionStoneStrengthTitle=Stone Strength
+Condition/&ConditionGrayDwarfStoneStrengthDescription=Advantage on Strength checks and saving throws. +1d4 damage with melee Strength weapons
+Condition/&ConditionGrayDwarfStoneStrengthTitle=Stone Strength
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityDescription=You have Disadvantage on Perception.
 Feature/&AbilityCheckAffinityGrayDwarfLightSensitivityTitle=Disadvantage on Perception
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Strength +1
