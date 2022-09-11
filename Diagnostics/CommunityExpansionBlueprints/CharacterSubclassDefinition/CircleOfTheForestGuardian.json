@@ -3,37 +3,37 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolDruidForestGuardianBarkWard:10a26f6a-ad9c-57a9-b0c4-22951b72eaf0",
+      "featureDefinition": "Definition:PowerSharedPoolForestGuardianBarkWard:9e840509-63ba-5093-863a-aacb24745e79",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsDruidForestGuardian:082d261a-96f7-5328-b0af-35d17f662c82",
+      "featureDefinition": "Definition:AutoPreparedSpellsForestGuardian:dc9a52ce-f76b-5ac2-859f-d39aafcfd16d",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDruidForestGuardianSylvanDurability:f0c89214-c1d9-5cf0-94c3-d607655b17eb",
+      "featureDefinition": "Definition:AttributeModifierForestGuardianSylvanDurability:8f809572-05d0-5741-b97a-c1d4a99752f8",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityDruidForestGuardianSylvanWarMagic:ee9bedd1-5a5a-52d7-9688-cfcb93d7c7e8",
+      "featureDefinition": "Definition:MagicAffinityForestGuardianSylvanWarMagic:aa00c456-ff64-52e6-9d9d-9c09598fbe73",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDruidForestGuardianExtraAttack:36cb3e7a-949d-5897-ae5f-5c1d9d14c398",
+      "featureDefinition": "Definition:AttributeModifierForestGuardianExtraAttack:77a66560-9bb9-5ef6-9071-1dcd2d8cbf4c",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolDruidForestGuardianImprovedBarkWard:99aa6ba3-fd2c-55c1-b828-982273225b2c",
+      "featureDefinition": "Definition:PowerSharedPoolForestGuardianImprovedBarkWard:1e5f493c-3342-55c4-bed6-85423d8a53e0",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolDruidForestGuardianSuperiorBarkWard:30685d95-28b8-53a8-a647-82d69a54965c",
+      "featureDefinition": "Definition:PowerSharedPoolForestGuardianSuperiorBarkWard:2d08f18e-8164-522e-8748-8033e9a1bad1",
       "level": 14
     }
   ],
@@ -42,8 +42,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&DruidForestGuardianTitle",
-    "description": "Subclass/&DruidForestGuardianDescription",
+    "title": "Subclass/&CircleOfTheForestGuardianTitle",
+    "description": "Subclass/&CircleOfTheForestGuardianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "66614872ccbd31747b1555dcb689b144",
@@ -63,7 +63,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9f9247a4-830b-5369-9a37-4656ee1a12cf",
+  "guid": "37a50cd9-b696-5703-9811-77c74646be62",
   "contentPack": 9999,
-  "name": "DruidForestGuardian"
+  "name": "CircleOfTheForestGuardian"
 }

@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinitySuperiorBarkWardRetaliation:07ab3fe1-e79c-53e6-84a3-c937be4abf13"
+    "Definition:DamageAffinityForestGuardianImprovedBarkWard:f40ab4ec-7b72-5928-a6c2-327e0ec65bef"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -225,8 +225,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionSuperiorBarkWardTitle",
-    "description": "Condition/&ConditionSuperiorBarkWardDescription",
+    "title": "Condition/&ConditionForestGuardianImprovedBarkWardTitle",
+    "description": "Condition/&ConditionForestGuardianImprovedBarkWardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
@@ -246,7 +246,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4f95b0a9-c4cd-502a-b3e2-31db17472702",
+  "guid": "60711996-d1a6-54ba-81cc-68a92f856c2e",
   "contentPack": 9999,
-  "name": "ConditionSuperiorBarkWard"
+  "name": "ConditionForestGuardianImprovedBarkWard"
 }

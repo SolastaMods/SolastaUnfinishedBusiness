@@ -101,8 +101,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBarkWard",
-          "conditionDefinition": "Definition:ConditionBarkWard:3ade78af-7d67-5868-99f2-2c890b242103",
+          "conditionDefinitionName": "ConditionForestGuardianBarkWard",
+          "conditionDefinition": "Definition:ConditionForestGuardianBarkWard:90bd0c90-d42e-585e-b1be-6e909289bb81",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -336,8 +336,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolDruidForestGuardianBarkWardTitle",
-    "description": "Feature/&PowerSharedPoolDruidForestGuardianBarkWardDescription",
+    "title": "Feature/&PowerSharedPoolForestGuardianBarkWardTitle",
+    "description": "Feature/&PowerSharedPoolForestGuardianBarkWardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "957eec7a8104a44469ea221963733af8",
@@ -357,7 +357,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "10a26f6a-ad9c-57a9-b0c4-22951b72eaf0",
+  "guid": "9e840509-63ba-5093-863a-aacb24745e79",
   "contentPack": 9999,
-  "name": "PowerSharedPoolDruidForestGuardianBarkWard"
+  "name": "PowerSharedPoolForestGuardianBarkWard"
 }

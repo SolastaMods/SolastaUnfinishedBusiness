@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "AttacksNumber",
+  "modifiedAttribute": "HitPointBonusPerLevel",
   "modifierOperation": "Additive",
   "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierDruidForestGuardianExtraAttackTitle",
-    "description": "Feature/&AttributeModifierDruidForestGuardianExtraAttackDescription",
+    "title": "Feature/&AttributeModifierForestGuardianSylvanDurabilityTitle",
+    "description": "Feature/&AttributeModifierForestGuardianSylvanDurabilityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "36cb3e7a-949d-5897-ae5f-5c1d9d14c398",
+  "guid": "8f809572-05d0-5741-b97a-c1d4a99752f8",
   "contentPack": 9999,
-  "name": "AttributeModifierDruidForestGuardianExtraAttack"
+  "name": "AttributeModifierForestGuardianSylvanDurability"
 }

@@ -223,8 +223,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionBarkWardTitle",
-    "description": "Condition/&ConditionBarkWardDescription",
+    "title": "Condition/&ConditionForestGuardianBarkWardTitle",
+    "description": "Condition/&ConditionForestGuardianBarkWardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
@@ -244,7 +244,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3ade78af-7d67-5868-99f2-2c890b242103",
+  "guid": "90bd0c90-d42e-585e-b1be-6e909289bb81",
   "contentPack": 9999,
-  "name": "ConditionBarkWard"
+  "name": "ConditionForestGuardianBarkWard"
 }

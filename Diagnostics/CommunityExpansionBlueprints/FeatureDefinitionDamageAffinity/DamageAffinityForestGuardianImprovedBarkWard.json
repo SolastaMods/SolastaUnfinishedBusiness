@@ -14,7 +14,7 @@
   "retaliateWhenHit": true,
   "retaliateProximity": "Melee",
   "retaliateRangeCells": 1,
-  "retaliatePower": "Definition:PowerImprovedBarkWardRetaliate:59dc7d4e-789c-5d38-856b-e1aaa96e5a9b",
+  "retaliatePower": "Definition:PowerForestGuardianImprovedBarkWard:4ec92578-8f49-5440-97d9-9500ee8c892a",
   "retaliateFromSource": false,
   "knockOutAffinity": "None",
   "knockOutOccurencesNumber": 1,
@@ -49,7 +49,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "02c6c875-6c15-59ac-b3a7-74726f10ab1e",
+  "guid": "f40ab4ec-7b72-5928-a6c2-327e0ec65bef",
   "contentPack": 9999,
-  "name": "DamageAffinityImprovedBarkWardRetaliation"
+  "name": "DamageAffinityForestGuardianImprovedBarkWard"
 }
