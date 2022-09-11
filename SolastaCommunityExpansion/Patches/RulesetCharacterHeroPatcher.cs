@@ -162,4 +162,18 @@ internal static class RulesetCharacterHeroPatcher
             tryToEquip = __instance.TryGetHeroBuildingData(out _);
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshArmorClass")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RefreshArmorClass_Patch
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: implements exclusivity for some AC modifiers
+            // Makes sure various unarmored defense features don't stack with themselves and Dragon Resilience
+            // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
+            // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
+            return ArmorClassStacking.UnstackACTranspile(instructions);
+        }
+    }
 }
