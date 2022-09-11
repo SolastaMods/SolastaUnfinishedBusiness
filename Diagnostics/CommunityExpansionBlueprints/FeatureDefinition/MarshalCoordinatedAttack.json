@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FighterMarshalCoordinatedAttackTitle",
-    "description": "Feature/&FighterMarshalCoordinatedAttackDescription",
+    "title": "Feature/&MarshalCoordinatedAttackTitle",
+    "description": "Feature/&MarshalCoordinatedAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "516513ab-f824-50dd-8210-d9c5f5eeb9df",
+  "guid": "47bb75af-aa75-51fa-8f95-e4e3d8cf42df",
   "contentPack": 9999,
-  "name": "CoordinatedAttack"
+  "name": "MarshalCoordinatedAttack"
 }

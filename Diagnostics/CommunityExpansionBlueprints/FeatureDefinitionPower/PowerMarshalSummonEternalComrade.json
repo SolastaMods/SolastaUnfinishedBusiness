@@ -6,7 +6,7 @@
     "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "Position",
     "itemSelectionType": "Equiped",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -16,7 +16,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -29,9 +29,9 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Instantaneous",
-    "durationParameter": 0,
+    "targetSide": "Neutral",
+    "durationType": "Round",
+    "durationParameter": 10,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -60,20 +60,32 @@
     "effectFormFilters": [],
     "effectForms": [
       {
-        "$type": "SolastaCommunityExpansion.Subclasses.Fighter.PowerStudyYourEnemyBuilder+StudyEnemyEffectDescription, SolastaCommunityExpansion",
-        "formType": 9000,
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Summon",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
+        "summonForm": {
+          "$type": "SummonForm, Assembly-CSharp",
+          "summonType": "Creature",
+          "itemDefinition": null,
+          "trackItem": false,
+          "monsterDefinitionName": "MarshalEternalComrade",
+          "number": 1,
+          "conditionDefinition": null,
+          "persistOnConcentrationLoss": false,
+          "decisionPackage": null,
+          "effectProxyDefinitionName": null
+        },
         "hasFilterId": false,
         "filterId": 0
       }
@@ -86,8 +98,8 @@
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
-      "additionalSpellLevelPerIncrement": 0,
-      "additionalSummonsPerIncrement": 0,
+      "additionalSpellLevelPerIncrement": 1,
+      "additionalSummonsPerIncrement": 2,
       "additionalHPPerIncrement": 0,
       "additionalTempHPPerIncrement": 0,
       "additionalTargetCellsPerIncrement": 0,
@@ -96,7 +108,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedParameter": 0.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -104,7 +116,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "88d0b6b1085d81043b2f9a58577da680",
+        "m_AssetGUID": "48a59b8ff63402a4f93138bc14af2203",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -122,7 +134,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "763a4e34178a3224d9af53048f4a3e60",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -283,12 +295,12 @@
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "ShortRest",
-  "costPerUse": 0,
+  "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 2,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -302,12 +314,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FighterMarshalPowerStudyYourEnemyPowerTitle",
-    "description": "Feature/&FighterMarshalPowerStudyYourEnemyPowerDescription",
+    "title": "Feature/&PowerMarshalSummonEternalComradeTitle",
+    "description": "Feature/&PowerMarshalSummonEternalComradeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "68cc6e098b2ce1642b598cc06aeb6532",
-      "m_SubObjectName": "IdentifyCreatures",
+      "m_AssetGUID": "4055bc032261a0c44853f4f483238bd0",
+      "m_SubObjectName": "Bane",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -323,7 +335,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "23cddde7-f6b5-52d7-bace-e5c52ac16930",
+  "guid": "b5571743-26fa-57ea-9b3f-9f3a7d8510d3",
   "contentPack": 9999,
-  "name": "PowerStudyYourEnemy"
+  "name": "PowerMarshalSummonEternalComrade"
 }

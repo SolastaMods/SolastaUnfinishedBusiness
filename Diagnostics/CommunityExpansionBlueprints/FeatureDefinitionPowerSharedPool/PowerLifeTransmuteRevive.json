@@ -320,8 +320,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerLifeTransmutereviveTitle",
-    "description": "Power/&PowerLifeTransmutereviveDescription",
+    "title": "Feature/&PowerLifeTransmutereviveTitle",
+    "description": "Feature/&PowerLifeTransmutereviveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "24436746e9ef52b40ac3fdc3dd866fc7",

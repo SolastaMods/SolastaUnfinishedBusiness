@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionEncouraged",
-          "conditionDefinition": "Definition:ConditionEncouraged:8223d9a2-0929-5ca1-8f08-ff0f65611e5d",
+          "conditionDefinitionName": "ConditionMarshalEncouraged",
+          "conditionDefinition": "Definition:ConditionMarshalEncouraged:d912ad3f-cfe9-5be7-85e5-db5f3baf823b",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -311,8 +311,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FighterMarshalEncouragementPowerTitle",
-    "description": "Feature/&FighterMarshalEncouragementPowerDescription",
+    "title": "Feature/&PowerMarshalEncouragementTitle",
+    "description": "Feature/&PowerMarshalEncouragementDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a09b3bfa05921d743a1bbe2126c87a68",
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ad7e9b2d-7070-59f8-a691-7d70337193c7",
+  "guid": "ab673a53-16f2-54af-9ed2-cb2b5bba27c8",
   "contentPack": 9999,
-  "name": "Encouragement"
+  "name": "PowerMarshalEncouragement"
 }

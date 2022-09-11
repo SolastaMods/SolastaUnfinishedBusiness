@@ -1,7 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b"
+    "Definition:SummoningAffinityMarshalEternalComrade:9b78851e-c577-543a-8492-7d6b32e33384",
+    "Definition:PowerMarshalSummonEternalComrade:b5571743-26fa-57ea-9b3f-9f3a7d8510d3"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -12,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FighterMarshalFeatureSetFearlessCommanderFeatureSetTitle",
-    "description": "Feature/&FighterMarshalFeatureSetFearlessCommanderFeatureSetDescription",
+    "title": "Feature/&FeatureSetMarshalEternalComradeTitle",
+    "description": "Feature/&FeatureSetMarshalEternalComradeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "68a811b2-578b-5d7e-8c55-0c291351af05",
+  "guid": "7ed6481d-16e8-5f69-8f61-653b70028d59",
   "contentPack": 9999,
-  "name": "FeatureSetFearlessCommander"
+  "name": "FeatureSetMarshalEternalComrade"
 }

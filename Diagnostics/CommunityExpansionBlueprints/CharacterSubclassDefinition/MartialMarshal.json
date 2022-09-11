@@ -3,32 +3,32 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CoordinatedAttack:516513ab-f824-50dd-8210-d9c5f5eeb9df",
+      "featureDefinition": "Definition:MarshalCoordinatedAttack:47bb75af-aa75-51fa-8f95-e4e3d8cf42df",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetKnowYourEnemy:78f78a99-dc87-5661-b6b0-5d613cec8f0f",
+      "featureDefinition": "Definition:FeatureSetKnowYourEnemy:c52d713e-75b0-5860-9065-c8538d1723c4",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerStudyYourEnemy:23cddde7-f6b5-52d7-bace-e5c52ac16930",
+      "featureDefinition": "Definition:PowerMarshalStudyYourEnemy:5ffa497a-ec15-5eae-b269-eb730978fa05",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetEternalComrade:00240b11-61cb-5731-9b85-ac95cc9d8a00",
+      "featureDefinition": "Definition:FeatureSetMarshalEternalComrade:7ed6481d-16e8-5f69-8f61-653b70028d59",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:Encouragement:ad7e9b2d-7070-59f8-a691-7d70337193c7",
+      "featureDefinition": "Definition:PowerMarshalEncouragement:ab673a53-16f2-54af-9ed2-cb2b5bba27c8",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetFearlessCommander:68a811b2-578b-5d7e-8c55-0c291351af05",
+      "featureDefinition": "Definition:FeatureSetMarshalFearlessCommander:8a9114a5-dd1d-53d5-ad0d-2c1b293c58da",
       "level": 10
     }
   ],
@@ -58,7 +58,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5e110e59-cabd-5bed-bfa6-c6a8211d158f",
+  "guid": "6336219b-2b0e-5f16-a2c5-afc0117c2fa1",
   "contentPack": 9999,
-  "name": "FighterMarshal"
+  "name": "MartialMarshal"
 }

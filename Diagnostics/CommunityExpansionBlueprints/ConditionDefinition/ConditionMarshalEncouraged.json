@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FighterMarshalEncouragementPowerTitle",
-    "description": "Feature/&FighterMarshalEncouragementPowerDescription",
+    "title": "Feature/&PowerMarshalEncouragementTitle",
+    "description": "Feature/&PowerMarshalEncouragementDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8223d9a2-0929-5ca1-8f08-ff0f65611e5d",
+  "guid": "d912ad3f-cfe9-5be7-85e5-db5f3baf823b",
   "contentPack": 9999,
-  "name": "ConditionEncouraged"
+  "name": "ConditionMarshalEncouraged"
 }
