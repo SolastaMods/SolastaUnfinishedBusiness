@@ -50,7 +50,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableDungeonMakerPro { get; set; } = true;
     public bool EnableMoveSorceryPointsBox { get; set; } = true;
     public bool EnableMultiLinePowerPanel { get; set; } = true;
-    public bool EnableMultiLineSpellPanel { get; set; }
+    public bool EnableMultiLineSpellPanel { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSortingClasses { get; set; } = true;
     public bool EnableSortingDeities { get; set; } = true;

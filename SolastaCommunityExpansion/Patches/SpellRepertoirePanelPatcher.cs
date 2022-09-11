@@ -9,7 +9,8 @@ namespace SolastaCommunityExpansion.Patches;
 
 internal static class SpellRepertoirePanelPatcher
 {
-    //PATCH: allows prepared spell casters to take metamagic feats and have a working UI [otherwise sorcery points get off screen]
+    //PATCH: allows prepared spell casters to take metamagic feats and have a working UI
+    //otherwise sorcery points get off screen
     [HarmonyPatch(typeof(SpellRepertoirePanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class OnBeginShow_Patch
@@ -28,9 +29,8 @@ internal static class SpellRepertoirePanelPatcher
             __instance.RefreshNow();
         }
     }
-
-//TODO: Review this patch once spells UI stabilize in beta
-// filters how spells and slots are displayed on inspection
+    
+    //PATCH: filters how spells and slots are displayed on inspection (Multiclass)
     [HarmonyPatch(typeof(SpellRepertoirePanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
@@ -60,7 +60,8 @@ internal static class SpellRepertoirePanelPatcher
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.levelButtonsTable);
 
-            // patches the panel to display higher level spell slots from shared slots table but hide the spell panels if class level not there yet
+            // patches the panel to display higher level spell slots from shared slots table
+            // but hide the spell panels if class level not there yet
             for (var i = 0; i < __instance.spellsByLevelTable.childCount; i++)
             {
                 var spellsByLevel = __instance.spellsByLevelTable.GetChild(i);
@@ -86,24 +87,16 @@ internal static class SpellRepertoirePanelPatcher
         internal static void Postfix(SpellRepertoirePanel __instance)
         {
             var spellRepertoire = __instance.SpellRepertoire;
+            var classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+            var slotLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
 
-            int classSpellLevel;
-            int slotLevel;
-
-            // determines the display context
-            if (spellRepertoire.SpellCastingRace != null)
-            {
-                classSpellLevel = 0;
-                slotLevel = 0;
-            }
-            else
+            if (spellRepertoire.SpellCastingRace == null)
             {
                 var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
                 var isSharedcaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
 
-                classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
                 slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);
             }
 

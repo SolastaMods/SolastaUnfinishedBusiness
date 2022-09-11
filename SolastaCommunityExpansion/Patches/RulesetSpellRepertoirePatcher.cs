@@ -12,13 +12,6 @@ namespace SolastaCommunityExpansion.Patches;
 
 internal static class RulesetSpellRepertoirePatcher
 {
-    private static bool ShouldNotRun(RulesetSpellRepertoire __instance)
-    {
-        var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
-
-        return heroWithSpellRepertoire == null || SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire);
-    }
-
     //
     // TODO: Check if still need this one...
     //
