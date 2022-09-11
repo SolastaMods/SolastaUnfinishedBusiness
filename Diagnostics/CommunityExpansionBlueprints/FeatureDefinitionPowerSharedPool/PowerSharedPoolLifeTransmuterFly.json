@@ -6,7 +6,7 @@
     "rangeParameter": 2,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 0,
@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionLifeTransmuterConstitution",
-          "conditionDefinition": "Definition:ConditionLifeTransmuterConstitution:eca17e0e-7fa5-57e6-b43d-f756e963ad0d",
+          "conditionDefinitionName": "ConditionFlying12",
+          "conditionDefinition": "Definition:ConditionFlying12:33fb0e0fb4c74604e8fe76b8d3370510",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -311,12 +311,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerTransmuteConstitutionTitle",
-    "description": "Feature/&PowerTransmuteConstitutionDescription",
+    "title": "Feature/&PowerSharedPoolLifeTransmuterFlyTitle",
+    "description": "Feature/&PowerSharedPoolLifeTransmuterFlyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "66e41f30319074746bbc130a7f60de98",
-      "m_SubObjectName": "AuraOfCourage",
+      "m_AssetGUID": "bd509ecf20184584aa866233551cac90",
+      "m_SubObjectName": "Fly",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4e524e95-3d6e-5da7-967d-2e72e0102974",
+  "guid": "c1f82b4d-e301-587e-b1d5-95edb3c6cc9f",
   "contentPack": 9999,
-  "name": "PowerTransmuteConstitution"
+  "name": "PowerSharedPoolLifeTransmuterFly"
 }

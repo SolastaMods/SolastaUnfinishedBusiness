@@ -8,22 +8,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerTransmuteConstitution:4e524e95-3d6e-5da7-967d-2e72e0102974",
+      "featureDefinition": "Definition:PowerLifeTransmuterConstitution:4976fa46-775d-5566-a3cb-3030cba7281b",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerLifeTransmuterPoison:666512c5-681a-5418-8ee7-b0d609e04d1d",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterPoison:0b8aeffb-c8af-5d22-9a53-2b56a680eecd",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerLifeTransmuterDarkvision:b34bbad3-90b7-598a-8cec-3690a193d3d7",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterDarkvision:75523ff0-07a9-5e52-b6a4-d4c7f5881959",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerLifeTransmuterHealingPool:3785c039-ba24-5abe-ab98-8c33b543d853",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterHealingPool:4235f0aa-76f9-5934-a082-e38b2d8f3675",
       "level": 6
     },
     {
@@ -33,17 +33,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerLifeTransmuterFly:e3e2377d-20f4-5732-a2c1-f4f1be21dd4f",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterFly:c1f82b4d-e301-587e-b1d5-95edb3c6cc9f",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerLifeTransmuterHeal:bcb52949-30cd-5132-aadb-124a20695971",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterHeal:0e016afd-9393-56f1-ad81-1c9f99fa14d6",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerLifeTransmuterevive:79c5dc46-2d34-5ff6-8135-aea332c53c7a",
+      "featureDefinition": "Definition:PowerLifeTransmuterRevive:95776641-5345-5a64-bb02-500b6f5f559b",
       "level": 10
     },
     {

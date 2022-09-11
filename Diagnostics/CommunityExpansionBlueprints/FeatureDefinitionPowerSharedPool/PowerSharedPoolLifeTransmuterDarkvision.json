@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionLifeTransmuterPoison",
-          "conditionDefinition": "Definition:ConditionLifeTransmuterPoison:7d602e6a-6bb7-5691-92e1-2c9309ed74cc",
+          "conditionDefinitionName": "ConditionLifeTransmuterDarkvision",
+          "conditionDefinition": "Definition:ConditionLifeTransmuterDarkvision:4296de99-3d8c-5879-bd0b-de43ffca691f",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -311,12 +311,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerLifeTransmuterElementalResistanceTitle",
-    "description": "Feature/&PowerLifeTransmuterElementalResistanceDescription",
+    "title": "Feature/&PowerSharedPoolLifeTransmuterDarkvisionTitle",
+    "description": "Feature/&PowerSharedPoolLifeTransmuterDarkvisionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
-      "m_SubObjectName": "FireBurst",
+      "m_AssetGUID": "e5a2bfebebf72bb48a6206b4fc8aabee",
+      "m_SubObjectName": "DivineWrath",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "666512c5-681a-5418-8ee7-b0d609e04d1d",
+  "guid": "75523ff0-07a9-5e52-b6a4-d4c7f5881959",
   "contentPack": 9999,
-  "name": "PowerLifeTransmuterPoison"
+  "name": "PowerSharedPoolLifeTransmuterDarkvision"
 }

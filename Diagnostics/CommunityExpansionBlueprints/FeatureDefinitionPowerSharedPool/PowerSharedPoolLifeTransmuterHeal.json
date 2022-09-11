@@ -324,8 +324,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerLifeTransmuterHealTitle",
-    "description": "Feature/&PowerLifeTransmuterHealDescription",
+    "title": "Feature/&PowerSharedPoolLifeTransmuterHealTitle",
+    "description": "Feature/&PowerSharedPoolLifeTransmuterHealDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4ddb7825c66c9094db0cbd1598281c1a",
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bcb52949-30cd-5132-aadb-124a20695971",
+  "guid": "0e016afd-9393-56f1-ad81-1c9f99fa14d6",
   "contentPack": 9999,
-  "name": "PowerLifeTransmuterHeal"
+  "name": "PowerSharedPoolLifeTransmuterHeal"
 }

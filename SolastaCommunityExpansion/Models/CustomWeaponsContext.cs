@@ -556,7 +556,7 @@ public static class CustomWeaponsContext
                 damageType: RuleDefinitions.DamageTypeFire)
             .Build());
         flame.staticProperties.Add(BuildFrom(FeatureDefinitionBuilder
-            .Create("CEProducedFlameThrower", DefinitionBuilder.CENamespaceGuid)
+            .Create("ProducedFlameThrower", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetCustomSubFeatures(
                 new ModifyProducedFlameDice(),

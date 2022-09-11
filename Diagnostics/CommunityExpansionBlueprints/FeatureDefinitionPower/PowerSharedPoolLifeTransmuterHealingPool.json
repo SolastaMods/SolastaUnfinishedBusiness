@@ -163,13 +163,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerLifeTransmuterHealingPool:3785c039-ba24-5abe-ab98-8c33b543d853",
+  "overriddenPower": "Definition:PowerSharedPoolLifeTransmuterHealingPool:4235f0aa-76f9-5934-a082-e38b2d8f3675",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerLifeTransmuterHealingPoolTitle",
-    "description": "Feature/&PowerLifeTransmuterHealingPoolDescription",
+    "title": "Feature/&PowerSharedPoolLifeTransmuterHealingPoolTitle",
+    "description": "Feature/&PowerSharedPoolLifeTransmuterHealingPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -189,7 +189,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3785c039-ba24-5abe-ab98-8c33b543d853",
+  "guid": "4235f0aa-76f9-5934-a082-e38b2d8f3675",
   "contentPack": 9999,
-  "name": "PowerLifeTransmuterHealingPool"
+  "name": "PowerSharedPoolLifeTransmuterHealingPool"
 }

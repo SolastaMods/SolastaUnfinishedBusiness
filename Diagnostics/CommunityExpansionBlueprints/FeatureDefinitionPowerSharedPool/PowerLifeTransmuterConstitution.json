@@ -6,7 +6,7 @@
     "rangeParameter": 2,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Individuals",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 0,
@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionFlying12",
-          "conditionDefinition": "Definition:ConditionFlying12:33fb0e0fb4c74604e8fe76b8d3370510",
+          "conditionDefinitionName": "ConditionLifeTransmuterConstitution",
+          "conditionDefinition": "Definition:ConditionLifeTransmuterConstitution:eca17e0e-7fa5-57e6-b43d-f756e963ad0d",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -311,12 +311,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerLifeTransmuterFlyTitle",
-    "description": "Feature/&PowerLifeTransmuterFlyDescription",
+    "title": "Feature/&PowerLifeTransmuterConstitutionTitle",
+    "description": "Feature/&PowerLifeTransmuterConstitutionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bd509ecf20184584aa866233551cac90",
-      "m_SubObjectName": "Fly",
+      "m_AssetGUID": "66e41f30319074746bbc130a7f60de98",
+      "m_SubObjectName": "AuraOfCourage",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e3e2377d-20f4-5732-a2c1-f4f1be21dd4f",
+  "guid": "4976fa46-775d-5566-a3cb-3030cba7281b",
   "contentPack": 9999,
-  "name": "PowerLifeTransmuterFly"
+  "name": "PowerLifeTransmuterConstitution"
 }
