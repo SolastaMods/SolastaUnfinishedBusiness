@@ -481,14 +481,7 @@ internal static class ZappaFeats
             .Create("FeatWiseDefense", DefinitionBuilder.CENamespaceGuid)
             .SetFeatures(
                 AttributeModifierCreed_Of_Maraike,
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefenseAdd",
-                        DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentationNoContent()
-                    .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker)
-                    .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
-                    .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
-                    .AddToDB()
+                AttributeModifierMonkUnarmoredDefense
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .SetGuiPresentation(Category.Feat)

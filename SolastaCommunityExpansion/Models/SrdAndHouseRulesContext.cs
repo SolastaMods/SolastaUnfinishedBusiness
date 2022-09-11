@@ -73,6 +73,8 @@ internal static class SrdAndHouseRulesContext
     {
         DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
             .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
+        DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierMonkUnarmoredDefense
+            .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
         DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierSorcererDraconicResilienceAC
             .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
     }
