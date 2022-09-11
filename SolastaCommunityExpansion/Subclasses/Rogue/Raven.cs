@@ -25,9 +25,15 @@ internal sealed class RoguishRaven : AbstractSubclass
         return CreateRaven();
     }
 
+    private static ConditionDefinition _heartSeekerCondition;
+
+    private static FeatureDefinitionPower _heartSeekerTurnOffPower;
+
+    private static EwFeats.StopPowerConcentrationProvider _heartSeekerStopPowerConcentrationProvider;
+    
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
     {
-        var concentrationProvider = new EwFeats.StopPowerConcentrationProvider("HeartSeekingShot",
+        _heartSeekerStopPowerConcentrationProvider = new EwFeats.StopPowerConcentrationProvider("HeartSeekingShot",
             "Tooltip/&HeartSeekingShotConcentration",
             CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
@@ -41,12 +47,12 @@ internal sealed class RoguishRaven : AbstractSubclass
                 FeatureDefinitionBuilder
                     .Create("HeartSeekingShotTriggerFeature", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(concentrationProvider)
+                    .SetCustomSubFeatures(_heartSeekerStopPowerConcentrationProvider)
                     .AddToDB())
             .AddToDB();
 
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
-        var heartSeekingShotCondition = ConditionDefinitionBuilder
+        _heartSeekerCondition = ConditionDefinitionBuilder
             .Create("ConditionHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(
@@ -114,7 +120,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                         .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Add)
                         .Build(),
                     new EffectFormBuilder()
-                        .SetConditionForm(heartSeekingShotCondition, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(_heartSeekerCondition, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
             .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.HasTwoHandedRangeWeapon))
@@ -122,7 +128,7 @@ internal sealed class RoguishRaven : AbstractSubclass
 
         PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
 
-        var turnOffPower = FeatureDefinitionPowerBuilder
+        _heartSeekerTurnOffPower = FeatureDefinitionPowerBuilder
             .Create("TurnOffHeartSeekingShotPower", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
@@ -138,18 +144,19 @@ internal sealed class RoguishRaven : AbstractSubclass
                         .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
                         .Build(),
                     new EffectFormBuilder()
-                        .SetConditionForm(heartSeekingShotCondition, ConditionForm.ConditionOperation.Remove)
+                        .SetConditionForm(_heartSeekerCondition, ConditionForm.ConditionOperation.Remove)
                         .Build())
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(turnOffPower);
-        concentrationProvider.StopPower = turnOffPower;
+        PowersContext.PowersThatIgnoreInterruptions.Add(_heartSeekerTurnOffPower);
+        _heartSeekerStopPowerConcentrationProvider.StopPower = _heartSeekerTurnOffPower;
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetRoguishRavenHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(turnOnPower, turnOffPower)
+            .AddFeatureSet(turnOnPower, _heartSeekerTurnOffPower)
+            .SetCustomSubFeatures(new RavenExtendCriticalRangeMarker())
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
     }
@@ -214,6 +221,19 @@ internal sealed class RoguishRaven : AbstractSubclass
     // marker to reroll any damage die including sneak attack
     public sealed class RavenRerollAnyDamageDieMarker
     {
+    }
+
+    public sealed class RavenExtendCriticalRangeMarker: IModifyAttackModeForWeapon
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        {
+            // terminate heart seeking strike if equiped non two-handed range-weapon
+            if (CharacterValidators.HasTwoHandedRangeWeapon(character))
+            {
+                return;
+            }
+            _heartSeekerStopPowerConcentrationProvider.Stop(character);
+        }
     }
     
     private sealed class RefreshSneakAttckOnKill: ITargetReducedToZeroHP

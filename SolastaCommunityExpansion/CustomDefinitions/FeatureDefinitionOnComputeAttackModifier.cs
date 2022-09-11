@@ -21,7 +21,7 @@ public sealed class FeatureDefinitionOnComputeAttackModifier : FeatureDefinition
         afterComputeAttackModifier?.Invoke(myself, defender, attackMode, ref attackModifier);
     }
 
-    internal void SetOnRollAttackModeDelegate([CanBeNull] OnComputeAttackModifier del = null)
+    internal void SetOnComputeAttackModifierDelegate([CanBeNull] OnComputeAttackModifier del = null)
     {
         afterComputeAttackModifier = del;
     }

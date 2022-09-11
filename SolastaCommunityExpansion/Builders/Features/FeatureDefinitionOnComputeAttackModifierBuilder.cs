@@ -11,7 +11,7 @@ public class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefinition
     public FeatureDefinitionOnComputeAttackModifierBuilder SetOnComputeAttackModifierDelegate(
         OnComputeAttackModifier del)
     {
-        Definition.SetOnRollAttackModeDelegate(del);
+        Definition.SetOnComputeAttackModifierDelegate(del);
         return this;
     }
 

@@ -205,10 +205,10 @@ internal static class GameLocationCharacterPatcher
         {
             var codes = instructions.ToList();
 
-            //PATCH: SUpport for `IFeatureApplicationValidator`
+            //PATCH: Support for `IFeatureApplicationValidator`
             FeatureApplicationValidation.ValidateActionPerformanceProviders(codes);
 
-            //PATCH: SUpport for `IFeatureApplicationValidator`
+            //PATCH: Support for `IFeatureApplicationValidator`
             FeatureApplicationValidation.ValidateAdditionalActionProviders(codes);
 
             return codes.AsEnumerable();
