@@ -84,7 +84,7 @@ public static class ExtraAttacksOnActionPanel
 
             var component = child.GetComponent<CharacterActionItem>();
             var guiCharacterAction = new CustomGuiCharacterAction(actionId, newItems - i);
-            //guiCharacterAction.Bind(guiCharacter.GameLocationCharacter, panel.ActionScope);
+            guiCharacterAction.Bind(panel, guiCharacter.GameLocationCharacter, panel.ActionScope);
 
             component.name = guiCharacterAction.Name;
             CustomBindItem(component, panel, guiCharacterAction, newItems > 1);
