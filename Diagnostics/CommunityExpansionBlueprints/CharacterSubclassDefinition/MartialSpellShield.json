@@ -3,22 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellSpellShield:c21ae50c-0e59-54f4-b9f2-b4d91e0bbdad",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinitySpellShieldConcentrationAdvantage:61fde703-712e-58c4-af0c-087f96fa07a0",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSpellShieldWarMagic:0226f614-9d9d-56dd-803d-8607fd9aa071",
-      "level": 7
+      "featureDefinition": "Definition:CastSpellSpellShield:c21ae50c-0e59-54f4-b9f2-b4d91e0bbdad",
+      "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ReplaceAttackWithCantripSpellShield:8425b3e4-37ce-553a-8c46-db31230aa21b",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSpellShieldWarMagic:0226f614-9d9d-56dd-803d-8607fd9aa071",
       "level": 7
     },
     {

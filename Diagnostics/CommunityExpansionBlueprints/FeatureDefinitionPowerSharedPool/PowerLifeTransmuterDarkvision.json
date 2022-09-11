@@ -311,8 +311,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerLifeTransmuterDarkvisionTitle",
-    "description": "Power/&PowerLifeTransmuterDarkvisionDescription",
+    "title": "Feature/&PowerLifeTransmuterDarkvisionTitle",
+    "description": "Feature/&PowerLifeTransmuterDarkvisionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e5a2bfebebf72bb48a6206b4fc8aabee",

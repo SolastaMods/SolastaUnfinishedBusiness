@@ -311,8 +311,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerTransmuteConstitutionTitle",
-    "description": "Power/&PowerTransmuteConstitutionDescription",
+    "title": "Feature/&PowerTransmuteConstitutionTitle",
+    "description": "Feature/&PowerTransmuteConstitutionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "66e41f30319074746bbc130a7f60de98",

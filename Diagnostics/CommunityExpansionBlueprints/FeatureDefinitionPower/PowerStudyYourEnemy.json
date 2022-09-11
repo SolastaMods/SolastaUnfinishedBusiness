@@ -302,8 +302,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&FighterMarshalPowerStudyYourEnemyPowerTitle",
-    "description": "Power/&FighterMarshalPowerStudyYourEnemyPowerDescription",
+    "title": "Feature/&FighterMarshalPowerStudyYourEnemyPowerTitle",
+    "description": "Feature/&FighterMarshalPowerStudyYourEnemyPowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "68cc6e098b2ce1642b598cc06aeb6532",

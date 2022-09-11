@@ -311,8 +311,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerHelpTitle",
-    "description": "Power/&PowerHelpDescription",
+    "title": "Feature/&PowerHelpTitle",
+    "description": "Feature/&PowerHelpDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f0b4ad7b83123234f94ca22704c686f6",

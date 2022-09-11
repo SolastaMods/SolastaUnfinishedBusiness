@@ -324,8 +324,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerLifeTransmuterHealTitle",
-    "description": "Power/&PowerLifeTransmuterHealDescription",
+    "title": "Feature/&PowerLifeTransmuterHealTitle",
+    "description": "Feature/&PowerLifeTransmuterHealDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4ddb7825c66c9094db0cbd1598281c1a",

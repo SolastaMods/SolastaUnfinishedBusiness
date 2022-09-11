@@ -18,5 +18,5 @@ Feature/&PowerSharedPoolForestGuardianImprovedBarkWardDescription=Your Bark Ward
 Feature/&PowerSharedPoolForestGuardianImprovedBarkWardTitle=Improved Bark Ward
 Feature/&PowerSharedPoolForestGuardianSuperiorBarkWardDescription=Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active.
 Feature/&PowerSharedPoolForestGuardianSuperiorBarkWardTitle=Superior Bark Ward
-Subclass/&CircleOfTheForestGuardian	Description=Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
-Subclass/&CircleOfTheForestGuardian	Title=Circle of the Forest Guardian
+Subclass/&CircleOfTheForestGuardianDescription=Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
+Subclass/&CircleOfTheForestGuardianTitle=Circle of the Forest Guardian

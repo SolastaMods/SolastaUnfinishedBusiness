@@ -313,8 +313,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerDeadMasterCommandUndeadTitle",
-    "description": "Power/&PowerDeadMasterCommandUndeadDescription",
+    "title": "Feature/&PowerDeadMasterCommandUndeadTitle",
+    "description": "Feature/&PowerDeadMasterCommandUndeadDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
