@@ -137,6 +137,7 @@ All settings start disabled by default. On first start the mod will display an w
 
 [*][b]Arcane Fighter[/b]: Channel your magic into weapon attacks.
 [*][b]Blade Dancer[/b]: In combat, a blade dancer uses a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
+[*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Con Artist[/b]: Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
@@ -144,13 +145,10 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
 [*][b]Master Manipulator[/b]: Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
-[*][b]Path of The Light[/b]: Barbarians who follow the Path of The Light illuminate the darkness and protect their allies from dangers that lurk within it.
-[*][b]Path of The Rage Mage[/b]: Path of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
 [*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Raven[/b]: Range specialists that are trained to take down enemies quickly and effectively.
 [*][b]Spell Master[/b]: Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
-[*][b]Subclass/&CircleOfTheForestGuardianTitle[/b]: Subclass/&CircleOfTheForestGuardianDescription
 [*][b]The Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [/list]
 

@@ -37,8 +37,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&FighterMarshalTitle",
-    "description": "Subclass/&FighterMarshalDescription",
+    "title": "Subclass/&MartialMarshalTitle",
+    "description": "Subclass/&MartialMarshalDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0f2d6e477012b904d99d09f537a30478",

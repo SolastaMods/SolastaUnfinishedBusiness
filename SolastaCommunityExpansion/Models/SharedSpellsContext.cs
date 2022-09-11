@@ -229,7 +229,7 @@ public static class SharedSpellsContext
         // ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);
         SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
         SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
-        SubclassCasterType.Add(PathOfTheRageMageSubclass, CasterType.OneThird);
+        // SubclassCasterType.Add(PathOfTheRageMageSubclass, CasterType.OneThird);
         // RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);
         // RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
         // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
