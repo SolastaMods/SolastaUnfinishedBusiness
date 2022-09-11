@@ -4,13 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
-    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
+    "Definition:SavingThrowAffinityCreedOfArun:b5186e087583fe74e821ba6cb61f89d1"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -131,12 +125,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionPowerTransmutePoisonTitle",
-    "description": "Condition/&ConditionPowerTransmutePoisonDescription",
+    "title": "Condition/&ConditionLifeTransmuterConstitutionTitle",
+    "description": "Condition/&ConditionLifeTransmuterConstitutionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a723156c787808644b470992b3f992df",
-      "m_SubObjectName": "ConditionProtectectedFromEvilGood",
+      "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
+      "m_SubObjectName": "ConditionEnhancedAbility",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -152,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e11fe0f9-da7c-5b7e-aee0-43d52bbf2627",
+  "guid": "eca17e0e-7fa5-57e6-b43d-f756e963ad0d",
   "contentPack": 9999,
-  "name": "ConditionPowerTransmutePoison"
+  "name": "ConditionLifeTransmuterConstitution"
 }

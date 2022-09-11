@@ -4,7 +4,13 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0"
+    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
+    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
+    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
+    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -125,12 +131,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerTransmuteDarkvisionTitle",
-    "description": "Power/&PowerTransmuteDarkvisionDescription",
+    "title": "Condition/&ConditionLifeTransmuterPoisonTitle",
+    "description": "Condition/&ConditionLifeTransmuterPoisonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "da3138226e574a442803ae1229974089",
-      "m_SubObjectName": "ConditionDarkvision",
+      "m_AssetGUID": "a723156c787808644b470992b3f992df",
+      "m_SubObjectName": "ConditionProtectectedFromEvilGood",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -146,7 +152,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f0eeee6a-f34a-5807-af1a-873fdc5bfcdf",
+  "guid": "7d602e6a-6bb7-5691-92e1-2c9309ed74cc",
   "contentPack": 9999,
-  "name": "ConditionPowerTransmuteDarkvision"
+  "name": "ConditionLifeTransmuterPoison"
 }

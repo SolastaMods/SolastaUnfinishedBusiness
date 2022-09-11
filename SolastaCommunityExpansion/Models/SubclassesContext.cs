@@ -49,7 +49,7 @@ internal static class SubclassesContext
         LoadSubclass(new Arcanist());
         LoadSubclass(new CircleOfTheForestGuardian());
         LoadSubclass(new RoguishConArtist());
-        LoadSubclass(new LifeTransmuter());
+        LoadSubclass(new WizardLifeTransmuter());
         LoadSubclass(new Marshal());
         LoadSubclass(new WizardMasterManipulator());
         LoadSubclass(new Opportunist());

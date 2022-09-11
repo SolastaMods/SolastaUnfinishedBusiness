@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPowerPoolModifier, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -148,7 +148,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -163,13 +163,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPoolModifierTransmuterHealingPoolExtra:b2823ad0-c1ea-5db3-9300-309d918ab042",
+  "overriddenPower": "Definition:PowerLifeTransmuterHealingPool:3785c039-ba24-5abe-ab98-8c33b543d853",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPoolModifierTransmuterHealingPoolExtraTitle",
-    "description": "Feature/&PowerPoolModifierTransmuterHealingPoolExtraDescription",
+    "title": "Feature/&PowerLifeTransmuterHealingPoolTitle",
+    "description": "Feature/&PowerLifeTransmuterHealingPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -189,7 +189,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b2823ad0-c1ea-5db3-9300-309d918ab042",
+  "guid": "3785c039-ba24-5abe-ab98-8c33b543d853",
   "contentPack": 9999,
-  "name": "PowerPoolModifierTransmuterHealingPoolExtra"
+  "name": "PowerLifeTransmuterHealingPool"
 }

@@ -13,42 +13,42 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerTransmutePoison:794c2635-5959-5f21-9a9f-1181d5a998b7",
+      "featureDefinition": "Definition:PowerLifeTransmuterPoison:666512c5-681a-5418-8ee7-b0d609e04d1d",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerTransmuteDarkvision:80c01596-b160-5440-810a-05d5c8989f4b",
+      "featureDefinition": "Definition:PowerLifeTransmuterDarkvision:b34bbad3-90b7-598a-8cec-3690a193d3d7",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerTransmuterHealingPool:29a58780-77a8-53f6-9674-05d51cb3b584",
+      "featureDefinition": "Definition:PowerLifeTransmuterHealingPool:3785c039-ba24-5abe-ab98-8c33b543d853",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierTransmuterHealingPoolExtra:b2823ad0-c1ea-5db3-9300-309d918ab042",
+      "featureDefinition": "Definition:PowerPoolModifierLifeTransmuterHealingPoolExtra:f1dea7e1-e5a5-55a9-bcd1-df4872c88f30",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerTransmuteFly:6c0eb70b-ee22-5361-a389-9a6ea1339e17",
+      "featureDefinition": "Definition:PowerLifeTransmuterFly:e3e2377d-20f4-5732-a2c1-f4f1be21dd4f",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerTransmuteHeal:54d40c58-37e5-536e-a20d-413e0e7c4dec",
+      "featureDefinition": "Definition:PowerLifeTransmuterHeal:bcb52949-30cd-5132-aadb-124a20695971",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerTransmuteRevive:d14aa4c9-6269-5c43-a11a-5023df466a6f",
+      "featureDefinition": "Definition:PowerLifeTransmuterevive:79c5dc46-2d34-5ff6-8135-aea332c53c7a",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierTransmuterHealingPoolBonus:5679e82c-6dad-5f6e-aa2a-d38cfde838fe",
+      "featureDefinition": "Definition:PowerPoolModifierLifeTransmuterHealingPoolBonus:b0825910-08bf-55cc-8803-8f73fa88ced7",
       "level": 14
     },
     {
@@ -62,8 +62,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&TraditionLifeTransmuterTitle",
-    "description": "Subclass/&TraditionLifeTransmuterDescription",
+    "title": "Subclass/&WizardLifeTransmuterTitle",
+    "description": "Subclass/&WizardLifeTransmuterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c291e4e1949a73241806e4d7d93d71bb",
@@ -83,7 +83,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2a69d67b-4b79-53f1-8ee6-2a2019d371a0",
+  "guid": "b6710a8a-5cf9-51e2-9fe0-cc7a77c0f174",
   "contentPack": 9999,
-  "name": "LifeTransmuter"
+  "name": "WizardLifeTransmuter"
 }

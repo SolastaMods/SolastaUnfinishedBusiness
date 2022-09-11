@@ -6,7 +6,7 @@
     "rangeParameter": 2,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 0,
@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPowerTransmuteDarkvision",
-          "conditionDefinition": "Definition:ConditionPowerTransmuteDarkvision:f0eeee6a-f34a-5807-af1a-873fdc5bfcdf",
+          "conditionDefinitionName": "ConditionFlying12",
+          "conditionDefinition": "Definition:ConditionFlying12:33fb0e0fb4c74604e8fe76b8d3370510",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -311,12 +311,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&PowerTransmuteDarkvisionTitle",
-    "description": "Power/&PowerTransmuteDarkvisionDescription",
+    "title": "Power/&PowerLifeTransmuterFlyTitle",
+    "description": "Power/&PowerLifeTransmuterFlyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e5a2bfebebf72bb48a6206b4fc8aabee",
-      "m_SubObjectName": "DivineWrath",
+      "m_AssetGUID": "bd509ecf20184584aa866233551cac90",
+      "m_SubObjectName": "Fly",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "80c01596-b160-5440-810a-05d5c8989f4b",
+  "guid": "e3e2377d-20f4-5732-a2c1-f4f1be21dd4f",
   "contentPack": 9999,
-  "name": "PowerTransmuteDarkvision"
+  "name": "PowerLifeTransmuterFly"
 }

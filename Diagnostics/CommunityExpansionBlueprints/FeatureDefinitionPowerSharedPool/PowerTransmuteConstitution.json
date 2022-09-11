@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPowerTransmuteConstitution",
-          "conditionDefinition": "Definition:ConditionPowerTransmuteConstitution:23d76bf4-c86f-579e-936b-61d95a2f6036",
+          "conditionDefinitionName": "ConditionLifeTransmuterConstitution",
+          "conditionDefinition": "Definition:ConditionLifeTransmuterConstitution:eca17e0e-7fa5-57e6-b43d-f756e963ad0d",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SavingThrowAffinityCreedOfArun:b5186e087583fe74e821ba6cb61f89d1"
+    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -125,12 +125,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionPowerTransmuteConstitutionTitle",
-    "description": "Condition/&ConditionPowerTransmuteConstitutionDescription",
+    "title": "Power/&PowerLifeTransmuterDarkvisionTitle",
+    "description": "Power/&PowerLifeTransmuterDarkvisionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
-      "m_SubObjectName": "ConditionEnhancedAbility",
+      "m_AssetGUID": "da3138226e574a442803ae1229974089",
+      "m_SubObjectName": "ConditionDarkvision",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -146,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "23d76bf4-c86f-579e-936b-61d95a2f6036",
+  "guid": "4296de99-3d8c-5879-bd0b-de43ffca691f",
   "contentPack": 9999,
-  "name": "ConditionPowerTransmuteConstitution"
+  "name": "ConditionLifeTransmuterDarkvision"
 }

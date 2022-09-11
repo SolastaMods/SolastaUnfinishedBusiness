@@ -154,7 +154,7 @@
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Intelligence",
-  "fixedUsesPerRecharge": 4,
+  "fixedUsesPerRecharge": 2,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -163,13 +163,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPoolModifierTransmuterHealingPoolBonus:5679e82c-6dad-5f6e-aa2a-d38cfde838fe",
+  "overriddenPower": "Definition:PowerPoolModifierLifeTransmuterHealingPoolExtra:f1dea7e1-e5a5-55a9-bcd1-df4872c88f30",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPoolModifierTransmuterHealingPoolBonusTitle",
-    "description": "Feature/&PowerPoolModifierTransmuterHealingPoolBonusDescription",
+    "title": "Feature/&PowerPoolModifierLifeTransmuterHealingPoolExtraTitle",
+    "description": "Feature/&PowerPoolModifierLifeTransmuterHealingPoolExtraDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -189,7 +189,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5679e82c-6dad-5f6e-aa2a-d38cfde838fe",
+  "guid": "f1dea7e1-e5a5-55a9-bcd1-df4872c88f30",
   "contentPack": 9999,
-  "name": "PowerPoolModifierTransmuterHealingPoolBonus"
+  "name": "PowerPoolModifierLifeTransmuterHealingPoolExtra"
 }

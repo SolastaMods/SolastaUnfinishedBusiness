@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPowerPoolModifier, SolastaCommunityExpansion",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -148,13 +148,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Intelligence",
-  "fixedUsesPerRecharge": 2,
+  "fixedUsesPerRecharge": 4,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -163,13 +163,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerTransmuterHealingPool:29a58780-77a8-53f6-9674-05d51cb3b584",
+  "overriddenPower": "Definition:PowerPoolModifierLifeTransmuterHealingPoolBonus:b0825910-08bf-55cc-8803-8f73fa88ced7",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerTransmuterHealingPoolTitle",
-    "description": "Feature/&PowerTransmuterHealingPoolDescription",
+    "title": "Feature/&PowerPoolModifierLifeTransmuterHealingPoolBonusTitle",
+    "description": "Feature/&PowerPoolModifierLifeTransmuterHealingPoolBonusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -189,7 +189,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "29a58780-77a8-53f6-9674-05d51cb3b584",
+  "guid": "b0825910-08bf-55cc-8803-8f73fa88ced7",
   "contentPack": 9999,
-  "name": "PowerTransmuterHealingPool"
+  "name": "PowerPoolModifierLifeTransmuterHealingPoolBonus"
 }

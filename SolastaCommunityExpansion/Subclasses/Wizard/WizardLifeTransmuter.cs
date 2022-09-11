@@ -6,14 +6,14 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
-internal sealed class LifeTransmuter : AbstractSubclass
+internal sealed class WizardLifeTransmuter : AbstractSubclass
 {
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
-    internal LifeTransmuter()
+    internal WizardLifeTransmuter()
     {
-        var lifeTransmuterAffinity = FeatureDefinitionMagicAffinityBuilder
+        var LifeTransmuterAffinity = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityLifeTransmuterHeightened", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetWarList(2,
@@ -29,7 +29,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
 
         // Add transmuter stone like abilities.
         var transmuteForce = FeatureDefinitionPowerPoolBuilder
-            .Create("PowerTransmuterHealingPool", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerLifeTransmuterHealingPool", DefinitionBuilder.CENamespaceGuid)
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.RechargeRate.LongRest)
             .SetGuiPresentation(Category.Feature)
@@ -37,8 +37,8 @@ internal sealed class LifeTransmuter : AbstractSubclass
 
         // Make a power that grants darkvision
         var superiorDarkvision = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
-                1, "ConditionPowerTransmuteDarkvision", FeatureDefinitionSenses.SenseSuperiorDarkvision)
-            .SetGuiPresentation("PowerTransmuteDarkvision", Category.Power,
+                1, "ConditionLifeTransmuterDarkvision", FeatureDefinitionSenses.SenseSuperiorDarkvision)
+            .SetGuiPresentation("PowerLifeTransmuterDarkvision", Category.Power,
                 ConditionDefinitions.ConditionDarkvision.GuiPresentation.SpriteReference)
             .AddToDB();
 
@@ -48,14 +48,14 @@ internal sealed class LifeTransmuter : AbstractSubclass
                 RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None,
                 RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, superiorDarkvision,
-                "PowerTransmuteDarkvision")
+                "PowerLifeTransmuterDarkvision")
             .SetGuiPresentation(Category.Power,
                 FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var poisonResistance = BuildCondition(
                 RuleDefinitions.DurationType.UntilLongRest,
-                1, "ConditionPowerTransmutePoison",
+                1, "ConditionLifeTransmuterPoison",
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
@@ -74,14 +74,14 @@ internal sealed class LifeTransmuter : AbstractSubclass
                 RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None,
                 RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, poisonResistance,
-                "PowerTransmutePoison")
-            .SetGuiPresentation("PowerTransmuteElementalResistance", Category.Power,
+                "PowerLifeTransmuterPoison")
+            .SetGuiPresentation("PowerLifeTransmuterElementalResistance", Category.Power,
                 FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
             .AddToDB();
 
         // Make a power that gives proficiency to constitution saves
         var constitutionProficiency = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
-                1, "ConditionPowerTransmuteConstitution",
+                1, "ConditionLifeTransmuterConstitution",
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun)
             .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionBearsEndurance.GuiPresentation.SpriteReference)
@@ -99,7 +99,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var transmuteForceExtra = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("PowerPoolModifierTransmuterHealingPoolExtra", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerPoolModifierLifeTransmuterHealingPoolExtra", DefinitionBuilder.CENamespaceGuid)
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)
@@ -110,12 +110,12 @@ internal sealed class LifeTransmuter : AbstractSubclass
                 RuleDefinitions.TargetType.IndividualsUnique, ActionDefinitions.ItemSelectionType.None,
                 RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence,
-                ConditionDefinitions.ConditionFlying12, "PowerTransmuteFly")
+                ConditionDefinitions.ConditionFlying12, "PowerLifeTransmuterFly")
             .SetGuiPresentation(Category.Power, Fly.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var powerHeal = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerTransmuteHeal", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerLifeTransmuterHeal", DefinitionBuilder.CENamespaceGuid)
             .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction,
                 1, false, false, AttributeDefinitions.Intelligence,
@@ -124,7 +124,7 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerRevive = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerTransmuteRevive", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerLifeTransmuterevive", DefinitionBuilder.CENamespaceGuid)
             .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
                 Revivify.EffectDescription, false /* unique instance */)
@@ -132,17 +132,17 @@ internal sealed class LifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("PowerPoolModifierTransmuterHealingPoolBonus", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerPoolModifierLifeTransmuterHealingPoolBonus", DefinitionBuilder.CENamespaceGuid)
             .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("LifeTransmuter", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("TraditionLifeTransmuter", Category.Subclass,
+            .Create("WizardLifeTransmuter", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass,
                 RoguishDarkweaver.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(lifeTransmuterAffinity, 2)
+            .AddFeatureAtLevel(LifeTransmuterAffinity, 2)
             .AddFeatureAtLevel(transmuteForce, 6)
             .AddFeatureAtLevel(powerDarkvision, 6)
             .AddFeatureAtLevel(powerPoison, 6)
