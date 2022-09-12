@@ -87,8 +87,8 @@ internal static class RacesClassesAndSubclassesDisplay
         var sliderPos = Main.Settings.RaceSliderPosition;
         ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Races"),
-            RacesContext.Switch,
-            RacesContext.Races,
+            DisplayRacesContext.Switch,
+            DisplayRacesContext.Races,
             Main.Settings.RaceEnabled,
             ref displayToggle,
             ref sliderPos);
@@ -99,8 +99,8 @@ internal static class RacesClassesAndSubclassesDisplay
         sliderPos = Main.Settings.ClassSliderPosition;
         ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Classes"),
-            ClassesContext.Switch,
-            ClassesContext.Classes,
+            DisplayClassesContext.Switch,
+            DisplayClassesContext.Classes,
             Main.Settings.ClassEnabled,
             ref displayToggle,
             ref sliderPos);

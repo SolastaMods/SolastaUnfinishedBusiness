@@ -14,25 +14,29 @@ public class FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder : FeatureDefi
         return this;
     }
 
-    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder AddRequiredFeatures(params FeatureDefinition[] features)
+    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder AddRequiredFeatures(
+        params FeatureDefinition[] features)
     {
         Definition.requiredFeatures.AddRange(features);
         return this;
     }
 
-    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder AddRequiredFeatures(IEnumerable<FeatureDefinition> features)
+    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder AddRequiredFeatures(
+        IEnumerable<FeatureDefinition> features)
     {
         Definition.requiredFeatures.AddRange(features);
         return this;
     }
 
-    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder AddForbiddenFeatures(params FeatureDefinition[] features)
+    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder AddForbiddenFeatures(
+        params FeatureDefinition[] features)
     {
         Definition.forbiddenFeatures.AddRange(features);
         return this;
     }
 
-    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder AddForbiddenFeatures(IEnumerable<FeatureDefinition> features)
+    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder AddForbiddenFeatures(
+        IEnumerable<FeatureDefinition> features)
     {
         Definition.forbiddenFeatures.AddRange(features);
         return this;
@@ -40,21 +44,25 @@ public class FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder : FeatureDefi
 
     #region Constructors
 
-    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder(string name, Guid namespaceGuid) : base(name,
+        namespaceGuid)
     {
     }
 
-    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder(string name, string definitionGuid) : base(name,
+        definitionGuid)
     {
     }
 
-    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder(FeatureDefinitionIgnoreDynamicVisionImpairment original,
+    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder(
+        FeatureDefinitionIgnoreDynamicVisionImpairment original,
         string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
 
-    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder(FeatureDefinitionIgnoreDynamicVisionImpairment original,
+    public FeatureDefinitionIgnoreDynamicVisionImpairmentBuilder(
+        FeatureDefinitionIgnoreDynamicVisionImpairment original,
         string name,
         string definitionGuid) : base(original, name, definitionGuid)
     {

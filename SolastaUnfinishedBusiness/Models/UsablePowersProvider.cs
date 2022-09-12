@@ -14,6 +14,7 @@ public static class UsablePowersProvider
     public static RulesetUsablePower Get(FeatureDefinitionPower power, [CanBeNull] RulesetCharacter actor = null)
     {
         RulesetUsablePower result = null;
+
         if (actor != null)
         {
             result = actor.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
@@ -49,6 +50,7 @@ public static class UsablePowersProvider
         }
 
         var pool = CustomFeaturesContext.GetPoolPower(usablePower, character);
+
         if (pool == null || pool == usablePower)
         {
             return;
@@ -56,6 +58,7 @@ public static class UsablePowersProvider
 
         var powerCost = usablePower.PowerDefinition.CostPerUse;
         var maxUsesForPool = CustomFeaturesContext.GetMaxUsesForPool(pool, character);
+
         usablePower.maxUses = maxUsesForPool / powerCost;
         usablePower.remainingUses = pool.RemainingUses / powerCost;
     }
@@ -75,11 +78,13 @@ public static class UsablePowersProvider
             case EffectDifficultyClassComputation.SpellCastingFeature:
             {
                 var rulesetSpellRepertoire = (RulesetSpellRepertoire)null;
+
                 foreach (var spellRepertoire in actor.SpellRepertoires)
                 {
                     if (spellRepertoire.SpellCastingClass != null)
                     {
                         rulesetSpellRepertoire = spellRepertoire;
+
                         break;
                     }
 
@@ -89,6 +94,7 @@ public static class UsablePowersProvider
                     }
 
                     rulesetSpellRepertoire = spellRepertoire;
+
                     break;
                 }
 
@@ -102,10 +108,13 @@ public static class UsablePowersProvider
             case EffectDifficultyClassComputation.AbilityScoreAndProficiency:
                 var attributeValue = actor.TryGetAttributeValue(effectDescription.SavingThrowDifficultyAbility);
                 var proficiencyBonus = actor.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
                 usablePower.SaveDC = ComputeAbilityScoreBasedDC(attributeValue, proficiencyBonus);
+
                 break;
             case EffectDifficultyClassComputation.FixedValue:
                 usablePower.SaveDC = effectDescription.FixedSavingThrowDifficultyClass;
+
                 break;
         }
     }

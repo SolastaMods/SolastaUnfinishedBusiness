@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Feats;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class FeatsContext
+internal static class DisplayFeatsContext
 {
     internal static HashSet<FeatDefinition> Feats { get; private set; } = new();
 

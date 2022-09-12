@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class ClassesContext
+internal static class DisplayClassesContext
 {
     internal static HashSet<CharacterClassDefinition> Classes { get; private set; } = new();
 

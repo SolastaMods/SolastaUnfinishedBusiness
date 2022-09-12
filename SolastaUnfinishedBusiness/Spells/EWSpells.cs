@@ -11,7 +11,7 @@ using SolastaUnfinishedBusiness.Utils;
 using UnityEngine;
 using static ConditionOperationDescription;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
-using static SolastaUnfinishedBusiness.Models.SpellsContext;
+using static SolastaUnfinishedBusiness.Models.DisplaySpellsContext;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Spells;

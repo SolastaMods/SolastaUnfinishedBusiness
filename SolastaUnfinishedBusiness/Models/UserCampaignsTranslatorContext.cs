@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal sealed class UserCampaignsTranslatorContext : MonoBehaviour
 {
-    internal const string Ce2TranslationTag = "CE2 auto translation\n";
+    internal const string TranslationTag = "AUTO TRANSLATED\n";
 
     private static UserCampaignsTranslatorContext _exporter;
 
@@ -45,7 +45,9 @@ internal sealed class UserCampaignsTranslatorContext : MonoBehaviour
         CurrentExports.Remove(exportName);
     }
 
-    internal static void TranslateUserCampaign(string languageCode, [NotNull] string exportName,
+    internal static void TranslateUserCampaign(
+        string languageCode,
+        [NotNull] string exportName,
         [NotNull] UserCampaign userCampaign)
     {
         var newUserCampaign = userCampaign.DeepCopy();
@@ -57,7 +59,8 @@ internal sealed class UserCampaignsTranslatorContext : MonoBehaviour
 
         var coroutine = TranslateUserCampaignRoutine(languageCode, exportName, newUserCampaign);
 
-        CurrentExports.Add(exportName,
+        CurrentExports.Add(
+            exportName,
             new ExportStatus
             {
                 Coroutine = Exporter.StartCoroutine(coroutine), PercentageComplete = 0f, LanguageCode = languageCode
@@ -97,8 +100,8 @@ internal sealed class UserCampaignsTranslatorContext : MonoBehaviour
         }
 
         userCampaign.Description = Translations.Translate(userCampaign.Description, languageCode);
-        userCampaign.TechnicalInfo = Ce2TranslationTag
-                                     + Translations.Translate(userCampaign.TechnicalInfo, languageCode);
+        userCampaign.TechnicalInfo =
+            TranslationTag + Translations.Translate(userCampaign.TechnicalInfo, languageCode);
 
         // USER DIALOGS
         foreach (var dialog in userCampaign.UserDialogs)

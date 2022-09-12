@@ -53,9 +53,15 @@ public static class ExtraAttacksOnActionPanel
         if (!multiple)
         {
             if (panel.guiActionsById.TryGetValue(actionId, out var actionsList))
+            {
                 actionsList.Clear();
+            }
+
             if (!panel.guiActionById.ContainsKey(actionId))
+            {
                 panel.guiActionById.Add(actionId, new GuiCharacterAction(actionId));
+            }
+
             return 1;
         }
 
@@ -105,10 +111,7 @@ public static class ExtraAttacksOnActionPanel
                 continue;
             }
 
-            var guiCharacterAction = new GuiCharacterAction(actionId)
-            {
-                ForcedAttackMode = attackMode
-            };
+            var guiCharacterAction = new GuiCharacterAction(actionId) { ForcedAttackMode = attackMode };
             actions.Add(guiCharacterAction);
         }
 

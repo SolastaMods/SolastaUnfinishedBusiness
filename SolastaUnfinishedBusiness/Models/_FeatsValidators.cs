@@ -26,7 +26,7 @@ internal static class FeatsValidators
             ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", param))
             : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), "EA7171"));
     }
-    
+
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(
         int minCharLevel)

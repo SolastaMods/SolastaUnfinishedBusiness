@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.Races;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class RacesContext
+internal static class DisplayRacesContext
 {
     internal static Dictionary<CharacterRaceDefinition, float> RaceScaleMap { get; } = new();
 
