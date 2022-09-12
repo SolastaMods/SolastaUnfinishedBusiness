@@ -21,7 +21,7 @@ internal static class RulesetItemPatcher
             CustomWeaponsContext.AddCustomTags(item, tagsMap);
 
             //PATCH: adds `Unfinished Business` tag to all CE items 
-            CeContentPackContext.AddCETag(item, tagsMap);
+            CeContentPackContext.AddCeTag(item, tagsMap);
         }
     }
 }

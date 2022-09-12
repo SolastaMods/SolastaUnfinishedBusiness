@@ -157,7 +157,7 @@ public static class Translations
     internal static void Load()
     {
         var languageCode = !BootContext.SupportedLanguages.Contains(LocalizationManager.CurrentLanguageCode)
-            ? Translations.English
+            ? English
             : LocalizationManager.CurrentLanguageCode;
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);

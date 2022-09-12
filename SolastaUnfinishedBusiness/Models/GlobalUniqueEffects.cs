@@ -116,9 +116,9 @@ public static class GlobalUniqueEffects
         {
             allSubPowers.Add(power);
 
-            var bundles = PowerBundleContext.GetMasterPowersBySubPower(power);
+            var bundles = PowersBundleContext.GetMasterPowersBySubPower(power);
 
-            foreach (var subPower in bundles.Select(PowerBundleContext.GetBundle).Where(bundle => bundle.TerminateAll)
+            foreach (var subPower in bundles.Select(PowersBundleContext.GetBundle).Where(bundle => bundle.TerminateAll)
                          .SelectMany(bundle => bundle.SubPowers))
             {
                 allSubPowers.Add(subPower);

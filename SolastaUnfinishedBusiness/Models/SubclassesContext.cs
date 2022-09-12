@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Subclasses;
-// using SolastaUnfinishedBusiness.Subclasses.Barbarian;
 using SolastaUnfinishedBusiness.Subclasses.Druid;
 using SolastaUnfinishedBusiness.Subclasses.Fighter;
 using SolastaUnfinishedBusiness.Subclasses.Ranger;
 using SolastaUnfinishedBusiness.Subclasses.Rogue;
 using SolastaUnfinishedBusiness.Subclasses.Sorcerer;
 using SolastaUnfinishedBusiness.Subclasses.Wizard;
+// using SolastaUnfinishedBusiness.Subclasses.Barbarian;
 
 namespace SolastaUnfinishedBusiness.Models;
 

@@ -17,7 +17,7 @@ internal static class UsablePowerBoxPatcher
             //if the activated power is a bundle, this tries to replace activation with sub-spell selector and
             //then activates bundled power according to selected subspell.
             //returns false and skips base method if it does
-            return PowerBundleContext.PowerBoxActivated(__instance);
+            return PowersBundleContext.PowerBoxActivated(__instance);
         }
     }
 

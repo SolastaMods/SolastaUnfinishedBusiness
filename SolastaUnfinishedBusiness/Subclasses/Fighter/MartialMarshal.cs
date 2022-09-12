@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -235,7 +234,8 @@ internal static class MarshalCoordinatedAttackBuilder
                 continue;
             }
 
-            if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType("17TagConjure", RuleDefinitions.ConditionConjuredCreature,
+            if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType("17TagConjure",
+                    RuleDefinitions.ConditionConjuredCreature,
                     out var activeCondition)
                 || activeCondition.SourceGuid != attacker.Guid)
             {

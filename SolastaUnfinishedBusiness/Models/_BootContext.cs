@@ -3,7 +3,6 @@ using System.IO;
 using System.IO.Compression;
 using System.Net;
 using System.Text;
-using I2.Loc;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -57,7 +56,7 @@ internal static class BootContext
         ItemCraftingContext.Load();
         Level20Context.Load();
         PickPocketContext.Load();
-        PowerBundleContext.Load();
+        PowersBundleContext.Load();
         RemoveBugVisualModelsContext.Load();
         RespecContext.Load();
         ShieldStrikeContext.Load();
@@ -105,7 +104,7 @@ internal static class BootContext
             IntegrationContext.LateLoad();
 
             // Divine Smite fixes
-            HouseFeatureContext.LateLoad();
+            SrdAndHouseRulesContext.LateLoad();
 
             // Level 20
             Level20Context.LateLoad();

@@ -37,7 +37,7 @@ internal static class GuiCharacterPatcher
             }
         }
     }
-    
+
     //PATCH: EnableEnhancedCharacterInspection
     [HarmonyPatch(typeof(GuiCharacter), "MainClassDefinition", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -148,7 +148,7 @@ internal static class GuiCharacterPatcher
                 return;
             }
 
-            var dirty = __instance.UpdateHealthStatus();
+            var dirty = __instance.HasHealthUpdated();
 
             // capture current state of dirty flag for use in Postfix
             __state = __instance.healthGaugeDirty || dirty;
@@ -173,7 +173,7 @@ internal static class GuiCharacterPatcher
 
             var ratio = Mathf.Clamp(__instance.CurrentHitPoints / (float)__instance.HitPoints, 0.0f, 1f);
 
-            ratio = HideMonsterHitPointsContext.GetSteppedHealthRatio(ratio);
+            ratio = GameUiContext.GetSteppedHealthRatio(ratio);
 
             healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x,
                 (float)(-parentHeight * (1.0 - ratio)));
@@ -199,7 +199,7 @@ internal static class GuiCharacterPatcher
                 return;
             }
 
-            var dirty = __instance.UpdateHealthStatus();
+            var dirty = __instance.HasHealthUpdated();
 
             // capture current state of dirty flag for use in Postfix
             __state = __instance.healthLabelDirty || dirty;

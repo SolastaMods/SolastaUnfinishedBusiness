@@ -10,9 +10,9 @@ using SolastaUnfinishedBusiness.Builders;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class PowerBundleContext
+public static class PowersBundleContext
 {
-    internal const string UseCustomRestPowerFunctorName = "UseCustomRestPower";
+    private const string UseCustomRestPowerFunctorName = "UseCustomRestPower";
     private static readonly Guid GuidNamespace = new("d99cec61-31b8-42a3-a5d6-082369fadaaf");
 
     private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = new();
@@ -322,7 +322,7 @@ internal sealed class FunctorUseCustomRestPower : Functor
     {
         var functor = this;
         var powerName = functorParameters.StringParameter;
-        var power = PowerBundleContext.GetPower(powerName);
+        var power = PowersBundleContext.GetPower(powerName);
 
         if (power == null && !DatabaseHelper.TryGetDefinition(powerName, null, out power))
         {

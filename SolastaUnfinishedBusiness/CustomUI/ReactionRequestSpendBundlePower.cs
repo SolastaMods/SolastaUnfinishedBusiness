@@ -75,7 +75,7 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
                 continue;
             }
 
-            reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundleContext.GetSpell(p));
+            reactionParams.SpellRepertoire.KnownSpells.Add(PowersBundleContext.GetSpell(p));
             SubOptionsAvailability.Add(i, true);
 
             if (!selected)
@@ -122,7 +122,7 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
             .AllActionDefinitions[ActionDefinitions.Id.SpendPower];
 
         var spell = ReactionParams.SpellRepertoire.KnownSpells[option];
-        var power = PowerBundleContext.GetPower(spell);
+        var power = PowersBundleContext.GetPower(spell);
 
         var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
         var rulesetCharacter = actingCharacter.RulesetCharacter;

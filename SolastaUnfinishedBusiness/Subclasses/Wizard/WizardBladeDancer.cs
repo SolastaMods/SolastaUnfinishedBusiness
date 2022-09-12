@@ -105,7 +105,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .AddToDB();
 
         ConditionBladeDancerDanceOfDefense = ConditionDefinitionBuilder
-            .Create(ConditionBladeDancerBladeDance, "ConditionBladeDancerDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionBladeDancerBladeDance, "ConditionBladeDancerDanceOfDefense",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
@@ -137,7 +138,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .AddToDB();
 
         ConditionBladeDancerDanceOfVictory = ConditionDefinitionBuilder
-            .Create(ConditionBladeDancerDanceOfDefense, "ConditionBladeDancerDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionBladeDancerDanceOfDefense, "ConditionBladeDancerDanceOfVictory",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(

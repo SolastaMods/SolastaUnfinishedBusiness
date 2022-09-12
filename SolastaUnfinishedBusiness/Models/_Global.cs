@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -26,16 +24,13 @@ public static class Global
     [CanBeNull] public static RulesetCharacterHero InspectedHero { get; set; }
 
     // holds the active player character
-    public static GameLocationCharacter ActivePlayerCharacter { get; set; }
+    public static GameLocationCharacter ActivePlayerCharacter { get; private set; }
 
     // holds the current action from any character on the map
     public static CharacterAction CurrentAction { get; private set; }
 
     // holds the the casted spell
     public static SpellDefinition CastedSpell { get; private set; }
-
-    // holds the the casting repertoire
-    public static RulesetSpellRepertoire CastedSpellRepertoire { get; private set; }
 
     // last attack was a critical hit
     public static bool CriticalHit { get; set; }
@@ -65,7 +60,6 @@ public static class Global
     {
         CurrentAction = characterAction;
         ActivePlayerCharacter = characterAction.ActingCharacter;
-        CastedSpellRepertoire = null;
         CastedSpell = null;
         /* Deprecating Magus-related flags
         IsSpellStrike = false;
@@ -76,52 +70,51 @@ public static class Global
         switch (characterAction)
         {
             case CharacterActionCastSpell actionCastSpell:
-                CastedSpellRepertoire = actionCastSpell.ActiveSpell.SpellRepertoire;
                 CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
                 break;
             case CharacterActionReady actionReady:
                 CustomReactionsContext.ReadReadyActionPreferredCantrip(actionReady.actionParams);
                 break;
             case CharacterActionSpendPower spendPower:
-                PowerBundleContext.SpendBundledPowerIfNeeded(spendPower);
+                PowersBundleContext.SpendBundledPowerIfNeeded(spendPower);
                 break;
         }
     }
 
-    public static bool ActiveLevelUpHeroHasCantrip(SpellDefinition spellDefinition)
-    {
-        var hero = ActiveLevelUpHero;
-
-        if (hero == null)
-        {
-            return true;
-        }
-
-        return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition))
-               || hero.GetHeroBuildingData().AcquiredCantrips.Any(e => e.Value.Contains(spellDefinition));
-    }
-
-    public static bool ActiveLevelUpHeroHasSubclass(string subclass)
-    {
-        var hero = ActiveLevelUpHero;
-
-        return hero == null || hero.ClassesAndSubclasses.Any(e => e.Value.Name == subclass);
-    }
-
-    public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature, bool recursive = true)
-    {
-        var hero = ActiveLevelUpHero;
-
-        if (feature is FeatureDefinitionFeatureSet set)
-        {
-            return hero != null && hero.HasAllFeatures(set.FeatureSet);
-        }
-
-        return hero == null || recursive
-            ? hero.HasAnyFeature(feature)
-            : hero.ActiveFeatures
-                  .SelectMany(x => x.Value)
-                  .Any(x => x == feature)
-              || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
-    }
+    // public static bool ActiveLevelUpHeroHasCantrip(SpellDefinition spellDefinition)
+    // {
+    //     var hero = ActiveLevelUpHero;
+    //
+    //     if (hero == null)
+    //     {
+    //         return true;
+    //     }
+    //
+    //     return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition))
+    //            || hero.GetHeroBuildingData().AcquiredCantrips.Any(e => e.Value.Contains(spellDefinition));
+    // }
+    //
+    // public static bool ActiveLevelUpHeroHasSubclass(string subclass)
+    // {
+    //     var hero = ActiveLevelUpHero;
+    //
+    //     return hero == null || hero.ClassesAndSubclasses.Any(e => e.Value.Name == subclass);
+    // }
+    //
+    // public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature, bool recursive = true)
+    // {
+    //     var hero = ActiveLevelUpHero;
+    //
+    //     if (feature is FeatureDefinitionFeatureSet set)
+    //     {
+    //         return hero != null && hero.HasAllFeatures(set.FeatureSet);
+    //     }
+    //
+    //     return hero == null || recursive
+    //         ? hero.HasAnyFeature(feature)
+    //         : hero.ActiveFeatures
+    //               .SelectMany(x => x.Value)
+    //               .Any(x => x == feature)
+    //           || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
+    // }
 }

@@ -20,6 +20,23 @@ internal static class GameUiContext
 
     private static bool EnableDebugCamera { get; set; }
 
+    // Converts continuous ratio into series of stepped values
+    internal static float GetSteppedHealthRatio(float ratio)
+    {
+        return ratio switch
+        {
+            // Green
+            >= 1f => 1f,
+            // Green
+            >= 0.5f => 0.75f,
+            // Orange
+            >= 0.25f => 0.5f,
+            // Red
+            > 0f => 0.25f,
+            _ => ratio
+        };
+    }
+
     internal static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
     {
         return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? ExitsWithGizmos : 0);

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
+﻿using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -10,8 +8,10 @@ public delegate bool CharacterValidator(RulesetCharacter character);
 public static class CharacterValidators
 {
     public static readonly CharacterValidator HasAttacked = character => character.ExecutedAttacks > 0;
+
     public static readonly CharacterValidator NoArmor = character => !character.IsWearingArmor();
-    public static readonly CharacterValidator MediumArmor = character => character.IsWearingMediumArmor();
+
+    // public static readonly CharacterValidator MediumArmor = character => character.IsWearingMediumArmor();
     public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
     public static readonly CharacterValidator HasShield = character => character.IsWearingShield();
 
@@ -110,26 +110,26 @@ public static class CharacterValidators
         }
     };
 
-    [NotNull]
-    public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)
-    {
-        return character => conditions.Any(c => character.HasConditionOfType(c.Name));
-    }
-
-    [NotNull]
-    public static CharacterValidator HasAnyOfConditions(params string[] conditions)
-    {
-        return character => conditions.Any(character.HasConditionOfType);
-    }
-
-    [NotNull]
-    public static CharacterValidator HasBeenGrantedFeature(FeatureDefinition feature)
-    {
-        return character =>
-        {
-            Main.Log($"Checking for {feature.Name}", true);
-            return character is RulesetCharacterHero hero &&
-                   hero.activeFeatures.Any(item => item.Value.Contains(feature));
-        };
-    }
+    // [NotNull]
+    // public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)
+    // {
+    //     return character => conditions.Any(c => character.HasConditionOfType(c.Name));
+    // }
+    //
+    // [NotNull]
+    // public static CharacterValidator HasAnyOfConditions(params string[] conditions)
+    // {
+    //     return character => conditions.Any(character.HasConditionOfType);
+    // }
+    //
+    // [NotNull]
+    // public static CharacterValidator HasBeenGrantedFeature(FeatureDefinition feature)
+    // {
+    //     return character =>
+    //     {
+    //         Main.Log($"Checking for {feature.Name}", true);
+    //         return character is RulesetCharacterHero hero &&
+    //                hero.activeFeatures.Any(item => item.Value.Contains(feature));
+    //     };
+    // }
 }

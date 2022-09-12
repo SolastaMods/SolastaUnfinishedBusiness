@@ -95,13 +95,15 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         var improvedBarkWardBuff = EffectFormBuilder
             .Create()
-            .SetConditionForm(CreateConditionConditionForestGuardianImprovedBarkWard(), ConditionForm.ConditionOperation.Add, true,
+            .SetConditionForm(CreateConditionConditionForestGuardianImprovedBarkWard(),
+                ConditionForm.ConditionOperation.Add, true,
                 true)
             .Build();
 
         var superiorBarkWardBuff = EffectFormBuilder
             .Create()
-            .SetConditionForm(CreateConditionForestGuardianSuperiorBarkWard(), ConditionForm.ConditionOperation.Add, true,
+            .SetConditionForm(CreateConditionForestGuardianSuperiorBarkWard(), ConditionForm.ConditionOperation.Add,
+                true,
                 true)
             .Build();
 
@@ -166,7 +168,8 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         static ConditionDefinition CreateConditionForestGuardianBarkWard()
         {
             return ConditionDefinitionBuilder
-                .Create(ConditionDefinitions.ConditionBarkskin, "ConditionForestGuardianBarkWard", DefinitionBuilder.CENamespaceGuid)
+                .Create(ConditionDefinitions.ConditionBarkskin, "ConditionForestGuardianBarkWard",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation("ConditionForestGuardianBarkWard", Category.Condition)
                 .ClearFeatures()
                 .SetAllowMultipleInstances(false)

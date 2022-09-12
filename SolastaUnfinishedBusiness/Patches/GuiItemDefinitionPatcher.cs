@@ -19,7 +19,7 @@ internal static class GuiItemDefinitionPatcher
             CustomWeaponsContext.AddCustomTags(item, tags);
 
             //PATCH: adds `Unfinished Business` tag to all CE items
-            CeContentPackContext.AddCETag(item, tags);
+            CeContentPackContext.AddCeTag(item, tags);
         }
     }
 }

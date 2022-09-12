@@ -13,7 +13,7 @@ internal static class GuiPowerDefinitionPatcher
         public static void Postfix(GuiPowerDefinition __instance)
         {
             //PATCH: adds `Unfinished Business` tag to all CE powers
-            CeContentPackContext.AddCETag(__instance.BaseDefinition, __instance.TagsMap);
+            CeContentPackContext.AddCeTag(__instance.BaseDefinition, __instance.TagsMap);
         }
     }
 }

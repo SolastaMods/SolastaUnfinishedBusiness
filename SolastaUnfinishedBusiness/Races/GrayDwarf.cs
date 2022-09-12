@@ -194,7 +194,8 @@ internal static class GrayDwarfSubraceBuilder
                 RuleDefinitions.TargetType.Self)
             .Build();
 
-        grayDwarfStoneStrengthEffect.EffectForms[0].ConditionForm.conditionDefinition = grayDwarfConditionGrayDwarfStoneStrength;
+        grayDwarfStoneStrengthEffect.EffectForms[0].ConditionForm.conditionDefinition =
+            grayDwarfConditionGrayDwarfStoneStrength;
 
         var grayDwarfStoneStrengthPower = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfStoneStrength", DefinitionBuilder.CENamespaceGuid)

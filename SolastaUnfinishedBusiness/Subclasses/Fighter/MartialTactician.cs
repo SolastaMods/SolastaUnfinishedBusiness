@@ -80,7 +80,7 @@ internal static class PowerSharedPoolKnockDownBuilder
             false);
 
         builder.SetShortTitle("Feature/&PowerSharedPoolKnockDownTitle");
-        
+
         return builder.AddToDB();
     }
 

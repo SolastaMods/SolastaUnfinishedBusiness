@@ -76,7 +76,7 @@ internal static class CharacterReactionSubitemExtension
         var toggle = instance.toggle;
         var tooltip = GetOrMakeBackgroundTooltip(toggle.transform);
         var spell = spellRepertoire.KnownSpells[slotLevel];
-        var power = PowerBundleContext.GetPower(spell);
+        var power = PowersBundleContext.GetPower(spell);
 
         if (power == null)
         {

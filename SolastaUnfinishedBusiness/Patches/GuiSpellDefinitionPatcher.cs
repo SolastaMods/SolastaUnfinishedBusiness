@@ -13,7 +13,7 @@ internal static class GuiSpellDefinitionPatcher
         public static void Postfix(GuiSpellDefinition __instance)
         {
             //PATCH: adds `Unfinished Business` tag to all CE spells
-            CeContentPackContext.AddCESpellTag(__instance.SpellDefinition, __instance.TagsMap);
+            CeContentPackContext.AddCeSpellTag(__instance.SpellDefinition, __instance.TagsMap);
         }
     }
 

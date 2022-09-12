@@ -169,8 +169,8 @@ internal static class RulesDisplay
         var intValue = Main.Settings.IncreaseSenseNormalVision;
         UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
         if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"), ref intValue,
-                HouseFeatureContext.DefaultVisionRange, HouseFeatureContext.MaxVisionRange,
-                HouseFeatureContext.DefaultVisionRange, "", UI.AutoWidth()))
+                SrdAndHouseRulesContext.DefaultVisionRange, SrdAndHouseRulesContext.MaxVisionRange,
+                SrdAndHouseRulesContext.DefaultVisionRange, "", UI.AutoWidth()))
         {
             Main.Settings.IncreaseSenseNormalVision = intValue;
         }

@@ -13,7 +13,7 @@ internal static class AfterRestActionItemPatcher
         internal static bool Prefix(AfterRestActionItem __instance)
         {
             //PATCH: replaces callback execution for bundled powers to show sub-power selection
-            return PowerBundleContext.ExecuteAfterRestCb(__instance);
+            return PowersBundleContext.ExecuteAfterRestCb(__instance);
         }
     }
 }
