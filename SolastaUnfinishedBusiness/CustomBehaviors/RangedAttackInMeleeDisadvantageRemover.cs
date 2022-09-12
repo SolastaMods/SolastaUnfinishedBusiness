@@ -2,7 +2,7 @@
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.CustomFeatures;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class RangedAttackInMeleeDisadvantageRemover
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.PatchCode;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class GameLocationBattleManagerTweaks
 {

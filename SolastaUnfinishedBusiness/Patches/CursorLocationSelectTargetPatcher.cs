@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.CustomFeatures;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Patches;
 

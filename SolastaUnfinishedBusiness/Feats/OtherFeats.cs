@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomFeatures;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
 

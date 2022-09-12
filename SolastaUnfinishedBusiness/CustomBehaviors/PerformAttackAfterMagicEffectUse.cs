@@ -2,7 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.CustomFeatures;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public interface IPerformAttackAfterMagicEffectUse
 {

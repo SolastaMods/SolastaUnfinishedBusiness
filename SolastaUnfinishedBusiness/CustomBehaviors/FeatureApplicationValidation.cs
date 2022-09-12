@@ -5,7 +5,7 @@ using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
-namespace SolastaUnfinishedBusiness.CustomFeatures;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class FeatureApplicationValidation
 {

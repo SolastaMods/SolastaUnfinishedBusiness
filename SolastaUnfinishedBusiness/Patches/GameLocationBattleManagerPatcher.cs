@@ -5,11 +5,10 @@ using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.CustomFeatures;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.PatchCode;
 using TA;
 
 namespace SolastaUnfinishedBusiness.Patches;
