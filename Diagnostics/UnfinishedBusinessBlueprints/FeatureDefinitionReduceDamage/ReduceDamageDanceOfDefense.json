@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ReduceDamageDanceOfDefenseTitle",
-    "description": "Feature/&ReduceDamageDanceOfDefenseDescription",
+    "title": "Feature/&ReduceDamageBladeDancerDanceOfDefenseTitle",
+    "description": "Feature/&ReduceDamageBladeDancerDanceOfDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -26,5 +26,5 @@
   "contentCopyright": "UserContent",
   "guid": "c82d3701-1b1f-59b6-8893-2aadeb599b13",
   "contentPack": 9999,
-  "name": "ReduceDamageDanceOfDefense"
+  "name": "ReduceDamageBladeDancerDanceOfDefense"
 }

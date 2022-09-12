@@ -44,7 +44,7 @@ internal sealed class MartialMarshal : AbstractSubclass
     }
 }
 
-internal static class FeatureSetKnowYourEnemyBuilder
+internal static class FeatureSetMarshalKnowYourEnemyBuilder
 {
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)
     {
@@ -53,7 +53,7 @@ internal static class FeatureSetKnowYourEnemyBuilder
             : 0;
     }
 
-    private static void FeatureSetKnowYourEnemyComputeAttackModifier(
+    private static void FeatureSetMarshalKnowYourEnemyComputeAttackModifier(
         RulesetCharacter myself,
         RulesetCharacter defender,
         RulesetAttackMode attackMode,
@@ -68,16 +68,16 @@ internal static class FeatureSetKnowYourEnemyBuilder
         var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender);
         attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
         attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
-            FeatureSourceType.CharacterFeature, "FeatureSetKnowYourEnemy", null));
+            FeatureSourceType.CharacterFeature, "FeatureSetMarshalKnowYourEnemy", null));
     }
 
-    internal static FeatureDefinitionFeatureSet BuildFeatureSetKnowYourEnemyFeatureSet()
+    internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalKnowYourEnemyFeatureSet()
     {
         var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("OnComputeAttackModifierKnowYourEnemy",
+            .Create("OnComputeAttackModifierMarshalKnowYourEnemy",
                 DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("FighterMarshalFeatureSetKnowYourEnemyFeatureSet", Category.Feature)
-            .SetOnComputeAttackModifierDelegate(FeatureSetKnowYourEnemyComputeAttackModifier)
+            .SetGuiPresentation("FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSet", Category.Feature)
+            .SetOnComputeAttackModifierDelegate(FeatureSetMarshalKnowYourEnemyComputeAttackModifier)
             .AddToDB();
 
         var additionalDamageRangerFavoredEnemyHumanoid = FeatureDefinitionAdditionalDamageBuilder
@@ -93,8 +93,8 @@ internal static class FeatureSetKnowYourEnemyBuilder
         additionalDamageRangerFavoredEnemyHumanoid.requiredCharacterFamily = CharacterFamilyDefinitions.Humanoid;
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetKnowYourEnemy", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("FighterMarshalFeatureSetKnowYourEnemyFeatureSet", Category.Feature)
+            .Create("FeatureSetMarshalKnowYourEnemy", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSet", Category.Feature)
             .AddFeatureSet(
                 knowYourEnemiesAttackHitModifier,
                 AdditionalDamageRangerFavoredEnemyAberration,
@@ -575,7 +575,7 @@ internal static class MarshalFighterSubclassBuilder
         MarshalCoordinatedAttackBuilder.BuildMarshalCoordinatedAttack();
 
     private static readonly FeatureDefinitionFeatureSet KnowYourEnemies =
-        FeatureSetKnowYourEnemyBuilder.BuildFeatureSetKnowYourEnemyFeatureSet();
+        FeatureSetMarshalKnowYourEnemyBuilder.BuildFeatureSetMarshalKnowYourEnemyFeatureSet();
 
     private static readonly FeatureDefinitionPower PowerMarshalStudyYourEnemy =
         PowerMarshalStudyYourEnemyBuilder.BuildStudyEnemyPower();

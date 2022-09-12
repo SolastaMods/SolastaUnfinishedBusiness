@@ -33,62 +33,62 @@ public static class FlexibleBackgroundsContext
         .AddToDB();
 
     private static readonly FeatureDefinition AcademicSuggestedSkills = FeatureDefinitionBuilder
-        .Create("AcademicBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsAcademicBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition AcolyteSuggestedSkills = FeatureDefinitionBuilder
-        .Create("AcolyteBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsAcolyteBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition AristocratSuggestedSkills = FeatureDefinitionBuilder
-        .Create("AristocratBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsAristocratBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition LawkeeperSuggestedSkills = FeatureDefinitionBuilder
-        .Create("LawkeeperBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsLawkeeperBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition LowlifeSuggestedSkills = FeatureDefinitionBuilder
-        .Create("LowlifeBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsLowlifeBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition PhilosopherSuggestedSkills = FeatureDefinitionBuilder
-        .Create("PhilosopherBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsPhilosopherBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition SellswordSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SellswordBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsSellswordBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition SpySuggestedSkills = FeatureDefinitionBuilder
-        .Create("SpyBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsSpyBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition WandererSuggestedSkills = FeatureDefinitionBuilder
-        .Create("WandererBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsWandererBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition AesceticSuggestedSkills = FeatureDefinitionBuilder
-        .Create("AesceticBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsAesceticBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition ArtistSuggestedSkills = FeatureDefinitionBuilder
-        .Create("ArtistBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsArtistBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 
     private static readonly FeatureDefinition OccultistSuggestedSkills = FeatureDefinitionBuilder
-        .Create("OccultistBackgroundSuggestedSkills", DefinitionBuilder.CENamespaceGuid)
+        .Create("SuggestedSkillsOccultistBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .AddToDB();
 

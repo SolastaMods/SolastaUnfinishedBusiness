@@ -51,7 +51,7 @@ internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
     private static FeatureDefinition BuildFeatureDualFlurry()
     {
         return FeatureDefinitionOnAttackDamageEffectBuilder
-            .Create("OnAttackDamageEffectDualFlurry", DualFlurryGuid)
+            .Create("OnAttackDamageEffectFeatDualFlurry", DualFlurryGuid)
             .SetGuiPresentation("DualFlurry", Category.Feat)
             .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
             .AddToDB();

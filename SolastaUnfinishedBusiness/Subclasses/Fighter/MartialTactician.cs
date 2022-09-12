@@ -24,10 +24,10 @@ internal sealed class MartialTactician : AbstractSubclass
     }
 }
 
-internal static class PowerSharedPoolKnockDownBuilder
+internal static class PowerSharedPoolTacticianKnockDownBuilder
 {
-    private const string PowerSharedPoolKnockDownName = "PowerSharedPoolKnockDown";
-    private const string PowerSharedPoolKnockDownNameGuid = "90dd5e81-40d7-4824-89b4-45bcf4c05218";
+    private const string PowerSharedPoolTacticianKnockDownName = "PowerSharedPoolTacticianKnockDown";
+    private const string PowerSharedPoolTacticianKnockDownNameGuid = "90dd5e81-40d7-4824-89b4-45bcf4c05218";
 
     private static FeatureDefinitionPowerSharedPool Build(string name, string guid)
     {
@@ -73,27 +73,27 @@ internal static class PowerSharedPoolKnockDownBuilder
             true,
             AttributeDefinitions.Strength,
             newEffectDescription,
-            new GuiPresentationBuilder("Feature/&PowerSharedPoolKnockDownTitle",
-                    "Feature/&PowerSharedPoolKnockDownDescription")
+            new GuiPresentationBuilder("Feature/&PowerSharedPoolTacticianKnockDownTitle",
+                    "Feature/&PowerSharedPoolTacticianKnockDownDescription")
                 .SetSpriteReference(FeatureDefinitionPowers.PowerFighterActionSurge.GuiPresentation.SpriteReference)
                 .Build(),
             false);
 
-        builder.SetShortTitle("Feature/&PowerSharedPoolKnockDownTitle");
+        builder.SetShortTitle("Feature/&PowerSharedPoolTacticianKnockDownTitle");
 
         return builder.AddToDB();
     }
 
     internal static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
     {
-        return Build(PowerSharedPoolKnockDownName, PowerSharedPoolKnockDownNameGuid);
+        return Build(PowerSharedPoolTacticianKnockDownName, PowerSharedPoolTacticianKnockDownNameGuid);
     }
 }
 
-internal static class PowerSharedPoolInspirePowerBuilder
+internal static class PowerSharedPoolTacticianInspirePowerBuilder
 {
-    private const string PowerSharedPoolInspirePowerName = "PowerSharedPoolInspirePower";
-    private const string PowerSharedPoolInspirePowerNameGuid = "163c28de-48e5-4f75-bdd0-d42374a75ef8";
+    private const string PowerSharedPoolTacticianInspirePowerName = "PowerSharedPoolTacticianInspirePower";
+    private const string PowerSharedPoolTacticianInspirePowerNameGuid = "163c28de-48e5-4f75-bdd0-d42374a75ef8";
 
     private static FeatureDefinitionPowerSharedPool Build(string name, string guid)
     {
@@ -131,20 +131,20 @@ internal static class PowerSharedPoolInspirePowerBuilder
             true,
             AttributeDefinitions.Strength,
             newEffectDescription,
-            new GuiPresentationBuilder("Feature/&PowerSharedPoolInspirePowerTitle",
-                    "Feature/&PowerSharedPoolInspirePowerDescription")
+            new GuiPresentationBuilder("Feature/&PowerSharedPoolTacticianInspirePowerTitle",
+                    "Feature/&PowerSharedPoolTacticianInspirePowerDescription")
                 .SetSpriteReference(FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation
                     .SpriteReference).Build(),
             false);
 
-        builder.SetShortTitle("Feature/&PowerSharedPoolInspirePowerTitle");
+        builder.SetShortTitle("Feature/&PowerSharedPoolTacticianInspirePowerTitle");
 
         return builder.AddToDB();
     }
 
     internal static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
     {
-        return Build(PowerSharedPoolInspirePowerName, PowerSharedPoolInspirePowerNameGuid);
+        return Build(PowerSharedPoolTacticianInspirePowerName, PowerSharedPoolTacticianInspirePowerNameGuid);
     }
 }
 
@@ -268,11 +268,11 @@ internal static class TacticianFighterSubclassBuilder
     private static readonly FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd18 =
         PowerPoolTacticianGambitAddBuilder.PowerPoolModifierTacticianGambitAdd18();
 
-    private static readonly FeatureDefinitionPowerSharedPool PowerSharedPoolKnockDown =
-        PowerSharedPoolKnockDownBuilder.CreateAndAddToDB();
+    private static readonly FeatureDefinitionPowerSharedPool PowerSharedPoolTacticianKnockDown =
+        PowerSharedPoolTacticianKnockDownBuilder.CreateAndAddToDB();
 
-    private static readonly FeatureDefinitionPowerSharedPool PowerSharedPoolInspirePower =
-        PowerSharedPoolInspirePowerBuilder.CreateAndAddToDB();
+    private static readonly FeatureDefinitionPowerSharedPool PowerSharedPoolTacticianInspirePower =
+        PowerSharedPoolTacticianInspirePowerBuilder.CreateAndAddToDB();
 
     private static readonly FeatureDefinitionPowerSharedPool PowerSharedPoolTacticianCounterStrike =
         PowerSharedPoolTacticianCounterStrikeBuilder.CreateAndAddToDB();
@@ -284,8 +284,8 @@ internal static class TacticianFighterSubclassBuilder
             .SetGuiPresentation(Category.Subclass,
                 RoguishShadowCaster.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(PowerPoolTacticianGambit, 3)
-            .AddFeatureAtLevel(PowerSharedPoolKnockDown, 3)
-            .AddFeatureAtLevel(PowerSharedPoolInspirePower, 3)
+            .AddFeatureAtLevel(PowerSharedPoolTacticianKnockDown, 3)
+            .AddFeatureAtLevel(PowerSharedPoolTacticianInspirePower, 3)
             .AddFeatureAtLevel(PowerSharedPoolTacticianCounterStrike, 3)
             .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, 7)
             .AddFeatureAtLevel(PowerPoolModifierTacticianGambitAdd10, 10)

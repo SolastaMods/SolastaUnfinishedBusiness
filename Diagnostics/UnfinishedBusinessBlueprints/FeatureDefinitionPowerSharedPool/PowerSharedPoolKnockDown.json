@@ -335,14 +335,14 @@
   "proficiencyBonusToAttack": true,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "Feature/&PowerSharedPoolKnockDownTitle",
+  "shortTitleOverride": "Feature/&PowerSharedPoolTacticianKnockDownTitle",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolKnockDownTitle",
-    "description": "Feature/&PowerSharedPoolKnockDownDescription",
+    "title": "Feature/&PowerSharedPoolTacticianKnockDownTitle",
+    "description": "Feature/&PowerSharedPoolTacticianKnockDownDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "dc9fd1fecbf10494da2c377db4c10505",
@@ -364,5 +364,5 @@
   "contentCopyright": "UserContent",
   "guid": "90dd5e81-40d7-4824-89b4-45bcf4c05218",
   "contentPack": 9999,
-  "name": "PowerSharedPoolKnockDown"
+  "name": "PowerSharedPoolTacticianKnockDown"
 }

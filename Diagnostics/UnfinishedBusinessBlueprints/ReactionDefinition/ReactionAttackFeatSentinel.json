@@ -6,8 +6,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&ReactionAttackFeatSentinelTitle",
-    "description": "Reaction/&ReactionAttackFeatSentinelDescription",
+    "title": "Reaction/&ReactionFeatSentinelTitle",
+    "description": "Reaction/&ReactionFeatSentinelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,5 +29,5 @@
   "contentCopyright": "UserContent",
   "guid": "5bd3f8c4-703a-53f6-9056-420072337b6c",
   "contentPack": 9999,
-  "name": "ReactionAttackFeatSentinel"
+  "name": "ReactionFeatSentinel"
 }

@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FighterMarshalFeatureSetKnowYourEnemyFeatureSetTitle",
-    "description": "Feature/&FighterMarshalFeatureSetKnowYourEnemyFeatureSetDescription",
+    "title": "Feature/&FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSetTitle",
+    "description": "Feature/&FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSetDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -26,5 +26,5 @@
   "contentCopyright": "UserContent",
   "guid": "90a43f34-2702-5cec-b007-f35ac1975244",
   "contentPack": 9999,
-  "name": "OnComputeAttackModifierKnowYourEnemy"
+  "name": "OnComputeAttackModifierMarshalKnowYourEnemy"
 }

@@ -306,14 +306,14 @@
   "proficiencyBonusToAttack": true,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "Feature/&PowerSharedPoolInspirePowerTitle",
+  "shortTitleOverride": "Feature/&PowerSharedPoolTacticianInspirePowerTitle",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolInspirePowerTitle",
-    "description": "Feature/&PowerSharedPoolInspirePowerDescription",
+    "title": "Feature/&PowerSharedPoolTacticianInspirePowerTitle",
+    "description": "Feature/&PowerSharedPoolTacticianInspirePowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "728aea75c81bfe549bb0c942cbf174cf",
@@ -335,5 +335,5 @@
   "contentCopyright": "UserContent",
   "guid": "163c28de-48e5-4f75-bdd0-d42374a75ef8",
   "contentPack": 9999,
-  "name": "PowerSharedPoolInspirePower"
+  "name": "PowerSharedPoolTacticianInspirePower"
 }

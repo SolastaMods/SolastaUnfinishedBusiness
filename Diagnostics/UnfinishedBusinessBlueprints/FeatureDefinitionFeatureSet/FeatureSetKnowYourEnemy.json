@@ -11,7 +11,7 @@
     "Definition:AdditionalDamageRangerFavoredEnemyFiend:711dbba70806e154b8c37fd2662b1d26",
     "Definition:AdditionalDamageRangerFavoredEnemyGiant:1daa09da93242854b87610533c5f88b7",
     "Definition:AdditionalDamageMarshalFavoredEnemyHumanoid:81d35585-a7df-5c94-828b-a29d68cde0b1",
-    "Definition:OnComputeAttackModifierKnowYourEnemy:90a43f34-2702-5cec-b007-f35ac1975244",
+    "Definition:OnComputeAttackModifierMarshalKnowYourEnemy:90a43f34-2702-5cec-b007-f35ac1975244",
     "Definition:AdditionalDamageRangerFavoredEnemyMonstrosity:a168863b41a8ba042ad0d2d5c315f1de",
     "Definition:AdditionalDamageRangerFavoredEnemyOoze:b33301aba68b1db4d8355871a8d41f8f",
     "Definition:AdditionalDamageRangerFavoredEnemyPlant:5165b54009a616844b575cbe0485cad8",
@@ -26,8 +26,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FighterMarshalFeatureSetKnowYourEnemyFeatureSetTitle",
-    "description": "Feature/&FighterMarshalFeatureSetKnowYourEnemyFeatureSetDescription",
+    "title": "Feature/&FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSetTitle",
+    "description": "Feature/&FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSetDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -49,5 +49,5 @@
   "contentCopyright": "UserContent",
   "guid": "c52d713e-75b0-5860-9065-c8538d1723c4",
   "contentPack": 9999,
-  "name": "FeatureSetKnowYourEnemy"
+  "name": "FeatureSetMarshalKnowYourEnemy"
 }
