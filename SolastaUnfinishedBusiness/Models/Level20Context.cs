@@ -60,8 +60,6 @@ internal static class Level20Context
         MartialSpellBladeLoad();
         RoguishShadowcasterLoad();
         TraditionLightLoad();
-
-        //CastSpellWarlock.uniqueLevelSlots = false;
     }
 
     internal static void LateLoad()

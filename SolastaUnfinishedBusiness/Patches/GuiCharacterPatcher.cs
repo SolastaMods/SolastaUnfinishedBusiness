@@ -10,6 +10,34 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class GuiCharacterPatcher
 {
+    //PATCH: Don't display Unique Level Spell Slots if MC hero (Multiclass)
+    [HarmonyPatch(typeof(GuiCharacter), "DisplayUniqueLevelSpellSlots")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class DisplayUniqueLevelSpellSlots_Patch
+    {
+        internal static void Postfix(
+            RulesetSpellRepertoire spellRepertoire,
+            RectTransform uniqueLevelSlotsGroup)
+        {
+            if (uniqueLevelSlotsGroup == null || spellRepertoire == null)
+            {
+                return;
+            }
+
+            var hero = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
+
+            if (hero == null)
+            {
+                return;
+            }
+
+            if (SharedSpellsContext.IsMulticaster(hero))
+            {
+                uniqueLevelSlotsGroup.gameObject.SetActive(false);
+            }
+        }
+    }
+    
     //PATCH: EnableEnhancedCharacterInspection
     [HarmonyPatch(typeof(GuiCharacter), "MainClassDefinition", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
