@@ -1,6 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using static SolastaUnfinishedBusiness.Displays.Shared;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -10,7 +9,7 @@ internal static class FeatsAndFightingStylesDisplay
     {
         var displayToggle = Main.Settings.DisplayFeatsToggle;
         var sliderPos = Main.Settings.FeatSliderPosition;
-        DisplayDefinitions(
+        ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Feats"),
             FeatsContext.Switch,
             FeatsContext.Feats,
@@ -22,7 +21,7 @@ internal static class FeatsAndFightingStylesDisplay
 
         displayToggle = Main.Settings.DisplayFightingStylesToggle;
         sliderPos = Main.Settings.FightingStyleSliderPosition;
-        DisplayDefinitions(
+        ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&FightingStyles"),
             FightingStyleContext.Switch,
             FightingStyleContext.FightingStyles,

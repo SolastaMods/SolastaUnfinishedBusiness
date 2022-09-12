@@ -9,8 +9,6 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 public static class TranslationsDisplay
 {
-    internal static readonly string[] UnofficialLanguages = { "off", "es", "it" };
-
     internal static void DisplayTranslations()
     {
         UI.Label("");

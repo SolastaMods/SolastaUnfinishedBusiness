@@ -173,7 +173,7 @@ public static class BlueprintDisplay
                     using (new GUILayout.HorizontalScope(GUILayout.Width(450)))
                     {
                         // Header and Search Field
-                        GUILayout.Label($"{_bpTypeNames[_bpTypeIndex]}".Cyan(), GUILayout.Width(300));
+                        GUILayout.Label($"{_bpTypeNames![_bpTypeIndex]}".Cyan(), GUILayout.Width(300));
                         GUILayout.Space(10);
                         GUIHelper.TextField(ref _selectionSearchText, () => blueprintListIsDirty = true, null,
                             GUILayout.MinWidth(150));

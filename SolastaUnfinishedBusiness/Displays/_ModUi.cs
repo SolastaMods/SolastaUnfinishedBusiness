@@ -1,4 +1,9 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityModManagerNet;
 using static SolastaUnfinishedBusiness.Displays.BlueprintDisplay;
 using static SolastaUnfinishedBusiness.Displays.CharacterDisplay;
@@ -12,7 +17,6 @@ using static SolastaUnfinishedBusiness.Displays.ItemsAndCraftingDisplay;
 using static SolastaUnfinishedBusiness.Displays.KeyboardAndMouseDisplay;
 using static SolastaUnfinishedBusiness.Displays.RacesClassesAndSubclassesDisplay;
 using static SolastaUnfinishedBusiness.Displays.RulesDisplay;
-using static SolastaUnfinishedBusiness.Displays.Shared;
 using static SolastaUnfinishedBusiness.Displays.SpellsDisplay;
 using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
 using static SolastaUnfinishedBusiness.Displays.TranslationsDisplay;
@@ -22,6 +26,7 @@ using static SolastaUnfinishedBusiness.Displays.DiagnosticsDisplay;
 
 namespace SolastaUnfinishedBusiness.Displays
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class ModUi : IMenuSelectablePage
     {
         private int characterSelectedPane;
@@ -29,6 +34,128 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public int Priority => 100;
 
+        internal const float PixelsPerColumn = 220;
+
+        internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
+        {
+            UI.Label("Welcome / 欢迎".Bold()
+                .Khaki());
+            UI.Div();
+
+            if (Main.Enabled)
+            {
+                UI.TabBar(ref selectedPane, null, actions);
+            }
+        }
+
+        internal static void DisplayDefinitions<T>(
+            string label,
+            Action<T, bool> switchAction,
+            [NotNull] HashSet<T> registeredDefinitions,
+            [NotNull] List<string> selectedDefinitions,
+            ref bool displayToggle,
+            ref int sliderPosition,
+            [CanBeNull] Action additionalRendering = null) where T : BaseDefinition
+        {
+            if (registeredDefinitions.Count == 0)
+            {
+                return;
+            }
+            
+            var selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
+
+            UI.Label("");
+
+            var toggle = displayToggle;
+
+            if (UI.DisclosureToggle($"{label}:", ref toggle, 200))
+            {
+                displayToggle = toggle;
+            }
+
+            if (!displayToggle)
+            {
+                return;
+            }
+
+            UI.Label("");
+
+            using (UI.HorizontalScope())
+            {
+                if (additionalRendering != null)
+                {
+                    additionalRendering.Invoke();
+                }
+                else if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref selectAll, UI.Width(PixelsPerColumn)))
+                {
+                    foreach (var registeredDefinition in registeredDefinitions)
+                    {
+                        switchAction.Invoke(registeredDefinition, selectAll);
+                    }
+                }
+
+                toggle = sliderPosition == 1;
+
+                if (UI.Toggle(Gui.Localize("ModUi/&ShowDescriptions"), ref toggle, UI.Width(PixelsPerColumn)))
+                {
+                    sliderPosition = toggle ? 1 : 4;
+                }
+            }
+
+            // UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
+
+            UI.Div();
+            UI.Label("");
+
+            var flip = false;
+            var current = 0;
+            var count = registeredDefinitions.Count;
+
+            using (UI.VerticalScope())
+            {
+                while (current < count)
+                {
+                    var columns = sliderPosition;
+
+                    using (UI.HorizontalScope())
+                    {
+                        while (current < count && columns-- > 0)
+                        {
+                            var definition = registeredDefinitions.ElementAt(current);
+                            var title = definition.FormatTitle();
+
+                            if (flip)
+                            {
+                                title = title.Khaki();
+                            }
+
+                            toggle = selectedDefinitions.Contains(definition.Name);
+
+                            if (UI.Toggle(title, ref toggle, UI.Width(PixelsPerColumn)))
+                            {
+                                switchAction.Invoke(definition, toggle);
+                            }
+
+                            if (sliderPosition == 1)
+                            {
+                                var description = definition.FormatDescription();
+
+                                if (flip)
+                                {
+                                    description = description.Khaki();
+                                }
+
+                                UI.Label(description, UI.Width(PixelsPerColumn * 3));
+
+                                flip = !flip;
+                            }
+
+                            current++;
+                        }
+                    }
+                }
+            }
+        }
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref characterSelectedPane,
@@ -51,7 +178,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            DisplaySubMenu(ref gamePlaySelectedPane,
+            ModUi.DisplaySubMenu(ref gamePlaySelectedPane,
                 new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
                 new NamedAction(
                     Gui.Localize("ModUi/&ItemsCraftingMerchants"),
@@ -69,7 +196,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            DisplaySubMenu(ref interfaceSelectedPane,
+            ModUi.DisplaySubMenu(ref interfaceSelectedPane,
                 new NamedAction(Gui.Localize("ModUi/&DungeonMakerMenu"),
                     DisplayDungeonMaker),
                 new NamedAction(Gui.Localize("ModUi/&GameUi"), DisplayGameUi),
@@ -89,7 +216,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            DisplaySubMenu(ref encountersSelectedPane,
+            ModUi.DisplaySubMenu(ref encountersSelectedPane,
                 new NamedAction(Gui.Localize("ModUi/&GeneralMenu"),
                     DisplayEncountersGeneral),
                 new NamedAction(Gui.Localize("ModUi/&Bestiary"), DisplayBestiary),
@@ -104,7 +231,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public int Priority => 999;
 
-        public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref creditsSelectedPane,
+        public void OnGUI(UnityModManager.ModEntry modEntry) => ModUi.DisplaySubMenu(ref creditsSelectedPane,
             new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
 #if DEBUG
             new NamedAction("Diagnostics", DisplayDiagnostics),

@@ -93,7 +93,7 @@ internal static class PatchesDisplay
             var searchTextLower = _searchText.ToLower();
             var methodBases = _patches?.Keys.Concat(Disabled.Keys).Distinct().OrderBy(m => m.Name).Where(m =>
                 _searchText.Length == 0
-                || m.DeclaringType.FullName.ToLower().Contains(searchTextLower)
+                || m.DeclaringType!.FullName!.ToLower().Contains(searchTextLower)
                 || m.ToString().ToLower().Contains(searchTextLower)
             );
             if (_modIdsToColor != null && methodBases != null)

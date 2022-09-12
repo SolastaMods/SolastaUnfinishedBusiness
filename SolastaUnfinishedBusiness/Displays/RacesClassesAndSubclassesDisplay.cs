@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses.Rogue;
 using SolastaUnfinishedBusiness.Subclasses.Wizard;
-using static SolastaUnfinishedBusiness.Displays.Shared;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -86,7 +85,7 @@ internal static class RacesClassesAndSubclassesDisplay
 
         var displayToggle = Main.Settings.DisplayRacesToggle;
         var sliderPos = Main.Settings.RaceSliderPosition;
-        DisplayDefinitions(
+        ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Races"),
             RacesContext.Switch,
             RacesContext.Races,
@@ -98,7 +97,7 @@ internal static class RacesClassesAndSubclassesDisplay
 
         displayToggle = Main.Settings.DisplayClassesToggle;
         sliderPos = Main.Settings.ClassSliderPosition;
-        DisplayDefinitions(
+        ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Classes"),
             ClassesContext.Switch,
             ClassesContext.Classes,
@@ -110,7 +109,7 @@ internal static class RacesClassesAndSubclassesDisplay
 
         displayToggle = Main.Settings.DisplaySubclassesToggle;
         sliderPos = Main.Settings.SubclassSliderPosition;
-        DisplayDefinitions(
+        ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Subclasses"),
             SubclassesContext.Switch,
             SubclassesContext.Subclasses,

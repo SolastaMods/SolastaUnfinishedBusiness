@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using static SolastaUnfinishedBusiness.Displays.Shared;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -32,19 +31,19 @@ internal static class SpellsDisplay
         using (UI.HorizontalScope())
         {
             toggle = SpellsContext.IsAllSetSelected();
-            if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PixelsPerColumn)))
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 SpellsContext.SelectAllSet(toggle);
             }
 
             toggle = SpellsContext.IsSuggestedSetSelected();
-            if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PixelsPerColumn)))
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 SpellsContext.SelectSuggestedSet(toggle);
             }
 
             toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
-            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(PixelsPerColumn)))
+            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 var keys = Main.Settings.DisplaySpellListsToggle.Keys.ToHashSet();
 
@@ -71,19 +70,19 @@ internal static class SpellsDisplay
             void AdditionalRendering()
             {
                 toggle = spellListContext.IsAllSetSelected;
-                if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PixelsPerColumn)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
                 {
                     spellListContext.SelectAllSetInternal(toggle);
                 }
 
                 toggle = spellListContext.IsSuggestedSetSelected;
-                if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PixelsPerColumn)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
                 {
                     spellListContext.SelectSuggestedSetInternal(toggle);
                 }
             }
 
-            DisplayDefinitions(
+            ModUi.DisplayDefinitions(
                 kvp.Key.Khaki(),
                 spellListContext.Switch,
                 allowedSpells,
