@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaCommunityExpansion",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -335,7 +335,7 @@
   "proficiencyBonusToAttack": true,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "",
+  "shortTitleOverride": "Feature/&PowerSharedPoolKnockDownTitle",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {

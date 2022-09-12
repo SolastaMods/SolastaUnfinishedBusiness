@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Api.Extensions;
-using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaCommunityExpansion.Models;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffect;
+namespace SolastaUnfinishedBusiness.Patches.CustomFeatures.OnCharacterAttackEffect;
 
 [HarmonyPatch(typeof(GameLocationBattleManager), "ComputeAndNotifyAdditionalDamage")]
 internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage

@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AbilityCheckAffinityRogueConArtist:8fc61768-fb38-573a-8b52-29f1f54b4b03",
+      "featureDefinition": "Definition:AbilityCheckAffinityConArtist:3cd62ffa-737f-59ff-96e7-ac80cda443f4",
       "level": 3
     },
     {
@@ -13,17 +13,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRoguishConArtistFeint:5fcc2251-0318-515c-9ddd-b9aa38354909",
+      "featureDefinition": "Definition:PowerConArtistFeint:af50016d-a4d2-5737-a9fd-50a8836227b2",
       "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityRoguishConArtistDC:5f5805bb-5f84-5f99-9c12-883fccd26e7d",
+      "featureDefinition": "Definition:MagicAffinityConArtistDC:34c4dd6c-614a-5335-b920-46961e73ce60",
       "level": 13
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyRoguishConArtistMentalSavingThrows:18d80c88-7649-5c81-9c01-fadb5c31f347",
+      "featureDefinition": "Definition:ProficiencyConArtistMentalSavingThrows:e76ba09b-5888-5951-9da9-8db36c581b8d",
       "level": 17
     }
   ],

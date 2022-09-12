@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ConditionSpellShieldArcaneDeflectionTitle",
-    "description": "Subclass/&ConditionSpellShieldArcaneDeflectionDescription",
+    "title": "Condition/&ConditionSpellShieldArcaneDeflectionTitle",
+    "description": "Condition/&ConditionSpellShieldArcaneDeflectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "869bb1641c1c46242931a9fb5819c792",

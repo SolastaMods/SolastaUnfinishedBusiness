@@ -3,22 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWeaponArcaneFighter:6c759c3b-4d3c-5093-8b2c-3fa6588768fc",
+      "featureDefinition": "Definition:PowerArcaneFighterEnchantWeapon:a2fba7df-4985-59fd-8ff8-4d4c645ccc73",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityConcentrationArcaneFighter:6ef34f78-b786-5e72-8bfe-a8a557b56763",
+      "featureDefinition": "Definition:MagicAffinityArcaneFighterConcentrationAdvantage:ed492724-acf5-5621-899b-03c19dd48ef6",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWeaponArcaneFighter:31e71364-814e-5409-8cba-98cc4c1c458e",
+      "featureDefinition": "Definition:ProficiencyArcaneFighterSimpleWeapons:711a07ce-9dcd-5880-9ce5-41080b93b1d7",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierExtraAttackArcaneFighter:924b6014-e6c2-5a81-93c0-3406617912c5",
+      "featureDefinition": "Definition:AttributeModifierArcaneFighterExtraAttack:1c358d22-ca8a-5331-8cee-7af0efbfbed1",
       "level": 6
     },
     {

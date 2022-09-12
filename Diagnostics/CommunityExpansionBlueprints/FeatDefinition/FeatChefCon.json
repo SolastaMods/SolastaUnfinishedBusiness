@@ -13,8 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0",
-    "Definition:FeatChefCookTreats:14888452-6cdf-53d6-bfb6-cdd5648f9956",
-    "Definition:FeatChefShortRestFeast:a2c52704-5388-503d-b1bb-0d1a1e21c8be"
+    "Definition:PowerFeatChefCookTreats:64a3f604-6e26-5e84-b4c9-2ea5a62f8cee",
+    "Definition:PowerFeatChefShortRestFeast:cadcb937-b18e-577d-b1f9-09bcbb9ef803"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

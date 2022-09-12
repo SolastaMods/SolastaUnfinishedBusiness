@@ -342,8 +342,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&HeartSeekingShotTitle",
-    "description": "Power/&HeartSeekingShotDescription",
+    "title": "Feature/&HeartSeekingShotTitle",
+    "description": "Feature/&HeartSeekingShotDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9a520f02972e5046add687d70ec26157",

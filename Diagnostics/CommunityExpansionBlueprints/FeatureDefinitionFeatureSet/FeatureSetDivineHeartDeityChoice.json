@@ -1,11 +1,11 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AutoPreparedSpellsSorcererDivineHeartArun:15a3921d-46f7-53da-97de-62328a92fa51",
-    "Definition:AutoPreparedSpellsSorcererDivineHeartEinar:6ec55a44-d5ee-52e7-b088-98587da5783b",
-    "Definition:AutoPreparedSpellsSorcererDivineHeartMariake:8893ed6b-28f1-5c21-a38d-5fa18415a946",
-    "Definition:AutoPreparedSpellsSorcererDivineHeartMisaye:9b444a55-aee8-559e-a5d8-0ffec7cea8ec",
-    "Definition:AutoPreparedSpellsSorcererDivineHeartPakri:7c8ed936-1b0a-544b-918a-bf92832d3cbd"
+    "Definition:AutoPreparedSpellsDivineHeartArun:40d3415b-32be-5e52-9869-c1717e412066",
+    "Definition:AutoPreparedSpellsDivineHeartEinar:055782f1-0576-5962-9c5c-84e9ae656730",
+    "Definition:AutoPreparedSpellsDivineHeartMariake:e285cfe3-2565-5873-b989-fac1778b68c7",
+    "Definition:AutoPreparedSpellsDivineHeartMisaye:35a26bd8-fd68-59c8-ab3f-810f639181d3",
+    "Definition:AutoPreparedSpellsDivineHeartPakri:4b0c1952-613e-52a7-b1d5-bc42f5a5d900"
   ],
   "mode": "Exclusion",
   "ancestryDamageTypeMap": [],

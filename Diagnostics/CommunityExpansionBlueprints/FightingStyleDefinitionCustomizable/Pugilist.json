@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaCommunityExpansion",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaUnfinishedBusiness",
   "features": [
     "Definition:ActionAffinityPugilist:791565ac-03df-5ab0-8301-a792c9b8a503"
   ],

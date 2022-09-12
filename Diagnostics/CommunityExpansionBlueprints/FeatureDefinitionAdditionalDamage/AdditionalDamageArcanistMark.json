@@ -101,8 +101,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ArcanistMarkTitle",
-    "description": "Feature/&ArcanistMarkDescription",
+    "title": "Feature/&AdditionalDamageArcanistMarkTitle",
+    "description": "Feature/&AdditionalDamageArcanistMarkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

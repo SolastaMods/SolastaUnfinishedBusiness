@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOnComputeAttackModifier, SolastaCommunityExpansion",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionOnComputeAttackModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c38550d0-c9d3-524e-969c-500988ccbce7",
+  "guid": "90a43f34-2702-5cec-b007-f35ac1975244",
   "contentPack": 9999,
   "name": "OnComputeAttackModifierKnowYourEnemy"
 }
