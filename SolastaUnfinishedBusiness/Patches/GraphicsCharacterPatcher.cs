@@ -15,7 +15,7 @@ internal static class GraphicsCharacterPatcher
         internal static void Postfix(GraphicsCharacter __instance, ref float __result)
         {
             if (__instance.RulesetCharacter is not RulesetCharacterHero rulesetCharacterHero ||
-                !DisplayRacesContext.RaceScaleMap.TryGetValue(rulesetCharacterHero.RaceDefinition, out var scale))
+                !RacesContext.RaceScaleMap.TryGetValue(rulesetCharacterHero.RaceDefinition, out var scale))
             {
                 return;
             }

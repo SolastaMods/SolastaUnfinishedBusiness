@@ -10,6 +10,8 @@ using SolastaUnfinishedBusiness.Subclasses.Rogue;
 using SolastaUnfinishedBusiness.Subclasses.Sorcerer;
 using SolastaUnfinishedBusiness.Subclasses.Wizard;
 
+// using SolastaUnfinishedBusiness.Subclasses.Barbarian;
+
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SubclassesContext

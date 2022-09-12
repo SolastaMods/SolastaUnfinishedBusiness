@@ -64,7 +64,7 @@ internal static class RulesDisplay
         {
             Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
             Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = false;
-            UpcastConjureElementalAndFey.Load();
+            ConjurationsContext.Load();
         }
 
         if (Main.Settings.EnableUpcastConjureElementalAndFey)
@@ -87,7 +87,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.FullyControlConjurations = toggle;
-            UpcastConjureElementalAndFey.Load();
+            ConjurationsContext.Load();
         }
 
         UI.Label("");

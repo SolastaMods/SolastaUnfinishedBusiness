@@ -12,9 +12,12 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.Models.FeatsValidators;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -164,7 +167,7 @@ internal static class ZappaFeats
 
         // Dead Eye
         var deadEye = FeatDeadeyeBuilder.FeatDeadeye;
-
+        
         // Dual Weapon Defense
         var dualWeaponDefense =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
@@ -175,7 +178,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
-
+        
         // Elven Accuracy (Dexterity)
         var elvenAccuracyDexterity =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>

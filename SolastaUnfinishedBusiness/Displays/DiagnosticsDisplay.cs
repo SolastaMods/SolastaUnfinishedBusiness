@@ -335,7 +335,7 @@ All settings start disabled by default. On first start the mod will display an w
 
             var racesAndSubs = new List<CharacterRaceDefinition>();
 
-            foreach (var characterRaceDefinition in DisplayRacesContext.Races)
+            foreach (var characterRaceDefinition in RacesContext.Races)
             {
                 if (characterRaceDefinition.SubRaces.Count == 0)
                 {
@@ -350,14 +350,14 @@ All settings start disabled by default. On first start the mod will display an w
             var descriptionData = string.Format(ModDescription,
                 collectedCredits,
                 GenerateDescription(racesAndSubs),
-                GenerateDescription(DisplayClassesContext.Classes),
+                GenerateDescription(ClassesContext.Classes),
                 GenerateDescription(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
                     .Where(x => !SubclassesContext.Subclasses.Contains(x))
                     .Where(DiagnosticsContext.IsCeDefinition)),
                 GenerateDescription(SubclassesContext.Subclasses),
-                GenerateDescription(DisplayFeatsContext.Feats),
-                GenerateDescription(DisplayFightingStyleContext.FightingStyles),
-                GenerateDescription(DisplaySpellsContext.Spells),
+                GenerateDescription(FeatsContext.Feats),
+                GenerateDescription(FightingStyleContext.FightingStyles),
+                GenerateDescription(SpellsContext.Spells),
                 ItemCraftingContext.GenerateItemsDescription());
 
             using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");

@@ -9,7 +9,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
-using static SolastaUnfinishedBusiness.Models.DisplaySpellsContext;
+using static SolastaUnfinishedBusiness.Models.SpellsContext;
 
 namespace SolastaUnfinishedBusiness.Spells;
 

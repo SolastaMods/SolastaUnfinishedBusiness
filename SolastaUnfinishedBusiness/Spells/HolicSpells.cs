@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static EffectForm;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Models.DisplaySpellsContext;
+using static SolastaUnfinishedBusiness.Models.SpellsContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;

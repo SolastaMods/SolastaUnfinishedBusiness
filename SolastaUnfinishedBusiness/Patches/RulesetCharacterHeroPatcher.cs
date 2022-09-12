@@ -118,7 +118,7 @@ internal static class RulesetCharacterHeroPatcher
         internal static void Postfix(RulesetCharacterHero __instance)
         {
             //PATCH: enables some corner-case fighting styles (like archery for hand crossbows and dual wielding for shield expert)
-            DisplayFightingStyleContext.RefreshFightingStylesPatch(__instance);
+            FightingStyleContext.RefreshFightingStylesPatch(__instance);
         }
     }
 

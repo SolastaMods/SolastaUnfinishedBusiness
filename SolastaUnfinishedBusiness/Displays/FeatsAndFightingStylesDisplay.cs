@@ -11,8 +11,8 @@ internal static class FeatsAndFightingStylesDisplay
         var sliderPos = Main.Settings.FeatSliderPosition;
         ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Feats"),
-            DisplayFeatsContext.Switch,
-            DisplayFeatsContext.Feats,
+            FeatsContext.Switch,
+            FeatsContext.Feats,
             Main.Settings.FeatEnabled,
             ref displayToggle,
             ref sliderPos);
@@ -23,8 +23,8 @@ internal static class FeatsAndFightingStylesDisplay
         sliderPos = Main.Settings.FightingStyleSliderPosition;
         ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&FightingStyles"),
-            DisplayFightingStyleContext.Switch,
-            DisplayFightingStyleContext.FightingStyles,
+            FightingStyleContext.Switch,
+            FightingStyleContext.FightingStyles,
             Main.Settings.FightingStyleEnabled,
             ref displayToggle,
             ref sliderPos);

@@ -402,7 +402,7 @@ internal static class ArmorClassStacking
 
         var unstack = new Action<
             List<RulesetAttributeModifier>
-        >(UnstackAc).Method;
+        >(UnstackAC).Method;
 
         foreach (var instruction in instructions)
         {
@@ -417,7 +417,7 @@ internal static class ArmorClassStacking
         }
     }
 
-    private static void UnstackAc(List<RulesetAttributeModifier> modifiers)
+    public static void UnstackAC(List<RulesetAttributeModifier> modifiers)
     {
         var attributes = new List<RulesetAttributeModifier>();
         var sets = new List<RulesetAttributeModifier>();
@@ -524,7 +524,6 @@ public static class StackedMaterialComponent
         }
 
         var spell = activeSpell.SpellDefinition;
-
         if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific
             || !spell.SpecificMaterialComponentConsumed
             || string.IsNullOrEmpty(spell.SpecificMaterialComponentTag)
@@ -607,103 +606,7 @@ public static class StackedMaterialComponent
 
 internal static class UpcastConjureElementalAndFey
 {
-    private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker_CE_SubSpell_CR6";
-
-    internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
-    {
-        // Conjure animals (3)
-        DatabaseHelper.MonsterDefinitions.ConjuredOneBeastTiger_Drake,
-        DatabaseHelper.MonsterDefinitions.ConjuredTwoBeast_Direwolf,
-        DatabaseHelper.MonsterDefinitions.ConjuredFourBeast_BadlandsSpider,
-        DatabaseHelper.MonsterDefinitions.ConjuredEightBeast_Wolf,
-
-        // Conjure minor elemental (4)
-        DatabaseHelper.MonsterDefinitions.SkarnGhoul, // CR 2
-        DatabaseHelper.MonsterDefinitions.WindSnake, // CR 2
-        DatabaseHelper.MonsterDefinitions.Fire_Jester, // CR 1
-
-        // Conjure woodland beings (4) - not implemented
-
-        // Conjure elemental (5)
-        DatabaseHelper.MonsterDefinitions.Air_Elemental, // CR 5
-        DatabaseHelper.MonsterDefinitions.Fire_Elemental, // CR 5
-        DatabaseHelper.MonsterDefinitions.Earth_Elemental, // CR 5
-
-        DatabaseHelper.MonsterDefinitions.InvisibleStalker, // CR 6
-
-        // Conjure fey (6)
-        DatabaseHelper.MonsterDefinitions.FeyGiantApe, // CR 6
-        DatabaseHelper.MonsterDefinitions.FeyGiant_Eagle, // CR 5
-        DatabaseHelper.MonsterDefinitions.FeyBear, // CR 4
-        DatabaseHelper.MonsterDefinitions.Green_Hag, // CR 3
-        DatabaseHelper.MonsterDefinitions.FeyWolf, // CR 2
-        DatabaseHelper.MonsterDefinitions.FeyDriad, // CR 1
-
-        DatabaseHelper.MonsterDefinitions.Adam_The_Twelth
-    };
-
     private static List<SpellDefinition> _filteredSubspells;
-
-    /// <summary>
-    ///     Allow conjurations to fully controlled party members instead of AI controlled.
-    /// </summary>
-    internal static void Load()
-    {
-        // NOTE: assumes monsters have FullyControlledWhenAllied=false by default
-        foreach (var conjuredMonster in ConjuredMonsters)
-        {
-            conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
-        }
-
-        if (Main.Settings.EnableUpcastConjureElementalAndFey)
-        {
-            AddSummonsSubSpells();
-        }
-    }
-
-    private static void AddSummonsSubSpells()
-    {
-        // Invisible Stalker
-        if (!DatabaseRepository.GetDatabase<SpellDefinition>()
-                .TryGetElement(InvisibleStalkerSubspellName, out _))
-        {
-            var definition = SpellDefinitionBuilder
-                .Create(ConjureElementalFire, InvisibleStalkerSubspellName, DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation("Spell/&IPConjureInvisibleStalkerTitle",
-                    "Spell/&ConjureElementalDescription")
-                .AddToDB();
-
-            var summonForm = definition.EffectDescription
-                .GetFirstFormOfType(EffectForm.EffectFormType.Summon)?.SummonForm;
-
-            if (summonForm != null)
-            {
-                summonForm.monsterDefinitionName = DatabaseHelper.MonsterDefinitions.InvisibleStalker.Name;
-
-                ConjureElemental.SubspellsList.Add(definition);
-            }
-            else
-            {
-                Main.Error($"Unable to find summon form for {DatabaseHelper.MonsterDefinitions.InvisibleStalker.Name}");
-            }
-        }
-
-        // TODO: add higher level elemental
-        // TODO: add higher level fey
-
-        ConfigureAdvancement(ConjureFey);
-        ConfigureAdvancement(ConjureElemental);
-        ConfigureAdvancement(ConjureMinorElementals);
-
-        // Set advancement at spell level, not sub-spell
-        static void ConfigureAdvancement([NotNull] IMagicEffect spell)
-        {
-            var advancement = spell.EffectDescription.EffectAdvancement;
-
-            advancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel;
-            advancement.additionalSpellLevelPerIncrement = 1;
-        }
-    }
 
     /**
      * Patch implementation

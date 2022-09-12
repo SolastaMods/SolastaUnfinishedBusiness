@@ -29,23 +29,12 @@ namespace SolastaUnfinishedBusiness.Displays
     // ReSharper disable once ClassNeverInstantiated.Global
     public class ModUi : IMenuSelectablePage
     {
-        internal const float PixelsPerColumn = 220;
         private int characterSelectedPane;
         public string Name => Gui.Localize("ModUi/&Character");
 
         public int Priority => 100;
 
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            DisplaySubMenu(ref characterSelectedPane,
-                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayCharacter),
-                new NamedAction(
-                    Gui.Localize("ModUi/&RacesClassesSubclasses"),
-                    DisplayClassesAndSubclasses),
-                new NamedAction(Gui.Localize("ModUi/&FeatsFightingStyles"),
-                    DisplayFeatsAndFightingStyles),
-                new NamedAction(Gui.Localize("ModUi/&SpellsMenu"), DisplaySpells));
-        }
+        internal const float PixelsPerColumn = 220;
 
         internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
         {
@@ -72,7 +61,7 @@ namespace SolastaUnfinishedBusiness.Displays
             {
                 return;
             }
-
+            
             var selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
 
             UI.Label("");
@@ -166,6 +155,17 @@ namespace SolastaUnfinishedBusiness.Displays
                     }
                 }
             }
+        }
+        public void OnGUI(UnityModManager.ModEntry modEntry)
+        {
+            DisplaySubMenu(ref characterSelectedPane,
+                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayCharacter),
+                new NamedAction(
+                    Gui.Localize("ModUi/&RacesClassesSubclasses"),
+                    DisplayClassesAndSubclasses),
+                new NamedAction(Gui.Localize("ModUi/&FeatsFightingStyles"),
+                    DisplayFeatsAndFightingStyles),
+                new NamedAction(Gui.Localize("ModUi/&SpellsMenu"), DisplaySpells));
         }
     }
 

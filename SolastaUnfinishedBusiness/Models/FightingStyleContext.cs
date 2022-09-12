@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.FightingStyles;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class DisplayFightingStyleContext
+internal static class FightingStyleContext
 {
     private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>>
         FightingStylesChoiceList { get; } = new();

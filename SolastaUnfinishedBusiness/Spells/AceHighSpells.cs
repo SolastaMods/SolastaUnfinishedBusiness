@@ -2,7 +2,7 @@
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using static SolastaUnfinishedBusiness.Models.DisplaySpellsContext;
+using static SolastaUnfinishedBusiness.Models.SpellsContext;
 
 namespace SolastaUnfinishedBusiness.Spells;
 

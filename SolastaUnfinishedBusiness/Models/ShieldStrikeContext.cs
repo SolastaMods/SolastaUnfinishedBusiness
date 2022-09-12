@@ -65,7 +65,6 @@ public static class ShieldStrikeContext
             };
 
         var damage = description.EffectDescription.FindFirstDamageForm();
-
         damage.DieType = RuleDefinitions.DieType.D4;
 
         return description;

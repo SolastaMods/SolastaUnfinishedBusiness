@@ -30,16 +30,16 @@ internal static class SpellsDisplay
 
         using (UI.HorizontalScope())
         {
-            toggle = DisplaySpellsContext.IsAllSetSelected();
+            toggle = SpellsContext.IsAllSetSelected();
             if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
-                DisplaySpellsContext.SelectAllSet(toggle);
+                SpellsContext.SelectAllSet(toggle);
             }
 
-            toggle = DisplaySpellsContext.IsSuggestedSetSelected();
+            toggle = SpellsContext.IsSuggestedSetSelected();
             if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
-                DisplaySpellsContext.SelectSuggestedSet(toggle);
+                SpellsContext.SelectSuggestedSet(toggle);
             }
 
             toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
@@ -56,10 +56,10 @@ internal static class SpellsDisplay
 
         UI.Div();
 
-        foreach (var kvp in DisplaySpellsContext.SpellLists)
+        foreach (var kvp in SpellsContext.SpellLists)
         {
             var spellListDefinition = kvp.Value;
-            var spellListContext = DisplaySpellsContext.SpellListContextTab[spellListDefinition];
+            var spellListContext = SpellsContext.SpellListContextTab[spellListDefinition];
             var name = spellListDefinition.name;
             var displayToggle = Main.Settings.DisplaySpellListsToggle[name];
             var sliderPos = Main.Settings.SpellListSliderPosition[name];

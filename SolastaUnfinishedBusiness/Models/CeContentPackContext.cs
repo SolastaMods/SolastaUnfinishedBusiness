@@ -42,7 +42,7 @@ internal static class CeContentPackContext
 
     public static void AddCeSpellTag(SpellDefinition spell, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
-        if (DisplaySpellsContext.Spells.TryGetValue(spell, out _))
+        if (SpellsContext.Spells.TryGetValue(spell, out _))
         {
             tags.TryAdd(CeTag, TagsDefinitions.Criticity.Normal);
         }

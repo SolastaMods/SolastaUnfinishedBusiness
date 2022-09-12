@@ -41,12 +41,14 @@ internal static class BootContext
         MerchantTypeContext.Load();
 
         // These can be loaded in any order so we bump them at the beginning
+        AdditionalNamesContext.Load();
         BugFixContext.Load();
         CharacterExportContext.Load();
-        UpcastConjureElementalAndFey.Load();
+        ConjurationsContext.Load();
         CustomReactionsContext.Load();
         CustomWeaponsContext.Load();
         DmProEditorContext.Load();
+        FaceUnlockContext.Load();
         FlexibleBackgroundsContext.Switch();
         GameUiContext.Load();
         InitialChoicesContext.Load();
@@ -55,20 +57,21 @@ internal static class BootContext
         Level20Context.Load();
         PickPocketContext.Load();
         PowersBundleContext.Load();
+        RemoveBugVisualModelsContext.Load();
         RespecContext.Load();
         ShieldStrikeContext.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
-        DisplayFightingStyleContext.Load();
+        FightingStyleContext.Load();
 
         // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
         PowersContext.Load();
 
         // Races may rely on spells and powers being in the DB before they can properly load.
-        DisplayRacesContext.Load();
+        RacesContext.Load();
 
         // Classes may rely on spells and powers being in the DB before they can properly load.
-        DisplayClassesContext.Load();
+        ClassesContext.Load();
 
         // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
         SubclassesContext.Load();
@@ -89,13 +92,13 @@ internal static class BootContext
             InitialChoicesContext.LateLoad();
 
             // There are feats that need all character classes loaded before they can properly be setup.
-            DisplayFeatsContext.LateLoad();
+            FeatsContext.LateLoad();
 
             // Generally available powers need all classes in the db before they are initialized here.
             PowersContext.LateLoad();
 
             // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
-            DisplaySpellsContext.LateLoad();
+            SpellsContext.LateLoad();
 
             // Integration Context
             IntegrationContext.LateLoad();
@@ -110,7 +113,7 @@ internal static class BootContext
             MulticlassContext.LateLoad();
 
             // Classes Features Sorting
-            DisplayClassesContext.LateLoad();
+            ClassesContext.LateLoad();
 
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();

@@ -21,7 +21,7 @@ internal static class NarrativeDirectionManagerPatcher
 
             involvedGameCharacters.RemoveAll(
                 x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
-                     && UpcastConjureElementalAndFey.ConjuredMonsters.Contains(rulesetCharacterMonster
+                     && ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster
                          .MonsterDefinition));
         }
     }

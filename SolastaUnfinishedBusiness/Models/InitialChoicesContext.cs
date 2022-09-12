@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using HarmonyLib;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -43,8 +35,6 @@ internal static class InitialChoicesContext
                 .AddToDB();
         }
 
-        LoadAdditionalNames();
-        LoadVisuals();
         LoadEpicArray();
         LoadVision();
     }
@@ -54,128 +44,6 @@ internal static class InitialChoicesContext
         SwitchAsiAndFeat();
         SwitchEvenLevelFeats();
         SwitchFirstLevelTotalFeats();
-    }
-
-    internal static void LoadAdditionalNames()
-    {
-        if (!Main.Settings.OfferAdditionalLoreFriendlyNames)
-        {
-            return;
-        }
-
-        var payload = Resources.Names;
-        var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
-
-        foreach (var line in lines)
-        {
-            var columns = line.Split(new[] { '\t' }, 3);
-
-            if (columns.Length != 3)
-            {
-                continue;
-            }
-
-            var raceName = columns[0];
-            var gender = columns[1];
-            var name = columns[2];
-            var race = (CharacterRaceDefinition)AccessTools
-                .Property(typeof(DatabaseHelper.CharacterRaceDefinitions), raceName).GetValue(null);
-            var racePresentation = race.RacePresentation;
-            var options = (List<string>)
-                AccessTools.Property(racePresentation.GetType(), $"{gender}NameOptions").GetValue(racePresentation);
-
-            options.Add(name);
-        }
-    }
-
-    internal static void LoadVisuals()
-    {
-        var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
-
-        if (Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos)
-        {
-            foreach (var morphotype in dbMorphotypeElementDefinition.Where(
-                         x => x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecorationColor &&
-                              x.SubclassFilterMask == GraphicsDefinitions.MorphotypeSubclassFilterTag
-                                  .SorcererManaPainter))
-            {
-                morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
-            }
-        }
-
-        var brightEyes = new List<MorphotypeElementDefinition>();
-
-        Morphotypes.CreateBrightEyes(brightEyes);
-
-        if (!Main.Settings.AddNewBrightEyeColors)
-        {
-            foreach (var morphotype in brightEyes)
-            {
-                morphotype.playerSelectable = false;
-            }
-        }
-
-        var glowingEyes = new List<MorphotypeElementDefinition>();
-
-        Morphotypes.CreateGlowingEyes(glowingEyes);
-
-        if (!Main.Settings.UnlockGlowingEyeColors)
-        {
-            foreach (var morphotype in glowingEyes)
-            {
-                morphotype.playerSelectable = false;
-            }
-        }
-
-        if (Main.Settings.UnlockEyeStyles)
-        {
-            foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
-                         x.Category == MorphotypeElementDefinition.ElementCategory.Eye))
-            {
-                morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
-            }
-        }
-
-        if (Main.Settings.UnlockAllNpcFaces)
-        {
-            FaceAndSkin_Defiler.playerSelectable = true;
-            FaceAndSkin_Neutral.playerSelectable = true;
-
-            HalfElf.RacePresentation.FemaleFaceShapeOptions.Add("FaceShape_NPC_Princess");
-            HalfElf.RacePresentation.MaleFaceShapeOptions.Add("FaceShape_HalfElf_NPC_Bartender");
-            Human.RacePresentation.MaleFaceShapeOptions.Add("FaceShape_NPC_TavernGuy");
-            Human.RacePresentation.MaleFaceShapeOptions.Add("FaceShape_NPC_TomWorker");
-
-            foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
-                         x.Category == MorphotypeElementDefinition.ElementCategory.FaceShape &&
-                         x != FaceShape_NPC_Aksha))
-            {
-                morphotype.playerSelectable = true;
-            }
-        }
-
-        if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)
-        {
-            foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
-                         x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecoration))
-            {
-                morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
-            }
-        }
-
-        if (!Main.Settings.AllowUnmarkedSorcerers)
-        {
-            return;
-        }
-
-        SorcerousDraconicBloodline.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-            .Default;
-        SorcerousManaPainter.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-            .Default;
-        SorcerousChildRift.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-            .Default;
-        SorcerousHauntedSoul.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
-            .Default;
     }
 
     private static void LoadEpicArray()
@@ -327,7 +195,7 @@ internal static class InitialChoicesContext
 
     private static void LoadRacesLevel1Feats(int initialFeats, bool alternateHuman)
     {
-        var human = Human;
+        var human = DatabaseHelper.CharacterRaceDefinitions.Human;
 
         BuildFeatureUnlocks(initialFeats, alternateHuman, out var featureUnlockByLevelNonHuman,
             out var featureUnlockByLevelHuman);
@@ -370,7 +238,7 @@ internal static class InitialChoicesContext
 
     private static void UnloadRacesLevel1Feats(int initialFeats, bool alternateHuman)
     {
-        var human = Human;
+        var human = DatabaseHelper.CharacterRaceDefinitions.Human;
 
         BuildFeatureUnlocks(initialFeats, alternateHuman, out var featureUnlockByLevelNonHuman,
             out var featureUnlockByLevelHuman);
