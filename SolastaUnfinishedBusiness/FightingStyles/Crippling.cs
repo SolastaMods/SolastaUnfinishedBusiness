@@ -52,7 +52,7 @@ internal sealed class Crippling : AbstractFightingStyle
 
         var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageCircleBalanceColdEmbrace,
-                "AdditionalDamageFightingStyleCrippling", DefinitionBuilder.CENamespaceGuid)
+                "AdditionalDamageCrippling", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetDamageDice(RuleDefinitions.DieType.D1, 0)
             .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
