@@ -1,237 +1,117 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using HarmonyLib;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
 public static class ExtraAttacksOnActionPanel
 {
-    /**
-     * Patch implementation
-     * Used to allow multiple attacks on action panel
-     * Adds extra items to the action panel if character has more than 1 attack mode available for action type of this panel
-     */
-    public static void AddExtraAttackItems(CharacterActionPanel panel)
+    public static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModes(
+        IEnumerable<CodeInstruction> instructions)
     {
-        var actionsTable = panel.characterActionsTable;
-        var itemPrefab = panel.actionItemPrefab;
-        var filteredActions = panel.filteredActions;
-        var startIndex = filteredActions.Count;
-        var guiCharacter = panel.GuiCharacter;
-        var character = guiCharacter.RulesetCharacter;
-        var actionItems = panel.actionItems;
+        var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
+        var customMehgtod = new Func<
+            GameLocationCharacter,
+            Id,
+            bool,
+            GuiCharacterAction,
+            RulesetAttackMode
+        >(FindExtraActionAttackModes).Method;
 
-        if (character == null)
+        foreach (var instruction in instructions)
         {
-            return;
-        }
-
-        var actionType = panel.ActionType;
-        ActionDefinitions.Id actionId;
-        switch (actionType)
-        {
-            case ActionDefinitions.ActionType.Main:
-                actionId = ActionDefinitions.Id.AttackMain;
-                break;
-            case ActionDefinitions.ActionType.Bonus:
-                actionId = ActionDefinitions.Id.AttackOff;
-                break;
-            default:
-                return;
-        }
-
-        if (!filteredActions.Contains(actionId))
-        {
-            return;
-        }
-
-        var newItems = character.GetAttackModesByActionType(actionType).Count - 1;
-        if (newItems <= 0)
-        {
-            return;
-        }
-
-        var index = 0;
-        var tableRectTransform = actionsTable.RectTransform;
-        for (var i = 0; i < tableRectTransform.childCount; i++)
-        {
-            var child = tableRectTransform.GetChild(i);
-            if (!child.gameObject.activeSelf)
+            if (instruction.Calls(findAttacks))
             {
-                continue;
+                yield return new CodeInstruction(OpCodes.Ldarg_2);
+                yield return new CodeInstruction(OpCodes.Call, customMehgtod);
             }
-
-            var component = child.GetComponent<CharacterActionItem>();
-
-            if (component.CurrentItemForm.GuiCharacterAction.ActionId != actionId)
+            else
             {
-                continue;
+                yield return instruction;
             }
-
-            index = i + 1;
-            break;
         }
-
-        while (tableRectTransform.childCount < startIndex + newItems)
-        {
-            Gui.GetPrefabFromPool(itemPrefab, tableRectTransform);
-        }
-
-        for (var i = 0; i < newItems; i++)
-        {
-            var child = tableRectTransform.GetChild(i + startIndex);
-            child.gameObject.SetActive(true);
-
-            var component = child.GetComponent<CharacterActionItem>();
-            var guiCharacterAction = new CustomGuiCharacterAction(actionId, newItems - i);
-            guiCharacterAction.Bind(panel, guiCharacter.GameLocationCharacter, panel.ActionScope);
-
-            component.name = guiCharacterAction.Name;
-            CustomBindItem(component, panel, guiCharacterAction, newItems > 1);
-            component.Refresh();
-            actionItems.Add(component);
-            child.SetSiblingIndex(index);
-        }
-
-        actionsTable.DispatchChildren(76f);
-        panel.RectTransform
-            .SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0.0f, tableRectTransform.rect.width);
     }
 
-    private static void CustomBindItem(CharacterActionItem item, CharacterActionPanel panel,
-        GuiCharacterAction guiAction, bool small)
+    private static RulesetAttackMode FindExtraActionAttackModes(GameLocationCharacter character,
+        Id actionId, bool getWithMostAttackNb, GuiCharacterAction guiAction)
     {
-        var textColor = panel.textColor;
-        var brightColor = panel.brightColor;
-        var darkColor = panel.darkColor;
-        var darkDisabledColor = panel.darkDisabledColor;
-        var tooltipAnchor = panel.tooltipAnchor;
-
-        var smallItemForm = item.smallItemForm;
-        var largeItemForm = item.largeItemForm;
-        CharacterActionItemForm currentItemForm;
-
-        if (small)
+        if (actionId != Id.AttackOff || guiAction.ForcedAttackMode == null)
         {
-            smallItemForm.gameObject.SetActive(true);
-            largeItemForm.gameObject.SetActive(false);
-            currentItemForm = smallItemForm;
-        }
-        else
-        {
-            smallItemForm.gameObject.SetActive(false);
-            largeItemForm.gameObject.SetActive(true);
-            currentItemForm = largeItemForm;
+            return character.FindActionAttackMode(actionId, getWithMostAttackNb);
         }
 
-        item.currentItemForm = currentItemForm;
-
-        if (currentItemForm == null)
-        {
-            return;
-        }
-
-        var rectTransform = item.RectTransform;
-        var formTransform = currentItemForm.RectTransform.rect;
-        rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, formTransform.width);
-        rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, formTransform.height);
-
-        void ActionActivated(CharacterActionItemForm form)
-        {
-            var action = guiAction as CustomGuiCharacterAction;
-            // Applies attack mode skipping during activation processing, so that proper attack mode would be used
-            action?.ApplySkip();
-            panel.OnActivateAction(form);
-            action?.RemoveSkip();
-        }
-
-        currentItemForm.Bind(guiAction, textColor, brightColor, darkColor, darkDisabledColor, tooltipAnchor,
-            ActionActivated, panel.OnPointerEnter, panel.OnPointerExit);
-
-        var enumerator =
-            currentItemForm.dynamicItemPropertiesEnumerator;
-        enumerator.Unbind();
-
-
-        var itemDefinition = DatabaseHelper.ItemDefinitions.UnarmedStrikeBase;
-        enumerator.Bind(new RulesetItem(itemDefinition));
+        return guiAction.ForcedAttackMode;
     }
 
-    /**
-     * Patch implementation
-     * Used to allow multiple attacks on action panel
-     * Skips specified amount of attack modes for main and bonus action
-     */
-    internal static RulesetAttackMode FindExtraActionAttackModes(GameLocationCharacter locChar, RulesetAttackMode def,
-        ActionDefinitions.Id actionId)
+    public static int ComputeMultipleGuiCharacterActions(CharacterActionPanel panel, Id actionId,
+        int def)
     {
-        var skip = locChar.GetSkipAttackModes();
-
-        if (skip == 0)
+        var multiple = CanActionHaveMultipleGuiItems(actionId);
+        if (!multiple)
         {
+            if (panel.guiActionsById.TryGetValue(actionId, out var actionsList))
+                actionsList.Clear();
+            if (!panel.guiActionById.ContainsKey(actionId))
+                panel.guiActionById.Add(actionId, new GuiCharacterAction(actionId));
+            return 1;
+        }
+
+        if (actionId == Id.AttackMain && ServiceRepository.GetService<IGameLocationCharacterService>()
+                .GuestCharacters.Contains(panel.GuiCharacter.GameLocationCharacter))
+        {
+            //this case was processed by base method
             return def;
         }
 
-        var skipped = 0;
+        ActionType actionType;
 
-        var result = def;
         switch (actionId)
         {
-            case ActionDefinitions.Id.AttackMain:
-            case ActionDefinitions.Id.AttackOff:
-                foreach (var current in locChar.RulesetCharacter.AttackModes)
-                {
-                    var found = false;
-                    if (current.AfterChargeOnly)
-                    {
-                        continue;
-                    }
-
-                    switch (current.ActionType)
-                    {
-                        case ActionDefinitions.ActionType.Main:
-                            found = actionId == ActionDefinitions.Id.AttackMain;
-                            break;
-                        case ActionDefinitions.ActionType.Bonus:
-                            found = actionId == ActionDefinitions.Id.AttackOff;
-                            break;
-                    }
-
-                    if (found)
-                    {
-                        result = current;
-                        if (skipped == skip)
-                        {
-                            break;
-                        }
-
-                        skipped++;
-                    }
-                }
-
+            case Id.AttackMain:
+                actionType = ActionType.Main;
+                break;
+            case Id.AttackOff:
+                actionType = ActionType.Bonus;
                 break;
             default:
                 return def;
         }
 
-        return result;
-    }
-
-    //Applies skipping of attack modes when item form refresh starts, so UI would display proper attack mode data
-    public static void StartSkipping(CharacterActionItemForm action)
-    {
-        if (action.GuiCharacterAction is CustomGuiCharacterAction custom)
+        if (!panel.guiActionsById.TryGetValue(actionId, out var actions))
         {
-            custom.ApplySkip();
+            actions = new List<GuiCharacterAction>();
+            panel.guiActionsById.Add(actionId, actions);
         }
-    }
-
-    //Stops skipping of attack modes when item form refresh ends, so UI would display proper attack mode data
-    public static void StopSkipping(CharacterActionItemForm action)
-    {
-        if (action.GuiCharacterAction is CustomGuiCharacterAction custom)
+        else
         {
-            custom.RemoveSkip();
+            actions.Clear();
         }
+
+        foreach (var attackMode in panel.GuiCharacter.RulesetCharacter.AttackModes)
+        {
+            if (attackMode.ActionType != actionType)
+            {
+                continue;
+            }
+
+            var exists = actions.Any(guiCharacterAction =>
+                guiCharacterAction.ActionId == actionId && guiCharacterAction.ForcedAttackMode == attackMode);
+
+            if (exists)
+            {
+                continue;
+            }
+
+            var guiCharacterAction = new GuiCharacterAction(actionId)
+            {
+                ForcedAttackMode = attackMode
+            };
+            actions.Add(guiCharacterAction);
+        }
+
+        return actions.Count;
     }
 }
