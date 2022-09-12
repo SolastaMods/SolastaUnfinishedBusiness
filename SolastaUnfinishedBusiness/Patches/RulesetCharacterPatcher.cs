@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -675,6 +676,90 @@ internal static class RulesetCharacterPatcher
                 }
 
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
+            }
+        }
+    }
+    
+    //PATCH: Reimplement RefreshAttributeModifiersFromConditions to filter feature from condition
+    [HarmonyPatch(typeof(RulesetCharacter), "RefreshAttributeModifiersFromConditions")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RefreshAttributeModifiersFromConditions_Patch
+    {
+        // Skip orginal method
+        internal static bool Prefix()
+        {
+            return false;
+        }
+
+        internal static void Postfix(RulesetCharacter __instance)
+        {
+            __instance.FeaturesToBrowse.Clear();
+            foreach (KeyValuePair<string, RulesetAttribute> attribute2 in __instance.Attributes)
+            {
+                attribute2.Value.RemoveModifiersByTags("10Combat");
+                attribute2.Value.RemoveModifiersByTags("11Effect");
+            }
+            foreach (KeyValuePair<string, List<RulesetCondition>> item in __instance.ConditionsByCategory)
+            {
+                if (item.Key != "10Combat" && item.Key != "11Effect")
+                {
+                    continue;
+                }
+                foreach (RulesetCondition item2 in item.Value)
+                {
+                    foreach (FeatureDefinition feature in item2.ConditionDefinition.Features)
+                    {
+                        if (feature is not FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier)
+                        {
+                            continue;
+                        }
+                        
+                        if (__instance.IsSubstitute && RulesetCharacter.ignoredAttributesForSubstitute.Contains(featureDefinitionAttributeModifier.ModifiedAttribute))
+                        {
+                            continue;
+                        }
+
+                        // PATCH start
+                        var validators = feature.GetAllSubFeaturesOfType<IFeatureApplicationValidator>();
+                        if (validators != null)
+                        {
+                            bool skip = validators.Any(validator => !validator.IsValid(__instance));
+                            if (skip)
+                            {
+                                continue;
+                            }
+                        }
+                        // PATCH end
+                        
+                        RulesetAttribute attribute = __instance.GetAttribute(featureDefinitionAttributeModifier.ModifiedAttribute);
+                        if (item2.ConditionDefinition.AmountOrigin != 0 && item2.Amount != 0)
+                        {
+                            int amount = item2.Amount;
+                            attribute.AddModifier(RulesetAttributeModifier.BuildAttributeModifier(modifierValue: (item2.ConditionDefinition.AmountOrigin == ConditionDefinition.OriginOfAmount.SourceGain) ? item2.Amount : ((item2.ConditionDefinition.AmountOrigin != ConditionDefinition.OriginOfAmount.SourceDamage) ? item2.Amount : (-item2.Amount)), operationType: featureDefinitionAttributeModifier.ModifierOperation, tag: item.Key));
+                        }
+                        else
+                        {
+                            if (featureDefinitionAttributeModifier.ModifiedAttribute == "ArmorClass")
+                            {
+                                continue;
+                            }
+                            int num = featureDefinitionAttributeModifier.ModifierValue;
+                            if (featureDefinitionAttributeModifier.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus)
+                            {
+                                num = AttributeDefinitions.ComputeAbilityScoreModifier(__instance.TryGetAttributeValue(featureDefinitionAttributeModifier.ModifierAbilityScore));
+                                if (featureDefinitionAttributeModifier.Minimum1 && num < 1)
+                                {
+                                    num = 1;
+                                }
+                            }
+                            attribute.AddModifier(RulesetAttributeModifier.BuildAttributeModifier(featureDefinitionAttributeModifier.ModifierOperation, num, item.Key));
+                        }
+                    }
+                }
+            }
+            foreach (KeyValuePair<string, RulesetAttribute> attribute3 in __instance.Attributes)
+            {
+                RulesetAttributeModifier.SortAttributeModifiersList(attribute3.Value.ActiveModifiers);
             }
         }
     }

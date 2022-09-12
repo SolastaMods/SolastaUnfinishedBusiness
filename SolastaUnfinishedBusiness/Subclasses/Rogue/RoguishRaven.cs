@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -51,7 +52,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetCustomSubFeatures(_heartSeekerStopPowerConcentrationProvider)
                     .AddToDB())
             .AddToDB();
-
+        
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
         _heartSeekerCondition = ConditionDefinitionBuilder
             .Create("ConditionHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
@@ -62,7 +63,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetGuiPresentation(Category.Feature)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
-                    .SetCustomSubFeatures(new RavenExtendCriticalRangeMarker())
+                    .SetCustomSubFeatures(new FeatureApplicationValidator(CharacterValidators.HasTwoHandedRangeWeapon))
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
@@ -196,7 +197,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
             .SetMaxAttacksNumber(1)
-            .SetCustomSubFeatures(new RefreshSneakAttckOnKill())
+            .SetCustomSubFeatures(new RefreshSneakAttackOnKill())
             .AddToDB();
 
         // pain maker
@@ -223,23 +224,8 @@ internal sealed class RoguishRaven : AbstractSubclass
     public sealed class RavenRerollAnyDamageDieMarker
     {
     }
-
-    public sealed class RavenExtendCriticalRangeMarker: IModifyAttackModeForWeapon
-    {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
-        {
-            Main.Log("DEBUG HERE", true);
-            // terminate heart seeking strike if equiped non two-handed range-weapon
-            if (CharacterValidators.HasTwoHandedRangeWeapon(character))
-            {
-                Main.Log("DEBUG 111111111111111111111", true);
-                return;
-            }
-            _heartSeekerStopPowerConcentrationProvider.Stop(character);
-        }
-    }
     
-    private sealed class RefreshSneakAttckOnKill: ITargetReducedToZeroHP
+    private sealed class RefreshSneakAttackOnKill: ITargetReducedToZeroHP
     {
         public IEnumerator HandleCharacterReducedToZeroHP(GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
