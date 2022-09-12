@@ -17,7 +17,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BootContext
 {
-    private static readonly HashSet<string> SupportedLanguages = new() { "zh-CN" };
+    internal static readonly HashSet<string> SupportedLanguages = new() { "zh-CN" };
 
     public static void Startup()
     {
@@ -27,11 +27,7 @@ internal static class BootContext
 #endif
 
         // Translations must load first
-        var currentLanguageCode = !SupportedLanguages.Contains(LocalizationManager.CurrentLanguageCode)
-            ? Translations.English
-            : LocalizationManager.CurrentLanguageCode;
-
-        Translations.LoadTranslations(currentLanguageCode);
+        Translations.Load();
 
         // Resources must load second
         ResourceLocatorContext.Load();

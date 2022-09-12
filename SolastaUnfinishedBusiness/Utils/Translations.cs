@@ -10,6 +10,7 @@ using I2.Loc;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 
 namespace SolastaUnfinishedBusiness.Utils;
@@ -153,8 +154,11 @@ public static class Translations
         }
     }
 
-    internal static void LoadTranslations(string languageCode)
+    internal static void Load()
     {
+        var languageCode = !BootContext.SupportedLanguages.Contains(LocalizationManager.CurrentLanguageCode)
+            ? Translations.English
+            : LocalizationManager.CurrentLanguageCode;
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
 
