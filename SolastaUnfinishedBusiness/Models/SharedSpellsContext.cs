@@ -88,11 +88,11 @@ public static class SharedSpellsContext
             }
         }
 
-        // otherwise gets hero from level up
-        var hero = Global.ActiveLevelUpHero;
+        // otherwise gets hero inspection
+        var hero = Global.InspectedHero;
 
-        // finally falls back to inspection [when browsing hero in char pool]
-        return hero ?? Global.InspectedHero;
+        // finally falls back to level up
+        return hero ?? Global.ActiveLevelUpHero;
     }
 
     public static bool IsWarlock(CharacterClassDefinition characterClassDefinition)
