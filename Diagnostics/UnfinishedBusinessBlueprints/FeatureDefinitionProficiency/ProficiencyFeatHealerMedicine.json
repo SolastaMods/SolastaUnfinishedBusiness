@@ -8,8 +8,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&ProfHealerMedicineTitle",
-    "description": "Feat/&ProfHealerMedicineDescription",
+    "title": "Feature/&ProficiencyFeatHealerMedicineTitle",
+    "description": "Feature/&ProficiencyFeatHealerMedicineDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d8a3d161-267d-5e81-a7fe-6fbafa4014b2",
+  "guid": "0f1b648b-e2fc-55e1-a1c7-7467d4db50e2",
   "contentPack": 9999,
   "name": "ProficiencyFeatHealerMedicine"
 }

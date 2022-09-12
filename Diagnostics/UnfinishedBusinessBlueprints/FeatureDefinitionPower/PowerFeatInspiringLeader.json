@@ -2,13 +2,13 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 1,
+    "rangeType": "Distance",
+    "rangeParameter": 10,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Individuals",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 6,
     "targetParameter2": 0,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -16,7 +16,7 @@
     "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -28,7 +28,7 @@
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
-    "targetConditionAsset": "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477",
+    "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Permanent",
     "durationParameter": 0,
@@ -61,10 +61,10 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Revive",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
+        "formType": "TemporaryHitPoints",
+        "addBonusMode": "AbilityBonus",
+        "applyLevel": "AddBonus",
+        "levelType": "CharacterLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
         "createdByCharacter": true,
@@ -74,11 +74,12 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "reviveForm": {
-          "$type": "ReviveForm, Assembly-CSharp",
-          "maxSecondsSinceDeath": 12,
-          "reviveHitPoints": "One",
-          "removedConditions": []
+        "temporaryHitPointsForm": {
+          "$type": "TemporaryHitPointsForm, Assembly-CSharp",
+          "diceNumber": 0,
+          "dieType": "D1",
+          "bonusHitPoints": 0,
+          "applyToSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -275,7 +276,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "Minute10",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -288,14 +289,14 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "ShortRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Wisdom",
+  "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Wisdom",
+  "abilityScore": "Charisma",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
@@ -307,13 +308,13 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&HealerResuscitateTitle",
-    "description": "Feat/&HealerResuscitateDescription",
+    "hidden": true,
+    "title": "Feat/&FeatInspiringLeaderTitle",
+    "description": "Feat/&FeatInspiringLeaderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "728aea75c81bfe549bb0c942cbf174cf",
-      "m_SubObjectName": "PreserveLife",
+      "m_AssetGUID": "baf1a359fedb47a439598aa6cde022b9",
+      "m_SubObjectName": "GoldenSpeech",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -329,7 +330,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f939c074-87fc-5688-9394-46a0976947dd",
+  "guid": "2a490265-d6aa-513a-a1f6-ca8317e2bb29",
   "contentPack": 9999,
-  "name": "PowerResuscitateHealerFeat"
+  "name": "PowerFeatInspiringLeader"
 }

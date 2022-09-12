@@ -1,9 +1,9 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
@@ -12,19 +12,21 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
-    "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394"
+    "Definition:PowerFeatHealerMedKit:26cb929d-2f43-5b24-be1c-7b7c2cde50b8",
+    "Definition:PowerFeatHealerResuscitate:8e82c80d-e8c0-533c-ac8b-a5a5ee85b655",
+    "Definition:PowerFeatHealerStabilize:456c154f-34d4-511a-a25e-f0ad93009839",
+    "Definition:ProficiencyFeatHealerMedicine:0f1b648b-e2fc-55e1-a1c7-7467d4db50e2"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatFightingSurgeStrengthTitle",
-    "description": "Feat/&FeatFightingSurgeStrengthDescription",
+    "title": "Feat/&FeatHealerTitle",
+    "description": "Feat/&FeatHealerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "f1bdcecf239f83b43950f6ebed06e530",
+      "m_SubObjectName": "UseGoodBerries",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -39,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5819f6ee-b851-55b4-898b-9b45b468bf74",
+  "guid": "ee119cd3-9155-52da-997e-df56f6261fd0",
   "contentPack": 9999,
-  "name": "FeatFightingSurgeStrength"
+  "name": "FeatHealer"
 }

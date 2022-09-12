@@ -3,17 +3,17 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Touch",
-    "rangeParameter": 1,
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Individuals",
-    "itemSelectionType": "None",
+    "itemSelectionType": "Equiped",
     "targetParameter": 1,
-    "targetParameter2": 0,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -28,10 +28,10 @@
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
-    "targetConditionAsset": null,
+    "targetConditionAsset": "Definition:ConditionDying:81b9b336561369544b3c0151033efa34",
     "targetSide": "Ally",
-    "durationType": "Permanent",
-    "durationParameter": 0,
+    "durationType": "Instantaneous",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -52,7 +52,10 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [],
-    "immuneCreatureFamilies": [],
+    "immuneCreatureFamilies": [
+      "Construct",
+      "Undead"
+    ],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
@@ -63,8 +66,8 @@
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Healing",
         "addBonusMode": "None",
-        "applyLevel": "AddBonus",
-        "levelType": "CharacterLevel",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
         "createdByCharacter": true,
@@ -77,9 +80,9 @@
         "healingForm": {
           "$type": "HealingForm, Assembly-CSharp",
           "healingComputation": "Dice",
-          "diceNumber": 1,
-          "dieType": "D6",
-          "bonusHealing": 4,
+          "diceNumber": 0,
+          "dieType": "D1",
+          "bonusHealing": 0,
           "variablePool": false,
           "healingCap": "MaximumHitPoints"
         },
@@ -113,7 +116,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "7b3b48710ec53e0469ef86876ed968d1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -131,13 +134,13 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "78d636d116abc9f48add6ae0b62ae959",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "19f4a5c35fbee93479226bd045a5ec1f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -311,12 +314,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&HealerUseMedicineTitle",
-    "description": "Feat/&HealerUseMedicineDescription",
+    "title": "Feature/&PowerFeatHealerStabilizeTitle",
+    "description": "Feature/&PowerFeatHealerStabilizeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f1bdcecf239f83b43950f6ebed06e530",
-      "m_SubObjectName": "UseGoodBerries",
+      "m_AssetGUID": "728aea75c81bfe549bb0c942cbf174cf",
+      "m_SubObjectName": "PreserveLife",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -332,7 +335,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e2f39f8b-7d89-5860-a6fd-d84adfdc2025",
+  "guid": "456c154f-34d4-511a-a25e-f0ad93009839",
   "contentPack": 9999,
-  "name": "PowerMedKitHealerFeat"
+  "name": "PowerFeatHealerStabilize"
 }

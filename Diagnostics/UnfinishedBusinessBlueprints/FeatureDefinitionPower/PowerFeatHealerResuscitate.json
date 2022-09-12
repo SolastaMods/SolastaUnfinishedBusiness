@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
+    "rangeType": "Touch",
     "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "Individuals",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 0,
@@ -16,7 +16,7 @@
     "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -28,7 +28,7 @@
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
-    "targetConditionAsset": null,
+    "targetConditionAsset": "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477",
     "targetSide": "Ally",
     "durationType": "Permanent",
     "durationParameter": 0,
@@ -61,7 +61,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Summon",
+        "formType": "Revive",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -74,17 +74,11 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "summonForm": {
-          "$type": "SummonForm, Assembly-CSharp",
-          "summonType": "InventoryItem",
-          "itemDefinition": "Definition:ChefSnackTreat:bec98e9e-24b7-5b4b-89e5-069a4e5c6eeb",
-          "trackItem": false,
-          "monsterDefinitionName": "",
-          "number": 5,
-          "conditionDefinition": null,
-          "persistOnConcentrationLoss": true,
-          "decisionPackage": null,
-          "effectProxyDefinitionName": ""
+        "reviveForm": {
+          "$type": "ReviveForm, Assembly-CSharp",
+          "maxSecondsSinceDeath": 12,
+          "reviveHitPoints": "One",
+          "removedConditions": []
         },
         "hasFilterId": false,
         "filterId": 0
@@ -281,7 +275,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Hours1",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -314,12 +308,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&ProfChefTreatCookTitle",
-    "description": "Feat/&ProfChefTreatCookDescription",
+    "title": "Feature/&PowerFeatHealerResuscitateTitle",
+    "description": "Feature/&PowerFeatHealerResuscitateDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f1bdcecf239f83b43950f6ebed06e530",
-      "m_SubObjectName": "UseGoodBerries",
+      "m_AssetGUID": "728aea75c81bfe549bb0c942cbf174cf",
+      "m_SubObjectName": "PreserveLife",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -335,7 +329,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "64a3f604-6e26-5e84-b4c9-2ea5a62f8cee",
+  "guid": "8e82c80d-e8c0-533c-ac8b-a5a5ee85b655",
   "contentPack": 9999,
-  "name": "PowerFeatChefCookTreats"
+  "name": "PowerFeatHealerResuscitate"
 }

@@ -3,29 +3,27 @@
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScorePrerequisite": true,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
+  "minimalAbilityScoreName": "Charisma",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:PowerFeatChefCookTreats:64a3f604-6e26-5e84-b4c9-2ea5a62f8cee",
-    "Definition:PowerFeatChefShortRestFeast:cadcb937-b18e-577d-b1f9-09bcbb9ef803"
+    "Definition:PowerFeatInspiringLeader:2a490265-d6aa-513a-a1f6-ca8317e2bb29"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&ChefWisTitle",
-    "description": "Feat/&ChefWisDescription",
+    "title": "Feat/&FeatInspiringLeaderTitle",
+    "description": "Feat/&FeatInspiringLeaderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "baf1a359fedb47a439598aa6cde022b9",
+      "m_SubObjectName": "GoldenSpeech",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -40,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dcd8761b-ce46-56e6-a636-38fbd9902f6b",
+  "guid": "ffd25d51-49e0-528d-9374-7af345e43007",
   "contentPack": 9999,
-  "name": "FeatChefWis"
+  "name": "FeatInspiringLeader"
 }

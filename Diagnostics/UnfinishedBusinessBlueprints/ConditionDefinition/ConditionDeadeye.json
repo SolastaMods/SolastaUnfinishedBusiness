@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DeadeyeAttackModifier:473f6ab6-af46-4717-b55e-ff9e31d909e2"
+    "Definition:AttackModifierDeadeye:473f6ab6-af46-4717-b55e-ff9e31d909e2"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
