@@ -90,18 +90,18 @@ internal static class ZappaFeats
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
-        // Brutal Thug
-        var brutalThug =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatBrutalThug", DefinitionBuilder.CENamespaceGuid)
-                .SetFeatures(
-                    AdditionalDamageRoguishHoodlumNonFinesseSneakAttack,
-                    ProficiencyFighterWeapon
-                )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-                .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateMinCharLevel(4), ValidateHasStealthAttack)
-                .AddToDB();
+        // // Brutal Thug
+        // var brutalThug =
+        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+        //         .Create("FeatBrutalThug", DefinitionBuilder.CENamespaceGuid)
+        //         .SetFeatures(
+        //             AdditionalDamageRoguishHoodlumNonFinesseSneakAttack,
+        //             ProficiencyFighterWeapon
+        //         )
+        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+        //         .SetGuiPresentation(Category.Feat)
+        //         .SetValidators(ValidateMinCharLevel(4), ValidateHasStealthAttack)
+        //         .AddToDB();
 
         // Charismatic Defense
         var charismaticDefense = FeatDefinitionBuilder
@@ -165,6 +165,9 @@ internal static class ZappaFeats
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
+        // Dead Eye
+        var deadEye = FeatDeadeyeBuilder.FeatDeadeye;
+        
         // Dual Weapon Defense
         var dualWeaponDefense =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
@@ -175,31 +178,14 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
-
-        //
-        //
-        //
-
-        static (bool, string) ValidateElvenAccuracy(FeatDefinitionWithPrerequisites _,
-            [NotNull] RulesetCharacterHero hero)
-        {
-            var isElf = hero.RaceDefinition.Name.Contains(CharacterRaceDefinitions.Elf.Name);
-            var elfTitle = CharacterRaceDefinitions.Elf.FormatTitle();
-            var halfElfTitle = CharacterRaceDefinitions.HalfElf.FormatTitle();
-            var param = $"{elfTitle}, {halfElfTitle}";
-
-            return isElf
-                ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", param))
-                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), "EA7171"));
-        }
-
+        
         // Elven Accuracy (Dexterity)
         var elvenAccuracyDexterity =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatElvenAccuracyDexterity", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateElvenAccuracy)
+                .SetValidators(IsElfOrHalfElf)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
@@ -209,7 +195,7 @@ internal static class ZappaFeats
                 .Create("FeatElvenAccuracyIntelligence", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateElvenAccuracy)
+                .SetValidators(IsElfOrHalfElf)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
@@ -219,7 +205,7 @@ internal static class ZappaFeats
                 .Create("FeatElvenAccuracyWisdom", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateElvenAccuracy)
+                .SetValidators(IsElfOrHalfElf)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
@@ -229,48 +215,48 @@ internal static class ZappaFeats
                 .Create("FeatElvenAccuracyCharisma", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateElvenAccuracy)
+                .SetValidators(IsElfOrHalfElf)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
         // Fast Hands
-        var fastHands =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatFastHands", DefinitionBuilder.CENamespaceGuid)
-                .SetFeatures(
-                    ActionAffinityRogueCunningAction,
-                    ActionAffinityThiefFastHands
-                )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-                .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateMinCharLevel(4), ValidateNotClass(Rogue))
-                .AddToDB();
+        // var fastHands =
+        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+        //         .Create("FeatFastHands", DefinitionBuilder.CENamespaceGuid)
+        //         .SetFeatures(
+        //             ActionAffinityRogueCunningAction,
+        //             ActionAffinityThiefFastHands
+        //         )
+        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+        //         .SetGuiPresentation(Category.Feat)
+        //         .SetValidators(ValidateMinCharLevel(4), ValidateNotClass(Rogue))
+        //         .AddToDB();
 
         // Fighting Surge (Dexterity)
-        var fightingSurgeDexterity =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatFightingSurgeDexterity", DefinitionBuilder.CENamespaceGuid)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Misaye,
-                    PowerFighterActionSurge
-                )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-                .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateNotClass(Fighter))
-                .AddToDB();
+        // var fightingSurgeDexterity =
+        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+        //         .Create("FeatFightingSurgeDexterity", DefinitionBuilder.CENamespaceGuid)
+        //         .SetFeatures(
+        //             AttributeModifierCreed_Of_Misaye,
+        //             PowerFighterActionSurge
+        //         )
+        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+        //         .SetGuiPresentation(Category.Feat)
+        //         .SetValidators(ValidateNotClass(Fighter))
+        //         .AddToDB();
 
         // Fighting Surge (Strength)
-        var fightingSurgeStrength =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatFightingSurgeStrength", DefinitionBuilder.CENamespaceGuid)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Einar,
-                    PowerFighterActionSurge
-                )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-                .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateNotClass(Fighter))
-                .AddToDB();
+        // var fightingSurgeStrength =
+        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+        //         .Create("FeatFightingSurgeStrength", DefinitionBuilder.CENamespaceGuid)
+        //         .SetFeatures(
+        //             AttributeModifierCreed_Of_Einar,
+        //             PowerFighterActionSurge
+        //         )
+        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+        //         .SetGuiPresentation(Category.Feat)
+        //         .SetValidators(ValidateNotClass(Fighter))
+        //         .AddToDB();
 
         // Marksman
         var marksman =
@@ -399,83 +385,83 @@ internal static class ZappaFeats
                 .AddToDB();
 
         // Primal (Constitution)
-        var primalConstitution =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatPrimalConstitution", DefinitionBuilder.CENamespaceGuid)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Arun,
-                    ActionAffinityBarbarianRage,
-                    AttributeModifierBarbarianRagePointsAdd,
-                    AttributeModifierBarbarianRageDamageAdd,
-                    AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
-                    PowerBarbarianRageStart,
-                    AttributeModifierBarbarianUnarmoredDefense
-                )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-                .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateNotClass(Barbarian))
-                .AddToDB();
+        // var primalConstitution =
+        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+        //         .Create("FeatPrimalConstitution", DefinitionBuilder.CENamespaceGuid)
+        //         .SetFeatures(
+        //             AttributeModifierCreed_Of_Arun,
+        //             ActionAffinityBarbarianRage,
+        //             AttributeModifierBarbarianRagePointsAdd,
+        //             AttributeModifierBarbarianRageDamageAdd,
+        //             AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
+        //             PowerBarbarianRageStart,
+        //             AttributeModifierBarbarianUnarmoredDefense
+        //         )
+        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+        //         .SetGuiPresentation(Category.Feat)
+        //         .SetValidators(ValidateNotClass(Barbarian))
+        //         .AddToDB();
 
         // Primal (Strength)
-        var primalStrength =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatPrimalStrength", DefinitionBuilder.CENamespaceGuid)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Einar,
-                    ActionAffinityBarbarianRage,
-                    AttributeModifierBarbarianRagePointsAdd,
-                    AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
-                    AttributeModifierBarbarianRageDamageAdd,
-                    PowerBarbarianRageStart,
-                    AttributeModifierBarbarianUnarmoredDefense
-                )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-                .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateNotClass(Barbarian))
-                .AddToDB();
+        // var primalStrength =
+        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+        //         .Create("FeatPrimalStrength", DefinitionBuilder.CENamespaceGuid)
+        //         .SetFeatures(
+        //             AttributeModifierCreed_Of_Einar,
+        //             ActionAffinityBarbarianRage,
+        //             AttributeModifierBarbarianRagePointsAdd,
+        //             AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
+        //             AttributeModifierBarbarianRageDamageAdd,
+        //             PowerBarbarianRageStart,
+        //             AttributeModifierBarbarianUnarmoredDefense
+        //         )
+        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+        //         .SetGuiPresentation(Category.Feat)
+        //         .SetValidators(ValidateNotClass(Barbarian))
+        //         .AddToDB();
 
         // Shady
-        var shady = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-            .Create("FeatShady", DefinitionBuilder.CENamespaceGuid)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Misaye,
-                FeatureDefinitionAdditionalDamageBuilder
-                    .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack",
-                        DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(Category.Feature)
-                    .SetDamageDice(RuleDefinitions.DieType.D6, 1)
-                    .SetAdvancement(
-                        (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        (1, 0),
-                        (2, 0),
-                        (3, 0),
-                        (4, 1),
-                        (5, 1),
-                        (6, 1),
-                        (7, 1),
-                        (8, 1),
-                        (9, 1),
-                        (10, 1),
-                        (11, 1),
-                        (12, 2),
-                        (13, 2),
-                        (14, 2),
-                        (15, 2),
-                        (16, 2),
-                        (17, 2),
-                        (18, 2),
-                        (19, 2),
-                        (20, 4)
-                    )
-                    .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
-                    .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-                    .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-                    .AddToDB()
-            )
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-            .SetGuiPresentation(Category.Feat)
-            .SetValidators(ValidateNotClass(Rogue))
-            .AddToDB();
+        // var shady = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+        //     .Create("FeatShady", DefinitionBuilder.CENamespaceGuid)
+        //     .SetFeatures(
+        //         AttributeModifierCreed_Of_Misaye,
+        //         FeatureDefinitionAdditionalDamageBuilder
+        //             .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack",
+        //                 DefinitionBuilder.CENamespaceGuid)
+        //             .SetGuiPresentation(Category.Feature)
+        //             .SetDamageDice(RuleDefinitions.DieType.D6, 1)
+        //             .SetAdvancement(
+        //                 (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
+        //                 (1, 0),
+        //                 (2, 0),
+        //                 (3, 0),
+        //                 (4, 1),
+        //                 (5, 1),
+        //                 (6, 1),
+        //                 (7, 1),
+        //                 (8, 1),
+        //                 (9, 1),
+        //                 (10, 1),
+        //                 (11, 1),
+        //                 (12, 2),
+        //                 (13, 2),
+        //                 (14, 2),
+        //                 (15, 2),
+        //                 (16, 2),
+        //                 (17, 2),
+        //                 (18, 2),
+        //                 (19, 2),
+        //                 (20, 4)
+        //             )
+        //             .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
+        //             .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+        //             .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+        //             .AddToDB()
+        //     )
+        //     .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+        //     .SetGuiPresentation(Category.Feat)
+        //     .SetValidators(ValidateNotClass(Rogue))
+        //     .AddToDB();
 
         // Wise Defense
         var wiseDefense = FeatDefinitionBuilder
@@ -538,17 +524,18 @@ internal static class ZappaFeats
         feats.AddRange(
             arcaneDefense,
             arcanePrecision,
-            brutalThug,
+            // brutalThug,
             charismaticDefense,
             charismaticPrecision,
             dualWeaponDefense,
+            deadEye,
             elvenAccuracyDexterity,
             elvenAccuracyIntelligence,
             elvenAccuracyWisdom,
             elvenAccuracyCharisma,
-            fastHands,
-            fightingSurgeDexterity,
-            fightingSurgeStrength,
+            // fastHands,
+            // fightingSurgeDexterity,
+            // fightingSurgeStrength,
             marksman,
             metamagicAdeptCareful,
             metamagicAdeptDistant,
@@ -557,12 +544,11 @@ internal static class ZappaFeats
             metamagicAdeptHeightened,
             metamagicAdeptQuickened,
             metamagicAdeptTwinned,
-            primalConstitution,
-            primalStrength,
-            shady,
+            // primalConstitution,
+            // primalStrength,
+            // shady,
             wiseDefense,
-            wisePrecision,
-            FeatDeadeyeBuilder.FeatDeadeye);
+            wisePrecision);
     }
 }
 
@@ -687,7 +673,7 @@ internal sealed class CombatAffinityDeadeyeIgnoreDefenderBuilder : FeatureDefini
 
 internal sealed class DeadeyeAttackModifierBuilder : FeatureDefinitionBuilder
 {
-    private const string DeadeyeAttackModifierName = "DeadeyeAttackModifier";
+    private const string DeadeyeAttackModifierName = "AttackModifierDeadeye";
     private const string DeadeyeAttackModifierGuid = "473f6ab6-af46-4717-b55e-ff9e31d909e2";
 
     public static readonly FeatureDefinition DeadeyeAttackModifier
@@ -767,7 +753,7 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
             .AddToDB();
 
         var turnOnPower = FeatureDefinitionPowerBuilder
-            .Create("Deadeye", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
+            .Create("PowerDeadeye", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
             .SetGuiPresentation("FeatDeadeye", Category.Feat,
                 CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
                     Resources.DeadeyeIcon, 128, 64))

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -11,6 +13,20 @@ internal static class FeatsValidators
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    [NotNull]
+    internal static (bool, string) IsElfOrHalfElf(FeatDefinitionWithPrerequisites _,
+        [NotNull] RulesetCharacterHero hero)
+    {
+        var isElf = hero.RaceDefinition.Name.Contains(DatabaseHelper.CharacterRaceDefinitions.Elf.Name);
+        var elfTitle = DatabaseHelper.CharacterRaceDefinitions.Elf.FormatTitle();
+        var halfElfTitle = DatabaseHelper.CharacterRaceDefinitions.HalfElf.FormatTitle();
+        var param = $"{elfTitle}, {halfElfTitle}";
+
+        return isElf
+            ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", param))
+            : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), "EA7171"));
+    }
+    
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(
         int minCharLevel)
