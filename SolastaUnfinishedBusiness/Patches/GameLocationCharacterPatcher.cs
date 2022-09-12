@@ -6,7 +6,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.FightingStyles;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -56,19 +55,6 @@ internal static class GameLocationCharacterPatcher
             //PATCH: acts as a callback for the character's combat ended event
             //while there already is callback for this event it doesn't have character argument
             CharacterBattleListenersPatch.OnChracterBattleEnded(__instance);
-        }
-    }
-
-    [HarmonyPatch(typeof(GameLocationCharacter), "FindActionAttackMode")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FindActionAttackMode_Patch
-    {
-        internal static void Postfix(GameLocationCharacter __instance, ref RulesetAttackMode __result,
-            ActionDefinitions.Id actionId)
-        {
-            //PATCH: Skips specified amount of attack modes for main and bonus action
-            //used for displaying multiple attacks on the actions panel
-            __result = ExtraAttacksOnActionPanel.FindExtraActionAttackModes(__instance, __result, actionId);
         }
     }
 
