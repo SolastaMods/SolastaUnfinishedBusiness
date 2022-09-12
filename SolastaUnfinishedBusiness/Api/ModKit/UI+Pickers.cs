@@ -7,7 +7,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
-namespace ModKit;
+namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 public static partial class UI
 {

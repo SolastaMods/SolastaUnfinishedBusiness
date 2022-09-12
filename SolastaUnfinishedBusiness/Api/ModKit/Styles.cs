@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityModManagerNet;
 
-namespace ModKit;
+namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 public static partial class UI
 {
@@ -50,8 +50,8 @@ public static partial class UI
             _divStyle.fixedWidth = 0;
         }
 
-        Space(2f * height / 3f);
+        ModKit.UI.Space(2f * height / 3f);
         GUILayout.Box(GUIContent.none, _divStyle);
-        Space(height / 3f);
+        ModKit.UI.Space(height / 3f);
     }
 }

@@ -2,8 +2,8 @@
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
-using ModKit;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityExplorer;
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
 

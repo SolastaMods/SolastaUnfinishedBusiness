@@ -3,8 +3,8 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using JetBrains.Annotations;
-using ModKit;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -154,7 +154,7 @@ internal static class PatchesDisplay
                                 foreach (var patch in patches)
                                 {
                                     var enabled = enabledPatches.Contains(patch);
-                                    if (Api.ModKit.Private.UI.CheckBox("", enabled, false))
+                                    if (UI.CheckBox("", enabled, false))
                                     {
                                         EnablePatchForMethod(!enabled, patch, method);
                                     }

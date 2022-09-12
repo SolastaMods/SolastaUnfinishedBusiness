@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit.Private;
+namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public static class UI
+public static partial class UI
 {
     private static readonly GUIContent _LabelContent = new();
-    public static readonly GUIContent CheckOn = new(global::ModKit.UI.CheckGlyphOn);
-    public static readonly GUIContent CheckOff = new(global::ModKit.UI.CheckGlyphOff);
-    public static readonly GUIContent DisclosureOn = new(global::ModKit.UI.DisclosureGlyphOn);
-    public static readonly GUIContent DisclosureOff = new(global::ModKit.UI.DisclosureGlyphOff);
-    public static readonly GUIContent DisclosureEmpty = new(global::ModKit.UI.DisclosureGlyphEmpty);
+    public static readonly GUIContent CheckOn = new(global::SolastaUnfinishedBusiness.Api.ModKit.UI.CheckGlyphOn);
+    public static readonly GUIContent CheckOff = new(global::SolastaUnfinishedBusiness.Api.ModKit.UI.CheckGlyphOff);
+    public static readonly GUIContent DisclosureOn = new(global::SolastaUnfinishedBusiness.Api.ModKit.UI.DisclosureGlyphOn);
+    public static readonly GUIContent DisclosureOff = new(global::SolastaUnfinishedBusiness.Api.ModKit.UI.DisclosureGlyphOff);
+    public static readonly GUIContent DisclosureEmpty = new(global::SolastaUnfinishedBusiness.Api.ModKit.UI.DisclosureGlyphEmpty);
 
     private static readonly int SButtonHint = "MyGUI.Button".GetHashCode();
 

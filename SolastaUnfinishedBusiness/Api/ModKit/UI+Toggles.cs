@@ -6,7 +6,7 @@ using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
 
-namespace ModKit;
+namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 public enum ToggleState
 {
@@ -52,7 +52,7 @@ public static partial class UI
         if (width == 0 && !disclosureStyle)
         {
             width = ToggleStyle.CalcSize(new GUIContent(title.Bold())).x +
-                    GUI.skin.box.CalcSize(SolastaUnfinishedBusiness.Api.ModKit.Private.UI.CheckOn).x + 10;
+                    GUI.skin.box.CalcSize(UI.CheckOn).x + 10;
         }
 
         options = options.AddItem(width == 0 ? AutoWidth() : Width(width)).ToArray();
@@ -60,7 +60,7 @@ public static partial class UI
         if (!disclosureStyle)
         {
             title = value ? title.Bold() : title.MedGrey().Bold();
-            if (!SolastaUnfinishedBusiness.Api.ModKit.Private.UI.CheckBox(title, value, isEmpty, ToggleStyle, options))
+            if (!UI.CheckBox(title, value, isEmpty, ToggleStyle, options))
             {
                 return false;
             }
@@ -69,7 +69,7 @@ public static partial class UI
         }
         else
         {
-            if (!SolastaUnfinishedBusiness.Api.ModKit.Private.UI.DisclosureToggle(title, value, isEmpty, options))
+            if (!UI.DisclosureToggle(title, value, isEmpty, options))
             {
                 return false;
             }
@@ -96,7 +96,7 @@ public static partial class UI
     {
         options = options.AddDefaults();
 
-        if (!SolastaUnfinishedBusiness.Api.ModKit.Private.UI.CheckBox(title, value, false, ToggleStyle, options))
+        if (!UI.CheckBox(title, value, false, ToggleStyle, options))
         {
             return false;
         }

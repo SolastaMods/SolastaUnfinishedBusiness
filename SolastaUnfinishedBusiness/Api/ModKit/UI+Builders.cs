@@ -3,11 +3,10 @@
 using System;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
-namespace ModKit;
+namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 public static partial class UI
 {

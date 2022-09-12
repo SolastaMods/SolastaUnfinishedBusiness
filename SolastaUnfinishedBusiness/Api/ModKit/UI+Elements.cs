@@ -1,6 +1,6 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
 
-namespace ModKit;
+namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 public static partial class UI
 {

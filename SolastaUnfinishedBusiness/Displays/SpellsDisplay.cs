@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using ModKit;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Displays.Shared;
 

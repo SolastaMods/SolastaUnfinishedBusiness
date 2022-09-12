@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using HarmonyLib;
-using ModKit;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 

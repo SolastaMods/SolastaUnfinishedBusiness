@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
-using ModKit;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
