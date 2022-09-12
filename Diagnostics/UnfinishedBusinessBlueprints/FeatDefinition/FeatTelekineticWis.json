@@ -13,8 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:PowerTelekineticWisPull:804ea0e8-7311-560e-81b2-c7e6e8a392e1",
-    "Definition:PowerTelekineticWisPush:88d580cf-b89f-5f92-b6af-51b9257ea7a4"
+    "Definition:PowerFeatTelekineticWisPull:13a6ba9c-3c84-5e76-b074-d931c719c799",
+    "Definition:PowerFeatTelekineticWisPush:484e6d9e-af3d-58d0-aee5-1143368ba0cf"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

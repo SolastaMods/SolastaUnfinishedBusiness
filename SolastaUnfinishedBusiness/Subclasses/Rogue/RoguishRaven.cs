@@ -98,8 +98,8 @@ internal sealed class RoguishRaven : AbstractSubclass
             .AddToDB();
 
         var turnOnPower = FeatureDefinitionPowerBuilder
-            .Create("HeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("HeartSeekingShot", Category.Feature,
+            .Create("PowerHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
                     Resources.DeadeyeIcon, 128, 64))
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
@@ -124,7 +124,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
 
         var turnOffPower = FeatureDefinitionPowerBuilder
-            .Create("TurnOffHeartSeekingShotPower", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerTurnOffHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
             .SetUsesFixed(1)

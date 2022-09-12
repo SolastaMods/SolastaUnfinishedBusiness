@@ -8,8 +8,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&ProficiencyFeatFeyTeleportationTirmarianTitle",
-    "description": "Feat/&ProficiencyFeatFeyTeleportationTirmarianDescription",
+    "title": "Feature/&ProficiencyFeatFeyTeleportationTirmarianTitle",
+    "description": "Feature/&ProficiencyFeatFeyTeleportationTirmarianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

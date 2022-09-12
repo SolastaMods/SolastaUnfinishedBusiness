@@ -35,7 +35,7 @@ internal sealed class Merciless : AbstractFightingStyle
         }
 
         _powerMerciless = FeatureDefinitionPowerBuilder
-            .Create("PowerMerciless", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerFightingStyleMerciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("Fear", Category.Spell)
             .Configure(
                 1,
@@ -56,12 +56,12 @@ internal sealed class Merciless : AbstractFightingStyle
         _powerMerciless.effectDescription.effectForms[0].canSaveToCancel = false;
 
         var additionalActionMerciless = FeatureDefinitionAdditionalActionBuilder
-            .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionMerciless", DefinitionBuilder.CENamespaceGuid)
+            .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .AddToDB();
 
         var onCharacterKillMerciless = FeatureDefinitionOnCharacterKillBuilder
-            .Create("OnCharacterKillMerciless", DefinitionBuilder.CENamespaceGuid)
+            .Create("OnCharacterKillFightingStyleMerciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetOnCharacterKill(OnMercilessKill)
             .AddToDB();

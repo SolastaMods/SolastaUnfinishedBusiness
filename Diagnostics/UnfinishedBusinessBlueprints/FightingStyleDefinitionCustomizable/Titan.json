@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaUnfinishedBusiness",
   "features": [
-    "Definition:OnComputeAttackModifierTitan:d33dd821-6a19-516a-b9bc-4c3055d1c75c"
+    "Definition:OnComputeAttackModifierFightingStyleTitan:a5850f9c-329f-5d1c-85f3-3ddc4ba10db4"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {

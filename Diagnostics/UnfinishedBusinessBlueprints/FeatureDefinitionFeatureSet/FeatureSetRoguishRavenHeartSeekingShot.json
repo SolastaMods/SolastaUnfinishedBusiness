@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:HeartSeekingShot:547e4c55-9d23-5173-90e8-e5ac498b4a9a",
-    "Definition:TurnOffHeartSeekingShotPower:447602b2-00e4-5c49-9ae7-903b68b0556f"
+    "Definition:PowerHeartSeekingShot:c3d8ea2c-5cf1-52c1-8c6b-a4208056fdd9",
+    "Definition:PowerTurnOffHeartSeekingShot:08270795-a989-5b6c-80f8-fc85ee32962c"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

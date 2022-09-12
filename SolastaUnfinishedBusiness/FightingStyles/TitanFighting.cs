@@ -55,7 +55,7 @@ internal sealed class TitanFighting : AbstractFightingStyle
         }
 
         var titanFightingAttackModifier = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("OnComputeAttackModifierTitan", DefinitionBuilder.CENamespaceGuid)
+            .Create("OnComputeAttackModifierFightingStyleTitan", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetOnComputeAttackModifierDelegate(TitanFightingComputeAttackModifier)
             .AddToDB();

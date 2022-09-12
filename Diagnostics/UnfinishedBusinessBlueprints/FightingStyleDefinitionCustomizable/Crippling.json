@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaUnfinishedBusiness",
   "features": [
-    "Definition:AdditionalDamageCrippling:3a68707a-e9fb-5657-9956-5cb90bf16aa7"
+    "Definition:AdditionalDamageFightingStyleCrippling:81513209-3a05-5fcc-886c-a89ca75ee1b9"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {

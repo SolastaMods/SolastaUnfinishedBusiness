@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaUnfinishedBusiness",
   "features": [
-    "Definition:ActionAffinityPugilist:791565ac-03df-5ab0-8301-a792c9b8a503"
+    "Definition:ActionAffinityFightingStylePugilist:c4df47d8-b2cd-5e92-979e-89d8feaad835"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {

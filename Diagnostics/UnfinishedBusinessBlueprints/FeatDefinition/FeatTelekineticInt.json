@@ -13,8 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
-    "Definition:PowerTelekineticIntPull:ceb95714-00af-58ae-b8bf-4177e986763a",
-    "Definition:PowerTelekineticIntPush:147c413e-084c-5db9-90c0-c408c04286c5"
+    "Definition:PowerFeatTelekineticIntPull:12e323c1-c1f0-5a8c-a453-816e766baa4b",
+    "Definition:PowerFeatTelekineticIntPush:c27f688d-a15d-5839-af43-79c567f50732"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

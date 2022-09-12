@@ -34,7 +34,8 @@ internal sealed class Crippling : AbstractFightingStyle
         //+ Must be a successful melee attack
         //+ NO LIMIT per round (wow!)
         var conditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionHindered_By_Frost, "ConditionCrippling", DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionHindered_By_Frost, "ConditionFightingStyleCrippling", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentationNoContent()
             .AddToDB();
 
         conditionDefinition.allowMultipleInstances = true;
@@ -51,11 +52,11 @@ internal sealed class Crippling : AbstractFightingStyle
 
         var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageCircleBalanceColdEmbrace,
-                "AdditionalDamageCrippling", DefinitionBuilder.CENamespaceGuid)
+                "AdditionalDamageFightingStyleCrippling", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetDamageDice(RuleDefinitions.DieType.D1, 0)
             .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
-            .SetNotificationTag("CripplingFightingStyle")
+            .SetNotificationTag("Crippling")
             .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.MeleeWeapon)
             .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
             .SetConditionOperations(conditionOperation)
