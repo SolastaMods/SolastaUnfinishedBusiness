@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomDefinitions;
+namespace SolastaUnfinishedBusiness.CustomFeatures;
 
 public sealed class ReactionAttackModeRestriction : IReactionAttackModeRestriction
 {

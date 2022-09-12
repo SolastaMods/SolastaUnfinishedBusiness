@@ -4,7 +4,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.PatchCode.CustomFeatures;
+namespace SolastaUnfinishedBusiness.CustomFeatures;
 
 internal static class ShieldAttack
 {

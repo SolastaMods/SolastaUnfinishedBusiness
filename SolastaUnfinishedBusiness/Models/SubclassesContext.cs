@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Subclasses.Ranger;
 using SolastaUnfinishedBusiness.Subclasses.Rogue;
 using SolastaUnfinishedBusiness.Subclasses.Sorcerer;
 using SolastaUnfinishedBusiness.Subclasses.Wizard;
+
 // using SolastaUnfinishedBusiness.Subclasses.Barbarian;
 
 namespace SolastaUnfinishedBusiness.Models;

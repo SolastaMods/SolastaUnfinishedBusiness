@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.CustomDefinitions;
+namespace SolastaUnfinishedBusiness.CustomFeatures;
 
 public class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
 {

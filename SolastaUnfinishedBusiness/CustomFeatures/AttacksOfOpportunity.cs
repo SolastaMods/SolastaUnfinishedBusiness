@@ -9,7 +9,7 @@ using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 
-namespace SolastaUnfinishedBusiness.CustomDefinitions;
+namespace SolastaUnfinishedBusiness.CustomFeatures;
 
 public interface ICanIgnoreAoOImmunity
 {

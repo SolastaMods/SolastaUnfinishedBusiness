@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
-using static SolastaUnfinishedBusiness.CustomDefinitions.IPerformAttackAfterMagicEffectUse;
 
-namespace SolastaUnfinishedBusiness.CustomDefinitions;
+namespace SolastaUnfinishedBusiness.CustomFeatures;
 
 public interface IPerformAttackAfterMagicEffectUse
 {
@@ -32,10 +31,10 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
         PerformAttackAfterUse = DefaultAttackHandler;
     }
 
-    public CanUseHandler CanBeUsedToAttack { get; set; }
+    public IPerformAttackAfterMagicEffectUse.CanUseHandler CanBeUsedToAttack { get; set; }
 
-    public GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
-    public CanAttackHandler CanAttack { get; set; }
+    public IPerformAttackAfterMagicEffectUse.GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
+    public IPerformAttackAfterMagicEffectUse.CanAttackHandler CanAttack { get; set; }
 
     private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
     {

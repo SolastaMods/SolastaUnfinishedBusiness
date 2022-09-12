@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.CustomDefinitions;
+namespace SolastaUnfinishedBusiness.CustomFeatures;
 
 public abstract class AddExtraAttackBase : IAddExtraAttack
 {

@@ -2,7 +2,7 @@
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.PatchCode.CustomFeatures;
+namespace SolastaUnfinishedBusiness.CustomFeatures;
 
 internal static class ReplaceAttackWithCantrip
 {

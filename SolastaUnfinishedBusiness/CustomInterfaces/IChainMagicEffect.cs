@@ -1,4 +1,4 @@
-﻿namespace SolastaUnfinishedBusiness.CustomDefinitions;
+﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IChainMagicEffect
 {
