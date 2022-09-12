@@ -1,11 +1,11 @@
-Feature/&MarshalCoordinatedAttackDescription=When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
-Feature/&MarshalCoordinatedAttackTitle=Coordinated Attack
 Feature/&FeatureSetMarshalEternalComradeDescription=The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon one spirit of his fallen comrades to aid him in combat.
 Feature/&FeatureSetMarshalEternalComradeTitle=Eternal Comrade
 Feature/&FeatureSetMarshalFearlessCommanderDescription=You are immune to fear effect.
 Feature/&FeatureSetMarshalFearlessCommanderTitle=Fearless Commander
 Feature/&FighterMarshalFeatureSetKnowYourEnemyFeatureSetDescription=You add your knowledge level of your current target to your attack and damage rolls.
 Feature/&FighterMarshalFeatureSetKnowYourEnemyFeatureSetTitle=Know Your Enemy
+Feature/&MarshalCoordinatedAttackDescription=When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
+Feature/&MarshalCoordinatedAttackTitle=Coordinated Attack
 Feature/&MarshalEternalComradeDescription=Fallen Comrade
 Feature/&MarshalEternalComradeTitle=Fallen Comrade
 Feature/&PowerMarshalEncouragementDescription=The courage of the marshal inspires his party member. Allies within 10 feet of him add 1d4 to attack roll and saving throw. 

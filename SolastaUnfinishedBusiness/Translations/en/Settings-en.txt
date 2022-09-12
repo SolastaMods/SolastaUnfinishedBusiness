@@ -98,6 +98,7 @@ ModUi/&Gameplay=Gameplay
 ModUi/&GameUi=Game UI
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
+ModUi/&HalfHighElfUseCharisma=<color=#D89555>Half-High Elf</color> uses Charisma instead of Intelligence as the cantrip score ability <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&HiderArmor=Hide Armor
@@ -143,7 +144,6 @@ ModUi/&RecipeCost=<color=white>Recipe's Cost</color>
 ModUi/&RecipesInDm=Recipes in DM
 ModUi/&ReduceDarkelfLightPenalty=Swap <color=#D89555>Dark Elf</color> Light Penalty Disadvantage with -1d4 on attacks
 ModUi/&ReduceGrayDwarfLightPenalty=Swap <color=#D89555>Gray Dwarf</color> Light Penalty Disadvantage with -1d4 on attacks
-ModUi/&HalfHighElfUseCharisma=<color=#D89555>Half-High Elf</color> uses Charisma instead of Intelligence as the cantrip score ability <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels=Replace spider like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -188,7 +188,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all ma
 ModUi/&UnlockGlowingEyeColors=Add glowing eye colors
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UseHeightOneCylinderEffect=Display a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> (square) and <color=#D89555>Spike Growth</color> (round)
+ModUi/&UseMoreRestrictiveAcStacking=AC granting clothes and <color=#D89555>Barkskin</color> won't stack with <color=#D89555>Unarmored Defense</color> or similar features
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&WeaponTag=Weapon Tag
-ModUi/&UseMoreRestrictiveAcStacking=AC granting clothes and <color=#D89555>Barkskin</color> won't stack with <color=#D89555>Unarmored Defense</color> or similar features
