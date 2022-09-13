@@ -41,14 +41,12 @@ internal static class BootContext
         MerchantTypeContext.Load();
 
         // These can be loaded in any order so we bump them at the beginning
-        AdditionalNamesContext.Load();
         BugFixContext.Load();
         CharacterExportContext.Load();
         ConjurationsContext.Load();
         CustomReactionsContext.Load();
         CustomWeaponsContext.Load();
         DmProEditorContext.Load();
-        FaceUnlockContext.Load();
         FlexibleBackgroundsContext.Switch();
         GameUiContext.Load();
         InitialChoicesContext.Load();
@@ -57,7 +55,6 @@ internal static class BootContext
         Level20Context.Load();
         PickPocketContext.Load();
         PowersBundleContext.Load();
-        RemoveBugVisualModelsContext.Load();
         RespecContext.Load();
         ShieldStrikeContext.Load();
 
@@ -101,7 +98,7 @@ internal static class BootContext
             SpellsContext.LateLoad();
 
             // Integration Context
-            IntegrationContext.LateLoad();
+            MulticlassIntegrationContext.LateLoad();
 
             // Divine Smite fixes
             SrdAndHouseRulesContext.LateLoad();

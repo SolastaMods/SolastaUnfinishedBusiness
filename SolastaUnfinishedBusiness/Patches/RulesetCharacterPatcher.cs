@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Models.SpellsSlotsContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -504,7 +503,7 @@ internal static class RulesetCharacterPatcher
             for (var i = 1; i <= sharedSpellLevel; i++)
             {
                 slots.TryAdd(i, 0);
-                slots[i] += FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
+                slots[i] += SharedSpellsContext.FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
             }
 
             // adds warlock slots
@@ -514,7 +513,7 @@ internal static class RulesetCharacterPatcher
             for (var i = 1; i <= warlockSpellLevel; i++)
             {
                 slots.TryAdd(i, 0);
-                slots[i] += WarlockCastingSlots[warlockCasterLevel - 1].Slots[i - 1];
+                slots[i] += SharedSpellsContext.WarlockCastingSlots[warlockCasterLevel - 1].Slots[i - 1];
             }
 
             // reassign slots back to repertoires except for race ones

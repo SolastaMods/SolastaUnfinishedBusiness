@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class IntegrationContext
+internal static class MulticlassIntegrationContext
 {
     private const string ClassTinkerer = "Tinkerer";
     private const string SubclassConartist = "RoguishConArtist";

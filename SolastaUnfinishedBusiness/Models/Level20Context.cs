@@ -115,8 +115,8 @@ internal static class Level20Context
             // Solasta handles divine intervention on the subclasses, added below.
         });
 
-        CastSpellCleric.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
-        CastSpellCleric.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
+        CastSpellCleric.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        CastSpellCleric.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
 
         DomainBattle.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
@@ -147,8 +147,8 @@ internal static class Level20Context
             // TODO 20: ARCH DRUID
         });
 
-        CastSpellDruid.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
-        CastSpellDruid.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
+        CastSpellDruid.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        CastSpellDruid.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
     }
 
     private static void FighterLoad()
@@ -193,8 +193,8 @@ internal static class Level20Context
                 ClassLevel = 17, SpellsList = new List<SpellDefinition> { WallOfForce, HoldMonster }
             });
 
-        CastSpellPaladin.SlotsPerLevels.SetRange(SpellsSlotsContext.HalfCastingSlots);
-        CastSpellPaladin.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
+        CastSpellPaladin.SlotsPerLevels.SetRange(SharedSpellsContext.HalfCastingSlots);
+        CastSpellPaladin.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
     }
 
     private static void RangerLoad()
@@ -204,8 +204,8 @@ internal static class Level20Context
             new(SenseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
         });
 
-        CastSpellRanger.SlotsPerLevels.SetRange(SpellsSlotsContext.HalfCastingSlots);
-        CastSpellRanger.ReplacedSpells.SetRange(SpellsSlotsContext.HalfCasterReplacedSpells);
+        CastSpellRanger.SlotsPerLevels.SetRange(SharedSpellsContext.HalfCastingSlots);
+        CastSpellRanger.ReplacedSpells.SetRange(SharedSpellsContext.HalfCasterReplacedSpells);
     }
 
     private static void RogueLoad()
@@ -227,9 +227,9 @@ internal static class Level20Context
             new(SorcerousRestorationBuilder.SorcerousRestoration, 20)
         });
 
-        CastSpellSorcerer.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
-        CastSpellSorcerer.ReplacedSpells.SetRange(SpellsSlotsContext.FullCasterReplacedSpells);
-        CastSpellSorcerer.KnownSpells.SetRange(SpellsSlotsContext.SorcererKnownSpells);
+        CastSpellSorcerer.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        CastSpellSorcerer.ReplacedSpells.SetRange(SharedSpellsContext.FullCasterReplacedSpells);
+        CastSpellSorcerer.KnownSpells.SetRange(SharedSpellsContext.SorcererKnownSpells);
     }
 
     private static void WizardLoad()
@@ -241,25 +241,25 @@ internal static class Level20Context
             // TODO 20: Signature Spells
         });
 
-        CastSpellWizard.SlotsPerLevels.SetRange(SpellsSlotsContext.FullCastingSlots);
-        CastSpellWizard.ReplacedSpells.SetRange(SpellsSlotsContext.EmptyReplacedSpells);
+        CastSpellWizard.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        CastSpellWizard.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
     }
 
     private static void MartialSpellBladeLoad()
     {
-        CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SpellsSlotsContext.OneThirdCastingSlots);
-        CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SpellsSlotsContext.OneThirdCasterReplacedSpells);
+        CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SharedSpellsContext.OneThirdCastingSlots);
+        CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
     }
 
     private static void RoguishShadowcasterLoad()
     {
-        CastSpellShadowcaster.SlotsPerLevels.SetRange(SpellsSlotsContext.OneThirdCastingSlots);
-        CastSpellShadowcaster.ReplacedSpells.SetRange(SpellsSlotsContext.OneThirdCasterReplacedSpells);
+        CastSpellShadowcaster.SlotsPerLevels.SetRange(SharedSpellsContext.OneThirdCastingSlots);
+        CastSpellShadowcaster.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
     }
 
     private static void TraditionLightLoad()
     {
-        CastSpellTraditionLight.SlotsPerLevels.SetRange(SpellsSlotsContext.OneThirdCastingSlots);
-        CastSpellTraditionLight.ReplacedSpells.SetRange(SpellsSlotsContext.OneThirdCasterReplacedSpells);
+        CastSpellTraditionLight.SlotsPerLevels.SetRange(SharedSpellsContext.OneThirdCastingSlots);
+        CastSpellTraditionLight.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
     }
 }
