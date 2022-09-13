@@ -394,7 +394,7 @@ internal static class ArmorClassStacking
 
     // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
     // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
-    public static IEnumerable<CodeInstruction> UnstackACTranspile(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> UnstackAcTranspile(IEnumerable<CodeInstruction> instructions)
     {
         var sort = new Action<
             List<RulesetAttributeModifier>
@@ -402,7 +402,7 @@ internal static class ArmorClassStacking
 
         var unstack = new Action<
             List<RulesetAttributeModifier>
-        >(UnstackAC).Method;
+        >(UnstackAc).Method;
 
         foreach (var instruction in instructions)
         {
@@ -417,7 +417,7 @@ internal static class ArmorClassStacking
         }
     }
 
-    public static void UnstackAC(List<RulesetAttributeModifier> modifiers)
+    private static void UnstackAc(List<RulesetAttributeModifier> modifiers)
     {
         var attributes = new List<RulesetAttributeModifier>();
         var sets = new List<RulesetAttributeModifier>();

@@ -15,6 +15,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 {
     private const string ForestGuardianName = "CircleOfTheForestGuardian";
 
+    // ReSharper disable once InconsistentNaming
     private CharacterSubclassDefinition Subclass;
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

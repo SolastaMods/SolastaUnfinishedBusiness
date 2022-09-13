@@ -479,14 +479,14 @@ internal static class MulticlassPatchingContext
     // support subclass filtered feature unlocks
     // ReSharper disable once MemberCanBePrivate.Global
     public static IEnumerable<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(
-        [NotNull] CharacterSubclassDefinition characterSublassDefinition, RulesetCharacterHero rulesetCharacterHero)
+        [NotNull] CharacterSubclassDefinition characterSubclassDefinition, RulesetCharacterHero rulesetCharacterHero)
     {
         if (!LevelUpContext.IsMulticlass(rulesetCharacterHero))
         {
-            return characterSublassDefinition.FeatureUnlocks;
+            return characterSubclassDefinition.FeatureUnlocks;
         }
 
-        var filteredFeatureUnlockByLevels = characterSublassDefinition.FeatureUnlocks.ToList();
+        var filteredFeatureUnlockByLevels = characterSubclassDefinition.FeatureUnlocks.ToList();
 
         // remove any extra attacks except on classes that get them at 11 (fighter and swiftBlade)
         var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;

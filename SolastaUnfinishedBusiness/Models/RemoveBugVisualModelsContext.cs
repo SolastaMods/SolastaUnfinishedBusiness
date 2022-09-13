@@ -12,9 +12,9 @@ internal static class RemoveBugVisualModelsContext
             return;
         }
 
-        // Spiderlings, fire spider, kindred spirit spider, BadlandsSpider(normal, conjured and wildshaped versions)
+        // Spiderlings, fire spider, kindred spirit spider, BadlandsSpider(normal, conjured and wildshape versions)
         const string ASSET_REFERENCE_SPIDER_1 = "362fc51df586d254ab182ef854396f82";
-        //CrimsonSpiderling, PhaseSpider, SpectralSpider, CrimsonSpider, deep spider(normal, conjured and wildshaped versions)
+        //CrimsonSpiderling, PhaseSpider, SpectralSpider, CrimsonSpider, deep spider(normal, conjured and wildshape versions)
         const string ASSET_REFERENCE_SPIDER_2 = "40b5fe532a9a0814097acdb16c74e967";
         // spider queen
         const string ASSET_REFERENCE_SPIDER_3 = "8fc96b2a8c5fcc243b124d31c63df5d9";

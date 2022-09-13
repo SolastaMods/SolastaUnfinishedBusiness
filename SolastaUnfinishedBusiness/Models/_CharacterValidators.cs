@@ -71,9 +71,9 @@ public static class CharacterValidators
                || (!WeaponValidators.IsTwoHanded(main) && WeaponValidators.IsUnarmedWeapon(off));
     };
     
-    // Does character has free offhand in TA's terms as used in RefrashAttackModes for bonus unarmed attack for Monk?
+    // Does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
     // defined as having offhand empty or being  not a weapon
-    public static bool IsFreeOffhandForUnarmedTA(RulesetCharacter character)
+    public static bool IsFreeOffhandForUnarmedTa(RulesetCharacter character)
     {
         if (character is not RulesetCharacterHero hero)
         {

@@ -34,7 +34,7 @@ public static class InspectionPanelContext
 
         badgeDefinitions.Clear();
 
-        badgeDefinitions.AddRange(Global.InspectedHero.ClassesAndSubclasses.Where(x => x.Key == SelectedClass)
+        badgeDefinitions.AddRange(Global.InspectedHero!.ClassesAndSubclasses.Where(x => x.Key == SelectedClass)
             .Select(classesAndSubclass => classesAndSubclass.Value));
 
         if (Global.InspectedHero.DeityDefinition != null && (SelectedClass == Paladin || SelectedClass == Cleric))
@@ -77,7 +77,7 @@ public static class InspectionPanelContext
 
         var classLevelFightingStyle =
             (from activeFeature in
-                    Global.InspectedHero.ActiveFeatures.Where(x => x.Key.Contains(AttributeDefinitions.TagClass))
+                    Global.InspectedHero!.ActiveFeatures.Where(x => x.Key.Contains(AttributeDefinitions.TagClass))
                 from featureDefinition in activeFeature.Value.OfType<FeatureDefinitionFightingStyleChoice>()
                 select activeFeature).ToDictionary(activeFeature => activeFeature.Key,
                 _ => Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);

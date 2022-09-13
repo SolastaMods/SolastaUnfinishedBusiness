@@ -175,7 +175,7 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            CharacterValidators.IsFreeOffhandForUnarmedTA(hero),
+            CharacterValidators.IsFreeOffhandForUnarmedTa(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,

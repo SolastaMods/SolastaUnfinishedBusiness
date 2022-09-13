@@ -147,7 +147,7 @@ internal static class RulesetCharacterHeroPatcher
             // Makes sure various unarmored defense features don't stack with themselves and Dragon Resilience
             // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
             // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
-            return ArmorClassStacking.UnstackACTranspile(instructions);
+            return ArmorClassStacking.UnstackAcTranspile(instructions);
         }
     }
 }

@@ -13,7 +13,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
     internal WizardLifeTransmuter()
     {
-        var LifeTransmuterAffinity = FeatureDefinitionMagicAffinityBuilder
+        var lifeTransmuterAffinity = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityLifeTransmuterHeightened", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetWarList(2,
@@ -142,7 +142,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .Create("WizardLifeTransmuter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass,
                 RoguishDarkweaver.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(LifeTransmuterAffinity, 2)
+            .AddFeatureAtLevel(lifeTransmuterAffinity, 2)
             .AddFeatureAtLevel(transmuteForce, 6)
             .AddFeatureAtLevel(powerDarkvision, 6)
             .AddFeatureAtLevel(powerPoison, 6)

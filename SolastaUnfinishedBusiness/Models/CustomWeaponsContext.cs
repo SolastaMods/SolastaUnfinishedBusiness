@@ -17,7 +17,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class CustomWeaponsContext
 {
-    public const string PolearmWeaponTag = "PolearmWeapon";
+    private const string PolearmWeaponTag = "PolearmWeapon";
     public static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType, HandXbowWeaponType;
     public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
     public static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
@@ -70,13 +70,13 @@ public static class CustomWeaponsContext
     [NotNull]
     private static ItemPresentation BuildPresentation(string unIdentifiedName,
         [NotNull] ItemPresentation basePresentation,
-        float scale = 1.0f, bool hasUnidDescription = false)
+        float scale = 1.0f, bool hasUnidentifiedDescription = false)
     {
         var presentation = new ItemPresentation(basePresentation);
         presentation.ItemFlags.Clear();
         presentation.assetReference = basePresentation.AssetReference;
         presentation.unidentifiedTitle = GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item);
-        presentation.unidentifiedDescription = hasUnidDescription
+        presentation.unidentifiedDescription = hasUnidentifiedDescription
             ? GuiPresentationBuilder.CreateDescriptionKey(unIdentifiedName, Category.Item)
             : Gui.NoLocalization;
 
@@ -670,7 +670,7 @@ public static class CustomWeaponsContext
     // }
 
     [NotNull]
-    public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe, Guid guid)
+    private static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe, Guid guid)
     {
         var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
         var manual = ItemDefinitionBuilder

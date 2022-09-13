@@ -189,7 +189,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
             .SetMaxAttacksNumber(1)
-            .SetCustomSubFeatures(new RefreshSneakAttckOnKill())
+            .SetCustomSubFeatures(new RefreshSneakAttackOnKill())
             .AddToDB();
 
         // pain maker
@@ -217,7 +217,7 @@ internal sealed class RoguishRaven : AbstractSubclass
     {
     }
 
-    private sealed class RefreshSneakAttckOnKill : ITargetReducedToZeroHP
+    private sealed class RefreshSneakAttackOnKill : ITargetReducedToZeroHP
     {
         public IEnumerator HandleCharacterReducedToZeroHP(GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,

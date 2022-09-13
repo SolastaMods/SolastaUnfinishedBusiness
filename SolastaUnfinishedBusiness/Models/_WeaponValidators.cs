@@ -39,7 +39,7 @@ public static class WeaponValidators
     
     public static bool IsMelee([NotNull] RulesetAttackMode attack)
     {
-        //TODO: tets if this is enough, or we need to check SourceDefinition too
+        //TODO: test if this is enough, or we need to check SourceDefinition too
         return !attack.ranged;
     }
 

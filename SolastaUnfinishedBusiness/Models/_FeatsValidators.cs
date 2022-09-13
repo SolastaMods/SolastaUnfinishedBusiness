@@ -12,8 +12,7 @@ internal static class FeatsValidators
     //
     // validation routines for FeatDefinitionWithPrerequisites
     //
-
-    [NotNull]
+    
     internal static (bool, string) IsElfOrHalfElf(FeatDefinitionWithPrerequisites _,
         [NotNull] RulesetCharacterHero hero)
     {

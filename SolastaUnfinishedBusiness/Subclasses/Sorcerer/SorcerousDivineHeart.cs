@@ -10,6 +10,7 @@ namespace SolastaUnfinishedBusiness.Subclasses.Sorcerer;
 
 internal sealed class SorcerousDivineHeart : AbstractSubclass
 {
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal SorcerousDivineHeart()
