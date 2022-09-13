@@ -50,22 +50,25 @@ internal static class SpellsContext
             {
                 var title = characterSubclass.FormatTitle();
 
-                var featureDefinition = characterSubclass.FeatureUnlocks
+                var featureDefinitions = characterSubclass.FeatureUnlocks
                     .Select(x => x.FeatureDefinition)
-                    .FirstOrDefault(x => x is FeatureDefinitionCastSpell or FeatureDefinitionMagicAffinity);
+                    .Where(x => x is FeatureDefinitionCastSpell or FeatureDefinitionMagicAffinity);
 
-                switch (featureDefinition)
+                foreach (var featureDefinition in featureDefinitions)
                 {
-                    case FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
-                        when featureDefinitionMagicAffinity.ExtendedSpellList != null &&
-                             !spellLists.ContainsValue(featureDefinitionMagicAffinity.ExtendedSpellList):
-                        spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
-                        break;
-                    case FeatureDefinitionCastSpell featureDefinitionCastSpell
-                        when featureDefinitionCastSpell.SpellListDefinition != null &&
-                             !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition):
-                        spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
-                        break;
+                    switch (featureDefinition)
+                    {
+                        case FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
+                            when featureDefinitionMagicAffinity.ExtendedSpellList != null &&
+                                 !spellLists.ContainsValue(featureDefinitionMagicAffinity.ExtendedSpellList):
+                            spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
+                            break;
+                        case FeatureDefinitionCastSpell featureDefinitionCastSpell
+                            when featureDefinitionCastSpell.SpellListDefinition != null &&
+                                 !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition):
+                            spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+                            break;
+                    }    
                 }
             }
 
