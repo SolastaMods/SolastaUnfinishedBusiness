@@ -146,18 +146,22 @@ internal static class RulesetSpellRepertoirePatcher
 
             sharedRemainingSlots -= pactRemainingSlots;
 
-            var isShiftPressed = !Global.IsMultiplayer &&
-                                 (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+            // var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+            var isShiftPressed = Global.CurrentAction.actionParams.BoolParameter5;
 
             var canConsumePactSlot = pactRemainingSlots > 0 && slotLevel <= warlockSpellLevel;
             var canConsumeSpellSlot = sharedRemainingSlots > 0 && slotLevel <= sharedSpellLevel;
 
-            var forcePactSlot = __instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock;
-            var forceSpellSlot = canConsumeSpellSlot &&
-                                 (isShiftPressed || (!forcePactSlot && sharedSpellLevel < warlockSpellLevel));
+            // var forcePactSlot = __instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock;
+            // var forceSpellSlot = canConsumeSpellSlot &&
+            //                      (isShiftPressed || (!forcePactSlot && sharedSpellLevel < warlockSpellLevel));
 
-            // uses short rest slots across all repertoires
-            if (canConsumePactSlot && !forceSpellSlot)
+            // uses short rest slots across all non race repertoires
+            if ((canConsumePactSlot && 
+                 (!canConsumeSpellSlot 
+                  || __instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock && !isShiftPressed 
+                  || __instance.SpellCastingClass != DatabaseHelper.CharacterClassDefinitions.Warlock && isShiftPressed)))
             {
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
                              .Where(spellRepertoire => spellRepertoire.SpellCastingFeature.SpellCastingOrigin !=
