@@ -49,7 +49,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
         // Grant advantage when attack enemies whose initiative is lower than your
         // or when perform an attack of opportunity.
         var quickStrike = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("OnComputeAttackModifierRoguishOpportunistQuickStrike", DefinitionBuilder.CENamespaceGuid)
+            .Create("OnComputeAttackModifierOpportunistQuickStrike", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
             .AddToDB();
@@ -120,7 +120,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
     private sealed class DebilitatedConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string Name = "ConditionRoguishOpportunistDebilitated";
+        private const string Name = "ConditionOpportunistDebilitated";
 
         internal static readonly ConditionDefinition DebilitatedCondition =
             CreateAndAddToDB(Name, "0962e8e8-b7d9-46cf-b017-75da61d81d03");

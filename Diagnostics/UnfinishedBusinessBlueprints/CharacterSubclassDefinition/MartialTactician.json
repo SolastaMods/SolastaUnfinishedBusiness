@@ -13,12 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolInspirePower:163c28de-48e5-4f75-bdd0-d42374a75ef8",
+      "featureDefinition": "Definition:PowerSharedPoolTacticianInspirePower:163c28de-48e5-4f75-bdd0-d42374a75ef8",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolKnockDown:90dd5e81-40d7-4824-89b4-45bcf4c05218",
+      "featureDefinition": "Definition:PowerSharedPoolTacticianKnockDown:90dd5e81-40d7-4824-89b4-45bcf4c05218",
       "level": 3
     },
     {

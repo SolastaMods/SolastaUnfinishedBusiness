@@ -111,12 +111,12 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
                 FeatureDefinitionReduceDamageBuilder
-                    .Create("ReduceDamageDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
+                    .Create("ReduceDamageBladeDancerDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetNotificationTag("DanceOfDefense")
                     .SetReducedDamage(-5)
                     .SetSourceType(RuleDefinitions.FeatureSourceType.CharacterFeature)
-                    .SetSourceName("ReduceDamageDanceOfDefense")
+                    .SetSourceName("ReduceDamageBladeDancerDanceOfDefense")
                     .AddToDB())
             .AddToDB();
 
@@ -183,8 +183,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .AddToDB();
 
         var featureDanceOfDefenseSet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetBladeDancerReduceDamageDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation("ReduceDamageDanceOfDefense", Category.Feature)
+            .Create("FeatureSetBladeDancerReduceDamageBladeDancerDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ReduceDamageBladeDancerDanceOfDefense", Category.Feature)
             .SetFeatureSet(powerDanceOfDefense)
             .AddToDB();
 

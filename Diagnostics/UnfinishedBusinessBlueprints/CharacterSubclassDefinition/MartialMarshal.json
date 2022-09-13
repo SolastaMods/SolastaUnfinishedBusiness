@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetKnowYourEnemy:c52d713e-75b0-5860-9065-c8538d1723c4",
+      "featureDefinition": "Definition:FeatureSetMarshalKnowYourEnemy:c52d713e-75b0-5860-9065-c8538d1723c4",
       "level": 3
     },
     {

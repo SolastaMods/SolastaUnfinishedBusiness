@@ -8,7 +8,7 @@
     "Definition:AbilityCheckAffinityBladeDancerBladeDanceConstitution:0a2b2db5-be50-5edf-8136-c541bfe1ba3c",
     "Definition:AttributeModifierBladeDancerBladeDance:a0e1c313-2185-5f2b-b1cb-e6433b272707",
     "Definition:MovementAffinityBarbarianFastMovement:b46d47bd558a34d48911656bd4b088c7",
-    "Definition:ReduceDamageDanceOfDefense:c82d3701-1b1f-59b6-8893-2aadeb599b13"
+    "Definition:ReduceDamageBladeDancerDanceOfDefense:c82d3701-1b1f-59b6-8893-2aadeb599b13"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
