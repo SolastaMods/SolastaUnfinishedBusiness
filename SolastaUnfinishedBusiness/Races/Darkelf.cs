@@ -24,7 +24,7 @@ internal static class DarkelfSubraceBuilder
             CustomIcons.CreateAssetReferenceSprite("Darkelf", Resources.Darkelf, 1024, 512);
 
         var darkelfAbilityScoreModifierCharisma = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierDarkelfCharismaAbilityScoreIncrease", "21fbf034-47bd-436b-b92d-95883549a6d8")
+            .Create("AttributeModifierDarkelfCharismaAbilityScoreIncrease", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Charisma, 1)

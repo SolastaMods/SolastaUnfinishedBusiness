@@ -12,73 +12,73 @@ internal static class Morphotypes
     internal static void Load()
     {
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin1", "d26c8ce0-884f-4abd-90fd-dc961802c48a")
+            .Create(FaceAndSkin_01, "DarkelfSkin1", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(BodyDecorationColor_Default_00.MainColor)
             .SetSortOrder(48)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin2", "d26c8ce0-884f-4abd-90fd-dc961802c48b")
+            .Create(FaceAndSkin_01, "DarkelfSkin2", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.129411765f, g = 0.188235294f, b = 0.239215686f, a = 1.0f })
             .SetSortOrder(49)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin3", "d26c8ce0-884f-4abd-90fd-dc961802c48c")
+            .Create(FaceAndSkin_01, "DarkelfSkin3", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.188235294f, g = 0.258823529f, b = 0.317647059f, a = 1.0f })
             .SetSortOrder(50)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin4", "d26c8ce0-884f-4abd-90fd-dc961802c48d")
+            .Create(FaceAndSkin_01, "DarkelfSkin4", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.266666667f, g = 0.360784314f, b = 0.439215687f, a = 1.0f })
             .SetSortOrder(51)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin5", "d26c8ce0-884f-4abd-90fd-dc961802c48e")
+            .Create(FaceAndSkin_01, "DarkelfSkin5", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.164705882f, g = 0.184313725f, b = 0.239215686f, a = 1.0f })
             .SetSortOrder(52)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin6", "d26c8ce0-884f-4abd-90fd-dc961802c48f")
+            .Create(FaceAndSkin_01, "DarkelfSkin6", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.054901961f, g = 0.007843137f, b = 0.015686274f, a = 1.0f })
             .SetSortOrder(53)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair1", "7dd1a932-69d3-4d51-b9c6-eccaaed90007")
+            .Create(HairColorSilver, "DarkelfHair1", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(FaceAndSkin_Neutral.MainColor)
             .SetSortOrder(48)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair2", "7dd1a932-69d3-4d51-b9c6-eccaaed90008")
+            .Create(HairColorSilver, "DarkelfHair2", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.945098039f, g = 0.952941176f, b = 0.980392157f, a = 1.0f })
             .SetSortOrder(49)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair3", "7dd1a932-69d3-4d51-b9c6-eccaaed90009")
+            .Create(HairColorSilver, "DarkelfHair3", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.890196078f, g = 0.933333333f, b = 0.976470588f, a = 1.0f })
             .SetSortOrder(50)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair4", "7dd1a932-69d3-4d51-b9c6-eccaaed90010")
+            .Create(HairColorSilver, "DarkelfHair4", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.870588235f, g = 0.894117647f, b = 0.925490196f, a = 1.0f })
             .SetSortOrder(51)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair5", "7dd1a932-69d3-4d51-b9c6-eccaaed90011")
+            .Create(HairColorSilver, "DarkelfHair5", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.968627451f, g = 0.929411765f, b = 0.937254902f, a = 1.0f })
             .SetSortOrder(52)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair6", "7dd1a932-69d3-4d51-b9c6-eccaaed90012")
+            .Create(HairColorSilver, "DarkelfHair6", DefinitionBuilder.CENamespaceGuid)
             .SetMainColor(new Color { r = 0.996078431f, g = 0.913725490f, b = 0.913725490f, a = 1.0f })
             .SetSortOrder(53)
             .AddToDB();
@@ -116,7 +116,7 @@ internal static class Morphotypes
     {
         var brightEyes00 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CEBrightEyeColor00",
-                "0736115f-5f15-4a01-abd1-7fa069b6278a")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(40)
@@ -124,7 +124,7 @@ internal static class Morphotypes
 
         var brightEyes01 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_01, "CEBrightEyeColor01",
-                "0736115f-5f15-4a01-abd1-7fa069b6278b")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(41)
@@ -132,7 +132,7 @@ internal static class Morphotypes
 
         var brightEyes02 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_02, "CEBrightEyeColor02",
-                "0736115f-5f15-4a01-abd1-7fa069b6278c")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(42)
@@ -140,7 +140,7 @@ internal static class Morphotypes
 
         var brightEyes03 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_03, "CEBrightEyeColor03",
-                "0736115f-5f15-4a01-abd1-7fa069b6278d")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(43)
@@ -148,7 +148,7 @@ internal static class Morphotypes
 
         var brightEyes04 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_04, "CEBrightEyeColor04",
-                "0736115f-5f15-4a01-abd1-7fa069b6278e")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(44)
@@ -156,7 +156,7 @@ internal static class Morphotypes
 
         var brightEyes05 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_05, "CEBrightEyeColor05",
-                "0736115f-5f15-4a01-abd1-7fa069b6278f")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(45)
@@ -164,7 +164,7 @@ internal static class Morphotypes
 
         var brightEyes06 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_06, "CEBrightEyeColor06",
-                "0736115f-5f15-4a01-abd1-7fa069b62780")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(46)
@@ -172,7 +172,7 @@ internal static class Morphotypes
 
         var brightEyes07 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_07, "CEBrightEyeColor07",
-                "0736115f-5f15-4a01-abd1-7fa069b62782")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(47)
@@ -180,7 +180,7 @@ internal static class Morphotypes
 
         var brightEyes08 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_08, "CEBrightEyeColor08",
-                "0736115f-5f15-4a01-abd1-7fa069b62783")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(48)
@@ -188,7 +188,7 @@ internal static class Morphotypes
 
         var brightEyes09 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_09, "CEBrightEyeColor09",
-                "0736115f-5f15-4a01-abd1-7fa069b62784")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(49)
@@ -196,7 +196,7 @@ internal static class Morphotypes
 
         var brightEyes10 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_10, "CEBrightEyeColor10",
-                "0736115f-5f15-4a01-abd1-7fa069b62785")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(50)
@@ -204,7 +204,7 @@ internal static class Morphotypes
 
         var brightEyes11 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_11, "CEBrightEyeColor11",
-                "0736115f-5f15-4a01-abd1-7fa069b62786")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(51)
@@ -212,7 +212,7 @@ internal static class Morphotypes
 
         var brightEyes12 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_12, "CEBrightEyeColor12",
-                "0736115f-5f15-4a01-abd1-7fa069b62787")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(52)
@@ -220,7 +220,7 @@ internal static class Morphotypes
 
         var brightEyes13 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_13, "CEBrightEyeColor13",
-                "0736115f-5f15-4a01-abd1-7fa069b62788")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(53)
@@ -228,7 +228,7 @@ internal static class Morphotypes
 
         var brightEyes14 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_14, "CEBrightEyeColor14",
-                "0736115f-5f15-4a01-abd1-7fa069b62789")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(54)
@@ -236,7 +236,7 @@ internal static class Morphotypes
 
         var brightEyes15 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_15, "CEBrightEyeColor15",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7eca")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(55)
@@ -265,7 +265,7 @@ internal static class Morphotypes
     {
         var glowingEyes00 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CEGlowingEyeColor00",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ecb")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -280,7 +280,7 @@ internal static class Morphotypes
 
         var glowingEyes01 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_01, "CEGlowingEyeColor01",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ecc")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -295,7 +295,7 @@ internal static class Morphotypes
 
         var glowingEyes02 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_03, "CEGlowingEyeColor02",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ecd")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -310,7 +310,7 @@ internal static class Morphotypes
 
         var glowingEyes03 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_06, "CEGlowingEyeColor03",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ece")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -325,7 +325,7 @@ internal static class Morphotypes
 
         var glowingEyes04 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_10, "CEGlowingEyeColor04",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ecf")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -340,7 +340,7 @@ internal static class Morphotypes
 
         var glowingEyes05 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_12, "CEGlowingEyeColor05",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec0")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -355,7 +355,7 @@ internal static class Morphotypes
 
         var glowingEyes06 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CEGlowingEyeColor06",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec1")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -370,7 +370,7 @@ internal static class Morphotypes
 
         var glowingEyes07 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_01, "CEGlowingEyeColor07",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec2")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -385,7 +385,7 @@ internal static class Morphotypes
 
         var glowingEyes08 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_03, "CEGlowingEyeColor08",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec3")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -400,7 +400,7 @@ internal static class Morphotypes
 
         var glowingEyes09 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_06, "CEGlowingEyeColor09",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec4")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -415,7 +415,7 @@ internal static class Morphotypes
 
         var glowingEyes10 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_10, "CEGlowingEyeColor10",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec5")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -430,7 +430,7 @@ internal static class Morphotypes
 
         var glowingEyes11 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_12, "CEGlowingEyeColor11",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec6")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -445,7 +445,7 @@ internal static class Morphotypes
 
         var glowingEyes12 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_00, "CEGlowingEyeColor12",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec7")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -460,7 +460,7 @@ internal static class Morphotypes
 
         var glowingEyes13 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_01, "CEGlowingEyeColor13",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec8")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -475,7 +475,7 @@ internal static class Morphotypes
 
         var glowingEyes14 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_03, "CEGlowingEyeColor14",
-                "aaa4520d-c7c8-4d8c-b1e5-add88efe7ec9")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -490,7 +490,7 @@ internal static class Morphotypes
 
         var glowingEyes15 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_06, "CEGlowingEyeColor15",
-                "5e7fe208-0c36-4a2f-9ea7-51e2de103360")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -505,7 +505,7 @@ internal static class Morphotypes
 
         var glowingEyes16 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_10, "CEGlowingEyeColor16",
-                "5e7fe208-0c36-4a2f-9ea7-51e2de103361")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -520,7 +520,7 @@ internal static class Morphotypes
 
         var glowingEyes17 = MorphotypeElementDefinitionBuilder
             .Create(BodyDecorationColor_SorcererManaPainter_12, "CEGlowingEyeColor17",
-                "5e7fe208-0c36-4a2f-9ea7-51e2de103362")
+                DefinitionBuilder.CENamespaceGuid)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
