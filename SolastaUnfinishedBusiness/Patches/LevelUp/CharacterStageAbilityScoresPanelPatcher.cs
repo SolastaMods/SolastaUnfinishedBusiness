@@ -37,7 +37,7 @@ internal static class CharacterStageAbilityScoresPanelPatcher
         }
     }
 
-//PATCH: extends the cost buy table to enable `EpicPointsAndArray`
+    //PATCH: extends the cost buy table to enable `EpicPointsAndArray`
     [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Refresh_Patch

@@ -23,31 +23,7 @@ internal static class CharacterStageRaceSelectionPanel_Compare
     }
 }
 
-//TODO: consolidate this patch with one below this
-[HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "OnBeginShow")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterStageRaceSelectionPanel_OnBeginShow_1
-{
-    internal static void Prefix([NotNull] CharacterStageRaceSelectionPanel __instance)
-    {
-        //PATCH: avoids a restart when enabling / disabling races on the Mod UI panel
-        var visibleRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-            .Where(x => !x.GuiPresentation.Hidden);
-        var characterRaceDefinitions = visibleRaces as CharacterRaceDefinition[] ?? visibleRaces.ToArray();
-        var visibleSubRaces = characterRaceDefinitions.SelectMany(x => x.SubRaces);
-        var visibleMainRaces = characterRaceDefinitions.Where(x => !visibleSubRaces.Contains(x));
-
-        var raceDefinitions = visibleMainRaces as CharacterRaceDefinition[] ?? visibleMainRaces.ToArray();
-        __instance.eligibleRaces.SetRange(raceDefinitions.OrderBy(x => x.FormatTitle()));
-        __instance.selectedSubRace.Clear();
-
-        for (var key = 0; key < raceDefinitions.Length; ++key)
-        {
-            __instance.selectedSubRace[key] = 0;
-        }
-    }
-}
-
+//PATCH: avoids a restart when enabling / disabling races on the Mod UI panel
 [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "OnBeginShow")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterStageRaceSelectionPanel_OnBeginShow
@@ -100,6 +76,21 @@ internal static class CharacterStageRaceSelectionPanel_OnBeginShow
             }
         }
 
+        var visibleRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+            .Where(x => !x.GuiPresentation.Hidden);
+        var characterRaceDefinitions = visibleRaces as CharacterRaceDefinition[] ?? visibleRaces.ToArray();
+        var visibleSubRaces = characterRaceDefinitions.SelectMany(x => x.SubRaces);
+        var visibleMainRaces = characterRaceDefinitions.Where(x => !visibleSubRaces.Contains(x));
+        var raceDefinitions = visibleMainRaces as CharacterRaceDefinition[] ?? visibleMainRaces.ToArray();
+        
+        __instance.eligibleRaces.SetRange(raceDefinitions.OrderBy(x => x.FormatTitle()));
+        __instance.selectedSubRace.Clear();
+
+        for (var key = 0; key < raceDefinitions.Length; ++key)
+        {
+            __instance.selectedSubRace[key] = 0;
+        }
+        
         __instance.eligibleRaces.Sort(__instance);
     }
 }
