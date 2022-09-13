@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -77,16 +75,16 @@ internal static class FeatsValidators
         };
     }
 
-    internal static (bool, string) ValidateHasStealthAttack(FeatDefinition _, [NotNull] RulesetCharacterHero hero)
-    {
-        var features = new List<FeatureDefinition>();
-
-        hero.EnumerateFeaturesToBrowse<FeatureDefinitionAdditionalDamage>(features);
-
-        var hasStealthAttack = features.Any(x => x.Name.Contains(TagsDefinitions.AdditionalDamageSneakAttackTag));
-
-        return hasStealthAttack
-            ? (true, Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"))
-            : (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171"));
-    }
+    // internal static (bool, string) ValidateHasStealthAttack(FeatDefinition _, [NotNull] RulesetCharacterHero hero)
+    // {
+    //     var features = new List<FeatureDefinition>();
+    //
+    //     hero.EnumerateFeaturesToBrowse<FeatureDefinitionAdditionalDamage>(features);
+    //
+    //     var hasStealthAttack = features.Any(x => x.Name.Contains(TagsDefinitions.AdditionalDamageSneakAttackTag));
+    //
+    //     return hasStealthAttack
+    //         ? (true, Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"))
+    //         : (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171"));
+    // }
 }

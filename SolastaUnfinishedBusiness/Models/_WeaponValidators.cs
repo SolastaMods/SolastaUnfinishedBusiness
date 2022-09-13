@@ -13,6 +13,7 @@ public static class WeaponValidators
     public static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
     // public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
+
     // public static readonly IsWeaponValidHandler IsReactionAttack = IsReactionAttackMode;
 
     // public static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
@@ -60,6 +61,7 @@ public static class WeaponValidators
         return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
     }
 
+    // ReSharper disable once MemberCanBePrivate.Global
     public static bool IsUnarmedWeapon([CanBeNull] RulesetAttackMode attackMode, RulesetItem weapon,
         RulesetCharacter character)
     {
@@ -102,7 +104,7 @@ public static class WeaponValidators
     // {
     //     return attackMode is {ActionType: ActionDefinitions.ActionType.Reaction};
     // }
-    //
+
     // public static bool HasAnyTag(RulesetItem item, params string[] tags)
     // {
     //     var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();

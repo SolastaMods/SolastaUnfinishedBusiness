@@ -189,7 +189,6 @@ public static class CustomFeaturesContext
                 }
                 case FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips when heroRepertoire != null:
                 {
-                    //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
                     heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
 
                     if (buildingData == null)
@@ -247,7 +246,7 @@ public static class CustomFeaturesContext
             var pointPoolPower = pool.GetUsagePoolPower();
 
             // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or
-            // it recharges on a long rest and this is a long rest.
+            // it recharges on a long rest and this is a long rest
             if (!pointPoolPowerDefinitions.Contains(pointPoolPower)
                 && ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
                      restType is RuleDefinitions.RestType.ShortRest or RuleDefinitions.RestType.LongRest) ||
@@ -329,25 +328,25 @@ public static class CustomFeaturesContext
         return totalPoolSize;
     }
 
-    internal static void UpdateUsageForPower([NotNull] this RulesetCharacter character, FeatureDefinitionPower power,
-        int poolUsage)
-    {
-        foreach (var poolPower in character.UsablePowers)
-        {
-            if (poolPower.PowerDefinition != power)
-            {
-                continue;
-            }
-
-            var maxUses = GetMaxUsesForPool(poolPower, character);
-            var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
-
-            poolPower.remainingUses = remainingUses;
-            AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
-
-            return;
-        }
-    }
+    // internal static void UpdateUsageForPower([NotNull] this RulesetCharacter character, FeatureDefinitionPower power,
+    //     int poolUsage)
+    // {
+    //     foreach (var poolPower in character.UsablePowers)
+    //     {
+    //         if (poolPower.PowerDefinition != power)
+    //         {
+    //             continue;
+    //         }
+    //
+    //         var maxUses = GetMaxUsesForPool(poolPower, character);
+    //         var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
+    //
+    //         poolPower.remainingUses = remainingUses;
+    //         AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
+    //
+    //         return;
+    //     }
+    // }
 
     internal static void UpdateUsageForPowerPool(this RulesetCharacter character,
         [NotNull] RulesetUsablePower modifiedPower,
@@ -476,26 +475,26 @@ public static class CustomFeaturesContext
         return result;
     }
 
-    [NotNull]
-    public static EffectDescription AddEffectForms(EffectDescription baseEffect,
-        [NotNull] params EffectForm[] effectForms)
-    {
-        var newEffect = baseEffect.Copy();
+    // [NotNull]
+    // public static EffectDescription AddEffectForms(EffectDescription baseEffect,
+    //     [NotNull] params EffectForm[] effectForms)
+    // {
+    //     var newEffect = baseEffect.Copy();
+    //
+    //     newEffect.EffectForms.AddRange(effectForms);
+    //
+    //     return newEffect;
+    // }
 
-        newEffect.EffectForms.AddRange(effectForms);
-
-        return newEffect;
-    }
-
-    public static bool GetValidationErrors(
-        [NotNull] IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators,
-        [NotNull] out List<string> errors)
-    {
-        errors = validators
-            .Select(v => v())
-            .Where(v => v != null)
-            .ToList();
-
-        return errors.Empty();
-    }
+    // public static bool GetValidationErrors(
+    //     [NotNull] IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators,
+    //     [NotNull] out List<string> errors)
+    // {
+    //     errors = validators
+    //         .Select(v => v())
+    //         .Where(v => v != null)
+    //         .ToList();
+    //
+    //     return errors.Empty();
+    // }
 }

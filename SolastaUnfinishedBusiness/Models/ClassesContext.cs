@@ -48,15 +48,15 @@ internal static class ClassesContext
         }
     }
 
-    private static void LoadClass([NotNull] CharacterClassDefinition characterClassDefinition)
-    {
-        if (!Classes.Contains(characterClassDefinition))
-        {
-            Classes.Add(characterClassDefinition);
-        }
-
-        UpdateClassVisibility(characterClassDefinition);
-    }
+    // private static void LoadClass([NotNull] CharacterClassDefinition characterClassDefinition)
+    // {
+    //     if (!Classes.Contains(characterClassDefinition))
+    //     {
+    //         Classes.Add(characterClassDefinition);
+    //     }
+    //
+    //     UpdateClassVisibility(characterClassDefinition);
+    // }
 
     private static void UpdateClassVisibility([NotNull] BaseDefinition characterClassDefinition)
     {

@@ -10,7 +10,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Models.ItemPropertyDescriptions;
+using static SolastaUnfinishedBusiness.Models.ItemPropertyDescriptionsContext;
 using static RuleDefinitions.ItemRarity;
 
 namespace SolastaUnfinishedBusiness.Models;

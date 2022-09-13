@@ -134,6 +134,11 @@ public static class FlexibleBackgroundsContext
             }
         };
 
+    internal static void Load()
+    {
+        Switch();
+    }
+
     internal static void Switch()
     {
         var enabled = Main.Settings.EnableFlexibleBackgrounds;

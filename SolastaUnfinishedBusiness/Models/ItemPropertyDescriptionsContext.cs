@@ -7,7 +7,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttac
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class ItemPropertyDescriptions
+public static class ItemPropertyDescriptionsContext
 {
     public static readonly ItemPropertyDescription WeaponPlus1 = BuildFrom(AttackModifierWeaponPlus1);
     public static readonly ItemPropertyDescription WeaponPlus1AttackOnly = BuildFrom(AttackModifierWeaponPlus1AT);

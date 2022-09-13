@@ -48,25 +48,11 @@ public static class Global
     // true if not in game
     public static bool IsOffGame => Gui.Game == null;
 
-    /* Deprecating Magus-related flags
-    public static bool IsSpellStrike { get; set; }
-
-    public static RuleDefinitions.RollOutcome SpellStrikeRollOutcome { get; set; } =
-        RuleDefinitions.RollOutcome.Neutral;
-
-    public static int SpellStrikeDieRoll { get; set; } = 10;
-    */
-
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         CurrentAction = characterAction;
         ActivePlayerCharacter = characterAction.ActingCharacter;
         CastedSpell = null;
-        /* Deprecating Magus-related flags
-        IsSpellStrike = false;
-        SpellStrikeRollOutcome = RuleDefinitions.RollOutcome.Neutral;
-        SpellStrikeDieRoll = -1;
-        */
 
         switch (characterAction)
         {
@@ -101,14 +87,14 @@ public static class Global
     //     return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition))
     //            || hero.GetHeroBuildingData().AcquiredCantrips.Any(e => e.Value.Contains(spellDefinition));
     // }
-    //
+
     // public static bool ActiveLevelUpHeroHasSubclass(string subclass)
     // {
     //     var hero = ActiveLevelUpHero;
     //
     //     return hero == null || hero.ClassesAndSubclasses.Any(e => e.Value.Name == subclass);
     // }
-    //
+
     // public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature, bool recursive = true)
     // {
     //     var hero = ActiveLevelUpHero;

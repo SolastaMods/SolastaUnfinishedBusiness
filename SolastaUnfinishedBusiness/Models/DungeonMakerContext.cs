@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -22,24 +21,24 @@ public static class DungeonMakerContext
 
     private const string BackupFolder = "DungeonMakerBackups";
 
-    [NotNull]
-    internal static string ReplaceVariable(string line)
-    {
-        var service = ServiceRepository.GetService<IGameVariableService>();
-        const string PATTERN = @"\{[a-zA-Z_][a-zA-Z0-9_]*\}";
-
-        foreach (Match match in Regex.Matches(line, PATTERN))
-        {
-            var variableName = match.Value.Substring(1, match.Value.Length - 2);
-
-            if (service.TryFindVariable(variableName, out var gameVariable))
-            {
-                line = line.Replace(match.Value, gameVariable.StringValue);
-            }
-        }
-
-        return line;
-    }
+    // [NotNull]
+    // internal static string ReplaceVariable(string line)
+    // {
+    //     var service = ServiceRepository.GetService<IGameVariableService>();
+    //     const string PATTERN = @"\{[a-zA-Z_][a-zA-Z0-9_]*\}";
+    //
+    //     foreach (Match match in Regex.Matches(line, PATTERN))
+    //     {
+    //         var variableName = match.Value.Substring(1, match.Value.Length - 2);
+    //
+    //         if (service.TryFindVariable(variableName, out var gameVariable))
+    //         {
+    //             line = line.Replace(match.Value, gameVariable.StringValue);
+    //         }
+    //     }
+    //
+    //     return line;
+    // }
 
     public static float GetPartyControlScale()
     {

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
 using UnityEngine.UI;
 

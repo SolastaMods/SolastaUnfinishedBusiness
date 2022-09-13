@@ -12,11 +12,12 @@ public static class CharacterValidators
     public static readonly CharacterValidator NoArmor = character => !character.IsWearingArmor();
 
     // public static readonly CharacterValidator MediumArmor = character => character.IsWearingMediumArmor();
+
     public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
+
     public static readonly CharacterValidator HasShield = character => character.IsWearingShield();
 
-    public static readonly CharacterValidator EmptyOffhand = character =>
-        character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
+    // public static readonly CharacterValidator EmptyOffhand = character => character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
     public static readonly CharacterValidator HasPolearm = character =>
     {
@@ -53,12 +54,12 @@ public static class CharacterValidators
     public static readonly CharacterValidator MainHandIsMeleeWeapon = character =>
         WeaponValidators.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
-    public static readonly CharacterValidator FullyUnarmed = character =>
-    {
-        var slotsByName = character.CharacterInventory.InventorySlotsByName;
-        return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
-               && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
-    };
+    // public static readonly CharacterValidator FullyUnarmed = character =>
+    // {
+    //     var slotsByName = character.CharacterInventory.InventorySlotsByName;
+    //     return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
+    //            && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+    // };
 
     public static readonly CharacterValidator HasUnarmedHand = character =>
     {
@@ -71,11 +72,11 @@ public static class CharacterValidators
                || (!WeaponValidators.IsTwoHanded(main) && WeaponValidators.IsUnarmedWeapon(off));
     };
 
-    public static readonly CharacterValidator UsedAllMainAttacks = character =>
-        character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
+    // public static readonly CharacterValidator UsedAllMainAttacks = character =>
+    //     character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
 
-    public static readonly CharacterValidator InBattle = _ =>
-        ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
+    // public static readonly CharacterValidator InBattle = _ =>
+    //     ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
 
     public static readonly CharacterValidator LightArmor = character =>
     {
@@ -111,7 +112,7 @@ public static class CharacterValidators
     };
 
     // Does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
-    // defined as having offhand empty or being  not a weapon
+    // defined as having offhand empty or being not a weapon
     public static bool IsFreeOffhandForUnarmedTa(RulesetCharacter character)
     {
         if (character is not RulesetCharacterHero hero)
@@ -142,13 +143,13 @@ public static class CharacterValidators
     // {
     //     return character => conditions.Any(c => character.HasConditionOfType(c.Name));
     // }
-    //
+
     // [NotNull]
     // public static CharacterValidator HasAnyOfConditions(params string[] conditions)
     // {
     //     return character => conditions.Any(character.HasConditionOfType);
     // }
-    //
+
     // [NotNull]
     // public static CharacterValidator HasBeenGrantedFeature(FeatureDefinition feature)
     // {

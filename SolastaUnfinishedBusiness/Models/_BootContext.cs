@@ -47,7 +47,7 @@ internal static class BootContext
         CustomReactionsContext.Load();
         CustomWeaponsContext.Load();
         DmProEditorContext.Load();
-        FlexibleBackgroundsContext.Switch();
+        FlexibleBackgroundsContext.Load();
         GameUiContext.Load();
         InitialChoicesContext.Load();
         InventoryManagementContext.Load();
