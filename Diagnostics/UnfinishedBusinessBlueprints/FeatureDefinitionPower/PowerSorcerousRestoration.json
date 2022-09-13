@@ -319,13 +319,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "RestActivity/&SorcerousRestorationTitle",
-    "description": "RestActivity/&SorcerousRestorationDescription",
+    "title": "Feature/&PowerSorcerousRestorationTitle",
+    "description": "Feature/&PowerSorcerousRestorationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2bf0219b0c22319438c2677f84818891",
-      "m_SubObjectName": "ArcaneRecovery",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

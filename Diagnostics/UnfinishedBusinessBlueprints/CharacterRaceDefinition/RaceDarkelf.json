@@ -10,7 +10,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDarkelfCharismaAbilityScoreIncrease:21fbf034-47bd-436b-b92d-95883549a6d8",
+      "featureDefinition": "Definition:AttributeModifierDarkelfCharismaAbilityScoreIncrease:a704f26a-c7c9-5a71-b2b3-ebbf48d7da21",
       "level": 1
     },
     {

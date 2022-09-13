@@ -2,7 +2,7 @@
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": true,
   "merchantCategory": "Weapon",
-  "weight": 4.0,
+  "weight": 2.0,
   "slotTypes": [
     "MainHandSlot",
     "ContainerSlot"
@@ -25,8 +25,7 @@
     0
   ],
   "itemTags": [
-    "Metal",
-    "Monk"
+    "Metal"
   ],
   "activeTags": [],
   "inactiveTags": [],
@@ -135,11 +134,11 @@
           "saveOccurence": "StartOfTurn",
           "damageForm": {
             "$type": "DamageForm, Assembly-CSharp",
-            "versatile": false,
+            "versatile": true,
             "diceNumber": 1,
             "dieType": "D10",
             "overrideWithBardicInspirationDie": false,
-            "versatileDieType": "D1",
+            "versatileDieType": "D10",
             "bonusDamage": 0,
             "damageType": "DamageBludgeoning",
             "healFromInflictedDamage": "Never",

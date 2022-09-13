@@ -1,3 +1,15 @@
 ﻿CHANGES:
 
-- Support for latest Bard, Monk and Warlock DLC
+- Rebrand to Unfinished Business
+- Deprecate Gnome race
+- Deprecate Magus, Monk, Tinkerer, Warlock, and Witch classes
+- Deprecate Path of the Light and Path of the Rage Mage subclasses
+- Deprecate class based and chef feats
+- Support latest Bard, Monk and Warlock DLC
+- Improve under the hood systems
+
+NEXT (TBD):
+
+- Refactored Path of The Light subclass
+- Refactored Tinkerer class
+- Refactored Monk and Warlock subclasses
