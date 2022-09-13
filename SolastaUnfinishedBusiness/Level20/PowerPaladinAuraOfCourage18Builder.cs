@@ -1,4 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
@@ -13,17 +14,17 @@ internal sealed class PowerPaladinAuraOfCourage18Builder : FeatureDefinitionPowe
     private PowerPaladinAuraOfCourage18Builder() : base(PowerPaladinAuraOfCourage, PowerPaladinAuraOfCourage18Name,
         PowerPaladinAuraOfCourage18Guid)
     {
-        var ed = Definition.EffectDescription;
+        var effectDescription = Definition.EffectDescription;
 
-        ed.SetTargetParameter(6);
-        ed.SetRangeParameter(0);
-        ed.SetRequiresTargetProximity(false);
+        effectDescription.SetTargetParameter(6);
+        effectDescription.SetRangeParameter(0);
+        effectDescription.SetRequiresTargetProximity(false);
 
         Definition.overriddenPower = PowerPaladinAuraOfCourage;
-        Definition.GuiPresentation.Description = "Feature/&PowerPaladinAuraOfCourage18Description";
-        Definition.GuiPresentation.Title = "Feature/&PowerPaladinAuraOfCourage18Title";
     }
 
     internal static FeatureDefinitionPower Instance =>
-        _instance ??= new PowerPaladinAuraOfCourage18Builder().AddToDB();
+        _instance ??= new PowerPaladinAuraOfCourage18Builder()
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
 }

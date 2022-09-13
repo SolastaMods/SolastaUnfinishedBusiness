@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -15,13 +16,14 @@ internal sealed class FeatureDefinitionPrimalChampionBuilder : FeatureDefinition
 
     private FeatureDefinitionPrimalChampionBuilder(string name, string guid) : base(name, guid)
     {
-        Definition.GuiPresentation.Description = "Feature/&BarbarianPrimalChampionDescription";
-        Definition.GuiPresentation.Title = "Feature/&BarbarianPrimalChampionTitle";
+        // empty
     }
 
     private static FeatureDefinitionPrimalChampion CreateAndAddToDB(string name, string guid)
     {
-        return new FeatureDefinitionPrimalChampionBuilder(name, guid).AddToDB();
+        return new FeatureDefinitionPrimalChampionBuilder(name, guid)
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
     }
 }
 

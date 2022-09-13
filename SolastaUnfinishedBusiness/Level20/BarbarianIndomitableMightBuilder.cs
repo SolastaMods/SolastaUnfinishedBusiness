@@ -17,16 +17,14 @@ internal sealed class FeatureDefinitionIndomitableMightBuilder : FeatureDefiniti
 
     private FeatureDefinitionIndomitableMightBuilder(string name, string guid) : base(name, guid)
     {
-        var guiPresentationBuilder = new GuiPresentationBuilder(
-            "Feature/&BarbarianIndomitableMightTitle",
-            "Feature/&BarbarianIndomitableMightDescription");
-
-        Definition.guiPresentation = guiPresentationBuilder.Build();
+        // Empty
     }
 
     private static FeatureDefinition CreateAndAddToDB(string name, string guid)
     {
-        return new FeatureDefinitionIndomitableMightBuilder(name, guid).AddToDB();
+        return new FeatureDefinitionIndomitableMightBuilder(name, guid)
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
     }
 }
 

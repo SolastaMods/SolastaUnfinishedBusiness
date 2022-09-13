@@ -1,4 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
@@ -13,17 +14,17 @@ internal sealed class PowerPaladinAuraOfProtection18Builder : FeatureDefinitionP
     private PowerPaladinAuraOfProtection18Builder() : base(PowerPaladinAuraOfProtection,
         PowerPaladinAuraOfProtection18Name, PowerPaladinAuraOfProtection18Guid)
     {
-        var ed = Definition.EffectDescription;
+        var effectDescription = Definition.EffectDescription;
 
-        ed.SetTargetParameter(6);
-        ed.SetRangeParameter(0);
-        ed.SetRequiresTargetProximity(false);
+        effectDescription.SetTargetParameter(6);
+        effectDescription.SetRangeParameter(0);
+        effectDescription.SetRequiresTargetProximity(false);
 
         Definition.overriddenPower = PowerPaladinAuraOfProtection;
-        Definition.GuiPresentation.Description = "Feature/&PowerPaladinAuraOfProtection18Description";
-        Definition.GuiPresentation.Title = "Feature/&PowerPaladinAuraOfProtection18Title";
     }
 
     internal static FeatureDefinitionPower Instance =>
-        _instance ??= new PowerPaladinAuraOfProtection18Builder().AddToDB();
+        _instance ??= new PowerPaladinAuraOfProtection18Builder()
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
 }

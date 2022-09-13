@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders.Features;
+﻿using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Level20;
@@ -15,12 +16,12 @@ internal sealed class
     private SenseRangerFeralSensesBuilder(string name, string guid) : base(SenseSeeInvisible12, name, guid)
     {
         Definition.senseRange = 6;
-        Definition.GuiPresentation.Title = "Feature/&SenseRangerFeralSensesTitle";
-        Definition.GuiPresentation.Description = "Feature/&SenseRangerFeralSensesDescription";
     }
 
     private static FeatureDefinitionSense CreateAndAddToDB(string name, string guid)
     {
-        return new SenseRangerFeralSensesBuilder(name, guid).AddToDB();
+        return new SenseRangerFeralSensesBuilder(name, guid)
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
     }
 }
