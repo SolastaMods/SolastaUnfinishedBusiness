@@ -68,21 +68,23 @@ public static class Global
         SpellStrikeDieRoll = -1;
         */
 
-        // Hold the state of the SHIFT key on BOOL PARAM 5
-        // Used to determine which slot to use on MC Warlock
-        characterAction.actionParams.BoolParameter5 =
-            Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        
         switch (characterAction)
         {
             case CharacterActionCastSpell actionCastSpell:
                 CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
+                // Hold the state of the SHIFT key on BOOL PARAM 5
+                // Used to determine which slot to use on MC Warlock
+                characterAction.actionParams.BoolParameter5 =
+                    Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
                 break;
             case CharacterActionReady actionReady:
                 CustomReactionsContext.ReadReadyActionPreferredCantrip(actionReady.actionParams);
+
                 break;
             case CharacterActionSpendPower spendPower:
                 PowersBundleContext.SpendBundledPowerIfNeeded(spendPower);
+
                 break;
         }
     }

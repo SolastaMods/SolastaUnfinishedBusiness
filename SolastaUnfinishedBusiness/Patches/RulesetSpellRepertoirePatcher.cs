@@ -148,8 +148,7 @@ internal static class RulesetSpellRepertoirePatcher
 
             // var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-            var isShiftPressed = Global.CurrentAction.actionParams.BoolParameter5;
-
+            var isShiftPressed = Global.CurrentAction is CharacterActionCastSpell && Global.CurrentAction.actionParams.BoolParameter5;
             var canConsumePactSlot = pactRemainingSlots > 0 && slotLevel <= warlockSpellLevel;
             var canConsumeSpellSlot = sharedRemainingSlots > 0 && slotLevel <= sharedSpellLevel;
 
