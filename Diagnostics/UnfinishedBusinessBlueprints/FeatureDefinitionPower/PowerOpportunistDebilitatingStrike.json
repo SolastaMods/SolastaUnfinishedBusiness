@@ -316,8 +316,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRoguishOpportunistDebilitatingStrikeTitle",
-    "description": "Feature/&PowerRoguishOpportunistDebilitatingStrikeDescription",
+    "title": "Feature/&PowerOpportunistDebilitatingStrikeTitle",
+    "description": "Feature/&PowerOpportunistDebilitatingStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -337,7 +337,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "78f2cc86-ecbb-5ae4-b0b4-326f8cb07037",
+  "guid": "7c726a61-63b4-5500-a812-dc188a9b93be",
   "contentPack": 9999,
-  "name": "PowerRoguishOpportunistDebilitatingStrike"
+  "name": "PowerOpportunistDebilitatingStrike"
 }

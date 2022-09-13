@@ -93,7 +93,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
         // Enemies struck by your sneak attack suffered from one of the following condition (Baned, Blinded, Bleed, Stunned)
         // if they fail a CON save against the DC of 8 + your DEX mod + your prof.
         var debilitatingStrikePower = FeatureDefinitionPowerBuilder
-            .Create("PowerRoguishOpportunistDebilitatingStrike", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerOpportunistDebilitatingStrike", DefinitionBuilder.CENamespaceGuid)
             .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
