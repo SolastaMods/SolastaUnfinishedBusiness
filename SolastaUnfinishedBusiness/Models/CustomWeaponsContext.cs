@@ -385,7 +385,7 @@ public static class CustomWeaponsContext
             .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
-        var baseItem = ItemDefinitions.Mace;
+        var baseItem = ItemDefinitions.Warhammer;
         var basePresentation = ItemDefinitions.Mace.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {

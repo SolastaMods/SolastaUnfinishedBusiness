@@ -36,6 +36,12 @@ public static class WeaponValidators
                || IsMelee(weapon.ItemDefinition)
                || weapon.ItemDefinition.IsArmor;
     }
+    
+    public static bool IsMelee([NotNull] RulesetAttackMode attack)
+    {
+        //TODO: tets if this is enough, or we need to check SourceDefinition too
+        return !attack.ranged;
+    }
 
     // ReSharper disable once MemberCanBePrivate.Global
     public static bool IsMelee([CanBeNull] ItemDefinition weapon)

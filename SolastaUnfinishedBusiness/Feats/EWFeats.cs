@@ -287,8 +287,7 @@ public static class EwFeats
 
     private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
     {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
-            RulesetItem weapon)
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
@@ -297,7 +296,7 @@ public static class EwFeats
                 return;
             }
 
-            if (!WeaponValidators.IsMelee(weapon))
+            if (!WeaponValidators.IsMelee(attackMode))
             {
                 return;
             }

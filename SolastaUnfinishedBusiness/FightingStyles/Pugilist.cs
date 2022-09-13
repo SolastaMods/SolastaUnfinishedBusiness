@@ -65,7 +65,7 @@ internal sealed class Pugilist : AbstractFightingStyle
 
     private sealed class AdditionalUnarmedDice : IModifyAttackModeForWeapon
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (!WeaponValidators.IsUnarmedWeapon(attackMode))
             {
