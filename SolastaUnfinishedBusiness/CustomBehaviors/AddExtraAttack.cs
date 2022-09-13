@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -71,8 +72,12 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
                 attackMode.AddAttackTagAsNeeded(tag);
             }
 
-            if (attackModes.Any(m => ModesEqual(attackMode, m)))
+            var same = attackModes.FirstOrDefault(m => ModesEqual(attackMode, m));
+            if (same != null)
             {
+                //If same attack mode exists, ensure it has max amount of attacks
+                same.attacksNumber = Math.Max(attackMode.attacksNumber, same.attacksNumber);
+                //and dispose of newly created one
                 RulesetAttackMode.AttackModesPool.Return(attackMode);
             }
             else
@@ -92,9 +97,49 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
 
     protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero);
 
+    //Copied from RulesetAttackMode.IsComparableForNetwork, but not checking for attack number
     private static bool ModesEqual([NotNull] RulesetAttackMode a, RulesetAttackMode b)
     {
-        return a.IsComparableForNetwork(b);
+        //added all these locals for debug log
+        var actionType = a.actionType == b.actionType;
+        var sourceDefinition = a.sourceDefinition == b.sourceDefinition;
+        var sourceObject = a.sourceObject == b.sourceObject;
+        var slotName = a.slotName == b.slotName;
+        var ranged = a.ranged == b.ranged;
+        var thrown = a.thrown == b.thrown;
+        var reach = a.reach == b.reach;
+        var reachRange = a.reachRange == b.reachRange;
+        var closeRange = a.closeRange == b.closeRange;
+        var maxRange = a.maxRange == b.maxRange;
+        var toHitBonus = a.toHitBonus == b.toHitBonus;
+        //var attacksNumber = a.attacksNumber == b.attacksNumber;
+        var useVersatileDamage = a.useVersatileDamage == b.useVersatileDamage;
+        var freeOffHand = a.freeOffHand == b.freeOffHand;
+        var automaticHit = a.automaticHit == b.automaticHit;
+        var afterChargeOnly = a.afterChargeOnly == b.afterChargeOnly;
+
+        if (WeaponValidators.IsUnarmedWeapon(a) && WeaponValidators.IsUnarmedWeapon(b))
+        {
+            // Main.Log(
+            //     $"EQUAL actionType:{actionType}, sourceDefinition: {sourceDefinition}, sourceObject: {sourceObject}, slotName: {slotName}, ranged: {ranged}, thrown: {thrown}, reach: {reach}, reachRange: {reachRange}, closeRange: {closeRange}, maxRange: {maxRange}, toHitBonus: {toHitBonus}, attacksNumber: {attacksNumber}, useVersatileDamage: {useVersatileDamage}, freeOffHand: {freeOffHand}, automaticHit: {automaticHit}, afterChargeOnly: {afterChargeOnly}");
+        }
+
+        return actionType
+               && sourceDefinition
+               && sourceObject
+               && slotName
+               && ranged
+               && thrown
+               && reach
+               && reachRange
+               && closeRange
+               && maxRange
+               && toHitBonus
+               // && attacksNumber
+               && useVersatileDamage
+               && freeOffHand
+               && automaticHit
+               && afterChargeOnly;
     }
 }
 
@@ -130,7 +175,7 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            false,
+            CharacterValidators.IsFreeOffhandForUnarmedTA(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,
@@ -138,7 +183,7 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             isUnarmedWeapon ? mainHandItem : null
         );
 
-        return new List<RulesetAttackMode> { attackMode };
+        return new List<RulesetAttackMode> {attackMode};
     }
 }
 
@@ -170,7 +215,7 @@ public sealed class AddExtraMainHandAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            false,
+            CharacterValidators.IsFreeOffhand(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,
@@ -178,7 +223,7 @@ public sealed class AddExtraMainHandAttack : AddExtraAttackBase
             mainHandItem
         );
 
-        return new List<RulesetAttackMode> { attackMode };
+        return new List<RulesetAttackMode> {attackMode};
     }
 }
 
@@ -222,7 +267,7 @@ public sealed class AddExtraRangedAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            false,
+            CharacterValidators.IsFreeOffhand(hero),
             true,
             slot,
             hero.attackModifiers,
@@ -274,7 +319,7 @@ public sealed class AddPolearmFollowupAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            false,
+            CharacterValidators.IsFreeOffhand(hero),
             true,
             slot,
             hero.attackModifiers,
@@ -325,7 +370,7 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
             ActionDefinitions.ActionType.Bonus,
             offHandItem.ItemDefinition,
             ShieldStrikeContext.ShieldWeaponDescription,
-            false,
+            CharacterValidators.IsFreeOffhand(hero),
             hero.CanAddAbilityBonusToOffhand(),
             EquipmentDefinitions.SlotTypeOffHand,
             attackModifiers,
@@ -344,7 +389,7 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         if (bonus == 0)
         {
-            return new List<RulesetAttackMode> { attackMode };
+            return new List<RulesetAttackMode> {attackMode};
         }
 
         var damage = attackMode.EffectDescription?.FindFirstDamageForm();
@@ -355,12 +400,12 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         if (damage == null)
         {
-            return new List<RulesetAttackMode> { attackMode };
+            return new List<RulesetAttackMode> {attackMode};
         }
 
         damage.BonusDamage += bonus;
         damage.DamageBonusTrends.Add(trendInfo);
 
-        return new List<RulesetAttackMode> { attackMode };
+        return new List<RulesetAttackMode> {attackMode};
     }
 }
