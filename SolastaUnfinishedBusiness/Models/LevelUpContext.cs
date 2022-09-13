@@ -97,7 +97,6 @@ public static class LevelUpContext
         // Component Pouch
         required =
             (
-                levelUpData.SelectedClass == Bard ||
                 levelUpData.SelectedClass == Ranger ||
                 levelUpData.SelectedClass == Sorcerer ||
                 levelUpData.SelectedClass == Warlock ||
@@ -105,7 +104,6 @@ public static class LevelUpContext
                 // levelUpData.SelectedClass == TinkererClass
             ) &&
             !(
-                classesAndLevels.ContainsKey(Bard) ||
                 classesAndLevels.ContainsKey(Ranger) ||
                 classesAndLevels.ContainsKey(Sorcerer) ||
                 classesAndLevels.ContainsKey(Warlock) ||
@@ -116,6 +114,15 @@ public static class LevelUpContext
         if (required)
         {
             levelUpData.GrantedItems.Add(ComponentPouch);
+        }
+
+        // Bardic Flute
+        required =
+            levelUpData.SelectedClass == Bard && !classesAndLevels.ContainsKey(Bard);
+
+        if (required)
+        {
+            levelUpData.GrantedItems.Add(Flute);
         }
 
         // Druidic Focus
