@@ -3,22 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRoguishRavenHeartSeekingShot:89017bbc-0f14-5405-9bfe-f1a1b6c31794",
+      "featureDefinition": "Definition:FeatureSetRavenHeartSeekingShot:40cf35c9-4d14-55b3-a918-7f09365f4f7d",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRoguishRavenSharpShooter:ad5d77f4-d6c8-5e84-99b8-6057dae35ee4",
+      "featureDefinition": "Definition:FeatureSetRavenSharpShooter:96a4c766-88c0-5c74-a8ad-887da79584b0",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalActionRoguishRavenKillingSpree:82e1a9de-4d96-5c5b-8659-e759c1ef7710",
+      "featureDefinition": "Definition:AdditionalActionRavenKillingSpree:a3576270-8a8e-5ceb-a688-aaa8b4a9c745",
       "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DieRollModifierRoguishRavenPainMaker:d55a8608-5e4c-516a-b80f-325026079525",
+      "featureDefinition": "Definition:DieRollModifierRavenPainMaker:25a9ae90-8b6e-5d20-9267-392f89a96dac",
       "level": 9
     }
   ],

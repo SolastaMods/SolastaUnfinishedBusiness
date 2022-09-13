@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:OnComputeAttackModifierOpportunistQuickStrike:d8afa237-f7e3-5f01-a424-ba88c4ebb381",
+      "featureDefinition": "Definition:OnComputeAttackModifierOpportunistQuickStrike:e2c95a18-2afb-5d56-9c53-06efd1070556",
       "level": 3
     },
     {

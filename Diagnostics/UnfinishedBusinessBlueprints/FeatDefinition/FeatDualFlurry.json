@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:OnAttackDamageEffectFeatDualFlurry:48febc81-0d09-5666-a16d-93e22a5a7490"
+    "Definition:OnAttackDamageEffectFeatDualFlurry:6f09d454-6885-570c-b030-a019f315a29f"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

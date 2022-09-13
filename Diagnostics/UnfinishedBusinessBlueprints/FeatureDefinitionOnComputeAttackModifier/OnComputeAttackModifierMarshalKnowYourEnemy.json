@@ -1,13 +1,10 @@
 {
-  "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
-  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
-  "validationDismissesSimilarReactions": false,
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionOnComputeAttackModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&ReactionAttackFeatSentinelTitle",
-    "description": "Reaction/&ReactionAttackFeatSentinelDescription",
+    "title": "Feature/&FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSetTitle",
+    "description": "Feature/&FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSetDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5bd3f8c4-703a-53f6-9056-420072337b6c",
+  "guid": "8568df89-5da5-55f6-8c7c-0c2df2427cb3",
   "contentPack": 9999,
-  "name": "ReactionAttackFeatSentinel"
+  "name": "OnComputeAttackModifierMarshalKnowYourEnemy"
 }

@@ -1,13 +1,10 @@
 {
-  "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
-  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
-  "validationDismissesSimilarReactions": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&ReactionAttackFeatSentinelTitle",
-    "description": "Reaction/&ReactionAttackFeatSentinelDescription",
+    "title": "FlexibleBackgrounds/&SuggestedSkillsSellswordBackgroundTitle",
+    "description": "FlexibleBackgrounds/&SuggestedSkillsSellswordBackgroundDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5bd3f8c4-703a-53f6-9056-420072337b6c",
+  "guid": "c161c910-3825-595e-b8e7-88ba3b78d2a5",
   "contentPack": 9999,
-  "name": "ReactionAttackFeatSentinel"
+  "name": "SuggestedSkillsSellswordBackground"
 }

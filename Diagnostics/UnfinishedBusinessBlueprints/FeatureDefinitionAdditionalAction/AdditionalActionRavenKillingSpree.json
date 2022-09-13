@@ -1,13 +1,18 @@
 {
-  "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
-  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
-  "validationDismissesSimilarReactions": false,
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Main",
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [
+    "AttackMain"
+  ],
+  "maxAttacksNumber": 1,
+  "triggerCondition": "HasDownedAnEnemy",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&ReactionAttackFeatSentinelTitle",
-    "description": "Reaction/&ReactionAttackFeatSentinelDescription",
+    "title": "Feature/&AdditionalActionRavenKillingSpreeTitle",
+    "description": "Feature/&AdditionalActionRavenKillingSpreeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5bd3f8c4-703a-53f6-9056-420072337b6c",
+  "guid": "a3576270-8a8e-5ceb-a688-aaa8b4a9c745",
   "contentPack": 9999,
-  "name": "ReactionAttackFeatSentinel"
+  "name": "AdditionalActionRavenKillingSpree"
 }

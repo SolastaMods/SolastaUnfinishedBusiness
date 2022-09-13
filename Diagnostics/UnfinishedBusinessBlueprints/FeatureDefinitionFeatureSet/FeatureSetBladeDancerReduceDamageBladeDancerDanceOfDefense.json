@@ -1,13 +1,19 @@
 {
-  "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
-  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
-  "validationDismissesSimilarReactions": false,
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerBladeDancerDanceOfDefense:af4722ff-c78e-5fe8-b253-b0684ccbb5e8"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&ReactionAttackFeatSentinelTitle",
-    "description": "Reaction/&ReactionAttackFeatSentinelDescription",
+    "title": "Feature/&ReduceDamageBladeDancerDanceOfDefenseTitle",
+    "description": "Feature/&ReduceDamageBladeDancerDanceOfDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5bd3f8c4-703a-53f6-9056-420072337b6c",
+  "guid": "14838882-de55-5d22-91ef-82b5693da077",
   "contentPack": 9999,
-  "name": "ReactionAttackFeatSentinel"
+  "name": "FeatureSetBladeDancerReduceDamageBladeDancerDanceOfDefense"
 }

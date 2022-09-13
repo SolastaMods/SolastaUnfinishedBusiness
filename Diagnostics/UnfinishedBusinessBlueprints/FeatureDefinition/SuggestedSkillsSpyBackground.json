@@ -1,13 +1,10 @@
 {
-  "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
-  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
-  "validationDismissesSimilarReactions": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&ReactionAttackFeatSentinelTitle",
-    "description": "Reaction/&ReactionAttackFeatSentinelDescription",
+    "title": "FlexibleBackgrounds/&SuggestedSkillsSpyBackgroundTitle",
+    "description": "FlexibleBackgrounds/&SuggestedSkillsSpyBackgroundDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5bd3f8c4-703a-53f6-9056-420072337b6c",
+  "guid": "773f84be-81f1-5c97-8f68-438096152a6c",
   "contentPack": 9999,
-  "name": "ReactionAttackFeatSentinel"
+  "name": "SuggestedSkillsSpyBackground"
 }

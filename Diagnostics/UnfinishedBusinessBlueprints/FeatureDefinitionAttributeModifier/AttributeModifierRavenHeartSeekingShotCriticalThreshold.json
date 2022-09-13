@@ -1,13 +1,17 @@
 {
-  "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
-  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
-  "validationDismissesSimilarReactions": false,
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "CriticalThreshold",
+  "modifierOperation": "Additive",
+  "modifierValue": -2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&ReactionAttackFeatSentinelTitle",
-    "description": "Reaction/&ReactionAttackFeatSentinelDescription",
+    "title": "Feature/&AttributeModifierRavenHeartSeekingShotCriticalThresholdTitle",
+    "description": "Feature/&AttributeModifierRavenHeartSeekingShotCriticalThresholdDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5bd3f8c4-703a-53f6-9056-420072337b6c",
+  "guid": "a3199eb0-afd2-5fdc-8035-6a53664ac73a",
   "contentPack": 9999,
-  "name": "ReactionAttackFeatSentinel"
+  "name": "AttributeModifierRavenHeartSeekingShotCriticalThreshold"
 }
