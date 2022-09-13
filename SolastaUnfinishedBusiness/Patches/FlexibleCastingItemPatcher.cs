@@ -43,5 +43,4 @@ internal static class FlexibleCastingItemPatcher
             MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);
         }
     }
-
 }

@@ -164,7 +164,7 @@ internal static class ZappaFeats
 
         // Dead Eye
         var deadEye = FeatDeadeyeBuilder.FeatDeadeye;
-        
+
         // Dual Weapon Defense
         var dualWeaponDefense =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
@@ -175,7 +175,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
-        
+
         // Elven Accuracy (Dexterity)
         var elvenAccuracyDexterity =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>

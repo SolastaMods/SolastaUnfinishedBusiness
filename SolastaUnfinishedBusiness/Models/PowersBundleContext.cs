@@ -171,7 +171,7 @@ public static class PowersBundleContext
         var masterPower = box.usablePower.PowerDefinition;
 
         var bundle = GetBundle(masterPower);
-        
+
         if (bundle == null)
         {
             return true;
@@ -183,7 +183,7 @@ public static class PowersBundleContext
         }
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
-        
+
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (power, _) =>
         {
             //Note: ideal solution would be to patch `Unbind` of `UsablePowerBox` to auto close selector, instead of this check

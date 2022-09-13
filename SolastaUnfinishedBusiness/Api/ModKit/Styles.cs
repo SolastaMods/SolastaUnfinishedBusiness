@@ -50,8 +50,8 @@ public static partial class UI
             _divStyle.fixedWidth = 0;
         }
 
-        ModKit.UI.Space(2f * height / 3f);
+        Space(2f * height / 3f);
         GUILayout.Box(GUIContent.none, _divStyle);
-        ModKit.UI.Space(height / 3f);
+        Space(height / 3f);
     }
 }

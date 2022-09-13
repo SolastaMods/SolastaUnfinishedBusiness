@@ -36,7 +36,7 @@ public static class WeaponValidators
                || IsMelee(weapon.ItemDefinition)
                || weapon.ItemDefinition.IsArmor;
     }
-    
+
     public static bool IsMelee([NotNull] RulesetAttackMode attack)
     {
         //TODO: test if this is enough, or we need to check SourceDefinition too

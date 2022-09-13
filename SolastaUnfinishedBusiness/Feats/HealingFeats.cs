@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -39,7 +37,8 @@ internal static class HealingFeats
         // thoughts- grant a stabilize power that sets them to 1hp (unlimited uses), prof per day a heal that does 1d6+4+"caster" level
 
         var medKitPresentation = GuiPresentationBuilder.Build(
-            "PowerFeatHealerMedKit", Category.Feature, PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
+            "PowerFeatHealerMedKit", Category.Feature,
+            PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
 
         var medKitEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Touch, 1,
             RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0,
@@ -55,7 +54,8 @@ internal static class HealingFeats
             "PowerFeatHealerMedKit", medKitPresentation);
 
         var resuscitatePresentation = GuiPresentationBuilder.Build(
-            "PowerFeatHealerResuscitate", Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
+            "PowerFeatHealerResuscitate", Category.Feature,
+            PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
         var resuscitateEffect = BuildEffectDescriptionReviveForm(RuleDefinitions.RangeType.Touch, 1,
             RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0,
@@ -171,9 +171,9 @@ internal static class HealingFeats
         RuleDefinitions.ActivationTime activationTime,
         int costPerUse,
         RuleDefinitions.RechargeRate recharge,
-        bool proficiencyBonusToAttack, 
+        bool proficiencyBonusToAttack,
         bool abilityScoreBonusToAttack, string abilityScore,
-        EffectDescription effectDescription, 
+        EffectDescription effectDescription,
         string name,
         GuiPresentation guiPresentation)
     {
@@ -190,9 +190,9 @@ internal static class HealingFeats
     private static EffectDescription BuildEffectDescriptionTempHpForm(
         RuleDefinitions.RangeType rangeType,
         int rangeParameter,
-        RuleDefinitions.TargetType targetType, 
+        RuleDefinitions.TargetType targetType,
         int targetParameter,
-        RuleDefinitions.DurationType durationType, 
+        RuleDefinitions.DurationType durationType,
         int durationParameter,
         RuleDefinitions.TurnOccurenceType endOfEffect,
         EffectForm.LevelApplianceType applyLevel,
@@ -204,17 +204,17 @@ internal static class HealingFeats
         int levelMultiplier)
     {
         var effectDescriptionBuilder = new EffectDescriptionBuilder();
-        
+
         effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType,
             targetParameter, 0);
         effectDescriptionBuilder.SetCreatedByCharacter();
         effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
 
         var effectFormBuilder = new EffectFormBuilder();
-        
+
         effectFormBuilder.SetTempHPForm(bonusHitPoints, dieType, diceNumber);
         effectFormBuilder.SetLevelAdvancement(applyLevel, levelType, levelMultiplier);
-        
+
         if (applyAbilityBonus)
         {
             effectFormBuilder.SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus);
@@ -225,7 +225,7 @@ internal static class HealingFeats
         effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
 
         var particleParams = new EffectParticleParameters();
-        
+
         particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
         effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
@@ -235,32 +235,32 @@ internal static class HealingFeats
     private static EffectDescription BuildEffectDescriptionHealingForm(
         RuleDefinitions.RangeType rangeType,
         int rangeParameter,
-        RuleDefinitions.TargetType targetType, 
+        RuleDefinitions.TargetType targetType,
         int targetParameter,
         RuleDefinitions.DurationType durationType,
         int durationParameter,
         RuleDefinitions.TurnOccurenceType endOfEffect,
-        EffectForm.LevelApplianceType applyLevel, 
+        EffectForm.LevelApplianceType applyLevel,
         RuleDefinitions.LevelSourceType levelType,
         bool applyAbilityBonus,
         int bonusHitPoints,
-        RuleDefinitions.DieType dieType, 
+        RuleDefinitions.DieType dieType,
         int diceNumber,
         int levelMultiplier)
     {
         var effectDescriptionBuilder = new EffectDescriptionBuilder();
-        
+
         effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType,
             targetParameter, 0);
         effectDescriptionBuilder.SetCreatedByCharacter();
         effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
 
         var effectFormBuilder = new EffectFormBuilder();
-        
+
         effectFormBuilder.SetHealingForm(RuleDefinitions.HealingComputation.Dice, bonusHitPoints, dieType,
             diceNumber, false, RuleDefinitions.HealingCap.MaximumHitPoints);
         effectFormBuilder.SetLevelAdvancement(applyLevel, levelType, levelMultiplier);
-        
+
         if (applyAbilityBonus)
         {
             effectFormBuilder.SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus);
@@ -271,7 +271,7 @@ internal static class HealingFeats
         effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
 
         var particleParams = new EffectParticleParameters();
-        
+
         particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
         effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
@@ -289,7 +289,7 @@ internal static class HealingFeats
         int secondsSinceDeath)
     {
         var effectDescriptionBuilder = new EffectDescriptionBuilder();
-        
+
         effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType,
             targetParameter, 0);
         effectDescriptionBuilder.SetTargetFiltering(RuleDefinitions.TargetFilteringMethod.CharacterOnly,
@@ -299,7 +299,7 @@ internal static class HealingFeats
         effectDescriptionBuilder.SetRequiredCondition(DatabaseHelper.ConditionDefinitions.ConditionDead);
 
         var effectFormBuilder = new EffectFormBuilder();
-        
+
         effectFormBuilder.SetReviveForm(secondsSinceDeath, RuleDefinitions.ReviveHitPoints.One,
             new List<ConditionDefinition>());
         effectFormBuilder.CreatedByCharacter();
@@ -307,7 +307,7 @@ internal static class HealingFeats
         effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
 
         var particleParams = new EffectParticleParameters();
-        
+
         particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
         effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 

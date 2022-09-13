@@ -70,33 +70,6 @@ public static class CharacterValidators
         return WeaponValidators.IsUnarmedWeapon(main)
                || (!WeaponValidators.IsTwoHanded(main) && WeaponValidators.IsUnarmedWeapon(off));
     };
-    
-    // Does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
-    // defined as having offhand empty or being  not a weapon
-    public static bool IsFreeOffhandForUnarmedTa(RulesetCharacter character)
-    {
-        if (character is not RulesetCharacterHero hero)
-        {
-            return true;
-        }
-
-        var offHand = hero.CharacterInventory
-            .InventorySlotsByType[EquipmentDefinitions.SlotTypeOffHand][0]
-            .EquipedItem;
-        return offHand == null || !offHand.ItemDefinition.IsWeapon;
-    }
-    
-    public static bool IsFreeOffhand(RulesetCharacter character)
-    {
-        if (character is not RulesetCharacterHero hero)
-        {
-            return true;
-        }
-
-        return hero.CharacterInventory
-            .InventorySlotsByType[EquipmentDefinitions.SlotTypeOffHand][0]
-            .EquipedItem == null;
-    }
 
     public static readonly CharacterValidator UsedAllMainAttacks = character =>
         character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
@@ -136,6 +109,33 @@ public static class CharacterValidators
                 return false;
         }
     };
+
+    // Does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
+    // defined as having offhand empty or being  not a weapon
+    public static bool IsFreeOffhandForUnarmedTa(RulesetCharacter character)
+    {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return true;
+        }
+
+        var offHand = hero.CharacterInventory
+            .InventorySlotsByType[EquipmentDefinitions.SlotTypeOffHand][0]
+            .EquipedItem;
+        return offHand == null || !offHand.ItemDefinition.IsWeapon;
+    }
+
+    public static bool IsFreeOffhand(RulesetCharacter character)
+    {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return true;
+        }
+
+        return hero.CharacterInventory
+            .InventorySlotsByType[EquipmentDefinitions.SlotTypeOffHand][0]
+            .EquipedItem == null;
+    }
 
     // [NotNull]
     // public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)

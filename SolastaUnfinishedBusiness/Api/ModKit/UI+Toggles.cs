@@ -52,7 +52,7 @@ public static partial class UI
         if (width == 0 && !disclosureStyle)
         {
             width = ToggleStyle.CalcSize(new GUIContent(title.Bold())).x +
-                    GUI.skin.box.CalcSize(UI.CheckOn).x + 10;
+                    GUI.skin.box.CalcSize(CheckOn).x + 10;
         }
 
         options = options.AddItem(width == 0 ? AutoWidth() : Width(width)).ToArray();
@@ -60,7 +60,7 @@ public static partial class UI
         if (!disclosureStyle)
         {
             title = value ? title.Bold() : title.MedGrey().Bold();
-            if (!UI.CheckBox(title, value, isEmpty, ToggleStyle, options))
+            if (!CheckBox(title, value, isEmpty, ToggleStyle, options))
             {
                 return false;
             }
@@ -69,7 +69,7 @@ public static partial class UI
         }
         else
         {
-            if (!UI.DisclosureToggle(title, value, isEmpty, options))
+            if (!DisclosureToggle(title, value, isEmpty, options))
             {
                 return false;
             }
@@ -96,7 +96,7 @@ public static partial class UI
     {
         options = options.AddDefaults();
 
-        if (!UI.CheckBox(title, value, false, ToggleStyle, options))
+        if (!CheckBox(title, value, false, ToggleStyle, options))
         {
             return false;
         }
