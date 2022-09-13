@@ -23,7 +23,7 @@ internal static class EffectDescriptionPatcher
 
     [HarmonyPatch(typeof(EffectDescription), "FillTags")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EffectDescription_FillTags
+    internal static class FillTags_Patch
     {
         internal static void Postfix(EffectDescription __instance,
             Dictionary<string, TagsDefinitions.Criticity> tagsMap)

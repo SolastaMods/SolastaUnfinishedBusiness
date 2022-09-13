@@ -5,38 +5,41 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-// ensures MC heroes are correctly offered on adventures with min/max caps on character level
-[HarmonyPatch(typeof(CharacterSelectionModal), "EnumeratePlates")]
-internal static class CharacterSelectionModal_EnumeratePlates
+internal static class CharacterSelectionModalPatcher
 {
-    public static int MyLevels(int[] levels)
+    //PATCH: ensures MC heroes are correctly offered on adventures with min/max caps on character level
+    [HarmonyPatch(typeof(CharacterSelectionModal), "EnumeratePlates")]
+    internal static class CharacterSelectionModal_EnumeratePlates
     {
-        return levels.Sum();
-    }
-
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-    {
-        var bypass = 0;
-        var myLevelMethod = typeof(CharacterSelectionModal_EnumeratePlates).GetMethod("MyLevels");
-        var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
-
-        foreach (var instruction in instructions)
+        public static int MyLevels(int[] levels)
         {
-            if (bypass-- > 0)
+            return levels.Sum();
+        }
+
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var bypass = 0;
+            var myLevelMethod = typeof(CharacterSelectionModal_EnumeratePlates).GetMethod("MyLevels");
+            var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
+
+            foreach (var instruction in instructions)
             {
-                continue;
+                if (bypass-- > 0)
+                {
+                    continue;
+                }
+
+                yield return instruction;
+
+                if (!instruction.LoadsField(levelsField))
+                {
+                    continue;
+                }
+
+                yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
+
+                bypass = 2;
             }
-
-            yield return instruction;
-
-            if (!instruction.LoadsField(levelsField))
-            {
-                continue;
-            }
-
-            yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
-
-            bypass = 2;
         }
     }
 }

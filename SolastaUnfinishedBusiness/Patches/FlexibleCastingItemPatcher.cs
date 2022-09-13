@@ -4,40 +4,44 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-// creates different slots colors and pop up messages depending on slot types
-[HarmonyPatch(typeof(FlexibleCastingItem), "Bind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class FlexibleCastingItem_Bind
+internal static class FlexibleCastingItemPatcher
 {
-    internal static void Postfix(
-        FlexibleCastingItem __instance,
-        int slotLevel,
-        int remainingSlots,
-        int maxSlots)
+    //PATCH: creates different slots colors and pop up messages depending on slot types
+    [HarmonyPatch(typeof(FlexibleCastingItem), "Bind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Bind_Patch
     {
-        var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
-
-        if (flexibleCastingModal.caster is not RulesetCharacterHero caster)
+        internal static void Postfix(
+            FlexibleCastingItem __instance,
+            int slotLevel,
+            int remainingSlots,
+            int maxSlots)
         {
-            return;
-        }
+            var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
 
-        if (!SharedSpellsContext.IsMulticaster(caster))
-        {
-            return;
-        }
+            if (flexibleCastingModal.caster is not RulesetCharacterHero caster)
+            {
+                return;
+            }
 
-        MulticlassGameUiContext.PaintPactSlots(
-            caster, maxSlots, remainingSlots, slotLevel, __instance.slotStatusTable);
+            if (!SharedSpellsContext.IsMulticaster(caster))
+            {
+                return;
+            }
+
+            MulticlassGameUiContext.PaintPactSlots(
+                caster, maxSlots, remainingSlots, slotLevel, __instance.slotStatusTable);
+        }
     }
-}
 
-// ensures slot colors are white before getting back to pool
-[HarmonyPatch(typeof(FlexibleCastingItem), "Unbind")]
-internal static class FlexibleCastingItem_Unbind
-{
-    internal static void Prefix(FlexibleCastingItem __instance)
+    //PATCH: ensures slot colors are white before getting back to pool
+    [HarmonyPatch(typeof(FlexibleCastingItem), "Unbind")]
+    internal static class Unbind_Patch
     {
-        MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);
+        internal static void Prefix(FlexibleCastingItem __instance)
+        {
+            MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);
+        }
     }
+
 }

@@ -4,19 +4,23 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: Keeps last level up hero selected
-[HarmonyPatch(typeof(CharacterPoolManager), "SaveCharacter")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterPoolManager_SaveCharacter
+internal static class CharacterPoolManagerPatcher
 {
-    public static void Prefix(RulesetCharacterHero heroCharacter, [HarmonyArgument("addToPool")] bool _ = false)
+    //PATCH: Keeps last level up hero selected
+    [HarmonyPatch(typeof(CharacterPoolManager), "SaveCharacter")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class SaveCharacter_Patch
     {
-        if (heroCharacter == null)
+        public static void Prefix(RulesetCharacterHero heroCharacter, [HarmonyArgument("addToPool")] bool _ = false)
         {
-            return;
-        }
+            if (heroCharacter == null)
+            {
+                return;
+            }
 
-        Global.LastLevelUpHeroName =
-            Main.Settings.KeepCharactersPanelOpenAndHeroSelectedOnLevelUp ? heroCharacter.Name : null;
+            Global.LastLevelUpHeroName =
+                Main.Settings.KeepCharactersPanelOpenAndHeroSelectedOnLevelUp ? heroCharacter.Name : null;
+        }
     }
 }
+

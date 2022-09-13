@@ -7,10 +7,12 @@ using SolastaUnfinishedBusiness.Api;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-// ensure conjured units teleport with the party
+internal static class FunctorPatcher
+{
+    //PATCH: ensure conjured units teleport with the party
 [HarmonyPatch(typeof(Functor), "SelectCharacters")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class Functor_SelectCharacters
+internal static class SelectCharacters_Patch
 {
     internal static void Postfix(
         [NotNull] FunctorParametersDescription functorParameters,
@@ -57,4 +59,6 @@ internal static class Functor_SelectCharacters
             selectedCharacters.Add(guestCharacter);
         }
     }
+}
+
 }

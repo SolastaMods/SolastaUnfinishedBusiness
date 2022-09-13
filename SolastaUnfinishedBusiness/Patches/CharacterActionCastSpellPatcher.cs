@@ -99,7 +99,7 @@ internal static class CharacterActionCastSpellPatcher
             //PATCH: Multiclass: enforces cantrips to be cast at character level 
             //replaces repertoire's SpellCastingLevel with character level for cantrips
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
-            var SpellCastingLevel =
+            var spellCastingLevel =
                 new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassPatchingContext
                         .SpellCastingLevel)
                     .Method;
@@ -109,7 +109,7 @@ internal static class CharacterActionCastSpellPatcher
                 if (instruction.Calls(spellCastingLevelMethod))
                 {
                     yield return new CodeInstruction(OpCodes.Ldarg_0); // this
-                    yield return new CodeInstruction(OpCodes.Call, SpellCastingLevel);
+                    yield return new CodeInstruction(OpCodes.Call, spellCastingLevel);
                 }
                 else
                 {

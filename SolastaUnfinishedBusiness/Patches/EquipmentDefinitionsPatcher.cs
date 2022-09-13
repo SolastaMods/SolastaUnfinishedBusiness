@@ -19,7 +19,7 @@ internal static class EquipmentDefinitionsPatcher
     //PATCH: ScaleMerchantPricesCorrectly
     [HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EquipmentDefinitions_ScaleAndRoundCosts
+    internal static class ScaleAndRoundCosts_Patch
     {
         internal static bool Prefix(float priceMultiplier, int[] baseCosts, int[] scaledCosts)
         {

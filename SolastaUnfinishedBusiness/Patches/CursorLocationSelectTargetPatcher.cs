@@ -12,7 +12,7 @@ internal static class CursorLocationSelectTargetPatcher
         internal static void Postfix(CursorLocationSelectTarget __instance, GameLocationCharacter target,
             ref bool __result)
         {
-            //PATCH: suport for target spell filtering based on custom spell filters
+            //PATCH: support for target spell filtering based on custom spell filters
             // used for melee cantrips to limit targets to weapon attack range
 
             if (!__result)
