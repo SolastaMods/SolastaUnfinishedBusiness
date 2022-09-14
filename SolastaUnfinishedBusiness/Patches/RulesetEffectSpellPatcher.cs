@@ -28,8 +28,7 @@ internal static class RulesetEffectSpellPatcher
     {
         internal static void Postfix(RulesetEffectSpell __instance, ref int __result, RulesetCharacter character)
         {
-            if (character is RulesetCharacterHero hero
-                && __instance.SpellDefinition.SpellLevel == 0)
+            if (character is RulesetCharacterHero hero && __instance.SpellDefinition.SpellLevel == 0)
             {
                 __result = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
             }
@@ -45,7 +44,7 @@ internal static class RulesetEffectSpellPatcher
         {
             //replaces repertoire's SpellCastingLevel with character level for cantrips
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
-            var SpellCastingLevel =
+            var spellCastingLevel =
                 new Func<RulesetSpellRepertoire, RulesetEffectSpell, int>(MulticlassPatchingContext.SpellCastingLevel)
                     .Method;
 
@@ -54,7 +53,7 @@ internal static class RulesetEffectSpellPatcher
                 if (instruction.Calls(spellCastingLevelMethod))
                 {
                     yield return new CodeInstruction(OpCodes.Ldarg_0); // this
-                    yield return new CodeInstruction(OpCodes.Call, SpellCastingLevel);
+                    yield return new CodeInstruction(OpCodes.Call, spellCastingLevel);
                 }
                 else
                 {

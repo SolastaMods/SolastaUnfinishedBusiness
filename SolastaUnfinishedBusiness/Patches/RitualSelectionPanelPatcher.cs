@@ -46,6 +46,7 @@ internal static class RitualSelectionPanelPatcher
             rulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(
                 rulesetCharacter.FeaturesToBrowse);
 
+            // ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
             foreach (FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity in rulesetCharacter.FeaturesToBrowse)
             {
                 var spellCastingClass = DatabaseRepository.GetDatabase<CharacterClassDefinition>()

@@ -10,6 +10,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialTactician : AbstractSubclass
 {
+    internal const string CounterStrikeTag = "CounterStrike";
+
     // ReSharper disable once InconsistentNaming
     private CharacterSubclassDefinition Subclass;
 
@@ -191,7 +193,7 @@ internal static class PowerSharedPoolTacticianCounterStrikeBuilder
                     .SpriteReference).Build(),
             false);
 
-        builder.SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, "CounterStrike");
+        builder.SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, MartialTactician.CounterStrikeTag);
 
         return builder.AddToDB();
     }

@@ -8,7 +8,7 @@ internal static class RulesetEffectPowerPatcher
 {
     [HarmonyPatch(typeof(RulesetEffectPower), "SaveDC", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class get_SaveDC_Patch
+    internal static class SaveDC_Getter_Patch
     {
         public static void Postfix(RulesetEffectPower __instance, ref int __result)
         {
