@@ -14,10 +14,10 @@ internal static class FeatureDefinitionFeatureSet_FormatDescription
 {
     internal static void Postfix([NotNull] FeatureDefinitionFeatureSet __instance, ref string __result)
     {
-        if (!__instance.HasSubFeatureOfType<CustomSetDescription>())
-        {
-            return;
-        }
+        // if (!__instance.HasSubFeatureOfType<CustomSetDescription>())
+        // {
+        //     return;
+        // }
 
         if (__instance.Mode != FeatureDefinitionFeatureSet.FeatureSetMode.Union)
         {
