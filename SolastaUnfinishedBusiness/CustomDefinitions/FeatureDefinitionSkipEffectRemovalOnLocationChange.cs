@@ -1,6 +1,8 @@
-﻿namespace SolastaUnfinishedBusiness.CustomDefinitions;
+﻿using SolastaUnfinishedBusiness.CustomInterfaces;
 
-public static class SkipEffectRemovalOnLocationChange
+namespace SolastaUnfinishedBusiness.CustomDefinitions;
+
+public static class FeatureDefinitionSkipEffectRemovalOnLocationChange
 {
     public static readonly ISKipEffectRemovalOnLocationChange Always = new AlwaysSkip();
     public static readonly ISKipEffectRemovalOnLocationChange OnChained = new SkipOnChained();
@@ -20,9 +22,4 @@ public static class SkipEffectRemovalOnLocationChange
             return willEnterChainedLocation;
         }
     }
-}
-
-public interface ISKipEffectRemovalOnLocationChange
-{
-    public bool Skip(bool willEnterChainedLocation);
 }

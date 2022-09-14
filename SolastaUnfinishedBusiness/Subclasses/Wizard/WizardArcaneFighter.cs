@@ -125,7 +125,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
                 AttributeDefinitions.Intelligence, effect, false /* unique instance */)
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
     }
 
