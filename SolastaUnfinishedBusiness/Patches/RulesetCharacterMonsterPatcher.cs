@@ -1,7 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Subclasses.Wizard;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -12,47 +12,61 @@ internal static class RulesetCharacterMonsterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FinalizeMonster_Patch
     {
-        private static void OnMulticlassWildshapeCreated(RulesetCharacterMonster __instance)
+        internal static void Postfix(RulesetCharacterMonster __instance)
         {
-            if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
+            //TODO: Consider using `FeatureDefinitionSummoningAffinity` for this
+
+            //PATCH: allows us to change monsters created by Dead Master
+            WizardDeadMaster.OnMonsterCreated(__instance);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterMonster), "RegisterAttributes")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RegisterAttributes_Patch
+    {
+        internal static void Postfix(RulesetCharacterMonster __instance)
+        {
+            //PATCH: support for rage/ki/other stuff while shape-shifted
+            //Copy modifiers from original hero
+            if (__instance.originalFormCharacter is not RulesetCharacterHero hero)
             {
                 return;
             }
 
-            // rebase all attributes from hero but first delete some pools we want to copy over again
-            __instance.Attributes.Remove(AttributeDefinitions.HealingPool);
-            __instance.Attributes.Remove(AttributeDefinitions.IndomitableResistances);
-            __instance.Attributes.Remove(AttributeDefinitions.KiPoints);
-            __instance.Attributes.Remove(AttributeDefinitions.RageDamage);
-            __instance.Attributes.Remove(AttributeDefinitions.RagePoints);
-            __instance.Attributes.Remove(AttributeDefinitions.SorceryPoints);
-
-            foreach (var attribute in hero.Attributes.Where(x => !__instance.Attributes.ContainsKey(x.Key)))
+            hero.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(__instance.FeaturesToBrowse);
+            foreach (var feature in __instance.FeaturesToBrowse)
             {
-                __instance.Attributes.Add(attribute.Key, attribute.Value);
-            }
+                if (feature is not FeatureDefinitionAttributeModifier mod ||
+                    !__instance.TryGetAttribute(mod.ModifiedAttribute, out _)) continue;
 
-            // rebase all powers from hero
-            __instance.UsablePowers.SetRange(hero.UsablePowers);
-
-            // sync rage points
-            var count = hero.UsedRagePoints;
-
-            while (count-- > 0)
-            {
-                __instance.SpendRagePoint();
+                mod.ApplyModifiers(__instance.Attributes, AttributeDefinitions.TagConjure);
             }
         }
+    }
 
-        internal static void Postfix(RulesetCharacterMonster __instance)
+    [HarmonyPatch(typeof(RulesetCharacterMonster), "RefreshAll")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RefreshAll_Patch
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            //TODO: Consider creating an interface for these
+            //PATCH: support for rage/ki/other stuff while shape-shifted
+            //Refresh values of attribute modifiers before refreshing attributes
 
-            //PATCH: allows us to change monsters created by Dead Master
-            WizardDeadMaster.OnMonsterCreated(__instance);
+            var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
+            var refreshAttributeModifiers = typeof(RulesetActor).GetMethod("RefreshAttributeModifierFromAbilityScore");
 
-            //PATCH: ensures wildshape get all original character pools, states and attributes
-            OnMulticlassWildshapeCreated(__instance);
+            foreach (var code in instructions)
+            {
+                if (code.Calls(refreshAttributes))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, refreshAttributeModifiers);
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                }
+
+                yield return code;
+            }
         }
     }
 }
