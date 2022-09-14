@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 
 namespace SolastaUnfinishedBusiness.Level20;
 
-internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilder
+internal sealed class PowerSorcerousRestorationBuilder : FeatureDefinitionPowerBuilder
 {
     private const string PowerSorcerousRestorationName = "PowerSorcerousRestoration";
     private const string PowerSorcerousRestorationGuid = "a524f8eb-8d30-4614-819d-a8f7df84f73e";
@@ -12,7 +12,7 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
     internal static readonly FeatureDefinitionPower SorcerousRestoration =
         CreateAndAddToDB(PowerSorcerousRestorationName, PowerSorcerousRestorationGuid);
 
-    private SorcerousRestorationBuilder(string name, string guid) : base(name, guid)
+    private PowerSorcerousRestorationBuilder(string name, string guid) : base(name, guid)
     {
         Definition.fixedUsesPerRecharge = 1;
         Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
@@ -45,7 +45,7 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
     {
-        return new SorcerousRestorationBuilder(name, guid)
+        return new PowerSorcerousRestorationBuilder(name, guid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
     }
@@ -61,7 +61,7 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
         private RestActivityBuilder(string name, string guid) : base(
             DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name, guid)
         {
-            Definition.stringParameter = SorcerousRestorationName;
+            Definition.stringParameter = PowerSorcerousRestorationName;
         }
 
         // get only property
