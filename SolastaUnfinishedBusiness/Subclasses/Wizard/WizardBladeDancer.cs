@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -101,7 +102,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 effectBladeDance,
                 true)
             .SetCustomSubFeatures(
-                new PowerUseValidity(IsBladeDanceValid))
+                new ValidatorPowerUse(IsBladeDanceValid))
             .AddToDB();
 
         ConditionBladeDancerDanceOfDefense = ConditionDefinitionBuilder

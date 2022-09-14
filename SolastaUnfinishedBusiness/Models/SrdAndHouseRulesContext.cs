@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -64,7 +65,7 @@ internal static class SrdAndHouseRulesContext
     private static void FixMountaineerBonusShoveRestrictions()
     {
         ActionAffinityMountaineerShieldCharge
-            .SetCustomSubFeatures(new FeatureApplicationValidator(CharacterValidators.HasShield));
+            .SetCustomSubFeatures(new ValidatorFeatureApplication(CharacterValidators.HasShield));
     }
 
     /**

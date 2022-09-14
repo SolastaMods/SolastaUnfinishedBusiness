@@ -49,7 +49,7 @@ internal sealed class Pugilist : AbstractFightingStyle
             .SetCustomSubFeatures(
                 new AddExtraUnarmedAttack(ActionType.Bonus),
                 new AdditionalUnarmedDice(),
-                new FeatureApplicationValidator(CharacterValidators.HasUnarmedHand)
+                new ValidatorFeatureApplication(CharacterValidators.HasUnarmedHand)
             )
             .AddToDB();
 

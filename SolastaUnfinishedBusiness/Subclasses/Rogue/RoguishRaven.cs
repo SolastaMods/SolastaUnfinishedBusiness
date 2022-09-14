@@ -119,7 +119,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                         .SetConditionForm(heartSeekingShotCondition, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
-            .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.HasTwoHandedRangeWeapon))
+            .SetCustomSubFeatures(new ValidatorPowerUse(CharacterValidators.HasTwoHandedRangeWeapon))
             .AddToDB();
 
         PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);

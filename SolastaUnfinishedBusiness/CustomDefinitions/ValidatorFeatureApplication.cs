@@ -1,19 +1,15 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public interface IFeatureApplicationValidator
-{
-    bool IsValid(RulesetCharacter character);
-}
-
-public sealed class FeatureApplicationValidator : IFeatureApplicationValidator
+public sealed class ValidatorFeatureApplication : IFeatureApplicationValidator
 {
     private readonly CharacterValidator[] validators;
 
-    public FeatureApplicationValidator(params CharacterValidator[] validators)
+    public ValidatorFeatureApplication(params CharacterValidator[] validators)
     {
         this.validators = validators;
     }

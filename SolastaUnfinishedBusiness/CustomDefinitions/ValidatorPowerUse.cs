@@ -4,11 +4,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public sealed class PowerUseValidity : IPowerUseValidity
+public sealed class ValidatorPowerUse : IPowerUseValidity
 {
     private readonly CharacterValidator[] validators;
 
-    public PowerUseValidity(params CharacterValidator[] validators)
+    public ValidatorPowerUse(params CharacterValidator[] validators)
     {
         this.validators = validators;
     }
