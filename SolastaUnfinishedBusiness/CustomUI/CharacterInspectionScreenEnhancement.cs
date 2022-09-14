@@ -367,7 +367,8 @@ internal static class CharacterInspectionScreenEnhancement
             typeof(CharacterInspectionScreenEnhancement).GetMethod("GetSelectedClassSearchTerm");
         var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges",
             BindingFlags.Instance | BindingFlags.NonPublic);
-        var myEnumerateClassBadgesMethod = typeof(CharacterInspectionScreenEnhancement).GetMethod("EnumerateClassBadges");
+        var myEnumerateClassBadgesMethod =
+            typeof(CharacterInspectionScreenEnhancement).GetMethod("EnumerateClassBadges");
         var found = 0;
 
         foreach (var instruction in instructions)

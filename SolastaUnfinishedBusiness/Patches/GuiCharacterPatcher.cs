@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,7 +52,7 @@ internal static class GuiCharacterPatcher
             }
 
             // NOTE: don't use SelectedClass??. which bypasses Unity object lifetime check
-            var selectedClass = CustomUI.CharacterInspectionScreenEnhancement.SelectedClass;
+            var selectedClass = CharacterInspectionScreenEnhancement.SelectedClass;
 
             if (selectedClass)
             {

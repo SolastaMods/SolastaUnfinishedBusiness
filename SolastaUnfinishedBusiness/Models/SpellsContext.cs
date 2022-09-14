@@ -68,7 +68,7 @@ internal static class SpellsContext
                                  !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition):
                             spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
                             break;
-                    }    
+                    }
                 }
             }
 

@@ -6,7 +6,6 @@ using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;

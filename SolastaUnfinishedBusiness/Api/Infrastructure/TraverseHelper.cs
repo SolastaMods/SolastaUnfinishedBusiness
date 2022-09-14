@@ -66,7 +66,7 @@ public static class TraverseHelper
 #if DEBUG
     public static V GetProperty<V>([NotNull] this object instance, [NotNull] string propertyName)
     {
-        Preconditions.IsNotNull(instance, nameof(instance));
+        Preconditions.ArgumentIsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(propertyName, nameof(propertyName));
 
         var t = Traverse.Create(instance);
@@ -82,7 +82,7 @@ public static class TraverseHelper
     public static void SetProperty<T, V>([NotNull] this T instance, [NotNull] string propertyName, V value)
         where T : class
     {
-        Preconditions.IsNotNull(instance, nameof(instance));
+        Preconditions.ArgumentIsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(propertyName, nameof(propertyName));
 
         var t = Traverse.Create(instance);

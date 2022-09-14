@@ -82,7 +82,7 @@ internal static class CharacterStageRaceSelectionPanel_OnBeginShow
         var visibleSubRaces = characterRaceDefinitions.SelectMany(x => x.SubRaces);
         var visibleMainRaces = characterRaceDefinitions.Where(x => !visibleSubRaces.Contains(x));
         var raceDefinitions = visibleMainRaces as CharacterRaceDefinition[] ?? visibleMainRaces.ToArray();
-        
+
         __instance.eligibleRaces.SetRange(raceDefinitions.OrderBy(x => x.FormatTitle()));
         __instance.selectedSubRace.Clear();
 
@@ -90,7 +90,7 @@ internal static class CharacterStageRaceSelectionPanel_OnBeginShow
         {
             __instance.selectedSubRace[key] = 0;
         }
-        
+
         __instance.eligibleRaces.Sort(__instance);
     }
 }

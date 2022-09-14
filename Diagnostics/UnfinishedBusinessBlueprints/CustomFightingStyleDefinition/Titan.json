@@ -1,19 +1,18 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomFightingStyleDefinition, SolastaUnfinishedBusiness",
   "features": [
-    "Definition:AdditionalActionFightingStyleMerciless:baf21e0d-b2ac-5321-ae36-5dfeddfb43e3",
-    "Definition:OnCharacterKillFightingStyleMerciless:99f641dd-ab04-5df1-9cf3-838975085d8b"
+    "Definition:OnComputeAttackModifierFightingStyleTitan:a5850f9c-329f-5d1c-85f3-3ddc4ba10db4"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "FightingStyle/&MercilessTitle",
-    "description": "FightingStyle/&MercilessDescription",
+    "title": "FightingStyle/&TitanTitle",
+    "description": "FightingStyle/&TitanDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6210cb2662b49e245829db8f0a61c78b",
-      "m_SubObjectName": "Champion",
+      "m_AssetGUID": "aa99d934a7dfe064191c9a18e4822595",
+      "m_SubObjectName": "Barbarian_Path_Berserker",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -29,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6d7a4f67-8035-55e2-823e-619534487125",
+  "guid": "b31e1119-9304-562f-9783-a79629b85c2f",
   "contentPack": 9999,
-  "name": "Merciless"
+  "name": "Titan"
 }

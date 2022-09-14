@@ -1,18 +1,18 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomFightingStyleDefinition, SolastaUnfinishedBusiness",
   "features": [
-    "Definition:ActionAffinityFightingStylePugilist:c4df47d8-b2cd-5e92-979e-89d8feaad835"
+    "Definition:AdditionalDamageCrippling:3a68707a-e9fb-5657-9956-5cb90bf16aa7"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "FightingStyle/&PugilistTitle",
-    "description": "FightingStyle/&PugilistDescription",
+    "title": "FightingStyle/&CripplingTitle",
+    "description": "FightingStyle/&CripplingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aa99d934a7dfe064191c9a18e4822595",
-      "m_SubObjectName": "Barbarian_Path_Berserker",
+      "m_AssetGUID": "e2e75a8dfa5339a4486b00747f23310e",
+      "m_SubObjectName": "Ranger_Shadow_Tamer",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -28,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "00d288b7-bce4-54f4-903e-00299392f8c6",
+  "guid": "1883dae0-9ef0-550b-a3b9-d169594d4d46",
   "contentPack": 9999,
-  "name": "Pugilist"
+  "name": "Crippling"
 }
