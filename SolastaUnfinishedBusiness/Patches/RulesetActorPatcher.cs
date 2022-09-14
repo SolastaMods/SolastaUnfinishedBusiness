@@ -133,7 +133,6 @@ internal static class RulesetActorPatcher
             ref bool enumerateFeatures, ref bool canRerollDice)
         {
             //PATCH: support for `RoguishRaven` Rogue subclass
-
             if (!__instance.HasSubFeatureOfType<RoguishRaven.RavenRerollAnyDamageDieMarker>() ||
                 rollContext != RuleDefinitions.RollContext.AttackDamageValueRoll)
             {
@@ -145,6 +144,7 @@ internal static class RulesetActorPatcher
         }
     }
 
+    //PATCH: uses class level instead of character level on attributes calculation (Multiclass)
     [HarmonyPatch(typeof(RulesetActor), "RefreshAttributes")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RefreshAttributes_Patch
@@ -160,59 +160,38 @@ internal static class RulesetActorPatcher
 
             foreach (var attribute in hero.Attributes)
             {
-                foreach (var modifier in attribute.Value.ActiveModifiers)
+                foreach (var modifier in attribute.Value.ActiveModifiers
+                             .Where(x => x.Operation
+                                 is AttributeModifierOperation.MultiplyByClassLevel
+                                 or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions))
                 {
-                    if (modifier.Operation
-                        is AttributeModifierOperation.MultiplyByClassLevel
-                        or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions)
-                    {
-                        if (attribute.Key
-                            is AttributeDefinitions.SorceryPoints
-                            or AttributeDefinitions.HealingPool
-                            or AttributeDefinitions.KiPoints
-                            or AttributeDefinitions.BardicInspirationNumber)
-                        {
-                            var level = hero.GetClassLevel(GetClassByTags(modifier.tags));
+                    var level = hero.GetClassLevel(GetClassByTags(modifier.tags));
 
-                            if (level > 0)
-                            {
-                                modifier.Value = level;
-                            }
-                        }
+                    if (level > 0)
+                    {
+                        modifier.Value = level;
                     }
                 }
             }
         }
 
-        private static CharacterClassDefinition GetClassByTags(List<string> tags)
+        private static CharacterClassDefinition GetClassByTags(IEnumerable<string> tags)
         {
-            foreach (var tag in tags)
-            {
-                var matches = ClassPattern.Matches(tag);
-                if (matches.Count <= 0)
-                {
-                    continue;
-                }
-
-                var match = matches[0];
-                if (match.Groups.Count < 2)
-                {
-                    continue;
-                }
-
-                return DatabaseRepository
-                    .GetDatabase<CharacterClassDefinition>()
-                    .GetElement(match.Groups[1].Value, true);
-            }
-
-            return null;
+            return (from tag in tags
+                select ClassPattern.Matches(tag)
+                into matches
+                where matches.Count > 0
+                select matches[0]
+                into match
+                where match.Groups.Count >= 2
+                select DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                    .GetElement(match.Groups[1].Value, true)).FirstOrDefault();
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            //PATCH: enforce class level dependant modifiers use proper values for MC
-            //needed for sorcery points and healing pools to be of proper sizes when multiclassed
-            //adds custom method right before the end that recalculates modifier values specifically for class-level modifiers
+            // needed for sorcery points, healing pools, ki points to be of proper sizes when multiclass
+            // adds custom method right before the end that recalculates modifier values specifically for class-level modifiers
             var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
             var custom = new Action<RulesetActor>(RefreshClassModifiers).Method;
 

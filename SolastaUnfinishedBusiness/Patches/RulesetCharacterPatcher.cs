@@ -229,7 +229,7 @@ internal static class RulesetCharacterPatcher
     }
 
     //PATCH: ensures that the wildshape hero has access to spell repertoires for calculating slot related features (Multiclass)
-    [HarmonyPatch(typeof(RulesetCharacter), "SpellRepertoires", MethodType.Getter)]
+    //[HarmonyPatch(typeof(RulesetCharacter), "SpellRepertoires", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellRepertoires_Patch
     {
@@ -278,15 +278,19 @@ internal static class RulesetCharacterPatcher
         {
             if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
             {
-                //PATCH: ensures that original character rage pool is in sync with substitute (Multiclass)
-                if (usablePower.PowerDefinition == PowerBarbarianRageStart)
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (usablePower.PowerDefinition.RechargeRate)
                 {
-                    hero.SpendRagePoint();
-                }
-                //PATCH: ensures that original character ki pool is in sync with substitute (Multiclass)
-                else if (usablePower.PowerDefinition.Name.StartsWith("PowerMonk"))
-                {
-                    hero.ForceKiPointConsumption(usablePower.PowerDefinition.CostPerUse);
+                    //PATCH: ensures that original character rage pool is in sync with substitute (Multiclass)
+                    case RuleDefinitions.RechargeRate.RagePoints:
+                        hero.SpendRagePoint();
+
+                        break;
+                    //PATCH: ensures that original character ki pool is in sync with substitute (Multiclass)
+                    case RuleDefinitions.RechargeRate.KiPoints:
+                        hero.ForceKiPointConsumption(usablePower.PowerDefinition.CostPerUse);
+
+                        break;
                 }
             }
 
@@ -312,6 +316,7 @@ internal static class RulesetCharacterPatcher
                     __instance,
                     RuleDefinitions.RitualCasting.None,
                     __instance.usableSpells);
+
             __result = __instance.usableSpells.Count > 0;
 
             return false;
@@ -463,23 +468,24 @@ internal static class RulesetCharacterPatcher
         }
     }
 
+    //TODO: Reenable when Path of The Light is back
     //PATCH: INotifyConditionRemoval
-    [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_Kill
-    {
-        internal static void Prefix(RulesetCharacter __instance)
-        {
-            foreach (var rulesetCondition in __instance.ConditionsByCategory
-                         .SelectMany(keyValuePair => keyValuePair.Value))
-            {
-                if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
-                {
-                    notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
-                }
-            }
-        }
-    }
+    // [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
+    // [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    // internal static class RulesetCharacter_Kill
+    // {
+    //     internal static void Prefix(RulesetCharacter __instance)
+    //     {
+    //         foreach (var rulesetCondition in __instance.ConditionsByCategory
+    //                      .SelectMany(keyValuePair => keyValuePair.Value))
+    //         {
+    //             if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
+    //             {
+    //                 notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
+    //             }
+    //         }
+    //     }
+    // }
 
     //PATCH: logic to correctly calculate spell slots under MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshSpellRepertoires")]
