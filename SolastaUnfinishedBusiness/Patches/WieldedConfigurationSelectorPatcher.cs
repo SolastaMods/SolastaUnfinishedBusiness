@@ -9,6 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class WieldedConfigurationSelectorPatcher
 {
+    //BUGFIX
     //PATCH: WieldedConfigurationSelector.Bind passes wieldedConfigurationSelectorGuiCharacter to mainHandSlotBox.Bind and offHandSlotBox.Bind
     [HarmonyPatch(typeof(WieldedConfigurationSelector), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
