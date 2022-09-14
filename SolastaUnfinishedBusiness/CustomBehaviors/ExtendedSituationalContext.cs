@@ -17,12 +17,12 @@ public static class CustomSituationalContext
         return (ExtendedSituationalContext)context switch
         {
             ExtendedSituationalContext.MainWeaponIsMelee =>
-                CharacterValidators.MainHandIsMeleeWeapon(contextParams.source),
+                ValidatorsCharacter.MainHandIsMeleeWeapon(contextParams.source),
 
             ExtendedSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
-                CharacterValidators.NoArmor(contextParams.source)
-                || (CharacterValidators.LightArmor(contextParams.source)
-                    && CharacterValidators.NoShield(contextParams.source)),
+                ValidatorsCharacter.NoArmor(contextParams.source)
+                || (ValidatorsCharacter.LightArmor(contextParams.source)
+                    && ValidatorsCharacter.NoShield(contextParams.source)),
 
             _ => def
         };

@@ -231,9 +231,9 @@ internal sealed class SentinelFeatMarker
 
 internal sealed class CanMakeAoOOnReachEntered
 {
-    private readonly CharacterValidator[] validators;
+    private readonly IsCharacterValidHandler[] validators;
 
-    public CanMakeAoOOnReachEntered(params CharacterValidator[] validators)
+    public CanMakeAoOOnReachEntered(params IsCharacterValidHandler[] validators)
     {
         this.validators = validators;
     }

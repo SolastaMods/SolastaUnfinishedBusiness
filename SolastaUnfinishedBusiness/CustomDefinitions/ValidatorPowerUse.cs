@@ -6,9 +6,9 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 public sealed class ValidatorPowerUse : IPowerUseValidity
 {
-    private readonly CharacterValidator[] validators;
+    private readonly IsCharacterValidHandler[] validators;
 
-    public ValidatorPowerUse(params CharacterValidator[] validators)
+    public ValidatorPowerUse(params IsCharacterValidHandler[] validators)
     {
         this.validators = validators;
     }

@@ -23,12 +23,12 @@ internal static class RulesetCharacterExtensions
         return false;
     }
 
-    public static bool IsValid(this RulesetCharacter instance, [NotNull] params CharacterValidator[] validators)
+    public static bool IsValid(this RulesetCharacter instance, [NotNull] params IsCharacterValidHandler[] validators)
     {
         return validators.All(v => v(instance));
     }
 
-    public static bool IsValid(this RulesetCharacter instance, [CanBeNull] IEnumerable<CharacterValidator> validators)
+    public static bool IsValid(this RulesetCharacter instance, [CanBeNull] IEnumerable<IsCharacterValidHandler> validators)
     {
         return validators == null || validators.All(v => v(instance));
     }

@@ -7,9 +7,9 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 public sealed class ValidatorFeatureApplication : IFeatureApplicationValidator
 {
-    private readonly CharacterValidator[] validators;
+    private readonly IsCharacterValidHandler[] validators;
 
-    public ValidatorFeatureApplication(params CharacterValidator[] validators)
+    public ValidatorFeatureApplication(params IsCharacterValidHandler[] validators)
     {
         this.validators = validators;
     }

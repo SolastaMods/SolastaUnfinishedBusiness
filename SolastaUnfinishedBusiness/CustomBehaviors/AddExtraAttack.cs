@@ -14,12 +14,12 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
     protected readonly ActionDefinitions.ActionType ActionType;
     private readonly List<string> additionalTags = new();
     private readonly bool clearSameType;
-    private readonly CharacterValidator[] validators;
+    private readonly IsCharacterValidHandler[] validators;
 
     protected AddExtraAttackBase(
         ActionDefinitions.ActionType actionType,
         bool clearSameType,
-        params CharacterValidator[] validators)
+        params IsCharacterValidHandler[] validators)
     {
         ActionType = actionType;
         this.clearSameType = clearSameType;
@@ -28,7 +28,7 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
 
     protected AddExtraAttackBase(
         ActionDefinitions.ActionType actionType,
-        params CharacterValidator[] validators) :
+        params IsCharacterValidHandler[] validators) :
         this(actionType, false, validators)
     {
     }
@@ -118,7 +118,7 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
         var automaticHit = a.automaticHit == b.automaticHit;
         var afterChargeOnly = a.afterChargeOnly == b.afterChargeOnly;
 
-        if (WeaponValidators.IsUnarmedWeapon(a) && WeaponValidators.IsUnarmedWeapon(b))
+        if (ValidatorsWeapon.IsUnarmedWeapon(a) && ValidatorsWeapon.IsUnarmedWeapon(b))
         {
             // Main.Log(
             //     $"EQUAL actionType:{actionType}, sourceDefinition: {sourceDefinition}, sourceObject: {sourceObject}, slotName: {slotName}, ranged: {ranged}, thrown: {thrown}, reach: {reach}, reachRange: {reachRange}, closeRange: {closeRange}, maxRange: {maxRange}, toHitBonus: {toHitBonus}, attacksNumber: {attacksNumber}, useVersatileDamage: {useVersatileDamage}, freeOffHand: {freeOffHand}, automaticHit: {automaticHit}, afterChargeOnly: {afterChargeOnly}");
@@ -148,11 +148,11 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     public AddExtraUnarmedAttack(
         ActionDefinitions.ActionType actionType,
         bool clearSameType,
-        params CharacterValidator[] validators) : base(actionType, clearSameType, validators)
+        params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
     {
     }
 
-    public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+    public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, params IsCharacterValidHandler[] validators) :
         base(actionType, validators)
     {
     }
@@ -163,7 +163,7 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
         var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
             .EquipedItem;
 
-        var isUnarmedWeapon = mainHandItem != null && WeaponValidators.IsUnarmedWeapon(mainHandItem);
+        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmedWeapon(mainHandItem);
         var strikeDefinition = isUnarmedWeapon
             ? mainHandItem.ItemDefinition
             : hero.UnarmedStrikeDefinition;
@@ -175,7 +175,7 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            CharacterValidators.IsFreeOffhandForUnarmedTa(hero),
+            ValidatorsCharacter.IsFreeOffhandForUnarmedTa(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,
@@ -234,7 +234,7 @@ public sealed class AddExtraRangedAttack : AddExtraAttackBase
     public AddExtraRangedAttack(
         IsWeaponValidHandler weaponValidator,
         ActionDefinitions.ActionType actionType,
-        params CharacterValidator[] validators) : base(actionType, validators)
+        params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
         this.weaponValidator = weaponValidator;
     }
@@ -267,7 +267,7 @@ public sealed class AddExtraRangedAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            CharacterValidators.IsFreeOffhand(hero),
+            ValidatorsCharacter.IsFreeOffhand(hero),
             true,
             slot,
             hero.attackModifiers,
@@ -277,7 +277,7 @@ public sealed class AddExtraRangedAttack : AddExtraAttackBase
 
         attackMode.Reach = false;
         attackMode.Ranged = true;
-        attackMode.Thrown = WeaponValidators.IsThrownWeapon(item);
+        attackMode.Thrown = ValidatorsWeapon.IsThrownWeapon(item);
         attackMode.AttackTags.Remove(TagsDefinitions.WeaponTagMelee);
 
         attackModes.Add(attackMode);
@@ -287,7 +287,7 @@ public sealed class AddExtraRangedAttack : AddExtraAttackBase
 public sealed class AddPolearmFollowupAttack : AddExtraAttackBase
 {
     public AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, false,
-        CharacterValidators.HasAttacked, CharacterValidators.HasPolearm)
+        ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasPolearm)
     {
     }
 
@@ -309,7 +309,7 @@ public sealed class AddPolearmFollowupAttack : AddExtraAttackBase
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
 
-        if (item == null || !WeaponValidators.IsPolearm(item))
+        if (item == null || !ValidatorsWeapon.IsPolearm(item))
         {
             return;
         }
@@ -319,7 +319,7 @@ public sealed class AddPolearmFollowupAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            CharacterValidators.IsFreeOffhand(hero),
+            ValidatorsCharacter.IsFreeOffhand(hero),
             true,
             slot,
             hero.attackModifiers,
@@ -370,7 +370,7 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
             ActionDefinitions.ActionType.Bonus,
             offHandItem.ItemDefinition,
             ShieldStrikeContext.ShieldWeaponDescription,
-            CharacterValidators.IsFreeOffhand(hero),
+            ValidatorsCharacter.IsFreeOffhand(hero),
             hero.CanAddAbilityBonusToOffhand(),
             EquipmentDefinitions.SlotTypeOffHand,
             attackModifiers,

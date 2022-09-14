@@ -239,7 +239,7 @@ internal sealed class FeatTorchbearerBuilder : FeatDefinitionBuilder
             .SetUsesFixed(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
             .SetShowCasting(false)
-            .SetCustomSubFeatures(new ValidatorPowerUse(CharacterValidators.OffHandHasLightSource))
+            .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.OffHandHasLightSource))
             .AddToDB();
     }
 }

@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Utils;
+using UnityEngine;
 using UnityModManagerNet;
 #if DEBUG
 using SolastaUnfinishedBusiness.DataMiner;
@@ -41,7 +42,6 @@ internal static class BootContext
         MerchantTypeContext.Load();
 
         // These can be loaded in any order so we bump them at the beginning
-        BugFixContext.Load();
         CharacterExportContext.Load();
         ConjurationsContext.Load();
         CustomReactionsContext.Load();
@@ -127,10 +127,24 @@ internal static class BootContext
             // Manages update or welcome messages
             Load();
 
+            ExpandColorTables();
             Main.Enable();
         };
     }
 
+    private static void ExpandColorTables()
+    {
+        //
+        // BUGFIX: expand color tables
+        //
+
+        for (var i = 21; i < 33; i++)
+        {
+            Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
+            Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
+        }
+    }
+    
     private static void Load()
     {
         if (ShouldUpdate(out var version, out var changeLog))

@@ -98,7 +98,7 @@ public static class EwFeats
                 .Create("PolearmFeatFeature", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
-                    new CanMakeAoOOnReachEntered(CharacterValidators.HasPolearm),
+                    new CanMakeAoOOnReachEntered(ValidatorsCharacter.HasPolearm),
                     new AddPolearmFollowupAttack()
                 )
                 .AddToDB())
@@ -116,7 +116,7 @@ public static class EwFeats
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
                     new AddExtraRangedAttack(IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
-                        CharacterValidators.HasAttacked)
+                        ValidatorsCharacter.HasAttacked)
                 )
                 .AddToDB())
             .AddToDB();
@@ -128,13 +128,13 @@ public static class EwFeats
             .Create(RecklessAttackFeat, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("RecklessAttack", Category.Action)
             .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityBarbarianRecklessAttack)
-            .SetValidators(FeatsValidators.ValidateNotClass(CharacterClassDefinitions.Barbarian))
+            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
             .AddToDB();
     }
 
     private static bool IsOneHandedRanged(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
     {
-        return WeaponValidators.IsRanged(weapon) && WeaponValidators.IsOneHanded(weapon);
+        return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
     }
 
     private static FeatDefinition BuildPowerAttack()
@@ -296,7 +296,7 @@ public static class EwFeats
                 return;
             }
 
-            if (!WeaponValidators.IsMelee(attackMode))
+            if (!ValidatorsWeapon.IsMelee(attackMode))
             {
                 return;
             }

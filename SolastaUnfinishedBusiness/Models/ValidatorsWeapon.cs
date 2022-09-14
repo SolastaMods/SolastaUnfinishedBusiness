@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Models;
 public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon,
     RulesetCharacter character);
 
-public static class WeaponValidators
+public static class ValidatorsWeapon
 {
     public static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 

@@ -8,10 +8,10 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
 {
     private readonly IsWeaponValidHandler isWeaponValid;
-    private readonly CharacterValidator[] validators;
+    private readonly IsCharacterValidHandler[] validators;
 
     protected ModifyAttackModeForWeaponBase(IsWeaponValidHandler isWeaponValid,
-        params CharacterValidator[] validators)
+        params IsCharacterValidHandler[] validators)
     {
         this.isWeaponValid = isWeaponValid;
         this.validators = validators;
@@ -116,7 +116,7 @@ public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
 
 public sealed class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
 {
-    public BumpWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid, params CharacterValidator[] validators)
+    public BumpWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid, params IsCharacterValidHandler[] validators)
         : base(isWeaponValid, validators)
     {
     }

@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class FeatsValidators
+internal static class ValidatorsFeat
 {
     //
     // validation routines for FeatDefinitionWithPrerequisites

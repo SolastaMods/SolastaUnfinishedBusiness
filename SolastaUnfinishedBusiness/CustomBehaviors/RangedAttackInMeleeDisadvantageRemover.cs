@@ -7,17 +7,17 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 public class RangedAttackInMeleeDisadvantageRemover
 {
     private readonly IsWeaponValidHandler isWeaponValid;
-    private readonly CharacterValidator[] validators;
+    private readonly IsCharacterValidHandler[] validators;
 
     public RangedAttackInMeleeDisadvantageRemover(IsWeaponValidHandler isWeaponValid,
-        params CharacterValidator[] validators)
+        params IsCharacterValidHandler[] validators)
     {
         this.isWeaponValid = isWeaponValid;
         this.validators = validators;
     }
 
-    public RangedAttackInMeleeDisadvantageRemover(params CharacterValidator[] validators)
-        : this(WeaponValidators.AlwaysValid, validators)
+    public RangedAttackInMeleeDisadvantageRemover(params IsCharacterValidHandler[] validators)
+        : this(ValidatorsWeapon.AlwaysValid, validators)
     {
     }
 

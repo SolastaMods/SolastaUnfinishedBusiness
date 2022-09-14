@@ -49,7 +49,7 @@ internal sealed class Pugilist : AbstractFightingStyle
             .SetCustomSubFeatures(
                 new AddExtraUnarmedAttack(ActionType.Bonus),
                 new AdditionalUnarmedDice(),
-                new ValidatorFeatureApplication(CharacterValidators.HasUnarmedHand)
+                new ValidatorFeatureApplication(ValidatorsCharacter.HasUnarmedHand)
             )
             .AddToDB();
 
@@ -67,7 +67,7 @@ internal sealed class Pugilist : AbstractFightingStyle
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!WeaponValidators.IsUnarmedWeapon(attackMode))
+            if (!ValidatorsWeapon.IsUnarmedWeapon(attackMode))
             {
                 return;
             }

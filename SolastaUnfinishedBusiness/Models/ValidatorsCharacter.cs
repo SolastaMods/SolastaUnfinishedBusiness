@@ -3,30 +3,30 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public delegate bool CharacterValidator(RulesetCharacter character);
+public delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
-public static class CharacterValidators
+public static class ValidatorsCharacter
 {
-    public static readonly CharacterValidator HasAttacked = character => character.ExecutedAttacks > 0;
+    public static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
-    public static readonly CharacterValidator NoArmor = character => !character.IsWearingArmor();
+    public static readonly IsCharacterValidHandler NoArmor = character => !character.IsWearingArmor();
 
     // public static readonly CharacterValidator MediumArmor = character => character.IsWearingMediumArmor();
 
-    public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
+    public static readonly IsCharacterValidHandler NoShield = character => !character.IsWearingShield();
 
-    public static readonly CharacterValidator HasShield = character => character.IsWearingShield();
+    public static readonly IsCharacterValidHandler HasShield = character => character.IsWearingShield();
 
     // public static readonly CharacterValidator EmptyOffhand = character => character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
-    public static readonly CharacterValidator HasPolearm = character =>
+    public static readonly IsCharacterValidHandler HasPolearm = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
-        return WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
-               || WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+        return ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
+               || ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     };
 
-    public static readonly CharacterValidator HasTwoHandedRangeWeapon = character =>
+    public static readonly IsCharacterValidHandler HasTwoHandedRangeWeapon = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand];
@@ -51,8 +51,8 @@ public static class CharacterValidators
                DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType;
     };
 
-    public static readonly CharacterValidator MainHandIsMeleeWeapon = character =>
-        WeaponValidators.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
+    public static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
+        ValidatorsWeapon.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
     // public static readonly CharacterValidator FullyUnarmed = character =>
     // {
@@ -61,15 +61,15 @@ public static class CharacterValidators
     //            && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     // };
 
-    public static readonly CharacterValidator HasUnarmedHand = character =>
+    public static readonly IsCharacterValidHandler HasUnarmedHand = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
 
         var main = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
         var off = slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
-        return WeaponValidators.IsUnarmedWeapon(main)
-               || (!WeaponValidators.IsTwoHanded(main) && WeaponValidators.IsUnarmedWeapon(off));
+        return ValidatorsWeapon.IsUnarmedWeapon(main)
+               || (!ValidatorsWeapon.IsTwoHanded(main) && ValidatorsWeapon.IsUnarmedWeapon(off));
     };
 
     // public static readonly CharacterValidator UsedAllMainAttacks = character =>
@@ -78,7 +78,7 @@ public static class CharacterValidators
     // public static readonly CharacterValidator InBattle = _ =>
     //     ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
 
-    public static readonly CharacterValidator LightArmor = character =>
+    public static readonly IsCharacterValidHandler LightArmor = character =>
     {
         var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
             .EquipedItem;
@@ -93,7 +93,7 @@ public static class CharacterValidators
             .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
     };
 
-    public static readonly CharacterValidator OffHandHasLightSource = character =>
+    public static readonly IsCharacterValidHandler OffHandHasLightSource = character =>
     {
         switch (character)
         {

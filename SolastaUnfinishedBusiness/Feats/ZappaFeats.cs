@@ -11,7 +11,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
-using static SolastaUnfinishedBusiness.Models.FeatsValidators;
+using static SolastaUnfinishedBusiness.Models.ValidatorsFeat;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -680,7 +680,7 @@ internal sealed class CombatAffinityDeadeyeIgnoreDefenderBuilder : FeatureDefini
         Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
 
         Definition.ignoreCover = true;
-        Definition.SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(WeaponValidators.AlwaysValid));
+        Definition.SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid));
     }
 
     private static FeatureDefinition CreateAndAddToDB(string name, string guid)

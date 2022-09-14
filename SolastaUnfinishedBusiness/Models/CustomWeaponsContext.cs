@@ -732,7 +732,7 @@ public static class CustomWeaponsContext
 
     public static void AddCustomTags(ItemDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
-        if (WeaponValidators.IsPolearm(item))
+        if (ValidatorsWeapon.IsPolearm(item))
         {
             tags.TryAdd(PolearmWeaponTag, TagsDefinitions.Criticity.Normal);
         }

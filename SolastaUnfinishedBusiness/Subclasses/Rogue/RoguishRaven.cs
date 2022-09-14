@@ -119,7 +119,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                         .SetConditionForm(heartSeekingShotCondition, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
-            .SetCustomSubFeatures(new ValidatorPowerUse(CharacterValidators.HasTwoHandedRangeWeapon))
+            .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.HasTwoHandedRangeWeapon))
             .AddToDB();
 
         PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
@@ -175,7 +175,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .Create("CombatAffinityRavenRangeAttack", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentationNoContent(true)
                     .SetIgnoreCover()
-                    .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(WeaponValidators.AlwaysValid))
+                    .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB()
             )
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
