@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches.LevelUp;
@@ -29,6 +30,7 @@ internal static class RulesetCharacterHero_AddClassLevel
     }
 }
 
+//PATCH: Ensure that we correctly grant custom features from Feats
 [HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacterHero_TrainFeats
@@ -39,5 +41,32 @@ internal static class RulesetCharacterHero_TrainFeats
         {
             CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, null, feat.Features);
         }
+    }
+}
+
+//PATCH: Ensures we don't offer invocations unlearn on non Warlock MC (Multiclass)
+[HarmonyPatch(typeof(RulesetCharacterHero), "InvocationProficiencies", MethodType.Getter)]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacterHero_InvocationProficiencies
+{
+    private static bool Prefix(RulesetCharacterHero __instance, ref List<string> __result)
+    {
+        var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
+
+        if (!isLevelingUp)
+        {
+            return true;
+        }
+
+        var selectedClass = LevelUpContext.GetSelectedClass(__instance);
+
+        if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+        {
+            return true;
+        }
+
+        __result = new List<string>();
+
+        return false;
     }
 }

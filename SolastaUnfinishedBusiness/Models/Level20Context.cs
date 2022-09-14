@@ -49,6 +49,7 @@ internal static class Level20Context
     internal static void Load()
     {
         BarbarianLoad();
+        BardLoad();
         ClericLoad();
         DruidLoad();
         FighterLoad();
@@ -56,6 +57,7 @@ internal static class Level20Context
         RangerLoad();
         RogueLoad();
         SorcererLoad();
+        WarlockLoad();
         WizardLoad();
         MartialSpellBladeLoad();
         RoguishShadowcasterLoad();
@@ -103,6 +105,19 @@ internal static class Level20Context
             new(FeatureSetAbilityScoreChoice, 19),
             new(FeatureDefinitionPrimalChampionBuilder.FeatureDefinitionPrimalChampion, 20)
         });
+    }
+
+    private static void BardLoad()
+    {
+        Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            // TODO 18: ...
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: ...
+        });
+
+        CastSpellBard.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        CastSpellBard.ReplacedSpells.SetRange(SharedSpellsContext.FullCasterReplacedSpells);
     }
 
     private static void ClericLoad()
@@ -230,6 +245,18 @@ internal static class Level20Context
         CastSpellSorcerer.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
         CastSpellSorcerer.ReplacedSpells.SetRange(SharedSpellsContext.FullCasterReplacedSpells);
         CastSpellSorcerer.KnownSpells.SetRange(SharedSpellsContext.SorcererKnownSpells);
+    }
+
+    private static void WarlockLoad()
+    {
+        Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            // TODO 18: ...
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: ...
+        });
+
+        CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);
     }
 
     private static void WizardLoad()

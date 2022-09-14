@@ -1440,11 +1440,6 @@ public static class SharedSpellsContext
         return hero ?? Global.ActiveLevelUpHero;
     }
 
-    public static bool IsWarlock(CharacterClassDefinition characterClassDefinition)
-    {
-        return characterClassDefinition == Warlock;
-    }
-
     // need the null check for companions who don't have repertoires
     public static bool IsMulticaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
@@ -1512,7 +1507,7 @@ public static class SharedSpellsContext
     [CanBeNull]
     public static RulesetSpellRepertoire GetWarlockSpellRepertoire([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
-        return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => IsWarlock(x.SpellCastingClass));
+        return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == Warlock);
     }
 
     public static int GetSharedCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)

@@ -320,7 +320,7 @@ internal static class CharacterBuildingManager_ClearPrevious
     }
 }
 
-//TODO: Still required?
+//PATCH: Ensure we correctly remove custom features when race is unassigned
 [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignRace")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnassignRace
@@ -339,7 +339,7 @@ internal static class CharacterBuildingManager_UnassignRace
     }
 }
 
-//TODO: Still required?
+//PATCH: Ensure we correctly remove custom features when background is unassigned
 [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignBackground")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnassignBackground
@@ -358,7 +358,6 @@ internal static class CharacterBuildingManager_UnassignBackground
     }
 }
 
-//PATCH: ensures this doesn't get executed in the class panel level up screen
 [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnassignLastClassLevel
@@ -367,12 +366,10 @@ internal static class CharacterBuildingManager_UnassignLastClassLevel
     {
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+        var notLevelingUpAndNotInClassSelection = !(isLevelingUp && isClassSelectionStage);
 
-        //TODO: Still required?
-        //
-        // CUSTOM FEATURES BEHAVIOR
-        //
-        if (!isLevelingUp || !isClassSelectionStage)
+        //PATCH: Ensure we correctly remove custom features when class is unassigned
+        if (notLevelingUpAndNotInClassSelection)
         {
             var heroBuildingData = hero.GetOrCreateHeroBuildingData();
             var classDefinition = hero.ClassesHistory[heroBuildingData.HeroCharacter.ClassesHistory.Count - 1];
@@ -390,11 +387,12 @@ internal static class CharacterBuildingManager_UnassignLastClassLevel
             LevelUpContext.UngrantItemsIfRequired(hero);
         }
 
-        return !(isLevelingUp && isClassSelectionStage);
+        //PATCH: ensures this doesn't get executed in the class panel level up screen during level up
+        return notLevelingUpAndNotInClassSelection;
     }
 }
 
-//TODO: Still required?
+//PATCH: Ensure we correctly remove custom features when subclass is unassigned
 [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastSubclass")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnassignLastSubclass

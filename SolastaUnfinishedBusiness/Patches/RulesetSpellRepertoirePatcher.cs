@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
@@ -12,50 +11,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class RulesetSpellRepertoirePatcher
 {
-    //
-    // TODO: Check if still need this one...
-    //
-    // ensures MC Warlocks get a proper list of upcast slots under a MC scenario
-    //[HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_CanUpcastSpell
-    {
-        public static int MySpellLevel(SpellDefinition spellDefinition,
-            RulesetSpellRepertoire rulesetSpellRepertoire)
-        {
-            var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
-
-            if (!isWarlockSpell || spellDefinition.SpellLevel <= 0)
-            {
-                return spellDefinition.SpellLevel;
-            }
-
-            var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-
-            return warlockSpellLevel;
-        }
-
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            var spellLevelMethod = typeof(SpellDefinition).GetMethod("get_SpellLevel");
-            var mySpellLevelMethod = typeof(RulesetSpellRepertoire_CanUpcastSpell).GetMethod("MySpellLevel");
-
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(spellLevelMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0); // spellRepertoire
-                    yield return new CodeInstruction(OpCodes.Call, mySpellLevelMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
-        }
-    }
-
     //PATCH: handles all different scenarios of spell slots consumption (casts, smites, point buys)
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
