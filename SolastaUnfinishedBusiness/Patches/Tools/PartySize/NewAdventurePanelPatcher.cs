@@ -4,7 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Patches.Tools.DefaultParty;
+// using SolastaUnfinishedBusiness.Patches.Tools.DefaultParty;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -20,7 +20,7 @@ internal static class NewAdventurePanel_OnBeginShow
 {
     internal static void Prefix([NotNull] NewAdventurePanel __instance)
     {
-        NewAdventurePanel_Refresh.ShouldAssignDefaultParty = true;
+        // NewAdventurePanel_Refresh.ShouldAssignDefaultParty = true;
 
         // overrides campaign party size
         DatabaseHelper.CampaignDefinitions.UserCampaign.partySize = Main.Settings.OverridePartySize;

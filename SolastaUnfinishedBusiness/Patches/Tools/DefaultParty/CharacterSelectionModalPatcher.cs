@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -14,3 +15,4 @@ internal static class CharacterSelectionModal_EnumeratePlates
         CharactersPanel_EnumeratePlates.Disable(__instance.charactersTable);
     }
 }
+#endif

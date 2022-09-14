@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
@@ -57,3 +58,4 @@ internal static class NewAdventurePanel_OnEndHide
         Global.IsSettingUpMultiplayer = false;
     }
 }
+#endif

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 
@@ -14,3 +15,4 @@ internal static class MultiplayerSetupPanel_OnBeginShow
         Global.IsSettingUpMultiplayer = true;
     }
 }
+#endif
