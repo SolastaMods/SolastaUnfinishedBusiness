@@ -5,7 +5,7 @@ ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore=Add to store
-ModUi/&Advanced=<color=#F0DAA0>Advanced:</color>
+ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
 ModUi/&Adventure=<color=#F0DAA0>Adventure:</color>
 ModUi/&AllItemInDm=All items in DM
@@ -22,7 +22,7 @@ ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUI/&ArcaneShieldAll=All Classes
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
-ModUi/&Basic=<color=#F0DAA0>Basic:</color>
+ModUi/&Basic=<color=#F0DAA0>Basic:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&Battle=<color=#F0DAA0>Battle:</color>
 ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with L5+ spell slot
@@ -53,7 +53,6 @@ ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on b
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Enable the alternate human <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
-ModUI/&EnableBetaContent=Enable beta content <i><color=#F0DAA0>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel action with right-mouse click
 ModUi/&EnableCharacterChecker=Enable the character checker screen
 ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color>xport character <i><color=#F0DAA0>[on character inspection screen only]</color></i>
@@ -118,7 +117,7 @@ ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&ItemTag=Item Tag
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
-ModUi/&MaxAllowedClasses=<color=white>Enable Multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>Set max allowed classes with slider</color></i>
+ModUi/&MaxAllowedClasses=<color=white>Enable Multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>set max allowed classes with slider</color></i>
 ModUi/&MaxBackupFilesPerLocationCampaign=<color=white>Max. backup files per location or campaign</color>
 ModUi/&MaxBackupHelp=. Backup files are saved under <i><color=#F0DAA0>GAME_FOLDER/Mods/SolastaUnfinishedBusiness/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine=<color=white>Max levels per line on Spell Panel</color>
@@ -127,7 +126,6 @@ ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell consumes a spell slot instead of the default pact magic one
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No experience is required to Level Up
-ModUi/&NotAvailable=No {0} available on this mod yet...
 ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on character creation
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OverrideMinMaxLevel=Override the required min and max levels when starting new adventures
@@ -180,8 +178,8 @@ ModUi/&TotalFeatsGrantedFistLevel=<color=white>Total feats granted at first leve
 ModUi/&Translate=Translate
 ModUi/&TranslateCancel=Cancel {0} at {1}
 ModUi/&Translations=Translations
-ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&UnleashNpcAsEnemy=Unleash monsters selection <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets
+ModUi/&UnleashNpcAsEnemy=Unleash monsters selection
 ModUi/&UnlockAllNpcFaces=Unlock all NPC faces
 ModUi/&UnlockEyeStyles=Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all markings and tattoos

@@ -46,7 +46,7 @@ public static class ExtraAttacksOnActionPanel
 
         return guiAction.ForcedAttackMode;
     }
-    
+
     public static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModesInLocationCharacter(
         IEnumerable<CodeInstruction> instructions)
     {
@@ -72,7 +72,7 @@ public static class ExtraAttacksOnActionPanel
             }
         }
     }
-    
+
     private static RulesetAttackMode FindExtraActionAttackModesFromForcedAttack(GameLocationCharacter character,
         Id actionId, bool getWithMostAttackNb, [CanBeNull] RulesetAttackMode forcedAttack)
     {

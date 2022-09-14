@@ -41,7 +41,7 @@ internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
         var codes = instructions.ToList();
         var callSpellRepertoiresIndex =
             codes.FindIndex(c => c.Calls(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires")));
-        
+
         codes[callSpellRepertoiresIndex] = new CodeInstruction(OpCodes.Call,
             new Func<RulesetCharacterHero, int>(CanCastSpells).Method);
         codes.RemoveAt(callSpellRepertoiresIndex + 1);

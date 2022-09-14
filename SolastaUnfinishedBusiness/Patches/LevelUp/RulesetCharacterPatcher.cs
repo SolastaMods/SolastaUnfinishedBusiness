@@ -14,7 +14,7 @@ internal static class RulesetCharacter_ComputeAutopreparedSpells
     {
         //BEGIN PATCH
         var spellcastingClass = spellRepertoire.SpellCastingClass;
-        
+
         if (spellRepertoire.SpellCastingSubclass != null)
         {
             spellcastingClass = GetClassForSubclass(spellRepertoire.SpellCastingSubclass);

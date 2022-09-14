@@ -144,7 +144,7 @@ internal static class BootContext
             Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
         }
     }
-    
+
     private static void Load()
     {
         if (ShouldUpdate(out var version, out var changeLog))

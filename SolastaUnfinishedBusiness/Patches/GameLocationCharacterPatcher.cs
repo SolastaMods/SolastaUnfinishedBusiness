@@ -216,7 +216,7 @@ internal static class GameLocationCharacterPatcher
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationCharacter), "GetActionAvailableIterations")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GetActionAvailableIterations_Patch
