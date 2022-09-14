@@ -276,11 +276,18 @@ internal static class RulesetCharacterPatcher
     {
         internal static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
         {
-            //PATCH: ensures that original character rage pool is in sync with substitute (Multiclass)
-            if (usablePower.PowerDefinition == PowerBarbarianRageStart
-                && __instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+            if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
             {
-                hero.SpendRagePoint();
+                //PATCH: ensures that original character rage pool is in sync with substitute (Multiclass)
+                if (usablePower.PowerDefinition == PowerBarbarianRageStart)
+                {
+                    hero.SpendRagePoint();
+                }
+                //PATCH: ensures that original character ki pool is in sync with substitute (Multiclass)
+                else if (usablePower.PowerDefinition.Name.StartsWith("PowerMonk"))
+                {
+                    hero.ForceKiPointConsumption(usablePower.PowerDefinition.CostPerUse);
+                }
             }
 
             //PATCH: update usage for power pools 

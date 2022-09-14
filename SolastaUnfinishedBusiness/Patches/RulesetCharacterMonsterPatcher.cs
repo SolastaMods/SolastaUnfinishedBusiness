@@ -34,6 +34,17 @@ internal static class RulesetCharacterMonsterPatcher
                 return;
             }
 
+            // sync rage points (ruleset keeps rage data in other places so we need to call this method to sync)
+            var rageCount = hero.UsedRagePoints;
+
+            while (rageCount-- > 0)
+            {
+                __instance.SpendRagePoint();
+            }
+            
+            // sync ki points (ruleset keeps ki data in other places so we need to call this method to sync)
+            __instance.ForceKiPointConsumption(hero.UsedKiPoints);
+            
             hero.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(__instance.FeaturesToBrowse);
             foreach (var feature in __instance.FeaturesToBrowse)
             {
