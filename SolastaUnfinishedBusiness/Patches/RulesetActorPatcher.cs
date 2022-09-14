@@ -149,7 +149,7 @@ internal static class RulesetActorPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RefreshAttributes_Patch
     {
-        private static readonly Regex classPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
+        private static readonly Regex ClassPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
 
         private static void RefreshClassModifiers(RulesetActor actor)
         {
@@ -162,20 +162,23 @@ internal static class RulesetActorPatcher
             {
                 foreach (var modifier in attribute.Value.ActiveModifiers)
                 {
-                    switch (modifier.Operation)
+                    if (modifier.Operation 
+                        is AttributeModifierOperation.MultiplyByClassLevel 
+                        or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions)
                     {
-                        case AttributeModifierOperation.MultiplyByClassLevel:
-                        case AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions:
-                            if (attribute.Key == AttributeDefinitions.SorceryPoints)
+                        if (attribute.Key 
+                            is AttributeDefinitions.SorceryPoints
+                            or AttributeDefinitions.HealingPool
+                            or AttributeDefinitions.KiPoints
+                            or AttributeDefinitions.BardicInspirationNumber)
+                        {
+                            var level = hero.GetClassLevel(GetClassByTags(modifier.tags));
+                            
+                            if (level > 0)
                             {
-                                var level = hero.GetClassLevel(GetClassByTags(modifier.tags));
-                                if (level > 0)
-                                {
-                                    modifier.Value = level;
-                                }
+                                modifier.Value = level;
                             }
-
-                            break;
+                        }
                     }
                 }
             }
@@ -185,7 +188,7 @@ internal static class RulesetActorPatcher
         {
             foreach (var tag in tags)
             {
-                var matches = classPattern.Matches(tag);
+                var matches = ClassPattern.Matches(tag);
                 if (matches.Count <= 0)
                 {
                     continue;

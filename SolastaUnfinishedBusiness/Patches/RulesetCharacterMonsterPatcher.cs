@@ -28,7 +28,6 @@ internal static class RulesetCharacterMonsterPatcher
         internal static void Postfix(RulesetCharacterMonster __instance)
         {
             //PATCH: support for rage/ki/other stuff while shape-shifted
-            //Copy modifiers from original hero
             if (__instance.originalFormCharacter is not RulesetCharacterHero hero)
             {
                 return;
@@ -41,15 +40,20 @@ internal static class RulesetCharacterMonsterPatcher
             {
                 __instance.SpendRagePoint();
             }
-            
+
             // sync ki points (ruleset keeps ki data in other places so we need to call this method to sync)
             __instance.ForceKiPointConsumption(hero.UsedKiPoints);
-            
+
+            // copy modifiers from original hero
             hero.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(__instance.FeaturesToBrowse);
+
             foreach (var feature in __instance.FeaturesToBrowse)
             {
                 if (feature is not FeatureDefinitionAttributeModifier mod ||
-                    !__instance.TryGetAttribute(mod.ModifiedAttribute, out _)) continue;
+                    !__instance.TryGetAttribute(mod.ModifiedAttribute, out _))
+                {
+                    continue;
+                }
 
                 mod.ApplyModifiers(__instance.Attributes, AttributeDefinitions.TagConjure);
             }
@@ -63,8 +67,8 @@ internal static class RulesetCharacterMonsterPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for rage/ki/other stuff while shape-shifted
-            //Refresh values of attribute modifiers before refreshing attributes
 
+            // refresh values of attribute modifiers before refreshing attributes
             var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
             var refreshAttributeModifiers = typeof(RulesetActor).GetMethod("RefreshAttributeModifierFromAbilityScore");
 
