@@ -74,7 +74,7 @@ ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
 ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned from other classes</i>
-ModUi/&EnableRespec=Enable the RESPEC and Level Down after rest actions
+ModUi/&EnableRespec=Enable the RESPEC after rest actions
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable short rest recharge of Arcane Weapon on <color=#D89555>Wizard Arcane Fighter</color>

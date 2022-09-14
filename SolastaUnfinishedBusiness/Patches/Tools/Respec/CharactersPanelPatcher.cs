@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 using TMPro;
@@ -58,3 +59,4 @@ internal static class CharactersPanel_OnCharacterCheckerCb
         return !Main.Settings.EnableRespec;
     }
 }
+#endif
