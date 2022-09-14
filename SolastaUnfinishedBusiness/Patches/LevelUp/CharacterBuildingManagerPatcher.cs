@@ -22,16 +22,15 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
         [NotNull] List<FeatureDefinition> grantedFeatures,
         string tag)
     {
-        var spellTag = tag;
-
         foreach (var grantedFeature in grantedFeatures)
         {
             switch (grantedFeature)
             {
                 case FeatureDefinitionCastSpell spell:
-                    __instance.SetupSpellPointPools(heroBuildingData, spell, spellTag);
+                    __instance.SetupSpellPointPools(heroBuildingData, spell, tag);
 
-                    break; //PATCH: this was `return` in original code, leading to game skipping granting some features
+                    //PATCH: this was `return` in original code, leading to game skipping granting some features
+                    break;
                 case FeatureDefinitionBonusCantrips cantrips:
                     using (var enumerator = cantrips.BonusCantrips.GetEnumerator())
                     {
@@ -40,7 +39,7 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                             var current = enumerator.Current;
                             if (current != null)
                             {
-                                __instance.AcquireBonusCantrip(heroBuildingData, current, spellTag);
+                                __instance.AcquireBonusCantrip(heroBuildingData, current, tag);
                             }
                         }
                     }
@@ -56,7 +55,7 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                             var current = enumerator.Current;
 
                             var element = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(current);
-                            __instance.AcquireBonusFightingStyle(heroBuildingData, element, spellTag);
+                            __instance.AcquireBonusFightingStyle(heroBuildingData, element, tag);
                         }
                     }
 
@@ -65,7 +64,7 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                     if (definitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     {
                         __instance.BrowseGrantedFeaturesHierarchically(heroBuildingData,
-                            definitionFeatureSet.FeatureSet, spellTag);
+                            definitionFeatureSet.FeatureSet, tag);
                     }
 
                     break;
@@ -87,7 +86,6 @@ internal static class CharacterBuildingManager_CreateCharacter
     }
 }
 
-//PATCH: registers the hero leveling up
 [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_LevelUpCharacter
@@ -100,6 +98,7 @@ internal static class CharacterBuildingManager_LevelUpCharacter
             force = true;
         }
 
+        //PATCH: registers the hero leveling up
         var lastClass = hero.ClassesHistory.Last();
 
         hero.ClassesAndSubclasses.TryGetValue(lastClass, out var lastSubclass);
@@ -173,12 +172,12 @@ internal static class CharacterBuildingManager_FinalizeCharacter
             return String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase);
         });
 
-        //" Is this still required with new SpellMaps?
         //
         // Add whole list caster spells to KnownSpells collection to improve the MC spell selection UI
         //
         var selectedClassRepertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
 
+        // only whole list casters
         if (selectedClassRepertoire == null
             || selectedClassRepertoire.SpellCastingFeature.SpellKnowledge !=
             RuleDefinitions.SpellKnowledge.WholeList)
@@ -188,6 +187,7 @@ internal static class CharacterBuildingManager_FinalizeCharacter
             return;
         }
 
+        // only repertoires with a casting class
         var spellCastingClass = selectedClassRepertoire.SpellCastingClass;
 
         if (spellCastingClass == null)
@@ -197,6 +197,7 @@ internal static class CharacterBuildingManager_FinalizeCharacter
             return;
         }
 
+        // only on levels where spells are granted
         var levels = hero.ClassesAndLevels[spellCastingClass];
 
         if (levels % 2 == 0)
@@ -206,6 +207,7 @@ internal static class CharacterBuildingManager_FinalizeCharacter
             return;
         }
 
+        // add all spells for that level to known spells
         var castingLevel = SharedSpellsContext.GetClassSpellLevel(selectedClassRepertoire);
         var knownSpells = LevelUpContext.GetAllowedSpells(hero);
 
@@ -219,9 +221,6 @@ internal static class CharacterBuildingManager_FinalizeCharacter
         selectedClassRepertoire.KnownSpells.AddRange(knownSpells
             .Where(x => x.SpellLevel == castingLevel));
 
-        //
-        // finally get rid of the hero context
-        //
         LevelUpContext.UnregisterHero(hero);
     }
 }

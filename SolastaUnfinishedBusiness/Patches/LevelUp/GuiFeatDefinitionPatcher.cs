@@ -20,6 +20,7 @@ internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
         RulesetCharacterHero hero,
         ref string prerequisiteOutput)
     {
+        //PATCH: Enforces Feats With PreRequisites
         if (feat is not FeatDefinitionWithPrerequisites featDefinitionWithPrerequisites
             || featDefinitionWithPrerequisites.Validators.Count == 0)
         {
@@ -35,24 +36,18 @@ internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
     [NotNull]
     internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
+        //PATCH: Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell
+        //which are registered before feat selection at lvl 1
         var codes = instructions.ToList();
         var callSpellRepertoiresIndex =
             codes.FindIndex(c => c.Calls(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires")));
+        
+        codes[callSpellRepertoiresIndex] = new CodeInstruction(OpCodes.Call,
+            new Func<RulesetCharacterHero, int>(CanCastSpells).Method);
+        codes.RemoveAt(callSpellRepertoiresIndex + 1);
 
-        if (callSpellRepertoiresIndex != -1)
-        {
-            codes[callSpellRepertoiresIndex] = new CodeInstruction(OpCodes.Call,
-                new Func<RulesetCharacterHero, int>(CanCastSpells).Method);
-            codes.RemoveAt(callSpellRepertoiresIndex + 1);
-        }
-        else
-        {
-            Main.Log(
-                "GuiFeatDefinition_IsFeatMatchingPrerequisites transpiler: Unable to find 'get_SpellRepertoires'");
-        }
-
-        // fix in DEBUG build to avoid the annoying assert statement about Feats acquired at level 1
-        // it replaces the Trace comparision ClassesHistory.Count > 1 with ClassesHistory.Count > 0
+        //PATCH: fix in DEBUG build to avoid the annoying assert statement about Feats acquired at level 1
+        //it replaces the Trace comparision ClassesHistory.Count > 1 with ClassesHistory.Count > 0
         if (!Main.IsDebugBuild)
         {
             return codes;
@@ -70,9 +65,6 @@ internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
 
     private static int CanCastSpells([NotNull] RulesetCharacterHero hero)
     {
-        // Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell
-        // which are registered before feat selection at lvl 1
-
         return hero.EnumerateFeaturesToBrowse<FeatureDefinitionCastSpell>().Count;
     }
 }

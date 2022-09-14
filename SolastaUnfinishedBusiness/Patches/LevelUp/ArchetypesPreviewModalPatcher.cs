@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches.LevelUp;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class ArchetypesPreviewModal_Refresh
 {
-    public static int Level([NotNull] FeatureUnlockByLevel featureUnlockByLevel)
+    private static int Level([NotNull] FeatureUnlockByLevel featureUnlockByLevel)
     {
         var hero = Global.ActiveLevelUpHero;
 
@@ -40,7 +41,7 @@ internal static class ArchetypesPreviewModal_Refresh
     internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
-        var myLevelMethod = typeof(ArchetypesPreviewModal_Refresh).GetMethod("Level");
+        var myLevelMethod = new Func<FeatureUnlockByLevel, int>(Level).Method;
 
         foreach (var instruction in instructions)
         {
@@ -56,28 +57,27 @@ internal static class ArchetypesPreviewModal_Refresh
     }
 }
 
-//PATCH: only presents the subclass already taken if one was already selected for this class (MULTICLASS)
 [HarmonyPatch(typeof(ArchetypesPreviewModal), "Show")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class ArchetypesPreviewModal_Show
 {
     internal static void Prefix(ref List<string> subclasses)
     {
+        //PATCH: only presents the subclass already taken if one was already selected for this class (MULTICLASS)
         var hero = Global.ActiveLevelUpHero;
 
-        if (hero == null)
+        if (hero != null)
         {
-            return;
+            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+
+            if (selectedClass != null
+                && hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
+            {
+                subclasses = new List<string> { characterSubclassDefinition.Name };
+            }
         }
 
-        var selectedClass = LevelUpContext.GetSelectedClass(hero);
-
-        if (selectedClass != null
-            && hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
-        {
-            subclasses = new List<string> { characterSubclassDefinition.Name };
-        }
-
+        //PATCH: sort subclasses
         var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
 
         subclasses.Sort((left, right) =>

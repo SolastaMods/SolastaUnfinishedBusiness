@@ -49,7 +49,7 @@ internal static class RulesetCharacterHero_TrainFeats
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacterHero_InvocationProficiencies
 {
-    private static bool Prefix(RulesetCharacterHero __instance, ref List<string> __result)
+    internal static bool Prefix(RulesetCharacterHero __instance, ref List<string> __result)
     {
         var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
 
