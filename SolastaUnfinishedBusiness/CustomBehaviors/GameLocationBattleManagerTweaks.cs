@@ -77,13 +77,9 @@ internal static class GameLocationBattleManagerTweaks
             else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
                      ExtraAdditionalDamageAdvancement.CharacterLevel)
             {
-                var rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero ??
-                                       attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-
-                if (rulesetCharacter != null)
+                if (hero != null)
                 {
-                    var characterLevel =
-                        rulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                    var characterLevel = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
                     diceNumber = provider.GetDiceOfRank(characterLevel);
                 }
             }
