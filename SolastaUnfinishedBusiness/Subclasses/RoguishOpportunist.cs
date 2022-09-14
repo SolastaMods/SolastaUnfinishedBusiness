@@ -5,7 +5,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Rogue;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishOpportunist : AbstractSubclass
 {

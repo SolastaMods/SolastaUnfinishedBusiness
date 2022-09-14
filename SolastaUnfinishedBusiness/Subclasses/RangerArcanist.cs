@@ -12,7 +12,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagic
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Ranger;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RangerArcanist : AbstractSubclass
 {

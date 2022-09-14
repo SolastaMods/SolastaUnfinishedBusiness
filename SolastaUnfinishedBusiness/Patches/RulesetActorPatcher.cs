@@ -10,7 +10,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
-using SolastaUnfinishedBusiness.Subclasses.Rogue;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
 using static ConsoleStyleDuplet;

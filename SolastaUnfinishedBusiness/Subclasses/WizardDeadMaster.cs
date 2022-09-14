@@ -14,7 +14,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Wizard;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardDeadMaster : AbstractSubclass
 {

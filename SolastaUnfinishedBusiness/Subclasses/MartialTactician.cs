@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Fighter;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialTactician : AbstractSubclass
 {

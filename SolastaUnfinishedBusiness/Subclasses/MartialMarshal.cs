@@ -26,7 +26,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Fighter;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialMarshal : AbstractSubclass
 {

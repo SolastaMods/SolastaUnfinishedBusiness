@@ -12,7 +12,7 @@ using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Rogue;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishRaven : AbstractSubclass
 {

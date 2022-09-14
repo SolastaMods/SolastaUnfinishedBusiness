@@ -9,7 +9,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Druid;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 {

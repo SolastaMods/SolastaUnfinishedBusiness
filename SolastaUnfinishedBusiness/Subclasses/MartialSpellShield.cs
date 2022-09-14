@@ -8,7 +8,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Fighter;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialSpellShield : AbstractSubclass
 {

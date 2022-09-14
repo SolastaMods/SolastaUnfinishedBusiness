@@ -4,7 +4,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Wizard;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardLifeTransmuter : AbstractSubclass
 {

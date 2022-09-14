@@ -8,7 +8,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Wizard;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardBladeDancer : AbstractSubclass
 {

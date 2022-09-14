@@ -1,7 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses.Rogue;
-using SolastaUnfinishedBusiness.Subclasses.Wizard;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 

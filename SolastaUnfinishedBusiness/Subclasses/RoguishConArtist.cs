@@ -6,7 +6,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Rogue;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishConArtist : AbstractSubclass
 {

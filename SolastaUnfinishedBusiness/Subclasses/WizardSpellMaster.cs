@@ -4,7 +4,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Wizard;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardSpellMaster : AbstractSubclass
 {

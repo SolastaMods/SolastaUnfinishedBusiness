@@ -6,7 +6,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaUnfinishedBusiness.Subclasses.Sorcerer;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class SorcerousDivineHeart : AbstractSubclass
 {
