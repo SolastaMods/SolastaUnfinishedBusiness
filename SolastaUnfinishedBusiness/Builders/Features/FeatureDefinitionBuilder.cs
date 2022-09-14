@@ -28,7 +28,7 @@ public abstract class FeatureDefinitionBuilder<TDefinition, TBuilder> : Definiti
 
     #endregion
 
-    // TODO: methods specific to FeatureDefinition
+    //TODO: methods specific to FeatureDefinition
 }
 
 public class FeatureDefinitionBuilder : FeatureDefinitionBuilder<FeatureDefinition, FeatureDefinitionBuilder>
