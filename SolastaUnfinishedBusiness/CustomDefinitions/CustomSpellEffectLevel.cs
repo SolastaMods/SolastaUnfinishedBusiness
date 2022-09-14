@@ -1,11 +1,7 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
-
-public interface ICustomSpellEffectLevel
-{
-    public int GetEffectLevel(RulesetActor caster);
-}
 
 public static class CustomSpellEffectLevel
 {
