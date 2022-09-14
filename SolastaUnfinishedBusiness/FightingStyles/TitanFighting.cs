@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class TitanFighting : AbstractFightingStyle
 {
-    private FightingStyleDefinitionCustomizable instance;
+    private FeatureDefinitionFightingStyle instance;
 
     [NotNull]
     internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()

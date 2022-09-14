@@ -3,10 +3,8 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-/**
-     * This adds the ability to do fully custom EffectForms. If possible you should use the standard EffectForms.
-     * Damage and healing done through this CustomEffectForm will not trigger the proper events.
-     */
+// This adds the ability to do fully custom EffectForms. If possible you should use the standard EffectForms.
+// Damage and healing done through this CustomEffectForm will not trigger the proper events.
 public abstract class CustomEffectForm : EffectForm
 {
     protected CustomEffectForm()

@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
 
-public sealed class FightingStyleDefinitionCustomizable : FightingStyleDefinition, ICustomFightingStyle
+public sealed class FeatureDefinitionFightingStyle : FightingStyleDefinition, ICustomFightingStyle
 {
     private IsActiveFightingStyleDelegate isActive;
 
@@ -25,7 +25,7 @@ public sealed class FightingStyleDefinitionCustomizable : FightingStyleDefinitio
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
-    FightingStyleDefinitionCustomizable,
+    FeatureDefinitionFightingStyle,
     CustomizableFightingStyleBuilder>
 {
     protected CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
