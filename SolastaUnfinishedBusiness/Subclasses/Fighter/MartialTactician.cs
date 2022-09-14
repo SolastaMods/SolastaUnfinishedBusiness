@@ -31,7 +31,8 @@ internal static class PowerSharedPoolTacticianKnockDownBuilder
 
     private static FeatureDefinitionPowerSharedPool Build(string name, string guid)
     {
-        //Create the damage form - TODO make it do the same damage as the wielded weapon?  This doesn't seem possible
+        //Create the damage form
+        //TODO: make it do the same damage as the wielded weapon?  This doesn't seem possible
         var damageEffect = new EffectForm
         {
             DamageForm = new DamageForm
