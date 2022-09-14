@@ -3,15 +3,101 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal static class CharacterInspectionScreenEnhancement
 {
     private static Transform ClassSelector { get; set; }
+
+    private static int SelectedClassIndex { get; set; }
+
+    [CanBeNull]
+    internal static CharacterClassDefinition SelectedClass =>
+        Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
+
+    [NotNull]
+    // ReSharper disable once UnusedMember.Global
+    public static string GetSelectedClassSearchTerm(string original)
+    {
+        var selectedClass = SelectedClass;
+        return original
+               + (selectedClass == null
+                   ? string.Empty
+                   : selectedClass.Name);
+    }
+
+    // ReSharper disable once UnusedMember.Global
+    public static void EnumerateClassBadges([NotNull] CharacterInformationPanel __instance)
+    {
+        var badgeDefinitions =
+            __instance.badgeDefinitions;
+        var classBadgesTable = __instance.classBadgesTable;
+        var classBadgePrefab = __instance.classBadgePrefab;
+
+        badgeDefinitions.Clear();
+
+        badgeDefinitions.AddRange(Global.InspectedHero!.ClassesAndSubclasses.Where(x => x.Key == SelectedClass)
+            .Select(classesAndSubclass => classesAndSubclass.Value));
+
+        if (Global.InspectedHero.DeityDefinition != null && (SelectedClass == Paladin || SelectedClass == Cleric))
+        {
+            badgeDefinitions.Add(Global.InspectedHero.DeityDefinition);
+        }
+
+        badgeDefinitions.AddRange(GetTrainedFightingStyles());
+
+        while (classBadgesTable.childCount < badgeDefinitions.Count)
+        {
+            Gui.GetPrefabFromPool(classBadgePrefab, classBadgesTable);
+        }
+
+        var index = 0;
+
+        foreach (var badgeDefinition in badgeDefinitions)
+        {
+            var child = classBadgesTable.GetChild(index);
+
+            child.gameObject.SetActive(true);
+            child.GetComponent<CharacterInformationBadge>().Bind(badgeDefinition, classBadgesTable);
+            ++index;
+        }
+
+        for (; index < classBadgesTable.childCount; ++index)
+        {
+            var child = classBadgesTable.GetChild(index);
+
+            child.GetComponent<CharacterInformationBadge>().Unbind();
+            child.gameObject.SetActive(false);
+        }
+    }
+
+    [NotNull]
+    private static IEnumerable<FightingStyleDefinition> GetTrainedFightingStyles()
+    {
+        var fightingStyleIdx = 0;
+        var classBadges = new HashSet<FightingStyleDefinition>();
+
+        var classLevelFightingStyle =
+            (from activeFeature in
+                    Global.InspectedHero!.ActiveFeatures.Where(x => x.Key.Contains(AttributeDefinitions.TagClass))
+                from featureDefinition in activeFeature.Value.OfType<FeatureDefinitionFightingStyleChoice>()
+                select activeFeature).ToDictionary(activeFeature => activeFeature.Key,
+                _ => Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
+
+        foreach (var kvp in classLevelFightingStyle
+                     .Where(x => SelectedClass != null && x.Key.Contains(SelectedClass.Name)))
+        {
+            classBadges.Add(kvp.Value);
+        }
+
+        return classBadges;
+    }
 
     private static bool TryFindChoiceFeature(
         CharacterInformationPanel panel,
@@ -114,7 +200,7 @@ internal static class CharacterInspectionScreenEnhancement
         return false;
     }
 
-    public static void SwapClassAndbackground(CharacterInformationPanel panel)
+    public static void SwapClassAndBackground(CharacterInformationPanel panel)
     {
         if (!Main.Settings.EnableEnhancedCharacterInspection)
         {
@@ -183,7 +269,7 @@ internal static class CharacterInspectionScreenEnhancement
         // setup class buttons for MC scenarios
         //
 
-        InspectionPanelContext.SelectedClassIndex = 0;
+        SelectedClassIndex = 0;
 
         var hero = Global.InspectedHero;
 
@@ -243,7 +329,7 @@ internal static class CharacterInspectionScreenEnhancement
                     return;
                 }
 
-                InspectionPanelContext.SelectedClassIndex = x;
+                SelectedClassIndex = x;
                 panel.RefreshNow();
 
                 for (var c = 0; c < classesCount; ++c)
@@ -278,10 +364,10 @@ internal static class CharacterInspectionScreenEnhancement
 
         var containsMethod = typeof(string).GetMethod("Contains");
         var getSelectedClassSearchTermMethod =
-            typeof(InspectionPanelContext).GetMethod("GetSelectedClassSearchTerm");
+            typeof(CharacterInspectionScreenEnhancement).GetMethod("GetSelectedClassSearchTerm");
         var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges",
             BindingFlags.Instance | BindingFlags.NonPublic);
-        var myEnumerateClassBadgesMethod = typeof(InspectionPanelContext).GetMethod("EnumerateClassBadges");
+        var myEnumerateClassBadgesMethod = typeof(CharacterInspectionScreenEnhancement).GetMethod("EnumerateClassBadges");
         var found = 0;
 
         foreach (var instruction in instructions)

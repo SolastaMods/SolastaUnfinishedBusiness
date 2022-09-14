@@ -51,7 +51,7 @@ internal static class GuiCharacterPatcher
             }
 
             // NOTE: don't use SelectedClass??. which bypasses Unity object lifetime check
-            var selectedClass = InspectionPanelContext.SelectedClass;
+            var selectedClass = CustomUI.CharacterInspectionScreenEnhancement.SelectedClass;
 
             if (selectedClass)
             {

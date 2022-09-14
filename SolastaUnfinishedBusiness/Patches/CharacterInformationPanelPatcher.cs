@@ -33,7 +33,7 @@ internal static class CharacterInformationPanelPatcher
         internal static void Postfix(CharacterInformationPanel __instance)
         {
             //PATCH: Switches positions of Class and Background descriptions, and class selector for MC characters
-            CharacterInspectionScreenEnhancement.SwapClassAndbackground(__instance);
+            CharacterInspectionScreenEnhancement.SwapClassAndBackground(__instance);
         }
     }
 
