@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Crippling : AbstractFightingStyle
 {
-    private FeatureDefinitionFightingStyle instance;
+    private CustomFightingStyleDefinition instance;
 
     [NotNull]
     internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()

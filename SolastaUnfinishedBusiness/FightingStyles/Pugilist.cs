@@ -18,7 +18,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Pugilist : AbstractFightingStyle
 {
-    private FeatureDefinitionFightingStyle instance;
+    private CustomFightingStyleDefinition instance;
 
     [NotNull]
     internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()

@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 internal sealed class Merciless : AbstractFightingStyle
 {
     private static FeatureDefinitionPower _powerMerciless;
-    private FeatureDefinitionFightingStyle instance;
+    private CustomFightingStyleDefinition instance;
 
     [NotNull]
     internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
