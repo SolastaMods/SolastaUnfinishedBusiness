@@ -171,7 +171,7 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
         var attackModifiers = hero.attackModifiers;
 
 
-        var attackMode = hero.RefreshAttackModePublic(
+        var attackMode = hero.RefreshAttackMode(
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
@@ -263,7 +263,7 @@ public sealed class AddExtraRangedAttack : AddExtraAttackBase
         }
 
         var strikeDefinition = item.ItemDefinition;
-        var attackMode = hero.RefreshAttackModePublic(
+        var attackMode = hero.RefreshAttackMode(
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
@@ -315,7 +315,7 @@ public sealed class AddPolearmFollowupAttack : AddExtraAttackBase
         }
 
         var strikeDefinition = item.ItemDefinition;
-        var attackMode = hero.RefreshAttackModePublic(
+        var attackMode = hero.RefreshAttackMode(
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
@@ -368,7 +368,7 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
         }
 
         var attackModifiers = hero.attackModifiers;
-        var attackMode = hero.RefreshAttackModePublic(
+        var attackMode = hero.RefreshAttackMode(
             ActionDefinitions.ActionType.Bonus,
             offHandItem.ItemDefinition,
             ShieldStrikeContext.ShieldWeaponDescription,

@@ -5,24 +5,6 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 public static class RulesetCharacterHeroExtensions
 {
-    public static RulesetAttackMode RefreshAttackModePublic(
-        [NotNull] this RulesetCharacterHero instance,
-        ActionDefinitions.ActionType actionType,
-        ItemDefinition itemDefinition,
-        WeaponDescription weaponDescription,
-        bool freeOffHand,
-        bool canAddAbilityDamageBonus,
-        string slotName,
-        List<IAttackModificationProvider> attackModifiers,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
-        [CanBeNull] RulesetItem weapon = null)
-    {
-        var attackMode = instance.RefreshAttackMode(actionType, itemDefinition, weaponDescription,
-            freeOffHand, canAddAbilityDamageBonus, slotName, attackModifiers, featuresOrigin, weapon);
-
-        return attackMode;
-    }
-
     [NotNull]
     public static List<(string, T)> GetTaggedFeaturesByType<T>([NotNull] this RulesetCharacterHero hero) where T : class
     {
