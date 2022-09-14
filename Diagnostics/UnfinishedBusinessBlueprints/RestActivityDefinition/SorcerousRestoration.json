@@ -4,7 +4,7 @@
   "restType": "ShortRest",
   "condition": "CanUsePower",
   "functor": "UsePower",
-  "stringParameter": "SorcerousRestoration",
+  "stringParameter": "PowerSorcerousRestoration",
   "checkConsciousness": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

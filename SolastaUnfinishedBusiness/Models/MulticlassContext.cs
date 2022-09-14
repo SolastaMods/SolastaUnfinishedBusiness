@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MulticlassContext
 {
-    internal const int MaxClasses = 3;
+    internal const int MaxClasses = 4;
 
     internal static void Load()
     {
