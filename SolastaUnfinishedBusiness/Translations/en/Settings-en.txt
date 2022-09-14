@@ -110,7 +110,7 @@ ModUi/&InvertAltBehaviorOnTooltips=Invert <color=#1E81B0>ALT</color> key behavio
 ModUi/&ItemInDm=Items in DM
 ModUi/&Items=<color=#F0DAA0>Items:</color>
 ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants
-ModUi/&ItemsHelp1=<color=#C04040E0>You must have the character inspection screen open to add items to heroes...</color>
+ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&ItemTag=Item Tag
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

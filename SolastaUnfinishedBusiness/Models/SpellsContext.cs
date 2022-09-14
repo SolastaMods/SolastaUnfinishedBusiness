@@ -129,7 +129,6 @@ internal static class SpellsContext
         SrdAndHouseRulesContext.UseCubeOnSleetStorm();
         SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
         SrdAndHouseRulesContext.MinorFixes();
-        SrdAndHouseRulesContext.RemoveConcentrationRequirementsFromAnySpell();
         SrdAndHouseRulesContext.RemoveHumanoidFilterOnHideousLaughter();
         SrdAndHouseRulesContext.RemoveRecurringEffectOnEntangle();
 
