@@ -239,7 +239,7 @@ internal static class Level20Context
         {
             new(PointPoolSorcererAdditionalMetamagic, 17),
             new(FeatureSetAbilityScoreChoice, 19),
-            new(SorcerousRestorationBuilder.SorcerousRestoration, 20)
+            new(PowerSorcerousRestorationBuilder.SorcerousRestoration, 20)
         });
 
         CastSpellSorcerer.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
