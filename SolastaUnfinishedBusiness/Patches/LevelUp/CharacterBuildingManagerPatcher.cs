@@ -201,6 +201,8 @@ internal static class CharacterBuildingManager_FinalizeCharacter
 
         if (levels % 2 == 0)
         {
+            LevelUpContext.UnregisterHero(hero);
+
             return;
         }
 
