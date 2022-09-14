@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.FightingStyles;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -213,6 +214,19 @@ internal static class GameLocationCharacterPatcher
         {
             //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
+        }
+    }
+    
+    [HarmonyPatch(typeof(GameLocationCharacter), "GetActionAvailableIterations")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GetActionAvailableIterations_Patch
+    {
+        [NotNull]
+        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: Support for ExtraAttacksOnActionPanel
+            //replaces calls to FindExtraActionAttackModes to custom method which supports forced attack modes for offhand attacks
+            return ExtraAttacksOnActionPanel.ReplaceFindExtraActionAttackModesInLocationCharacter(instructions);
         }
     }
 }

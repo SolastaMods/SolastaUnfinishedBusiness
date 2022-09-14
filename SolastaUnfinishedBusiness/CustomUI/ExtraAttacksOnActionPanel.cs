@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
 public static class ExtraAttacksOnActionPanel
 {
-    public static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModes(
+    public static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModesInActionPanel(
         IEnumerable<CodeInstruction> instructions)
     {
         var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
@@ -19,7 +20,7 @@ public static class ExtraAttacksOnActionPanel
             bool,
             GuiCharacterAction,
             RulesetAttackMode
-        >(FindExtraActionAttackModes).Method;
+        >(FindExtraActionAttackModesFromGuiAction).Method;
 
         foreach (var instruction in instructions)
         {
@@ -35,7 +36,7 @@ public static class ExtraAttacksOnActionPanel
         }
     }
 
-    private static RulesetAttackMode FindExtraActionAttackModes(GameLocationCharacter character,
+    private static RulesetAttackMode FindExtraActionAttackModesFromGuiAction(GameLocationCharacter character,
         Id actionId, bool getWithMostAttackNb, GuiCharacterAction guiAction)
     {
         if (actionId != Id.AttackOff || guiAction.ForcedAttackMode == null)
@@ -44,6 +45,43 @@ public static class ExtraAttacksOnActionPanel
         }
 
         return guiAction.ForcedAttackMode;
+    }
+    
+    public static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModesInLocationCharacter(
+        IEnumerable<CodeInstruction> instructions)
+    {
+        var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
+        var customMehgtod = new Func<
+            GameLocationCharacter,
+            Id,
+            bool,
+            RulesetAttackMode,
+            RulesetAttackMode
+        >(FindExtraActionAttackModesFromForcedAttack).Method;
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(findAttacks))
+            {
+                yield return new CodeInstruction(OpCodes.Ldarg_2);
+                yield return new CodeInstruction(OpCodes.Call, customMehgtod);
+            }
+            else
+            {
+                yield return instruction;
+            }
+        }
+    }
+    
+    private static RulesetAttackMode FindExtraActionAttackModesFromForcedAttack(GameLocationCharacter character,
+        Id actionId, bool getWithMostAttackNb, [CanBeNull] RulesetAttackMode forcedAttack)
+    {
+        if (actionId != Id.AttackOff || forcedAttack == null)
+        {
+            return character.FindActionAttackMode(actionId, getWithMostAttackNb);
+        }
+
+        return forcedAttack;
     }
 
     public static int ComputeMultipleGuiCharacterActions(CharacterActionPanel panel, Id actionId,

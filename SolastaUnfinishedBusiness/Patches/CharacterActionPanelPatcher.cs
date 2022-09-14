@@ -41,7 +41,7 @@ internal static class CharacterActionPanelPatcher
         {
             //PATCH: Support for ExtraAttacksOnActionPanel
             //replaces calls to FindExtraActionAttackModes to custom method which supports forced attack modes for offhand attacks
-            return ExtraAttacksOnActionPanel.ReplaceFindExtraActionAttackModes(instructions);
+            return ExtraAttacksOnActionPanel.ReplaceFindExtraActionAttackModesInActionPanel(instructions);
         }
     }
 }
