@@ -19,7 +19,12 @@ public static class DungeonMakerContext
     internal const int DungeonMinLevel = 1;
     internal const int DungeonMaxLevel = 20;
 
-    private const string BackupFolder = "DungeonMakerBackups";
+    // private const string BackupFolder = "DungeonMakerBackups";
+
+    internal static float GetPartyControlScale()
+    {
+        return (float)GamePartySize / Gui.GameCampaign.Party.CharactersList.Count;
+    }
 
     // [NotNull]
     // internal static string ReplaceVariable(string line)
@@ -40,31 +45,26 @@ public static class DungeonMakerContext
     //     return line;
     // }
 
-    public static float GetPartyControlScale()
-    {
-        return (float)GamePartySize / Gui.GameCampaign.Party.CharactersList.Count;
-    }
-
     // must be public because of transpiler
     // ReSharper disable once UnusedMember.Global
-    public static void BackupAndDelete([NotNull] string path, [NotNull] UserContent userContent)
-    {
-        var backupDirectory = Path.Combine(Main.ModFolder, BackupFolder);
-
-        Directory.CreateDirectory(backupDirectory);
-
-        var title = userContent.Title;
-        var compliantTitle = IOHelper.GetOsCompliantFilename(title);
-        var destinationPath = Path.Combine(backupDirectory, compliantTitle) + "." +
-                              DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
-        var backupFiles = Directory.EnumerateFiles(backupDirectory, compliantTitle + "*").OrderBy(f => f).ToList();
-
-        for (var i = 0; i <= backupFiles.Count - Main.Settings.MaxBackupFilesPerLocationCampaign; i++)
-        {
-            File.Delete(backupFiles[i]);
-        }
-
-        File.Copy(path, destinationPath);
-        File.Delete(path);
-    }
+    // public static void BackupAndDelete([NotNull] string path, [NotNull] UserContent userContent)
+    // {
+    //     var backupDirectory = Path.Combine(Main.ModFolder, BackupFolder);
+    //
+    //     Directory.CreateDirectory(backupDirectory);
+    //
+    //     var title = userContent.Title;
+    //     var compliantTitle = IOHelper.GetOsCompliantFilename(title);
+    //     var destinationPath = Path.Combine(backupDirectory, compliantTitle) + "." +
+    //                           DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+    //     var backupFiles = Directory.EnumerateFiles(backupDirectory, compliantTitle + "*").OrderBy(f => f).ToList();
+    //
+    //     for (var i = 0; i <= backupFiles.Count - Main.Settings.MaxBackupFilesPerLocationCampaign; i++)
+    //     {
+    //         File.Delete(backupFiles[i]);
+    //     }
+    //
+    //     File.Copy(path, destinationPath);
+    //     File.Delete(path);
+    // }
 }

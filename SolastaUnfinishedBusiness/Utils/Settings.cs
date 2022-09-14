@@ -222,7 +222,7 @@ public class Settings : UnityModManager.ModSettings
     public bool NoExperienceOnLevelUp { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
     public int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
-    public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
+    // public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
     // Debug
     public bool DebugLogDefinitionCreation { get; set; }

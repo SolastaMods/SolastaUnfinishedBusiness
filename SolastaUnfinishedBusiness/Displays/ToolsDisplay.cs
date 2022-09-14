@@ -144,18 +144,21 @@ internal static class ToolsDisplay
             Main.Settings.OverridePartySize = intValue;
         }
 
-        UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&DungeonMaker"));
-        UI.Label("");
-
-        intValue = Main.Settings.MaxBackupFilesPerLocationCampaign;
-        if (UI.Slider(Gui.Localize("ModUi/&MaxBackupFilesPerLocationCampaign"), ref intValue, 0, 20, 10))
-        {
-            Main.Settings.MaxBackupFilesPerLocationCampaign = intValue;
-        }
-
-        UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&MaxBackupHelp"));
+        // UI.Label("");
+        // UI.Label(Gui.Localize("ModUi/&DungeonMaker"));
+        // UI.Label("");
+        //
+        // intValue = Main.Settings.MaxBackupFilesPerLocationCampaign;
+        // if (UI.Slider(Gui.Localize("ModUi/&MaxBackupFilesPerLocationCampaign"), ref intValue, 0, 20, 10))
+        // {
+        //     Main.Settings.MaxBackupFilesPerLocationCampaign = intValue;
+        // }
+        //
+        // UI.Label("");
+        // UI.Label(Gui.Localize("ModUi/&MaxBackupHelp"));
+        
+        // ModUi/&MaxBackupFilesPerLocationCampaign=<color=white>Max. backup files per location or campaign</color>
+        // ModUi/&MaxBackupHelp=. Backup files are saved under <i><color=#F0DAA0>GAME_FOLDER/Mods/SolastaUnfinishedBusiness/DungeonMakerBackups</color></i>
     }
 
     private static void DisplayFactionRelations()

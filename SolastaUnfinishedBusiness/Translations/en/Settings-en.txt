@@ -45,7 +45,6 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superio
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
-ModUi/&DungeonMaker=<color=#F0DAA0>Dungeon Maker:</color>
 ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed
 ModUi/&DungeonMakerMenu=Dungeon Maker
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
@@ -117,8 +116,6 @@ ModUi/&ItemTag=Item Tag
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Enable Multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>set max allowed classes with slider</color></i>
-ModUi/&MaxBackupFilesPerLocationCampaign=<color=white>Max. backup files per location or campaign</color>
-ModUi/&MaxBackupHelp=. Backup files are saved under <i><color=#F0DAA0>GAME_FOLDER/Mods/SolastaUnfinishedBusiness/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine=<color=white>Max levels per line on Spell Panel</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
