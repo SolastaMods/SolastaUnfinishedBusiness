@@ -4,9 +4,9 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
-// using SolastaUnfinishedBusiness.Patches.Tools.DefaultParty;
 using UnityEngine;
 using Object = UnityEngine.Object;
+// using SolastaUnfinishedBusiness.Patches.Tools.DefaultParty;
 
 namespace SolastaUnfinishedBusiness.Patches.Tools.PartySize;
 

@@ -156,7 +156,7 @@ internal static class ToolsDisplay
         //
         // UI.Label("");
         // UI.Label(Gui.Localize("ModUi/&MaxBackupHelp"));
-        
+
         // ModUi/&MaxBackupFilesPerLocationCampaign=<color=white>Max. backup files per location or campaign</color>
         // ModUi/&MaxBackupHelp=. Backup files are saved under <i><color=#F0DAA0>GAME_FOLDER/Mods/SolastaUnfinishedBusiness/DungeonMakerBackups</color></i>
     }

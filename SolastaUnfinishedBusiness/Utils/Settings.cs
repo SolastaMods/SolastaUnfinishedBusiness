@@ -216,11 +216,14 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSaveByLocation { get; set; }
     public bool EnableRespec { get; set; }
     public bool EnableCheatMenu { get; set; }
+
     public bool OverrideMinMaxLevel { get; set; }
+
     // public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
     // public List<string> defaultPartyHeroes = new();
     public bool NoExperienceOnLevelUp { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
+
     public int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
     // public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 

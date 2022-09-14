@@ -162,18 +162,18 @@ internal static class RulesetActorPatcher
             {
                 foreach (var modifier in attribute.Value.ActiveModifiers)
                 {
-                    if (modifier.Operation 
-                        is AttributeModifierOperation.MultiplyByClassLevel 
+                    if (modifier.Operation
+                        is AttributeModifierOperation.MultiplyByClassLevel
                         or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions)
                     {
-                        if (attribute.Key 
+                        if (attribute.Key
                             is AttributeDefinitions.SorceryPoints
                             or AttributeDefinitions.HealingPool
                             or AttributeDefinitions.KiPoints
                             or AttributeDefinitions.BardicInspirationNumber)
                         {
                             var level = hero.GetClassLevel(GetClassByTags(modifier.tags));
-                            
+
                             if (level > 0)
                             {
                                 modifier.Value = level;
