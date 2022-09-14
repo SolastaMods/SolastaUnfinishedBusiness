@@ -14,7 +14,8 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         EffectDescription effectDescription,
         GuiPresentation guiPresentation, bool uniqueInstance) : base(name, guid)
     {
-        Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
+        Preconditions.ArgumentIsNotNull(poolPower,
+            $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
 
         Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
             abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
@@ -29,7 +30,8 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         EffectDescription effectDescription,
         GuiPresentation guiPresentation, bool uniqueInstance) : base(name, CENamespaceGuid)
     {
-        Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
+        Preconditions.ArgumentIsNotNull(poolPower,
+            $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
 
         Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
             abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
@@ -49,7 +51,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
     {
         base.Validate();
 
-        Preconditions.IsNotNull(Definition.SharedPool,
+        Preconditions.ArgumentIsNotNull(Definition.SharedPool,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].SharedPool is null.");
         Preconditions.AreEqual(Definition.UsesDetermination, RuleDefinitions.UsesDetermination.Fixed,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
@@ -60,7 +62,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
         EffectDescription effectDescription, bool uniqueInstance)
     {
-        Preconditions.IsNotNull(poolPower,
+        Preconditions.ArgumentIsNotNull(poolPower,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
 
         // Recharge rate probably shouldn't be in here, but for now leave it be because there is already usage outside of this mod.
@@ -79,7 +81,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
 
     public FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
     {
-        Preconditions.IsNotNull(poolPower,
+        Preconditions.ArgumentIsNotNull(poolPower,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
         Definition.SharedPool = poolPower;
         return this;

@@ -26,7 +26,7 @@ public static class TraverseHelper
     /// </remarks>
     internal static void SetField<T, V>([NotNull] this T instance, [NotNull] string fieldName, V value) where T : class
     {
-        Preconditions.IsNotNull(instance, nameof(instance));
+        Preconditions.ArgumentIsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
 
         var t = Traverse.Create(instance);
@@ -45,7 +45,7 @@ public static class TraverseHelper
 
     private static V GetField<T, V>([NotNull] this T instance, [NotNull] string fieldName) where T : class
     {
-        Preconditions.IsNotNull(instance, nameof(instance));
+        Preconditions.ArgumentIsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
 
         var t = Traverse.Create(instance);

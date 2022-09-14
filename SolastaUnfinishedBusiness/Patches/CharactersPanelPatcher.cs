@@ -34,7 +34,7 @@ internal static class CharactersPanelPatcher
             // Reset the scroll position because OnBeginShow sets it to 1.0f.
             // This keeps the selected character in view unless the panel is sorted by level
             // in which case the character will move.
-            // TODO: calculate the required character position.
+
             __instance.charactersScrollview.verticalNormalizedPosition = __state;
         }
     }

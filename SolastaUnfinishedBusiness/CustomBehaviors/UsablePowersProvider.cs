@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public static class UsablePowersProvider
 {
-    //TODO: think whether we ned to cache these at all, and if we indeed do, maybe switch to caching per character?
+    //TODO: think whether we need to cache these at all, and if we indeed do, maybe switch to caching per character?
     private static readonly Dictionary<FeatureDefinitionPower, RulesetUsablePower> UsablePowers = new();
 
     [NotNull]

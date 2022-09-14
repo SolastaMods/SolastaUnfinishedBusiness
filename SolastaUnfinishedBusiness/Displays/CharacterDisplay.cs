@@ -18,7 +18,6 @@ internal static class CharacterDisplay
             PowersContext.Switch();
         }
 
-        // TODO: vision changes only take effect when creating a character. not sure if new block label is clear enough on intentions or we need more explanation here.
         toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
         {

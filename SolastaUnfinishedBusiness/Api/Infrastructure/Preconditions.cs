@@ -5,13 +5,12 @@ using SolastaUnfinishedBusiness.Api.Diagnostics;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-// TODO: rename IsNotNull -> ArgumentIsNotNull etc
-// TODO: remove Assert.IsNotNull which duplicates Preconditions.IsNotNull
 public static class Preconditions
 {
     [ContractAnnotation("halt <= paramValue : null")]
     [AssertionMethod]
-    public static void IsNotNull<T>([NotNull] [NoEnumeration] T paramValue, [InvokerParameterName] string paramName)
+    public static void ArgumentIsNotNull<T>([NotNull] [NoEnumeration] T paramValue,
+        [InvokerParameterName] string paramName)
         where T : class
     {
         if (paramValue == null)

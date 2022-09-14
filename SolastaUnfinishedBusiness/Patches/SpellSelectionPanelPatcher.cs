@@ -35,7 +35,6 @@ internal static class SpellSelectionPanelPatcher
             bool cantripOnly)
         {
             //PATCH: show spell selection on multiple rows
-            //TODO: check if we still need this, as vanilla already splits selection onto several rows
             if (!Main.Settings.EnableMultiLineSpellPanel)
             {
                 return;
@@ -225,7 +224,6 @@ internal static class SpellSelectionPanelPatcher
         internal static void Postfix()
         {
             //PATCH: show spell selection on multiple rows
-            //TODO: check if we still need this, as vanilla already splits selection onto several rows
             if (!Main.Settings.EnableMultiLineSpellPanel)
             {
                 return;

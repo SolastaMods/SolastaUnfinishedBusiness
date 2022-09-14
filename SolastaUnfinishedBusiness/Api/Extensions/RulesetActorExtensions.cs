@@ -89,12 +89,12 @@ public static class RulesetActorExtensions
     }
 
     [NotNull]
-    public static IEnumerable<FeatureDefinition> FlattenFeatureList([NotNull] IEnumerable<FeatureDefinition> features)
+    private static IEnumerable<FeatureDefinition> FlattenFeatureList([NotNull] IEnumerable<FeatureDefinition> features)
     {
-        //TODO: should we add FeatureDefinitionFeatureSetCustom flattening too?
-        return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
-            ? FlattenFeatureList(set.FeatureSet)
-            : new List<FeatureDefinition> { f });
+        return features.SelectMany(f =>
+            f is FeatureDefinitionFeatureSet set
+                ? FlattenFeatureList(set.FeatureSet)
+                : new List<FeatureDefinition> { f });
     }
 
     [NotNull]

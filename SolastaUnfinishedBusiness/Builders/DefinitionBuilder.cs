@@ -285,7 +285,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
     private DefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid,
         bool useNamespaceGuid)
     {
-        Preconditions.IsNotNull(original, nameof(original));
+        Preconditions.ArgumentIsNotNull(original, nameof(original));
         Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
         var originalName = original.name;
@@ -327,7 +327,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
     /// <param name="original">The definition</param>
     private protected DefinitionBuilder(TDefinition original)
     {
-        Preconditions.IsNotNull(original, nameof(original));
+        Preconditions.ArgumentIsNotNull(original, nameof(original));
         Definition = original;
     }
 
@@ -359,7 +359,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
     public TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright,
         GamingPlatformDefinitions.ContentPack? contentPack)
     {
-        Preconditions.IsNotNull(Definition, nameof(Definition));
+        Preconditions.ArgumentIsNotNull(Definition, nameof(Definition));
         Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
         Preconditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
 
@@ -557,7 +557,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     ///     Override this in a derived builder (and set to true) to disable the standard set of Create methods.
     ///     You must then provide your own specialized constructor and/or Create method.
     /// </summary>
-    protected bool DisableStandardCreateMethods => false;
+    private static bool DisableStandardCreateMethods => false;
 
     private static TBuilder CreateImpl(params object[] parameters)
     {
@@ -574,7 +574,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
 
         var builder = (TBuilder)ctor.Invoke(parameters);
 
-        if (builder.DisableStandardCreateMethods)
+        if (DisableStandardCreateMethods)
         {
             throw new SolastaUnfinishedBusinessException(
                 $"Standard Create methods are disabled for builder {typeof(TBuilder).Name}.  Please use a specialized constructor or Create method.");

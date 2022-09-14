@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Feats;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class ReactionRequestWarcaster : ReactionRequest
+internal class ReactionRequestWarcaster : ReactionRequest
 {
-    public const string Name = "ReactionWarcaster";
+    internal const string Name = "ReactionWarcaster";
     private readonly GuiCharacter guiTarget;
 
     private readonly string type;
@@ -96,12 +97,13 @@ public class ReactionRequestWarcaster : ReactionRequest
         //TODO: find better way to detect warcaster
         var affinities = rulesetCharacter.GetFeaturesByType<FeatureDefinitionMagicAffinity>();
 
-        if (affinities.All(a => a.Name != "MagicAffinityWarCasterFeat"))
+        if (affinities.All(a => a != OtherFeats.WarCaster))
         {
             return null;
         }
 
         var cantrips = new List<SpellDefinition>();
+
         rulesetCharacter.EnumerateReadyAttackCantrips(cantrips);
 
         cantrips.RemoveAll(cantrip =>

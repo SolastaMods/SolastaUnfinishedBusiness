@@ -137,7 +137,7 @@ internal static class GameLocationBattleManagerPatcher
         )
         {
             //PATCH: support for Polearm Expert AoO
-            //processes saved movenent to trigger AoO when appropriate
+            //processes saved movement to trigger AoO when appropriate
 
             while (__result.MoveNext())
             {
@@ -178,7 +178,7 @@ internal static class GameLocationBattleManagerPatcher
             RulesetAttackMode attackerAttackMode
         )
         {
-            //PATCH: support for Sentinel feat - allows reaction attack on enemy atatcking ally 
+            //PATCH: support for Sentinel feat - allows reaction attack on enemy attacking ally 
             while (__result.MoveNext())
             {
                 yield return __result.Current;
@@ -209,14 +209,15 @@ internal static class GameLocationBattleManagerPatcher
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
 
             //PATCH: Support elven precision feat
-            CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter, attackParams.attackMode);
+            ZappaFeats.CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter,
+                attackParams.attackMode);
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
-            ApplyCustomMoidifiers(attackParams, __result);
+            ApplyCustomModifiers(attackParams, __result);
         }
 
         //TODO: move this somewhere else and maybe split?
-        private static void ApplyCustomMoidifiers(BattleDefinitions.AttackEvaluationParams attackParams, bool __result)
+        private static void ApplyCustomModifiers(BattleDefinitions.AttackEvaluationParams attackParams, bool __result)
         {
             if (!__result)
             {
@@ -256,27 +257,6 @@ internal static class GameLocationBattleManagerPatcher
                     }
 
                     break;
-            }
-        }
-
-        //TODO: move this somewhere else
-        private static void CheckElvenPrecisionContext(bool result, RulesetCharacter character,
-            RulesetAttackMode attackMode)
-        {
-            if (!result || character is not RulesetCharacterHero hero || attackMode == null)
-            {
-                return;
-            }
-
-            foreach (var sub in from feat in hero.TrainedFeats
-                     where feat.Name.Contains(ZappaFeats.ElvenAccuracyTag)
-                     select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>()
-                     into context
-                     where context != null
-                     select context)
-            {
-                sub.Qualified =
-                    attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
             }
         }
     }

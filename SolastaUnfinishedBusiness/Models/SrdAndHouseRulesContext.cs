@@ -111,8 +111,6 @@ internal static class SrdAndHouseRulesContext
             spell.TargetType = RuleDefinitions.TargetType.IndividualsUnique;
             spell.SetTargetParameter(4);
             spell.effectAdvancement.additionalTargetsPerIncrement = 1;
-
-            // TODO: may need to tweak range parameters but it works as is.
         }
         else
         {
@@ -479,7 +477,6 @@ internal static class ArmorClassStacking
 ///     Note that this implementation will only work with identical components - e.g. 'all diamonds', it won't consider
 ///     combining
 ///     different types of items with the tag 'gem'.
-///     TODO: if anyone requests it we can improve with GroupBy etc...
 /// </summary>
 public static class StackedMaterialComponent
 {

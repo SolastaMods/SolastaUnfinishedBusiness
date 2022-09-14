@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -22,6 +23,26 @@ namespace SolastaUnfinishedBusiness.Feats;
 internal static class ZappaFeats
 {
     internal const string ElvenAccuracyTag = "ElvenAccuracy";
+
+    internal static void CheckElvenPrecisionContext(bool result, RulesetCharacter character,
+        RulesetAttackMode attackMode)
+    {
+        if (!result || character is not RulesetCharacterHero hero || attackMode == null)
+        {
+            return;
+        }
+
+        foreach (var sub in from feat in hero.TrainedFeats
+                 where feat.Name.Contains(ElvenAccuracyTag)
+                 select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>()
+                 into context
+                 where context != null
+                 select context)
+        {
+            sub.Qualified =
+                attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
+        }
+    }
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
@@ -642,7 +663,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 
 internal sealed class ElvenPrecisionContext
 {
-    public bool Qualified { get; set; } = false;
+    public bool Qualified { get; set; }
 }
 
 internal sealed class CombatAffinityDeadeyeIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder

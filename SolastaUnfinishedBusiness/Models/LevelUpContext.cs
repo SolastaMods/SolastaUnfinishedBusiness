@@ -331,7 +331,6 @@ public static class LevelUpContext
                     knownSpells.AddRange(spellRepertoire.KnownSpells);
                     break;
                 case RuleDefinitions.SpellKnowledge.Spellbook:
-                    //TODO: check if we need to get known spells, or they all are in the spellbook
                     knownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
                     knownSpells.AddRange(spellRepertoire.KnownCantrips);
                     knownSpells.AddRange(spellRepertoire.KnownSpells);

@@ -173,7 +173,7 @@ internal static class CharacterBuildingManager_FinalizeCharacter
             return String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase);
         });
 
-        //TODO: Is this still required with new SpellMaps?
+        //" Is this still required with new SpellMaps?
         //
         // Add whole list caster spells to KnownSpells collection to improve the MC spell selection UI
         //
@@ -291,7 +291,6 @@ internal static class CharacterBuildingManager_GrantFeatures
 // These patches ensure that any custom features undo any required work
 //
 
-//TODO: Still required?
 [HarmonyPatch(typeof(CharacterBuildingManager), "ClearPrevious")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_ClearPrevious
@@ -317,7 +316,6 @@ internal static class CharacterBuildingManager_ClearPrevious
             return;
         }
 
-        //TODO: check if other places where this is called require same prefix/postfix treatment
         CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, ToRemove);
     }
 }

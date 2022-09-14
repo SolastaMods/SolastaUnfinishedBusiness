@@ -91,8 +91,7 @@ internal static class ConjurationsContext
             }
         }
 
-        // TODO: add higher level elemental
-        // TODO: add higher level fey
+        // TODO: add higher level elemental and fey
 
         ConfigureAdvancement(ConjureFey);
         ConfigureAdvancement(ConjureElemental);

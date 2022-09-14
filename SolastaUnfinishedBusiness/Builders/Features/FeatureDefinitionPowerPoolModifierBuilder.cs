@@ -33,7 +33,8 @@ public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerB
     {
         base.Validate();
 
-        Preconditions.IsNotNull(Definition.PoolPower, $"{GetType().Name}[{Definition.Name}].PoolPower is null.");
+        Preconditions.ArgumentIsNotNull(Definition.PoolPower,
+            $"{GetType().Name}[{Definition.Name}].PoolPower is null.");
         Preconditions.AreEqual(Definition.CostPerUse, 1,
             $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
     }
@@ -42,7 +43,7 @@ public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerB
         int powerPoolModifier, RuleDefinitions.UsesDetermination usesDetermination,
         string usesAbilityScoreName, FeatureDefinitionPower poolPower)
     {
-        Preconditions.IsNotNull(poolPower, $"{GetType().Name}[{Definition.Name}] poolPower is null.");
+        Preconditions.ArgumentIsNotNull(poolPower, $"{GetType().Name}[{Definition.Name}] poolPower is null.");
 
         Definition.fixedUsesPerRecharge = powerPoolModifier;
         Definition.usesDetermination = usesDetermination;

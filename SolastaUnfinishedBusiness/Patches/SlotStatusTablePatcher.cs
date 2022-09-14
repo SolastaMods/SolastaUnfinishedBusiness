@@ -12,26 +12,18 @@ namespace SolastaUnfinishedBusiness.Patches;
 internal static class SlotStatusTable_Bind
 {
     //PATCH: Warlock unique case under MC (Multiclass)
-    public static bool UniqueLevelSlots(RulesetSpellRepertoire rulesetSpellRepertoire,
-        FeatureDefinitionCastSpell featureDefinitionCastSpell)
+    public static bool UniqueLevelSlots(FeatureDefinitionCastSpell featureDefinitionCastSpell,
+        RulesetSpellRepertoire rulesetSpellRepertoire)
     {
-        return false;
+        var heroWithSpellRepertoire = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
 
-        //TODO: Check why below fails...
-        //
-        // if (rulesetSpellRepertoire?.CharacterName == null)
-        // {
-        //     return featureDefinitionCastSpell.UniqueLevelSlots;
-        // }
-        //
-        // var heroWithSpellRepertoire = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
-        //
-        // if (heroWithSpellRepertoire == null)
-        // {
-        //     return featureDefinitionCastSpell.UniqueLevelSlots;
-        // }
-        //
-        // return featureDefinitionCastSpell.UniqueLevelSlots && !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire);
+        if (heroWithSpellRepertoire == null)
+        {
+            return featureDefinitionCastSpell.UniqueLevelSlots;
+        }
+
+        return featureDefinitionCastSpell.UniqueLevelSlots &&
+               !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire);
     }
 
     internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
