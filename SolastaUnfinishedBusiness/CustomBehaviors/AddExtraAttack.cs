@@ -334,6 +334,8 @@ public sealed class AddPolearmFollowupAttack : AddExtraAttackBase
         var damage = DamageForm.GetCopy(attackMode.EffectDescription.FindFirstDamageForm());
 
         damage.DieType = DieType.D4;
+        damage.VersatileDieType = DieType.D4;
+        damage.versatile = false;
         damage.DiceNumber = 1;
         damage.DamageType = DamageTypeBludgeoning;
 
