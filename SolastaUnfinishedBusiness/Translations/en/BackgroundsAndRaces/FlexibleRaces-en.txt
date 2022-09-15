@@ -1,7 +1,7 @@
-FlexibleRaces/&PointPoolAbilityScore3Description=Use three boosts on ability scores in any combination of your choosing.
-FlexibleRaces/&PointPoolAbilityScore3Title=Ability Score Increase
-FlexibleRaces/&PointPoolAbilityScore4Description=Use four boosts on ability scores in any combination of your choosing.
-FlexibleRaces/&PointPoolAbilityScore4Title=Ability Score Increase
+Race/&PointPoolAbilityScore3Description=Use three boosts on ability scores in any combination of your choosing.
+Race/&PointPoolAbilityScore3Title=Ability Score Increase
+Race/&PointPoolAbilityScore4Description=Use four boosts on ability scores in any combination of your choosing.
+Race/&PointPoolAbilityScore4Title=Ability Score Increase
 Race/&PointPoolSelect10FeatsDescription=Select 10 additional feats for your character.
 Race/&PointPoolSelect10FeatsTitle=10 Bonus Feats
 Race/&PointPoolSelect11FeatsDescription=Select 11 additional feats for your character.
