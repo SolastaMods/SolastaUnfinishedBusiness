@@ -124,7 +124,7 @@ internal static class BazouSpells
             .SetDefaultFaction("Party")
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
-        if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out var help))
+        if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("PowerHelp", out var help))
         {
             familiarMonsterBuilder.AddFeatures(help);
         }
