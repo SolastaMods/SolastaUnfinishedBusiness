@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Models;
 using UnityExplorer;
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
 
@@ -30,14 +31,14 @@ internal static class CreditsDisplay
         ("DubhHerder", "quality of life, spells"),
         ("ElAntonious", "feats, Arcanist subclass"),
         ("Holic75", "spells"),
-        ("ImpPhil", "gameplay, quality of life, SRD and house rules, tools, infrastructure"),
+        ("ImpPhil", "gameplay, quality of life, infrastructure"),
         ("Nd", "Marshal, Opportunist and Raven subclasses"),
         //("RedOrca", "Path of the Light subclass"),
         ("SilverGriffon",
             "gameplay, quality of life, spells, Dark Elf and Grey Dwarf races, Divine Heart subclass"),
-        ("TPABOBAP", "maintenance, gameplay, quality of life, feats, spells, infrastructure"),
+        ("TPABOBAP", "gameplay, quality of life, infrastructure, feats, spells"),
         ("Zappastuff",
-            "maintenance, multiclass, gameplay, quality of life, SRD and house rules, tools, infrastructure, feats, Half-elf variants, Dead Master and Blade Dancer subclasses"),
+            "multiclass, gameplay, quality of life, infrastructure, feats, Half-elf subraces, Dead Master and Blade Dancer subclasses"),
         ("Esker", "ruleset support, quality assurance"),
         ("Lyraele", "ruleset support, quality assurance"),
         ("PraiseThyBus", "quality assurance"),
@@ -51,35 +52,6 @@ internal static class CreditsDisplay
 
     private static bool IsUnityExplorerEnabled { get; set; }
 
-    private static void OpenUrl(string url)
-    {
-        try
-        {
-            Process.Start(url);
-        }
-        catch
-        {
-            // hack because of this: https://github.com/dotnet/corefx/issues/10361
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                url = url.Replace("&", "^&");
-                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-                Process.Start("xdg-open", url);
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            {
-                Process.Start("open", url);
-            }
-            else
-            {
-                throw;
-            }
-        }
-    }
-
     internal static void DisplayCredits()
     {
         UI.Label("");
@@ -88,14 +60,12 @@ internal static class CreditsDisplay
         {
             UI.ActionButton("Donations".Bold().Khaki(), () =>
             {
-                OpenUrl(
-                    "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion");
+                BootContext.OpenUrl(BootContext.DonateUrl);
             }, UI.Width(150));
 
             UI.ActionButton("Wiki".Bold().Khaki(), () =>
             {
-                OpenUrl(
-                    "https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki");
+                BootContext.OpenUrl("https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki");
             }, UI.Width(150));
 
             if (!IsUnityExplorerEnabled && IsUnityExplorerInstalled)

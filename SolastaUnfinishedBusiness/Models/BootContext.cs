@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
@@ -17,6 +19,9 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BootContext
 {
+    internal const string DonateUrl =
+        "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business";
+
     internal static readonly HashSet<string> SupportedLanguages = new() { "zh-CN" };
 
     public static void Startup()
@@ -248,13 +253,14 @@ internal static class BootContext
         }
 
         Main.Logger.Log(message);
+
         Gui.GuiService.ShowMessage(
-            MessageModal.Severity.Informative1,
+            MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             message,
+            "Donate",
             "Message/&MessageOkTitle",
-            string.Empty,
-            null,
+            () => OpenUrl(DonateUrl),
             null);
     }
 
@@ -278,12 +284,41 @@ internal static class BootContext
     private static void DisplayWelcomeMessage()
     {
         Gui.GuiService.ShowMessage(
-            MessageModal.Severity.Informative1,
+            MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             "Message/&MessageModWelcomeDescription",
+            "Donate",
             "Message/&MessageOkTitle",
-            string.Empty,
-            () => UnityModManager.UI.Instance.ToggleWindow(),
+            () => OpenUrl(DonateUrl),
             null);
+    }
+    
+    internal static void OpenUrl(string url)
+    {
+        try
+        {
+            Process.Start(url);
+        }
+        catch
+        {
+            // hack because of this: https://github.com/dotnet/corefx/issues/10361
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                url = url.Replace("&", "^&");
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                Process.Start("xdg-open", url);
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                Process.Start("open", url);
+            }
+            else
+            {
+                throw;
+            }
+        }
     }
 }
