@@ -70,7 +70,7 @@ internal static class RulesetCharacterMonsterPatcher
 
             // refresh values of attribute modifiers before refreshing attributes
             var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
-            var refreshAttributeModifiers = typeof(RulesetActor).GetMethod("RefreshAttributeModifierFromAbilityScore");
+            var refreshAttributeModifiers = typeof(RulesetCharacter).GetMethod("RefreshAttributeModifierFromAbilityScore");
 
             foreach (var code in instructions)
             {

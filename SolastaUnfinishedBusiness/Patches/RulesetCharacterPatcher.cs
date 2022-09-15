@@ -228,7 +228,7 @@ internal static class RulesetCharacterPatcher
     }
 
     //PATCH: ensures that the wildshape hero has access to spell repertoires for calculating slot related features (Multiclass)
-    //[HarmonyPatch(typeof(RulesetCharacter), "SpellRepertoires", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetCharacter), "SpellRepertoires", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellRepertoires_Patch
     {
