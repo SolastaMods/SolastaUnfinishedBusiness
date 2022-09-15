@@ -356,14 +356,14 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 [*][b]Druid Leather Armor[/b]: Druid Leather of Sturdiness, Druid Leather of Robustness, Druid Leather of Survival, Druid Leather of Flame Dancing, Druid Leather of Frost Walking, Druid Leather of Deflection
 [*][b]Studded Leather[/b]: Studded Leather of Sturdiness, Studded Leather of Robustness, Studded Leather of Survival, Studded Leather of Flame Dancing, Studded Leather of Frost Walking, Studded Leather of Deflection
 [*][b]Chain Shirt[/b]: Chain Shirt of Sturdiness, Chain Shirt of Robustness, Chain Shirt of Survival, Chain Shirt of Flame Dancing, Chain Shirt of Frost Walking, Chain Shirt of Deflection
-[*][b]Padded Leather[/b]: Padded Leather of Sturdiness, Padded Leather of Robustness, Padded Leather of Survival, Padded Leather of Flame Dancing, Padded Leather of Frost Walking, Padded Leather of Deflection
+[*][b]Equipment/&Armor_PaddedLeatherTitle[/b]: Padded Leather of Sturdiness, Padded Leather of Robustness, Padded Leather of Survival, Padded Leather of Flame Dancing, Padded Leather of Frost Walking, Padded Leather of Deflection
 [*][b]Leather[/b]: Leather of Sturdiness, Leather of Robustness, Leather of Survival, Leather of Flame Dancing, Leather of Frost Walking, Leather of Deflection
 [*][b]Scale Mail[/b]: Scale Mail of Sturdiness, Scale Mail of Robustness, Scale Mail of Survival, Scale Mail of Flame Dancing, Scale Mail of Frost Walking, Scale Mail of Deflection
 [*][b]Breastplate[/b]: Breastplate of Sturdiness, Breastplate of Robustness, Breastplate of Survival, Breastplate of Flame Dancing, Breastplate of Frost Walking, Breastplate of Deflection
 [*][b]Half Plate[/b]: Half Plate of Sturdiness, Half Plate of Robustness, Half Plate of Survival, Half Plate of Flame Dancing, Half Plate of Frost Walking, Half Plate of Deflection
-[*][b]Ringmail[/b]: Ring Mail of Sturdiness, Ring Mail of Robustness, Ring Mail of Survival, Ring Mail of Flame Dancing, Ring Mail of Frost Walking, Ring Mail of Deflection
+[*][b]Equipment/&Armor_RingmailTitle[/b]: Ring Mail of Sturdiness, Ring Mail of Robustness, Ring Mail of Survival, Ring Mail of Flame Dancing, Ring Mail of Frost Walking, Ring Mail of Deflection
 [*][b]Chain Mail[/b]: Chain Mail of Sturdiness, Chain Mail of Robustness, Chain Mail of Survival, Chain Mail of Flame Dancing, Chain Mail of Frost Walking, Chain Mail of Deflection
-[*][b]Splintmail[/b]: Splint Armor of Sturdiness, Splint Armor of Robustness, Splint Armor of Survival, Splint Armor of Flame Dancing, Splint Armor of Frost Walking, Splint Armor of Deflection
+[*][b]Equipment/&Armor_SplintmailTitle[/b]: Splint Armor of Sturdiness, Splint Armor of Robustness, Splint Armor of Survival, Splint Armor of Flame Dancing, Splint Armor of Frost Walking, Splint Armor of Deflection
 [*][b]Plate[/b]: Plate of Sturdiness, Plate of Robustness, Plate of Survival, Plate of Flame Dancing, Plate of Frost Walking, Plate of Deflection
 [/list]
 

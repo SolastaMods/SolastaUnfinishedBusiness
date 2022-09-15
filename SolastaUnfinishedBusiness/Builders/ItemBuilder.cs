@@ -23,11 +23,11 @@ internal static class ItemBuilder
     public static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, string name, Guid collectionGuid,
         ItemDefinition magicalExample)
     {
-        var itemName = "Enchanted_" + original.Name + "_" + name;
+        var itemName = original.Name + "_" + name;
 
         var builder = ItemDefinitionBuilder
             .Create(original, itemName, collectionGuid)
-            .SetOrUpdateGuiPresentation(itemName + "_", Category.Equipment)
+            .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
             // Set is magical
             // Remove "Standard" from item tags
             .MakeMagical()
@@ -41,7 +41,7 @@ internal static class ItemBuilder
             builder.SetUsableDeviceDescription(magicalExample.UsableDeviceDescription);
         }
 
-        // If example enchated has multiple forms, copy over extra forms
+        // If example enchanted has multiple forms, copy over extra forms
         if (magicalExample.WeaponDescription.EffectDescription.EffectForms.Count <= 1)
         {
             return builder.AddToDB();
@@ -58,11 +58,11 @@ internal static class ItemBuilder
     public static ItemDefinition BuildNewMagicArmor(ItemDefinition original, Guid collectionGuid, string name,
         ItemDefinition magicalExample)
     {
-        var itemName = "Enchanted_" + original.Name + "_" + name;
+        var itemName = original.Name + "_" + name;
 
         var builder = ItemDefinitionBuilder
             .Create(original, itemName, collectionGuid)
-            .SetOrUpdateGuiPresentation(itemName + "_", Category.Equipment)
+            .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
             // Set is magical
             // Remove "Standard" from item tags
             .MakeMagical()

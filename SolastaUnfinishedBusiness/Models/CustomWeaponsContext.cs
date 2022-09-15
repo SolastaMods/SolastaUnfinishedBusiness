@@ -230,7 +230,7 @@ public static class CustomWeaponsContext
         var scale = new CustomScale(z: 3.5f);
         HalberdWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.GreataxeType, "CEHalberdType", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
+            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
         var baseItem = ItemDefinitions.Greataxe;
@@ -305,7 +305,7 @@ public static class CustomWeaponsContext
         var scale = new CustomScale(z: 3.5f);
         PikeWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.SpearType, "CEPikeType", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
+            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
         var baseItem = ItemDefinitions.Spear;
@@ -382,7 +382,7 @@ public static class CustomWeaponsContext
         var scale = new CustomScale(z: 3.5f);
         LongMaceWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.MaulType, "CELongMaceType", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
+            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
         var baseItem = ItemDefinitions.Warhammer;
@@ -457,7 +457,7 @@ public static class CustomWeaponsContext
         var scale = new CustomScale(0.5f);
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.LightCrossbowType, "CEHandXbowType", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
+            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .SetAnimationTag("Rapier")
             .AddToDB();
