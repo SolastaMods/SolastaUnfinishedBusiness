@@ -1,0 +1,48 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Shield_Wooden_Survival:8c22dc76-ed0f-593d-b26a-bcc436cfc963",
+  "stackCount": 1,
+  "craftingHours": 48,
+  "craftingDC": 16,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Shield_Wooden:3630e54c4b26db945a804382ea120406"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_LifeStone:fe44147b00fe32445bdc2bb69579a39b"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Item/&Shield_Wooden_Survival_Title",
+    "description": "Item/&Shield_Wooden_Survival_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e7f6a7c4a756e7f4d823388674b2e6a2",
+      "m_SubObjectName": "Standard_Shield_Wooden",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "386ead8b-78af-5e13-9b1f-74d41bd1566a",
+  "contentPack": 9999,
+  "name": "RecipeEnchantingShield_Wooden_Survival"
+}

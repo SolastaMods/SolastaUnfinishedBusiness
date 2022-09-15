@@ -1,0 +1,48 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Handaxe_Acuteness:b3141e5b-1640-5fd1-886b-eefd8e600725",
+  "stackCount": 1,
+  "craftingHours": 24,
+  "craftingDC": 10,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Handaxe:cc2d5d4cf149d5e40b13533e43dc193e"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Oil_Of_Acuteness:ad0a6236d6ce53344b534dd9c1cdcc00"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Item/&Handaxe_Acuteness_Title",
+    "description": "Item/&Handaxe_Acuteness_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8e747b3e6ef56c443b09b12e1ad844e1",
+      "m_SubObjectName": "StandardHandaxe",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b094b0d8-957a-5cf6-96bf-5a11a3fa8a31",
+  "contentPack": 9999,
+  "name": "RecipeEnchantingHandaxe_Acuteness"
+}
