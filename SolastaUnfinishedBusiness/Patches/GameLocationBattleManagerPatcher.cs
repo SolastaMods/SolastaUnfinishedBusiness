@@ -76,12 +76,14 @@ internal static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleCharacterMoveEnd_Patch
     {
+        //DEMOTE: Magus code
+#if false
         internal static void Prefix(GameLocationCharacter mover)
         {
             //PATCH: support for conditions that trigger on movement end
             //Mostly for Magus's `Rupture Strike`
             //TODO: move this code to separate file
-
+            
             if (mover.RulesetCharacter.isDeadOrDyingOrUnconscious)
             {
                 return;
@@ -129,6 +131,7 @@ internal static class GameLocationBattleManagerPatcher
                 }
             }
         }
+#endif
 
         internal static IEnumerator Postfix(
             IEnumerator __result,
@@ -208,12 +211,13 @@ internal static class GameLocationBattleManagerPatcher
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
 
-            //PATCH: Support elven precision feat
-            ZappaFeats.CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter,
-                attackParams.attackMode);
-
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams, __result);
+            
+            //PATCH: Support elven precision feat
+            // should come last as adv / dis make diff here
+            ZappaFeats.CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter,
+                attackParams.attackMode);
         }
 
         //TODO: move this somewhere else and maybe split?
@@ -302,7 +306,7 @@ internal static class GameLocationBattleManagerPatcher
             RulesetAttackMode attackMode,
             bool criticalHit)
         {
-            //PATCH: Completely replace this method to suppoort several features. Modified method based on TA provided sources.
+            //PATCH: Completely replace this method to support several features. Modified method based on TA provided sources.
             GameLocationBattleManagerTweaks.ComputeAndNotifyAdditionalDamage(__instance, attacker, defender, provider,
                 actualEffectForms, reactionParams, attackMode, criticalHit);
 

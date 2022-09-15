@@ -47,6 +47,7 @@ public enum ExtraOriginOfAmount
     SourceClassLevel = 9002
 }
 
+#if false
 public enum ExtraTurnOccurenceType
 {
     StartOfTurn = TurnOccurenceType.StartOfTurn,
@@ -55,6 +56,7 @@ public enum ExtraTurnOccurenceType
     StartOfTurnWithPerceptionOfSource = 9000,
     OnMoveEnd = 9001
 }
+#endif
 
 public enum ExtraAdditionalDamageAdvancement
 {
