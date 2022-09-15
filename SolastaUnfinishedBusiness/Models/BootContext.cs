@@ -43,7 +43,6 @@ internal static class BootContext
 
         // These can be loaded in any order so we bump them at the beginning
         CharacterExportContext.Load();
-        ConjurationsContext.Load();
         CustomReactionsContext.Load();
         CustomWeaponsContext.Load();
         DmProEditorContext.Load();
@@ -56,7 +55,6 @@ internal static class BootContext
         PickPocketContext.Load();
         PowersBundleContext.Load();
         RespecContext.Load();
-        ShieldStrikeContext.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();
