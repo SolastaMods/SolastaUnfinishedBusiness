@@ -7,6 +7,7 @@ using System.Reflection.Emit;
 using System.Text.RegularExpressions;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
@@ -149,23 +150,46 @@ internal static class RulesetActorPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RefreshAttributes_Patch
     {
-        private static readonly Regex ClassPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
+        // private static readonly Regex ClassPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
 
         private static void RefreshClassModifiers(RulesetActor actor)
         {
-            if (actor is not RulesetCharacterHero hero)
+            var hero = actor as RulesetCharacterHero;
+
+            if (hero == null && actor is RulesetCharacterMonster monster)
+            {
+                hero = monster.OriginalFormCharacter as RulesetCharacterHero;
+            }
+
+            if (hero == null)
             {
                 return;
             }
-
-            foreach (var attribute in hero.Attributes)
+            
+            foreach (var attribute in actor.Attributes)
             {
                 foreach (var modifier in attribute.Value.ActiveModifiers
                              .Where(x => x.Operation
                                  is AttributeModifierOperation.MultiplyByClassLevel
                                  or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions))
                 {
-                    var level = hero.GetClassLevel(GetClassByTags(modifier.tags));
+                    var level = 0;
+                    
+                    switch (attribute.Key)
+                    {
+                        case AttributeDefinitions.HealingPool:
+                            level = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Paladin);
+
+                            break;
+                        case AttributeDefinitions.KiPoints:
+                            level = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk);
+
+                            break;
+                        case AttributeDefinitions.SorceryPoints:
+                            level = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Sorcerer);
+
+                            break;
+                    }
 
                     if (level > 0)
                     {
@@ -175,18 +199,18 @@ internal static class RulesetActorPatcher
             }
         }
 
-        private static CharacterClassDefinition GetClassByTags(IEnumerable<string> tags)
-        {
-            return (from tag in tags
-                select ClassPattern.Matches(tag)
-                into matches
-                where matches.Count > 0
-                select matches[0]
-                into match
-                where match.Groups.Count >= 2
-                select DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                    .GetElement(match.Groups[1].Value, true)).FirstOrDefault();
-        }
+        // private static CharacterClassDefinition GetClassByTags(IEnumerable<string> tags)
+        // {
+        //     return (from tag in tags
+        //         select ClassPattern.Matches(tag)
+        //         into matches
+        //         where matches.Count > 0
+        //         select matches[0]
+        //         into match
+        //         where match.Groups.Count >= 2
+        //         select DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+        //             .GetElement(match.Groups[1].Value, true)).FirstOrDefault();
+        // }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
