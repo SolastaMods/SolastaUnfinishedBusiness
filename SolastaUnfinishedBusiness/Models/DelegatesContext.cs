@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -1053,3 +1054,4 @@ internal static class DelegatesContext
     //     Main.Logger.Log("ActorReplaced");
     // }
 }
+#endif

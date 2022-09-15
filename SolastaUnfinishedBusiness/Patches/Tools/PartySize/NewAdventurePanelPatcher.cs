@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using Object = UnityEngine.Object;
+
 // using SolastaUnfinishedBusiness.Patches.Tools.DefaultParty;
 
 namespace SolastaUnfinishedBusiness.Patches.Tools.PartySize;

@@ -67,9 +67,10 @@ internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
             return;
         }
 
-        var condition = attacker.RulesetCharacter.HasConditionOfType(ConditionDualFlurryApplyBuilder.ConditionDualFlurryApply.Name)
-            ? ConditionDualFlurryGrantBuilder.ConditionDualFlurryGrant
-            : ConditionDualFlurryApplyBuilder.ConditionDualFlurryApply;
+        var condition =
+            attacker.RulesetCharacter.HasConditionOfType(ConditionDualFlurryApplyBuilder.ConditionDualFlurryApply.Name)
+                ? ConditionDualFlurryGrantBuilder.ConditionDualFlurryGrant
+                : ConditionDualFlurryApplyBuilder.ConditionDualFlurryApply;
 
         var rulesetCondition = RulesetCondition.CreateActiveCondition(
             attacker.RulesetCharacter.Guid,
@@ -88,7 +89,7 @@ internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuild
         CreateAndAddToDB(
             "ConditionDualFlurryApply",
             GuidHelper.Create(CENamespaceGuid, "ConditionDualFlurryApply").ToString());
-    
+
     private ConditionDualFlurryApplyBuilder(string name, string guid) : base(
         DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
     {
