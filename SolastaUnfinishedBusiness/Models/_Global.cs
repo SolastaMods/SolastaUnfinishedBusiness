@@ -7,47 +7,45 @@ namespace SolastaUnfinishedBusiness.Models;
 // keep public for sidecars
 public static class Global
 {
-    // is a user location
+    // true if in a multiplayer game
+    public static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+
+    // true if not in game
+    public static bool IsOffGame => Gui.Game == null;
+
+    // true if an user location
     // NOTE: don't use GameLocation?. or LocationDefinition?. which bypasses Unity object lifetime check
     public static bool IsUserLocation => Gui.GameLocation &&
                                          Gui.GameLocation.LocationDefinition &&
                                          Gui.GameLocation.LocationDefinition.IsUserLocation;
 
-    // last level up hero name
-    public static string LastLevelUpHeroName { get; set; }
-
-    // level up hero
+    // active level up hero
     [CanBeNull]
     public static RulesetCharacterHero ActiveLevelUpHero =>
         ServiceRepository.GetService<ICharacterBuildingService>()?.CurrentLocalHeroCharacter;
 
+    // last level up hero name
+    public static string LastLevelUpHeroName { get; set; }
+    
     // inspected hero on both location and pool
     [CanBeNull] public static RulesetCharacterHero InspectedHero { get; set; }
 
-    // holds the active player character
+    // active player character
     public static GameLocationCharacter ActivePlayerCharacter { get; private set; }
 
-    // holds the current action from any character on the map
+    // current action from any character on the map
     public static CharacterAction CurrentAction { get; private set; }
 
-    // holds the the casted spell
+    // casted spell
     public static SpellDefinition CastedSpell { get; private set; }
 
     // last attack was a critical hit
     public static bool CriticalHit { get; set; }
 
-    // holds a collection of conditions that should display on char panel even if set to silent
+    // conditions that should display on char panel even if set to silent
     public static HashSet<ConditionDefinition> CharacterLabelEnabledConditions { get; } = new();
 
-    // true if in a multiplayer game
-    public static bool IsSettingUpMultiplayer { get; set; }
-
-    public static bool IsMultiplayer => IsSettingUpMultiplayer
-                                        || ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
-
-    // true if not in game
-    public static bool IsOffGame => Gui.Game == null;
-
+    // restate globals on every new action
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         Main.Logger.Log(characterAction.ActionDefinition.Name);

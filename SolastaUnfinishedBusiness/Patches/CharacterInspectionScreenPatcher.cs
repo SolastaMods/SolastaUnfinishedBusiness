@@ -34,7 +34,7 @@ internal static class CharacterInspectionScreenPatcher
         {
             Global.InspectedHero = null;
 
-            if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer)
+            if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
                 InventoryManagementContext.ResetControls();
             }

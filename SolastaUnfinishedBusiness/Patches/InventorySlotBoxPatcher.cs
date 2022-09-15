@@ -19,7 +19,7 @@ internal static class InventorySlotBoxPatcher
                 return;
             }
 
-            if (!Main.Settings.EnableInventoryTaintNonProficientItemsRed || Global.IsMultiplayer)
+            if (!Main.Settings.EnableInventoryTaintNonProficientItemsRed)
             {
                 return;
             }

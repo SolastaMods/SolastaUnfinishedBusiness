@@ -88,8 +88,7 @@ internal static class InventoryManagementContext
         reorderButton.onClick.RemoveAllListeners();
         reorderButton.onClick.AddListener(delegate
         {
-            if (Main.Settings.EnableInventoryFilteringAndSorting
-                && !Global.IsMultiplayer)
+            if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
                 ResetControls();
                 SelectionChanged();
@@ -175,8 +174,7 @@ internal static class InventoryManagementContext
 
     internal static void RefreshControlsVisibility()
     {
-        var active = Main.Settings.EnableInventoryFilteringAndSorting
-                     && !Global.IsMultiplayer;
+        var active = Main.Settings.EnableInventoryFilteringAndSorting;
 
         FilterGuiDropdown.gameObject.SetActive(active);
         BySortGroup.gameObject.SetActive(active);
