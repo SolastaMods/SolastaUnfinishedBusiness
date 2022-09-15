@@ -2,7 +2,7 @@
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "merchantCategory": "Weapon",
-  "weight": 4.0,
+  "weight": 2.0,
   "slotTypes": [
     "MainHandSlot",
     "OffHandSlot",
@@ -44,12 +44,12 @@
   "isWeapon": true,
   "weaponDefinition": {
     "$type": "WeaponDescription, Assembly-CSharp",
-    "weaponType": "QuarterstaffType",
+    "weaponType": "ClubType",
     "reachRange": 1,
     "closeRange": 5,
     "maxRange": 5,
     "weaponTags": [
-      "Versatile"
+      "Light"
     ],
     "effectDescription": {
       "$type": "EffectDescription, Assembly-CSharp",
@@ -127,11 +127,11 @@
           "saveOccurence": "StartOfTurn",
           "damageForm": {
             "$type": "DamageForm, Assembly-CSharp",
-            "versatile": true,
+            "versatile": false,
             "diceNumber": 1,
-            "dieType": "D6",
+            "dieType": "D4",
             "overrideWithBardicInspirationDie": false,
-            "versatileDieType": "D8",
+            "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamageBludgeoning",
             "healFromInflictedDamage": "Never",
@@ -477,7 +477,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "1110be87443300f46976c1b313fa6d8e",
+      "m_AssetGUID": "257107e4db273534291599bb050845e1",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -497,13 +497,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Equipment/&LivewoodStaffTitle",
-    "description": "Equipment/&LivewoodStaffDescription",
+    "title": "Item/&CELivewoodClubTitle",
+    "description": "Item/&CELivewoodClubDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5229b7b4faf563140ac89741992b3225",
-      "m_SubObjectName": "Staff_of_Healing",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -518,7 +518,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ff3ec29c-734f-4ef6-8d6e-ceb961d9a8a0",
+  "guid": "38602097-0e4b-51a1-9768-9ee025e42c0d",
   "contentPack": 9999,
-  "name": "LivewoodStaff"
+  "name": "CELivewoodClub"
 }

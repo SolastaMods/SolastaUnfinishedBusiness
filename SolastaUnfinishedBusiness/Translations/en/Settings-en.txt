@@ -162,7 +162,7 @@ ModUi/&Spells=<color=#F0DAA0>Spells:</color>
 ModUi/&SpellsMenu=Spells
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stocks Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Stocks Hugo's store with <color=#D89555>Wand of Identify</color>, <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
+ModUi/&StockHugoStoreWithAdditionalFoci=Stocks Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&TargetLanguage=Target Language
 ModUi/&Tools=Tools

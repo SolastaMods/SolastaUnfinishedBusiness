@@ -223,13 +223,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&ConditionPactMarkMarkedByPactTitle",
-    "description": "Spell/&ConditionPactMarkMarkedByPactDescription",
+    "title": "Condition/&ConditionPactMarkMarkedByPactTitle",
+    "description": "Condition/&ConditionPactMarkMarkedByPactDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",
-      "m_SubObjectName": "ConditionTargeted",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

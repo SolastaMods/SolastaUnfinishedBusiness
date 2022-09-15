@@ -2,7 +2,7 @@
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "merchantCategory": "Weapon",
-  "weight": 2.0,
+  "weight": 4.0,
   "slotTypes": [
     "MainHandSlot",
     "OffHandSlot",
@@ -44,12 +44,12 @@
   "isWeapon": true,
   "weaponDefinition": {
     "$type": "WeaponDescription, Assembly-CSharp",
-    "weaponType": "ClubType",
+    "weaponType": "QuarterstaffType",
     "reachRange": 1,
     "closeRange": 5,
     "maxRange": 5,
     "weaponTags": [
-      "Light"
+      "Versatile"
     ],
     "effectDescription": {
       "$type": "EffectDescription, Assembly-CSharp",
@@ -127,11 +127,11 @@
           "saveOccurence": "StartOfTurn",
           "damageForm": {
             "$type": "DamageForm, Assembly-CSharp",
-            "versatile": false,
+            "versatile": true,
             "diceNumber": 1,
-            "dieType": "D4",
+            "dieType": "D6",
             "overrideWithBardicInspirationDie": false,
-            "versatileDieType": "D1",
+            "versatileDieType": "D8",
             "bonusDamage": 0,
             "damageType": "DamageBludgeoning",
             "healFromInflictedDamage": "Never",
@@ -359,7 +359,7 @@
   "isFocusItem": true,
   "focusItemDefinition": {
     "$type": "FocusItemDescription, Assembly-CSharp",
-    "focusType": "Druidic",
+    "focusType": "Arcane",
     "shownAsFocus": true
   },
   "isWealthPile": false,
@@ -477,7 +477,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "257107e4db273534291599bb050845e1",
+      "m_AssetGUID": "1110be87443300f46976c1b313fa6d8e",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -497,12 +497,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Equipment/&LivewoodClubTitle",
-    "description": "Equipment/&LivewoodClubDescription",
+    "title": "Item/&CEArcaneStaffTitle",
+    "description": "Item/&CEArcaneStaffDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bec0cdec6d42d5048bdc730f12e94e43",
-      "m_SubObjectName": "StandardClub",
+      "m_AssetGUID": "abe00da2da5428841a72a2512a42bd87",
+      "m_SubObjectName": "Quarterstaff+1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -518,7 +518,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dd27119b-01e0-4a47-a043-98b89dc930a1",
+  "guid": "2f072e0d-92aa-5f00-ba97-e37faa1470d1",
   "contentPack": 9999,
-  "name": "LivewoodClub"
+  "name": "CEArcaneStaff"
 }

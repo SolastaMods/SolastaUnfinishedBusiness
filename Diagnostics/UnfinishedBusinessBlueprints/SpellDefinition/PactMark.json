@@ -3,7 +3,7 @@
   "spellsBundle": false,
   "subspellsList": [],
   "implemented": true,
-  "schoolOfMagic": "SchoolEnchantment",
+  "schoolOfMagic": "SchoolEnchantement",
   "spellLevel": 1,
   "ritual": false,
   "uniqueInstance": false,
@@ -335,9 +335,9 @@
     "description": "Spell/&PactMarkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0c473f4bc671a1c48b9da157557c4d7d",
-      "m_SubObjectName": "HuntersMark",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

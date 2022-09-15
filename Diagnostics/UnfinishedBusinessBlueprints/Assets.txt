@@ -1390,7 +1390,8 @@ TorchPike~LavaCaves~MOD	GadgetBlueprint	GadgetBlueprint	5b877ced-96bf-5d80-a7b5-
 TorchPike~Swamp~MOD	GadgetBlueprint	GadgetBlueprint	4a9a2d98-c9de-5b83-97dd-236e1f7df9c1
 TorchPike~Town~MOD	GadgetBlueprint	GadgetBlueprint	d342f8ee-b3a0-5566-b41f-e92e0b4d9540
 TorchPike~WoodLand~MOD	GadgetBlueprint	GadgetBlueprint	e4701acf-b321-5cfb-993f-b58bcdb73182
-ArcaneStaff	ItemDefinition	ItemDefinition	991e1fec-9777-4635-948f-5bedcb96147d
+CEArcaneStaff	ItemDefinition	ItemDefinition	2f072e0d-92aa-5f00-ba97-e37faa1470d1
+CEDruidicAmulet	ItemDefinition	ItemDefinition	c5b3034c-603c-5fd4-abe4-71e143b9d813
 CEHalberd	ItemDefinition	ItemDefinition	03d12c7d-c1f2-5678-a505-2681f2708283
 CEHalberd+1	ItemDefinition	ItemDefinition	0d525b3e-3915-5a42-a761-0ec86ca88dc3
 CEHalberd+2	ItemDefinition	ItemDefinition	d04b5feb-7d62-5efa-ab6a-24dbbc583fe7
@@ -1401,6 +1402,8 @@ CEHandXbow+1	ItemDefinition	ItemDefinition	6535c7af-7772-5635-ae6b-3ed29f806af9
 CEHandXbow+2	ItemDefinition	ItemDefinition	0ea27fb9-5823-501f-94c1-b8fdaacc27f4
 CEHandXbowAcid	ItemDefinition	ItemDefinition	0c77ea77-0c8f-5564-ada4-2f673e5e2c7d
 CEHandXbowPrimed	ItemDefinition	ItemDefinition	2586f08d-599c-57f9-ac7e-061f8d664cf0
+CELivewoodClub	ItemDefinition	ItemDefinition	38602097-0e4b-51a1-9768-9ee025e42c0d
+CELivewoodStaff	ItemDefinition	ItemDefinition	ac52929b-3c0f-5b96-88c4-3ef787c6d0d4
 CELongMace	ItemDefinition	ItemDefinition	fb3f2c7a-365c-5277-ad30-44bd293fd8b9
 CELongMace+1	ItemDefinition	ItemDefinition	67b10fc2-68a1-53b6-8cd6-70420e22ea6b
 CELongMace+2	ItemDefinition	ItemDefinition	8eddfaf2-50d7-56f9-a7dc-59540b2b943f
@@ -1645,7 +1648,6 @@ CraftingManualRecipePrimingCEHalberd	ItemDefinition	ItemDefinition	ce536b56-a82c
 CraftingManualRecipePrimingCEHandXbow	ItemDefinition	ItemDefinition	d35aac6b-5d27-520f-a085-e723c3c7f0f7
 CraftingManualRecipePrimingCELongMace	ItemDefinition	ItemDefinition	305ae287-759d-5b53-a3a7-242696ca694b
 CraftingManualRecipePrimingCEPike	ItemDefinition	ItemDefinition	a106fbbc-59bc-53fc-9bf1-9eaa752cc1ac
-DruidicAmulet	ItemDefinition	ItemDefinition	3487d3b2-1058-4c0f-8009-9e4f525cb0e0
 Enchanted_Breastplate_Deflection	ItemDefinition	ItemDefinition	703c39d6-d057-5d98-a97f-d58b8e9ccc47
 Enchanted_Breastplate_FlameDancing	ItemDefinition	ItemDefinition	12c5c9b7-4017-509b-9e47-f2b12835d162
 Enchanted_Breastplate_FrostWalking	ItemDefinition	ItemDefinition	e60dc5b8-23a2-5764-b274-b7d738ddfaf0
@@ -1811,9 +1813,6 @@ Enchanted_Warhammer_Punisher	ItemDefinition	ItemDefinition	a783cd45-2dab-53cb-b9
 Handwraps+1	ItemDefinition	ItemDefinition	6268865e-345f-50c1-8566-2da9bde4cb3e
 Handwraps+2	ItemDefinition	ItemDefinition	8adf7736-d5f2-5af1-9745-e40d4dc63507
 HandwrapsOfForce	ItemDefinition	ItemDefinition	fd4c1520-fb0e-56f5-ba86-4ef7ad9b0b70
-LivewoodClub	ItemDefinition	ItemDefinition	dd27119b-01e0-4a47-a043-98b89dc930a1
-LivewoodStaff	ItemDefinition	ItemDefinition	ff3ec29c-734f-4ef6-8d6e-ceb961d9a8a0
-WandIdentify	ItemDefinition	ItemDefinition	46ae7624-4d24-455a-98f9-d41403b0ae19
 AttackMarshalEternalComrade	MonsterAttackDefinition	MonsterAttackDefinition	2880ee9a-07b0-5f38-97da-dbaa1cb0e3c4
 MarshalEternalComrade	MonsterDefinition	MonsterDefinition	62bcd3b3-0d54-5fe4-9578-1cea388159a9
 Owl	MonsterDefinition	MonsterDefinition	7a6b1ddd-74b0-58f0-9563-ac1b44c4fb2a

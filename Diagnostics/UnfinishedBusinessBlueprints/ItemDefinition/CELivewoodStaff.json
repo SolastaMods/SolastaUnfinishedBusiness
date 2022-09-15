@@ -359,7 +359,7 @@
   "isFocusItem": true,
   "focusItemDefinition": {
     "$type": "FocusItemDescription, Assembly-CSharp",
-    "focusType": "Arcane",
+    "focusType": "Druidic",
     "shownAsFocus": true
   },
   "isWealthPile": false,
@@ -497,12 +497,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Equipment/&ArcaneStaffTitle",
-    "description": "Equipment/&ArcaneStaffDescription",
+    "title": "Item/&CELivewoodStaffTitle",
+    "description": "Item/&CELivewoodStaffDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "abe00da2da5428841a72a2512a42bd87",
-      "m_SubObjectName": "Quarterstaff+1",
+      "m_AssetGUID": "5229b7b4faf563140ac89741992b3225",
+      "m_SubObjectName": "Staff_of_Healing",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -518,7 +518,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "991e1fec-9777-4635-948f-5bedcb96147d",
+  "guid": "ac52929b-3c0f-5b96-88c4-3ef787c6d0d4",
   "contentPack": 9999,
-  "name": "ArcaneStaff"
+  "name": "CELivewoodStaff"
 }

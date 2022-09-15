@@ -1,16 +1,14 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "merchantCategory": "MagicDevice",
   "weight": 0.5,
   "slotTypes": [
-    "UtilitySlot",
+    "NeckSlot",
     "ContainerSlot"
   ],
   "slotsWhereActive": [
-    "MainHandSlot",
-    "OffHandSlot",
-    "UtilitySlot"
+    "NeckSlot"
   ],
   "activeOnGround": false,
   "destroyedWhenUnequiped": false,
@@ -21,63 +19,28 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1750,
+    25,
     0,
     0,
     0
   ],
   "itemTags": [
-    "Wood"
+    "Standard",
+    "Leather"
   ],
   "activeTags": [],
   "inactiveTags": [],
-  "magical": true,
+  "magical": false,
   "requiresAttunement": false,
-  "requiresIdentification": true,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Rare",
+  "itemRarity": "Common",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
   "isAmmunition": false,
-  "isUsableDevice": true,
-  "usableDeviceDescription": {
-    "$type": "UsableDeviceDescription, Assembly-CSharp",
-    "usage": "Charges",
-    "chargesCapital": "Fixed",
-    "chargesCapitalNumber": 7,
-    "chargesCapitalDie": "D1",
-    "chargesCapitalBonus": 0,
-    "rechargeRate": "Dawn",
-    "rechargeNumber": 1,
-    "rechargeDie": "D6",
-    "rechargeBonus": 1,
-    "outOfChargesConsequence": "DestroyOnRoll1",
-    "magicAttackBonus": 5,
-    "saveDC": 13,
-    "deviceFunctions": [
-      {
-        "$type": "DeviceFunctionDescription, Assembly-CSharp",
-        "parentUsage": "Charges",
-        "useAffinity": "ChargeCost",
-        "useAmount": 1,
-        "rechargeRate": "Dawn",
-        "durationType": "Hour",
-        "canOverchargeSpell": true,
-        "type": "Spell",
-        "spellDefinition": "Definition:Identify:e398d34493329f147bae4902122057c2",
-        "featureDefinitionPower": null
-      }
-    ],
-    "usableDeviceTags": [],
-    "onUseParticle": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    }
-  },
+  "isUsableDevice": false,
   "isTool": false,
   "isMusicalInstrument": false,
   "musicalInstrumentDefinition": {
@@ -90,8 +53,8 @@
   "isFocusItem": true,
   "focusItemDefinition": {
     "$type": "FocusItemDescription, Assembly-CSharp",
-    "focusType": "Arcane",
-    "shownAsFocus": true
+    "focusType": "Druidic",
+    "shownAsFocus": false
   },
   "isWealthPile": false,
   "isSpellbook": false,
@@ -203,8 +166,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Equipment/&WandSpecialTitle",
-    "unidentifiedDescription": "Equipment/&WandSpecialDescription",
+    "unidentifiedTitle": "",
+    "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -228,12 +191,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Equipment/&WandIdentifyTitle",
-    "description": "Equipment/&WandIdentifyDescription",
+    "title": "Item/&CEDruidicAmuletTitle",
+    "description": "Item/&CEDruidicAmuletDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "99f5e6021bff7994bb5b9f6832f8145a",
-      "m_SubObjectName": "WandOfMagicMissiles",
+      "m_AssetGUID": "067d8dc6b7d18d64785015d69bd358b1",
+      "m_SubObjectName": "BeltOfGiantSTR_Hill",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -249,7 +212,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "46ae7624-4d24-455a-98f9-d41403b0ae19",
+  "guid": "c5b3034c-603c-5fd4-abe4-71e143b9d813",
   "contentPack": 9999,
-  "name": "WandIdentify"
+  "name": "CEDruidicAmulet"
 }
