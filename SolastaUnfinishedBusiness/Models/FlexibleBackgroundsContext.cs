@@ -27,7 +27,7 @@ public static class FlexibleBackgroundsContext
         .AddToDB();
 
     private static readonly FeatureDefinition ToolChoiceTwo = FeatureDefinitionPointPoolBuilder
-        .Create("PointPoolPointPoolBackgroundToolSelect2", DefinitionBuilder.CENamespaceGuid)
+        .Create("PointPoolBackgroundToolSelect2", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.FlexibleBackgrounds)
         .SetPool(HeroDefinitions.PointsPoolType.Tool, 2)
         .AddToDB();

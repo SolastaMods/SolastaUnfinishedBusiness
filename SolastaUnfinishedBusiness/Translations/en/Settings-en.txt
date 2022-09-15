@@ -19,7 +19,6 @@ ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without orig
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlight gadgets in party field of view <i><color=#F0DAA0>[only in custom dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
-ModUI/&ArcaneShieldAll=All Classes
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
 ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=#F0DAA0>Basic:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -112,7 +111,6 @@ ModUi/&Items=<color=#F0DAA0>Items:</color>
 ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
-ModUi/&ItemTag=Item Tag
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Enable Multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>set max allowed classes with slider</color></i>
@@ -132,7 +130,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Quick cast light cantrip uses head or torso worn items first
-ModUi/&Races=<color=#F0DAA0>Races & Subraces</color>
+ModUi/&Races=<color=#F0DAA0>Races & Subs</color>
 ModUi/&RacesClassesSubclasses=Races, Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's Cost</color>
 ModUi/&RecipesInDm=Recipes in DM
@@ -151,7 +149,6 @@ ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Jor
 ModUi/&RestockHelp=. Override defaults to force all of a merchant's stock to restock over time (excluding Manuals and Tomes)\n. Note that some items can take up to 7 game days to restock
 ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Rules
-ModUi/&ScaleGameFontSizeBy=<color=white>Scale the game font size by</color> <color=#C04040E0>[%]</color>\n<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly
 ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested

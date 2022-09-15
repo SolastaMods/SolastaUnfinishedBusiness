@@ -43,11 +43,6 @@ internal static class ItemOptionsContext
         Gui.Localize("Equipment/&Armor_Adventuring_Wizard_OutfitTitle")
     };
 
-    internal static string[] ArcaneShieldstaffOptions { get; } =
-    {
-        Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("ModUI/&ArcaneShieldAll")
-    };
-
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
     private static void LoadClothingGorimStock()
@@ -256,12 +251,7 @@ internal static class ItemOptionsContext
         }
         else
         {
-            ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Sorcerer);
-
-            // if (Main.Settings.ClassEnabled.Contains(IntegrationContext.ClassWarlock))
-            // {
-            //     ArcaneShieldstaff.RequiredAttunementClasses.Add(Warlock.ClassWarlock);
-            // }
+            ArcaneShieldstaff.RequiredAttunementClasses.SetRange(Wizard, Cleric, Paladin, Ranger, Sorcerer, Warlock);
         }
     }
 
