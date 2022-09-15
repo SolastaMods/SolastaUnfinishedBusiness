@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -468,24 +467,42 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-    //TODO: Reenable when Path of The Light is back
-    //PATCH: INotifyConditionRemoval
-    // [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
-    // [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    // internal static class RulesetCharacter_Kill
-    // {
-    //     internal static void Prefix(RulesetCharacter __instance)
-    //     {
-    //         foreach (var rulesetCondition in __instance.ConditionsByCategory
-    //                      .SelectMany(keyValuePair => keyValuePair.Value))
-    //         {
-    //             if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
-    //             {
-    //                 notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
-    //             }
-    //         }
-    //     }
-    // }
+    [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacter_Kill
+    {
+        internal static void Prefix(RulesetCharacter __instance)
+        {
+            //PATCH: IOnCharacterKill
+            var attacker = Global.ActivePlayerCharacter?.RulesetCharacter;
+
+            if (attacker == null)
+            {
+                return;
+            }
+
+            var features = new List<FeatureDefinition>();
+
+            attacker.EnumerateFeaturesToBrowse<IOnCharacterKill>(features);
+
+            // ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
+            foreach (IOnCharacterKill characterKill in features)
+            {
+                characterKill.OnCharacterKill(GameLocationCharacter.GetFromActor(__instance));
+            }
+
+            //TODO: Reenable when Path of The Light is back
+            //PATCH: INotifyConditionRemoval
+            // foreach (var rulesetCondition in __instance.ConditionsByCategory
+            //              .SelectMany(keyValuePair => keyValuePair.Value))
+            // {
+            //     if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
+            //     {
+            //         notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
+            //     }
+            // }
+        }
+    }
 
     //PATCH: logic to correctly calculate spell slots under MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshSpellRepertoires")]
