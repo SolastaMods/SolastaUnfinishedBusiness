@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Models.SpellsContext;
@@ -20,15 +21,6 @@ internal static class AceHighSpells
         private PactMarkBuilder(string name) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name,
             CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&PactMarkTitle";
-            Definition.GuiPresentation.Description = "Spell/&PactMarkDescription";
-            Definition.spellLevel = 1;
-            Definition.somaticComponent = true;
-            Definition.verboseComponent = true;
-            Definition.schoolOfMagic = "SchoolEnchantment";
-            Definition.materialComponentType = RuleDefinitions.MaterialComponentType.Mundane;
-            Definition.castingTime = RuleDefinitions.ActivationTime.BonusAction;
-
             var markedByPactEffectForm = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Condition,
@@ -50,6 +42,7 @@ internal static class AceHighSpells
             };
 
             var effectDescription = Definition.EffectDescription;
+
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
             effectDescription.SetRangeParameter(24);
             effectDescription.SetTargetParameter(1);
@@ -57,12 +50,20 @@ internal static class AceHighSpells
             effectDescription.EffectForms.Add(markedByPactEffectForm);
             effectDescription.EffectForms.Add(pactMarkEffectForm);
 
+            Definition.spellLevel = 1;
+            Definition.somaticComponent = true;
+            Definition.verboseComponent = true;
+            Definition.schoolOfMagic = RuleDefinitions.SchoolEnchantement;
+            Definition.materialComponentType = RuleDefinitions.MaterialComponentType.Mundane;
+            Definition.castingTime = RuleDefinitions.ActivationTime.BonusAction;
             Definition.effectDescription = effectDescription;
         }
 
         public static SpellDefinition CreateAndAddToDB()
         {
-            return new PactMarkBuilder(PactMarkName).AddToDB();
+            return new PactMarkBuilder(PactMarkName)
+                .SetGuiPresentation(Category.Spell)
+                .AddToDB();
         }
     }
 
@@ -70,21 +71,20 @@ internal static class AceHighSpells
     {
         private const string ConditionPactMarkPactMarkName = "ConditionPactMarkPactMark";
 
-        public static readonly ConditionDefinition PactMarkCondition =
+        internal static readonly ConditionDefinition PactMarkCondition =
             CreateAndAddToDB(ConditionPactMarkPactMarkName);
 
         private ConditionPactMarkPactMarkBuilder(string name) : base(
             DatabaseHelper.ConditionDefinitions.ConditionHuntersMark, name, CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&ConditionPactMarkPactMarkTitle";
-            Definition.GuiPresentation.Description = "Spell/&ConditionPactMarkPactMarkDescription";
-            Definition.Features.Clear();
-            Definition.Features.Add(AdditionalDamagePactMarkBuilder.AdditionalDamagePactMark);
+            Definition.Features.SetRange(AdditionalDamagePactMarkBuilder.AdditionalDamagePactMark);
         }
 
         private static ConditionDefinition CreateAndAddToDB(string name)
         {
-            return new ConditionPactMarkPactMarkBuilder(name).AddToDB();
+            return new ConditionPactMarkPactMarkBuilder(name)
+                .SetGuiPresentation(Category.Condition)
+                .AddToDB();
         }
     }
 
@@ -92,19 +92,20 @@ internal static class AceHighSpells
     {
         private const string ConditionPactMarkMarkedByPactName = "ConditionPactMarkMarkedByPact";
 
-        public static readonly ConditionDefinition MarkedByPactCondition =
+        internal static readonly ConditionDefinition MarkedByPactCondition =
             CreateAndAddToDB(ConditionPactMarkMarkedByPactName);
 
         private ConditionPactMarkMarkedByPactBuilder(string name) : base(
             DatabaseHelper.ConditionDefinitions.ConditionMarkedByHunter, name, CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&ConditionPactMarkMarkedByPactTitle";
-            Definition.GuiPresentation.Description = "Spell/&ConditionPactMarkMarkedByPactDescription";
+            // empty
         }
 
         private static ConditionDefinition CreateAndAddToDB(string name)
         {
-            return new ConditionPactMarkMarkedByPactBuilder(name).AddToDB();
+            return new ConditionPactMarkMarkedByPactBuilder(name)
+                .SetGuiPresentation(Category.Condition)
+                .AddToDB();
         }
     }
 
@@ -112,14 +113,12 @@ internal static class AceHighSpells
     {
         private const string AdditionalDamagePactMarkBuilderName = "AdditionalDamagePactMark";
 
-        public static readonly FeatureDefinitionAdditionalDamage AdditionalDamagePactMark =
+        internal static readonly FeatureDefinitionAdditionalDamage AdditionalDamagePactMark =
             CreateAndAddToDB(AdditionalDamagePactMarkBuilderName);
 
         private AdditionalDamagePactMarkBuilder(string name) : base(
             DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark, name, CENamespaceGuid)
         {
-            Definition.GuiPresentation.Title = "Spell/&AdditionalDamagePactMarkTitle";
-            Definition.GuiPresentation.Description = "Spell/&AdditionalDamagePactMarkDescription";
             Definition.attackModeOnly = false;
             Definition.requiredTargetCondition = ConditionPactMarkMarkedByPactBuilder.MarkedByPactCondition;
             Definition.notificationTag = "PactMarked";
@@ -127,7 +126,9 @@ internal static class AceHighSpells
 
         private static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name)
         {
-            return new AdditionalDamagePactMarkBuilder(name).AddToDB();
+            return new AdditionalDamagePactMarkBuilder(name)
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
         }
     }
 }
