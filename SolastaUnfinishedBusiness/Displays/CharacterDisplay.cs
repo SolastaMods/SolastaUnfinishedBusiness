@@ -38,6 +38,8 @@ internal static class CharacterDisplay
             Main.Settings.EnableEpicPointsAndArray = toggle;
         }
 
+        UI.Label("");
+
         toggle = Main.Settings.EnableFlexibleBackgrounds;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
         {
@@ -108,7 +110,7 @@ internal static class CharacterDisplay
             if (shouldEnable)
             {
                 Main.Settings.EnableMinInOutAttributes = true;
-                Main.Settings.EnableRelearnSpells = true;
+                Main.Settings.EnableRelearnSpells = false;
                 Main.Settings.DisplayAllKnownSpellsDuringLevelUp = true;
             }
         }

@@ -1,5 +1,5 @@
 ModUi/&AddAllToStore=Add all to store
-ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the conditions removed by <color=#D89555>Greater and Lesser Restoration</color>
+ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -24,8 +24,8 @@ ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=#F0DAA0>Basic:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&Battle=<color=#F0DAA0>Battle:</color>
 ModUi/&Bestiary=Bestiary
-ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with L5+ spell slot
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
 ModUi/&Blueprints=Blueprints
 ModUi/&Campaigns=<color=#F0DAA0>Campaigns:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns and locations:</color>
@@ -78,7 +78,7 @@ ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable short r
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=#F0DAA0>[you might break quests or maps if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable unlimited Arcane Recovery on <color=#D89555>Wizard Spell Master</color>\n<i><color=#F0DAA0>Must be enabled when the ability has available uses or before character creation</color></i>
-ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color>, <color=#D89555>Conjure Fey</color>
+ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&Encounters=Encounters
 ModUi/&ExpandAll=Expand All
 ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
