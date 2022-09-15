@@ -117,7 +117,7 @@ internal static class SpellsContext
         }
 
         // registers unofficial spells
-        AceHighSpells.Register();
+        // AceHighSpells.Register();
         BazouSpells.Register();
         HolicSpells.Register();
         SrdSpells.Register();
