@@ -12,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "FlexibleBackgrounds/&PointPoolBackgroundToolSelectTitle",
-    "description": "FlexibleBackgrounds/&PointPoolBackgroundToolSelectDescription",
+    "title": "Background/&PointPoolBackgroundToolSelectTitle",
+    "description": "Background/&PointPoolBackgroundToolSelectDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

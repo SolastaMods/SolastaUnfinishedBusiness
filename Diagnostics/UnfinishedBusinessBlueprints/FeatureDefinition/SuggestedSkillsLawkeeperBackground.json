@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "FlexibleBackgrounds/&SuggestedSkillsLawkeeperBackgroundTitle",
-    "description": "FlexibleBackgrounds/&SuggestedSkillsLawkeeperBackgroundDescription",
+    "title": "Background/&SuggestedSkillsLawkeeperBackgroundTitle",
+    "description": "Background/&SuggestedSkillsLawkeeperBackgroundDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

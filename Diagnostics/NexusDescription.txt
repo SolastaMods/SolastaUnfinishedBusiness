@@ -108,9 +108,9 @@ All settings start disabled by default. On first start the mod will display an w
 [list=1]
 
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
-[*][b]Dark Elf[/b]: Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
+[*][b]Drow[/b]: Drows are descendants of elves that have been changed over time by living in the inhospitable Badlands. Drows are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 [*][b]Gray Dwarf[/b]: The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
-[*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
+[*][b]Half-Drow[/b]: Half-Drows are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Half-High Elf[/b]: Half-High elves are trained to use magic very early.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 [/list]
@@ -309,7 +309,6 @@ This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th leve
 At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
 [*][b]Find Familiar[/b]: You gain the service of a familiar.
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
-[*][b]Pact Mark[/b]: You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with a weapon or spell attack. This damage is the same type as the attack that hits.
 [*][b]Radiant Motes[/b]: Unleashes a swarm of 5 radiant projectiles that deal 2 radiant damage each, but never miss. Targets may radiate light for up to 1 minute.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 2 more projectiles for each slot above 1st.
 [*][b]Petal Storm[/b]: Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
