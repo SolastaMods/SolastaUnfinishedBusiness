@@ -213,7 +213,7 @@ internal static class GameLocationBattleManagerPatcher
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams, __result);
-            
+
             //PATCH: Support elven precision feat
             // should come last as adv / dis make diff here
             ZappaFeats.CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter,

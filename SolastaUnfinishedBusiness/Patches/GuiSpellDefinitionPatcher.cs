@@ -19,7 +19,7 @@ internal static class GuiSpellDefinitionPatcher
 
     [HarmonyPatch(typeof(GuiSpellDefinition), "EffectDescription", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EffectDescription_Patch
+    internal static class EffectDescription_Getter_Patch
     {
         internal static void Postfix(GuiSpellDefinition __instance, ref EffectDescription __result)
         {

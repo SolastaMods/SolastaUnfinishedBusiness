@@ -4,7 +4,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Text.RegularExpressions;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -165,7 +164,7 @@ internal static class RulesetActorPatcher
             {
                 return;
             }
-            
+
             foreach (var attribute in actor.Attributes)
             {
                 foreach (var modifier in attribute.Value.ActiveModifiers
@@ -174,7 +173,7 @@ internal static class RulesetActorPatcher
                                  or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions))
                 {
                     var level = 0;
-                    
+
                     switch (attribute.Key)
                     {
                         case AttributeDefinitions.HealingPool:

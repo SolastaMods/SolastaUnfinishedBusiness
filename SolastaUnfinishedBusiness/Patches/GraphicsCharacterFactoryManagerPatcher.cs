@@ -2,7 +2,6 @@
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -12,9 +11,7 @@ public class GraphicsCharacterFactoryManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class InstantiateWieldedItemAsNeeded_Patch
     {
-        internal static void Postfix(GraphicsCharacterFactoryManager __instance,
-            GraphicsCharacter graphicsCharacter,
-            GameObject prefab,
+        internal static void Postfix(GraphicsCharacter graphicsCharacter,
             RulesetItem rulesetItem,
             string slotName)
         {
@@ -22,6 +19,7 @@ public class GraphicsCharacterFactoryManagerPatcher
             //Used to scale reach weapons and hand crossbows
 
             var feature = rulesetItem.itemDefinition.GetFirstSubFeatureOfType<CustomScale>();
+
             if (feature == null)
             {
                 return;
@@ -29,7 +27,9 @@ public class GraphicsCharacterFactoryManagerPatcher
 
             var flag = rulesetItem.ItemDefinition.IsArmor &&
                        rulesetItem.ItemDefinition.ArmorDescription.ArmorType == "ShieldType";
+
             AnimationDefinitions.BoneType boneType;
+
             if (rulesetItem.ItemDefinition.IsWeapon)
             {
                 boneType = slotName != EquipmentDefinitions.SlotTypeOffHand
@@ -55,18 +55,21 @@ public class GraphicsCharacterFactoryManagerPatcher
 
 
             var boneTransform = graphicsCharacter.GetBoneTransform(boneType);
+
             if (boneTransform == null)
             {
                 return;
             }
 
             var transform = boneTransform.Find(rulesetItem.Name);
+
             if (transform == null)
             {
                 return;
             }
 
             var scale = transform.localScale;
+
             scale.x *= feature.X;
             scale.y *= feature.Y;
             scale.z *= feature.Z;

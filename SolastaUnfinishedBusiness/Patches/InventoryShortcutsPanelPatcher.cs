@@ -41,14 +41,14 @@ internal static class InventoryShortcutsPanelPatcher
             }
 
             // Torso
-            var rulesetInventorySlote = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso];
+            var rulesetInventorySlotTorso = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso];
 
             if (rulesetInventorySlot2.EquipedItem == null)
             {
                 return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
             }
 
-            targetItem = rulesetInventorySlote.EquipedItem;
+            targetItem = rulesetInventorySlotTorso.EquipedItem;
 
             return true;
 

@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Patches.Tools.SaveByLocation;
 //PATCH: EnableSaveByLocation
 [HarmonyPatch(typeof(TacticalAdventuresApplication), "SaveGameDirectory", MethodType.Getter)]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class TacticalAdventuresApplication_SaveGameDirectory
+internal static class TacticalAdventuresApplication_SaveGameDirectory_Getter
 {
     internal static bool Prefix(ref string __result)
     {

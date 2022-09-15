@@ -102,6 +102,7 @@ internal static class GameLocationCharacterPatcher
         {
             //PATCH: support for `IOnAttackHitEffect` - calls after attack handlers
             var character = __instance.RulesetCharacter;
+
             if (character == null)
             {
                 return;
@@ -129,6 +130,7 @@ internal static class GameLocationCharacterPatcher
             ref bool __result, bool accountDelegatedPowers)
         {
             var rulesetCharacter = __instance.RulesetCharacter;
+
             if (rulesetCharacter == null)
             {
                 return;
@@ -136,7 +138,7 @@ internal static class GameLocationCharacterPatcher
 
             if (__result)
             {
-                //PATCH: hide use power button if characvter has no valid powers
+                //PATCH: hide use power button if character has no valid powers
                 if (!rulesetCharacter.UsablePowers
                         .Any(rulesetUsablePower => CanUsePower(rulesetCharacter, rulesetUsablePower)))
                 {
@@ -193,10 +195,10 @@ internal static class GameLocationCharacterPatcher
         {
             var codes = instructions.ToList();
 
-            //PATCH: SUpport for `IFeatureApplicationValidator`
+            //PATCH: Support for `IFeatureApplicationValidator`
             FeatureApplicationValidation.ValidateActionPerformanceProviders(codes);
 
-            //PATCH: SUpport for `IFeatureApplicationValidator`
+            //PATCH: Support for `IFeatureApplicationValidator`
             FeatureApplicationValidation.ValidateAdditionalActionProviders(codes);
 
             return codes.AsEnumerable();
