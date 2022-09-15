@@ -181,6 +181,7 @@ namespace SolastaCeBootstrap
                 "DailyLog",
                 "DatabaseIndex",
                 "DateTime",
+                "DecisionDefinition",
                 "Deity",
                 "DieStyle",
                 "DieType",
