@@ -50,6 +50,8 @@ public static class Global
 
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
+        Main.Logger.Log(characterAction.ActionDefinition.Name);
+
         CurrentAction = characterAction;
         ActivePlayerCharacter = characterAction.ActingCharacter;
         CastedSpell = null;

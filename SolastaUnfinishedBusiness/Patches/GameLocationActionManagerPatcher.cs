@@ -101,7 +101,7 @@ internal static class GameLocationActionManagerPatcher
             [NotNull] IEnumerator values,
             [NotNull] CharacterAction action)
         {
-            Main.Logger.Log(action.ActionDefinition.Name);
+            Global.ActionStarted(action);
 
             //PATCH: calls handlers for `ICustomOnActionFeature`
             var features = action.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<ICustomOnActionFeature>();

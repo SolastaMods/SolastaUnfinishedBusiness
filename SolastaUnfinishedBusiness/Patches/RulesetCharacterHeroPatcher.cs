@@ -4,6 +4,7 @@ using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -86,6 +87,16 @@ internal static class RulesetCharacterHeroPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacterHero), "ItemEquiped")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ItemEquiped_Patch
+    {
+        internal static void Postfix(RulesetCharacterHero __instance, RulesetItem rulesetItem)
+        {
+            //PATCH: blade dancer only trigger certain features if certain item aren't wielded
+            WizardBladeDancer.OnItemEquipped(__instance, rulesetItem);
+        }
+    }
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

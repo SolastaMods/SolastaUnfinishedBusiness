@@ -116,7 +116,7 @@ internal static class BootContext
             SaveByLocationContext.LateLoad();
 
             // Register mod delegates
-            DelegatesContext.LateLoad();
+            // DelegatesContext.LateLoad();
 
             // Recache all gui collections
             GuiWrapperContext.Recache();
