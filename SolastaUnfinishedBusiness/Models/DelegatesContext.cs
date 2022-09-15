@@ -337,23 +337,6 @@ internal static class DelegatesContext
     private static void CharacterKilled([NotNull] GameLocationCharacter character, bool considerDead)
     {
         Main.Logger.Log($"{character.Name} Character Killed");
-
-        var attacker = Global.ActivePlayerCharacter?.RulesetCharacter;
-
-        if (attacker == null)
-        {
-            return;
-        }
-
-        var features = new List<FeatureDefinition>();
-
-        attacker.EnumerateFeaturesToBrowse<IOnCharacterKill>(features);
-
-        // ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
-        foreach (IOnCharacterKill characterKill in features)
-        {
-            characterKill.OnCharacterKill(character);
-        }
     }
 
     //
@@ -363,8 +346,6 @@ internal static class DelegatesContext
     private static void ItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem item)
     {
         Main.Logger.Log($"{hero.Name} Item Equipped Hero");
-
-        WizardBladeDancer.OnItemEquipped(hero, item);
     }
 
     //
@@ -407,8 +388,6 @@ internal static class DelegatesContext
     private static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         Main.Logger.Log($"{characterAction.ActingCharacter.Name} {characterAction.ActionId} Action Started");
-
-        Global.ActionStarted(characterAction);
     }
 
     // private static void ActionChainStarted([NotNull] CharacterActionChainParams characterActionChainParams)

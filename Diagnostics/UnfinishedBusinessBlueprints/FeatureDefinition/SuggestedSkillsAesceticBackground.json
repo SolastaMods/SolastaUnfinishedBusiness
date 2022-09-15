@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "FlexibleBackgrounds/&SuggestedSkillsAesceticBackgroundTitle",
-    "description": "FlexibleBackgrounds/&SuggestedSkillsAesceticBackgroundDescription",
+    "title": "Background/&SuggestedSkillsAesceticBackgroundTitle",
+    "description": "Background/&SuggestedSkillsAesceticBackgroundDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
