@@ -12,18 +12,18 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:OnAttackDamageEffectFeatDualFlurry:6f09d454-6885-570c-b030-a019f315a29f"
+    "Definition:OnAttackDamageEffectFeatDualFlurry:2ba7acb1-0bd0-597d-92f2-6efc06f0478b"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&DualFlurryTitle",
-    "description": "Feat/&DualFlurryDescription",
+    "title": "Feat/&FeatDualFlurryTitle",
+    "description": "Feat/&FeatDualFlurryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f4bb3c01-6a7e-56a7-bcbf-639a37fc3000",
+  "guid": "35fc6f50-0114-581e-b387-10cc3fd85eac",
   "contentPack": 9999,
   "name": "FeatDualFlurry"
 }

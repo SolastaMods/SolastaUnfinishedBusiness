@@ -12,18 +12,18 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerTorchbearer:22c560c7-1dc9-5de0-946f-5e63033a902c"
+    "Definition:PowerTorchbearer:7acd8210-3f93-52be-bdeb-1e8956d1115a"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&TorchbearerTitle",
-    "description": "Feat/&TorchbearerDescription",
+    "title": "Feat/&FeatTorchbearerTitle",
+    "description": "Feat/&FeatTorchbearerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cccb7e16-d940-5f5c-b0c3-8f4acfe06097",
+  "guid": "d2a3ff7a-3945-5f72-854b-7b7ba40deecd",
   "contentPack": 9999,
   "name": "FeatTorchbearer"
 }

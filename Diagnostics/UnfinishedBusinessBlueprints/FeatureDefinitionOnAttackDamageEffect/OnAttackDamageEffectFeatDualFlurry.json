@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&DualFlurryTitle",
-    "description": "Feat/&DualFlurryDescription",
+    "title": "Feat/&FeatDualFlurryTitle",
+    "description": "Feat/&FeatDualFlurryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6f09d454-6885-570c-b030-a019f315a29f",
+  "guid": "2ba7acb1-0bd0-597d-92f2-6efc06f0478b",
   "contentPack": 9999,
   "name": "OnAttackDamageEffectFeatDualFlurry"
 }

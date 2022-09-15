@@ -23,10 +23,9 @@ internal static class ElAntoniousFeats
 internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
 {
     private const string FeatDualFlurryName = "FeatDualFlurry";
-    private const string FeatDualFlurryNameGuid = "03C523EB-91B9-4F1B-A697-804D1BC2D6DD";
 
     internal static readonly FeatDefinition FeatDualFlurry =
-        CreateAndAddToDB(FeatDualFlurryName, FeatDualFlurryNameGuid);
+        CreateAndAddToDB(FeatDualFlurryName, GuidHelper.Create(CENamespaceGuid, FeatDualFlurryName).ToString());
 
     private FeatDualFlurryBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
         name, guid)
@@ -156,10 +155,9 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
 internal sealed class FeatTorchbearerBuilder : FeatDefinitionBuilder
 {
     private const string FeatTorchbearerName = "FeatTorchbearer";
-    private const string FeatTorchbearerNameGuid = "03C523EB-91B9-4F1B-A697-804D1BC2D6DD";
 
     public static readonly FeatDefinition FeatTorchbearer =
-        CreateAndAddToDB(FeatTorchbearerName, FeatTorchbearerNameGuid);
+        CreateAndAddToDB(FeatTorchbearerName, GuidHelper.Create(CENamespaceGuid, FeatTorchbearerName).ToString());
 
     private FeatTorchbearerBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
         name, guid)

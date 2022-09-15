@@ -1,16 +1,19 @@
 {
-  "$type": "RestActivityDefinition, Assembly-CSharp",
-  "restStage": "AfterRest",
-  "restType": "LongRest",
-  "condition": -1001,
-  "functor": "LevelDown",
-  "stringParameter": "",
-  "checkConsciousness": false,
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Tool",
+  "poolAmount": 2,
+  "restrictedChoices": [],
+  "uniqueChoices": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "MainMenu/&LevelDownTitle",
-    "description": "MainMenu/&LevelDownDescription",
+    "title": "FlexibleBackgrounds/&PointPoolBackgroundToolSelect2Title",
+    "description": "FlexibleBackgrounds/&PointPoolBackgroundToolSelect2Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fdb4d86eaef942d1a22dbf1fb5a7299f",
+  "guid": "f25a7a0a-e7cb-5efd-aff2-794a2d2a1f2f",
   "contentPack": 9999,
-  "name": "LevelDown"
+  "name": "PointPoolBackgroundToolSelect2"
 }
