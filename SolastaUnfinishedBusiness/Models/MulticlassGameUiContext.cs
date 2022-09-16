@@ -271,6 +271,7 @@ public static class MulticlassGameUiContext
     public static void SpellsByLevelGroupBindLearning(
         [NotNull] SpellsByLevelGroup group,
         [NotNull] ICharacterBuildingService characterBuildingService,
+        FeatureDefinitionCastSpell spellFeature,
         [NotNull] SpellListDefinition spellListDefinition,
         List<string> restrictedSchools,
         bool ritualOnly,
@@ -294,6 +295,16 @@ public static class MulticlassGameUiContext
         group.slotStatusTable.gameObject.SetActive(true);
         group.SpellLevel = spellLevel;
 
+        if (spellFeature != null)
+        {
+            foreach (var spellRepertoire in localHeroCharacter.SpellRepertoires)
+            {
+                if (spellRepertoire.SpellCastingFeature != spellFeature) continue;
+                spellRepertoire.EnumerateExtraSpellsOfLevel(group.SpellLevel, group.extraSpellsMap);
+                break;
+            }
+        }
+        
         var allSpells = spellListDefinition.SpellsByLevel[spellListDefinition.HasCantrips ? spellLevel : spellLevel - 1]
             .Spells
             .Where(spell => restrictedSchools.Count == 0 || restrictedSchools.Contains(spell.SchoolOfMagic))
@@ -303,6 +314,7 @@ public static class MulticlassGameUiContext
         allSpells.AddRange(characterBuildingService
             .EnumerateKnownAndAcquiredSpells(heroBuildingData, string.Empty)
             .Where(s => s.SpellLevel == spellLevel && !allSpells.Contains(s))
+            .Where(spell => !ritualOnly || spell.Ritual)
         );
 
         if (!spellTag.Contains(AttributeDefinitions.TagRace)) // this is a patch over original TA code
@@ -313,7 +325,7 @@ public static class MulticlassGameUiContext
                      where feature.ExtendedSpellList != null
                      from spell in feature.ExtendedSpellList
                          .SpellsByLevel[spellListDefinition.HasCantrips ? spellLevel : spellLevel - 1].Spells
-                     where !allSpells.Contains(spell) &&
+                     where !allSpells.Contains(spell) && (!ritualOnly || spell.Ritual) &&
                            (restrictedSchools.Count == 0 || restrictedSchools.Contains(spell.SchoolOfMagic))
                      select spell)
             {
@@ -342,8 +354,9 @@ public static class MulticlassGameUiContext
                     group.autoPreparedSpells.Add(spells);
                 }
 
-                foreach (var autoPreparedSpell in group.autoPreparedSpells.Where(autoPreparedSpell =>
-                             !allSpells.Contains(autoPreparedSpell)))
+                foreach (var autoPreparedSpell in group.autoPreparedSpells
+                             .Where(spell => !allSpells.Contains(spell))
+                             .Where(spell => !ritualOnly || spell.Ritual))
                 {
                     allSpells.Add(autoPreparedSpell);
                 }

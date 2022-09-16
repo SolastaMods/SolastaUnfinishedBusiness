@@ -35,6 +35,7 @@ internal static class CharacterStageSpellSelectionPanelPatcher
             var customBind = new Action<
                 SpellsByLevelGroup, // group,
                 ICharacterBuildingService, // characterBuildingService,
+                FeatureDefinitionCastSpell, // spellFeature,
                 SpellListDefinition, // spellListDefinition,
                 List<string>, // restrictedSchools,
                 bool, // ritualOnly,
