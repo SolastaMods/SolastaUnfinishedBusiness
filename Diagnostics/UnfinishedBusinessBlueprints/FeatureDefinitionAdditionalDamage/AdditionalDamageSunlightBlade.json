@@ -2,6 +2,8 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "SunlightBlade",
   "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
   "requiredProperty": "MeleeWeapon",

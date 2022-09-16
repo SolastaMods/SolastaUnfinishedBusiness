@@ -43,10 +43,10 @@
   "fightingStyle": "Definition:Protection:4635efbbee6b09047ad0d19c8366be64",
   "equipment": [
     "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Longbow:8e188e12f1f0daa40a78a6cd72b030e4",
+    "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873",
     "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d",
     "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc",
-    "Definition:HeavyCrossbow:8de3995cbb4970243bee6a479f8d67cd",
-    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
     "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
     "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
     "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",

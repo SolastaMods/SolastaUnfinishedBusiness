@@ -99,8 +99,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Caravan_Merchant_01_F:be4c35d5a7c0470458ba693d95dc1f86",
       "Definition:NPC_Presentation_Caravan_Merchant_02_F:cd49a7e737aa3f748a1eb2e7ceb7623c",

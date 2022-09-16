@@ -201,8 +201,8 @@
     "description": "!PH! drug to cure cave illness Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "455446c13ee55ee4f9bf1299ac6c86f1",
-      "m_SubObjectName": "Oil_of_Sharpness",
+      "m_AssetGUID": "34faf0b0bb4f82044b6df52240fbade5",
+      "m_SubObjectName": "DLC3_CaveIllnessDrug",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -219,6 +219,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "8ea182331cc803d4ca0ccb93de8f0328",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "CaveIllnessDrug"
 }

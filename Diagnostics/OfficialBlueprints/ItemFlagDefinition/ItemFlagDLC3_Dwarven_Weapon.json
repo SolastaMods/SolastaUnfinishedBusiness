@@ -4,7 +4,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
-    "description": "Equipment/&ItemFlagQuestDescription",
+    "description": "Equipment/&ItemFlagDwarvenDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "dd58136792bc3764181ab9edacfd9ff5",

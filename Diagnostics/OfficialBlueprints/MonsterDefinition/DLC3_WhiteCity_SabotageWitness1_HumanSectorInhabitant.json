@@ -134,8 +134,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_WhiteCity_SabotageWitness1_HumanSectorInhabitant:d101009435f5ea74dab10adfd67fc986"
     ],

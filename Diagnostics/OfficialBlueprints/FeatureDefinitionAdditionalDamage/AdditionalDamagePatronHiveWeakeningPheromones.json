@@ -2,6 +2,8 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "WeakeningPheromones",
   "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "SpellDamagesTarget",
   "requiredProperty": "None",
@@ -21,7 +23,7 @@
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,
-  "hasSavingThrow": true,
+  "hasSavingThrow": false,
   "savingThrowAbility": "Charisma",
   "dcComputation": "SpellCastingFeature",
   "savingThrowDC": 10,
@@ -30,7 +32,7 @@
   "conditionOperations": [
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": true,
+      "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
       "conditionDefinition": "Definition:ConditionPatronHiveWeakeningPheromones:85924a75d2fa7bd4f979d38817a79dcf",

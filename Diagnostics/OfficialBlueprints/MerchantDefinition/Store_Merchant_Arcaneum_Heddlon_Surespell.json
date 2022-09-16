@@ -1003,6 +1003,34 @@
       "reassortRateValue": 7,
       "requiredFaction": "Arcaneum",
       "factionStatus": "Brotherhood"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Primed_LightCrossbow:e5c25c691d4b13e479dc84f3833edc6f",
+      "stackCount": 1,
+      "initialAmount": 2,
+      "minAmount": 0,
+      "maxAmount": 2,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 7,
+      "requiredFaction": "Arcaneum",
+      "factionStatus": "Brotherhood"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Primed_HeavyCrossbow:388c95a2bb017954a87c2085695a9092",
+      "stackCount": 1,
+      "initialAmount": 2,
+      "minAmount": 0,
+      "maxAmount": 2,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 7,
+      "requiredFaction": "Arcaneum",
+      "factionStatus": "Brotherhood"
     }
   ],
   "guiPresentation": {

@@ -2,6 +2,8 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "ColossusSlayer",
   "limitedUsage": "OncePerTurn",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "TargetIsWounded",
   "requiredProperty": "None",

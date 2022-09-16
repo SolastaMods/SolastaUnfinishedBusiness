@@ -9,24 +9,23 @@ This is a collection of work from the Solasta modding community. It includes mul
 
 [list]
 
-[*][b]AceHigh[/b]: gameplay, Tactician subclass
+[*][b]Zappastuff[/b]: gameplay, quality of life, infrastructure, feats, Half-elf Variants, Dead Master, Blade Dancer, multiclass
+[*][b]ImpPhil[/b]: gameplay, quality of life, infrastructure
+[*][b]TPABOBAP[/b]: gameplay, quality of life, infrastructure, feats, spells
+[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Spell Shield, Con Artist, Arcane Fighter, Life Transmuter, Master Manipulator, Spell Master
+[*][b]SilverGriffon[/b]: gameplay, quality of life, spells, Dark Elf, Grey Dwarf, Divine Heart
+[*][b]Nd[/b]: Marshal, Opportunist, Raven
+[*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Bazou[/b]: fighting styles, spells
-[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, spells, subclasses
-[*][b]DemonSlayer730[/b]: Rage Mage subclass
-[*][b]Dreadmaker[/b]: Forest Guardian subclass
+[*][b]AceHigh[/b]: Tactician
+[*][b]Dreadmaker[/b]: Forest Guardian
 [*][b]DubhHerder[/b]: quality of life, spells
-[*][b]ElAntonious[/b]: feats, Arcanist subclass
 [*][b]Holic75[/b]: spells
-[*][b]ImpPhil[/b]: gameplay, quality of life, SRD and house rules, tools, infrastructure
-[*][b]Nd[/b]: Marshal, Opportunist and Raven subclasses
-[*][b]SilverGriffon[/b]: gameplay, quality of life, spells, Dark Elf and Grey Dwarf races, Divine Heart subclass
-[*][b]TPABOBAP[/b]: maintenance, gameplay, quality of life, feats, spells, infrastructure
-[*][b]Zappastuff[/b]: maintenance, multiclass, gameplay, quality of life, SRD and house rules, tools, infrastructure, feats, Half-elf variants, Dead Master and Blade Dancer subclasses
 [*][b]Esker[/b]: ruleset support, quality assurance
 [*][b]Lyraele[/b]: ruleset support, quality assurance
 [*][b]PraiseThyBus[/b]: quality assurance
 [*][b]Nyowwww[/b]: Chinese translations
-[*][b]Narria[/b]: modKit creator, developer
+[*][b]Narria[/b]: modKit
 [/list]
 
 [size=4][b]How to Install - Windows[/b][/size]
@@ -108,9 +107,9 @@ All settings start disabled by default. On first start the mod will display an w
 [list=1]
 
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
-[*][b]Drow[/b]: Drows are descendants of elves that have been changed over time by living in the inhospitable Badlands. Drows are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
+[*][b]Dark Elf[/b]: Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 [*][b]Gray Dwarf[/b]: The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
-[*][b]Half-Drow[/b]: Half-Drows are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
+[*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Half-High Elf[/b]: Half-High elves are trained to use magic very early.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 [/list]

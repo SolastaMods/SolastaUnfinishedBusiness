@@ -96,8 +96,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_WizardTower_Servant06:0912dd52861491644a32fade1bf7c7ec",
       "Definition:NPC_Presentation_WizardTower_Servant02:1f0e2b33f32a4084faf5b4fa9e5b8f73",

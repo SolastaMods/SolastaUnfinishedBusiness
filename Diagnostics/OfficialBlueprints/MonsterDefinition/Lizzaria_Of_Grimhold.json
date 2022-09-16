@@ -145,8 +145,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Lizzaria_Of_Grimhold:7d6a1c5d34e6c364c8b3e3a1fe1ca40d"
     ],

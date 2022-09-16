@@ -77,8 +77,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Nobleman01:4dd88143b70fb6c4a869dc29060d6644",
       "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Nobleman02:ca7467b1668535341bf76660839d637a",

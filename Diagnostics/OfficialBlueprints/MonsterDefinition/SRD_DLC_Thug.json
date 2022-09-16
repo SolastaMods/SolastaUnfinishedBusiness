@@ -117,8 +117,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Generic_DLC_Thug 1:1faf6af6110438d4ba0c322d4144a52b",
       "Definition:NPC_Presentation_Generic_DLC_Thug 2:6f6ccf43041b335489ce6c4f5374f243",

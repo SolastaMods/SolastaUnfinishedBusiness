@@ -71,7 +71,8 @@
   ],
   "toolsOverride": [],
   "featsOverride": [
-    "Robust"
+    "Robust",
+    "DauntingPush"
   ],
   "invocationsOverride": [],
   "expertisesOverride": [],

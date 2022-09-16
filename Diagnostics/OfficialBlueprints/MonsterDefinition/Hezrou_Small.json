@@ -111,7 +111,7 @@
     "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
     "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
-    "Definition:PowerHezrouStench:9bd06b9f9d549c148854037568f6c5d3",
+    "Definition:PowerHezrouStench_Small:4e76859ccf2831b4fbc28955880c16a8",
     "Definition:PowerHezrouPoisonBolt:0f4e39d744cb27348b7825aa3ca0d408"
   ],
   "attackIterations": [
@@ -156,8 +156,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -193,7 +192,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "062b4a0dc85a6464991d3dcc5527190b",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

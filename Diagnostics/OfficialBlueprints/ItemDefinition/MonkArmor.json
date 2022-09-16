@@ -40,8 +40,8 @@
   "isArmor": true,
   "armorDefinition": {
     "$type": "ArmorDescription, Assembly-CSharp",
-    "armorType": "LeatherType",
-    "armorClassValue": 11,
+    "armorType": "ClothesType",
+    "armorClassValue": 10,
     "isBaseArmorClass": true,
     "maxDexterityBonus": -1,
     "requiresMinimalStrength": false,
@@ -194,7 +194,7 @@
       "Shape",
       "Both",
       "Both",
-      "Armor",
+      "Both",
       "Shape",
       "Armor",
       "Armor",
@@ -221,8 +221,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "MonkArmor",
-    "description": "MonkArmor",
+    "title": "Equipment/&Monk_Armor_Title",
+    "description": "Equipment/&Monk_Armor_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "05be6fd345d7f7240a0d23dc228497ca",

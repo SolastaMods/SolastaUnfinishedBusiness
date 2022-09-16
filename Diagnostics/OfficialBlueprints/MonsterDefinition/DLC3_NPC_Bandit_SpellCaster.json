@@ -127,8 +127,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_Dominion_Arcanist_F:67f15c3fed140204fb7533da17951c87",
       "Definition:NPC_Presentation_DLC3_Dominion_Arcanist_M:6845fd671f698f744b832b8468e17ed5"

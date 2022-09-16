@@ -138,8 +138,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Female_01:e1fa56dcf50b4ba4790b8e53ac101375",
       "Definition:NPC_Presentation_DLC1_Dominion_Soldier_Female_02:80cb39a2b061b9b4aa0fbc0aaaee03f8",

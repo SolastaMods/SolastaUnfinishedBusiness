@@ -2,6 +2,8 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "FavoredEnemy",
   "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "SpecificCharacterFamily",
   "requiredProperty": "None",

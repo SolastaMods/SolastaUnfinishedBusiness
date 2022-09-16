@@ -2,6 +2,8 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "ColdEmbrace",
   "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "SpellDamagesTarget",
   "requiredProperty": "None",

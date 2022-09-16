@@ -2,6 +2,8 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "SmiteTheHidden",
   "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [
     "Definition:AdditionalDamageOathOfTirmarSmiteTheHiddenDarkvision:be0b60397da143a449351695d8a944e5",
     "Definition:AdditionalDamageOathOfTirmarSmiteTheHiddenShapeChanger:2cd4ec71f4c3ac64f807238cc6a8110d"

@@ -120,8 +120,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_Dominion_Rookie_F:12f87487940bd4545af93e8be7dad575",
       "Definition:NPC_Presentation_DLC1_Dominion_Rookie_M:fae23b828e87e224e871408d42ea3e99"

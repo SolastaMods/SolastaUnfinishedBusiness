@@ -8,7 +8,7 @@
   "minStartLevel": 1,
   "maxStartLevel": 1,
   "maxLevelImport": 12,
-  "levelCap": 16,
+  "levelCap": 12,
   "predefinedParty": [],
   "calendar": "Definition:SolastanCalendar:59113df69a4ea89479030146cc95b63d",
   "startYear": 1024,

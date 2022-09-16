@@ -185,8 +185,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_Gallivan_Druid_F_1:e483805083141fa4dad447aeb1fa9ccf",
       "Definition:NPC_Presentation_DLC3_Gallivan_Druid_F_2:2ac940655be7a434a860340ac4ca1611",

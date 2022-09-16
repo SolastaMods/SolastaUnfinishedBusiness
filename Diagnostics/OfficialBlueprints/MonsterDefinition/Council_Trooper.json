@@ -105,8 +105,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_CouncilTrooper_female_04:48e2bd507af886c4fa329484bef70ff1",
       "Definition:NPC_Presentation_CouncilTrooper_female_05:20ba3282d7a0ead4281b7cb51c386576",

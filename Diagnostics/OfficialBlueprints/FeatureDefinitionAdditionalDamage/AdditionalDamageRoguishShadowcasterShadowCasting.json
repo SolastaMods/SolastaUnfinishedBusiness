@@ -2,6 +2,8 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "SneakAttack",
   "limitedUsage": "OncePerTurn",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AdvantageOrNearbyAlly",
   "requiredProperty": "SpellWithAttackRoll",

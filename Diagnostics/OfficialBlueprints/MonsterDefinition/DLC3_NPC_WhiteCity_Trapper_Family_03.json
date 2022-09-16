@@ -138,8 +138,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man01:92083098c12c12c4998f563721a0c834",
       "Definition:NPC_Presentation_Generic_Citizen_Human_Commoner_man01:405263572cf379b4e9fa1156b278bac9",

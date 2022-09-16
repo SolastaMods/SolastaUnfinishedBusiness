@@ -139,8 +139,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_HumanClan_Archer_F_03:3c397e8263473954591512f8cd9ce2dc",
       "Definition:NPC_Presentation_DLC3_HumanClan_Archer_F_04:bd4351ce8748ed64589a27beb058e464",

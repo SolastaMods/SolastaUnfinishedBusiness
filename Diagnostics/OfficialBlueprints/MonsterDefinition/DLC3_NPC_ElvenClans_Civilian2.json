@@ -132,8 +132,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_ElvenClans_Civilian_Female_02:c0a01572c34bde341828540c5e2111f6",
       "Definition:NPC_Presentation_DLC3_ElvenClans_Civilian_Male_02:4317d66d1ecaa0545bfacc135d6fd4ff"

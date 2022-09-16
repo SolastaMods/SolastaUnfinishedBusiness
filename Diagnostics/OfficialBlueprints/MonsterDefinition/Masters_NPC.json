@@ -148,8 +148,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Manacalon_Magister:adfb03bbfed050e49b20d107c884d238",
       "Definition:NPC_Presentation_Manacalon_Master1_Evocation:62d405a9b30da1d4296c656eca715f44",

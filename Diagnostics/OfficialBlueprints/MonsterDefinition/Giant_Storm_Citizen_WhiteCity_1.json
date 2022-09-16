@@ -72,7 +72,29 @@
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
   "defaultBattleDecisionPackage": "Definition:GiantDefaultCombatDecisions:fab51e461a5de8f4591fccf4e19bb205",
-  "threatEvaluatorDefinition": null,
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeDamageDealers"
+  },
   "languages": [
     "Language_Common",
     "Language_Giant"
@@ -134,8 +156,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -183,7 +204,7 @@
     },
     "hasPrefabVariants": true,
     "monsterPresentationDefinitions": [
-      "Definition:Giant_Fire_Presentation:b8e1db5a1e3612543ac2858074a4afcb"
+      "Definition:Giant_Fire_Presentation_Citizen_WhiteCity:1a5d2e338ab065349b97dacd693eca29"
     ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -235,7 +256,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&Hjalmar_Title",
+    "title": "Monster/&StormGiant_Title",
     "description": "Monster/&StormGiant_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

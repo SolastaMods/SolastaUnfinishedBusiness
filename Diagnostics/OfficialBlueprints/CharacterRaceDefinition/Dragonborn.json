@@ -120,7 +120,9 @@
       "Voice",
       "Backstory",
       "Pronoun",
-      "Scars"
+      "Scars",
+      "Horns",
+      "Tail"
     ],
     "needBeard": false,
     "defaultMusculature": 100,
@@ -151,7 +153,11 @@
       "Horns_A"
     ],
     "femaleHornsOptions": [
-      "Horns_A"
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E"
     ],
     "maleTailOptions": [
       "Tail_A"
@@ -165,6 +171,7 @@
     "showHelmet": false,
     "showGauntlets": false,
     "showShoes": false,
+    "hasGenderRelatedBodyDecoration": true,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM1",

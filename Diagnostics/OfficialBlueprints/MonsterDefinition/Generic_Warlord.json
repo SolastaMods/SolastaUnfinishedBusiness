@@ -125,8 +125,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Generic_Warlord03:59ccaab9ef8222843a6b8d459202ab79",
       "Definition:NPC_Presentation_Generic_Warlord02:9297226cde71f58428507f77310d7e4e",

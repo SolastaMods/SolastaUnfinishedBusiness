@@ -163,8 +163,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_HumanClansCaporal:e0c346894b94cb94d9fb87170584894d",
       "Definition:NPC_Presentation_DLC3_HumanClansCaporal_relax:c3f5810767352054690596a2c9d6a913"

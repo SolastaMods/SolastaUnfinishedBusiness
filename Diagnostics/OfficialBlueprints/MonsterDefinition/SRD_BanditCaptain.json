@@ -126,8 +126,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Generic_Guard_Dwarf_Female:dc17375f8d0bb6f4b85b4a96109e8aae",
       "Definition:NPC_Presentation_Generic_Guard_Dwarf_Male:f059270f9d462d94ba70f018c728ff0b",

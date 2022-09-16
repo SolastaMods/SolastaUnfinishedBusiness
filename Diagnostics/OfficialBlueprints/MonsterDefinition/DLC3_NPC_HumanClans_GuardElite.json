@@ -134,8 +134,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_HumanClan_Soldier_F_03:1d9364f65c9bb1c449912dc64a44f3bb",
       "Definition:NPC_Presentation_DLC3_HumanClan_Soldier_F_04:33b9a0cd53bc86a439d15faa289b39c4",

@@ -113,8 +113,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Generic_ShockArcanist_M:826bb576229f67e4fa9dcfd4604eae61",
       "Definition:NPC_Presentation_Generic_ShockArcanist_F:953fb945b45b38d45b1bdfd1969be014"

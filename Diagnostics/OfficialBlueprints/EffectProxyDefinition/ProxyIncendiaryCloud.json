@@ -84,10 +84,10 @@
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
       "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
-      "objectName": "Play_Vfx_CONJ_Cloudkill_Cell_Start",
-      "id": 1872162417,
-      "guid": "071802F5-D46E-49CF-B7ED-265935F1A33F",
-      "name": "071802F5-D46E-49CF-B7ED-265935F1A33F"
+      "objectName": "Play_Vfx_CONJ_IncendiaryCloud_Cell_Loop",
+      "id": 897095239,
+      "guid": "4634BEDB-EA84-49E7-B098-6FC148915FE2",
+      "name": "4634BEDB-EA84-49E7-B098-6FC148915FE2"
     },
     "idInternal": 0,
     "valueGuidInternal": {
@@ -97,7 +97,13 @@
   },
   "stopEvent": {
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Stop_Vfx_CONJ_IncendiaryCloud_Cell_Loop",
+      "id": 2752027681,
+      "guid": "01EF14DF-0EFA-4D46-8DC6-94557BBEC236",
+      "name": "01EF14DF-0EFA-4D46-8DC6-94557BBEC236"
+    },
     "idInternal": 0,
     "valueGuidInternal": {
       "$type": "System.Byte[], mscorlib",

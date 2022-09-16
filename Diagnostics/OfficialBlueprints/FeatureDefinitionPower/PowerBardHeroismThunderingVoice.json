@@ -359,8 +359,8 @@
     "description": "Feature/&PowerBardHeroismThunderingVoiceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "db3896805cb5f36489953815b7600393",
-      "m_SubObjectName": "ThunderingVoice",
+      "m_AssetGUID": "a13e50e4e5feb744c9a2aec280c8eb3d",
+      "m_SubObjectName": "SolidColorWhite",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

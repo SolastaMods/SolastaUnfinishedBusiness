@@ -6,7 +6,7 @@
   "grantedFeature": null,
   "grantedSpell": "Definition:HoldMonsterInvocationChainsCarceri:d15b334e08fce8b41aa841025b48b976",
   "consumesSpellSlot": false,
-  "longRestRecharge": true,
+  "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

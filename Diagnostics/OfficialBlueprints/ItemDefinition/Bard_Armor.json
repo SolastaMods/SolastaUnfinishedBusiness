@@ -221,12 +221,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Bard_Armor",
-    "description": "Bard_Armor",
+    "title": "Equipment/&Armor_Bard_Title",
+    "description": "Equipment/&Armor_Bard_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "05be6fd345d7f7240a0d23dc228497ca",
-      "m_SubObjectName": "LeatherArmor",
+      "m_AssetGUID": "68a18e6dddfb98d4f831eb1b3eb725d4",
+      "m_SubObjectName": "Bard_Armor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

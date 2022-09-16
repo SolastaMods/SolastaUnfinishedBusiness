@@ -134,8 +134,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_Gallivan_Soldier_F_01:a404358152bb6ce448a5031a23374b1d",
       "Definition:NPC_Presentation_DLC3_Gallivan_Soldier_F_02:8503582e77b7a5249b6e76e0618afa99"

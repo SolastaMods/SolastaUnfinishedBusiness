@@ -2,6 +2,8 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "RadiantStrikes",
   "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [
     "Definition:AdditionalDamageTraditionLightRadiantStrikesLuminousKi:3f5334a4af8163f4981d188e71cf727f"
   ],

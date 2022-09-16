@@ -69,20 +69,15 @@
           "equipmentOptions": [
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
-              "optionType": "StarterPack",
-              "itemReference": "Definition:DiplomatPack:6184c71b7ad361c4c8ab004d3c66e579",
+              "optionType": "Armor",
+              "itemReference": "Definition:Bard_Armor:d041a8030f0a2f34abc7df69f32bd8c5",
               "defaultChoice": "",
               "number": 1
-            }
-          ]
-        },
-        {
-          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
-          "equipmentOptions": [
+            },
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
-              "optionType": "StarterPack",
-              "itemReference": "Definition:EntertainerPack:955a82bd013a3e04a98e6735c808d8df",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
               "defaultChoice": "",
               "number": 1
             }
@@ -99,15 +94,20 @@
           "equipmentOptions": [
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
-              "optionType": "Armor",
-              "itemReference": "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:DiplomatPack:6184c71b7ad361c4c8ab004d3c66e579",
               "defaultChoice": "",
               "number": 1
-            },
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
-              "optionType": "Weapon",
-              "itemReference": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:EntertainerPack:955a82bd013a3e04a98e6735c808d8df",
               "defaultChoice": "",
               "number": 1
             }
@@ -309,10 +309,11 @@
     "EnchantingToolType"
   ],
   "expertiseAutolearnPreference": [
-    "Performance",
     "Acrobatics",
     "Persuasion",
-    "Perception"
+    "Perception",
+    "Stealth",
+    "Performance"
   ],
   "featAutolearnPreference": [
     "PowerfulCantrip",

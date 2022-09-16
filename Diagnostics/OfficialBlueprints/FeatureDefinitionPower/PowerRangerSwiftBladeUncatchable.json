@@ -246,7 +246,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "2ba55615c76d04e4dadc252484c2262a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -258,7 +258,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "e599a872af723074b88dbcb9c9d55ff6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

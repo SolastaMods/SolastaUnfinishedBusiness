@@ -4,11 +4,11 @@
   "poolAmount": 1,
   "restrictedChoices": [],
   "uniqueChoices": true,
-  "spellListOverride": null,
+  "spellListOverride": "Definition:SpellListDruid:f192117ea9cbe334cba0849993779ae8",
   "ritualOnly": false,
   "minSpellLevel": 0,
   "maxSpellLevel": 9,
-  "extraSpellsTag": "",
+  "extraSpellsTag": "BonusCantrips",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

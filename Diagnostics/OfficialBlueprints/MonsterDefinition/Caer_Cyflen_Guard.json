@@ -105,8 +105,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_CaerCyflenCityGuard_female_01:8000000000000000f091daed10200000",
       "Definition:NPC_Presentation_CaerCyflenCityGuard_female_02:99fca04268f97f544bc2c6ec813f2ac8",

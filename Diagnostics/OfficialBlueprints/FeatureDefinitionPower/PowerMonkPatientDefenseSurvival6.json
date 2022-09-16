@@ -371,7 +371,7 @@
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": "Definition:PowerMonkPatientDefenseSurvival3:5b492cfd4be376347ba9668f2aa12ca5",
-  "includeBaseDescription": true,
+  "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

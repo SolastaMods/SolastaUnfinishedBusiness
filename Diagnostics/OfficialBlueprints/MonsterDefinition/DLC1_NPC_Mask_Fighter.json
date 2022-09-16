@@ -105,8 +105,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_Mask_Fighter_Female_01:234eb5b627482ab4da05e54b16c190dd",
       "Definition:NPC_Presentation_DLC1_Mask_Fighter_Female_02:074976f51fbcb4742937709985a23df5",

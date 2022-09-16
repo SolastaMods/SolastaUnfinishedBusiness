@@ -107,7 +107,7 @@
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
-              "itemReference": "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",
+              "itemReference": "Definition:Warlock_Armor:899d2c68ed186cc4382856a2ca3ed611",
               "defaultChoice": "",
               "number": 1
             },

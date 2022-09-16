@@ -135,7 +135,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "75d39fa41f17ce0418a4c55216604953",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

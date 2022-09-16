@@ -131,8 +131,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_NPC_Complex_Mana_Crafter:422ee9aa2df111d4c92a2225ebdcd920",
       "Definition:NPC_Presentation_DLC1_NPC_Complex_Mana_Crafter1:1de9f8ee105edce41a0a2e2c14eb1af7",

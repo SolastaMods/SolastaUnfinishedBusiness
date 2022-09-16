@@ -5,6 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:ConditionAffinityCharmedAdvantage:e4320fb657099654db90051c91a9df94",
+    "Definition:ConditionAffinityCharmedAdvantageHypnoticPattern:4f71c603164e8884dbb11d092d443fb6",
     "Definition:ConditionAffinityFrightenedAdvantage:2bcc676fe28ff274087e76a31e0b45ed"
   ],
   "allowMultipleInstances": false,

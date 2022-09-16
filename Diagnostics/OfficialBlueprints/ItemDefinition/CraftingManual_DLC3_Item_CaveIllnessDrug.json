@@ -213,8 +213,8 @@
     "description": "Equipment/&CraftingManualDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f208675cc74e7464a8788433336dabc0",
-      "m_SubObjectName": "RecipeManual3",
+      "m_AssetGUID": "048174199660fb640982d6e1d333c6a8",
+      "m_SubObjectName": "DLC3_Recipe_CaveIllnessDrug",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -122,8 +122,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Generic_CultFanatic_F:bcc552a495e3089498c97a0c48a8a604",
       "Definition:NPC_Presentation_Generic_CultFanatic_M:dfbb41de1966ad144833044d381abd1a"

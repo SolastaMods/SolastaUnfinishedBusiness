@@ -137,8 +137,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_NPC_Complex_Guard_Captain:2a41fe1569be03a4488fbdc384747d36",
       "Definition:NPC_Presentation_DLC1_NPC_Complex_Guard_Captain 1:457183de283c19a4f9b65be3a42323ff",

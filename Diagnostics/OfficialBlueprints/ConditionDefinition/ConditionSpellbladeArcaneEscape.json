@@ -44,13 +44,13 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "8bc6a625e714ba043a1d90d489520d99",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "aa315960d51fe0149842924060067b43",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -224,7 +224,7 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&PowerMartialSpellbladeArcaneEscapeTitle",
     "description": "Feature/&PowerMartialSpellbladeArcaneEscapeDescription",
     "spriteReference": {

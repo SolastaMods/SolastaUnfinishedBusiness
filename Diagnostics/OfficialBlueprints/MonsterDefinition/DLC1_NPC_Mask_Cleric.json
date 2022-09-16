@@ -95,8 +95,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_Mask_Cleric_Female_01:36ee8d383a5bfc24aa2bc11a291d425a",
       "Definition:NPC_Presentation_DLC1_Mask_Cleric_Female_02:208d49545a63818478f52053d3ae9216",

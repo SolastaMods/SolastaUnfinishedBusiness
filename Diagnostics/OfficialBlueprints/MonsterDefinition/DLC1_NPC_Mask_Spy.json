@@ -114,8 +114,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_Mask_Spy_Female_01:b6d2485fdf14e97429d543ea33c7191c",
       "Definition:NPC_Presentation_DLC1_Mask_Spy_Female_02:181ba195df2663f4a904592e1b16ef18",

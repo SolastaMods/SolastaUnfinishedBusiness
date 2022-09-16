@@ -49,7 +49,7 @@
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
-    "grantedConditionOnSave": "Definition:ConditionDreadfulGlareImmunity:c12c835b23326be43988d6285fd4f442",
+    "grantedConditionOnSave": "Definition:ConditionResistedHezrouStench:dee041f3d1557f5449b4c76832da530c",
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,

@@ -85,8 +85,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Mayor_Kiaradth_Bright-Spark:8bcc4d73663e7ac4ea8069dc3759eae2"
     ],

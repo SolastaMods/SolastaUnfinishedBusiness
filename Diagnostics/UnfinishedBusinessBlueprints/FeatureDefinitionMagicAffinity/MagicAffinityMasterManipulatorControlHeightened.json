@@ -60,6 +60,7 @@
   "preserveSlotThreshold": 20,
   "preserveSlotLevelCap": 5,
   "healingPerSpentSorceryPoint": 0,
+  "sorceryPointAlteredParticle": null,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

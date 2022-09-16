@@ -148,8 +148,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_ScavengerFemale02:7d6cc2aad304be64b820323e47272ca2",
       "Definition:NPC_Presentation_DLC3_ScavengerMale01:41e1eb92d1e659c429c493bafdbae54a"

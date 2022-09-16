@@ -127,8 +127,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_Gallivan_Archer_F_01:fec972ad03b3d2945ae8c4480da7e3ca",
       "Definition:NPC_Presentation_DLC3_Gallivan_Archer_M_01:dc7e832290086744c8182831a443cc8b"
