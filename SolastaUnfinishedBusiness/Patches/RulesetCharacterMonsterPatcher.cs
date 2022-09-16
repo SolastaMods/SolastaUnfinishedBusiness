@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 
@@ -18,7 +19,7 @@ internal static class RulesetCharacterMonsterPatcher
             //PATCH: Fixes AC calculation for MC shape-shifters
             //Instead of setting monster's AC as base it adds it as a Natural Armor value
             //And adds base 10 and dex AC modifiers too, so they can mix with unarmored defense if needed
-            ArmorClassStacking.FixShapeShiftedAC(__instance);
+            WildshapeTweaks.FixShapeShiftedAC(__instance);
 
             //PATCH: allows us to change monsters created by Dead Master
             //TODO: Consider using `FeatureDefinitionSummoningAffinity` for this
@@ -33,35 +34,7 @@ internal static class RulesetCharacterMonsterPatcher
         internal static void Postfix(RulesetCharacterMonster __instance)
         {
             //PATCH: support for rage/ki/other stuff while shape-shifted
-            if (__instance.originalFormCharacter is not RulesetCharacterHero hero)
-            {
-                return;
-            }
-
-            // sync rage points (ruleset keeps rage data in other places so we need to call this method to sync)
-            var rageCount = hero.UsedRagePoints;
-
-            while (rageCount-- > 0)
-            {
-                __instance.SpendRagePoint();
-            }
-
-            // sync ki points (ruleset keeps ki data in other places so we need to call this method to sync)
-            __instance.ForceKiPointConsumption(hero.UsedKiPoints);
-
-            // copy modifiers from original hero
-            hero.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(__instance.FeaturesToBrowse);
-
-            foreach (var feature in __instance.FeaturesToBrowse)
-            {
-                if (feature is not FeatureDefinitionAttributeModifier mod ||
-                    !__instance.TryGetAttribute(mod.ModifiedAttribute, out _))
-                {
-                    continue;
-                }
-
-                mod.ApplyModifiers(__instance.Attributes, ArmorClassStacking.TagWildShape);
-            }
+            WildshapeTweaks.UpdateAtributeModifiers(__instance);
         }
     }
 

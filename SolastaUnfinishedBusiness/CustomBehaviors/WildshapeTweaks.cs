@@ -1,0 +1,130 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
+
+internal static class WildshapeTweaks
+{
+    private const string TagWildShape = "99WildShape";
+    private const string NaturalACTitle = "Tooltip/&CEMonsterNaturalArmorTitle";
+    private const string TagMonsterBase = "<Base>";
+    private const string TagNaturalAC = "<NaturalArmor>";
+
+    public static void UpdateAtributeModifiers(RulesetCharacterMonster monster)
+    {
+        if (monster.originalFormCharacter is not RulesetCharacterHero hero)
+        {
+            return;
+        }
+
+        // sync rage points (ruleset keeps rage data in other places so we need to call this method to sync)
+        var rageCount = hero.UsedRagePoints;
+
+        while (rageCount-- > 0)
+        {
+            monster.SpendRagePoint();
+        }
+
+        // sync ki points (ruleset keeps ki data in other places so we need to call this method to sync)
+        monster.ForceKiPointConsumption(hero.UsedKiPoints);
+        
+        // copy modifiers from original hero
+        hero.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(monster.FeaturesToBrowse);
+
+        foreach (var feature in monster.FeaturesToBrowse)
+        {
+            if (feature is not FeatureDefinitionAttributeModifier mod ||
+                !monster.TryGetAttribute(mod.ModifiedAttribute, out _))
+            {
+                continue;
+            }
+
+            mod.ApplyModifiers(monster.Attributes, TagWildShape);
+        }
+    }
+
+    public static void FixShapeShiftedAC(RulesetCharacterMonster monster)
+    {
+        if (monster.originalFormCharacter is not RulesetCharacterHero)
+        {
+            return;
+        }
+
+        //for some reason TA didn't set armor ptoperly and many game checks consider these forms as armored (1.4.8)
+        //set armor to 'Natural' as intended
+        monster.MonsterDefinition.armor = EquipmentDefinitions.EmptyMonsterArmor;
+
+        var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
+        RulesetAttributeModifier mod;
+
+        //Vanilla game (as of 1.4.8) sets this to monster's AC from definition
+        //this breaks many AC stacking rules
+        //set base AC to 0, so we can properly apply modifiers to it
+        ac.BaseValue = 0;
+
+        //basic AC - sets AC to 10
+        mod = RulesetAttributeModifier.BuildAttributeModifier(
+            FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
+            10, WildshapeTweaks.TagMonsterBase
+        );
+        ac.AddModifier(mod);
+
+        //natural armor of the monster
+        mod = RulesetAttributeModifier.BuildAttributeModifier(
+            FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
+            monster.MonsterDefinition.ArmorClass, WildshapeTweaks.TagNaturalAC
+        );
+        mod.tags.Add(ExclusiveACBonus.TagNaturalArmor);
+        ac.AddModifier(mod);
+
+        //DEX bonus to AC
+        mod = RulesetAttributeModifier.BuildAttributeModifier(
+            FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus,
+            0,
+            AttributeDefinitions.TagAbilityScore,
+            AttributeDefinitions.Dexterity
+        );
+        ac.AddModifier(mod);
+    }
+
+    public static void RefrestWildShapeACFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
+    {
+        var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
+        ac.RemoveModifiersByTags(TagWildShape);
+        monster.FeaturesToBrowse.Clear();
+        monster.EnumerateFeaturesToBrowse<FeatureDefinition>(monster.FeaturesToBrowse);
+        monster.RefreshArmorClassInFeatures(ruleset, ac, monster.FeaturesToBrowse, TagWildShape,
+            RuleDefinitions.FeatureSourceType.CharacterFeature, string.Empty);
+    }
+
+    public static void UpdateWildShapeACTrends(List<RulesetAttributeModifier> modifiers,
+        RulesetCharacterMonster monster, RulesetAttribute ac)
+    {
+        //Add trends for built-in AC mods (base ac, natural armor, dex bonus)
+        foreach (var mod in modifiers)
+        {
+            if (mod.Tags.Contains(TagMonsterBase))
+            {
+                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int) mod.value,
+                    RuleDefinitions.FeatureSourceType.Base, string.Empty, monster, mod)
+                {
+                    additive = false
+                });
+            }
+            else if (mod.Tags.Contains(TagNaturalAC))
+            {
+                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int) mod.value,
+                    RuleDefinitions.FeatureSourceType.ExplicitFeature, NaturalACTitle, monster, mod)
+                {
+                    additive = false
+                });
+            }
+            else if (mod.operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus
+                     && mod.SourceAbility == AttributeDefinitions.Dexterity)
+            {
+                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo(Mathf.RoundToInt(mod.Value),
+                    RuleDefinitions.FeatureSourceType.AbilityScore, mod.SourceAbility, monster, mod) {additive = true});
+            }
+        }
+    }
+}

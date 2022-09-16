@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
-using UnityEngine;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -453,12 +452,6 @@ internal static class ConjurationsContext
 
 internal static class ArmorClassStacking
 {
-    public const string TagWildShape = "99WildShape"; //TODO: should find better place for this constant
-    private const string TagMonsterBase = "<Base>";
-    private const string TagNaturalAC = "<NaturalArmor>";
-    private const string NaturalACTitle = "Tooltip/&CEMonsterNaturalArmorTitle";
-
-
     //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
     public static IEnumerable<CodeInstruction> AddCustomTagsToModifierBuilderInCharacter(
         IEnumerable<CodeInstruction> instructions)
@@ -637,53 +630,6 @@ internal static class ArmorClassStacking
         RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
 
-    //
-    public static void FixShapeShiftedAC(RulesetCharacterMonster monster)
-    {
-        if (monster.originalFormCharacter is not RulesetCharacterHero)
-        {
-            return;
-        }
-
-        //for some reason TA didn't set armor ptoperly and many game checks consider these forms as armored (1.4.8)
-        //set armor to 'Natural' as intended
-        monster.MonsterDefinition.armor = EquipmentDefinitions.EmptyMonsterArmor;
-
-        var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
-        RulesetAttributeModifier mod;
-
-        //Vanilla game (as of 1.4.8) sets this to monster's AC from definition
-        //this breaks many AC stacking rules
-        //set base AC to 0, so we can properly apply modifiers to it
-        ac.BaseValue = 0;
-
-        //basic AC - sets AC to 10
-        mod = RulesetAttributeModifier.BuildAttributeModifier(
-            AttributeModifierOperation.Set,
-            10,
-            TagMonsterBase
-        );
-        ac.AddModifier(mod);
-
-        //natural armor of the monster
-        mod = RulesetAttributeModifier.BuildAttributeModifier(
-            AttributeModifierOperation.Set,
-            monster.MonsterDefinition.ArmorClass,
-            TagNaturalAC
-        );
-        mod.tags.Add(ExclusiveACBonus.TagNaturalArmor);
-        ac.AddModifier(mod);
-
-        //DEX bonus to AC
-        mod = RulesetAttributeModifier.BuildAttributeModifier(
-            AttributeModifierOperation.AddAbilityScoreBonus,
-            0,
-            AttributeDefinitions.TagAbilityScore,
-            AttributeDefinitions.Dexterity
-        );
-        ac.AddModifier(mod);
-    }
-
     public static IEnumerable<CodeInstruction> AddACTrendsToMonsterACRefreshTranspiler(
         IEnumerable<CodeInstruction> instructions)
     {
@@ -714,49 +660,9 @@ internal static class ArmorClassStacking
     {
         var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
 
-        RefrestWildShapeACFeatures(monster, ac);
-        UpdateWildShapeACTrends(modifiers, monster, ac);
+        WildshapeTweaks.RefrestWildShapeACFeatures(monster, ac);
+        WildshapeTweaks.UpdateWildShapeACTrends(modifiers, monster, ac);
         UnstackAc(modifiers, monster); // also sorts modifiers
-    }
-
-    private static void RefrestWildShapeACFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
-    {
-        var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
-        ac.RemoveModifiersByTags(TagWildShape);
-        monster.FeaturesToBrowse.Clear();
-        monster.EnumerateFeaturesToBrowse<FeatureDefinition>(monster.FeaturesToBrowse);
-        monster.RefreshArmorClassInFeatures(ruleset, ac, monster.FeaturesToBrowse, TagWildShape,
-            FeatureSourceType.CharacterFeature, string.Empty);
-    }
-
-    private static void UpdateWildShapeACTrends(List<RulesetAttributeModifier> modifiers,
-        RulesetCharacterMonster monster, RulesetAttribute ac)
-    {
-        //Add trends for built-in AC mods (base ac, natural armor, dex bonus)
-        foreach (var mod in modifiers)
-        {
-            if (mod.Tags.Contains(TagMonsterBase))
-            {
-                ac.ValueTrends.Add(new TrendInfo((int) mod.value, FeatureSourceType.Base, string.Empty, monster, mod)
-                {
-                    additive = false
-                });
-            }
-            else if (mod.Tags.Contains(TagNaturalAC))
-            {
-                ac.ValueTrends.Add(new TrendInfo((int) mod.value,
-                    FeatureSourceType.ExplicitFeature, NaturalACTitle, monster, mod)
-                {
-                    additive = false
-                });
-            }
-            else if (mod.operation == AttributeModifierOperation.AddAbilityScoreBonus
-                     && mod.SourceAbility == AttributeDefinitions.Dexterity)
-            {
-                ac.ValueTrends.Add(new TrendInfo(Mathf.RoundToInt(mod.Value),
-                    FeatureSourceType.AbilityScore, mod.SourceAbility, monster, mod) {additive = true});
-            }
-        }
     }
 }
 
