@@ -87,16 +87,24 @@ internal static class SpellRepertoirePanelPatcher
         internal static void Postfix(SpellRepertoirePanel __instance)
         {
             var spellRepertoire = __instance.SpellRepertoire;
-            var classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-            var slotLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
 
-            if (spellRepertoire.SpellCastingRace == null)
+            int classSpellLevel;
+            int slotLevel;
+
+            // determines the display context
+            if (spellRepertoire.SpellCastingRace != null)
+            {
+                classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                slotLevel = 0;
+            }
+            else
             {
                 var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
                 var isSharedcaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
 
+                classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
                 slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);
             }
 
