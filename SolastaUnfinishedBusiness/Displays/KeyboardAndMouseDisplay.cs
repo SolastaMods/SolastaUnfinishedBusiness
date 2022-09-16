@@ -5,22 +5,22 @@ namespace SolastaUnfinishedBusiness.Displays;
 internal static class KeyboardAndMouseDisplay
 {
     private static bool SelectAll { get; set; } =
-        Main.Settings.EnableHotkeyToggleIndividualHud &&
+        // Main.Settings.EnableHotkeyToggleIndividualHud &&
         Main.Settings.EnableHotkeyToggleHud &&
         Main.Settings.EnableCharacterExport &&
         Main.Settings.EnableHotkeyDebugOverlay &&
-        Main.Settings.EnableHotkeyZoomCamera &&
+        // Main.Settings.EnableHotkeyZoomCamera &&
         Main.Settings.EnableTeleportParty &&
         Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView &&
         Main.Settings.InvertAltBehaviorOnTooltips;
 
     private static void UpdateSettings(bool flag)
     {
-        Main.Settings.EnableHotkeyToggleIndividualHud = flag;
+        // Main.Settings.EnableHotkeyToggleIndividualHud = flag;
         Main.Settings.EnableHotkeyToggleHud = flag;
         Main.Settings.EnableCharacterExport = flag;
         Main.Settings.EnableHotkeyDebugOverlay = flag;
-        Main.Settings.EnableHotkeyZoomCamera = flag;
+        // Main.Settings.EnableHotkeyZoomCamera = flag;
         Main.Settings.EnableTeleportParty = flag;
         Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = flag;
         Main.Settings.InvertAltBehaviorOnTooltips = flag;
@@ -43,13 +43,12 @@ internal static class KeyboardAndMouseDisplay
 
         UI.Label("");
 
-        // NO NEED TO TRANSLATE THIS
-        toggle = Main.Settings.EnableHotkeyToggleIndividualHud;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyToggleIndividualHud"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableHotkeyToggleIndividualHud = toggle;
-            SelectAll = false;
-        }
+        // toggle = Main.Settings.EnableHotkeyToggleIndividualHud;
+        // if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyToggleIndividualHud"), ref toggle, UI.AutoWidth()))
+        // {
+        //     Main.Settings.EnableHotkeyToggleIndividualHud = toggle;
+        //     SelectAll = false;
+        // }
 
         toggle = Main.Settings.EnableHotkeyToggleHud;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyToggleHud"), ref toggle, UI.AutoWidth()))
@@ -76,12 +75,12 @@ internal static class KeyboardAndMouseDisplay
             SelectAll = false;
         }
 
-        toggle = Main.Settings.EnableHotkeyZoomCamera;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyZoomCamera"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableHotkeyZoomCamera = toggle;
-            SelectAll = false;
-        }
+        // toggle = Main.Settings.EnableHotkeyZoomCamera;
+        // if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyZoomCamera"), ref toggle, UI.AutoWidth()))
+        // {
+        //     Main.Settings.EnableHotkeyZoomCamera = toggle;
+        //     SelectAll = false;
+        // }
 
         toggle = Main.Settings.EnableTeleportParty;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableTeleportParty"), ref toggle))
@@ -106,10 +105,8 @@ internal static class KeyboardAndMouseDisplay
             SelectAll = false;
         }
 
-        #endregion
+        UI.Label("");
 
-        UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
-        UI.Label("");
+        #endregion
     }
 }

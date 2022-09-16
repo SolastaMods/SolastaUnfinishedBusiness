@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Utils;
@@ -128,14 +127,14 @@ internal static class GameUiContext
         inputService.RegisterCommand(InputCommands.Id.EditorRotate, (int)KeyCode.R, (int)KeyCode.LeftShift);
 
         // HUD
-        inputService.RegisterCommand(Hotkeys.CtrlShiftC, (int)KeyCode.C, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CtrlShiftL, (int)KeyCode.L, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CtrlShiftM, (int)KeyCode.M, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(Hotkeys.CtrlShiftP, (int)KeyCode.P, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
+        // inputService.RegisterCommand(Hotkeys.CtrlShiftC, (int)KeyCode.C, (int)KeyCode.LeftShift,
+        //     (int)KeyCode.LeftControl);
+        // inputService.RegisterCommand(Hotkeys.CtrlShiftL, (int)KeyCode.L, (int)KeyCode.LeftShift,
+        //     (int)KeyCode.LeftControl);
+        // inputService.RegisterCommand(Hotkeys.CtrlShiftM, (int)KeyCode.M, (int)KeyCode.LeftShift,
+        //     (int)KeyCode.LeftControl);
+        // inputService.RegisterCommand(Hotkeys.CtrlShiftP, (int)KeyCode.P, (int)KeyCode.LeftShift,
+        //     (int)KeyCode.LeftControl);
         inputService.RegisterCommand(Hotkeys.CtrlShiftH, (int)KeyCode.H, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
@@ -156,33 +155,33 @@ internal static class GameUiContext
             (int)KeyCode.LeftControl);
 
         // Zoom Camera
-        inputService.RegisterCommand(Hotkeys.CtrlShiftZ, (int)KeyCode.Z, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
+        // inputService.RegisterCommand(Hotkeys.CtrlShiftZ, (int)KeyCode.Z, (int)KeyCode.LeftShift,
+        //     (int)KeyCode.LeftControl);
     }
 
     internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
     {
-        if (Main.Settings.EnableHotkeyToggleIndividualHud)
-        {
-            switch (command)
-            {
-                case Hotkeys.CtrlShiftC:
-                    GameHud.ShowCharacterControlPanel(gameLocationBaseScreen);
-                    return;
-
-                case Hotkeys.CtrlShiftL:
-                    GameHud.TogglePanelVisibility(Gui.GuiService.GetScreen<GuiConsoleScreen>());
-                    return;
-
-                case Hotkeys.CtrlShiftM:
-                    GameHud.TogglePanelVisibility(GetTimeAndNavigationPanel());
-                    return;
-
-                case Hotkeys.CtrlShiftP:
-                    GameHud.TogglePanelVisibility(GetInitiativeOrPartyPanel());
-                    return;
-            }
-        }
+        // if (Main.Settings.EnableHotkeyToggleIndividualHud)
+        // {
+        //     switch (command)
+        //     {
+        //         case Hotkeys.CtrlShiftC:
+        //             GameHud.ShowCharacterControlPanel(gameLocationBaseScreen);
+        //             return;
+        //
+        //         case Hotkeys.CtrlShiftL:
+        //             GameHud.TogglePanelVisibility(Gui.GuiService.GetScreen<GuiConsoleScreen>());
+        //             return;
+        //
+        //         case Hotkeys.CtrlShiftM:
+        //             GameHud.TogglePanelVisibility(GetTimeAndNavigationPanel());
+        //             return;
+        //
+        //         case Hotkeys.CtrlShiftP:
+        //             GameHud.TogglePanelVisibility(GetInitiativeOrPartyPanel());
+        //             return;
+        //     }
+        // }
 
         if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CtrlShiftH)
         {
@@ -196,29 +195,28 @@ internal static class GameUiContext
         {
             Teleporter.ConfirmTeleportParty();
         }
-        else if (Main.Settings.EnableHotkeyZoomCamera && command == Hotkeys.CtrlShiftZ)
-        {
-            ToggleZoomCamera();
-        }
+        // else if (Main.Settings.EnableHotkeyZoomCamera && command == Hotkeys.CtrlShiftZ)
+        // {
+        //     ToggleZoomCamera();
+        // }
         else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CtrlShiftS)
         {
             EncountersSpawnContext.ConfirmStageEncounter();
         }
 
-        void ToggleZoomCamera()
-        {
-            var cameraService = ServiceRepository.GetService<ICameraService>();
+        // void ToggleZoomCamera()
+        // {
+        //     var cameraService = ServiceRepository.GetService<ICameraService>();
+        //
+        //     if (cameraService == null)
+        //     {
+        //         return;
+        //     }
+        //
+        //     EnableDebugCamera = !EnableDebugCamera;
+        //     cameraService.DebugCameraEnabled = EnableDebugCamera;
+        // }
 
-            if (cameraService == null)
-            {
-                return;
-            }
-
-            EnableDebugCamera = !EnableDebugCamera;
-            cameraService.DebugCameraEnabled = EnableDebugCamera;
-        }
-
-        [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
         [CanBeNull]
         GuiPanel GetInitiativeOrPartyPanel()
         {
@@ -231,7 +229,6 @@ internal static class GameUiContext
             };
         }
 
-        [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
         [CanBeNull]
         TimeAndNavigationPanel GetTimeAndNavigationPanel()
         {
@@ -261,7 +258,7 @@ internal static class GameUiContext
             TogglePanelVisibility(timeAndNavigationPanel, anyVisible);
         }
 
-        internal static void ShowCharacterControlPanel([NotNull] GameLocationBaseScreen gameLocationBaseScreen,
+        private static void ShowCharacterControlPanel([NotNull] GameLocationBaseScreen gameLocationBaseScreen,
             bool forceHide = false)
         {
             var characterControlPanel = gameLocationBaseScreen.CharacterControlPanel;
@@ -286,7 +283,7 @@ internal static class GameUiContext
             }
         }
 
-        internal static void TogglePanelVisibility(GuiPanel guiPanel, bool forceHide = false)
+        private static void TogglePanelVisibility(GuiPanel guiPanel, bool forceHide = false)
         {
             if (guiPanel == null)
             {

@@ -136,6 +136,9 @@ internal static class CharacterDisplay
             {
                 Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
             }
+
+            UI.Label("");
+            UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
         }
 
         UI.Label("");

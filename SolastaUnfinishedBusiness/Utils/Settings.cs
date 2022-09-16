@@ -280,10 +280,13 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnableHotkeyToggleHud { get; set; }
-    public bool EnableHotkeyToggleIndividualHud { get; set; }
+
+    // public bool EnableHotkeyToggleIndividualHud { get; set; }
     public bool EnableCharacterExport { get; set; }
+
     public bool EnableHotkeyDebugOverlay { get; set; }
-    public bool EnableHotkeyZoomCamera { get; set; }
+
+    // public bool EnableHotkeyZoomCamera { get; set; }
     public bool EnableTeleportParty { get; set; }
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool InvertAltBehaviorOnTooltips { get; set; }
