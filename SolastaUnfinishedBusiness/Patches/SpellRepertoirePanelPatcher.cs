@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -112,14 +111,15 @@ internal static class SpellRepertoirePanelPatcher
                 spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0,
                 classSpellLevel,
                 slotLevel);
-            
+
             if (!Main.Settings.EnableMoveSorceryPointsBox)
             {
                 return;
             }
 
-            var isSorcerer = __instance.SpellRepertoire.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Sorcerer;
-            
+            var isSorcerer = __instance.SpellRepertoire.SpellCastingClass ==
+                             DatabaseHelper.CharacterClassDefinitions.Sorcerer;
+
             //PATCH: allows prepared spell casters to take metamagic feats and have a working UI
             __instance.sorceryPointsBox.gameObject.SetActive(isSorcerer);
         }

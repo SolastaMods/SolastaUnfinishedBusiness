@@ -17,14 +17,12 @@ internal static class WildshapeTweaks
         AttributeDefinitions.KiPoints,
         AttributeDefinitions.SorceryPoints,
         AttributeDefinitions.BardicInspirationDie,
-        AttributeDefinitions.BardicInspirationNumber,
+        AttributeDefinitions.BardicInspirationNumber
     };
 
     private static readonly List<string> MentalAttributes = new()
     {
-        AttributeDefinitions.Intelligence,
-        AttributeDefinitions.Wisdom,
-        AttributeDefinitions.Charisma,
+        AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma
     };
 
     public static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
@@ -93,14 +91,14 @@ internal static class WildshapeTweaks
         //basic AC - sets AC to 10
         mod = RulesetAttributeModifier.BuildAttributeModifier(
             FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-            10, WildshapeTweaks.TagMonsterBase
+            10, TagMonsterBase
         );
         ac.AddModifier(mod);
 
         //natural armor of the monster
         mod = RulesetAttributeModifier.BuildAttributeModifier(
             FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-            monster.MonsterDefinition.ArmorClass, WildshapeTweaks.TagNaturalAC
+            monster.MonsterDefinition.ArmorClass, TagNaturalAC
         );
         mod.tags.Add(ExclusiveACBonus.TagNaturalArmor);
         ac.AddModifier(mod);
@@ -133,15 +131,12 @@ internal static class WildshapeTweaks
         {
             if (mod.Tags.Contains(TagMonsterBase))
             {
-                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int) mod.value,
-                    RuleDefinitions.FeatureSourceType.Base, string.Empty, monster, mod)
-                {
-                    additive = false
-                });
+                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int)mod.value,
+                    RuleDefinitions.FeatureSourceType.Base, string.Empty, monster, mod) { additive = false });
             }
             else if (mod.Tags.Contains(TagNaturalAC))
             {
-                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int) mod.value,
+                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int)mod.value,
                     RuleDefinitions.FeatureSourceType.ExplicitFeature, NaturalACTitle, monster, mod)
                 {
                     additive = false
@@ -151,7 +146,8 @@ internal static class WildshapeTweaks
                      && mod.SourceAbility == AttributeDefinitions.Dexterity)
             {
                 ac.ValueTrends.Add(new RuleDefinitions.TrendInfo(Mathf.RoundToInt(mod.Value),
-                    RuleDefinitions.FeatureSourceType.AbilityScore, mod.SourceAbility, monster, mod) {additive = true});
+                    RuleDefinitions.FeatureSourceType.AbilityScore, mod.SourceAbility, monster,
+                    mod) { additive = true });
             }
         }
     }

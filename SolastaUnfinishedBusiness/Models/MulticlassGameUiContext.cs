@@ -299,12 +299,16 @@ public static class MulticlassGameUiContext
         {
             foreach (var spellRepertoire in localHeroCharacter.SpellRepertoires)
             {
-                if (spellRepertoire.SpellCastingFeature != spellFeature) continue;
+                if (spellRepertoire.SpellCastingFeature != spellFeature)
+                {
+                    continue;
+                }
+
                 spellRepertoire.EnumerateExtraSpellsOfLevel(group.SpellLevel, group.extraSpellsMap);
                 break;
             }
         }
-        
+
         var allSpells = spellListDefinition.SpellsByLevel[spellListDefinition.HasCantrips ? spellLevel : spellLevel - 1]
             .Spells
             .Where(spell => restrictedSchools.Count == 0 || restrictedSchools.Contains(spell.SchoolOfMagic))

@@ -78,7 +78,7 @@ internal static class SrdAndHouseRulesContext
     private static void FixRecklessAttackForReachWeapons()
     {
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless
-            .situationalContext = (SituationalContext) ExtendedSituationalContext.MainWeaponIsMelee;
+            .situationalContext = (SituationalContext)ExtendedSituationalContext.MainWeaponIsMelee;
     }
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -195,9 +195,9 @@ internal static class SrdAndHouseRulesContext
 
         // Use our logic to calculate duration for DominatePerson/Beast/Monster
         DominateBeast.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration) ExtraAdvancementDuration.DominateBeast;
+            (AdvancementDuration)ExtraAdvancementDuration.DominateBeast;
         DominatePerson.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration) ExtraAdvancementDuration.DominatePerson;
+            (AdvancementDuration)ExtraAdvancementDuration.DominatePerson;
 
         // Stops upcasting assigning non-SRD durations
         ClearAlteredDuration(ProtectionFromEnergy);
@@ -587,7 +587,11 @@ internal static class ArmorClassStacking
 
         void TryAddFormula(List<RulesetAttributeModifier> mods, float baseStat, string tag)
         {
-            if (mods.Count <= 0) return;
+            if (mods.Count <= 0)
+            {
+                return;
+            }
+
             mods.Sort((left, right) => -left.value.CompareTo(right.value));
             topFormulas.Add((baseStat + mods[0].Value, mods[0], tag));
         }
@@ -742,7 +746,7 @@ public static class StackedMaterialComponent
             {
                 item.RulesetItem,
                 item.Cost,
-                StackCountRequired = (int) Math.Ceiling(spell.SpecificMaterialComponentCostGp / (double) item.Cost)
+                StackCountRequired = (int)Math.Ceiling(spell.SpecificMaterialComponentCostGp / (double)item.Cost)
             })
             .Where(item => item.StackCountRequired <= item.RulesetItem.StackCount)
             .Select(item => new
@@ -806,7 +810,7 @@ internal static class UpcastConjureElementalAndFey
      */
     internal static bool CheckSubSpellActivated(SubspellSelectionModal __instance, int index)
     {
-        if (!Main.Settings.EnableUpcastConjureElementalAndFey || _filteredSubspells is not {Count: > 0})
+        if (!Main.Settings.EnableUpcastConjureElementalAndFey || _filteredSubspells is not { Count: > 0 })
         {
             return true;
         }
