@@ -79,7 +79,7 @@ internal static class SrdAndHouseRulesContext
     private static void FixRecklessAttackForReachWeapons()
     {
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless
-            .situationalContext = (RuleDefinitions.SituationalContext) ExtendedSituationalContext.MainWeaponIsMelee;
+            .situationalContext = (SituationalContext) ExtendedSituationalContext.MainWeaponIsMelee;
     }
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -87,16 +87,16 @@ internal static class SrdAndHouseRulesContext
         // Use the shocked condition affinity which has the desired effect
         if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
         {
-            if (!DatabaseHelper.ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionShocked))
+            if (!ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionShocked))
             {
-                DatabaseHelper.ConditionDefinitions.ConditionBlinded.Features.Add(ActionAffinityConditionShocked);
+                ConditionDefinitions.ConditionBlinded.Features.Add(ActionAffinityConditionShocked);
             }
         }
         else
         {
-            if (DatabaseHelper.ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionShocked))
+            if (ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionShocked))
             {
-                DatabaseHelper.ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionShocked);
+                ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionShocked);
             }
         }
     }
@@ -133,16 +133,16 @@ internal static class SrdAndHouseRulesContext
             .SetCustomSubFeatures(ExclusiveACBonus.MarkUnarmoredDefense);
         FeatureDefinitionAttributeModifiers.AttributeModifierSorcererDraconicResilienceAC
             .SetCustomSubFeatures(ExclusiveACBonus.MarkLikeArmor);
-        
+
         //Mostly for wild-shaped AC stacking, since unarmored defenses would not be valid anyway under mage armor
         FeatureDefinitionAttributeModifiers.AttributeModifierMageArmor
             .SetCustomSubFeatures(ExclusiveACBonus.MarkLikeArmor);
-        
+
         // as of 1.4.8 Mage Armor has its targetFilteringTag set as 255 (all flags on)
         // this change fixes it to be just unarmored
         //TODO: move to better place
         //TODO: check if still relevan after next patch - this was reported to TA on 15-09-22 (v1.4.8)
-        MageArmor.EffectDescription.targetFilteringTag = RuleDefinitions.TargetFilteringTag.Unarmored;
+        MageArmor.EffectDescription.targetFilteringTag = TargetFilteringTag.Unarmored;
     }
 
     internal static void ApplySrdWeightToFoodRations()
@@ -196,9 +196,9 @@ internal static class SrdAndHouseRulesContext
 
         // Use our logic to calculate duration for DominatePerson/Beast/Monster
         DominateBeast.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.DominateBeast;
+            (AdvancementDuration) ExtraAdvancementDuration.DominateBeast;
         DominatePerson.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.DominatePerson;
+            (AdvancementDuration) ExtraAdvancementDuration.DominatePerson;
 
         // Stops upcasting assigning non-SRD durations
         ClearAlteredDuration(ProtectionFromEnergy);
@@ -603,22 +603,22 @@ internal static class ArmorClassStacking
         TryAddFormula(armor, DEX, ExclusiveACBonus.TagLikeArmor);
         TryAddFormula(natural, 0, ExclusiveACBonus.TagNaturalArmor);
         TryAddFormula(unarmored, 10 + DEX, ExclusiveACBonus.TagUnarmoredDefense);
-        
+
         //remove all modifiers corresponding to formulas
         modifiers.RemoveAll(m => armor.Contains(m));
         modifiers.RemoveAll(m => natural.Contains(m));
         modifiers.RemoveAll(m => unarmored.Contains(m));
-        
+
         if (topFormulas.Count > 0)
         {
             //sort modifiers so that biggest is first
             topFormulas.Sort((left, right) => -left.Item1.CompareTo(right.Item1));
 
             var topFormula = topFormulas[0];
-            
+
             //return top AC formula back into modifiers
             modifiers.Add(topFormula.Item2);
-            
+
             //if this is Natural armor, we need to dump dex so it won't apply
             if (topFormula.Item3 == ExclusiveACBonus.TagNaturalArmor)
             {
@@ -632,7 +632,7 @@ internal static class ArmorClassStacking
                 }
             }
         }
-        
+
         //sort modifiers
         RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
@@ -648,10 +648,10 @@ internal static class ArmorClassStacking
         //for some reason TA didn't set armor ptoperly and many game checks consider these forms as armored (1.4.8)
         //set armor to 'Natural' as intended
         monster.MonsterDefinition.armor = EquipmentDefinitions.EmptyMonsterArmor;
-        
+
         var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
         RulesetAttributeModifier mod;
-        
+
         //Vanilla game (as of 1.4.8) sets this to monster's AC from definition
         //this breaks many AC stacking rules
         //set base AC to 0, so we can properly apply modifiers to it
@@ -716,7 +716,7 @@ internal static class ArmorClassStacking
 
         RefrestWildShapeACFeatures(monster, ac);
         UpdateWildShapeACTrends(modifiers, monster, ac);
-        UnstackAc(modifiers, monster);// also sorts modifiers
+        UnstackAc(modifiers, monster); // also sorts modifiers
     }
 
     private static void RefrestWildShapeACFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
@@ -726,26 +726,26 @@ internal static class ArmorClassStacking
         monster.FeaturesToBrowse.Clear();
         monster.EnumerateFeaturesToBrowse<FeatureDefinition>(monster.FeaturesToBrowse);
         monster.RefreshArmorClassInFeatures(ruleset, ac, monster.FeaturesToBrowse, TagWildShape,
-            RuleDefinitions.FeatureSourceType.CharacterFeature, string.Empty);
+            FeatureSourceType.CharacterFeature, string.Empty);
     }
 
-    private static void UpdateWildShapeACTrends(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster, RulesetAttribute ac)
+    private static void UpdateWildShapeACTrends(List<RulesetAttributeModifier> modifiers,
+        RulesetCharacterMonster monster, RulesetAttribute ac)
     {
         //Add trends for built-in AC mods (base ac, natural armor, dex bonus)
         foreach (var mod in modifiers)
         {
             if (mod.Tags.Contains(TagMonsterBase))
             {
-                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int) mod.value,
-                    RuleDefinitions.FeatureSourceType.Base, string.Empty, monster, mod)
+                ac.ValueTrends.Add(new TrendInfo((int) mod.value, FeatureSourceType.Base, string.Empty, monster, mod)
                 {
                     additive = false
                 });
             }
             else if (mod.Tags.Contains(TagNaturalAC))
             {
-                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int) mod.value,
-                    RuleDefinitions.FeatureSourceType.ExplicitFeature, NaturalACTitle, monster, mod)
+                ac.ValueTrends.Add(new TrendInfo((int) mod.value,
+                    FeatureSourceType.ExplicitFeature, NaturalACTitle, monster, mod)
                 {
                     additive = false
                 });
@@ -753,8 +753,8 @@ internal static class ArmorClassStacking
             else if (mod.operation == AttributeModifierOperation.AddAbilityScoreBonus
                      && mod.SourceAbility == AttributeDefinitions.Dexterity)
             {
-                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo(Mathf.RoundToInt(mod.Value),
-                    RuleDefinitions.FeatureSourceType.AbilityScore, mod.SourceAbility, monster, mod) {additive = true});
+                ac.ValueTrends.Add(new TrendInfo(Mathf.RoundToInt(mod.Value),
+                    FeatureSourceType.AbilityScore, mod.SourceAbility, monster, mod) {additive = true});
             }
         }
     }
