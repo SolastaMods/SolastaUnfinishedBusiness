@@ -172,10 +172,10 @@ internal static class RulesetCharacterHeroPatcher
     internal static class EnumerateUsableRitualSpells_Patch
     {
         internal static bool Prefix(
-            RulesetCharacter rulesetCharacter,
+            RulesetCharacterHero __instance,
             List<SpellDefinition> ritualSpells)
         {
-            if (rulesetCharacter is not RulesetCharacterHero hero || !SharedSpellsContext.IsMulticaster(hero))
+            if (!SharedSpellsContext.IsMulticaster(__instance))
             {
                 return true;
             }
@@ -184,7 +184,7 @@ internal static class RulesetCharacterHeroPatcher
             var magicAffinities = new List<FeatureDefinition>();
             ritualSpells.SetRange(allRitualSpells);
 
-            rulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(magicAffinities);
+            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(magicAffinities);
 
             // ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
             foreach (FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity in magicAffinities)
@@ -194,7 +194,7 @@ internal static class RulesetCharacterHeroPatcher
                     continue;
                 }
 
-                foreach (var spellRepertoire in rulesetCharacter.SpellRepertoires)
+                foreach (var spellRepertoire in __instance.SpellRepertoires)
                 {
                     // this is very similar to switch statement TA wrote but with spell loops outside
                     switch (featureDefinitionMagicAffinity.RitualCasting)
@@ -253,10 +253,10 @@ internal static class RulesetCharacterHeroPatcher
                             when spellRepertoire.SpellCastingFeature.SpellKnowledge ==
                                  RuleDefinitions.SpellKnowledge.Spellbook:
                         {
-                            rulesetCharacter.CharacterInventory.EnumerateAllItems(rulesetCharacter.Items);
+                            __instance.CharacterInventory.EnumerateAllItems(__instance.Items);
 
                             var maxSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
-                            var spells = rulesetCharacter.Items
+                            var spells = __instance.Items
                                 .OfType<RulesetItemSpellbook>()
                                 .SelectMany(x => x.ScribedSpells)
                                 .ToList();
@@ -266,7 +266,7 @@ internal static class RulesetCharacterHeroPatcher
                                 .Where(s => maxSpellLevel >= s.SpellLevel)
                                 .ToList();
 
-                            rulesetCharacter.Items.Clear();
+                            __instance.Items.Clear();
 
                             allRitualSpells.AddRange(spells);
 
