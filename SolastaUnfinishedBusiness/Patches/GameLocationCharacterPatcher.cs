@@ -149,8 +149,9 @@ internal static class GameLocationCharacterPatcher
             else if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress
                      && actionType == ActionDefinitions.ActionType.Main
                      && rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
-                         rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
-                         CanUsePower(rulesetCharacter, rulesetUsablePower)))
+                         rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0
+                         && (accountDelegatedPowers || !rulesetUsablePower.PowerDefinition.DelegatedToAction)
+                         && CanUsePower(rulesetCharacter, rulesetUsablePower)))
             {
                 __result = true;
             }
