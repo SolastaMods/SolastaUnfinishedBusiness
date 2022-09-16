@@ -10,54 +10,82 @@ internal static class WildshapeTweaks
     private const string TagMonsterBase = "<Base>";
     private const string TagNaturalAC = "<NaturalArmor>";
 
-    public static void UpdateAtributeModifiers(RulesetCharacterMonster monster)
+    private static readonly List<string> AllowedAttributes = new()
+    {
+        AttributeDefinitions.RageDamage,
+        AttributeDefinitions.RagePoints,
+        AttributeDefinitions.KiPoints,
+        AttributeDefinitions.SorceryPoints,
+        AttributeDefinitions.BardicInspirationDie,
+        AttributeDefinitions.BardicInspirationNumber,
+    };
+
+    private static readonly List<string> MentalAttributes = new()
+    {
+        AttributeDefinitions.Intelligence,
+        AttributeDefinitions.Wisdom,
+        AttributeDefinitions.Charisma,
+    };
+
+    public static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
+    {
+        UpdateAtributeModifiers(monster, keepMentalAbilityScores);
+        FixShapeShiftedAC(monster);
+    }
+
+    private static void UpdateAtributeModifiers(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
     {
         if (monster.originalFormCharacter is not RulesetCharacterHero hero)
         {
             return;
         }
 
-        // sync rage points (ruleset keeps rage data in other places so we need to call this method to sync)
-        var rageCount = hero.UsedRagePoints;
-
-        while (rageCount-- > 0)
-        {
-            monster.SpendRagePoint();
-        }
-
-        // sync ki points (ruleset keeps ki data in other places so we need to call this method to sync)
-        monster.ForceKiPointConsumption(hero.UsedKiPoints);
-        
         // copy modifiers from original hero
         hero.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(monster.FeaturesToBrowse);
 
         foreach (var feature in monster.FeaturesToBrowse)
         {
-            if (feature is not FeatureDefinitionAttributeModifier mod ||
-                !monster.TryGetAttribute(mod.ModifiedAttribute, out _))
+            if (feature is not FeatureDefinitionAttributeModifier mod
+                || !AllowedAttributes.Contains(mod.ModifiedAttribute)
+                || !monster.TryGetAttribute(mod.ModifiedAttribute, out _))
             {
                 continue;
             }
 
             mod.ApplyModifiers(monster.Attributes, TagWildShape);
         }
+
+        //TA copies only base values of hero, let's copy current value to not tackle modifiers
+        if (keepMentalAbilityScores)
+        {
+            foreach (var attribute in MentalAttributes)
+            {
+                monster.GetAttribute(attribute).BaseValue = hero.GetAttribute(attribute).CurrentValue;
+            }
+        }
+
+        // sync various spent pools
+        monster.usedKiPoints = hero.usedKiPoints;
+        monster.usedRagePoints = hero.usedRagePoints;
+        monster.usedSorceryPoints = hero.usedSorceryPoints;
+        monster.usedBardicInspiration = hero.usedBardicInspiration;
     }
 
-    public static void FixShapeShiftedAC(RulesetCharacterMonster monster)
+    private static void FixShapeShiftedAC(RulesetCharacterMonster monster)
     {
         if (monster.originalFormCharacter is not RulesetCharacterHero)
         {
             return;
         }
 
-        //for some reason TA didn't set armor ptoperly and many game checks consider these forms as armored (1.4.8)
+        //for some reason TA didn't set armor ptoperly and many game checks consider these forms as armored (1.4.10)
         //set armor to 'Natural' as intended
         monster.MonsterDefinition.armor = EquipmentDefinitions.EmptyMonsterArmor;
 
         var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
         RulesetAttributeModifier mod;
 
-        //Vanilla game (as of 1.4.8) sets this to monster's AC from definition
+        //Vanilla game (as of 1.4.10) sets this to monster's AC from definition
         //this breaks many AC stacking rules
         //set base AC to 0, so we can properly apply modifiers to it
         ac.BaseValue = 0;

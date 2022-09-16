@@ -14,27 +14,18 @@ internal static class RulesetCharacterMonsterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FinalizeMonster_Patch
     {
-        internal static void Postfix(RulesetCharacterMonster __instance)
+        internal static void Postfix(RulesetCharacterMonster __instance, bool keepMentalAbilityScores)
         {
             //PATCH: Fixes AC calculation for MC shape-shifters
             //Instead of setting monster's AC as base it adds it as a Natural Armor value
             //And adds base 10 and dex AC modifiers too, so they can mix with unarmored defense if needed
-            WildshapeTweaks.FixShapeShiftedAC(__instance);
+            //PATCH: support for rage/ki/other stuff while shape-shifted
+            //Transfers some of the ability modifiers to shape shifted form 
+            WildshapeTweaks.FinalizeMonster(__instance, keepMentalAbilityScores);
 
             //PATCH: allows us to change monsters created by Dead Master
             //TODO: Consider using `FeatureDefinitionSummoningAffinity` for this
             WizardDeadMaster.OnMonsterCreated(__instance);
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacterMonster), "RegisterAttributes")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RegisterAttributes_Patch
-    {
-        internal static void Postfix(RulesetCharacterMonster __instance)
-        {
-            //PATCH: support for rage/ki/other stuff while shape-shifted
-            WildshapeTweaks.UpdateAtributeModifiers(__instance);
         }
     }
 

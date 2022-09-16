@@ -545,7 +545,7 @@ internal static class ArmorClassStacking
         }
     }
 
-    public static void UnstackAc(List<RulesetAttributeModifier> modifiers, RulesetCharacter character)
+    private static void UnstackAc(List<RulesetAttributeModifier> modifiers, RulesetCharacter character)
     {
         //AC formula is `Value + DEX`
         var armor = new List<RulesetAttributeModifier>();
