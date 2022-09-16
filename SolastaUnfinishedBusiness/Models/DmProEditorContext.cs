@@ -18,11 +18,6 @@ internal static class DmProEditorContext
 
     internal static void Load()
     {
-        if (!Main.Settings.EnableDungeonMakerPro)
-        {
-            return;
-        }
-
         UpdateAvailableDungeonSizes();
         UpdateCategories();
         LoadFlatRooms();

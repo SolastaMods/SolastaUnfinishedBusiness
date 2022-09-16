@@ -30,15 +30,9 @@ internal static class DungeonMakerDisplay
         #endregion
 
         UI.Label("");
-
-        if (!Main.Settings.EnableDungeonMakerPro)
-        {
-            return;
-        }
-
         UI.Label(Gui.Localize("ModUi/&Advanced"));
-
         UI.Label("");
+
         UI.Label(Gui.Localize("ModUi/&AdvancedHelp"));
         UI.Label("");
 

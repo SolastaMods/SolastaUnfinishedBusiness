@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches.DungeonMaker;
@@ -18,3 +19,4 @@ internal static class BaseBlueprintSelectionPanel_Bind
         __instance.FoldAll();
     }
 }
+#endif

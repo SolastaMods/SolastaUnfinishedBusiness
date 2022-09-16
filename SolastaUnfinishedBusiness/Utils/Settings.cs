@@ -47,7 +47,6 @@ public class Settings : UnityModManager.ModSettings
     // SETTINGS HIDDEN ON UI
     //
 
-    public bool EnableDungeonMakerPro { get; set; } = true;
     public bool EnableMoveSorceryPointsBox { get; set; } = true;
     public bool EnableMultiLinePowerPanel { get; set; } = true;
     public bool EnableMultiLineSpellPanel { get; set; } = true;

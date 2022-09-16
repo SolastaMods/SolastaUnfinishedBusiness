@@ -12,7 +12,7 @@ internal static class UserLocationSettingsModal_RuntimeLoaded
 {
     internal static void Postfix(UserLocationSettingsModal __instance)
     {
-        if (!Main.Settings.EnableDungeonMakerPro || !Main.Settings.EnableDungeonMakerModdedContent)
+        if (!Main.Settings.EnableDungeonMakerModdedContent)
         {
             return;
         }

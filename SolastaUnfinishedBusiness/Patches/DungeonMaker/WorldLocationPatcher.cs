@@ -14,16 +14,6 @@ internal static class WorldLocation_BuildFromUserLocation
 {
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
-        if (!Main.Settings.EnableDungeonMakerPro)
-        {
-            foreach (var instruction in instructions)
-            {
-                yield return instruction;
-            }
-
-            yield break;
-        }
-
         var found = 0;
         var roomTransformPos = Main.IsDebugBuild ? 8 : 4;
         var userRoomPos = Main.IsDebugBuild ? 4 : 2;

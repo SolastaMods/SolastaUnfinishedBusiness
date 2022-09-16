@@ -15,8 +15,7 @@ internal static class BaseBlueprint_GetAssetKey
         EnvironmentDefinition environmentDefinition,
         bool perspective)
     {
-        if (!Main.Settings.EnableDungeonMakerPro
-            || !Main.Settings.EnableDungeonMakerModdedContent
+        if (!Main.Settings.EnableDungeonMakerModdedContent
             || __instance is not PropBlueprint propBlueprint
             || !propBlueprint.Name.EndsWith("MOD"))
         {
