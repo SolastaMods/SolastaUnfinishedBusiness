@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Runtime.InteropServices;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
@@ -20,30 +18,30 @@ internal static class CreditsDisplay
         { "D20", "D. Fenter, B. Amorsen, B. Lane, J. Loustaunau" }
     };
 
-    // used in DEBUG mode (don't make private)
+    // ReSharper disable once MemberCanBePrivate.Global
     internal static readonly List<(string, string)> CreditsTable = new()
     {
-        ("AceHigh", "gameplay, Tactician subclass"),
-        ("Bazou", "fighting styles, spells"),
-        ("ChrisJohnDigital", "gameplay, feats, fighting styles, spells, subclasses"),
-        ("DemonSlayer730", "Rage Mage subclass"),
-        ("Dreadmaker", "Forest Guardian subclass"),
-        ("DubhHerder", "quality of life, spells"),
-        ("ElAntonious", "feats, Arcanist subclass"),
-        ("Holic75", "spells"),
-        ("ImpPhil", "gameplay, quality of life, infrastructure"),
-        ("Nd", "Marshal, Opportunist and Raven subclasses"),
+        //("DemonSlayer730", "Rage Mage subclass"),
         //("RedOrca", "Path of the Light subclass"),
-        ("SilverGriffon",
-            "gameplay, quality of life, spells, Dark Elf and Grey Dwarf races, Divine Heart subclass"),
-        ("TPABOBAP", "gameplay, quality of life, infrastructure, feats, spells"),
         ("Zappastuff",
-            "multiclass, gameplay, quality of life, infrastructure, feats, Half-elf subraces, Dead Master and Blade Dancer subclasses"),
+            "gameplay, quality of life, infrastructure, feats, Half-elf Variants, Dead Master, Blade Dancer, multiclass"),
+        ("ImpPhil", "gameplay, quality of life, infrastructure"),
+        ("TPABOBAP", "gameplay, quality of life, infrastructure, feats, spells"),
+        ("ChrisJohnDigital",
+            "gameplay, feats, fighting styles, Spell Shield, Con Artist, Arcane Fighter, Life Transmuter, Master Manipulator, Spell Master"),
+        ("SilverGriffon", "gameplay, quality of life, spells, Dark Elf, Grey Dwarf, Divine Heart"),
+        ("Nd", "Marshal, Opportunist, Raven"),
+        ("ElAntonious", "feats, Arcanist"),
+        ("Bazou", "fighting styles, spells"),
+        ("AceHigh", "Tactician"),
+        ("Dreadmaker", "Forest Guardian"),
+        ("DubhHerder", "quality of life, spells"),
+        ("Holic75", "spells"),
         ("Esker", "ruleset support, quality assurance"),
         ("Lyraele", "ruleset support, quality assurance"),
         ("PraiseThyBus", "quality assurance"),
         ("Nyowwww", "Chinese translations"),
-        ("Narria", "modKit creator, developer")
+        ("Narria", "modKit")
     };
 
     private static readonly bool IsUnityExplorerInstalled =
@@ -58,7 +56,7 @@ internal static class CreditsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Donations".Bold().Khaki(), () =>
+            UI.ActionButton("Donate".Bold().Khaki(), () =>
             {
                 BootContext.OpenUrl(BootContext.DonateUrl);
             }, UI.Width(150));

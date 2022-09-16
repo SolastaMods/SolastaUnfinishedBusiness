@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -8,11 +6,9 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
-using UnityEngine.UI;
 using static GuiDropdown;
 using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 using static TMPro.TMP_Dropdown;
-using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches.Tools.SaveByLocation;
 

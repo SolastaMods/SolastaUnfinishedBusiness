@@ -24,16 +24,16 @@ internal static class CharacterInspectionScreenPatcher
         }
     }
 
-    //PATCH: resets the inspection context for MC heroes
-    //PATCH: Enable Inventory Filtering and Sorting
     [HarmonyPatch(typeof(CharacterInspectionScreen), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Unbind_Patch
     {
         internal static void Prefix()
         {
+            //PATCH: resets the inspection context for MC heroes
             Global.InspectedHero = null;
 
+            //PATCH: Enable Inventory Filtering and Sorting
             if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
                 InventoryManagementContext.ResetControls();
@@ -41,25 +41,25 @@ internal static class CharacterInspectionScreenPatcher
         }
     }
 
-    //PATCH: reset the inspection context for MC heroes
     [HarmonyPatch(typeof(CharacterInspectionScreen), "DoClose")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class DoClose_Patch
     {
         internal static void Prefix()
         {
+            //PATCH: reset the inspection context for MC heroes
             Global.InspectedHero = null;
         }
     }
 
-// uses this patch to trap the input hotkey and start export process
+    //PATCH: traps the input hotkey and start the char export process
     [HarmonyPatch(typeof(CharacterInspectionScreen), "HandleInput")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleInput_Patch
     {
         public static void Postfix(CharacterInspectionScreen __instance, InputCommands.Id command)
         {
-            if (Main.Settings.EnableCharacterExport && command == Hotkeys.CtrlShiftE && Gui.Game != null &&
+            if (Main.Settings.EnableCharacterExport && command == Hotkeys.CtrlShiftE &&
                 !CharacterExportContext.InputModalVisible)
             {
                 CharacterExportContext.ExportInspectedCharacter(__instance.InspectedCharacter.RulesetCharacterHero);

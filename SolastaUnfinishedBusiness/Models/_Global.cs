@@ -26,7 +26,7 @@ public static class Global
 
     // last level up hero name
     public static string LastLevelUpHeroName { get; set; }
-    
+
     // inspected hero on both location and pool
     [CanBeNull] public static RulesetCharacterHero InspectedHero { get; set; }
 

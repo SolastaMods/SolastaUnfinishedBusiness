@@ -11,7 +11,7 @@ internal static class CharacterFilteringGroupPatcher
     [HarmonyPatch(typeof(CharacterFilteringGroup), "Compare")]
     internal static class Compare_Patch
     {
-        public static int MyLevels(int[] levels)
+        public static int MyLevels(IEnumerable<int> levels)
         {
             return levels.Sum();
         }

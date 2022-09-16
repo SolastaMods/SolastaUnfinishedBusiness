@@ -11,7 +11,7 @@ internal static class CharacterSelectionModalPatcher
     [HarmonyPatch(typeof(CharacterSelectionModal), "EnumeratePlates")]
     internal static class CharacterSelectionModal_EnumeratePlates
     {
-        public static int MyLevels(int[] levels)
+        public static int MyLevels(IEnumerable<int> levels)
         {
             return levels.Sum();
         }

@@ -15,13 +15,7 @@ internal static class DungeonMakerDisplay
         UI.Label(Gui.Localize("ModUi/&DungeonMakerBasicHelp"));
         UI.Label("");
 
-        var toggle = Main.Settings.AllowDungeonsMaxLevel20;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowDungeonsMaxLevel20"), ref toggle))
-        {
-            Main.Settings.AllowDungeonsMaxLevel20 = toggle;
-        }
-
-        toggle = Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere;
+        var toggle = Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere"), ref toggle))
         {
             Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere = toggle;
@@ -60,7 +54,6 @@ internal static class DungeonMakerDisplay
             Main.Settings.EnableDungeonMakerModdedContent = toggle;
         }
 
-        UI.Label("");
         UI.Label("");
         UI.Label("");
     }

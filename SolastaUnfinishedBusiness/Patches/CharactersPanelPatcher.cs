@@ -9,7 +9,7 @@ internal static class CharactersPanelPatcher
     //PATCH: Keeps last level up hero selected
     [HarmonyPatch(typeof(CharactersPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharactersPanel_OnBeginShow
+    internal static class OnBeginShow_Patch
     {
         internal static void Prefix(CharactersPanel __instance, out float __state)
         {

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using HarmonyLib;
 using JetBrains.Annotations;
 #if DEBUG
 using I2.Loc;

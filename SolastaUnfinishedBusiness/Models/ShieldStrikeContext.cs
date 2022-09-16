@@ -10,10 +10,10 @@ public static class ShieldStrikeContext
     private static WeaponTypeDefinition _shieldWeaponType;
 
     [NotNull]
-    public static WeaponDescription ShieldWeaponDescription => _shieldWeaponDescription ??= BuildShieldWeaponDescription();
+    public static WeaponDescription ShieldWeaponDescription =>
+        _shieldWeaponDescription ??= BuildShieldWeaponDescription();
 
-    [NotNull]
-    public static WeaponTypeDefinition ShieldWeaponType => _shieldWeaponType ??= BuildShieldWeaponType();
+    [NotNull] public static WeaponTypeDefinition ShieldWeaponType => _shieldWeaponType ??= BuildShieldWeaponType();
 
     public static bool IsShield([CanBeNull] RulesetItem item)
     {

@@ -34,31 +34,24 @@ internal static class CameraControllerLocationPatcher
             }
 
             // Get character's location in screen co-ords
+            var width = Screen.width;
+            var height = Screen.height;
+            var margin = Main.Settings.DontFollowMargin / 100f;
             var characterLocation = character.LocationPosition;
-
             var screenPoint = __instance
                 .CurrentCameraMode.CameraService.MainCamera
                 .WorldToScreenPoint(new Vector3(characterLocation.x, characterLocation.y, characterLocation.z));
 
-            var width = Screen.width;
-            var height = Screen.height;
-            var margin = Main.Settings.DontFollowMargin / 100f;
-
-            var followCharacter = ShouldFollowCharacter();
+            var followCharacter = screenPoint.x < width * margin
+                                  || screenPoint.x > width * (1 - margin)
+                                  || screenPoint.y < height * margin
+                                  || screenPoint.y > height * (1 - margin);
 
             Main.Log(
                 $"CameraControllerLocation_FollowCharacterForBattle {(followCharacter ? "(follow)" : "don't follow")}: {character.Name}");
 
             // return true to allow follow character code to run/false to disable
             return followCharacter;
-
-            bool ShouldFollowCharacter()
-            {
-                return screenPoint.x < width * margin
-                       || screenPoint.x > width * (1 - margin)
-                       || screenPoint.y < height * margin
-                       || screenPoint.y > height * (1 - margin);
-            }
         }
     }
 }

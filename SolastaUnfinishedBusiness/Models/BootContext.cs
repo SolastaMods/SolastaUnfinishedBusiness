@@ -10,7 +10,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine;
-using UnityModManagerNet;
 #if DEBUG
 using SolastaUnfinishedBusiness.DataMiner;
 #endif
@@ -292,7 +291,7 @@ internal static class BootContext
             () => OpenUrl(DonateUrl),
             null);
     }
-    
+
     internal static void OpenUrl(string url)
     {
         try

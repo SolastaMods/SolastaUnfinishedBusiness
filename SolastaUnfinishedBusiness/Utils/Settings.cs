@@ -39,9 +39,9 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplaySubclassesToggle { get; set; } = true;
     public bool DisplayFeatsToggle { get; set; } = true;
     public bool DisplayFightingStylesToggle { get; set; } = true;
-    public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
     public bool DisplayCraftingToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; } = true;
+    public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
 
     //
     // SETTINGS HIDDEN ON UI
@@ -83,10 +83,10 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableLevel20 { get; set; }
 
     // Multiclass
-    public bool EnableMinInOutAttributes { get; set; } = true;
-    public bool EnableRelearnSpells { get; set; } = false;
-    public bool DisplayAllKnownSpellsDuringLevelUp { get; set; } = true;
-    public int MaxAllowedClasses { get; set; } = 1;
+    public bool EnableMinInOutAttributes { get; set; }
+    public bool EnableRelearnSpells { get; set; }
+    public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
+    public int MaxAllowedClasses { get; set; }
 
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }
@@ -104,7 +104,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
     public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
-    public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
+    public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 2;
     public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
     public bool ReduceDarkElfLightPenalty { get; set; }
     public bool ReduceGrayDwarfLightPenalty { get; set; }
@@ -144,7 +144,6 @@ public class Settings : UnityModManager.ModSettings
     // SRD
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseMoreRestrictiveAcStacking { get; set; }
-    public bool AllowCrossbowsToUseBowFeatures { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
@@ -168,8 +167,6 @@ public class Settings : UnityModManager.ModSettings
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
 
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
-
-    // public bool UseHeightOneCylinderEffect { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool ScaleMerchantPricesCorrectly { get; set; }
@@ -241,7 +238,6 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Dungeon Maker
     //
 
-    public bool AllowDungeonsMaxLevel20 { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
     public bool UnleashNpcAsEnemy { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }

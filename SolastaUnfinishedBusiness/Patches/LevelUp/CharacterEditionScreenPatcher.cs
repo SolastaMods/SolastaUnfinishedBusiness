@@ -54,7 +54,7 @@ internal static class CharacterEditionScreen_LoadStagePanels
         // MULTICLASS
         //
 
-        if (Main.Settings.MaxAllowedClasses == 1 || __instance is not CharacterLevelUpScreen)
+        if (Main.Settings.MaxAllowedClasses <= 1 || __instance is not CharacterLevelUpScreen)
         {
             return;
         }

@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -49,7 +48,7 @@ internal static class SrdAndHouseRulesContext
     {
         DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
-            RuleDefinitions.RestrictedContextRequiredProperty.MeleeWeapon;
+            RestrictedContextRequiredProperty.MeleeWeapon;
     }
 
     /**
@@ -79,7 +78,7 @@ internal static class SrdAndHouseRulesContext
     private static void FixRecklessAttackForReachWeapons()
     {
         DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityReckless
-            .situationalContext = (RuleDefinitions.SituationalContext)ExtendedSituationalContext.MainWeaponIsMelee;
+            .situationalContext = (SituationalContext)ExtendedSituationalContext.MainWeaponIsMelee;
     }
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -113,13 +112,13 @@ internal static class SrdAndHouseRulesContext
             // This is half bug-fix, half houses rules since it's not completely SRD but better than implemented.
             // Spell should arc from target (range 150ft) onto upto 3 extra selectable targets (range 30ft from first).
             // Fix by allowing 4 selectable targets.
-            spell.TargetType = RuleDefinitions.TargetType.IndividualsUnique;
+            spell.TargetType = TargetType.IndividualsUnique;
             spell.SetTargetParameter(4);
             spell.effectAdvancement.additionalTargetsPerIncrement = 1;
         }
         else
         {
-            spell.TargetType = RuleDefinitions.TargetType.ArcFromIndividual;
+            spell.TargetType = TargetType.ArcFromIndividual;
             spell.SetTargetParameter(3);
             spell.effectAdvancement.additionalTargetsPerIncrement = 0;
         }
@@ -171,7 +170,7 @@ internal static class SrdAndHouseRulesContext
         }
 
         // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
-        Entangle.effectDescription.recurrentEffect = RuleDefinitions.RecurrentEffect.OnActivation;
+        Entangle.effectDescription.recurrentEffect = RecurrentEffect.OnActivation;
     }
 
 
@@ -186,9 +185,9 @@ internal static class SrdAndHouseRulesContext
 
         // Use our logic to calculate duration for DominatePerson/Beast/Monster
         DominateBeast.EffectDescription.EffectAdvancement.alteredDuration =
-            (RuleDefinitions.AdvancementDuration)ExtraAdvancementDuration.DominateBeast;
+            (AdvancementDuration)ExtraAdvancementDuration.DominateBeast;
         DominatePerson.EffectDescription.EffectAdvancement.alteredDuration =
-            (RuleDefinitions.AdvancementDuration)ExtraAdvancementDuration.DominatePerson;
+            (AdvancementDuration)ExtraAdvancementDuration.DominatePerson;
 
         // Stops upcasting assigning non-SRD durations
         ClearAlteredDuration(ProtectionFromEnergy);
@@ -201,7 +200,7 @@ internal static class SrdAndHouseRulesContext
 
         static void ClearAlteredDuration([NotNull] IMagicEffect spell)
         {
-            spell.EffectDescription.EffectAdvancement.alteredDuration = RuleDefinitions.AdvancementDuration.None;
+            spell.EffectDescription.EffectAdvancement.alteredDuration = AdvancementDuration.None;
         }
     }
 
@@ -212,14 +211,14 @@ internal static class SrdAndHouseRulesContext
         if (Main.Settings.ChangeSleetStormToCube)
         {
             // Set to Cube side 8, default height
-            sleetStormEffect.targetType = RuleDefinitions.TargetType.Cube;
+            sleetStormEffect.targetType = TargetType.Cube;
             sleetStormEffect.targetParameter = 8;
             sleetStormEffect.targetParameter2 = 0;
         }
         else
         {
             // Restore to cylinder radius 4, height 3
-            sleetStormEffect.targetType = RuleDefinitions.TargetType.Cylinder;
+            sleetStormEffect.targetType = TargetType.Cylinder;
             sleetStormEffect.targetParameter = 4;
             sleetStormEffect.targetParameter2 = 3;
         }
@@ -238,13 +237,13 @@ internal static class SrdAndHouseRulesContext
         if (Main.Settings.UseHeightOneCylinderEffect)
         {
             // Set to Cylinder radius 4, height 1
-            spikeGrowthEffect.targetType = RuleDefinitions.TargetType.Cylinder;
+            spikeGrowthEffect.targetType = TargetType.Cylinder;
             spikeGrowthEffect.targetParameter2 = 1;
         }
         else
         {
             // Restore default of Sphere radius 4
-            spikeGrowthEffect.targetType = RuleDefinitions.TargetType.Sphere;
+            spikeGrowthEffect.targetType = TargetType.Sphere;
             spikeGrowthEffect.targetParameter2 = 0;
         }
 
@@ -287,8 +286,8 @@ internal static class SrdAndHouseRulesContext
             foreach (var sd in DatabaseRepository
                          .GetDatabase<SpellDefinition>()
                          .Where(sd =>
-                             sd.EffectDescription.TargetType is RuleDefinitions.TargetType.Cube
-                                 or RuleDefinitions.TargetType.CubeWithOffset))
+                             sd.EffectDescription.TargetType is TargetType.Cube
+                                 or TargetType.CubeWithOffset))
             {
                 // TargetParameter2 is not used by TargetType.Cube but has random values assigned.
                 // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.
@@ -389,7 +388,7 @@ internal static class ConjurationsContext
         foreach (var conjuredMonster in ConjuredMonsters)
         {
             conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
-        }  
+        }
     }
 
     internal static void SwitchEnableUpcastConjureElementalAndFey()
@@ -435,7 +434,7 @@ internal static class ConjurationsContext
         {
             var advancement = spell.EffectDescription.EffectAdvancement;
 
-            advancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel;
+            advancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
             advancement.additionalSpellLevelPerIncrement = 1;
         }
     }
@@ -612,7 +611,7 @@ public static class StackedMaterialComponent
         }
 
         var spell = activeSpell.SpellDefinition;
-        if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific
+        if (spell.MaterialComponentType != MaterialComponentType.Specific
             || !spell.SpecificMaterialComponentConsumed
             || string.IsNullOrEmpty(spell.SpecificMaterialComponentTag)
             || spell.SpecificMaterialComponentCostGp <= 0

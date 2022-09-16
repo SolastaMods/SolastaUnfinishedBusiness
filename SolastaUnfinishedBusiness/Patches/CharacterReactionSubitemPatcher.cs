@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class CharacterReactionSubitemPatcher
 {
-    // creates different slots colors and pop up messages depending on slot types
+    //PATCH: creates different slots colors and pop up messages depending on slot types
     [HarmonyPatch(typeof(CharacterReactionSubitem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
