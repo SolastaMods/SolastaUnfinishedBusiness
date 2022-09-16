@@ -812,23 +812,23 @@ internal static class GameLocationBattleManagerTweaks
                     case RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit:
                         validTrigger = criticalHit;
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage when firstTarget &&
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage when (firstTarget||!provider.FirstTargetOnly) &&
                         rulesetEffect is RulesetEffectSpell &&
                         (rulesetEffect as RulesetEffectSpell).SpellDefinition.SchoolOfMagic ==
                         RuleDefinitions.SchoolEvocation:
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage when firstTarget &&
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage when (firstTarget||!provider.FirstTargetOnly) &&
                         rulesetEffect is RulesetEffectPower &&
                         (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell != null &&
                         (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell.SchoolOfMagic ==
                         RuleDefinitions.SchoolEvocation:
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry
-                        when firstTarget && rulesetEffect is RulesetEffectSpell &&
+                        when (firstTarget||!provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell &&
                              attacker.RulesetCharacter.HasAncestryMatchingDamageType(actualEffectForms):
                         validTrigger = true;
                         break;
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget
-                        when firstTarget && rulesetEffect is RulesetEffectSpell:
+                        when (firstTarget||!provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell:
                     {
                         // This check is for Warlock / invocation / agonizing blast
                         if (provider.RequiredSpecificSpell == null || provider.RequiredSpecificSpell ==
