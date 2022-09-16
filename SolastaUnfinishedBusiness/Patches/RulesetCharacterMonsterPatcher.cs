@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -14,9 +15,13 @@ internal static class RulesetCharacterMonsterPatcher
     {
         internal static void Postfix(RulesetCharacterMonster __instance)
         {
-            //TODO: Consider using `FeatureDefinitionSummoningAffinity` for this
+            //PATCH: Fixes AC calculation for MC shape-shifters
+            //Instead of setting monster's AC as base it adds it as a Natural Armor value
+            //And adds base 10 and dex AC modifiers too, so they can mix with unarmored defense if needed
+            ArmorClassStacking.FixShapeShiftedAC(__instance);
 
             //PATCH: allows us to change monsters created by Dead Master
+            //TODO: Consider using `FeatureDefinitionSummoningAffinity` for this
             WizardDeadMaster.OnMonsterCreated(__instance);
         }
     }
@@ -55,7 +60,7 @@ internal static class RulesetCharacterMonsterPatcher
                     continue;
                 }
 
-                mod.ApplyModifiers(__instance.Attributes, AttributeDefinitions.TagConjure);
+                mod.ApplyModifiers(__instance.Attributes, ArmorClassStacking.TagWildShape);
             }
         }
     }
@@ -83,6 +88,20 @@ internal static class RulesetCharacterMonsterPatcher
 
                 yield return code;
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterMonster), "RefreshArmorClass")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RefreshArmorClass_Patch
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: implements exclusivity for some AC modifiers
+            // Makes sure various unarmored defense features don't stack with themselves and Dragon Resilience
+            // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
+            // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
+            return ArmorClassStacking.AddACTrendsToMonsterACRefreshTranspiler(instructions);
         }
     }
 }

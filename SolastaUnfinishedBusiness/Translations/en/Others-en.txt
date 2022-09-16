@@ -58,6 +58,7 @@ Stage/&IdentityMorphotypeEyeHeader=Eye Style
 ToolTip/&CheckBoxDefaultPartyTitle=Check this box to set your default party when starting new adventures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
 Tooltip/&Tag9000Title=Custom Effect
 Tooltip/&TagUnfinishedBusinessTitle=Unfinished Business
+Tooltip/&CEMonsterNaturalArmorTitle=Natural Armor
 UI/&CustomFeatureSelectionTooltipTypeCantrip=Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature=Feature
 UI/&CustomFeatureSelectionTooltipTypePower=Power
