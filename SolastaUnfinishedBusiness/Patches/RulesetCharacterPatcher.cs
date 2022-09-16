@@ -329,14 +329,10 @@ internal static class RulesetCharacterPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var codes = instructions.ToList();
-
             //PATCH: support for exclusivity tags in AC modifiers  
             //used to prevent various extra defence feats (like arcane defense or wise defense) from stacking
             //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
-            ArmorClassStacking.AddCustomTagsToModifierBuilder(codes);
-
-            return codes;
+            return ArmorClassStacking.AddCustomTagsToModifierBuilderInCharacter(instructions);
         }
     }
 

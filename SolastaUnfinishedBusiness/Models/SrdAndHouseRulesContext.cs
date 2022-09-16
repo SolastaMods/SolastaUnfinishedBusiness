@@ -4,13 +4,14 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using UnityEngine;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -46,8 +47,8 @@ internal static class SrdAndHouseRulesContext
      */
     private static void FixDivineSmiteRestrictions()
     {
-        DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
-        DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
+        FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
+        FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
     }
 
@@ -57,7 +58,7 @@ internal static class SrdAndHouseRulesContext
      */
     private static void FixDivineSmiteDiceNumberWhenUsingHighLevelSlots()
     {
-        DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
+        FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
             DiceByRankMaker.MakeBySteps();
     }
 
@@ -77,8 +78,8 @@ internal static class SrdAndHouseRulesContext
      */
     private static void FixRecklessAttackForReachWeapons()
     {
-        DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityReckless
-            .situationalContext = (SituationalContext)ExtendedSituationalContext.MainWeaponIsMelee;
+        FeatureDefinitionCombatAffinitys.CombatAffinityReckless
+            .situationalContext = (RuleDefinitions.SituationalContext) ExtendedSituationalContext.MainWeaponIsMelee;
     }
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -126,18 +127,28 @@ internal static class SrdAndHouseRulesContext
 
     private static void ApplyAcNonStackingRules()
     {
-        DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
-            .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
-        DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierMonkUnarmoredDefense
-            .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
-        DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierSorcererDraconicResilienceAC
-            .SetCustomSubFeatures(ExclusiveArmorClassBonus.Marker);
+        FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
+            .SetCustomSubFeatures(ExclusiveACBonus.MarkUnarmoredDefense);
+        FeatureDefinitionAttributeModifiers.AttributeModifierMonkUnarmoredDefense
+            .SetCustomSubFeatures(ExclusiveACBonus.MarkUnarmoredDefense);
+        FeatureDefinitionAttributeModifiers.AttributeModifierSorcererDraconicResilienceAC
+            .SetCustomSubFeatures(ExclusiveACBonus.MarkLikeArmor);
+        
+        //Mostly for wild-shaped AC stacking, since unarmored defenses would not be valid anyway under mage armor
+        FeatureDefinitionAttributeModifiers.AttributeModifierMageArmor
+            .SetCustomSubFeatures(ExclusiveACBonus.MarkLikeArmor);
+        
+        // as of 1.4.8 Mage Armor has its targetFilteringTag set as 255 (all flags on)
+        // this change fixes it to be just unarmored
+        //TODO: move to better place
+        //TODO: check if still relevan after next patch - this was reported to TA on 15-09-22 (v1.4.8)
+        MageArmor.EffectDescription.targetFilteringTag = RuleDefinitions.TargetFilteringTag.Unarmored;
     }
 
     internal static void ApplySrdWeightToFoodRations()
     {
-        var foodSrdWeight = DatabaseHelper.ItemDefinitions.Food_Ration;
-        var foodForagedSrdWeight = DatabaseHelper.ItemDefinitions.Food_Ration_Foraged;
+        var foodSrdWeight = ItemDefinitions.Food_Ration;
+        var foodForagedSrdWeight = ItemDefinitions.Food_Ration_Foraged;
 
         if (Main.Settings.ApplySrdWeightToFoodRations)
         {
@@ -442,26 +453,61 @@ internal static class ConjurationsContext
 
 internal static class ArmorClassStacking
 {
+    public const string TagWildShape = "99WildShape"; //TODO: should find better place for this constant
+    private const string TagMonsterBase = "<Base>";
+    private const string TagNaturalAC = "<NaturalArmor>";
+    private const string NaturalACTitle = "Tooltip/&CEMonsterNaturalArmorTitle";
+
+
     //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
-    public static void AddCustomTagsToModifierBuilder(List<CodeInstruction> codes)
+    public static IEnumerable<CodeInstruction> AddCustomTagsToModifierBuilderInCharacter(
+        IEnumerable<CodeInstruction> instructions)
     {
         var method =
             new Func<AttributeModifierOperation, float, string, string, RulesetAttributeModifier>(
                 RulesetAttributeModifier.BuildAttributeModifier).Method;
 
-        var index = codes.FindIndex(c => c.Calls(method));
+        var custom =
+            new Func<AttributeModifierOperation, float, string, string, FeatureDefinitionAttributeModifier,
+                RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
 
-        if (index <= 0)
+        foreach (var code in instructions)
         {
-            return;
+            if (code.Calls(method))
+            {
+                yield return new CodeInstruction(OpCodes.Ldloc_1);
+                yield return new CodeInstruction(OpCodes.Call, custom);
+            }
+            else
+            {
+                yield return code;
+            }
         }
+    }
+
+    public static IEnumerable<CodeInstruction> AddCustomTagsToModifierBuilderInFeature(
+        IEnumerable<CodeInstruction> instructions)
+    {
+        var method =
+            new Func<AttributeModifierOperation, float, string, string, RulesetAttributeModifier>(
+                RulesetAttributeModifier.BuildAttributeModifier).Method;
 
         var custom =
             new Func<AttributeModifierOperation, float, string, string, FeatureDefinitionAttributeModifier,
                 RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
 
-        codes[index] = new CodeInstruction(OpCodes.Call, custom); //replace call with custom method
-        codes.Insert(index, new CodeInstruction(OpCodes.Ldloc_1)); // load 'feature' as last argument
+        foreach (var code in instructions)
+        {
+            if (code.Calls(method))
+            {
+                yield return new CodeInstruction(OpCodes.Ldarg_0);
+                yield return new CodeInstruction(OpCodes.Call, custom);
+            }
+            else
+            {
+                yield return code;
+            }
+        }
     }
 
     private static RulesetAttributeModifier CustomBuildAttributeModifier(
@@ -471,10 +517,13 @@ internal static class ArmorClassStacking
         string sourceAbility,
         FeatureDefinitionAttributeModifier feature)
     {
-        var modifier = RulesetAttributeModifier.BuildAttributeModifier(operationType, modifierValue, tag);
-        if (feature.HasSubFeatureOfType<ExclusiveArmorClassBonus>())
+        var modifier =
+            RulesetAttributeModifier.BuildAttributeModifier(operationType, modifierValue, tag, sourceAbility);
+
+        var exclusive = feature.GetFirstSubFeatureOfType<ExclusiveACBonus>();
+        if (exclusive != null)
         {
-            modifier.Tags.Add(ExclusiveArmorClassBonus.Tag);
+            modifier.Tags.TryAdd(exclusive.tag);
         }
 
         return modifier;
@@ -484,18 +533,16 @@ internal static class ArmorClassStacking
     // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
     public static IEnumerable<CodeInstruction> UnstackAcTranspile(IEnumerable<CodeInstruction> instructions)
     {
-        var sort = new Action<
-            List<RulesetAttributeModifier>
-        >(RulesetAttributeModifier.SortAttributeModifiersList).Method;
+        var sort = new Action<List<RulesetAttributeModifier>>(RulesetAttributeModifier.SortAttributeModifiersList)
+            .Method;
 
-        var unstack = new Action<
-            List<RulesetAttributeModifier>
-        >(UnstackAc).Method;
+        var unstack = new Action<List<RulesetAttributeModifier>, RulesetCharacter>(UnstackAc).Method;
 
         foreach (var instruction in instructions)
         {
             if (instruction.Calls(sort))
             {
+                yield return new CodeInstruction(OpCodes.Ldarg_0);
                 yield return new CodeInstruction(OpCodes.Call, unstack);
             }
             else
@@ -505,59 +552,211 @@ internal static class ArmorClassStacking
         }
     }
 
-    private static void UnstackAc(List<RulesetAttributeModifier> modifiers)
+    public static void UnstackAc(List<RulesetAttributeModifier> modifiers, RulesetCharacter character)
     {
-        var attributes = new List<RulesetAttributeModifier>();
-        var sets = new List<RulesetAttributeModifier>();
+        //AC formula is `Value + DEX`
+        var armor = new List<RulesetAttributeModifier>();
+        //AC formula is `Value`
+        var natural = new List<RulesetAttributeModifier>();
+        //AC Formula is `10 + DEX + Value`
+        var unarmored = new List<RulesetAttributeModifier>();
 
+        //Collect all different AC formulas into lists
         foreach (var modifier in modifiers)
         {
-            if (!modifier.tags.Contains(ExclusiveArmorClassBonus.Tag))
+            switch (modifier.operation)
             {
-                continue;
-            }
-
-            if (modifier.operation == AttributeModifierOperation.Set)
-            {
-                sets.Add(modifier);
-            }
-
-            if (modifier.operation == AttributeModifierOperation.AddAbilityScoreBonus)
-            {
-                attributes.Add(modifier);
+                case AttributeModifierOperation.Set
+                    when modifier.Tags.Contains(ExclusiveACBonus.TagLikeArmor):
+                {
+                    armor.Add(modifier);
+                    break;
+                }
+                case AttributeModifierOperation.Set
+                    when modifier.Tags.Contains(ExclusiveACBonus.TagNaturalArmor):
+                {
+                    natural.Add(modifier);
+                    break;
+                }
+                case AttributeModifierOperation.AddAbilityScoreBonus
+                    when modifier.Tags.Contains(ExclusiveACBonus.TagUnarmoredDefense):
+                {
+                    unarmored.Add(modifier);
+                    break;
+                }
             }
         }
 
-        //sort modifiers so that biggest is first
-        attributes.Sort((left, right) => -left.value.CompareTo(right.value));
-        sets.Sort((left, right) => -left.value.CompareTo(right.value));
+        //setup for getting top formula of each type
+        var topFormulas = new List<(float, RulesetAttributeModifier, string)>();
+        var DEX = AttributeDefinitions.ComputeAbilityScoreModifier(
+            character.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
-        //get best modifiers
-        var bestAttributeBonusMod = attributes.Count > 0 ? attributes[0] : null;
-        var bestSetMod = sets.Count > 0 ? sets[0] : null;
-
-        //we have both exclusive attribute (Wise Defense) and exclusive set mods (Dragon Resilience AC bonus)
-        //we need to leave only one that grants best results
-        if (bestSetMod != null && bestAttributeBonusMod != null)
+        void TryAddFormula(List<RulesetAttributeModifier> mods, float baseStat, string tag)
         {
-            if (bestSetMod.value > bestAttributeBonusMod.value + 10)
+            if (mods.Count <= 0) return;
+            mods.Sort((left, right) => -left.value.CompareTo(right.value));
+            topFormulas.Add((baseStat + mods[0].Value, mods[0], tag));
+        }
+
+        //get top formula of each type
+        TryAddFormula(armor, DEX, ExclusiveACBonus.TagLikeArmor);
+        TryAddFormula(natural, 0, ExclusiveACBonus.TagNaturalArmor);
+        TryAddFormula(unarmored, 10 + DEX, ExclusiveACBonus.TagUnarmoredDefense);
+        
+        //remove all modifiers corresponding to formulas
+        modifiers.RemoveAll(m => armor.Contains(m));
+        modifiers.RemoveAll(m => natural.Contains(m));
+        modifiers.RemoveAll(m => unarmored.Contains(m));
+        
+        if (topFormulas.Count > 0)
+        {
+            //sort modifiers so that biggest is first
+            topFormulas.Sort((left, right) => -left.Item1.CompareTo(right.Item1));
+
+            var topFormula = topFormulas[0];
+            
+            //return top AC formula back into modifiers
+            modifiers.Add(topFormula.Item2);
+            
+            //if this is Natural armor, we need to dump dex so it won't apply
+            if (topFormula.Item3 == ExclusiveACBonus.TagNaturalArmor)
             {
-                //remove biggest set mod, so it will remain in final list
-                sets.RemoveAt(0);
+                var dexMod = modifiers.Find(m =>
+                    m.Operation == AttributeModifierOperation.AddAbilityScoreBonus
+                    && m.SourceAbility == AttributeDefinitions.Dexterity);
+
+                if (dexMod != null)
+                {
+                    dexMod.Value = 0;
+                }
+            }
+        }
+        
+        //sort modifiers
+        RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
+    }
+
+    //
+    public static void FixShapeShiftedAC(RulesetCharacterMonster monster)
+    {
+        if (monster.originalFormCharacter is not RulesetCharacterHero)
+        {
+            return;
+        }
+
+        //for some reason TA didn't set armor ptoperly and many game checks consider these forms as armored (1.4.8)
+        //set armor to 'Natural' as intended
+        monster.MonsterDefinition.armor = EquipmentDefinitions.EmptyMonsterArmor;
+        
+        var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
+        RulesetAttributeModifier mod;
+        
+        //Vanilla game (as of 1.4.8) sets this to monster's AC from definition
+        //this breaks many AC stacking rules
+        //set base AC to 0, so we can properly apply modifiers to it
+        ac.BaseValue = 0;
+
+        //basic AC - sets AC to 10
+        mod = RulesetAttributeModifier.BuildAttributeModifier(
+            AttributeModifierOperation.Set,
+            10,
+            TagMonsterBase
+        );
+        ac.AddModifier(mod);
+
+        //natural armor of the monster
+        mod = RulesetAttributeModifier.BuildAttributeModifier(
+            AttributeModifierOperation.Set,
+            monster.MonsterDefinition.ArmorClass,
+            TagNaturalAC
+        );
+        mod.tags.Add(ExclusiveACBonus.TagNaturalArmor);
+        ac.AddModifier(mod);
+
+        //DEX bonus to AC
+        mod = RulesetAttributeModifier.BuildAttributeModifier(
+            AttributeModifierOperation.AddAbilityScoreBonus,
+            0,
+            AttributeDefinitions.TagAbilityScore,
+            AttributeDefinitions.Dexterity
+        );
+        ac.AddModifier(mod);
+    }
+
+    public static IEnumerable<CodeInstruction> AddACTrendsToMonsterACRefreshTranspiler(
+        IEnumerable<CodeInstruction> instructions)
+    {
+        var sort = new Action<
+            List<RulesetAttributeModifier>
+        >(RulesetAttributeModifier.SortAttributeModifiersList).Method;
+
+        var unstack = new Action<
+            List<RulesetAttributeModifier>,
+            RulesetCharacterMonster
+        >(ProcessWildShapeAC).Method;
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(sort))
+            {
+                yield return new CodeInstruction(OpCodes.Ldarg_0);
+                yield return new CodeInstruction(OpCodes.Call, unstack);
             }
             else
             {
-                //remove biggest attribute bonus mod, so it will remain in final list
-                attributes.RemoveAt(0);
+                yield return instruction;
             }
-
-            //remove all exclusive mods
-            modifiers.RemoveAll(m => attributes.Contains(m));
-            modifiers.RemoveAll(m => sets.Contains(m));
         }
+    }
 
-        //sort modifiers
-        RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
+    private static void ProcessWildShapeAC(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
+    {
+        var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
+
+        RefrestWildShapeACFeatures(monster, ac);
+        UpdateWildShapeACTrends(modifiers, monster, ac);
+        UnstackAc(modifiers, monster);// also sorts modifiers
+    }
+
+    private static void RefrestWildShapeACFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
+    {
+        var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
+        ac.RemoveModifiersByTags(TagWildShape);
+        monster.FeaturesToBrowse.Clear();
+        monster.EnumerateFeaturesToBrowse<FeatureDefinition>(monster.FeaturesToBrowse);
+        monster.RefreshArmorClassInFeatures(ruleset, ac, monster.FeaturesToBrowse, TagWildShape,
+            RuleDefinitions.FeatureSourceType.CharacterFeature, string.Empty);
+    }
+
+    private static void UpdateWildShapeACTrends(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster, RulesetAttribute ac)
+    {
+        //Add trends for built-in AC mods (base ac, natural armor, dex bonus)
+        foreach (var mod in modifiers)
+        {
+            if (mod.Tags.Contains(TagMonsterBase))
+            {
+                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int) mod.value,
+                    RuleDefinitions.FeatureSourceType.Base, string.Empty, monster, mod)
+                {
+                    additive = false
+                });
+            }
+            else if (mod.Tags.Contains(TagNaturalAC))
+            {
+                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int) mod.value,
+                    RuleDefinitions.FeatureSourceType.ExplicitFeature, NaturalACTitle, monster, mod)
+                {
+                    additive = false
+                });
+            }
+            else if (mod.operation == AttributeModifierOperation.AddAbilityScoreBonus
+                     && mod.SourceAbility == AttributeDefinitions.Dexterity)
+            {
+                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo(Mathf.RoundToInt(mod.Value),
+                    RuleDefinitions.FeatureSourceType.AbilityScore, mod.SourceAbility, monster, mod) {additive = true});
+            }
+        }
     }
 }
 
@@ -637,7 +836,7 @@ public static class StackedMaterialComponent
             {
                 item.RulesetItem,
                 item.Cost,
-                StackCountRequired = (int)Math.Ceiling(spell.SpecificMaterialComponentCostGp / (double)item.Cost)
+                StackCountRequired = (int) Math.Ceiling(spell.SpecificMaterialComponentCostGp / (double) item.Cost)
             })
             .Where(item => item.StackCountRequired <= item.RulesetItem.StackCount)
             .Select(item => new
@@ -701,7 +900,7 @@ internal static class UpcastConjureElementalAndFey
      */
     internal static bool CheckSubSpellActivated(SubspellSelectionModal __instance, int index)
     {
-        if (!Main.Settings.EnableUpcastConjureElementalAndFey || _filteredSubspells is not { Count: > 0 })
+        if (!Main.Settings.EnableUpcastConjureElementalAndFey || _filteredSubspells is not {Count: > 0})
         {
             return true;
         }
