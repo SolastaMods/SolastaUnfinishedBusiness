@@ -13,8 +13,6 @@ internal static class PowersContext
 {
     internal static readonly HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions = new();
 
-    private static readonly Guid BazouPowersBaseGuid = new("99cee84d-6187-4d7f-a36e-1bd96d3f2deb");
-
     private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
     internal static void LateLoad()
@@ -69,7 +67,7 @@ internal static class PowersContext
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = helpPowerCondition;
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
-            .Create("PowerHelp", BazouPowersBaseGuid)
+            .Create("PowerHelp", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, Aid.GuiPresentation.SpriteReference)
             .Configure(
                 1,

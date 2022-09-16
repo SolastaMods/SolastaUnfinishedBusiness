@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -374,8 +375,6 @@ internal static class ConjurationsContext
         Adam_The_Twelth
     };
 
-    private static readonly Guid Namespace = new("de4539b8e0194684b1d0585100dd94e5");
-
     /// <summary>
     ///     Allow conjurations to fully controlled party members instead of AI controlled.
     /// </summary>
@@ -405,7 +404,7 @@ internal static class ConjurationsContext
                 .TryGetElement(InvisibleStalkerSubspellName, out _))
         {
             var definition = SpellDefinitionBuilder
-                .Create(ConjureElementalFire, InvisibleStalkerSubspellName, Namespace)
+                .Create(ConjureElementalFire, InvisibleStalkerSubspellName, DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation("Spell/&IPConjureInvisibleStalkerTitle",
                     "Spell/&ConjureElementalDescription")
                 .AddToDB();
