@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -161,6 +163,144 @@ internal static class RulesetCharacterHeroPatcher
             // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
             // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
             return ArmorClassStacking.UnstackAcTranspile(instructions);
+        }
+    }
+
+    //PATCH: ensures ritual spells from all spell repertoires are made available (Multiclass)
+    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class EnumerateUsableRitualSpells_Patch
+    {
+        internal static bool Prefix(
+            RulesetCharacter rulesetCharacter,
+            List<SpellDefinition> ritualSpells)
+        {
+            if (rulesetCharacter is not RulesetCharacterHero hero || !SharedSpellsContext.IsMulticaster(hero))
+            {
+                return true;
+            }
+
+            var allRitualSpells = new List<SpellDefinition>();
+            var magicAffinities = new List<FeatureDefinition>();
+            ritualSpells.SetRange(allRitualSpells);
+
+            rulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(magicAffinities);
+
+            // ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
+            foreach (FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity in magicAffinities)
+            {
+                if (featureDefinitionMagicAffinity.RitualCasting == RuleDefinitions.RitualCasting.None)
+                {
+                    continue;
+                }
+
+                foreach (var spellRepertoire in rulesetCharacter.SpellRepertoires)
+                {
+                    // this is very similar to switch statement TA wrote but with spell loops outside
+                    switch (featureDefinitionMagicAffinity.RitualCasting)
+                    {
+                        case RuleDefinitions.RitualCasting.PactTomeRitual:
+                        {
+                            foreach (var kvp in spellRepertoire.ExtraSpellsByTag)
+                            {
+                                if (!kvp.Key.Contains("PactTomeRitual"))
+                                {
+                                    continue;
+                                }
+
+                                foreach (var spellDefinition in kvp.Value)
+                                {
+                                    if (spellDefinition.Ritual
+                                        && spellRepertoire.MaxSpellLevelOfSpellCastingLevel >=
+                                        spellDefinition.SpellLevel)
+                                    {
+                                        allRitualSpells.Add(spellDefinition);
+                                    }
+                                }
+                            }
+
+                            break;
+                        }
+
+                        case RuleDefinitions.RitualCasting.Selection:
+                        {
+                            var spells = spellRepertoire.KnownSpells
+                                .Where(knownSpell =>
+                                    knownSpell.Ritual && spellRepertoire.MaxSpellLevelOfSpellCastingLevel >=
+                                    knownSpell.SpellLevel);
+
+                            allRitualSpells.AddRange(spells);
+
+                            break;
+                        }
+
+                        case RuleDefinitions.RitualCasting.Prepared
+                            when spellRepertoire.SpellCastingFeature.SpellReadyness ==
+                                 RuleDefinitions.SpellReadyness.Prepared &&
+                                 spellRepertoire.SpellCastingFeature.SpellKnowledge ==
+                                 RuleDefinitions.SpellKnowledge.WholeList:
+                        {
+                            var maxSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+                            var spells = spellRepertoire.PreparedSpells
+                                .Where(s => s.Ritual)
+                                .Where(s => maxSpellLevel >= s.SpellLevel);
+
+                            allRitualSpells.AddRange(spells);
+
+                            break;
+                        }
+                        case RuleDefinitions.RitualCasting.Spellbook
+                            when spellRepertoire.SpellCastingFeature.SpellKnowledge ==
+                                 RuleDefinitions.SpellKnowledge.Spellbook:
+                        {
+                            rulesetCharacter.CharacterInventory.EnumerateAllItems(rulesetCharacter.Items);
+
+                            var maxSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+                            var spells = rulesetCharacter.Items
+                                .OfType<RulesetItemSpellbook>()
+                                .SelectMany(x => x.ScribedSpells)
+                                .ToList();
+
+                            spells = spells
+                                .Where(s => s.Ritual)
+                                .Where(s => maxSpellLevel >= s.SpellLevel)
+                                .ToList();
+
+                            rulesetCharacter.Items.Clear();
+
+                            allRitualSpells.AddRange(spells);
+
+                            break;
+                        }
+                        // special case for Witch
+                        case (RuleDefinitions.RitualCasting)ExtraRitualCasting.Known:
+                        {
+                            var maxSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+                            var spells = spellRepertoire.KnownSpells
+                                .Where(s => s.Ritual)
+                                .Where(s => maxSpellLevel >= s.SpellLevel);
+
+                            allRitualSpells.AddRange(spells);
+
+                            if (spellRepertoire.AutoPreparedSpells == null)
+                            {
+                                return true;
+                            }
+
+                            spells = spellRepertoire.AutoPreparedSpells
+                                .Where(s => s.Ritual)
+                                .Where(s => maxSpellLevel >= s.SpellLevel);
+
+                            allRitualSpells.AddRange(spells);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            ritualSpells.SetRange(allRitualSpells.Distinct());
+
+            return false;
         }
     }
 }

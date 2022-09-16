@@ -298,30 +298,6 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: ensures ritual spells work correctly when MC (Multiclass)
-    [HarmonyPatch(typeof(RulesetCharacter), "CanCastAnyRitualSpell")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CanCastAnyRitualSpell_Patch
-    {
-        internal static bool Prefix(RulesetCharacter __instance, ref bool __result)
-        {
-            if (__instance is not RulesetCharacterHero)
-            {
-                return true;
-            }
-
-            RitualSelectionPanelPatcher.Bind_Patch
-                .EnumerateUsableRitualSpells(
-                    __instance,
-                    RuleDefinitions.RitualCasting.None,
-                    __instance.usableSpells);
-
-            __result = __instance.usableSpells.Count > 0;
-
-            return false;
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshArmorClassInFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RefreshArmorClassInFeatures_Patch

@@ -1558,10 +1558,19 @@ public static class SharedSpellsContext
             return 0;
         }
 
-        var slotsPerLevel =
-            spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1];
+        var i = 0;
 
-        return slotsPerLevel.Slots.IndexOf(0);
+        while (spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1].Slots[i] == 0)
+        {
+            i++;
+        }
+
+        while (spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1].Slots[i] != 0)
+        {
+            i++;
+        }
+
+        return i;
     }
 
     public static void Load()
