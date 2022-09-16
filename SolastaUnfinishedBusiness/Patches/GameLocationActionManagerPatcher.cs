@@ -56,43 +56,6 @@ internal static class GameLocationActionManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationActionManager), "ReactForReadiedAction")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ReactForReadiedAction_Patch
-    {
-        internal static bool Prefix([NotNull] CharacterActionParams reactionParams)
-        {
-            //PATCH: Make cantrips that have more than 1 target hit same target more than once when used as readied action. 
-            // Only Eldritch Blast and its variants should be affected
-
-            // For some reason TA do not set reactionParams.ReadyActionType to ReadyActionType.Cantrip
-            // So we manually detect it as casting spell level 0
-            if (reactionParams.RulesetEffect is not RulesetEffectSpell { SlotLevel: 0 } spell)
-            {
-                return true;
-            }
-
-            var spellTargets = spell.ComputeTargetParameter();
-
-            if (!reactionParams.RulesetEffect.EffectDescription.IsSingleTarget || spellTargets <= 1)
-            {
-                return true;
-            }
-
-            var target = reactionParams.TargetCharacters.FirstOrDefault();
-            var mod = reactionParams.ActionModifiers.FirstOrDefault();
-
-            while (target != null && mod != null && reactionParams.TargetCharacters.Count < spellTargets)
-            {
-                reactionParams.TargetCharacters.Add(target);
-                // Technically casts after first might need to have different mods, but not by much since we attacking same target.
-                reactionParams.ActionModifiers.Add(mod.Clone());
-            }
-
-            return true;
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationActionManager), "ExecuteActionAsync")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ExecuteActionAsync_Patch
