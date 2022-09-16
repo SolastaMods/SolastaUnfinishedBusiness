@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,26 +10,24 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class SpellRepertoirePanelPatcher
 {
-    //PATCH: allows prepared spell casters to take metamagic feats and have a working UI
-    //otherwise sorcery points get off screen
-    [HarmonyPatch(typeof(SpellRepertoirePanel), "OnBeginShow")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
-    {
-        internal static void Postfix(SpellRepertoirePanel __instance)
-        {
-            if (!Main.Settings.EnableMoveSorceryPointsBox)
-            {
-                return;
-            }
-
-            var rectTransform = __instance.sorceryPointsBox.GetComponent<RectTransform>();
-
-            rectTransform.sizeDelta = new Vector2(275, 32);
-            __instance.sorceryPointsBox.localPosition = new Vector3(-920, 38, 0);
-            __instance.RefreshNow();
-        }
-    }
+    // //PATCH: allows prepared spell casters to take metamagic feats and have a working UI
+    // //otherwise sorcery points get off screen
+    // [HarmonyPatch(typeof(SpellRepertoirePanel), "OnBeginShow")]
+    // [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    // internal static class OnBeginShow_Patch
+    // {
+    //     internal static void Postfix(SpellRepertoirePanel __instance)
+    //     {
+    //         if (!Main.Settings.EnableMoveSorceryPointsBox)
+    //         {
+    //             return;
+    //         }
+    //
+    //         var isSorcerer = __instance.SpellRepertoire.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Sorcerer;
+    //         
+    //         __instance.sorceryPointsBox.gameObject.SetActive(isSorcerer);
+    //     }
+    // }
 
     //PATCH: filters how spells and slots are displayed on inspection (Multiclass)
     [HarmonyPatch(typeof(SpellRepertoirePanel), "Bind")]
@@ -113,6 +112,16 @@ internal static class SpellRepertoirePanelPatcher
                 spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0,
                 classSpellLevel,
                 slotLevel);
+            
+            if (!Main.Settings.EnableMoveSorceryPointsBox)
+            {
+                return;
+            }
+
+            var isSorcerer = __instance.SpellRepertoire.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Sorcerer;
+            
+            //PATCH: allows prepared spell casters to take metamagic feats and have a working UI
+            __instance.sorceryPointsBox.gameObject.SetActive(isSorcerer);
         }
     }
 }
