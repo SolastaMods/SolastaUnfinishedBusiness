@@ -51,8 +51,7 @@ public sealed class BlueprintLoader : MonoBehaviour
     private IEnumerator LoadBlueprints()
     {
         // safe access to the database
-        var databases =
-            (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null);
+        var databases = DatabaseRepository.databases;
         var loaded = 0;
         var total = databases.Count;
 

@@ -23,8 +23,7 @@ internal static class LoadPanel_OnBeginShow
 {
     private static GameObject Dropdown { get; set; }
 
-    public static bool Prefix([NotNull] LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview,
-        [HarmonyArgument("instant")] bool _ = false)
+    public static bool Prefix([NotNull] LoadPanel __instance, [HarmonyArgument("instant")] bool _ = false)
     {
         if (!Main.Settings.EnableSaveByLocation)
         {
@@ -38,10 +37,8 @@ internal static class LoadPanel_OnBeginShow
 
         // From OnBeginShow
         __instance.StartAllModifiers(true);
-        ___loadSaveLinesScrollview.normalizedPosition = new Vector2(0.0f, 1f);
-        AccessTools
-            .Method(typeof(LoadPanel), "Reset")
-            .Invoke(__instance, Array.Empty<object>());
+        __instance.loadSaveLinesScrollview.normalizedPosition = new Vector2(0.0f, 1f);
+        __instance.Reset();
 
         // The Load Panel is being shown.
         // 1) create/activate a dropdown next to the load save button
@@ -175,8 +172,7 @@ internal static class LoadPanel_OnBeginShow
             // From OnBeginShow
 
             // reload the save file list
-            var method = AccessTools.Method(typeof(LoadPanel), "EnumerateSaveLines");
-            __instance.StartCoroutine((IEnumerator)method.Invoke(__instance, Array.Empty<object>()));
+            __instance.StartCoroutine(__instance.EnumerateSaveLines());
         }
 
         GuiDropdown CreateOrActivateDropdown()

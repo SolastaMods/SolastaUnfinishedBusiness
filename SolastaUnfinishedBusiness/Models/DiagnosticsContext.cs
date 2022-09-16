@@ -85,8 +85,7 @@ internal static class DiagnosticsContext
 
         var definitions = new Dictionary<Type, BaseDefinition[]>();
 
-        foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases")
-                     .GetValue(null))
+        foreach (var db in DatabaseRepository.databases)
         {
             var arr = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToArray();
 
@@ -132,8 +131,7 @@ internal static class DiagnosticsContext
 
         var definitions = new Dictionary<Type, BaseDefinition[]>();
 
-        foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases")
-                     .GetValue(null))
+        foreach (var db in DatabaseRepository.databases)
         {
             var arr = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToArray();
 

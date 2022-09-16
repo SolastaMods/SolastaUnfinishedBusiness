@@ -10,10 +10,8 @@ namespace SolastaUnfinishedBusiness.Patches.Tools.SaveByLocation;
 internal static class GameSerializationManager_CanLoad
 {
     public static bool Prefix(
-        ref bool __result,
-        bool ___saving,
-        bool ___loading,
-        HashSet<EPermissionToken> ___loadDisabledTokens)
+        GameSerializationManager __instance,
+        ref bool __result)
     {
         if (!Main.Settings.EnableSaveByLocation)
         {
@@ -21,8 +19,7 @@ internal static class GameSerializationManager_CanLoad
         }
 
         // Enable/disable the 'load' button in the load save panel
-
-        __result = !___saving && !___loading && ___loadDisabledTokens.Count == 0;
+        __result = !__instance.saving && !__instance.loading && __instance.loadDisabledTokens.Count == 0;
 
         return false;
     }

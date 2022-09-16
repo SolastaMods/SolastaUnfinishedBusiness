@@ -77,8 +77,7 @@ public abstract class DefinitionBuilder
     {
         var definitions = new Dictionary<string, (string typeName, bool isCeDef)>(StringComparer.OrdinalIgnoreCase);
 
-        foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases")
-                     .GetValue(null))
+        foreach (var db in DatabaseRepository.databases)
         {
             foreach (var bd in (IEnumerable)db.Value)
             {
