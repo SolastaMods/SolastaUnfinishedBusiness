@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
@@ -49,3 +50,4 @@ public static class UserCampaignEditorScreen_OnMaxLevelEndEdit
         return code;
     }
 }
+#endif
