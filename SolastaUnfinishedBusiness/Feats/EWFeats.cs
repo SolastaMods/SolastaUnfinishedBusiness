@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -246,7 +245,7 @@ public static class EwFeats
         }
     }
 
-    public sealed class StopPowerConcentrationProvider : ICusomConcentrationProvider
+    public sealed class StopPowerConcentrationProvider : ICustomConcentrationProvider
     {
         public FeatureDefinitionPower StopPower;
 

@@ -14,7 +14,7 @@ public static class ExtraAttacksOnActionPanel
         IEnumerable<CodeInstruction> instructions)
     {
         var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
-        var customMehgtod = new Func<
+        var method = new Func<
             GameLocationCharacter,
             Id,
             bool,
@@ -27,7 +27,7 @@ public static class ExtraAttacksOnActionPanel
             if (instruction.Calls(findAttacks))
             {
                 yield return new CodeInstruction(OpCodes.Ldarg_2);
-                yield return new CodeInstruction(OpCodes.Call, customMehgtod);
+                yield return new CodeInstruction(OpCodes.Call, method);
             }
             else
             {

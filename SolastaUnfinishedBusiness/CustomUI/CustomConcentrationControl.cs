@@ -1,21 +1,13 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public interface ICusomConcentrationProvider
-{
-    string Name { get; }
-    string Tooltip { get; }
-    AssetReferenceSprite Icon { get; }
-    void Stop(RulesetCharacter character);
-}
-
 public class CustomConcentrationControl : MonoBehaviour
 {
-    public static CustomConcentrationControl Setup(ICusomConcentrationProvider provider, RulesetCharacter character,
+    public static CustomConcentrationControl Setup(ICustomConcentrationProvider provider, RulesetCharacter character,
         GameObject prefab, Transform parent)
     {
         CustomConcentrationControl control;
@@ -42,7 +34,7 @@ public class CustomConcentrationControl : MonoBehaviour
     }
 
 
-    private void Setup(ICusomConcentrationProvider provider, RulesetCharacter character)
+    private void Setup(ICustomConcentrationProvider provider, RulesetCharacter character)
     {
         var image = transform.Find("ConcentrationImage").GetComponent<Image>();
         if (image != null)
@@ -54,7 +46,7 @@ public class CustomConcentrationControl : MonoBehaviour
         GetComponent<Button>().onClick = new Button.ButtonClickedEvent();
     }
 
-    private void UpdateState(ICusomConcentrationProvider provider, RulesetCharacter character)
+    private void UpdateState(ICustomConcentrationProvider provider, RulesetCharacter character)
     {
         gameObject.SetActive(true); //Do we need ability to set to inactive on update?
 

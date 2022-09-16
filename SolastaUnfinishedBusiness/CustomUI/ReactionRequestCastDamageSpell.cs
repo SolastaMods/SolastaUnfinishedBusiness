@@ -7,11 +7,11 @@ public class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
         GameLocationCharacter attacker, bool isCanrip)
         : base("CastSpellInRetribution", actionParams)
     {
-        attackerName = attacker.Name;
+        AttackerName = attacker.Name;
         if (!isCanrip) { BuildSlotSubOptions(); }
     }
 
-    private string attackerName { get; }
+    private string AttackerName { get; }
 
     public override string SuboptionTag => "SlotLevel";
 
@@ -19,7 +19,7 @@ public class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
     {
         var spellName = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
             .Title;
-        return Gui.Format(Gui.Localize("Reaction/&CastSpellInRetributionDescription"), attackerName,
+        return Gui.Format(Gui.Localize("Reaction/&CastSpellInRetributionDescription"), AttackerName,
             Character.Name,
             spellName);
     }

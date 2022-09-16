@@ -1,4 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -6,18 +7,9 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public interface ICusomPortraitPointPoolProvider
-{
-    string Name { get; }
-    string Tooltip { get; }
-    AssetReferenceSprite Icon { get; }
-    int GetPoints(RulesetCharacter character);
-}
-
-public class CustomPortraitPoolPower : ICusomPortraitPointPoolProvider
+public class CustomPortraitPoolPower : ICustomPortraitPointPoolProvider
 {
     private readonly FeatureDefinitionPower power;
-
 
     public CustomPortraitPoolPower(FeatureDefinitionPower power, string name = null, string tooltip = null,
         AssetReferenceSprite icon = null)
@@ -40,7 +32,7 @@ public class CustomPortraitPoolPower : ICusomPortraitPointPoolProvider
 
 public class CustomPortraitPointPool : MonoBehaviour
 {
-    public static CustomPortraitPointPool Setup(ICusomPortraitPointPoolProvider provider, RulesetCharacter character,
+    public static CustomPortraitPointPool Setup(ICustomPortraitPointPoolProvider provider, RulesetCharacter character,
         GameObject prefab, Transform parent)
     {
         CustomPortraitPointPool pool;
@@ -66,7 +58,7 @@ public class CustomPortraitPointPool : MonoBehaviour
         return pool;
     }
 
-    private void Setup(ICusomPortraitPointPoolProvider provider, RulesetCharacter character)
+    private void Setup(ICustomPortraitPointPoolProvider provider, RulesetCharacter character)
     {
         var image = transform.Find("SorceryPointsImage").GetComponent<Image>();
 
@@ -79,11 +71,11 @@ public class CustomPortraitPointPool : MonoBehaviour
         image.SetupSprite(provider.Icon);
     }
 
-    private void UpdateState(ICusomPortraitPointPoolProvider provider, RulesetCharacter character)
+    private void UpdateState(ICustomPortraitPointPoolProvider provider, RulesetCharacter character)
     {
         gameObject.SetActive(true); //Do we need ability to set to inactive on update?
 
-        var label = transform.Find("SorceyPointsLabel")?.GetComponent<GuiLabel>();
+        var label = transform.Find("SorceryPointsLabel")?.GetComponent<GuiLabel>();
         if (label != null)
         {
             label.Text = $"{provider.GetPoints(character)}";
