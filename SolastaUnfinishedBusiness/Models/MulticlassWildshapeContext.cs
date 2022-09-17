@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.Models;
 
-internal static class WildshapeTweaks
+internal static class MulticlassWildshapeContext
 {
     private const string TagWildShape = "99WildShape";
-    private const string NaturalACTitle = "Tooltip/&CEMonsterNaturalArmorTitle";
+    private const string NaturalAcTitle = "Tooltip/&CEMonsterNaturalArmorTitle";
     private const string TagMonsterBase = "<Base>";
-    private const string TagNaturalAC = "<NaturalArmor>";
+    private const string TagNaturalAc = "<NaturalArmor>";
 
     private static readonly List<string> AllowedAttributes = new()
     {
@@ -27,11 +28,11 @@ internal static class WildshapeTweaks
 
     public static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
     {
-        UpdateAtributeModifiers(monster, keepMentalAbilityScores);
-        FixShapeShiftedAC(monster);
+        UpdateAttributeModifiers(monster, keepMentalAbilityScores);
+        FixShapeShiftedAc(monster);
     }
 
-    private static void UpdateAtributeModifiers(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
+    private static void UpdateAttributeModifiers(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
     {
         if (monster.originalFormCharacter is not RulesetCharacterHero hero)
         {
@@ -69,7 +70,7 @@ internal static class WildshapeTweaks
         monster.usedBardicInspiration = hero.usedBardicInspiration;
     }
 
-    private static void FixShapeShiftedAC(RulesetCharacterMonster monster)
+    private static void FixShapeShiftedAc(RulesetCharacterMonster monster)
     {
         if (monster.originalFormCharacter is not RulesetCharacterHero)
         {
@@ -81,7 +82,6 @@ internal static class WildshapeTweaks
         monster.MonsterDefinition.armor = EquipmentDefinitions.EmptyMonsterArmor;
 
         var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
-        RulesetAttributeModifier mod;
 
         //Vanilla game (as of 1.4.10) sets this to monster's AC from definition
         //this breaks many AC stacking rules
@@ -89,7 +89,7 @@ internal static class WildshapeTweaks
         ac.BaseValue = 0;
 
         //basic AC - sets AC to 10
-        mod = RulesetAttributeModifier.BuildAttributeModifier(
+        var mod = RulesetAttributeModifier.BuildAttributeModifier(
             FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
             10, TagMonsterBase
         );
@@ -98,7 +98,7 @@ internal static class WildshapeTweaks
         //natural armor of the monster
         mod = RulesetAttributeModifier.BuildAttributeModifier(
             FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-            monster.MonsterDefinition.ArmorClass, TagNaturalAC
+            monster.MonsterDefinition.ArmorClass, TagNaturalAc
         );
         mod.tags.Add(ExclusiveACBonus.TagNaturalArmor);
         ac.AddModifier(mod);
@@ -113,7 +113,7 @@ internal static class WildshapeTweaks
         ac.AddModifier(mod);
     }
 
-    public static void RefrestWildShapeACFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
+    public static void RefreshWildShapeAcFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
     {
         var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
         ac.RemoveModifiersByTags(TagWildShape);
@@ -123,7 +123,7 @@ internal static class WildshapeTweaks
             RuleDefinitions.FeatureSourceType.CharacterFeature, string.Empty);
     }
 
-    public static void UpdateWildShapeACTrends(List<RulesetAttributeModifier> modifiers,
+    public static void UpdateWildShapeAcTrends(List<RulesetAttributeModifier> modifiers,
         RulesetCharacterMonster monster, RulesetAttribute ac)
     {
         //Add trends for built-in AC mods (base ac, natural armor, dex bonus)
@@ -134,10 +134,10 @@ internal static class WildshapeTweaks
                 ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int)mod.value,
                     RuleDefinitions.FeatureSourceType.Base, string.Empty, monster, mod) { additive = false });
             }
-            else if (mod.Tags.Contains(TagNaturalAC))
+            else if (mod.Tags.Contains(TagNaturalAc))
             {
                 ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int)mod.value,
-                    RuleDefinitions.FeatureSourceType.ExplicitFeature, NaturalACTitle, monster, mod)
+                    RuleDefinitions.FeatureSourceType.ExplicitFeature, NaturalAcTitle, monster, mod)
                 {
                     additive = false
                 });

@@ -664,8 +664,8 @@ internal static class ArmorClassStacking
     {
         var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
 
-        WildshapeTweaks.RefrestWildShapeACFeatures(monster, ac);
-        WildshapeTweaks.UpdateWildShapeACTrends(modifiers, monster, ac);
+        MulticlassWildshapeContext.RefreshWildShapeAcFeatures(monster, ac);
+        MulticlassWildshapeContext.UpdateWildShapeAcTrends(modifiers, monster, ac);
         UnstackAc(modifiers, monster); // also sorts modifiers
     }
 }

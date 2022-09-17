@@ -21,7 +21,7 @@ internal static class RulesetCharacterMonsterPatcher
             //And adds base 10 and dex AC modifiers too, so they can mix with unarmored defense if needed
             //PATCH: support for rage/ki/other stuff while shape-shifted
             //Transfers some of the ability modifiers to shape shifted form 
-            WildshapeTweaks.FinalizeMonster(__instance, keepMentalAbilityScores);
+            MulticlassWildshapeContext.FinalizeMonster(__instance, keepMentalAbilityScores);
 
             //PATCH: allows us to change monsters created by Dead Master
             //TODO: Consider using `FeatureDefinitionSummoningAffinity` for this
