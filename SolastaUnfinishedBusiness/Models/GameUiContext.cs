@@ -19,7 +19,7 @@ internal static class GameUiContext
         VirtualExit, VirtualExitMultiple, Exit, ExitMultiple, TeleporterIndividual, TeleporterParty
     };
 
-    private static bool EnableDebugCamera { get; set; }
+    // private static bool EnableDebugCamera { get; set; }
 
     // Converts continuous ratio into series of stepped values
     internal static float GetSteppedHealthRatio(float ratio)
@@ -43,7 +43,7 @@ internal static class GameUiContext
         return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? ExitsWithGizmos : 0);
     }
 
-    internal static void LoadRemoveBugVisualModels()
+    private static void LoadRemoveBugVisualModels()
     {
         if (!Main.Settings.RemoveBugVisualModels)
         {
@@ -182,6 +182,11 @@ internal static class GameUiContext
         //             return;
         //     }
         // }
+
+        if (Main.Settings.EnableCharacterExport && command == Hotkeys.CtrlShiftE)
+        {
+            CharacterExportContext.ExportInspectedCharacter();
+        }
 
         if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CtrlShiftH)
         {

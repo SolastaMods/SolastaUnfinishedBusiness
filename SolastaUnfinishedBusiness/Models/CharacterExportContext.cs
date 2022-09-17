@@ -15,8 +15,6 @@ internal static class CharacterExportContext
 
     internal static TMP_InputField InputField { get; private set; }
 
-    internal static bool InputModalVisible { get; private set; }
-
     internal static void Load()
     {
         var messageModal = Gui.GuiService.GetScreen<MessageModal>();
@@ -43,20 +41,18 @@ internal static class CharacterExportContext
         return Gui.TrimInvalidCharacterNameSymbols(text).Trim();
     }
 
-    internal static void ExportInspectedCharacter([NotNull] RulesetCharacterHero hero)
+    internal static void ExportInspectedCharacter()
     {
+        if (Global.ActivePlayerCharacter?.RulesetCharacter is not RulesetCharacterHero hero)
+        {
+            return;
+        }
+
         var messageModal = Gui.GuiService.GetScreen<MessageModal>();
 
-        InputModalVisible = true;
-
         messageModal.Show(MessageModal.Severity.Informative1,
-            "Message/&CharacterExportModalTitleDescription", InputModalMark,
-            "Message/&MessageOkTitle", "Message/&MessageCancelTitle", MessageValidated, MessageCancelled);
-
-        void MessageCancelled()
-        {
-            InputModalVisible = false;
-        }
+            Gui.Format("Message/&CharacterExportModalTitleDescription", hero.Name), InputModalMark,
+            "Message/&MessageOkTitle", "Message/&MessageCancelTitle", MessageValidated, null);
 
         void MessageValidated()
         {
@@ -98,8 +94,6 @@ internal static class CharacterExportContext
                     ExportCharacter(hero, newFirstName, newSurname);
                 }
             }
-
-            InputModalVisible = false;
         }
     }
 
