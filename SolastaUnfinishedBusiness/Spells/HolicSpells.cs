@@ -14,21 +14,14 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static class HolicSpells
 {
-    private static readonly SpellDefinition AcidClaw = BuildAcidClaw();
-    private static readonly SpellDefinition AirBlast = BuildAirBlast();
-    private static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
-    private static readonly SpellDefinition ThunderStrike = BuildThunderStrike();
-    private static readonly SpellDefinition WinterBreath = BuildWinterBreath();
-    private static readonly SpellDefinition EarthTremor = BuildEarthTremor();
-
     internal static void Register()
     {
-        RegisterSpell(AcidClaw, 0, SpellListDruid);
-        RegisterSpell(AirBlast, 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
-        RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
-        RegisterSpell(ThunderStrike, 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
-        RegisterSpell(EarthTremor, 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer, SpellListDruid);
-        RegisterSpell(WinterBreath, 0, SpellListWizardGreenmage, SpellListDruid);
+        RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
+        RegisterSpell(BuildAirBlast(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
+        RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
+        RegisterSpell(BuildThunderStrike(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
+        RegisterSpell( BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer, SpellListDruid);
+        RegisterSpell(BuildEarthTremor(), 0, SpellListWizardGreenmage, SpellListDruid);
     }
 
     private static SpellDefinition BuildAcidClaw()

@@ -12,18 +12,14 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 public static class SgSpells
 {
-    private static readonly SpellDefinition IlluminatingSphere = BuildIlluminatingSphere();
-    private static readonly SpellDefinition RadiantMotes = BuildRadiantMotes();
-    private static readonly SpellDefinition Mule = BuildMule();
-
     internal static void Register()
     {
         //cantrip
-        RegisterSpell(IlluminatingSphere, 0, SpellListWizard);
+        RegisterSpell(BuildIlluminatingSphere(), 0, SpellListWizard);
 
         //level 1
-        RegisterSpell(RadiantMotes, 0, SpellListWizard);
-        RegisterSpell(Mule, 0, SpellListWizard);
+        RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard);
+        RegisterSpell(BuildMule(), 0, SpellListWizard);
     }
 
     [NotNull]
