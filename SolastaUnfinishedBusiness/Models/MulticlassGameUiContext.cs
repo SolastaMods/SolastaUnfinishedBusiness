@@ -20,6 +20,73 @@ public static class MulticlassGameUiContext
         return FontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
     }
 
+    internal static void RebuildSlotsTable(SpellRepertoirePanel __instance)
+    {
+        var spellRepertoire = __instance.SpellRepertoire;
+        var accountForCantrips = spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0;
+        int classSpellLevel;
+        int slotLevel;
+
+        // determines the display context
+        if (spellRepertoire.SpellCastingRace != null)
+        {
+            classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+            slotLevel = 0;
+        }
+        else
+        {
+            var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
+            var isSharedcaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
+
+            classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+            slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);
+        }
+
+        while (__instance.levelButtonsTable.childCount < classSpellLevel + accountForCantrips)
+        {
+            Gui.GetPrefabFromPool(__instance.levelButtonPrefab, __instance.levelButtonsTable);
+
+            var index = __instance.levelButtonsTable.childCount - 1;
+            var child = __instance.levelButtonsTable.GetChild(index);
+
+            child.GetComponent<SpellLevelButton>().Bind(index, __instance.LevelSelected);
+        }
+
+        while (__instance.levelButtonsTable.childCount > classSpellLevel + accountForCantrips)
+        {
+            Gui.ReleaseInstanceToPool(__instance.levelButtonsTable
+                .GetChild(__instance.levelButtonsTable.childCount - 1)
+                .gameObject);
+        }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.levelButtonsTable);
+
+        // patches the panel to display higher level spell slots from shared slots table
+        // but hide the spell panels if class level not there yet
+        for (var i = 0; i < __instance.spellsByLevelTable.childCount; i++)
+        {
+            var spellsByLevel = __instance.spellsByLevelTable.GetChild(i);
+
+            for (var j = 0; j < spellsByLevel.childCount; j++)
+            {
+                var transform = spellsByLevel.GetChild(j);
+
+                if (transform.TryGetComponent(typeof(SlotStatusTable), out _))
+                {
+                    transform.gameObject.SetActive(i < slotLevel + accountForCantrips); // table header (with slots)
+                }
+                else
+                {
+                    transform.gameObject.SetActive(i < classSpellLevel + accountForCantrips); // table content
+                }
+            }
+        }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.spellsByLevelTable);
+    }
+
     public static void PaintPactSlots(
         [NotNull] RulesetCharacterHero heroWithSpellRepertoire,
         int totalSlotsCount,
