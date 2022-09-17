@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -304,7 +306,7 @@ internal static class RulesetCharacterHeroPatcher
             return false;
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacterHero), "GrantExperience")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GrantExperience_Patch
@@ -316,6 +318,7 @@ internal static class RulesetCharacterHeroPatcher
                 return;
             }
 
+            // ReSharper disable once RedundantAssignment
             var original = experiencePoints;
 
             experiencePoints =
@@ -365,6 +368,58 @@ internal static class RulesetCharacterHeroPatcher
 
                 return false;
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "AddClassLevel")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class AddClassLevel_Patch
+    {
+        internal static bool Prefix([NotNull] RulesetCharacterHero __instance, CharacterClassDefinition classDefinition)
+        {
+            var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
+
+            if (!isLevelingUp)
+            {
+                return true;
+            }
+
+            //PATCH: only adds the dice max value on level 1 (MULTICLASS)
+            __instance.ClassesHistory.Add(classDefinition);
+            __instance.ClassesAndLevels.TryAdd(classDefinition, 0);
+            __instance.ClassesAndLevels[classDefinition]++;
+            __instance.hitPointsGainHistory.Add(HeroDefinitions.RollHitPoints(classDefinition.HitDice));
+            __instance.ComputeCharacterLevel();
+            __instance.ComputeProficiencyBonus();
+
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "InvocationProficiencies", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class InvocationProficiencies_Patch
+    {
+        internal static bool Prefix(RulesetCharacterHero __instance, ref List<string> __result)
+        {
+            var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
+
+            if (!isLevelingUp)
+            {
+                return true;
+            }
+
+            //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
+            var selectedClass = LevelUpContext.GetSelectedClass(__instance);
+
+            if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+            {
+                return true;
+            }
+
+            __result = new List<string>();
+
+            return false;
         }
     }
 }
