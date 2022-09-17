@@ -60,6 +60,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetGuiPresentation(Category.Feature)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
+                    .SetCustomSubFeatures(new ValidatorDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangeWeapon))
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
