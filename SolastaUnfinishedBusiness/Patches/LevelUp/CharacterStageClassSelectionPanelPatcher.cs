@@ -66,17 +66,6 @@ internal static class CharacterStageClassSelectionPanel_OnBeginShow
     }
 }
 
-//PATCH: resets IsClassSelectionStage for hero (MULTICLASS)
-[HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnEndHide")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterStageClassSelectionPanel_OnEndHide
-{
-    internal static void Prefix([NotNull] CharacterStageClassSelectionPanel __instance)
-    {
-        LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, false);
-    }
-}
-
 //PATCH: hides the features list for already acquired classes (MULTICLASS)
 [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

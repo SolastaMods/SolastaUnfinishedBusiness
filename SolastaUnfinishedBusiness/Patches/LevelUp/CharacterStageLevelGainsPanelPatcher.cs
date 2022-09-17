@@ -22,7 +22,7 @@ internal static class CharacterStageLevelGainsPanel_EnterStage
     {
         if (LevelUpContext.IsLevelingUp(hero))
         {
-            // LevelUpContext.SetIsClassSelectionStage(hero, false);
+            LevelUpContext.SetIsClassSelectionStage(hero, false);
 
             lastClassDefinition = LevelUpContext.GetSelectedClass(hero);
             level = hero.ClassesHistory.Count;

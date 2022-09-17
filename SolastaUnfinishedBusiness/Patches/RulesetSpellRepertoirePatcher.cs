@@ -162,14 +162,12 @@ internal static class RulesetSpellRepertoirePatcher
 
             if (LevelUpContext.IsLevelingUp(heroWithSpellRepertoire))
             {
-                __result = SharedSpellsContext.GetClassSpellLevel(__instance);
+                return;
             }
-            else
-            {
-                __result = Math.Max(
-                    SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
-                    SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));
-            }
+  
+            __result = Math.Max(
+                SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
+                SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));
         }
     }
 
