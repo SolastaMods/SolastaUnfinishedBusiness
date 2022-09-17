@@ -15,7 +15,7 @@ internal static class GameCampaignPartyPatcher
     {
         internal static bool Prefix([NotNull] GameCampaignParty __instance, int levelCap)
         {
-            var max = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : Level20Context.GameMaxLevel;
+            var max = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : Level20Context.GameFinalMaxLevel;
 
             levelCap = Main.Settings.OverrideMinMaxLevel ? Level20Context.ModMaxLevel : levelCap;
 

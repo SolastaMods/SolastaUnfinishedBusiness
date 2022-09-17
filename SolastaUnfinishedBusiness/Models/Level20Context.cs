@@ -26,6 +26,7 @@ internal static class Level20Context
 
     public const int ModMaxLevel = 20;
     public const int GameMaxLevel = 12;
+    public const int GameFinalMaxLevel = 16;
 
     public const int ModMaxExperience = 355000;
     public const int GameMaxExperience = 100000;
@@ -36,12 +37,18 @@ internal static class Level20Context
     {
         var code = new List<CodeInstruction>(instructions);
 
-        if (Main.Settings.EnableLevel20)
+        if (!Main.Settings.EnableLevel20)
         {
-            code
-                .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GameMaxLevel)
-                .ForEach(x => x.operand = ModMaxLevel);
+            return code;
         }
+
+        code
+            .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GameFinalMaxLevel)
+            .ForEach(x => x.operand = ModMaxLevel);
+
+        code
+            .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GameMaxLevel)
+            .ForEach(x => x.operand = ModMaxLevel);
 
         return code;
     }
@@ -70,17 +77,17 @@ internal static class Level20Context
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");
         var transpiler = typeof(Level20Context).GetMethod("Level20Transpiler");
+        // these are currently the hard-coded levels on below methods
         var methods = new[]
         {
-            typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding),
-            typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"),
-            typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding),
-            typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"),
-            typeof(HigherLevelFeaturesModal).GetMethod("Bind"),
-            typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"),
-            typeof(RulesetCharacterHero).GetMethod("SerializeAttributes"),
-            typeof(RulesetCharacterHero).GetMethod("SerializeElements"),
-            typeof(RulesetEntity).GetMethod("SerializeElements")
+            typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), // 12
+            typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 16
+            typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
+            typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 16
+            typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12
+            typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"), // 16
+            typeof(RulesetCharacterHero).GetMethod("SerializeElements"), // 12, 16
+            typeof(RulesetEntity).GetMethod("SerializeElements") // 12, 16
         };
 
         foreach (var method in methods)
