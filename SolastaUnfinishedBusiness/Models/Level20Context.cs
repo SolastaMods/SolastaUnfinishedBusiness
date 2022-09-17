@@ -4,6 +4,8 @@ using System.Reflection;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Level20;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -17,6 +19,7 @@ using static SolastaUnfinishedBusiness.Level20.PowerClericTurnUndeadBuilder;
 using static SolastaUnfinishedBusiness.Level20.PowerFighterActionSurge2Builder;
 using static SolastaUnfinishedBusiness.Level20.SenseRangerFeralSensesBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -260,9 +263,21 @@ internal static class Level20Context
     {
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 18: Warlock Mystic Arcanum 9
-            new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Eldritch Master
+            new(FeatureDefinitionPointPoolBuilder
+                    .Create(PointPoolWarlockMysticArcanum8, "PointPoolWarlockMysticArcanum9",
+                        DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(
+                        "Feature/&PointPoolWarlockMysticArcanum9Title",
+                        "Feature/&PointPoolWarlockMysticArcanumDescription")
+                    .AddToDB(),
+                18),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(FeatureDefinitionPowerBuilder
+                    .Create(PowerWizardArcaneRecovery, "PowerWarlockEldritchMaster", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(Category.Feature)
+                    .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
+                    .AddToDB(),
+                20)
         });
 
         CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);

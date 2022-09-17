@@ -21,6 +21,18 @@ public abstract class
         return This();
     }
 
+    public TBuilder SetMinSpellLevel(int minSpellLevel)
+    {
+        Definition.minSpellLevel = minSpellLevel;
+        return This();
+    }
+
+    public TBuilder SetMaxSpellLevel(int maxSpellLevel)
+    {
+        Definition.maxSpellLevel = maxSpellLevel;
+        return This();
+    }
+
     public TBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
     {
         Definition.poolType = poolType;

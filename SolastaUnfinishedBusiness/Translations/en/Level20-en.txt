@@ -10,3 +10,5 @@ Feature/&SenseRangerFeralSensesDescription=You gain preternatural senses that he
 Feature/&SenseRangerFeralSensesTitle=Feral Senses
 Feature/&PowerSorcerousRestorationDescription=Regain 4 sorcery points during a short rest.
 Feature/&PowerSorcerousRestorationTitle=Sorcerous Restoration
+Feature/&PowerWarlockEldritchMasterDescription=you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.
+Feature/&PowerWarlockEldritchMasterTitle=Eldritch Master
