@@ -41,6 +41,7 @@ internal static class CharacterStageClassSelectionPanel_OnBeginShow
                 .Where(x => !x.GuiPresentation.Hidden);
 
             __instance.compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
+
             return;
         }
 
@@ -72,10 +73,7 @@ internal static class CharacterStageClassSelectionPanel_OnEndHide
 {
     internal static void Prefix([NotNull] CharacterStageClassSelectionPanel __instance)
     {
-        if (__instance.currentHero != null && LevelUpContext.IsLevelingUp(__instance.currentHero))
-        {
-            LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, false);
-        }
+        LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, false);
     }
 }
 

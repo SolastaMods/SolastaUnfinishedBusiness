@@ -182,10 +182,9 @@ public static class LevelUpContext
                 x.SpellCastingSubclass == GetSelectedSubclass(rulesetCharacterHero)));
     }
 
-    public static void SetIsClassSelectionStage([NotNull] RulesetCharacterHero rulesetCharacterHero,
-        bool isClassSelectionStage)
+    public static void SetIsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero, bool isClassSelectionStage)
     {
-        if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
+        if (rulesetCharacterHero == null || !LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
         {
             return;
         }
