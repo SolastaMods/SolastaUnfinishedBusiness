@@ -13,7 +13,7 @@ public static class LevelUpContext
     // keeps a tab on all heroes leveling up
     private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
 
-    public static void RegisterHero(
+    internal static void RegisterHero(
         [NotNull] RulesetCharacterHero rulesetCharacterHero,
         bool levelingUp)
     {
@@ -45,20 +45,20 @@ public static class LevelUpContext
         experienceAttribute.Refresh();
     }
 
-    public static void UnregisterHero([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static void UnregisterHero([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         LevelUpTab.Remove(rulesetCharacterHero);
     }
 
     [CanBeNull]
-    public static CharacterClassDefinition GetSelectedClass([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static CharacterClassDefinition GetSelectedClass([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
             ? levelUpData.SelectedClass
             : null;
     }
 
-    public static void SetSelectedClass([NotNull] RulesetCharacterHero rulesetCharacterHero,
+    internal static void SetSelectedClass([NotNull] RulesetCharacterHero rulesetCharacterHero,
         CharacterClassDefinition characterClassDefinition)
     {
         if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
@@ -154,14 +154,14 @@ public static class LevelUpContext
     }
 
     [CanBeNull]
-    public static CharacterSubclassDefinition GetSelectedSubclass([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static CharacterSubclassDefinition GetSelectedSubclass([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
             ? levelUpData.SelectedSubclass
             : null;
     }
 
-    public static void SetSelectedSubclass([NotNull] RulesetCharacterHero rulesetCharacterHero,
+    internal static void SetSelectedSubclass([NotNull] RulesetCharacterHero rulesetCharacterHero,
         CharacterSubclassDefinition characterSubclassDefinition)
     {
         if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
@@ -173,7 +173,7 @@ public static class LevelUpContext
     }
 
     [CanBeNull]
-    public static RulesetSpellRepertoire GetSelectedClassOrSubclassRepertoire(
+    private static RulesetSpellRepertoire GetSelectedClassOrSubclassRepertoire(
         [NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x =>
@@ -182,7 +182,7 @@ public static class LevelUpContext
                 x.SpellCastingSubclass == GetSelectedSubclass(rulesetCharacterHero)));
     }
 
-    public static void SetIsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero, bool isClassSelectionStage)
+    internal static void SetIsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero, bool isClassSelectionStage)
     {
         if (rulesetCharacterHero == null || !LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
         {
@@ -192,13 +192,13 @@ public static class LevelUpContext
         levelUpData.IsClassSelectionStage = isClassSelectionStage;
     }
 
-    public static bool RequiresDeity([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static bool RequiresDeity([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
                && levelUpData.RequiresDeity;
     }
 
-    // also referenced by 4 transpiler in PatchingContext
+    // also referenced by 4 transpiler in PatchingContext (KEEP PUBLIC)
     public static int GetSelectedClassLevel([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var selectedClass = GetSelectedClass(rulesetCharacterHero);
@@ -213,18 +213,18 @@ public static class LevelUpContext
         return 1;
     }
 
-    public static bool IsClassSelectionStage([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static bool IsClassSelectionStage([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) &&
                levelUpData.IsClassSelectionStage;
     }
 
-    public static bool IsLevelingUp([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static bool IsLevelingUp([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.IsLevelingUp;
     }
 
-    public static bool IsMulticlass([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static bool IsMulticlass([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
                && levelUpData.SelectedClass != null
@@ -232,7 +232,7 @@ public static class LevelUpContext
                    || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
     }
 
-    public static bool IsRepertoireFromSelectedClassSubclass([NotNull] RulesetCharacterHero rulesetCharacterHero,
+    internal static bool IsRepertoireFromSelectedClassSubclass([NotNull] RulesetCharacterHero rulesetCharacterHero,
         [NotNull] RulesetSpellRepertoire rulesetSpellRepertoire)
     {
         var selectedClass = GetSelectedClass(rulesetCharacterHero);
@@ -350,7 +350,7 @@ public static class LevelUpContext
         return knownSpells.ToHashSet();
     }
 
-    public static void CacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static void CacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
         {
@@ -370,7 +370,7 @@ public static class LevelUpContext
     }
 
     // supports character creation during boot up
-    public static void RecacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    private static void RecacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
         {
@@ -385,28 +385,28 @@ public static class LevelUpContext
         levelUpData.AllowedSpells = CacheAllowedSpells(thisClassCastingFeatures);
     }
 
-    public static HashSet<SpellDefinition> GetAllowedSpells([NotNull] RulesetCharacterHero hero)
+    internal static HashSet<SpellDefinition> GetAllowedSpells([NotNull] RulesetCharacterHero hero)
     {
         return !LevelUpTab.TryGetValue(hero, out var levelUpData)
             ? new HashSet<SpellDefinition>()
             : levelUpData.AllowedSpells;
     }
 
-    public static HashSet<SpellDefinition> GetAllowedAutoPreparedSpells([NotNull] RulesetCharacterHero hero)
+    internal static IEnumerable<SpellDefinition> GetAllowedAutoPreparedSpells([NotNull] RulesetCharacterHero hero)
     {
         return !LevelUpTab.TryGetValue(hero, out var levelUpData)
             ? new HashSet<SpellDefinition>()
             : levelUpData.AllowedAutoPreparedSpells;
     }
 
-    public static HashSet<SpellDefinition> GetOtherClassesKnownSpells([NotNull] RulesetCharacterHero hero)
+    internal static HashSet<SpellDefinition> GetOtherClassesKnownSpells([NotNull] RulesetCharacterHero hero)
     {
         return !LevelUpTab.TryGetValue(hero, out var levelUpData)
             ? new HashSet<SpellDefinition>()
             : levelUpData.OtherClassesKnownSpells;
     }
 
-    public static void GrantItemsIfRequired([NotNull] RulesetCharacterHero hero)
+    internal static void GrantItemsIfRequired([NotNull] RulesetCharacterHero hero)
     {
         if (!LevelUpTab.TryGetValue(hero, out var levelUpData) || !levelUpData.IsLevelingUp)
         {
@@ -500,16 +500,7 @@ public static class LevelUpContext
             return;
         }
 
-        //TODO: fix this for Paladins...
-        // only on levels where spells are granted
-        var levels = hero.ClassesAndLevels[spellCastingClass];
-
-        if (levels % 2 == 0)
-        {
-            return;
-        }
-
-        // add all spells for that level to known spells
+        // add all known spells up to that level
         var castingLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
         var knownSpells = GetAllowedSpells(hero);
 
@@ -520,8 +511,11 @@ public static class LevelUpContext
             knownSpells = GetAllowedSpells(hero);
         }
 
-        spellRepertoire.KnownSpells.AddRange(knownSpells
-            .Where(x => x.SpellLevel == castingLevel));
+        foreach (var spell in knownSpells
+                     .Where(x => x.SpellLevel == castingLevel))
+        {
+            spellRepertoire.KnownSpells.TryAdd(spell);
+        }
     }
 
     internal static void GrantCustomFeatures(RulesetCharacterHero hero)
@@ -590,8 +584,11 @@ public static class LevelUpContext
     {
         public CharacterClassDefinition SelectedClass;
         public CharacterSubclassDefinition SelectedSubclass;
+        // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool IsClassSelectionStage { get; set; }
+        // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool IsLevelingUp { get; set; }
+        // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool RequiresDeity { get; set; }
         public HashSet<ItemDefinition> GrantedItems { get; set; }
         public HashSet<SpellDefinition> AllowedSpells { get; set; }

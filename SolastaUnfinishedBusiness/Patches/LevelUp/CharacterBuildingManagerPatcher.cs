@@ -44,7 +44,6 @@ internal static class CharacterBuildingManager_FinalizeCharacter
 {
     internal static void Prefix([NotNull] CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
     {
-        //TODO: check if we still need this
         //PATCH: grants race features
         LevelUpContext.GrantRaceFeatures(__instance, hero);
 
