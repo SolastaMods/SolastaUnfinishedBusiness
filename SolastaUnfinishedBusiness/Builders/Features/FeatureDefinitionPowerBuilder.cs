@@ -129,6 +129,12 @@ public abstract class
         return This();
     }
 
+    public TBuilder SetHasCastingFailure(bool hasCastingFailure)
+    {
+        Definition.hasCastingFailure = hasCastingFailure;
+        return This();
+    }
+
     public TBuilder SetCastingFailure(RuleDefinitions.CastingSuccessComputation computation)
     {
         Definition.hasCastingFailure = true;

@@ -14,9 +14,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoP
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Level20.PowerClericDivineInterventionImprovementBuilder;
 using static SolastaUnfinishedBusiness.Level20.PowerClericTurnUndeadBuilder;
-using static SolastaUnfinishedBusiness.Level20.PowerFighterActionSurge2Builder;
 using static SolastaUnfinishedBusiness.Level20.SenseRangerFeralSensesBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -122,7 +120,11 @@ internal static class Level20Context
     {
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(PointPoolBardMagicalSecrets18Builder.PointPoolBardMagicalSecrets18, 18),
+            new(FeatureDefinitionPointPoolBuilder
+                    .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18",
+                        DefinitionBuilder.CENamespaceGuid)
+                    .AddToDB(),
+                18),
             new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Bard Superior Inspiration
         });
@@ -144,24 +146,52 @@ internal static class Level20Context
         CastSpellCleric.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
         CastSpellCleric.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
 
+        var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
+            .Create(
+                PowerClericDivineInterventionCleric,
+                "PowerClericDivineInterventionImprovementCleric",
+                DefinitionBuilder.CENamespaceGuid)
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionCleric)
+            .AddToDB();
+
+        var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
+            .Create(
+                PowerClericDivineInterventionPaladin,
+                "PowerClericDivineInterventionImprovementPaladin",
+                DefinitionBuilder.CENamespaceGuid)
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionPaladin)
+            .AddToDB();
+
+        var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
+            .Create(
+                PowerClericDivineInterventionWizard,
+                "PowerClericDivineInterventionImprovementWizard",
+                DefinitionBuilder.CENamespaceGuid)
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionWizard)
+            .AddToDB();
+
         DomainBattle.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionPaladin,
+                20));
         DomainElementalCold.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
         DomainElementalFire.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
         DomainElementalLighting.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
         DomainInsight.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
         DomainLaw.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
         DomainLife.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
         DomainOblivion.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
         DomainSun.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
     }
 
     private static void DruidLoad()
@@ -181,7 +211,12 @@ internal static class Level20Context
     {
         Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(PowerFighterActionSurge2, 17),
+            new(FeatureDefinitionPowerBuilder
+                    .Create(PowerFighterActionSurge, "PowerFighterActionSurge2", DefinitionBuilder.CENamespaceGuid)
+                    .SetFixedUsesPerRecharge(2)
+                    .SetOverriddenPower(PowerFighterActionSurge)
+                    .AddToDB(),
+                17),
             new(AttributeModifierFighterIndomitableAdd1, 17),
             new(FeatureSetAbilityScoreChoice, 19),
             new(AttributeModifierFighterExtraAttack, 20)
