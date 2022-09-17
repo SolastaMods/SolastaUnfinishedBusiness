@@ -119,9 +119,9 @@ internal static class Level20Context
     {
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 18: ...
+            new(PointPoolBardMagicalSecrets18Builder.PointPoolBardMagicalSecrets18, 18),
             new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: ...
+            // TODO 20: Bard Superior Inspiration
         });
 
         CastSpellBard.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
@@ -135,7 +135,7 @@ internal static class Level20Context
             new(PowerClericTurnUndead17, 17),
             new(AttributeModifierClericChannelDivinityAdd, 18),
             new(FeatureSetAbilityScoreChoice, 19)
-            // Solasta handles divine intervention on the subclasses, added below.
+            // Solasta handles divine intervention on subclasses below
         });
 
         CastSpellCleric.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
@@ -165,9 +165,9 @@ internal static class Level20Context
     {
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 18: BEAST SPELLS
+            // TODO 18: Druid Beast Spells
             new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: ARCH DRUID
+            // TODO 20: Druid Arch Druid
         });
 
         CastSpellDruid.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
@@ -225,6 +225,7 @@ internal static class Level20Context
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(SenseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Ranger Foe Slayer
         });
 
         CastSpellRanger.SlotsPerLevels.SetRange(SharedSpellsContext.HalfCastingSlots);
@@ -235,9 +236,9 @@ internal static class Level20Context
     {
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 18: Elusive
+            // TODO 18: Rogue Elusive
             new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Stroke of Luck
+            // TODO 20: Rogue Stroke of Luck
         });
     }
 
@@ -259,9 +260,9 @@ internal static class Level20Context
     {
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 18: ...
+            // TODO 18: Warlock Mystic Arcanum 9
             new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: ...
+            // TODO 20: Eldritch Master
         });
 
         CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);
