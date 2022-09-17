@@ -11,20 +11,21 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class SpellSelectionPanelPatcher
 {
-    private static readonly List<RectTransform> spellLineTables = new();
+    private static readonly List<RectTransform> SpellLineTables = new();
 
-    // second line bind
     [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
     {
-        internal static void Prefix(GuiCharacter caster, ref bool cantripOnly,
+        internal static void Prefix(
+            GuiCharacter caster,
+            ref bool cantripOnly,
             ActionDefinitions.ActionType actionType)
         {
             //PATCH: support for `IReplaceAttackWithCantrip`
-            var glCaster = caster.GameLocationCharacter;
-            if (glCaster.RulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>() &&
-                glCaster.UsedMainAttacks > 0 && actionType == ActionDefinitions.ActionType.Main)
+            var gameLocationCaster = caster.GameLocationCharacter;
+            if (gameLocationCaster.RulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>() &&
+                gameLocationCaster.UsedMainAttacks > 0 && actionType == ActionDefinitions.ActionType.Main)
             {
                 cantripOnly = true;
             }
@@ -40,11 +41,8 @@ internal static class SpellSelectionPanelPatcher
                 return;
             }
 
-            var glCaster = caster.GameLocationCharacter;
-
             var spellRepertoireLines = __instance.spellRepertoireLines;
-            var spellRepertoireSecondaryLine =
-                __instance.spellRepertoireSecondaryLine;
+            var spellRepertoireSecondaryLine = __instance.spellRepertoireSecondaryLine;
             var spellRepertoireLinesTable = __instance.spellRepertoireLinesTable;
             var slotAdvancementPanel = __instance.SlotAdvancementPanel;
 
@@ -61,6 +59,7 @@ internal static class SpellSelectionPanelPatcher
             if (spellRepertoireLinesTable.parent.GetComponent<VerticalLayoutGroup>() == null)
             {
                 GameObject spellLineHolder = new();
+
                 var vertGroup = spellLineHolder.AddComponent<VerticalLayoutGroup>();
 
                 vertGroup.spacing = 10;
@@ -72,7 +71,6 @@ internal static class SpellSelectionPanelPatcher
             }
 
             var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires;
-
             var needNewLine = true;
             var lineIndex = 0;
             var indexOfLine = 0;
@@ -82,10 +80,9 @@ internal static class SpellSelectionPanelPatcher
             foreach (var rulesetSpellRepertoire in spellRepertoires)
             {
                 var startLevel = 0;
+                var maxLevel = rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel;
 
-                for (var level = startLevel;
-                     level <= rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-                     level++)
+                for (var level = startLevel; level <= maxLevel; level++)
                 {
                     if (!IsLevelActive(rulesetSpellRepertoire, level, actionType))
                     {
@@ -99,9 +96,22 @@ internal static class SpellSelectionPanelPatcher
                         continue;
                     }
 
-                    curTable = AddActiveSpellsToLine(__instance, glCaster, spellCastEngaged, actionType,
-                        cantripOnly, spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires,
-                        needNewLine, lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel, level);
+                    curTable = AddActiveSpellsToLine(
+                        __instance,
+                        spellCastEngaged,
+                        actionType,
+                        cantripOnly,
+                        spellRepertoireLines,
+                        curTable,
+                        slotAdvancementPanel,
+                        spellRepertoires,
+                        needNewLine,
+                        lineIndex,
+                        indexOfLine,
+                        rulesetSpellRepertoire,
+                        startLevel,
+                        level);
+
                     startLevel = level + 1;
                     lineIndex++;
                     spellLevelsOnLine = 0;
@@ -114,27 +124,47 @@ internal static class SpellSelectionPanelPatcher
                     continue;
                 }
 
-                curTable = AddActiveSpellsToLine(__instance, glCaster, spellCastEngaged, actionType, cantripOnly,
-                    spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires, needNewLine,
-                    lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel,
+                curTable = AddActiveSpellsToLine(
+                    __instance,
+                    spellCastEngaged,
+                    actionType,
+                    cantripOnly,
+                    spellRepertoireLines,
+                    curTable,
+                    slotAdvancementPanel,
+                    spellRepertoires,
+                    needNewLine,
+                    lineIndex,
+                    indexOfLine,
+                    rulesetSpellRepertoire,
+                    startLevel,
                     rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel);
+
                 needNewLine = false;
                 indexOfLine++;
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(curTable);
-            __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
+            __instance.RectTransform.SetSizeWithCurrentAnchors(
+                RectTransform.Axis.Horizontal,
                 spellRepertoireLinesTable.rect.width);
         }
 
-        private static RectTransform AddActiveSpellsToLine(SpellSelectionPanel __instance,
-            GameLocationCharacter caster,
-            SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType,
+        private static RectTransform AddActiveSpellsToLine(
+            SpellSelectionPanel __instance,
+            SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged,
+            ActionDefinitions.ActionType actionType,
             bool cantripOnly,
-            List<SpellRepertoireLine> spellRepertoireLines, RectTransform spellRepertoireLinesTable,
-            SlotAdvancementPanel slotAdvancementPanel, List<RulesetSpellRepertoire> spellRepertoires,
-            bool needNewLine, int lineIndex,
-            int indexOfLine, RulesetSpellRepertoire rulesetSpellRepertoire, int startLevel, int level)
+            ICollection<SpellRepertoireLine> spellRepertoireLines,
+            RectTransform spellRepertoireLinesTable,
+            SlotAdvancementPanel slotAdvancementPanel,
+            IReadOnlyCollection<RulesetSpellRepertoire> spellRepertoires,
+            bool needNewLine,
+            int lineIndex,
+            int indexOfLine,
+            RulesetSpellRepertoire rulesetSpellRepertoire,
+            int startLevel,
+            int level)
         {
             if (needNewLine)
             {
@@ -151,18 +181,32 @@ internal static class SpellSelectionPanelPatcher
                     //spellRepertoireLinesTable.SetParent(previousTable.parent.transform, true);
                     spellRepertoireLinesTable.localScale = previousTable.localScale;
                     spellRepertoireLinesTable.transform.SetAsFirstSibling();
-                    spellLineTables.Add(spellRepertoireLinesTable);
+                    SpellLineTables.Add(spellRepertoireLinesTable);
                 }
             }
 
             var curLine = SetUpNewLine(indexOfLine, spellRepertoireLinesTable, spellRepertoireLines, __instance);
-            curLine.Bind(__instance.Caster, rulesetSpellRepertoire, spellRepertoires.Count > 1,
-                spellCastEngaged, slotAdvancementPanel, actionType, cantripOnly, startLevel, level, false);
+
+            curLine.Bind(
+                __instance.Caster,
+                rulesetSpellRepertoire,
+                spellRepertoires.Count > 1,
+                spellCastEngaged,
+                slotAdvancementPanel,
+                actionType,
+                cantripOnly,
+                startLevel,
+                level,
+                false);
+
             return spellRepertoireLinesTable;
         }
 
-        private static SpellRepertoireLine SetUpNewLine(int index, RectTransform spellRepertoireLinesTable,
-            List<SpellRepertoireLine> spellRepertoireLines, SpellSelectionPanel __instance)
+        private static SpellRepertoireLine SetUpNewLine(
+            int index,
+            Transform spellRepertoireLinesTable,
+            ICollection<SpellRepertoireLine> spellRepertoireLines,
+            SpellSelectionPanel __instance)
         {
             GameObject newLine;
 
@@ -177,12 +221,16 @@ internal static class SpellSelectionPanelPatcher
             }
 
             newLine.SetActive(true);
+
             var component = newLine.GetComponent<SpellRepertoireLine>();
+
             spellRepertoireLines.Add(component);
+
             return component;
         }
 
-        private static bool IsLevelActive(RulesetSpellRepertoire spellRepertoire, int level,
+        private static bool IsLevelActive(
+            RulesetSpellRepertoire spellRepertoire, int level,
             ActionDefinitions.ActionType actionType)
         {
             var spellActivationTime = actionType switch
@@ -209,14 +257,15 @@ internal static class SpellSelectionPanelPatcher
                         && spellDefinition.ActivationTime == spellActivationTime):
                 case RuleDefinitions.SpellReadyness.AllKnown
                     when spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level):
+
                     return true;
+
                 default:
                     return false;
             }
         }
     }
 
-    // second line unbind
     [HarmonyPatch(typeof(SpellSelectionPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Unbind_Patch
@@ -229,7 +278,7 @@ internal static class SpellSelectionPanelPatcher
                 return;
             }
 
-            foreach (var spellTable in spellLineTables
+            foreach (var spellTable in SpellLineTables
                          .Where(spellTable =>
                              spellTable != null && spellTable.gameObject.activeSelf && spellTable.childCount > 0))
             {
@@ -238,7 +287,7 @@ internal static class SpellSelectionPanelPatcher
                 Object.Destroy(spellTable.gameObject);
             }
 
-            spellLineTables.Clear();
+            SpellLineTables.Clear();
         }
     }
 }
