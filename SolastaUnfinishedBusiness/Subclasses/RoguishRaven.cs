@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Reflection.Emit;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -47,8 +46,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        
-        
+
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
         var heartSeekingShotCondition = ConditionDefinitionBuilder
             .Create("ConditionRavenHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
@@ -60,7 +58,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetGuiPresentation(Category.Feature)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
-                    .SetCustomSubFeatures(new ValidatorDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangeWeapon))
+                    .SetCustomSubFeatures(
+                        new ValidatorDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangeWeapon))
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
@@ -82,7 +81,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
                     .SetDamageDice(RuleDefinitions.DieType.D6, 1)
                     .SetAdvancement(
-                        (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ClassLevel,
+                        (RuleDefinitions.AdditionalDamageAdvancement) ExtraAdditionalDamageAdvancement.ClassLevel,
                         (3, 2),
                         (4, 2),
                         (5, 2),
