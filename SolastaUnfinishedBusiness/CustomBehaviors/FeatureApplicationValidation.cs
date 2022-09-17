@@ -93,4 +93,39 @@ internal static class FeatureApplicationValidation
             return validator != null && !validator.IsValid(f, character);
         });
     }
+
+    public static void ValidateAttributeModifiersFromConditions(List<CodeInstruction> codes)
+    {
+        //Replaces first `IsInst` operator with custom validator
+
+        var validate = new Func<
+            FeatureDefinition,
+            RulesetCharacter,
+            FeatureDefinition
+        >(ValidateAttributeModifier).Method;
+
+        var index = codes.FindIndex(x => x.opcode == OpCodes.Isinst);
+
+        if (index > 0)
+        {
+            codes[index] = new CodeInstruction(OpCodes.Call, validate);
+            //add `this` (RulesetCharacter) as second argument
+            codes.Insert(index, new CodeInstruction(OpCodes.Ldarg_0));
+        }
+    }
+
+    private static FeatureDefinition ValidateAttributeModifier(FeatureDefinition feature,
+        RulesetCharacter character)
+    {
+        if (feature is not FeatureDefinitionAttributeModifier mod)
+        {
+            return null;
+        }
+
+        var validator = mod.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
+        
+        return validator == null || validator.IsValid(feature, character)
+            ? mod
+            : null;
+    }
 }

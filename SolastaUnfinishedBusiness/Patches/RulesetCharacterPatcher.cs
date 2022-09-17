@@ -313,6 +313,22 @@ internal static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), "RefreshAttributeModifiersFromConditions")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RefreshAttributeModifiersFromConditions_Patch
+    {
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var codes = instructions.ToList();
+
+            //PATCH: suppor for validation of attribute modifications applied through conditions
+            FeatureApplicationValidation.ValidateAttributeModifiersFromConditions(codes);
+
+            return codes;
+        }
+    }
+
     //PATCH: IChangeAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), "RollAbilityCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
