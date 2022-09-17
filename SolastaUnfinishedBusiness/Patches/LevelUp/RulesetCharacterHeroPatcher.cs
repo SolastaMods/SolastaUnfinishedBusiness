@@ -14,7 +14,9 @@ internal static class RulesetCharacterHero_AddClassLevel
 {
     internal static bool Prefix([NotNull] RulesetCharacterHero __instance, CharacterClassDefinition classDefinition)
     {
-        if (!LevelUpContext.IsLevelingUp(__instance))
+        var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
+
+        if (!isLevelingUp)
         {
             return true;
         }
@@ -30,21 +32,7 @@ internal static class RulesetCharacterHero_AddClassLevel
     }
 }
 
-//PATCH: Ensure that we correctly grant custom features from Feats
-[HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetCharacterHero_TrainFeats
-{
-    internal static void Postfix([NotNull] RulesetCharacterHero __instance, [NotNull] List<FeatDefinition> feats)
-    {
-        foreach (var feat in feats)
-        {
-            CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, null, feat.Features);
-        }
-    }
-}
-
-//PATCH: Ensures we don't offer invocations unlearn on non Warlock MC (Multiclass)
+//PATCH: ensures we don't offer invocations unlearn on non Warlock MC (MULTICLASS)
 [HarmonyPatch(typeof(RulesetCharacterHero), "InvocationProficiencies", MethodType.Getter)]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacterHero_InvocationProficiencies

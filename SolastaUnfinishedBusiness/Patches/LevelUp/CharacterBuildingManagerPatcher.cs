@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
@@ -11,78 +10,14 @@ using static FeatureDefinitionCastSpell;
 
 namespace SolastaUnfinishedBusiness.Patches.LevelUp;
 
-//PATCH: Replaces this method completely to remove weird 'return' on FeatureDefinitionCastSpell check
-[HarmonyPatch(typeof(CharacterBuildingManager), "BrowseGrantedFeaturesHierarchically")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchically
-{
-    internal static bool Prefix(
-        [NotNull] CharacterBuildingManager __instance,
-        [NotNull] CharacterHeroBuildingData heroBuildingData,
-        [NotNull] List<FeatureDefinition> grantedFeatures,
-        string tag)
-    {
-        foreach (var grantedFeature in grantedFeatures)
-        {
-            switch (grantedFeature)
-            {
-                case FeatureDefinitionCastSpell spell:
-                    __instance.SetupSpellPointPools(heroBuildingData, spell, tag);
-
-                    //PATCH: this was `return` in original code, leading to game skipping granting some features
-                    break;
-                case FeatureDefinitionBonusCantrips cantrips:
-                    using (var enumerator = cantrips.BonusCantrips.GetEnumerator())
-                    {
-                        while (enumerator.MoveNext())
-                        {
-                            var current = enumerator.Current;
-                            if (current != null)
-                            {
-                                __instance.AcquireBonusCantrip(heroBuildingData, current, tag);
-                            }
-                        }
-                    }
-
-                    break;
-                case FeatureDefinitionProficiency definitionProficiency:
-                    if (definitionProficiency.ProficiencyType == RuleDefinitions.ProficiencyType.FightingStyle)
-                    {
-                        using var enumerator = definitionProficiency.Proficiencies.GetEnumerator();
-
-                        while (enumerator.MoveNext())
-                        {
-                            var current = enumerator.Current;
-
-                            var element = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(current);
-                            __instance.AcquireBonusFightingStyle(heroBuildingData, element, tag);
-                        }
-                    }
-
-                    break;
-                case FeatureDefinitionFeatureSet definitionFeatureSet:
-                    if (definitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                    {
-                        __instance.BrowseGrantedFeaturesHierarchically(heroBuildingData,
-                            definitionFeatureSet.FeatureSet, tag);
-                    }
-
-                    break;
-            }
-        }
-
-        return false;
-    }
-}
-
-//PATCH: registers the hero getting created
 [HarmonyPatch(typeof(CharacterBuildingManager), "CreateNewCharacter")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_CreateCharacter
 {
     internal static void Postfix([NotNull] CharacterBuildingManager __instance)
     {
-        LevelUpContext.RegisterHero(__instance.CurrentLocalHeroCharacter, null, null);
+        //PATCH: registers the hero getting created
+        LevelUpContext.RegisterHero(__instance.CurrentLocalHeroCharacter, false);
     }
 }
 
@@ -92,18 +27,14 @@ internal static class CharacterBuildingManager_LevelUpCharacter
 {
     internal static void Prefix([NotNull] RulesetCharacterHero hero, ref bool force)
     {
-        // PATCH: ensure the hero will get the experience gain
+        //PATCH: forces no experience on level up setting
         if (Main.Settings.NoExperienceOnLevelUp)
         {
             force = true;
         }
 
         //PATCH: registers the hero leveling up
-        var lastClass = hero.ClassesHistory.Last();
-
-        hero.ClassesAndSubclasses.TryGetValue(lastClass, out var lastSubclass);
-
-        LevelUpContext.RegisterHero(hero, lastClass, lastSubclass, true);
+        LevelUpContext.RegisterHero(hero, true);
     }
 }
 
@@ -111,249 +42,71 @@ internal static class CharacterBuildingManager_LevelUpCharacter
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_FinalizeCharacter
 {
-    //PATCH: original game code doesn't grant Race features above level 1
     internal static void Prefix([NotNull] CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
     {
-        var characterLevelAttribute = hero.GetAttribute(AttributeDefinitions.CharacterLevel);
+        //TODO: check if we still need this
+        //PATCH: grants race features
+        LevelUpContext.GrantRaceFeatures(__instance, hero);
 
-        characterLevelAttribute.Refresh();
-
-        var characterLevel = characterLevelAttribute.CurrentValue;
-
-        if (characterLevel == 1)
-        {
-            return;
-        }
-
-        var raceDefinition = hero.RaceDefinition;
-        var subRaceDefinition = hero.SubRaceDefinition;
-        var grantedFeatures = new List<FeatureDefinition>();
-
-        raceDefinition.FeatureUnlocks
-            .Where(x => x.Level == characterLevel)
-            .Do(x => grantedFeatures.Add(x.FeatureDefinition));
-
-        if (subRaceDefinition != null)
-        {
-            subRaceDefinition.FeatureUnlocks
-                .Where(x => x.Level == characterLevel)
-                .Do(x => grantedFeatures.Add(x.FeatureDefinition));
-        }
-
-        __instance.GrantFeatures(hero, grantedFeatures, $"02Race{characterLevel}", false);
+        //PATCH: grants custom features
+        LevelUpContext.GrantCustomFeatures(hero);
     }
 
-    //PATCH: sorts spell repertoires, adds all known spells to whole list casters and unregisters the hero leveling up
     internal static void Postfix([NotNull] RulesetCharacterHero hero)
     {
-        //
-        // keep spell repertoires sorted by class title but ancestry one is always kept first
-        //
-        hero.SpellRepertoires.Sort((a, b) =>
-        {
-            if (a.SpellCastingRace != null)
-            {
-                return -1;
-            }
+        //PATCH: keeps spell repertoires sorted by class title but ancestry one is always kept first
+        LevelUpContext.SortHeroRepertoires(hero);
 
-            if (b.SpellCastingRace != null)
-            {
-                return 1;
-            }
+        //PATCH: adds whole list caster spells to KnownSpells collection to improve the MC spell selection UI
+        LevelUpContext.UpdateKnownSpellsForWholeCasters(hero);
 
-            var title1 = a.SpellCastingClass != null
-                ? a.SpellCastingClass.FormatTitle()
-                : a.SpellCastingSubclass.FormatTitle();
+        //PATCH: grants items from new classes if required
+        LevelUpContext.GrantItemsIfRequired(hero);
 
-            var title2 = b.SpellCastingClass != null
-                ? b.SpellCastingClass.FormatTitle()
-                : b.SpellCastingSubclass.FormatTitle();
-
-            return String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase);
-        });
-
-        //
-        // Add whole list caster spells to KnownSpells collection to improve the MC spell selection UI
-        //
-        var selectedClassRepertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
-
-        // only whole list casters
-        if (selectedClassRepertoire == null
-            || selectedClassRepertoire.SpellCastingFeature.SpellKnowledge !=
-            RuleDefinitions.SpellKnowledge.WholeList)
-        {
-            LevelUpContext.UnregisterHero(hero);
-
-            return;
-        }
-
-        // only repertoires with a casting class
-        var spellCastingClass = selectedClassRepertoire.SpellCastingClass;
-
-        if (spellCastingClass == null)
-        {
-            LevelUpContext.UnregisterHero(hero);
-
-            return;
-        }
-
-        // only on levels where spells are granted
-        var levels = hero.ClassesAndLevels[spellCastingClass];
-
-        if (levels % 2 == 0)
-        {
-            LevelUpContext.UnregisterHero(hero);
-
-            return;
-        }
-
-        // add all spells for that level to known spells
-        var castingLevel = SharedSpellsContext.GetClassSpellLevel(selectedClassRepertoire);
-        var knownSpells = LevelUpContext.GetAllowedSpells(hero);
-
-        if (knownSpells == null)
-        {
-            LevelUpContext.RecacheSpells(hero);
-
-            knownSpells = LevelUpContext.GetAllowedSpells(hero);
-        }
-
-        selectedClassRepertoire.KnownSpells.AddRange(knownSpells
-            .Where(x => x.SpellLevel == castingLevel));
-
+        //PATCH: unregisters the hero leveling up
         LevelUpContext.UnregisterHero(hero);
     }
 }
 
-//PATCH: captures the desired class and ensures this doesn't get executed in the class panel level up screen
 [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_AssignClassLevel
 {
     internal static bool Prefix([NotNull] RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
     {
+        //PATCH: captures the desired class
         LevelUpContext.SetSelectedClass(hero, classDefinition);
 
+        //PATCH: ensures this doesn't get executed in the class panel level up screen
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-        if (isLevelingUp && !isClassSelectionStage)
-        {
-            LevelUpContext.GrantItemsIfRequired(hero);
-        }
 
         return !(isLevelingUp && isClassSelectionStage);
     }
 }
 
-//PATCH: captures the desired sub class
 [HarmonyPatch(typeof(CharacterBuildingManager), "AssignSubclass")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_AssignSubclass
 {
     internal static void Prefix([NotNull] RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
     {
+        //PATCH: captures the desired sub class
         LevelUpContext.SetSelectedSubclass(hero, subclassDefinition);
     }
 }
 
-//PATCH: ensures this doesn't get executed under a specific MC scenario and only recursive grant features if not in that scenario
 [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_GrantFeatures
 {
     internal static bool Prefix([NotNull] RulesetCharacterHero hero)
     {
+        //PATCH: ensures this doesn't get executed in the class panel level up screen
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
 
         return !(isLevelingUp && isClassSelectionStage);
-    }
-
-    internal static void Postfix([NotNull] RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures,
-        string tag)
-    {
-        var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-        var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-        // this is a MC scenario
-        if (isLevelingUp && isClassSelectionStage)
-        {
-            return;
-        }
-
-        CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, tag, grantedFeatures);
-    }
-}
-
-//
-// These patches ensure that any custom features undo any required work
-//
-
-[HarmonyPatch(typeof(CharacterBuildingManager), "ClearPrevious")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterBuildingManager_ClearPrevious
-{
-    private static readonly List<FeatureDefinition> ToRemove = new();
-
-    internal static void Prefix(RulesetCharacterHero hero, [CanBeNull] string tag)
-    {
-        ToRemove.Clear();
-
-        if (string.IsNullOrEmpty(tag) || !hero.ActiveFeatures.ContainsKey(tag))
-        {
-            return;
-        }
-
-        ToRemove.AddRange(hero.ActiveFeatures[tag]);
-    }
-
-    internal static void Postfix(RulesetCharacterHero hero, string tag)
-    {
-        if (ToRemove.Empty())
-        {
-            return;
-        }
-
-        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, ToRemove);
-    }
-}
-
-//PATCH: Ensure we correctly remove custom features when race is unassigned
-[HarmonyPatch(typeof(CharacterBuildingManager), "UnassignRace")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterBuildingManager_UnassignRace
-{
-    internal static void Prefix([NotNull] CharacterHeroBuildingData heroBuildingData)
-    {
-        var hero = heroBuildingData.HeroCharacter;
-        const string TAG = AttributeDefinitions.TagRace;
-
-        if (!hero.ActiveFeatures.ContainsKey(TAG))
-        {
-            return;
-        }
-
-        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, TAG, hero.ActiveFeatures[TAG]);
-    }
-}
-
-//PATCH: Ensure we correctly remove custom features when background is unassigned
-[HarmonyPatch(typeof(CharacterBuildingManager), "UnassignBackground")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterBuildingManager_UnassignBackground
-{
-    internal static void Prefix([NotNull] CharacterHeroBuildingData heroBuildingData)
-    {
-        var hero = heroBuildingData.HeroCharacter;
-        const string TAG = AttributeDefinitions.TagBackground;
-
-        if (!hero.ActiveFeatures.ContainsKey(TAG))
-        {
-            return;
-        }
-
-        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, TAG, hero.ActiveFeatures[TAG]);
     }
 }
 
@@ -363,72 +116,14 @@ internal static class CharacterBuildingManager_UnassignLastClassLevel
 {
     internal static bool Prefix([NotNull] RulesetCharacterHero hero)
     {
+        //PATCH: ensures this doesn't get executed in the class panel level up screen
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-        var notLevelingUpAndNotInClassSelection = !(isLevelingUp && isClassSelectionStage);
 
-        //PATCH: Ensure we correctly remove custom features when class is unassigned
-        if (notLevelingUpAndNotInClassSelection)
-        {
-            var heroBuildingData = hero.GetOrCreateHeroBuildingData();
-            var classDefinition = hero.ClassesHistory[heroBuildingData.HeroCharacter.ClassesHistory.Count - 1];
-            var classesAndLevel = hero.ClassesAndLevels[classDefinition];
-            var tag = AttributeDefinitions.GetClassTag(classDefinition, classesAndLevel);
-
-            if (hero.ActiveFeatures.ContainsKey(tag))
-            {
-                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
-            }
-        }
-
-        if (isLevelingUp && !isClassSelectionStage)
-        {
-            LevelUpContext.UngrantItemsIfRequired(hero);
-        }
-
-        //PATCH: ensures this doesn't get executed in the class panel level up screen during level up
-        return notLevelingUpAndNotInClassSelection;
+        return !(isLevelingUp && isClassSelectionStage);
     }
 }
 
-//PATCH: Ensure we correctly remove custom features when subclass is unassigned
-[HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastSubclass")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterBuildingManager_UnassignLastSubclass
-{
-    internal static void Prefix([NotNull] RulesetCharacterHero hero, bool onlyIfCurrentLevel = false)
-    {
-        var classDefinition = hero.ClassesHistory[hero.ClassesHistory.Count - 1];
-        var classLevel = hero.ClassesAndLevels[classDefinition];
-        var level = 0;
-
-        if (onlyIfCurrentLevel)
-        {
-            classDefinition.TryGetSubclassFeature(out _, out level);
-        }
-
-        if (!hero.ClassesAndSubclasses.ContainsKey(classDefinition) || (onlyIfCurrentLevel && classLevel > level))
-        {
-            return;
-        }
-
-        var classesAndSubclass = hero.ClassesAndSubclasses[classDefinition];
-        var tag = AttributeDefinitions.GetSubclassTag(classDefinition, classLevel, classesAndSubclass);
-
-        if (!hero.ActiveFeatures.ContainsKey(tag))
-        {
-            return;
-        }
-
-        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
-    }
-}
-
-//
-// these patches support MC shared casters
-//
-
-//PATCH: ensures the level up process only presents / offers spells from current class
 [HarmonyPatch(typeof(CharacterBuildingManager), "EnumerateKnownAndAcquiredSpells")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_EnumerateKnownAndAcquiredSpells
@@ -437,26 +132,8 @@ internal static class CharacterBuildingManager_EnumerateKnownAndAcquiredSpells
         [NotNull] CharacterHeroBuildingData heroBuildingData,
         List<SpellDefinition> __result)
     {
-        var hero = heroBuildingData.HeroCharacter;
-        var isMulticlass = LevelUpContext.IsMulticlass(hero);
-
-        if (!isMulticlass)
-        {
-            return;
-        }
-
-        if (Main.Settings.EnableRelearnSpells)
-        {
-            var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(hero);
-
-            __result.RemoveAll(x => otherClassesKnownSpells.Contains(x));
-        }
-        else
-        {
-            var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
-
-            __result.RemoveAll(x => !allowedSpells.Contains(x));
-        }
+        //PATCH: ensures the level up process only presents / offers spells from current class
+        LevelUpContext.EnumerateKnownAndAcquiredSpells(heroBuildingData, __result);
     }
 }
 
@@ -603,7 +280,7 @@ internal static class CharacterBuildingManager_UpgradeSpellPointPools
     }
 }
 
-//PATCH: fix a TA issue that not consider subclass morphotype preferences
+//BUGFIX: fixes a TA issue that not consider subclass morphotype preferences
 [HarmonyPatch(typeof(CharacterBuildingManager), "AssignDefaultMorphotypes")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal class CharacterBuildingManager_AssignDefaultMorphotypes
@@ -656,5 +333,69 @@ internal class CharacterBuildingManager_AssignDefaultMorphotypes
                 yield return instruction;
             }
         }
+    }
+}
+
+//BUGFIX: replaces this method completely to remove weird 'return' on FeatureDefinitionCastSpell check
+[HarmonyPatch(typeof(CharacterBuildingManager), "BrowseGrantedFeaturesHierarchically")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchically
+{
+    internal static bool Prefix(
+        [NotNull] CharacterBuildingManager __instance,
+        [NotNull] CharacterHeroBuildingData heroBuildingData,
+        [NotNull] List<FeatureDefinition> grantedFeatures,
+        string tag)
+    {
+        foreach (var grantedFeature in grantedFeatures)
+        {
+            switch (grantedFeature)
+            {
+                case FeatureDefinitionCastSpell spell:
+                    __instance.SetupSpellPointPools(heroBuildingData, spell, tag);
+
+                    // this was `return` in original code, leading to game skipping granting some features
+                    break;
+                case FeatureDefinitionBonusCantrips cantrips:
+                    using (var enumerator = cantrips.BonusCantrips.GetEnumerator())
+                    {
+                        while (enumerator.MoveNext())
+                        {
+                            var current = enumerator.Current;
+                            if (current != null)
+                            {
+                                __instance.AcquireBonusCantrip(heroBuildingData, current, tag);
+                            }
+                        }
+                    }
+
+                    break;
+                case FeatureDefinitionProficiency definitionProficiency:
+                    if (definitionProficiency.ProficiencyType == RuleDefinitions.ProficiencyType.FightingStyle)
+                    {
+                        using var enumerator = definitionProficiency.Proficiencies.GetEnumerator();
+
+                        while (enumerator.MoveNext())
+                        {
+                            var current = enumerator.Current;
+
+                            var element = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(current);
+                            __instance.AcquireBonusFightingStyle(heroBuildingData, element, tag);
+                        }
+                    }
+
+                    break;
+                case FeatureDefinitionFeatureSet definitionFeatureSet:
+                    if (definitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                    {
+                        __instance.BrowseGrantedFeaturesHierarchically(heroBuildingData,
+                            definitionFeatureSet.FeatureSet, tag);
+                    }
+
+                    break;
+            }
+        }
+
+        return false;
     }
 }

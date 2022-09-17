@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -13,10 +15,17 @@ public static class LevelUpContext
 
     public static void RegisterHero(
         [NotNull] RulesetCharacterHero rulesetCharacterHero,
-        CharacterClassDefinition lastClass,
-        CharacterSubclassDefinition lastSubclass,
-        bool levelingUp = false)
+        bool levelingUp)
     {
+        CharacterClassDefinition lastClass = null;
+        CharacterSubclassDefinition lastSubclass = null;
+
+        if (levelingUp)
+        {
+            lastClass = rulesetCharacterHero.ClassesHistory.Last();
+            rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(lastClass, out lastSubclass);
+        }
+
         LevelUpTab.TryAdd(rulesetCharacterHero,
             new LevelUpData { SelectedClass = lastClass, SelectedSubclass = lastSubclass, IsLevelingUp = levelingUp });
 
@@ -398,29 +407,182 @@ public static class LevelUpContext
             : levelUpData.OtherClassesKnownSpells;
     }
 
-    public static void GrantItemsIfRequired([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    public static void GrantItemsIfRequired([NotNull] RulesetCharacterHero hero)
     {
-        if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
+        if (!LevelUpTab.TryGetValue(hero, out var levelUpData) || !levelUpData.IsLevelingUp)
         {
             return;
         }
 
         foreach (var grantedItem in levelUpData.GrantedItems)
         {
-            rulesetCharacterHero.GrantItem(grantedItem, false);
+            hero.GrantItem(grantedItem, false);
         }
     }
 
-    public static void UngrantItemsIfRequired([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static void GrantRaceFeatures(
+        CharacterBuildingManager characterBuildingManager,
+        RulesetCharacterHero hero)
     {
-        if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
+        var characterLevel = hero.ClassesHistory.Count;
+
+        // game correctly handles level 1
+        if (characterLevel <= 1)
         {
             return;
         }
 
-        foreach (var grantedItem in levelUpData.GrantedItems)
+        var raceDefinition = hero.RaceDefinition;
+        var subRaceDefinition = hero.SubRaceDefinition;
+        var grantedFeatures = new List<FeatureDefinition>();
+
+        raceDefinition.FeatureUnlocks
+            .Where(x => x.Level == characterLevel)
+            .Do(x => grantedFeatures.Add(x.FeatureDefinition));
+
+        if (subRaceDefinition != null)
         {
-            rulesetCharacterHero.LoseItem(grantedItem, false);
+            subRaceDefinition.FeatureUnlocks
+                .Where(x => x.Level == characterLevel)
+                .Do(x => grantedFeatures.Add(x.FeatureDefinition));
+        }
+
+        characterBuildingManager.GrantFeatures(hero, grantedFeatures, $"02Race{characterLevel}", false);
+    }
+
+    internal static void SortHeroRepertoires(RulesetCharacterHero hero)
+    {
+        if (hero.SpellRepertoires.Count <= 2)
+        {
+            return;
+        }
+
+        hero.SpellRepertoires.Sort((a, b) =>
+        {
+            if (a.SpellCastingRace != null)
+            {
+                return -1;
+            }
+
+            if (b.SpellCastingRace != null)
+            {
+                return 1;
+            }
+
+            var title1 = a.SpellCastingClass != null
+                ? a.SpellCastingClass.FormatTitle()
+                : a.SpellCastingSubclass.FormatTitle();
+
+            var title2 = b.SpellCastingClass != null
+                ? b.SpellCastingClass.FormatTitle()
+                : b.SpellCastingSubclass.FormatTitle();
+
+            return String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase);
+        });
+    }
+
+    internal static void UpdateKnownSpellsForWholeCasters(RulesetCharacterHero hero)
+    {
+        var spellRepertoire = GetSelectedClassOrSubclassRepertoire(hero);
+
+        // only whole list casters
+        if (spellRepertoire == null
+            || spellRepertoire.SpellCastingFeature.SpellKnowledge !=
+            RuleDefinitions.SpellKnowledge.WholeList)
+        {
+            return;
+        }
+
+        // only repertoires with a casting class
+        var spellCastingClass = spellRepertoire.SpellCastingClass;
+
+        if (spellCastingClass == null)
+        {
+            return;
+        }
+
+        //TODO: fix this for Paladins...
+        // only on levels where spells are granted
+        var levels = hero.ClassesAndLevels[spellCastingClass];
+
+        if (levels % 2 == 0)
+        {
+            return;
+        }
+
+        // add all spells for that level to known spells
+        var castingLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+        var knownSpells = GetAllowedSpells(hero);
+
+        if (knownSpells == null)
+        {
+            RecacheSpells(hero);
+
+            knownSpells = GetAllowedSpells(hero);
+        }
+
+        spellRepertoire.KnownSpells.AddRange(knownSpells
+            .Where(x => x.SpellLevel == castingLevel));
+    }
+
+    internal static void GrantCustomFeatures(RulesetCharacterHero hero)
+    {
+        var buildingData = hero.GetHeroBuildingData();
+        var level = hero.ClassesHistory.Count;
+        var selectedClass = GetSelectedClass(hero);
+        var selectedSubclass = GetSelectedSubclass(hero);
+
+        foreach (var kvp in buildingData.LevelupTrainedFeats)
+        {
+            foreach (var feat in kvp.Value)
+            {
+                CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, kvp.Key, feat.Features);
+            }
+        }
+
+        var classTag = AttributeDefinitions.GetClassTag(selectedClass, level);
+
+        if (hero.ActiveFeatures.TryGetValue(classTag, out var classFeatures))
+        {
+            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, classTag, classFeatures);
+        }
+
+        if (selectedSubclass == null)
+        {
+            return;
+        }
+
+        var subclassTag = AttributeDefinitions.GetSubclassTag(selectedClass, level, selectedSubclass);
+
+        if (hero.ActiveFeatures.TryGetValue(subclassTag, out var subclassFeatures))
+        {
+            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, classTag, subclassFeatures);
+        }
+    }
+
+    internal static void EnumerateKnownAndAcquiredSpells(
+        [NotNull] CharacterHeroBuildingData heroBuildingData,
+        List<SpellDefinition> __result)
+    {
+        var hero = heroBuildingData.HeroCharacter;
+        var isMulticlass = IsMulticlass(hero);
+
+        if (!isMulticlass)
+        {
+            return;
+        }
+
+        if (Main.Settings.EnableRelearnSpells)
+        {
+            var otherClassesKnownSpells = GetOtherClassesKnownSpells(hero);
+
+            __result.RemoveAll(x => otherClassesKnownSpells.Contains(x));
+        }
+        else
+        {
+            var allowedSpells = GetAllowedSpells(hero);
+
+            __result.RemoveAll(x => !allowedSpells.Contains(x));
         }
     }
 
