@@ -66,6 +66,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .Create("AttackModifierRavenHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .Configure(RuleDefinitions.AttackModifierMethod.FlatValue, -4)
+                    .SetCustomSubFeatures(new RestrictedContextValidator(OperationType.Set,
+                        ValidatorsCharacter.HasTwoHandedRangeWeapon))
                     .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.RangeWeapon)
                     .AddToDB(),
                 FeatureDefinitionAdditionalDamageBuilder
@@ -74,6 +76,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
                     .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit)
                     .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.SameAsBaseDamage)
+                    .SetCustomSubFeatures(new RestrictedContextValidator(OperationType.Set,
+                        ValidatorsCharacter.HasTwoHandedRangeWeapon))
                     .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.RangeWeapon)
                     .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
                     .SetDamageDice(RuleDefinitions.DieType.D6, 1)
