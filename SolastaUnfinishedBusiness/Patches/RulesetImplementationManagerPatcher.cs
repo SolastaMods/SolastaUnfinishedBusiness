@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
@@ -254,8 +255,21 @@ internal static class RulesetImplementationManagerPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for shield counting as melee
-            //replaces calls to ItemDefinition's isWeapon and Wea[ponDescription getter with custom ones that account for shield
+            //replaces calls to ItemDefinition's isWeapon and WeaponDescription getter with custom ones that account for shield
             return ShieldAttack.MakeShieldCountAsMelee(instructions);
+        }
+
+        internal static void Postfix(ref bool __result,
+            IRestrictedContextProvider provider,
+            RulesetCharacter character,
+            ItemDefinition itemDefinition,
+            bool rangedAttack,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
+        {
+            //PATCH: support for `IRestrictedContextValidator` feature
+            __result = IRestrictedContextValidatorPatch.ModifyResult(__result, provider, character, itemDefinition,
+                rangedAttack, attackMode, rulesetEffect);
         }
     }
 }
