@@ -10,7 +10,7 @@ using static GuiDropdown;
 using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 using static TMPro.TMP_Dropdown;
 
-namespace SolastaUnfinishedBusiness.Patches.Tools.SaveByLocation;
+namespace SolastaUnfinishedBusiness.Patches;
 
 //PATCH: EnableSaveByLocation
 [HarmonyPatch(typeof(LoadPanel), "OnBeginShow")]

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -301,6 +302,69 @@ internal static class RulesetCharacterHeroPatcher
             ritualSpells.SetRange(allRitualSpells.Distinct());
 
             return false;
+        }
+    }
+    
+    [HarmonyPatch(typeof(RulesetCharacterHero), "GrantExperience")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GrantExperience_Patch
+    {
+        internal static void Prefix(ref int experiencePoints)
+        {
+            if (Main.Settings.MultiplyTheExperienceGainedBy is 100 or <= 0)
+            {
+                return;
+            }
+
+            var original = experiencePoints;
+
+            experiencePoints =
+                (int)Math.Round(experiencePoints * Main.Settings.MultiplyTheExperienceGainedBy / 100.0f,
+                    MidpointRounding.AwayFromZero);
+
+            Main.Log(
+                $"GrantExperience: Multiplying experience gained by {Main.Settings.MultiplyTheExperienceGainedBy}%. Original={original}, modified={experiencePoints}.");
+        }
+    }
+
+    //PATCH: enables the No Experience on Level up cheat (NoExperienceOnLevelUp)
+    [HarmonyPatch(typeof(RulesetCharacterHero), "CanLevelUp", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CanLevelUp_Patch
+    {
+        internal static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
+        {
+            if (Main.Settings.NoExperienceOnLevelUp)
+            {
+                var levelCap = Main.Settings.EnableLevel20
+                    ? Level20Context.ModMaxLevel
+                    : Level20Context.GameMaxLevel;
+
+                __result = __instance.ClassesHistory.Count < levelCap;
+
+                return false;
+            }
+
+            if (!Main.Settings.EnableLevel20)
+            {
+                return true;
+            }
+
+            {
+                var levelCap = Main.Settings.EnableLevel20
+                    ? Level20Context.ModMaxLevel
+                    : Level20Context.GameMaxLevel;
+                // If the game doesn't know how much XP to reach the next level it uses -1 to determine if the character can level up.
+                // When a character is level 20, this ends up meaning the character can now level up forever unless we stop it here.
+                if (__instance.ClassesHistory.Count < levelCap)
+                {
+                    return true;
+                }
+
+                __result = false;
+
+                return false;
+            }
         }
     }
 }

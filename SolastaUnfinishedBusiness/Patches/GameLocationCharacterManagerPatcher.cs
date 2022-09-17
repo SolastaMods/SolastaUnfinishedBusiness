@@ -4,12 +4,9 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 
-namespace SolastaUnfinishedBusiness.Patches.Tools.PartySize;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: recalculates the additional party members positions
-//
-// this shouldn't be protected
-//
+//PATCH: recalculates additional party members positions (PARTYSIZE)
 [HarmonyPatch(typeof(GameLocationCharacterManager), "UnlockCharactersForLoading")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GameLocationCharacterManager_UnlockCharactersForLoading

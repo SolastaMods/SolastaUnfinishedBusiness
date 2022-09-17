@@ -7,12 +7,9 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using TA;
 
-namespace SolastaUnfinishedBusiness.Patches.Tools.PartySize;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: avoids a trace message when party greater than 4
-//
-// this shouldn't be protected
-//
+//PATCH: avoids a trace message when party greater than 4 (PARTYSIZE)
 [HarmonyPatch(typeof(GameLocationPositioningManager), "CharacterMoved", typeof(GameLocationCharacter),
     typeof(int3), typeof(int3), typeof(RulesetActor.SizeParameters), typeof(RulesetActor.SizeParameters))]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

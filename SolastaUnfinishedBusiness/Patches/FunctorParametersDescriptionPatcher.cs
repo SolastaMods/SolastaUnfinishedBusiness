@@ -2,12 +2,9 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Patches.Tools.PartySize;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: ensures all party members teleport to new locations
-//
-// this patch is protected by partyCount result
-//
+//PATCH: ensures all party members teleport to new locations (PARTYSIZE)
 [HarmonyPatch(typeof(FunctorParametersDescription), "PlayerPlacementMarkers", MethodType.Getter)]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class FunctorParametersDescription_PlayerPlacementMarkers

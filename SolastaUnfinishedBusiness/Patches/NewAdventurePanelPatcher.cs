@@ -9,20 +9,15 @@ using Object = UnityEngine.Object;
 
 // using SolastaUnfinishedBusiness.Patches.Tools.DefaultParty;
 
-namespace SolastaUnfinishedBusiness.Patches.Tools.PartySize;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: tweaks the UI to allow less/more heroes to be selected on a campaign
-//
-// this shouldn't be protected
-//
+//PATCH: tweaks the UI to allow less/more heroes to be selected on a campaign (PARTYSIZE)
 [HarmonyPatch(typeof(NewAdventurePanel), "OnBeginShow")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class NewAdventurePanel_OnBeginShow
 {
     internal static void Prefix([NotNull] NewAdventurePanel __instance)
     {
-        // NewAdventurePanel_Refresh.ShouldAssignDefaultParty = true;
-
         // overrides campaign party size
         DatabaseHelper.CampaignDefinitions.UserCampaign.partySize = Main.Settings.OverridePartySize;
 
