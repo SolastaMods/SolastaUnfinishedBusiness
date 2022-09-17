@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches.LevelUp;
 
-//PATCH: filters out features already taken on class display (MULTICLASS)
 [HarmonyPatch(typeof(HigherLevelFeaturesModal), "Bind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class HigherLevelFeaturesModal_Bind
@@ -18,6 +17,7 @@ internal static class HigherLevelFeaturesModal_Bind
             return;
         }
 
+        //PATCH: filters out features already taken on class display (MULTICLASS)
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
         var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
         var selectedClass = LevelUpContext.GetSelectedClass(hero);

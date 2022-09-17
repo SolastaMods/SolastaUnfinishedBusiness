@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches.LevelUp;
 
-//PATCH: ensures we only add the dice max value on level 1 (MULTICLASS)
 [HarmonyPatch(typeof(RulesetCharacterHero), "AddClassLevel")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacterHero_AddClassLevel
@@ -21,6 +20,7 @@ internal static class RulesetCharacterHero_AddClassLevel
             return true;
         }
 
+        //PATCH: ensures we only add the dice max value on level 1 (MULTICLASS)
         __instance.ClassesHistory.Add(classDefinition);
         __instance.ClassesAndLevels.TryAdd(classDefinition, 0);
         __instance.ClassesAndLevels[classDefinition]++;
@@ -32,7 +32,6 @@ internal static class RulesetCharacterHero_AddClassLevel
     }
 }
 
-//PATCH: ensures we don't offer invocations unlearn on non Warlock MC (MULTICLASS)
 [HarmonyPatch(typeof(RulesetCharacterHero), "InvocationProficiencies", MethodType.Getter)]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacterHero_InvocationProficiencies
@@ -46,6 +45,7 @@ internal static class RulesetCharacterHero_InvocationProficiencies
             return true;
         }
 
+        //PATCH: ensures we don't offer invocations unlearn on non Warlock MC (MULTICLASS)
         var selectedClass = LevelUpContext.GetSelectedClass(__instance);
 
         if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Warlock)

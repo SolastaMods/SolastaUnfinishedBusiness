@@ -1558,19 +1558,24 @@ public static class SharedSpellsContext
             return 0;
         }
 
+        //TODO: not 100% sure this is the best way to tackle this...
+        //SC Warlock have 0s @ the beginning
         var i = 0;
+        var foundNonZero = false;
+        var slotsByLevel = spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1];
 
-        while (spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1].Slots[i] == 0)
+        while (i < slotsByLevel.Slots.Count && slotsByLevel.Slots[i] == 0)
         {
             i++;
         }
 
-        while (spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1].Slots[i] != 0)
+        while (i < slotsByLevel.Slots.Count && slotsByLevel.Slots[i] != 0)
         {
+            foundNonZero = true;
             i++;
         }
 
-        return i;
+        return foundNonZero ? i : 0;
     }
 
     public static void Load()

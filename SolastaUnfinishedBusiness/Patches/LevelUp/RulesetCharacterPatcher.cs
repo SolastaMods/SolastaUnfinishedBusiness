@@ -16,9 +16,9 @@ internal static class RulesetCharacter_ComputeAutopreparedSpells
         //BEGIN PATCH
         var spellcastingClass = spellRepertoire.SpellCastingClass;
 
-        if (spellRepertoire.SpellCastingSubclass != null)
+        if (spellcastingClass == null && spellRepertoire.SpellCastingSubclass != null)
         {
-            spellcastingClass = GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
+            spellcastingClass = LevelUpContext.GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
         }
         //END PATCH
 
@@ -66,21 +66,4 @@ internal static class RulesetCharacter_ComputeAutopreparedSpells
     //         ? hero.ComputeSubclassLevel(spellRepertoire.SpellCastingSubclass)
     //         : character.GetAttribute(AttributeDefinitions.CharacterLevel).BaseValue;
     // }
-
-    [NotNull]
-    private static CharacterClassDefinition GetClassForSubclass(CharacterSubclassDefinition subclass)
-    {
-        return DatabaseRepository.GetDatabase<CharacterClassDefinition>().FirstOrDefault(klass =>
-        {
-            return klass.FeatureUnlocks.Any(unlock =>
-            {
-                if (unlock.FeatureDefinition is FeatureDefinitionSubclassChoice subclassChoice)
-                {
-                    return subclassChoice.Subclasses.Contains(subclass.Name);
-                }
-
-                return false;
-            });
-        })!;
-    }
 }

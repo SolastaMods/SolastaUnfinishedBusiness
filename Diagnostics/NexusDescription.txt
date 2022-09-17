@@ -9,10 +9,10 @@ This is a collection of work from the Solasta modding community. It includes mul
 
 [list]
 
-[*][b]Zappastuff[/b]: gameplay, quality of life, infrastructure, feats, Half-elf Variants, Dead Master, Blade Dancer, multiclass
+[*][b]Zappastuff[/b]: gameplay, quality of life, infrastructure, feats, Half-elf Variants, Dead Master, Blade Dancer, Multiclass
 [*][b]ImpPhil[/b]: gameplay, quality of life, infrastructure
 [*][b]TPABOBAP[/b]: gameplay, quality of life, infrastructure, feats, spells
-[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Spell Shield, Con Artist, Arcane Fighter, Life Transmuter, Master Manipulator, Spell Master
+[*][b]ChrisJohnDigital[/b]: gameplay, infrastructure, feats, fighting styles, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, quality of life, spells, Dark Elf, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: Marshal, Opportunist, Raven
 [*][b]ElAntonious[/b]: feats, Arcanist
@@ -114,20 +114,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 [/list]
 
-[size=3][b]Classes[/b][/size]
-
-[list=1]
-
-[/list]
-
-[size=3][b]Mod Classes Subclasses[/b][/size]
-
-[list=1]
-
-[*][b]None[/b]: 
-[/list]
-
-[size=3][b]Official Classes Subclasses[/b][/size]
+[size=3][b]Subclasses[/b][/size]
 
 [list=1]
 

@@ -579,15 +579,35 @@ public static class LevelUpContext
         }
     }
 
+    [NotNull]
+    internal static CharacterClassDefinition GetClassForSubclass(CharacterSubclassDefinition subclass)
+    {
+        return DatabaseRepository.GetDatabase<CharacterClassDefinition>().FirstOrDefault(klass =>
+        {
+            return klass.FeatureUnlocks.Any(unlock =>
+            {
+                if (unlock.FeatureDefinition is FeatureDefinitionSubclassChoice subclassChoice)
+                {
+                    return subclassChoice.Subclasses.Contains(subclass.Name);
+                }
+
+                return false;
+            });
+        })!;
+    }
+
     // keeps the multiclass level up context
     private sealed class LevelUpData
     {
         public CharacterClassDefinition SelectedClass;
         public CharacterSubclassDefinition SelectedSubclass;
+
         // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool IsClassSelectionStage { get; set; }
+
         // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool IsLevelingUp { get; set; }
+
         // ReSharper disable once MemberHidesStaticFromOuterClass
         public bool RequiresDeity { get; set; }
         public HashSet<ItemDefinition> GrantedItems { get; set; }

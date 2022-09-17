@@ -12,9 +12,14 @@ internal static class FeatureDescriptionItem_Bind
 {
     public static void Postfix([NotNull] FeatureDescriptionItem __instance)
     {
-        var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-        var currentLocalHeroCharacter = characterBuildingService.CurrentLocalHeroCharacter;
-        var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(currentLocalHeroCharacter);
+        var hero = Global.ActiveLevelUpHero;
+
+        if (hero == null)
+        {
+            return;
+        }
+
+        var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
 
         if (!isClassSelectionStage)
         {

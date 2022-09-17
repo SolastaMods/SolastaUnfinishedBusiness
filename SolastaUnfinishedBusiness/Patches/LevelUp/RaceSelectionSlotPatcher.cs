@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches.LevelUp;
 
-//PATCH: Fixes the display if user enables/disables races during level up
 [HarmonyPatch(typeof(RaceSelectionSlot), "Refresh")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RaceSelectionSlot_Refresh
@@ -15,6 +14,7 @@ internal static class RaceSelectionSlot_Refresh
         [NotNull] CharacterRaceDefinition raceDefinition,
         int selectedSubRace)
     {
+        //PATCH: Fixes the display if user enables/disables races during level up
         var gameObject = __instance.subraceCountLabel.gameObject;
         var count = raceDefinition.SubRaces.Count(x => !x.GuiPresentation.Hidden);
 
