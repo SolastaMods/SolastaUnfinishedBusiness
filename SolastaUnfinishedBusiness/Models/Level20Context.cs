@@ -85,6 +85,7 @@ internal static class Level20Context
             typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
             typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 16
             typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12
+            typeof(InvocationSubPanel).GetMethod("SetState"), // 12
             typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"), // 16
             typeof(RulesetCharacterHero).GetMethod("SerializeElements"), // 12, 16
             typeof(RulesetEntity).GetMethod("SerializeElements") // 12, 16
