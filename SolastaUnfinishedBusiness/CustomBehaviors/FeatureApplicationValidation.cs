@@ -47,8 +47,8 @@ internal static class FeatureApplicationValidation
 
         features.RemoveAll(f =>
         {
-            var validator = f.GetFirstSubFeatureOfType<IFeatureApplicationValidator>();
-            return validator != null && !validator.IsValid(character);
+            var validator = f.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
+            return validator != null && !validator.IsValid(f, character);
         });
     }
 
@@ -89,8 +89,8 @@ internal static class FeatureApplicationValidation
 
         features.RemoveAll(f =>
         {
-            var validator = f.GetFirstSubFeatureOfType<IFeatureApplicationValidator>();
-            return validator != null && !validator.IsValid(character);
+            var validator = f.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
+            return validator != null && !validator.IsValid(f, character);
         });
     }
 }

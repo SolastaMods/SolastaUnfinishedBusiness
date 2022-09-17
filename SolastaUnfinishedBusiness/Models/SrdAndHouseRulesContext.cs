@@ -68,7 +68,7 @@ internal static class SrdAndHouseRulesContext
     private static void FixMountaineerBonusShoveRestrictions()
     {
         ActionAffinityMountaineerShieldCharge
-            .SetCustomSubFeatures(new ValidatorFeatureApplication(ValidatorsCharacter.HasShield));
+            .SetCustomSubFeatures(new ValidatorDefinitionApplication(ValidatorsCharacter.HasShield));
     }
 
     /**

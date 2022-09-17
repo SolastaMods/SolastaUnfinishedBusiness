@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Reflection.Emit;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -46,6 +47,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
+        
+        
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
         var heartSeekingShotCondition = ConditionDefinitionBuilder
             .Create("ConditionRavenHeartSeekingShot", DefinitionBuilder.CENamespaceGuid)
