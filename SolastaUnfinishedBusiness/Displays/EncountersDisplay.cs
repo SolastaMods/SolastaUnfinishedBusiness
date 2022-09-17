@@ -250,16 +250,28 @@ public static class EncountersDisplay
         UI.Label("Controllers:".Khaki());
         UI.Label("");
 
-        UI.Label(". Note the encounters feature won't work in a Multiplayer session. Yet...");
-        UI.Label("");
-
-        var toggle = Main.Settings.EnableEnemiesControlledByPlayer;
-        if (UI.Toggle("Enable enemies controlled by players", ref toggle))
+        if (ServiceRepository.GetService<INetworkingService>().IsMasterClient)
         {
-            Main.Settings.EnableEnemiesControlledByPlayer = toggle;
+            var toggle = Main.Settings.EnableEnemiesControlledByPlayer;
+            if (UI.Toggle("Enable enemies controlled by players", ref toggle))
+            {
+                Main.Settings.EnableEnemiesControlledByPlayer = toggle;
+            }
         }
 
-        toggle = Main.Settings.EnableHeroesControlledByComputer;
+        DisplayHeroesControllerTable();
+        DisplayEncountersTable();
+    }
+
+    private static void DisplayHeroesControllerTable()
+    {
+        if (Global.IsMultiplayer)
+        {
+            return;
+        }
+
+        var toggle = Main.Settings.EnableHeroesControlledByComputer;
+
         if (UI.Toggle("Enable heroes controlled by computer", ref toggle))
         {
             Main.Settings.EnableHeroesControlledByComputer = toggle;
@@ -270,41 +282,42 @@ public static class EncountersDisplay
             }
         }
 
-        if (Main.Settings.EnableHeroesControlledByComputer)
+        if (!Main.Settings.EnableHeroesControlledByComputer)
         {
-            UI.Label("");
-
-            if (Global.IsOffGame)
-            {
-                UI.Label("Load a game to modify heroes AI...".Bold().Red(), UI.AutoWidth());
-            }
-            else if (Global.IsMultiplayer)
-            {
-                UI.Label("You can only change controllers in a local session...".Bold().Red(), UI.AutoWidth());
-            }
-            else
-            {
-                var controllers = PlayerControllerContext.Controllers;
-                var playerCharacters = PlayerControllerContext.PlayerCharacters;
-                var playerCharactersChoices = PlayerControllerContext.PlayerCharactersChoices;
-
-                for (var i = 0; i < playerCharacters.Count; i++)
-                {
-                    // Prevent captured closure
-                    var index = i;
-
-                    UI.HStack(playerCharacters[index].Name, 1, () =>
-                    {
-                        if (UI.SelectionGrid(ref playerCharactersChoices[index], controllers, controllers.Length, 2,
-                                UI.Width(300)))
-                        {
-                            PlayerControllerContext.PlayerCharactersChoices = playerCharactersChoices;
-                        }
-                    });
-                }
-            }
+            return;
         }
 
+        UI.Label("");
+
+        if (Global.IsOffGame)
+        {
+            UI.Label("Load a game to modify heroes AI...".Bold().Red(), UI.AutoWidth());
+        }
+        else
+        {
+            var controllers = PlayerControllerContext.Controllers;
+            var playerCharacters = PlayerControllerContext.PlayerCharacters;
+            var playerCharactersChoices = PlayerControllerContext.PlayerCharactersChoices;
+
+            for (var i = 0; i < playerCharacters.Count; i++)
+            {
+                // Prevent captured closure
+                var index = i;
+
+                UI.HStack(playerCharacters[index].Name, 1, () =>
+                {
+                    if (UI.SelectionGrid(ref playerCharactersChoices[index], controllers, controllers.Length, 2,
+                            UI.Width(300)))
+                    {
+                        PlayerControllerContext.PlayerCharactersChoices = playerCharactersChoices;
+                    }
+                });
+            }
+        }
+    }
+
+    private static void DisplayEncountersTable()
+    {
         UI.Label("");
         UI.Label("Encounters:".Khaki());
         UI.Label("");
@@ -316,6 +329,7 @@ public static class EncountersDisplay
         UI.Label(
             ". pan the camera to the desired encounter location and press <color=#1E81B0>CTRL-SHIFT-(S)</color>pawn to place the enemies",
             UI.AutoWidth());
+        UI.Label(". the encounters feature won't work in a multiplayer session. yet...");
         UI.Label("");
 
         if (EncountersSpawnContext.EncounterCharacters.Count == 0)
