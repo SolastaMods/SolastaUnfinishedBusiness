@@ -501,7 +501,7 @@ public static class LevelUpContext
         }
 
         // add all known spells up to that level
-        var castingLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+        var castingLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
         var knownSpells = GetAllowedSpells(hero);
 
         if (knownSpells == null)

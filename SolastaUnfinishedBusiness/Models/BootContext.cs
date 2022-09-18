@@ -111,6 +111,9 @@ internal static class BootContext
             // Multiclass
             MulticlassContext.LateLoad();
 
+            // Shared Slots
+            SharedSpellsContext.LateLoad();
+
             // Classes Features Sorting
             ClassesContext.LateLoad();
 

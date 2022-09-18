@@ -183,8 +183,11 @@ internal static class RulesetCharacterHeroPatcher
                 return true;
             }
 
+            SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior = true;
+
             var allRitualSpells = new List<SpellDefinition>();
             var magicAffinities = new List<FeatureDefinition>();
+
             ritualSpells.SetRange(allRitualSpells);
 
             __instance.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(magicAffinities);
@@ -243,7 +246,7 @@ internal static class RulesetCharacterHeroPatcher
                                  spellRepertoire.SpellCastingFeature.SpellKnowledge ==
                                  RuleDefinitions.SpellKnowledge.WholeList:
                         {
-                            var maxSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+                            var maxSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
                             var spells = spellRepertoire.PreparedSpells
                                 .Where(s => s.Ritual)
                                 .Where(s => maxSpellLevel >= s.SpellLevel);
@@ -258,7 +261,7 @@ internal static class RulesetCharacterHeroPatcher
                         {
                             __instance.CharacterInventory.EnumerateAllItems(__instance.Items);
 
-                            var maxSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+                            var maxSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
                             var spells = __instance.Items
                                 .OfType<RulesetItemSpellbook>()
                                 .SelectMany(x => x.ScribedSpells)
@@ -278,7 +281,7 @@ internal static class RulesetCharacterHeroPatcher
                         // special case for Witch
                         case (RuleDefinitions.RitualCasting)ExtraRitualCasting.Known:
                         {
-                            var maxSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+                            var maxSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
                             var spells = spellRepertoire.KnownSpells
                                 .Where(s => s.Ritual)
                                 .Where(s => maxSpellLevel >= s.SpellLevel);
@@ -302,6 +305,8 @@ internal static class RulesetCharacterHeroPatcher
             }
 
             ritualSpells.SetRange(allRitualSpells.Distinct());
+
+            SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior = true;
 
             return false;
         }
