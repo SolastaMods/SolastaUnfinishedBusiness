@@ -14,10 +14,9 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoP
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Level20.PowerClericTurnUndeadBuilder;
-using static SolastaUnfinishedBusiness.Level20.SenseRangerFeralSensesBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -137,7 +136,7 @@ internal static class Level20Context
     {
         Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(PowerClericTurnUndead17, 17),
+            new(PowerClericTurnUndeadBuilder.PowerClericTurnUndead17, 17),
             new(AttributeModifierClericChannelDivinityAdd, 18),
             new(FeatureSetAbilityScoreChoice, 19)
             // Solasta handles divine intervention on subclasses below
@@ -262,7 +261,13 @@ internal static class Level20Context
     {
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(SenseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
+            new(FeatureDefinitionSenseBuilder
+                    .Create(SenseSeeInvisible12, "SenseRangerFeralSenses", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(Category.Feature)
+                    .SetSenseRange(6)
+                    .AddToDB(),
+                18),
+            new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Ranger Foe Slayer
         });
 
