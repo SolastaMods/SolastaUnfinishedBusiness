@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -26,6 +29,8 @@ internal static class FeatsContext
         EwFeats.CreateFeats(feats);
 
         feats.ForEach(LoadFeat);
+
+        DatabaseHelper.FeatDefinitions.BurningTouch.SetCustomSubFeatures(new GroupedFeat());
 
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
     }

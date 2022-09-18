@@ -6,7 +6,9 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,11 +33,23 @@ internal static class FeatSubPanel_Bind
                 String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
         }
 
+        //PATCH: grouped feats - hide feats that are in the group
+        var toRemove = new List<FeatDefinition>();
+        foreach (var group in __instance.relevantFeats
+                     .Select(feat => feat.GetFirstSubFeatureOfType<IGroupedFeat>())
+                     .Where(group => group != null))
+        {
+            toRemove.AddRange(group.GetSubFeats());
+        }
+        __instance.relevantFeats.RemoveAll(f => toRemove.Contains(f));
+
+        //get missing children from pool
         while (__instance.table.childCount < __instance.relevantFeats.Count)
         {
             Gui.GetPrefabFromPool(__instance.itemPrefab, __instance.table);
         }
 
+        //release extra children to pool
         while (__instance.table.childCount > __instance.relevantFeats.Count)
         {
             Gui.ReleaseInstanceToPool(__instance.table.GetChild(__instance.table.childCount - 1).gameObject);
