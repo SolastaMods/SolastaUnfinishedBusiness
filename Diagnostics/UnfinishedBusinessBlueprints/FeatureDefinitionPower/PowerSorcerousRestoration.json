@@ -320,13 +320,8 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&PowerSorcerousRestorationTitle",
-    "description": "Feature/&PowerSorcerousRestorationDescription",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    },
+    "description": "Feature/&PowerSorcerousRestorationTitle",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -340,7 +335,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a524f8eb-8d30-4614-819d-a8f7df84f73e",
+  "guid": "e2f2af3f-8b75-54c5-ae22-32b4c5aca641",
   "contentPack": 9999,
   "name": "PowerSorcerousRestoration"
 }
