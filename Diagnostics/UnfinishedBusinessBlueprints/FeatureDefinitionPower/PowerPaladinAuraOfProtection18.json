@@ -153,24 +153,14 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
+      "beforeImpactParticleReference": null,
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
+      "activeEffectImpactParticleReference": null,
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -316,7 +306,7 @@
   "uniqueInstance": false,
   "showCasting": false,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPaladinAuraOfProtection:478d55235de018441a4d809d1f15df79",
+  "overriddenPower": "Definition:PowerPaladinAuraOfCourage:679171cbb80e38d41b4626aa3da0e72b",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -342,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1574c379dfb74cfeb3488209bd3b6d33",
+  "guid": "0f6cd166-f6e1-5a8b-ade7-55b3164b7450",
   "contentPack": 9999,
   "name": "PowerPaladinAuraOfProtection18"
 }

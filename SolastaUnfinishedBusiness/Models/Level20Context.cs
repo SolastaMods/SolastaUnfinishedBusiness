@@ -134,9 +134,18 @@ internal static class Level20Context
 
     private static void ClericLoad()
     {
+        var effectPowerClericTurnUndead17 = new EffectDescription();
+
+        effectPowerClericTurnUndead17.Copy(PowerClericTurnUndead14.EffectDescription);
+        effectPowerClericTurnUndead17.EffectForms[0].KillForm.challengeRating = 4;
+
         Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(PowerClericTurnUndeadBuilder.PowerClericTurnUndead17, 17),
+            new(FeatureDefinitionPowerBuilder
+                    .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17", DefinitionBuilder.CENamespaceGuid)
+                    .SetEffectDescription(effectPowerClericTurnUndead17)
+                    .AddToDB(),
+                17),
             new(AttributeModifierClericChannelDivinityAdd, 18),
             new(FeatureSetAbilityScoreChoice, 19)
             // Solasta handles divine intervention on subclasses below
@@ -224,9 +233,36 @@ internal static class Level20Context
 
     private static void PaladinLoad()
     {
+        var effectPowerPaladinAuraOfCourage18 = new EffectDescription();
+
+        effectPowerPaladinAuraOfCourage18.Copy(PowerPaladinAuraOfCourage.EffectDescription);
+        effectPowerPaladinAuraOfCourage18.targetParameter = 6;
+        effectPowerPaladinAuraOfCourage18.rangeParameter = 0;
+        effectPowerPaladinAuraOfCourage18.requiresTargetProximity = false;
+
+        var effectPowerPaladinAuraOfProtection18 = new EffectDescription();
+
+        effectPowerPaladinAuraOfProtection18.Copy(PowerPaladinAuraOfProtection.EffectDescription);
+        effectPowerPaladinAuraOfProtection18.targetParameter = 6;
+        effectPowerPaladinAuraOfProtection18.rangeParameter = 0;
+        effectPowerPaladinAuraOfProtection18.requiresTargetProximity = false;
+
         Paladin.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(PowerPaladinAuraOfCourage18Builder.Instance, 18),
-            new FeatureUnlockByLevel(PowerPaladinAuraOfProtection18Builder.Instance, 18),
+            new FeatureUnlockByLevel(FeatureDefinitionPowerBuilder
+                    .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(Category.Feature)
+                    .SetEffectDescription(effectPowerPaladinAuraOfCourage18)
+                    .SetOverriddenPower(PowerPaladinAuraOfCourage)
+                    .AddToDB(),
+                18),
+            new FeatureUnlockByLevel(FeatureDefinitionPowerBuilder
+                    .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18",
+                        DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(Category.Feature)
+                    .SetEffectDescription(effectPowerPaladinAuraOfProtection18)
+                    .SetOverriddenPower(PowerPaladinAuraOfCourage)
+                    .AddToDB(),
+                18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
         );
 
