@@ -239,7 +239,7 @@ public static class SharedSpellsContext
             typeof(ItemMenuModal).GetMethod("SetupFromItem"),
             typeof(RulesetCharacter).GetMethod("EnumerateUsableSpells", PrivateBinding),
             // we also have a custom bool Prefix for this one
-            typeof(RulesetCharacterHero).GetMethod("EnumerateUsableRitualSpells"), 
+            typeof(RulesetCharacterHero).GetMethod("EnumerateUsableRitualSpells"),
             typeof(RulesetSpellRepertoire).GetMethod("HasKnowledgeOfSpell")
         };
 
@@ -258,11 +258,6 @@ public static class SharedSpellsContext
 
     internal static int MaxSpellLevelOfSpellCastingLevel(RulesetSpellRepertoire rulesetSpellRepertoire)
     {
-        if (rulesetSpellRepertoire == null)
-        {
-            return 0;
-        }
-
         UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior = true;
 
         var result = rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel;
@@ -273,7 +268,6 @@ public static class SharedSpellsContext
     }
 
     [NotNull]
-    // ReSharper disable once UnusedMember.Global
     private static IEnumerable<CodeInstruction> SharedSpellsTranspiler(
         [NotNull] IEnumerable<CodeInstruction> instructions)
     {
@@ -294,7 +288,6 @@ public static class SharedSpellsContext
             }
         }
     }
-
 
     #region Caster Level Context
 
