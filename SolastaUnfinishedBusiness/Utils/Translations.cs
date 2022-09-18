@@ -205,7 +205,7 @@ public static class Translations
 
             lineCount++;
         }
-        
+
         Main.Logger.Log($"{lineCount} {languageCode} translation terms loaded.");
     }
 }
