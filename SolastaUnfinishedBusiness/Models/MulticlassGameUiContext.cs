@@ -41,6 +41,7 @@ public static class MulticlassGameUiContext
             var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
             var warlockCasterLevel = SharedSpellsContext.GetWarlockCasterLevel(heroWithSpellRepertoire);
 
+            //TODO: this is a hack. need to fully refactor how this method interacts where it's called
             // Warlock Mystic Arcanum spells display handling
             if (warlockCasterLevel >= 11)
             {

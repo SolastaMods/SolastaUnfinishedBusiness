@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -115,9 +115,9 @@ internal static class RulesetSpellRepertoirePatcher
             // uses short rest slots across all non race repertoires
             if (canConsumePactSlot &&
                 (!canConsumeSpellSlot
-                 || (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock &&
+                 || (__instance.SpellCastingClass == Warlock &&
                      !isShiftPressed)
-                 || (__instance.SpellCastingClass != DatabaseHelper.CharacterClassDefinitions.Warlock &&
+                 || (__instance.SpellCastingClass != Warlock &&
                      isShiftPressed)))
             {
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
@@ -168,22 +168,14 @@ internal static class RulesetSpellRepertoirePatcher
             //TODO: this is a hack. need to fully refactor how this method interacts where it's called
             //there are 26 places in game where they check for MaxSpellLevelOfSpellCastingLevel
             var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
-            var warlockSpellLevel = 0;
-            
-            if (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
-            {
-                var warlockLevel = SharedSpellsContext.GetWarlockCasterLevel(heroWithSpellRepertoire);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+            var warlockCasterLevel = SharedSpellsContext.GetWarlockCasterLevel(heroWithSpellRepertoire);
 
-                if (warlockLevel >= 11)
-                {
-                    warlockSpellLevel = (warlockLevel + 1) / 2;
-                }
-            }
-            else
+            if (warlockCasterLevel >= 11 && __instance.SpellCastingClass == Warlock)
             {
-                warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+                warlockSpellLevel = (warlockCasterLevel + 1) / 2;
             }
-            
+
             __result = Math.Max(sharedSpellLevel, warlockSpellLevel);
         }
     }
