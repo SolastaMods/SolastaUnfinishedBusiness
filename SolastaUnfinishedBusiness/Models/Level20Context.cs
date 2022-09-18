@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Level20;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -112,9 +111,11 @@ internal static class Level20Context
         Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
-            new(FeatureDefinitionIndomitableMightBuilder.FeatureDefinitionIndomitableMight, 18),
+            // TODO 18: Barbarian Indomitable Might
+            // new(FeatureDefinitionIndomitableMightBuilder.FeatureDefinitionIndomitableMight, 18),
             new(FeatureSetAbilityScoreChoice, 19),
-            new(FeatureDefinitionPrimalChampionBuilder.FeatureDefinitionPrimalChampion, 20)
+            // TODO 20: Barbarian Primal Champion
+            // new(FeatureDefinitionPrimalChampionBuilder.FeatureDefinitionPrimalChampion, 20)
         });
     }
 

@@ -320,8 +320,13 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&PowerSorcerousRestorationTitle",
-    "description": "Feature/&PowerSorcerousRestorationTitle",
-    "spriteReference": null,
+    "description": "Feature/&PowerSorcerousRestorationDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,

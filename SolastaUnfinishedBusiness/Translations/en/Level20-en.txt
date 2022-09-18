@@ -1,7 +1,3 @@
-Feature/&BarbarianIndomitableMightDescription=If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
-Feature/&BarbarianIndomitableMightTitle=Indomitable Might
-Feature/&BarbarianPrimalChampionDescription=At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
-Feature/&BarbarianPrimalChampionTitle=Primal Champion
 Feature/&PowerPaladinAuraOfCourage18Description=Grant a saving throw bonus to allies within 30ft.
 Feature/&PowerPaladinAuraOfCourage18Title=Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description=You and your allies within 30ft cannot be frightened.
