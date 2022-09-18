@@ -23,27 +23,21 @@ public static class MulticlassGameUiContext
     internal static void RebuildSlotsTable(SpellRepertoirePanel __instance)
     {
         var spellRepertoire = __instance.SpellRepertoire;
-        var accountForCantrips = spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0;
-        int classSpellLevel;
-        int slotLevel;
 
-        // determines the display context
+        //TODO: not sure yet what to do with Race repertoires once Tiefling gets in game
         if (spellRepertoire.SpellCastingRace != null)
         {
-            classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-            slotLevel = 0;
+            return;
         }
-        else
-        {
-            var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
-            var isSharedcaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
-            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
-
-            classSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
-            slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);
-        }
-
+        
+        var accountForCantrips = spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0;
+        var classSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
+        var hero = __instance.GuiCharacter.RulesetCharacterHero;
+        var isSharedcaster = SharedSpellsContext.IsSharedcaster(hero);
+        var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
+        var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+        var slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);;
+        
         while (__instance.levelButtonsTable.childCount < classSpellLevel + accountForCantrips)
         {
             Gui.GetPrefabFromPool(__instance.levelButtonPrefab, __instance.levelButtonsTable);
@@ -88,15 +82,15 @@ public static class MulticlassGameUiContext
     }
 
     public static void PaintPactSlots(
-        [NotNull] RulesetCharacterHero heroWithSpellRepertoire,
+        [NotNull] RulesetCharacterHero hero,
         int totalSlotsCount,
         int totalSlotsRemainingCount,
         int slotLevel,
         [NotNull] RectTransform rectTransform,
         bool hasTooltip = false)
     {
-        var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
-        var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+        var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
+        var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
         var pactSlotsCount = 0;
         var pactSlotsRemainingCount = 0;
@@ -104,8 +98,8 @@ public static class MulticlassGameUiContext
 
         if (warlockSpellRepertoire != null)
         {
-            pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-            pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
+            pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(hero);
             pactSlotsRemainingCount = pactSlotsCount - pactSlotsUsedCount;
         }
 

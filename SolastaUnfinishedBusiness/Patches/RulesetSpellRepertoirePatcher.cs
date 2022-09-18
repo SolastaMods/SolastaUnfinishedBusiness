@@ -160,7 +160,7 @@ internal static class RulesetSpellRepertoirePatcher
 
             var hero = SharedSpellsContext.GetHero(__instance.CharacterName);
 
-            if (hero == null)
+            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
             {
                 return;
             }

@@ -25,11 +25,8 @@ public static class SharedSpellsContext
 {
     internal const int PactMagicSlotsTab = -1;
 
-    //
     // supports custom MaxSpellLevelOfSpellCastLevel behaviors
-    //
-
-    internal static bool UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior;
+    internal static bool UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior { get; private set; }
 
     public static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
     {
@@ -70,22 +67,22 @@ public static class SharedSpellsContext
         // try to get hero from game campaign
         var gameCampaign = Gui.GameCampaign;
 
-        if (gameCampaign != null)
+        if (gameCampaign == null)
         {
-            var gameCampaignCharacter =
-                gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
-
-            if (gameCampaignCharacter is { RulesetCharacter: RulesetCharacterHero rulesetCharacterHero })
-            {
-                return rulesetCharacterHero;
-            }
+            // gets hero on inspection or falls back to level up
+            return Global.InspectedHero ?? Global.ActiveLevelUpHero;
         }
 
-        // otherwise gets hero inspection
-        var hero = Global.InspectedHero;
+        var gameCampaignCharacter =
+            gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
 
-        // finally falls back to level up
-        return hero ?? Global.ActiveLevelUpHero;
+        if (gameCampaignCharacter is { RulesetCharacter: RulesetCharacterHero rulesetCharacterHero })
+        {
+            return rulesetCharacterHero;
+        }
+
+        // gets hero on inspection or falls back to level up
+        return Global.InspectedHero ?? Global.ActiveLevelUpHero;
     }
 
     // supports auto prepared spells scenarios on subs
@@ -142,7 +139,7 @@ public static class SharedSpellsContext
         return warlockLevel;
     }
 
-    public static int GetWarlockSpellLevel(RulesetCharacterHero rulesetCharacterHero)
+    internal static int GetWarlockSpellLevel(RulesetCharacterHero rulesetCharacterHero)
     {
         var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
 
@@ -228,21 +225,21 @@ public static class SharedSpellsContext
         // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
     }
 
-
     internal static void LateLoad()
     {
         const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");
-        var transpiler = new Func <IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>(SharedSpellsTranspiler).Method;
+        var transpiler = new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>(SharedSpellsTranspiler)
+            .Method;
         var methods = new[]
         {
             typeof(CharacterBuildingManager).GetMethod("ApplyFeatureCastSpell", PrivateBinding),
             typeof(GuiCharacter).GetMethod("DisplayUniqueLevelSpellSlots"),
             typeof(ItemMenuModal).GetMethod("SetupFromItem"),
             typeof(RulesetCharacter).GetMethod("EnumerateUsableSpells", PrivateBinding),
-            typeof(RulesetCharacterHero).GetMethod(
-                "EnumerateUsableRitualSpells"), // we also have a custom bool Prefix for this one
+            // we also have a custom bool Prefix for this one
+            typeof(RulesetCharacterHero).GetMethod("EnumerateUsableRitualSpells"), 
             typeof(RulesetSpellRepertoire).GetMethod("HasKnowledgeOfSpell")
         };
 
