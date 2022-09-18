@@ -24,20 +24,19 @@ public static class MulticlassGameUiContext
     {
         var spellRepertoire = __instance.SpellRepertoire;
 
-        //TODO: not sure yet what to do with Race repertoires once Tiefling gets in game
         if (spellRepertoire.SpellCastingRace != null)
         {
             return;
         }
-        
-        var accountForCantrips = spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0;
-        var classSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
+
         var hero = __instance.GuiCharacter.RulesetCharacterHero;
         var isSharedcaster = SharedSpellsContext.IsSharedcaster(hero);
         var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
+        var classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
         var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-        var slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);;
-        
+        var slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);
+        var accountForCantrips = spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0;
+
         while (__instance.levelButtonsTable.childCount < classSpellLevel + accountForCantrips)
         {
             Gui.GetPrefabFromPool(__instance.levelButtonPrefab, __instance.levelButtonsTable);
@@ -50,9 +49,8 @@ public static class MulticlassGameUiContext
 
         while (__instance.levelButtonsTable.childCount > classSpellLevel + accountForCantrips)
         {
-            Gui.ReleaseInstanceToPool(__instance.levelButtonsTable
-                .GetChild(__instance.levelButtonsTable.childCount - 1)
-                .gameObject);
+            Gui.ReleaseInstanceToPool(
+                __instance.levelButtonsTable.GetChild(__instance.levelButtonsTable.childCount - 1).gameObject);
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.levelButtonsTable);

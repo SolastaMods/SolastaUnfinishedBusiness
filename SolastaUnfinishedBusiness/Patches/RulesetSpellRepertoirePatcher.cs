@@ -153,20 +153,32 @@ internal static class RulesetSpellRepertoirePatcher
     {
         internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
+            const int MYSTIC_ARCANUM_LEVEL = 11;
+
             if (SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior)
             {
                 return;
             }
 
-            var hero = SharedSpellsContext.GetHero(__instance.CharacterName);
+            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
 
-            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
+            if (heroWithSpellRepertoire == null)
             {
                 return;
             }
 
-            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+
+            if (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+            {
+                var warlockLevel = SharedSpellsContext.GetWarlockCasterLevel(heroWithSpellRepertoire);
+
+                if (warlockLevel >= MYSTIC_ARCANUM_LEVEL)
+                {
+                    warlockSpellLevel = (warlockLevel + 1) / 2;
+                }
+            }
 
             __result = Math.Max(sharedSpellLevel, warlockSpellLevel);
         }
