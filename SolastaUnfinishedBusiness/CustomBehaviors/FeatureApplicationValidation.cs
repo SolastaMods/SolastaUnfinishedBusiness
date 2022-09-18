@@ -123,7 +123,7 @@ internal static class FeatureApplicationValidation
         }
 
         var validator = mod.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
-        
+
         return validator == null || validator.IsValid(feature, character)
             ? mod
             : null;

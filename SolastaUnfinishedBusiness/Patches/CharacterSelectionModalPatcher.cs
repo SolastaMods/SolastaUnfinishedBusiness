@@ -25,7 +25,7 @@ internal static class CharacterSelectionModalPatcher
             __instance.MaxLevel = DungeonMakerContext.DungeonMaxLevel;
         }
     }
-    
+
     //PATCH: ensures MC heroes are correctly offered on adventures with min/max caps on character level
     [HarmonyPatch(typeof(CharacterSelectionModal), "EnumeratePlates")]
     internal static class EnumeratePlates_Patch

@@ -164,7 +164,7 @@ internal static class RulesetSpellRepertoirePatcher
             {
                 return;
             }
-  
+
             __result = Math.Max(
                 SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
                 SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));

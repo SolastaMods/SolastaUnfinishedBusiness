@@ -26,4 +26,3 @@ internal static class GameSerializationManagerPatcher
         }
     }
 }
-

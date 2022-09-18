@@ -23,4 +23,3 @@ internal static class GameMenuModalPatcher
         }
     }
 }
-

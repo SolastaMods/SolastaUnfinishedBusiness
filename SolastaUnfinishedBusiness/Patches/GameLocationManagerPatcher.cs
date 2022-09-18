@@ -36,7 +36,8 @@ internal static class GameLocationManagerPatcher
             Main.Log(
                 $"Campaign-ss: Campaign={session.CampaignDefinitionName}, Location: {session.UserLocationName}");
 #endif
-                var selectedCampaignService = SaveByLocationContext.ServiceRepositoryEx.GetOrCreateService<SaveByLocationContext.SelectedCampaignService>();
+                var selectedCampaignService = SaveByLocationContext.ServiceRepositoryEx
+                    .GetOrCreateService<SaveByLocationContext.SelectedCampaignService>();
 
 
                 selectedCampaignService.SetCampaignLocation(userCampaignName, userLocationName);
@@ -45,7 +46,7 @@ internal static class GameLocationManagerPatcher
             __instance.StartCoroutine(ServiceRepository.GetService<IGameSerializationService>()?.EnumerateSavesGames());
         }
     }
-    
+
     //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
     [HarmonyPatch(typeof(GameLocationManager), "ReadyLocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -31,4 +31,3 @@ internal static class TacticalAdventuresApplicationPatcher
         }
     }
 }
-

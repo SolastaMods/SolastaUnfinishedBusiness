@@ -20,7 +20,8 @@ internal static class HolicSpells
         RegisterSpell(BuildAirBlast(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
         RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
         RegisterSpell(BuildThunderStrike(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
-        RegisterSpell( BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer, SpellListDruid);
+        RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer,
+            SpellListDruid);
         RegisterSpell(BuildEarthTremor(), 0, SpellListWizardGreenmage, SpellListDruid);
     }
 
