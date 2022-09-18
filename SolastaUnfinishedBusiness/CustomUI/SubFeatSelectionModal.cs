@@ -13,6 +13,7 @@ public class SubFeatSelectionModal : GuiGameScreen
     private bool localInitialized;
     private Button buton;
     private Image image;
+    private ProficiencyBaseItem.OnItemClickedHandler itemClickHandler;
 
     public static SubFeatSelectionModal Get()
     {
@@ -29,7 +30,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         LocalInit();
 
         Visible = true;
-
+        itemClickHandler = onItemClicked;
         var subFeats = group.GetSubFeats();
         Main.Log2($"SFSM [{inspectedCharacter.Name}] Bind subFeats: {subFeats.Count}");
 
@@ -44,12 +45,23 @@ public class SubFeatSelectionModal : GuiGameScreen
         foreach (var subFeat in subFeats)
         {
             var qwe = Gui.GetPrefabFromPool(featPrefab, transform);
-            InitFeatItem(inspectedCharacter, baseItem, onItemClicked, subFeat, qwe.GetComponent<FeatItem>());
+            InitFeatItem(inspectedCharacter, baseItem, subFeat, qwe.GetComponent<FeatItem>());
             qwe.GetComponent<RectTransform>().position = position + new Vector3(0, step * i, 0);
             i++;
         }
 
         Visible = false;
+    }
+    
+    private void Unbind()
+    {
+        itemClickHandler = null;
+        for (var i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetComponent<FeatItem>().Unbind();
+        }
+
+        Gui.ReleaseChildrenToPool(transform);
     }
 
     public override void Initialize()
@@ -59,13 +71,7 @@ public class SubFeatSelectionModal : GuiGameScreen
             return;
         }
 
-        // Load();
-
         base.Initialize();
-
-        // alphaModifier.endAlpha = 1f;
-        // alphaModifier.startAlpha = 0f;
-        // alphaModifier.duration = 0.25f;
 
         name = "SubFeatSelector";
 
@@ -87,7 +93,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         gameObject.AddComponent<CanvasGroup>();
         image = gameObject.AddComponent<Image>();
         buton = gameObject.AddComponent<Button>();
-        
+
         base.Awake();
     }
 
@@ -97,17 +103,17 @@ public class SubFeatSelectionModal : GuiGameScreen
         {
             return;
         }
-        
+
         var levelup = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
-    
+
         //set sort index to just above levelup screen so it has input handling priority
         SortIndex = levelup.SortIndex + 1;
-        
+
         //put it visually just above levelup screen
         transform.parent = Find("Application/GUI/BackgroundCanvas/ForegroundCanvas").transform;
         var levelupIndex = levelup.transform.GetSiblingIndex();
         transform.SetSiblingIndex(levelupIndex + 1);
-        
+
         RectTransform.sizeDelta = new Vector2(200, 200);
         RectTransform.anchorMin = new Vector2(0, 0);
         RectTransform.anchorMax = new Vector2(1, 1);
@@ -122,7 +128,7 @@ public class SubFeatSelectionModal : GuiGameScreen
 
         CanvasGroup.blocksRaycasts = true;
         CanvasGroup.interactable = true;
-        
+
         GuiTooltip.content = string.Empty;
         GuiTooltip.Disabled = false;
         GuiTooltip.tooltipClass = string.Empty;
@@ -130,44 +136,31 @@ public class SubFeatSelectionModal : GuiGameScreen
         localInitialized = true;
     }
 
-    private void InitFeatItem(RulesetCharacterHero inspectedCharacter, FeatItem baseItem,
-        ProficiencyBaseItem.OnItemClickedHandler onItemClicked, FeatDefinition featDefinition, FeatItem component)
+    private void InitFeatItem(RulesetCharacterHero inspectedCharacter, FeatItem baseItem, FeatDefinition featDefinition,
+        FeatItem component)
     {
         Main.Log2($"SFSM [{inspectedCharacter.Name}] Bind feat <{featDefinition.Name}>");
-        component.Bind(inspectedCharacter, featDefinition, onItemClicked, null, true);
+        component.Bind(inspectedCharacter, featDefinition, OnItemSelected, null, true);
         component.StageTag = baseItem.StageTag;
         component.PreviousStageTag = baseItem.PreviousStageTag;
         component.gameObject.SetActive(true);
         component.Refresh(ProficiencyBaseItem.InteractiveMode.InteractiveSingle, HeroDefinitions.PointsPoolType.Feat,
             ProficiencyBaseItem.DisabledMode.Default);
-        component.transform.localScale = baseItem.RectTransform.lossyScale;
 
-        component.Tooltip.Anchor = baseItem.RectTransform;
-        component.Tooltip.AnchorMode = TooltipDefinitions.AnchorMode.LEFT_FREE;
+        component.Tooltip.Anchor = baseItem.Tooltip.Anchor;
+        component.Tooltip.AnchorMode = baseItem.Tooltip.AnchorMode;
 
         component.RectTransform.sizeDelta = new Vector2(300, 44);
     }
 
-    public void Show2(bool instant)
+    private void OnItemSelected(ProficiencyBaseItem item)
     {
-        Main.Log2($"SFSM Show instant: {instant}");
-        Show(instant);
+        var handler = itemClickHandler;
+        itemClickHandler = null;
+        handler?.Invoke(item);
+        Hide();
     }
-
-    public override bool GrabsCameraControl => true;
-
-    public override string ActionMap => "UI";
-
-    public override bool AutoRecomputeNavigation => true;
-
-    public override bool HandleInput(InputCommands.Id command)
-    {
-        Main.Log2($"HandleInput <{command}>");
-        if (command == InputCommands.Id.Cancel)
-            OnCloseCb();
-        return true;
-    }
-
+    
     public void OnCloseCb()
     {
         //TODO: implement cancel callback
@@ -176,7 +169,43 @@ public class SubFeatSelectionModal : GuiGameScreen
         //     subpowerCanceled();
         Hide();
     }
+    
+    public override void OnBeginShow(bool instant = false)
+    {
+        base.OnBeginShow(instant);
+        // this.mainPanel.Show(instant);
+        if (Gui.GamepadActive)
+            Gui.InputService.ClearCurrentSelectable();
+        ServiceRepository.GetService<ITooltipService>().HideTooltip();
+    }
 
+    public override void OnBeginHide(bool instant = false)
+    {
+        Unbind();
+        base.OnBeginHide(instant);
+    }
+
+    public override bool HandleInput(InputCommands.Id command)
+    {
+        if (command == InputCommands.Id.Cancel)
+            OnCloseCb();
+        return true;
+    }
+    
+    public void CancelPerformed(InputAction.CallbackContext context)
+    {
+        if (this == null)
+            return;
+        OnCloseCb();
+    }
+
+    //TODO: handle controller
+    
+    public override bool GrabsCameraControl => true;
+
+    public override string ActionMap => "UI";
+
+    public override bool AutoRecomputeNavigation => true;
     public override void SelectDefaultControl()
     {
         //TODO: implement default control selection
@@ -204,48 +233,4 @@ public class SubFeatSelectionModal : GuiGameScreen
     public override void UnregisterCommands() =>
         Gui.InputService.InputActionAsset.FindActionMap(ActionMap, false).FindAction("Cancel").performed -=
             CancelPerformed;
-
-    public override void OnBeginShow(bool instant = false)
-    {
-        base.OnBeginShow(instant);
-        // this.mainPanel.Show(instant);
-        if (Gui.GamepadActive)
-            Gui.InputService.ClearCurrentSelectable();
-        ServiceRepository.GetService<ITooltipService>().HideTooltip();
-    }
-
-    public override void OnBeginHide(bool instant = false)
-    {
-        // this.Unbind();
-        // this.mainPanel.Hide(instant);
-        base.OnBeginHide(instant);
-    }
-
-    public override void OnEndHide() => base.OnEndHide();
-
-    public void OnActivate(int index)
-    {
-        //TODO: implement activation handling
-        // if (this.subpowerEngaged != null)
-        // {
-        //   for (int index1 = 0; index1 < this.caster.UsablePowers.Count; ++index1)
-        //   {
-        //     RulesetUsablePower usablePower = this.caster.UsablePowers[index1];
-        //     if ((BaseDefinition) usablePower.PowerDefinition == (BaseDefinition) this.powerDefinitions[index])
-        //     {
-        //       this.subpowerEngaged(usablePower, index1);
-        //       break;
-        //     }
-        //   }
-        // }
-        Hide();
-    }
-
-    public void CancelPerformed(InputAction.CallbackContext context)
-    {
-        Main.Log2($"CancelPerformed");
-        if ((Object) this == (Object) null)
-            return;
-        OnCloseCb();
-    }
 }

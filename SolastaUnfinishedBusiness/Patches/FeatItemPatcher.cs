@@ -32,7 +32,7 @@ internal static class FeatItemPatcher
                 var selector = SubFeatSelectionModal.Get();
 
                 selector.Bind(inspectedCharacter, __instance, group, onItemClicked, __instance.RectTransform);
-                selector.Show2(false);
+                selector.Show();
                 
             }, flexibleWidth);
             __instance.GuiFeatDefinition.SetupTooltip(__instance.Tooltip);
