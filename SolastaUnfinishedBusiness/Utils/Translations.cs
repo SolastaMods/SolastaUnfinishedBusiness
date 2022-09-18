@@ -161,6 +161,7 @@ public static class Translations
             : LocalizationManager.CurrentLanguageCode;
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
+        var lineCount = 0;
 
         foreach (var line in GetTranslations(languageCode))
         {
@@ -201,6 +202,10 @@ public static class Translations
             {
                 languageSourceData.AddTerm(term).Languages[languageIndex] = text;
             }
+
+            lineCount++;
         }
+        
+        Main.Logger.Log($"{lineCount} {languageCode} translation terms loaded.");
     }
 }
