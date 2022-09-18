@@ -133,7 +133,10 @@ public static class CustomReactionsContext
             var tooltip = toggle.tooltip;
             tooltip.Content = "UI/&ForcePreferredCantripDescription";
 
-            toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
+            // toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
+            toggle.PersonalityFlagDefinition =
+                DatabaseHelper.GetDefinition<PersonalityFlagDefinition>("Authority", "80bbfa1a26df10b4e8bb2c6b47a242e3");
+
             toggle.PersonalityFlagSelected = (_, _, state) =>
             {
                 _forcePreferredCantripUI = state;

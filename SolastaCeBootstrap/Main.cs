@@ -219,7 +219,17 @@ namespace SolastaCeBootstrap
                 "TutorialTable",
                 "TutorialToc",
                 "VisualMood",
-                "Voice"
+                "Voice",
+
+                // 2022-09-17
+                "AmmunitionTypeDefinition",
+                "CampaignDefinition",
+                "CharacterToLootPackMapDefinition",
+                "DamageDefinition",
+                "FactionDefinition",
+                "LootableContainerDefinition",
+                "PersonalityFlagDefinition", "TerrainTypeDefinition",
+                "ToolCategoryDefinition"
             };
             var definitions = new Dictionary<string, List<Asset>>();
 

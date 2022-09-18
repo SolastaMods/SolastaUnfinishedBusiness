@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FactionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FormationDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -168,14 +168,15 @@ internal static class EncountersSpawnContext
                          {
                              BattleStartBehavior =
                                  GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
-                             DecisionPackageDefinition = IdleGuard_Default,
+                             DecisionPackageDefinition = Idle,
                              EncounterId = EncounterId++,
                              FormationDefinition = EncounterCharacters.Count > 1 ? Squad4 : SingleCreature
                          })))
         {
             gameLocationCharacter.CollectExistingLightSources(true);
             gameLocationCharacter.RefreshActionPerformances();
-            gameLocationCharacter.RulesetCharacter.SetBaseFaction(HostileMonsters);
+            gameLocationCharacter.RulesetCharacter.SetBaseFaction(
+                DatabaseHelper.GetDefinition<FactionDefinition>("HostileMonsters", "b3e1a16573dc44a4aa95cf40f57471ec"));
             characters.Add(gameLocationCharacter);
         }
 

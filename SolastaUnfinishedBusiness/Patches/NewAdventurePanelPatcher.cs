@@ -19,7 +19,8 @@ internal static class NewAdventurePanel_OnBeginShow
     internal static void Prefix([NotNull] NewAdventurePanel __instance)
     {
         // overrides campaign party size
-        DatabaseHelper.CampaignDefinitions.UserCampaign.partySize = Main.Settings.OverridePartySize;
+        DatabaseHelper.GetDefinition<CampaignDefinition>("UserCampaign", "c4ba3a35de0abc64988422d261021985")
+            .partySize = Main.Settings.OverridePartySize;
 
         // adds new character plates if required
         for (var i = DungeonMakerContext.GamePartySize; i < Main.Settings.OverridePartySize; i++)
