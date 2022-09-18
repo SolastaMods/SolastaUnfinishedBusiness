@@ -153,8 +153,6 @@ internal static class RulesetSpellRepertoirePatcher
     {
         internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
-            const int MYSTIC_ARCANUM_LEVEL = 11;
-
             if (SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior)
             {
                 return;
@@ -170,14 +168,12 @@ internal static class RulesetSpellRepertoirePatcher
             var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
-            if (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+            // ugly mystic arcanum hack
+            if (__instance.spellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
             {
                 var warlockLevel = SharedSpellsContext.GetWarlockCasterLevel(heroWithSpellRepertoire);
 
-                if (warlockLevel >= MYSTIC_ARCANUM_LEVEL)
-                {
-                    warlockSpellLevel = (warlockLevel + 1) / 2;
-                }
+                warlockSpellLevel = (warlockLevel + 1) / 2;
             }
 
             __result = Math.Max(sharedSpellLevel, warlockSpellLevel);

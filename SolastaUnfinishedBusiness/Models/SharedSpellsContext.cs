@@ -143,7 +143,9 @@ public static class SharedSpellsContext
     {
         var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
 
-        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0) : 0;
+        return warlockLevel > 0
+            ? WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0)
+            : 0;
     }
 
     public static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
@@ -206,7 +208,7 @@ public static class SharedSpellsContext
                 .Find(x => x.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race &&
                            x.SpellCastingClass != Warlock);
 
-            return MaxSpellLevelOfSpellCastingLevel(repertoire);
+            return repertoire == null ? 0 : MaxSpellLevelOfSpellCastingLevel(repertoire);
         }
 
         var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero);
