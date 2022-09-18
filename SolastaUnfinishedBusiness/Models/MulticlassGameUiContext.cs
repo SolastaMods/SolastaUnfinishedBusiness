@@ -39,8 +39,18 @@ public static class MulticlassGameUiContext
             var isSharedcaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
             var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
+            var warlockCasterLevel = SharedSpellsContext.GetWarlockCasterLevel(heroWithSpellRepertoire);
 
-            classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+            // Warlock Mystic Arcanum spells display handling
+            if (warlockCasterLevel >= 11)
+            {
+                classSpellLevel = (warlockCasterLevel + 1) / 2;
+            }
+            else
+            {
+                classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+            }
+
             slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);
         }
 
