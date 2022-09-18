@@ -165,9 +165,26 @@ internal static class RulesetSpellRepertoirePatcher
                 return;
             }
 
-            __result = Math.Max(
-                SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
-                SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));
+            //TODO: this is a hack. need to fully refactor how this method interacts where it's called
+            //there are 26 places in game where they check for MaxSpellLevelOfSpellCastingLevel
+            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
+            var warlockSpellLevel = 0;
+            
+            if (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+            {
+                var warlockLevel = SharedSpellsContext.GetWarlockCasterLevel(heroWithSpellRepertoire);
+
+                if (warlockLevel >= 11)
+                {
+                    warlockSpellLevel = (warlockLevel + 1) / 2;
+                }
+            }
+            else
+            {
+                warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+            }
+            
+            __result = Math.Max(sharedSpellLevel, warlockSpellLevel);
         }
     }
 
