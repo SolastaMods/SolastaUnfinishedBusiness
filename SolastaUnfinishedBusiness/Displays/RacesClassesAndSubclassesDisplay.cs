@@ -40,18 +40,22 @@ internal static class RacesClassesAndSubclassesDisplay
         }
 
         UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc"));
+        //UI.Label(Gui.Localize("ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc"));
         var intValue = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
-        if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
+        if (UI.Slider(
+                Gui.Localize("ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc"),
+                ref intValue, 0, 5, 2, "", UI.AutoWidth()))
         {
             Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc = intValue;
             RoguishConArtist.UpdateSpellDcBoost();
         }
 
         UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc"));
+        //UI.Label(Gui.Localize("ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc"));
         intValue = Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
-        if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
+        if (UI.Slider(
+                Gui.Localize("ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc"),
+                ref intValue, 0, 5, 2, "", UI.AutoWidth()))
         {
             Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc = intValue;
             WizardMasterManipulator.UpdateSpellDcBoost();
