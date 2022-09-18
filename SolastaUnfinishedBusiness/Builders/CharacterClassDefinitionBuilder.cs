@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
-using TA.AI;
-using UnityEngine.AddressableAssets;
-using static CharacterClassDefinition;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
 public class
     CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
 {
+#if false
     public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
     {
         Definition.hitDice = die;
@@ -124,6 +118,8 @@ public class
         return this;
     }
 
+#endif
+
     #region Constructors
 
     protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -146,6 +142,7 @@ public class
 
     #endregion
 
+#if false
     #region Tool preference
 
     public CharacterClassDefinitionBuilder AddToolPreference(ToolTypeDefinition toolType)
@@ -289,4 +286,6 @@ public class
 #endif
 
     #endregion
+
+#endif
 }

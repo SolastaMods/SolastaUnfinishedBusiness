@@ -73,18 +73,26 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
+#if false
     public TBuilder AddConditionTags(IEnumerable<string> value)
     {
         Definition.ConditionTags.AddRange(value);
         return This();
     }
-
+    
     public TBuilder AddConditionTags(params string[] value)
     {
         Definition.ConditionTags.AddRange(value);
         Definition.ConditionTags.Sort();
         return This();
     }
+
+    public TBuilder SetParentCondition(ConditionDefinition value)
+    {
+        Definition.parentCondition = value;
+        return This();
+    }
+#endif
 
     public TBuilder ClearFeatures()
     {
@@ -126,12 +134,6 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         Definition.additionalDamageDieNumber = numberOfDie;
         Definition.additionalDamageQuantity = damageQuantity;
 
-        return This();
-    }
-
-    public TBuilder SetParentCondition(ConditionDefinition value)
-    {
-        Definition.parentCondition = value;
         return This();
     }
 
@@ -178,6 +180,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
+#if false
     public TBuilder SetCharacterShaderReference(AssetReference assetReference)
     {
         Definition.characterShaderReference = assetReference;
@@ -214,6 +217,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         Definition.RecurrentEffectForms.Clear();
         return This();
     }
+#endif
 
     // TODO: rename to match names of similar method in EffectDescriptionBuilder (and elsewhere)
     public TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
