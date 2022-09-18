@@ -10,27 +10,13 @@ public class SubFeatSelectionModal : GuiGameScreen
 {
     private static SubFeatSelectionModal instance;
 
-    private BlackScreen bkg;
-
-    private const string bkgPrefab = "Gui/Prefabs/BlackScreen/BlackScreen";
-    // private const string mainPrefab2 = "Gui/Prefabs/Modal/SubpowerSelectionModal/SubpowerSelectionModal";
-    // private const string mainPrefab2 = "Gui/Prefabs/Modal/SubspellSelectionModal/SubspellSelectionModal";
+    private bool localInitialized;
+    private Button buton;
+    private Image image;
 
     public static SubFeatSelectionModal Get()
     {
         return instance ??= new GameObject().AddComponent<SubFeatSelectionModal>();
-    }
-
-    private SubFeatSelectionModal()
-    {
-        // var root = Find("Application/GUI/BackgroundCanvas/ForegroundCanvas").transform;
-        // var gameObject = new GameObject();
-        // var gameObject = Object.Instantiate(Resources.Load<GameObject>(mainPrefab), root, true);
-
-        // gameObject.name = "SubFeatSelectionModal";
-
-
-        // transform.parent = root;
     }
 
     public void Bind(RulesetCharacterHero inspectedCharacter,
@@ -40,6 +26,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         RectTransform attachment)
     {
         Initialize();
+        LocalInit();
 
         Visible = true;
 
@@ -76,39 +63,11 @@ public class SubFeatSelectionModal : GuiGameScreen
 
         base.Initialize();
 
-        transform.parent = Find("Application/GUI/BackgroundCanvas/ForegroundCanvas").transform;
-
-        //TODO: find a way to get rid of separate black scren and integrate into this one
-        bkg = Instantiate(Resources.Load<GameObject>(bkgPrefab), transform.parent, false)
-            .GetComponent<BlackScreen>();
-        bkg.name = "SubFeatBackground";
-        bkg.GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-
         // alphaModifier.endAlpha = 1f;
         // alphaModifier.startAlpha = 0f;
         // alphaModifier.duration = 0.25f;
 
-        // var img = gameObject.AddComponent<Image>();
-
-
-        // var img2 = bkg.GetComponent<Image>();
-
-        // img.sprite = img2.sprite;
-        //
-        // img.color = new Color(0, 0, 0, 0.75f);
-        //img.transform.parent = transform;
-
-        var levelup = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
-
-        //put it visually just above
-        var levelupIndex = levelup.transform.GetSiblingIndex();
-        bkg.transform.SetSiblingIndex(levelupIndex + 1);
-        transform.SetSiblingIndex(levelupIndex + 2);
-
         name = "SubFeatSelector";
-
-        //set sort index to just above levelup screen so it has input handling priority
-        SortIndex = levelup.SortIndex + 1;
 
         //register this screen
         var guiMgr = Gui.GuiService as GuiManager;
@@ -121,6 +80,55 @@ public class SubFeatSelectionModal : GuiGameScreen
         loaded = true;
     }
 
+    public override void Awake()
+    {
+        gameObject.AddComponent<RectTransform>();
+        gameObject.AddComponent<GuiTooltip>();
+        gameObject.AddComponent<CanvasGroup>();
+        image = gameObject.AddComponent<Image>();
+        buton = gameObject.AddComponent<Button>();
+        
+        base.Awake();
+    }
+
+    private void LocalInit()
+    {
+        if (localInitialized)
+        {
+            return;
+        }
+        
+        var levelup = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
+    
+        //set sort index to just above levelup screen so it has input handling priority
+        SortIndex = levelup.SortIndex + 1;
+        
+        //put it visually just above levelup screen
+        transform.parent = Find("Application/GUI/BackgroundCanvas/ForegroundCanvas").transform;
+        var levelupIndex = levelup.transform.GetSiblingIndex();
+        transform.SetSiblingIndex(levelupIndex + 1);
+        
+        RectTransform.sizeDelta = new Vector2(200, 200);
+        RectTransform.anchorMin = new Vector2(0, 0);
+        RectTransform.anchorMax = new Vector2(1, 1);
+        RectTransform.pivot = new Vector2(0f, 0f);
+        RectTransform.position = new Vector3(0, 0, 0);
+
+        image.sprite = Gui.GuiService.GetScreen<BlackScreen>().GetComponent<Image>().sprite;
+        image.color = new Color(0, 0, 0, 0.85f);
+        image.alphaHitTestMinimumThreshold = 0;
+
+        buton.onClick.AddListener(OnCloseCb);
+
+        CanvasGroup.blocksRaycasts = true;
+        CanvasGroup.interactable = true;
+        
+        GuiTooltip.content = string.Empty;
+        GuiTooltip.Disabled = false;
+        GuiTooltip.tooltipClass = string.Empty;
+
+        localInitialized = true;
+    }
 
     private void InitFeatItem(RulesetCharacterHero inspectedCharacter, FeatItem baseItem,
         ProficiencyBaseItem.OnItemClickedHandler onItemClicked, FeatDefinition featDefinition, FeatItem component)
@@ -142,15 +150,8 @@ public class SubFeatSelectionModal : GuiGameScreen
 
     public void Show2(bool instant)
     {
-        Gui.InputService.PushActivePanel(this);
-
-        Show(instant);
-        bkg.Show(instant);
-        //bkg.Show(instant);
         Main.Log2($"SFSM Show instant: {instant}");
-
-        // Show(false);
-        // GetComponent<BlackScreen>().Show();
+        Show(instant);
     }
 
     public override bool GrabsCameraControl => true;
