@@ -9,14 +9,14 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "FlameTouched",
+  "familyTag": "ShadowTouched",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatFlameTouchedGroupTitle",
-    "description": "Feat/&FeatFlameTouchedGroupDescription",
+    "title": "Feat/&FeatGroupShadowTouchedTitle",
+    "description": "Feat/&FeatGroupShadowTouchedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e1d40730-7d5a-5c92-aa28-1f6291645736",
+  "guid": "8279eade-c82e-56e7-94ab-6cfadf16b4a4",
   "contentPack": 9999,
-  "name": "FeatFlameTouchedGroup"
+  "name": "FeatGroupShadowTouched"
 }

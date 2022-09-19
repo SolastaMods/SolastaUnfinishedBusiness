@@ -9,14 +9,14 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "ShadowTouched",
+  "familyTag": "CelestialTouched",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatShadowTouchedGroupTitle",
-    "description": "Feat/&FeatShadowTouchedGroupDescription",
+    "title": "Feat/&FeatGroupCelestialTouchedTitle",
+    "description": "Feat/&FeatGroupCelestialTouchedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "42bcb6dc-3f24-5e7a-8f26-e1be4ff770b4",
+  "guid": "2db2859d-daee-5ef4-81a7-64adb5473156",
   "contentPack": 9999,
-  "name": "FeatShadowTouchedGroup"
+  "name": "FeatGroupCelestialTouched"
 }

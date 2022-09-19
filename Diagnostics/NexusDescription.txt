@@ -192,7 +192,7 @@ You gain proficiency with smith's tools, or expertise if you are already profici
 [*][b]Heavy Defense Mastery[/b]: You gain resistance to bludgeoning, slashing, and piercing damage.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: Once per short rest, you can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
-[*][b]Light Armor[/b]: Increase your Strength by 1, to a maximum of 20.
+[*][b]Light Armor[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with light armor.
 [*][b]Manacalon Crafter[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with manacalon rosary and Arcana, or expertise if already proficient.
@@ -217,6 +217,8 @@ You learn the Quickened metamagic and gain 2 sorcery points.
 [*][b]Metamagic: Twinned[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Twinned metamagic and gain 2 sorcery points.
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
+[*][b]Plane Touched[/b]: You are touched by some other plane and can cast some spells associated with that plane.
+One of your mental attributes is raised by 1 to a maximum of 20.
 [*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
 • While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.

@@ -9,14 +9,14 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "FeyTeleport",
+  "familyTag": "FlameTouched",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatTeleportationGroupTitle",
-    "description": "Feat/&FeatTeleportationGroupDescription",
+    "title": "Feat/&FeatGroupFlameTouchedTitle",
+    "description": "Feat/&FeatGroupFlameTouchedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "860e5c78-6058-558f-a4eb-732a30ed9db0",
+  "guid": "d56829e9-dad7-5512-a8e3-7a221bcc5774",
   "contentPack": 9999,
-  "name": "FeatTeleportationGroup"
+  "name": "FeatGroupFlameTouched"
 }

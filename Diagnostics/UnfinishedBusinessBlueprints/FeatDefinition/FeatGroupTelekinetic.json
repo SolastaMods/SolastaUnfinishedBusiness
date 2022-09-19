@@ -9,14 +9,14 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "CelestialTouched",
+  "familyTag": "Telekinetic",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatCelestialTouchedGroupTitle",
-    "description": "Feat/&FeatCelestialTouchedGroupDescription",
+    "title": "Feat/&FeatGroupTelekineticTitle",
+    "description": "Feat/&FeatGroupTelekineticDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "50fc88de-7243-5b77-b333-b2bedfc83f74",
+  "guid": "f0f267c0-c1e7-57f6-8151-e16e800c37a9",
   "contentPack": 9999,
-  "name": "FeatCelestialTouchedGroup"
+  "name": "FeatGroupTelekinetic"
 }

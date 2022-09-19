@@ -9,14 +9,14 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "Telekinetic",
+  "familyTag": "FeyTeleport",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatTelekineticGroupTitle",
-    "description": "Feat/&FeatTelekineticGroupDescription",
+    "title": "Feat/&FeatGroupTeleportationTitle",
+    "description": "Feat/&FeatGroupTeleportationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1cbe0820-189b-508c-850a-da0ae7d88667",
+  "guid": "9975285e-172f-531f-b635-e72d33e69d91",
   "contentPack": 9999,
-  "name": "FeatTelekineticGroup"
+  "name": "FeatGroupTeleportation"
 }
