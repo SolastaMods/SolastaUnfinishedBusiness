@@ -9,18 +9,14 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "Telekinetic",
+  "familyTag": "ShadowTouched",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
-    "Definition:PowerFeatTelekineticIntPull:12e323c1-c1f0-5a8c-a453-816e766baa4b",
-    "Definition:PowerFeatTelekineticIntPush:c27f688d-a15d-5839-af43-79c567f50732"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatTelekineticIntTitle",
-    "description": "Feat/&FeatTelekineticIntDescription",
+    "title": "Feat/&FeatShadowTouchedGroupTitle",
+    "description": "Feat/&FeatShadowTouchedGroupDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "403df101-0d71-5940-8202-c62c301607e0",
+  "guid": "42bcb6dc-3f24-5e7a-8f26-e1be4ff770b4",
   "contentPack": 9999,
-  "name": "FeatTelekineticInt"
+  "name": "FeatShadowTouchedGroup"
 }
