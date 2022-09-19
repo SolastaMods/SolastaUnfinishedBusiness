@@ -16,9 +16,11 @@ internal static class CasterFeats
 {
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var newFeats = new List<FeatDefinition>();
         var classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
 
         // Telekinetic general
+        var telekinetic = "Telekinetic";
 
         var pushPresentation = GuiPresentationBuilder.Build("PowerFeatTelekineticPush", Category.Feature,
             PowerVampiricTouch.GuiPresentation.SpriteReference);
@@ -53,9 +55,8 @@ internal static class CasterFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(intPush, intPull,
                 AttributeModifierCreed_Of_Pakri)
+            .SetFeatFamily(telekinetic)
             .AddToDB();
-
-        feats.Add(intTelekineticFeat);
 
         // Telekinetic cha
 
@@ -82,9 +83,8 @@ internal static class CasterFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(chaPush, chaPull,
                 AttributeModifierCreed_Of_Solasta)
+            .SetFeatFamily(telekinetic)
             .AddToDB();
-
-        feats.Add(chaTelekineticFeat);
 
         // Telekinetic wis
 
@@ -111,16 +111,19 @@ internal static class CasterFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(wisPush, wisPull,
                 AttributeModifierCreed_Of_Maraike)
+            .SetFeatFamily(telekinetic)
             .AddToDB();
 
-        feats.Add(wisTelekineticFeat);
+        newFeats.SetRange(intTelekineticFeat, chaTelekineticFeat, wisTelekineticFeat);
+        FeatGroups.MakeGroup("FeatTelekineticGroup", newFeats, telekinetic);
+        feats.AddRange(newFeats);
 
         // Fey Teleportation
-
+        var feyTeleport = "FeyTeleport";
         var mistyStepGroup = BuildSpellGroup(0, MistyStep);
 
         var mistyStepClassesPreparedSpells = AutoPreparedClassLists(classes,
-            mistyStepGroup, MistyStep.GuiPresentation, "AutoPreparedSpellsFeyTeleportation", "FeyTeleport");
+            mistyStepGroup, MistyStep.GuiPresentation, "AutoPreparedSpellsFeyTeleportation", feyTeleport);
 
         var mistyStepPower = BuildPowerFromEffectDescription(
             1, RuleDefinitions.UsesDetermination.Fixed,
@@ -137,7 +140,7 @@ internal static class CasterFeats
                 DatabaseHelper.LanguageDefinitions.Language_Tirmarian.Name)
             .AddToDB();
 
-        feats.AddRange(
+        newFeats.SetRange(
             // fey teleportation int
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationInt", DefinitionBuilder.CENamespaceGuid)
@@ -145,6 +148,7 @@ internal static class CasterFeats
                     feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(feyTeleport)
                 .AddToDB(),
             // fey teleportation cha
             FeatDefinitionBuilder
@@ -153,6 +157,7 @@ internal static class CasterFeats
                     feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(feyTeleport)
                 .AddToDB(),
             // fey teleportation wis
             FeatDefinitionBuilder
@@ -161,11 +166,16 @@ internal static class CasterFeats
                     feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(feyTeleport)
                 .AddToDB()
         );
+         
+        FeatGroups.MakeGroup("FeatTeleportationGroup", newFeats, feyTeleport);
+        feats.AddRange(newFeats);
 
         // celestial touched
-
+        
+        var celestialTouched = "CelestialTouched";
         var celestialTouchedGroup =
             BuildSpellGroup(0, HealingWord, CureWounds, LesserRestoration);
 
@@ -174,7 +184,7 @@ internal static class CasterFeats
 
         var celestialTouchedClassesPreparedSpells = AutoPreparedClassLists(classes,
             celestialTouchedGroup, learnCelestialTouchedPresentation, "AutoPreparedSpellsFeatCelestialTouched",
-            "CelestialTouched");
+            celestialTouched);
 
         var healingWordPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
@@ -192,7 +202,7 @@ internal static class CasterFeats
             LesserRestoration.EffectDescription, "PowerFeatCelestialTouchedLesserRestoration",
             LesserRestoration.GuiPresentation);
 
-        feats.AddRange(
+        newFeats.SetRange(
             // celestial touched int
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedInt", DefinitionBuilder.CENamespaceGuid)
@@ -200,6 +210,7 @@ internal static class CasterFeats
                     AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(celestialTouched)
                 .AddToDB(),
             // celestial touched wis
             FeatDefinitionBuilder
@@ -208,6 +219,7 @@ internal static class CasterFeats
                     AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(celestialTouched)
                 .AddToDB(),
             // celestial touched cha
             FeatDefinitionBuilder
@@ -216,11 +228,15 @@ internal static class CasterFeats
                     AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(celestialTouched)
                 .AddToDB()
         );
-
+        
+        FeatGroups.MakeGroup("FeatCelestialTouchedGroup", newFeats, celestialTouched);
+        feats.AddRange(newFeats);
         // flame touched
 
+        var flameTouched = "FlameTouched";
         var flameTouchedGroup =
             BuildSpellGroup(0, BurningHands, HellishRebuke, ScorchingRay);
 
@@ -228,7 +244,7 @@ internal static class CasterFeats
             GuiPresentationBuilder.Build("PowerFlameTouched", Category.Feature);
 
         var flameTouchedClassesPreparedSpells = AutoPreparedClassLists(classes,
-            flameTouchedGroup, learnFlameTouchedPresentation, "AutoPreparedSpellsFeatFlameTouched", "FlameTouched");
+            flameTouchedGroup, learnFlameTouchedPresentation, "AutoPreparedSpellsFeatFlameTouched", flameTouched);
 
         var burningHandsPowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
@@ -260,7 +276,7 @@ internal static class CasterFeats
             true, true, AttributeDefinitions.Charisma,
             ScorchingRay.EffectDescription, "PowerFeatFlameTouchedScorchingRayCha", ScorchingRay.GuiPresentation);
 
-        feats.AddRange(
+        newFeats.SetRange(
             // flame touched int
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedInt", DefinitionBuilder.CENamespaceGuid)
@@ -268,6 +284,7 @@ internal static class CasterFeats
                     AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(flameTouched)
                 .AddToDB(),
             // flame touched wis
             FeatDefinitionBuilder
@@ -276,6 +293,7 @@ internal static class CasterFeats
                     AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(flameTouched)
                 .AddToDB(),
             // flame touched cha
             FeatDefinitionBuilder
@@ -284,19 +302,22 @@ internal static class CasterFeats
                     AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(flameTouched)
                 .AddToDB()
         );
-
+        FeatGroups.MakeGroup("FeatFlameTouchedGroup", newFeats, flameTouched);
+        feats.AddRange(newFeats);
         // shadow touched
 
         var shadowTouchedGroup =
             BuildSpellGroup(0, Invisibility, FalseLife, InflictWounds);
 
+        var shadowTouched = "ShadowTouched";
         var learnShadowTouchedPresentation =
             GuiPresentationBuilder.Build("PowerShadowTouched", Category.Feature);
 
         var shadowTouchedClassesPreparedSpells = AutoPreparedClassLists(classes,
-            shadowTouchedGroup, learnShadowTouchedPresentation, "AutoPreparedSpellsFeatShadowTouched", "ShadowTouched");
+            shadowTouchedGroup, learnShadowTouchedPresentation, "AutoPreparedSpellsFeatShadowTouched", shadowTouched);
 
         var invisibilityPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
@@ -323,7 +344,7 @@ internal static class CasterFeats
             true, true, AttributeDefinitions.Charisma,
             InflictWounds.EffectDescription, "PowerFeatShadowTouchedInflictWoundsCha", InflictWounds.GuiPresentation);
 
-        feats.AddRange(
+        newFeats.SetRange(
             // shadow touched int
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedInt", DefinitionBuilder.CENamespaceGuid)
@@ -331,6 +352,7 @@ internal static class CasterFeats
                     AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(shadowTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(shadowTouched)
                 .AddToDB(),
             // shadow touched wis
             FeatDefinitionBuilder
@@ -339,6 +361,7 @@ internal static class CasterFeats
                     AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(shadowTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(shadowTouched)
                 .AddToDB(),
             // shadow touched cha
             FeatDefinitionBuilder
@@ -347,8 +370,11 @@ internal static class CasterFeats
                     AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(shadowTouchedClassesPreparedSpells)
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(shadowTouched)
                 .AddToDB()
         );
+        FeatGroups.MakeGroup("FeatShadowTouchedGroup", newFeats, shadowTouched);
+        feats.AddRange(newFeats);
     }
 
     [NotNull]
