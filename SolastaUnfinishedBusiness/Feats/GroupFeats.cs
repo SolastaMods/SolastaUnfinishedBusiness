@@ -6,15 +6,15 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
-public static class FeatGroups
+public static class GroupFeats
 {
-    private static readonly List<FeatDefinition> groups = new();
+    private static readonly List<FeatDefinition> Groups = new();
 
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildElementalTouchGroup());
         feats.Add(BuildCreedGroup());
-        feats.AddRange(groups);
+        feats.AddRange(Groups);
     }
 
     public static FeatDefinition MakeGroup(string name, IEnumerable<FeatDefinition> feats, string family = null)
@@ -26,7 +26,7 @@ public static class FeatGroups
             .SetFeatFamily(family)
             .SetFeatures()
             .AddToDB();
-        groups.Add(group);
+        Groups.Add(group);
         return group;
     }
 

@@ -116,7 +116,7 @@ internal static class CasterFeats
             .AddToDB();
 
         newFeats.SetRange(intTelekineticFeat, chaTelekineticFeat, wisTelekineticFeat);
-        groups.Add(FeatGroups.MakeGroup("FeatTelekineticGroup", newFeats, telekinetic));
+        groups.Add(GroupFeats.MakeGroup("FeatTelekineticGroup", newFeats, telekinetic));
         feats.AddRange(newFeats);
 
         // Fey Teleportation
@@ -171,7 +171,7 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        groups.Add(FeatGroups.MakeGroup("FeatTeleportationGroup", newFeats, feyTeleport));
+        groups.Add(GroupFeats.MakeGroup("FeatTeleportationGroup", newFeats, feyTeleport));
         feats.AddRange(newFeats);
 
         // celestial touched
@@ -233,7 +233,7 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        groups.Add(FeatGroups.MakeGroup("FeatCelestialTouchedGroup", newFeats, celestialTouched));
+        groups.Add(GroupFeats.MakeGroup("FeatCelestialTouchedGroup", newFeats, celestialTouched));
         feats.AddRange(newFeats);
         // flame touched
 
@@ -306,7 +306,7 @@ internal static class CasterFeats
                 .SetFeatFamily(flameTouched)
                 .AddToDB()
         );
-        groups.Add(FeatGroups.MakeGroup("FeatFlameTouchedGroup", newFeats, flameTouched));
+        groups.Add(GroupFeats.MakeGroup("FeatFlameTouchedGroup", newFeats, flameTouched));
         feats.AddRange(newFeats);
         // shadow touched
 
@@ -374,10 +374,10 @@ internal static class CasterFeats
                 .SetFeatFamily(shadowTouched)
                 .AddToDB()
         );
-        groups.Add(FeatGroups.MakeGroup("FeatShadowTouchedGroup", newFeats, shadowTouched));
+        groups.Add(GroupFeats.MakeGroup("FeatShadowTouchedGroup", newFeats, shadowTouched));
         feats.AddRange(newFeats);
 
-        feats.Add(FeatGroups.MakeGroup("FeatGroupPlaneTouchedMagic", groups));
+        feats.Add(GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", groups));
     }
 
     [NotNull]
@@ -391,7 +391,7 @@ internal static class CasterFeats
         return classes
             .Select(klass =>
                 BuildAutoPreparedSpells(
-                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> {spellGroup},
+                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> { spellGroup },
                     klass,
                     namePrefix + klass.Name,
                     autoPrepTag,

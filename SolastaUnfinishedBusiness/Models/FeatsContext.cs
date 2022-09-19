@@ -13,11 +13,13 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FeatsContext
 {
-    private const int COLUMNS = 3;
-    public const int WIDTH = 300;
-    public const int HEIGHT = 44;
-    public const int SPACING = 5;
+    private const int Columns = 3;
+    private const int Width = 300;
+    private const int Height = 44;
+    private const int Spacing = 5;
+
     internal static HashSet<FeatDefinition> Feats { get; private set; } = new();
+    internal static HashSet<FeatDefinition> FeatGroups { get; private set; } = new();
 
     internal static void LateLoad()
     {
@@ -35,12 +37,18 @@ internal static class FeatsContext
         ZappaFeats.CreateFeats(feats);
         EwFeats.CreateFeats(feats);
 
-        //Creates groups for some feats, needs to be last one to be called
-        FeatGroups.CreateFeats(feats);
-
         feats.ForEach(LoadFeat);
 
+        // create groups for some feats, needs to be last one to be called
+        var groups = new List<FeatDefinition>();
+
+        GroupFeats.CreateFeats(groups);
+
+        groups.ForEach(LoadFeatGroup);
+
+        // sorting
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
+        FeatGroups = FeatGroups.OrderBy(x => x.FormatTitle()).ToHashSet();
     }
 
     private static void LoadFeat([NotNull] FeatDefinition featDefinition)
@@ -53,12 +61,27 @@ internal static class FeatsContext
         UpdateFeatsVisibility(featDefinition);
     }
 
+    private static void LoadFeatGroup([NotNull] FeatDefinition featDefinition)
+    {
+        if (!FeatGroups.Contains(featDefinition))
+        {
+            FeatGroups.Add(featDefinition);
+        }
+
+        UpdateFeatGroupsVisibility(featDefinition);
+    }
+
     private static void UpdateFeatsVisibility([NotNull] BaseDefinition featDefinition)
     {
         featDefinition.GuiPresentation.hidden = !Main.Settings.FeatEnabled.Contains(featDefinition.Name);
     }
 
-    internal static void Switch(FeatDefinition featDefinition, bool active)
+    private static void UpdateFeatGroupsVisibility([NotNull] BaseDefinition featDefinition)
+    {
+        featDefinition.GuiPresentation.hidden = !Main.Settings.FeatGroupEnabled.Contains(featDefinition.Name);
+    }
+
+    internal static void SwitchFeat(FeatDefinition featDefinition, bool active)
     {
         if (!Feats.Contains(featDefinition))
         {
@@ -80,31 +103,56 @@ internal static class FeatsContext
         GuiWrapperContext.RecacheFeats();
     }
 
+    internal static void SwitchFeatGroup(FeatDefinition featDefinition, bool active)
+    {
+        if (!FeatGroups.Contains(featDefinition))
+        {
+            return;
+        }
+
+        var name = featDefinition.Name;
+
+        if (active)
+        {
+            Main.Settings.FeatGroupEnabled.TryAdd(name);
+        }
+        else
+        {
+            Main.Settings.FeatGroupEnabled.Remove(name);
+        }
+
+        UpdateFeatGroupsVisibility(featDefinition);
+        GuiWrapperContext.RecacheFeats();
+    }
+
     public static void UpdatePanelChildren(FeatSubPanel panel)
     {
-        //get missing children from pool
+        // get missing children from pool
         while (panel.table.childCount < panel.relevantFeats.Count)
         {
             Gui.GetPrefabFromPool(panel.itemPrefab, panel.table);
         }
 
-        //release extra children to pool
+        // release extra children to pool
         while (panel.table.childCount > panel.relevantFeats.Count)
         {
             Gui.ReleaseInstanceToPool(panel.table.GetChild(panel.table.childCount - 1).gameObject);
         }
     }
 
-    //Called before sorting feats to hide sub-feats during levelup
+    // called before sorting feats to hide sub-feats during level up
     private static void ProcessFeatGroups(FeatSubPanel panel, bool active, RectTransform table)
     {
         //this is not feat learning - skip manipulations
-        if (!active) return;
-        
+        if (!active)
+        {
+            return;
+        }
+
         var toRemove = new List<FeatDefinition>();
         foreach (var group in panel.relevantFeats
                      .Select(feat => feat.GetFirstSubFeatureOfType<IGroupedFeat>())
-                     .Where(group => group is {HideSubFeats: true}))
+                     .Where(group => group is { HideSubFeats: true }))
         {
             toRemove.AddRange(group.GetSubFeats());
         }
@@ -162,7 +210,7 @@ internal static class FeatsContext
             var j = 0;
             var rect = table.GetComponent<RectTransform>();
 
-            rect.sizeDelta = new Vector2(rect.sizeDelta.x, ((table.childCount / COLUMNS) + 1) * (HEIGHT + SPACING));
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, ((table.childCount / Columns) + 1) * (Height + Spacing));
 
             for (var i = 0; i < table.childCount; i++)
             {
@@ -174,14 +222,14 @@ internal static class FeatsContext
                     continue;
                 }
 
-                var x = j % COLUMNS;
-                var y = j / COLUMNS;
-                var posX = x * (WIDTH + (SPACING * 2));
-                var posY = -y * (HEIGHT + SPACING);
+                var x = j % Columns;
+                var y = j / Columns;
+                var posX = x * (Width + (Spacing * 2));
+                var posY = -y * (Height + Spacing);
 
                 rect = child.GetComponent<RectTransform>();
                 rect.anchoredPosition = new Vector2(posX, posY);
-                rect.sizeDelta = new Vector2(WIDTH, HEIGHT);
+                rect.sizeDelta = new Vector2(Width, Height);
 
                 j++;
             }

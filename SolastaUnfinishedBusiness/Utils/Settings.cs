@@ -38,6 +38,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayClassesToggle { get; set; } = true;
     public bool DisplaySubclassesToggle { get; set; } = true;
     public bool DisplayFeatsToggle { get; set; } = true;
+    public bool DisplayFeatGroupsToggle { get; set; } = true;
     public bool DisplayFightingStylesToggle { get; set; } = true;
     public bool DisplayCraftingToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; } = true;
@@ -122,6 +123,13 @@ public class Settings : UnityModManager.ModSettings
 
     public int FeatSliderPosition { get; set; } = 4;
     public List<string> FeatEnabled { get; } = new();
+
+    //
+    // Characters - Feat Groups
+    //
+
+    public int FeatGroupSliderPosition { get; set; } = 4;
+    public List<string> FeatGroupEnabled { get; } = new();
 
     //
     // Characters - Fighting Styles

@@ -86,6 +86,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify fac
 ModUi/&FactionRelations=<color=#F0DAA0>Faction Relations:</color>
 ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space bar</color>
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
+ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
 ModUi/&FeatsFightingStyles=Feats & Fighting Styles
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[a spell must be incapable of targeting more than one creature at the spell's current level]</color></i>

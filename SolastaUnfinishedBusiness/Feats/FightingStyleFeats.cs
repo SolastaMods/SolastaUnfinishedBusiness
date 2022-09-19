@@ -15,8 +15,8 @@ internal static class FightingStyleFeats
             .GetDatabase<FightingStyleDefinition>()
             .Select(BuildFightingStyleFeat)
             .ToList();
-        
-        FeatGroups.MakeGroup("FeatGroupFightingStyle", styles);
+
+        GroupFeats.MakeGroup("FeatGroupFightingStyle", styles);
         feats.AddRange(styles);
     }
 
