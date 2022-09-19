@@ -7,20 +7,8 @@ internal static class FeatsAndFightingStylesDisplay
 {
     internal static void DisplayFeatsAndFightingStyles()
     {
-        var displayToggle = Main.Settings.DisplayFeatGroupsToggle;
-        var sliderPos = Main.Settings.FeatGroupSliderPosition;
-        ModUi.DisplayDefinitions(
-            Gui.Localize("ModUi/&FeatGroups"),
-            FeatsContext.SwitchFeatGroup,
-            FeatsContext.FeatGroups,
-            Main.Settings.FeatGroupEnabled,
-            ref displayToggle,
-            ref sliderPos);
-        Main.Settings.DisplayFeatGroupsToggle = displayToggle;
-        Main.Settings.FeatGroupSliderPosition = sliderPos;
-
-        displayToggle = Main.Settings.DisplayFeatsToggle;
-        sliderPos = Main.Settings.FeatSliderPosition;
+        var displayToggle = Main.Settings.DisplayFeatsToggle;
+        var sliderPos = Main.Settings.FeatSliderPosition;
         ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Feats"),
             FeatsContext.SwitchFeat,
@@ -30,6 +18,18 @@ internal static class FeatsAndFightingStylesDisplay
             ref sliderPos);
         Main.Settings.DisplayFeatsToggle = displayToggle;
         Main.Settings.FeatSliderPosition = sliderPos;
+        
+        displayToggle = Main.Settings.DisplayFeatGroupsToggle;
+        sliderPos = Main.Settings.FeatGroupSliderPosition;
+        ModUi.DisplayDefinitions(
+            Gui.Localize("ModUi/&FeatGroups"),
+            FeatsContext.SwitchFeatGroup,
+            FeatsContext.FeatGroups,
+            Main.Settings.FeatGroupEnabled,
+            ref displayToggle,
+            ref sliderPos);
+        Main.Settings.DisplayFeatGroupsToggle = displayToggle;
+        Main.Settings.FeatGroupSliderPosition = sliderPos;
 
         displayToggle = Main.Settings.DisplayFightingStylesToggle;
         sliderPos = Main.Settings.FightingStyleSliderPosition;
