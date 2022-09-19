@@ -101,7 +101,7 @@ internal static class FeatsContext
         var toRemove = new List<FeatDefinition>();
         foreach (var group in panel.relevantFeats
                      .Select(feat => feat.GetFirstSubFeatureOfType<IGroupedFeat>())
-                     .Where(group => group != null))
+                     .Where(group => group is {HideSubFeats: true}))
         {
             toRemove.AddRange(group.GetSubFeats());
         }
