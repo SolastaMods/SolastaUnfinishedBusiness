@@ -16,12 +16,32 @@ public class SubFeatSelectionModal : GuiGameScreen
     private static readonly Color DISABLED_COLOR = new(0.557f, 0.431f, 0.443f, 1f);
 
     private static SubFeatSelectionModal instance;
-
-    private bool localInitialized;
+    private GuiModifierSubMenu animator;
     private Button buton;
     private Image image;
     private ProficiencyBaseItem.OnItemClickedHandler itemClickHandler;
-    private GuiModifierSubMenu animator;
+
+    private bool localInitialized;
+
+    //TODO: handle controller
+
+    public override bool GrabsCameraControl => true;
+
+    public override string ActionMap => "UI";
+
+    public override bool AutoRecomputeNavigation => true;
+
+    public override void Awake()
+    {
+        gameObject.AddComponent<RectTransform>();
+        gameObject.AddComponent<GuiTooltip>();
+        gameObject.AddComponent<CanvasGroup>();
+        animator = gameObject.AddComponent<GuiModifierSubMenu>();
+        image = gameObject.AddComponent<Image>();
+        buton = gameObject.AddComponent<Button>();
+
+        base.Awake();
+    }
 
     public static SubFeatSelectionModal Get()
     {
@@ -104,18 +124,6 @@ public class SubFeatSelectionModal : GuiGameScreen
 
         //mark it as loaded and hope we don't need to actually call `Load`, because that one is async
         loaded = true;
-    }
-
-    public override void Awake()
-    {
-        gameObject.AddComponent<RectTransform>();
-        gameObject.AddComponent<GuiTooltip>();
-        gameObject.AddComponent<CanvasGroup>();
-        animator = gameObject.AddComponent<GuiModifierSubMenu>();
-        image = gameObject.AddComponent<Image>();
-        buton = gameObject.AddComponent<Button>();
-
-        base.Awake();
     }
 
     private void LocalInit()
@@ -221,9 +229,9 @@ public class SubFeatSelectionModal : GuiGameScreen
                 {
                     interactiveMode = !service.IsFeatKnownOrTrained(buildingData, feat)
                         ? ProficiencyBaseItem.InteractiveMode.InteractiveSingle
-                        : (service.IsFeatSelectedForTraining(buildingData, feat, item.StageTag)
+                        : service.IsFeatSelectedForTraining(buildingData, feat, item.StageTag)
                             ? ProficiencyBaseItem.InteractiveMode.InteractiveSingle
-                            : ProficiencyBaseItem.InteractiveMode.Disabled);
+                            : ProficiencyBaseItem.InteractiveMode.Disabled;
                 }
                 else if (service.IsFeatKnownOrTrained(buildingData, feat))
                 {
@@ -277,7 +285,10 @@ public class SubFeatSelectionModal : GuiGameScreen
         base.OnBeginShow(instant);
         animator.duration = SHOW_DURATION;
         if (Gui.GamepadActive)
+        {
             Gui.InputService.ClearCurrentSelectable();
+        }
+
         ServiceRepository.GetService<ITooltipService>().HideTooltip();
     }
 
@@ -296,24 +307,22 @@ public class SubFeatSelectionModal : GuiGameScreen
     public override bool HandleInput(InputCommands.Id command)
     {
         if (command == InputCommands.Id.Cancel)
+        {
             OnCloseCb();
+        }
+
         return true;
     }
 
     public void CancelPerformed(InputAction.CallbackContext context)
     {
         if (this == null)
+        {
             return;
+        }
+
         OnCloseCb();
     }
-
-    //TODO: handle controller
-
-    public override bool GrabsCameraControl => true;
-
-    public override string ActionMap => "UI";
-
-    public override bool AutoRecomputeNavigation => true;
 
     public override void SelectDefaultControl()
     {
@@ -335,11 +344,15 @@ public class SubFeatSelectionModal : GuiGameScreen
         // }
     }
 
-    public override void RegisterCommands() =>
-        Gui.InputService.InputActionAsset.FindActionMap(ActionMap, false).FindAction("Cancel").performed +=
+    public override void RegisterCommands()
+    {
+        Gui.InputService.InputActionAsset.FindActionMap(ActionMap).FindAction("Cancel").performed +=
             CancelPerformed;
+    }
 
-    public override void UnregisterCommands() =>
-        Gui.InputService.InputActionAsset.FindActionMap(ActionMap, false).FindAction("Cancel").performed -=
+    public override void UnregisterCommands()
+    {
+        Gui.InputService.InputActionAsset.FindActionMap(ActionMap).FindAction("Cancel").performed -=
             CancelPerformed;
+    }
 }

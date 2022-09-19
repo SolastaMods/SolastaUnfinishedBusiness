@@ -27,13 +27,12 @@ internal static class FeatItemPatcher
 
             __instance.GuiFeatDefinition = ServiceRepository.GetService<IGuiWrapperService>()
                 .GetGuiFeatDefinition(featDefinition.Name);
-            __instance.Bind(inspectedCharacter, featDefinition, (subItem) =>
+            __instance.Bind(inspectedCharacter, featDefinition, subItem =>
             {
                 var selector = SubFeatSelectionModal.Get();
 
                 selector.Bind(inspectedCharacter, __instance, group, onItemClicked, __instance.RectTransform);
                 selector.Show();
-                
             }, flexibleWidth);
             __instance.GuiFeatDefinition.SetupTooltip(__instance.Tooltip);
             __instance.Tooltip.Context = inspectedCharacter;

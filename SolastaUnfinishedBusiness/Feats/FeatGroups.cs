@@ -30,7 +30,7 @@ public static class FeatGroups
             .SetFeatures()
             .AddToDB();
     }
-    
+
     private static FeatDefinition BuildFightingStyleGroup()
     {
         return FeatDefinitionBuilder

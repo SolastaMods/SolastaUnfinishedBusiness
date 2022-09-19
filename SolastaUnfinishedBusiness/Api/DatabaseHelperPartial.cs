@@ -71,7 +71,7 @@ public static partial class DatabaseHelper
 
         public static DecisionPackageDefinition Idle { get; } =
             GetDefinition<DecisionPackageDefinition>("Idle", "47dfd6fd3d22b214cb8c446f2438f3c6");
-        
+
         public static DecisionPackageDefinition IdleGuard_Default { get; } =
             GetDefinition<DecisionPackageDefinition>("IdleGuard_Default", "232428b431ff2414eb8254fb1e9e4cf1");
 

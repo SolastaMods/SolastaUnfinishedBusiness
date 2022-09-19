@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -14,12 +13,11 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FeatsContext
 {
-    internal static HashSet<FeatDefinition> Feats { get; private set; } = new();
-    
     private const int COLUMNS = 3;
     public const int WIDTH = 300;
     public const int HEIGHT = 44;
     public const int SPACING = 5;
+    internal static HashSet<FeatDefinition> Feats { get; private set; } = new();
 
     internal static void LateLoad()
     {
@@ -119,8 +117,11 @@ internal static class FeatsContext
         }
     }
 
-    public static int CompareFeats(FeatDefinition a, FeatDefinition b) => string.Compare(a.FormatTitle(), b.FormatTitle(),
-        StringComparison.CurrentCultureIgnoreCase);
+    public static int CompareFeats(FeatDefinition a, FeatDefinition b)
+    {
+        return string.Compare(a.FormatTitle(), b.FormatTitle(),
+            StringComparison.CurrentCultureIgnoreCase);
+    }
 
     public static void UpdateRelevantFeatList(FeatSubPanel panel)
     {

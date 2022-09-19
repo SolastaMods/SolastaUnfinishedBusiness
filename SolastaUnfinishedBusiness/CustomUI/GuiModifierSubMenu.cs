@@ -6,10 +6,10 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class GuiModifierSubMenu : GuiModifier
 {
-    private Vector2 headerSize;
-    private Vector3 headerPosition;
     private readonly List<Vector3> itemPositions = new();
     private RectTransform header;
+    private Vector3 headerPosition;
+    private Vector2 headerSize;
 
     public void Init()
     {
@@ -24,7 +24,7 @@ public class GuiModifierSubMenu : GuiModifier
 
     public override void InterpolateAndApply(float ratio)
     {
-        var headerWidth = Mathf.Lerp(headerSize.x, headerSize.x * 1.2f, Math.Min(1.5f*ratio, 1));
+        var headerWidth = Mathf.Lerp(headerSize.x, headerSize.x * 1.2f, Math.Min(1.5f * ratio, 1));
         header.sizeDelta = new Vector2(headerWidth, headerSize.y);
         header.position = headerPosition + new Vector3((headerSize.x - headerWidth) / 2, 0, 0);
 
@@ -38,8 +38,7 @@ public class GuiModifierSubMenu : GuiModifier
             rect.position = new Vector3(pos.x, Mathf.Lerp(headerPosition.y, pos.y, r), 0);
         }
     }
-    
-    
+
 
     public void Clean()
     {

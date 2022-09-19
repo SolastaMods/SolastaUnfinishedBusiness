@@ -23,7 +23,7 @@ internal static class SpellActivationBoxPatcher
             {
                 return featureDefinitionCastSpell.UniqueLevelSlots;
             }
-            
+
             var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
