@@ -42,8 +42,6 @@ internal static class FeatsContext
 
         feats.ForEach(LoadFeat);
 
-        DatabaseHelper.FeatDefinitions.BurningTouch.SetCustomSubFeatures(new GroupedFeat());
-
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
     }
 
