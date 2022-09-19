@@ -89,6 +89,7 @@ internal static class SpellsDisplay
                 spellEnabled,
                 ref displayToggle,
                 ref sliderPos,
+                false,
                 AdditionalRendering);
 
             Main.Settings.DisplaySpellListsToggle[name] = displayToggle;

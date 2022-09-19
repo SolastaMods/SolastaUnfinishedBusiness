@@ -66,6 +66,7 @@ namespace SolastaUnfinishedBusiness.Displays
             [NotNull] List<string> selectedDefinitions,
             ref bool displayToggle,
             ref int sliderPosition,
+            bool useAlternateDescription = false,
             [CanBeNull] Action additionalRendering = null) where T : BaseDefinition
         {
             if (registeredDefinitions.Count == 0)
@@ -149,7 +150,9 @@ namespace SolastaUnfinishedBusiness.Displays
 
                             if (sliderPosition == 1)
                             {
-                                var description = definition.FormatDescription();
+                                var description = useAlternateDescription
+                                    ? Gui.Localize($"Feat/&{definition.Name}AlternateDescription")
+                                    : definition.FormatDescription();
 
                                 if (flip)
                                 {

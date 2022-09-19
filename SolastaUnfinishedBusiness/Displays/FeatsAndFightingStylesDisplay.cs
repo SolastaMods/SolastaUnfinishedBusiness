@@ -18,7 +18,7 @@ internal static class FeatsAndFightingStylesDisplay
             ref sliderPos);
         Main.Settings.DisplayFeatsToggle = displayToggle;
         Main.Settings.FeatSliderPosition = sliderPos;
-        
+
         displayToggle = Main.Settings.DisplayFeatGroupsToggle;
         sliderPos = Main.Settings.FeatGroupSliderPosition;
         ModUi.DisplayDefinitions(
@@ -27,7 +27,8 @@ internal static class FeatsAndFightingStylesDisplay
             FeatsContext.FeatGroups,
             Main.Settings.FeatGroupEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            true);
         Main.Settings.DisplayFeatGroupsToggle = displayToggle;
         Main.Settings.FeatGroupSliderPosition = sliderPos;
 
