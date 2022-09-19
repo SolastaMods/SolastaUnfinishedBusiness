@@ -9,10 +9,12 @@ namespace SolastaUnfinishedBusiness.Feats;
 public static class FeatGroups
 {
     public const string ElementalTouch = "FeatElementalTouch";
+    public const string AddFightingStyle = "FeatAddFightingStyle";
 
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildElementalTouch());
+        feats.Add(BuildAddFightingStyle());
     }
 
     private static FeatDefinition BuildElementalTouch()
@@ -28,6 +30,16 @@ public static class FeatGroups
                 FeatDefinitions.MeltingTouch
             ))
             .SetFeatFamily(FeatDefinitions.BurningTouch.FamilyTag)
+            .SetFeatures()
+            .AddToDB();
+    }
+    
+    private static FeatDefinition BuildAddFightingStyle()
+    {
+        return FeatDefinitionBuilder
+            .Create(AddFightingStyle, DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(FightingStyleFeats.Feats))
             .SetFeatures()
             .AddToDB();
     }
