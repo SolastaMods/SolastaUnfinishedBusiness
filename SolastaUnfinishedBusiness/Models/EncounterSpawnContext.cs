@@ -168,7 +168,7 @@ internal static class EncountersSpawnContext
                          {
                              BattleStartBehavior =
                                  GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
-                             DecisionPackageDefinition = Idle,
+                             DecisionPackageDefinition = IdleGuard_Default,
                              EncounterId = EncounterId++,
                              FormationDefinition = EncounterCharacters.Count > 1 ? Squad4 : SingleCreature
                          })))
