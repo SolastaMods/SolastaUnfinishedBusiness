@@ -237,6 +237,12 @@ internal static class ZappaFeats
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
+        GroupFeats.MakeGroup("FeatGroupElvenAccuracy", ElvenAccuracyTag,
+            elvenAccuracyCharisma,
+            elvenAccuracyDexterity,
+            elvenAccuracyIntelligence,
+            elvenAccuracyWisdom);
+            
         // Fast Hands
         // var fastHands =
         //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
@@ -402,6 +408,15 @@ internal static class ZappaFeats
                 //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
+        GroupFeats.MakeGroup("FeatGroupMetamagic", "Metamagic",
+            metamagicAdeptCareful,
+            metamagicAdeptDistant,
+            metamagicAdeptEmpowered,
+            metamagicAdeptExtended,
+            metamagicAdeptHeightened,
+            metamagicAdeptQuickened,
+            metamagicAdeptTwinned);
+        
         // Primal (Constitution)
         // var primalConstitution =
         //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>

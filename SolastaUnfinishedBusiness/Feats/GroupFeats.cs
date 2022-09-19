@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -17,9 +18,9 @@ public static class GroupFeats
         feats.AddRange(Groups);
     }
 
-    public static FeatDefinition MakeGroup(string name, string family, FeatDefinition[] feats)
+    public static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
     {
-        return MakeGroup(name, family, feats);
+        return MakeGroup(name, family, feats.AsEnumerable());
     }
 
     public static FeatDefinition MakeGroup(string name, string family, IEnumerable<FeatDefinition> feats)

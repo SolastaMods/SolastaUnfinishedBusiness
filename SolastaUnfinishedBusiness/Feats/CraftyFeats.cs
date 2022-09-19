@@ -97,6 +97,10 @@ public static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Maraike, craftyHerbalismKit, craftyMedicine)
             .AddToDB();
+        
+        GroupFeats.MakeGroup("FeatGroupApothecary", "Apothecary",
+            apothecaryIntFeat,
+            apothecaryWisFeat);
 
         var manacalonCrafter = FeatDefinitionBuilder
             .Create(MasterEnchanter, "FeatManacalonCrafter", DefinitionBuilder.CENamespaceGuid)
@@ -115,6 +119,10 @@ public static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Maraike, craftyPoisonersKit, craftyMedicine)
             .AddToDB();
+        
+        GroupFeats.MakeGroup("FeatGroupToxicologist", "Toxicologist",
+            toxicologistInt,
+            toxicologistWis);
 
         var craftyScribe = FeatDefinitionBuilder
             .Create(MasterEnchanter, "FeatCraftyScribe", DefinitionBuilder.CENamespaceGuid)
