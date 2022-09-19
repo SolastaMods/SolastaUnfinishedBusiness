@@ -116,7 +116,7 @@ internal static class CasterFeats
             .AddToDB();
 
         newFeats.SetRange(intTelekineticFeat, chaTelekineticFeat, wisTelekineticFeat);
-        groups.Add(GroupFeats.MakeGroup("FeatTelekineticGroup", newFeats, telekinetic));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupTelekinetic", newFeats, telekinetic));
         feats.AddRange(newFeats);
 
         // Fey Teleportation
@@ -171,7 +171,7 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatTeleportationGroup", newFeats, feyTeleport));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupTeleportation", newFeats, feyTeleport));
         feats.AddRange(newFeats);
 
         // celestial touched
@@ -233,7 +233,7 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatCelestialTouchedGroup", newFeats, celestialTouched));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupCelestialTouched", newFeats, celestialTouched));
         feats.AddRange(newFeats);
         // flame touched
 
@@ -306,7 +306,7 @@ internal static class CasterFeats
                 .SetFeatFamily(flameTouched)
                 .AddToDB()
         );
-        groups.Add(GroupFeats.MakeGroup("FeatFlameTouchedGroup", newFeats, flameTouched));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupFlameTouched", newFeats, flameTouched));
         feats.AddRange(newFeats);
         // shadow touched
 
@@ -374,7 +374,7 @@ internal static class CasterFeats
                 .SetFeatFamily(shadowTouched)
                 .AddToDB()
         );
-        groups.Add(GroupFeats.MakeGroup("FeatShadowTouchedGroup", newFeats, shadowTouched));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupShadowTouched", newFeats, shadowTouched));
         feats.AddRange(newFeats);
 
         feats.Add(GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", groups));
