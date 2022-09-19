@@ -14,3 +14,5 @@ Feat/&FeatShadowTouchedGroupDescription=Increase one of your mental attributes b
 Feat/&FeatShadowTouchedGroupTitle=Shadow Touched
 Feat/&FeatGroupCreedDescription=Increase one of your attributes by 1, to a maximum of 20.\nProficiency in saves of chosen attribute, if not already proficient; +1 otherwise.
 Feat/&FeatGroupCreedTitle=Creed of the Gods
+Feat/&FeatGroupPlaneTouchedMagicDescription=You are touched by some other plane and can cast some spells associated with that plane.\nOne of your mental attributes is raised by 1 to a maximum of 20.
+Feat/&FeatGroupPlaneTouchedMagicTitle=Plane Touched Magic

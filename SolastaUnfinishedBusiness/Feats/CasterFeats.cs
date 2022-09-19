@@ -17,6 +17,7 @@ internal static class CasterFeats
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var newFeats = new List<FeatDefinition>();
+        var groups = new List<FeatDefinition>();
         var classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
 
         // Telekinetic general
@@ -115,7 +116,7 @@ internal static class CasterFeats
             .AddToDB();
 
         newFeats.SetRange(intTelekineticFeat, chaTelekineticFeat, wisTelekineticFeat);
-        FeatGroups.MakeGroup("FeatTelekineticGroup", newFeats, telekinetic);
+        groups.Add(FeatGroups.MakeGroup("FeatTelekineticGroup", newFeats, telekinetic));
         feats.AddRange(newFeats);
 
         // Fey Teleportation
@@ -169,12 +170,12 @@ internal static class CasterFeats
                 .SetFeatFamily(feyTeleport)
                 .AddToDB()
         );
-         
-        FeatGroups.MakeGroup("FeatTeleportationGroup", newFeats, feyTeleport);
+
+        groups.Add(FeatGroups.MakeGroup("FeatTeleportationGroup", newFeats, feyTeleport));
         feats.AddRange(newFeats);
 
         // celestial touched
-        
+
         var celestialTouched = "CelestialTouched";
         var celestialTouchedGroup =
             BuildSpellGroup(0, HealingWord, CureWounds, LesserRestoration);
@@ -231,8 +232,8 @@ internal static class CasterFeats
                 .SetFeatFamily(celestialTouched)
                 .AddToDB()
         );
-        
-        FeatGroups.MakeGroup("FeatCelestialTouchedGroup", newFeats, celestialTouched);
+
+        groups.Add(FeatGroups.MakeGroup("FeatCelestialTouchedGroup", newFeats, celestialTouched));
         feats.AddRange(newFeats);
         // flame touched
 
@@ -305,7 +306,7 @@ internal static class CasterFeats
                 .SetFeatFamily(flameTouched)
                 .AddToDB()
         );
-        FeatGroups.MakeGroup("FeatFlameTouchedGroup", newFeats, flameTouched);
+        groups.Add(FeatGroups.MakeGroup("FeatFlameTouchedGroup", newFeats, flameTouched));
         feats.AddRange(newFeats);
         // shadow touched
 
@@ -373,8 +374,10 @@ internal static class CasterFeats
                 .SetFeatFamily(shadowTouched)
                 .AddToDB()
         );
-        FeatGroups.MakeGroup("FeatShadowTouchedGroup", newFeats, shadowTouched);
+        groups.Add(FeatGroups.MakeGroup("FeatShadowTouchedGroup", newFeats, shadowTouched));
         feats.AddRange(newFeats);
+
+        feats.Add(FeatGroups.MakeGroup("FeatGroupPlaneTouchedMagic", groups));
     }
 
     [NotNull]
@@ -388,7 +391,7 @@ internal static class CasterFeats
         return classes
             .Select(klass =>
                 BuildAutoPreparedSpells(
-                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> { spellGroup },
+                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> {spellGroup},
                     klass,
                     namePrefix + klass.Name,
                     autoPrepTag,

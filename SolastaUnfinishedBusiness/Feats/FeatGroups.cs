@@ -17,16 +17,17 @@ public static class FeatGroups
         feats.AddRange(groups);
     }
 
-    public static void MakeGroup(string name, IEnumerable<FeatDefinition> feats, string family = null)
+    public static FeatDefinition MakeGroup(string name, IEnumerable<FeatDefinition> feats, string family = null)
     {
-        groups.Add(FeatDefinitionBuilder
+        var group = FeatDefinitionBuilder
             .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(feats))
             .SetFeatFamily(family)
             .SetFeatures()
-            .AddToDB()
-        );
+            .AddToDB();
+        groups.Add(group);
+        return group;
     }
 
     private static FeatDefinition BuildElementalTouchGroup()
