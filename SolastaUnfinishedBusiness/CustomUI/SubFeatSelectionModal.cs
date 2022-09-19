@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -19,6 +20,9 @@ public class SubFeatSelectionModal : GuiGameScreen
     private GuiModifierSubMenu animator;
     private Button buton;
     private Image image;
+    private RulesetCharacterHero character;
+    private FeatItem baseItem;
+    private RectTransform attachment;
     private ProficiencyBaseItem.OnItemClickedHandler itemClickHandler;
 
     private bool localInitialized;
@@ -49,11 +53,16 @@ public class SubFeatSelectionModal : GuiGameScreen
     }
 
     public void Bind(RulesetCharacterHero inspectedCharacter,
-        FeatItem baseItem,
+        FeatItem basedOn,
+        FeatDefinition feat,
         IGroupedFeat group,
         ProficiencyBaseItem.OnItemClickedHandler onItemClicked,
-        RectTransform attachment)
+        RectTransform attachTo)
     {
+        character = inspectedCharacter;
+        attachment = attachTo;
+        baseItem = basedOn;
+
         Initialize();
         LocalInit();
 
@@ -62,14 +71,14 @@ public class SubFeatSelectionModal : GuiGameScreen
         var subFeats = group.GetSubFeats();
 
         var corners = new Vector3[4];
-        attachment.GetWorldCorners(corners);
+        attachTo.GetWorldCorners(corners);
         var step = corners[0].y - corners[1].y - 4f;
-        var position = attachment.position;
+        var position = attachTo.position;
 
         var featPrefab = Resources.Load<GameObject>("Gui/Prefabs/CharacterInspection/Proficiencies/FeatItem");
 
         var header = Gui.GetPrefabFromPool(featPrefab, transform).GetComponent<FeatItem>();
-        InitFeatItem(inspectedCharacter, baseItem, baseItem.GuiFeatDefinition.FeatDefinition, header);
+        InitFeatItem(feat, header);
         header.GetComponent<RectTransform>().position = position;
         header.Refresh(ProficiencyBaseItem.InteractiveMode.Static, HeroDefinitions.PointsPoolType.Feat);
         SetColor(header, HEADER_COLOR);
@@ -80,7 +89,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         foreach (var subFeat in subFeats)
         {
             var item = Gui.GetPrefabFromPool(featPrefab, transform);
-            InitFeatItem(inspectedCharacter, baseItem, subFeat, item.GetComponent<FeatItem>());
+            InitFeatItem(subFeat, item.GetComponent<FeatItem>());
             item.GetComponent<RectTransform>().position = position + new Vector3(0, step * i, 0);
             i++;
         }
@@ -92,6 +101,9 @@ public class SubFeatSelectionModal : GuiGameScreen
 
     private void Unbind()
     {
+        character = null;
+        attachment = null;
+        baseItem = null;
         animator.Clean();
         itemClickHandler = null;
         for (var i = 0; i < transform.childCount; i++)
@@ -102,6 +114,14 @@ public class SubFeatSelectionModal : GuiGameScreen
         }
 
         Gui.ReleaseChildrenToPool(transform);
+    }
+
+    public void Cancel()
+    {
+        if (localInitialized)
+        {
+            Hide(true);
+        }
     }
 
     public override void Initialize()
@@ -165,10 +185,15 @@ public class SubFeatSelectionModal : GuiGameScreen
         localInitialized = true;
     }
 
-    private void InitFeatItem(RulesetCharacterHero inspectedCharacter, FeatItem baseItem, FeatDefinition featDefinition,
-        FeatItem component)
+    private void InitFeatItem(FeatDefinition featDefinition, FeatItem component)
     {
-        component.Bind(inspectedCharacter, featDefinition, OnItemSelected, null, true);
+        component.GuiFeatDefinition = ServiceRepository.GetService<IGuiWrapperService>()
+            .GetGuiFeatDefinition(featDefinition.Name);
+        component.Bind(character, featDefinition, OnItemSelected, true);
+        component.GuiFeatDefinition.SetupTooltip(component.Tooltip, character);
+        // component.Tooltip.Context = inspectedCharacter;
+        component.OnItemHoverChanged = null; //baseItem.OnItemHoverChanged;
+
         component.StageTag = baseItem.StageTag;
         component.PreviousStageTag = baseItem.PreviousStageTag;
         component.CurrentPoolType = baseItem.CurrentPoolType;
@@ -267,16 +292,28 @@ public class SubFeatSelectionModal : GuiGameScreen
     {
         var handler = itemClickHandler;
         itemClickHandler = null;
-        handler?.Invoke(item);
-        Hide();
+
+        if (item is FeatItem featItem
+            && featItem.GuiFeatDefinition.FeatDefinition is { } feat
+            && feat.GetFirstSubFeatureOfType<IGroupedFeat>() is { } group)
+        {
+            var tmpCharacter = character;
+            var tmpAttachment = attachment;
+            var tmpItem = baseItem;
+
+            Hide(true);
+            Bind(tmpCharacter, tmpItem, feat, group, handler, tmpAttachment);
+            Show();
+        }
+        else
+        {
+            handler?.Invoke(item);
+            Hide();
+        }
     }
 
     public void OnCloseCb()
     {
-        //TODO: implement cancel callback
-        // SubpowerSelectionModal.SubpowerCanceledHandler subpowerCanceled = this.subpowerCanceled;
-        // if (subpowerCanceled != null)
-        //     subpowerCanceled();
         Hide();
     }
 
