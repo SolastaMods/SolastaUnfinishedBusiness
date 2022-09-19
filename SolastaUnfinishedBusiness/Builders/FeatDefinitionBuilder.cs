@@ -49,8 +49,17 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
 
     public TBuilder SetFeatFamily(string family)
     {
-        Definition.hasFamilyTag = true;
-        Definition.familyTag = family;
+        if (string.IsNullOrEmpty(family))
+        {
+            Definition.hasFamilyTag = false;
+            Definition.familyTag = string.Empty;
+        }
+        else
+        {
+            Definition.hasFamilyTag = true;
+            Definition.familyTag = family;
+        }
+
         return This();
     }
 

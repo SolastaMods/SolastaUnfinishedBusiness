@@ -9,15 +9,15 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class FightingStyleFeats
 {
-    public static FeatDefinition[] Feats;
-
     public static void CreateFeats(List<FeatDefinition> feats)
     {
-        Feats = DatabaseRepository
+        var styles = DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
             .Select(BuildFightingStyleFeat)
-            .ToArray();
-        feats.AddRange(Feats);
+            .ToList();
+        
+        FeatGroups.MakeGroup("FeatGroupFightingStyle", styles);
+        feats.AddRange(styles);
     }
 
     private static FeatDefinition BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
@@ -12,7 +13,11 @@ public class GroupedFeat : IGroupedFeat
 {
     private readonly List<FeatDefinition> feats = new();
 
-    public GroupedFeat(params FeatDefinition[] feats)
+    public GroupedFeat(params FeatDefinition[] feats) : this(feats.ToList())
+    {
+    }
+
+    public GroupedFeat(IEnumerable<FeatDefinition> feats)
     {
         this.feats.AddRange(feats);
         this.feats.Sort(FeatsContext.CompareFeats);
