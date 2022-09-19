@@ -95,9 +95,12 @@ internal static class FeatsContext
         }
     }
 
-    //Called before Bind to hide sub-feats
-    public static void ProcessFeatGroups(FeatSubPanel panel)
+    //Called before sorting feats to hide sub-feats during levelup
+    private static void ProcessFeatGroups(FeatSubPanel panel, bool active, RectTransform table)
     {
+        //this is not feat learning - skip manipulations
+        if (!active) return;
+        
         var toRemove = new List<FeatDefinition>();
         foreach (var group in panel.relevantFeats
                      .Select(feat => feat.GetFirstSubFeatureOfType<IGroupedFeat>())
@@ -106,7 +109,15 @@ internal static class FeatsContext
             toRemove.AddRange(group.GetSubFeats());
         }
 
-        panel.relevantFeats.RemoveAll(f => toRemove.Contains(f));
+        for (var i = 0; i < table.childCount; i++)
+        {
+            var child = table.GetChild(i);
+            var featItem = child.GetComponent<FeatItem>();
+            if (toRemove.Contains(featItem.GuiFeatDefinition.FeatDefinition))
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
     }
 
     public static void SortFeats(FeatSubPanel panel)
@@ -130,8 +141,10 @@ internal static class FeatsContext
         panel.relevantFeats.SetRange(dbFeatDefinition.Where(x => !x.GuiPresentation.Hidden));
     }
 
-    public static void ForceSameWidth(RectTransform table, bool active)
+    public static void ForceSameWidth(RectTransform table, bool active, FeatSubPanel panel)
     {
+        ProcessFeatGroups(panel, active, table);
+
         if (active && Main.Settings.EnableSameWidthFeatSelection)
         {
             var hero = Global.ActiveLevelUpHero;
@@ -156,7 +169,7 @@ internal static class FeatsContext
                 var child = table.GetChild(i);
                 var featItem = child.GetComponent<FeatItem>();
 
-                if (trainedFeats.Contains(featItem.GuiFeatDefinition.FeatDefinition))
+                if (!child.gameObject.activeSelf || trainedFeats.Contains(featItem.GuiFeatDefinition.FeatDefinition))
                 {
                     continue;
                 }

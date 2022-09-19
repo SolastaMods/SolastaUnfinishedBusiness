@@ -26,9 +26,6 @@ internal static class FeatSubPanelPatcher
             //PATCH: sorts the feats panel by Title
             FeatsContext.SortFeats(__instance);
 
-            //PATCH: grouped feats - select sub-feats into a separate list
-            FeatsContext.ProcessFeatGroups(__instance);
-
             //PATCH: grouped feats - update children according to current feat list
             FeatsContext.UpdatePanelChildren(__instance);
         }
@@ -44,13 +41,14 @@ internal static class FeatSubPanelPatcher
         {
             var forceRebuildLayoutImmediateMethod = typeof(LayoutRebuilder)
                 .GetMethod("ForceRebuildLayoutImmediate", BindingFlags.Static | BindingFlags.Public);
-            var forceSameWidthMethod = new Action<RectTransform, bool>(FeatsContext.ForceSameWidth).Method;
+            var forceSameWidthMethod = new Action<RectTransform, bool, FeatSubPanel>(FeatsContext.ForceSameWidth).Method;
 
             var code = instructions.ToList();
             var index = code.FindIndex(x => x.Calls(forceRebuildLayoutImmediateMethod));
 
             code[index] = new CodeInstruction(OpCodes.Ldarg_1);
             code.Insert(index + 1, new CodeInstruction(OpCodes.Call, forceSameWidthMethod));
+            code.Insert(index + 1, new CodeInstruction(OpCodes.Ldarg_0));
 
             return code;
         }
