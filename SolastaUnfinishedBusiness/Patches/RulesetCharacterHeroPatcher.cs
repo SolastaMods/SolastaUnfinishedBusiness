@@ -207,7 +207,8 @@ internal static class RulesetCharacterHeroPatcher
                         {
                             var maxSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
 
-                            foreach (var kvp in spellRepertoire.ExtraSpellsByTag.Where(kvp => kvp.Key.Contains("PactTomeRitual")))
+                            foreach (var kvp in spellRepertoire.ExtraSpellsByTag.Where(kvp =>
+                                         kvp.Key.Contains("PactTomeRitual")))
                             {
                                 var spell = kvp.Value
                                     .Where(spellDefinition =>

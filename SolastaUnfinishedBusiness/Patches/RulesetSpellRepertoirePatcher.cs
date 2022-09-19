@@ -168,13 +168,7 @@ internal static class RulesetSpellRepertoirePatcher
             var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
-            // ugly mystic arcanum hack
-            if (__instance.spellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
-            {
-                var warlockLevel = SharedSpellsContext.GetWarlockCasterLevel(heroWithSpellRepertoire);
-
-                warlockSpellLevel = (warlockLevel + 1) / 2;
-            }
+            SharedSpellsContext.FactorMysticArcanum(heroWithSpellRepertoire, __instance, ref warlockSpellLevel);
 
             __result = Math.Max(sharedSpellLevel, warlockSpellLevel);
         }

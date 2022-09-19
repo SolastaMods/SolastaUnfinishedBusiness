@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -66,7 +67,14 @@ internal static class SlotStatusTablePatcher
             spellRepertoire.GetSlotsNumber(spellLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlots(
-                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, spellLevel, __instance.table, true);
+                heroWithSpellRepertoire,
+                totalSlotsCount,
+                totalSlotsRemainingCount,
+                spellLevel,
+                __instance.table,
+                true,
+                spellRepertoire.spellCastingClass == Warlock
+                || !Main.Settings.DisplayPactSlotsOnNonWarlockRepertoires);
         }
     }
 

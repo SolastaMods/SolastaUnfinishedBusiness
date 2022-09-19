@@ -120,6 +120,20 @@ public static class SharedSpellsContext
                    .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
     }
 
+    // factor mystic arcanum level if Warlock repertoire
+    internal static void FactorMysticArcanum(RulesetCharacterHero hero, RulesetSpellRepertoire repertoire,
+        ref int level)
+    {
+        if (repertoire.spellCastingClass != Warlock)
+        {
+            return;
+        }
+
+        var warlockLevel = GetWarlockCasterLevel(hero);
+
+        level = (warlockLevel + 1) / 2;
+    }
+
     // need the null check for companions who don't have repertoires
     internal static int GetWarlockCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
