@@ -52,7 +52,7 @@ public class SubFeatSelectionModal : GuiGameScreen
 
         Visible = false;
     }
-    
+
     private void Unbind()
     {
         itemClickHandler = null;
@@ -143,14 +143,86 @@ public class SubFeatSelectionModal : GuiGameScreen
         component.Bind(inspectedCharacter, featDefinition, OnItemSelected, null, true);
         component.StageTag = baseItem.StageTag;
         component.PreviousStageTag = baseItem.PreviousStageTag;
+        component.CurrentPoolType = baseItem.CurrentPoolType;
         component.gameObject.SetActive(true);
-        component.Refresh(ProficiencyBaseItem.InteractiveMode.InteractiveSingle, HeroDefinitions.PointsPoolType.Feat,
-            ProficiencyBaseItem.DisabledMode.Default);
+
+        UpdateFeatState(component);
 
         component.Tooltip.Anchor = baseItem.Tooltip.Anchor;
         component.Tooltip.AnchorMode = baseItem.Tooltip.AnchorMode;
 
+        //TODO: respect feat resize settings
         component.RectTransform.sizeDelta = new Vector2(300, 44);
+    }
+
+    private static void UpdateFeatState(FeatItem item)
+    {
+        var feat = item.GuiFeatDefinition.FeatDefinition;
+        var currentPoolType = item.CurrentPoolType;
+        var service = ServiceRepository.GetService<ICharacterBuildingService>();
+        var localHeroCharacter = service.CurrentLocalHeroCharacter;
+        var buildingData = localHeroCharacter?.GetHeroBuildingData();
+
+        var pool = service.GetPointPoolOfTypeAndTag(buildingData, item.CurrentPoolType, item.StageTag);
+        var restrictedChoices = pool.RestrictedChoices;
+
+        ProficiencyBaseItem.InteractiveMode interactiveMode;
+        var isSameFamily = false;
+        if (localHeroCharacter != null
+            && (service.IsFeatKnownOrTrained(buildingData, feat) || localHeroCharacter.TrainedFeats.Contains(feat)))
+        {
+            interactiveMode = ProficiencyBaseItem.InteractiveMode.Static;
+        }
+        else
+        {
+            var isRestricted = restrictedChoices.Count != 0;
+            if (isRestricted)
+            {
+                var hasRestrictedfeats = false;
+                foreach (var restrictedChoice in restrictedChoices)
+                {
+                    if (DatabaseRepository.GetDatabase<FeatDefinition>()
+                            .GetElement(restrictedChoice, true) != null)
+                    {
+                        hasRestrictedfeats = true;
+                        break;
+                    }
+                }
+
+                isRestricted = hasRestrictedfeats && !restrictedChoices.Contains(feat.Name);
+            }
+
+            var matchingPrerequisites = service.IsFeatMatchingPrerequisites(buildingData, feat, out isSameFamily);
+            if (!isRestricted && matchingPrerequisites)
+            {
+                if (currentPoolType == HeroDefinitions.PointsPoolType.Feat)
+                {
+                    interactiveMode = !service.IsFeatKnownOrTrained(buildingData, feat)
+                        ? ProficiencyBaseItem.InteractiveMode.InteractiveSingle
+                        : (service.IsFeatSelectedForTraining(buildingData, feat, item.StageTag)
+                            ? ProficiencyBaseItem.InteractiveMode.InteractiveSingle
+                            : ProficiencyBaseItem.InteractiveMode.Disabled);
+                }
+                else if (service.IsFeatKnownOrTrained(buildingData, feat))
+                {
+                    interactiveMode = ProficiencyBaseItem.InteractiveMode.InteractiveSingle;
+                }
+                else
+                {
+                    interactiveMode = ProficiencyBaseItem.InteractiveMode.Disabled;
+                }
+            }
+            else
+            {
+                interactiveMode = ProficiencyBaseItem.InteractiveMode.Disabled;
+            }
+        }
+
+        var disabledMode = isSameFamily
+            ? ProficiencyBaseItem.DisabledMode.Strikethrough
+            : ProficiencyBaseItem.DisabledMode.Default;
+
+        item.Refresh(interactiveMode, currentPoolType, disabledMode);
     }
 
     private void OnItemSelected(ProficiencyBaseItem item)
@@ -160,7 +232,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         handler?.Invoke(item);
         Hide();
     }
-    
+
     public void OnCloseCb()
     {
         //TODO: implement cancel callback
@@ -169,7 +241,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         //     subpowerCanceled();
         Hide();
     }
-    
+
     public override void OnBeginShow(bool instant = false)
     {
         base.OnBeginShow(instant);
@@ -191,7 +263,7 @@ public class SubFeatSelectionModal : GuiGameScreen
             OnCloseCb();
         return true;
     }
-    
+
     public void CancelPerformed(InputAction.CallbackContext context)
     {
         if (this == null)
@@ -200,12 +272,13 @@ public class SubFeatSelectionModal : GuiGameScreen
     }
 
     //TODO: handle controller
-    
+
     public override bool GrabsCameraControl => true;
 
     public override string ActionMap => "UI";
 
     public override bool AutoRecomputeNavigation => true;
+
     public override void SelectDefaultControl()
     {
         //TODO: implement default control selection
