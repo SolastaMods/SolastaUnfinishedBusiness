@@ -17,7 +17,12 @@ public static class GroupFeats
         feats.AddRange(Groups);
     }
 
-    public static FeatDefinition MakeGroup(string name, IEnumerable<FeatDefinition> feats, string family = null)
+    public static FeatDefinition MakeGroup(string name, string family, FeatDefinition[] feats)
+    {
+        return MakeGroup(name, family, feats);
+    }
+
+    public static FeatDefinition MakeGroup(string name, string family, IEnumerable<FeatDefinition> feats)
     {
         var group = FeatDefinitionBuilder
             .Create(name, DefinitionBuilder.CENamespaceGuid)
