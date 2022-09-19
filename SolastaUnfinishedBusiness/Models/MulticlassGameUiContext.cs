@@ -256,11 +256,10 @@ public static class MulticlassGameUiContext
         var selectedSlot = -1;
 
         var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-        var pactMagicSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(hero);
         var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
         var hasPactMagic = warlockSpellLevel > 0;
 
-        var maxRepertoireLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+        var maxRepertoireLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
         var selected = false;
 
         if (maxSpellLevel == 0)
@@ -271,11 +270,6 @@ public static class MulticlassGameUiContext
         for (var level = minSpellLevel; level <= maxSpellLevel; ++level)
         {
             spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
-
-            if (hasPactMagic && level != warlockSpellLevel)
-            {
-                max -= pactMagicSlotsCount;
-            }
 
             if (max <= 0 || ((level > maxRepertoireLevel || (!isMulticaster && hasPactMagic)) &&
                              level != warlockSpellLevel))
