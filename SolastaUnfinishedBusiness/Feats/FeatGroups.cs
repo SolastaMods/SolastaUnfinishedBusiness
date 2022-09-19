@@ -13,6 +13,7 @@ public static class FeatGroups
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildElementalTouchGroup());
+        feats.Add(BuildCreedGroup());
         feats.AddRange(groups);
     }
 
@@ -41,6 +42,24 @@ public static class FeatGroups
                 FeatDefinitions.MeltingTouch
             ))
             .SetFeatFamily(FeatDefinitions.BurningTouch.FamilyTag)
+            .SetFeatures()
+            .AddToDB();
+    }
+
+
+    private static FeatDefinition BuildCreedGroup()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatGroupCreed", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                FeatDefinitions.Creed_Of_Arun,
+                FeatDefinitions.Creed_Of_Einar,
+                FeatDefinitions.Creed_Of_Maraike,
+                FeatDefinitions.Creed_Of_Misaye,
+                FeatDefinitions.Creed_Of_Pakri,
+                FeatDefinitions.Creed_Of_Solasta
+            ))
             .SetFeatures()
             .AddToDB();
     }
