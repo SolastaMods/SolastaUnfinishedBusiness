@@ -42,6 +42,7 @@ ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
+ModUi/&DisplayPactSlotsOnNonWarlockRepertoires=<i>+ Display pact slots on non <color=#D89555>Warlock</color> repertoires</i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed

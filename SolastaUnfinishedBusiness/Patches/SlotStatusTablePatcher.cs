@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -13,25 +15,21 @@ internal static class SlotStatusTablePatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
     {
-        //PATCH: Warlock unique case under MC (Multiclass)
-        public static bool UniqueLevelSlots(FeatureDefinitionCastSpell featureDefinitionCastSpell,
+        private static bool UniqueLevelSlots(FeatureDefinitionCastSpell featureDefinitionCastSpell,
             RulesetSpellRepertoire rulesetSpellRepertoire)
         {
-            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
+            var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
 
-            if (heroWithSpellRepertoire == null)
-            {
-                return featureDefinitionCastSpell.UniqueLevelSlots;
-            }
-
+            //PATCH: displays slots on any multicaster hero so Warlocks can see their spell slots
             return featureDefinitionCastSpell.UniqueLevelSlots &&
-                   !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire);
+                   (hero == null || !SharedSpellsContext.IsMulticaster(hero));
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var uniqueLevelSlotsMethod = typeof(FeatureDefinitionCastSpell).GetMethod("get_UniqueLevelSlots");
-            var myUniqueLevelSlotsMethod = typeof(Bind_Patch).GetMethod("UniqueLevelSlots");
+            var myUniqueLevelSlotsMethod =
+                new Func<FeatureDefinitionCastSpell, RulesetSpellRepertoire, bool>(UniqueLevelSlots).Method;
 
             foreach (var instruction in instructions)
             {
@@ -48,7 +46,7 @@ internal static class SlotStatusTablePatcher
         }
 
         //PATCH: creates different slots colors and pop up messages depending on slot types
-        public static void Postfix(
+        internal static void Postfix(
             SlotStatusTable __instance,
             RulesetSpellRepertoire spellRepertoire,
             int spellLevel)
@@ -69,7 +67,13 @@ internal static class SlotStatusTablePatcher
             spellRepertoire.GetSlotsNumber(spellLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlots(
-                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, spellLevel, __instance.table, true);
+                heroWithSpellRepertoire,
+                totalSlotsCount,
+                totalSlotsRemainingCount,
+                spellLevel,
+                __instance.table,
+                spellRepertoire.spellCastingClass == Warlock
+                || !Main.Settings.DisplayPactSlotsOnNonWarlockRepertoires);
         }
     }
 

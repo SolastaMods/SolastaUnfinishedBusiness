@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
+using HarmonyLib;
 using JetBrains.Annotations;
 using static FeatureDefinitionCastSpell;
 using static SolastaUnfinishedBusiness.Models.MulticlassIntegrationContext;
@@ -21,6 +24,9 @@ public enum CasterType
 public static class SharedSpellsContext
 {
     internal const int PactMagicSlotsTab = -1;
+
+    // supports custom MaxSpellLevelOfSpellCastLevel behaviors
+    internal static bool UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior { get; private set; }
 
     public static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
     {
@@ -55,6 +61,303 @@ public static class SharedSpellsContext
         //{ ConArtistSubclass, CasterType.OneThird }, // ChrisJohnDigital
         //{ SpellShieldSubclass, CasterType.OneThird } // ChrisJohnDigital
     };
+
+    public static RulesetCharacterHero GetHero(string name)
+    {
+        // try to get hero from game campaign
+        var gameCampaign = Gui.GameCampaign;
+
+        if (gameCampaign == null)
+        {
+            // gets hero on inspection or falls back to level up
+            return Global.InspectedHero ?? Global.ActiveLevelUpHero;
+        }
+
+        var gameCampaignCharacter =
+            gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
+
+        if (gameCampaignCharacter is { RulesetCharacter: RulesetCharacterHero rulesetCharacterHero })
+        {
+            return rulesetCharacterHero;
+        }
+
+        // gets hero on inspection or falls back to level up
+        return Global.InspectedHero ?? Global.ActiveLevelUpHero;
+    }
+
+    // supports auto prepared spells scenarios on subs
+    private static CasterType GetCasterTypeForClassOrSubclass(
+        [CanBeNull] CharacterClassDefinition characterClassDefinition,
+        CharacterSubclassDefinition characterSubclassDefinition)
+    {
+        if (characterClassDefinition != null && ClassCasterType.ContainsKey(characterClassDefinition))
+        {
+            return ClassCasterType[characterClassDefinition];
+        }
+
+        if (characterSubclassDefinition != null && SubclassCasterType.ContainsKey(characterSubclassDefinition))
+        {
+            return SubclassCasterType[characterSubclassDefinition];
+        }
+
+        return CasterType.None;
+    }
+
+    // need the null check for companions who don't have repertoires
+    public static bool IsMulticaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    {
+        return rulesetCharacterHero != null
+               && rulesetCharacterHero.SpellRepertoires
+                   .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
+    }
+
+    // need the null check for companions who don't have repertoires
+    public static bool IsSharedcaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    {
+        return rulesetCharacterHero != null
+               && rulesetCharacterHero.SpellRepertoires
+                   .Where(sr => sr.SpellCastingClass != Warlock)
+                   .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
+    }
+
+    // factor mystic arcanum level if Warlock repertoire
+    internal static void FactorMysticArcanum(RulesetCharacterHero hero, RulesetSpellRepertoire repertoire,
+        ref int level)
+    {
+        if (repertoire.spellCastingClass != Warlock)
+        {
+            return;
+        }
+
+        var warlockLevel = GetWarlockCasterLevel(hero);
+
+        level = (warlockLevel + 1) / 2;
+    }
+
+    // need the null check for companions who don't have repertoires
+    internal static int GetWarlockCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    {
+        if (rulesetCharacterHero == null)
+        {
+            return 0;
+        }
+
+        var warlockLevel = 0;
+        var warlock = rulesetCharacterHero.ClassesAndLevels.Keys.FirstOrDefault(x => x == Warlock);
+
+        if (warlock != null)
+        {
+            warlockLevel = rulesetCharacterHero.ClassesAndLevels[warlock];
+        }
+
+        return warlockLevel;
+    }
+
+    internal static int GetWarlockSpellLevel(RulesetCharacterHero rulesetCharacterHero)
+    {
+        var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
+
+        return warlockLevel > 0
+            ? WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0)
+            : 0;
+    }
+
+    public static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
+    {
+        var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
+
+        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
+    }
+
+    public static int GetWarlockUsedSlots([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    {
+        var repertoire = GetWarlockSpellRepertoire(rulesetCharacterHero);
+
+        if (repertoire == null)
+        {
+            return 0;
+        }
+
+        repertoire.usedSpellsSlots.TryGetValue(-1, out var warlockUsedSlots);
+
+        return warlockUsedSlots;
+    }
+
+    [CanBeNull]
+    public static RulesetSpellRepertoire GetWarlockSpellRepertoire([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    {
+        return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == Warlock);
+    }
+
+    public static int GetSharedCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    {
+        if (rulesetCharacterHero?.ClassesAndLevels == null)
+        {
+            return 0;
+        }
+
+        var casterLevelContext = new CasterLevelContext();
+
+        foreach (var classAndLevel in rulesetCharacterHero.ClassesAndLevels)
+        {
+            var currentCharacterClassDefinition = classAndLevel.Key;
+
+            rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(currentCharacterClassDefinition,
+                out var currentCharacterSubclassDefinition);
+
+            var casterType = GetCasterTypeForClassOrSubclass(currentCharacterClassDefinition,
+                currentCharacterSubclassDefinition);
+
+            casterLevelContext.IncrementCasterLevel(casterType, classAndLevel.Value);
+        }
+
+        return casterLevelContext.GetCasterLevel();
+    }
+
+    public static int GetSharedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
+    {
+        if (!IsSharedcaster(rulesetCharacterHero))
+        {
+            var repertoire = rulesetCharacterHero.SpellRepertoires
+                .Find(x => x.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race &&
+                           x.SpellCastingClass != Warlock);
+
+            return repertoire == null ? 0 : MaxSpellLevelOfSpellCastingLevel(repertoire);
+        }
+
+        var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero);
+
+        return sharedCasterLevel > 0 ? FullCastingSlots[sharedCasterLevel - 1].Slots.IndexOf(0) : 0;
+    }
+
+    internal static void Load()
+    {
+        // ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);
+        SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
+        SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
+        // SubclassCasterType.Add(PathOfTheRageMageSubclass, CasterType.OneThird);
+        // RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);
+        // RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
+        // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
+    }
+
+    internal static void LateLoad()
+    {
+        const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
+
+        var harmony = new Harmony("SolastaUnfinishedBusiness");
+        var transpiler = new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>(SharedSpellsTranspiler)
+            .Method;
+        var methods = new[]
+        {
+            typeof(CharacterBuildingManager).GetMethod("ApplyFeatureCastSpell", PrivateBinding),
+            typeof(GuiCharacter).GetMethod("DisplayUniqueLevelSpellSlots"),
+            typeof(ItemMenuModal).GetMethod("SetupFromItem"),
+            typeof(RulesetCharacter).GetMethod("EnumerateUsableSpells", PrivateBinding),
+            // we also have a custom bool Prefix for this one
+            typeof(RulesetCharacterHero).GetMethod("EnumerateUsableRitualSpells"),
+            typeof(RulesetSpellRepertoire).GetMethod("HasKnowledgeOfSpell")
+        };
+
+        foreach (var method in methods)
+        {
+            try
+            {
+                harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+            }
+            catch
+            {
+                Main.Error("cannot fully patch Shared Slots");
+            }
+        }
+    }
+
+    internal static int MaxSpellLevelOfSpellCastingLevel(RulesetSpellRepertoire rulesetSpellRepertoire)
+    {
+        UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior = true;
+
+        var result = rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+
+        UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior = false;
+
+        return result;
+    }
+
+    [NotNull]
+    private static IEnumerable<CodeInstruction> SharedSpellsTranspiler(
+        [NotNull] IEnumerable<CodeInstruction> instructions)
+    {
+        var maxSpellLevelOfSpellCastLevelMethod =
+            typeof(RulesetSpellRepertoire).GetMethod("get_MaxSpellLevelOfSpellCastingLevel");
+        var myMaxSpellLevelOfSpellCastLevelMethod =
+            new Func<RulesetSpellRepertoire, int>(MaxSpellLevelOfSpellCastingLevel).Method;
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(maxSpellLevelOfSpellCastLevelMethod))
+            {
+                yield return new CodeInstruction(OpCodes.Call, myMaxSpellLevelOfSpellCastLevelMethod);
+            }
+            else
+            {
+                yield return instruction;
+            }
+        }
+    }
+
+    #region Caster Level Context
+
+    private sealed class CasterLevelContext
+    {
+        private readonly Dictionary<CasterType, int> levels;
+
+        public CasterLevelContext()
+        {
+            levels = new Dictionary<CasterType, int>
+            {
+                { CasterType.None, 0 },
+                { CasterType.Full, 0 },
+                { CasterType.Half, 0 },
+                { CasterType.HalfRoundUp, 0 },
+                { CasterType.OneThird, 0 }
+            };
+        }
+
+        public void IncrementCasterLevel(CasterType casterType, int increment)
+        {
+            levels[casterType] += increment;
+        }
+
+        public int GetCasterLevel()
+        {
+            var casterLevel = 0;
+
+            // Full Casters
+            casterLevel += levels[CasterType.Full];
+
+            // Tinkerer / ...
+            if (levels[CasterType.HalfRoundUp] == 1)
+            {
+                casterLevel++;
+            }
+            // Half Casters
+            else
+            {
+                casterLevel += (int)Math.Floor(levels[CasterType.HalfRoundUp] / 2.0);
+            }
+
+            casterLevel += (int)Math.Floor(levels[CasterType.Half] / 2.0);
+
+            // Con Artist / ...
+            casterLevel += (int)Math.Floor(levels[CasterType.OneThird] / 3.0);
+
+            return casterLevel;
+        }
+    }
+
+    #endregion
+
+    #region Slots Definitions
 
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
     internal static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } = new()
@@ -1400,240 +1703,5 @@ public static class SharedSpellsContext
         15
     };
 
-    private static CasterType GetCasterTypeForClassOrSubclass(
-        [CanBeNull] CharacterClassDefinition characterClassDefinition,
-        CharacterSubclassDefinition characterSubclassDefinition)
-    {
-        if (characterClassDefinition != null && ClassCasterType.ContainsKey(characterClassDefinition))
-        {
-            return ClassCasterType[characterClassDefinition];
-        }
-
-        if (characterSubclassDefinition != null && SubclassCasterType.ContainsKey(characterSubclassDefinition))
-        {
-            return SubclassCasterType[characterSubclassDefinition];
-        }
-
-        return CasterType.None;
-    }
-
-    public static RulesetCharacterHero GetHero(string name)
-    {
-        // try to get hero from game campaign
-        var gameCampaign = Gui.GameCampaign;
-
-        if (gameCampaign != null)
-        {
-            var gameCampaignCharacter =
-                gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
-
-            if (gameCampaignCharacter is { RulesetCharacter: RulesetCharacterHero rulesetCharacterHero })
-            {
-                return rulesetCharacterHero;
-            }
-        }
-
-        // otherwise gets hero inspection
-        var hero = Global.InspectedHero;
-
-        // finally falls back to level up
-        return hero ?? Global.ActiveLevelUpHero;
-    }
-
-    // need the null check for companions who don't have repertoires
-    public static bool IsMulticaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        return rulesetCharacterHero != null
-               && rulesetCharacterHero.SpellRepertoires
-                   .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
-    }
-
-    // need the null check for companions who don't have repertoires
-    public static bool IsSharedcaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        return rulesetCharacterHero != null
-               && rulesetCharacterHero.SpellRepertoires
-                   .Where(sr => sr.SpellCastingClass != Warlock)
-                   .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
-    }
-
-    // need the null check for companions who don't have repertoires
-    internal static int GetWarlockCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        if (rulesetCharacterHero == null)
-        {
-            return 0;
-        }
-
-        var warlockLevel = 0;
-        var warlock = rulesetCharacterHero.ClassesAndLevels.Keys.FirstOrDefault(x => x == Warlock);
-
-        if (warlock != null)
-        {
-            warlockLevel = rulesetCharacterHero.ClassesAndLevels[warlock];
-        }
-
-        return warlockLevel;
-    }
-
-    public static int GetWarlockSpellLevel(RulesetCharacterHero rulesetCharacterHero)
-    {
-        var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
-
-        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots.IndexOf(0) : 0;
-    }
-
-    public static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
-    {
-        var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
-
-        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
-    }
-
-    public static int GetWarlockUsedSlots([NotNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        var repertoire = GetWarlockSpellRepertoire(rulesetCharacterHero);
-
-        if (repertoire == null)
-        {
-            return 0;
-        }
-
-        repertoire.usedSpellsSlots.TryGetValue(-1, out var warlockUsedSlots);
-
-        return warlockUsedSlots;
-    }
-
-    [CanBeNull]
-    public static RulesetSpellRepertoire GetWarlockSpellRepertoire([NotNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == Warlock);
-    }
-
-    public static int GetSharedCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        if (rulesetCharacterHero?.ClassesAndLevels == null)
-        {
-            return 0;
-        }
-
-        var casterLevelContext = new CasterLevelContext();
-
-        foreach (var classAndLevel in rulesetCharacterHero.ClassesAndLevels)
-        {
-            var currentCharacterClassDefinition = classAndLevel.Key;
-
-            rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(currentCharacterClassDefinition,
-                out var currentCharacterSubclassDefinition);
-
-            var casterType = GetCasterTypeForClassOrSubclass(currentCharacterClassDefinition,
-                currentCharacterSubclassDefinition);
-
-            casterLevelContext.IncrementCasterLevel(casterType, classAndLevel.Value);
-        }
-
-        return casterLevelContext.GetCasterLevel();
-    }
-
-    public static int GetSharedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
-    {
-        if (!IsSharedcaster(rulesetCharacterHero))
-        {
-            var repertoire = rulesetCharacterHero.SpellRepertoires
-                .Find(x => x.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race &&
-                           x.SpellCastingClass != Warlock);
-
-            return GetClassSpellLevel(repertoire);
-        }
-
-        var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero);
-
-        return sharedCasterLevel > 0 ? FullCastingSlots[sharedCasterLevel - 1].Slots.IndexOf(0) : 0;
-    }
-
-    public static int GetClassSpellLevel([CanBeNull] RulesetSpellRepertoire spellRepertoire)
-    {
-        if (spellRepertoire?.SpellCastingFeature.SlotsPerLevels == null || spellRepertoire.SpellCastingLevel <= 0)
-        {
-            return 0;
-        }
-
-        //TODO: not 100% sure this is the best way to tackle this...
-        //SC Warlock have 0s @ the beginning
-        var i = 0;
-        var foundNonZero = false;
-        var slotsByLevel = spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1];
-
-        while (i < slotsByLevel.Slots.Count && slotsByLevel.Slots[i] == 0)
-        {
-            i++;
-        }
-
-        while (i < slotsByLevel.Slots.Count && slotsByLevel.Slots[i] != 0)
-        {
-            foundNonZero = true;
-            i++;
-        }
-
-        return foundNonZero ? i : 0;
-    }
-
-    public static void Load()
-    {
-        // ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);
-        SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
-        SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
-        // SubclassCasterType.Add(PathOfTheRageMageSubclass, CasterType.OneThird);
-        // RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);
-        // RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
-        // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
-    }
-
-    private sealed class CasterLevelContext
-    {
-        private readonly Dictionary<CasterType, int> levels;
-
-        public CasterLevelContext()
-        {
-            levels = new Dictionary<CasterType, int>
-            {
-                { CasterType.None, 0 },
-                { CasterType.Full, 0 },
-                { CasterType.Half, 0 },
-                { CasterType.HalfRoundUp, 0 },
-                { CasterType.OneThird, 0 }
-            };
-        }
-
-        public void IncrementCasterLevel(CasterType casterType, int increment)
-        {
-            levels[casterType] += increment;
-        }
-
-        public int GetCasterLevel()
-        {
-            var casterLevel = 0;
-
-            // Full Casters
-            casterLevel += levels[CasterType.Full];
-
-            // Tinkerer / ...
-            if (levels[CasterType.HalfRoundUp] == 1)
-            {
-                casterLevel++;
-            }
-            // Half Casters
-            else
-            {
-                casterLevel += (int)Math.Floor(levels[CasterType.HalfRoundUp] / 2.0);
-            }
-
-            casterLevel += (int)Math.Floor(levels[CasterType.Half] / 2.0);
-
-            // Con Artist / ...
-            casterLevel += (int)Math.Floor(levels[CasterType.OneThird] / 3.0);
-
-            return casterLevel;
-        }
-    }
+    #endregion
 }

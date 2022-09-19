@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,8 +32,11 @@ internal static class SpellSelectionPanelPatcher
             }
         }
 
-        internal static void Postfix(SpellSelectionPanel __instance, GuiCharacter caster,
-            SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType,
+        internal static void Postfix(
+            SpellSelectionPanel __instance,
+            GuiCharacter caster,
+            SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged,
+            ActionDefinitions.ActionType actionType,
             bool cantripOnly)
         {
             //PATCH: show spell selection on multiple rows
@@ -81,6 +85,9 @@ internal static class SpellSelectionPanelPatcher
             {
                 var startLevel = 0;
                 var maxLevel = rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+
+                SharedSpellsContext.FactorMysticArcanum(caster.RulesetCharacterHero, rulesetSpellRepertoire,
+                    ref maxLevel);
 
                 for (var level = startLevel; level <= maxLevel; level++)
                 {
@@ -138,7 +145,7 @@ internal static class SpellSelectionPanelPatcher
                     indexOfLine,
                     rulesetSpellRepertoire,
                     startLevel,
-                    rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel);
+                    maxLevel);
 
                 needNewLine = false;
                 indexOfLine++;

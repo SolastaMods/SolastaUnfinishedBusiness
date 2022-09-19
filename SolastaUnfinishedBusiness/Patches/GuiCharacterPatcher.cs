@@ -1,7 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using System.Text;
 using System.Text.RegularExpressions;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -16,28 +19,68 @@ internal static class GuiCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class DisplayUniqueLevelSpellSlots_Patch
     {
-        internal static void Postfix(
-            RulesetSpellRepertoire spellRepertoire,
-            RectTransform uniqueLevelSlotsGroup)
+        // internal static bool Prefix(
+        //     RulesetSpellRepertoire spellRepertoire,
+        //     RectTransform uniqueLevelSlotsGroup)
+        // {
+        //     if (uniqueLevelSlotsGroup == null || spellRepertoire == null)
+        //     {
+        //         return true;
+        //     }
+        //
+        //     var hero = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
+        //
+        //     if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
+        //     {
+        //         return true;
+        //     }
+        //     
+        //     uniqueLevelSlotsGroup.gameObject.SetActive(false);
+        //
+        //     return false;
+        // }
+
+        public static void GetSlotsNumber(RulesetSpellRepertoire spellRepertoire, int spellLevel, out int remaining,
+            out int max, GuiCharacter guiCharacter)
         {
-            if (uniqueLevelSlotsGroup == null || spellRepertoire == null)
+            spellRepertoire.GetSlotsNumber(spellLevel, out remaining, out max);
+
+            var hero = guiCharacter.RulesetCharacterHero;
+
+            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
             {
                 return;
             }
 
-            var hero = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
+            var sharedCasterLevel = SharedSpellsContext.GetSharedCasterLevel(hero);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+            var sharedSpellSlots =
+                SharedSpellsContext.FullCastingSlots[sharedCasterLevel - 1].Slots[warlockSpellLevel - 1];
 
-            if (hero == null)
-            {
-                return;
-            }
+            remaining -= sharedSpellSlots;
+            max -= sharedSpellSlots;
+        }
 
-            if (SharedSpellsContext.IsMulticaster(hero))
+        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var getSlotsNumberMethod = typeof(RulesetSpellRepertoire).GetMethod("GetSlotsNumber");
+            var myGetSlotsNumberMethod = typeof(DisplayUniqueLevelSpellSlots_Patch).GetMethod("GetSlotsNumber");
+
+            foreach (var instruction in instructions)
             {
-                uniqueLevelSlotsGroup.gameObject.SetActive(false);
+                if (instruction.Calls(getSlotsNumberMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Call, myGetSlotsNumberMethod);
+                }
+                else
+                {
+                    yield return instruction;
+                }
             }
         }
     }
+
 
     //PATCH: EnableEnhancedCharacterInspection
     [HarmonyPatch(typeof(GuiCharacter), "MainClassDefinition", MethodType.Getter)]

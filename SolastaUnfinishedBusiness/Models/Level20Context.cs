@@ -113,7 +113,7 @@ internal static class Level20Context
             new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
             // TODO 18: Barbarian Indomitable Might
             // new(FeatureDefinitionIndomitableMightBuilder.FeatureDefinitionIndomitableMight, 18),
-            new(FeatureSetAbilityScoreChoice, 19),
+            new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Barbarian Primal Champion
             // new(FeatureDefinitionPrimalChampionBuilder.FeatureDefinitionPrimalChampion, 20)
         });

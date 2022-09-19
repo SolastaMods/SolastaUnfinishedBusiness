@@ -69,7 +69,7 @@ internal static class RulesetSpellRepertoirePatcher
             var usedSpellsSlots =
                 rulesetSpellRepertoire.usedSpellsSlots;
 
-            for (var i = -1; i <= warlockSpellLevel; i++)
+            for (var i = SharedSpellsContext.PactMagicSlotsTab; i <= warlockSpellLevel; i++)
             {
                 // don't mess with cantrips
                 if (i == 0)
@@ -153,21 +153,22 @@ internal static class RulesetSpellRepertoirePatcher
     {
         internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
+            if (SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior)
+            {
+                return;
+            }
+
             var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
 
-            if (heroWithSpellRepertoire == null)
+            if (heroWithSpellRepertoire == null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
                 return;
             }
 
-            if (LevelUpContext.IsLevelingUp(heroWithSpellRepertoire))
-            {
-                return;
-            }
+            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
-            __result = Math.Max(
-                SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
-                SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));
+            __result = Math.Max(sharedSpellLevel, warlockSpellLevel);
         }
     }
 
@@ -209,6 +210,36 @@ internal static class RulesetSpellRepertoirePatcher
             }
 
             return false;
+        }
+    }
+
+    //PATCH: only offers upcast Warlock pact at their correct slot level
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetSpellRepertoire_CanUpcastSpell
+    {
+        internal static void Postfix(RulesetSpellRepertoire __instance, SpellDefinition spellDefinition,
+            List<int> availableSlotLevels)
+        {
+            if (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+            {
+                return;
+            }
+
+            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
+
+            if (heroWithSpellRepertoire == null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+            {
+                return;
+            }
+
+            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+
+            for (var i = sharedSpellLevel + 1; i < warlockSpellLevel; i++)
+            {
+                availableSlotLevels.Remove(i);
+            }
         }
     }
 }

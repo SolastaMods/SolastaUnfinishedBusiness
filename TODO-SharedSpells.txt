@@ -1,0 +1,92 @@
+CharacterBuildingManager, ApplyFeatureCastSpell = default behavior
+GameConsole,SpellRepertoireSlotsRecovered, = shared slots
+GameLocationBattleManager, HandleAdditionalDamageOnCharacterAttackHitConfirmed, = shared slots
+GuiCharacter, DisplayUniqueLevelSpellSlots, = default behavior
+ItemMenuModal, SetupFromItem, = default behavior (this is scribe spells)
+ReactionRequestCastSpell, BuildSlotSubOptions, = shared slots
+ReactionRequestSpendSpellSlot, SpendSpellSlots, = shared slots
+RulesetCharacter, GetMaxSpellLevel, = shared slots
+RulesetCharacter, GetLowestSlotLevelAndRepertoireToCastSpell, = shared slots
+RulesetCharacter, ComputeReviveOptionRemainingUses, = shared slots
+RulesetCharacter, EnumerateUsableSpells, = default behavior
+RulesetCharacterHero, EnumerateUsableRitualSpells, = default behavior (4 ocurrences)
+RulesetCharacterHero, EnumerateUsableRitualSpells
+RulesetCharacterHero, EnumerateUsableRitualSpells
+RulesetCharacterHero, EnumerateUsableRitualSpells
+RulesetSpellRepertoire, ComputeSpellSlots, = shared slots (2 ocurrences)
+RulesetSpellRepertoire, ComputeSpellSlots
+RulesetSpellRepertoire, CanCastSpellOfLevel, = shared slots
+RulesetSpellRepertoire, CanUpcastSpell, = shared slots
+RulesetSpellRepertoire, HasKnowledgeOfSpell, = default behavior
+SlotRecoveryModal, OnAutoCb, = shared slots
+SlotRecoveryModal, ShowSlotRecovery, = shared slots
+SpellRepertoireLine, Bind, = shared slots (maybe both?)
+SpellRepertoirePanel, Bind, = shared slots (maybe both?)
+SpellSelectionPanel, Bind, = shared slots (maybe both?)
+
+ 
+    //
+    // supports custom MaxSpellLevelOfSpellCastLevel behaviors
+    //
+    internal static bool UseMaxSpellLevelOfSpellCastLevelDefaultBehavior;
+    
+    public static int MaxSpellLevelOfSpellCastLevel(RulesetSpellRepertoire rulesetSpellRepertoire)
+    {
+        UseMaxSpellLevelOfSpellCastLevelDefaultBehavior = true;
+        
+        var result = rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+        
+        UseMaxSpellLevelOfSpellCastLevelDefaultBehavior = false;
+
+        return result;
+    }
+    
+    [NotNull]
+    // ReSharper disable once UnusedMember.Global
+    public static IEnumerable<CodeInstruction> SharedSpellsTranspiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    {
+        var maxSpellLevelOfSpellCastLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("MaxSpellLevelOfSpellCastLevel");
+        var myMaxSpellLevelOfSpellCastLevelMethod = typeof(SharedSpellsContext).GetMethod("MaxSpellLevelOfSpellCastLevel");
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(maxSpellLevelOfSpellCastLevelMethod))
+            {
+                yield return new CodeInstruction(OpCodes.Call, myMaxSpellLevelOfSpellCastLevelMethod);
+            }
+            else
+            {
+                yield return instruction;
+            }
+        }
+    }
+    
+    internal static void LateLoad()
+    {
+        const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
+
+        var harmony = new Harmony("SolastaUnfinishedBusiness");
+        var transpiler = typeof(Level20Context).GetMethod("SharedSpellsTranspiler");
+        // these are currently the hard-coded levels on below methods
+        var methods = new[]
+        {
+            typeof(CharacterBuildingManager).GetMethod("ApplyFeatureCastSpell", PrivateBinding),
+            typeof(GuiCharacter).GetMethod("DisplayUniqueLevelSpellSlots"),
+            typeof(ItemMenuModal).GetMethod("SetupFromItem"),
+            typeof(RulesetCharacter).GetMethod("EnumerateUsableSpells", PrivateBinding),
+            // typeof(RulesetCharacterHero).GetMethod("EnumerateUsableRitualSpells"), we have a custom bool Prefix for this one
+            typeof(RulesetSpellRepertoire).GetMethod("HasKnowledgeOfSpell")
+        };
+
+        foreach (var method in methods)
+        {
+            try
+            {
+                harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+            }
+            catch
+            {
+                Main.Error("cannot fully patch Level 20");
+            }
+        }
+    }

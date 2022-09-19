@@ -641,7 +641,6 @@ internal static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: Correctly solve short rests for Warlocks under MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ApplyRest_Patch_2
@@ -649,10 +648,13 @@ internal static class RulesetCharacterPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
-            var myRestoreAllSpellSlotsMethod = typeof(ApplyRest_Patch_2).GetMethod("RestoreAllSpellSlots");
+            var myRestoreAllSpellSlotsMethod =
+                new Action<RulesetSpellRepertoire, RulesetCharacter, RuleDefinitions.RestType>(RestoreAllSpellSlots)
+                    .Method;
 
             foreach (var instruction in instructions)
             {
+                //PATCH: Correctly solve short rests for Warlocks under MC (MULTICLASS)
                 if (instruction.Calls(restoreAllSpellSlotsMethod))
                 {
                     yield return new CodeInstruction(OpCodes.Ldarg_0); // rulesetCharacter
@@ -666,7 +668,9 @@ internal static class RulesetCharacterPatcher
             }
         }
 
-        public static void RestoreAllSpellSlots(RulesetSpellRepertoire __instance, RulesetCharacter rulesetCharacter,
+        private static void RestoreAllSpellSlots(
+            RulesetSpellRepertoire __instance,
+            RulesetCharacter rulesetCharacter,
             RuleDefinitions.RestType restType)
         {
             if (restType == RuleDefinitions.RestType.LongRest
@@ -684,7 +688,7 @@ internal static class RulesetCharacterPatcher
             foreach (var spellRepertoire in hero.SpellRepertoires
                          .Where(x => x.SpellCastingRace == null))
             {
-                for (var i = -1; i <= warlockSpellLevel; i++)
+                for (var i = SharedSpellsContext.PactMagicSlotsTab; i <= warlockSpellLevel; i++)
                 {
                     if (spellRepertoire.usedSpellsSlots.ContainsKey(i))
                     {
@@ -718,16 +722,15 @@ internal static class RulesetCharacterPatcher
             spellRepertoire.AutoPreparedSpells.Clear();
             __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(__instance.FeaturesToBrowse);
 
-            foreach (var featureDefinition in __instance.FeaturesToBrowse)
+            foreach (var autoPreparedSpells in __instance.FeaturesToBrowse
+                         .Select(featureDefinition => featureDefinition as FeatureDefinitionAutoPreparedSpells)
+                         .Where(autoPreparedSpells => autoPreparedSpells!.SpellcastingClass == spellcastingClass))
             {
-                var autoPreparedSpells = featureDefinition as FeatureDefinitionAutoPreparedSpells;
+                //SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior = true;
 
-                if (autoPreparedSpells!.SpellcastingClass != spellcastingClass)
-                {
-                    continue;
-                }
+                var classLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
 
-                var classLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+                //SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior = false;
 
                 foreach (var preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups
                              .Where(preparedSpellsGroup => preparedSpellsGroup.ClassLevel <= classLevel))

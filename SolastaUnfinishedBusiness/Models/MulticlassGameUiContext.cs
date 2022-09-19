@@ -23,36 +23,22 @@ public static class MulticlassGameUiContext
     internal static void RebuildSlotsTable(SpellRepertoirePanel __instance)
     {
         var spellRepertoire = __instance.SpellRepertoire;
-        var accountForCantrips = spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0;
-        int classSpellLevel;
-        int slotLevel;
 
-        // determines the display context
         if (spellRepertoire.SpellCastingRace != null)
         {
-            classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-            slotLevel = 0;
+            return;
         }
-        else
-        {
-            var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
-            var isSharedcaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
-            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
-            var warlockCasterLevel = SharedSpellsContext.GetWarlockCasterLevel(heroWithSpellRepertoire);
 
-            // Warlock Mystic Arcanum spells display handling
-            if (warlockCasterLevel >= 11)
-            {
-                classSpellLevel = (warlockCasterLevel + 1) / 2;
-            }
-            else
-            {
-                classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
-            }
+        var hero = __instance.GuiCharacter.RulesetCharacterHero;
+        var isSharedcaster = SharedSpellsContext.IsSharedcaster(hero);
+        var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
+        var classSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
+        var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
-            slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);
-        }
+        SharedSpellsContext.FactorMysticArcanum(hero, spellRepertoire, ref classSpellLevel);
+
+        var slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);
+        var accountForCantrips = spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0;
 
         while (__instance.levelButtonsTable.childCount < classSpellLevel + accountForCantrips)
         {
@@ -66,9 +52,8 @@ public static class MulticlassGameUiContext
 
         while (__instance.levelButtonsTable.childCount > classSpellLevel + accountForCantrips)
         {
-            Gui.ReleaseInstanceToPool(__instance.levelButtonsTable
-                .GetChild(__instance.levelButtonsTable.childCount - 1)
-                .gameObject);
+            Gui.ReleaseInstanceToPool(
+                __instance.levelButtonsTable.GetChild(__instance.levelButtonsTable.childCount - 1).gameObject);
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.levelButtonsTable);
@@ -98,15 +83,15 @@ public static class MulticlassGameUiContext
     }
 
     public static void PaintPactSlots(
-        [NotNull] RulesetCharacterHero heroWithSpellRepertoire,
+        [NotNull] RulesetCharacterHero hero,
         int totalSlotsCount,
         int totalSlotsRemainingCount,
         int slotLevel,
         [NotNull] RectTransform rectTransform,
-        bool hasTooltip = false)
+        bool ignorePactSlots = false)
     {
-        var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
-        var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+        var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
+        var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
         var pactSlotsCount = 0;
         var pactSlotsRemainingCount = 0;
@@ -114,8 +99,8 @@ public static class MulticlassGameUiContext
 
         if (warlockSpellRepertoire != null)
         {
-            pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-            pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
+            pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(hero);
             pactSlotsRemainingCount = pactSlotsCount - pactSlotsUsedCount;
         }
 
@@ -127,19 +112,24 @@ public static class MulticlassGameUiContext
         {
             var component = rectTransform.GetChild(index).GetComponent<SlotStatus>();
 
+            // only tweak levels that have both spell and pact slots
             if (slotLevel <= warlockSpellLevel)
             {
-                if (index < spellSlotsCount)
+                // these are spell slots that display after pact ones
+                if (index >= pactSlotsCount)
                 {
-                    component.Used.gameObject.SetActive(index >=
-                                                        totalSlotsRemainingCount - pactSlotsRemainingCount);
-                    component.Available.gameObject.SetActive(index < totalSlotsRemainingCount -
-                        pactSlotsRemainingCount);
+                    var used = index >= pactSlotsCount + spellSlotsRemainingCount;
+
+                    component.Used.gameObject.SetActive(used);
+                    component.Available.gameObject.SetActive(!used);
                 }
-                else if (slotLevel == warlockSpellLevel)
+                // these are pact slots that should only display at their highest level
+                else if (!ignorePactSlots && slotLevel == warlockSpellLevel)
                 {
-                    component.Used.gameObject.SetActive(index >= spellSlotsCount + pactSlotsRemainingCount);
-                    component.Available.gameObject.SetActive(index < spellSlotsCount + pactSlotsRemainingCount);
+                    var used = index >= totalSlotsRemainingCount - spellSlotsRemainingCount;
+
+                    component.Used.gameObject.SetActive(used);
+                    component.Available.gameObject.SetActive(!used);
                 }
                 else
                 {
@@ -148,19 +138,15 @@ public static class MulticlassGameUiContext
                 }
             }
 
-            if (index >= spellSlotsCount && slotLevel <= warlockSpellLevel)
-            {
-                component.Available.GetComponent<Image>().color = LightGreenSlot;
-            }
-            else
+            // paint spell slots white
+            if (index >= pactSlotsCount || slotLevel > warlockSpellLevel)
             {
                 component.Available.GetComponent<Image>().color = WhiteSlot;
             }
-        }
-
-        if (!hasTooltip)
-        {
-            return;
+            else
+            {
+                component.Available.GetComponent<Image>().color = LightGreenSlot;
+            }
         }
 
         string str;
@@ -188,6 +174,68 @@ public static class MulticlassGameUiContext
         }
 
         rectTransform.GetComponent<GuiTooltip>().Content = str;
+    }
+
+    // reaction and flexible panels should paint white slots first
+    public static void PaintPactSlotsAlternate(
+        [NotNull] RulesetCharacterHero hero,
+        int totalSlotsCount,
+        int totalSlotsRemainingCount,
+        int slotLevel,
+        [NotNull] RectTransform rectTransform)
+    {
+        var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
+        var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
+        var pactSlotsCount = 0;
+        var pactSlotsRemainingCount = 0;
+
+        if (warlockSpellRepertoire != null)
+        {
+            var pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(hero);
+
+            pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            pactSlotsRemainingCount = pactSlotsCount - pactSlotsUsedCount;
+        }
+
+        var spellSlotsCount = totalSlotsCount - pactSlotsCount;
+
+        for (var index = 0; index < rectTransform.childCount; ++index)
+        {
+            var component = rectTransform.GetChild(index).GetComponent<SlotStatus>();
+
+            if (slotLevel <= warlockSpellLevel)
+            {
+                if (index < spellSlotsCount)
+                {
+                    var used = index >= totalSlotsRemainingCount - pactSlotsRemainingCount;
+
+                    component.Used.gameObject.SetActive(used);
+                    component.Available.gameObject.SetActive(!used);
+                }
+                else if (slotLevel == warlockSpellLevel)
+                {
+                    var used = index >= spellSlotsCount + pactSlotsRemainingCount;
+
+                    component.Used.gameObject.SetActive(used);
+                    component.Available.gameObject.SetActive(!used);
+                }
+                else
+                {
+                    component.Used.gameObject.SetActive(false);
+                    component.Available.gameObject.SetActive(false);
+                }
+            }
+
+            if (index >= spellSlotsCount && slotLevel <= warlockSpellLevel)
+            {
+                component.Available.GetComponent<Image>().color = LightGreenSlot;
+            }
+            else
+            {
+                component.Available.GetComponent<Image>().color = WhiteSlot;
+            }
+        }
     }
 
     public static void PaintSlotsWhite([NotNull] RectTransform rectTransform)
