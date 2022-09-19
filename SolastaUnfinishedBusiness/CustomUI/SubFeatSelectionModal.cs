@@ -8,6 +8,10 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class SubFeatSelectionModal : GuiGameScreen
 {
+    private static readonly Color DEFAULT_COLOR = new(0.407f, 0.431f, 0.443f, 0.752f);
+    private static readonly Color HEADER_COLOR = new(0.35f, 0.38f, 0.4f, 1f);
+    private static readonly Color DISABLED_COLOR = new(0.557f, 0.431f, 0.443f, 0.752f);
+
     private static SubFeatSelectionModal instance;
 
     private bool localInitialized;
@@ -32,21 +36,28 @@ public class SubFeatSelectionModal : GuiGameScreen
         Visible = true;
         itemClickHandler = onItemClicked;
         var subFeats = group.GetSubFeats();
-        Main.Log2($"SFSM [{inspectedCharacter.Name}] Bind subFeats: {subFeats.Count}");
 
         var corners = new Vector3[4];
         attachment.GetWorldCorners(corners);
         var step = corners[0].y - corners[1].y - 4f;
-        var position = attachment.position + new Vector3(0, step, 0);
+        var position = attachment.position;
 
         var featPrefab = Resources.Load<GameObject>("Gui/Prefabs/CharacterInspection/Proficiencies/FeatItem");
+
+        var header = Gui.GetPrefabFromPool(featPrefab, transform).GetComponent<FeatItem>();
+        InitFeatItem(inspectedCharacter, baseItem, baseItem.GuiFeatDefinition.FeatDefinition, header);
+        header.GetComponent<RectTransform>().position = position;
+        header.Refresh(ProficiencyBaseItem.InteractiveMode.Static, HeroDefinitions.PointsPoolType.Feat);
+        SetColor(header, HEADER_COLOR);
+
+        position += new Vector3(0, step, 0);
 
         var i = 0;
         foreach (var subFeat in subFeats)
         {
-            var qwe = Gui.GetPrefabFromPool(featPrefab, transform);
-            InitFeatItem(inspectedCharacter, baseItem, subFeat, qwe.GetComponent<FeatItem>());
-            qwe.GetComponent<RectTransform>().position = position + new Vector3(0, step * i, 0);
+            var item = Gui.GetPrefabFromPool(featPrefab, transform);
+            InitFeatItem(inspectedCharacter, baseItem, subFeat, item.GetComponent<FeatItem>());
+            item.GetComponent<RectTransform>().position = position + new Vector3(0, step * i, 0);
             i++;
         }
 
@@ -58,7 +69,9 @@ public class SubFeatSelectionModal : GuiGameScreen
         itemClickHandler = null;
         for (var i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).GetComponent<FeatItem>().Unbind();
+            var featItem = transform.GetChild(i).GetComponent<FeatItem>();
+            SetColor(featItem, DEFAULT_COLOR);
+            featItem.Unbind();
         }
 
         Gui.ReleaseChildrenToPool(transform);
@@ -139,7 +152,6 @@ public class SubFeatSelectionModal : GuiGameScreen
     private void InitFeatItem(RulesetCharacterHero inspectedCharacter, FeatItem baseItem, FeatDefinition featDefinition,
         FeatItem component)
     {
-        Main.Log2($"SFSM [{inspectedCharacter.Name}] Bind feat <{featDefinition.Name}>");
         component.Bind(inspectedCharacter, featDefinition, OnItemSelected, null, true);
         component.StageTag = baseItem.StageTag;
         component.PreviousStageTag = baseItem.PreviousStageTag;
@@ -214,6 +226,7 @@ public class SubFeatSelectionModal : GuiGameScreen
             }
             else
             {
+                SetColor(item, DISABLED_COLOR);
                 interactiveMode = ProficiencyBaseItem.InteractiveMode.Disabled;
             }
         }
@@ -223,6 +236,11 @@ public class SubFeatSelectionModal : GuiGameScreen
             : ProficiencyBaseItem.DisabledMode.Default;
 
         item.Refresh(interactiveMode, currentPoolType, disabledMode);
+    }
+
+    private static void SetColor(FeatItem item, Color color)
+    {
+        item.StaticBackground.GetComponent<Image>().color = color;
     }
 
     private void OnItemSelected(ProficiencyBaseItem item)
