@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -12,12 +12,10 @@ public class GroupedFeat : IGroupedFeat
 {
     private readonly List<FeatDefinition> feats = new();
 
-    public GroupedFeat()
+    public GroupedFeat(params FeatDefinition[] feats)
     {
-        feats.Add(DatabaseHelper.FeatDefinitions.ToxicTouch);
-        feats.Add(DatabaseHelper.FeatDefinitions.ElectrifyingTouch);
-        feats.Add(DatabaseHelper.FeatDefinitions.IcyTouch);
-        feats.Add(DatabaseHelper.FeatDefinitions.MeltingTouch);
+        this.feats.AddRange(feats);
+        this.feats.Sort(FeatsContext.CompareFeats);
     }
 
     public List<FeatDefinition> GetSubFeats()

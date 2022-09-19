@@ -37,6 +37,9 @@ internal static class FeatsContext
         ZappaFeats.CreateFeats(feats);
         EwFeats.CreateFeats(feats);
 
+        //Creates groups for some feats, needs to be last one to be called
+        FeatGroups.CreateFeats(feats);
+
         feats.ForEach(LoadFeat);
 
         DatabaseHelper.FeatDefinitions.BurningTouch.SetCustomSubFeatures(new GroupedFeat());
@@ -114,10 +117,12 @@ internal static class FeatsContext
     {
         if (Main.Settings.EnableSortingFeats)
         {
-            panel.relevantFeats.Sort((a, b) =>
-                string.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
+            panel.relevantFeats.Sort(CompareFeats);
         }
     }
+
+    public static int CompareFeats(FeatDefinition a, FeatDefinition b) => string.Compare(a.FormatTitle(), b.FormatTitle(),
+        StringComparison.CurrentCultureIgnoreCase);
 
     public static void UpdateRelevantFeatList(FeatSubPanel panel)
     {

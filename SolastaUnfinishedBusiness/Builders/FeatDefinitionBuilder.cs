@@ -46,6 +46,13 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
         Definition.mustCastSpellsPrerequisite = true;
         return This();
     }
+    
+    public TBuilder SetFeatFamily(string family)
+    {
+        Definition.hasFamilyTag = true;
+        Definition.familyTag = family;
+        return This();
+    }
 
 #if false
     public TBuilder SetClassPrerequisite(params string[] classes)
