@@ -242,7 +242,7 @@ internal static class ZappaFeats
             elvenAccuracyDexterity,
             elvenAccuracyIntelligence,
             elvenAccuracyWisdom);
-            
+
         // Fast Hands
         // var fastHands =
         //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
@@ -416,7 +416,7 @@ internal static class ZappaFeats
             metamagicAdeptHeightened,
             metamagicAdeptQuickened,
             metamagicAdeptTwinned);
-        
+
         // Primal (Constitution)
         // var primalConstitution =
         //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>

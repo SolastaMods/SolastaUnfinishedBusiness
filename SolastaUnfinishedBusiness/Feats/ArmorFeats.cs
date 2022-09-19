@@ -30,7 +30,7 @@ internal static class ArmorFeats
             DamageAffinityPiercingResistance);
 
         feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrArmorFeat, heavyArmorMasterFeat);
-        
+
         GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
             mediumDexArmorFeat,
             mediumStrArmorFeat);

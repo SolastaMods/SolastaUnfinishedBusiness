@@ -279,6 +279,34 @@ internal static class CharacterBuildingManager_UpgradeSpellPointPools
     }
 }
 
+[HarmonyPatch(typeof(CharacterBuildingManager), "IsFeatMatchingPrerequisites")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class CharacterBuildingManager_IsFeatMatchingPrerequisites
+{
+    internal static void Postfix(
+        ref bool __result,
+        CharacterHeroBuildingData heroBuildingData,
+        FeatDefinition feat,
+        ref bool isSameFamilyPrerequisite)
+    {
+        //PATCH: fixes being able to select feats from same family when more than 1 feat selection is possible aat same time
+        //vanilla code doesn't check if we already have selected feats from same family
+        if (!__result || !feat.HasFamilyTag || string.IsNullOrEmpty(feat.FamilyTag))
+        {
+            return;
+        }
+
+        if (!heroBuildingData.levelupTrainedFeats.Any(pair =>
+                pair.Value.Any(f => f.HasFamilyTag && f.FamilyTag == feat.FamilyTag)))
+        {
+            return;
+        }
+
+        __result = false;
+        isSameFamilyPrerequisite = true;
+    }
+}
+
 //BUGFIX: fixes a TA issue that not consider subclass morphotype preferences
 [HarmonyPatch(typeof(CharacterBuildingManager), "AssignDefaultMorphotypes")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

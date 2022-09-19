@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 
-namespace SolastaUnfinishedBusiness.Patches;
+namespace SolastaUnfinishedBusiness.Patches.LevelUp;
 
 internal static class FeatItemPatcher
 {
@@ -12,7 +12,8 @@ internal static class FeatItemPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
     {
-        public static bool Prefix(FeatItem __instance,
+        public static bool Prefix(
+            FeatItem __instance,
             RulesetCharacterHero inspectedCharacter,
             FeatDefinition featDefinition,
             ProficiencyBaseItem.OnItemClickedHandler onItemClicked,
@@ -20,6 +21,7 @@ internal static class FeatItemPatcher
             bool flexibleWidth)
         {
             var group = featDefinition.GetFirstSubFeatureOfType<IGroupedFeat>();
+
             if (group == null)
             {
                 return true;
@@ -27,13 +29,19 @@ internal static class FeatItemPatcher
 
             __instance.GuiFeatDefinition = ServiceRepository.GetService<IGuiWrapperService>()
                 .GetGuiFeatDefinition(featDefinition.Name);
-            __instance.Bind(inspectedCharacter, featDefinition, _ =>
-            {
-                var selector = SubFeatSelectionModal.Get();
-                selector.Cancel();
-                selector.Bind(inspectedCharacter, __instance, featDefinition, group, onItemClicked, __instance.RectTransform);
-                selector.Show();
-            }, flexibleWidth);
+            __instance.Bind(
+                inspectedCharacter,
+                featDefinition,
+                _ =>
+                {
+                    var selector = SubFeatSelectionModal.Get();
+
+                    selector.Cancel();
+                    selector.Bind(inspectedCharacter, __instance, featDefinition, group, onItemClicked,
+                        __instance.RectTransform);
+                    selector.Show();
+                },
+                flexibleWidth);
             __instance.GuiFeatDefinition.SetupTooltip(__instance.Tooltip, inspectedCharacter);
             __instance.OnItemHoverChanged = onItemHoverChanged;
 

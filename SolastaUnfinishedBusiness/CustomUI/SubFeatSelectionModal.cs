@@ -9,20 +9,20 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class SubFeatSelectionModal : GuiGameScreen
 {
-    private const float SHOW_DURATION = 0.25f;
-    private const float HIDE_DURATION = 0.1f;
-    private static readonly Color DEFAULT_COLOR = new(0.407f, 0.431f, 0.443f, 0.752f);
-    private static readonly Color NORMAL_COLOR = new(0.407f, 0.431f, 0.443f, 1f);
-    private static readonly Color HEADER_COLOR = new(0.35f, 0.42f, 0.45f, 1f);
-    private static readonly Color DISABLED_COLOR = new(0.557f, 0.431f, 0.443f, 1f);
+    private const float ShowDuration = 0.25f;
+    private const float HideDuration = 0.1f;
+    private static readonly Color DefaultColor = new(0.407f, 0.431f, 0.443f, 0.752f);
+    private static readonly Color NormalColor = new(0.407f, 0.431f, 0.443f, 1f);
+    private static readonly Color HeaderColor = new(0.35f, 0.42f, 0.45f, 1f);
+    private static readonly Color DisabledColor = new(0.557f, 0.431f, 0.443f, 1f);
 
-    private static SubFeatSelectionModal instance;
+    private static SubFeatSelectionModal _instance;
     private GuiModifierSubMenu animator;
-    private Button buton;
-    private Image image;
-    private RulesetCharacterHero character;
-    private FeatItem baseItem;
     private RectTransform attachment;
+    private FeatItem baseItem;
+    private Button button;
+    private RulesetCharacterHero character;
+    private Image image;
     private ProficiencyBaseItem.OnItemClickedHandler itemClickHandler;
 
     private bool localInitialized;
@@ -42,14 +42,14 @@ public class SubFeatSelectionModal : GuiGameScreen
         gameObject.AddComponent<CanvasGroup>();
         animator = gameObject.AddComponent<GuiModifierSubMenu>();
         image = gameObject.AddComponent<Image>();
-        buton = gameObject.AddComponent<Button>();
+        button = gameObject.AddComponent<Button>();
 
         base.Awake();
     }
 
     public static SubFeatSelectionModal Get()
     {
-        return instance ??= new GameObject().AddComponent<SubFeatSelectionModal>();
+        return _instance ??= new GameObject().AddComponent<SubFeatSelectionModal>();
     }
 
     public void Bind(RulesetCharacterHero inspectedCharacter,
@@ -81,7 +81,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         InitFeatItem(feat, header);
         header.GetComponent<RectTransform>().position = position;
         header.Refresh(ProficiencyBaseItem.InteractiveMode.Static, HeroDefinitions.PointsPoolType.Feat);
-        SetColor(header, HEADER_COLOR);
+        SetColor(header, HeaderColor);
 
         position += new Vector3(0, step, 0);
 
@@ -109,7 +109,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         for (var i = 0; i < transform.childCount; i++)
         {
             var featItem = transform.GetChild(i).GetComponent<FeatItem>();
-            SetColor(featItem, DEFAULT_COLOR);
+            SetColor(featItem, DefaultColor);
             featItem.Unbind();
         }
 
@@ -173,7 +173,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         image.color = new Color(0, 0, 0, 0.25f);
         image.alphaHitTestMinimumThreshold = 0;
 
-        buton.onClick.AddListener(OnCloseCb);
+        button.onClick.AddListener(OnCloseCb);
 
         CanvasGroup.blocksRaycasts = true;
         CanvasGroup.interactable = true;
@@ -219,7 +219,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         var pool = service.GetPointPoolOfTypeAndTag(buildingData, item.CurrentPoolType, item.StageTag);
         var restrictedChoices = pool.RestrictedChoices;
 
-        var color = NORMAL_COLOR;
+        var color = NormalColor;
 
         ProficiencyBaseItem.InteractiveMode interactiveMode;
         var isSameFamily = false;
@@ -269,7 +269,7 @@ public class SubFeatSelectionModal : GuiGameScreen
             }
             else
             {
-                color = DISABLED_COLOR;
+                color = DisabledColor;
                 interactiveMode = ProficiencyBaseItem.InteractiveMode.Disabled;
             }
         }
@@ -320,7 +320,7 @@ public class SubFeatSelectionModal : GuiGameScreen
     public override void OnBeginShow(bool instant = false)
     {
         base.OnBeginShow(instant);
-        animator.duration = SHOW_DURATION;
+        animator.duration = ShowDuration;
         if (Gui.GamepadActive)
         {
             Gui.InputService.ClearCurrentSelectable();
@@ -331,7 +331,7 @@ public class SubFeatSelectionModal : GuiGameScreen
 
     public override void OnBeginHide(bool instant = false)
     {
-        animator.duration = HIDE_DURATION;
+        animator.duration = HideDuration;
         base.OnBeginHide(instant);
     }
 

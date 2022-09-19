@@ -41,7 +41,8 @@ internal static class FeatSubPanelPatcher
         {
             var forceRebuildLayoutImmediateMethod = typeof(LayoutRebuilder)
                 .GetMethod("ForceRebuildLayoutImmediate", BindingFlags.Static | BindingFlags.Public);
-            var forceSameWidthMethod = new Action<RectTransform, bool, FeatSubPanel>(FeatsContext.ForceSameWidth).Method;
+            var forceSameWidthMethod =
+                new Action<RectTransform, bool, FeatSubPanel>(FeatsContext.ForceSameWidth).Method;
 
             var code = instructions.ToList();
             var index = code.FindIndex(x => x.Calls(forceRebuildLayoutImmediateMethod));
