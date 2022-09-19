@@ -8,9 +8,12 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class SubFeatSelectionModal : GuiGameScreen
 {
+    private const float SHOW_DURATION = 0.25f;
+    private const float HIDE_DURATION = 0.1f;
     private static readonly Color DEFAULT_COLOR = new(0.407f, 0.431f, 0.443f, 0.752f);
-    private static readonly Color HEADER_COLOR = new(0.35f, 0.38f, 0.4f, 1f);
-    private static readonly Color DISABLED_COLOR = new(0.557f, 0.431f, 0.443f, 0.752f);
+    private static readonly Color NORMAL_COLOR = new(0.407f, 0.431f, 0.443f, 1f);
+    private static readonly Color HEADER_COLOR = new(0.35f, 0.42f, 0.45f, 1f);
+    private static readonly Color DISABLED_COLOR = new(0.557f, 0.431f, 0.443f, 1f);
 
     private static SubFeatSelectionModal instance;
 
@@ -18,6 +21,7 @@ public class SubFeatSelectionModal : GuiGameScreen
     private Button buton;
     private Image image;
     private ProficiencyBaseItem.OnItemClickedHandler itemClickHandler;
+    private GuiModifierSubMenu animator;
 
     public static SubFeatSelectionModal Get()
     {
@@ -61,11 +65,14 @@ public class SubFeatSelectionModal : GuiGameScreen
             i++;
         }
 
+        animator.Init();
+
         Visible = false;
     }
 
     private void Unbind()
     {
+        animator.Clean();
         itemClickHandler = null;
         for (var i = 0; i < transform.childCount; i++)
         {
@@ -104,6 +111,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         gameObject.AddComponent<RectTransform>();
         gameObject.AddComponent<GuiTooltip>();
         gameObject.AddComponent<CanvasGroup>();
+        animator = gameObject.AddComponent<GuiModifierSubMenu>();
         image = gameObject.AddComponent<Image>();
         buton = gameObject.AddComponent<Button>();
 
@@ -134,7 +142,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         RectTransform.position = new Vector3(0, 0, 0);
 
         image.sprite = Gui.GuiService.GetScreen<BlackScreen>().GetComponent<Image>().sprite;
-        image.color = new Color(0, 0, 0, 0.85f);
+        image.color = new Color(0, 0, 0, 0.25f);
         image.alphaHitTestMinimumThreshold = 0;
 
         buton.onClick.AddListener(OnCloseCb);
@@ -177,6 +185,8 @@ public class SubFeatSelectionModal : GuiGameScreen
 
         var pool = service.GetPointPoolOfTypeAndTag(buildingData, item.CurrentPoolType, item.StageTag);
         var restrictedChoices = pool.RestrictedChoices;
+
+        var color = NORMAL_COLOR;
 
         ProficiencyBaseItem.InteractiveMode interactiveMode;
         var isSameFamily = false;
@@ -226,7 +236,7 @@ public class SubFeatSelectionModal : GuiGameScreen
             }
             else
             {
-                SetColor(item, DISABLED_COLOR);
+                color = DISABLED_COLOR;
                 interactiveMode = ProficiencyBaseItem.InteractiveMode.Disabled;
             }
         }
@@ -236,11 +246,13 @@ public class SubFeatSelectionModal : GuiGameScreen
             : ProficiencyBaseItem.DisabledMode.Default;
 
         item.Refresh(interactiveMode, currentPoolType, disabledMode);
+        SetColor(item, color);
     }
 
     private static void SetColor(FeatItem item, Color color)
     {
         item.StaticBackground.GetComponent<Image>().color = color;
+        item.canvasGroup.alpha = 1;
     }
 
     private void OnItemSelected(ProficiencyBaseItem item)
@@ -263,7 +275,7 @@ public class SubFeatSelectionModal : GuiGameScreen
     public override void OnBeginShow(bool instant = false)
     {
         base.OnBeginShow(instant);
-        // this.mainPanel.Show(instant);
+        animator.duration = SHOW_DURATION;
         if (Gui.GamepadActive)
             Gui.InputService.ClearCurrentSelectable();
         ServiceRepository.GetService<ITooltipService>().HideTooltip();
@@ -271,8 +283,14 @@ public class SubFeatSelectionModal : GuiGameScreen
 
     public override void OnBeginHide(bool instant = false)
     {
-        Unbind();
+        animator.duration = HIDE_DURATION;
         base.OnBeginHide(instant);
+    }
+
+    public override void OnEndHide()
+    {
+        Unbind();
+        base.OnEndHide();
     }
 
     public override bool HandleInput(InputCommands.Id command)
