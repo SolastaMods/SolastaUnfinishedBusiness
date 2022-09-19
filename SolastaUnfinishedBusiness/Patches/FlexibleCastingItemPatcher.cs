@@ -29,7 +29,7 @@ internal static class FlexibleCastingItemPatcher
                 return;
             }
 
-            MulticlassGameUiContext.PaintPactSlots(
+            MulticlassGameUiContext.PaintPactSlotsAlternate(
                 caster, maxSlots, remainingSlots, slotLevel, __instance.slotStatusTable);
         }
     }

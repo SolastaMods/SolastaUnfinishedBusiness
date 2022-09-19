@@ -88,7 +88,6 @@ public static class MulticlassGameUiContext
         int totalSlotsRemainingCount,
         int slotLevel,
         [NotNull] RectTransform rectTransform,
-        bool hasTooltip = false,
         bool ignorePactSlots = false)
     {
         var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
@@ -109,57 +108,45 @@ public static class MulticlassGameUiContext
         var spellSlotsRemainingCount = totalSlotsRemainingCount - pactSlotsRemainingCount;
         var spellSlotsUsedCount = spellSlotsCount - spellSlotsRemainingCount;
 
-        //if (slotLevel <= warlockSpellLevel)
+        for (var index = 0; index < rectTransform.childCount; ++index)
         {
-            for (var index = 0; index < rectTransform.childCount; ++index)
+            var component = rectTransform.GetChild(index).GetComponent<SlotStatus>();
+
+            // only tweak levels that have both spell and pact slots
+            if (slotLevel <= warlockSpellLevel)
             {
-                var component = rectTransform.GetChild(index).GetComponent<SlotStatus>();
-
-                // only tweak levels that have both spell and pact slots
-                if (slotLevel <= warlockSpellLevel)
+                // these are spell slots that display after pact ones
+                if (index >= pactSlotsCount)
                 {
-                    // these are spell slots that display after pact ones
-                    if (index >= pactSlotsCount)
-                    {
-                        var used = index >=
-                                   pactSlotsCount +
-                                   spellSlotsRemainingCount; // totalSlotsRemainingCount - pactSlotsRemainingCount;
+                    var used = index >= pactSlotsCount + spellSlotsRemainingCount;
 
-                        component.Used.gameObject.SetActive(used);
-                        component.Available.gameObject.SetActive(!used);
-                    }
-                    // these are pact slots that should only display at their highest level
-                    else if (!ignorePactSlots && slotLevel == warlockSpellLevel)
-                    {
-                        var used = index >=
-                                   totalSlotsRemainingCount -
-                                   spellSlotsRemainingCount; // spellSlotsCount + pactSlotsRemainingCount;
-
-                        component.Used.gameObject.SetActive(used);
-                        component.Available.gameObject.SetActive(!used);
-                    }
-                    else
-                    {
-                        component.Used.gameObject.SetActive(false);
-                        component.Available.gameObject.SetActive(false);
-                    }
+                    component.Used.gameObject.SetActive(used);
+                    component.Available.gameObject.SetActive(!used);
                 }
-
-                // paint spell slots white
-                if (index >= pactSlotsCount || slotLevel > warlockSpellLevel)
+                // these are pact slots that should only display at their highest level
+                else if (!ignorePactSlots && slotLevel == warlockSpellLevel)
                 {
-                    component.Available.GetComponent<Image>().color = WhiteSlot;
+                    var used = index >= totalSlotsRemainingCount - spellSlotsRemainingCount;
+
+                    component.Used.gameObject.SetActive(used);
+                    component.Available.gameObject.SetActive(!used);
                 }
                 else
                 {
-                    component.Available.GetComponent<Image>().color = LightGreenSlot;
+                    component.Used.gameObject.SetActive(false);
+                    component.Available.gameObject.SetActive(false);
                 }
             }
-        }
 
-        if (!hasTooltip)
-        {
-            return;
+            // paint spell slots white
+            if (index >= pactSlotsCount || slotLevel > warlockSpellLevel)
+            {
+                component.Available.GetComponent<Image>().color = WhiteSlot;
+            }
+            else
+            {
+                component.Available.GetComponent<Image>().color = LightGreenSlot;
+            }
         }
 
         string str;
@@ -187,6 +174,68 @@ public static class MulticlassGameUiContext
         }
 
         rectTransform.GetComponent<GuiTooltip>().Content = str;
+    }
+
+    // reaction and flexible panels should paint white slots first
+    public static void PaintPactSlotsAlternate(
+        [NotNull] RulesetCharacterHero hero,
+        int totalSlotsCount,
+        int totalSlotsRemainingCount,
+        int slotLevel,
+        [NotNull] RectTransform rectTransform)
+    {
+        var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
+        var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
+        var pactSlotsCount = 0;
+        var pactSlotsRemainingCount = 0;
+
+        if (warlockSpellRepertoire != null)
+        {
+            var pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(hero);
+
+            pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            pactSlotsRemainingCount = pactSlotsCount - pactSlotsUsedCount;
+        }
+
+        var spellSlotsCount = totalSlotsCount - pactSlotsCount;
+
+        for (var index = 0; index < rectTransform.childCount; ++index)
+        {
+            var component = rectTransform.GetChild(index).GetComponent<SlotStatus>();
+
+            if (slotLevel <= warlockSpellLevel)
+            {
+                if (index < spellSlotsCount)
+                {
+                    var used = index >= totalSlotsRemainingCount - pactSlotsRemainingCount;
+
+                    component.Used.gameObject.SetActive(used);
+                    component.Available.gameObject.SetActive(!used);
+                }
+                else if (slotLevel == warlockSpellLevel)
+                {
+                    var used = index >= spellSlotsCount + pactSlotsRemainingCount;
+
+                    component.Used.gameObject.SetActive(used);
+                    component.Available.gameObject.SetActive(!used);
+                }
+                else
+                {
+                    component.Used.gameObject.SetActive(false);
+                    component.Available.gameObject.SetActive(false);
+                }
+            }
+
+            if (index >= spellSlotsCount && slotLevel <= warlockSpellLevel)
+            {
+                component.Available.GetComponent<Image>().color = LightGreenSlot;
+            }
+            else
+            {
+                component.Available.GetComponent<Image>().color = WhiteSlot;
+            }
+        }
     }
 
     public static void PaintSlotsWhite([NotNull] RectTransform rectTransform)

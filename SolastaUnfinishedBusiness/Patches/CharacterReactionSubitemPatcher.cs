@@ -26,7 +26,7 @@ internal static class CharacterReactionSubitemPatcher
 
             spellRepertoire.GetSlotsNumber(slotLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
-            MulticlassGameUiContext.PaintPactSlots(
+            MulticlassGameUiContext.PaintPactSlotsAlternate(
                 heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, slotLevel,
                 __instance.slotStatusTable);
         }

@@ -168,8 +168,6 @@ internal static class RulesetSpellRepertoirePatcher
             var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
-            SharedSpellsContext.FactorMysticArcanum(heroWithSpellRepertoire, __instance, ref warlockSpellLevel);
-
             __result = Math.Max(sharedSpellLevel, warlockSpellLevel);
         }
     }
@@ -212,6 +210,36 @@ internal static class RulesetSpellRepertoirePatcher
             }
 
             return false;
+        }
+    }
+
+    //PATCH: only offers upcast Warlock pact at their correct slot level
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetSpellRepertoire_CanUpcastSpell
+    {
+        internal static void Postfix(RulesetSpellRepertoire __instance, SpellDefinition spellDefinition,
+            List<int> availableSlotLevels)
+        {
+            if (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+            {
+                return;
+            }
+
+            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
+
+            if (heroWithSpellRepertoire == null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+            {
+                return;
+            }
+
+            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+
+            for (var i = sharedSpellLevel + 1; i < warlockSpellLevel; i++)
+            {
+                availableSlotLevels.Remove(i);
+            }
         }
     }
 }

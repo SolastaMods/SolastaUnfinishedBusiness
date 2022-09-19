@@ -46,7 +46,7 @@ internal static class SlotStatusTablePatcher
         }
 
         //PATCH: creates different slots colors and pop up messages depending on slot types
-        public static void Postfix(
+        internal static void Postfix(
             SlotStatusTable __instance,
             RulesetSpellRepertoire spellRepertoire,
             int spellLevel)
@@ -72,7 +72,6 @@ internal static class SlotStatusTablePatcher
                 totalSlotsRemainingCount,
                 spellLevel,
                 __instance.table,
-                true,
                 spellRepertoire.spellCastingClass == Warlock
                 || !Main.Settings.DisplayPactSlotsOnNonWarlockRepertoires);
         }
