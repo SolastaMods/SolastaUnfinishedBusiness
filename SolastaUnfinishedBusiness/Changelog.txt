@@ -7,6 +7,7 @@
 - Deprecate class theme based and chef feats
 - Remove Level Down feature
 - Support official Bard, Monk and Warlock
+- Add sub feats selection
 - Improve many under the hood systems
 
 NEXT (TBD):
