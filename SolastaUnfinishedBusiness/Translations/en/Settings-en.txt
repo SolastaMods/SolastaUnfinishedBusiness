@@ -86,7 +86,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify fac
 ModUi/&FactionRelations=<color=#F0DAA0>Faction Relations:</color>
 ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space bar</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
-ModUi/&FeatGroupsHelp=. Each setting will group some feats into a folder\n. Those feats won't be visible in the feat selection screen but below groups would be\n. Clicking on it will reveal list of feats from that group. Useful to de-clutter feat menu
+ModUi/&FeatGroupsHelp=. Each setting will consolidate some feats into a group\n. Those feats won't be visible in the feat selection screen but below groups will be\n. Clicking on them reveals a dropdown list of feats <i><color=#F0DAA0>[useful to de-clutter the feats menu]</color></i>
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FeatsFightingStyles=Feats & Fighting Styles
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
