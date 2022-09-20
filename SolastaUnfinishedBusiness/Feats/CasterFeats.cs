@@ -385,7 +385,7 @@ internal static class CasterFeats
         groups.Add(GroupFeats.MakeGroup("FeatGroupShadowTouched", SHADOW_TOUCHED, newFeats));
         feats.AddRange(newFeats);
 
-        feats.Add(GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups));
+        GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups);
     }
 
     [NotNull]
