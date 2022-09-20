@@ -63,6 +63,7 @@ internal static class EwSpells
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
                 PerformAttackAfterMagicEffectUse.MeleeAttack,
+                new UpgradeRangeBasedOnWeaponReach(),
                 CustomSpellEffectLevel.ByCasterLevel
             )
             .SetCastingTime(RuleDefinitions.ActivationTime.Action)
@@ -70,7 +71,7 @@ internal static class EwSpells
                 .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)
                 .SetTargetingData(
                     RuleDefinitions.Side.Enemy,
-                    RuleDefinitions.RangeType.Touch,
+                    RuleDefinitions.RangeType.Distance,
                     1,
                     RuleDefinitions.TargetType.Individuals
                 )

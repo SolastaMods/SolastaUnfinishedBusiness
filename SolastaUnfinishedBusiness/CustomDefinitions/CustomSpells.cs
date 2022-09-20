@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
@@ -52,5 +53,33 @@ internal sealed class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
     {
         var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
         return casterLevel < _level ? null : _upgraded;
+    }
+}
+
+internal sealed class UpgradeRangeBasedOnWeaponReach : IModifySpellEffect
+{
+    public EffectDescription ModifyEffect(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster)
+    {
+        if (caster is not RulesetCharacterHero hero)
+        {
+            return effect;
+        }
+
+        var weapon = hero.GetMainWeapon();
+        if (weapon == null || !weapon.itemDefinition.IsWeapon)
+        {
+            return effect;
+        }
+
+        var reach = weapon.itemDefinition.WeaponDescription.ReachRange;
+
+        if (reach <= 1)
+        {
+            return effect;
+        }
+
+        var modified = effect.Copy();
+        modified.rangeParameter = reach;
+        return modified;
     }
 }
