@@ -507,6 +507,7 @@ public static class CustomFeaturesContext
     {
         var caster = Global.InspectedHero
                      ?? Global.ActiveLevelUpHero
+                     ?? Global.ControlledPlayerCharacter?.RulesetCharacter
                      ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
         return ModifySpellEffect(original, spell.SpellDefinition, caster);
