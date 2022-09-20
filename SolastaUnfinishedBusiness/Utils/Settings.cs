@@ -61,7 +61,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingRaces { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableEnhancedCharacterInspection { get; set; } = true;
-    public bool HideChildrenFeatsOnModUi { get; set; }
+    public bool HideChildrenFeatsOnModUi { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
 
     //
@@ -152,7 +152,7 @@ public class Settings : UnityModManager.ModSettings
 
     // SRD
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
-    public bool UseMoreRestrictiveAcStacking { get; set; }
+    // public bool UseMoreRestrictiveAcStacking { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }

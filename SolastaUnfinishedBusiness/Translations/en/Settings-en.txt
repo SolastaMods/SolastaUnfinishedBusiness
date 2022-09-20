@@ -85,8 +85,9 @@ ModUi/&ExpandAll=Expand All
 ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Faction Relations:</color>
 ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space bar</color>
-ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
+ModUi/&FeatGroupsHelp=. Each setting will group some feats into a folder\n. Those feats won't be visible in the feat selection screen but below groups would be\n. Clicking on it will reveal list of feats from that group. Useful to de-clutter feat menu
+ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FeatsFightingStyles=Feats & Fighting Styles
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[a spell must be incapable of targeting more than one creature at the spell's current level]</color></i>
@@ -181,8 +182,6 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all ma
 ModUi/&UnlockGlowingEyeColors=Add glowing eye colors
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UseHeightOneCylinderEffect=Display a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> (square) and <color=#D89555>Spike Growth</color> (round)
-ModUi/&UseMoreRestrictiveAcStacking=AC granting clothes and <color=#D89555>Barkskin</color> won't stack with <color=#D89555>Unarmored Defense</color> or similar features
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&WeaponTag=Weapon Tag
-ModUi/&FeatGroupsHelp=Each setting will group some feats into a folder. Those feats won't be visible in the feat selection screen but new option with a group name would be present. Clicking on it will reveal list of feats from that group. Useful to de-clutter feat menu.

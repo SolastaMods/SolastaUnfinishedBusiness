@@ -17,13 +17,14 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
         }
 
-        UI.Label("");
-
-        toggle = Main.Settings.UseMoreRestrictiveAcStacking;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseMoreRestrictiveAcStacking"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseMoreRestrictiveAcStacking = toggle;
-        }
+        // UI.Label("");
+        //
+        // toggle = Main.Settings.UseMoreRestrictiveAcStacking;
+        // if (UI.Toggle(Gui.Localize("ModUi/&UseMoreRestrictiveAcStacking"), ref toggle, UI.AutoWidth()))
+        // {
+        //     Main.Settings.UseMoreRestrictiveAcStacking = toggle;
+        // }
+        // ModUi/&UseMoreRestrictiveAcStacking=AC granting clothes and <color=#D89555>Barkskin</color> won't stack with <color=#D89555>Unarmored Defense</color> or similar features
 
         UI.Label("");
 
