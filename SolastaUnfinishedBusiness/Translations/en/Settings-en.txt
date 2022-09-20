@@ -185,4 +185,4 @@ ModUi/&UseMoreRestrictiveAcStacking=AC granting clothes and <color=#D89555>Barks
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&WeaponTag=Weapon Tag
-ModUi/&FeatGroupsHelp=. Feat groups help placeholder
+ModUi/&FeatGroupsHelp=. Feat groups are simply feats consolidated under a group on the feats selection panel <i><color=#F0DAA0>[idea is to reduce the use of screen real state]/color></i>
