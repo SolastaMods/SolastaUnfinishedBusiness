@@ -45,7 +45,7 @@ internal static class FeatsContext
         GroupFeats.CreateFeats(groups);
 
         groups.ForEach(LoadFeatGroup);
-        
+
         // hide children feats from mod UI
         if (Main.Settings.HideChildrenFeatsOnModUi)
         {
@@ -61,6 +61,19 @@ internal static class FeatsContext
         // sorting
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
         FeatGroups = FeatGroups.OrderBy(x => x.FormatTitle()).ToHashSet();
+
+        // settings paring
+        foreach (var featName in Main.Settings.FeatEnabled.ToList()
+                     .Where(featName => Feats.All(x => x.Name != featName)))
+        {
+            Main.Settings.FeatEnabled.Remove(featName);
+        }
+
+        foreach (var featName in Main.Settings.FeatGroupEnabled.ToList()
+                     .Where(featName => FeatGroups.All(x => x.Name != featName)))
+        {
+            Main.Settings.FeatGroupEnabled.Remove(featName);
+        }
     }
 
     private static void LoadFeat([NotNull] FeatDefinition featDefinition)
@@ -164,7 +177,7 @@ internal static class FeatsContext
         var toRemove = new List<FeatDefinition>();
         foreach (var group in panel.relevantFeats
                      .Select(feat => feat.GetFirstSubFeatureOfType<IGroupedFeat>())
-                     .Where(group => group is {HideSubFeats: true}))
+                     .Where(group => group is { HideSubFeats: true }))
         {
             toRemove.AddRange(group.GetSubFeats());
         }

@@ -20,7 +20,15 @@ internal static class FightingStyleContext
         LoadStyle(new TitanFighting());
         LoadStyle(new Merciless());
 
+        // sorting
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
+
+        // settings paring
+        foreach (var featName in Main.Settings.FightingStyleEnabled.ToList()
+                     .Where(featName => FightingStyles.All(x => x.Name != featName)))
+        {
+            Main.Settings.FightingStyleEnabled.Remove(featName);
+        }
     }
 
     private static void LoadStyle([NotNull] AbstractFightingStyle styleBuilder)

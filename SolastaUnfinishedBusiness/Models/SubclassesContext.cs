@@ -58,7 +58,15 @@ internal static class SubclassesContext
         LoadSubclass(new WizardMasterManipulator());
         LoadSubclass(new WizardSpellMaster());
 
+        // sorting
         Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
+
+        // settings paring
+        foreach (var featName in Main.Settings.SubclassEnabled.ToList()
+                     .Where(featName => Subclasses.All(x => x.Name != featName)))
+        {
+            Main.Settings.SubclassEnabled.Remove(featName);
+        }
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {

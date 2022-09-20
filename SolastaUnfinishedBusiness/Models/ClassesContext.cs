@@ -37,7 +37,16 @@ internal static class ClassesContext
         // LoadClass(Warlock.BuildWarlockClass());
         // LoadClass(Witch.Instance);
         // LoadClass(Magus.BuildMagusClass());
+
+        // sorting
         Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
+
+        // settings paring
+        foreach (var featName in Main.Settings.ClassEnabled.ToList()
+                     .Where(featName => Classes.All(x => x.Name != featName)))
+        {
+            Main.Settings.ClassEnabled.Remove(featName);
+        }
     }
 
     internal static void LateLoad()

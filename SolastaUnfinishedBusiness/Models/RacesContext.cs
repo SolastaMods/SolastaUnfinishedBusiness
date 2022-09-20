@@ -43,7 +43,15 @@ internal static class RacesContext
         LoadRace(GrayDwarfSubraceBuilder.GrayDwarfSubrace);
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariantRace); // depends on DarkElf sub race
 
+        // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
+
+        // settings paring
+        foreach (var featName in Main.Settings.RaceEnabled.ToList()
+                     .Where(featName => Races.All(x => x.Name != featName)))
+        {
+            Main.Settings.RaceEnabled.Remove(featName);
+        }
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
