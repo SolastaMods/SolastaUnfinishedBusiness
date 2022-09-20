@@ -66,8 +66,8 @@ namespace SolastaUnfinishedBusiness.Displays
             [NotNull] List<string> selectedDefinitions,
             ref bool displayToggle,
             ref int sliderPosition,
-            string helpTerm = "",
             bool useAlternateDescription = false,
+            [CanBeNull] Action headerRendering = null,
             [CanBeNull] Action additionalRendering = null) where T : BaseDefinition
         {
             if (registeredDefinitions.Count == 0)
@@ -93,11 +93,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
             UI.Label("");
 
-            if (helpTerm != string.Empty)
-            {
-                UI.Label(Gui.Localize(helpTerm));
-                UI.Label("");
-            }
+            headerRendering?.Invoke();
 
             using (UI.HorizontalScope())
             {

@@ -19,6 +19,21 @@ internal static class FeatsAndFightingStylesDisplay
         Main.Settings.DisplayFeatsToggle = displayToggle;
         Main.Settings.FeatSliderPosition = sliderPos;
 
+        static void FeatGroupsHeader()
+        {
+            UI.Label(Gui.Localize("ModUi/&FeatGroupsHelp"));
+            UI.Label("");
+
+            var toggle = Main.Settings.HideChildrenFeatsOnModUi;
+
+            if (UI.Toggle(Gui.Localize("ModUi/&HideChildrenFeatsOnModUi"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.HideChildrenFeatsOnModUi = toggle;
+            }
+
+            UI.Label("");
+        }
+
         displayToggle = Main.Settings.DisplayFeatGroupsToggle;
         sliderPos = Main.Settings.FeatGroupSliderPosition;
         ModUi.DisplayDefinitions(
@@ -28,8 +43,7 @@ internal static class FeatsAndFightingStylesDisplay
             Main.Settings.FeatGroupEnabled,
             ref displayToggle,
             ref sliderPos,
-            "ModUi/&FeatGroupsHelp",
-            true);
+            headerRendering: FeatGroupsHeader);
         Main.Settings.DisplayFeatGroupsToggle = displayToggle;
         Main.Settings.FeatGroupSliderPosition = sliderPos;
 
