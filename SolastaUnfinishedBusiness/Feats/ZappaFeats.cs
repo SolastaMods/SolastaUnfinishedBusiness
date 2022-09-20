@@ -46,6 +46,9 @@ internal static class ZappaFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        const string PrecisionFocused = "PrecisionFocused";
+        const string DefenseExpert = "DefenseExpert";
+
         // Arcane Defense
         var arcaneDefense = FeatDefinitionBuilder
             .Create("FeatArcaneDefense", DefinitionBuilder.CENamespaceGuid)
@@ -61,6 +64,7 @@ internal static class ZappaFeats
                     .AddToDB()
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
+            .SetFeatFamily(DefenseExpert)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -105,6 +109,7 @@ internal static class ZappaFeats
                 arcanePrecisionPower
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
+            .SetFeatFamily(PrecisionFocused)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -136,6 +141,7 @@ internal static class ZappaFeats
                     .AddToDB()
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+            .SetFeatFamily(DefenseExpert)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -180,6 +186,7 @@ internal static class ZappaFeats
                 charismaticPrecisionPower
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+            .SetFeatFamily(PrecisionFocused)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -489,6 +496,7 @@ internal static class ZappaFeats
                 AttributeModifierMonkUnarmoredDefense
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
+            .SetFeatFamily(DefenseExpert)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -533,6 +541,7 @@ internal static class ZappaFeats
                 wisePrecisionPower
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
+            .SetFeatFamily(PrecisionFocused)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -569,7 +578,7 @@ internal static class ZappaFeats
             wiseDefense,
             wisePrecision);
 
-        GroupFeats.MakeGroup("FeatGroupDefenseExpert", "DefenseExpert",
+        GroupFeats.MakeGroup("FeatGroupDefenseExpert", DefenseExpert,
             arcaneDefense,
             charismaticDefense,
             wiseDefense);
@@ -580,12 +589,12 @@ internal static class ZappaFeats
             elvenAccuracyIntelligence,
             elvenAccuracyWisdom);
 
-        GroupFeats.MakeGroup("FeatGroupPrecisionFocused", "PrecisionFocused",
+        GroupFeats.MakeGroup("FeatGroupPrecisionFocused", PrecisionFocused,
             arcanePrecision,
             charismaticPrecision,
             wisePrecision);
 
-        GroupFeats.MakeGroup("FeatGroupMetamagic", "Metamagic",
+        GroupFeats.MakeGroup("FeatGroupMetamagic", null,
             metamagicAdeptCareful,
             metamagicAdeptDistant,
             metamagicAdeptEmpowered,
