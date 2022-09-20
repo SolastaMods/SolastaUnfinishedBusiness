@@ -8,10 +8,11 @@
   "minimalAbilityScoreName": "Wisdom",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "PrecisionFocused",
   "knownFeatsPrerequisite": [],
   "features": [
+    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
     "Definition:PowerWisePrecision:b17877a0-5dcf-5c4b-be38-2401c5596258"
   ],
   "guiPresentation": {

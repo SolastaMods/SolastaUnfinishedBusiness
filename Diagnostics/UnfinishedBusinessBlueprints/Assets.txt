@@ -388,13 +388,15 @@ FeatGreatWeapon	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPr
 FeatGroupApothecary	FeatDefinition	FeatDefinition	9b53f105-90af-5055-a801-00415348a616
 FeatGroupCelestialTouched	FeatDefinition	FeatDefinition	2db2859d-daee-5ef4-81a7-64adb5473156
 FeatGroupCreed	FeatDefinition	FeatDefinition	fa6d77ba-64d9-5e53-807b-375a3239f17f
+FeatGroupDefenseExpert	FeatDefinition	FeatDefinition	66e3f8c9-5bc1-5415-b2a3-0631450564a9
 FeatGroupElementalTouch	FeatDefinition	FeatDefinition	66f44d06-1557-52db-a92a-a97d3b993e41
-FeatGroupElvenAccuracy	FeatDefinition	FeatDefinition	fc305079-6815-5a08-b3e5-fcfeea95d903
+FeatGroupElvenAccuracy	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	fc305079-6815-5a08-b3e5-fcfeea95d903
 FeatGroupFightingStyle	FeatDefinition	FeatDefinition	a9395b1c-83fc-5649-9eb2-508ed6e87571
 FeatGroupFlameTouched	FeatDefinition	FeatDefinition	d56829e9-dad7-5512-a8e3-7a221bcc5774
 FeatGroupMediumArmor	FeatDefinition	FeatDefinition	787303d6-ad88-510c-a74d-15bd56d1ad02
 FeatGroupMetamagic	FeatDefinition	FeatDefinition	816eafb5-6e4a-5182-b0b3-184137b0222f
 FeatGroupPlaneTouchedMagic	FeatDefinition	FeatDefinition	937ec083-fac8-53c1-8e3e-e19b79a1b415
+FeatGroupPrecisionFocused	FeatDefinition	FeatDefinition	6883a6a3-69f3-5dfb-80ab-4a2f36f43c4f
 FeatGroupShadowTouched	FeatDefinition	FeatDefinition	8279eade-c82e-56e7-94ab-6cfadf16b4a4
 FeatGroupTelekinetic	FeatDefinition	FeatDefinition	f0f267c0-c1e7-57f6-8151-e16e800c37a9
 FeatGroupTeleportation	FeatDefinition	FeatDefinition	9975285e-172f-531f-b635-e72d33e69d91

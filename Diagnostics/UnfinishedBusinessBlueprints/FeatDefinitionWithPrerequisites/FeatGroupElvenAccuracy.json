@@ -1,25 +1,22 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Wisdom",
+  "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "DefenseExpert",
+  "familyTag": "ElvenPrecision",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:AttributeModifierMonkUnarmoredDefense:d508c64aff29e3b478f08bd67d2d430f"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatWiseDefenseTitle",
-    "description": "Feat/&FeatWiseDefenseDescription",
+    "title": "Feat/&FeatGroupElvenAccuracyTitle",
+    "description": "Feat/&FeatGroupElvenAccuracyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e462dc4b-d1fb-5fbd-80a9-1ae6b4ef3398",
+  "guid": "fc305079-6815-5a08-b3e5-fcfeea95d903",
   "contentPack": 9999,
-  "name": "FeatWiseDefense"
+  "name": "FeatGroupElvenAccuracy"
 }

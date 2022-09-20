@@ -9,14 +9,14 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "ElvenAccuracy",
+  "familyTag": "PrecisionFocused",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupElvenAccuracyTitle",
-    "description": "Feat/&FeatGroupElvenAccuracyDescription",
+    "title": "Feat/&FeatGroupPrecisionFocusedTitle",
+    "description": "Feat/&FeatGroupPrecisionFocusedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fc305079-6815-5a08-b3e5-fcfeea95d903",
+  "guid": "6883a6a3-69f3-5dfb-80ab-4a2f36f43c4f",
   "contentPack": 9999,
-  "name": "FeatGroupElvenAccuracy"
+  "name": "FeatGroupPrecisionFocused"
 }

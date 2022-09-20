@@ -3,23 +3,20 @@
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Wisdom",
+  "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
   "familyTag": "DefenseExpert",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:AttributeModifierMonkUnarmoredDefense:d508c64aff29e3b478f08bd67d2d430f"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatWiseDefenseTitle",
-    "description": "Feat/&FeatWiseDefenseDescription",
+    "title": "Feat/&FeatGroupDefenseExpertTitle",
+    "description": "Feat/&FeatGroupDefenseExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e462dc4b-d1fb-5fbd-80a9-1ae6b4ef3398",
+  "guid": "66e3f8c9-5bc1-5415-b2a3-0631450564a9",
   "contentPack": 9999,
-  "name": "FeatWiseDefense"
+  "name": "FeatGroupDefenseExpert"
 }
