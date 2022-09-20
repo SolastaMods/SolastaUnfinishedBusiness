@@ -61,6 +61,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingRaces { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableEnhancedCharacterInspection { get; set; } = true;
+    public bool HideChildrenFeatsOnModUi { get; set; }
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
 
     //

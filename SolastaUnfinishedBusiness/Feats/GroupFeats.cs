@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -11,28 +12,40 @@ namespace SolastaUnfinishedBusiness.Feats;
 public static class GroupFeats
 {
     private static readonly List<FeatDefinition> Groups = new();
+    private static readonly List<FeatDefinition> Children = new();
 
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildElementalTouchGroup());
         feats.Add(BuildCreedGroup());
         feats.AddRange(Groups);
+
+        if (!Main.Settings.HideChildrenFeatsOnModUi)
+        {
+            return;
+        }
+
+        // hide children feats on MOD UI selection
+        feats.RemoveAll(x => Children.Contains(x));
+        FeatsContext.Feats.RemoveWhere(x => Children.Contains(x));
     }
 
     public static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
     {
         return MakeGroup(name, family, feats.ToList());
     }
-    
+
     public static FeatDefinition MakeGroup(FeatDefinition group)
     {
         Groups.Add(group);
         return group;
     }
-    
+
     public static FeatDefinition MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
     {
         group.SetCustomSubFeatures(new GroupedFeat(feats));
+        Children.AddRange(feats);
+
         return MakeGroup(group);
     }
 
@@ -45,7 +58,10 @@ public static class GroupFeats
             .SetFeatFamily(family)
             .SetFeatures()
             .AddToDB();
+
         Groups.Add(group);
+        Children.AddRange(feats);
+
         return group;
     }
 
