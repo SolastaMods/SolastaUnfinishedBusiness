@@ -433,17 +433,55 @@ public static class CustomFeaturesContext
         return ModifySpellEffect(spell.EffectDescription, spell, caster);
     }
 
+    private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = new();
+
+    private static EffectDescription GetCachedEffect(RulesetCharacter caster, SpellDefinition spell)
+    {
+        if (!SpellEffectCache.TryGetValue(caster.Guid, out var efefcts))
+        {
+            return null;
+        }
+
+        return !efefcts.TryGetValue(spell.Name, out var effect) ? null : effect;
+    }
+
+    private static void CacheEffect(RulesetCharacter caster, SpellDefinition spell, EffectDescription effect)
+    {
+        Dictionary<string, EffectDescription> effects;
+        if (!SpellEffectCache.ContainsKey(caster.Guid))
+        {
+            effects = new Dictionary<string, EffectDescription>();
+            SpellEffectCache.Add(caster.Guid, effects);
+        }
+        else
+        {
+            effects = SpellEffectCache[caster.Guid];
+        }
+
+        effects.AddOrReplace(spell.Name, effect);
+    }
+
+    public static void ClearSpellEffectCache(RulesetCharacter caster)
+    {
+        SpellEffectCache.Remove(caster.Guid);
+    }
+
     private static EffectDescription ModifySpellEffect(
         EffectDescription original,
         SpellDefinition spell,
         [CanBeNull] RulesetCharacter caster)
     {
-        //TODO: find a way to cache result, so it works faster - this method is called several times per spell cast
         var result = original;
 
         if (caster == null)
         {
             return result;
+        }
+
+        var cached = GetCachedEffect(caster, spell);
+        if (cached != null)
+        {
+            return cached;
         }
 
         var baseDefinition = spell.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
@@ -460,6 +498,7 @@ public static class CustomFeaturesContext
             result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(spell, current, caster));
         }
 
+        CacheEffect(caster, spell, result);
         return result;
     }
 
