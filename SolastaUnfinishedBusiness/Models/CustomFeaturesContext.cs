@@ -441,13 +441,19 @@ public static class CustomFeaturesContext
         //TODO: find a way to cache result, so it works faster - this method is called several times per spell cast
         var result = original;
 
+        if (caster == null)
+        {
+            return result;
+        }
+
         var baseDefinition = spell.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
-        if (baseDefinition != null && caster != null)
+        if (baseDefinition != null)
         {
             result = baseDefinition.GetCustomEffect(caster) ?? original;
         }
 
-        var modifiers = caster.GetFeaturesByType<IModifySpellEffect>();
+        var modifiers = caster.GetSubFeaturesByType<IModifySpellEffect>();
+        modifiers.AddRange(spell.GetAllSubFeaturesOfType<IModifySpellEffect>());
 
         if (!modifiers.Empty())
         {
@@ -457,22 +463,14 @@ public static class CustomFeaturesContext
         return result;
     }
 
-    /**Modifies spell description for GUI purposes. Uses only modifiers based on ICustomMagicEffectBasedOnCaster*/
+    /**Modifies spell description for GUI purposes.*/
     public static EffectDescription ModifySpellEffectGui(EffectDescription original, [NotNull] GuiSpellDefinition spell)
     {
-        var result = original;
         var caster = Global.InspectedHero
                      ?? Global.ActiveLevelUpHero
                      ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
-        var baseDefinition = spell.SpellDefinition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
-
-        if (baseDefinition != null && caster != null)
-        {
-            result = baseDefinition.GetCustomEffect(caster) ?? original;
-        }
-
-        return result;
+        return ModifySpellEffect(original, spell.SpellDefinition, caster);
     }
 
     // [NotNull]
