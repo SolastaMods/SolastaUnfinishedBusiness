@@ -529,6 +529,7 @@ internal static class ZappaFeats
         var wisePrecision = FeatDefinitionBuilder
             .Create("FeatWisePrecision", DefinitionBuilder.CENamespaceGuid)
             .SetFeatures(
+                AttributeModifierCreed_Of_Maraike,
                 wisePrecisionPower
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
