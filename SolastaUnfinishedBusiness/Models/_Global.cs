@@ -32,6 +32,25 @@ public static class Global
 
     // active player character
     public static GameLocationCharacter ActivePlayerCharacter { get; private set; }
+    public static GameLocationCharacter ControlledPlayerCharacter
+    {
+        get
+        {
+            var exploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
+            if (exploration.Visible)
+            {
+                return exploration.CharacterControlPanel.GuiCharacter?.GameLocationCharacter;
+            }
+            
+            var battle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
+            if (battle.Visible)
+            {
+                return battle.CharacterControlPanel.GuiCharacter?.GameLocationCharacter;
+            }
+
+            return null;
+        }
+    }
 
     // current action from any character on the map
     public static CharacterAction CurrentAction { get; private set; }
