@@ -151,7 +151,7 @@ namespace SolastaUnfinishedBusiness.Displays
                             if (sliderPosition == 1)
                             {
                                 var description = useAlternateDescription
-                                    ? Gui.Localize($"Feat/&{definition.Name}AlternateDescription")
+                                    ? Gui.Localize($"ModUi/&{definition.Name}Description")
                                     : definition.FormatDescription();
 
                                 if (flip)

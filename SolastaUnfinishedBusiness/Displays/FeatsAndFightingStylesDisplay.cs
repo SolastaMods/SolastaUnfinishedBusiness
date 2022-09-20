@@ -28,8 +28,7 @@ internal static class FeatsAndFightingStylesDisplay
             Main.Settings.FeatGroupEnabled,
             ref displayToggle,
             ref sliderPos,
-            //TODO: change to true once we have descriptions ready
-            false);
+            true);
         Main.Settings.DisplayFeatGroupsToggle = displayToggle;
         Main.Settings.FeatGroupSliderPosition = sliderPos;
 
