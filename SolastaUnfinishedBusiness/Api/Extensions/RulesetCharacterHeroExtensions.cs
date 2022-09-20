@@ -95,4 +95,10 @@ public static class RulesetCharacterHeroExtensions
             ? classLevel
             : 0;
     }
+
+    public static RulesetItem GetMainWeapon(this RulesetCharacterHero hero)
+    {
+        var slotsByName = hero.CharacterInventory.InventorySlotsByName;
+        return slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+    }
 }
