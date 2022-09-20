@@ -72,8 +72,8 @@ internal static class SlotStatusTablePatcher
                 totalSlotsRemainingCount,
                 spellLevel,
                 __instance.table,
-                spellRepertoire.spellCastingClass == Warlock
-                || !Main.Settings.DisplayPactSlotsOnNonWarlockRepertoires);
+                ignorePactSlots: (Global.InspectedHero != null && spellRepertoire.spellCastingClass == Warlock)
+                || (Global.InspectedHero == null && !Main.Settings.DisplayPactSlotsOnSpellSelectionPanel));
         }
     }
 

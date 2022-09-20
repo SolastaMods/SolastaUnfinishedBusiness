@@ -87,7 +87,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMinInOutAttributes { get; set; } = true;
     public bool EnableRelearnSpells { get; set; }
     public bool DisplayAllKnownSpellsDuringLevelUp { get; set; } = true;
-    public bool DisplayPactSlotsOnNonWarlockRepertoires { get; set; } = true;
+    public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; } = true;
 
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }

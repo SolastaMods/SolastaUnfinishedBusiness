@@ -14,35 +14,44 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class GuiCharacterPatcher
 {
-    //PATCH: Don't display Unique Level Spell Slots if MC hero (Multiclass)
     [HarmonyPatch(typeof(GuiCharacter), "DisplayUniqueLevelSpellSlots")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class DisplayUniqueLevelSpellSlots_Patch
     {
-        // internal static bool Prefix(
-        //     RulesetSpellRepertoire spellRepertoire,
-        //     RectTransform uniqueLevelSlotsGroup)
-        // {
-        //     if (uniqueLevelSlotsGroup == null || spellRepertoire == null)
-        //     {
-        //         return true;
-        //     }
-        //
-        //     var hero = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
-        //
-        //     if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
-        //     {
-        //         return true;
-        //     }
-        //     
-        //     uniqueLevelSlotsGroup.gameObject.SetActive(false);
-        //
-        //     return false;
-        // }
+        internal static void Postfix(
+            RulesetSpellRepertoire spellRepertoire,
+            RectTransform uniqueLevelSlotsGroup)
+        {
+            //PATCH: Don't display Unique Level Spell Slots if MC hero (MULTICLASS)
+            if (uniqueLevelSlotsGroup == null || spellRepertoire == null)
+            {
+                return;
+            }
+
+            if (Global.InspectedHero != null)
+            {
+                return;
+            }
+
+            if (!Main.Settings.DisplayPactSlotsOnSpellSelectionPanel)
+            {
+                return;
+            }
+
+            var hero = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
+
+            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
+            {
+                return;
+            }
+
+            uniqueLevelSlotsGroup.gameObject.SetActive(false);
+        }
 
         public static void GetSlotsNumber(RulesetSpellRepertoire spellRepertoire, int spellLevel, out int remaining,
             out int max, GuiCharacter guiCharacter)
         {
+            //PATCH: calculates the Warlock slots number correctly under a MC scenario (MULTICLASS)
             spellRepertoire.GetSlotsNumber(spellLevel, out remaining, out max);
 
             var hero = guiCharacter.RulesetCharacterHero;

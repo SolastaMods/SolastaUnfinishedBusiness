@@ -137,10 +137,10 @@ internal static class CharacterDisplay
                 Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
             }
 
-            toggle = Main.Settings.DisplayPactSlotsOnNonWarlockRepertoires;
-            if (UI.Toggle(Gui.Localize("ModUi/&DisplayPactSlotsOnNonWarlockRepertoires"), ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.DisplayPactSlotsOnSpellSelectionPanel;
+            if (UI.Toggle(Gui.Localize("ModUi/&DisplayPactSlotsOnSpellSelectionPanel"), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.DisplayPactSlotsOnNonWarlockRepertoires = toggle;
+                Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = toggle;
             }
 
             UI.Label("");
