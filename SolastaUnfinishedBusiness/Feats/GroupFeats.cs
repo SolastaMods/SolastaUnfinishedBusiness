@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -11,22 +11,29 @@ namespace SolastaUnfinishedBusiness.Feats;
 public static class GroupFeats
 {
     private static readonly List<FeatDefinition> Groups = new();
-    private static readonly List<FeatDefinition> Children = new();
 
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildElementalTouchGroup());
         feats.Add(BuildCreedGroup());
         feats.AddRange(Groups);
-
-        //TODO: should this be an option on mod UI?
-        // remove children from mod UI selection
-        FeatsContext.Feats.RemoveWhere(x => Children.Contains(x));
     }
 
     public static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
     {
         return MakeGroup(name, family, feats.ToList());
+    }
+    
+    public static FeatDefinition MakeGroup(FeatDefinition group)
+    {
+        Groups.Add(group);
+        return group;
+    }
+    
+    public static FeatDefinition MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
+    {
+        group.SetCustomSubFeatures(new GroupedFeat(feats));
+        return MakeGroup(group);
     }
 
     public static FeatDefinition MakeGroup(string name, string family, List<FeatDefinition> feats)
@@ -39,7 +46,6 @@ public static class GroupFeats
             .SetFeatures()
             .AddToDB();
         Groups.Add(group);
-        Children.AddRange(feats);
         return group;
     }
 

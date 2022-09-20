@@ -152,7 +152,7 @@ internal static class FeatsContext
         var toRemove = new List<FeatDefinition>();
         foreach (var group in panel.relevantFeats
                      .Select(feat => feat.GetFirstSubFeatureOfType<IGroupedFeat>())
-                     .Where(group => group is { HideSubFeats: true }))
+                     .Where(group => group is {HideSubFeats: true}))
         {
             toRemove.AddRange(group.GetSubFeats());
         }
@@ -186,7 +186,11 @@ internal static class FeatsContext
     {
         var dbFeatDefinition = DatabaseRepository.GetDatabase<FeatDefinition>();
 
-        panel.relevantFeats.SetRange(dbFeatDefinition.Where(x => !x.GuiPresentation.Hidden));
+        var visibleFeats = dbFeatDefinition.Where(x => !x.GuiPresentation.Hidden).ToList();
+        panel.relevantFeats.SetRange(visibleFeats.Where(f =>
+            f.GetFirstSubFeatureOfType<IGroupedFeat>() is not { } group
+            || group.GetSubFeats().Count(s => visibleFeats.Contains(s)) > 1)
+        );
     }
 
     public static void ForceSameWidth(RectTransform table, bool active, FeatSubPanel panel)

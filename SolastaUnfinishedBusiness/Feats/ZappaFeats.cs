@@ -48,6 +48,7 @@ internal static class ZappaFeats
     {
         const string PrecisionFocused = "PrecisionFocused";
         const string DefenseExpert = "DefenseExpert";
+        const string ElvenPrecision = "ElvenPrecision";
 
         // Arcane Defense
         var arcaneDefense = FeatDefinitionBuilder
@@ -211,6 +212,7 @@ internal static class ZappaFeats
                 .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(IsElfOrHalfElf)
+                .SetFeatFamily(ElvenPrecision)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
@@ -221,6 +223,7 @@ internal static class ZappaFeats
                 .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(IsElfOrHalfElf)
+                .SetFeatFamily(ElvenPrecision)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
@@ -231,6 +234,7 @@ internal static class ZappaFeats
                 .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(IsElfOrHalfElf)
+                .SetFeatFamily(ElvenPrecision)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
@@ -241,6 +245,7 @@ internal static class ZappaFeats
                 .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(IsElfOrHalfElf)
+                .SetFeatFamily(ElvenPrecision)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
@@ -582,8 +587,13 @@ internal static class ZappaFeats
             arcaneDefense,
             charismaticDefense,
             wiseDefense);
-        
-        GroupFeats.MakeGroup("FeatGroupElvenAccuracy", ElvenAccuracyTag,
+
+        GroupFeats.MakeGroup(FeatDefinitionWithPrerequisitesBuilder
+                .Create("FeatGroupElvenAccuracy", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(IsElfOrHalfElf)
+                .SetFeatFamily(ElvenPrecision)
+                .AddToDB(),
             elvenAccuracyCharisma,
             elvenAccuracyDexterity,
             elvenAccuracyIntelligence,
