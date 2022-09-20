@@ -28,7 +28,7 @@ internal static class InitialChoicesContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
-    private static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
+    private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
 
     internal static void Load()
@@ -263,14 +263,14 @@ internal static class InitialChoicesContext
 
     internal static void SwitchFirstLevelTotalFeats()
     {
-        if (PreviousTotalFeatsGrantedFistLevel > -1)
+        if (PreviousTotalFeatsGrantedFirstLevel > -1)
         {
-            UnloadRacesLevel1Feats(PreviousTotalFeatsGrantedFistLevel, PreviousAlternateHuman);
+            UnloadRacesLevel1Feats(PreviousTotalFeatsGrantedFirstLevel, PreviousAlternateHuman);
         }
 
-        PreviousTotalFeatsGrantedFistLevel = Main.Settings.TotalFeatsGrantedFistLevel;
+        PreviousTotalFeatsGrantedFirstLevel = Main.Settings.TotalFeatsGrantedFirstLevel;
         PreviousAlternateHuman = Main.Settings.EnableAlternateHuman;
-        LoadRacesLevel1Feats(Main.Settings.TotalFeatsGrantedFistLevel, Main.Settings.EnableAlternateHuman);
+        LoadRacesLevel1Feats(Main.Settings.TotalFeatsGrantedFirstLevel, Main.Settings.EnableAlternateHuman);
     }
 
     private static void BuildFeatureUnlocks(int initialFeats, bool alternateHuman,

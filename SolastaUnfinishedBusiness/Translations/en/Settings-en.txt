@@ -169,7 +169,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&TargetLanguage=Target Language
 ModUi/&Tools=Tools
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>
-ModUi/&TotalFeatsGrantedFistLevel=<color=white>Total feats granted at first level</color>
+ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total feats granted at first level</color>
 ModUi/&Translate=Translate
 ModUi/&TranslateCancel=Cancel {0} at {1}
 ModUi/&Translations=Translations

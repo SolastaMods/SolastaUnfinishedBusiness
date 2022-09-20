@@ -32,6 +32,17 @@ internal static class CharacterDisplay
 
         UI.Label("");
 
+        var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
+        if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFirstLevel"), ref intValue,
+                InitialChoicesContext.MinInitialFeats, InitialChoicesContext.MaxInitialFeats, 0, "",
+                UI.AutoWidth()))
+        {
+            Main.Settings.TotalFeatsGrantedFirstLevel = intValue;
+            InitialChoicesContext.SwitchFirstLevelTotalFeats();
+        }
+
+        UI.Label("");
+
         toggle = Main.Settings.EnableEpicPointsAndArray;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
         {
@@ -58,17 +69,6 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableAlternateHuman = toggle;
-            InitialChoicesContext.SwitchFirstLevelTotalFeats();
-        }
-
-        UI.Label("");
-
-        var intValue = Main.Settings.TotalFeatsGrantedFistLevel;
-        if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFistLevel"), ref intValue,
-                InitialChoicesContext.MinInitialFeats, InitialChoicesContext.MaxInitialFeats, 0, "",
-                UI.AutoWidth()))
-        {
-            Main.Settings.TotalFeatsGrantedFistLevel = intValue;
             InitialChoicesContext.SwitchFirstLevelTotalFeats();
         }
 
@@ -124,6 +124,8 @@ internal static class CharacterDisplay
             {
                 Main.Settings.EnableMinInOutAttributes = toggle;
             }
+
+            UI.Label("");
 
             toggle = Main.Settings.EnableRelearnSpells;
             if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
