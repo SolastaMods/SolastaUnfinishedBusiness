@@ -212,9 +212,7 @@ internal static class FeatsContext
             trainedFeats.AddRange(hero.TrainedFeats);
 
             var j = 0;
-            var rect = table.GetComponent<RectTransform>();
-
-            rect.sizeDelta = new Vector2(rect.sizeDelta.x, ((table.childCount / Columns) + 1) * (Height + Spacing));
+            RectTransform rect;
 
             for (var i = 0; i < table.childCount; i++)
             {
@@ -237,6 +235,9 @@ internal static class FeatsContext
 
                 j++;
             }
+
+            rect = table.GetComponent<RectTransform>();
+            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, ((j / Columns) + 1) * (Height + Spacing));
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(table);
