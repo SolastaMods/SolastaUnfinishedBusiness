@@ -97,7 +97,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
         //TODO: find better way to detect warcaster
         var affinities = rulesetCharacter.GetFeaturesByType<FeatureDefinitionMagicAffinity>();
 
-        if (affinities.All(a => a != OtherFeats.WarCaster))
+        if (affinities.All(a => a.Name != OtherFeats.MagicAffinityWarcaster))
         {
             return null;
         }

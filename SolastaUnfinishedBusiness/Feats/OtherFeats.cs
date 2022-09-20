@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
-    internal static FeatDefinition WarCaster;
+    public const string MagicAffinityWarcaster = "MagicAffinityFeatWarCaster";
 
     internal static void CreateFeats(List<FeatDefinition> feats)
     {
@@ -84,11 +84,11 @@ internal static class OtherFeats
             .AddToDB();
 
         // War Caster
-        WarCaster = FeatDefinitionBuilder
+        var warcaster = FeatDefinitionBuilder
             .Create("FeatWarCaster", DefinitionBuilder.CENamespaceGuid)
             .SetFeatures(
                 FeatureDefinitionMagicAffinityBuilder
-                    .Create("MagicAffinityFeatWarCaster", DefinitionBuilder.CENamespaceGuid)
+                    .Create(MagicAffinityWarcaster, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation("FeatWarCaster", Category.Feat)
                     .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
                         RuleDefinitions.SpellParamsModifierType.None, false, false, false)
@@ -99,7 +99,7 @@ internal static class OtherFeats
             .SetMustCastSpellsPrerequisite()
             .AddToDB();
 
-        feats.AddRange(savageAttacker, tough, WarCaster, improvedCritical, shieldExpert);
+        feats.AddRange(savageAttacker, tough, warcaster, improvedCritical, shieldExpert);
     }
 
     private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
