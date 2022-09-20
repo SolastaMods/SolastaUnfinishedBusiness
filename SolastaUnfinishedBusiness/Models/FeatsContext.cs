@@ -39,12 +39,24 @@ internal static class FeatsContext
 
         feats.ForEach(LoadFeat);
 
-        // create groups for some feats, needs to be last one to be called
+        // create groups for some feats, MUST BE last one to be called
         var groups = new List<FeatDefinition>();
 
         GroupFeats.CreateFeats(groups);
 
         groups.ForEach(LoadFeatGroup);
+        
+        // hide children feats from mod UI
+        if (Main.Settings.HideChildrenFeatsOnModUi)
+        {
+            foreach (var groupedFeat in groups
+                         .Select(group => group.GetFirstSubFeatureOfType<IGroupedFeat>())
+                         .Where(groupedFeat => groupedFeat != null))
+            {
+                Feats.RemoveWhere(x => groupedFeat.GetSubFeats().Contains(x));
+                FeatGroups.RemoveWhere(x => groupedFeat.GetSubFeats().Contains(x));
+            }
+        }
 
         // sorting
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
