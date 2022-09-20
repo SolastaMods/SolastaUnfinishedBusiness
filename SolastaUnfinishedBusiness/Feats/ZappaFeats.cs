@@ -572,6 +572,12 @@ internal static class ZappaFeats
             arcaneDefense,
             charismaticDefense,
             wiseDefense);
+        
+        GroupFeats.MakeGroup("FeatGroupElvenAccuracy", ElvenAccuracyTag,
+            elvenAccuracyCharisma,
+            elvenAccuracyDexterity,
+            elvenAccuracyIntelligence,
+            elvenAccuracyWisdom);
 
         GroupFeats.MakeGroup("FeatGroupPrecisionFocused", "PrecisionFocused",
             arcanePrecision,
