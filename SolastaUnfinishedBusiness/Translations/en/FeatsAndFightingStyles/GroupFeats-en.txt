@@ -26,3 +26,7 @@ Feat/&FeatGroupToxicologistDescription=Toxicologist
 Feat/&FeatGroupToxicologistTitle=Toxicologist
 Feat/&FeatGroupApothecaryDescription=Increase your Intelligence or Wisdom by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 Feat/&FeatGroupApothecaryTitle=Apothecary
+Feat/&FeatGroupDefenseExpertDescription=Increase one of your mental attributes by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + the selected mental attribute modifier.
+Feat/&FeatGroupDefenseExpertTitle=Defense Expert
+Feat/&FeatGroupPrecisionFocusedDescription=You can use a bonus action to select a weapon. Its attacks count as magical and you use one of your selected mental attributes by 1 for your attack and damage rolls for 1 minute. This feature can be used twice per long rest.
+Feat/&FeatGroupPrecisionFocusedTitle=Precision Focused

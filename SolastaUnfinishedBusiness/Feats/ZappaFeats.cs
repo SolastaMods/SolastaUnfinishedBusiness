@@ -237,12 +237,6 @@ internal static class ZappaFeats
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
-        GroupFeats.MakeGroup("FeatGroupElvenAccuracy", ElvenAccuracyTag,
-            elvenAccuracyCharisma,
-            elvenAccuracyDexterity,
-            elvenAccuracyIntelligence,
-            elvenAccuracyWisdom);
-
         // Fast Hands
         // var fastHands =
         //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
@@ -407,15 +401,6 @@ internal static class ZappaFeats
                 .SetGuiPresentation(Category.Feat)
                 //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
-
-        GroupFeats.MakeGroup("FeatGroupMetamagic", "Metamagic",
-            metamagicAdeptCareful,
-            metamagicAdeptDistant,
-            metamagicAdeptEmpowered,
-            metamagicAdeptExtended,
-            metamagicAdeptHeightened,
-            metamagicAdeptQuickened,
-            metamagicAdeptTwinned);
 
         // Primal (Constitution)
         // var primalConstitution =
@@ -582,6 +567,25 @@ internal static class ZappaFeats
             // shady,
             wiseDefense,
             wisePrecision);
+
+        GroupFeats.MakeGroup("FeatGroupDefenseExpert", "DefenseExpert",
+            arcaneDefense,
+            charismaticDefense,
+            wiseDefense);
+
+        GroupFeats.MakeGroup("FeatGroupPrecisionFocused", "PrecisionFocused",
+            arcanePrecision,
+            charismaticPrecision,
+            wisePrecision);
+
+        GroupFeats.MakeGroup("FeatGroupMetamagic", "Metamagic",
+            metamagicAdeptCareful,
+            metamagicAdeptDistant,
+            metamagicAdeptEmpowered,
+            metamagicAdeptExtended,
+            metamagicAdeptHeightened,
+            metamagicAdeptQuickened,
+            metamagicAdeptTwinned);
     }
 }
 
