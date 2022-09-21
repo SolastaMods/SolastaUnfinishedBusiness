@@ -9,6 +9,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class CustomFeaturesContext
 {
+    private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = new();
+
     internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, string tag,
         [NotNull] List<FeatureDefinition> features)
     {
@@ -432,8 +434,6 @@ public static class CustomFeaturesContext
     {
         return ModifySpellEffect(spell.EffectDescription, spell, caster);
     }
-
-    private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = new();
 
     private static EffectDescription GetCachedEffect(RulesetCharacter caster, SpellDefinition spell)
     {

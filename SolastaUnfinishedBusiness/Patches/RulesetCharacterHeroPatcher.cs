@@ -88,7 +88,7 @@ internal static class RulesetCharacterHeroPatcher
         {
             //PATCH: clears cached customized spell effects
             CustomFeaturesContext.ClearSpellEffectCache(__instance);
-            
+
             //PATCH: Support for `IHeroRefreshedListener`
             __instance.GetSubFeaturesByType<IHeroRefreshedListener>()
                 .ForEach(listener => listener.OnHeroRefreshed(__instance));
