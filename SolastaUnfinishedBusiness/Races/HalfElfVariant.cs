@@ -32,7 +32,7 @@ internal static class RaceHalfElfVariantRaceBuilder
             CustomIcons.CreateAssetReferenceSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
 
         var halfElfDarkElf = CharacterRaceDefinitionBuilder
-            .Create(DarkelfSubraceBuilder.DarkelfSubrace, "RaceHalfElfDark", DefinitionBuilder.CENamespaceGuid)
+            .Create(DarkelfSubraceBuilder.DarkelfSubrace, "RaceHalfElfDark")
             .SetGuiPresentation(Category.Race, halfDarkelfSpriteReference)
             .SetFeaturesAtLevel(1,
                 darkelfDarkMagic,
@@ -45,13 +45,13 @@ internal static class RaceHalfElfVariantRaceBuilder
             CustomIcons.CreateAssetReferenceSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
         var castSpellHalfElfHigh = FeatureDefinitionCastSpellBuilder
-            .Create(CastSpellElfHigh, "CastSpellHalfElfHigh", DefinitionBuilder.CENamespaceGuid)
+            .Create(CastSpellElfHigh, "CastSpellHalfElfHigh")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .AddToDB();
 
         var halfElfHighElf = CharacterRaceDefinitionBuilder
-            .Create(ElfHigh, "RaceHalfElfHigh", DefinitionBuilder.CENamespaceGuid)
+            .Create(ElfHigh, "RaceHalfElfHigh")
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)
             .SetFeaturesAtLevel(1,
                 Main.Settings.HalfHighElfUseCharisma ? castSpellHalfElfHigh : CastSpellElfHigh,
@@ -62,14 +62,14 @@ internal static class RaceHalfElfVariantRaceBuilder
             CustomIcons.CreateAssetReferenceSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
 
         var halfElfSylvanElf = CharacterRaceDefinitionBuilder
-            .Create(ElfSylvan, "RaceHalfElfSylvan", DefinitionBuilder.CENamespaceGuid)
+            .Create(ElfSylvan, "RaceHalfElfSylvan")
             .SetGuiPresentation(Category.Race, halfSylvanSpriteReference)
             .SetFeaturesAtLevel(1,
                 MoveModeMove7)
             .AddToDB();
 
         var halfElfVariant = CharacterRaceDefinitionBuilder
-            .Create(HalfElf, "RaceHalfElfVariant", DefinitionBuilder.CENamespaceGuid)
+            .Create(HalfElf, "RaceHalfElfVariant")
             .SetGuiPresentation(
                 "Race/&HalfElfTitle",
                 "Race/&HalfElfDescription",
