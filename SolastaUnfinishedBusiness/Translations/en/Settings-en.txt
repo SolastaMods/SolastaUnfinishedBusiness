@@ -86,7 +86,8 @@ ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify fac
 ModUi/&FactionRelations=<color=#F0DAA0>Faction Relations:</color>
 ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space bar</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
-ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
+ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: attributes, fighting styles, metamagic, etc]</color></i>\n. These feats won't be visible anymore on the feat selection stage. Instead the group will be\n. Click on it to reveal a dropdown list of selectable feats <i><color=#F0DAA0>[de-clutters the game feats selection menu]</color></i>
+ModUi/&HideChildrenFeatsOnModUi=Don't present on mod offering feats that are member of feat groups <i><color=#F0DAA0>[de-clutters above selection]</color></i>
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FeatsFightingStyles=Feats & Fighting Styles
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
