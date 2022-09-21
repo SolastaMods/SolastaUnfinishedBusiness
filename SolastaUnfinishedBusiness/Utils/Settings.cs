@@ -128,7 +128,6 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Feat Groups
     //
 
-    public bool HideChildrenFeatsOnModUi { get; set; }
     public int FeatGroupSliderPosition { get; set; } = 4;
     public List<string> FeatGroupEnabled { get; } = new();
 
