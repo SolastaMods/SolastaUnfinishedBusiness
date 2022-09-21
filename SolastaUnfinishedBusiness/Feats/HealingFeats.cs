@@ -27,7 +27,7 @@ internal static class HealingFeats
             "PowerFeatInspiringLeader", inspiringLeaderPresentation);
 
         feats.Add(FeatDefinitionBuilder
-            .Create("FeatInspiringLeader", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatInspiringLeader")
             .SetFeatures(inspiringPower)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .SetGuiPresentation(inspiringLeaderPresentation)
@@ -80,13 +80,13 @@ internal static class HealingFeats
             "PowerFeatHealerStabilize", stabilizePresentation);
 
         FeatureDefinition medicineKnowledge = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatHealerMedicine", DefinitionBuilder.CENamespaceGuid)
+            .Create("ProficiencyFeatHealerMedicine")
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         feats.Add(FeatDefinitionBuilder
-            .Create("FeatHealer", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatHealer")
             .SetFeatures(medicineKnowledge, medKitPower, resuscitatePower, stabilizePower)
             .SetGuiPresentation(Category.Feat,
                 PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference)
@@ -112,7 +112,7 @@ internal static class HealingFeats
         //
         // // define treats
         // var treat = ItemDefinitionBuilder
-        //     .Create(DatabaseHelper.ItemDefinitions.Berry_Ration, "ChefSnackTreat", DefinitionBuilder.CENamespaceGuid)
+        //     .Create(DatabaseHelper.ItemDefinitions.Berry_Ration, "ChefSnackTreat")
         //     .SetOrUpdateGuiPresentation("ProfChefTreat", Category.Feat)
         //     .SetUsableDeviceDescription(treatPower)
         //     .AddToDB();
@@ -150,14 +150,14 @@ internal static class HealingFeats
         //     "PowerFeatChefShortRestFeast", shortRestFeastPresentation);
         //
         // feats.Add(FeatDefinitionBuilder
-        //     .Create("FeatChefCon", DefinitionBuilder.CENamespaceGuid)
+        //     .Create("FeatChefCon")
         //     .SetFeatures(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
         //         shortRestFeast, cookTreatsPower)
         //     .SetGuiPresentation("ChefCon", Category.Feat)
         //     .AddToDB());
         //
         // feats.Add(FeatDefinitionBuilder
-        //     .Create("FeatChefWis", DefinitionBuilder.CENamespaceGuid)
+        //     .Create("FeatChefWis")
         //     .SetFeatures(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
         //         shortRestFeast, cookTreatsPower)
         //     .SetGuiPresentation("ChefWis", Category.Feat)
@@ -178,7 +178,7 @@ internal static class HealingFeats
         GuiPresentation guiPresentation)
     {
         return FeatureDefinitionPowerBuilder
-            .Create(name, DefinitionBuilder.CENamespaceGuid)
+            .Create(name)
             .SetGuiPresentation(guiPresentation)
             .Configure(
                 usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge,

@@ -40,7 +40,7 @@ internal static class ArmorFeats
         params FeatureDefinition[] features)
     {
         return FeatDefinitionBuilder
-            .Create(name, DefinitionBuilder.CENamespaceGuid)
+            .Create(name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(features)
             .SetArmorProficiencyPrerequisite(prerequisite)
@@ -50,7 +50,7 @@ internal static class ArmorFeats
     private static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
     {
         return FeatDefinitionBuilder
-            .Create(name, DefinitionBuilder.CENamespaceGuid)
+            .Create(name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(features)
             .AddToDB();
@@ -60,7 +60,7 @@ internal static class ArmorFeats
         params string[] proficiencies)
     {
         return FeatureDefinitionProficiencyBuilder
-            .Create(name, DefinitionBuilder.CENamespaceGuid)
+            .Create(name)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(type, proficiencies)
             .AddToDB();
