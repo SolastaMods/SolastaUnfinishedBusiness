@@ -124,8 +124,7 @@ internal static class Level20Context
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionPointPoolBuilder
-                    .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18",
-                        DefinitionBuilder.CENamespaceGuid)
+                    .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
                     .AddToDB(),
                 18),
             new(FeatureSetAbilityScoreChoice, 19)
@@ -146,7 +145,7 @@ internal static class Level20Context
         Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionPowerBuilder
-                    .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17", DefinitionBuilder.CENamespaceGuid)
+                    .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
                     .SetEffectDescription(effectPowerClericTurnUndead17)
                     .AddToDB(),
                 17),
@@ -161,8 +160,7 @@ internal static class Level20Context
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
             .Create(
                 PowerClericDivineInterventionCleric,
-                "PowerClericDivineInterventionImprovementCleric",
-                DefinitionBuilder.CENamespaceGuid)
+                "PowerClericDivineInterventionImprovementCleric")
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionCleric)
             .AddToDB();
@@ -170,8 +168,7 @@ internal static class Level20Context
         var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
             .Create(
                 PowerClericDivineInterventionPaladin,
-                "PowerClericDivineInterventionImprovementPaladin",
-                DefinitionBuilder.CENamespaceGuid)
+                "PowerClericDivineInterventionImprovementPaladin")
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionPaladin)
             .AddToDB();
@@ -179,8 +176,7 @@ internal static class Level20Context
         var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
             .Create(
                 PowerClericDivineInterventionWizard,
-                "PowerClericDivineInterventionImprovementWizard",
-                DefinitionBuilder.CENamespaceGuid)
+                "PowerClericDivineInterventionImprovementWizard")
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionWizard)
             .AddToDB();
@@ -224,7 +220,7 @@ internal static class Level20Context
         Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionPowerBuilder
-                    .Create(PowerFighterActionSurge, "PowerFighterActionSurge2", DefinitionBuilder.CENamespaceGuid)
+                    .Create(PowerFighterActionSurge, "PowerFighterActionSurge2")
                     .SetFixedUsesPerRecharge(2)
                     .SetOverriddenPower(PowerFighterActionSurge)
                     .AddToDB(),
@@ -253,15 +249,14 @@ internal static class Level20Context
 
         Paladin.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(FeatureDefinitionPowerBuilder
-                    .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18", DefinitionBuilder.CENamespaceGuid)
+                    .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18")
                     .SetGuiPresentation(Category.Feature)
                     .SetEffectDescription(effectPowerPaladinAuraOfCourage18)
                     .SetOverriddenPower(PowerPaladinAuraOfCourage)
                     .AddToDB(),
                 18),
             new FeatureUnlockByLevel(FeatureDefinitionPowerBuilder
-                    .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18",
-                        DefinitionBuilder.CENamespaceGuid)
+                    .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18")
                     .SetGuiPresentation(Category.Feature)
                     .SetEffectDescription(effectPowerPaladinAuraOfProtection18)
                     .SetOverriddenPower(PowerPaladinAuraOfCourage)
@@ -302,7 +297,7 @@ internal static class Level20Context
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionSenseBuilder
-                    .Create(SenseSeeInvisible12, "SenseRangerFeralSenses", DefinitionBuilder.CENamespaceGuid)
+                    .Create(SenseSeeInvisible12, "SenseRangerFeralSenses")
                     .SetGuiPresentation(Category.Feature)
                     .SetSenseRange(6)
                     .AddToDB(),
@@ -342,7 +337,7 @@ internal static class Level20Context
             new(PointPoolSorcererAdditionalMetamagic, 17),
             new(FeatureSetAbilityScoreChoice, 19),
             new(FeatureDefinitionPowerBuilder
-                    .Create(PowerSorcerousRestorationName, DefinitionBuilder.CENamespaceGuid)
+                    .Create(PowerSorcerousRestorationName)
                     .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
                     .SetFixedUsesPerRecharge(1)
                     .SetActivationTime(RuleDefinitions.ActivationTime.Rest)
@@ -373,8 +368,7 @@ internal static class Level20Context
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionPointPoolBuilder
-                    .Create(PointPoolWarlockMysticArcanum8, "PointPoolWarlockMysticArcanum9",
-                        DefinitionBuilder.CENamespaceGuid)
+                    .Create(PointPoolWarlockMysticArcanum8, "PointPoolWarlockMysticArcanum9")
                     .SetGuiPresentation(
                         "Feature/&PointPoolWarlockMysticArcanum9Title",
                         "Feature/&PointPoolWarlockMysticArcanumDescription")
@@ -382,7 +376,7 @@ internal static class Level20Context
                 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(FeatureDefinitionPowerBuilder
-                    .Create(PowerWizardArcaneRecovery, "PowerWarlockEldritchMaster", DefinitionBuilder.CENamespaceGuid)
+                    .Create(PowerWizardArcaneRecovery, "PowerWarlockEldritchMaster")
                     .SetGuiPresentation(Category.Feature)
                     .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
                     .AddToDB(),

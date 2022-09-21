@@ -20,7 +20,7 @@ internal static class CeContentPackContext
         //TODO: figure out how to fix CeContentPack being transformed into '9999' by ToString in `FeatureDefinitionItem`
         //it uses ToString on value cast to base enum (ContentPack) and since it doesn't have value for our 9999, it just returns it as number
         return ContentPackDefinitionBuilder
-            .Create(CeContentPack.ToString(), DefinitionBuilder.CENamespaceGuid)
+            .Create(CeContentPack.ToString())
             .SetGuiPresentation(Category.ContentPack, sprite)
             .AddToDB();
     }

@@ -413,7 +413,7 @@ internal static class ConjurationsContext
                 .TryGetElement(InvisibleStalkerSubspellName, out _))
         {
             var definition = SpellDefinitionBuilder
-                .Create(ConjureElementalFire, InvisibleStalkerSubspellName, DefinitionBuilder.CENamespaceGuid)
+                .Create(ConjureElementalFire, InvisibleStalkerSubspellName)
                 .SetOrUpdateGuiPresentation("Spell/&IPConjureInvisibleStalkerTitle",
                     "Spell/&ConjureElementalDescription")
                 .AddToDB();

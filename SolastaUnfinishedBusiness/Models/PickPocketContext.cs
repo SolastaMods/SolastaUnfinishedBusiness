@@ -18,8 +18,7 @@ public static class PickPocketContext
     internal static void CreateFeats([NotNull] ICollection<FeatDefinition> feats)
     {
         var pickpocketCheckAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker,
-                "AbilityCheckAffinityFeatPickPocket", DefinitionBuilder.CENamespaceGuid)
+            .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker, "AbilityCheckAffinityFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
             .AddToDB();
 
@@ -33,8 +32,7 @@ public static class PickPocketContext
         pickpocketCheckAffinity.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
 
         var pickpocketProficiency = FeatureDefinitionProficiencyBuilder
-            .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
-                "ProficiencyFeatPickPocket", DefinitionBuilder.CENamespaceGuid)
+            .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker, "ProficiencyFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
             .AddToDB();
 
@@ -43,8 +41,7 @@ public static class PickPocketContext
         pickpocketProficiency.Proficiencies.Add(SkillDefinitions.SleightOfHand);
 
         var pickPocketFeat = FeatDefinitionBuilder
-            .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "FeatPickPocket",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "FeatPickPocket")
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -66,15 +63,13 @@ public static class PickPocketContext
         sleightOfHand.GuiPresentation.unusedInSolastaCOTM = false;
 
         var pickpocketTableLow = TreasureTableDefinitionBuilder
-            .Create(RandomTreasureTableE2_Mundane_Ingredients, "PickPocketTableLow",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(RandomTreasureTableE2_Mundane_Ingredients, "PickPocketTableLow")
             .SetGuiPresentationNoContent()
             .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
             .AddToDB();
 
         var pickpocketTableMed = TreasureTableDefinitionBuilder
-            .Create(RandomTreasureTableE_Ingredients, "PickPocketTableMed",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(RandomTreasureTableE_Ingredients, "PickPocketTableMed")
             .SetGuiPresentationNoContent()
             .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
             .AddTreasureOptions(RandomTreasureTableA_Gem.TreasureOptions)
@@ -82,8 +77,7 @@ public static class PickPocketContext
             .AddToDB();
 
         var pickpocketTableUndead = TreasureTableDefinitionBuilder
-            .Create("PickPocketTableUndead",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create("PickPocketTableUndead")
             .SetGuiPresentationNoContent()
             .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[3])
             .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[9])
@@ -118,32 +112,31 @@ public static class PickPocketContext
         };
 
         var pickPocketableLootA = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_A", DefinitionBuilder.CENamespaceGuid)
+            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_A")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableLow)
             .AddToDB();
 
         var pickPocketableLootB = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_B", DefinitionBuilder.CENamespaceGuid)
+            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_B")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableLow)
             .AddToDB();
 
         var pickPocketableLootC = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_C", DefinitionBuilder.CENamespaceGuid)
+            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_C")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableMed)
             .AddToDB();
 
         var pickPocketableLootD = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_D", DefinitionBuilder.CENamespaceGuid)
+            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_D")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableLow, lootPickpocketTableMed)
             .AddToDB();
 
         var pickPocketableLootUndead = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_Undead",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_Undead")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableUndead)
             .AddToDB();

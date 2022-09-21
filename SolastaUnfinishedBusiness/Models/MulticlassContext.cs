@@ -123,7 +123,7 @@ public static class SkillProficiencyPointPoolSkillsBuilder
 {
     public static readonly FeatureDefinitionPointPool PointPoolBardSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolBardSkillPointsMulticlass", DefinitionBuilder.CENamespaceGuid)
+            .Create("PointPoolBardSkillPointsMulticlass")
             // Non-standard pattern?
             .SetGuiPresentation("Feature/&BardSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
@@ -151,7 +151,7 @@ public static class SkillProficiencyPointPoolSkillsBuilder
 
     public static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolRangerSkillPointsMulticlass", DefinitionBuilder.CENamespaceGuid)
+            .Create("PointPoolRangerSkillPointsMulticlass")
             // Non-standard pattern?
             .SetGuiPresentation("Feature/&RangerSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
@@ -169,7 +169,7 @@ public static class SkillProficiencyPointPoolSkillsBuilder
 
     public static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolRogueSkillPointsMulticlass", DefinitionBuilder.CENamespaceGuid)
+            .Create("PointPoolRogueSkillPointsMulticlass")
             // Non-standard pattern?
             .SetGuiPresentation("Feature/&RogueSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
