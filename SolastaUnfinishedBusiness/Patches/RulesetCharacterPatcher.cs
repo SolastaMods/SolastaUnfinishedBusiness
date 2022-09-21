@@ -67,6 +67,18 @@ internal static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), "AcknowledgeAttackedCharacter")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class AcknowledgeAttackedCharacter_Patch
+    {
+        internal static void Postfix(RulesetCharacter __instance, RulesetCharacter target,
+            RuleDefinitions.AttackProximity proximity)
+        {
+            //PATCH: Allows condition interruption after target was attacked
+            target.ProcessConditionsMatchingInterruption((RuleDefinitions.ConditionInterruption) ExtraConditionInterruption.AfterWasAttacked);
+        }
+    }
+    
     [HarmonyPatch(typeof(RulesetCharacter), "IsComponentSomaticValid")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class IsComponentSomaticValid_Patch

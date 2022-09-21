@@ -47,6 +47,12 @@ public enum ExtraOriginOfAmount
     SourceClassLevel = 9002
 }
 
+public enum ExtraConditionInterruption
+{
+    //Interrupts after attack was made against this target, unlike `ConditionInterruption.Attacked` that triggers at the very start
+    AfterWasAttacked = 9000
+}
+
 #if false
 public enum ExtraTurnOccurenceType
 {

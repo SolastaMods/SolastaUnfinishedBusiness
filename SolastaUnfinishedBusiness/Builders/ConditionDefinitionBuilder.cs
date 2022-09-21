@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine.AddressableAssets;
 
@@ -177,6 +178,24 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     public TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value);
+        return This();
+    }
+
+    public TBuilder SetSpecialInterruptions(params ExtraConditionInterruption[] value)
+    {
+        Definition.SpecialInterruptions.SetRange(value.Select(v => (RuleDefinitions.ConditionInterruption) v));
+        return This();
+    }
+    
+    public TBuilder AddSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
+    {
+        Definition.SpecialInterruptions.AddRange(value);
+        return This();
+    }
+    
+    public TBuilder AddSpecialInterruptions(params ExtraConditionInterruption[] value)
+    {
+        Definition.SpecialInterruptions.AddRange(value.Select(v => (RuleDefinitions.ConditionInterruption) v));
         return This();
     }
 
