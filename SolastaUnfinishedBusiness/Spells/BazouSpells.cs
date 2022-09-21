@@ -32,7 +32,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildEldritchOrb()
     {
         var spell = SpellDefinitionBuilder
-            .Create(MagicMissile, "EldritchOrb", DefinitionBuilder.CENamespaceGuid)
+            .Create(MagicMissile, "EldritchOrb")
             .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
@@ -90,7 +90,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildFindFamiliar()
     {
         var familiarMonsterBuilder = MonsterDefinitionBuilder
-            .Create(Eagle_Matriarch, "Owl", DefinitionBuilder.CENamespaceGuid)
+            .Create(Eagle_Matriarch, "Owl")
             .SetGuiPresentation("OwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
             .SetFeatures(
                 FeatureDefinitionSenses.SenseNormalVision,
@@ -132,7 +132,7 @@ internal static class BazouSpells
 
         var familiarMonster = familiarMonsterBuilder.AddToDB();
 
-        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar", DefinitionBuilder.CENamespaceGuid)
+        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
             .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
@@ -171,7 +171,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildFrenzy()
     {
         var spell = SpellDefinitionBuilder
-            .Create(Confusion, "Frenzy", DefinitionBuilder.CENamespaceGuid)
+            .Create(Confusion, "Frenzy")
             .SetGuiPresentation(Category.Spell, Confusion.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
@@ -193,14 +193,13 @@ internal static class BazouSpells
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
         var conditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionConfused, "ConditionFrenzied", DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionConfused, "ConditionFrenzied")
             .SetOrUpdateGuiPresentation("ConditionFrenzied", Category.Condition)
             .AddToDB();
 
         // Some methods are missing like SetField or Copy
         var actionAffinity = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied")
             .AddToDB();
 
         actionAffinity.RandomBehaviourOptions.Clear();
@@ -227,7 +226,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildMinorLifesteal()
     {
         var spell = SpellDefinitionBuilder
-            .Create("MinorLifesteal", DefinitionBuilder.CENamespaceGuid)
+            .Create("MinorLifesteal")
             .SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetMaterialComponent(MaterialComponentType.Mundane)
@@ -258,7 +257,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildPetalStorm()
     {
         var spell = SpellDefinitionBuilder
-            .Create(InsectPlague, "PetalStorm", DefinitionBuilder.CENamespaceGuid)
+            .Create(InsectPlague, "PetalStorm")
             .SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
@@ -296,7 +295,7 @@ internal static class BazouSpells
         //spell.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
 
         var effectProxyDefinition = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm", DefinitionBuilder.CENamespaceGuid)
+            .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm")
             .SetGuiPresentation("PetalStorm", Category.Spell, WindWall.GuiPresentation.SpriteReference)
             .SetCanMove()
             .SetPortrait(WindWall.GuiPresentation.SpriteReference)
@@ -317,7 +316,7 @@ internal static class BazouSpells
     private static SpellDefinition BuildProtectThreshold()
     {
         var spell = SpellDefinitionBuilder
-            .Create(SpikeGrowth, "ProtectThreshold", DefinitionBuilder.CENamespaceGuid)
+            .Create(SpikeGrowth, "ProtectThreshold")
             .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
@@ -360,7 +359,7 @@ internal static class BazouSpells
         const string PROXY_PROTECT_THRESHOLD = "ProxyProtectThreshold";
 
         EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxySpikeGrowth, PROXY_PROTECT_THRESHOLD, DefinitionBuilder.CENamespaceGuid)
+            .Create(EffectProxyDefinitions.ProxySpikeGrowth, PROXY_PROTECT_THRESHOLD)
             .SetOrUpdateGuiPresentation("ProtectThreshold", Category.Spell)
             .AddToDB();
 
