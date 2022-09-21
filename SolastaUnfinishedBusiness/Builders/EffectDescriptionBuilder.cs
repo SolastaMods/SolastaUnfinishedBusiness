@@ -250,7 +250,7 @@ public class EffectDescriptionBuilder
     public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies,
         string savingThrowAbility, bool ignoreCover,
         RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
-        string savingThrowDifficultyAbility,
+        string savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
         int fixedSavingThrowDifficultyClass = 10, bool advantageForEnemies = false,
         params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
     {
@@ -308,13 +308,13 @@ public class EffectDescriptionBuilder
         return this;
     }
 
-#if false
-    public EffectDescriptionBuilder AddImmuneCreatureFamilies(CharacterFamilyDefinition family)
+    public EffectDescriptionBuilder AddImmuneCreatureFamilies(params CharacterFamilyDefinition[] families)
     {
-        effect.ImmuneCreatureFamilies.Add(family.Name);
+        effect.ImmuneCreatureFamilies.AddRange(families.Select(f=>f.Name));
         return this;
     }
 
+#if false
     public EffectDescriptionBuilder AddRestrictedCharacterSize(RuleDefinitions.CreatureSize size)
     {
         effect.RestrictedCharacterSizes.Add(size);
