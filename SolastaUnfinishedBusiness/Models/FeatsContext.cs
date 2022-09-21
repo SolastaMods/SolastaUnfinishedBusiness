@@ -50,32 +50,32 @@ internal static class FeatsContext
 
     internal static void UpdateFeatsAndGroupsChildrenDisplay(IEnumerable<FeatDefinition> groups)
     {
-        // hide children feats from mod UI
-        if (Main.Settings.HideChildrenFeatsOnModUi)
+        foreach (var groupedFeat in groups.ToList()
+                     .Select(group => group.GetFirstSubFeatureOfType<IGroupedFeat>())
+                     .Where(groupedFeat => groupedFeat != null))
         {
-            foreach (var groupedFeat in groups.ToList()
-                         .Select(group => group.GetFirstSubFeatureOfType<IGroupedFeat>())
-                         .Where(groupedFeat => groupedFeat != null))
+            foreach (var feat in groupedFeat.GetSubFeats())
             {
-                Feats.RemoveWhere(x => groupedFeat.GetSubFeats().Contains(x));
-                FeatGroups.RemoveWhere(x => groupedFeat.GetSubFeats().Contains(x));
-            }
-        }
-        else
-        {
-            foreach (var groupedFeat in groups.ToList()
-                         .Select(group => group.GetFirstSubFeatureOfType<IGroupedFeat>())
-                         .Where(groupedFeat => groupedFeat != null))
-            {
-                foreach (var feat in groupedFeat.GetSubFeats())
-                {
-                    var feats = feat.GetFirstSubFeatureOfType<IGroupedFeat>();
+                var feats = feat.GetFirstSubFeatureOfType<IGroupedFeat>();
 
-                    // it's a group with child groups
-                    if (feats != null)
+                if (feats != null)
+                {
+                    if (Main.Settings.HideChildrenFeatsOnModUi)
+                    {
+                        FeatGroups.Remove(feat);
+                    }
+                    else
                     {
                         FeatGroups.Add(feat);
-                        UpdateFeatsAndGroupsChildrenDisplay(feats.GetSubFeats());
+                    }
+
+                    UpdateFeatsAndGroupsChildrenDisplay(feats.GetSubFeats());
+                }
+                else
+                {
+                    if (Main.Settings.HideChildrenFeatsOnModUi)
+                    {
+                        Feats.Remove(feat);
                     }
                     else
                     {
@@ -89,18 +89,22 @@ internal static class FeatsContext
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
         FeatGroups = FeatGroups.OrderBy(x => x.FormatTitle()).ToHashSet();
 
-        // settings paring
+        // settings paring feats
         foreach (var featName in Main.Settings.FeatEnabled.ToList()
                      .Where(featName => Feats.All(x => x.Name != featName)))
         {
             Main.Settings.FeatEnabled.Remove(featName);
         }
 
+        // settings paring groups
         foreach (var featName in Main.Settings.FeatGroupEnabled.ToList()
                      .Where(featName => FeatGroups.All(x => x.Name != featName)))
         {
             Main.Settings.FeatGroupEnabled.Remove(featName);
         }
+
+        // avoids restart on level up UI
+        GuiWrapperContext.RecacheFeats();
     }
 
     private static void LoadFeat([NotNull] FeatDefinition featDefinition)
@@ -172,6 +176,27 @@ internal static class FeatsContext
         {
             Main.Settings.FeatGroupEnabled.Remove(name);
         }
+
+        var feats = featDefinition.GetFirstSubFeatureOfType<IGroupedFeat>();
+
+        feats?.GetSubFeats().ForEach(x =>
+        {
+            var isFeatGroup = x.GetFirstSubFeatureOfType<IGroupedFeat>() != null;
+
+            if (x.ContentPack != CeContentPackContext.CeContentPack)
+            {
+                return;
+            }
+
+            if (isFeatGroup)
+            {
+                SwitchFeatGroup(x, active);
+            }
+            else
+            {
+                SwitchFeat(x, active);
+            }
+        });
 
         UpdateFeatGroupsVisibility(featDefinition);
         GuiWrapperContext.RecacheFeats();
