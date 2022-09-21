@@ -116,8 +116,7 @@ internal static class CasterFeats
             .AddToDB();
 
         newFeats.SetRange(intTelekineticFeat, chaTelekineticFeat, wisTelekineticFeat);
-        //TODO: should this be part of Plane Magic?
-        // groups.Add(GroupFeats.MakeGroup("FeatGroupTelekinetic", TELEKINETIC, newFeats));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupTelekinetic", TELEKINETIC, newFeats));
         feats.AddRange(newFeats);
 
         // Fey Teleportation
