@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Models.SpellsContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -226,41 +227,30 @@ internal static class BazouSpells
     private static SpellDefinition BuildMinorLifesteal()
     {
         var spell = SpellDefinitionBuilder
-            .Create(VampiricTouch, "MinorLifesteal", DefinitionBuilder.CENamespaceGuid)
+            .Create("MinorLifesteal", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(false)
             .SetSpellLevel(0)
             .SetRequiresConcentration(false)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
+                    additionalDicePerIncrement: 1)
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic, healFromInflictedDamage: HealFromInflictedDamage.Half)
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .Build())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetTempHPForm(dieType: DieType.D4, diceNumber: 1, applyToSelf: true)
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .Build())
+                .SetParticleEffectParameters(VampiricTouch.EffectDescription.EffectParticleParameters)
+                .Build())
             .AddToDB();
-
-        spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-        spell.EffectDescription.SetRangeParameter(12);
-        spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Instantaneous);
-        spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-        spell.EffectDescription.hasSavingThrow = true;
-        spell.EffectDescription.SetHalfDamageOnAMiss(false);
-        spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
-        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
-        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 5;
-        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod
-            .CasterLevelTable;
-
-        spell.EffectDescription.EffectForms[1].hasSavingThrow = true;
-        spell.EffectDescription.EffectForms[1]
-            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
-        spell.EffectDescription.EffectForms[1].DamageForm.diceNumber = 1;
-        spell.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D4;
-        spell.EffectDescription.EffectForms[1].DamageForm.damageType = RuleDefinitions.DamageTypeNecrotic;
-        spell.EffectDescription.EffectForms[1].DamageForm
-            .healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Full;
-        spell.EffectDescription.EffectForms[1].levelMultiplier = 1;
-        // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
-        //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
-        //spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
-
         return spell;
     }
 
