@@ -45,49 +45,6 @@ internal static class FeatsContext
 
         groups.ForEach(LoadFeatGroup);
 
-        UpdateFeatsAndGroupsChildrenDisplay(groups);
-    }
-
-    internal static void UpdateFeatsAndGroupsChildrenDisplay(IEnumerable<FeatDefinition> groups)
-    {
-        foreach (var groupedFeat in groups.ToList()
-                     .Select(group => group.GetFirstSubFeatureOfType<IGroupedFeat>())
-                     .Where(groupedFeat => groupedFeat != null))
-        {
-            foreach (var feat in groupedFeat.GetSubFeats())
-            {
-                var feats = feat.GetFirstSubFeatureOfType<IGroupedFeat>();
-
-                if (feats != null)
-                {
-                    if (Main.Settings.HideChildrenFeatsOnModUi)
-                    {
-                        FeatGroups.Remove(feat);
-                    }
-                    else
-                    {
-                        FeatGroups.Add(feat);
-                    }
-
-                    UpdateFeatsAndGroupsChildrenDisplay(feats.GetSubFeats());
-                }
-                else
-                {
-                    if (Main.Settings.HideChildrenFeatsOnModUi)
-                    {
-                        Feats.Remove(feat);
-                    }
-                    else
-                    {
-                        if (feat.ContentPack == CeContentPackContext.CeContentPack)
-                        {
-                            Feats.Add(feat);
-                        }
-                    }
-                }
-            }
-        }
-
         // sorting
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
         FeatGroups = FeatGroups.OrderBy(x => x.FormatTitle()).ToHashSet();
@@ -187,26 +144,26 @@ internal static class FeatsContext
         // Syncs Feat Groups status with children
         //
         
-        var feats = featDefinition.GetFirstSubFeatureOfType<IGroupedFeat>();
-
-        feats?.GetSubFeats().ForEach(x =>
-        {
-            var isFeatGroup = x.GetFirstSubFeatureOfType<IGroupedFeat>() != null;
-
-            if (x.ContentPack != CeContentPackContext.CeContentPack)
-            {
-                return;
-            }
-
-            if (isFeatGroup)
-            {
-                SwitchFeatGroup(x, active);
-            }
-            else
-            {
-                SwitchFeat(x, active);
-            }
-        });
+        // var feats = featDefinition.GetFirstSubFeatureOfType<IGroupedFeat>();
+        //
+        // feats?.GetSubFeats().ForEach(x =>
+        // {
+        //     var isFeatGroup = x.GetFirstSubFeatureOfType<IGroupedFeat>() != null;
+        //
+        //     if (x.ContentPack != CeContentPackContext.CeContentPack)
+        //     {
+        //         return;
+        //     }
+        //
+        //     if (isFeatGroup)
+        //     {
+        //         SwitchFeatGroup(x, active);
+        //     }
+        //     else
+        //     {
+        //         SwitchFeat(x, active);
+        //     }
+        // });
     }
 
     public static void UpdatePanelChildren(FeatSubPanel panel)
