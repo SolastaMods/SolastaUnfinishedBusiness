@@ -50,6 +50,16 @@ internal static class EwSpells
                 .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
         };
 
+        var sunlitMark = ConditionDefinitionBuilder
+            .Create("ConditionSunlightBladeMarked")
+            .SetGuiPresentationNoContent()
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddSpecialInterruptions(RuleDefinitions.ConditionInterruption.AnyBattleTurnEnd)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetDuration(RuleDefinitions.DurationType.Round, 1)
+            .AddToDB();
+
         return SpellDefinitionBuilder
             .Create("SunlightBlade", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell,
@@ -73,7 +83,7 @@ internal static class EwSpells
                     RuleDefinitions.Side.Enemy,
                     RuleDefinitions.RangeType.Distance,
                     1,
-                    RuleDefinitions.TargetType.Individuals
+                    RuleDefinitions.TargetType.IndividualsUnique
                 )
                 .SetSavingThrowData(
                     false,
@@ -94,7 +104,7 @@ internal static class EwSpells
                     .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(Category.Condition)
-                            .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacks)
+                            .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.AnyBattleTurnEnd)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                             .SetDuration(RuleDefinitions.DurationType.Round, 1)
@@ -114,6 +124,7 @@ internal static class EwSpells
                                     RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
                                     DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1)
                                 )
+                                .SetTargetCondition(sunlitMark, RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCondition)
                                 .SetConditionOperations(highlight)
                                 .SetAddLightSource(true)
                                 .SetLightSourceForm(dimLight)
@@ -123,8 +134,11 @@ internal static class EwSpells
                         ConditionForm.ConditionOperation.Add,
                         true,
                         false
-                    )
-                    .Build()
+                    ).Build(),
+                    EffectFormBuilder.Create()
+                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
+                        .SetConditionForm(sunlitMark, ConditionForm.ConditionOperation.Add)
+                        .Build()
                 )
                 .Build()
             )
