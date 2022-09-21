@@ -590,6 +590,16 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
 
     /// <summary>
     ///     Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from
+    ///     <b>CENamespaceGuid</b> plus <paramref name="name" />.
+    /// </summary>
+    /// <param name="name">The name assigned to the definition (mandatory)</param>
+    public static TBuilder Create(string name)
+    {
+        return CreateImpl(name, CENamespaceGuid);
+    }
+
+    /// <summary>
+    ///     Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from
     ///     <paramref name="namespaceGuid" /> plus <paramref name="name" />.
     /// </summary>
     /// <param name="name">The name assigned to the definition (mandatory)</param>
