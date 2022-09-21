@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -16,9 +15,6 @@ internal static class RulesetImplementationManagerLocationPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class IsMetamagicOptionAvailable_Patch
     {
-        //TODO: improve sunlight blade so it can properly work when twinned
-        private static readonly string[] NotAllowedSpells = { "SunlightBlade" };
-
         internal static void Postfix(
             ref bool __result,
             RulesetEffectSpell rulesetEffectSpell,
@@ -36,14 +32,6 @@ internal static class RulesetImplementationManagerLocationPatcher
             }
 
             var spellDefinition = rulesetEffectSpell.SpellDefinition;
-
-            if (Array.IndexOf(NotAllowedSpells, spellDefinition.Name) >= 0)
-            {
-                failure = "Cannot be twinned";
-                __result = false;
-
-                return;
-            }
 
             if (!Main.Settings.FixSorcererTwinnedLogic)
             {
