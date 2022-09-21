@@ -598,6 +598,11 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
         return CreateImpl(name, CENamespaceGuid);
     }
 
+    public static TBuilder Create(TDefinition original, string name)
+    {
+        return CreateImpl(original, name, CENamespaceGuid);
+    }
+
     /// <summary>
     ///     Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from
     ///     <paramref name="namespaceGuid" /> plus <paramref name="name" />.
