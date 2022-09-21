@@ -45,9 +45,9 @@ internal static class CharacterActionMagicEffectPatcher
             CharacterActionAttack attackAction = null;
             var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
             var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
-            var attackParams = getAttackAfterUse?.Invoke(__instance);
+            var attacks = getAttackAfterUse?.Invoke(__instance);
 
-            if (attackParams != null)
+            if (attacks is {Count: > 0})
             {
                 void AttackImpactStartHandler(
                     GameLocationCharacter attacker,
@@ -60,15 +60,19 @@ internal static class CharacterActionMagicEffectPatcher
                     attackOutcome = outcome;
                 }
 
-                attackParams.ActingCharacter.AttackImpactStart += AttackImpactStartHandler;
-                attackAction = new CharacterActionAttack(attackParams);
-                var enums = attackAction.Execute();
-                while (enums.MoveNext())
+                __instance.ActingCharacter.AttackImpactStart += AttackImpactStartHandler;
+                
+                foreach (var attackParams in attacks)
                 {
-                    yield return enums.Current;
+                    attackAction = new CharacterActionAttack(attackParams);
+                    var enums = attackAction.Execute();
+                    while (enums.MoveNext())
+                    {
+                        yield return enums.Current;
+                    }
                 }
 
-                attackParams.ActingCharacter.AttackImpactStart -= AttackImpactStartHandler;
+                __instance.ActingCharacter.AttackImpactStart -= AttackImpactStartHandler;
             }
 
             var saveRangeType = __instance.actionParams.activeEffect.EffectDescription.rangeType;

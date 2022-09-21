@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 
@@ -11,7 +12,7 @@ public interface IPerformAttackAfterMagicEffectUse
     delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
         GameLocationCharacter target, out string failure);
 
-    delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
+    delegate List<CharacterActionParams> GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
     CanUseHandler CanBeUsedToAttack { get; }
     GetAttackAfterUseHandler PerformAttackAfterUse { get; }
@@ -59,50 +60,63 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
         return battleService.CanAttack(evalParams);
     }
 
-    [CanBeNull]
-    private static CharacterActionParams DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
+    [NotNull]
+    private static List<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
     {
+        var attacks = new List<CharacterActionParams>();
+
         var actionParams = effect?.ActionParams;
-        if (actionParams == null) { return null; }
+        if (actionParams == null)
+        {
+            return attacks;
+        }
 
         //Spell got countered or it failed
         if (effect.Countered || effect.ExecutionFailed)
         {
-            return null;
+            return attacks;
         }
 
         //Attack outcome is worse that required
-        if (effect.AttackRollOutcome > MinOutcomeToAttack) { return null; }
+        if (effect.AttackRollOutcome > MinOutcomeToAttack)
+        {
+            return attacks;
+        }
 
         //Target rolled saving throw and got better result
-        if (effect.RolledSaveThrow && effect.SaveOutcome < MinSaveOutcomeToAttack) { return null; }
+        if (effect.RolledSaveThrow && effect.SaveOutcome < MinSaveOutcomeToAttack)
+        {
+            return attacks;
+        }
 
         var caster = actionParams.ActingCharacter;
         var targets = actionParams.TargetCharacters;
 
-        if (caster == null || targets.Empty()) { return null; }
+        if (caster == null || targets.Empty())
+        {
+            return attacks;
+        }
 
         var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-        if (attackMode == null) { return null; }
+        if (attackMode == null)
+        {
+            return attacks;
+        }
 
         var attackModifier = new ActionModifier();
 
-        //TODO: option to limit attack to select target, while effect can have multiple
-        var target = targets
-            .FirstOrDefault(t => CanMeleeAttack(caster, t));
-
-        if (target == null)
+        foreach (var target in targets.Where(t => CanMeleeAttack(caster, t)))
         {
-            return null;
+            var attackActionParams =
+                new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) {AttackMode = attackMode};
+
+            attackActionParams.TargetCharacters.Add(target);
+            attackActionParams.ActionModifiers.Add(attackModifier);
+
+            attacks.Add(attackActionParams);
         }
 
-        var attackActionParams =
-            new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
-
-        attackActionParams.TargetCharacters.Add(target);
-        attackActionParams.ActionModifiers.Add(attackModifier);
-
-        return attackActionParams;
+        return attacks;
     }
 
     private static bool DefaultCanUseHandler([NotNull] CursorLocationSelectTarget targeting,
