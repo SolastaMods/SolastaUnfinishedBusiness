@@ -79,7 +79,10 @@ internal static class FeatsContext
                     }
                     else
                     {
-                        Feats.Add(feat);
+                        if (feat.ContentPack == CeContentPackContext.CeContentPack)
+                        {
+                            Feats.Add(feat);
+                        }
                     }
                 }
             }
@@ -177,6 +180,13 @@ internal static class FeatsContext
             Main.Settings.FeatGroupEnabled.Remove(name);
         }
 
+        UpdateFeatGroupsVisibility(featDefinition);
+        GuiWrapperContext.RecacheFeats();
+ 
+        //
+        // Syncs Feat Groups status with children
+        //
+        
         var feats = featDefinition.GetFirstSubFeatureOfType<IGroupedFeat>();
 
         feats?.GetSubFeats().ForEach(x =>
@@ -197,9 +207,6 @@ internal static class FeatsContext
                 SwitchFeat(x, active);
             }
         });
-
-        UpdateFeatGroupsVisibility(featDefinition);
-        GuiWrapperContext.RecacheFeats();
     }
 
     public static void UpdatePanelChildren(FeatSubPanel panel)
