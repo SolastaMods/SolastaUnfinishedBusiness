@@ -23,10 +23,10 @@ internal static class FightingStyleFeats
     private static FeatDefinition BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)
     {
         return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-            .Create($"Feat{fightingStyle.Name}", DefinitionBuilder.CENamespaceGuid)
+            .Create($"Feat{fightingStyle.Name}")
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
-                    .Create($"ProficiencyFeat{fightingStyle.Name}", DefinitionBuilder.CENamespaceGuid)
+                    .Create($"ProficiencyFeat{fightingStyle.Name}")
                     .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, fightingStyle.Name)
                     .SetGuiPresentation(fightingStyle.GuiPresentation)
                     .AddToDB()

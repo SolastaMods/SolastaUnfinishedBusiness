@@ -52,7 +52,7 @@ internal sealed class RangerArcanist : AbstractSubclass
         var (arcanePulseAction, arcanePulseUpgradeAction) = CreatePowerArcanistArcanePulsePowers();
 
         return CharacterSubclassDefinitionBuilder
-            .Create("RangerArcanist", DefinitionBuilder.CENamespaceGuid)
+            .Create("RangerArcanist")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3, rangerArcanistMagic)
             .AddFeatureAtLevel(arcanistMark, 3)
@@ -67,7 +67,7 @@ internal sealed class RangerArcanist : AbstractSubclass
     private static FeatureDefinition[] CreateRangerArcanistMagic()
     {
         var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsArcanist", DefinitionBuilder.CENamespaceGuid)
+            .Create("AutoPreparedSpellsArcanist")
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
@@ -79,7 +79,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .AddToDB();
 
         var arcanistAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create(MagicAffinityBattleMagic, "MagicAffinityRangerArcanist", DefinitionBuilder.CENamespaceGuid)
+            .Create(MagicAffinityBattleMagic, "MagicAffinityRangerArcanist")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -89,7 +89,7 @@ internal sealed class RangerArcanist : AbstractSubclass
     private static FeatureDefinitionAdditionalDamage CreateArcanistMark()
     {
         return FeatureDefinitionAdditionalDamageBuilder
-            .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark", DefinitionBuilder.CENamespaceGuid)
+            .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark")
             .SetGuiPresentation(Category.Feature)
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 0)
@@ -162,7 +162,7 @@ internal sealed class RangerArcanist : AbstractSubclass
     {
         // This is a blank feature. It does nothing except create a description for what happens at level 11.
         return FeatureDefinitionBuilder
-            .Create("AdditionalDamageArcanistArcaneDetonationUpgrade", DefinitionBuilder.CENamespaceGuid)
+            .Create("AdditionalDamageArcanistArcaneDetonationUpgrade")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
     }
@@ -234,7 +234,7 @@ internal sealed class RangerArcanist : AbstractSubclass
         pulseDescription.EffectForms.SetRange(damageEffect, markedEffect);
 
         return FeatureDefinitionPowerBuilder
-            .Create(name, DefinitionBuilder.CENamespaceGuid)
+            .Create(name)
             .SetGuiPresentation($"Feature/&{term}Title", $"Feature/&{term}Description",
                 PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
             .SetUsesAbility(0, AttributeDefinitions.Wisdom)

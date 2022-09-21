@@ -9,7 +9,7 @@ internal static class FlexibleRacesContext
 {
     private static readonly FeatureUnlockByLevel AttributeChoiceThree = new(
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolAbilityScore3", DefinitionBuilder.CENamespaceGuid)
+            .Create("PointPoolAbilityScore3")
             .SetGuiPresentation(Category.Race)
             .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 3)
             .AddToDB(),
@@ -17,7 +17,7 @@ internal static class FlexibleRacesContext
 
     private static readonly FeatureUnlockByLevel AttributeChoiceFour = new(
         FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolAbilityScore4", DefinitionBuilder.CENamespaceGuid)
+            .Create("PointPoolAbilityScore4")
             .SetGuiPresentation(Category.Race)
             .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 4)
             .AddToDB(),

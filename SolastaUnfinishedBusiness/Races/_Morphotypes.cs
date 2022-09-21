@@ -12,73 +12,73 @@ internal static class Morphotypes
     internal static void Load()
     {
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin1", DefinitionBuilder.CENamespaceGuid)
+            .Create(FaceAndSkin_01, "DarkelfSkin1")
             .SetMainColor(BodyDecorationColor_Default_00.MainColor)
             .SetSortOrder(48)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin2", DefinitionBuilder.CENamespaceGuid)
+            .Create(FaceAndSkin_01, "DarkelfSkin2")
             .SetMainColor(new Color { r = 0.129411765f, g = 0.188235294f, b = 0.239215686f, a = 1.0f })
             .SetSortOrder(49)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin3", DefinitionBuilder.CENamespaceGuid)
+            .Create(FaceAndSkin_01, "DarkelfSkin3")
             .SetMainColor(new Color { r = 0.188235294f, g = 0.258823529f, b = 0.317647059f, a = 1.0f })
             .SetSortOrder(50)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin4", DefinitionBuilder.CENamespaceGuid)
+            .Create(FaceAndSkin_01, "DarkelfSkin4")
             .SetMainColor(new Color { r = 0.266666667f, g = 0.360784314f, b = 0.439215687f, a = 1.0f })
             .SetSortOrder(51)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin5", DefinitionBuilder.CENamespaceGuid)
+            .Create(FaceAndSkin_01, "DarkelfSkin5")
             .SetMainColor(new Color { r = 0.164705882f, g = 0.184313725f, b = 0.239215686f, a = 1.0f })
             .SetSortOrder(52)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin6", DefinitionBuilder.CENamespaceGuid)
+            .Create(FaceAndSkin_01, "DarkelfSkin6")
             .SetMainColor(new Color { r = 0.054901961f, g = 0.007843137f, b = 0.015686274f, a = 1.0f })
             .SetSortOrder(53)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair1", DefinitionBuilder.CENamespaceGuid)
+            .Create(HairColorSilver, "DarkelfHair1")
             .SetMainColor(FaceAndSkin_Neutral.MainColor)
             .SetSortOrder(48)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair2", DefinitionBuilder.CENamespaceGuid)
+            .Create(HairColorSilver, "DarkelfHair2")
             .SetMainColor(new Color { r = 0.945098039f, g = 0.952941176f, b = 0.980392157f, a = 1.0f })
             .SetSortOrder(49)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair3", DefinitionBuilder.CENamespaceGuid)
+            .Create(HairColorSilver, "DarkelfHair3")
             .SetMainColor(new Color { r = 0.890196078f, g = 0.933333333f, b = 0.976470588f, a = 1.0f })
             .SetSortOrder(50)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair4", DefinitionBuilder.CENamespaceGuid)
+            .Create(HairColorSilver, "DarkelfHair4")
             .SetMainColor(new Color { r = 0.870588235f, g = 0.894117647f, b = 0.925490196f, a = 1.0f })
             .SetSortOrder(51)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair5", DefinitionBuilder.CENamespaceGuid)
+            .Create(HairColorSilver, "DarkelfHair5")
             .SetMainColor(new Color { r = 0.968627451f, g = 0.929411765f, b = 0.937254902f, a = 1.0f })
             .SetSortOrder(52)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair6", DefinitionBuilder.CENamespaceGuid)
+            .Create(HairColorSilver, "DarkelfHair6")
             .SetMainColor(new Color { r = 0.996078431f, g = 0.913725490f, b = 0.913725490f, a = 1.0f })
             .SetSortOrder(53)
             .AddToDB();

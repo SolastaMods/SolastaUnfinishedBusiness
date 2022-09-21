@@ -17,7 +17,7 @@ internal static class OtherFeats
     {
         // Savage Attacker
         var savageAttacker = FeatDefinitionBuilder
-            .Create("FeatSavageAttacker", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatSavageAttacker")
             .SetFeatures(
                 BuildDieRollModifier("DieRollModifierFeatSavageAttacker",
                     AttackDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */),
@@ -28,11 +28,11 @@ internal static class OtherFeats
 
         // Improved Critical
         var improvedCritical = FeatDefinitionBuilder
-            .Create("FeatImprovedCritical", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatImprovedCritical")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierFeatImprovedCritical", DefinitionBuilder.CENamespaceGuid)
+                    .Create("AttributeModifierFeatImprovedCritical")
                     .SetGuiPresentation("FeatImprovedCritical", Category.Feat)
                     .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 19)
                     .AddToDB())
@@ -40,10 +40,10 @@ internal static class OtherFeats
 
         // Tough
         var tough = FeatDefinitionBuilder
-            .Create("FeatTough", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatTough")
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierFeatTough", DefinitionBuilder.CENamespaceGuid)
+                    .Create("AttributeModifierFeatTough")
                     .SetGuiPresentation("FeatTough", Category.Feat)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
                     .AddToDB())
@@ -52,15 +52,15 @@ internal static class OtherFeats
 
         // Shield Expert
         var shieldExpert = FeatDefinitionBuilder
-            .Create("FeatShieldExpert", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatShieldExpert")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                    .Create("FeatShieldExpertBonusShieldAttack", DefinitionBuilder.CENamespaceGuid)
+                    .Create("FeatShieldExpertBonusShieldAttack")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new AddBonusShieldAttack())
                     .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
-                    .Create("ActionAffinityFeatShieldExpertShove", DefinitionBuilder.CENamespaceGuid)
+                    .Create("ActionAffinityFeatShieldExpertShove")
                     .SetGuiPresentationNoContent(true)
                     .SetDefaultAllowedActonTypes()
                     // Shove as bonus action seems too OP for this feat
@@ -85,10 +85,10 @@ internal static class OtherFeats
 
         // War Caster
         var warcaster = FeatDefinitionBuilder
-            .Create("FeatWarCaster", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatWarCaster")
             .SetFeatures(
                 FeatureDefinitionMagicAffinityBuilder
-                    .Create(MagicAffinityWarcaster, DefinitionBuilder.CENamespaceGuid)
+                    .Create(MagicAffinityWarcaster)
                     .SetGuiPresentation("FeatWarCaster", Category.Feat)
                     .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
                         RuleDefinitions.SpellParamsModifierType.None, false, false, false)
@@ -106,7 +106,7 @@ internal static class OtherFeats
         RuleDefinitions.RollContext context, int rerollCount, int minRerollValue)
     {
         return FeatureDefinitionDieRollModifierBuilder
-            .Create(name, DefinitionBuilder.CENamespaceGuid)
+            .Create(name)
             .SetModifiers(context, rerollCount, minRerollValue, "Feat/&FeatSavageAttackerReroll")
             .SetGuiPresentation("FeatSavageAttacker", Category.Feat)
             .AddToDB();
