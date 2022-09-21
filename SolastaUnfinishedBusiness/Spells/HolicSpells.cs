@@ -36,7 +36,7 @@ internal static class HolicSpells
             CustomIcons.CreateAssetReferenceSprite(NAME, Resources.AcidClaws, 128, 128);
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
@@ -48,12 +48,12 @@ internal static class HolicSpells
                     .Build())
                 .AddEffectForm(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
-                        .Create(CONDITION)
+                        .Create(CONDITION, DefinitionBuilder.CENamespaceGuid)
                         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAcidSpit.GuiPresentation.SpriteReference)
                         .SetDuration(DurationType.Round, 1)
                         .SetSpecialDuration(true)
                         .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                            .Create(MODIFIER)
+                            .Create(MODIFIER, DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(Category.Feature)
                             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                                 AttributeDefinitions.ArmorClass, -1)
@@ -100,7 +100,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -138,7 +138,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -177,7 +177,7 @@ internal static class HolicSpells
         effectDescription.SetTargetExcludeCaster(true);
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -230,7 +230,7 @@ internal static class HolicSpells
                 e.formType == EffectFormType.Topology));
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
@@ -272,7 +272,7 @@ internal static class HolicSpells
             ).Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)

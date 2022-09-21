@@ -77,7 +77,7 @@ public static class SrdSpells
             .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect);
 
         return SpellDefinitionBuilder
-            .Create(TEXT)
+            .Create(TEXT, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, Thunderwave.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
@@ -116,7 +116,7 @@ public static class SrdSpells
         );
 
         return SpellDefinitionBuilder
-            .Create("MindBlank")
+            .Create("MindBlank", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, MindTwist.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(8)
@@ -150,7 +150,7 @@ public static class SrdSpells
                 .Build());
 
         return SpellDefinitionBuilder
-            .Create("Foresight")
+            .Create("Foresight", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, TrueSeeing.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -186,7 +186,7 @@ public static class SrdSpells
                 .Build());
 
         return SpellDefinitionBuilder
-            .Create("MassHeal")
+            .Create("MassHeal", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, Heal.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -249,7 +249,7 @@ public static class SrdSpells
             .SetParticleEffectParameters(FlameStrike.EffectDescription.EffectParticleParameters);
 
         return SpellDefinitionBuilder
-            .Create("MeteorSwarmSingleTarget")
+            .Create("MeteorSwarmSingleTarget", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, FlamingSphere.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -305,7 +305,7 @@ public static class SrdSpells
                 .Build());
 
         return SpellDefinitionBuilder
-            .Create("PowerWordHeal")
+            .Create("PowerWordHeal", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, HealingWord.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -344,7 +344,7 @@ public static class SrdSpells
             .AddEffectForm(effectForm);
 
         return SpellDefinitionBuilder
-            .Create("PowerWordKill")
+            .Create("PowerWordKill", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, Disintegrate.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -405,7 +405,7 @@ public static class SrdSpells
             .SetParticleEffectParameters(PowerDruidWildShape.EffectDescription.EffectParticleParameters);
 
         return SpellDefinitionBuilder
-            .Create("Shapechange")
+            .Create("Shapechange", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, PowerDruidWildShape.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -442,7 +442,7 @@ public static class SrdSpells
             .ExcludeCaster();
 
         return SpellDefinitionBuilder
-            .Create("TimeStop")
+            .Create("TimeStop", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
@@ -490,7 +490,7 @@ public static class SrdSpells
                 .Build());
 
         return SpellDefinitionBuilder
-            .Create("Weird")
+            .Create("Weird", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, PhantasmalKiller.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)

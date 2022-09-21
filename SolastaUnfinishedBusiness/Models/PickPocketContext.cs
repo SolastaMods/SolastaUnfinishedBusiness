@@ -19,7 +19,7 @@ public static class PickPocketContext
     {
         var pickpocketCheckAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker,
-                "AbilityCheckAffinityFeatPickPocket")
+                "AbilityCheckAffinityFeatPickPocket", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
             .AddToDB();
 
@@ -34,7 +34,7 @@ public static class PickPocketContext
 
         var pickpocketProficiency = FeatureDefinitionProficiencyBuilder
             .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
-                "ProficiencyFeatPickPocket")
+                "ProficiencyFeatPickPocket", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
             .AddToDB();
 
@@ -114,25 +114,25 @@ public static class PickPocketContext
         };
 
         var pickPocketableLootA = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_A")
+            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_A", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableLow)
             .AddToDB();
 
         var pickPocketableLootB = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_B")
+            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_B", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableLow)
             .AddToDB();
 
         var pickPocketableLootC = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_C")
+            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_C", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableMed)
             .AddToDB();
 
         var pickPocketableLootD = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_D")
+            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_D", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableLow, lootPickpocketTableMed)
             .AddToDB();

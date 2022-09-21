@@ -41,7 +41,7 @@ public static class GroupFeats
     public static FeatDefinition MakeGroup(string name, string family, List<FeatDefinition> feats)
     {
         var group = FeatDefinitionBuilder
-            .Create(name)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(feats))
             .SetFeatFamily(family)
@@ -56,7 +56,7 @@ public static class GroupFeats
     private static FeatDefinition BuildElementalTouchGroup()
     {
         return FeatDefinitionBuilder
-            .Create("FeatGroupElementalTouch")
+            .Create("FeatGroupElementalTouch", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.BurningTouch,
@@ -73,7 +73,7 @@ public static class GroupFeats
     private static FeatDefinition BuildCreedGroup()
     {
         return FeatDefinitionBuilder
-            .Create("FeatGroupCreed")
+            .Create("FeatGroupCreed", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.Creed_Of_Arun,

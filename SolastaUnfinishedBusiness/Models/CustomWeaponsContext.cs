@@ -100,7 +100,7 @@ public static class CustomWeaponsContext
         icon ??= baseItem.GuiPresentation.SpriteReference;
 
         var builder = ItemDefinitionBuilder
-            .Create(baseItem, name)
+            .Create(baseItem, name, DefinitionBuilder.CENamespaceGuid)
             .SetGold(goldCost)
             .SetMerchantCategory(MerchantCategoryDefinitions.Weapon)
             .SetStaticProperties(properties)
@@ -229,7 +229,7 @@ public static class CustomWeaponsContext
     {
         var scale = new CustomScale(z: 3.5f);
         HalberdWeaponType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.GreataxeType, "CEHalberdType")
+            .Create(WeaponTypeDefinitions.GreataxeType, "CEHalberdType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
@@ -304,7 +304,7 @@ public static class CustomWeaponsContext
     {
         var scale = new CustomScale(z: 3.5f);
         PikeWeaponType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.SpearType, "CEPikeType")
+            .Create(WeaponTypeDefinitions.SpearType, "CEPikeType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
@@ -381,7 +381,7 @@ public static class CustomWeaponsContext
     {
         var scale = new CustomScale(z: 3.5f);
         LongMaceWeaponType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.MaulType, "CELongMaceType")
+            .Create(WeaponTypeDefinitions.MaulType, "CELongMaceType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
@@ -456,7 +456,7 @@ public static class CustomWeaponsContext
     {
         var scale = new CustomScale(0.5f);
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.LightCrossbowType, "CEHandXbowType")
+            .Create(WeaponTypeDefinitions.LightCrossbowType, "CEHandXbowType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .SetAnimationTag("Rapier")
@@ -556,7 +556,7 @@ public static class CustomWeaponsContext
                 damageType: RuleDefinitions.DamageTypeFire)
             .Build());
         flame.staticProperties.Add(BuildFrom(FeatureDefinitionBuilder
-            .Create("ProducedFlameThrower")
+            .Create("ProducedFlameThrower", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetCustomSubFeatures(
                 new ModifyProducedFlameDice(),
@@ -640,7 +640,7 @@ public static class CustomWeaponsContext
     // public static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
     //     params ItemDefinition[] ingredients)
     // {
-    //     return BuildRecipe(item, hours, difficulty, ingredients);
+    //     return BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients);
     // }
 
     private static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty, Guid guid,
@@ -666,7 +666,7 @@ public static class CustomWeaponsContext
     // [NotNull]
     // public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
     // {
-    //     return BuildManual(recipe);
+    //     return BuildManual(recipe, DefinitionBuilder.CENamespaceGuid);
     // }
 
     [NotNull]
@@ -699,7 +699,7 @@ public static class CustomWeaponsContext
     [NotNull]
     private static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
     {
-        return BuildPrimingManual(item, primed);
+        return BuildPrimingManual(item, primed, DefinitionBuilder.CENamespaceGuid);
     }
 
     public static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero, [NotNull] RulesetAttackMode mode)

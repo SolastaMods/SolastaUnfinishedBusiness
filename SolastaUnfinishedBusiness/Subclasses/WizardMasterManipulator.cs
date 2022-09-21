@@ -16,7 +16,7 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
     {
         // Make Control Master subclass
         var arcaneControlAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityMasterManipulatorControlHeightened")
+            .Create("MagicAffinityMasterManipulatorControlHeightened", DefinitionBuilder.CENamespaceGuid)
             .SetWarList(1,
                 CharmPerson, // enchantment
                 Sleep, // enchantment
@@ -34,14 +34,14 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyMasterManipulatorMentalSavingThrows")
+            .Create("ProficiencyMasterManipulatorMentalSavingThrows", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();
 
         var powerDominate = FeatureDefinitionPowerBuilder
-            .Create("PowerMasterManipulatorDominatePerson")
+            .Create("PowerMasterManipulatorDominatePerson", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, DominatePerson.GuiPresentation.SpriteReference)
             .Configure(0,
                 RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
@@ -53,7 +53,7 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardMasterManipulator")
+            .Create("WizardMasterManipulator", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass,
                 RoguishShadowCaster.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(arcaneControlAffinity, 2)
@@ -96,7 +96,7 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
         RuleDefinitions.SpellParamsModifierType dcModifierType, string name, GuiPresentation guiPresentation)
     {
         return FeatureDefinitionMagicAffinityBuilder
-            .Create(name)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(guiPresentation)
             .SetCastingModifiers(attackModifier, attackModifierType, dcModifier, dcModifierType, false, false,
                 false)

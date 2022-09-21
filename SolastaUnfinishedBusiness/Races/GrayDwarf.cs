@@ -23,14 +23,14 @@ internal static class GrayDwarfSubraceBuilder
         //Dwarf.GuiPresentation.SpriteReference;
 
         var grayDwarfAbilityScoreModifierStrength = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierGrayDwarfStrengthAbilityScoreIncrease")
+            .Create("AttributeModifierGrayDwarfStrengthAbilityScoreIncrease", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Strength, 1)
             .AddToDB();
 
         var grayDwarfPerceptionLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityGrayDwarfLightSensitivity")
+            .Create("AbilityCheckAffinityGrayDwarfLightSensitivity", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
                 RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage, RuleDefinitions.DieType.D1, 0,
@@ -42,7 +42,7 @@ internal static class GrayDwarfSubraceBuilder
 
         var grayDwarfCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight,
-                "CombatAffinityGrayDwarfLightSensitivity")
+                "CombatAffinityGrayDwarfLightSensitivity", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("LightAffinityGrayDwarfLightSensitivity", Category.Feature)
             .SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Disadvantage)
             .SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign.Substract)
@@ -50,7 +50,7 @@ internal static class GrayDwarfSubraceBuilder
             .AddToDB();
 
         var grayDwarfConditionLightSensitive = ConditionDefinitionBuilder
-            .Create("ConditionGrayDwarfLightSensitive")
+            .Create("ConditionGrayDwarfLightSensitive", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(
                 "LightAffinityGrayDwarfLightSensitivity", Category.Feature,
                 ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
@@ -68,7 +68,7 @@ internal static class GrayDwarfSubraceBuilder
         };
 
         var grayDwarfLightAffinity = FeatureDefinitionLightAffinityBuilder
-            .Create("LightAffinityGrayDwarfLightSensitivity")
+            .Create("LightAffinityGrayDwarfLightSensitivity", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(grayDwarfLightingEffectAndCondition)
             .AddToDB();
@@ -98,25 +98,25 @@ internal static class GrayDwarfSubraceBuilder
 
         var grayDwarfConditionAffinityGrayDwarfCharm = FeatureDefinitionConditionAffinityBuilder
             .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharm,
-                "ConditionAffinityGrayDwarfCharm")
+                "ConditionAffinityGrayDwarfCharm", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .AddToDB();
 
         var grayDwarfConditionAffinityGrayDwarfCharmedByHypnoticPattern = FeatureDefinitionConditionAffinityBuilder
             .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern,
-                "ConditionAffinityGrayDwarfCharmedByHypnoticPattern")
+                "ConditionAffinityGrayDwarfCharmedByHypnoticPattern", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .AddToDB();
 
         var grayDwarfConditionAffinityGrayDwarfParalyzedAdvantage = FeatureDefinitionConditionAffinityBuilder
             .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityHalflingBrave,
-                "ConditionAffinityGrayDwarfParalyzedAdvantage")
+                "ConditionAffinityGrayDwarfParalyzedAdvantage", DefinitionBuilder.CENamespaceGuid)
             .SetConditionType(ConditionDefinitions.ConditionParalyzed)
             .AddToDB();
 
         var grayDwarfSavingThrowAffinityGrayDwarfIllusion = FeatureDefinitionSavingThrowAffinityBuilder
             .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityGemIllusion,
-                "SavingThrowAffinityGrayDwarfIllusion")
+                "SavingThrowAffinityGrayDwarfIllusion", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
 
         grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[0].affinity =
@@ -150,16 +150,16 @@ internal static class GrayDwarfSubraceBuilder
 
         var grayDwarfAbilityCheckAffinityGrayDwarfStoneStrength = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength,
-                "AbilityCheckAffinityGrayDwarfStoneStrength")
+                "AbilityCheckAffinityGrayDwarfStoneStrength", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
 
         var grayDwarfSavingThrowAffinityGrayDwarfStoneStrength = FeatureDefinitionSavingThrowAffinityBuilder
             .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging,
-                "SavingThrowAffinityGrayDwarfStoneStrength")
+                "SavingThrowAffinityGrayDwarfStoneStrength", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
 
         var grayDwarfAdditionalDamageGrayDwarfStoneStrength = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageGrayDwarfStoneStrength")
+            .Create("AdditionalDamageGrayDwarfStoneStrength", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetNotificationTag("StoneStrength")
             .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
@@ -196,7 +196,7 @@ internal static class GrayDwarfSubraceBuilder
             grayDwarfConditionGrayDwarfStoneStrength;
 
         var grayDwarfStoneStrengthPower = FeatureDefinitionPowerBuilder
-            .Create("PowerGrayDwarfStoneStrength")
+            .Create("PowerGrayDwarfStoneStrength", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Stoneskin.GuiPresentation.SpriteReference)
             .SetEffectDescription(grayDwarfStoneStrengthEffect)
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -216,7 +216,7 @@ internal static class GrayDwarfSubraceBuilder
             .Build();
 
         var grayDwarfInvisibilityPower = FeatureDefinitionPowerBuilder
-            .Create("PowerGrayDwarfInvisibility")
+            .Create("PowerGrayDwarfInvisibility", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
             .SetEffectDescription(grayDwarfInvisibilityEffect)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
@@ -236,7 +236,7 @@ internal static class GrayDwarfSubraceBuilder
         grayDwarfRacePresentation.preferedHairColors = new RangedInt(35, 41);
 
         var grayDwarf = CharacterRaceDefinitionBuilder
-            .Create(DwarfHill, "RaceGrayDwarf")
+            .Create(DwarfHill, "RaceGrayDwarf", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Race, grayDwarfSpriteReference)
             .SetRacePresentation(grayDwarfRacePresentation)
             .SetFeaturesAtLevel(1,

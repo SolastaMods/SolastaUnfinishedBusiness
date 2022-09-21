@@ -65,7 +65,7 @@ internal static class PowersContext
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = helpPowerCondition;
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
-            .Create("PowerHelp")
+            .Create("PowerHelp", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, Aid.GuiPresentation.SpriteReference)
             .Configure(
                 1,

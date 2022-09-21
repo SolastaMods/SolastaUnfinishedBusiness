@@ -28,7 +28,7 @@ public static class SgSpells
         const string NAME = "IlluminatingSphere";
 
         var spell = SpellDefinitionBuilder
-            .Create(Sparkle, NAME)
+            .Create(Sparkle, NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
             .AddToDB();
 
@@ -64,7 +64,7 @@ public static class SgSpells
             .Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(MagicMissile, NAME)
+            .Create(MagicMissile, NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, Sparkle.GuiPresentation.SpriteReference)
             .SetEffectDescription(effectDescription)
             .AddToDB();
@@ -80,13 +80,13 @@ public static class SgSpells
         const string NAME = "Mule";
 
         var movementAffinity = FeatureDefinitionMovementAffinityBuilder
-            .Create("MovementAffinityConditionMule")
+            .Create("MovementAffinityConditionMule", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
         movementAffinity.heavyArmorImmunity = true;
         movementAffinity.encumbranceImmunity = true;
 
         var equipmentAffinity = FeatureDefinitionEquipmentAffinityBuilder
-            .Create("EquipmentAffinityConditionMule")
+            .Create("EquipmentAffinityConditionMule", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
         equipmentAffinity.additionalCarryingCapacity = 20;
 
@@ -109,7 +109,7 @@ public static class SgSpells
                     .Create()
                     .SetConditionForm(
                         ConditionDefinitionBuilder
-                            .Create("ConditionMule")
+                            .Create("ConditionMule", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(Category.Condition, Longstrider.GuiPresentation.SpriteReference)
                             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
                             .SetFeatures(movementAffinity, equipmentAffinity)
@@ -122,7 +122,7 @@ public static class SgSpells
             .Build();
 
         var spell = SpellDefinitionBuilder
-            .Create(NAME)
+            .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, Longstrider.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)

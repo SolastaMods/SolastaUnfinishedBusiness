@@ -14,7 +14,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
     internal WizardLifeTransmuter()
     {
         var lifeTransmuterAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityLifeTransmuterHeightened")
+            .Create("MagicAffinityLifeTransmuterHeightened", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetWarList(2,
                 FalseLife, // necromancy
@@ -29,7 +29,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         // Add transmuter stone like abilities.
         var transmuteForce = FeatureDefinitionPowerPoolBuilder
-            .Create("PowerSharedPoolLifeTransmuterHealingPool")
+            .Create("PowerSharedPoolLifeTransmuterHealingPool", DefinitionBuilder.CENamespaceGuid)
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.RechargeRate.LongRest)
             .SetGuiPresentation(Category.Feature)
@@ -99,7 +99,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var transmuteForceExtra = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("PowerPoolModifierLifeTransmuterHealingPoolExtra")
+            .Create("PowerPoolModifierLifeTransmuterHealingPoolExtra", DefinitionBuilder.CENamespaceGuid)
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)
@@ -115,7 +115,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerHeal = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerSharedPoolLifeTransmuterHeal")
+            .Create("PowerSharedPoolLifeTransmuterHeal", DefinitionBuilder.CENamespaceGuid)
             .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction,
                 1, false, false, AttributeDefinitions.Intelligence,
@@ -124,7 +124,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerRevive = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerSharedPoolLifeTransmuterRevive")
+            .Create("PowerSharedPoolLifeTransmuterRevive", DefinitionBuilder.CENamespaceGuid)
             .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
                 Revivify.EffectDescription, false /* unique instance */)
@@ -132,14 +132,14 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("PowerPoolModifierLifeTransmuterHealingPoolBonus")
+            .Create("PowerPoolModifierLifeTransmuterHealingPoolBonus", DefinitionBuilder.CENamespaceGuid)
             .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardLifeTransmuter")
+            .Create("WizardLifeTransmuter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass,
                 RoguishDarkweaver.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(lifeTransmuterAffinity, 2)
@@ -171,7 +171,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         string name, params FeatureDefinition[] conditionFeatures)
     {
         return ConditionDefinitionBuilder
-            .Create(name)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetFeatures(conditionFeatures)
             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
@@ -209,7 +209,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .Build();
 
         return FeatureDefinitionPowerSharedPoolBuilder
-            .Create(name)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .Configure(poolPower, recharge, activationTime, costPerUse, false, false, abilityScore,
                 effectDescription, false /* unique instance */);
     }

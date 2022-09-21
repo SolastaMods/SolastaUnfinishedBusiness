@@ -20,14 +20,14 @@ internal static class RaceBolgrifBuilder
             CustomIcons.CreateAssetReferenceSprite("Bolgrif", Resources.Bolgrif, 1024, 512);
 
         var bolgrifAbilityScoreModifierWisdom = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierBolgrifWisdomAbilityScoreIncrease")
+            .Create("AttributeModifierBolgrifWisdomAbilityScoreIncrease", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Wisdom, 2)
             .AddToDB();
 
         var bolgrifAbilityScoreModifierStrength = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierBolgrifStrengthAbilityScoreIncrease")
+            .Create("AttributeModifierBolgrifStrengthAbilityScoreIncrease", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Strength, 1)
@@ -51,7 +51,7 @@ internal static class RaceBolgrifBuilder
         bolgrifInvisibilityEffect.EffectAdvancement.Clear();
 
         var bolgrifInvisibilityPower = FeatureDefinitionPowerBuilder
-            .Create("PowerBolgrifInvisibility")
+            .Create("PowerBolgrifInvisibility", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
             .SetEffectDescription(bolgrifInvisibilityEffect)
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -76,7 +76,7 @@ internal static class RaceBolgrifBuilder
             .AddToDB();
 
         var bolgrifLanguageProficiency = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyBolgrifLanguages")
+            .Create("ProficiencyBolgrifLanguages", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", "Language_Giant",
                 "Language_Elvish")
@@ -90,7 +90,7 @@ internal static class RaceBolgrifBuilder
         bolgrifRacePresentation.MaleBeardShapeOptions.Add(MorphotypeElementDefinitions.BeardShape_None.Name);
 
         var bolgrif = CharacterRaceDefinitionBuilder
-            .Create(CharacterRaceDefinitions.Human, "RaceBolgrif")
+            .Create(CharacterRaceDefinitions.Human, "RaceBolgrif", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Race, bolgrifSpriteReference)
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetRacePresentation(bolgrifRacePresentation)

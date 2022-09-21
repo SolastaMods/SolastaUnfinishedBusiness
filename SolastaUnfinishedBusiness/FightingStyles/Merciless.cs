@@ -35,7 +35,7 @@ internal sealed class Merciless : AbstractFightingStyle
         }
 
         _powerMerciless = FeatureDefinitionPowerBuilder
-            .Create("PowerFightingStyleMerciless")
+            .Create("PowerFightingStyleMerciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("Fear", Category.Spell)
             .Configure(
                 1,
@@ -61,13 +61,13 @@ internal sealed class Merciless : AbstractFightingStyle
             .AddToDB();
 
         var onCharacterKillMerciless = FeatureDefinitionOnCharacterKillBuilder
-            .Create("OnCharacterKillFightingStyleMerciless")
+            .Create("OnCharacterKillFightingStyleMerciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetOnCharacterKill(OnMercilessKill)
             .AddToDB();
 
         instance = CustomizableFightingStyleBuilder
-            .Create("Merciless")
+            .Create("Merciless", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
             .SetFeatures(additionalActionMerciless, onCharacterKillMerciless)

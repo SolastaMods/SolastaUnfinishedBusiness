@@ -52,7 +52,7 @@ internal static class CasterFeats
             "PowerFeatTelekineticIntPull", pullPresentation);
 
         var intTelekineticFeat = FeatDefinitionBuilder
-            .Create("FeatTelekineticInt")
+            .Create("FeatTelekineticInt", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(intPush, intPull,
                 AttributeModifierCreed_Of_Pakri)
@@ -80,7 +80,7 @@ internal static class CasterFeats
             "PowerFeatTelekineticChaPull", pullPresentation);
 
         var chaTelekineticFeat = FeatDefinitionBuilder
-            .Create("FeatTelekineticCha")
+            .Create("FeatTelekineticCha", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(chaPush, chaPull,
                 AttributeModifierCreed_Of_Solasta)
@@ -108,7 +108,7 @@ internal static class CasterFeats
             "PowerFeatTelekineticWisPull", pullPresentation);
 
         var wisTelekineticFeat = FeatDefinitionBuilder
-            .Create("FeatTelekineticWis")
+            .Create("FeatTelekineticWis", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(wisPush, wisPull,
                 AttributeModifierCreed_Of_Maraike)
@@ -135,7 +135,7 @@ internal static class CasterFeats
             "PowerFeatFeyTeleportationMistyStep", MistyStep.GuiPresentation);
 
         var feyTeleportationLanguage = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatFeyTeleportationTirmarian")
+            .Create("ProficiencyFeatFeyTeleportationTirmarian", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
                 RuleDefinitions.ProficiencyType.Language,
@@ -145,7 +145,7 @@ internal static class CasterFeats
         newFeats.SetRange(
             // fey teleportation int
             FeatDefinitionBuilder
-                .Create("FeatFeyTeleportationInt")
+                .Create("FeatFeyTeleportationInt", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(AttributeModifierCreed_Of_Pakri,
                     feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
@@ -154,7 +154,7 @@ internal static class CasterFeats
                 .AddToDB(),
             // fey teleportation cha
             FeatDefinitionBuilder
-                .Create("FeatFeyTeleportationCha")
+                .Create("FeatFeyTeleportationCha", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(AttributeModifierCreed_Of_Solasta,
                     feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
@@ -163,7 +163,7 @@ internal static class CasterFeats
                 .AddToDB(),
             // fey teleportation wis
             FeatDefinitionBuilder
-                .Create("FeatFeyTeleportationWis")
+                .Create("FeatFeyTeleportationWis", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(AttributeModifierCreed_Of_Maraike,
                     feyTeleportationLanguage, mistyStepPower)
                 .AddFeatures(mistyStepClassesPreparedSpells)
@@ -208,7 +208,7 @@ internal static class CasterFeats
         newFeats.SetRange(
             // celestial touched int
             FeatDefinitionBuilder
-                .Create("FeatCelestialTouchedInt")
+                .Create("FeatCelestialTouchedInt", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(healingWordPower, cureWoundsPower, lesserRestorationPower,
                     AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
@@ -217,7 +217,7 @@ internal static class CasterFeats
                 .AddToDB(),
             // celestial touched wis
             FeatDefinitionBuilder
-                .Create("FeatCelestialTouchedWis")
+                .Create("FeatCelestialTouchedWis", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(healingWordPower, cureWoundsPower, lesserRestorationPower,
                     AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
@@ -226,7 +226,7 @@ internal static class CasterFeats
                 .AddToDB(),
             // celestial touched cha
             FeatDefinitionBuilder
-                .Create("FeatCelestialTouchedCha")
+                .Create("FeatCelestialTouchedCha", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(healingWordPower, cureWoundsPower, lesserRestorationPower,
                     AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(celestialTouchedClassesPreparedSpells)
@@ -284,7 +284,7 @@ internal static class CasterFeats
         newFeats.SetRange(
             // flame touched int
             FeatDefinitionBuilder
-                .Create("FeatFlameTouchedInt")
+                .Create("FeatFlameTouchedInt", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(burningHandsPowerInt, scorchingRayPowerInt,
                     AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
@@ -293,7 +293,7 @@ internal static class CasterFeats
                 .AddToDB(),
             // flame touched wis
             FeatDefinitionBuilder
-                .Create("FeatFlameTouchedWis")
+                .Create("FeatFlameTouchedWis", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(burningHandsPowerWis, scorchingRayPowerWis,
                     AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
@@ -302,7 +302,7 @@ internal static class CasterFeats
                 .AddToDB(),
             // flame touched cha
             FeatDefinitionBuilder
-                .Create("FeatFlameTouchedCha")
+                .Create("FeatFlameTouchedCha", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(burningHandsPowerCha, scorchingRayPowerCha,
                     AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(flameTouchedClassesPreparedSpells)
@@ -355,7 +355,7 @@ internal static class CasterFeats
         newFeats.SetRange(
             // shadow touched int
             FeatDefinitionBuilder
-                .Create("FeatShadowTouchedInt")
+                .Create("FeatShadowTouchedInt", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(invisibilityPower, inflictWoundsPowerInt, falseLifePower,
                     AttributeModifierCreed_Of_Pakri)
                 .AddFeatures(shadowTouchedClassesPreparedSpells)
@@ -364,7 +364,7 @@ internal static class CasterFeats
                 .AddToDB(),
             // shadow touched wis
             FeatDefinitionBuilder
-                .Create("FeatShadowTouchedWis")
+                .Create("FeatShadowTouchedWis", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(invisibilityPower, inflictWoundsPowerWis, falseLifePower,
                     AttributeModifierCreed_Of_Maraike)
                 .AddFeatures(shadowTouchedClassesPreparedSpells)
@@ -373,7 +373,7 @@ internal static class CasterFeats
                 .AddToDB(),
             // shadow touched cha
             FeatDefinitionBuilder
-                .Create("FeatShadowTouchedCha")
+                .Create("FeatShadowTouchedCha", DefinitionBuilder.CENamespaceGuid)
                 .SetFeatures(invisibilityPower, inflictWoundsPowerCha, falseLifePower,
                     AttributeModifierCreed_Of_Solasta)
                 .AddFeatures(shadowTouchedClassesPreparedSpells)
@@ -467,7 +467,7 @@ internal static class CasterFeats
         GuiPresentation guiPresentation)
     {
         return FeatureDefinitionPowerBuilder
-            .Create(name)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(guiPresentation)
             .Configure(
                 usesPerRecharge, usesDetermination, abilityScore, activationTime, costPerUse, recharge,
@@ -484,7 +484,7 @@ internal static class CasterFeats
         GuiPresentation guiPresentation)
     {
         return FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create(name)
+            .Create(name, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(guiPresentation)
             .SetPreparedSpellGroups(autoSpellLists)
             .SetCastingClass(characterClass)

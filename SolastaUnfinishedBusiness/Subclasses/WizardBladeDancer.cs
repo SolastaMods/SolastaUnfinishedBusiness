@@ -15,26 +15,26 @@ internal sealed class WizardBladeDancer : AbstractSubclass
     internal WizardBladeDancer()
     {
         var lightArmorProficiency = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyBladeDancerLightArmor")
+            .Create("ProficiencyBladeDancerLightArmor", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
                 RuleDefinitions.ProficiencyType.Armor, ArmorCategoryDefinitions.LightArmorCategory.Name)
             .AddToDB();
 
         var martialWeaponProficiency = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyBladeDancerMartialWeapon")
+            .Create("ProficiencyBladeDancerMartialWeapon", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
                 RuleDefinitions.ProficiencyType.Weapon, WeaponCategoryDefinitions.MartialWeaponCategory.Name)
             .AddToDB();
 
         var featureReplaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
-            .Create("ReplaceAttackWithCantripBladeDancer")
+            .Create("ReplaceAttackWithCantripBladeDancer", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
-            .Create("ConditionBladeDancerBladeDance")
+            .Create("ConditionBladeDancerBladeDance", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .Configure(
@@ -43,7 +43,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 false,
                 FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierBladeDancerBladeDance")
+                    .Create("AttributeModifierBladeDancerBladeDance", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
                     .SetModifierAbilityScore(AttributeDefinitions.Intelligence, true)
@@ -52,10 +52,10 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
-                        "AbilityCheckAffinityBladeDancerBladeDanceAcrobatics")
+                        "AbilityCheckAffinityBladeDancerBladeDanceAcrobatics", DefinitionBuilder.CENamespaceGuid)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create("AbilityCheckAffinityBladeDancerBladeDanceConstitution")
+                    .Create("AbilityCheckAffinityBladeDancerBladeDanceConstitution", DefinitionBuilder.CENamespaceGuid)
                     .BuildAndSetAffinityGroups(
                         RuleDefinitions.CharacterAbilityCheckAffinity.None,
                         RuleDefinitions.DieType.D1,
@@ -85,7 +85,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .Build();
 
         var powerBladeDance = FeatureDefinitionPowerBuilder
-            .Create("PowerBladeDancerBladeDance")
+            .Create("PowerBladeDancerBladeDance", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(
                 "Feature/&FeatureBladeDanceTitle",
                 "Condition/&ConditionBladeDancerBladeDanceDescription",
@@ -111,7 +111,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
                 FeatureDefinitionReduceDamageBuilder
-                    .Create("ReduceDamageBladeDancerDanceOfDefense")
+                    .Create("ReduceDamageBladeDancerDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetNotificationTag("DanceOfDefense")
                     .SetReducedDamage(-5)
@@ -132,7 +132,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .Build();
 
         var powerDanceOfDefense = FeatureDefinitionPowerBuilder
-            .Create(powerBladeDance, "PowerBladeDancerDanceOfDefense")
+            .Create(powerBladeDance, "PowerBladeDancerDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
             .SetEffectDescription(effectDanceOfDefense)
             .SetOverriddenPower(powerBladeDance)
             .AddToDB();
@@ -143,7 +143,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
-                    .Create("AttackModifierBladeDancerDanceOfVictory")
+                    .Create("AttackModifierBladeDancerDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .Configure(
                         RuleDefinitions.AttackModifierMethod.None,
@@ -166,7 +166,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .Build();
 
         var powerDanceOfVictory = FeatureDefinitionPowerBuilder
-            .Create(powerBladeDance, "PowerBladeDancerDanceOfVictory")
+            .Create(powerBladeDance, "PowerBladeDancerDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
             .SetEffectDescription(effectDanceOfVictory)
             .SetOverriddenPower(powerDanceOfDefense)
             .AddToDB();
@@ -176,25 +176,25 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         //
 
         var featureBladeDanceSet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetBladeDancerBladeDance")
+            .Create("FeatureSetBladeDancerBladeDance", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("FeatureBladeDance", Category.Feature)
             .SetFeatureSet(powerBladeDance)
             .AddToDB();
 
         var featureDanceOfDefenseSet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetBladeDancerReduceDamageBladeDancerDanceOfDefense")
+            .Create("FeatureSetBladeDancerReduceDamageBladeDancerDanceOfDefense", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ReduceDamageBladeDancerDanceOfDefense", Category.Feature)
             .SetFeatureSet(powerDanceOfDefense)
             .AddToDB();
 
         var featureDanceOfVictorySet = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetBladeDancerDanceOfVictory")
+            .Create("FeatureSetBladeDancerDanceOfVictory", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("AttackModifierBladeDancerDanceOfVictory", Category.Feature)
             .SetFeatureSet(powerDanceOfVictory)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardBladeDancer")
+            .Create("WizardBladeDancer", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, featureBladeDanceSet)
             .AddFeatureAtLevel(featureReplaceAttackWithCantrip, 6)

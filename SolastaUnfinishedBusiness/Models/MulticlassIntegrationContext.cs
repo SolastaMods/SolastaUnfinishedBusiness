@@ -12,12 +12,12 @@ internal static class MulticlassIntegrationContext
     // Sentinel blueprints to avoid a bunch of null check in code
 
     private static CharacterClassDefinition ClassDummy { get; } = CharacterClassDefinitionBuilder
-        .Create("ClassDummy")
+        .Create("ClassDummy", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentationNoContent(true)
         .AddToDB();
 
     private static CharacterSubclassDefinition DummySubclass { get; } = CharacterSubclassDefinitionBuilder
-        .Create("SubClassDummy")
+        .Create("SubClassDummy", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentationNoContent(true)
         .AddToDB();
 

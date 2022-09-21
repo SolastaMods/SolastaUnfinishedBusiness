@@ -60,7 +60,7 @@ internal static class EwSpells
             .AddToDB();
 
         return SpellDefinitionBuilder
-            .Create("SunlightBlade")
+            .Create("SunlightBlade", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell,
                 CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Resources.SunlightBlade, 128,
                     128))
@@ -101,14 +101,14 @@ internal static class EwSpells
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionSunlightBlade")
+                            .Create("ConditionSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(Category.Condition)
                             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.AnyBattleTurnEnd)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                             .SetDuration(RuleDefinitions.DurationType.Round, 1)
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create("AdditionalDamageSunlightBlade")
+                                .Create("AdditionalDamageSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                                 .Configure(
                                     "SunlightBlade",
                                     RuleDefinitions.FeatureLimitedUsage.None,
@@ -167,7 +167,7 @@ internal static class EwSpells
             .Build();
 
         var resonanceLeap = SpellDefinitionBuilder
-            .Create("ResonatingStrikeLeap")
+            .Create("ResonatingStrikeLeap", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetSpellLevel(1)
             .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
@@ -199,7 +199,7 @@ internal static class EwSpells
 
 
         return SpellDefinitionBuilder
-            .Create("ResonatingStrike")
+            .Create("ResonatingStrike", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell,
                 CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Resources.ResonatingStrike,
                     128, 128)) //TODO: replace sprite with actual image
@@ -242,14 +242,14 @@ internal static class EwSpells
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionResonatingStrike")
+                            .Create("ConditionResonatingStrike", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(Category.Condition)
                             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacks)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                             .SetDuration(RuleDefinitions.DurationType.Round, 1)
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create("AdditionalDamageResonatingStrike")
+                                .Create("AdditionalDamageResonatingStrike", DefinitionBuilder.CENamespaceGuid)
                                 .Configure(
                                     "ResonatingStrike",
                                     RuleDefinitions.FeatureLimitedUsage.None,

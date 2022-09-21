@@ -145,7 +145,7 @@ internal static class Level20Context
         Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionPowerBuilder
-                    .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
+                    .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17", DefinitionBuilder.CENamespaceGuid)
                     .SetEffectDescription(effectPowerClericTurnUndead17)
                     .AddToDB(),
                 17),
@@ -220,7 +220,7 @@ internal static class Level20Context
         Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionPowerBuilder
-                    .Create(PowerFighterActionSurge, "PowerFighterActionSurge2")
+                    .Create(PowerFighterActionSurge, "PowerFighterActionSurge2", DefinitionBuilder.CENamespaceGuid)
                     .SetFixedUsesPerRecharge(2)
                     .SetOverriddenPower(PowerFighterActionSurge)
                     .AddToDB(),
@@ -249,7 +249,7 @@ internal static class Level20Context
 
         Paladin.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(FeatureDefinitionPowerBuilder
-                    .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18")
+                    .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetEffectDescription(effectPowerPaladinAuraOfCourage18)
                     .SetOverriddenPower(PowerPaladinAuraOfCourage)
@@ -297,7 +297,7 @@ internal static class Level20Context
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionSenseBuilder
-                    .Create(SenseSeeInvisible12, "SenseRangerFeralSenses")
+                    .Create(SenseSeeInvisible12, "SenseRangerFeralSenses", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetSenseRange(6)
                     .AddToDB(),
@@ -337,7 +337,7 @@ internal static class Level20Context
             new(PointPoolSorcererAdditionalMetamagic, 17),
             new(FeatureSetAbilityScoreChoice, 19),
             new(FeatureDefinitionPowerBuilder
-                    .Create(PowerSorcerousRestorationName)
+                    .Create(PowerSorcerousRestorationName, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
                     .SetFixedUsesPerRecharge(1)
                     .SetActivationTime(RuleDefinitions.ActivationTime.Rest)
@@ -376,7 +376,7 @@ internal static class Level20Context
                 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(FeatureDefinitionPowerBuilder
-                    .Create(PowerWizardArcaneRecovery, "PowerWarlockEldritchMaster")
+                    .Create(PowerWizardArcaneRecovery, "PowerWarlockEldritchMaster", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
                     .AddToDB(),

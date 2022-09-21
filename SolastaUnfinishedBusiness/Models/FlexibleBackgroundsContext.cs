@@ -9,86 +9,86 @@ namespace SolastaUnfinishedBusiness.Models;
 public static class FlexibleBackgroundsContext
 {
     private static readonly FeatureDefinition SkillThree = FeatureDefinitionPointPoolBuilder
-        .Create("PointPoolBackgroundSkillSelect3")
+        .Create("PointPoolBackgroundSkillSelect3", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .SetPool(HeroDefinitions.PointsPoolType.Skill, 3)
         .AddToDB();
 
     private static readonly FeatureDefinition SkillTwo = FeatureDefinitionPointPoolBuilder
-        .Create("PointPoolBackgroundSkillSelect2")
+        .Create("PointPoolBackgroundSkillSelect2", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
         .AddToDB();
 
     private static readonly FeatureDefinition ToolChoice = FeatureDefinitionPointPoolBuilder
-        .Create("PointPoolBackgroundToolSelect")
+        .Create("PointPoolBackgroundToolSelect", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
         .AddToDB();
 
     private static readonly FeatureDefinition ToolChoiceTwo = FeatureDefinitionPointPoolBuilder
-        .Create("PointPoolBackgroundToolSelect2")
+        .Create("PointPoolBackgroundToolSelect2", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .SetPool(HeroDefinitions.PointsPoolType.Tool, 2)
         .AddToDB();
 
     private static readonly FeatureDefinition AcademicSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsAcademicBackground")
+        .Create("SuggestedSkillsAcademicBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition AcolyteSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsAcolyteBackground")
+        .Create("SuggestedSkillsAcolyteBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition AristocratSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsAristocratBackground")
+        .Create("SuggestedSkillsAristocratBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition LawkeeperSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsLawkeeperBackground")
+        .Create("SuggestedSkillsLawkeeperBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition LowlifeSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsLowlifeBackground")
+        .Create("SuggestedSkillsLowlifeBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition PhilosopherSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsPhilosopherBackground")
+        .Create("SuggestedSkillsPhilosopherBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition SellswordSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsSellswordBackground")
+        .Create("SuggestedSkillsSellswordBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition SpySuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsSpyBackground")
+        .Create("SuggestedSkillsSpyBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition WandererSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsWandererBackground")
+        .Create("SuggestedSkillsWandererBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition AesceticSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsAesceticBackground")
+        .Create("SuggestedSkillsAesceticBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition ArtistSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsArtistBackground")
+        .Create("SuggestedSkillsArtistBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 
     private static readonly FeatureDefinition OccultistSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsOccultistBackground")
+        .Create("SuggestedSkillsOccultistBackground", DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Background)
         .AddToDB();
 

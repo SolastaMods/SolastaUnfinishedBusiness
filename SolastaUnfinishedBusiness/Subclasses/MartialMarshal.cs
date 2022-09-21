@@ -91,7 +91,7 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
         additionalDamageRangerFavoredEnemyHumanoid.requiredCharacterFamily = CharacterFamilyDefinitions.Humanoid;
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetMarshalKnowYourEnemy")
+            .Create("FeatureSetMarshalKnowYourEnemy", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSet", Category.Feature)
             .AddFeatureSet(
                 knowYourEnemiesAttackHitModifier,
@@ -131,7 +131,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
             .SetEffectForms(new StudyEnemyEffectDescription());
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerMarshalStudyYourEnemy")
+            .Create("PowerMarshalStudyYourEnemy", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
                 IdentifyCreatures.GuiPresentation.SpriteReference)
             .SetFixedUsesPerRecharge(2)
@@ -319,7 +319,7 @@ internal static class MarshalCoordinatedAttackBuilder
     internal static FeatureDefinition BuildMarshalCoordinatedAttack()
     {
         return FeatureDefinitionBuilder
-            .Create("MarshalCoordinatedAttack")
+            .Create("MarshalCoordinatedAttack", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ReactToAttackFinished(MarshalCoordinatedAttackOnAttackHitDelegate))
             .AddToDB();
@@ -417,7 +417,7 @@ internal static class EternalComradeBuilder
         // TODO: make this use concentration and reduce the duration to may be 3 rounds
         // TODO: increase the number of use to 2 and recharge per long rest
         var summonEternalComradePower = FeatureDefinitionPowerBuilder
-            .Create("PowerMarshalSummonEternalComrade")
+            .Create("PowerMarshalSummonEternalComrade", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
                 Bane.GuiPresentation.SpriteReference)
             .SetCostPerUse(1)
@@ -496,7 +496,7 @@ internal static class FeatureSetMarshalFearlessCommanderBuilder
     internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalFearlessCommander()
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetMarshalFearlessCommander")
+            .Create("FeatureSetMarshalFearlessCommander", DefinitionBuilder.CENamespaceGuid)
             .SetFeatureSet(ConditionAffinityFrightenedImmunity)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetGuiPresentation(Category.Feature)
@@ -544,7 +544,7 @@ internal static class EncourageBuilder
         effect.SetCanBePlacedOnCharacter(true);
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerMarshalEncouragement")
+            .Create("PowerMarshalEncouragement", DefinitionBuilder.CENamespaceGuid)
             .Configure(-1, UsesDetermination.Fixed, AttributeDefinitions.Charisma,
                 ActivationTime.PermanentUnlessIncapacitated, 1,
                 RechargeRate.AtWill, false, false, AttributeDefinitions.Charisma, effect)
@@ -579,7 +579,7 @@ internal static class MarshalFighterSubclassBuilder
     internal static CharacterSubclassDefinition BuildAndAddSubclass()
     {
         return CharacterSubclassDefinitionBuilder
-            .Create(MarshalFighterSubclassName)
+            .Create(MarshalFighterSubclassName, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, OathOfJugement.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(MarshalCoordinatedAttack, 3)
             .AddFeatureAtLevel(KnowYourEnemies, 3)

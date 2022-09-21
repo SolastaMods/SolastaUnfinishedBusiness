@@ -19,7 +19,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
         // Make Melee Wizard subclass
 
         var weaponProf = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyArcaneFighterSimpleWeapons")
+            .Create("ProficiencyArcaneFighterSimpleWeapons", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
                 RuleDefinitions.ProficiencyType.Weapon,
@@ -28,13 +28,13 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var concentrationAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityArcaneFighterConcentrationAdvantage")
+            .Create("MagicAffinityArcaneFighterConcentrationAdvantage", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage)
             .AddToDB();
 
         var extraAttack = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierArcaneFighterExtraAttack")
+            .Create("AttributeModifierArcaneFighterExtraAttack", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetModifier(
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
@@ -42,7 +42,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var bonusSpell = FeatureDefinitionAdditionalActionBuilder
-            .Create("AdditionalActionArcaneFighter")
+            .Create("AdditionalActionArcaneFighter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.CastMain)
@@ -51,7 +51,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var bonusWeaponDamage = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageArcaneFighterBonusWeapon")
+            .Create("AdditionalDamageArcaneFighterBonusWeapon", DefinitionBuilder.CENamespaceGuid)
             .Configure(
                 "AdditionalDamageArcaneFighterBonusWeapon",
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
@@ -69,7 +69,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardArcaneFighter")
+            .Create("WizardArcaneFighter", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass,
                 MartialSpellblade.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(2, weaponProf, EnchantWeapon)
@@ -95,7 +95,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
     private static FeatureDefinitionPower BuildEnchantWeapon()
     {
         var weaponUseIntModifier = FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierArcaneFighterIntBonus")
+            .Create("AttackModifierArcaneFighterIntBonus", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
             .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
@@ -119,7 +119,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Build();
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerArcaneFighterEnchantWeapon")
+            .Create("PowerArcaneFighterEnchantWeapon", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,

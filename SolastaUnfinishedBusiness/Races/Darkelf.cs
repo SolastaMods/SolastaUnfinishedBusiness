@@ -24,14 +24,14 @@ internal static class DarkelfSubraceBuilder
             CustomIcons.CreateAssetReferenceSprite("Darkelf", Resources.Darkelf, 1024, 512);
 
         var darkelfAbilityScoreModifierCharisma = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierDarkelfCharismaAbilityScoreIncrease")
+            .Create("AttributeModifierDarkelfCharismaAbilityScoreIncrease", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Charisma, 1)
             .AddToDB();
 
         var darkElfPerceptionLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityDarkelfLightSensitivity")
+            .Create("AbilityCheckAffinityDarkelfLightSensitivity", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
                 RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage, RuleDefinitions.DieType.D1, 0,
@@ -43,7 +43,7 @@ internal static class DarkelfSubraceBuilder
 
         var darkelfCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight,
-                "CombatAffinityDarkelfLightSensitivity")
+                "CombatAffinityDarkelfLightSensitivity", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(
                 "Feature/&LightAffinityDarkelfLightSensitivityTitle",
                 "Feature/&LightAffinityDarkelfLightSensitivityDescription")
@@ -53,7 +53,7 @@ internal static class DarkelfSubraceBuilder
             .AddToDB();
 
         var darkelfConditionLightSensitive = ConditionDefinitionBuilder
-            .Create("ConditionDarkelfLightSensitive")
+            .Create("ConditionDarkelfLightSensitive", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(
                 "LightAffinityDarkelfLightSensitivity",
                 Category.Feature,
@@ -73,7 +73,7 @@ internal static class DarkelfSubraceBuilder
         };
 
         var darkelfLightAffinity = FeatureDefinitionLightAffinityBuilder
-            .Create("LightAffinityDarkelfLightSensitivity")
+            .Create("LightAffinityDarkelfLightSensitivity", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(darkelfLightingEffectAndCondition)
             .AddToDB();
@@ -116,7 +116,7 @@ internal static class DarkelfSubraceBuilder
             .AddToDB();
 
         var darkelfFaerieFirePower = FeatureDefinitionPowerBuilder
-            .Create("PowerDarkelfFaerieFire")
+            .Create("PowerDarkelfFaerieFire", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.FaerieFire.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
@@ -132,7 +132,7 @@ internal static class DarkelfSubraceBuilder
         darkelfFaerieFirePower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         var darkelfDarknessPower = FeatureDefinitionPowerBuilder
-            .Create("PowerDarkelfDarkness")
+            .Create("PowerDarkelfDarkness", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
@@ -148,7 +148,7 @@ internal static class DarkelfSubraceBuilder
         darkelfDarknessPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         var darkelfWeaponTraining = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyDarkelfWeaponTraining")
+            .Create("ProficiencyDarkelfWeaponTraining", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
                 CustomWeaponsContext.HandXbowWeaponType.Name,
@@ -173,7 +173,7 @@ internal static class DarkelfSubraceBuilder
         darkelfRacePresentation.preferedHairColors = new RangedInt(48, 53);
 
         var darkelf = CharacterRaceDefinitionBuilder
-            .Create(ElfHigh, "RaceDarkelf")
+            .Create(ElfHigh, "RaceDarkelf", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Race, darkelfSpriteReference)
             .SetRacePresentation(darkelfRacePresentation)
             .SetFeaturesAtLevel(1,

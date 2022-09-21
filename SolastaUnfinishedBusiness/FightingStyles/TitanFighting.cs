@@ -55,13 +55,13 @@ internal sealed class TitanFighting : AbstractFightingStyle
         }
 
         var titanFightingAttackModifier = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("OnComputeAttackModifierFightingStyleTitan")
+            .Create("OnComputeAttackModifierFightingStyleTitan", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetOnComputeAttackModifierDelegate(TitanFightingComputeAttackModifier)
             .AddToDB();
 
         instance = CustomizableFightingStyleBuilder
-            .Create("Titan")
+            .Create("Titan", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.FightingStyle,
                 PathBerserker.GuiPresentation.SpriteReference)
             .SetFeatures(titanFightingAttackModifier)
