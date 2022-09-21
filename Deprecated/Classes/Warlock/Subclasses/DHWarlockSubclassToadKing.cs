@@ -41,8 +41,7 @@ public static class DHWarlockSubclassToadKingPatron
             .AddToDB();
 
         var ToadKingConditionAffinityPoisonImmunity = FeatureDefinitionConditionAffinityBuilder
-            .Create(ConditionAffinityPoisonImmunity, "ToadKingConditionAffinityPoisonImmunity",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionAffinityPoisonImmunity, "ToadKingConditionAffinityPoisonImmunity")
             .AddToDB();
         ToadKingConditionAffinityPoisonImmunity.GuiPresentation.title = "Feature/&ToadKingPoisonConditionAffinityTitle";
 
@@ -52,14 +51,12 @@ public static class DHWarlockSubclassToadKingPatron
         ToadKingMovementAffinityJump.GuiPresentation.title = "Feature/&ToadKingJumpTitle";
 
         var ToadKingMovementAffinitySpiderClimb = FeatureDefinitionMovementAffinityBuilder
-            .Create(MovementAffinitySpiderClimb, "ToadKingMovementAffinitySpiderClimb",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(MovementAffinitySpiderClimb, "ToadKingMovementAffinitySpiderClimb")
             .AddToDB();
         ToadKingMovementAffinitySpiderClimb.GuiPresentation.title = "Feature/&ToadKingStickyFeetTitle";
 
         var ToadKingDamageAffinityPoisonImmunity = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityPoisonImmunity, "ToadKingDamageAffinityPoisonImmunity",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(DamageAffinityPoisonImmunity, "ToadKingDamageAffinityPoisonImmunity")
             .AddToDB();
         ToadKingDamageAffinityPoisonImmunity.GuiPresentation.title = "Feature/&ToadKingPoisonDamageAffinityTitle";
 
@@ -156,8 +153,7 @@ public static class DHWarlockSubclassToadKingPatron
             .AddToDB();
 
         var hallucinogenicToxinAffinity = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityPoisonResistance, "ToadKingHallucinogenicToxinAffinty",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(DamageAffinityPoisonResistance, "ToadKingHallucinogenicToxinAffinty")
             .SetGuiPresentation(Category.Feature)
             .SetDamageType(DamageTypePoison)
             .SetDamageAffinityType(DamageAffinityType.Resistance)

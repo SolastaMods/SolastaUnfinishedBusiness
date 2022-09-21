@@ -434,7 +434,7 @@ internal static class ItemOptionsContext
             AssetReferenceSprite assetReferenceSprite,
             [NotNull] params string[] slotTypes)
         {
-            var guid = GuidHelper.Create(CENamespaceGuid, name).ToString();
+            var guid = GuidHelper.Create(CeNamespaceGuid, name).ToString();
 
             return new FocusDefinitionBuilder(name, guid, original, type, assetReferenceSprite, slotTypes).AddToDB();
         }

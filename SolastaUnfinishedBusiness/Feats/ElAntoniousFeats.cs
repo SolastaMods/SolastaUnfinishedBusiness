@@ -25,7 +25,7 @@ internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
     private const string FeatDualFlurryName = "FeatDualFlurry";
 
     internal static readonly FeatDefinition FeatDualFlurry =
-        CreateAndAddToDB(FeatDualFlurryName, GuidHelper.Create(CENamespaceGuid, FeatDualFlurryName).ToString());
+        CreateAndAddToDB(FeatDualFlurryName, GuidHelper.Create(CeNamespaceGuid, FeatDualFlurryName).ToString());
 
     private FeatDualFlurryBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
         name, guid)
@@ -44,7 +44,7 @@ internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
     private static FeatureDefinition BuildFeatureDualFlurry()
     {
         return FeatureDefinitionOnAttackDamageEffectBuilder
-            .Create("OnAttackDamageEffectFeatDualFlurry", CENamespaceGuid)
+            .Create("OnAttackDamageEffectFeatDualFlurry")
             .SetGuiPresentation("FeatDualFlurry", Category.Feat)
             .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
             .AddToDB();
@@ -88,7 +88,7 @@ internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuild
     internal static readonly ConditionDefinition ConditionDualFlurryApply =
         CreateAndAddToDB(
             "ConditionDualFlurryApply",
-            GuidHelper.Create(CENamespaceGuid, "ConditionDualFlurryApply").ToString());
+            GuidHelper.Create(CeNamespaceGuid, "ConditionDualFlurryApply").ToString());
 
     private ConditionDualFlurryApplyBuilder(string name, string guid) : base(
         DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
@@ -117,7 +117,7 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
     internal static readonly ConditionDefinition ConditionDualFlurryGrant =
         CreateAndAddToDB(
             "ConditionDualFlurryGrant",
-            GuidHelper.Create(CENamespaceGuid, "ConditionDualFlurryGrant").ToString());
+            GuidHelper.Create(CeNamespaceGuid, "ConditionDualFlurryGrant").ToString());
 
     private ConditionDualFlurryGrantBuilder(string name, string guid) : base(
         DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
@@ -145,7 +145,7 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
     private static FeatureDefinition BuildAdditionalActionDualFlurry()
     {
         return FeatureDefinitionAdditionalActionBuilder
-            .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry", CENamespaceGuid)
+            .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
             .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain.GuiPresentation.SpriteReference)
             .SetActionType(ActionDefinitions.ActionType.Bonus)
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
@@ -158,7 +158,7 @@ internal sealed class FeatTorchbearerBuilder : FeatDefinitionBuilder
     private const string FeatTorchbearerName = "FeatTorchbearer";
 
     public static readonly FeatDefinition FeatTorchbearer =
-        CreateAndAddToDB(FeatTorchbearerName, GuidHelper.Create(CENamespaceGuid, FeatTorchbearerName).ToString());
+        CreateAndAddToDB(FeatTorchbearerName, GuidHelper.Create(CeNamespaceGuid, FeatTorchbearerName).ToString());
 
     private FeatTorchbearerBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
         name, guid)
@@ -207,7 +207,7 @@ internal sealed class FeatTorchbearerBuilder : FeatDefinitionBuilder
         burnDescription.EffectForms.Add(burnEffect);
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerTorchbearer", CENamespaceGuid)
+            .Create("PowerTorchbearer")
             .SetGuiPresentation(Category.Feature)
             .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
             .SetEffectDescription(burnDescription)

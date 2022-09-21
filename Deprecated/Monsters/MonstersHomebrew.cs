@@ -258,8 +258,7 @@ internal static class MonstersHomebrew
 
             var NewMonster = MonsterDefinitionBuilder
                 .Create(
-                    Definitions[i].BaseTemplateName, Definitions[i].NewName,
-                    DefinitionBuilder.CENamespaceGuid)
+                    Definitions[i].BaseTemplateName, Definitions[i].NewName)
                 .SetGuiPresentation(
                     "Monster/&" + "DH_" + Definitions[i].NewTitle,
                     "Monster/&" + "DH_" + Definitions[i].NewDescription,

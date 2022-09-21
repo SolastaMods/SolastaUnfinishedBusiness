@@ -56,8 +56,7 @@ internal static class ZappaFeats
             .SetFeatures(
                 AttributeModifierCreed_Of_Pakri,
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatArcaneDefenseAdd",
-                        DefinitionBuilder.CENamespaceGuid)
+                    .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatArcaneDefenseAdd")
                     .SetGuiPresentationNoContent()
                     .SetCustomSubFeatures(ExclusiveACBonus.MarkUnarmoredDefense)
                     .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
@@ -301,8 +300,7 @@ internal static class ZappaFeats
 
         // Metamagic Sorcery Points Feature
         var attributeModifierSorcererSorceryPointsAdd2 = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
             .SetGuiPresentationNoContent(true)
             .SetModifier(
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
@@ -456,8 +454,7 @@ internal static class ZappaFeats
         //     .SetFeatures(
         //         AttributeModifierCreed_Of_Misaye,
         //         FeatureDefinitionAdditionalDamageBuilder
-        //             .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack",
-        //                 DefinitionBuilder.CENamespaceGuid)
+        //             .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack")
         //             .SetGuiPresentation(Category.Feature)
         //             .SetDamageDice(RuleDefinitions.DieType.D6, 1)
         //             .SetAdvancement(
@@ -803,13 +800,13 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
                 Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var triggerCondition = ConditionDefinitionBuilder
-            .Create("ConditionDeadeyeTrigger", CENamespaceGuid)
+            .Create("ConditionDeadeyeTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetDuration(RuleDefinitions.DurationType.Permanent)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("DeadeyeTriggerFeature", CENamespaceGuid)
+                    .Create("DeadeyeTriggerFeature")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(concentrationProvider)
                     .AddToDB())
@@ -842,7 +839,7 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
         PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
 
         var turnOffPower = FeatureDefinitionPowerBuilder
-            .Create("PowerTurnOffDeadeye", CENamespaceGuid)
+            .Create("PowerTurnOffDeadeye")
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
             .SetUsesFixed(1)

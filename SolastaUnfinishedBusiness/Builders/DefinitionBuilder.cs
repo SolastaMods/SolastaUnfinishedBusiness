@@ -19,7 +19,7 @@ public abstract class DefinitionBuilder
     private protected static readonly MethodInfo GetDatabaseMethodInfo =
         typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
 
-    public static readonly Guid CENamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
+    public static readonly Guid CeNamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
 
     private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
         GetAllDefinitionNames();
@@ -595,12 +595,12 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     /// <param name="name">The name assigned to the definition (mandatory)</param>
     public static TBuilder Create(string name)
     {
-        return CreateImpl(name, CENamespaceGuid);
+        return CreateImpl(name, CeNamespaceGuid);
     }
 
     public static TBuilder Create(TDefinition original, string name)
     {
-        return CreateImpl(original, name, CENamespaceGuid);
+        return CreateImpl(original, name, CeNamespaceGuid);
     }
 
     /// <summary>

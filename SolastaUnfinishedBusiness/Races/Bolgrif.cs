@@ -35,8 +35,7 @@ internal static class RaceBolgrifBuilder
 
         var bolgrifPowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
             .Create(FeatureDefinitionEquipmentAffinitys.EquipmentAffinityFeatHauler,
-                "EquipmentAffinityBolgrifPowerfulBuild",
-                DefinitionBuilder.CENamespaceGuid)
+                "EquipmentAffinityBolgrifPowerfulBuild")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -62,8 +61,7 @@ internal static class RaceBolgrifBuilder
             .AddToDB();
 
         var bolgrifDruidicMagicSpellList = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListDruid, "SpellListBolgrifMagic",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(SpellListDefinitions.SpellListDruid, "SpellListBolgrifMagic")
             .SetGuiPresentationNoContent()
             .ClearSpells()
             .SetSpellsAtLevel(0, SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells)
@@ -71,8 +69,7 @@ internal static class RaceBolgrifBuilder
             .AddToDB();
 
         var bolgrifDruidicMagic = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellBolgrifMagic",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellBolgrifMagic")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
             .SetSpellList(bolgrifDruidicMagicSpellList)

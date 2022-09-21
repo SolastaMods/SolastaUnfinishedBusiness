@@ -28,7 +28,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
         bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
         EffectDescription effectDescription,
-        GuiPresentation guiPresentation, bool uniqueInstance) : base(name, CENamespaceGuid)
+        GuiPresentation guiPresentation, bool uniqueInstance) : base(name, CeNamespaceGuid)
     {
         Preconditions.ArgumentIsNotNull(poolPower,
             $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");

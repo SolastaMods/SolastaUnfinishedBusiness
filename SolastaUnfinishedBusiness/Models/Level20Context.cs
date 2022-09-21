@@ -124,8 +124,7 @@ internal static class Level20Context
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionPointPoolBuilder
-                    .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18",
-                        DefinitionBuilder.CENamespaceGuid)
+                    .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
                     .AddToDB(),
                 18),
             new(FeatureSetAbilityScoreChoice, 19)
@@ -161,8 +160,7 @@ internal static class Level20Context
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
             .Create(
                 PowerClericDivineInterventionCleric,
-                "PowerClericDivineInterventionImprovementCleric",
-                DefinitionBuilder.CENamespaceGuid)
+                "PowerClericDivineInterventionImprovementCleric")
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionCleric)
             .AddToDB();
@@ -170,8 +168,7 @@ internal static class Level20Context
         var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
             .Create(
                 PowerClericDivineInterventionPaladin,
-                "PowerClericDivineInterventionImprovementPaladin",
-                DefinitionBuilder.CENamespaceGuid)
+                "PowerClericDivineInterventionImprovementPaladin")
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionPaladin)
             .AddToDB();
@@ -179,8 +176,7 @@ internal static class Level20Context
         var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
             .Create(
                 PowerClericDivineInterventionWizard,
-                "PowerClericDivineInterventionImprovementWizard",
-                DefinitionBuilder.CENamespaceGuid)
+                "PowerClericDivineInterventionImprovementWizard")
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionWizard)
             .AddToDB();
@@ -260,8 +256,7 @@ internal static class Level20Context
                     .AddToDB(),
                 18),
             new FeatureUnlockByLevel(FeatureDefinitionPowerBuilder
-                    .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18",
-                        DefinitionBuilder.CENamespaceGuid)
+                    .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18")
                     .SetGuiPresentation(Category.Feature)
                     .SetEffectDescription(effectPowerPaladinAuraOfProtection18)
                     .SetOverriddenPower(PowerPaladinAuraOfCourage)
@@ -373,8 +368,7 @@ internal static class Level20Context
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureDefinitionPointPoolBuilder
-                    .Create(PointPoolWarlockMysticArcanum8, "PointPoolWarlockMysticArcanum9",
-                        DefinitionBuilder.CENamespaceGuid)
+                    .Create(PointPoolWarlockMysticArcanum8, "PointPoolWarlockMysticArcanum9")
                     .SetGuiPresentation(
                         "Feature/&PointPoolWarlockMysticArcanum9Title",
                         "Feature/&PointPoolWarlockMysticArcanumDescription")

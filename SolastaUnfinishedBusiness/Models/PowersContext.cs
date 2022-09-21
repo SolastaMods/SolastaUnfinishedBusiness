@@ -58,8 +58,7 @@ internal static class PowersContext
         effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
         var helpPowerCondition = ConditionDefinitionBuilder
-            .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
 

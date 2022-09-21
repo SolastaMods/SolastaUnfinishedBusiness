@@ -360,8 +360,7 @@ public static class WarlockSpells
     };
 
     internal static SpellListDefinition WarlockSpellList { get; } = SpellListDefinitionBuilder
-        .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "ClassWarlockSpellList",
-            DefinitionBuilder.CENamespaceGuid)
+        .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "ClassWarlockSpellList")
         .SetGuiPresentation(Category.SpellList)
         .ClearSpells()
         .SetSpellsAtLevel(0, EldritchBlast, AnnoyingBee, ChillTouch, DancingLights, PoisonSpray, TrueStrike)

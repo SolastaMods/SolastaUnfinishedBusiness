@@ -56,8 +56,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
                 15);
 
         var condition = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionConArtistFeint",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionConArtistFeint")
             .SetGuiPresentation(Category.Feature,
                 ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)

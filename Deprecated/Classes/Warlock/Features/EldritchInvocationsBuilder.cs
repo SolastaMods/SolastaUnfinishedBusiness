@@ -437,13 +437,11 @@ internal static class EldritchInvocationsBuilder
         }
 
         ((FeatureDefinitionFeatureSet)EldritchInvocations["AspectoftheMoon"]).FeatureSet.AddRange(
-            FeatureDefinitionCampAffinityBuilder.Create(FeatureDefinitionCampAffinitys.CampAffinityElfTrance,
-                    "ClassWarlockEldritchInvocationAspectoftheMoonTrance", DefinitionBuilder.CENamespaceGuid)
+            FeatureDefinitionCampAffinityBuilder.Create(FeatureDefinitionCampAffinitys.CampAffinityElfTrance)
                 .SetGuiPresentation(EldritchInvocations["AspectoftheMoon"].GuiPresentation)
                 .AddToDB(),
             FeatureDefinitionCampAffinityBuilder.Create(
-                    FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest,
-                    "ClassWarlockEldritchInvocationAspectoftheMoonRest", DefinitionBuilder.CENamespaceGuid)
+                    FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest)
                 .SetGuiPresentation(EldritchInvocations["AspectoftheMoon"].GuiPresentation)
                 .AddToDB()
         );
@@ -452,8 +450,7 @@ internal static class EldritchInvocationsBuilder
 
         ((FeatureDefinitionFeatureSet)EldritchInvocations["BeguilingInfluence"]).FeatureSet
             .Add(FeatureDefinitionProficiencyBuilder
-                .Create(FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise,
-                    "ClassWarlockEldritchInvocationBeguilingInfluence", DefinitionBuilder.CENamespaceGuid)
+                .Create(FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise)
                 .SetGuiPresentation(EldritchInvocations["BeguilingInfluence"].GuiPresentation)
                 .AddToDB());
 
@@ -504,8 +501,7 @@ internal static class EldritchInvocationsBuilder
 
         ((FeatureDefinitionFeatureSet)EldritchInvocations["ThirstingBlade"]).FeatureSet
             .Add(FeatureDefinitionAttributeModifierBuilder
-                .Create(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack,
-                    "ClassWarlockEldritchInvocationThirstingBlade", DefinitionBuilder.CENamespaceGuid)
+                .Create(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack)
                 .SetGuiPresentation(EldritchInvocations["ThirstingBlade"].GuiPresentation)
                 .AddToDB()
             );
@@ -515,8 +511,7 @@ internal static class EldritchInvocationsBuilder
         var giftoftheProtectorsDamageAffinity = FeatureDefinitionDamageAffinityBuilder
             .Create(
                 FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
-                "DamageAffinityGiftoftheProtectorsRelentlessEndurance",
-                DefinitionBuilder.CENamespaceGuid)
+                "DamageAffinityGiftoftheProtectorsRelentlessEndurance")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

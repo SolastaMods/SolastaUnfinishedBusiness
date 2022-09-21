@@ -199,8 +199,7 @@ internal static class BazouSpells
 
         // Some methods are missing like SetField or Copy
         var actionAffinity = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied")
             .AddToDB();
 
         actionAffinity.RandomBehaviourOptions.Clear();

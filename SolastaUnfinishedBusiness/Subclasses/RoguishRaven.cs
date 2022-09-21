@@ -53,8 +53,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierRavenHeartSeekingShotCriticalThreshold",
-                        DefinitionBuilder.CENamespaceGuid)
+                    .Create("AttributeModifierRavenHeartSeekingShotCriticalThreshold")
                     .SetGuiPresentation(Category.Feature)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
