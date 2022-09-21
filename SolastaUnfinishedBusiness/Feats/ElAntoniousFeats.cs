@@ -44,7 +44,7 @@ internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
     private static FeatureDefinition BuildFeatureDualFlurry()
     {
         return FeatureDefinitionOnAttackDamageEffectBuilder
-            .Create("OnAttackDamageEffectFeatDualFlurry", CENamespaceGuid)
+            .Create("OnAttackDamageEffectFeatDualFlurry")
             .SetGuiPresentation("FeatDualFlurry", Category.Feat)
             .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
             .AddToDB();
@@ -145,7 +145,7 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
     private static FeatureDefinition BuildAdditionalActionDualFlurry()
     {
         return FeatureDefinitionAdditionalActionBuilder
-            .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry", CENamespaceGuid)
+            .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
             .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain.GuiPresentation.SpriteReference)
             .SetActionType(ActionDefinitions.ActionType.Bonus)
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
@@ -207,7 +207,7 @@ internal sealed class FeatTorchbearerBuilder : FeatDefinitionBuilder
         burnDescription.EffectForms.Add(burnEffect);
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerTorchbearer", CENamespaceGuid)
+            .Create("PowerTorchbearer")
             .SetGuiPresentation(Category.Feature)
             .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
             .SetEffectDescription(burnDescription)

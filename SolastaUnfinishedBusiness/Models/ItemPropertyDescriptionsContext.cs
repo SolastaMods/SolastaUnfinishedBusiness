@@ -55,7 +55,7 @@ public static class ItemPropertyDescriptionsContext
     private static FeatureDefinition BuildAttackVFXFromEffect(string name, [NotNull] EffectDescription effect)
     {
         return FeatureDefinitionAttackModifierBuilder
-            .Create(name, DefinitionBuilder.CENamespaceGuid)
+            .Create(name)
             .Configure()
             .SetImpactParticleReference(effect.EffectParticleParameters.impactParticleReference)
             .AddToDB();

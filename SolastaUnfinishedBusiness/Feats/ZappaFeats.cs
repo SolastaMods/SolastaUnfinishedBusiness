@@ -799,20 +799,20 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
                 Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var triggerCondition = ConditionDefinitionBuilder
-            .Create("ConditionDeadeyeTrigger", CENamespaceGuid)
+            .Create("ConditionDeadeyeTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetDuration(RuleDefinitions.DurationType.Permanent)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("DeadeyeTriggerFeature", CENamespaceGuid)
+                    .Create("DeadeyeTriggerFeature")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(concentrationProvider)
                     .AddToDB())
             .AddToDB();
 
         var turnOnPower = FeatureDefinitionPowerBuilder
-            .Create("PowerDeadeye", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
+            .Create("PowerDeadeye")
             .SetGuiPresentation("FeatDeadeye", Category.Feat,
                 CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
                     Resources.DeadeyeIcon, 128, 64))
@@ -838,7 +838,7 @@ internal sealed class FeatDeadeyeBuilder : FeatDefinitionBuilder
         PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
 
         var turnOffPower = FeatureDefinitionPowerBuilder
-            .Create("PowerTurnOffDeadeye", CENamespaceGuid)
+            .Create("PowerTurnOffDeadeye")
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
             .SetUsesFixed(1)
