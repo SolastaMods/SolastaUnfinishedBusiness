@@ -19,7 +19,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
     {
         // Make Con Artist subclass
         var abilityAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityConArtist", DefinitionBuilder.CENamespaceGuid)
+            .Create("AbilityCheckAffinityConArtist")
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
                 RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, RuleDefinitions.DieType.D8, 0,
@@ -30,7 +30,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .AddToDB();
 
         var spellCasting = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellConArtist", DefinitionBuilder.CENamespaceGuid)
+            .Create("CastSpellConArtist")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
@@ -56,8 +56,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
                 15);
 
         var condition = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionConArtistFeint",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionConArtistFeint")
             .SetGuiPresentation(Category.Feature,
                 ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
             .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
@@ -73,7 +72,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
                 .Build());
 
         var feint = FeatureDefinitionPowerBuilder
-            .Create("PowerConArtistFeint", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerConArtistFeint")
             .SetGuiPresentation(Category.Feature)
             .Configure(
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma,
@@ -82,7 +81,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyConArtistMentalSavingThrows", DefinitionBuilder.CENamespaceGuid)
+            .Create("ProficiencyConArtistMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
                 AttributeDefinitions.Wisdom)
@@ -90,7 +89,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
 
         // add subclass to db and add subclass to rogue class
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("RoguishConArtist", DefinitionBuilder.CENamespaceGuid)
+            .Create("RoguishConArtist")
             .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(abilityAffinity, 3)
             .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
@@ -101,7 +100,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
 
     private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
         FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityConArtistDC", DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinityConArtistDC")
             .SetGuiPresentation(GetSpellDcPresentation().Build())
             .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
                 Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,
