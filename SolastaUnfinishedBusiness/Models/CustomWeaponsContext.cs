@@ -659,8 +659,8 @@ public static class CustomWeaponsContext
     private static ItemDefinition BuildRecipeManual([NotNull] ItemDefinition item, int hours, int difficulty,
         params ItemDefinition[] ingredients)
     {
-        return BuildManual(BuildRecipe(item, hours, difficulty, DefinitionBuilder.CeNamespaceGuid, ingredients),
-            DefinitionBuilder.CeNamespaceGuid);
+        return BuildManual(BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients),
+            DefinitionBuilder.CENamespaceGuid);
     }
 
     // [NotNull]

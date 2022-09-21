@@ -139,7 +139,8 @@ internal static class GrayDwarfSubraceBuilder
         grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[5].savingThrowModifierDiceNumber = 0;
 
         var grayDwarfAncestryFeatureSetGrayDwarfAncestry = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry, "FeatureSetGrayDwarfAncestry")
+            .Create(FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry, "FeatureSetGrayDwarfAncestry",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
                 grayDwarfConditionAffinityGrayDwarfCharm,
@@ -171,7 +172,8 @@ internal static class GrayDwarfSubraceBuilder
             .AddToDB();
 
         var grayDwarfConditionGrayDwarfStoneStrength = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBullsStrength, "ConditionGrayDwarfStoneStrength")
+            .Create(ConditionDefinitions.ConditionBullsStrength, "ConditionGrayDwarfStoneStrength",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(
                 Category.Condition,
                 ConditionDefinitions.ConditionStoneResilience.GuiPresentation.SpriteReference)

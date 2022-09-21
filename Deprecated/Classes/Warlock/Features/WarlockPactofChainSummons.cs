@@ -43,7 +43,8 @@ internal static class WarlockPactOfTheChainSummons
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetEffectForms(new EffectFormBuilder()
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible)
+                            .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible,
+                                "PactofChainFamiliarInvisibilityCondition", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentation(DatabaseHelper.ConditionDefinitions.ConditionInvisible
                                 .GuiPresentation)
                             .SetConditionType(ConditionType.Beneficial)
@@ -94,38 +95,44 @@ internal static class WarlockPactOfTheChainSummons
     // public static FeatureDefinition buildSummoningAffinity()
     // {
     //     var acConditionDefinition = ConditionDefinitionBuilder
-    //         .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondAC, "ConditionWarlockFamiliarAC")
+    //         .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondAC, "ConditionWarlockFamiliarAC",
+    //             DefinitionBuilder.CENamespaceGuid)
     //         .SetGuiPresentationNoContent()
     //         .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
     //         .AddToDB();
     //
     //     var stConditionDefinition = ConditionDefinitionBuilder
-    //         .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows)
+    //         .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows,
+    //             "ConditionWarlockFamiliarST", DefinitionBuilder.CENamespaceGuid)
     //         .SetGuiPresentationNoContent()
     //         .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
     //         .AddToDB();
     //      
     //      var damageConditionDefinition = ConditionDefinitionBuilder
-    //          .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage)
+    //          .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
+    //              "ConditionWarlockFamiliarDamage", DefinitionBuilder.CENamespaceGuid)
     //          .SetGuiPresentationNoContent()
     //          .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
     //          .AddToDB();
     //
     //      var hitConditionDefinition = ConditionDefinitionBuilder
-    //          .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack)
+    //          .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack,
+    //              "ConditionWarlockFamiliarHit", DefinitionBuilder.CENamespaceGuid)
     //          .SetGuiPresentationNoContent()
     //          .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceSpellAttack)
     //          .AddToDB();
     //
     //      var hpConditionDefinition = ConditionDefinitionBuilder
-    //          .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP, "ConditionWarlockFamiliarHP")
+    //          .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP, "ConditionWarlockFamiliarHP",
+    //              DefinitionBuilder.CENamespaceGuid)
     //          .SetGuiPresentationNoContent()
     //          .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
     //          .SetAllowMultipleInstances(true)
     //          .AddToDB();
     //
     //      var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
-    //          .Create(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond)
+    //          .Create(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond,
+    //              "SummoningAffinityWarlockFamiliar", DefinitionBuilder.CENamespaceGuid)
     //          .ClearEffectForms()
     //          .SetRequiredMonsterTag("WarlockFamiliar")
     //          .SetAddedConditions(
@@ -141,7 +148,8 @@ internal static class WarlockPactOfTheChainSummons
         var baseMonster = DatabaseHelper.MonsterDefinitions.Young_GreenDragon;
 
         var biteAttack = MonsterAttackDefinitionBuilder
-            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, "AttackWarlockDragonBite")
+            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, "AttackWarlockDragonBite",
+                DefinitionBuilder.CENamespaceGuid)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetToHitBonus(4)
             .SetEffectDescription(new EffectDescriptionBuilder()
@@ -155,7 +163,8 @@ internal static class WarlockPactOfTheChainSummons
             .AddToDB();
 
         var stingAttack = MonsterAttackDefinitionBuilder
-            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockDragonSting")
+            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockDragonSting",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.MonsterAttack)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetToHitBonus(4)
@@ -250,7 +259,8 @@ internal static class WarlockPactOfTheChainSummons
         var baseMonster = DatabaseHelper.MonsterDefinitions.Dryad;
 
         var swordAttack = MonsterAttackDefinitionBuilder
-            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Veteran_Longsword, "AttackWarlockSpriteSword")
+            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Veteran_Longsword, "AttackWarlockSpriteSword",
+                DefinitionBuilder.CENamespaceGuid)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetProximity(AttackProximity.Melee)
             .SetToHitBonus(2)
@@ -265,7 +275,8 @@ internal static class WarlockPactOfTheChainSummons
             .AddToDB();
 
         var bowAttack = MonsterAttackDefinitionBuilder
-            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_ShortBow, "AttackWarlockSpriteBow")
+            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_ShortBow, "AttackWarlockSpriteBow",
+                DefinitionBuilder.CENamespaceGuid)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetProximity(AttackProximity.Range)
             .SetToHitBonus(6)
@@ -368,7 +379,8 @@ internal static class WarlockPactOfTheChainSummons
         var baseMonster = DatabaseHelper.MonsterDefinitions.Goblin;
 
         var stingAttack = MonsterAttackDefinitionBuilder
-            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockImpSting")
+            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockImpSting",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.MonsterAttack)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetToHitBonus(5)
@@ -474,7 +486,8 @@ internal static class WarlockPactOfTheChainSummons
         var baseMonster = DatabaseHelper.MonsterDefinitions.Goblin;
 
         var clawAttack = MonsterAttackDefinitionBuilder
-            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Zealot_Claw, "AttackWarlockImpClaw")
+            .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Zealot_Claw, "AttackWarlockImpClaw",
+                DefinitionBuilder.CENamespaceGuid)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetToHitBonus(4)
             .SetEffectDescription(new EffectDescriptionBuilder()

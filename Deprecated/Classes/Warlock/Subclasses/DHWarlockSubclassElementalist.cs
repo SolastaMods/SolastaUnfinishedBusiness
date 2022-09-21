@@ -148,7 +148,8 @@ internal static class WarlockSubclassElementalPatron
         ElementalistSpells();
 
         var featureSetLevel06 = FeatureDefinitionFeatureSetBuilder
-            .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest)
+            .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
+                "ElementalPatronFeatureSet_Level06", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .ClearFeatureSet()
             .AddFeatureSet(DatabaseHelper.FeatureDefinitionAdditionalDamages
@@ -327,7 +328,8 @@ internal static class WarlockSubclassElementalPatron
     private static void ElementalistSpells()
     {
         var ElementalistSpellList = SpellListDefinitionBuilder
-            .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellsList")
+            .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellsList",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.SpellList)
             .ClearSpells()
             .SetSpellsAtLevel(0, FireBolt, RayOfFrost, ShockingGrasp)

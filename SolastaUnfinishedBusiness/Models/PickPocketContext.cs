@@ -43,7 +43,8 @@ public static class PickPocketContext
         pickpocketProficiency.Proficiencies.Add(SkillDefinitions.SleightOfHand);
 
         var pickPocketFeat = FeatDefinitionBuilder
-            .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "FeatPickPocket")
+            .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "FeatPickPocket",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -65,13 +66,15 @@ public static class PickPocketContext
         sleightOfHand.GuiPresentation.unusedInSolastaCOTM = false;
 
         var pickpocketTableLow = TreasureTableDefinitionBuilder
-            .Create(RandomTreasureTableE2_Mundane_Ingredients, "PickPocketTableLow")
+            .Create(RandomTreasureTableE2_Mundane_Ingredients, "PickPocketTableLow",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
             .AddToDB();
 
         var pickpocketTableMed = TreasureTableDefinitionBuilder
-            .Create(RandomTreasureTableE_Ingredients, "PickPocketTableMed")
+            .Create(RandomTreasureTableE_Ingredients, "PickPocketTableMed",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
             .AddTreasureOptions(RandomTreasureTableA_Gem.TreasureOptions)
@@ -79,7 +82,8 @@ public static class PickPocketContext
             .AddToDB();
 
         var pickpocketTableUndead = TreasureTableDefinitionBuilder
-            .Create("PickPocketTableUndead")
+            .Create("PickPocketTableUndead",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[3])
             .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[9])
@@ -138,7 +142,8 @@ public static class PickPocketContext
             .AddToDB();
 
         var pickPocketableLootUndead = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_Undead")
+            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_Undead",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableUndead)
             .AddToDB();

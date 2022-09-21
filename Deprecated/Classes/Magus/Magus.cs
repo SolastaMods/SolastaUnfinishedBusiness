@@ -313,7 +313,8 @@ public static class Magus
 
     private static readonly FeatureDefinitionSavingThrowAffinity AegisSavingThrowIncrease =
         FeatureDefinitionSavingThrowAffinityBuilder
-            .Create(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRingOfProtectionPlusTwo)
+            .Create(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRingOfProtectionPlusTwo,
+                "ClassMagusAegisSavingThrowIncrease", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -630,7 +631,8 @@ public static class Magus
 
     // TODO: do something here to make creatures that are immune to condition paralyze also not affected by this condition unless they are hit by torment blade.
     private static readonly ConditionDefinition ConditionParalyzedWhenBeingPreyedOn = ConditionDefinitionBuilder
-        .Create("ClassMagusConditionParalyzedWhenBeingPreyedOn")
+        .Create("ClassMagusConditionParalyzedWhenBeingPreyedOn",
+            DefinitionBuilder.CENamespaceGuid)
         .SetParentCondition(DatabaseHelper.ConditionDefinitions.ConditionParalyzed)
         .SetDuration(DurationType.Round, 1)
         .SetGuiPresentation(Category.Condition,

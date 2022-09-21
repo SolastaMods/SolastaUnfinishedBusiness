@@ -144,7 +144,8 @@ public static class WarlockSubclassMoonLitPatron
         DanceoftheNightSky.EffectDescription.SetTargetParameter(4);
 
         var moonTouchedCondition = ConditionDefinitionBuilder
-            .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate, "MoonTouchedCondition")
+            .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate, "MoonTouchedCondition",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Condition)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(MoveModeFly2)
@@ -335,7 +336,8 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
     private static ConditionDefinition BuildInvisibilityCondition()
     {
         var condition = ConditionDefinitionBuilder
-            .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionMoonlitInvisible")
+            .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionMoonlitInvisible",
+                DefinitionBuilder.CENamespaceGuid)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,

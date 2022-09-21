@@ -56,7 +56,8 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .AddToDB();
 
         var divineHeartDeityChoice = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetDivineHeartDeityChoice")
+            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetDivineHeartDeityChoice",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
                 divineHeartArun,
@@ -91,13 +92,15 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription";
 
         var divineHeartEmpoweredHealingCondition = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionSorcererChildRiftDeflection, "ConditionDivineHeartEmpoweredHealing")
+            .Create(ConditionDefinitions.ConditionSorcererChildRiftDeflection, "ConditionDivineHeartEmpoweredHealing",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Condition)
             .SetFeatures(divineHeartEmpoweredHealingModifier)
             .AddToDB();
 
         var divineHeartEmpoweredHealingPower = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection, "PowerDivineHeartEmpoweredHealing")
+            .Create(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection, "PowerDivineHeartEmpoweredHealing",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature, HealingWord.GuiPresentation.SpriteReference)
             .AddToDB();
         divineHeartEmpoweredHealingPower.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =

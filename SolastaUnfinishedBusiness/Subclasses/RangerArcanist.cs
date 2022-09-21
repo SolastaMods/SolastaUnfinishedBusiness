@@ -22,7 +22,8 @@ internal sealed class RangerArcanist : AbstractSubclass
     private CharacterSubclassDefinition Subclass;
 
     private static ConditionDefinition MarkedByArcanist => _markedByArcanist ??= ConditionDefinitionBuilder
-        .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist")
+        .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist",
+            DefinitionBuilder.CENamespaceGuid)
         .SetGuiPresentation(Category.Condition,
             ConditionDefinitions.ConditionMarkedByBrandingSmite.GuiPresentation.SpriteReference)
         .SetAllowMultipleInstances(false)
@@ -114,7 +115,8 @@ internal sealed class RangerArcanist : AbstractSubclass
         assetReference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
         return FeatureDefinitionAdditionalDamageBuilder
-            .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation")
+            .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 1)

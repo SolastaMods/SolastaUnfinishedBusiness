@@ -29,7 +29,8 @@ public static class CustomReactionsContext
     private static void MakeReactDefinition(string name)
     {
         ReactionDefinitionBuilder
-            .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, name)
+            .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, name,
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Reaction)
             .AddToDB();
     }

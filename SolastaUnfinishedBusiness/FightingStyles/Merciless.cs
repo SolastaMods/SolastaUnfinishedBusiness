@@ -56,7 +56,8 @@ internal sealed class Merciless : AbstractFightingStyle
         _powerMerciless.effectDescription.effectForms[0].canSaveToCancel = false;
 
         var additionalActionMerciless = FeatureDefinitionAdditionalActionBuilder
-            .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
+            .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .AddToDB();
 

@@ -301,16 +301,19 @@ Different Archfey, e.g. Winter-themed
         // should Use features sets so character saves don't break
 
         var ancientForestAttributeModifierRegrowth = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModifierRegrowth")
+            .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModifierRegrowth",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
         var ancientForestAttributeModifierRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierPaladinHealingPoolMultiplier)
+            .Create(AttributeModifierPaladinHealingPoolMultiplier,
+                "AncientForestAttributeModifierRegrowthMultiplier", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
 
         var AncientForestAttributeModifierBarkskin = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierBarkskin, "AncientForestAttributeModifierBarkskin")
+            .Create(AttributeModifierBarkskin, "AncientForestAttributeModifierBarkskin",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.AttributeModifier)
             .AddToDB();
 

@@ -31,7 +31,8 @@ internal static class EwSpells
             hasSavingThrow = false,
             operation = ConditionOperation.Add,
             conditionDefinition = ConditionDefinitionBuilder
-                .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "ConditionSunlightBladeHighlighted")
+                .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "ConditionSunlightBladeHighlighted",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
                 .SetDuration(RuleDefinitions.DurationType.Round, 1)
                 .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)

@@ -14,7 +14,8 @@ public static class WarlockSubclassSoulBladePact
     internal static CharacterSubclassDefinition Build()
     {
         var summonPactWeaponPower = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury)
+            .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury,
+                "AHSoulBladeSummonPactWeaponPower", DefinitionBuilder.CENamespaceGuid)
             .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpiritualWeapon.EffectDescription.Copy())
             .SetRechargeRate(RechargeRate.ShortRest)
@@ -24,7 +25,8 @@ public static class WarlockSubclassSoulBladePact
         summonPactWeaponPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         // var additionalDamageBonus = FeatureDefinitionAdditionalDamageBuilder
-        //     .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery)
+        //     .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery,
+        //         "AHSoulBladeEmpowerWeaponDamageBonus", DefinitionBuilder.CENamespaceGuid)
         //     .SetOrUpdateGuiPresentation(Category.Feature)
         //     .SetRequiredProperty(AdditionalDamageRequiredProperty.None)
         //     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
@@ -33,7 +35,8 @@ public static class WarlockSubclassSoulBladePact
         //     .AddToDB();
         //
         // var weaponCondition = ConditionDefinitionBuilder
-        //     .Create(ConditionDefinitions.ConditionHeraldOfBattle, "AHSoulBladeEmpowerWeaponCondition")
+        //     .Create(ConditionDefinitions.ConditionHeraldOfBattle, "AHSoulBladeEmpowerWeaponCondition",
+        //         DefinitionBuilder.CENamespaceGuid)
         //     .SetOrUpdateGuiPresentation(Category.Feature)
         //     .SetAllowMultipleInstances(false)
         //     .SetFeatures(additionalDamageBonus)
@@ -99,7 +102,8 @@ public static class WarlockSubclassSoulBladePact
             .AddToDB();
 
         var shieldPower = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerFighterSecondWind, "AHWarlockSoulBladePactSoulShieldPower")
+            .Create(FeatureDefinitionPowers.PowerFighterSecondWind, "AHWarlockSoulBladePactSoulShieldPower",
+                DefinitionBuilder.CENamespaceGuid)
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetFixedUsesPerRecharge(1)
@@ -118,7 +122,8 @@ public static class WarlockSubclassSoulBladePact
             .AddToDB();
 
         var spellList = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListPaladin, "AHWarlockSoulBladePactSpellList")
+            .Create(SpellListDefinitions.SpellListPaladin, "AHWarlockSoulBladePactSpellList",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(1, Shield, FalseLife)
@@ -130,7 +135,8 @@ public static class WarlockSubclassSoulBladePact
             .AddToDB();
 
         var extendedSpellList = FeatureDefinitionMagicAffinityBuilder
-            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList)
+            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
+                "AHWarlockSoulBladePactExtendedSpellList", DefinitionBuilder.CENamespaceGuid)
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetExtendedSpellList(spellList)
             .AddToDB();

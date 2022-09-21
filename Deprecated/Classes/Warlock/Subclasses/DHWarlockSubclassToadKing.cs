@@ -41,7 +41,8 @@ public static class DHWarlockSubclassToadKingPatron
             .AddToDB();
 
         var ToadKingConditionAffinityPoisonImmunity = FeatureDefinitionConditionAffinityBuilder
-            .Create(ConditionAffinityPoisonImmunity, "ToadKingConditionAffinityPoisonImmunity")
+            .Create(ConditionAffinityPoisonImmunity, "ToadKingConditionAffinityPoisonImmunity",
+                DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
         ToadKingConditionAffinityPoisonImmunity.GuiPresentation.title = "Feature/&ToadKingPoisonConditionAffinityTitle";
 
@@ -51,12 +52,14 @@ public static class DHWarlockSubclassToadKingPatron
         ToadKingMovementAffinityJump.GuiPresentation.title = "Feature/&ToadKingJumpTitle";
 
         var ToadKingMovementAffinitySpiderClimb = FeatureDefinitionMovementAffinityBuilder
-            .Create(MovementAffinitySpiderClimb, "ToadKingMovementAffinitySpiderClimb")
+            .Create(MovementAffinitySpiderClimb, "ToadKingMovementAffinitySpiderClimb",
+                DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
         ToadKingMovementAffinitySpiderClimb.GuiPresentation.title = "Feature/&ToadKingStickyFeetTitle";
 
         var ToadKingDamageAffinityPoisonImmunity = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityPoisonImmunity, "ToadKingDamageAffinityPoisonImmunity")
+            .Create(DamageAffinityPoisonImmunity, "ToadKingDamageAffinityPoisonImmunity",
+                DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
         ToadKingDamageAffinityPoisonImmunity.GuiPresentation.title = "Feature/&ToadKingPoisonDamageAffinityTitle";
 
@@ -153,7 +156,8 @@ public static class DHWarlockSubclassToadKingPatron
             .AddToDB();
 
         var hallucinogenicToxinAffinity = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityPoisonResistance, "ToadKingHallucinogenicToxinAffinty")
+            .Create(DamageAffinityPoisonResistance, "ToadKingHallucinogenicToxinAffinty",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetDamageType(DamageTypePoison)
             .SetDamageAffinityType(DamageAffinityType.Resistance)

@@ -100,7 +100,8 @@ public static class Warlock
     private static void BuildSpells()
     {
         var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellSorcerer, "ClassWarlockCastSpell")
+            .Create(FeatureDefinitionCastSpells.CastSpellSorcerer, "ClassWarlockCastSpell",
+                DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ClassWarlockSpellcasting", Category.Feature)
             .SetKnownCantrips(2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4)
             .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15)
