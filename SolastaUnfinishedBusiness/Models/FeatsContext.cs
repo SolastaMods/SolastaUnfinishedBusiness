@@ -24,8 +24,9 @@ internal static class FeatsContext
     internal static void LateLoad()
     {
         var feats = new List<FeatDefinition>();
+        var groups = new List<FeatDefinition>();
 
-        // Generate feats here and fill the list
+        // generate feats here and fill the list
         ArmorFeats.CreateArmorFeats(feats);
         CasterFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);
@@ -40,21 +41,47 @@ internal static class FeatsContext
         feats.ForEach(LoadFeat);
 
         // create groups for some feats, MUST BE last one to be called
-        var groups = new List<FeatDefinition>();
-
         GroupFeats.CreateFeats(groups);
 
         groups.ForEach(LoadFeatGroup);
 
+        UpdateFeatsAndGroupsChildrenDisplay(groups);
+    }
+
+    internal static void UpdateFeatsAndGroupsChildrenDisplay(IEnumerable<FeatDefinition> groups)
+    {
         // hide children feats from mod UI
         if (Main.Settings.HideChildrenFeatsOnModUi)
         {
-            foreach (var groupedFeat in groups
+            foreach (var groupedFeat in groups.ToList()
                          .Select(group => group.GetFirstSubFeatureOfType<IGroupedFeat>())
                          .Where(groupedFeat => groupedFeat != null))
             {
                 Feats.RemoveWhere(x => groupedFeat.GetSubFeats().Contains(x));
                 FeatGroups.RemoveWhere(x => groupedFeat.GetSubFeats().Contains(x));
+            }
+        }
+        else
+        {
+            foreach (var groupedFeat in groups.ToList()
+                         .Select(group => group.GetFirstSubFeatureOfType<IGroupedFeat>())
+                         .Where(groupedFeat => groupedFeat != null))
+            {
+                foreach (var feat in groupedFeat.GetSubFeats())
+                {
+                    var feats = feat.GetFirstSubFeatureOfType<IGroupedFeat>();
+
+                    // it's a group with child groups
+                    if (feats != null)
+                    {
+                        FeatGroups.Add(feat);
+                        UpdateFeatsAndGroupsChildrenDisplay(feats.GetSubFeats());
+                    }
+                    else
+                    {
+                        Feats.Add(feat);
+                    }
+                }
             }
         }
 

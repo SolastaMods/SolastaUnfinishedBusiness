@@ -61,7 +61,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingRaces { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableEnhancedCharacterInspection { get; set; } = true;
-    public bool HideChildrenFeatsOnModUi { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
 
     //
@@ -129,6 +128,7 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Feat Groups
     //
 
+    public bool HideChildrenFeatsOnModUi { get; set; }
     public int FeatGroupSliderPosition { get; set; } = 4;
     public List<string> FeatGroupEnabled { get; } = new();
 
@@ -152,6 +152,7 @@ public class Settings : UnityModManager.ModSettings
 
     // SRD
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
+
     // public bool UseMoreRestrictiveAcStacking { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }

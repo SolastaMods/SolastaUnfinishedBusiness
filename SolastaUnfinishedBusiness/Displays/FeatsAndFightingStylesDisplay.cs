@@ -29,6 +29,8 @@ internal static class FeatsAndFightingStylesDisplay
             if (UI.Toggle(Gui.Localize("ModUi/&HideChildrenFeatsOnModUi"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.HideChildrenFeatsOnModUi = toggle;
+
+                FeatsContext.UpdateFeatsAndGroupsChildrenDisplay(FeatsContext.FeatGroups);
             }
 
             UI.Label("");
