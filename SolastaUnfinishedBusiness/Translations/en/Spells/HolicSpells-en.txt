@@ -1,5 +1,5 @@
-﻿Spell/&AcidClawsDescription=Make a deadly attack with your sharpened claws.
-Spell/&AcidClawsTitle=Bloody Claws
+﻿Spell/&AcidClawsDescription=Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d8 acid damage and has Armor Class lowered by 1 for 1 round (not stacking).
+Spell/&AcidClawsTitle=Acid Claws
 Spell/&AirBlastDescription=Fire a blast of focused air at your target.
 Spell/&AirBlastTitle=Air Blast
 Spell/&BurstOfRadianceDescription=Create a brilliant flash of shimmering light, damaging all enemies around you.
@@ -10,3 +10,7 @@ Spell/&ThunderStrikeDescription=Create a burst of thundering sound, forcing crea
 Spell/&ThunderStrikeTitle=Sound Burst
 Spell/&WinterBreathDescription=Create a blast of cold wind to chill your enemies and knock them prone.
 Spell/&WinterBreathTitle=Winter's Breath
+Condition/&ConditionAcidClawsDescription=AC is lowered by 1
+Condition/&ConditionAcidClawsTitle=Acid Burn
+Feature/&AttributeModifierAcidClawsACDebuffDescription=AC is lowered by 1
+Feature/&AttributeModifierAcidClawsACDebuffTitle=Acid Burn

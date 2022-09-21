@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static EffectForm;
@@ -28,33 +29,45 @@ internal static class HolicSpells
     private static SpellDefinition BuildAcidClaw()
     {
         const string NAME = "AcidClaws";
+        const string CONDITION = "ConditionAcidClaws";
+        const string MODIFIER = "AttributeModifierAcidClawsACDebuff";
 
         var spriteReference =
             CustomIcons.CreateAssetReferenceSprite(NAME, Resources.AcidClaws, 128, 128);
 
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(
-                EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals, 1, 2)
-            .AddEffectForm(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(false, DieType.D1, DamageTypeNecrotic, 0, DieType.D10, 1)
-                    .HasSavingThrow(EffectSavingThrowType.None).Build()
-            ).Build();
-
         var spell = SpellDefinitionBuilder
             .Create(NAME, DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                .AddEffectForm(EffectFormBuilder.Create()
+                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic)
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .Build())
+                .AddEffectForm(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create(CONDITION, DefinitionBuilder.CENamespaceGuid)
+                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAcidSpit.GuiPresentation.SpriteReference)
+                        .SetDuration(DurationType.Round, 1)
+                        .SetSpecialDuration(true)
+                        .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                            .Create(MODIFIER, DefinitionBuilder.CENamespaceGuid)
+                            .SetGuiPresentation(Category.Feature)
+                            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                                AttributeDefinitions.ArmorClass, -1)
+                            .AddToDB())
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .Build())
+                .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
             .SetRequiresConcentration(false)
             .SetVerboseComponent(false)
             .SetSomaticComponent(true)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();
 
         return spell;
