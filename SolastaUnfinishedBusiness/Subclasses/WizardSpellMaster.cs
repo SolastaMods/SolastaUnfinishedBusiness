@@ -14,42 +14,42 @@ internal sealed class WizardSpellMaster : AbstractSubclass
     internal WizardSpellMaster()
     {
         var prepared = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterPrepared", DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinitySpellMasterPrepared")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None,
                 RuleDefinitions.PreparedSpellsModifier.ProficiencyBonus)
             .AddToDB();
 
         var extraPrepared = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterExtraPrepared", DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinitySpellMasterExtraPrepared")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None,
                 RuleDefinitions.PreparedSpellsModifier.SpellcastingAbilityBonus)
             .AddToDB();
 
         var extraKnown = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterKnowledge", DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinitySpellMasterKnowledge")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 1, RuleDefinitions.AdvantageType.None,
                 RuleDefinitions.PreparedSpellsModifier.None)
             .AddToDB();
 
         var knowledgeAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterScriber", DefinitionBuilder.CENamespaceGuid)
+            .Create("MagicAffinitySpellMasterScriber")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(0.25f, 0.25f, 0, RuleDefinitions.AdvantageType.Advantage,
                 RuleDefinitions.PreparedSpellsModifier.None)
             .AddToDB();
 
         var bonusCantrips = FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolSpellMasterBonusCantrips", DefinitionBuilder.CENamespaceGuid)
+            .Create("PointPoolSpellMasterBonusCantrips")
             .SetGuiPresentation(Category.Feature)
             .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
             .OnlyUniqueChoices()
             .AddToDB();
 
         var spellResistance = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("SavingThrowAffinitySpellMasterSpellResistance", DefinitionBuilder.CENamespaceGuid)
+            .Create("SavingThrowAffinitySpellMasterSpellResistance")
             .SetGuiPresentation(Category.Feature)
             .SetAffinities(
                 RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
@@ -76,7 +76,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .Build();
 
         BonusRecovery = FeatureDefinitionPowerBuilder
-            .Create("PowerSpellMasterBonusRecovery", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerSpellMasterBonusRecovery")
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.Rest, 1,
                 RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence,
@@ -87,7 +87,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
 
         // Make Spell Master subclass
         var spellMaster = CharacterSubclassDefinitionBuilder
-            .Create("WizardSpellMaster", DefinitionBuilder.CENamespaceGuid)
+            .Create("WizardSpellMaster")
             .SetGuiPresentation(Category.Subclass,
                 DomainInsight.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(prepared, 2)
@@ -100,7 +100,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .AddToDB();
 
         RestActivityDefinitionBuilder
-            .Create("SpellMasterArcaneDepth", DefinitionBuilder.CENamespaceGuid)
+            .Create("SpellMasterArcaneDepth")
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name)

@@ -74,15 +74,13 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
     internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalKnowYourEnemyFeatureSet()
     {
         var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("OnComputeAttackModifierMarshalKnowYourEnemy",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
             .SetGuiPresentation("FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSet", Category.Feature)
             .SetOnComputeAttackModifierDelegate(FeatureSetMarshalKnowYourEnemyComputeAttackModifier)
             .AddToDB();
 
         var additionalDamageRangerFavoredEnemyHumanoid = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageMarshalFavoredEnemyHumanoid",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create("AdditionalDamageMarshalFavoredEnemyHumanoid")
             .SetGuiPresentationNoContent()
             .SetNotificationTag("FavoredEnemy")
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpecificCharacterFamily)
@@ -93,7 +91,7 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
         additionalDamageRangerFavoredEnemyHumanoid.requiredCharacterFamily = CharacterFamilyDefinitions.Humanoid;
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetMarshalKnowYourEnemy", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatureSetMarshalKnowYourEnemy")
             .SetGuiPresentation("FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSet", Category.Feature)
             .AddFeatureSet(
                 knowYourEnemiesAttackHitModifier,
@@ -133,7 +131,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
             .SetEffectForms(new StudyEnemyEffectDescription());
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerMarshalStudyYourEnemy", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerMarshalStudyYourEnemy")
             .SetGuiPresentation(Category.Feature,
                 IdentifyCreatures.GuiPresentation.SpriteReference)
             .SetFixedUsesPerRecharge(2)
@@ -321,7 +319,7 @@ internal static class MarshalCoordinatedAttackBuilder
     internal static FeatureDefinition BuildMarshalCoordinatedAttack()
     {
         return FeatureDefinitionBuilder
-            .Create("MarshalCoordinatedAttack", DefinitionBuilder.CENamespaceGuid)
+            .Create("MarshalCoordinatedAttack")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ReactToAttackFinished(MarshalCoordinatedAttackOnAttackHitDelegate))
             .AddToDB();
@@ -352,8 +350,7 @@ internal static class EternalComradeBuilder
         var eternalComradeAttack = MonsterAttackDefinitionBuilder
             .Create(
                 Attack_Generic_Guard_Longsword,
-                "AttackMarshalEternalComrade",
-                DefinitionBuilder.CENamespaceGuid)
+                "AttackMarshalEternalComrade")
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
@@ -364,8 +361,7 @@ internal static class EternalComradeBuilder
         return MonsterDefinitionBuilder
             .Create(
                 SuperEgo_Servant_Hostile,
-                "MarshalEternalComrade",
-                DefinitionBuilder.CENamespaceGuid)
+                "MarshalEternalComrade")
             .SetGuiPresentation(
                 Category.Feature,
                 SuperEgo_Servant_Hostile.GuiPresentation.SpriteReference)
@@ -421,7 +417,7 @@ internal static class EternalComradeBuilder
         // TODO: make this use concentration and reduce the duration to may be 3 rounds
         // TODO: increase the number of use to 2 and recharge per long rest
         var summonEternalComradePower = FeatureDefinitionPowerBuilder
-            .Create("PowerMarshalSummonEternalComrade", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerMarshalSummonEternalComrade")
             .SetGuiPresentation(Category.Feature,
                 Bane.GuiPresentation.SpriteReference)
             .SetCostPerUse(1)
@@ -441,36 +437,31 @@ internal static class EternalComradeBuilder
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, summonEternalComradePower);
 
         var acConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternalComradeAC",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternalComradeAC")
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var stConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondSavingThrows, "ConditionMarshalEternalComradeSavingThrow",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionKindredSpiritBondSavingThrows, "ConditionMarshalEternalComradeSavingThrow")
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var damageConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondMeleeDamage, "ConditionMarshalEternalComradeDamage",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionKindredSpiritBondMeleeDamage, "ConditionMarshalEternalComradeDamage")
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var hitConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondMeleeAttack, "ConditionMarshalEternalComradeHit",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionKindredSpiritBondMeleeAttack, "ConditionMarshalEternalComradeHit")
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var hpConditionDefinition = ConditionDefinitionBuilder
-            .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP",
-                DefinitionBuilder.CENamespaceGuid)
+            .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP")
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
             .SetAllowMultipleInstances(true)
@@ -482,8 +473,7 @@ internal static class EternalComradeBuilder
         var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
             .Create(
                 SummoningAffinityKindredSpiritBond,
-                "SummoningAffinityMarshalEternalComrade",
-                DefinitionBuilder.CENamespaceGuid)
+                "SummoningAffinityMarshalEternalComrade")
             .ClearEffectForms()
             .SetRequiredMonsterTag("MarshalEternalComrade")
             .SetAddedConditions(
@@ -493,8 +483,7 @@ internal static class EternalComradeBuilder
 
         return FeatureDefinitionFeatureSetBuilder
             .Create(
-                "FeatureSetMarshalEternalComrade",
-                DefinitionBuilder.CENamespaceGuid)
+                "FeatureSetMarshalEternalComrade")
             .SetGuiPresentation(
                 Category.Feature)
             .SetFeatureSet(summoningAffinity, summonEternalComradePower)
@@ -507,7 +496,7 @@ internal static class FeatureSetMarshalFearlessCommanderBuilder
     internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalFearlessCommander()
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetMarshalFearlessCommander", DefinitionBuilder.CENamespaceGuid)
+            .Create("FeatureSetMarshalFearlessCommander")
             .SetFeatureSet(ConditionAffinityFrightenedImmunity)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetGuiPresentation(Category.Feature)
@@ -521,8 +510,7 @@ internal static class EncourageBuilder
     {
         var conditionEncouraged = ConditionDefinitionBuilder
             .Create(
-                "ConditionMarshalEncouraged",
-                DefinitionBuilder.CENamespaceGuid)
+                "ConditionMarshalEncouraged")
             .SetGuiPresentation(
                 "PowerMarshalEncouragement",
                 Category.Feature,
@@ -556,7 +544,7 @@ internal static class EncourageBuilder
         effect.SetCanBePlacedOnCharacter(true);
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerMarshalEncouragement", DefinitionBuilder.CENamespaceGuid)
+            .Create("PowerMarshalEncouragement")
             .Configure(-1, UsesDetermination.Fixed, AttributeDefinitions.Charisma,
                 ActivationTime.PermanentUnlessIncapacitated, 1,
                 RechargeRate.AtWill, false, false, AttributeDefinitions.Charisma, effect)
@@ -591,7 +579,7 @@ internal static class MarshalFighterSubclassBuilder
     internal static CharacterSubclassDefinition BuildAndAddSubclass()
     {
         return CharacterSubclassDefinitionBuilder
-            .Create(MarshalFighterSubclassName, DefinitionBuilder.CENamespaceGuid)
+            .Create(MarshalFighterSubclassName)
             .SetGuiPresentation(Category.Subclass, OathOfJugement.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(MarshalCoordinatedAttack, 3)
             .AddFeatureAtLevel(KnowYourEnemies, 3)
