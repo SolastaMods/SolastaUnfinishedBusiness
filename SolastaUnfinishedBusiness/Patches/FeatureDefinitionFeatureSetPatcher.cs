@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -41,3 +42,4 @@ internal static class FeatureDefinitionFeatureSetPatcher
         }
     }
 }
+#endif
