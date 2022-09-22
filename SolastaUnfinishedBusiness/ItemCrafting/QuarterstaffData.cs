@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using static SolastaUnfinishedBusiness.Models.ItemCraftingContext;
@@ -14,7 +13,6 @@ internal static class QuarterstaffData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseGuid = new Guid("16757d1b-518f-4669-af43-1ddf5d23c223"),
             BaseWeapons = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Quarterstaff },
             PossiblePrimedItemsToReplace = new List<ItemDefinition>
             {

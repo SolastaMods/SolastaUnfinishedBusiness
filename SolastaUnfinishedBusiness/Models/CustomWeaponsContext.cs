@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -640,14 +639,14 @@ public static class CustomWeaponsContext
     // public static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
     //     params ItemDefinition[] ingredients)
     // {
-    //     return BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients);
+    //     return BuildRecipe(item, hours, difficulty, ingredients);
     // }
 
-    private static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty, Guid guid,
+    private static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
         params ItemDefinition[] ingredients)
     {
         return RecipeDefinitionBuilder
-            .Create($"RecipeEnchant{item.Name}", guid)
+            .Create($"RecipeEnchant{item.Name}")
             .SetGuiPresentation(item.GuiPresentation.Title, GuiPresentationBuilder.EmptyString)
             .SetCraftedItem(item)
             .SetCraftingCheckData(hours, difficulty, ToolTypeDefinitions.EnchantingToolType)
@@ -659,22 +658,21 @@ public static class CustomWeaponsContext
     private static ItemDefinition BuildRecipeManual([NotNull] ItemDefinition item, int hours, int difficulty,
         params ItemDefinition[] ingredients)
     {
-        return BuildManual(BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients),
-            DefinitionBuilder.CENamespaceGuid);
+        return BuildManual(BuildRecipe(item, hours, difficulty, ingredients));
     }
 
     // [NotNull]
     // public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
     // {
-    //     return BuildManual(recipe, DefinitionBuilder.CENamespaceGuid);
+    //     return BuildManual(recipe);
     // }
 
     [NotNull]
-    private static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe, Guid guid)
+    private static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
     {
         var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
         var manual = ItemDefinitionBuilder
-            .Create($"CraftingManual{recipe.Name}", guid)
+            .Create($"CraftingManual{recipe.Name}")
             .SetGuiPresentation(Category.Item, reference.GuiPresentation.SpriteReference)
             .SetItemPresentation(reference.ItemPresentation)
             .SetMerchantCategory(MerchantCategoryDefinitions.Crafting)
@@ -691,15 +689,9 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    private static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed, Guid guid)
-    {
-        return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(guid, item, primed), guid);
-    }
-
-    [NotNull]
     private static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
     {
-        return BuildPrimingManual(item, primed, DefinitionBuilder.CENamespaceGuid);
+        return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(item, primed));
     }
 
     public static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero, [NotNull] RulesetAttackMode mode)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using static SolastaUnfinishedBusiness.Models.ItemCraftingContext;
@@ -14,7 +13,6 @@ internal static class CrossbowData
     internal static ItemCollection CrossbowItems =>
         _crossbowItems ??= new ItemCollection
         {
-            BaseGuid = new Guid("6eff8e23-1b2f-4e48-8cde-3abda9d4bc3b"),
             BaseWeapons =
                 new List<ItemDefinition>
                 {

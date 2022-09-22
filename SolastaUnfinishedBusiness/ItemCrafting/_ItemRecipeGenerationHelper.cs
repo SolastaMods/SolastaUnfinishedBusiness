@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
@@ -17,11 +16,11 @@ internal static class ItemRecipeGenerationHelper
             foreach (var itemData in itemCollection.MagicToCopy)
             {
                 // Generate new items
-                var newItem = ItemBuilder.BuildNewMagicArmor(baseItem, itemCollection.BaseGuid, itemData.Name,
+                var newItem = ItemBuilder.BuildNewMagicArmor(baseItem, itemData.Name,
                     itemData.Item);
                 // Generate recipes for items
                 var recipeName = "RecipeEnchanting" + newItem.Name;
-                var builder = RecipeDefinitionBuilder.Create(recipeName, itemCollection.BaseGuid);
+                var builder = RecipeDefinitionBuilder.Create(recipeName);
                 builder.AddIngredient(baseItem);
                 foreach (var ingredient in itemData.Recipe.Ingredients.Where(ingredient =>
                              !itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition)))
@@ -37,7 +36,7 @@ internal static class ItemRecipeGenerationHelper
                 // Stock item Recipes
                 var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(
                     DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb,
-                    "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
+                    "CraftingManual_" + newRecipe.Name,
                     newRecipe, Main.Settings.RecipeCost,
                     DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb.GuiPresentation);
 
@@ -69,11 +68,11 @@ internal static class ItemRecipeGenerationHelper
             foreach (var itemData in itemCollection.MagicToCopy)
             {
                 // Generate new items
-                var newItem = ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name, itemCollection.BaseGuid,
+                var newItem = ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name,
                     itemData.Item);
                 // Generate recipes for items
                 var recipeName = "RecipeEnchanting" + newItem.Name;
-                var builder = RecipeDefinitionBuilder.Create(recipeName, itemCollection.BaseGuid);
+                var builder = RecipeDefinitionBuilder.Create(recipeName);
                 builder.AddIngredient(baseItem);
                 foreach (var ingredient in itemData.Recipe.Ingredients.Where(ingredient =>
                              !itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition)))
@@ -89,7 +88,7 @@ internal static class ItemRecipeGenerationHelper
                 // Stock item Recipes
                 var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(
                     DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longbow_Of_Accuracy,
-                    "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
+                    "CraftingManual_" + newRecipe.Name,
                     newRecipe, Main.Settings.RecipeCost,
                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
@@ -133,8 +132,6 @@ internal static class ItemRecipeGenerationHelper
 
     public static void AddIngredientEnchanting()
     {
-        var baseGuid = new Guid("80a5106e-5cb7-4fdd-8f96-b94f3aafd4dd");
-
         var enchantedToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
         {
             {
@@ -213,7 +210,7 @@ internal static class ItemRecipeGenerationHelper
         foreach (var item in enchantedToIngredient.Keys)
         {
             var recipeName = "RecipeEnchanting" + item.Name;
-            var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
+            var builder = RecipeDefinitionBuilder.Create(recipeName);
             builder.AddIngredient(enchantedToIngredient[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
@@ -225,7 +222,7 @@ internal static class ItemRecipeGenerationHelper
         RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
 
         foreach (var craftingManual in recipes.Select(recipe => ItemBuilder.BuilderCopyFromItemSetRecipe(
-                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
+                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name,
                      recipe, Main.Settings.RecipeCost,
                      DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation)))
         {
@@ -246,8 +243,6 @@ internal static class ItemRecipeGenerationHelper
 
     public static void AddPrimingRecipes()
     {
-        var baseGuid = new Guid("cad103e4-6226-4ba0-a9ed-2fee8886f6b9");
-
         var primedToBase = new Dictionary<ItemDefinition, ItemDefinition>
         {
             { DatabaseHelper.ItemDefinitions.Primed_Battleaxe, DatabaseHelper.ItemDefinitions.Battleaxe },
@@ -278,7 +273,7 @@ internal static class ItemRecipeGenerationHelper
             { DatabaseHelper.ItemDefinitions.Primed_StuddedLeather, DatabaseHelper.ItemDefinitions.StuddedLeather },
             { DatabaseHelper.ItemDefinitions.Primed_Warhammer, DatabaseHelper.ItemDefinitions.Warhammer }
         };
-        var recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(baseGuid, primedToBase[item], item));
+        var recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(primedToBase[item], item));
 
         const string GROUP_KEY = "PrimedItems";
         RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
@@ -287,7 +282,7 @@ internal static class ItemRecipeGenerationHelper
         {
             var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(
                 DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden,
-                "CraftingManual_" + recipe.Name, baseGuid,
+                "CraftingManual_" + recipe.Name,
                 recipe, Main.Settings.RecipeCost,
                 DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden.GuiPresentation);
 
@@ -308,8 +303,6 @@ internal static class ItemRecipeGenerationHelper
 
     public static void AddFactionItems()
     {
-        var baseGuid = new Guid("80a5106e-5cb7-4fdd-8f96-b94f3aafd4dd");
-
         var forgeryToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
         {
             {
@@ -330,7 +323,7 @@ internal static class ItemRecipeGenerationHelper
         foreach (var item in forgeryToIngredient.Keys)
         {
             var recipeName = "RecipeForgery" + item.Name;
-            var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
+            var builder = RecipeDefinitionBuilder.Create(recipeName);
             builder.AddIngredient(forgeryToIngredient[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType);
@@ -370,7 +363,7 @@ internal static class ItemRecipeGenerationHelper
         foreach (var item in scrollForgeries.Keys)
         {
             var recipeName = "RecipeForgery" + item.Name;
-            var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
+            var builder = RecipeDefinitionBuilder.Create(recipeName);
             builder.AddIngredient(scrollForgeries[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType);
@@ -383,7 +376,7 @@ internal static class ItemRecipeGenerationHelper
         RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
 
         foreach (var craftingManual in recipes.Select(recipe => ItemBuilder.BuilderCopyFromItemSetRecipe(
-                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
+                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name,
                      recipe, Main.Settings.RecipeCost,
                      DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation)))
         {
@@ -402,11 +395,11 @@ internal static class ItemRecipeGenerationHelper
         }
     }
 
-    public static RecipeDefinition CreatePrimingRecipe(Guid baseGuid, ItemDefinition baseItem,
+    public static RecipeDefinition CreatePrimingRecipe(ItemDefinition baseItem,
         ItemDefinition primed)
     {
         var recipeName = "RecipePriming" + baseItem.Name;
-        var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
+        var builder = RecipeDefinitionBuilder.Create(recipeName);
         builder.AddIngredient(baseItem);
         builder.SetCraftedItem(primed);
         builder.SetCraftingCheckData(8, 15, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);

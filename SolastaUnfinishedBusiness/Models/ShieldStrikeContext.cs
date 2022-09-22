@@ -35,10 +35,8 @@ public static class ShieldStrikeContext
     [NotNull]
     private static WeaponTypeDefinition BuildShieldWeaponType()
     {
-        var shieldType = new WeaponTypeDefinitionBuilder(
-                WeaponTypeDefinitions.UnarmedStrikeType,
-                "CEShieldStrikeType",
-                DefinitionBuilder.CENamespaceGuid)
+        var shieldType = WeaponTypeDefinitionBuilder
+            .Create(WeaponTypeDefinitions.UnarmedStrikeType, "CEShieldStrikeType")
             .AddToDB();
 
         shieldType.soundEffectOnHitDescription =

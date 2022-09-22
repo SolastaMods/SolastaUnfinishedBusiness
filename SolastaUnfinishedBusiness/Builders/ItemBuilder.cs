@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -9,24 +8,23 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal static class ItemBuilder
 {
     public static ItemDefinition BuilderCopyFromItemSetRecipe(ItemDefinition original, string name,
-        Guid collectionGuid,
         RecipeDefinition recipeDefinition, int gold, GuiPresentation guiPresentation)
     {
         return ItemDefinitionBuilder
-            .Create(original, name, collectionGuid)
+            .Create(original, name)
             .SetGuiPresentation(guiPresentation)
             .SetDocumentInformation(recipeDefinition, original.DocumentDescription.ContentFragments)
             .SetGold(gold)
             .AddToDB();
     }
 
-    public static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, string name, Guid collectionGuid,
+    public static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, string name,
         ItemDefinition magicalExample)
     {
         var itemName = original.Name + "_" + name;
 
         var builder = ItemDefinitionBuilder
-            .Create(original, itemName, collectionGuid)
+            .Create(original, itemName)
             .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
             // Set is magical
             // Remove "Standard" from item tags
@@ -55,13 +53,13 @@ internal static class ItemBuilder
         return builder.AddToDB();
     }
 
-    public static ItemDefinition BuildNewMagicArmor(ItemDefinition original, Guid collectionGuid, string name,
+    public static ItemDefinition BuildNewMagicArmor(ItemDefinition original, string name,
         ItemDefinition magicalExample)
     {
         var itemName = original.Name + "_" + name;
 
         var builder = ItemDefinitionBuilder
-            .Create(original, itemName, collectionGuid)
+            .Create(original, itemName)
             .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
             // Set is magical
             // Remove "Standard" from item tags

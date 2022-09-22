@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -7,7 +6,6 @@ using SolastaUnfinishedBusiness.ItemCrafting;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 #if DEBUG
 using System.Text;
 #endif
@@ -258,7 +256,6 @@ internal static class ItemCraftingContext
 #endif
     internal sealed class ItemCollection
     {
-        public Guid BaseGuid;
         public List<ItemDefinition> BaseWeapons;
         public List<MagicItemDataHolder> MagicToCopy;
         public int NumProduced = 1;
