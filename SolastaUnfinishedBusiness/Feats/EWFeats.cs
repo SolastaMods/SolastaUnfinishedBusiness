@@ -17,10 +17,13 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 public static class EwFeats
 {
+    public const string MagicAffinityWarcaster = "MagicAffinityFeatWarCaster";
+
     public const string SentinelFeat = "FeatSentinel";
     private const string PolearmExpertFeat = "FeatPolearmExpert";
     private const string RangedExpertFeat = "FeatRangedExpert";
     private const string RecklessAttackFeat = "FeatRecklessAttack";
+    private const string WarcasterFeat = "FeatWarCaster";
 
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
@@ -29,6 +32,7 @@ public static class EwFeats
         feats.Add(BuildRangedExpert());
         feats.Add(BuildRecklessAttack());
         feats.Add(BuildPowerAttack());
+        feats.Add(BuildWarcaster());
     }
 
     private static FeatDefinition BuildSentinel()
@@ -295,5 +299,25 @@ public static class EwFeats
             damage.DamageBonusTrends.Add(new TrendInfo(toDamage,
                 FeatureSourceType.Power, "PowerAttack", null));
         }
+    }
+
+    private static FeatDefinition BuildWarcaster()
+    {
+        var warcaster = FeatDefinitionBuilder
+            .Create(WarcasterFeat)
+            .SetFeatures(
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create(MagicAffinityWarcaster)
+                    .SetGuiPresentation(WarcasterFeat, Category.Feat)
+                    .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
+                        RuleDefinitions.SpellParamsModifierType.None, false, false, false)
+                    .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
+                    .SetHandsFullCastingModifiers(true, true, true)
+                    .AddToDB())
+            .SetGuiPresentation(Category.Feat)
+            .SetMustCastSpellsPrerequisite()
+            .AddToDB();
+
+        return warcaster;
     }
 }

@@ -11,8 +11,6 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
-    public const string MagicAffinityWarcaster = "MagicAffinityFeatWarCaster";
-
     internal static void CreateFeats(List<FeatDefinition> feats)
     {
         // Savage Attacker
@@ -83,23 +81,7 @@ internal static class OtherFeats
             .SetArmorProficiencyPrerequisite(DatabaseHelper.ArmorCategoryDefinitions.ShieldCategory)
             .AddToDB();
 
-        // War Caster
-        var warcaster = FeatDefinitionBuilder
-            .Create("FeatWarCaster")
-            .SetFeatures(
-                FeatureDefinitionMagicAffinityBuilder
-                    .Create(MagicAffinityWarcaster)
-                    .SetGuiPresentation("FeatWarCaster", Category.Feat)
-                    .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
-                        RuleDefinitions.SpellParamsModifierType.None, false, false, false)
-                    .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
-                    .SetHandsFullCastingModifiers(true, true, true)
-                    .AddToDB())
-            .SetGuiPresentation(Category.Feat)
-            .SetMustCastSpellsPrerequisite()
-            .AddToDB();
-
-        feats.AddRange(savageAttacker, tough, warcaster, improvedCritical, shieldExpert);
+        feats.AddRange(savageAttacker, tough, improvedCritical, shieldExpert);
     }
 
     private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
