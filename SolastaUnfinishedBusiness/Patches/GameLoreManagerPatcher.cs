@@ -1,4 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿//TODO: this is a very old patch I don't believe required anymore...
+
+#if false
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -21,3 +24,4 @@ internal static class GameLoreManagerPatcher
         }
     }
 }
+#endif

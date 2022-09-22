@@ -5,7 +5,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class GameSerializationManagerPatcher
 {
-    //PATCH: EnableSaveByLocation
     [HarmonyPatch(typeof(GameSerializationManager), "CanLoad", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CanLoad_Getter_Patch
@@ -14,6 +13,7 @@ internal static class GameSerializationManagerPatcher
             GameSerializationManager __instance,
             ref bool __result)
         {
+            //PATCH: EnableSaveByLocation
             if (!Main.Settings.EnableSaveByLocation)
             {
                 return true;

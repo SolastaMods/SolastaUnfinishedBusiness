@@ -6,7 +6,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class ShapeOptionItemPatcher
 {
-    //PATCH: uses class level when offering wildshape
     [HarmonyPatch(typeof(ShapeOptionItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
@@ -16,6 +15,7 @@ internal static class ShapeOptionItemPatcher
             RulesetCharacter shifter,
             int requiredLevel)
         {
+            //PATCH: uses class level when offering wildshape
             if (shifter is not RulesetCharacterHero rulesetCharacterHero ||
                 !rulesetCharacterHero.ClassesAndLevels.TryGetValue(Druid, out var levels))
             {

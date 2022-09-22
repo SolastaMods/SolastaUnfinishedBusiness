@@ -7,7 +7,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class MapGadgetItemPatcher
 {
-    //PATCH: EnableAdditionalIconsOnLevelMap
     [HarmonyPatch(typeof(MapGadgetItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
@@ -17,6 +16,7 @@ internal static class MapGadgetItemPatcher
             GameGadget gameGadget,
             MapGadgetItem.ItemType itemType)
         {
+            //PATCH: EnableAdditionalIconsOnLevelMap
             if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
             {
                 return true;
@@ -34,18 +34,21 @@ internal static class MapGadgetItemPatcher
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite = CustomIcons.GetOrCreateSprite("Fire", Resources.Fire, 24);
                     __instance.guiTooltip.Content = "Camp";
+
                     break;
                 case -2:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
                         CustomIcons.GetOrCreateSprite("Entrance", Resources.Entry, 24);
                     __instance.guiTooltip.Content = "Exit";
+
                     break;
                 case -3:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
                         CustomIcons.GetOrCreateSprite("Teleport", Resources.Teleport, 24);
                     __instance.guiTooltip.Content = "Teleporter";
+
                     break;
                 default:
                     return true;
@@ -53,6 +56,7 @@ internal static class MapGadgetItemPatcher
 
             __instance.gameGadget = gameGadget;
             __instance.gameObject.SetActive(true);
+
             return false;
         }
     }

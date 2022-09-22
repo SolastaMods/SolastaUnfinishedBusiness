@@ -9,13 +9,13 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class RuleDefinitionsPatcher
 {
-    //PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
     [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ComputeAdvantage_Patch
     {
         public static void Postfix([NotNull] List<TrendInfo> trends, ref AdvantageType __result)
         {
+            //PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
             if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
             {
                 return;

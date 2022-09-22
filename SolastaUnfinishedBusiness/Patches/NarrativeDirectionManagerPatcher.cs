@@ -7,13 +7,13 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class NarrativeDirectionManagerPatcher
 {
-    //PATCH: FullyControlConjurations
     [HarmonyPatch(typeof(NarrativeDirectionManager), "PrepareDialogSequence")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class PrepareDialogSequence_Patch
     {
         internal static void Prefix(List<GameLocationCharacter> involvedGameCharacters)
         {
+            //PATCH: FullyControlConjurations
             if (!Main.Settings.FullyControlConjurations)
             {
                 return;

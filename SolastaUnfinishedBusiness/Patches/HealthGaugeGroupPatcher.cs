@@ -7,7 +7,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class HealthGaugeGroupPatcher
 {
-    //PATCH: HideMonsterHitPoints
     [HarmonyPatch(typeof(HealthGaugeGroup), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Refresh_Patch
@@ -18,6 +17,7 @@ internal static class HealthGaugeGroupPatcher
         /// </summary>
         internal static void Postfix(HealthGaugeGroup __instance)
         {
+            //PATCH: HideMonsterHitPoints
             if (!Main.Settings.HideMonsterHitPoints)
             {
                 return;

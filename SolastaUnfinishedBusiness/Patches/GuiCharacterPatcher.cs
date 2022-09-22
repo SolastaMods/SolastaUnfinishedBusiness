@@ -140,13 +140,13 @@ internal static class GuiCharacterPatcher
         }
     }
 
-    //PATCH: Enables additional background display on inspection panel
     [HarmonyPatch(typeof(GuiCharacter), "BackgroundDescription", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class BackgroundDescription_Getter_Patch
     {
         internal static void Postfix(GuiCharacter __instance, ref string __result)
         {
+            //PATCH: Enables additional background display on inspection panel
             if (!Main.Settings.EnableAdditionalBackstoryDisplay)
             {
                 return;
@@ -178,7 +178,6 @@ internal static class GuiCharacterPatcher
         }
     }
 
-    //PATCH: HideMonsterHitPoints
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthGauge")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FormatHealthGauge_Patch
@@ -189,6 +188,7 @@ internal static class GuiCharacterPatcher
         /// </summary>
         internal static void Prefix(GuiCharacter __instance, out bool __state)
         {
+            //PATCH: HideMonsterHitPoints
             if (!Main.Settings.HideMonsterHitPoints)
             {
                 __state = false;
@@ -227,7 +227,6 @@ internal static class GuiCharacterPatcher
         }
     }
 
-    //PATCH: HideMonsterHitPoints
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthLabel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FormatHealthLabel_Patch
@@ -240,6 +239,7 @@ internal static class GuiCharacterPatcher
         /// </summary>
         internal static void Prefix(GuiCharacter __instance, out bool __state)
         {
+            //PATCH: HideMonsterHitPoints
             if (!Main.Settings.HideMonsterHitPoints)
             {
                 __state = false;
@@ -316,13 +316,13 @@ internal static class GuiCharacterPatcher
         }
     }
 
-    //PATCH: EnableStatsOnHeroTooltip
     [HarmonyPatch(typeof(CharacterPlateGame), "OnPointerEnter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class OnPointerEnter_Patch
     {
         internal static void Prefix(CharacterPlateGame __instance)
         {
+            //PATCH: EnableStatsOnHeroTooltip
             var hero = __instance.GuiCharacter?.RulesetCharacterHero;
             var tooltip = __instance.GuiTooltip;
 

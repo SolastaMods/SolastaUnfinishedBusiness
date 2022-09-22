@@ -1,35 +1,39 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro (DMP)
-[HarmonyPatch(typeof(UserGadget), "PostLoadJson")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class UserGadget_PostLoadJson
+internal static class UserGadgetPatcher
 {
-    public static MonsterDefinition.DungeonMaker DungeonMakerPresence()
+    //PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro (DMP)
+    [HarmonyPatch(typeof(UserGadget), "PostLoadJson")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class PostLoadJson_Patch
     {
-        return MonsterDefinition.DungeonMaker.Monster;
-    }
-
-    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-    {
-        var dungeonMakerPresenceMethod = typeof(MonsterDefinition).GetMethod("get_DungeonMakerPresence");
-        var myDungeonMakerPresenceMethod = typeof(UserGadget_PostLoadJson).GetMethod("DungeonMakerPresence");
-
-        foreach (var instruction in instructions)
+        private static MonsterDefinition.DungeonMaker DungeonMakerPresence()
         {
-            if (instruction.Calls(dungeonMakerPresenceMethod))
+            return MonsterDefinition.DungeonMaker.Monster;
+        }
+
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var dungeonMakerPresenceMethod = typeof(MonsterDefinition).GetMethod("get_DungeonMakerPresence");
+            var myDungeonMakerPresenceMethod = new Func<MonsterDefinition.DungeonMaker>(DungeonMakerPresence).Method;
+
+            foreach (var instruction in instructions)
             {
-                yield return new CodeInstruction(OpCodes.Pop); // pop MonsterDefinition instance
-                yield return new CodeInstruction(OpCodes.Call, myDungeonMakerPresenceMethod);
-            }
-            else
-            {
-                yield return instruction;
+                if (instruction.Calls(dungeonMakerPresenceMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Pop); // pop MonsterDefinition instance
+                    yield return new CodeInstruction(OpCodes.Call, myDungeonMakerPresenceMethod);
+                }
+                else
+                {
+                    yield return instruction;
+                }
             }
         }
     }

@@ -6,44 +6,48 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: scales down the party control panel whenever the party size is bigger than 4 (PARTYSIZE)
-[HarmonyPatch(typeof(PartyControlPanel), "OnBeginShow")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class PartyControlPanel_OnBeginShow
+internal static class PartyControlPanelPatcher
 {
-    internal static void Prefix([NotNull] PartyControlPanel __instance)
+    [HarmonyPatch(typeof(PartyControlPanel), "OnBeginShow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class OnBeginShow_Patch
     {
-        var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
+        internal static void Prefix([NotNull] PartyControlPanel __instance)
+        {
+            //PATCH: scales down the party control panel whenever the party size is bigger than 4 (PARTYSIZE)
+            var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-        if (partyCount > DungeonMakerContext.GamePartySize)
-        {
-            var scale = DungeonMakerContext.GetPartyControlScale();
-            __instance.partyPlatesTable.localScale = new Vector3(scale, scale, scale);
-        }
-        else
-        {
-            __instance.partyPlatesTable.localScale = new Vector3(1, 1, 1);
+            if (partyCount > DungeonMakerContext.GamePartySize)
+            {
+                var scale = DungeonMakerContext.GetPartyControlScale();
+                __instance.partyPlatesTable.localScale = new Vector3(scale, scale, scale);
+            }
+            else
+            {
+                __instance.partyPlatesTable.localScale = new Vector3(1, 1, 1);
+            }
         }
     }
-}
 
-[HarmonyPatch(typeof(PartyControlPanel), "Refresh")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class PartyControlPanel_Refresh
-{
-    internal static void Postfix(PartyControlPanel __instance)
+    [HarmonyPatch(typeof(PartyControlPanel), "Refresh")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Refresh_Patch
     {
-        var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
-
-        if (partyCount <= DungeonMakerContext.GamePartySize)
+        internal static void Postfix(PartyControlPanel __instance)
         {
-            return;
+            //PATCH: scales down the party control panel whenever the party size is bigger than 4 (PARTYSIZE)
+            var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
+
+            if (partyCount <= DungeonMakerContext.GamePartySize)
+            {
+                return;
+            }
+
+            var scale = DungeonMakerContext.GetPartyControlScale();
+            var y = 10f + (scale * __instance.partyPlatesTable.rect.height);
+            var guestPlatesTable = __instance.guestPlatesTable;
+
+            guestPlatesTable.anchoredPosition = new Vector2(guestPlatesTable.anchoredPosition.x, -y);
         }
-
-        var scale = DungeonMakerContext.GetPartyControlScale();
-        var y = 10f + (scale * __instance.partyPlatesTable.rect.height);
-        var guestPlatesTable = __instance.guestPlatesTable;
-
-        guestPlatesTable.anchoredPosition = new Vector2(guestPlatesTable.anchoredPosition.x, -y);
     }
 }

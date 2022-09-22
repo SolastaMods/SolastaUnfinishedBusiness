@@ -6,13 +6,13 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class HeroDefinitionsPatcher
 {
-    //PATCH: overrides the max experience allowed under Level 20 scenarios
     [HarmonyPatch(typeof(HeroDefinitions), "MaxHeroExperience")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class MaxHeroExperience_Patch
     {
         internal static bool Prefix(ref int __result)
         {
+            //PATCH: overrides the max experience allowed under Level 20 scenarios
             if (!Main.Settings.EnableLevel20)
             {
                 return true;

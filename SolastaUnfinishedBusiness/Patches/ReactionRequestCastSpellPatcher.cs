@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-//Removes low-level sub-option for spell reactions if caster is not-multiclassed warlock
+//PATCH: removes low-level sub-option for spell reactions if caster is not-multiclass warlock (MULTICLASS)
 internal static class ReactionRequestCastSpellPatcher
 {
     [HarmonyPatch(typeof(ReactionRequestCastSpell), "BuildSlotSubOptions")]
@@ -56,9 +56,9 @@ internal static class ReactionRequestCastSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(ReactionRequestCastSpell), "get_SelectedSubOption")]
+    [HarmonyPatch(typeof(ReactionRequestCastSpell), "SelectedSubOption", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class get_SelectedSubOption_Patch
+    internal static class SelectedSubOption_Getter_Patch
     {
         public static bool Prefix(ReactionRequestCastSpell __instance, ref int __result)
         {
@@ -69,6 +69,7 @@ internal static class ReactionRequestCastSpellPatcher
             }
 
             __result = __instance.SubOptionsAvailability.Keys.ToList().FindIndex(v => v == spellEffect.SlotLevel);
+
             return false;
         }
     }

@@ -4,20 +4,23 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: better rooms sorting (DMP)
-[HarmonyPatch(typeof(RoomBlueprintSelectionPanel), "Compare")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RoomBlueprintSelectionPanel_Compare
+internal static class RoomBlueprintSelectionPanelPatcher
 {
-    internal static bool Prefix(RoomBlueprint left, RoomBlueprint right, ref int __result)
+    [HarmonyPatch(typeof(RoomBlueprintSelectionPanel), "Compare")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RoomBlueprintSelectionPanel_Compare
     {
-        if (!Main.Settings.EnableSortingDungeonMakerAssets)
+        internal static bool Prefix(RoomBlueprint left, RoomBlueprint right, ref int __result)
         {
-            return true;
+            //PATCH: better rooms sorting (DMP)
+            if (!Main.Settings.EnableSortingDungeonMakerAssets)
+            {
+                return true;
+            }
+
+            __result = DmProEditorContext.Compare(left, right);
+
+            return false;
         }
-
-        __result = DmProEditorContext.Compare(left, right);
-
-        return false;
     }
 }

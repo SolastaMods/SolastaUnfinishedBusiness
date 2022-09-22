@@ -7,14 +7,12 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class UnityModManagerUIPatcher
 {
-    //PATCH: prevents game from receiving input if Mod UI is open
     [HarmonyPatch(typeof(UnityModManager.UI), "ToggleWindow", typeof(bool))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ToggleWindow_Patch
     {
-#pragma warning disable S3168 // "async" methods should not return "void"
+        //PATCH: prevents game from receiving input if Mod UI is open
         internal static async void Postfix(bool open)
-#pragma warning restore S3168 // "async" methods should not return "void"
         {
             await ModManagerUI.Set(open);
         }
@@ -26,8 +24,6 @@ internal static class UnityModManagerUIPatcher
 
         internal static async Task Set(bool open)
         {
-            Main.Log($"UnityModManagerUIToggleWindowPatch: open={open}");
-
             if (open)
             {
                 IsOpen = true;
@@ -40,8 +36,6 @@ internal static class UnityModManagerUIPatcher
                 // but use actual state of UI in case someone quickly opens it again
                 IsOpen = UnityModManager.UI.Instance.Opened;
             }
-
-            Main.Log($"UnityModManagerUIToggleWindowPatch: IsOpen={IsOpen}");
         }
     }
 }

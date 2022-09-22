@@ -5,13 +5,13 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class NarrativeStateNpcSpeechPatcher
 {
-    //PATCH: EnableLogDialoguesToConsole
     [HarmonyPatch(typeof(NarrativeStateNpcSpeech), "RecordSpeechLine")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RecordSpeechLine_Patch
     {
         internal static void Postfix(string speakerName, string textLine)
         {
+            //PATCH: EnableLogDialoguesToConsole
             if (!Main.Settings.EnableLogDialoguesToConsole)
             {
                 return;
