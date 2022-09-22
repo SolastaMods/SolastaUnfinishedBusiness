@@ -12,6 +12,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class DmProEditorContext
 {
+    // NEVER EVER CHANGE THIS GUID OR REFACTOR IT OUT!!! IT WILL BREAK ANY DUNGEON DEPENDING ON THIS MOD
     private static readonly Guid Guid = new("bff53ba4bb694bf5a69b3ae280eec118");
 
     internal static readonly List<string> OutdoorRooms = new();

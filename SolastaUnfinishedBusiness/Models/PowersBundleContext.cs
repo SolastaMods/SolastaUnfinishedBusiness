@@ -14,7 +14,6 @@ namespace SolastaUnfinishedBusiness.Models;
 public static class PowersBundleContext
 {
     private const string UseCustomRestPowerFunctorName = "UseCustomRestPower";
-    private static readonly Guid GuidNamespace = new("d99cec61-31b8-42a3-a5d6-082369fadaaf");
 
     private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = new();
     private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();
@@ -80,7 +79,7 @@ public static class PowersBundleContext
             return Powers2Spells[power];
         }
 
-        var spell = SpellDefinitionBuilder.Create($"CEPowerBundle_{power.name}_Spell", GuidNamespace)
+        var spell = SpellDefinitionBuilder.Create($"CEPowerBundle_{power.name}_Spell")
             .SetGuiPresentation(power.GuiPresentation)
             .AddToDB();
         Spells2Powers[spell] = power;

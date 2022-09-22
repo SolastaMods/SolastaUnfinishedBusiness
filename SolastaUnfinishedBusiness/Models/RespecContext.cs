@@ -16,7 +16,7 @@ public static class RespecContext
     private const string RespecName = "Respec";
 
     // private static RestActivityDefinition RestActivityLevelDown { get; } = RestActivityDefinitionBuilder
-    //     .Create(LevelDownName, "fdb4d86eaef942d1a22dbf1fb5a7299f")
+    //     .Create(LevelDownName)
     //     .SetGuiPresentation("MainMenu/&LevelDownTitle", "MainMenu/&LevelDownDescription")
     //     .SetRestData(
     //         RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
@@ -24,7 +24,7 @@ public static class RespecContext
     //     .AddToDB();
 
     private static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
-        .Create(RespecName, "40824029eb224fb581f0d4e5989b6735")
+        .Create(RespecName)
         .SetGuiPresentation("RestActivity/&RespecTitle", "RestActivity/&RespecDescription")
         .SetRestData(
             RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,

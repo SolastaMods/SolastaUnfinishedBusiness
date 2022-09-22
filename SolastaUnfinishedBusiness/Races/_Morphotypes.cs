@@ -86,7 +86,7 @@ internal static class Morphotypes
         /*testing low alpha values - gives a smooth "cartoony" and less reflective look
         //gives a smooth "cartoony" and less reflective look
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "TestSkin1", "032a90eb-39f4-425d-bf61-57910fce6a81")
+            .Create(FaceAndSkin_01, "TestSkin1")
             .SetMainColor(new Color()
             {
                 r = BodyDecorationColor_Default_00.MainColor.r,
@@ -99,7 +99,7 @@ internal static class Morphotypes
 
         //looks decidedly more pink
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "TestSkin2", "032a90eb-39f4-425d-bf61-57910fce6a82")
+            .Create(FaceAndSkin_01, "TestSkin2")
             .SetMainColor(new Color()
             {
                 r = FaceAndSkin_01.MainColor.r,
