@@ -194,7 +194,7 @@ internal static class BazouSpells
 
         var conditionDefinition = ConditionDefinitionBuilder
             .Create(ConditionConfused, "ConditionFrenzied")
-            .SetOrUpdateGuiPresentation("ConditionFrenzied", Category.Condition)
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
 
         // Some methods are missing like SetField or Copy
