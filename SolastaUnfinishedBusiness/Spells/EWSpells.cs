@@ -80,7 +80,7 @@ internal static class EwSpells
                 .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)
                 .SetTargetingData(
                     RuleDefinitions.Side.Enemy,
-                    RuleDefinitions.RangeType.Distance,
+                    RuleDefinitions.RangeType.Touch,
                     1,
                     RuleDefinitions.TargetType.IndividualsUnique
                 )

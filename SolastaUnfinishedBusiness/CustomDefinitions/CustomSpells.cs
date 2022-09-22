@@ -78,8 +78,7 @@ internal sealed class UpgradeRangeBasedOnWeaponReach : IModifySpellEffect
             return effect;
         }
 
-        var modified = effect.Copy();
-        modified.rangeParameter = reach;
-        return modified;
+        effect.rangeParameter = reach;
+        return effect;
     }
 }
