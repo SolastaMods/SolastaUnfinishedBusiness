@@ -156,14 +156,12 @@ internal static class DarkelfSubraceBuilder
 
         var darkelfRacePresentation = Elf.RacePresentation.DeepCopy();
 
-        darkelfRacePresentation.surNameOptions = new List<string>
+        darkelfRacePresentation.surNameOptions = new List<string>();
+
+        for (var i = 0; i < 5; i++)
         {
-            "Race/&DarkelfSurName1Title",
-            "Race/&DarkelfSurName2Title",
-            "Race/&DarkelfSurName3Title",
-            "Race/&DarkelfSurName4Title",
-            "Race/&DarkelfSurName5Title"
-        };
+            darkelfRacePresentation.surNameOptions.Add($"Race/&DarkelfSurName{i}Title");
+        }
 
         darkelfRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
         darkelfRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;

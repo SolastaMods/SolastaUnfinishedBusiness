@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -18,9 +19,7 @@ internal static class DatabaseSelectionModalPatcher
                 return true;
             }
 
-            __instance.allMonsters.Clear();
-
-            __instance.allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+            __instance.allMonsters.SetRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
                 .Where(x => !x.GuiPresentation.Hidden)
                 .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
 
@@ -50,9 +49,7 @@ internal static class DatabaseSelectionModalPatcher
                 return true;
             }
 
-            __instance.allNpcs.Clear();
-
-            __instance.allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+            __instance.allNpcs.SetRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
                 .Where(x => !x.GuiPresentation.Hidden)
                 .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
 
