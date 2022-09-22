@@ -93,6 +93,7 @@ internal static class CustomIcons
         int sizeY)
     {
         var sprite = GetOrCreateSprite(name, bitmap, sizeX, sizeY);
+
         return new AssetReferenceSprite(GetSpriteGuid(sprite.name));
     }
 }

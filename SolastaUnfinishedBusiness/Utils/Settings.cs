@@ -174,7 +174,6 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableAutoEquip { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
-
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }

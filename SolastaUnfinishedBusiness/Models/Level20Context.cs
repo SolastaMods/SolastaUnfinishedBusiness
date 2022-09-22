@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -23,8 +21,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class Level20Context
 {
-    private const string PowerSorcerousRestorationName = "PowerSorcerousRestoration";
-
     public const int MaxSpellLevel = 9;
 
     public const int ModMaxLevel = 20;
@@ -323,6 +319,8 @@ internal static class Level20Context
 
     private static void SorcererLoad()
     {
+        const string PowerSorcerousRestorationName = "PowerSorcerousRestoration";
+
         var powerSorcerousRestoration = new EffectFormBuilder()
             .CreatedByCharacter()
             .SetSpellForm(9)
@@ -331,7 +329,13 @@ internal static class Level20Context
         powerSorcerousRestoration.SpellSlotsForm.type = SpellSlotsForm.EffectType.GainSorceryPoints;
         powerSorcerousRestoration.SpellSlotsForm.sorceryPointsGain = 4;
 
-        _ = RestActivityBuilder.RestActivityRestoration;
+        _ = RestActivityDefinitionBuilder
+            .Create("SorcerousRestoration")
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", PowerSorcerousRestorationName)
+            .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
+            .AddToDB();
 
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -416,27 +420,5 @@ internal static class Level20Context
     {
         CastSpellTraditionLight.SlotsPerLevels.SetRange(SharedSpellsContext.OneThirdCastingSlots);
         CastSpellTraditionLight.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
-    }
-
-    private sealed class RestActivityBuilder : RestActivityDefinitionBuilder
-    {
-        private const string SorcerousRestorationName = "SorcerousRestoration";
-
-        // An alternative pattern for lazily creating definition.
-        private static RestActivityDefinition _restActivityRestoration;
-
-        private RestActivityBuilder(string name) : base(
-            DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name,
-            GuidHelper.Create(CENamespaceGuid, name).ToString())
-        {
-            Definition.stringParameter = PowerSorcerousRestorationName;
-        }
-
-        // get only property
-        public static RestActivityDefinition RestActivityRestoration =>
-            _restActivityRestoration ??=
-                new RestActivityBuilder(SorcerousRestorationName)
-                    .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
-                    .AddToDB();
     }
 }

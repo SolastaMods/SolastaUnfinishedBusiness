@@ -99,7 +99,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .AddFeatureAtLevel(spellResistance, 14)
             .AddToDB();
 
-        RestActivityDefinitionBuilder
+        _ = RestActivityDefinitionBuilder
             .Create("SpellMasterArcaneDepth")
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
