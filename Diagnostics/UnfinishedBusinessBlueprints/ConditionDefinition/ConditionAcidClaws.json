@@ -4,21 +4,19 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageSunlightBlade:1bd17141-b9ba-5502-a83b-00a846cf4c39"
+    "Definition:AttributeModifierAcidClawsACDebuff:228fc58d-9d34-5d37-aecf-75cf20e57e2c"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
+  "specialDuration": true,
   "durationType": "Round",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -127,13 +125,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionSunlightBladeTitle",
-    "description": "Condition/&ConditionSunlightBladeDescription",
+    "title": "Condition/&ConditionAcidClawsTitle",
+    "description": "Condition/&ConditionAcidClawsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "c970957be3c9d3e459cfe49d3f113f44",
+      "m_SubObjectName": "ConditionAcidified",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -148,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6ac4b1f4-8f80-5e90-8e86-e66db308a40a",
+  "guid": "479e2e19-8c6c-5718-8dbc-16d478177ae9",
   "contentPack": 9999,
-  "name": "ConditionSunlightBlade"
+  "name": "ConditionAcidClaws"
 }

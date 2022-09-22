@@ -13,11 +13,11 @@
   "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
+    "rangeType": "Distance",
     "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 1,
@@ -92,6 +92,35 @@
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionSunlightBladeMarked",
+          "conditionDefinition": "Definition:ConditionSunlightBladeMarked:7f19eac4-e539-5805-ae41-40dcda6d3b23",
+          "operation": "Add",
+          "conditionsList": [
+            "Definition:ConditionSunlightBladeMarked:7f19eac4-e539-5805-ae41-40dcda6d3b23"
+          ],
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,
