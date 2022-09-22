@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -74,23 +75,14 @@ internal static class MulticlassContext
 
 public sealed class ArmorProficiencyMulticlassBuilder : FeatureDefinitionProficiencyBuilder
 {
-    private const string ProficiencyBarbarianArmorMulticlassName = "ProficiencyBarbarianArmorMulticlass";
-    private const string ProficiencyBarbarianArmorMulticlassGuid = "86558227b0cd4771b42978a60dc610db";
-
-    private const string ProficiencyFighterArmorMulticlassName = "ProficiencyFighterArmorMulticlass";
-    private const string ProficiencyFighterArmorMulticlassGuid = "5df5ec907a424fccbfec103344421b51";
-
-    private const string ProficiencyPaladinArmorMulticlassName = "ProficiencyPaladinArmorMulticlass";
-    private const string ProficiencyPaladinArmorMulticlassGuid = "69b18e44aabd4acca702c05f9d6c7fcb";
-
     public static readonly FeatureDefinitionProficiency ProficiencyBarbarianArmorMulticlass =
-        CreateAndAddToDB(ProficiencyBarbarianArmorMulticlassName, ProficiencyBarbarianArmorMulticlassGuid,
+        CreateAndAddToDB("ProficiencyBarbarianArmorMulticlass",
             "Feature/&BarbarianArmorProficiencyTitle",
             EquipmentDefinitions.ShieldCategory
         );
 
     public static readonly FeatureDefinitionProficiency ProficiencyFighterArmorMulticlass =
-        CreateAndAddToDB(ProficiencyFighterArmorMulticlassName, ProficiencyFighterArmorMulticlassGuid,
+        CreateAndAddToDB("ProficiencyFighterArmorMulticlass",
             "Feature/&FighterArmorProficiencyTitle",
             EquipmentDefinitions.LightArmorCategory,
             EquipmentDefinitions.MediumArmorCategory,
@@ -98,24 +90,25 @@ public sealed class ArmorProficiencyMulticlassBuilder : FeatureDefinitionProfici
         );
 
     public static readonly FeatureDefinitionProficiency ProficiencyPaladinArmorMulticlass =
-        CreateAndAddToDB(ProficiencyPaladinArmorMulticlassName, ProficiencyPaladinArmorMulticlassGuid,
+        CreateAndAddToDB("ProficiencyPaladinArmorMulticlass",
             "Feature/&PaladinArmorProficiencyTitle",
             EquipmentDefinitions.LightArmorCategory,
             EquipmentDefinitions.MediumArmorCategory,
             EquipmentDefinitions.ShieldCategory
         );
 
-    private ArmorProficiencyMulticlassBuilder(string name, string guid, string title,
-        [NotNull] params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
+    private ArmorProficiencyMulticlassBuilder(string name, string title,
+        [NotNull] params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name,
+        GuidHelper.Create(CENamespaceGuid, name).ToString())
     {
         Definition.Proficiencies.SetRange(proficienciesToReplace);
         Definition.GuiPresentation.Title = title;
     }
 
-    private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid, string title,
+    private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string title,
         [NotNull] params string[] proficienciesToReplace)
     {
-        return new ArmorProficiencyMulticlassBuilder(name, guid, title, proficienciesToReplace).AddToDB();
+        return new ArmorProficiencyMulticlassBuilder(name, title, proficienciesToReplace).AddToDB();
     }
 }
 
@@ -124,7 +117,6 @@ public static class SkillProficiencyPointPoolSkillsBuilder
     public static readonly FeatureDefinitionPointPool PointPoolBardSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
             .Create("PointPoolBardSkillPointsMulticlass")
-            // Non-standard pattern?
             .SetGuiPresentation("Feature/&BardSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
             .RestrictChoices(
@@ -152,7 +144,6 @@ public static class SkillProficiencyPointPoolSkillsBuilder
     public static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
             .Create("PointPoolRangerSkillPointsMulticlass")
-            // Non-standard pattern?
             .SetGuiPresentation("Feature/&RangerSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
             .RestrictChoices(
@@ -170,7 +161,6 @@ public static class SkillProficiencyPointPoolSkillsBuilder
     public static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
             .Create("PointPoolRogueSkillPointsMulticlass")
-            // Non-standard pattern?
             .SetGuiPresentation("Feature/&RogueSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
             .RestrictChoices(

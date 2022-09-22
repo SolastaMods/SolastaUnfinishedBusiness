@@ -20,6 +20,38 @@ public static class MulticlassGameUiContext
         return FontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
     }
 
+    internal static void SetupLevelUpClassSelectionStep(CharacterEditionScreen characterEditionScreen)
+    {
+        if (Main.Settings.MaxAllowedClasses <= 1 || characterEditionScreen is not CharacterLevelUpScreen)
+        {
+            return;
+        }
+
+        var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+        var stagePanelPrefabs =
+            characterCreationScreen.stagePanelPrefabs;
+        var classSelectionPanel = Gui
+            .GetPrefabFromPool(stagePanelPrefabs[1], characterEditionScreen.StagesPanelContainer)
+            .GetComponent<CharacterStagePanel>();
+        var deitySelectionPanel = Gui
+            .GetPrefabFromPool(stagePanelPrefabs[2], characterEditionScreen.StagesPanelContainer)
+            .GetComponent<CharacterStagePanel>();
+        var newLevelUpSequence =
+            new Dictionary<string, CharacterStagePanel> { { "ClassSelection", classSelectionPanel } };
+
+        foreach (var stagePanel in characterEditionScreen.stagePanelsByName)
+        {
+            newLevelUpSequence.Add(stagePanel.Key, stagePanel.Value);
+
+            if (stagePanel.Key == "LevelGains")
+            {
+                newLevelUpSequence.Add("DeitySelection", deitySelectionPanel);
+            }
+        }
+
+        characterEditionScreen.stagePanelsByName = newLevelUpSequence;
+    }
+
     internal static void RebuildSlotsTable(SpellRepertoirePanel __instance)
     {
         var spellRepertoire = __instance.SpellRepertoire;
