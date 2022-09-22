@@ -291,8 +291,8 @@
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "HitByMelee",
-  "reactionName": "CounterStrike",
+  "reactionContext": "None",
+  "reactionName": "",
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
@@ -339,7 +339,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "88c294ce-14fa-4f7e-8b81-ea4d289e3d8b",
+  "guid": "99b1d67a-6c4b-5b47-b6b2-e03edc5a53be",
   "contentPack": 9999,
   "name": "PowerSharedPoolTacticianCounterStrike"
 }

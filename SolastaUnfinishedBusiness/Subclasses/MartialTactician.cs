@@ -27,40 +27,9 @@ internal sealed class MartialTactician : AbstractSubclass
     }
 }
 
-internal static class PowerPoolTacticianGambitAddBuilder
-{
-    private static FeatureDefinitionPower CreateAndAddToDB(string name)
-    {
-        return FeatureDefinitionPowerPoolModifierBuilder
-            .Create(name)
-            .SetGuiPresentation("PowerPoolTacticianGambitAdd", Category.Feature)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Dexterity,
-                TacticianFighterSubclassBuilder.PowerPoolTacticianGambit)
-            .AddToDB();
-    }
-
-    internal static FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd10()
-    {
-        return CreateAndAddToDB("PowerPoolModifierTacticianGambitAdd10");
-    }
-
-    internal static FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd15()
-    {
-        return CreateAndAddToDB("PowerPoolModifierTacticianGambitAdd15");
-    }
-
-    internal static FeatureDefinitionPower PowerPoolModifierTacticianGambitAdd18()
-    {
-        return CreateAndAddToDB("PowerPoolModifierTacticianGambitAdd18");
-    }
-}
-
 internal static class TacticianFighterSubclassBuilder
 {
-    internal static readonly FeatureDefinitionPower PowerPoolTacticianGambit = FeatureDefinitionPowerPoolBuilder
+    private static readonly FeatureDefinitionPower PowerPoolTacticianGambit = FeatureDefinitionPowerPoolBuilder
         .Create("PowerPoolTacticianGambit")
         .Configure(
             4,
@@ -70,7 +39,7 @@ internal static class TacticianFighterSubclassBuilder
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
-    private static FeatureDefinitionPowerSharedPool BuildPowerSharedPoolTacticianInspirePower()
+    private static FeatureDefinitionPowerSharedPool BuildPowerSharedPoolTacticianInspire()
     {
         //Create the temp hp form
         var healingEffect = new EffectForm
@@ -166,7 +135,7 @@ internal static class TacticianFighterSubclassBuilder
 
     private static FeatureDefinitionPowerSharedPool BuildPowerSharedPoolTacticianCounterStrike()
     {
-        // TODO: make it do the same damage as the wielded weapon (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability).
+        // TODO: make it do the same damage as the wielded weapon (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability)
         var damageEffect = new EffectForm
         {
             damageForm = new DamageForm
@@ -201,20 +170,34 @@ internal static class TacticianFighterSubclassBuilder
         return powerSharedPoolTacticianCounterStrike;
     }
 
+    private static FeatureDefinitionPowerPoolModifier BuildPowerPoolTacticianGambitAdd()
+    {
+        return FeatureDefinitionPowerPoolModifierBuilder
+            .Create("PowerPoolTacticianGambitAdd")
+            .SetGuiPresentation(Category.Feature)
+            .Configure(
+                1,
+                UsesDetermination.Fixed,
+                AttributeDefinitions.Dexterity,
+                PowerPoolTacticianGambit)
+            .AddToDB();
+    }
+    
     internal static CharacterSubclassDefinition BuildAndAddSubclass()
     {
+        var powerPoolTacticianGambitAdd = BuildPowerPoolTacticianGambitAdd();
+        
         return CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
-            .SetGuiPresentation(Category.Subclass,
-                RoguishShadowCaster.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(PowerPoolTacticianGambit, 3)
             .AddFeatureAtLevel(BuildPowerSharedPoolTacticianKnockDown(), 3)
-            .AddFeatureAtLevel(BuildPowerSharedPoolTacticianInspirePower(), 3)
+            .AddFeatureAtLevel(BuildPowerSharedPoolTacticianInspire(), 3)
             .AddFeatureAtLevel(BuildPowerSharedPoolTacticianCounterStrike(), 3)
             .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, 7)
-            .AddFeatureAtLevel(PowerPoolTacticianGambitAddBuilder.PowerPoolModifierTacticianGambitAdd10(), 10)
-            .AddFeatureAtLevel(PowerPoolTacticianGambitAddBuilder.PowerPoolModifierTacticianGambitAdd15(), 15)
-            .AddFeatureAtLevel(PowerPoolTacticianGambitAddBuilder.PowerPoolModifierTacticianGambitAdd18(), 18)
+            .AddFeatureAtLevel(powerPoolTacticianGambitAdd, 10)
+            .AddFeatureAtLevel(powerPoolTacticianGambitAdd, 15)
+            .AddFeatureAtLevel(powerPoolTacticianGambitAdd, 18)
             .AddToDB();
     }
 }

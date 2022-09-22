@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolTacticianCounterStrike:88c294ce-14fa-4f7e-8b81-ea4d289e3d8b",
+      "featureDefinition": "Definition:PowerSharedPoolTacticianCounterStrike:99b1d67a-6c4b-5b47-b6b2-e03edc5a53be",
       "level": 3
     },
     {
@@ -13,12 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolTacticianInspirePower:163c28de-48e5-4f75-bdd0-d42374a75ef8",
+      "featureDefinition": "Definition:PowerSharedPoolTacticianInspire:ef392b04-239f-5289-9f6f-a400df374156",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolTacticianKnockDown:90dd5e81-40d7-4824-89b4-45bcf4c05218",
+      "featureDefinition": "Definition:PowerSharedPoolTacticianKnockDown:09207873-7de6-5a65-a8f8-724f37675e6a",
       "level": 3
     },
     {
@@ -28,17 +28,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd10:08c65db0-3888-57ed-84f0-91280e63d725",
+      "featureDefinition": "Definition:PowerPoolTacticianGambitAdd:f8ebd851-1c2d-5660-a2fe-921ebf4d9fa4",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd15:3547d6cf-a1da-5722-b58c-8b755fb590ae",
+      "featureDefinition": "Definition:PowerPoolTacticianGambitAdd:f8ebd851-1c2d-5660-a2fe-921ebf4d9fa4",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd18:1557a569-4120-5b37-b04d-2638a01f96e5",
+      "featureDefinition": "Definition:PowerPoolTacticianGambitAdd:f8ebd851-1c2d-5660-a2fe-921ebf4d9fa4",
       "level": 18
     }
   ],

@@ -335,7 +335,7 @@
   "proficiencyBonusToAttack": true,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "Feature/&PowerSharedPoolTacticianKnockDownTitle",
+  "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
@@ -362,7 +362,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "90dd5e81-40d7-4824-89b4-45bcf4c05218",
+  "guid": "09207873-7de6-5a65-a8f8-724f37675e6a",
   "contentPack": 9999,
   "name": "PowerSharedPoolTacticianKnockDown"
 }
