@@ -50,12 +50,13 @@ internal static class ZappaFeats
     {
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create("ConditionDeadeye")
-            .SetGuiPresentation("DeadeyeTitle", Category.Feature)
-            .SetDuration(RuleDefinitions.DurationType.Round)
+            .SetGuiPresentation("Deadeye", Category.Feature)
+            .SetDuration(RuleDefinitions.DurationType.Round, 0, false)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("AttackModifierDeadeye")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation("Deadeye", Category.Feature)
                     .SetCustomSubFeatures(new ModifyDeadeyeAttackPower())
                     .AddToDB())
             .AddToDB();
@@ -137,7 +138,7 @@ internal static class ZappaFeats
                 turnOffPower,
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityDeadeyeIgnoreDefender")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation("Deadeye", Category.Feature)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())

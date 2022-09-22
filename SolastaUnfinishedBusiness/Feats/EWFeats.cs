@@ -161,9 +161,9 @@ public static class EwFeats
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAllowMultipleInstances(false)
             .SetFeatures(
-                FeatureDefinitionAttackModifierBuilder
+                FeatureDefinitionBuilder
                     .Create("PowerAttackAttackModifier")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation("PowerAttack", Category.Feature)
                     .SetCustomSubFeatures(new ModifyPowerAttackPower())
                     .AddToDB())
             .SetDuration(DurationType.Round, 1)
