@@ -36,7 +36,9 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
         var proficiency = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyMasterManipulatorMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
+            .SetProficiencies(
+                RuleDefinitions.ProficiencyType.SavingThrow,
+                AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();
 
@@ -47,15 +49,18 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
                 RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
                 AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction,
-                1, RuleDefinitions.RechargeRate.LongRest,
-                false, false, AttributeDefinitions.Intelligence,
-                DominatePerson.EffectDescription, false /* unique instance */)
+                1,
+                RuleDefinitions.RechargeRate.LongRest,
+                false,
+                false,
+                AttributeDefinitions.Intelligence,
+                DominatePerson.EffectDescription,
+                false /* unique instance */)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardMasterManipulator")
-            .SetGuiPresentation(Category.Subclass,
-                RoguishShadowCaster.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(arcaneControlAffinity, 2)
             .AddFeatureAtLevel(DcIncreaseAffinity, 6)
             .AddFeatureAtLevel(proficiency, 10)
@@ -75,8 +80,10 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
     [NotNull]
     private static GuiPresentationBuilder GetSpellDcPresentation()
     {
-        return new GuiPresentationBuilder("Feature/&MagicAffinityMasterManipulatorDCTitle",
-            Gui.Format("Feature/&MagicAffinityMasterManipulatorDCDescription",
+        return new GuiPresentationBuilder(
+            "Feature/&MagicAffinityMasterManipulatorDCTitle",
+            Gui.Format(
+                "Feature/&MagicAffinityMasterManipulatorDCDescription",
                 Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc.ToString()));
     }
 
@@ -91,14 +98,24 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
         DcIncreaseAffinity.guiPresentation = GetSpellDcPresentation().Build();
     }
 
-    private static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier,
-        RuleDefinitions.SpellParamsModifierType attackModifierType, int dcModifier,
-        RuleDefinitions.SpellParamsModifierType dcModifierType, string name, GuiPresentation guiPresentation)
+    private static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(
+        int attackModifier,
+        RuleDefinitions.SpellParamsModifierType attackModifierType,
+        int dcModifier,
+        RuleDefinitions.SpellParamsModifierType dcModifierType,
+        string name,
+        GuiPresentation guiPresentation)
     {
         return FeatureDefinitionMagicAffinityBuilder
             .Create(name)
             .SetGuiPresentation(guiPresentation)
-            .SetCastingModifiers(attackModifier, attackModifierType, dcModifier, dcModifierType, false, false,
+            .SetCastingModifiers(
+                attackModifier,
+                attackModifierType,
+                dcModifier,
+                dcModifierType,
+                false,
+                false,
                 false)
             .AddToDB();
     }
@@ -108,9 +125,12 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
     private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
 
     private static FeatureDefinitionMagicAffinity DcIncreaseAffinity =>
-        _dcIncreaseAffinity ??= BuildMagicAffinityModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
+        _dcIncreaseAffinity ??= BuildMagicAffinityModifiers(
+            0,
+            RuleDefinitions.SpellParamsModifierType.None,
             Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc,
-            RuleDefinitions.SpellParamsModifierType.FlatValue, "MagicAffinityMasterManipulatorDC",
+            RuleDefinitions.SpellParamsModifierType.FlatValue,
+            "MagicAffinityMasterManipulatorDC",
             GetSpellDcPresentation().Build());
 
     #endregion

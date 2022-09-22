@@ -30,32 +30,48 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         // Add transmuter stone like abilities.
         var transmuteForce = FeatureDefinitionPowerPoolBuilder
             .Create("PowerSharedPoolLifeTransmuterHealingPool")
-            .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+            .Configure(
+                2,
+                RuleDefinitions.UsesDetermination.Fixed,
+                AttributeDefinitions.Intelligence,
                 RuleDefinitions.RechargeRate.LongRest)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         // Make a power that grants darkvision
-        var superiorDarkvision = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
-                1, "ConditionLifeTransmuterDarkvision", FeatureDefinitionSenses.SenseSuperiorDarkvision)
-            .SetGuiPresentation("PowerSharedPoolLifeTransmuterDarkvision", Category.Feature,
+        var superiorDarkvision = BuildCondition(
+                RuleDefinitions.DurationType.UntilLongRest,
+                1,
+                "ConditionLifeTransmuterDarkvision",
+                FeatureDefinitionSenses.SenseSuperiorDarkvision)
+            .SetGuiPresentation(
+                "PowerSharedPoolLifeTransmuterDarkvision",
+                Category.Feature,
                 ConditionDefinitions.ConditionDarkvision.GuiPresentation.SpriteReference)
             .AddToDB();
 
-        var powerDarkvision = BuildActionTransmuteConditionPower(transmuteForce,
+        var powerDarkvision = BuildActionTransmuteConditionPower(
+                transmuteForce,
                 RuleDefinitions.RechargeRate.LongRest,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None,
-                RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, superiorDarkvision,
+                RuleDefinitions.ActivationTime.BonusAction,
+                1, RuleDefinitions.RangeType.Touch,
+                2,
+                RuleDefinitions.TargetType.Individuals,
+                ActionDefinitions.ItemSelectionType.None,
+                RuleDefinitions.DurationType.UntilLongRest,
+                1,
+                RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.Intelligence, superiorDarkvision,
                 "PowerSharedPoolLifeTransmuterDarkvision")
-            .SetGuiPresentation(Category.Feature,
+            .SetGuiPresentation(
+                Category.Feature,
                 FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var poisonResistance = BuildCondition(
                 RuleDefinitions.DurationType.UntilLongRest,
-                1, "ConditionLifeTransmuterPoison",
+                1,
+                "ConditionLifeTransmuterPoison",
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
@@ -63,77 +79,125 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance)
-            .SetGuiPresentation(Category.Condition,
+            .SetGuiPresentation(
+                Category.Condition,
                 ConditionDefinitions.ConditionProtectedFromPoison.GuiPresentation.SpriteReference)
             .AddToDB();
 
         // Make a power that gives resistance to an elemental damage
         var powerPoison = BuildActionTransmuteConditionPower(
-                transmuteForce, RuleDefinitions.RechargeRate.LongRest,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None,
-                RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, poisonResistance,
+                transmuteForce,
+                RuleDefinitions.RechargeRate.LongRest,
+                RuleDefinitions.ActivationTime.BonusAction,
+                1, RuleDefinitions.RangeType.Touch,
+                2,
+                RuleDefinitions.TargetType.Individuals,
+                ActionDefinitions.ItemSelectionType.None,
+                RuleDefinitions.DurationType.UntilLongRest,
+                1,
+                RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.Intelligence, poisonResistance,
                 "PowerSharedPoolLifeTransmuterPoison")
-            .SetGuiPresentation("PowerLifeTransmuterElementalResistance", Category.Feature,
+            .SetGuiPresentation(
+                "PowerLifeTransmuterElementalResistance",
+                Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
             .AddToDB();
 
         // Make a power that gives proficiency to constitution saves
-        var constitutionProficiency = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
-                1, "ConditionLifeTransmuterConstitution",
+        var constitutionProficiency = BuildCondition(
+                RuleDefinitions.DurationType.UntilLongRest,
+                1,
+                "ConditionLifeTransmuterConstitution",
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun)
-            .SetGuiPresentation(Category.Condition,
+            .SetGuiPresentation(
+                Category.Condition,
                 ConditionDefinitions.ConditionBearsEndurance.GuiPresentation.SpriteReference)
             .AddToDB();
 
-        var powerConstitution = BuildActionTransmuteConditionPower(transmuteForce,
+        var powerConstitution = BuildActionTransmuteConditionPower(
+                transmuteForce,
                 RuleDefinitions.RechargeRate.LongRest,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None,
-                RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, constitutionProficiency,
+                RuleDefinitions.ActivationTime.BonusAction,
+                1, RuleDefinitions.RangeType.Touch,
+                2,
+                RuleDefinitions.TargetType.Individuals,
+                ActionDefinitions.ItemSelectionType.None,
+                RuleDefinitions.DurationType.UntilLongRest,
+                1,
+                RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.Intelligence, constitutionProficiency,
                 "PowerSharedPoolLifeTransmuterConstitution")
-            .SetGuiPresentation(Category.Feature,
+            .SetGuiPresentation(
+                Category.Feature,
                 FeatureDefinitionPowers.PowerPaladinAuraOfCourage.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var transmuteForceExtra = FeatureDefinitionPowerPoolModifierBuilder
             .Create("PowerPoolModifierLifeTransmuterHealingPoolExtra")
-            .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+            .Configure(
+                2,
+                RuleDefinitions.UsesDetermination.Fixed,
+                AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var powerFly = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.IndividualsUnique, ActionDefinitions.ItemSelectionType.None,
-                RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence,
-                ConditionDefinitions.ConditionFlying12, "PowerSharedPoolLifeTransmuterFly")
-            .SetGuiPresentation(Category.Feature, Fly.GuiPresentation.SpriteReference)
+        var powerFly = BuildActionTransmuteConditionPower(
+                transmuteForce,
+                RuleDefinitions.RechargeRate.LongRest,
+                RuleDefinitions.ActivationTime.BonusAction,
+                1, RuleDefinitions.RangeType.Touch,
+                2,
+                RuleDefinitions.TargetType.IndividualsUnique,
+                ActionDefinitions.ItemSelectionType.None,
+                RuleDefinitions.DurationType.UntilLongRest,
+                1,
+                RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.Intelligence,
+                ConditionDefinitions.ConditionFlying12,
+                "PowerSharedPoolLifeTransmuterFly")
+            .SetGuiPresentation(
+                Category.Feature,
+                Fly.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var powerHeal = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolLifeTransmuterHeal")
-            .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
+            .Configure(
+                transmuteForce,
+                RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction,
-                1, false, false, AttributeDefinitions.Intelligence,
-                MassHealingWord.EffectDescription, false /* unique instance */)
+                1,
+                false,
+                false,
+                AttributeDefinitions.Intelligence,
+                MassHealingWord.EffectDescription,
+                false /* unique instance */)
             .SetGuiPresentation(Category.Feature, MassHealingWord.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var powerRevive = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolLifeTransmuterRevive")
-            .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
-                RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
-                Revivify.EffectDescription, false /* unique instance */)
+            .Configure(
+                transmuteForce,
+                RuleDefinitions.RechargeRate.LongRest,
+                RuleDefinitions.ActivationTime.BonusAction,
+                1,
+                false,
+                false,
+                AttributeDefinitions.Intelligence,
+                Revivify.EffectDescription,
+                false /* unique instance */)
             .SetGuiPresentation(Category.Feature, Revivify.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder
             .Create("PowerPoolModifierLifeTransmuterHealingPoolBonus")
-            .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+            .Configure(
+                4,
+                RuleDefinitions.UsesDetermination.Fixed,
+                AttributeDefinitions.Intelligence,
                 transmuteForce)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
@@ -180,11 +244,17 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
     private static FeatureDefinitionPowerSharedPoolBuilder BuildActionTransmuteConditionPower(
         FeatureDefinitionPower poolPower,
-        RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-        RuleDefinitions.RangeType rangeType, int rangeParameter, RuleDefinitions.TargetType targetType,
-        ActionDefinitions.ItemSelectionType itemSelectionType, RuleDefinitions.DurationType durationType,
+        RuleDefinitions.RechargeRate recharge,
+        RuleDefinitions.ActivationTime activationTime,
+        int costPerUse,
+        RuleDefinitions.RangeType rangeType,
+        int rangeParameter,
+        RuleDefinitions.TargetType targetType,
+        ActionDefinitions.ItemSelectionType itemSelectionType,
+        RuleDefinitions.DurationType durationType,
         int durationParameter,
-        RuleDefinitions.TurnOccurenceType endOfEffect, string abilityScore, ConditionDefinition condition,
+        RuleDefinitions.TurnOccurenceType endOfEffect,
+        string abilityScore, ConditionDefinition condition,
         string name)
     {
         var effectForm = EffectFormBuilder
@@ -199,7 +269,11 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, 1, 0,
+            .SetTargetingData(
+                RuleDefinitions.Side.Ally,
+                rangeType,
+                rangeParameter,
+                targetType, 1, 0,
                 itemSelectionType)
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
@@ -210,7 +284,15 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(name)
-            .Configure(poolPower, recharge, activationTime, costPerUse, false, false, abilityScore,
-                effectDescription, false /* unique instance */);
+            .Configure(
+                poolPower,
+                recharge,
+                activationTime,
+                costPerUse,
+                false,
+                false,
+                abilityScore,
+                effectDescription,
+                false /* unique instance */);
     }
 }
