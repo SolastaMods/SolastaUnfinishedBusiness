@@ -425,7 +425,8 @@ internal static class Level20Context
         private static RestActivityDefinition _restActivityRestoration;
 
         private RestActivityBuilder(string name) : base(
-            DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name, GuidHelper.Create(CENamespaceGuid, name).ToString())
+            DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name,
+            GuidHelper.Create(CENamespaceGuid, name).ToString())
         {
             Definition.stringParameter = PowerSorcerousRestorationName;
         }

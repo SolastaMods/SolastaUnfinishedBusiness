@@ -63,7 +63,7 @@ public static class SrdSpells
                 .SetConditionForm(
                     ConditionDefinitionBuilder
                         .Create(ConditionLevitate, "ConditionReverseGravity")
-                        .SetGuiPresentation(Category.Condition)
+                        .SetOrUpdateGuiPresentation(Category.Condition)
                         .SetConditionType(RuleDefinitions.ConditionType.Neutral)
                         .SetFeatures(
                             FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
@@ -116,7 +116,7 @@ public static class SrdSpells
             new EffectFormBuilder().SetConditionForm(
                     ConditionDefinitionBuilder
                         .Create(ConditionBearsEndurance, "ConditionMindBlank")
-                        .SetGuiPresentation(Category.Condition)
+                        .SetOrUpdateGuiPresentation(Category.Condition)
                         .SetFeatures(
                             FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
                             FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
@@ -161,7 +161,7 @@ public static class SrdSpells
                 .SetConditionForm(
                     ConditionDefinitionBuilder
                         .Create(ConditionBearsEndurance, "ConditionForesight")
-                        .SetGuiPresentation(Category.Condition)
+                        .SetOrUpdateGuiPresentation(Category.Condition)
                         .SetFeatures(
                             FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
                             FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength,
@@ -466,7 +466,7 @@ public static class SrdSpells
                 .SetConditionForm(
                     ConditionDefinitionBuilder
                         .Create(ConditionIncapacitated, "ConditionTimeStop")
-                        .SetGuiPresentation(Category.Condition)
+                        .SetOrUpdateGuiPresentation(Category.Condition)
                         .SetInterruptionDamageThreshold(1)
                         .SetSpecialInterruptions(
                             RuleDefinitions.ConditionInterruption.Attacked,
@@ -519,7 +519,7 @@ public static class SrdSpells
                 .SetConditionForm(
                     ConditionDefinitionBuilder
                         .Create(ConditionFrightenedPhantasmalKiller, "ConditionWeird")
-                        .SetGuiPresentation(Category.Condition)
+                        .SetOrUpdateGuiPresentation(Category.Condition)
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,

@@ -61,7 +61,7 @@ internal static class ZappaFeats
             .AddToDB();
 
         conditionDeadeye.CancellingConditions.SetRange(conditionDeadeye);
-        
+
         var concentrationProvider = new EwFeats.StopPowerConcentrationProvider("Deadeye",
             "Tooltip/&DeadeyeConcentration",
             CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
@@ -735,7 +735,7 @@ internal sealed class FeatureDefinitionMetamagicOptionBuilder : FeatureDefinitio
     internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnTwinned =
         CreateAndAddToDB(MetamagicTwinnedSpell);
 
-    private FeatureDefinitionMetamagicOptionBuilder(MetamagicOptionDefinition metamagicOption) 
+    private FeatureDefinitionMetamagicOptionBuilder(MetamagicOptionDefinition metamagicOption)
         : base($"MetamagicLearn{metamagicOption.Name}",
             GuidHelper.Create(CENamespaceGuid, $"MetamagicLearn{metamagicOption.Name}").ToString())
     {

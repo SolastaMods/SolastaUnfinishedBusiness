@@ -169,7 +169,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         {
             return ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionBarkskin, "ConditionForestGuardianBarkWard")
-                .SetOrUpdateGuiPresentation("ConditionForestGuardianBarkWard", Category.Condition)
+                .SetOrUpdateGuiPresentation(Category.Condition)
                 .ClearFeatures()
                 .SetAllowMultipleInstances(false)
                 .SetDuration(DurationType.Minute, 10)

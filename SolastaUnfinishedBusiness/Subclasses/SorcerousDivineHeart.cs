@@ -92,7 +92,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
 
         var divineHeartEmpoweredHealingCondition = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionSorcererChildRiftDeflection, "ConditionDivineHeartEmpoweredHealing")
-            .SetGuiPresentation(Category.Condition)
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetFeatures(divineHeartEmpoweredHealingModifier)
             .AddToDB();
 

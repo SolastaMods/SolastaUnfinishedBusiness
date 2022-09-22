@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -232,6 +231,26 @@ public static class EwFeats
             .AddToDB();
     }
 
+    private static FeatDefinition BuildWarcaster()
+    {
+        var warcaster = FeatDefinitionBuilder
+            .Create(WarcasterFeat)
+            .SetFeatures(
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create(MagicAffinityWarcaster)
+                    .SetGuiPresentation(WarcasterFeat, Category.Feat)
+                    .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
+                        SpellParamsModifierType.None, false, false, false)
+                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+                    .SetHandsFullCastingModifiers(true, true, true)
+                    .AddToDB())
+            .SetGuiPresentation(Category.Feat)
+            .SetMustCastSpellsPrerequisite()
+            .AddToDB();
+
+        return warcaster;
+    }
+
     public sealed class StopPowerConcentrationProvider : ICustomConcentrationProvider
     {
         public FeatureDefinitionPower StopPower;
@@ -299,25 +318,5 @@ public static class EwFeats
             damage.DamageBonusTrends.Add(new TrendInfo(toDamage,
                 FeatureSourceType.Power, "PowerAttack", null));
         }
-    }
-
-    private static FeatDefinition BuildWarcaster()
-    {
-        var warcaster = FeatDefinitionBuilder
-            .Create(WarcasterFeat)
-            .SetFeatures(
-                FeatureDefinitionMagicAffinityBuilder
-                    .Create(MagicAffinityWarcaster)
-                    .SetGuiPresentation(WarcasterFeat, Category.Feat)
-                    .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
-                        RuleDefinitions.SpellParamsModifierType.None, false, false, false)
-                    .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
-                    .SetHandsFullCastingModifiers(true, true, true)
-                    .AddToDB())
-            .SetGuiPresentation(Category.Feat)
-            .SetMustCastSpellsPrerequisite()
-            .AddToDB();
-
-        return warcaster;
     }
 }

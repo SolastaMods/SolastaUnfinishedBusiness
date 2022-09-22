@@ -2,7 +2,6 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -16,13 +15,13 @@ internal static class ElAntoniousFeats
 {
     private static ConditionDefinition _conditionDualFlurryApply;
     private static ConditionDefinition _conditionDualFlurryGrant;
-    
+
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildFeatDualFlurry());
         feats.Add(BuildFeatTorchbearer());
     }
-    
+
     private static FeatDefinition BuildFeatDualFlurry()
     {
         _conditionDualFlurryApply = ConditionDefinitionBuilder
@@ -34,7 +33,7 @@ internal static class ElAntoniousFeats
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
             .AddToDB();
-         
+
         _conditionDualFlurryGrant = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryGrant")
             .SetGuiPresentation(Category.Condition)
@@ -51,7 +50,7 @@ internal static class ElAntoniousFeats
                     .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
                     .AddToDB())
             .AddToDB();
-        
+
         return FeatDefinitionBuilder
             .Create("FeatDualFlurry")
             .SetGuiPresentation(Category.Feat)
@@ -95,7 +94,7 @@ internal static class ElAntoniousFeats
 
         attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
     }
-    
+
     private static FeatDefinition BuildFeatTorchbearer()
     {
         var burnEffect = new EffectForm
@@ -127,7 +126,7 @@ internal static class ElAntoniousFeats
         burnDescription.EffectForms.Clear();
         burnDescription.EffectForms.Add(burnEffect);
 
-        var  powerTorchbearer = FeatureDefinitionPowerBuilder
+        var powerTorchbearer = FeatureDefinitionPowerBuilder
             .Create("PowerTorchbearer")
             .SetGuiPresentation(Category.Feature)
             .SetActivation(ActivationTime.BonusAction, 0)
@@ -137,7 +136,7 @@ internal static class ElAntoniousFeats
             .SetShowCasting(false)
             .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.OffHandHasLightSource))
             .AddToDB();
-        
+
         return FeatDefinitionBuilder
             .Create("FeatTorchbearer")
             .SetGuiPresentation(Category.Feat)
