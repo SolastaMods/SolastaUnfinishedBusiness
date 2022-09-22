@@ -7,10 +7,10 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class CharacterFilteringGroupPatcher
 {
-    // ensures MC heroes are correctly offered on adventures with min/max caps on character level
     [HarmonyPatch(typeof(CharacterFilteringGroup), "Compare")]
     internal static class Compare_Patch
     {
+        //PATCH: correctly offers on adventures with min/max caps on character level (MULTICLASS)
         public static int MyLevels(IEnumerable<int> levels)
         {
             return levels.Sum();

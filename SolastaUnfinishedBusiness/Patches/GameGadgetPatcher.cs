@@ -9,14 +9,14 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class GameGadgetPatcher
 {
-    //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
-    //hides certain element from the map on custom dungeons unless already discovered
     [HarmonyPatch(typeof(GameGadget), "ComputeIsRevealed")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ComputeIsRevealed_Patch
     {
         internal static void Postfix(GameGadget __instance, ref bool __result)
         {
+            //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
+            //hides certain element from the map on custom dungeons unless already discovered
             if (!__instance.Revealed || Gui.GameLocation.UserLocation == null ||
                 !Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered)
             {
@@ -72,98 +72,48 @@ internal static class GameGadgetPatcher
         }
     }
 
-    //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
     [HarmonyPatch(typeof(GameGadget), "SetCondition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SetCondition_Patch
     {
         internal static void Postfix(GameGadget __instance, int conditionIndex, bool state)
         {
+            //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
             if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered)
             {
                 return;
             }
 
-            if (conditionIndex >= 0 && conditionIndex < __instance.conditionNames.Count)
-            {
-                var param = __instance.conditionNames[conditionIndex];
-
-                Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: {param} state = {state}");
-
-#if DEBUG
-                //Main.Log("GameGadget_SetCondition: " + string.Join(",", __instance.conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
-#endif
-
-                if ((param != GameGadgetExtensions.Enabled && param != GameGadgetExtensions.ParamEnabled) ||
-                    !__instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))
-                {
-                    return;
-                }
-
-                var service = ServiceRepository.GetService<IGameLocationService>();
-
-                if (service == null)
-                {
-                    return;
-                }
-
-                var worldGadget = service.WorldLocation.WorldSectors
-                    .SelectMany(ws => ws.WorldGadgets)
-                    .FirstOrDefault(wg => wg.GameGadget == __instance);
-
-                if (worldGadget == null)
-                {
-                    return;
-                }
-
-                Main.Log($"GameGadget_SetCondition-setting-animation {__instance.UniqueNameId}: {state}");
-
-                GameLocationManagerPatcher.ReadyLocation_Patch.SetTeleporterGadgetActiveAnimation(worldGadget, state);
-            }
-            else
-            {
-                Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: condition index out of range.");
-            }
-        }
-    }
-
-    //TODO: Check if this patch is still required
-#if false
-    [HarmonyPatch(typeof(GameGadget), "SetCondition")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    // Not fixed as of 1.3.17
-    internal static class GameGadget_SetCondition
-    {
-        /// <summary>
-        /// Fix issue where a button activator fires Triggered event with state=true first time and correctly activates attached gadget,
-        /// but fires Triggered event with state=false second time and doesn't activate attached gadget.
-        /// </summary>
-        /// <param name="__instance"></param>
-        /// <param name="conditionIndex"></param>
-        /// <param name="state"></param>
-        /// <param name="__instance.conditionNames"></param>
-        public static void Postfix(GameGadget __instance, int conditionIndex, bool state, List<string> __instance.conditionNames)
-        {
-            if (!Main.Settings.BugFixButtonActivatorTriggerIssue)
+            if (conditionIndex < 0 || conditionIndex >= __instance.conditionNames.Count)
             {
                 return;
             }
 
-            if (conditionIndex >= 0 && conditionIndex < __instance.conditionNames.Count)
+            var param = __instance.conditionNames[conditionIndex];
+
+            if ((param != GameGadgetExtensions.Enabled && param != GameGadgetExtensions.ParamEnabled) ||
+                !__instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))
             {
-                var param = __instance.conditionNames[conditionIndex];
-
-                // NOTE: only handling 'button activator'
-                // TODO: check other activators for same issue
-                if (param == GameGadgetExtensions.Triggered && !state && __instance.UniqueNameId.StartsWith("ActivatorButton"))
-                {
-                    Main.Log($"GameGadget_SetCondition: Resetting '{param}' to true.");
-
-                    // Reset 'Triggered' to true otherwise we have to press the activator twice
-                    __instance.SetCondition(conditionIndex, true, new List<GameLocationCharacter>());
-                }
+                return;
             }
+
+            var service = ServiceRepository.GetService<IGameLocationService>();
+
+            if (service == null)
+            {
+                return;
+            }
+
+            var worldGadget = service.WorldLocation.WorldSectors
+                .SelectMany(ws => ws.WorldGadgets)
+                .FirstOrDefault(wg => wg.GameGadget == __instance);
+
+            if (worldGadget == null)
+            {
+                return;
+            }
+
+            GameLocationManagerPatcher.ReadyLocation_Patch.SetTeleporterGadgetActiveAnimation(worldGadget, state);
         }
     }
-#endif
 }

@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class CharacterPlateDetailedPatcher
 {
-    //PATCH: Add classes progression to hero tooltip (Multiclass)
+    //PATCH: Add classes progression to hero tooltip (MULTICLASS)
     [HarmonyPatch(typeof(CharacterPlateDetailed), "OnPortraitShowed")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class OnPortraitShowed_Patch

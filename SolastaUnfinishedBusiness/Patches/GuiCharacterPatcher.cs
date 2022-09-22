@@ -90,19 +90,13 @@ internal static class GuiCharacterPatcher
         }
     }
 
-
-    //PATCH: EnableEnhancedCharacterInspection
     [HarmonyPatch(typeof(GuiCharacter), "MainClassDefinition", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class MainClassDefinition_Getter_Patch
     {
         internal static void Postfix(ref CharacterClassDefinition __result)
         {
-            if (!Main.Settings.EnableEnhancedCharacterInspection)
-            {
-                return;
-            }
-
+            //PATCH: EnableEnhancedCharacterInspection
             // NOTE: don't use SelectedClass??. which bypasses Unity object lifetime check
             var selectedClass = CharacterInspectionScreenEnhancement.SelectedClass;
 

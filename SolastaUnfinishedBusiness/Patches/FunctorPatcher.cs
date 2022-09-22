@@ -9,7 +9,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class FunctorPatcher
 {
-    //PATCH: ensure conjured units teleport with the party
     [HarmonyPatch(typeof(Functor), "SelectCharacters")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SelectCharacters_Patch
@@ -18,10 +17,7 @@ internal static class FunctorPatcher
             [NotNull] FunctorParametersDescription functorParameters,
             List<GameLocationCharacter> selectedCharacters)
         {
-            //
-            // BUGFIX: conjured units teleport with party
-            //
-
+            //PATCH: ensure conjured units teleport with the party
             if (functorParameters.CharacterLookUpMethod != FunctorDefinitions.CharacterLookUpMethod.AllPartyMembers)
             {
                 return;

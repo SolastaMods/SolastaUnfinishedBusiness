@@ -16,7 +16,7 @@ internal static class FeatSubPanelPatcher
 {
     [HarmonyPatch(typeof(FeatSubPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FeatSubPanel_Bind
+    internal static class Bind_Patch
     {
         internal static void Prefix([NotNull] FeatSubPanel __instance)
         {
@@ -34,7 +34,7 @@ internal static class FeatSubPanelPatcher
     //PATCH: enforces the feat selection panel to always display same-width columns
     [HarmonyPatch(typeof(FeatSubPanel), "SetState")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FeatSubPanel_SetState
+    internal static class SetState_Patch
     {
         [NotNull]
         internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)

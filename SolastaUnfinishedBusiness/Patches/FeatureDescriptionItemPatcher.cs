@@ -5,27 +5,30 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: Disables choices dropdown for features already taken on previous levels (MULTICLASS)
-[HarmonyPatch(typeof(FeatureDescriptionItem), "Bind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class FeatureDescriptionItem_Bind
+internal static class FeatureDescriptionItemPatcher
 {
-    public static void Postfix([NotNull] FeatureDescriptionItem __instance)
+    //PATCH: Disables choices dropdown for features already taken on previous levels (MULTICLASS)
+    [HarmonyPatch(typeof(FeatureDescriptionItem), "Bind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Bind_Patch
     {
-        var hero = Global.ActiveLevelUpHero;
-
-        if (hero == null)
+        public static void Postfix([NotNull] FeatureDescriptionItem __instance)
         {
-            return;
+            var hero = Global.ActiveLevelUpHero;
+
+            if (hero == null)
+            {
+                return;
+            }
+
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+            if (!isClassSelectionStage)
+            {
+                return;
+            }
+
+            __instance.choiceDropdown.gameObject.SetActive(false);
         }
-
-        var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-        if (!isClassSelectionStage)
-        {
-            return;
-        }
-
-        __instance.choiceDropdown.gameObject.SetActive(false);
     }
 }

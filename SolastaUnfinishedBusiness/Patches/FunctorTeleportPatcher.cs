@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -16,9 +17,9 @@ internal static class FunctorTeleportPatcher
     /// </summary>
     [HarmonyPatch(typeof(FunctorTeleport), "Execute")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FunctorTeleport_Execute
+    internal static class Execute_Patch
     {
-        internal static void FollowCharacterOnTeleport(GameLocationCharacter character)
+        private static void FollowCharacterOnTeleport(GameLocationCharacter character)
         {
             if (!Main.Settings.FollowCharactersOnTeleport || Gui.GameLocation.UserLocation == null)
             {
@@ -48,8 +49,7 @@ internal static class FunctorTeleportPatcher
             var teleportCharacterMethod = typeof(GameLocationPositioningManager).GetMethod("TeleportCharacter");
 
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-            var followCharacterOnTeleportMethod = typeof(FunctorTeleport).GetMethod("FollowCharacterOnTeleport",
-                BindingFlags.NonPublic | BindingFlags.Static);
+            var followCharacterOnTeleportMethod = new Action<GameLocationCharacter>(FollowCharacterOnTeleport).Method;
             var characterField =
                 typeof(FunctorTeleport).GetField("'<index>5__4'", BindingFlags.NonPublic | BindingFlags.Instance);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields

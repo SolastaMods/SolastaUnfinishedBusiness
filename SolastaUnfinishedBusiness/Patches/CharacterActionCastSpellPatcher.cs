@@ -54,6 +54,7 @@ internal static class CharacterActionCastSpellPatcher
 
             //Re-implementing CharacterActionMagicEffect.ApplyForms
             var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
+
             formsParams.FillSourceAndTarget(actingCharacter.RulesetCharacter, target.RulesetActor);
             formsParams.FillFromActiveEffect(activeSpell);
             formsParams.FillSpecialParameters(
@@ -72,8 +73,10 @@ internal static class CharacterActionCastSpellPatcher
             );
             formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Spell;
             formsParams.targetSubstitute = __instance.ActionParams.TargetSubstitute;
+
             var spellEffectDescription = activeSpell.EffectDescription;
             var rangeType = spellEffectDescription.RangeType;
+
             if (rangeType is RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit)
             {
                 formsParams.attackOutcome = outcome;
@@ -96,7 +99,7 @@ internal static class CharacterActionCastSpellPatcher
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            //PATCH: Multiclass: enforces cantrips to be cast at character level 
+            //PATCH: enforces cantrips to be cast at character level (MULTICLASS)
             //replaces repertoire's SpellCastingLevel with character level for cantrips
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
             var spellCastingLevel =
@@ -119,7 +122,6 @@ internal static class CharacterActionCastSpellPatcher
         }
     }
 
-    //PATCH: BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove
     [HarmonyPatch(typeof(CharacterActionCastSpell), "StartConcentrationAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class StartConcentrationAsNeeded_Patch
@@ -132,16 +134,16 @@ internal static class CharacterActionCastSpellPatcher
                 return false;
             }
 
+            //PATCH: BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove
             if (!Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove)
             {
                 return true;
             }
 
-            // Per SRD - Bestow Curse does not need concentration when cast with slot level 5 or above.
-            // If the active spell is a sub-spell of Bestow Curse and the slot level is >= 5 don't run StartConcentrationAsNeeded.
+            // Per SRD Bestow Curse does not need concentration when cast with slot level 5 or above
+            // If the active spell is a sub-spell of Bestow Curse and the slot level is >= 5 don't run StartConcentrationAsNeeded
             return
-                !__instance.ActiveSpell.SpellDefinition.IsSubSpellOf(DatabaseHelper.SpellDefinitions
-                    .BestowCurse)
+                !__instance.ActiveSpell.SpellDefinition.IsSubSpellOf(DatabaseHelper.SpellDefinitions.BestowCurse)
                 || __instance.ActiveSpell.SlotLevel < 5;
         }
     }

@@ -12,18 +12,13 @@ internal static class FeatureDefinitionAutoPreparedSpellsPatcher
         return Gui.Colorize(level == 0 ? "0" : Gui.ToRoman(level), Gui.ColorHighEmphasis);
     }
 
-    //PATCH: formats spell list into list with spell levels, instead of 1 line of all spells like default does
     [HarmonyPatch(typeof(FeatureDefinitionAutoPreparedSpells), "FormatDescription")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FormatDescription_Patch
     {
         internal static bool Prefix(FeatureDefinitionAutoPreparedSpells __instance, ref string __result)
         {
-            if (!Main.Settings.EnableEnhancedCharacterInspection)
-            {
-                return true;
-            }
-
+            //PATCH: formats spell list into list with spell levels, instead of 1 line of all spells like default does
             var spells = new Dictionary<int, List<SpellDefinition>>();
 
             foreach (var group in __instance.AutoPreparedSpellsGroups)

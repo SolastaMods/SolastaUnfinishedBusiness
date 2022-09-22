@@ -26,10 +26,10 @@ internal static class CharacterSelectionModalPatcher
         }
     }
 
-    //PATCH: ensures MC heroes are correctly offered on adventures with min/max caps on character level
     [HarmonyPatch(typeof(CharacterSelectionModal), "EnumeratePlates")]
     internal static class EnumeratePlates_Patch
     {
+        //PATCH: correctly offers on adventures with min/max caps on character level (MULTICLASS)
         public static int MyLevels(IEnumerable<int> levels)
         {
             return levels.Sum();

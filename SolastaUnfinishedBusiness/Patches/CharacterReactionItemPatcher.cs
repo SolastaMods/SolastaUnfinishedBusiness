@@ -23,7 +23,6 @@ internal static class CharacterReactionItemPatcher
         internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: replaces calls to the Bind of `CharacterReactionSubitem` with custom method
-
             var codes = instructions.ToList();
             var customBindMethod =
                 new Action<CharacterReactionSubitem, RulesetSpellRepertoire, int, string, bool,
@@ -95,7 +94,6 @@ internal static class CharacterReactionItemPatcher
             //PATCH: Bugfix: Replace `GetSelectedSubItem` to fix reaction selection crashes.
             // Default one selects last item that is Selected, regardless if it is active or not, leading to wrong spell slots for smites being selected
             // This implementation returns first item that is both Selected and active
-
             __result = 0;
 
             var itemsTable = __instance.subItemsTable;

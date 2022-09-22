@@ -30,7 +30,6 @@ internal static class CharacterActionMagicEffectPatcher
         {
             //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
             // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
-
             while ( /*!Global.IsSpellStrike && */__result.MoveNext())
             {
                 yield return __result.Current;
@@ -43,6 +42,7 @@ internal static class CharacterActionMagicEffectPatcher
             var customFeature = definition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
 
             CharacterActionAttack attackAction = null;
+
             var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
             var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
             var attacks = getAttackAfterUse?.Invoke(__instance);

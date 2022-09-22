@@ -51,16 +51,6 @@ internal static class FeatureDefinitionMagicAffinityPatcher
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            if (!Main.Settings.EnableEnhancedCharacterInspection)
-            {
-                foreach (var instruction in instructions)
-                {
-                    yield return instruction;
-                }
-
-                yield break;
-            }
-
             var formatMethod = typeof(Gui).GetMethod("Format", BindingFlags.Static | BindingFlags.Public);
             var myFormatMethod =
                 typeof(FormatDescription_Patch).GetMethod("FormatSpellList");

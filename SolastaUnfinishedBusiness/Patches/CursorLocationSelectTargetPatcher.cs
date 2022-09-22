@@ -14,14 +14,12 @@ internal static class CursorLocationSelectTargetPatcher
         {
             //PATCH: support for target spell filtering based on custom spell filters
             // used for melee cantrips to limit targets to weapon attack range
-
             if (!__result)
             {
                 return;
             }
 
             var actionParams = __instance.actionParams;
-
             var canBeUsedToAttack = actionParams?.RulesetEffect
                 ?.SourceDefinition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>()?.CanBeUsedToAttack;
 

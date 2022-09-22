@@ -6,7 +6,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class CameraControllerLocationPatcher
 {
-    //PATCH: DontFollowCharacterInBattle
     [HarmonyPatch(typeof(CameraControllerLocation), "FollowCharacterForBattle")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FollowCharacterForBattle_Patch
@@ -18,6 +17,7 @@ internal static class CameraControllerLocationPatcher
         /// </summary>
         internal static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
+            //PATCH: camera don't follow character in battle
             if (!Main.Settings.DontFollowCharacterInBattle)
             {
                 return true;

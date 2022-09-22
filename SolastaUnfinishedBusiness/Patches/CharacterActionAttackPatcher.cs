@@ -16,12 +16,14 @@ internal static class CharacterActionAttackPatcher
         internal static IEnumerator Postfix([NotNull] IEnumerator values, [NotNull] CharacterActionAttack __instance)
         {
             //PATCH: adds support for `IReactToAttackFinished` by calling `HandleReactToAttackFinished` on features
-
             var actingCharacter = __instance.ActingCharacter;
             var character = actingCharacter.RulesetCharacter;
             var found = false;
+
             GameLocationCharacter defender = null;
+
             var outcome = RuleDefinitions.RollOutcome.Neutral;
+
             CharacterActionParams actionParams = null;
             RulesetAttackMode mode = null;
             ActionModifier modifier = null;
@@ -30,13 +32,12 @@ internal static class CharacterActionAttackPatcher
 
             // ReSharper disable InconsistentNaming
             void AttackImpactStartHandler(
-                    GameLocationCharacter _,
-                    GameLocationCharacter _defender,
-                    RuleDefinitions.RollOutcome _outcome,
-                    CharacterActionParams _params,
-                    RulesetAttackMode _mode,
-                    ActionModifier _modifier)
-                // ReSharper enable InconsistentNaming
+                GameLocationCharacter _,
+                GameLocationCharacter _defender,
+                RuleDefinitions.RollOutcome _outcome,
+                CharacterActionParams _params,
+                RulesetAttackMode _mode,
+                ActionModifier _modifier)
             {
                 found = true;
                 defender = _defender;
@@ -45,6 +46,7 @@ internal static class CharacterActionAttackPatcher
                 mode = _mode;
                 modifier = _modifier;
             }
+            // ReSharper enable InconsistentNaming
 
             if (features != null && !features.Empty())
             {

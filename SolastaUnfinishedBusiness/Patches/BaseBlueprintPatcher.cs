@@ -3,7 +3,6 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: ensures custom props display the proper icon (DMP)
 [HarmonyPatch(typeof(BaseBlueprint), "GetAssetKey")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class BaseBlueprint_GetAssetKey
@@ -15,13 +14,12 @@ internal static class BaseBlueprint_GetAssetKey
         EnvironmentDefinition environmentDefinition,
         bool perspective)
     {
-        if (!Main.Settings.EnableDungeonMakerModdedContent
-            || __instance is not PropBlueprint propBlueprint
-            || !propBlueprint.Name.EndsWith("MOD"))
+        if (__instance is not PropBlueprint propBlueprint || !propBlueprint.Name.EndsWith("MOD"))
         {
             return true;
         }
 
+        //PATCH: ensures custom props display the proper icon (DMP)
         var a = propBlueprint.Name.Split(new[] { '~' }, 3);
 
         if (a.Length != 3)
