@@ -70,10 +70,7 @@ internal static class RaceHalfElfVariantRaceBuilder
 
         var halfElfVariant = CharacterRaceDefinitionBuilder
             .Create(HalfElf, "RaceHalfElfVariant")
-            .SetGuiPresentation(
-                "Race/&HalfElfTitle",
-                "Race/&HalfElfDescription",
-                HalfElf.guiPresentation.SpriteReference)
+            .SetOrUpdateGuiPresentation("HalfElf", Category.Race)
             .AddToDB();
 
         halfElfVariant.SubRaces.SetRange(new List<CharacterRaceDefinition>

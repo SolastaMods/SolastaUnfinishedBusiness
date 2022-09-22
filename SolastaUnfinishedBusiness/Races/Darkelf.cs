@@ -44,9 +44,7 @@ internal static class DarkelfSubraceBuilder
         var darkelfCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight,
                 "CombatAffinityDarkelfLightSensitivity")
-            .SetGuiPresentation(
-                "Feature/&LightAffinityDarkelfLightSensitivityTitle",
-                "Feature/&LightAffinityDarkelfLightSensitivityDescription")
+            .SetGuiPresentation("LightAffinityDarkelfLightSensitivity", Category.Feature)
             .SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Disadvantage)
             .SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(RuleDefinitions.DieType.D4)
